@@ -75,6 +75,45 @@ ttsRouter.get('/health', async (_req, res) => {
   }
 })
 
+ttsRouter.post('/start', async (_req, res) => {
+  try {
+    await ensureKokoroStarted()
+    const engine = await getEngineStatus(true)
+
+    res.json({
+      ok: engine.ready,
+      service: 'local-tts',
+      engine: ENGINE,
+      message: engine.ready
+        ? 'Kokoro engine is running'
+        : (engine.lastError ?? 'Kokoro start requested but engine is not ready yet'),
+      kokoro: engine,
+      manualCommand: 'pnpm dev:server',
+    })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    res.status(503).json({
+      ok: false,
+      service: 'local-tts',
+      engine: ENGINE,
+      message,
+      kokoro: {
+        available: false,
+        ready: false,
+        processRunning: false,
+        host: config.kokoroHost,
+        port: config.kokoroPort,
+        python: config.pythonPath,
+        pythonScript: config.kokoroScript,
+        lastError: message,
+        deps: null,
+        installHint: 'pip install -r server/python/requirements.txt',
+      },
+      manualCommand: 'pnpm dev:server',
+    })
+  }
+})
+
 ttsRouter.post('/', async (req, res) => {
   const { text, voice, speed, lang } = parseRequest(req.body as TtsBody)
 
