@@ -1,5 +1,6 @@
 import type { ReadingPart } from './examData'
 import { getPartQuestions } from './examData'
+import { formatPassageTextForDisplay } from './readingGapDisplay'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight } from './readingHighlightUtils'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
@@ -12,8 +13,8 @@ interface ReadingPassagePanelProps {
   onSelectQuestion?: (questionId: string) => void
 }
 
-/** KET Part 1 — chỉ ảnh/sign ở cột trái; đáp án A/B/C ở cột phải (ReadingQuestionPanel). */
-function KetPart1PassageImages({
+/** A2/B1 Part 1 — chỉ ảnh/sign ở cột trái; đáp án ở cột phải. */
+function SignsPart1PassageImages({
   part,
   activeQuestionId,
   onSelectQuestion,
@@ -69,10 +70,47 @@ function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl
   )
 }
 
+/** PET B1 Part 2/4 — markets hoặc câu A–H ở cột trái, đánh số rõ. */
+function PassageLabeledReferenceList({
+  blocks,
+  rangeLabel,
+  highlights,
+  partId,
+}: {
+  blocks: ReadingPart['passage']
+  rangeLabel: string
+  highlights: ReadingHighlight[]
+  partId: string
+}) {
+  if (!blocks.length) return null
+
+  return (
+    <div className="reading-ket-features">
+      <p className="reading-ket-features__title">{rangeLabel}</p>
+      <ul className="reading-ket-features__list">
+        {blocks.map((block, index) => (
+          <li key={`${partId}-ref-${block.label ?? index}`}>
+            <span className="reading-ket-features__id" data-highlight-skip>
+              {(block.label ?? '').toUpperCase()}
+            </span>
+            <ReadingHighlightableText
+              blockId={`${partId}-ref-${index}`}
+              text={block.text ?? ''}
+              highlights={highlights}
+              as="span"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 function PassageBlocks({
   part,
   highlights,
-}: Pick<ReadingPassagePanelProps, 'part' | 'highlights'>) {
+  cambridgeLevel,
+}: Pick<ReadingPassagePanelProps, 'part' | 'highlights' | 'cambridgeLevel'>) {
   if (!part.passage.length) {
     return (
       <p className="reading-test-passage-empty">
@@ -114,7 +152,7 @@ function PassageBlocks({
             )}
             <ReadingHighlightableText
               blockId={`passage-p-${index}`}
-              text={block.text}
+              text={formatPassageTextForDisplay(block.text ?? '', part, cambridgeLevel)}
               highlights={highlights}
               as="span"
             />
@@ -132,10 +170,15 @@ export default function ReadingPassagePanel({
   activeQuestionId,
   onSelectQuestion,
 }: ReadingPassagePanelProps) {
-  const isKetPart1 = cambridgeLevel === 'a2' && part.partNumber === 1
+  const isSignsPart1 = (cambridgeLevel === 'a2' || cambridgeLevel === 'b1') && part.partNumber === 1
+  const isB1MatchingRef = cambridgeLevel === 'b1' && (part.partNumber === 2 || part.partNumber === 4)
+  const labeledPassageBlocks = part.passage.filter(b => Boolean(b.label?.trim()))
+  const unlabeledPassageBlocks = part.passage.filter(b => !b.label?.trim())
+  const useLabeledPassageList = isB1MatchingRef && labeledPassageBlocks.length > 0
   const features = part.questionGroups.flatMap(g => g.features ?? [])
   const wordBank = part.questionGroups.flatMap(g => g.wordBank ?? [])
-
+  const featureCount = features.length
+  const featureRangeLabel = featureCount >= 8 ? 'A–H' : featureCount >= 5 ? 'A–E' : 'A–D'
   return (
     <article
       className="reading-test-passage"
@@ -148,9 +191,9 @@ export default function ReadingPassagePanel({
         <p className="reading-test-passage-subtitle">{part.passageSubtitle}</p>
       )}
 
-      {isKetPart1 ? (
+      {isSignsPart1 ? (
         <>
-          <KetPart1PassageImages
+          <SignsPart1PassageImages
             part={part}
             activeQuestionId={activeQuestionId}
             onSelectQuestion={onSelectQuestion}
@@ -162,16 +205,31 @@ export default function ReadingPassagePanel({
                 passage: part.passage.filter(b => b.text?.trim()),
               }}
               highlights={highlights}
+              cambridgeLevel={cambridgeLevel}
             />
           )}
         </>
+      ) : useLabeledPassageList ? (
+        <>
+          <PassageBlocks
+            part={{ ...part, passage: unlabeledPassageBlocks }}
+            highlights={highlights}
+            cambridgeLevel={cambridgeLevel}
+          />
+          <PassageLabeledReferenceList
+            blocks={labeledPassageBlocks}
+            rangeLabel={`Danh sách ${featureRangeLabel}`}
+            highlights={highlights}
+            partId={part.id}
+          />
+        </>
       ) : (
-        <PassageBlocks part={part} highlights={highlights} />
+        <PassageBlocks part={part} highlights={highlights} cambridgeLevel={cambridgeLevel} />
       )}
 
-      {features.length > 0 && (
+      {!useLabeledPassageList && features.length > 0 && (
         <div className="reading-ket-features">
-          <p className="reading-ket-features__title">Danh sách A–E</p>
+          <p className="reading-ket-features__title">Danh sách {featureRangeLabel}</p>
           <ul className="reading-ket-features__list">
             {features.map(feature => (
               <li key={feature.id}>

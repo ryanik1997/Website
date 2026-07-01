@@ -43,9 +43,15 @@ A2 KET — 5 parts · 30 câu
 └──────┴────────┴───────────────────┴─────────────────────────────┘
 ⚠ Part 4 A2: đề gốc chọn từ (MC), không tự gõ gap-fill.
 
+A2 KET — bundle mẫu: ket-reading-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-KET-A2.txt
+
 B1 PET — 6 parts · 32 câu
-Part 1 signs (ảnh OK) · Part 2 matching-features · Part 3 gap-fill
-· Part 4 MC reading · Part 5 summary-completion + wordBank · Part 6 open cloze
+Part 1: 5 ảnh signs · Part 2: matching A–H · Part 3: reading MC A–D
+· Part 4: gapped text + câu A–H · Part 5: MC cloze (21–26) · Part 6: open cloze (27–32)
+
+Bundle mẫu: pet-reading-test1.zip (Tainguyen/ hoặc OneDrive\Dethi\)
+Prompt AI: HDSD/Prompt-PET-B1.txt
 
 B2 FCE — 7 parts · 52 câu
 Part 1–4 Use of English (MC cloze, open cloze, word formation, transformation)
@@ -74,7 +80,8 @@ App cảnh báo nếu Part sai type (vd A2 Part 4 dùng gap-fill thay vì MC).
 
 Prompt AI tạo ZIP (Claude / ChatGPT)
 
-• KET A2 cụ thể: HDSD/Prompt.txt
+• KET A2: HDSD/Prompt-KET-A2.txt
+• PET B1: HDSD/Prompt-PET-B1.txt
 • Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 
 Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
@@ -95,5 +102,5 @@ Mẹo
 
 1. Đáp án từ answer key cuối PDF — điền thủ công, không cần AI
 2. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
-3. Bundle mẫu KET Test 1: Tainguyen/ket-reading-test1.zip (cần sửa Part 4 sang MC nếu Claude làm gap-fill)
+3. Bundle mẫu KET Test 1: Tainguyen/ket-reading-test1.zip — dùng Prompt-KET-A2.txt khi tạo đề mới
 4. Đề import có nút xóa (thùng rác) trong danh sách Reading

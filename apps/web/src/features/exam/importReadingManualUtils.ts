@@ -248,7 +248,7 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
       )
       if (bad.length > 0) {
         warnings.push(
-          `Part ${part.partNumber}: mỗi câu cần 3 options (từ A/B/C) — đề KET Part 4 chọn từ, không tự gõ.`,
+          `Part ${part.partNumber}: mỗi câu cần đủ options MC (chọn từ) — không dùng gap-fill tự gõ.`,
         )
       }
     }

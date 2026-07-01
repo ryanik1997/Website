@@ -25,7 +25,7 @@ interface PartMeta {
   /** A2 Part 1: mỗi câu 1 ảnh part1-qN.jpg */
   imagePerQuestion?: boolean
   groupType: GroupType
-  optionCount?: 3 | 4 | 5
+  optionCount?: 3 | 4 | 5 | 8
   /** Part 4 KET: MC chọn 1 từ (3 options là từ, không phải gap-fill tự gõ) */
   wordChoiceMc?: boolean
   instruction?: string
@@ -82,12 +82,29 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
     },
   ],
   b1: [
-    { partNumber: 1, from: 1, to: 5, title: 'Signs and messages', imageOk: true, groupType: 'multiple-choice', optionCount: 3 },
-    { partNumber: 2, from: 6, to: 10, title: 'Matching', groupType: 'matching-features', optionCount: 5 },
-    { partNumber: 3, from: 11, to: 15, title: 'Gap-fill text', groupType: 'gap-fill' },
-    { partNumber: 4, from: 16, to: 20, title: 'Reading comprehension', groupType: 'multiple-choice', optionCount: 3 },
-    { partNumber: 5, from: 21, to: 25, title: 'Word bank / summary', groupType: 'summary-completion', optionCount: 5 },
-    { partNumber: 6, from: 26, to: 32, title: 'Open cloze', groupType: 'gap-fill' },
+    {
+      partNumber: 1,
+      from: 1,
+      to: 5,
+      title: 'Signs and messages',
+      imageOk: true,
+      imagePerQuestion: true,
+      groupType: 'multiple-choice',
+      optionCount: 3,
+    },
+    { partNumber: 2, from: 6, to: 10, title: 'Matching', groupType: 'matching-features', optionCount: 8 },
+    { partNumber: 3, from: 11, to: 15, title: 'Reading comprehension', groupType: 'multiple-choice', optionCount: 4 },
+    { partNumber: 4, from: 16, to: 20, title: 'Gapped text (sentences)', groupType: 'matching-features', optionCount: 8 },
+    {
+      partNumber: 5,
+      from: 21,
+      to: 26,
+      title: 'Multiple-choice cloze',
+      groupType: 'multiple-choice',
+      optionCount: 4,
+      wordChoiceMc: true,
+    },
+    { partNumber: 6, from: 27, to: 32, title: 'Open cloze', groupType: 'gap-fill' },
   ],
   b2: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },
@@ -129,8 +146,8 @@ const DEFAULT_INSTRUCTIONS: Record<GroupType, string> = {
   'sentence-completion': 'Complete the sentences using NO MORE THAN TWO WORDS from the passage.',
 }
 
-function mcOptions(count: 3 | 4 | 5, wordChoice?: boolean) {
-  const ids = ['A', 'B', 'C', 'D', 'E'].slice(0, count)
+function mcOptions(count: 3 | 4 | 5 | 8, wordChoice?: boolean) {
+  const ids = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].slice(0, count)
   return ids.map(id => ({
     id,
     label: wordChoice ? `word ${id}` : `Option ${id}`,
@@ -198,7 +215,7 @@ function passageBlocks(meta: PartMeta, level: CambridgeLevelSlug): ReadingImport
 
   if (level === 'a2' && meta.partNumber === 4) {
     return [{
-      text: 'Copy gapped text — giữ (19), (20)… trong passage. Mỗi gap là MC chọn 1 trong 3 từ (A/B/C), không gap-fill tự gõ.',
+      text: 'Oymyakon is a village… the days are (19) ........ , and temperatures can go as (20) ........ as -68°C. Copy nguyên văn + giữ (19) ........ … (24) ........ trong passage.',
     }]
   }
 
@@ -239,13 +256,16 @@ function buildPart(meta: PartMeta, level: CambridgeLevelSlug): ReadingImportPayl
     ]
   }
 
-  if (meta.groupType === 'matching-features' && meta.partNumber === 2 && level === 'b1') {
+  if (meta.groupType === 'matching-features' && level === 'b1' && (meta.partNumber === 2 || meta.partNumber === 4)) {
     group.features = [
-      { id: 'a', name: 'Activity A — copy từ đề' },
-      { id: 'b', name: 'Activity B' },
-      { id: 'c', name: 'Activity C' },
-      { id: 'd', name: 'Activity D' },
-      { id: 'e', name: 'Activity E' },
+      { id: 'a', name: 'Short label A (pills only — full text in passage[])' },
+      { id: 'b', name: 'Short label B' },
+      { id: 'c', name: 'Short label C' },
+      { id: 'd', name: 'Short label D' },
+      { id: 'e', name: 'Short label E' },
+      { id: 'f', name: 'Short label F' },
+      { id: 'g', name: 'Short label G' },
+      { id: 'h', name: 'Short label H' },
     ]
   }
 
