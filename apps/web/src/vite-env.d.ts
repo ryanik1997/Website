@@ -4,6 +4,12 @@ declare module 'pdfjs-dist/build/pdf.mjs' {
   export * from 'pdfjs-dist'
 }
 
+declare module 'pdfjs-dist/build/pdf.worker.min.mjs' {
+  export class WorkerMessageHandler {
+    static setup(handler: unknown, port: unknown): void
+  }
+}
+
 interface ImportMetaEnv {
   readonly VITE_SUPABASE_URL: string
   readonly VITE_SUPABASE_ANON_KEY: string
