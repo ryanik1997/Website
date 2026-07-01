@@ -1,8 +1,27 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLiveQuery } from 'dexie-react-hooks'
+import { BookOpen, FileUp, Trash2 } from 'lucide-react'
+import { examRepo } from '@ryan/db'
 import { EXAM_LIBRARY } from './examData'
+import { listAllReadingExams } from './examLoader'
+import ImportReadingPdfModal from './ImportReadingPdfModal'
+import type { ReadingExam } from './examData'
+import { getPartQuestions } from './examData'
 
 export default function ExamHome() {
   const navigate = useNavigate()
+  const [showImportPdf, setShowImportPdf] = useState(false)
+
+  const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
+
+  const importedExams = readingExams.filter(exam => exam.id.startsWith('reading-pdf-'))
+
+  async function deleteImported(exam: ReadingExam) {
+    if (!exam.id.startsWith('reading-pdf-')) return
+    if (!confirm(`Xóa đề "${exam.title}"?`)) return
+    await examRepo.delete(exam.id)
+  }
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
@@ -15,15 +34,84 @@ export default function ExamHome() {
           }}
         >
           <p className="text-xs font-bold uppercase tracking-[0.26em]" style={{ color: 'var(--color-primary)' }}>
-            Luyen thi
+            Luyện thi
           </p>
           <h1 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl" style={{ color: 'var(--text-primary)' }}>
             Mock Test IELTS
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-7 sm:text-base" style={{ color: 'var(--text-muted)' }}>
-            Bat dau voi Reading Mock Test co timer, passage ben trai va cau hoi ben phai. Listening va Writing da duoc dat san route de mo rong sau.
+            Reading Mock Test theo giao diện IELTS. Import PDF để tạo đề Part 1–3 (passage + câu hỏi) và lưu trên máy.
           </p>
+          <button
+            type="button"
+            onClick={() => setShowImportPdf(true)}
+            className="mt-5 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:-translate-y-0.5"
+            style={{
+              background: 'color-mix(in srgb, var(--color-accent) 18%, var(--bg-card))',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--border-color)',
+            }}
+          >
+            <FileUp size={16} />
+            Import PDF Reading
+          </button>
         </section>
+
+        {importedExams.length > 0 && (
+          <section>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-[0.22em]" style={{ color: 'var(--text-muted)' }}>
+              Đề Reading import ({importedExams.length})
+            </h2>
+            <div className="grid gap-3">
+              {importedExams.map(exam => {
+                const qCount = exam.parts.reduce((sum, p) => sum + getPartQuestions(p).length, 0)
+                return (
+                  <article
+                    key={exam.id}
+                    className="flex flex-col gap-3 rounded-2xl border p-4 sm:flex-row sm:items-center sm:justify-between"
+                    style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+                  >
+                    <div className="flex items-start gap-3 min-w-0">
+                      <div
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                        style={{ background: 'color-mix(in srgb, var(--color-primary) 12%, transparent)' }}
+                      >
+                        <BookOpen size={18} style={{ color: 'var(--color-primary)' }} />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-bold truncate" style={{ color: 'var(--text-primary)' }}>
+                          {exam.title}
+                        </h3>
+                        <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
+                          {exam.parts.length} part · {qCount} câu · {exam.bandHint}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => navigate(`/app/exam/reading/${exam.id}`)}
+                        className="rounded-full px-4 py-2.5 text-sm font-bold"
+                        style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                      >
+                        Làm bài
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void deleteImported(exam)}
+                        className="rounded-full border p-2.5"
+                        style={{ borderColor: 'var(--border-color)', color: '#dc2626' }}
+                        title="Xóa đề"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </section>
+        )}
 
         <section className="grid gap-4">
           {EXAM_LIBRARY.map(item => (
@@ -67,7 +155,7 @@ export default function ExamHome() {
                     className="rounded-full px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5"
                     style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
                   >
-                    Lam Reading
+                    Làm Reading
                   </button>
                   <button
                     type="button"
@@ -75,7 +163,7 @@ export default function ExamHome() {
                     className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
                     style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   >
-                    Lam Listening
+                    Làm Listening
                   </button>
                   <button
                     type="button"
@@ -83,18 +171,7 @@ export default function ExamHome() {
                     className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
                     style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   >
-                    Lam Writing
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => navigate('/app/exam/reading/ielts-reading-01')}
-                    className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
-                    style={{
-                      borderColor: 'color-mix(in srgb, var(--color-accent) 26%, var(--border-color))',
-                      color: 'var(--color-accent)',
-                    }}
-                  >
-                    Full Test (tam thoi vao Reading)
+                    Làm Writing
                   </button>
                 </div>
               </div>
@@ -102,6 +179,16 @@ export default function ExamHome() {
           ))}
         </section>
       </div>
+
+      {showImportPdf && (
+        <ImportReadingPdfModal
+          onClose={() => setShowImportPdf(false)}
+          onCreated={id => {
+            setShowImportPdf(false)
+            navigate(`/app/exam/reading/${id}`)
+          }}
+        />
+      )}
     </div>
   )
 }

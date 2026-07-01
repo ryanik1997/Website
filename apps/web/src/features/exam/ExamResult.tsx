@@ -1,4 +1,4 @@
-import type { ReadingExam } from './examData'
+import { getExamQuestions, type ReadingExam } from './examData'
 
 interface Props {
   exam: ReadingExam
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
-  const questions = exam.parts.flatMap(part => part.questions)
+  const questions = getExamQuestions(exam)
   const correctCount = questions.filter(question => answers[question.id] === question.answer).length
   const scoreText = `${correctCount}/${questions.length}`
 
@@ -22,13 +22,13 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em]" style={{ color: 'var(--color-primary)' }}>
-                Ket qua bai thi
+                Kết quả bài thi
               </p>
               <h1 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl" style={{ color: 'var(--text-primary)' }}>
                 {exam.title}
               </h1>
               <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                Da nop bai Reading. Xem dap an, giai thich va lam lai neu can.
+                Đã nộp bài Reading. Xem đáp án, giải thích và làm lại nếu cần.
               </p>
             </div>
 
@@ -40,7 +40,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
               }}
             >
               <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
-                Tong diem
+                Tổng điểm
               </p>
               <p className="mt-1 text-2xl font-black" style={{ color: 'var(--text-primary)' }}>
                 {scoreText}
@@ -59,7 +59,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
               >
                 <div className="mb-4">
                   <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
-                    {part.title}
+                    Part {part.partNumber}
                   </p>
                   <h2 className="mt-1 text-xl font-black" style={{ color: 'var(--text-primary)' }}>
                     {part.passageTitle}
@@ -67,7 +67,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  {part.questions.map(question => {
+                  {part.questionGroups.flatMap(group => group.questions).map(question => {
                     const userAnswer = answers[question.id] ?? ''
                     const isCorrect = userAnswer === question.answer
 
@@ -84,7 +84,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                       >
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
-                            Cau {question.number}
+                            Câu {question.number}
                           </span>
                           <span
                             className="rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em]"
@@ -95,7 +95,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                               color: isCorrect ? '#15803d' : '#b91c1c',
                             }}
                           >
-                            {isCorrect ? 'Dung' : 'Sai'}
+                            {isCorrect ? 'Đúng' : 'Sai'}
                           </span>
                         </div>
 
@@ -105,15 +105,17 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
 
                         <div className="mt-3 grid gap-2">
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>Ban chon: </span>
+                            <span style={{ color: 'var(--text-muted)' }}>Bạn chọn: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {question.options.find(option => option.id === userAnswer)?.label ?? 'Chua tra loi'}
+                              {question.options.find(option => option.id === userAnswer)?.label
+                                ?? (userAnswer ? userAnswer.toUpperCase() : 'Chưa trả lời')}
                             </span>
                           </div>
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>Dap an dung: </span>
+                            <span style={{ color: 'var(--text-muted)' }}>Đáp án đúng: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {question.options.find(option => option.id === question.answer)?.label ?? question.answer}
+                              {question.options.find(option => option.id === question.answer)?.label
+                                ?? question.answer.toUpperCase()}
                             </span>
                           </div>
                         </div>
@@ -135,10 +137,10 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
               style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
             >
               <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: 'var(--color-primary)' }}>
-                Tiep theo
+                Tiếp theo
               </p>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Ban co the lam lai bai Reading nay hoac quay ve thu vien Luyen thi de chon de khac.
+                Bạn có thể làm lại bài Reading này hoặc quay về thư viện Luyện thi để chọn đề khác.
               </p>
 
               <div className="mt-5 flex flex-col gap-2">
@@ -148,7 +150,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                   className="rounded-full px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5"
                   style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
                 >
-                  Lam lai
+                  Làm lại
                 </button>
                 <button
                   type="button"
@@ -156,7 +158,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                   className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
                   style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                 >
-                  Quay lai thu vien thi
+                  Quay lại thư viện thi
                 </button>
               </div>
             </div>

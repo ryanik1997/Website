@@ -371,6 +371,9 @@ export default function ListeningPracticeTab({
               locked={inputsLocked}
               checked={phase === 'result'}
               showLiveDiff={showResultImmediately && phase === 'listen'}
+              onAllCorrect={
+                showResultImmediately && phase === 'listen' ? check : undefined
+              }
             />
           )}
 

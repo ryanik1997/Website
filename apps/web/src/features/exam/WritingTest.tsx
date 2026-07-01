@@ -6,13 +6,13 @@ export default function WritingTest() {
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
         <p className="text-xs font-bold uppercase tracking-[0.24em]" style={{ color: 'var(--color-primary)' }}>
-          Dang phat trien
+          Đang phát triển
         </p>
         <h1 className="mt-2 text-2xl font-black" style={{ color: 'var(--text-primary)' }}>
           Writing Mock Test
         </h1>
         <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          Flow Writing se duoc tach thanh Task 1 va Task 2 o buoc tiep theo. Hien tai da chuan bi route de noi tiep.
+          Flow Writing sẽ được tách thành Task 1 và Task 2 ở bước tiếp theo. Hiện tại đã chuẩn bị route để nối tiếp.
         </p>
       </div>
     </div>

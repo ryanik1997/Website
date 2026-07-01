@@ -22,7 +22,7 @@ const NAV: Array<{
   { to: '/app/vocab',       icon: BookOpen,   label: 'Từ vựng' },
   { to: '/app/writing',     icon: PenLine,    label: 'Viết' },
   { to: '/app/listening',   icon: Headphones, label: 'Nghe' },
-  { to: '/app/exam',        icon: ClipboardCheck, label: 'Luyen thi' },
+  { to: '/app/exam',        icon: ClipboardCheck, label: 'Luyện thi' },
   { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
   { to: '/app/mindmap',     icon: GitBranch,  label: 'MindMap' },
   { to: '/app/settings',    icon: Settings,   label: 'Cài đặt' },
