@@ -19,6 +19,16 @@ import { useStudyAnswerFeedback } from '../vocab/study/useStudyAnswerFeedback'
 
 type PracticeMode = 'boxes' | 'type' | 'cloze'
 type Phase = 'listen' | 'result'
+type PracticeDebugMode =
+  | 'all'
+  | 'audio-only'
+  | 'input-only'
+  | 'actions-only'
+  | 'dots-only'
+  | 'no-audio'
+  | 'no-input'
+  | 'no-actions'
+  | 'no-dots'
 
 interface Props {
   lessonId: string
@@ -29,6 +39,7 @@ interface Props {
   onSentenceComplete: (sentenceId: string) => void
   showResultImmediately: boolean
   showFullAnswer: boolean
+  debugMode?: PracticeDebugMode
 }
 
 const AUTO_NEXT_DELAY_MS = 5000
@@ -42,6 +53,7 @@ export default function ListeningPracticeTab({
   onSentenceComplete,
   showResultImmediately,
   showFullAnswer,
+  debugMode = 'all',
 }: Props) {
   const [mode, setMode] = useState<PracticeMode>('type')
   const [phase, setPhase] = useState<Phase>('listen')
@@ -78,8 +90,8 @@ export default function ListeningPracticeTab({
   )
 
   const clozeLabel = clozeCount === 0 || clozeCount >= clozeMax
-    ? 'Tất cả'
-    : `${clozeCount} từ`
+    ? 'Tat ca'
+    : `${clozeCount} tu`
 
   const blankResetKey = `${sentence.id}-${sentenceIndex}-${mode}-${clozeCount}`
 
@@ -248,6 +260,23 @@ export default function ListeningPracticeTab({
   const inputsLocked = phase === 'result' && !showFullAnswer
   const isPerfect = pct === 100
 
+  const showAudioBar = debugMode !== 'no-audio'
+    && debugMode !== 'input-only'
+    && debugMode !== 'actions-only'
+    && debugMode !== 'dots-only'
+  const showInputBlock = debugMode !== 'no-input'
+    && debugMode !== 'audio-only'
+    && debugMode !== 'actions-only'
+    && debugMode !== 'dots-only'
+  const showActions = debugMode !== 'no-actions'
+    && debugMode !== 'audio-only'
+    && debugMode !== 'input-only'
+    && debugMode !== 'dots-only'
+  const showDots = debugMode !== 'no-dots'
+    && debugMode !== 'audio-only'
+    && debugMode !== 'input-only'
+    && debugMode !== 'actions-only'
+
   return (
     <div
       className="rounded-2xl p-5 sm:p-6"
@@ -260,213 +289,227 @@ export default function ListeningPracticeTab({
         />
       )}
 
-      <ListeningAudioBar
-        sentenceIndex={sentenceIndex}
-        total={total}
-        playing={playing}
-        buffering={buffering}
-        progressPct={progressPct}
-        timeLabel={timeLabel}
-        speed={speed}
-        onIndexChange={onIndexChange}
-        onPlay={playAudio}
-        onSeek={seekToPct}
-        onToggleSpeed={toggleSpeed}
-      />
-
-      <div className="mb-5 flex flex-wrap items-center gap-2">
-        <span className="mr-1 text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-          Chế độ:
-        </span>
-        {([
-          { id: 'boxes' as const, label: 'Ô chữ' },
-          { id: 'type' as const, label: 'Tự gõ' },
-          { id: 'cloze' as const, label: 'Cloze' },
-        ]).map(item => (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => setMode(item.id)}
-            className="rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide"
-            style={{
-              background: mode === item.id ? 'var(--text-primary)' : 'var(--bg-secondary)',
-              color: mode === item.id ? 'var(--bg-primary)' : 'var(--text-muted)',
-            }}
-          >
-            {item.label}
-          </button>
-        ))}
-
-        {mode === 'cloze' && clozeMax > 0 && (
-          <div
-            className="ml-auto flex items-center gap-1.5 rounded-lg px-2 py-1"
-            style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
-          >
-            <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-              Ẩn:
-            </span>
-            <button
-              type="button"
-              onClick={decClozeCount}
-              className="flex h-6 w-6 items-center justify-center rounded"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              <Minus size={12} />
-            </button>
-            <span className="min-w-[3.5rem] text-center text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
-              {clozeLabel}
-            </span>
-            <button
-              type="button"
-              onClick={incClozeCount}
-              className="flex h-6 w-6 items-center justify-center rounded"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              <Plus size={12} />
-            </button>
-          </div>
-        )}
-      </div>
-
-      {(mode === 'boxes' || mode === 'cloze') && (
-        <BlankInputMode
-          key={blankResetKey}
-          ref={blankRef}
-          sentenceText={sentence.text}
-          mode={mode}
-          clozeCount={clozeCount}
-          locked={inputsLocked}
-          checked={phase === 'result'}
-          showLiveDiff={showResultImmediately && phase === 'listen'}
+      {showAudioBar && (
+        <ListeningAudioBar
+          sentenceIndex={sentenceIndex}
+          total={total}
+          playing={playing}
+          buffering={buffering}
+          progressPct={progressPct}
+          timeLabel={timeLabel}
+          speed={speed}
+          onIndexChange={onIndexChange}
+          onPlay={playAudio}
+          onSeek={seekToPct}
+          onToggleSpeed={toggleSpeed}
         />
       )}
 
-      {mode === 'type' && (
+      {showInputBlock && (
         <>
-          <textarea
-            ref={inputRef}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            disabled={inputsLocked}
-            placeholder="Gõ câu bạn nghe được..."
-            rows={4}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            name="lsn-type-input"
-            className="mb-4 w-full resize-none rounded-xl border-2 px-4 py-3 text-sm outline-none"
-            style={{
-              background: 'var(--bg-secondary)',
-              borderColor: phase === 'result'
-                ? (pct >= 70 ? 'var(--color-primary)' : 'var(--color-accent)')
-                : 'var(--border-color)',
-              color: 'var(--text-primary)',
-            }}
-            onKeyDown={e => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault()
-                if (canCheck) check()
-              }
-            }}
-          />
-          {showResultImmediately && phase === 'listen' && (
-            <WordDiffPanel input={input} correct={sentence.text} />
+          <div className="mb-5 flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+              Che do:
+            </span>
+            {([
+              { id: 'boxes' as const, label: 'O chu' },
+              { id: 'type' as const, label: 'Tu go' },
+              { id: 'cloze' as const, label: 'Cloze' },
+            ]).map(item => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setMode(item.id)}
+                className="rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide"
+                style={{
+                  background: mode === item.id ? 'var(--text-primary)' : 'var(--bg-secondary)',
+                  color: mode === item.id ? 'var(--bg-primary)' : 'var(--text-muted)',
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+
+            {mode === 'cloze' && clozeMax > 0 && (
+              <div
+                className="ml-auto flex items-center gap-1.5 rounded-lg px-2 py-1"
+                style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
+              >
+                <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+                  An:
+                </span>
+                <button
+                  type="button"
+                  onClick={decClozeCount}
+                  className="flex h-6 w-6 items-center justify-center rounded"
+                  style={{ color: 'var(--text-primary)' }}
+                >
+                  <Minus size={12} />
+                </button>
+                <span className="min-w-[3.5rem] text-center text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
+                  {clozeLabel}
+                </span>
+                <button
+                  type="button"
+                  onClick={incClozeCount}
+                  className="flex h-6 w-6 items-center justify-center rounded"
+                  style={{ color: 'var(--text-primary)' }}
+                >
+                  <Plus size={12} />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {(mode === 'boxes' || mode === 'cloze') && (
+            <BlankInputMode
+              key={blankResetKey}
+              ref={blankRef}
+              sentenceText={sentence.text}
+              mode={mode}
+              clozeCount={clozeCount}
+              locked={inputsLocked}
+              checked={phase === 'result'}
+              showLiveDiff={showResultImmediately && phase === 'listen'}
+            />
+          )}
+
+          {mode === 'type' && (
+            <>
+              <textarea
+                ref={inputRef}
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                disabled={inputsLocked}
+                placeholder="Go cau ban nghe duoc..."
+                rows={4}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                data-gramm="false"
+                data-gramm_editor="false"
+                data-enable-grammarly="false"
+                data-lt-active="false"
+                name="lsn-type-input"
+                className="mb-4 w-full resize-none rounded-xl border-2 px-4 py-3 text-sm outline-none"
+                style={{
+                  background: 'var(--bg-secondary)',
+                  borderColor: phase === 'result'
+                    ? (pct >= 70 ? 'var(--color-primary)' : 'var(--color-accent)')
+                    : 'var(--border-color)',
+                  color: 'var(--text-primary)',
+                }}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault()
+                    if (canCheck) check()
+                  }
+                }}
+              />
+              {showResultImmediately && phase === 'listen' && (
+                <WordDiffPanel input={input} correct={sentence.text} />
+              )}
+            </>
+          )}
+
+          {phase === 'result' && (
+            <div className="mb-4">
+              <p
+                className="mb-2 text-sm font-semibold"
+                style={{ color: pct >= 70 ? 'var(--color-primary)' : 'var(--color-accent)' }}
+              >
+                {pct}% chinh xac
+              </p>
+
+              <div className="mb-2 flex flex-wrap gap-1.5">
+                {comparison.map((word, index) => (
+                  <span
+                    key={index}
+                    className="rounded-md px-2 py-1 text-xs font-medium"
+                    style={{
+                      background: word.correct
+                        ? 'color-mix(in srgb, var(--color-primary) 15%, transparent)'
+                        : 'color-mix(in srgb, var(--color-accent) 15%, transparent)',
+                      color: word.correct ? 'var(--color-primary)' : 'var(--color-accent)',
+                    }}
+                  >
+                    {word.word}
+                  </span>
+                ))}
+              </div>
+
+              {showFullAnswer && (
+                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                  <strong style={{ color: 'var(--text-primary)' }}>Dap an:</strong> {sentence.text}
+                </p>
+              )}
+
+              {isPerfect && autoNextLeft != null && sentenceIndex < total - 1 && (
+                <p className="mt-3 text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>
+                  Dung hoan toan. Tu chuyen cau tiep theo sau {autoNextLeft}s.
+                </p>
+              )}
+            </div>
           )}
         </>
       )}
 
-      {phase === 'result' && (
-        <div className="mb-4">
-          <p
-            className="mb-2 text-sm font-semibold"
-            style={{ color: pct >= 70 ? 'var(--color-primary)' : 'var(--color-accent)' }}
+      {showActions && (
+        <div className="mb-5 flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => void saveSrsAndAdvance(true)}
+            className="rounded-xl px-4 py-2 text-sm font-semibold uppercase tracking-wide"
+            style={{
+              background: 'var(--bg-secondary)',
+              color: 'var(--text-muted)',
+              border: '1px solid var(--border-color)',
+            }}
           >
-            {pct}% chính xác
-          </p>
+            Bo qua
+          </button>
 
-          <div className="mb-2 flex flex-wrap gap-1.5">
-            {comparison.map((word, index) => (
-              <span
-                key={index}
-                className="rounded-md px-2 py-1 text-xs font-medium"
-                style={{
-                  background: word.correct
-                    ? 'color-mix(in srgb, var(--color-primary) 15%, transparent)'
-                    : 'color-mix(in srgb, var(--color-accent) 15%, transparent)',
-                  color: word.correct ? 'var(--color-primary)' : 'var(--color-accent)',
-                }}
-              >
-                {word.word}
-              </span>
-            ))}
-          </div>
-
-          {showFullAnswer && (
-            <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              <strong style={{ color: 'var(--text-primary)' }}>Đáp án:</strong> {sentence.text}
-            </p>
-          )}
-
-          {isPerfect && autoNextLeft != null && sentenceIndex < total - 1 && (
-            <p className="mt-3 text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>
-              Đúng hoàn toàn. Tự chuyển câu tiếp theo sau {autoNextLeft}s.
-            </p>
+          {phase !== 'result' ? (
+            <button
+              type="button"
+              onClick={check}
+              disabled={!canCheck}
+              className="rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide disabled:opacity-40"
+              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+            >
+              Kiem tra
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => void saveSrsAndAdvance(false)}
+              className="inline-flex items-center gap-1.5 rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide"
+              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+            >
+              {sentenceIndex === total - 1 ? 'Xem ket qua' : 'Cau tiep theo'}
+              <SkipForward size={14} />
+            </button>
           )}
         </div>
       )}
 
-      <div className="mb-5 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => void saveSrsAndAdvance(true)}
-          className="rounded-xl px-4 py-2 text-sm font-semibold uppercase tracking-wide"
-          style={{
-            background: 'var(--bg-secondary)',
-            color: 'var(--text-muted)',
-            border: '1px solid var(--border-color)',
-          }}
-        >
-          Bỏ qua
-        </button>
-
-        {phase !== 'result' ? (
-          <button
-            type="button"
-            onClick={check}
-            disabled={!canCheck}
-            className="rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide disabled:opacity-40"
-            style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-          >
-            Kiểm tra
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => void saveSrsAndAdvance(false)}
-            className="inline-flex items-center gap-1.5 rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide"
-            style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-          >
-            {sentenceIndex === total - 1 ? 'Xem kết quả' : 'Câu tiếp theo'}
-            <SkipForward size={14} />
-          </button>
-        )}
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-1.5">
-        {Array.from({ length: total }).map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => onIndexChange(index)}
-            className="h-2 w-2 rounded-full transition-transform"
-            style={{
-              background: index === sentenceIndex ? 'var(--color-primary)' : 'var(--border-color)',
-              transform: index === sentenceIndex ? 'scale(1.25)' : undefined,
-            }}
-          />
-        ))}
-      </div>
+      {showDots && (
+        <div className="flex flex-wrap justify-center gap-1.5">
+          {Array.from({ length: total }).map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => onIndexChange(index)}
+              className="h-2 w-2 rounded-full transition-transform"
+              style={{
+                background: index === sentenceIndex ? 'var(--color-primary)' : 'var(--border-color)',
+                transform: index === sentenceIndex ? 'scale(1.25)' : undefined,
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

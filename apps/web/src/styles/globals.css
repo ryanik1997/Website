@@ -38,9 +38,19 @@
   --color-accent:  #cba6f7;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 * { box-sizing: border-box; }
 
 body {
+  margin: 0;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Inter', system-ui, sans-serif;
