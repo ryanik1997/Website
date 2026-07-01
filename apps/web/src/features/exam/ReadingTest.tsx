@@ -445,6 +445,11 @@ export default function ReadingTest() {
           <ReadingPassagePanel
             part={currentPart}
             highlights={partHighlights}
+            cambridgeLevel={exam.cambridgeLevel}
+            answers={answers}
+            activeQuestionId={activeQuestionId}
+            onAnswer={handleAnswer}
+            onSelectQuestion={handleSelectQuestion}
           />
         )}
 
@@ -468,6 +473,8 @@ export default function ReadingTest() {
             answers={answers}
             activeQuestionId={activeQuestionId}
             highlights={partHighlights}
+            cambridgeLevel={exam.cambridgeLevel}
+            partNumber={currentPart.partNumber}
             onSelectQuestion={handleSelectQuestion}
             onAnswer={handleAnswer}
           />

@@ -1,3 +1,4 @@
+import { extractKetPassageFromSlice, ketPassageTitleFromSlice } from './ketPassageExtract'
 import { callAI, type AIProvider } from './provider'
 import type {
   ParsedReadingFull,
@@ -147,6 +148,25 @@ export function splitPdfTextForKetParts(fullText: string): Record<KetPartNumber,
   }
 }
 
+function applyKetPassageFallback(
+  part: ParsedReadingPart,
+  partNumber: KetPartNumber,
+  rawSlice: string,
+): ParsedReadingPart {
+  if (part.passage.length > 0) return part
+  const fallback = extractKetPassageFromSlice(partNumber, rawSlice)
+  if (!fallback.length) return part
+  const titleFromSlice = ketPassageTitleFromSlice(partNumber, rawSlice)
+  return {
+    ...part,
+    passageTitle: titleFromSlice || part.passageTitle,
+    passage: fallback.map(block => ({
+      label: block.label,
+      text: block.text,
+    })),
+  }
+}
+
 function normalizeKetPart(raw: ParsedReadingPart, fallbackNumber: KetPartNumber): ParsedReadingPart {
   const rawNum = Number(raw.partNumber)
   const partNumber = (rawNum >= 1 && rawNum <= 5 ? rawNum : fallbackNumber) as KetPartNumber
@@ -293,7 +313,7 @@ async function parseKetPerPart(
     try {
       const part = await parseKetSinglePart(partNumber, slice, apiKey, provider)
       if (part) {
-        results.push(part)
+        results.push(applyKetPassageFallback(part, partNumber, slice))
         onProgress?.({ phase: 'part', partNumber, status: 'done' })
       } else {
         onProgress?.({ phase: 'part', partNumber, status: 'skip' })
@@ -338,7 +358,11 @@ export async function parseKetReadingPdfFull(
     onProgress?.({ phase: 'full', status: 'done' })
 
     if (!shouldKetFallbackToPerPart(fullParts)) {
-      return fullParts
+      const slices = splitPdfTextForKetParts(pdfText)
+      return fullParts.map(p => {
+        const n = p.partNumber as KetPartNumber
+        return applyKetPassageFallback(p, n, slices[n] ?? '')
+      })
     }
   } catch {
     onProgress?.({ phase: 'full', status: 'error' })
