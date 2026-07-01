@@ -34,9 +34,7 @@ export default function ListeningTopicAccordion({
   const testNums = Object.keys(group.tests).map(Number).sort((a, b) => a - b)
   const gridColumns = viewMode === 'grid'
     ? 'grid-cols-1 lg:grid-cols-2'
-    : viewMode === 'compact'
-      ? 'grid-cols-1'
-      : 'grid-cols-1'
+    : 'grid-cols-1'
 
   return (
     <div
@@ -97,77 +95,159 @@ export default function ListeningTopicAccordion({
               </p>
 
               <div className={`grid gap-2 ${gridColumns}`}>
-                {(group.tests[test] ?? []).map(lesson => (
-                  <div
-                    key={lesson.id}
-                    className={`rounded-xl ${viewMode === 'compact' ? 'px-3 py-2.5' : 'px-3 py-3'}`}
-                    style={{ background: 'var(--bg-secondary)' }}
-                  >
-                    <div className={`flex ${viewMode === 'compact' ? 'items-center gap-2' : 'flex-wrap items-center gap-2 sm:gap-3'}`}>
-                      <FileText size={14} className="shrink-0" style={{ color: 'var(--text-muted)' }} />
-                      <span className="min-w-[120px] flex-1 text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
-                        {partLabel(lesson)}{' '}
-                        <span className="font-normal" style={{ color: 'var(--text-muted)' }}>
-                          {partSentenceCount(lesson)} câu
-                        </span>
-                      </span>
+                {(group.tests[test] ?? []).map(lesson => {
+                  const isGrid = viewMode === 'grid'
+                  const isCompact = viewMode === 'compact'
 
-                      {viewMode !== 'compact' && (
-                        <span
-                          className="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
-                          style={{
-                            background: 'color-mix(in srgb, var(--color-primary) 12%, var(--bg-card))',
-                            color: 'var(--color-primary)',
-                          }}
-                        >
-                          Dictation
-                        </span>
-                      )}
-
-                      <div className={`flex items-center gap-1 ${viewMode === 'compact' ? 'ml-auto' : 'ml-auto shrink-0'}`}>
-                        {viewMode !== 'compact' && (
-                          <>
-                            <button
-                              type="button"
-                              onClick={() => onAppendSentence(lesson)}
-                              title="Thêm câu"
-                              className="rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors hover:opacity-80"
+                  return (
+                    <div
+                      key={lesson.id}
+                      className={`rounded-xl ${isCompact ? 'px-3 py-2.5' : 'px-3 py-3'}`}
+                      style={{ background: 'var(--bg-secondary)' }}
+                    >
+                      {isGrid ? (
+                        <div className="flex h-full flex-col gap-3">
+                          <div className="flex items-start gap-2">
+                            <div
+                              className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
                               style={{
-                                background: 'color-mix(in srgb, var(--color-accent) 14%, var(--bg-card))',
-                                color: 'var(--color-accent)',
-                              }}
-                            >
-                              <Plus size={12} className="mr-0.5 inline -mt-0.5" />
-                              Thêm câu
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => onAppendText(lesson)}
-                              title="Thêm văn bản"
-                              className="rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors hover:opacity-80"
-                              style={{
-                                background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))',
+                                background: 'color-mix(in srgb, var(--color-primary) 10%, var(--bg-card))',
                                 color: 'var(--color-primary)',
                               }}
                             >
-                              + Văn bản
-                            </button>
-                          </>
-                        )}
+                              <FileText size={14} />
+                            </div>
 
-                        <button
-                          type="button"
-                          onClick={() => onStart(lesson.id)}
-                          className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-bold transition-opacity hover:opacity-90"
-                          style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-                        >
-                          <Play size={12} />
-                          Bắt đầu
-                        </button>
-                      </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                                {partLabel(lesson)}
+                              </div>
+                              <div className="mt-0.5 text-xs" style={{ color: 'var(--text-muted)' }}>
+                                {partSentenceCount(lesson)} câu dictation
+                              </div>
+                            </div>
+
+                            <span
+                              className="shrink-0 rounded-full px-2 py-1 text-[10px] font-bold uppercase tracking-wide"
+                              style={{
+                                background: 'color-mix(in srgb, var(--color-primary) 12%, var(--bg-card))',
+                                color: 'var(--color-primary)',
+                              }}
+                            >
+                              Dictation
+                            </span>
+                          </div>
+
+                          <div className="mt-auto flex flex-wrap items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <button
+                                type="button"
+                                onClick={() => onAppendSentence(lesson)}
+                                title="Thêm câu"
+                                className="inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 text-[11px] font-semibold transition-opacity hover:opacity-85"
+                                style={{
+                                  background: 'color-mix(in srgb, var(--color-accent) 12%, var(--bg-card))',
+                                  color: 'var(--color-accent)',
+                                }}
+                              >
+                                <Plus size={11} />
+                                Thêm câu
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => onAppendText(lesson)}
+                                title="Thêm văn bản"
+                                className="inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 text-[11px] font-semibold transition-opacity hover:opacity-85"
+                                style={{
+                                  background: 'color-mix(in srgb, var(--color-primary) 10%, var(--bg-card))',
+                                  color: 'var(--color-primary)',
+                                }}
+                              >
+                                <FileText size={11} />
+                                Văn bản
+                              </button>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => onStart(lesson.id)}
+                              className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[11px] font-bold transition-opacity hover:opacity-90"
+                              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                            >
+                              <Play size={12} />
+                              Bắt đầu
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className={`flex ${isCompact ? 'items-center gap-2' : 'flex-wrap items-center gap-2 sm:gap-3'}`}>
+                          <FileText size={14} className="shrink-0" style={{ color: 'var(--text-muted)' }} />
+                          <span className="min-w-[120px] flex-1 text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+                            {partLabel(lesson)}{' '}
+                            <span className="font-normal" style={{ color: 'var(--text-muted)' }}>
+                              {partSentenceCount(lesson)} câu
+                            </span>
+                          </span>
+
+                          {!isCompact && (
+                            <span
+                              className="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+                              style={{
+                                background: 'color-mix(in srgb, var(--color-primary) 12%, var(--bg-card))',
+                                color: 'var(--color-primary)',
+                              }}
+                            >
+                              Dictation
+                            </span>
+                          )}
+
+                          <div className={`flex items-center gap-1 ${isCompact ? 'ml-auto' : 'ml-auto shrink-0'}`}>
+                            {!isCompact && (
+                              <>
+                                <button
+                                  type="button"
+                                  onClick={() => onAppendSentence(lesson)}
+                                  title="Thêm câu"
+                                  className="rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors hover:opacity-80"
+                                  style={{
+                                    background: 'color-mix(in srgb, var(--color-accent) 14%, var(--bg-card))',
+                                    color: 'var(--color-accent)',
+                                  }}
+                                >
+                                  <Plus size={12} className="mr-0.5 inline -mt-0.5" />
+                                  Thêm câu
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => onAppendText(lesson)}
+                                  title="Thêm văn bản"
+                                  className="rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors hover:opacity-80"
+                                  style={{
+                                    background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))',
+                                    color: 'var(--color-primary)',
+                                  }}
+                                >
+                                  + Văn bản
+                                </button>
+                              </>
+                            )}
+
+                            <button
+                              type="button"
+                              onClick={() => onStart(lesson.id)}
+                              className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-bold transition-opacity hover:opacity-90"
+                              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                            >
+                              <Play size={12} />
+                              Bắt đầu
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           ))}
