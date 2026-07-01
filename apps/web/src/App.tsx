@@ -21,6 +21,10 @@ const WritingDashboardPage = lazy(() => import('./pages/WritingDashboardPage'))
 const ListeningLayout      = lazy(() => import('./pages/ListeningLayout'))
 const ListeningLibraryPage = lazy(() => import('./features/listening/ListeningLibraryPage'))
 const ListeningLessonPage  = lazy(() => import('./features/listening/ListeningLessonPage'))
+const ExamHome = lazy(() => import('./features/exam/ExamHome'))
+const ReadingTest = lazy(() => import('./features/exam/ReadingTest'))
+const ListeningTest = lazy(() => import('./features/exam/ListeningTest'))
+const WritingTest = lazy(() => import('./features/exam/WritingTest'))
 const TranslationPage        = lazy(() => import('./pages/TranslationPage'))
 const TranslationGenrePage   = lazy(() => import('./pages/TranslationGenrePage'))
 const TranslationPracticePage = lazy(() => import('./pages/TranslationPracticePage'))
@@ -73,6 +77,12 @@ export default function App() {
           <Route path="listening" element={<ListeningLayout />}>
             <Route index element={<ListeningLibraryPage />} />
             <Route path=":lessonId" element={<ListeningLessonPage />} />
+          </Route>
+          <Route path="exam">
+            <Route index element={<ExamHome />} />
+            <Route path="reading/:examId" element={<ReadingTest />} />
+            <Route path="listening" element={<ListeningTest />} />
+            <Route path="writing" element={<WritingTest />} />
           </Route>
           <Route path="translation" element={<Navigate to="/app/writing/translate" replace />} />
           <Route path="mindmap"     element={<MindmapPage />} />

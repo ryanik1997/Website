@@ -343,6 +343,7 @@ pnpm --filter server typecheck
 - [x] Google OAuth flow end-to-end trên production — OK (2026-06-30)
 - [x] Deploy production Vercel — OK https://ryanenglishv2.vercel.app/
 - [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix (mất chữ "o" trong "do", ô trống, vòng tròn đỏ trùng WordDiff). Đã rewrite DOM thuần + tách `ListeningAudioBar`; **chờ user hard refresh production và xác nhận**
+- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar; bỏ `overflow-x-auto` tabs + debug observer
 - [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần tương tác người dùng trước (autoplay policy)
 - [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
 - [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
@@ -579,6 +580,15 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [ ] Listening Ô CHỮ trên **mobile iOS** — hard refresh production, test gõ "do" và câu dài
 - [ ] Âm thanh Web Audio trên iOS sau tương tác đầu tiên (autoplay policy)
 
+### Session 2026-07-01 — Listening fix thanh cuộn thừa
+
+- [x] `globals.css` — `.listening-lesson-shell` + `.listening-lesson-scroll` (overflow-x hidden, scrollbar ẩn)
+- [x] `ListeningLessonPage` — bỏ debug MutationObserver/inline style; shell 2 lớp (hidden + scroll)
+- [x] `ListeningTabs` — `overflow-hidden` + `flex-wrap` (không còn `overflow-x-auto`)
+- [x] `ListeningPracticeTab` — `min-w-0 overflow-hidden` card + textarea
+- [x] `ListeningLibraryPage` — dùng chung scroll shell
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
 ---
 
 ### Mindmap — connector polish (session 2026-06-30)
@@ -659,3 +669,65 @@ Session trước kết thúc 2026-07-01. User làm tiếp ngày mai.
 
 Chưa confirm: iOS Ô CHỮ ~75%→? sau DOM rewrite; Web Audio iOS autoplay.
 ```
+# Session Update - 2026-07-01
+
+## Da lam trong phien nay
+- Clean up `apps/web/src/features/listening/CreateLessonModal.tsx`:
+  - giu Cambridge mode
+  - don logic `create()`
+  - gom state tao lesson
+  - sua label/UI text
+- Them tao Cambridge `Test 3` trong luong tao Listening lesson.
+- Nang cap Kokoro UX:
+  - start/check status ngay tu giao dien
+  - them `ListeningTtsStatusBadge` than thien hon
+  - co copy command, offline messaging, health polling
+- Bat view mode that su cho Listening Library:
+  - `list | grid | compact`
+  - luu vao localStorage
+  - grid cards duoc bo tri gon hon
+  - them motion nhe cho view switch
+- Them feedback dung dap an cho Listening practice:
+  - sound + fireworks giong Vocab
+  - auto next sau 5s
+- Them xoa bai nghe trong trang chi tiet:
+  - option trong dropdown
+  - modal confirm
+  - toast + loading + navigate ve `/app/listening`
+- Fix mot phan bug sau khi xoa lesson:
+  - reset state lesson
+  - `navigate('/app/listening', { replace: true })`
+  - giam kha nang white page do state cu
+- Rut gon dev flow:
+  - root `pnpm dev` huong toi chay web + server local
+  - co huong auto open browser local
+- Sua Google OAuth redirect:
+  - `apps/web/src/features/auth/AuthContext.tsx`
+  - `redirectTo` = `${window.location.origin}/auth/callback`
+  - localhost va production dung chung callback dung origin
+
+## Van de dang mo
+- [x] **Listening thanh cuon ngang/dọc thừa** (2026-07-01) — fix: bỏ `overflow-x-auto` tabs, shell 2 lớp `.listening-lesson-shell` + `.listening-lesson-scroll`, ẩn scrollbar trong `globals.css`, bỏ debug MutationObserver. **Chờ user hard refresh và xác nhận.**
+- Debug query vẫn còn: `lsnDebug`, `lsnPracticeDebug` (nếu cần isolate component).
+
+## File nong can mo lai o phien sau
+- `apps/web/src/features/listening/ListeningLessonPage.tsx`
+- `apps/web/src/features/listening/ListeningTabs.tsx`
+- `apps/web/src/features/listening/ListeningPracticeTab.tsx`
+- `apps/web/src/styles/globals.css`
+- `apps/web/src/features/auth/AuthContext.tsx`
+- `apps/web/src/features/auth/AuthCallback.tsx`
+
+## Luu y ky thuat
+- `pnpm --filter web build` dang bi chan boi loi xac thuc registry/pnpm cua moi truong:
+  - `Refusing to run pnpm@9.15.0: its npm registry signature could not be verified`
+- Day khong phai loi source code app.
+- Repo da co route `/auth/callback` trong `App.tsx` va xu ly session trong `AuthCallback.tsx`.
+- Supabase Dashboard van can whitelist:
+  - `http://localhost:5173/auth/callback`
+  - production domain `/auth/callback`
+
+## Muc tieu uu tien o phien sau
+1. User test Listening lesson page — xác nhận không còn thanh cuộn thừa dưới tabs.
+2. Nếu vẫn lỗi → dùng `?lsnDebug=only-tabs` / `only-content` để isolate.
+3. Tiếp tục chờ confirm iOS Ô CHỮ + Web Audio.

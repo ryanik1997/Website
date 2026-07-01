@@ -61,10 +61,10 @@ export default function ListeningTabs({
   return (
     <>
       <div
-        className="relative mb-6 min-w-0 overflow-x-hidden border-b"
+        className="relative mb-6 min-w-0 w-full overflow-hidden border-b"
         style={{ borderColor: 'var(--border-color)' }}
       >
-        <div className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-2 pr-14">
+        <div className="flex min-w-0 w-full flex-wrap items-center gap-x-6 gap-y-2 overflow-hidden pr-14">
           {TABS.map(t => {
             const isActive = active === t.id
             const Icon = t.icon

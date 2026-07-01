@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import { BookOpen, PenLine, Headphones, Home, Settings, LogOut, GitBranch, Shield, Cloud, LoaderCircle, AlertCircle, Blocks } from 'lucide-react'
+import { BookOpen, PenLine, Headphones, Home, Settings, LogOut, GitBranch, Shield, Cloud, LoaderCircle, AlertCircle, Blocks, ClipboardCheck } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useAuth } from '../features/auth/AuthContext'
 import { SyncProvider, useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
@@ -22,6 +22,7 @@ const NAV: Array<{
   { to: '/app/vocab',       icon: BookOpen,   label: 'Từ vựng' },
   { to: '/app/writing',     icon: PenLine,    label: 'Viết' },
   { to: '/app/listening',   icon: Headphones, label: 'Nghe' },
+  { to: '/app/exam',        icon: ClipboardCheck, label: 'Luyen thi' },
   { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
   { to: '/app/mindmap',     icon: GitBranch,  label: 'MindMap' },
   { to: '/app/settings',    icon: Settings,   label: 'Cài đặt' },

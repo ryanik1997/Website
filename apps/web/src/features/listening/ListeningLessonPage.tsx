@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Link, Navigate, useLocation, useNavigate, useParams,
 } from 'react-router-dom'
@@ -70,18 +70,6 @@ function readPracticeDebugMode(search: string): PracticeDebugMode {
   }
 }
 
-function describeNode(node: HTMLElement) {
-  const className = typeof node.className === 'string' ? node.className.trim() : ''
-  return {
-    tag: node.tagName.toLowerCase(),
-    className,
-    id: node.id || '',
-    scrollWidth: node.scrollWidth,
-    clientWidth: node.clientWidth,
-    offsetWidth: node.offsetWidth,
-  }
-}
-
 export default function ListeningLessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>()
   const location = useLocation()
@@ -98,7 +86,6 @@ export default function ListeningLessonPage() {
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set())
   const [showResultImmediately, setShowResultImmediately] = useState(true)
   const [showFullAnswer, setShowFullAnswer] = useState(false)
-  const shellRef = useRef<HTMLDivElement | null>(null)
 
   const lesson = useLiveQuery(
     () => (lessonId ? db.lessons.get(lessonId) : undefined),
@@ -123,75 +110,6 @@ export default function ListeningLessonPage() {
     }, 700)
     return () => window.clearTimeout(timer)
   }, [leavingAfterDelete, navigate])
-
-  useEffect(() => {
-    const shell = shellRef.current
-    if (!shell) return
-
-    let lastSignature = ''
-
-    function squashHorizontalOverflow() {
-      const shellWidth = shell.clientWidth
-      const nodes = shell.querySelectorAll<HTMLElement>('*')
-      const offenders: HTMLElement[] = []
-
-      shell.querySelectorAll<HTMLElement>('[data-listening-overflow-debug="true"]').forEach(node => {
-        node.removeAttribute('data-listening-overflow-debug')
-        node.style.outline = ''
-        node.style.outlineOffset = ''
-      })
-
-      nodes.forEach(node => {
-        if (node.scrollWidth <= shellWidth + 1) return
-        if (!shell.contains(node)) return
-
-        offenders.push(node)
-        node.style.maxWidth = '100%'
-        node.style.overflowX = 'hidden'
-        node.style.outline = '2px solid #ef4444'
-        node.style.outlineOffset = '-1px'
-        node.setAttribute('data-listening-overflow-debug', 'true')
-      })
-
-      const signature = offenders
-        .map(node => {
-          const info = describeNode(node)
-          return `${info.tag}|${info.id}|${info.className}|${info.scrollWidth}|${info.clientWidth}`
-        })
-        .join('::')
-
-      if (!offenders.length || signature === lastSignature) return
-      lastSignature = signature
-
-      console.groupCollapsed('[Listening overflow debug]')
-      console.log('Shell width:', shellWidth)
-      offenders.forEach((node, index) => {
-        console.log(`Offender ${index + 1}:`, describeNode(node), node)
-      })
-      console.groupEnd()
-    }
-
-    squashHorizontalOverflow()
-
-    const resizeObserver = new ResizeObserver(() => squashHorizontalOverflow())
-    resizeObserver.observe(shell)
-
-    const mutationObserver = new MutationObserver(() => squashHorizontalOverflow())
-    mutationObserver.observe(shell, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['class', 'style'],
-    })
-
-    const timer = window.setTimeout(squashHorizontalOverflow, 120)
-
-    return () => {
-      window.clearTimeout(timer)
-      mutationObserver.disconnect()
-      resizeObserver.disconnect()
-    }
-  }, [tab, sentenceIndex, lessonId])
 
   const currentLesson = lesson ?? null
   const sentences = currentLesson ? parseSentences(currentLesson.sentences) : []
@@ -266,36 +184,9 @@ export default function ListeningLessonPage() {
   if (!currentLesson) return <Navigate to="/app/listening" replace />
 
   return (
-    <div ref={shellRef} className="listening-lesson-shell h-full min-h-0 overflow-y-auto overflow-x-hidden" style={{ background: 'var(--bg-primary)' }}>
-      <style>
-        {`
-          .listening-lesson-shell,
-          .listening-lesson-shell * {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-          }
-
-          .listening-lesson-shell::-webkit-scrollbar,
-          .listening-lesson-shell *::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
-            background: transparent;
-          }
-
-          /* Chặn thanh cuộn ngang thừa trong header/tabs listening nếu có class cũ còn render. */
-          .listening-lesson-shell div.flex.min-w-0.gap-6.overflow-x-auto {
-            overflow-x: hidden !important;
-            max-width: 100%;
-          }
-
-          .listening-lesson-shell div.flex.min-w-0.gap-6.overflow-x-auto > * {
-            max-width: 100%;
-          }
-        `}
-      </style>
-
-      <div className="mx-auto min-w-0 max-w-[1080px] overflow-x-hidden px-4 py-6 sm:px-6 sm:py-8">
+    <div className="listening-lesson-shell h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
+      <div className="listening-lesson-scroll h-full min-h-0">
+      <div className="mx-auto min-w-0 w-full max-w-[1080px] px-4 py-6 sm:px-6 sm:py-8">
         <Link
           to="/app/listening"
           className="mb-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest transition-opacity hover:opacity-70"
@@ -317,9 +208,9 @@ export default function ListeningLessonPage() {
           />
         )}
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-3">
           {showContent && (
-            <div className="flex flex-col gap-4 lg:col-span-2">
+            <div className="flex min-w-0 flex-col gap-4 lg:col-span-2">
               {sentences.length === 0 ? (
                 <p className="py-12 text-center text-sm" style={{ color: 'var(--text-muted)' }}>
                   Bai nay chua co cau nao.
@@ -383,7 +274,7 @@ export default function ListeningLessonPage() {
           )}
 
           {showSidebar && (
-            <div className="lg:col-span-1">
+            <div className="min-w-0 lg:col-span-1">
               <ListeningSidebarCards
                 sentence={current}
                 showTranslation={current ? completedIds.has(current.id) : false}
@@ -392,6 +283,7 @@ export default function ListeningLessonPage() {
             </div>
           )}
         </div>
+      </div>
       </div>
 
       {deleteState && (
