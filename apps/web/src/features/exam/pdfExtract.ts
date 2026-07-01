@@ -6,11 +6,10 @@ type PdfDoc = Awaited<PdfLoadingTask['promise']>
 type PdfPage = Awaited<ReturnType<PdfDoc['getPage']>>
 
 const EXTRACT_TIMEOUT_MS = 120_000
-const OPEN_TIMEOUT_MS = 30_000
+const OPEN_TIMEOUT_MS = 60_000
 const PAGE_TIMEOUT_MS = 20_000
 const DESTROY_TIMEOUT_MS = 2_000
 
-/** Worker cố định — copy vào public/ bởi Vite plugin (tránh ?url hash lệch / worker treo). */
 const PDF_WORKER_SRC = '/pdf.worker.min.mjs'
 
 let pdfJsReady: Promise<PdfJsModule> | null = null
@@ -21,6 +20,10 @@ export interface ExtractPdfProgress {
   stage: ExtractPdfStage
   page?: number
   total?: number
+}
+
+type PdfJsWorkerGlobal = typeof globalThis & {
+  pdfjsWorker?: { WorkerMessageHandler?: unknown }
 }
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
@@ -50,10 +53,28 @@ function releasePdfTask(task: PdfLoadingTask): void {
   ]).catch(() => {})
 }
 
+/**
+ * Bỏ qua Web Worker (thường treo handshake trên Vite/Windows).
+ * pdf.js đọc WorkerMessageHandler từ globalThis.pdfjsWorker → chạy fake worker trên main thread.
+ */
+async function installMainThreadWorker(): Promise<void> {
+  const g = globalThis as PdfJsWorkerGlobal
+  if (g.pdfjsWorker?.WorkerMessageHandler) return
+
+  const workerMod = await import('pdfjs-dist/build/pdf.worker.min.mjs') as {
+    WorkerMessageHandler?: unknown
+  }
+  if (!workerMod.WorkerMessageHandler) {
+    throw new Error('pdf.worker thiếu WorkerMessageHandler.')
+  }
+  g.pdfjsWorker = workerMod
+}
+
 async function loadPdfJs(onProgress?: (progress: ExtractPdfProgress) => void): Promise<PdfJsModule> {
   onProgress?.({ stage: 'loading-lib' })
   if (!pdfJsReady) {
     pdfJsReady = (async () => {
+      await installMainThreadWorker()
       const pdfjs = await import('pdfjs-dist/build/pdf.mjs') as PdfJsModule
       pdfjs.GlobalWorkerOptions.workerSrc = PDF_WORKER_SRC
       return pdfjs
@@ -78,7 +99,11 @@ async function openPdf(
   const { getDocument } = await loadPdfJs(onProgress)
   onProgress?.({ stage: 'opening' })
   const data = new Uint8Array(await file.arrayBuffer())
-  const task = getDocument({ data, useWorkerFetch: false })
+  const task = getDocument({
+    data,
+    useWorkerFetch: false,
+    useWasm: false,
+  })
   const pdf = await withTimeout(task.promise, OPEN_TIMEOUT_MS, 'Mở PDF')
   return { pdf, task }
 }
