@@ -1,6 +1,13 @@
 import type { ReadingPart } from './examData'
 import { getPartQuestions } from './examData'
 import { formatPassageTextForDisplay } from './readingGapDisplay'
+import {
+  buildB1ReferenceBlocks,
+  getB1IntroPassageBlocks,
+  referenceLetter,
+  resolveReferenceParts,
+  splitReferenceText,
+} from './readingB1ReferenceList'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight } from './readingHighlightUtils'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
@@ -70,37 +77,57 @@ function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl
   )
 }
 
-/** PET B1 Part 2/4 — markets hoặc câu A–H ở cột trái, đánh số rõ. */
+/** PET B1 Part 2/4 — markets hoặc câu A–H ở cột trái, căn lề đều. */
 function PassageLabeledReferenceList({
   blocks,
   rangeLabel,
   highlights,
   partId,
+  partNumber,
 }: {
   blocks: ReadingPart['passage']
   rangeLabel: string
   highlights: ReadingHighlight[]
   partId: string
+  partNumber: number
 }) {
   if (!blocks.length) return null
+  const showMarketTitle = partNumber === 2
 
   return (
     <div className="reading-ket-features">
       <p className="reading-ket-features__title">{rangeLabel}</p>
-      <ul className="reading-ket-features__list">
-        {blocks.map((block, index) => (
-          <li key={`${partId}-ref-${block.label ?? index}`}>
-            <span className="reading-ket-features__id" data-highlight-skip>
-              {(block.label ?? '').toUpperCase()}
-            </span>
-            <ReadingHighlightableText
-              blockId={`${partId}-ref-${index}`}
-              text={block.text ?? ''}
-              highlights={highlights}
-              as="span"
-            />
-          </li>
-        ))}
+      <ul className="reading-ket-features__list reading-ket-ref-list">
+        {blocks.map((block, index) => {
+          const { letter, title, body } = resolveReferenceParts(block, index, showMarketTitle)
+          const displayTitle = title ?? (!body ? undefined : (
+            showMarketTitle && body.length < 80 && !/[—–-]/.test(body) ? body : undefined
+          ))
+          const displayBody = displayTitle === body ? '' : body
+          return (
+            <li key={`${partId}-ref-${letter}-${index}`} className="reading-ket-ref-item">
+              <span className="reading-ket-ref-item__letter" data-highlight-skip>
+                {letter}
+              </span>
+              <div className="reading-ket-ref-item__content">
+                {displayTitle && (
+                  <p className="reading-ket-ref-item__title" data-highlight-skip>
+                    {displayTitle}
+                  </p>
+                )}
+                {displayBody && (
+                  <ReadingHighlightableText
+                    blockId={`${partId}-ref-${index}`}
+                    text={displayBody}
+                    highlights={highlights}
+                    className="reading-ket-ref-item__text"
+                    as="p"
+                  />
+                )}
+              </div>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
@@ -172,13 +199,19 @@ export default function ReadingPassagePanel({
 }: ReadingPassagePanelProps) {
   const isSignsPart1 = (cambridgeLevel === 'a2' || cambridgeLevel === 'b1') && part.partNumber === 1
   const isB1MatchingRef = cambridgeLevel === 'b1' && (part.partNumber === 2 || part.partNumber === 4)
-  const labeledPassageBlocks = part.passage.filter(b => Boolean(b.label?.trim()))
-  const unlabeledPassageBlocks = part.passage.filter(b => !b.label?.trim())
-  const useLabeledPassageList = isB1MatchingRef && labeledPassageBlocks.length > 0
   const features = part.questionGroups.flatMap(g => g.features ?? [])
   const wordBank = part.questionGroups.flatMap(g => g.wordBank ?? [])
   const featureCount = features.length
   const featureRangeLabel = featureCount >= 8 ? 'A–H' : featureCount >= 5 ? 'A–E' : 'A–D'
+  const b1Part = part.partNumber === 2 || part.partNumber === 4 ? part.partNumber : null
+  const referenceBlocks = isB1MatchingRef && b1Part
+    ? buildB1ReferenceBlocks(part.passage, features, b1Part)
+    : []
+  const useB1ReferenceList = referenceBlocks.length > 0
+  const introPassageBlocks = isB1MatchingRef && b1Part
+    ? getB1IntroPassageBlocks(part.passage, b1Part)
+    : part.passage
+
   return (
     <article
       className="reading-test-passage"
@@ -209,34 +242,48 @@ export default function ReadingPassagePanel({
             />
           )}
         </>
-      ) : useLabeledPassageList ? (
+      ) : useB1ReferenceList ? (
         <>
           <PassageBlocks
-            part={{ ...part, passage: unlabeledPassageBlocks }}
+            part={{ ...part, passage: introPassageBlocks }}
             highlights={highlights}
             cambridgeLevel={cambridgeLevel}
           />
           <PassageLabeledReferenceList
-            blocks={labeledPassageBlocks}
+            blocks={referenceBlocks}
             rangeLabel={`Danh sách ${featureRangeLabel}`}
             highlights={highlights}
             partId={part.id}
+            partNumber={part.partNumber}
           />
         </>
       ) : (
         <PassageBlocks part={part} highlights={highlights} cambridgeLevel={cambridgeLevel} />
       )}
 
-      {!useLabeledPassageList && features.length > 0 && (
+      {!useB1ReferenceList && features.length > 0 && (
         <div className="reading-ket-features">
           <p className="reading-ket-features__title">Danh sách {featureRangeLabel}</p>
-          <ul className="reading-ket-features__list">
-            {features.map(feature => (
-              <li key={feature.id}>
-                <span className="reading-ket-features__id">{feature.id.toUpperCase()}</span>
-                <span>{feature.name}</span>
-              </li>
-            ))}
+          <ul className="reading-ket-features__list reading-ket-ref-list">
+            {features.map((feature, index) => {
+              const letter = referenceLetter(feature.id, index)
+              const { title, body } = splitReferenceText(feature.name, part.partNumber === 2)
+              return (
+                <li key={feature.id} className="reading-ket-ref-item">
+                  <span className="reading-ket-ref-item__letter" data-highlight-skip>
+                    {letter}
+                  </span>
+                  <div className="reading-ket-ref-item__content">
+                    {title && (
+                      <p className="reading-ket-ref-item__title" data-highlight-skip>
+                        {title}
+                      </p>
+                    )}
+                    <p className="reading-ket-ref-item__text">{body}</p>
+                  </div>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}

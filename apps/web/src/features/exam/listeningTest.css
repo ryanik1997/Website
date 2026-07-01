@@ -111,6 +111,22 @@
   accent-color: var(--le-accent);
 }
 
+.listening-exam-card__instruction {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+  white-space: pre-line;
+}
+
+.listening-exam-card__gap {
+  margin-top: 0.75rem;
+}
+
+.listening-exam-card__matching {
+  margin-top: 0.75rem;
+}
+
 .listening-exam-card__prompt {
   font-size: 1rem;
   font-weight: 600;

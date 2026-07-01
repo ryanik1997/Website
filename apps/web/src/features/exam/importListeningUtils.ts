@@ -148,12 +148,29 @@ export function buildImportedListeningExamId(): string {
   return `listening-import-${Date.now()}`
 }
 
+async function storeSharedMedia(
+  cache: Map<string, string>,
+  examId: string,
+  suffix: string,
+  file: File,
+): Promise<string> {
+  const fileKey = normalizeFileKey(file.name)
+  const cached = cache.get(fileKey)
+  if (cached) return cached
+
+  const mediaKey = listeningExamAudioKey(examId, suffix)
+  await audioRepo.put(mediaKey, file)
+  cache.set(fileKey, mediaKey)
+  return mediaKey
+}
+
 export async function buildListeningExamFromImport(
   payload: ListeningImportPayload,
   mediaFiles: File[],
   examId = buildImportedListeningExamId(),
 ): Promise<ListeningExam> {
   const mediaMap = buildMediaMap(mediaFiles)
+  const sharedMediaKeys = new Map<string, string>()
   const parts: ListeningPart[] = []
 
   for (const partJson of payload.parts) {
@@ -163,8 +180,12 @@ export async function buildListeningExamFromImport(
     const partFile = resolveMediaFile(mediaMap, partJson.audioFile)
       ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}.mp3`)
     if (partFile) {
-      partAudioKey = listeningExamAudioKey(examId, `part-${partJson.partNumber}`)
-      await audioRepo.put(partAudioKey, partFile)
+      partAudioKey = await storeSharedMedia(
+        sharedMediaKeys,
+        examId,
+        `part-${partJson.partNumber}`,
+        partFile,
+      )
     }
 
     const questions: ListeningQuestion[] = []
@@ -176,8 +197,12 @@ export async function buildListeningExamFromImport(
       const qFile = resolveMediaFile(mediaMap, qJson.audioFile)
         ?? resolveMediaFile(mediaMap, `q${qJson.number}.mp3`)
       if (qFile) {
-        audioKey = listeningExamAudioKey(examId, `q-${qJson.number}`)
-        await audioRepo.put(audioKey, qFile)
+        audioKey = await storeSharedMedia(
+          sharedMediaKeys,
+          examId,
+          `q-${qJson.number}`,
+          qFile,
+        )
       }
 
       const options = []

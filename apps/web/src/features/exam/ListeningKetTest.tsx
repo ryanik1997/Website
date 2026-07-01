@@ -40,6 +40,15 @@ export default function ListeningKetTest({ exam }: Props) {
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
   const currentQuestion = questions[questionIndex] ?? null
+  const currentPart = useMemo(() => {
+    if (!currentQuestion) return null
+    return exam.parts.find(part => part.questions.some(q => q.id === currentQuestion.id)) ?? null
+  }, [currentQuestion, exam.parts])
+  const partAudioSource = useMemo(() => ({
+    audioKey: currentPart?.audioKey,
+    audioUrl: currentPart?.audioUrl,
+    ttsText: currentPart?.ttsText,
+  }), [currentPart])
   const totalQuestions = questions.length
 
   useEffect(() => {
@@ -160,6 +169,8 @@ export default function ListeningKetTest({ exam }: Props) {
                 answer={answers[currentQuestion.id] ?? ''}
                 unsure={Boolean(unsure[currentQuestion.id])}
                 examMode={exam.examMode}
+                partInstruction={currentPart?.instruction}
+                partAudioSource={partAudioSource}
                 onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
                 onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
               />

@@ -25,7 +25,7 @@ interface PartMeta {
   /** A2 Part 1: mỗi câu 1 ảnh part1-qN.jpg */
   imagePerQuestion?: boolean
   groupType: GroupType
-  optionCount?: 3 | 4 | 5 | 8
+  optionCount?: 3 | 4 | 5 | 7 | 8
   /** Part 4 KET: MC chọn 1 từ (3 options là từ, không phải gap-fill tự gõ) */
   wordChoiceMc?: boolean
   instruction?: string
@@ -112,8 +112,8 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
     { partNumber: 3, from: 17, to: 24, title: 'Word formation', groupType: 'gap-fill' },
     { partNumber: 4, from: 25, to: 30, title: 'Key word transformation', groupType: 'gap-fill' },
     { partNumber: 5, from: 31, to: 36, title: 'Reading — text 1', groupType: 'multiple-choice', optionCount: 4 },
-    { partNumber: 6, from: 37, to: 42, title: 'Reading — gapped text', groupType: 'gap-fill' },
-    { partNumber: 7, from: 43, to: 52, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 5 },
+    { partNumber: 6, from: 37, to: 42, title: 'Reading — gapped text', groupType: 'matching-features', optionCount: 7 },
+    { partNumber: 7, from: 43, to: 52, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 4 },
   ],
   c1: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },
@@ -146,7 +146,7 @@ const DEFAULT_INSTRUCTIONS: Record<GroupType, string> = {
   'sentence-completion': 'Complete the sentences using NO MORE THAN TWO WORDS from the passage.',
 }
 
-function mcOptions(count: 3 | 4 | 5 | 8, wordChoice?: boolean) {
+function mcOptions(count: 3 | 4 | 5 | 7 | 8, wordChoice?: boolean) {
   const ids = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].slice(0, count)
   return ids.map(id => ({
     id,
