@@ -22,9 +22,13 @@ const ListeningLayout      = lazy(() => import('./pages/ListeningLayout'))
 const ListeningLibraryPage = lazy(() => import('./features/listening/ListeningLibraryPage'))
 const ListeningLessonPage  = lazy(() => import('./features/listening/ListeningLessonPage'))
 const ExamHome = lazy(() => import('./features/exam/ExamHome'))
+const ExamTrackPage = lazy(() => import('./features/exam/ExamTrackPage'))
+const FullMockIntro = lazy(() => import('./features/exam/FullMockIntro'))
+const FullMockSummary = lazy(() => import('./features/exam/FullMockSummary'))
 const ReadingTest = lazy(() => import('./features/exam/ReadingTest'))
 const ListeningTest = lazy(() => import('./features/exam/ListeningTest'))
 const WritingTest = lazy(() => import('./features/exam/WritingTest'))
+const WritingMockTest = lazy(() => import('./features/exam/WritingMockTest'))
 const TranslationPage        = lazy(() => import('./pages/TranslationPage'))
 const TranslationGenrePage   = lazy(() => import('./pages/TranslationGenrePage'))
 const TranslationPracticePage = lazy(() => import('./pages/TranslationPracticePage'))
@@ -80,8 +84,13 @@ export default function App() {
           </Route>
           <Route path="exam">
             <Route index element={<ExamHome />} />
+            <Route path="track/:trackId/:level?" element={<ExamTrackPage />} />
+            <Route path="full/:mockId" element={<FullMockIntro />} />
+            <Route path="full/:mockId/summary" element={<FullMockSummary />} />
             <Route path="reading/:examId" element={<ReadingTest />} />
-            <Route path="listening" element={<ListeningTest />} />
+            <Route path="listening/:examId" element={<ListeningTest />} />
+            <Route path="listening" element={<Navigate to="/app/exam/track/cambridge/a2" replace />} />
+            <Route path="writing/:mockId" element={<WritingMockTest />} />
             <Route path="writing" element={<WritingTest />} />
           </Route>
           <Route path="translation" element={<Navigate to="/app/writing/translate" replace />} />

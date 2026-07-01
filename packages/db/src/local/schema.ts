@@ -98,6 +98,23 @@ export interface ReadingExamRecord {
   parts: unknown[]
   source: 'pdf' | 'manual'
   sourceFilename?: string
+  examTrack?: 'ielts' | 'cambridge'
+  cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+  createdAt: number
+  updatedAt: number
+}
+
+/** Đề Listening import (JSON + MP3/ảnh) — parts lưu JSON ListeningPart[] */
+export interface ListeningExamRecord {
+  id: string
+  title: string
+  durationMinutes: number
+  bandHint: string
+  examType: 'ket' | 'ielts' | 'pet' | 'fce' | 'cae' | 'cpe'
+  examMode: 'practice' | 'exam'
+  parts: unknown[]
+  source: 'import' | 'manual'
+  sourceFilename?: string
   createdAt: number
   updatedAt: number
 }
@@ -135,6 +152,7 @@ export class RyanDB extends Dexie {
   settings!:       Table<Setting, string>
   sentenceStructures!: Table<SentenceStructure, string>
   readingExams!:      Table<ReadingExamRecord, string>
+  listeningExams!:    Table<ListeningExamRecord, string>
 
   constructor() {
     super('RyanEnglishDB')
@@ -319,6 +337,27 @@ export class RyanDB extends Dexie {
       settings:        '&key',
       sentenceStructures: '&id, category, starred, updatedAt',
       readingExams:    '&id, source, createdAt, updatedAt',
+    })
+    // v11: Listening exams import JSON + media
+    this.version(11).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
     })
   }
 }

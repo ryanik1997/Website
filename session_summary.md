@@ -598,6 +598,71 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [x] `ListeningLibraryPage` — dùng chung scroll shell
 - [x] `pnpm --filter web exec tsc --noEmit` — pass
 
+### Luyện thi — chỉ Reading + Listening (session 2026-07-01) — HOÀN THÀNH
+- [x] IELTS + Cambridge track: bỏ Writing khỏi hub (Writing ở module Viết); bỏ nút Full Mock IELTS trên `ExamTrackPage`
+- [x] Cambridge: Reading thay Writing; import PDF gắn `cambridgeLevel`
+
+### IELTS — đề mẫu Listening 4×10 (session 2026-07-01) — HOÀN THÀNH
+- [x] `ieltsExamFormats.ts` — metadata 4 parts · 40 câu · ~30 phút · Academic & GT · gõ khi nghe
+- [x] `ielts-listening-sample-01` — Part1 form (10 gap) · Part2 monologue (5 MC+5 matching) · Part3 academic (6 gap+4 MC) · Part4 lecture (6 gap+4 MC)
+- [x] Hiện trên `/app/exam/track/ielts`; `bandHint` hiển thị cấu trúc đề
+
+### Cambridge — đề mẫu theo format thi thật A2–C2 (session 2026-07-01) — HOÀN THÀNH
+- [x] `cambridgeExamFormats.ts` — metadata parts/câu/phút/% theo KET/PET/FCE/CAE/CPE
+- [x] `cambridgeSampleBuilders.ts` — helpers tạo Part + câu hỏi
+- [x] `cambridgeReadingSamples.ts` — Reading đúng số Part (A2:5, B1:6, B2:7, C1:8, C2:7); bandHint `Sample X/Y câu`
+- [x] `cambridgeListeningSamples.ts` — Listening đúng số Part (A2:5×25, B1:4×25, B2–C2:4×30 câu)
+- [x] `cambridgeExamLevels.ts` — mô tả format thi trên hub; ExamTrackPage hiện `bandHint`
+
+### Cambridge A2–C2 — Luyện thi (session 2026-07-01) — HOÀN THÀNH
+- [x] `cambridgeExamLevels.ts` — 5 cấp A2 (KET) → C2 (CPE), skills Reading + Listening (Writing ở module Viết)
+- [x] `examTracks.ts` — hub 2 track: IELTS + Cambridge A2–C2 (bỏ KET riêng, redirect `/track/ket` → `/track/cambridge/a2`)
+- [x] `ExamTrackPage` — `/app/exam/track/cambridge` chọn level; `/cambridge/:level` đề + import + link Writing
+- [x] `ListeningExamType` mở rộng: `pet` | `fce` | `cae` | `cpe` (B1–C2 dùng UI multi-part như IELTS)
+- [x] `ImportListeningModal` — template JSON theo `defaultExamType` từng level
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Listening Phase 3 — hub + ZIP + Full Mock (session 2026-07-01) — HOÀN THÀNH
+- [x] `examTracks.ts` + `ExamHome` hub 2 track (IELTS / Cambridge A2–C2)
+- [x] `ExamTrackPage` — `/app/exam/track/:trackId/:level?`, Full Mock + import + danh sách đề
+- [x] `importListeningZip.ts` + `fflate` — import ZIP bundle (exam.json + MP3/ảnh)
+- [x] `fullMockData` + `fullMockSession` — Full Test IELTS `ielts-mock-01`
+- [x] `FullMockIntro` → Reading → Listening → `WritingMockTest` → `FullMockSummary`
+- [x] Reading/Listening nộp trong Full Mock hiện `FullMockStageResult` + chuyển kỹ năng
+- [x] `WritingMockTest` — Task 1 + Task 2 (đếm từ, timer, chưa chấm AI)
+- [x] Routes: `/app/exam/full/:mockId`, `/summary`, `/writing/:mockId`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Listening Phase 2 — import + IELTS + Dexie (session 2026-07-01) — HOÀN THÀNH
+- [x] Dexie v11 `listeningExams` + `listeningExamRepo`
+- [x] `ImportListeningModal` — JSON + MP3/ảnh (q1.mp3, q1-a.jpg, part1.mp3), template tải về
+- [x] `importListeningUtils.ts` — parse, validate, lưu blob `audioRepo`
+- [x] `ListeningIeltsTest` — audio sticky theo Part, gap-fill/MC/matching, giới hạn lượt nghe (exam mode)
+- [x] `ListeningKetTest` — tách từ shell Phase 1, hỗ trợ `examMode`
+- [x] Đề builtin `ielts-listening-sample-01` (Part 1–2)
+- [x] Backup v3 gồm `listeningExams`
+- [x] `ExamHome` — Import Listening + xóa đề import
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Listening KET Phase 1 — card UI (session 2026-07-01) — HOÀN THÀNH
+- [x] `listeningExamData.ts` — schema + đề mẫu `ket-listening-sample-01` (6 câu, `audioKey`/`audioUrl`/`imageUrl` optional)
+- [x] `useExamQuestionAudio.ts` — MP3 từ `audioRepo` hoặc URL, fallback TTS `ttsText`
+- [x] `ListeningQuestionCard` + `ListeningExamAudioBar` — Phát / Phát chậm, picture MC placeholder
+- [x] `ListeningTest.tsx` — header timer, Chưa chắc chắn, Submit/Next, dots nav, draft localStorage
+- [x] `ListeningExamResult.tsx` — chấm điểm + giải thích
+- [x] Route `/app/exam/listening/:examId` + `ExamHome` section Listening
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Reading — Highlight passage khi làm bài (session 2026-07-01) — HOÀN THÀNH
+- [x] `readingHighlightUtils.ts` — offset-based highlights theo `blockId`, merge/trừ range, parse Selection
+- [x] `ReadingHighlightableText.tsx` — render `<mark>` cho từng khối text
+- [x] `ReadingHighlightToolbar.tsx` — toolbar chung Highlight / Bỏ highlight / Copy (passage + câu hỏi)
+- [x] `ReadingPassagePanel.tsx` + `ReadingQuestionPanel.tsx` — highlight passage và panel câu hỏi/đáp án
+- [x] `ReadingTest.tsx` — `highlightsByPart` chỉ trong session (không lưu localStorage); mất khi thoát/F5
+- [x] `readingTest.css` — `.reading-test-highlight` theme-aware; `user-select: text` passage + questions
+- [x] `TextSelectionToolbar` — bỏ qua `[data-reading-highlight-zone]` (tránh toolbar trùng)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
 ### Import PDF Reading — Sprint 1–3 (session 2026-07-01) — HOÀN THÀNH
 
 **Sprint 1 — Tin cậy**
@@ -628,6 +693,31 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - Groq không Vision — scan cần đổi OpenAI/Gemini
 - Chưa sync `readingExams` lên Supabase cloud
 - Chưa có UI sửa đề import sau khi lưu
+
+### Import PDF Reading — KET A2 parser (session 2026-07-01)
+- [x] `readingPdfKetPrompt.ts` — prompt 5 parts KET, `splitPdfTextForKetParts()`, parse full + fallback từng part
+- [x] `parseReadingPdfFull(..., { format: 'ket-a2' })` — tự chọn parser KET khi import từ Cambridge A2
+- [x] `validateReadingImport(parts, 'ket-a2')` — validation 5 parts (Q1–6, 7–13, 14–18, 19–24, 25–30)
+- [x] `ImportReadingPdfModal` — UI 5 parts khi `cambridgeLevel === 'a2'`
+- [x] `ParsedReadingPart.partNumber` → `number` (hỗ trợ part 4–5)
+
+### Fix KET split — cắt nhầm Part 5 (session 2026-07-01)
+- [x] `splitPdfTextForKetParts` — bỏ regex `writing\s+part` (khớp nhầm footer "Reading and Writing PART 5" → mất Part 5)
+- [x] Chỉ cắt PDF khi có Writing Part 6+ (`part 7`…)
+
+### Import PDF Reading — PET B1 parser (session 2026-07-01)
+- [x] `readingPdfPetPrompt.ts` — prompt 6 parts PET, `splitPdfTextForPetParts()`, parse full + fallback từng part
+- [x] `parseReadingPdfFull(..., { format: 'pet-b1' })` — tự chọn khi import từ Cambridge B1
+- [x] `validateReadingImport(parts, 'pet-b1')` — validation 6 parts · 32 câu (Q1–5, 6–10, 11–15, 16–20, 21–26, 27–32)
+- [x] `readingPdfFormatForLevel()` / `expectedReadingPartsForLevel()` — map a2→ket, b1→pet
+
+### Fix Import PDF kẹt / timeout "Đọc PDF quá lâu" (session 2026-07-01)
+- [x] `pdfExtract.ts` — worker cố định `/pdf.worker.min.mjs`; không `await task.destroy()` (fire-and-forget 2s — tránh treo 45s)
+- [x] Timeout theo bước: mở PDF 30s, mỗi trang 20s, tổng 120s; `useWorkerFetch: false`
+- [x] `vite.config.ts` — plugin copy `pdf.worker.min.mjs` → `public/`; `optimizeDeps.exclude: pdfjs-dist`
+- [x] Tiến trình: tải pdf.js → mở file → trang X/Y; `preloadPdfJs()` khi mở modal
+- [x] `ImportReadingPdfModal` — nút **Phân tích**; label AI sau extract
+- [x] `pnpm --filter web build` — pass
 
 ---
 
@@ -697,11 +787,12 @@ Production: https://ryanenglishv2.vercel.app — auto deploy sau mỗi session (
 Session trước kết thúc 2026-07-01.
 
 Ưu tiên:
-1. User test Import PDF Reading end-to-end (upload PDF có text → preview → làm bài)
-2. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh)
-3. (Tuỳ chọn) thêm readingExams vào backup JSON; import Part 2–3; OCR cho PDF scan
+1. User test Reading highlight (passage + câu hỏi/đáp án; thoát/F5 → highlight mất; đổi Part giữ highlight trong session)
+2. User test Import PDF Reading end-to-end (upload PDF có text → preview → làm bài)
+3. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh)
 
 Đã xong session trước:
+- Reading highlight: passage + panel câu hỏi/đáp án; chỉ trong session (thoát/F5 mất); đổi Part giữ highlight theo Part
 - Import PDF Reading Part 1: upload → pdfjs trích text → AI parse → preview → lưu Dexie
 - Reading UI IELTS: split-pane, footer Part nav, resize ↔, font panel T, fullscreen
 - Listening thanh cuộn thừa fix; Ô chữ auto-next khi đúng từ

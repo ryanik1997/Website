@@ -128,6 +128,8 @@
   padding: 1.25rem 1.5rem 2rem;
   font-family: var(--rt-font-family);
   font-size: var(--rt-font-size);
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .reading-test-questions {
@@ -244,6 +246,64 @@
 .reading-test-paragraph__label {
   font-weight: 700;
   margin-right: 0.35rem;
+}
+
+.reading-test-highlight {
+  background: color-mix(in srgb, var(--color-accent) 42%, transparent);
+  color: inherit;
+  border-radius: 0.15rem;
+  padding: 0.05rem 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+[data-theme='dark'] .reading-test-highlight,
+[data-theme='mid'] .reading-test-highlight {
+  background: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
+}
+
+.reading-test-passage ::selection,
+.reading-test-questions ::selection {
+  background: color-mix(in srgb, var(--rt-submit) 28%, transparent);
+}
+
+.reading-test-questions [data-highlight-block] {
+  user-select: text;
+}
+
+.reading-highlight-toolbar {
+  position: fixed;
+  z-index: 75;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem;
+  transform: translate(-50%, -100%);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--text-primary) 12%, transparent);
+}
+
+.reading-highlight-toolbar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.reading-highlight-toolbar__btn:hover {
+  background: var(--bg-secondary);
+  color: var(--rt-submit);
 }
 
 .reading-test-group {

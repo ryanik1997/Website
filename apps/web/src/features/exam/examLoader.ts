@@ -10,6 +10,8 @@ function recordToExam(record: ReadingExamRecord): ReadingExam {
     durationMinutes: record.durationMinutes,
     bandHint: record.bandHint,
     parts: record.parts as ReadingPart[],
+    examTrack: record.examTrack,
+    cambridgeLevel: record.cambridgeLevel,
   }
 }
 
@@ -39,5 +41,7 @@ export function examRecordFromReading(exam: ReadingExam, source: 'pdf' | 'manual
     parts: exam.parts as unknown[],
     source,
     sourceFilename,
+    examTrack: exam.examTrack,
+    cambridgeLevel: exam.cambridgeLevel,
   }
 }

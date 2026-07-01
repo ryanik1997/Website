@@ -1,4 +1,5 @@
 import type { ParsedReadingPart } from './readingPdfPrompt'
+import type { ReadingPdfExamFormat } from './readingPdfPrompt'
 
 export interface ReadingPartStat {
   partNumber: number
@@ -18,10 +19,27 @@ export interface ReadingImportValidation {
   canSave: boolean
 }
 
-const PART_Q_RANGES: Record<1 | 2 | 3, { min: number; max: number }> = {
+const IELTS_PART_Q_RANGES: Record<1 | 2 | 3, { min: number; max: number }> = {
   1: { min: 10, max: 14 },
   2: { min: 10, max: 14 },
   3: { min: 11, max: 15 },
+}
+
+const KET_PART_Q_RANGES: Record<1 | 2 | 3 | 4 | 5, { min: number; max: number }> = {
+  1: { min: 5, max: 6 },
+  2: { min: 6, max: 7 },
+  3: { min: 4, max: 5 },
+  4: { min: 5, max: 6 },
+  5: { min: 5, max: 8 },
+}
+
+const PET_PART_Q_RANGES: Record<1 | 2 | 3 | 4 | 5 | 6, { min: number; max: number }> = {
+  1: { min: 4, max: 5 },
+  2: { min: 4, max: 5 },
+  3: { min: 4, max: 5 },
+  4: { min: 4, max: 5 },
+  5: { min: 5, max: 6 },
+  6: { min: 5, max: 6 },
 }
 
 function countInferred(part: ParsedReadingPart): number {
@@ -35,7 +53,7 @@ function questionNumbers(part: ParsedReadingPart): number[] {
   return part.questionGroups.flatMap(g => g.questions.map(q => q.number))
 }
 
-export function validateReadingImport(parts: ParsedReadingPart[]): ReadingImportValidation {
+function validateIelts(parts: ParsedReadingPart[]): ReadingImportValidation {
   const warnings: string[] = []
   const errors: string[] = []
   let score = 100
@@ -45,7 +63,7 @@ export function validateReadingImport(parts: ParsedReadingPart[]): ReadingImport
     const qCount = part
       ? part.questionGroups.reduce((s, g) => s + g.questions.length, 0)
       : 0
-    const range = PART_Q_RANGES[partNumber]
+    const range = IELTS_PART_Q_RANGES[partNumber]
     return {
       partNumber,
       questionCount: qCount,
@@ -55,6 +73,67 @@ export function validateReadingImport(parts: ParsedReadingPart[]): ReadingImport
       present: Boolean(part),
     }
   })
+
+  return finishValidation(parts, warnings, errors, score, partStats)
+}
+
+function validateKet(parts: ParsedReadingPart[]): ReadingImportValidation {
+  const warnings: string[] = []
+  const errors: string[] = []
+  let score = 100
+
+  const partStats: ReadingPartStat[] = ([1, 2, 3, 4, 5] as const).map(partNumber => {
+    const part = parts.find(p => p.partNumber === partNumber)
+    const qCount = part
+      ? part.questionGroups.reduce((s, g) => s + g.questions.length, 0)
+      : 0
+    const range = KET_PART_Q_RANGES[partNumber]
+    return {
+      partNumber,
+      questionCount: qCount,
+      expectedMin: range.min,
+      expectedMax: range.max,
+      inferredCount: part ? countInferred(part) : 0,
+      present: Boolean(part),
+    }
+  })
+
+  return finishValidation(parts, warnings, errors, score, partStats, { ketPenalty: 10 })
+}
+
+function validatePet(parts: ParsedReadingPart[]): ReadingImportValidation {
+  const warnings: string[] = []
+  const errors: string[] = []
+  let score = 100
+
+  const partStats: ReadingPartStat[] = ([1, 2, 3, 4, 5, 6] as const).map(partNumber => {
+    const part = parts.find(p => p.partNumber === partNumber)
+    const qCount = part
+      ? part.questionGroups.reduce((s, g) => s + g.questions.length, 0)
+      : 0
+    const range = PET_PART_Q_RANGES[partNumber]
+    return {
+      partNumber,
+      questionCount: qCount,
+      expectedMin: range.min,
+      expectedMax: range.max,
+      inferredCount: part ? countInferred(part) : 0,
+      present: Boolean(part),
+    }
+  })
+
+  return finishValidation(parts, warnings, errors, score, partStats, { ketPenalty: 10 })
+}
+
+function finishValidation(
+  parts: ParsedReadingPart[],
+  warnings: string[],
+  errors: string[],
+  score: number,
+  partStats: ReadingPartStat[],
+  opts?: { ketPenalty?: number },
+): ReadingImportValidation {
+  const missingPenalty = opts?.ketPenalty ?? 15
 
   if (!parts.length) {
     errors.push('Không có part nào được trích.')
@@ -66,7 +145,7 @@ export function validateReadingImport(parts: ParsedReadingPart[]): ReadingImport
   for (const stat of partStats) {
     if (!stat.present) {
       warnings.push(`Thiếu Part ${stat.partNumber}.`)
-      score -= 15
+      score -= missingPenalty
       continue
     }
     if (stat.questionCount < stat.expectedMin) {
@@ -117,4 +196,13 @@ export function validateReadingImport(parts: ParsedReadingPart[]): ReadingImport
   const canSave = errors.length === 0 && parts.some(p => p.questionGroups.length > 0)
 
   return { score, warnings, errors, partStats, inferredTotal, canSave }
+}
+
+export function validateReadingImport(
+  parts: ParsedReadingPart[],
+  format: ReadingPdfExamFormat = 'ielts',
+): ReadingImportValidation {
+  if (format === 'ket-a2') return validateKet(parts)
+  if (format === 'pet-b1') return validatePet(parts)
+  return validateIelts(parts)
 }

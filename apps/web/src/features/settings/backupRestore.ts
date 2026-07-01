@@ -1,7 +1,7 @@
 import { db } from '@ryan/db'
 
-const BACKUP_VERSION = 2 as const
-const SUPPORTED_VERSIONS = [1, 2] as const
+const BACKUP_VERSION = 3 as const
+const SUPPORTED_VERSIONS = [1, 2, 3] as const
 const APP_NAME = 'RyanEnglish'
 
 const BACKUP_TABLES = [
@@ -19,6 +19,7 @@ const BACKUP_TABLES = [
   'settings',
   'translationSets',
   'readingExams',
+  'listeningExams',
 ] as const
 
 type BackupTable = (typeof BACKUP_TABLES)[number]
@@ -26,7 +27,7 @@ type BackupTable = (typeof BACKUP_TABLES)[number]
 export type BackupData = Record<BackupTable, unknown[]>
 
 export interface BackupPayload {
-  version: typeof BACKUP_VERSION | 1
+  version: typeof BACKUP_VERSION | 1 | 2
   exportedAt: string
   app: typeof APP_NAME
   data: Partial<BackupData> & Record<string, unknown>
@@ -71,6 +72,7 @@ async function readAllTables(): Promise<BackupData> {
     settings,
     translationSets,
     readingExams,
+    listeningExams,
   ] = await Promise.all([
     db.groups.toArray(),
     db.decks.toArray(),
@@ -86,6 +88,7 @@ async function readAllTables(): Promise<BackupData> {
     db.settings.toArray(),
     db.translationSets.toArray(),
     db.readingExams.toArray(),
+    db.listeningExams.toArray(),
   ])
 
   return {
@@ -103,6 +106,7 @@ async function readAllTables(): Promise<BackupData> {
     settings,
     translationSets,
     readingExams,
+    listeningExams,
   }
 }
 
@@ -122,6 +126,7 @@ async function countRecords(): Promise<number> {
     db.settings.count(),
     db.translationSets.count(),
     db.readingExams.count(),
+    db.listeningExams.count(),
   ])
   return counts.reduce((sum, n) => sum + n, 0)
 }
@@ -129,7 +134,7 @@ async function countRecords(): Promise<number> {
 function isBackupPayload(raw: unknown): raw is BackupPayload {
   if (!raw || typeof raw !== 'object') return false
   const obj = raw as Record<string, unknown>
-  if (!SUPPORTED_VERSIONS.includes(obj.version as 1 | 2)) return false
+  if (!SUPPORTED_VERSIONS.includes(obj.version as 1 | 2 | 3)) return false
   if (obj.app !== APP_NAME) return false
   if (!obj.data || typeof obj.data !== 'object') return false
   return true
@@ -162,7 +167,7 @@ export async function importBackup(file: File): Promise<{ counts: Record<string,
   }
 
   if (!isBackupPayload(parsed)) {
-    throw new Error('File backup không đúng format Ryan English (version 1 hoặc 2).')
+    throw new Error('File backup không đúng format Ryan English (version 1, 2 hoặc 3).')
   }
 
   const counts: Record<string, number> = {}
@@ -184,6 +189,7 @@ export async function importBackup(file: File): Promise<{ counts: Record<string,
       db.settings,
       db.translationSets,
       db.readingExams,
+      db.listeningExams,
     ],
     async () => {
       for (const table of BACKUP_TABLES) {
@@ -222,6 +228,7 @@ export const BACKUP_TABLE_LABELS: Partial<Record<BackupTable, string>> = {
   settings: 'cài đặt',
   translationSets: 'bộ dịch',
   readingExams: 'đề Reading import',
+  listeningExams: 'đề Listening import',
 }
 
 export function formatImportSummary(counts: Record<string, number>): string {

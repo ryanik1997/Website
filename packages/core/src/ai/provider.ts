@@ -134,6 +134,14 @@ export async function callAI(
 
   if (!res.ok) {
     const text = await res.text()
+    if (res.status === 429 && provider === 'gemini') {
+      throw new Error(
+        'Gemini hết quota (429). Free tier giới hạn theo phút/ngày trên project Google — '
+        + 'import PDF gọi 5–8 request liên tiếp dễ chạm giới hạn. '
+        + 'Thử đợi 1–2 phút, đổi sang DeepSeek/OpenAI, hoặc bật billing trên AI Studio. '
+        + `Chi tiết: ${text.slice(0, 180)}`,
+      )
+    }
     throw new Error(`AI error ${res.status}: ${text.slice(0, 300)}`)
   }
 

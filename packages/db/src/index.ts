@@ -3,7 +3,7 @@ export type {
   Group, Deck, Card, Srs, ReviewLog, DictEntry,
   Lesson, TranslationSet, TranslationSentence, TranslationGenre,
   AudioBlob, WritingDoc, WritingGenre, CambridgeGenre, WritingHistory,
-  ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord,
+  ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord, ListeningExamRecord,
 } from './local/schema'
 export { deckRepo } from './local/repositories/deckRepo'
 export { cardRepo } from './local/repositories/cardRepo'
@@ -17,4 +17,5 @@ export { mindmapRepo } from './local/repositories/mindmapRepo'
 export { audioRepo } from './local/repositories/audioRepo'
 export { sentenceStructureRepo } from './local/repositories/sentenceStructureRepo'
 export { examRepo } from './local/repositories/examRepo'
+export { listeningExamRepo } from './local/repositories/listeningExamRepo'
 export { syncLocalToCloud, syncCloudToLocal, isLocalEmpty } from './cloud/sync'
