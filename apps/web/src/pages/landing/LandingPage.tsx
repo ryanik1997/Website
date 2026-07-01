@@ -119,7 +119,10 @@ export default function LandingPage() {
     : null
 
   return (
-    <div className="min-h-[100dvh] flex flex-col" style={{ background: 'var(--bg-primary)' }}>
+    <div
+      className="h-[100dvh] overflow-y-auto flex flex-col"
+      style={{ background: 'var(--bg-primary)' }}
+    >
       <SunAnimationStyles />
       <Header />
       {authError && (

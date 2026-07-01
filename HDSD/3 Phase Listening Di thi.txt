@@ -1,0 +1,283 @@
+Dựa trên a6.jpg và những gì codebase đã có, đây là hướng build Listening trong Luyện thi mà mình khuyên dùng.
+
+Quan sát từ a6.jpg
+
+Ảnh tham chiếu là KET A2 Listening — UX khác hẳn Reading IELTS (a1–a4):
+
+┌────────────────┬─────────────────────────────────────────┬─────────────────────────────────────┐
+│                │ Reading (đã build)                      │ Listening (a6.jpg)                  │
+├────────────────┼─────────────────────────────────────────┼─────────────────────────────────────┤
+│ Layout         │ Split-pane: passage trái + câu hỏi phải │ 1 card giữa màn hình, 1 câu/lần     │
+├────────────────┼─────────────────────────────────────────┼─────────────────────────────────────┤
+│ Nội dung chính │ Text passage (có highlight)             │ Audio player + đôi khi ảnh minh họa │
+├────────────────┼─────────────────────────────────────────┼─────────────────────────────────────┤
+│ Điều hướng     │ Part pills + lưới số câu dưới           │ Submit + Next + dots 1–17 / 17 câu  │
+├────────────────┼─────────────────────────────────────────┼─────────────────────────────────────┤
+│ Đặc thù        │ Font panel, resize ↔                    │ "Chưa chắc chắn", Phát / Phát chậm  │
+└────────────────┴─────────────────────────────────────────┴─────────────────────────────────────┘
+
+→ Không nên copy split-pane của Reading sang Listening. Chỉ tái dùng phần “khung thi”: timer, draft, submit, chấm điểm, kết quả.
+
+───
+
+Đề xuất kiến trúc: 2 “mode” trong cùng module
+
+1. KET / Cambridge A2 — bám sát a6.jpg (làm trước)
+
+Một câu một màn hình, audio ngắn theo câu, trắc nghiệm có ảnh.
+
+┌─────────────────────────────────────────────┐
+│ [← Quay lại]   A2 KET Listening    ⏱ 29:43 │
+├─────────────────────────────────────────────┤
+│  ┌─────────────────────────────────────┐   │
+│  │ Question 1          ☐ Chưa chắc chắn│   │
+│  │ Where will Claire meet Alex?        │   │
+│  │ ▶ ━━━━━━━ 0:02 / 0:56  [Phát][Chậm] │   │
+│  │  [ảnh A]  [ảnh B]  [ảnh C]          │   │
+│  │  ○ A    ○ B    ○ C                  │   │
+│  │         [Submit]  [Next ›]          │   │
+│  └─────────────────────────────────────┘   │
+├─────────────────────────────────────────────┤
+│        ● ○ ○ ○ …     1–17 / 17 câu          │
+└─────────────────────────────────────────────┘
+
+Tái dùng từ module Listening hiện tại:
+• useListeningPlayback + pattern ListeningAudioBar (progress, seek, tốc độ)
+• audioRepo — lưu MP3 theo exam:{id}:q:{n} trong Dexie
+• useStudyAnswerFeedback — chime khi đúng (chế độ luyện, không bắt buộc khi thi)
+
+Schema mới (song song ReadingExam):
+
+ListeningExam {
+  id, title, durationMinutes, examType: 'ket' | 'ielts'
+  parts: ListeningPart[]
+}
+
+ListeningQuestion {
+  id, number, type: 'picture-mc' | 'multiple-choice' | 'gap-fill' | ...
+  prompt: string
+  audioKey?: string          // MP3 từng câu (KET)
+  imageOptions?: { id, label, imageUrl }[]  // A/B/C như a6
+  textOptions?: ...
+  answer, explanation
+}
+
+2. IELTS Listening — phase sau (khác KET)
+
+IELTS thường có:
+• 1 file audio dài cho cả Part (phát 1 lần, không tua lại khi thi thật)
+• Nhiều câu hiện cùng lúc trong Part (form completion, map, matching…)
+• Footer Part 1–4 giống Reading, nhưng không có cột passage
+
+Layout gợi ý:
+
+Header (timer + Submit) — giống Reading
+Sticky audio bar (MP3 Part, nút Play 1 lần)
+Scroll: instruction + tất cả câu Part hiện tại
+Footer: Part pills + số câu
+
+───
+
+Lộ trình triển khai (3 phase)
+
+Phase 1 — MVP KET theo a6.jpg (~1 session)
+• [ ] listeningExamData.ts — 1 đề mẫu 17 câu (picture MC + audio MP3 trong public/)
+• [ ] ListeningTest.tsx — shell card UI như ảnh
+• [ ] ListeningQuestionCard.tsx — render theo type
+• [ ] Checkbox Chưa chắc chắn + draft localStorage
+• [ ] ListeningExamResult.tsx — điểm + đáp án
+• Route: /app/exam/listening/:examId
+
+Phase 2 — IELTS Part 1–4
+• [ ] Dexie listeningExams (mirror readingExams)
+• [ ] Gap-fill, matching, MC text (tái logic ReadingQuestionPanel)
+• [ ] Audio section MP3 qua audioRepo
+• [ ] Chế độ Exam strict (không tua / giới hạn số lần nghe)
+
+Phase 3 — Import & mở rộng
+• [ ] Import ZIP (PDF đề + MP3 + ảnh) — tương tự Import PDF Reading
+• [ ] Hub chọn track: KET / IELTS / Cambridge trên ExamHome
+• [ ] Full mock test (Reading + Listening + Writing liên tiếp)
+
+───
+
+Quyết định quan trọng cần chốt
+
+1. Nguồn audio
+Thi thật bắt buộc MP3 gốc — TTS Kokoro chỉ dùng dev/mock, không thay được ngữ điệu KET/IELTS.
+
+2. Ảnh trắc nghiệm (a6)
+Cần asset thật (public/images/listening/ket-01/q1-a.webp…) hoặc import kèm ZIP. Không generate bằng AI cho đề thi.
+
+3. Exam mode vs Practice mode
+
+┌─────────────────┬──────────┬───────────────────────────┐
+│                 │ Practice │ Exam (giống thi thật)     │
+├─────────────────┼──────────┼───────────────────────────┤
+│ Tua / nghe lại  │ Có       │ Không (hoặc 1 lần)        │
+├─────────────────┼──────────┼───────────────────────────┤
+│ Phát chậm       │ Có (a6)  │ Tuỳ (KET có, IELTS không) │
+├─────────────────┼──────────┼───────────────────────────┤
+│ Xem đáp án ngay │ Có       │ Chỉ sau Submit            │
+└─────────────────┴──────────┴───────────────────────────┘
+
+4. Tách component, không fork Reading
+Tách rõ:
+• exam/shared/ — timer, draft, submit modal, footer nav
+• exam/reading/ — split-pane + highlight
+• exam/listening/ — card UI (KET) + section audio (IELTS)
+
+───
+
+Ý kiến tổng thể
+
+Ưu tiên KET card UI theo a6.jpg trước vì:
+1. Khớp ảnh tham chiếu, scope nhỏ (1 câu / màn hình)
+2. Tái dùng audio layer đã có (useListeningPlayback, audioRepo)
+3. Reading đã ổn — Listening KET là “quick win” cho Luyện thi
+4. IELTS Listening phức tạp hơn (audio dài, nhiều dạng câu) — làm sau khi KET chạy được
+
+Nếu bạn đồng ý hướng này, bước tiếp theo hợp lý là Phase 1: scaffold ListeningTest + 1 đề KET mẫu (vài câu picture MC + MP3) để bạn click thử flow end-to-end trước khi làm đủ 17 câu.
+
+Bạn muốn ưu tiên KET như a6 hay nhảy thẳng IELTS 4 Part? Và bạn đã có sẵn file MP3 + ảnh đề KET chưa?
+
+Phase 1 Listening KET đã xong. Bạn có thể test ngay tại Luyện thi → Làm Listening hoặc /app/exam/listening/ket-listening-sample-01.
+
+Đã build
+
+Giao diện bám a6.jpg:
+• Header: Quay lại · tiêu đề · đồng hồ đếm ngược
+• Card 1 câu/lần: Chưa chắc chắn · audio bar · trắc nghiệm ảnh/text
+• Nút Phát / Phát chậm · Submit · Next
+• Footer: dots nhảy câu · N / 6 câu
+• Draft localStorage + màn Kết quả sau khi nộp
+
+Chưa có MP3/ảnh — dùng thế nào
+
+Hiện 6 câu mẫu chạy bằng TTS tạm (ttsText). Khi bạn có file, gắn vào listeningExamData.ts:
+
+// MP3 — cách 1: file public
+audioUrl: '/audio/ket-01/q1.mp3'
+
+// MP3 — cách 2: Dexie blob (key đã lưu qua audioRepo)
+audioKey: 'exam:ket-listening-sample-01:q1'
+
+// Ảnh trắc nghiệm
+options: [
+  { id: 'A', label: '...', imageUrl: '/images/ket-01/q1-a.webp' },
+  ...
+]
+
+File chính
+
+┌───────────────────────────┬─────────────────────────┐
+│ File                      │ Vai trò                 │
+├───────────────────────────┼─────────────────────────┤
+│ listeningExamData.ts      │ Schema + đề mẫu         │
+├───────────────────────────┼─────────────────────────┤
+│ ListeningTest.tsx         │ Shell làm bài           │
+├───────────────────────────┼─────────────────────────┤
+│ ListeningQuestionCard.tsx │ Card câu hỏi            │
+├───────────────────────────┼─────────────────────────┤
+│ useExamQuestionAudio.ts   │ Phát MP3 / fallback TTS │
+├───────────────────────────┼─────────────────────────┤
+│ listeningTest.css         │ Style theme-aware       │
+└───────────────────────────┴─────────────────────────┘
+
+Phase 2
+
+
+Tính năng mới
+
+1. Import Listening (Luyện thi → Import Listening)
+• Upload file JSON mô tả đề
+• Thêm MP3 / ảnh (tuỳ chọn) — tự ghép theo tên file
+• Nút Tải JSON mẫu trong modal
+• Lưu đề vào Dexie + media vào audioBlobs
+
+2. IELTS Listening (/app/exam/listening/ielts-listening-sample-01)
+• Audio theo Part (sticky trên cùng)
+• Tất cả câu trong Part hiện cùng lúc: gap-fill, MC, matching
+• Chế độ thi (examMode: "exam"): tối đa 2 lượt nghe/Part, không tua, không phát chậm
+
+3. KET vẫn dùng card 1 câu/lần, hỗ trợ examMode practice/exam
+
+4. Backup v3 — gồm listeningExams
+
+───
+
+Cách import MP3 + ảnh
+
+1. Tải JSON mẫu từ modal
+2. Sửa nội dung đề (title, câu hỏi, đáp án…)
+3. Đặt tên file media:
+   • q1.mp3, q2.mp3 — audio từng câu (KET)
+   • part1.mp3, part2.mp3 — audio cả Part (IELTS)
+   • q1-a.jpg, q1-b.webp — ảnh trắc nghiệm
+4. Upload JSON + chọn thêm file media → Lưu & làm bài
+
+Không có MP3 → vẫn chạy bằng TTS tạm (ttsText trong JSON).
+
+───
+
+Đề có sẵn để test
+
+┌───────────────────────────────────────────────┬─────────────────────────────────┐
+│ Route                                         │ Loại                            │
+├───────────────────────────────────────────────┼─────────────────────────────────┤
+│ /app/exam/listening/ket-listening-sample-01   │ KET · practice                  │
+├───────────────────────────────────────────────┼─────────────────────────────────┤
+│ /app/exam/listening/ielts-listening-sample-01 │ IELTS · exam (2 lượt nghe/Part) │
+└───────────────────────────────────────────────┴─────────────────────────────────┘
+
+Bạn có thể thử import một đề JSON + vài file MP3 để xác nhận flow end-to-end.
+
+Phase 3 đã xong. Tóm tắt:
+
+1. Hub chọn track (/app/exam)
+• IELTS Academic — Reading, Listening, Writing, Full Mock
+• A2 KET — Listening (card UI)
+• Cambridge B1–C2 — placeholder “Sắp ra mắt”
+
+Mỗi track: /app/exam/track/ielts | ket | cambridge
+
+2. Import ZIP Listening
+Trong track → Import Listening:
+• Upload ZIP gồm exam.json + q1.mp3, q1-a.jpg, part1.mp3…
+• Hoặc JSON riêng + media như Phase 2
+• Dùng thư viện fflate để giải nén
+
+Cấu trúc ZIP mẫu:
+
+my-listening.zip
+├── exam.json
+├── q1.mp3
+├── q1-a.jpg
+├── q1-b.jpg
+└── part1.mp3   (IELTS)
+
+3. Full Mock Test IELTS
+/app/exam/track/ielts → IELTS Academic Full Test 01
+
+Flow:
+1. Reading → nộp → xem điểm → Tiếp Listening
+2. Listening (IELTS exam mode) → Tiếp Writing
+3. Writing Task 1 + Task 2 (timer, đếm từ)
+4. Tổng kết — điểm Reading/Listening + số từ Writing
+
+Tiến độ lưu trong localStorage; Writing chưa chấm band AI (dùng module Writing sau).
+
+Routes mới
+┌────────────────────────────────┬─────────────────────────┐
+│ Route                          │ Mục đích                │
+├────────────────────────────────┼─────────────────────────┤
+│ /app/exam/track/:trackId       │ Trang track             │
+├────────────────────────────────┼─────────────────────────┤
+│ /app/exam/full/:mockId         │ Giới thiệu Full Test    │
+├────────────────────────────────┼─────────────────────────┤
+│ /app/exam/full/:mockId/summary │ Kết quả tổng            │
+├────────────────────────────────┼─────────────────────────┤
+│ /app/exam/writing/:mockId      │ Writing trong Full Mock │
+└────────────────────────────────┴─────────────────────────┘
+
+Bạn có thể test: Luyện thi → IELTS Academic → Bắt đầu Full Test, hoặc import ZIP Listening trên track KET/IELTS.

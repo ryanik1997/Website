@@ -1,10 +1,12 @@
-import { useRef } from 'react'
 import type { ReadingQuestionGroup } from './examData'
+import ReadingHighlightableText from './ReadingHighlightableText'
+import type { ReadingHighlight } from './readingHighlightUtils'
 
 interface Props {
   groups: ReadingQuestionGroup[]
   answers: Record<string, string>
   activeQuestionId: string | null
+  highlights: ReadingHighlight[]
   onSelectQuestion: (questionId: string) => void
   onAnswer: (questionId: string, value: string) => void
 }
@@ -12,16 +14,29 @@ interface Props {
 function TfngGroup({
   group,
   answers,
+  highlights,
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
       {group.questions.map(question => (
         <div
           key={question.id}
@@ -29,9 +44,15 @@ function TfngGroup({
           className="reading-test-tfng-item"
           onFocus={() => onSelectQuestion(question.id)}
         >
-          <span className="reading-test-tfng-num">{question.number}</span>
+          <span className="reading-test-tfng-num" data-highlight-skip>{question.number}</span>
           <div>
-            <p className="reading-test-tfng-prompt">{question.prompt}</p>
+            <ReadingHighlightableText
+              blockId={`${question.id}-prompt`}
+              text={question.prompt}
+              highlights={highlights}
+              className="reading-test-tfng-prompt"
+              as="p"
+            />
             <div className="reading-test-tfng-options">
               {question.options.map(option => (
                 <label key={option.id} className="reading-test-radio">
@@ -42,7 +63,12 @@ function TfngGroup({
                     onChange={() => onAnswer(question.id, option.id)}
                     onFocus={() => onSelectQuestion(question.id)}
                   />
-                  {option.label}
+                  <ReadingHighlightableText
+                    blockId={`${question.id}-opt-${option.id}`}
+                    text={option.label}
+                    highlights={highlights}
+                    as="span"
+                  />
                 </label>
               ))}
             </div>
@@ -56,22 +82,40 @@ function TfngGroup({
 function MultipleChoiceGroup({
   group,
   answers,
+  highlights,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'onSelectQuestion' | 'onAnswer'>) {
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
       {group.questions.map(question => (
         <div key={question.id} id={`reading-q-${question.id}`} className="reading-test-mc-item">
           <p className="reading-test-tfng-prompt">
-            <span className="reading-test-tfng-num" style={{ display: 'inline', marginRight: '0.35rem' }}>
+            <span className="reading-test-tfng-num" data-highlight-skip style={{ display: 'inline', marginRight: '0.35rem' }}>
               {question.number}
             </span>
-            {question.prompt}
+            <ReadingHighlightableText
+              blockId={`${question.id}-prompt`}
+              text={question.prompt}
+              highlights={highlights}
+              as="span"
+            />
           </p>
           <div className="reading-test-mc-options">
             {question.options.map(option => {
@@ -86,8 +130,14 @@ function MultipleChoiceGroup({
                     onAnswer(question.id, option.id)
                   }}
                 >
-                  <span className="reading-test-mc-letter">{option.id}</span>
-                  <span className="reading-test-mc-label">{option.label}</span>
+                  <span className="reading-test-mc-letter" data-highlight-skip>{option.id}</span>
+                  <ReadingHighlightableText
+                    blockId={`${question.id}-opt-${option.id}`}
+                    text={option.label}
+                    highlights={highlights}
+                    className="reading-test-mc-label"
+                    as="span"
+                  />
                 </button>
               )
             })}
@@ -101,21 +151,42 @@ function MultipleChoiceGroup({
 function MatchingParagraphGroup({
   group,
   answers,
+  highlights,
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const letters = group.paragraphLetters ?? []
   const activeInGroup = group.questions.some(q => q.id === activeQuestionId)
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
-      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
+      {group.note && (
+        <ReadingHighlightableText
+          blockId={`${group.id}-note`}
+          text={group.note}
+          highlights={highlights}
+          className="reading-test-group__note"
+          as="p"
+        />
+      )}
 
       {group.questions.map(question => {
         const answered = answers[question.id]
@@ -135,9 +206,17 @@ function MatchingParagraphGroup({
               }
             }}
           >
-            <span className="reading-test-match-num">{question.number}</span>
-            <span className="reading-test-match-prompt">{question.prompt}</span>
-            <span className="reading-test-match-answer">{answered ? answered.toUpperCase() : ''}</span>
+            <span className="reading-test-match-num" data-highlight-skip>{question.number}</span>
+            <ReadingHighlightableText
+              blockId={`${question.id}-prompt`}
+              text={question.prompt}
+              highlights={highlights}
+              className="reading-test-match-prompt"
+              as="span"
+            />
+            <span className="reading-test-match-answer" data-highlight-skip>
+              {answered ? answered.toUpperCase() : ''}
+            </span>
           </div>
         )
       })}
@@ -173,25 +252,51 @@ function MatchingParagraphGroup({
 function GapFillGroup({
   group,
   answers,
+  highlights,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'onSelectQuestion' | 'onAnswer'>) {
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
-      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
+      {group.note && (
+        <ReadingHighlightableText
+          blockId={`${group.id}-note`}
+          text={group.note}
+          highlights={highlights}
+          className="reading-test-group__note"
+          as="p"
+        />
+      )}
       {group.questions.map(question => (
         <div key={question.id} id={`reading-q-${question.id}`} className="reading-test-mc-item">
           <p className="reading-test-tfng-prompt">
-            <span className="reading-test-tfng-num" style={{ display: 'inline', marginRight: '0.35rem' }}>
+            <span className="reading-test-tfng-num" data-highlight-skip style={{ display: 'inline', marginRight: '0.35rem' }}>
               {question.number}
             </span>
-            {question.prompt}
+            <ReadingHighlightableText
+              blockId={`${question.id}-prompt`}
+              text={question.prompt}
+              highlights={highlights}
+              as="span"
+            />
             {question.answerConfidence === 'inferred' && (
-              <span className="reading-test-inferred-badge">Đoán</span>
+              <span className="reading-test-inferred-badge" data-highlight-skip>Đoán</span>
             )}
           </p>
           <input
@@ -211,27 +316,55 @@ function GapFillGroup({
 function SummaryCompletionGroup({
   group,
   answers,
+  highlights,
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const bank = group.wordBank ?? []
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
-      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
+      {group.note && (
+        <ReadingHighlightableText
+          blockId={`${group.id}-note`}
+          text={group.note}
+          highlights={highlights}
+          className="reading-test-group__note"
+          as="p"
+        />
+      )}
 
       {bank.length > 0 && (
         <div className="reading-test-word-bank">
           <p className="reading-test-word-bank__title">Word bank</p>
           {bank.map(word => (
             <p key={word.id} className="reading-test-word-bank__item">
-              <strong>{word.id.toUpperCase()}</strong> {word.label}
+              <strong data-highlight-skip>{word.id.toUpperCase()}</strong>
+              {' '}
+              <ReadingHighlightableText
+                blockId={`${group.id}-bank-${word.id}`}
+                text={word.label}
+                highlights={highlights}
+                as="span"
+              />
             </p>
           ))}
         </div>
@@ -255,14 +388,21 @@ function SummaryCompletionGroup({
               }
             }}
           >
-            <span className="reading-test-match-num">{question.number}</span>
+            <span className="reading-test-match-num" data-highlight-skip>{question.number}</span>
             <span className="reading-test-match-prompt">
-              {question.prompt}
+              <ReadingHighlightableText
+                blockId={`${question.id}-prompt`}
+                text={question.prompt}
+                highlights={highlights}
+                as="span"
+              />
               {question.answerConfidence === 'inferred' && (
-                <span className="reading-test-inferred-badge">Đoán</span>
+                <span className="reading-test-inferred-badge" data-highlight-skip>Đoán</span>
               )}
             </span>
-            <span className="reading-test-match-answer">{answered ? answered.toUpperCase() : ''}</span>
+            <span className="reading-test-match-answer" data-highlight-skip>
+              {answered ? answered.toUpperCase() : ''}
+            </span>
           </div>
         )
       })}
@@ -295,26 +435,54 @@ function SummaryCompletionGroup({
 function MatchingFeaturesGroup({
   group,
   answers,
+  highlights,
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const features = group.features ?? []
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (
     <section className="reading-test-group">
-      <h3 className="reading-test-group__title">{group.range}</h3>
-      <p className="reading-test-group__instruction">{group.instruction}</p>
-      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
+      {group.note && (
+        <ReadingHighlightableText
+          blockId={`${group.id}-note`}
+          text={group.note}
+          highlights={highlights}
+          className="reading-test-group__note"
+          as="p"
+        />
+      )}
 
       <div className="reading-test-features">
         <p className="reading-test-features__title">List of features</p>
         {features.map(feature => (
           <p key={feature.id} className="reading-test-features__item">
-            <strong>{feature.id.toUpperCase()}</strong> {feature.name}
+            <strong data-highlight-skip>{feature.id.toUpperCase()}</strong>
+            {' '}
+            <ReadingHighlightableText
+              blockId={`${group.id}-feature-${feature.id}`}
+              text={feature.name}
+              highlights={highlights}
+              as="span"
+            />
           </p>
         ))}
       </div>
@@ -337,9 +505,17 @@ function MatchingFeaturesGroup({
               }
             }}
           >
-            <span className="reading-test-match-num">{question.number}</span>
-            <span className="reading-test-match-prompt">{question.prompt}</span>
-            <span className="reading-test-match-answer">{answered ? answered.toUpperCase() : ''}</span>
+            <span className="reading-test-match-num" data-highlight-skip>{question.number}</span>
+            <ReadingHighlightableText
+              blockId={`${question.id}-prompt`}
+              text={question.prompt}
+              highlights={highlights}
+              className="reading-test-match-prompt"
+              as="span"
+            />
+            <span className="reading-test-match-answer" data-highlight-skip>
+              {answered ? answered.toUpperCase() : ''}
+            </span>
           </div>
         )
       })}
@@ -373,13 +549,12 @@ export default function ReadingQuestionPanel({
   groups,
   answers,
   activeQuestionId,
+  highlights,
   onSelectQuestion,
   onAnswer,
 }: Props) {
-  const panelRef = useRef<HTMLDivElement>(null)
-
   return (
-    <div ref={panelRef} className="reading-test-questions">
+    <div className="reading-test-questions" data-reading-highlight-zone>
       {groups.map(group => {
         switch (group.type) {
           case 'tfng':
@@ -388,6 +563,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
@@ -399,6 +575,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
@@ -410,6 +587,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
@@ -422,6 +600,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
               />
@@ -432,6 +611,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
@@ -443,6 +623,7 @@ export default function ReadingQuestionPanel({
                 key={group.id}
                 group={group}
                 answers={answers}
+                highlights={highlights}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
               />

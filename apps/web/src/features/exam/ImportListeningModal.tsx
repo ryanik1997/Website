@@ -1,0 +1,348 @@
+import { useCallback, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { X, Upload, Loader2, FileJson, AlertCircle, Check, Headphones, Download, Archive } from 'lucide-react'
+import { listeningExamRepo } from '@ryan/db'
+import {
+  buildListeningExamFromImport,
+  countListeningImportQuestions,
+  isListeningJsonFile,
+  isListeningMediaFile,
+  LISTENING_IMPORT_MAX_JSON_BYTES,
+  LISTENING_IMPORT_MAX_MEDIA_BYTES,
+  listeningImportTemplate,
+  parseListeningImportJson,
+  validateListeningImport,
+  type ListeningImportPayload,
+} from './importListeningUtils'
+import { extractListeningZip } from './importListeningZip'
+import { examRecordFromListening } from './listeningExamLoader'
+import type { ListeningExamType } from './listeningExamData'
+
+interface Props {
+  onClose: () => void
+  onCreated?: (examId: string) => void
+  defaultExamType?: ListeningExamType
+}
+
+type Step = 'upload' | 'preview' | 'saving'
+
+function formatBytes(n: number): string {
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`
+  return `${(n / 1024 / 1024).toFixed(1)} MB`
+}
+
+export default function ImportListeningModal({ onClose, onCreated, defaultExamType = 'ket' }: Props) {
+  const jsonInputRef = useRef<HTMLInputElement>(null)
+  const mediaInputRef = useRef<HTMLInputElement>(null)
+  const zipInputRef = useRef<HTMLInputElement>(null)
+
+  const [step, setStep] = useState<Step>('upload')
+  const [jsonFile, setJsonFile] = useState<File | null>(null)
+  const [mediaFiles, setMediaFiles] = useState<File[]>([])
+  const [payload, setPayload] = useState<ListeningImportPayload | null>(null)
+  const [warnings, setWarnings] = useState<string[]>([])
+  const [error, setError] = useState<string | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [sourceLabel, setSourceLabel] = useState<string | null>(null)
+
+  const processJson = useCallback(async (file: File) => {
+    setError(null)
+    if (file.size > LISTENING_IMPORT_MAX_JSON_BYTES) {
+      setError(`JSON quá lớn (tối đa ${formatBytes(LISTENING_IMPORT_MAX_JSON_BYTES)}).`)
+      return
+    }
+    try {
+      const text = await file.text()
+      const parsed = parseListeningImportJson(text)
+      setJsonFile(file)
+      setSourceLabel(file.name)
+      setPayload(parsed)
+      setWarnings(validateListeningImport(parsed))
+      setStep('preview')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Không đọc được JSON.')
+    }
+  }, [])
+
+  const addMediaFiles = useCallback((files: FileList | File[]) => {
+    const list = Array.from(files).filter(isListeningMediaFile)
+    const totalSize = list.reduce((s, f) => s + f.size, mediaFiles.reduce((s, f) => s + f.size, 0))
+    if (totalSize > LISTENING_IMPORT_MAX_MEDIA_BYTES) {
+      setError(`Media quá lớn (tối đa ${formatBytes(LISTENING_IMPORT_MAX_MEDIA_BYTES)}).`)
+      return
+    }
+    setMediaFiles(prev => {
+      const map = new Map(prev.map(f => [f.name.toLowerCase(), f]))
+      for (const f of list) map.set(f.name.toLowerCase(), f)
+      return Array.from(map.values())
+    })
+    setError(null)
+  }, [mediaFiles])
+
+  const processZip = useCallback(async (file: File) => {
+    setError(null)
+    try {
+      const bundle = await extractListeningZip(file)
+      setJsonFile(bundle.jsonFile)
+      setSourceLabel(bundle.zipName)
+      setPayload(bundle.payload)
+      setMediaFiles(bundle.mediaFiles)
+      setWarnings(validateListeningImport(bundle.payload))
+      setStep('preview')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Không giải nén được ZIP.')
+    }
+  }, [])
+
+  async function handleSave() {
+    if (!payload) return
+    setSaving(true)
+    setStep('saving')
+    setError(null)
+    try {
+      const exam = await buildListeningExamFromImport(payload, mediaFiles)
+      await listeningExamRepo.create(examRecordFromListening(exam, 'import', sourceLabel ?? jsonFile?.name))
+      onCreated?.(exam.id)
+      onClose()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Lưu đề thất bại.')
+      setStep('preview')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  function downloadTemplate() {
+    const json = JSON.stringify(listeningImportTemplate(defaultExamType), null, 2)
+    const blob = new Blob([json], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `listening-import-${defaultExamType}-template.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const qCount = payload ? countListeningImportQuestions(payload) : 0
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'color-mix(in srgb, var(--bg-primary) 45%, transparent)' }}
+      onClick={onClose}
+    >
+      <div
+        className="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border shadow-2xl"
+        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div
+          className="flex items-center justify-between border-b px-5 py-4"
+          style={{ borderColor: 'var(--border-color)' }}
+        >
+          <div className="flex items-center gap-2">
+            <Headphones size={18} style={{ color: 'var(--color-accent)' }} />
+            <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+              Import Listening
+            </h2>
+          </div>
+          <button type="button" onClick={onClose} className="p-1 rounded-lg hover:opacity-80">
+            <X size={18} style={{ color: 'var(--text-muted)' }} />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-5 py-4">
+          {step === 'upload' && (
+            <div className="flex flex-col gap-4">
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                Upload <strong>ZIP bundle</strong> (exam.json + MP3/ảnh) hoặc <strong>JSON</strong> riêng + media.
+                Tên file: <code>q1.mp3</code>, <code>q1-a.jpg</code>, <code>part1.mp3</code>…
+              </p>
+
+              <button
+                type="button"
+                onClick={downloadTemplate}
+                className="inline-flex items-center gap-2 self-start rounded-lg border px-3 py-2 text-xs font-semibold"
+                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+              >
+                <Download size={14} />
+                Tải JSON mẫu
+              </button>
+
+              <div
+                className="rounded-xl border border-dashed p-6 text-center cursor-pointer"
+                style={{ borderColor: 'var(--border-color)' }}
+                onClick={() => zipInputRef.current?.click()}
+              >
+                <Archive size={28} className="mx-auto mb-2" style={{ color: 'var(--color-accent)' }} />
+                <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                  Chọn file ZIP bundle
+                </p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  exam.json + q1.mp3 + q1-a.jpg …
+                </p>
+                <input
+                  ref={zipInputRef}
+                  type="file"
+                  accept=".zip,application/zip"
+                  className="hidden"
+                  onChange={e => {
+                    const f = e.target.files?.[0]
+                    if (f) void processZip(f)
+                  }}
+                />
+              </div>
+
+              <div
+                className="rounded-xl border border-dashed p-6 text-center cursor-pointer"
+                style={{ borderColor: 'var(--border-color)' }}
+                onClick={() => jsonInputRef.current?.click()}
+              >
+                <FileJson size={28} className="mx-auto mb-2" style={{ color: 'var(--color-primary)' }} />
+                <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                  Chọn file JSON đề Listening
+                </p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {jsonFile ? jsonFile.name : 'listening-import.json'}
+                </p>
+                <input
+                  ref={jsonInputRef}
+                  type="file"
+                  accept=".json,application/json"
+                  className="hidden"
+                  onChange={e => {
+                    const f = e.target.files?.[0]
+                    if (f && isListeningJsonFile(f)) void processJson(f)
+                  }}
+                />
+              </div>
+
+              <div
+                className="rounded-xl border border-dashed p-5 text-center cursor-pointer"
+                style={{ borderColor: 'var(--border-color)' }}
+                onClick={() => mediaInputRef.current?.click()}
+              >
+                <Upload size={22} className="mx-auto mb-2" style={{ color: 'var(--color-accent)' }} />
+                <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                  Thêm MP3 / ảnh (tuỳ chọn)
+                </p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {mediaFiles.length > 0
+                    ? `${mediaFiles.length} file · ${formatBytes(mediaFiles.reduce((s, f) => s + f.size, 0))}`
+                    : 'Có thể bỏ qua — dùng TTS tạm'}
+                </p>
+                <input
+                  ref={mediaInputRef}
+                  type="file"
+                  accept=".mp3,.wav,.m4a,.ogg,.jpg,.jpeg,.png,.webp,.gif,audio/*,image/*"
+                  multiple
+                  className="hidden"
+                  onChange={e => {
+                    if (e.target.files) addMediaFiles(e.target.files)
+                  }}
+                />
+              </div>
+
+              {error && (
+                <p className="flex items-start gap-2 text-sm" style={{ color: 'var(--color-accent)' }}>
+                  <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                  {error}
+                </p>
+              )}
+            </div>
+          )}
+
+          {step === 'preview' && payload && (
+            <div className="flex flex-col gap-4">
+              <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border-color)' }}>
+                <h3 className="font-bold" style={{ color: 'var(--text-primary)' }}>{payload.title}</h3>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {payload.examType.toUpperCase()} · {payload.examMode ?? 'practice'} · {qCount} câu ·{' '}
+                  {payload.durationMinutes} phút · {mediaFiles.length} file media
+                </p>
+              </div>
+
+              {warnings.length > 0 && (
+                <div
+                  className="rounded-xl border p-3 text-xs space-y-1"
+                  style={{
+                    borderColor: 'color-mix(in srgb, var(--color-accent) 35%, var(--border-color))',
+                    color: 'var(--text-muted)',
+                  }}
+                >
+                  {warnings.map(w => (
+                    <p key={w}>• {w}</p>
+                  ))}
+                </div>
+              )}
+
+              <div className="space-y-2">
+                {payload.parts.map(part => (
+                  <div
+                    key={part.partNumber}
+                    className="rounded-lg border px-3 py-2 text-sm"
+                    style={{ borderColor: 'var(--border-color)' }}
+                  >
+                    <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>
+                      Part {part.partNumber}
+                    </span>
+                    <span style={{ color: 'var(--text-muted)' }}> — {part.rangeLabel} · {part.questions.length} câu</span>
+                  </div>
+                ))}
+              </div>
+
+              {error && (
+                <p className="text-sm" style={{ color: 'var(--color-accent)' }}>{error}</p>
+              )}
+            </div>
+          )}
+
+          {step === 'saving' && (
+            <div className="flex flex-col items-center gap-3 py-10">
+              <Loader2 size={28} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Đang lưu đề và media…</p>
+            </div>
+          )}
+        </div>
+
+        <div
+          className="flex items-center justify-between gap-2 border-t px-5 py-3"
+          style={{ borderColor: 'var(--border-color)' }}
+        >
+          <Link
+            to="/app/settings?tab=ai"
+            className="text-xs font-medium"
+            style={{ color: 'var(--text-muted)' }}
+            onClick={onClose}
+          >
+            Cần TTS? Cài đặt AI
+          </Link>
+          <div className="flex gap-2">
+            {step === 'preview' && (
+              <button
+                type="button"
+                className="rounded-lg border px-4 py-2 text-sm font-semibold"
+                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                onClick={() => setStep('upload')}
+              >
+                Quay lại
+              </button>
+            )}
+            {step === 'preview' && (
+              <button
+                type="button"
+                disabled={saving || qCount === 0}
+                className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold"
+                style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                onClick={() => void handleSave()}
+              >
+                <Check size={16} />
+                Lưu & làm bài
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { createRequire } from 'node:module'
 import { resolve } from 'path'
 import { copyFileSync, mkdirSync } from 'fs'
+
+const require = createRequire(import.meta.url)
+const PDF_WORKER_FILE = require.resolve('pdfjs-dist/build/pdf.worker.min.mjs')
 
 /** Mọi client route — copy index.html làm fallback khi Vercel không áp dụng rewrites */
 const SPA_ROUTES = [
@@ -15,6 +19,19 @@ const SPA_ROUTES = [
   'app/settings',
   'app/admin',
 ]
+
+function copyPdfWorker() {
+  const dest = resolve(__dirname, 'public/pdf.worker.min.mjs')
+  return {
+    name: 'copy-pdf-worker',
+    buildStart() {
+      copyFileSync(PDF_WORKER_FILE, dest)
+    },
+    configureServer() {
+      copyFileSync(PDF_WORKER_FILE, dest)
+    },
+  }
+}
 
 function vercelSpaRoutes() {
   return {
@@ -40,7 +57,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  plugins: [react(), vercelSpaRoutes()],
+  optimizeDeps: {
+    exclude: ['pdfjs-dist'],
+  },
+  worker: {
+    format: 'es',
+  },
+  plugins: [react(), copyPdfWorker(), vercelSpaRoutes()],
   resolve: {
     alias: {
       '@ryan/core': resolve(__dirname, '../../packages/core/src/index.ts'),

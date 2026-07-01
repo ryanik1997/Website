@@ -42,7 +42,7 @@ export interface ParsedReadingQuestionGroup {
 }
 
 export interface ParsedReadingPart {
-  partNumber: 1 | 2 | 3
+  partNumber: number
   passageTitle: string
   passageSubtitle?: string
   rangeLabel: string
@@ -60,7 +60,7 @@ export interface ParsedReadingFull {
 export type ParseProgressEvent =
   | { phase: 'extract'; status: 'start' | 'done' }
   | { phase: 'full'; status: 'start' | 'done' | 'error' }
-  | { phase: 'part'; partNumber: 1 | 2 | 3; status: 'start' | 'done' | 'skip' | 'error' }
+  | { phase: 'part'; partNumber: number; status: 'start' | 'done' | 'skip' | 'error' }
 
 export type ParseProgressCallback = (event: ParseProgressEvent) => void
 
@@ -369,13 +369,29 @@ function shouldFallbackToPerPart(parts: ParsedReadingPart[], pdfText: string): b
   return false
 }
 
-/** Trích đủ 3 parts — thử full trước, fallback parse từng part. */
+export type ReadingPdfExamFormat = 'ielts' | 'ket-a2' | 'pet-b1'
+
+export interface ParseReadingPdfOptions {
+  format?: ReadingPdfExamFormat
+}
+
+/** Trích IELTS (3 parts), KET (5) hoặc PET (6) — thử full trước, fallback parse từng part. */
 export async function parseReadingPdfFull(
   pdfText: string,
   apiKey: string,
   provider: AIProvider = 'openai',
   onProgress?: ParseProgressCallback,
+  options?: ParseReadingPdfOptions,
 ): Promise<ParsedReadingPart[]> {
+  if (options?.format === 'ket-a2') {
+    const { parseKetReadingPdfFull } = await import('./readingPdfKetPrompt')
+    return parseKetReadingPdfFull(pdfText, apiKey, provider, onProgress)
+  }
+  if (options?.format === 'pet-b1') {
+    const { parsePetReadingPdfFull } = await import('./readingPdfPetPrompt')
+    return parsePetReadingPdfFull(pdfText, apiKey, provider, onProgress)
+  }
+
   if (pdfText.trim().length < 200) {
     throw new Error('PDF không đủ chữ — có thể là file scan. Thử OCR/Vision hoặc PDF có lớp text.')
   }

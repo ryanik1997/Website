@@ -1,0 +1,188 @@
+Tổng quan: app hỗ trợ gì?
+
+┌────────────────────┬────────────────────────────────────────────────────┬──────────────────────────────────┐
+│ Kỹ năng            │ Cách import                                        │ Sách của bạn                     │
+├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
+│ Reading            │ Upload PDF → AI tự trích passage + câu hỏi         │ ✅ Dùng được                     │
+├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
+│ Listening          │ Upload ZIP (exam.json + MP3/ảnh) hoặc JSON + media │ ⚠️ Phải tự soạn JSON + gắn audio │
+├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
+│ Writing / Speaking │ Không có import ở Luyện thi                        │ Dùng module Viết riêng           │
+└────────────────────┴────────────────────────────────────────────────────┴──────────────────────────────────┘
+
+───
+
+Chuẩn bị trước khi import
+
+1. Cấu hình AI (bắt buộc cho Reading):
+   Cài đặt → AI → chọn OpenAI hoặc Gemini và nhập API key.
+
+2. Tách PDF đúng phần (không upload cả cuốn sách):
+   • Chỉ lấy trang Reading Test (passage + câu hỏi).
+   • Bỏ phần Answer key, Writing, Speaking, bìa.
+   • File tối đa 12 MB — nếu quá lớn, export riêng từng Test (vd. Test 1).
+
+3. Vào đúng track trong app:
+   • IELTS 20 → Luyện thi → IELTS
+   • A2 Key 2 → Luyện thi → Cambridge → A2
+
+───
+
+1. IELTS Academic 20 — Reading
+
+Đường dẫn: Luyện thi → IELTS → Import PDF Reading
+
+Các bước:
+
+1. Từ PDF sách, export riêng Reading Test 1 (hoặc Test 2, 3…) — 3 passage + câu hỏi, khoảng 40 câu.
+2. Đặt tên gợi ý: Cambridge 20 — Reading Test 1.
+3. Kéo thả PDF vào modal → Phân tích.
+4. Đợi 30–120 giây (PDF scan dùng Vision OCR, chậm hơn PDF có text).
+5. Ở Preview, kiểm tra:
+   • Đủ 3 parts?
+   • Số câu gần 40?
+   • Badge "Đoán" ở đáp án — sửa tay nếu sai (lấy từ Answer key cuối sách).
+6. Lưu & làm bài.
+
+Lưu ý: Một lần import = một Reading test (không import cả 4 test trong một file).
+
+───
+
+2. IELTS Academic 20 — Listening
+
+App không đọc PDF cho Listening. Cần audio + JSON.
+
+Đường dẫn: Luyện thi → IELTS → Import Listening
+
+Chuẩn bị file:
+
+┌──────────────────┬───────────────────────────────────────────────────────────────────────────┐
+│ Thành phần       │ Nguồn từ sách                                                             │
+├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ Audio            │ CD / Resource Bank đi kèm sách (4 file MP3 theo Part, hoặc tách từng câu) │
+├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ Câu hỏi + đáp án │ Test book + Answer key → gõ vào exam.json                                 │
+├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ Ảnh (nếu có)     │ Part có hình → q1-a.jpg, q1-b.jpg…                                        │
+└──────────────────┴───────────────────────────────────────────────────────────────────────────┘
+
+Cấu trúc IELTS Listening: 4 parts · 40 câu · examType: "ielts"
+
+Trong modal, bấm Tải JSON mẫu để có khung sẵn. Ví dụ rút gọn:
+
+{
+  "version": 1,
+  "title": "IELTS 20 — Listening Test 1",
+  "durationMinutes": 40,
+  "bandHint": "IELTS",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "audioFile": "part1.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Name: ______",
+          "answer": "Smith",
+          "wordLimit": 1
+        }
+      ]
+    }
+  ]
+}
+
+Loại câu hỏi: gap-fill, multiple-choice, matching, picture-mc
+
+Đóng ZIP và import:
+
+ielts20-listening-test1.zip
+├── exam.json
+├── part1.mp3
+├── part2.mp3
+├── part3.mp3
+└── part4.mp3
+
+Hoặc upload JSON trước, rồi thêm MP3/ảnh. Không có MP3 vẫn được — app dùng TTS tạm nếu bạn điền ttsText.
+
+───
+
+3. A2 Key 2 — Reading
+
+Đường dẫn: Luyện thi → Cambridge → A2 → Import PDF Reading
+
+Các bước: Giống IELTS, nhưng:
+
+• Export PDF Reading Parts 1–5 (32 câu).
+• Bỏ Parts 6–7 (Writing — làm ở module Viết).
+• Đặt tên: A2 Key 2 — Reading Test 1.
+
+App gắn đề vào track Cambridge A2.
+
+───
+
+4. A2 Key 2 — Listening
+
+Đường dẫn: Cambridge → A2 → Import Listening
+
+Chuẩn bị:
+
+┌────────────┬────────────────────────────────────────────────────────────┐
+│ Thành phần │ Chi tiết                                                   │
+├────────────┼────────────────────────────────────────────────────────────┤
+│ Format     │ 5 parts · 25 câu                                           │
+├────────────┼────────────────────────────────────────────────────────────┤
+│ examType   │ "ket" (không phải ielts)                                   │
+├────────────┼────────────────────────────────────────────────────────────┤
+│ Audio      │ Resource Bank / audio đi kèm sách                          │
+├────────────┼────────────────────────────────────────────────────────────┤
+│ Ảnh        │ Part 1 thường có picture-mc → q1-a.jpg, q1-b.jpg, q1-c.jpg │
+└────────────┴────────────────────────────────────────────────────────────┘
+
+Trong modal (track A2), Tải JSON mẫu sẽ có examType: "ket".
+
+Ví dụ Part 1 A2 (chọn hình):
+
+{
+  "number": 1,
+  "type": "picture-mc",
+  "prompt": "Where are they going?",
+  "audioFile": "q1.mp3",
+  "options": [
+    { "id": "A", "label": "Park", "imageFile": "q1-a.jpg" },
+    { "id": "B", "label": "Shop", "imageFile": "q1-b.jpg" },
+    { "id": "C", "label": "School", "imageFile": "q1-c.jpg" }
+  ],
+  "answer": "B"
+}
+
+───
+
+Checklist nhanh
+
+┌──────┬────────────────────────────────────────┬───────────────────────────────┐
+│ Bước │ Reading                                │ Listening                     │
+├──────┼────────────────────────────────────────┼───────────────────────────────┤
+│ 1    │ Tách PDF đúng phần Reading             │ Rip/tải MP3 từ audio sách     │
+├──────┼────────────────────────────────────────┼───────────────────────────────┤
+│ 2    │ Cấu hình API key AI                    │ Tải JSON mẫu trong app        │
+├──────┼────────────────────────────────────────┼───────────────────────────────┤
+│ 3    │ Import PDF → Preview → Sửa đáp án đoán │ Soạn câu hỏi + đáp án từ sách │
+├──────┼────────────────────────────────────────┼───────────────────────────────┤
+│ 4    │ Lưu & làm bài                          │ Đóng ZIP → Import → Lưu       │
+└──────┴────────────────────────────────────────┴───────────────────────────────┘
+
+───
+
+Điều app chưa làm tự động
+
+• Không import cả cuốn PDF một lúc (nhiều test).
+• Không tự trích Listening từ PDF — phải soạn JSON thủ công.
+• Không import Writing / Speaking trong hub Luyện thi.
+
+───
+
+Nếu bạn muốn, tôi có thể soạn sẵn file exam.json mẫu đầy đủ cho Listening Test 1 của IELTS 20 hoặc A2 Key 2 (khung 40/25 câu, bạn chỉ điền nội dung từ sách). Bạn đang có PDF dạng text hay scan (ảnh chụp)?

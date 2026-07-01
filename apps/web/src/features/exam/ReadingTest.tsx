@@ -3,17 +3,27 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import {
   Bell, ChevronLeft, ChevronRight, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
 } from 'lucide-react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamResult from './ExamResult'
+import FullMockStageResult from './FullMockStageResult'
+import { getFullMockTest } from './fullMockData'
+import {
+  appendFullMockQuery,
+  clearFullMockSession,
+  patchFullMockSession,
+} from './fullMockSession'
 import ReadingFontPanel from './ReadingFontPanel'
+import ReadingHighlightToolbar from './ReadingHighlightToolbar'
+import ReadingPassagePanel from './ReadingPassagePanel'
 import ReadingQuestionPanel from './ReadingQuestionPanel'
+import type { ReadingHighlight } from './readingHighlightUtils'
 import {
   ensureReadingFontsLoaded,
   getFontFamilyCss,
   loadFontFamilyId,
   loadFontSize,
 } from './readingFontSettings'
-import { getExamQuestions, getPartQuestions } from './examData'
+import { getExamQuestions, getPartQuestions, isReadingAnswerCorrect } from './examData'
 import { resolveReadingExam } from './examLoader'
 import './readingTest.css'
 
@@ -25,6 +35,8 @@ const SPLIT_MAX = 72
 export default function ReadingTest() {
   const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
+  const [searchParams] = useSearchParams()
+  const fullMockId = searchParams.get('fullMock')
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
@@ -42,6 +54,7 @@ export default function ReadingTest() {
   const [fontFamilyId, setFontFamilyId] = useState(loadFontFamilyId)
   const [fontPanelOpen, setFontPanelOpen] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [highlightsByPart, setHighlightsByPart] = useState<Record<string, ReadingHighlight[]>>({})
 
   const shellRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -55,8 +68,14 @@ export default function ReadingTest() {
     [currentPart],
   )
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+  const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
 
   const minutesRemaining = Math.max(0, Math.ceil(timeLeft / 60))
+
+  const handlePartHighlightsChange = useCallback((highlights: ReadingHighlight[]) => {
+    if (!currentPart) return
+    setHighlightsByPart(prev => ({ ...prev, [currentPart.id]: highlights }))
+  }, [currentPart])
 
   useEffect(() => {
     ensureReadingFontsLoaded()
@@ -103,6 +122,7 @@ export default function ReadingTest() {
       setTimeLeft(exam.durationMinutes * 60)
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setHighlightsByPart({})
       return
     }
 
@@ -119,11 +139,13 @@ export default function ReadingTest() {
       setSubmitted(Boolean(saved.submitted))
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setHighlightsByPart({})
     } catch {
       setAnswers({})
       setTimeLeft(exam.durationMinutes * 60)
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setHighlightsByPart({})
     }
   }, [exam, storageKey])
 
@@ -300,6 +322,32 @@ export default function ReadingTest() {
   }
 
   if (submitted) {
+    const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
+    if (fullMock) {
+      const questions = getExamQuestions(exam)
+      const correct = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
+      return (
+        <FullMockStageResult
+          mockTitle={fullMock.title}
+          stage="reading"
+          stageLabel="Reading"
+          scoreText={`${correct}/${questions.length}`}
+          nextLabel="Tiếp Listening"
+          onContinue={() => {
+            patchFullMockSession({
+              stage: 'listening',
+              reading: { correct, total: questions.length, answers: { ...answers } },
+            })
+            navigate(appendFullMockQuery(`/app/exam/listening/${fullMock.listeningExamId}`, fullMock.id))
+          }}
+          onExit={() => {
+            clearFullMockSession()
+            navigate('/app/exam')
+          }}
+        />
+      )
+    }
+
     return (
       <ExamResult
         exam={exam}
@@ -310,6 +358,7 @@ export default function ReadingTest() {
           setTimeLeft(exam.durationMinutes * 60)
           setPartIndex(0)
           setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+          setHighlightsByPart({})
           setSubmitted(false)
         }}
         onBack={() => navigate('/app/exam')}
@@ -383,26 +432,21 @@ export default function ReadingTest() {
       </header>
 
       <div ref={bodyRef} className="reading-test-body">
-        <article className="reading-test-passage">
-          {currentPart && (
-            <>
-              <p className="reading-test-part-kicker">Part {currentPart.partNumber}</p>
-              <p className="reading-test-part-range">{currentPart.rangeLabel}</p>
-              <h2 className="reading-test-passage-title">{currentPart.passageTitle}</h2>
-              {currentPart.passageSubtitle && (
-                <p className="reading-test-passage-subtitle">{currentPart.passageSubtitle}</p>
-              )}
-              {currentPart.passage.map((block, index) => (
-                <p key={`${currentPart.id}-p-${index}`} className="reading-test-paragraph">
-                  {block.label && (
-                    <span className="reading-test-paragraph__label">{block.label}</span>
-                  )}
-                  {block.text}
-                </p>
-              ))}
-            </>
-          )}
-        </article>
+        {currentPart && (
+          <ReadingHighlightToolbar
+            rootRef={bodyRef}
+            highlights={partHighlights}
+            onHighlightsChange={handlePartHighlightsChange}
+            resetKey={currentPart.id}
+          />
+        )}
+
+        {currentPart && (
+          <ReadingPassagePanel
+            part={currentPart}
+            highlights={partHighlights}
+          />
+        )}
 
         <button
           type="button"
@@ -423,6 +467,7 @@ export default function ReadingTest() {
             groups={currentPart.questionGroups}
             answers={answers}
             activeQuestionId={activeQuestionId}
+            highlights={partHighlights}
             onSelectQuestion={handleSelectQuestion}
             onAnswer={handleAnswer}
           />

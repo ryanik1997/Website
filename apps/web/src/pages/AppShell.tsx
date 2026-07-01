@@ -1,6 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import { BookOpen, PenLine, Headphones, Home, Settings, LogOut, GitBranch, Shield, Cloud, LoaderCircle, AlertCircle, Blocks, ClipboardCheck } from 'lucide-react'
+import {
+  BookOpen,
+  PenLine,
+  Headphones,
+  Home,
+  Settings,
+  LogOut,
+  GitBranch,
+  Shield,
+  Cloud,
+  LoaderCircle,
+  AlertCircle,
+  Blocks,
+  ClipboardCheck,
+  PanelLeftClose,
+  PanelLeftOpen,
+} from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useAuth } from '../features/auth/AuthContext'
 import { SyncProvider, useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
@@ -18,14 +34,14 @@ const NAV: Array<{
   icon: typeof Home
   label: string
 }> = [
-  { to: '/app/home',        icon: Home,       label: 'Tổng quan' },
-  { to: '/app/vocab',       icon: BookOpen,   label: 'Từ vựng' },
-  { to: '/app/writing',     icon: PenLine,    label: 'Viết' },
-  { to: '/app/listening',   icon: Headphones, label: 'Nghe' },
-  { to: '/app/exam',        icon: ClipboardCheck, label: 'Luyện thi' },
+  { to: '/app/home', icon: Home, label: 'Tổng quan' },
+  { to: '/app/vocab', icon: BookOpen, label: 'Từ vựng' },
+  { to: '/app/writing', icon: PenLine, label: 'Viết' },
+  { to: '/app/listening', icon: Headphones, label: 'Nghe' },
+  { to: '/app/exam', icon: ClipboardCheck, label: 'Luyện thi' },
   { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
-  { to: '/app/mindmap',     icon: GitBranch,  label: 'MindMap' },
-  { to: '/app/settings',    icon: Settings,   label: 'Cài đặt' },
+  { to: '/app/mindmap', icon: GitBranch, label: 'MindMap' },
+  { to: '/app/settings', icon: Settings, label: 'Cài đặt' },
 ]
 
 export default function AppShell() {
@@ -37,6 +53,9 @@ export default function AppShell() {
 }
 
 function AppShellInner() {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(
+    () => localStorage.getItem('ryan-sidebar-collapsed') === '1',
+  )
   const { user, signOut } = useAuth()
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
   usePlanSync()
@@ -55,13 +74,20 @@ function AppShellInner() {
     [],
   )
 
+  useEffect(() => {
+    localStorage.setItem('ryan-sidebar-collapsed', sidebarCollapsed ? '1' : '0')
+  }, [sidebarCollapsed])
+
   return (
     <div className="flex h-[100dvh] overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
-      {/* Sidebar */}
-      <aside className="w-52 flex flex-col shrink-0 border-r" style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
-        {/* Logo */}
+      <aside
+        className={`flex flex-col shrink-0 border-r transition-[width] duration-200 ${
+          sidebarCollapsed ? 'w-20' : 'w-52'
+        }`}
+        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+      >
         <div className="px-4 py-4 border-b" style={{ borderColor: 'var(--border-color)' }}>
-          <div className="flex items-center gap-2.5">
+          <div className={`flex items-center ${sidebarCollapsed ? 'justify-center relative' : 'gap-2.5'}`}>
             <div
               className="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black shrink-0"
               style={{
@@ -71,18 +97,31 @@ function AppShellInner() {
             >
               R
             </div>
-            <div className="min-w-0">
-              <p className="text-sm font-bold leading-none truncate" style={{ color: 'var(--text-primary)' }}>
-                Ryan English
-              </p>
-              <p className="text-[10px] mt-0.5" style={{ color: 'var(--text-muted)' }}>
-                IELTS · AI · SRS
-              </p>
-            </div>
+            {!sidebarCollapsed && (
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-bold leading-none truncate" style={{ color: 'var(--text-primary)' }}>
+                  Ryan English
+                </p>
+                <p className="text-[10px] mt-0.5" style={{ color: 'var(--text-muted)' }}>
+                  IELTS · AI · SRS
+                </p>
+              </div>
+            )}
+            <button
+              type="button"
+              aria-label={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
+              title={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
+              onClick={() => setSidebarCollapsed(value => !value)}
+              className={`h-8 w-8 rounded-lg border flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)] ${
+                sidebarCollapsed ? 'absolute -right-2 top-1/2 -translate-y-1/2 bg-[var(--bg-card)]' : ''
+              }`}
+              style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
+            >
+              {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
+            </button>
           </div>
         </div>
 
-        {/* Nav */}
         <nav className="flex-1 p-2.5 flex flex-col gap-0.5">
           {NAV.map(({ to, icon: Icon, label }) => (
             <NavLink
@@ -90,35 +129,37 @@ function AppShellInner() {
               to={to}
               end={to !== '/app/writing'}
               className={({ isActive }) =>
-                `flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                `flex items-center px-2.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive
                     ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-                }`
+                } ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`
               }
+              title={sidebarCollapsed ? label : undefined}
             >
               <Icon size={17} className="shrink-0" />
-              <span className="flex-1 truncate">{label}</span>
+              {!sidebarCollapsed && <span className="flex-1 truncate">{label}</span>}
             </NavLink>
           ))}
           {isAdmin && (
             <NavLink
               to="/app/admin"
               className={({ isActive }) =>
-                `flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm font-medium transition-colors mt-0.5 ${
+                `flex items-center px-2.5 py-2 rounded-lg text-sm font-medium transition-colors mt-0.5 ${
                   isActive
                     ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-                }`
+                } ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`
               }
+              title={sidebarCollapsed ? 'Admin' : undefined}
             >
               <Shield size={17} className="shrink-0" />
-              <span className="flex-1">Admin</span>
+              {!sidebarCollapsed && <span className="flex-1">Admin</span>}
             </NavLink>
           )}
         </nav>
 
-        <ThemeSwitcher />
+        <ThemeSwitcher compact={sidebarCollapsed} />
 
         {user && (
           <SyncStatusIndicator
@@ -126,12 +167,12 @@ function AppShellInner() {
             lastSyncAt={lastSyncAt}
             error={error}
             onRetry={triggerSync}
+            compact={sidebarCollapsed}
           />
         )}
 
-        {/* User */}
         <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
-          <div className="flex items-center gap-2.5 px-1 mb-2">
+          <div className={`px-1 mb-2 flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}>
             {user?.user_metadata?.avatar_url ? (
               <img src={user.user_metadata.avatar_url} className="w-8 h-8 rounded-full shrink-0" alt="" />
             ) : (
@@ -142,39 +183,44 @@ function AppShellInner() {
                 {(user?.user_metadata?.full_name ?? user?.email ?? '?')[0].toUpperCase()}
               </div>
             )}
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
-                {user?.user_metadata?.full_name ?? 'Người dùng'}
-              </p>
-              <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
-                {user?.email}
-              </p>
-            </div>
+            {!sidebarCollapsed && (
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
+                  {user?.user_metadata?.full_name ?? 'Người dùng'}
+                </p>
+                <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
+                  {user?.email}
+                </p>
+              </div>
+            )}
           </div>
 
-          <div className="h-px mb-2 mx-1" style={{ background: 'var(--border-color)' }} />
+          {!sidebarCollapsed && <div className="h-px mb-2 mx-1" style={{ background: 'var(--border-color)' }} />}
 
-          <PlanStatus plan={plan ?? 'free'} expiresAt={planExpiresAt ?? null} />
+          {!sidebarCollapsed && <PlanStatus plan={plan ?? 'free'} expiresAt={planExpiresAt ?? null} />}
 
           <button
             type="button"
             onClick={signOut}
             title="Đăng xuất"
-            className="group flex items-center gap-1.5 px-2 py-1.5 rounded-lg w-full transition-colors mt-1 hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)]"
+            className={`group flex px-2 py-1.5 rounded-lg w-full transition-colors mt-1 hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)] ${
+              sidebarCollapsed ? 'justify-center items-center' : 'items-center gap-1.5'
+            }`}
             style={{ color: 'var(--text-muted)' }}
           >
             <LogOut size={14} className="shrink-0" />
-            <span
-              className="text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              Đăng xuất
-            </span>
+            {!sidebarCollapsed && (
+              <span
+                className="text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ color: 'var(--color-accent)' }}
+              >
+                Đăng xuất
+              </span>
+            )}
           </button>
         </div>
       </aside>
 
-      {/* Main */}
       <main className="flex-1 min-h-0 flex flex-col overflow-hidden select-text">
         <Outlet />
       </main>
@@ -196,17 +242,48 @@ function SyncStatusIndicator({
   lastSyncAt,
   error,
   onRetry,
+  compact,
 }: {
   syncState: ReturnType<typeof useSyncManager>['syncState']
   lastSyncAt: string | null
   error: string | null
   onRetry: () => void
+  compact?: boolean
 }) {
+  if (compact) {
+    if (syncState === 'syncing') {
+      return (
+        <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title="Đang đồng bộ">
+          <LoaderCircle size={16} className="animate-spin shrink-0" />
+        </div>
+      )
+    }
+
+    if (syncState === 'error') {
+      return (
+        <button
+          type="button"
+          onClick={onRetry}
+          className="px-3 pb-2 flex justify-center w-full transition-opacity hover:opacity-80"
+          title={error ?? 'Lỗi đồng bộ'}
+        >
+          <AlertCircle size={16} className="shrink-0" style={{ color: 'var(--color-accent)' }} />
+        </button>
+      )
+    }
+
+    return (
+      <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title="Đã đồng bộ">
+        <Cloud size={16} className="shrink-0" />
+      </div>
+    )
+  }
+
   if (syncState === 'syncing') {
     return (
       <div className="px-3 pb-2 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
         <LoaderCircle size={16} className="animate-spin shrink-0" />
-        <span className="text-xs">Đang sync…</span>
+        <span className="text-xs">Đang đồng bộ…</span>
       </div>
     )
   }
@@ -217,11 +294,11 @@ function SyncStatusIndicator({
         type="button"
         onClick={onRetry}
         className="px-3 pb-2 flex flex-col gap-1 w-full text-left transition-opacity hover:opacity-80"
-        title={error ?? 'Lỗi sync'}
+        title={error ?? 'Lỗi đồng bộ'}
       >
         <span className="flex items-center gap-2">
           <AlertCircle size={16} className="shrink-0" style={{ color: 'var(--color-accent)' }} />
-          <span className="text-xs" style={{ color: 'var(--color-accent)' }}>Lỗi sync — bấm thử lại</span>
+          <span className="text-xs" style={{ color: 'var(--color-accent)' }}>Lỗi đồng bộ — bấm thử lại</span>
         </span>
         {error && (
           <span className="text-[10px] leading-snug pl-6 line-clamp-3" style={{ color: 'var(--text-muted)' }}>
@@ -235,16 +312,16 @@ function SyncStatusIndicator({
   return (
     <div className="px-3 pb-2 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
       <Cloud size={16} className="shrink-0" />
-      <span className="text-xs">Đã sync lúc {formatSyncTime(lastSyncAt)}</span>
+      <span className="text-xs">Đã đồng bộ lúc {formatSyncTime(lastSyncAt)}</span>
     </div>
   )
 }
 
 const PLAN_STYLE: Record<string, { label: string; color: string }> = {
-  free:     { label: 'Free',     color: 'var(--text-muted)' },
-  trial:    { label: 'Trial',    color: 'var(--color-accent)' },
-  basic:    { label: 'Basic',    color: 'var(--color-primary)' },
-  pro:      { label: 'Pro',      color: 'var(--color-primary)' },
+  free: { label: 'Free', color: 'var(--text-muted)' },
+  trial: { label: 'Trial', color: 'var(--color-accent)' },
+  basic: { label: 'Basic', color: 'var(--color-primary)' },
+  pro: { label: 'Pro', color: 'var(--color-primary)' },
   lifetime: { label: 'Lifetime', color: 'var(--color-accent)' },
 }
 
@@ -267,12 +344,16 @@ function PlanStatus({ plan, expiresAt }: { plan: string; expiresAt: string | nul
       {expiresAt && (
         <span className="text-[10px]" style={{ color: expired ? 'var(--color-accent)' : 'var(--text-muted)' }}>
           {expired
-            ? '⚠ Hết hạn'
+            ? 'Hết hạn'
             : daysLeft === 0
               ? 'Hết hạn hôm nay!'
-              : daysLeft! <= 7
+              : daysLeft !== null && daysLeft <= 7
                 ? `còn ${daysLeft} ngày`
-                : new Date(expiresAt).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: '2-digit' })}
+                : new Date(expiresAt).toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit',
+                  })}
         </span>
       )}
       {!expiresAt && plan !== 'free' && (
@@ -282,17 +363,20 @@ function PlanStatus({ plan, expiresAt }: { plan: string; expiresAt: string | nul
   )
 }
 
-function ThemeSwitcher() {
+function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
   const DOTS = [
     { id: 'light' as const, color: 'var(--bg-secondary)', border: 'var(--border-color)', label: 'Sáng' },
-    { id: 'mid' as const,   color: '#1e1e2e', border: '#313244', label: 'Tối nhẹ' },
-    { id: 'dark' as const,  color: '#0a0a0f', border: '#2a2a3a', label: 'Tối' },
+    { id: 'mid' as const, color: '#1e1e2e', border: '#313244', label: 'Tối nhẹ' },
+    { id: 'dark' as const, color: '#0a0a0f', border: '#2a2a3a', label: 'Tối' },
   ]
   const [active, setActive] = useState(() => localStorage.getItem('ryan-theme') ?? 'light')
 
   return (
-    <div className="px-3 py-2.5 flex items-center gap-2 border-t" style={{ borderColor: 'var(--border-color)' }}>
-      <span className="text-[11px] flex-1" style={{ color: 'var(--text-muted)' }}>Giao diện</span>
+    <div
+      className={`px-3 py-2.5 flex border-t ${compact ? 'flex-col items-center gap-2' : 'items-center gap-2'}`}
+      style={{ borderColor: 'var(--border-color)' }}
+    >
+      {!compact && <span className="text-[11px] flex-1" style={{ color: 'var(--text-muted)' }}>Giao diện</span>}
       <div className="flex gap-1.5">
         {DOTS.map(d => (
           <button

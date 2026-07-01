@@ -1,0 +1,287 @@
+.exam-hub-page {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--bg-primary);
+}
+
+.exam-hub-page__inner {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.exam-hub-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+
+.exam-hub-kicker {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-primary);
+}
+
+.exam-hub-title {
+  margin-top: 0.35rem;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.exam-hub-desc {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.exam-hub-tracks {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .exam-hub-tracks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.exam-hub-tracks--levels {
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .exam-hub-tracks--levels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .exam-hub-tracks--levels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.exam-hub-track-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem;
+  border-radius: 1.1rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.exam-hub-track-card:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
+}
+
+.exam-hub-track-card:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.exam-hub-track-card__title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.exam-hub-track-card__sub {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.exam-hub-track-card__desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.exam-hub-track-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.exam-hub-skill-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--text-primary);
+}
+
+.exam-hub-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--bg-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.exam-hub-cta--ghost {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.exam-hub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.exam-full-mock-hero {
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  padding: 1.35rem;
+}
+
+.exam-full-mock-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.exam-full-mock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.exam-full-mock-steps {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.exam-full-summary-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .exam-full-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.exam-full-summary-card {
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-color);
+  padding: 0.85rem;
+  background: var(--bg-primary);
+}
+
+.exam-full-summary-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.exam-full-summary-value {
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.exam-full-summary-sub {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.exam-track-section {
+  margin-top: 1.5rem;
+}
+
+.exam-track-section__title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.exam-track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.exam-track-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+
+.exam-track-row__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.exam-track-row__meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.exam-track-row__actions {
+  display: flex;
+  gap: 0.4rem;
+}

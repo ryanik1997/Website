@@ -1,6 +1,6 @@
 import type { AIProvider } from '@ryan/core'
 import { providerSupportsVision } from '@ryan/core'
-import { extractTextFromPdf } from './pdfExtract'
+import { extractTextFromPdf, type ExtractPdfProgress } from './pdfExtract'
 import { extractTextViaVision } from './pdfVision'
 
 export type PdfExtractMethod = 'text-layer' | 'vision-ocr'
@@ -11,6 +11,7 @@ export interface ExtractPdfOptions {
   apiKey?: string
   provider?: AIProvider
   onVisionProgress?: (done: number, total: number) => void
+  onPageProgress?: (progress: ExtractPdfProgress) => void
 }
 
 export interface ExtractPdfResult {
@@ -23,7 +24,9 @@ export async function extractPdfContent(
   file: File,
   options?: ExtractPdfOptions,
 ): Promise<ExtractPdfResult> {
-  const textLayer = await extractTextFromPdf(file)
+  const textLayer = await extractTextFromPdf(file, 28, progress => {
+    options?.onPageProgress?.(progress)
+  })
   if (textLayer.trim().length >= TEXT_LAYER_MIN) {
     return { text: textLayer, method: 'text-layer' }
   }

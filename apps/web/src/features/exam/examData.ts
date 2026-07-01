@@ -1,3 +1,5 @@
+import { CAMBRIDGE_READING_SAMPLES } from './cambridgeReadingSamples'
+
 export type ExamSkill = 'reading' | 'listening' | 'writing'
 
 export type ReadingQuestionType =
@@ -69,27 +71,31 @@ export interface ReadingPart {
   questionGroups: ReadingQuestionGroup[]
 }
 
+export type ReadingExamTrack = 'ielts' | 'cambridge'
+
 export interface ReadingExam {
   id: string
   title: string
   durationMinutes: number
   bandHint: string
   parts: ReadingPart[]
+  examTrack?: ReadingExamTrack
+  cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
 }
 
 export const EXAM_LIBRARY: ExamLibraryItem[] = [
   {
     id: 'ielts-mock-01',
     title: 'Đề thi IELTS số 01',
-    description: 'Bộ đề mẫu gồm Reading, Listening và Writing theo format IELTS Academic.',
-    skills: ['reading', 'listening', 'writing'],
+    description: 'Bộ đề mẫu Reading và Listening theo format IELTS Academic.',
+    skills: ['reading', 'listening'],
     durationMinutes: 160,
   },
   {
     id: 'ielts-mock-02',
     title: 'Đề thi IELTS số 02',
-    description: 'Thêm một bộ đề mẫu để người dùng có lựa chọn và làm Full Test sau này.',
-    skills: ['reading', 'listening', 'writing'],
+    description: 'Thêm một bộ đề mẫu Reading và Listening.',
+    skills: ['reading', 'listening'],
     durationMinutes: 160,
   },
 ]
@@ -106,6 +112,7 @@ export const READING_EXAMS: ReadingExam[] = [
     title: 'IELTS Academic Reading — Mock Test 01',
     durationMinutes: 60,
     bandHint: 'Academic 6.5 – 7.5',
+    examTrack: 'ielts',
     parts: [
       {
         id: 'part-1',
@@ -711,6 +718,7 @@ export const READING_EXAMS: ReadingExam[] = [
       },
     ],
   },
+  ...CAMBRIDGE_READING_SAMPLES,
 ]
 
 export function getPartQuestions(part: ReadingPart): ReadingQuestion[] {

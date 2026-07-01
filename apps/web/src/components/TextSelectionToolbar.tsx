@@ -17,6 +17,7 @@ function nodeElement(node: Node | null): Element | null {
 function isBlockedSelection(el: Element | null): boolean {
   if (!el) return true
   if (el.closest('[data-no-copy-toolbar]')) return true
+  if (el.closest('[data-reading-highlight-zone]')) return true
   const tag = el.tagName
   if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true
   if ((el as HTMLElement).isContentEditable) return true
@@ -92,7 +93,7 @@ export default function TextSelectionToolbar() {
     <div
       ref={toolbarRef}
       role="toolbar"
-      aria-label="Copy text"
+      aria-label="Sao chép văn bản"
       className="fixed z-[70] flex items-center -translate-x-1/2 -translate-y-full"
       style={{
         left: state.x,
@@ -111,7 +112,7 @@ export default function TextSelectionToolbar() {
         style={{ color: copied ? 'var(--color-primary)' : 'var(--text-primary)' }}
       >
         {copied ? <Check size={14} /> : <Copy size={14} />}
-        {copied ? 'Đã copy' : 'Copy'}
+        {copied ? 'Đã sao chép' : 'Sao chép'}
       </button>
     </div>
   )

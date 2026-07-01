@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   X, Upload, Loader2, FileText, AlertCircle, Check, BookOpen,
@@ -15,19 +15,24 @@ import {
 } from '@ryan/core'
 import { examRepo, writingRepo } from '@ryan/db'
 import { extractPdfContent, type PdfExtractMethod } from './pdfContent'
+import { preloadPdfJs, type ExtractPdfProgress } from './pdfExtract'
 import {
   buildImportedReadingExam,
   countInferredAnswers,
   countQuestions,
   defaultExamTitle,
+  expectedReadingPartsForLevel,
   parsedPartsToReadingParts,
+  readingPdfFormatForLevel,
   titleFromPdfFilename,
 } from './importReadingUtils'
+import type { CambridgeLevelSlug } from './cambridgeExamLevels'
 import { examRecordFromReading } from './examLoader'
 
 interface Props {
   onClose: () => void
   onCreated?: (examId: string) => void
+  cambridgeLevel?: CambridgeLevelSlug
 }
 
 type Step = 'upload' | 'parsing' | 'preview'
@@ -46,10 +51,21 @@ function partQuestionCount(part: ParsedReadingPart): number {
   return part.questionGroups.reduce((sum, g) => sum + g.questions.length, 0)
 }
 
-function progressLabel(events: ParseProgressEvent[]): string {
+function progressLabel(
+  events: ParseProgressEvent[],
+  extractProgress?: ExtractPdfProgress | null,
+): string {
   const last = events[events.length - 1]
   if (!last) return 'Đang khởi tạo…'
-  if (last.phase === 'extract') return 'Đang đọc PDF…'
+  if (last.phase === 'extract') {
+    if (last.status === 'done') return 'Đã đọc PDF — đang gọi AI…'
+    if (extractProgress?.stage === 'loading-lib') return 'Đang tải thư viện PDF…'
+    if (extractProgress?.stage === 'opening') return 'Đang mở file PDF…'
+    if (extractProgress?.stage === 'reading' && extractProgress.page && extractProgress.total) {
+      return `Đang đọc PDF… trang ${extractProgress.page}/${extractProgress.total}`
+    }
+    return 'Đang đọc PDF…'
+  }
   if (last.phase === 'full' && last.status === 'start') return 'Đang phân tích full test…'
   if (last.phase === 'full' && last.status === 'error') return 'Full test lỗi — chuyển parse từng part…'
   if (last.phase === 'part') {
@@ -67,7 +83,7 @@ function methodLabel(method: PdfExtractMethod | null): string {
   return ''
 }
 
-export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
+export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLevel }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState<Step>('upload')
   const [file, setFile] = useState<File | null>(null)
@@ -80,6 +96,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
   const [showInferredOnly, setShowInferredOnly] = useState(false)
   const [parseProgress, setParseProgress] = useState<ParseProgressEvent[]>([])
   const [visionProgress, setVisionProgress] = useState('')
+  const [extractProgress, setExtractProgress] = useState<ExtractPdfProgress | null>(null)
   const [error, setError] = useState('')
   const [providerUsed, setProviderUsed] = useState<AIProvider | null>(null)
   const [saving, setSaving] = useState(false)
@@ -105,7 +122,12 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
     setProviderUsed(null)
     setParseProgress([])
     setVisionProgress('')
+    setExtractProgress(null)
     setStep('upload')
+  }, [])
+
+  useEffect(() => {
+    preloadPdfJs()
   }, [])
 
   async function runParse() {
@@ -113,6 +135,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
     setError('')
     setStep('parsing')
     setParseProgress([])
+    setExtractProgress(null)
 
     try {
       const preferred = ((await writingRepo.getSetting('ai_provider')) as AIProvider) ?? 'openai'
@@ -127,19 +150,22 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
       const { text, method } = await extractPdfContent(file, {
         apiKey,
         provider: preferred,
+        onPageProgress: setExtractProgress,
         onVisionProgress: (done, total) => setVisionProgress(`Vision OCR: ${done}/${total} trang`),
       })
+      setExtractProgress(null)
       setParseProgress(prev => [...prev, { phase: 'extract', status: 'done' }])
       setExtractedChars(text.length)
       setExtractMethod(method)
 
+      const pdfFormat = readingPdfFormatForLevel(cambridgeLevel)
       const parts = await parseReadingPdfFull(text, apiKey, preferred, event => {
         setParseProgress(prev => [...prev, event])
-      })
+      }, { format: pdfFormat })
       await writingRepo.recordUsage('reading_pdf_import', Math.ceil(text.length / 4))
 
       setParsedParts(parts)
-      setValidation(validateReadingImport(parts))
+      setValidation(validateReadingImport(parts, pdfFormat))
       setPreviewPartIndex(0)
       setProviderUsed(preferred)
       setTitle(prev => prev.trim() || defaultExamTitle(parts))
@@ -164,6 +190,9 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
         title.trim() || defaultExamTitle(parsedParts),
         parts,
         file.name,
+        cambridgeLevel
+          ? { examTrack: 'cambridge', cambridgeLevel }
+          : { examTrack: 'ielts' },
       )
 
       await examRepo.create(examRecordFromReading(exam, 'pdf', file.name))
@@ -189,7 +218,8 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
   })).filter(g => g.questions.length > 0) ?? []
 
   const previewQuestionCount = filteredGroups.reduce((s, g) => s + g.questions.length, 0)
-  const hasFullTest = parsedParts.length >= 3
+  const expectedPartCount = expectedReadingPartsForLevel(cambridgeLevel)
+  const hasFullTest = parsedParts.length >= expectedPartCount
 
   return (
     <div
@@ -221,7 +251,11 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
           {step === 'upload' && (
             <>
               <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
-                Upload PDF → trích Part 1–3 bằng AI. PDF scan tự động dùng Vision OCR (OpenAI/Gemini).
+                {cambridgeLevel === 'a2'
+                  ? 'Upload PDF KET A2 → trích Reading Parts 1–5 bằng AI. PDF scan dùng Vision OCR (OpenAI/Gemini).'
+                  : cambridgeLevel === 'b1'
+                    ? 'Upload PDF PET B1 → trích Reading Parts 1–6 bằng AI. PDF scan dùng Vision OCR (OpenAI/Gemini).'
+                    : 'Upload PDF → trích Part 1–3 bằng AI. PDF scan tự động dùng Vision OCR (OpenAI/Gemini).'}
               </p>
 
               <div
@@ -302,13 +336,19 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
             <div className="flex flex-col items-center py-12 gap-3">
               <Loader2 size={32} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
               <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
-                {progressLabel(parseProgress)}
+                {progressLabel(parseProgress, extractProgress)}
               </p>
               {visionProgress && (
                 <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{visionProgress}</p>
               )}
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                Có thể mất 30–120 giây (Vision OCR chậm hơn text layer).
+                {extractProgress
+                  ? extractProgress.stage === 'loading-lib'
+                    ? 'Lần đầu có thể mất vài giây để tải pdf.js…'
+                    : 'Đang trích chữ từ PDF (pdf.js)…'
+                  : parseProgress.some(e => e.phase === 'part' || e.phase === 'full')
+                    ? 'DeepSeek/OpenAI đang phân tích — KET/PET có thể mất 1–3 phút (5–6 lần gọi API).'
+                    : 'Có thể mất 30–180 giây tùy provider và số part.'}
               </p>
             </div>
           )}
@@ -327,7 +367,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                   <div>
                     <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
                       {hasFullTest
-                        ? 'Đã trích đủ 3 parts'
+                        ? `Đã trích đủ ${expectedPartCount} parts`
                         : `Đã trích ${parsedParts.length} part${parsedParts.length > 1 ? 's' : ''}`}
                       {' · '}
                       <span style={{ color: 'var(--color-primary)' }}>Tin cậy {validation.score}%</span>
@@ -506,7 +546,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
               className="rounded-lg px-4 py-2 text-sm font-semibold disabled:opacity-40"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
             >
-              Phân tích Part 1–3
+              Phân tích
             </button>
           )}
 
