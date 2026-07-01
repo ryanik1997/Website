@@ -279,7 +279,7 @@ export default function ListeningPracticeTab({
 
   return (
     <div
-      className="rounded-2xl p-5 sm:p-6"
+      className="min-w-0 overflow-hidden rounded-2xl p-5 sm:p-6"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       {burstId > 0 && (
@@ -392,7 +392,7 @@ export default function ListeningPracticeTab({
                 data-enable-grammarly="false"
                 data-lt-active="false"
                 name="lsn-type-input"
-                className="mb-4 w-full resize-none rounded-xl border-2 px-4 py-3 text-sm outline-none"
+                className="mb-4 w-full resize-none overflow-hidden rounded-xl border-2 px-4 py-3 text-sm outline-none"
                 style={{
                   background: 'var(--bg-secondary)',
                   borderColor: phase === 'result'

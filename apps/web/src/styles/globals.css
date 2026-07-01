@@ -85,6 +85,8 @@ main,
   align-items: center;
   gap: 0.35rem 0.5rem;
   line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .lsn-blank-word {
@@ -147,4 +149,30 @@ main,
   color: var(--text-primary);
   -webkit-text-fill-color: var(--text-primary);
   cursor: default;
+}
+
+/* Listening — lesson page: một vùng cuộn dọc, ẩn mọi thanh cuộn ngang/dọc */
+.listening-lesson-shell {
+  overflow: hidden;
+}
+
+.listening-lesson-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.listening-lesson-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.listening-lesson-scroll .lsn-blank-row {
+  max-width: 100%;
+  overflow-x: hidden;
 }

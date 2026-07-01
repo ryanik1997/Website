@@ -114,7 +114,8 @@ export default function ListeningLibraryPage() {
   } as const
 
   return (
-    <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
+    <div className="listening-lesson-shell h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
+      <div className="listening-lesson-scroll h-full min-h-0">
       <style>
         {`
           @keyframes listeningViewFade {
@@ -319,6 +320,7 @@ export default function ListeningLibraryPage() {
             )}
           </div>
         )}
+      </div>
       </div>
 
       {showCreate && <CreateLessonModal onClose={() => setShowCreate(false)} />}
