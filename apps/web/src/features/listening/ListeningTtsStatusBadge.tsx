@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
-import { CheckCircle2, Loader2, PlayCircle, Volume2, VolumeX, XCircle } from 'lucide-react'
+import {
+  AlertTriangle,
+  CheckCircle2,
+  Copy,
+  Loader2,
+  PlayCircle,
+  TerminalSquare,
+  Volume2,
+  VolumeX,
+} from 'lucide-react'
 import {
   checkTtsHealth,
   getKokoroStatusSnapshot,
@@ -13,9 +22,15 @@ interface Props {
   showStartButton?: boolean
 }
 
-type ToastState = { type: 'success' | 'error' | 'info'; message: string } | null
+type NoticeState = {
+  type: 'success' | 'error' | 'info'
+  message: string
+  action?: 'copy-command'
+} | null
 
-function toneStyles(type: NonNullable<ToastState>['type']) {
+const MANUAL_COMMAND = 'pnpm dev:server'
+
+function noticeStyles(type: NonNullable<NoticeState>['type']) {
   if (type === 'success') {
     return {
       background: 'color-mix(in srgb, #22c55e 14%, var(--bg-card))',
@@ -37,62 +52,95 @@ function toneStyles(type: NonNullable<ToastState>['type']) {
   }
 }
 
+async function copyManualCommand(): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(MANUAL_COMMAND)
+    return true
+  } catch {
+    return false
+  }
+}
+
 export default function ListeningTtsStatusBadge({ compact = false, showStartButton = true }: Props) {
   const [snapshot, setSnapshot] = useState<KokoroStatusSnapshot>(getKokoroStatusSnapshot())
-  const [toast, setToast] = useState<ToastState>(null)
+  const [notice, setNotice] = useState<NoticeState>(null)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     const unsubscribe = subscribeKokoroStatus(setSnapshot)
     void checkTtsHealth()
 
+    const intervalMs = snapshot.status === 'offline' ? 8000 : 30000
     const timer = window.setInterval(() => {
       void checkTtsHealth(true)
-    }, 30000)
+    }, intervalMs)
 
     return () => {
       unsubscribe()
       window.clearInterval(timer)
     }
-  }, [])
+  }, [snapshot.status])
 
   useEffect(() => {
-    if (!toast) return
-    const timer = window.setTimeout(() => setToast(null), 4000)
+    if (!notice) return
+    const timer = window.setTimeout(() => setNotice(null), notice.type === 'error' ? 7000 : 4000)
     return () => window.clearTimeout(timer)
-  }, [toast])
+  }, [notice])
+
+  useEffect(() => {
+    if (!copied) return
+    const timer = window.setTimeout(() => setCopied(false), 1500)
+    return () => window.clearTimeout(timer)
+  }, [copied])
+
+  async function handleCopyCommand() {
+    const ok = await copyManualCommand()
+    if (ok) {
+      setCopied(true)
+      setNotice({ type: 'success', message: 'Đã copy lệnh mở server. Dán vào terminal để chạy.' })
+      return
+    }
+    setNotice({
+      type: 'error',
+      message: 'Không thể copy tự động. Hãy chạy: pnpm dev:server',
+      action: 'copy-command',
+    })
+  }
 
   async function handleStart() {
     const next = await startKokoroServer()
 
     if (next.status === 'ready') {
-      setToast({ type: 'success', message: 'Kokoro đã khởi động và sẵn sàng phát audio.' })
+      setNotice({ type: 'success', message: 'Kokoro đã sẵn sàng. Bạn có thể nghe bằng giọng local.' })
       return
     }
 
     if (next.status === 'browser') {
-      setToast({
+      setNotice({
         type: 'info',
-        message: next.message || 'Server đã phản hồi nhưng Kokoro chưa sẵn sàng. App sẽ tạm dùng Browser Voice.',
+        message: 'Kokoro chưa sẵn sàng. Ứng dụng đang tạm dùng Browser Voice.',
       })
       return
     }
 
-    setToast({
+    setNotice({
       type: 'error',
-      message: `${next.message}. Nếu cần, hãy chạy thủ công: ${next.manualCommand ?? 'pnpm dev:server'}`,
+      message: 'Chưa khởi động được server Kokoro. Vui lòng chạy lệnh sau trong terminal.',
+      action: 'copy-command',
     })
   }
 
-  const sizeClass = compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'
-  const buttonClass = compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'
+  const badgeSizeClass = compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'
+  const actionSizeClass = compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'
+
   const isReady = snapshot.status === 'ready'
   const isStarting = snapshot.status === 'starting'
   const isChecking = snapshot.status === 'checking'
-  const canStart = showStartButton && !isReady && !isStarting && !isChecking
+  const isOffline = snapshot.status === 'offline'
 
-  let badgeIcon = <VolumeX size={compact ? 12 : 14} />
-  let badgeLabel = 'Browser voice'
-  let badgeTitle = 'Kokoro local chưa chạy, đang dùng giọng trình duyệt'
+  let badgeIcon = <Volume2 size={compact ? 12 : 14} />
+  let badgeLabel = 'Browser Voice'
+  let badgeTitle = 'Kokoro chưa sẵn sàng. Ứng dụng đang dùng giọng đọc của trình duyệt.'
   let badgeStyle = {
     background: 'var(--bg-card)',
     color: 'var(--text-muted)',
@@ -101,91 +149,127 @@ export default function ListeningTtsStatusBadge({ compact = false, showStartButt
 
   if (isChecking) {
     badgeIcon = <Loader2 size={compact ? 12 : 14} className="animate-spin" />
-    badgeLabel = 'Đang kiểm tra TTS'
-    badgeTitle = 'Đang kiểm tra Kokoro local'
+    badgeLabel = 'Đang kiểm tra Kokoro'
+    badgeTitle = 'Ứng dụng đang kiểm tra xem Kokoro local có đang hoạt động hay không.'
   } else if (isStarting) {
     badgeIcon = <Loader2 size={compact ? 12 : 14} className="animate-spin" />
     badgeLabel = 'Đang khởi động Kokoro'
-    badgeTitle = snapshot.message
+    badgeTitle = 'Đang gửi yêu cầu khởi động Kokoro. Nếu lâu quá, có thể server chưa được mở.'
   } else if (isReady) {
     badgeIcon = <CheckCircle2 size={compact ? 12 : 14} />
-    badgeLabel = 'Kokoro local'
-    badgeTitle = 'Kokoro local đang chạy'
+    badgeLabel = 'Kokoro đang chạy'
+    badgeTitle = 'Kokoro local đã sẵn sàng. Listening sẽ ưu tiên giọng local thay cho Browser Voice.'
     badgeStyle = {
-      background: 'color-mix(in srgb, var(--color-primary) 16%, var(--bg-card))',
-      color: 'var(--text-primary)',
-      border: '1px solid color-mix(in srgb, var(--color-primary) 28%, var(--border-color))',
+      background: 'color-mix(in srgb, #22c55e 14%, var(--bg-card))',
+      color: '#166534',
+      border: '1px solid color-mix(in srgb, #22c55e 28%, var(--border-color))',
     }
-  } else if (snapshot.status === 'offline') {
-    badgeIcon = <XCircle size={compact ? 12 : 14} />
+  } else if (isOffline) {
+    badgeIcon = <AlertTriangle size={compact ? 12 : 14} />
     badgeLabel = 'Kokoro offline'
-    badgeTitle = snapshot.message
+    badgeTitle = 'Chưa khởi động server Kokoro. Hãy mở terminal và chạy: pnpm dev:server'
     badgeStyle = {
       background: 'color-mix(in srgb, #ef4444 10%, var(--bg-card))',
       color: '#b91c1c',
       border: '1px solid color-mix(in srgb, #ef4444 22%, var(--border-color))',
     }
   } else {
-    badgeIcon = <Volume2 size={compact ? 12 : 14} />
-    badgeLabel = 'Browser voice'
-    badgeTitle = snapshot.message || 'Kokoro chưa sẵn sàng, đang dùng Browser Voice'
+    badgeIcon = <VolumeX size={compact ? 12 : 14} />
+    badgeLabel = 'Browser Voice'
+    badgeTitle = 'Server Kokoro chưa sẵn sàng. Ứng dụng vẫn hoạt động bình thường với Browser Voice.'
   }
 
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span
-        className={`inline-flex items-center gap-1.5 rounded-full font-semibold ${sizeClass}`}
+        className={`inline-flex items-center gap-1.5 rounded-full font-semibold ${badgeSizeClass}`}
         style={badgeStyle}
         title={badgeTitle}
       >
         {badgeIcon}
         {badgeLabel}
+        {isOffline && !compact && (
+          <span className="opacity-80">- Chưa khởi động server</span>
+        )}
       </span>
 
-      {showStartButton && (
-        isReady ? (
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full font-semibold ${buttonClass}`}
-            style={{
-              background: 'color-mix(in srgb, #22c55e 14%, var(--bg-card))',
-              color: '#166534',
-              border: '1px solid color-mix(in srgb, #22c55e 28%, var(--border-color))',
-            }}
-            title="Kokoro engine đã sẵn sàng"
-          >
-            <CheckCircle2 size={compact ? 12 : 14} />
-            Kokoro đang chạy
-          </span>
-        ) : (
-          <button
-            type="button"
-            onClick={() => void handleStart()}
-            disabled={!canStart}
-            className={`inline-flex items-center gap-1.5 rounded-full font-semibold disabled:opacity-60 ${buttonClass}`}
-            style={{
-              background: 'var(--bg-card)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--border-color)',
-            }}
-            title="Khởi động Kokoro local"
-          >
-            {isStarting || isChecking ? (
-              <Loader2 size={compact ? 12 : 14} className="animate-spin" />
-            ) : (
-              <PlayCircle size={compact ? 12 : 14} />
-            )}
-            {isStarting ? 'Đang khởi động...' : 'Khởi động Kokoro'}
-          </button>
-        )
+      {showStartButton && !isReady && (
+        <button
+          type="button"
+          onClick={() => void handleStart()}
+          disabled={isStarting || isChecking}
+          className={`inline-flex items-center gap-1.5 rounded-full font-semibold disabled:opacity-60 ${actionSizeClass}`}
+          style={{
+            background: 'var(--bg-card)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border-color)',
+          }}
+          title="Thử khởi động Kokoro từ ứng dụng"
+        >
+          {isStarting || isChecking ? (
+            <Loader2 size={compact ? 12 : 14} className="animate-spin" />
+          ) : (
+            <PlayCircle size={compact ? 12 : 14} />
+          )}
+          {isStarting ? 'Đang khởi động...' : 'Khởi động Kokoro'}
+        </button>
       )}
 
-      {toast && (
-        <span
-          className={`${compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'} inline-flex max-w-full rounded-full font-medium`}
-          style={toneStyles(toast.type)}
-          title={toast.message}
+      {isOffline && (
+        <button
+          type="button"
+          onClick={() => void handleCopyCommand()}
+          className={`inline-flex items-center gap-1.5 rounded-full font-semibold ${actionSizeClass}`}
+          style={{
+            background: 'var(--bg-card)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border-color)',
+          }}
+          title="Copy lệnh để mở server Kokoro trong terminal"
         >
-          {toast.message}
+          {copied ? <CheckCircle2 size={compact ? 12 : 14} /> : <Copy size={compact ? 12 : 14} />}
+          {copied ? 'Đã copy lệnh' : 'Copy lệnh'}
+        </button>
+      )}
+
+      {isOffline && !compact && (
+        <span
+          className={`${actionSizeClass} inline-flex items-center gap-1.5 rounded-full font-medium`}
+          style={{
+            background: 'var(--bg-card)',
+            color: 'var(--text-muted)',
+            border: '1px solid var(--border-color)',
+          }}
+          title="Mở terminal rồi dán lệnh này để bật local TTS gateway"
+        >
+          <TerminalSquare size={14} />
+          {MANUAL_COMMAND}
+        </span>
+      )}
+
+      {notice && (
+        <span
+          className={`${compact ? 'text-[11px] px-2.5 py-1' : 'text-xs px-3 py-1.5'} inline-flex max-w-full items-center gap-2 rounded-full font-medium`}
+          style={noticeStyles(notice.type)}
+          title={notice.message}
+        >
+          {notice.type === 'error' ? <AlertTriangle size={14} /> : <CheckCircle2 size={14} />}
+          <span>{notice.message}</span>
+          {notice.action === 'copy-command' && (
+            <button
+              type="button"
+              onClick={() => void handleCopyCommand()}
+              className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold"
+              style={{
+                background: 'color-mix(in srgb, var(--bg-card) 88%, transparent)',
+                color: 'inherit',
+                border: '1px solid color-mix(in srgb, currentColor 18%, transparent)',
+              }}
+            >
+              <Copy size={12} />
+              Copy lệnh
+            </button>
+          )}
         </span>
       )}
     </div>
