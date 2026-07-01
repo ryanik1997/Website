@@ -1,18 +1,60 @@
-import { getTtsHealthUrl, getTtsSynthUrl } from './ttsConfig'
+import {
+  getTtsHealthUrl,
+  getTtsStartUrl,
+  getTtsSynthUrl,
+  readRememberedKokoroStatus,
+  rememberKokoroStatus,
+  rememberTtsServiceUrl,
+} from './ttsConfig'
 
 export interface SpeakOptions {
   speed?: number
   voice?: string
   lang?: 'a' | 'b'
-  /** Fires when HTMLAudioElement metadata is ready and playback is about to start. */
   onPlaybackStart?: (audio: HTMLAudioElement) => void
-  /** Fires when falling back to Web Speech (no HTMLAudioElement). */
   onFallbackStart?: () => void
-  /** @deprecated Prefer RAF on getActiveAudio() — kept for compatibility */
   onTimeUpdate?: (current: number, duration: number) => void
 }
 
 export type TtsEngine = 'kokoro' | 'webspeech' | null
+export type KokoroUiStatus = 'checking' | 'starting' | 'ready' | 'browser' | 'offline'
+
+interface TtsHealthResponse {
+  ok?: boolean
+  message?: string
+  kokoro?: {
+    ready?: boolean
+    available?: boolean
+    processRunning?: boolean
+    lastError?: string | null
+    installHint?: string | null
+  }
+}
+
+interface TtsStartResponse {
+  ok?: boolean
+  message?: string
+  kokoro?: {
+    ready?: boolean
+    available?: boolean
+    processRunning?: boolean
+    lastError?: string | null
+    installHint?: string | null
+  }
+  manualCommand?: string
+}
+
+export interface KokoroStatusSnapshot {
+  status: KokoroUiStatus
+  engine: TtsEngine
+  ready: boolean
+  gatewayReachable: boolean
+  processRunning: boolean
+  message: string
+  installHint?: string | null
+  manualCommand?: string | null
+  updatedAt: number
+}
 
 let currentAudio: HTMLAudioElement | null = null
 let currentObjectUrl: string | null = null
@@ -25,22 +67,91 @@ let localReadyCheckedAt = 0
 const HEALTH_TTL_MS = 30_000
 
 const prefetchCache = new Map<string, Blob>()
+const statusListeners = new Set<(snapshot: KokoroStatusSnapshot) => void>()
+
+let kokoroSnapshot: KokoroStatusSnapshot = buildInitialSnapshot()
+
+function buildInitialSnapshot(): KokoroStatusSnapshot {
+  const remembered = readRememberedKokoroStatus()
+  if (remembered === 'ready') {
+    return {
+      status: 'ready',
+      engine: lastEngine,
+      ready: true,
+      gatewayReachable: true,
+      processRunning: true,
+      message: 'Kokoro local đã sẵn sàng',
+      installHint: null,
+      manualCommand: null,
+      updatedAt: Date.now(),
+    }
+  }
+  if (remembered === 'browser') {
+    return {
+      status: 'browser',
+      engine: 'webspeech',
+      ready: false,
+      gatewayReachable: true,
+      processRunning: false,
+      message: 'Đang dùng giọng trình duyệt',
+      installHint: null,
+      manualCommand: null,
+      updatedAt: Date.now(),
+    }
+  }
+  return {
+    status: remembered === 'offline' ? 'offline' : 'checking',
+    engine: null,
+    ready: false,
+    gatewayReachable: remembered !== 'offline',
+    processRunning: false,
+    message: remembered === 'offline'
+      ? 'Chưa kết nối được local TTS gateway'
+      : 'Đang kiểm tra Kokoro local',
+    installHint: null,
+    manualCommand: null,
+    updatedAt: Date.now(),
+  }
+}
+
+function emitStatus(next: Partial<KokoroStatusSnapshot>): KokoroStatusSnapshot {
+  kokoroSnapshot = {
+    ...kokoroSnapshot,
+    ...next,
+    updatedAt: Date.now(),
+  }
+
+  if (kokoroSnapshot.status === 'ready') rememberKokoroStatus('ready')
+  else if (kokoroSnapshot.status === 'offline') rememberKokoroStatus('offline')
+  else if (kokoroSnapshot.status === 'browser') rememberKokoroStatus('browser')
+
+  for (const listener of statusListeners) listener(kokoroSnapshot)
+  return kokoroSnapshot
+}
+
+export function subscribeKokoroStatus(listener: (snapshot: KokoroStatusSnapshot) => void): () => void {
+  statusListeners.add(listener)
+  listener(kokoroSnapshot)
+  return () => {
+    statusListeners.delete(listener)
+  }
+}
+
+export function getKokoroStatusSnapshot(): KokoroStatusSnapshot {
+  return kokoroSnapshot
+}
 
 function clampSpeed(speed: number): number {
   return Math.max(0.55, Math.min(1.45, speed))
 }
 
-/** Map legacy Web Speech rate (0.6–0.9) to Kokoro speed. */
 export function mapRateToSpeed(rate: number): number {
   if (rate <= 0.65) return 0.6
   if (rate >= 0.9) return 1
   return clampSpeed(rate)
 }
 
-function normalizeOptions(
-  rateOrOptions?: number | SpeakOptions,
-  lang?: string,
-): SpeakOptions {
+function normalizeOptions(rateOrOptions?: number | SpeakOptions, lang?: string): SpeakOptions {
   if (typeof rateOrOptions === 'number') {
     return { speed: mapRateToSpeed(rateOrOptions), lang: lang === 'en-US' ? 'a' : 'b' }
   }
@@ -106,21 +217,111 @@ export async function checkTtsHealth(force = false): Promise<boolean> {
   }
 
   try {
+    rememberTtsServiceUrl(getTtsHealthUrl())
     const res = await fetch(getTtsHealthUrl(), { signal: AbortSignal.timeout(4000) })
     if (!res.ok) {
       localReady = false
       localReadyCheckedAt = now
+      emitStatus({
+        status: 'browser',
+        ready: false,
+        gatewayReachable: true,
+        processRunning: false,
+        engine: lastEngine,
+        message: `Local TTS gateway phản hồi ${res.status}`,
+      })
       return false
     }
-    const data = await res.json() as { ok?: boolean; kokoro?: { ready?: boolean; available?: boolean } }
-    localReady = !!(data.ok && (data.kokoro?.ready ?? data.kokoro?.available))
+
+    const data = await res.json() as TtsHealthResponse
+    const ready = !!(data.ok && (data.kokoro?.ready ?? data.kokoro?.available))
+    localReady = ready
     localReadyCheckedAt = now
-    return localReady
+
+    emitStatus({
+      status: ready ? 'ready' : 'browser',
+      ready,
+      gatewayReachable: true,
+      processRunning: !!data.kokoro?.processRunning,
+      engine: lastEngine,
+      message: ready
+        ? 'Kokoro local đã sẵn sàng'
+        : (data.message ?? 'Kokoro chưa sẵn sàng, đang dùng Browser Voice'),
+      installHint: data.kokoro?.installHint ?? null,
+      manualCommand: 'pnpm dev:server',
+    })
+
+    return ready
   } catch (err) {
     console.warn('[tts] Local TTS health check failed:', err)
     localReady = false
     localReadyCheckedAt = now
+    emitStatus({
+      status: 'offline',
+      ready: false,
+      gatewayReachable: false,
+      processRunning: false,
+      engine: lastEngine,
+      message: 'Không kết nối được local TTS gateway',
+      installHint: 'Hãy chạy `pnpm dev:server` trong terminal để bật local TTS gateway.',
+      manualCommand: 'pnpm dev:server',
+    })
     return false
+  }
+}
+
+export async function startKokoroServer(): Promise<KokoroStatusSnapshot> {
+  emitStatus({
+    status: 'starting',
+    message: 'Đang khởi động Kokoro...',
+  })
+
+  try {
+    const res = await fetch(getTtsStartUrl(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: AbortSignal.timeout(20_000),
+    })
+
+    if (!res.ok) {
+      throw new Error(`Start request failed (${res.status})`)
+    }
+
+    const data = await res.json() as TtsStartResponse
+    const ready = await checkTtsHealth(true)
+
+    if (ready) {
+      return emitStatus({
+        status: 'ready',
+        ready: true,
+        gatewayReachable: true,
+        processRunning: true,
+        message: data.message ?? 'Kokoro local đang chạy',
+        installHint: data.kokoro?.installHint ?? null,
+        manualCommand: data.manualCommand ?? 'pnpm dev:server',
+      })
+    }
+
+    return emitStatus({
+      status: 'browser',
+      ready: false,
+      gatewayReachable: true,
+      processRunning: !!data.kokoro?.processRunning,
+      message: data.message ?? 'Kokoro chưa sẵn sàng sau khi start',
+      installHint: data.kokoro?.installHint ?? null,
+      manualCommand: data.manualCommand ?? 'pnpm dev:server',
+    })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    return emitStatus({
+      status: 'offline',
+      ready: false,
+      gatewayReachable: false,
+      processRunning: false,
+      message: `Không thể khởi động Kokoro: ${message}`,
+      installHint: 'Nếu local TTS gateway chưa chạy, hãy mở terminal và chạy `pnpm dev:server`.',
+      manualCommand: 'pnpm dev:server',
+    })
   }
 }
 
@@ -146,13 +347,15 @@ async function fetchAudioBlob(text: string, options: SpeakOptions): Promise<Blob
     try {
       const data = await res.json() as { message?: string; error?: string }
       message = data.message || data.error || message
-    } catch { /* pass */ }
+    } catch {
+      // ignore
+    }
     throw new Error(message)
   }
 
   const contentType = res.headers.get('content-type') ?? ''
   if (!contentType.includes('audio')) {
-    throw new Error('TTS local chưa sẵn sàng — server trả về non-audio response')
+    throw new Error('TTS local chưa sẵn sàng, server trả về non-audio response')
   }
 
   const blob = await res.blob()
@@ -211,7 +414,6 @@ async function playBlob(blob: Blob, options: SpeakOptions): Promise<void> {
   })
 }
 
-/** FALLBACK: browser Web Speech API when local Kokoro is unavailable. */
 function speakWebSpeech(text: string, rate = 0.9, lang = 'en-US'): Promise<void> {
   return new Promise((resolve, reject) => {
     speechSynthesis.cancel()
@@ -274,18 +476,33 @@ export async function speak(
     if (ready) {
       const blob = await fetchAudioBlob(text, options)
       lastEngine = 'kokoro'
+      emitStatus({
+        status: 'ready',
+        ready: true,
+        gatewayReachable: true,
+        processRunning: true,
+        engine: 'kokoro',
+        message: 'Đang phát bằng Kokoro local',
+      })
       await playBlob(blob, options)
       return
     }
-    console.warn('[tts] Local Kokoro chưa sẵn sàng — fallback Web Speech API (tạm)')
+    console.warn('[tts] Local Kokoro chưa sẵn sàng, fallback Web Speech API')
   } catch (err) {
-    console.warn('[tts] Local Kokoro lỗi — fallback Web Speech API (tạm):', err)
+    console.warn('[tts] Local Kokoro lỗi, fallback Web Speech API:', err)
     localReady = false
     localReadyCheckedAt = Date.now()
   }
 
-  // FALLBACK (tạm): Web Speech API khi `pnpm dev:server` chưa chạy hoặc Kokoro chưa ready
   lastEngine = 'webspeech'
+  emitStatus({
+    status: kokoroSnapshot.gatewayReachable ? 'browser' : 'offline',
+    ready: false,
+    engine: 'webspeech',
+    message: kokoroSnapshot.gatewayReachable
+      ? 'Đang dùng Browser Voice'
+      : 'Kokoro chưa chạy, fallback Browser Voice',
+  })
   cleanupAudio()
   options.onFallbackStart?.()
   await speakWebSpeech(text, legacyRate, lang)
@@ -322,9 +539,9 @@ export function isSpeaking() {
 export function getBestEnglishVoice(): SpeechSynthesisVoice | null {
   const voices = speechSynthesis.getVoices()
   return (
-    voices.find(v => v.lang === 'en-GB' && v.localService) ??
-    voices.find(v => v.lang === 'en-US' && v.localService) ??
-    voices.find(v => v.lang.startsWith('en')) ??
-    null
+    voices.find(v => v.lang === 'en-GB' && v.localService)
+    ?? voices.find(v => v.lang === 'en-US' && v.localService)
+    ?? voices.find(v => v.lang.startsWith('en'))
+    ?? null
   )
 }
