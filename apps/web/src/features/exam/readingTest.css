@@ -816,6 +816,163 @@
   margin-left: 0.35rem;
 }
 
+.reading-test-passage-empty {
+  font-size: 0.88em;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px dashed var(--border-color);
+  background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
+}
+
+/* KET A2 — Part 1 signs on passage panel (Giaodien/a1) */
+.reading-ket-signs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.reading-ket-signs__item {
+  border-radius: 12px;
+  padding: 0.75rem;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.reading-ket-signs__item.is-active {
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-card));
+}
+
+.reading-ket-signs__num {
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.reading-ket-signs__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.reading-ket-sign-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reading-ket-sign-option:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 40%, var(--border-color));
+}
+
+.reading-ket-sign-option.is-selected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.reading-ket-sign-option__letter {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.78em;
+  font-weight: 800;
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-secondary));
+  color: var(--color-primary);
+}
+
+.reading-ket-sign-option__label {
+  font-size: 0.92em;
+  line-height: 1.45;
+}
+
+/* KET — profiles / features / word bank on passage panel */
+.reading-ket-features,
+.reading-ket-wordbank {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.reading-ket-features__title,
+.reading-ket-wordbank__title {
+  font-size: 0.78em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.reading-ket-features__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.reading-ket-features__list li {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.92em;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.reading-ket-features__id {
+  flex-shrink: 0;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.reading-ket-wordbank__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.reading-ket-wordbank__pill {
+  font-size: 0.82em;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.reading-test-mc-options.is-compact {
+  flex-direction: row;
+  gap: 0.45rem;
+}
+
+.reading-test-mc-option.is-letter-only {
+  min-width: 2.5rem;
+  justify-content: center;
+  padding: 0.45rem 0.65rem;
+}
+
+.reading-test-mc-option.is-letter-only .reading-test-mc-letter {
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .reading-test-body {
     flex-direction: column;

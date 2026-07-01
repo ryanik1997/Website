@@ -1,18 +1,14 @@
-import type { TextItem } from 'pdfjs-dist/types/src/display/api'
-
-type PdfJsModule = typeof import('pdfjs-dist')
-type PdfLoadingTask = ReturnType<PdfJsModule['getDocument']>
-type PdfDoc = Awaited<PdfLoadingTask['promise']>
-type PdfPage = Awaited<ReturnType<PdfDoc['getPage']>>
+import {
+  getDocumentProxy,
+  renderPageAsImage,
+  resolvePDFJSImport,
+} from 'unpdf'
 
 const EXTRACT_TIMEOUT_MS = 120_000
-const OPEN_TIMEOUT_MS = 60_000
+const OPEN_TIMEOUT_MS = 30_000
 const PAGE_TIMEOUT_MS = 20_000
-const DESTROY_TIMEOUT_MS = 2_000
 
-const PDF_WORKER_SRC = '/pdf.worker.min.mjs'
-
-let pdfJsReady: Promise<PdfJsModule> | null = null
+let unpdfReady: Promise<void> | null = null
 
 export type ExtractPdfStage = 'loading-lib' | 'opening' | 'reading'
 
@@ -20,10 +16,6 @@ export interface ExtractPdfProgress {
   stage: ExtractPdfStage
   page?: number
   total?: number
-}
-
-type PdfJsWorkerGlobal = typeof globalThis & {
-  pdfjsWorker?: { WorkerMessageHandler?: unknown }
 }
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
@@ -44,75 +36,42 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
   })
 }
 
-function releasePdfTask(task: PdfLoadingTask): void {
-  void Promise.race([
-    task.destroy(),
-    new Promise<void>(resolve => {
-      setTimeout(resolve, DESTROY_TIMEOUT_MS)
-    }),
-  ]).catch(() => {})
-}
-
-/**
- * Bỏ qua Web Worker (thường treo handshake trên Vite/Windows).
- * pdf.js đọc WorkerMessageHandler từ globalThis.pdfjsWorker → chạy fake worker trên main thread.
- */
-async function installMainThreadWorker(): Promise<void> {
-  const g = globalThis as PdfJsWorkerGlobal
-  if (g.pdfjsWorker?.WorkerMessageHandler) return
-
-  const workerMod = await import('pdfjs-dist/build/pdf.worker.min.mjs') as {
-    WorkerMessageHandler?: unknown
-  }
-  if (!workerMod.WorkerMessageHandler) {
-    throw new Error('pdf.worker thiếu WorkerMessageHandler.')
-  }
-  g.pdfjsWorker = workerMod
-}
-
-async function loadPdfJs(onProgress?: (progress: ExtractPdfProgress) => void): Promise<PdfJsModule> {
-  onProgress?.({ stage: 'loading-lib' })
-  if (!pdfJsReady) {
-    pdfJsReady = (async () => {
-      await installMainThreadWorker()
-      const pdfjs = await import('pdfjs-dist/build/pdf.mjs') as PdfJsModule
-      pdfjs.GlobalWorkerOptions.workerSrc = PDF_WORKER_SRC
-      return pdfjs
-    })().catch(err => {
-      pdfJsReady = null
+async function ensureUnpdf(): Promise<void> {
+  if (!unpdfReady) {
+    unpdfReady = resolvePDFJSImport().catch(err => {
+      unpdfReady = null
       const msg = err instanceof Error ? err.message : String(err)
-      throw new Error(`Không tải được pdf.js (${msg}). Thử reload trang.`)
+      throw new Error(`Không tải được thư viện PDF (${msg}). Thử reload trang.`)
     })
   }
-  return pdfJsReady
+  return unpdfReady
 }
 
 /** Gọi sớm khi mở modal import để tránh chờ lâu lần đầu. */
 export function preloadPdfJs(): void {
-  void loadPdfJs().catch(() => {})
+  void ensureUnpdf().catch(() => {})
+}
+
+async function readFileBytes(file: File): Promise<Uint8Array> {
+  return new Uint8Array(await file.arrayBuffer())
 }
 
 async function openPdf(
   file: File,
   onProgress?: (progress: ExtractPdfProgress) => void,
-): Promise<{ pdf: PdfDoc; task: PdfLoadingTask }> {
-  const { getDocument } = await loadPdfJs(onProgress)
+) {
+  await ensureUnpdf()
   onProgress?.({ stage: 'opening' })
-  const data = new Uint8Array(await file.arrayBuffer())
-  const task = getDocument({
-    data,
-    useWorkerFetch: false,
-    useWasm: false,
-  })
-  const pdf = await withTimeout(task.promise, OPEN_TIMEOUT_MS, 'Mở PDF')
-  return { pdf, task }
+  const data = await readFileBytes(file)
+  const pdf = await withTimeout(getDocumentProxy(data), OPEN_TIMEOUT_MS, 'Mở PDF')
+  return { pdf, data }
 }
 
-function textFromPageItems(items: unknown[]): string {
+function textFromPageContent(items: Array<{ str?: string; hasEOL?: boolean }>): string {
   return items
-    .filter((item): item is TextItem => typeof item === 'object' && item !== null && 'str' in item)
-    .map(item => item.str)
-    .join(' ')
+    .filter(item => item.str != null)
+    .map(item => `${item.str}${item.hasEOL ? '\n' : ''}`)
+    .join('')
     .replace(/\s+/g, ' ')
     .trim()
 }
@@ -131,20 +90,17 @@ export async function extractTextFromPdf(
 ): Promise<string> {
   return withTimeout(
     (async () => {
-      const { pdf, task } = await openPdf(file, onProgress)
+      onProgress?.({ stage: 'loading-lib' })
+      const { pdf } = await openPdf(file, onProgress)
       const pageCount = Math.min(pdf.numPages, maxPages)
       const chunks: string[] = []
 
-      try {
-        for (let pageNum = 1; pageNum <= pageCount; pageNum += 1) {
-          onProgress?.({ stage: 'reading', page: pageNum, total: pageCount })
-          const page = await withTimeout(pdf.getPage(pageNum), PAGE_TIMEOUT_MS, `Đọc trang ${pageNum}`)
-          const content = await withTimeout(page.getTextContent(), PAGE_TIMEOUT_MS, `Trích chữ trang ${pageNum}`)
-          const pageText = textFromPageItems(content.items as unknown[])
-          if (pageText) chunks.push(pageText)
-        }
-      } finally {
-        releasePdfTask(task)
+      for (let pageNum = 1; pageNum <= pageCount; pageNum += 1) {
+        onProgress?.({ stage: 'reading', page: pageNum, total: pageCount })
+        const page = await withTimeout(pdf.getPage(pageNum), PAGE_TIMEOUT_MS, `Đọc trang ${pageNum}`)
+        const content = await withTimeout(page.getTextContent(), PAGE_TIMEOUT_MS, `Trích chữ trang ${pageNum}`)
+        const pageText = textFromPageContent(content.items as Array<{ str?: string; hasEOL?: boolean }>)
+        if (pageText) chunks.push(pageText)
       }
 
       return chunks.join('\n\n')
@@ -159,39 +115,24 @@ export interface PdfPageImage {
   dataUrl: string
 }
 
-async function renderPageToCanvas(page: PdfPage, scale: number): Promise<HTMLCanvasElement | null> {
-  const viewport = page.getViewport({ scale })
-  const canvas = document.createElement('canvas')
-  canvas.width = Math.floor(viewport.width)
-  canvas.height = Math.floor(viewport.height)
-  const ctx = canvas.getContext('2d')
-  if (!ctx) return null
-
-  const task = page.render({ canvasContext: ctx, viewport, canvas })
-  await task.promise
-  return canvas
-}
-
 /** Render trang PDF thành JPEG data URL (cho Vision OCR). */
 export async function renderPdfPagesAsImages(
   file: File,
   maxPages = 20,
   scale = 1.4,
 ): Promise<PdfPageImage[]> {
-  const { pdf, task } = await openPdf(file)
+  await ensureUnpdf()
+  const { pdf } = await openPdf(file)
   const pageCount = Math.min(pdf.numPages, maxPages)
   const images: PdfPageImage[] = []
 
-  try {
-    for (let pageNum = 1; pageNum <= pageCount; pageNum += 1) {
-      const page = await withTimeout(pdf.getPage(pageNum), PAGE_TIMEOUT_MS, `Render trang ${pageNum}`)
-      const canvas = await renderPageToCanvas(page, scale)
-      if (!canvas) continue
-      const dataUrl = canvas.toDataURL('image/jpeg', 0.82)
-      images.push({ pageNum, dataUrl })
-    }
-  } finally {
-    releasePdfTask(task)
+  for (let pageNum = 1; pageNum <= pageCount; pageNum += 1) {
+    const dataUrl = await withTimeout(
+      renderPageAsImage(pdf, pageNum, { scale, toDataURL: true }),
+      PAGE_TIMEOUT_MS,
+      `Render trang ${pageNum}`,
+    )
+    images.push({ pageNum, dataUrl })
   }
 
   return images

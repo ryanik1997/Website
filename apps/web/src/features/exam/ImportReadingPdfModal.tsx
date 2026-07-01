@@ -344,8 +344,8 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
                 {extractProgress
                   ? extractProgress.stage === 'loading-lib'
-                    ? 'Lần đầu có thể mất vài giây để tải pdf.js…'
-                    : 'Đang trích chữ từ PDF (pdf.js)…'
+                    ? 'Lần đầu có thể mất vài giây để tải thư viện PDF…'
+                    : 'Đang trích chữ từ PDF…'
                   : parseProgress.some(e => e.phase === 'part' || e.phase === 'full')
                     ? 'DeepSeek/OpenAI đang phân tích — KET/PET có thể mất 1–3 phút (5–6 lần gọi API).'
                     : 'Có thể mất 30–180 giây tùy provider và số part.'}

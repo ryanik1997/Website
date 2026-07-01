@@ -7,6 +7,8 @@ interface Props {
   answers: Record<string, string>
   activeQuestionId: string | null
   highlights: ReadingHighlight[]
+  cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+  partNumber?: number
   onSelectQuestion: (questionId: string) => void
   onAnswer: (questionId: string, value: string) => void
 }
@@ -83,11 +85,15 @@ function MultipleChoiceGroup({
   group,
   answers,
   highlights,
+  cambridgeLevel,
+  partNumber,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'highlights' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'partNumber' | 'onSelectQuestion' | 'onAnswer'>) {
+  const hideOptions = cambridgeLevel === 'a2' && partNumber === 1
+  const compactLetters = cambridgeLevel === 'a2' && partNumber === 2
   return (
     <section className="reading-test-group">
       <ReadingHighlightableText
@@ -117,31 +123,35 @@ function MultipleChoiceGroup({
               as="span"
             />
           </p>
-          <div className="reading-test-mc-options">
-            {question.options.map(option => {
-              const selected = answers[question.id] === option.id
-              return (
-                <button
-                  key={option.id}
-                  type="button"
-                  className={`reading-test-mc-option${selected ? ' is-selected' : ''}`}
-                  onClick={() => {
-                    onSelectQuestion(question.id)
-                    onAnswer(question.id, option.id)
-                  }}
-                >
-                  <span className="reading-test-mc-letter" data-highlight-skip>{option.id}</span>
-                  <ReadingHighlightableText
-                    blockId={`${question.id}-opt-${option.id}`}
-                    text={option.label}
-                    highlights={highlights}
-                    className="reading-test-mc-label"
-                    as="span"
-                  />
-                </button>
-              )
-            })}
-          </div>
+          {!hideOptions && (
+            <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
+              {question.options.map(option => {
+                const selected = answers[question.id] === option.id
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    className={`reading-test-mc-option${selected ? ' is-selected' : ''}${compactLetters ? ' is-letter-only' : ''}`}
+                    onClick={() => {
+                      onSelectQuestion(question.id)
+                      onAnswer(question.id, option.id)
+                    }}
+                  >
+                    <span className="reading-test-mc-letter" data-highlight-skip>{option.id.toUpperCase()}</span>
+                    {!compactLetters && (
+                      <ReadingHighlightableText
+                        blockId={`${question.id}-opt-${option.id}`}
+                        text={option.label}
+                        highlights={highlights}
+                        className="reading-test-mc-label"
+                        as="span"
+                      />
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+          )}
         </div>
       ))}
     </section>
@@ -436,13 +446,15 @@ function MatchingFeaturesGroup({
   group,
   answers,
   highlights,
+  cambridgeLevel,
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const features = group.features ?? []
+  const hideFeatureList = cambridgeLevel === 'a2'
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (
@@ -471,21 +483,23 @@ function MatchingFeaturesGroup({
         />
       )}
 
-      <div className="reading-test-features">
-        <p className="reading-test-features__title">List of features</p>
-        {features.map(feature => (
-          <p key={feature.id} className="reading-test-features__item">
-            <strong data-highlight-skip>{feature.id.toUpperCase()}</strong>
-            {' '}
-            <ReadingHighlightableText
-              blockId={`${group.id}-feature-${feature.id}`}
-              text={feature.name}
-              highlights={highlights}
-              as="span"
-            />
-          </p>
-        ))}
-      </div>
+      {!hideFeatureList && features.length > 0 && (
+        <div className="reading-test-features">
+          <p className="reading-test-features__title">List of features</p>
+          {features.map(feature => (
+            <p key={feature.id} className="reading-test-features__item">
+              <strong data-highlight-skip>{feature.id.toUpperCase()}</strong>
+              {' '}
+              <ReadingHighlightableText
+                blockId={`${group.id}-feature-${feature.id}`}
+                text={feature.name}
+                highlights={highlights}
+                as="span"
+              />
+            </p>
+          ))}
+        </div>
+      )}
 
       {group.questions.map(question => {
         const answered = answers[question.id]
@@ -550,6 +564,8 @@ export default function ReadingQuestionPanel({
   answers,
   activeQuestionId,
   highlights,
+  cambridgeLevel,
+  partNumber,
   onSelectQuestion,
   onAnswer,
 }: Props) {
@@ -588,6 +604,7 @@ export default function ReadingQuestionPanel({
                 group={group}
                 answers={answers}
                 highlights={highlights}
+                cambridgeLevel={cambridgeLevel}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
@@ -624,6 +641,8 @@ export default function ReadingQuestionPanel({
                 group={group}
                 answers={answers}
                 highlights={highlights}
+                cambridgeLevel={cambridgeLevel}
+                partNumber={partNumber}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
               />
