@@ -73,7 +73,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}${window.location.pathname || '/'}`,
+        // Luon quay ve callback cung origin hien tai de localhost va production dung chung.
+        redirectTo: `${window.location.origin}/auth/callback`,
         queryParams: { access_type: 'offline', prompt: 'select_account' },
       },
     })

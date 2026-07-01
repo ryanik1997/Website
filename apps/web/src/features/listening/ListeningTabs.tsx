@@ -61,10 +61,10 @@ export default function ListeningTabs({
   return (
     <>
       <div
-        className="mb-6 flex items-end justify-between gap-4 border-b"
+        className="relative mb-6 min-w-0 overflow-x-hidden border-b"
         style={{ borderColor: 'var(--border-color)' }}
       >
-        <div className="flex min-w-0 gap-6 overflow-x-auto">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-2 pr-14">
           {TABS.map(t => {
             const isActive = active === t.id
             const Icon = t.icon
@@ -73,7 +73,7 @@ export default function ListeningTabs({
                 key={t.id}
                 type="button"
                 onClick={() => onChange(t.id)}
-                className="flex items-center gap-1.5 whitespace-nowrap pb-3 text-sm font-bold uppercase tracking-wide transition-colors"
+                className="flex shrink-0 items-center gap-1.5 whitespace-nowrap pb-3 text-sm font-bold uppercase tracking-wide transition-colors"
                 style={{
                   color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
                   borderBottom: isActive ? '2px solid var(--text-primary)' : '2px solid transparent',
@@ -87,7 +87,7 @@ export default function ListeningTabs({
           })}
         </div>
 
-        <div ref={menuRef} className="relative shrink-0 pb-2">
+        <div ref={menuRef} className="absolute bottom-2 right-0">
           <button
             type="button"
             onClick={() => setMenuOpen(open => !open)}
