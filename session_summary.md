@@ -760,6 +760,14 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [x] Copy vào repo: `Tainguyen/ket-reading-test1/` + `Tainguyen/ket-reading-test1.zip`
 - [ ] User import trên app → xác nhận Part 1 ảnh + Part 2–5 highlight
 
+#### Fix PET B1 Reading Test 1 — lặp cột + đáp án (session 2026-07-01)
+- [x] `ReadingPassagePanel` — B1 Part 2/4: ẩn block `Danh sách A–H` cột trái (passage đã có đủ nội dung)
+- [x] `ReadingQuestionPanel` — B1 matching: ẩn `List of features/sentences` cột phải (chỉ câu hỏi + pills A–H)
+- [x] `scripts/build-pet-b1-test1.py` — Part 2: passage `label` A–H + `features[]` tên ngắn; Part 4: câu A–H trong passage + `features[]` chỉ text câu (không prefix chữ cái)
+- [x] Regenerate `Tainguyen/pet-reading-test1.zip` + `exam.json` (6 parts · 32 câu)
+- [x] `cambridgeReadingImportTemplates.ts` — B1 Part 2/4: mẫu features ngắn (full text → passage[])
+- [ ] User **xóa đề cũ** + import lại `pet-reading-test1.zip` → xác nhận Part 2/4 không lặp (a8/a9)
+
 #### Flow Import thủ công Listening (đã có)
 1. **Import thủ công Listening** → JSON/ZIP + MP3/ảnh câu hỏi
 2. Tên file: `q1.mp3`, `q1-a.jpg`, `part1.mp3`…

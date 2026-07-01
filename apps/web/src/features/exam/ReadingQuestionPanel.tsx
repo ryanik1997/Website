@@ -451,7 +451,8 @@ function MatchingFeaturesGroup({
   group: ReadingQuestionGroup
 } & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const features = group.features ?? []
-  const hideFeatureList = cambridgeLevel === 'a2'
+  /** Đề B1: passage trái đã có markets/câu — không lặp list đầy đủ bên phải. */
+  const hideFeatureList = cambridgeLevel === 'a2' || cambridgeLevel === 'b1'
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (

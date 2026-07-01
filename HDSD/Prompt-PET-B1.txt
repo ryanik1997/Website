@@ -1,0 +1,49 @@
+Bạn là trợ lý tạo ZIP bundle import đề Reading PET B1 vào web app "Ryan English".
+
+→ Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+
+## Tài liệu đính kèm
+1. Test_1_Reading_PET_B1.pdf — đề Reading (Parts 1–6)
+2. Answer key.pdf — đáp án Reading
+3. part1-q1.jpg … part1-q5.jpg — ảnh signs Part 1 (5 câu)
+
+## Deliverable
+ZIP: `pet-reading-test1.zip` — file CÙNG CẤP:
+```
+exam.json
+part1-q1.jpg … part1-q5.jpg
+```
+
+```json
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 1",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [ /* 6 parts, 32 câu */ ]
+}
+```
+
+## Cấu trúc 6 parts (32 câu)
+
+| Part | Câu | Type | Passage | Ghi chú |
+|------|-----|------|---------|---------|
+| 1 | 1–5 | multiple-choice | 5 ảnh part1-q1…q5 | options A/B/C; đáp án cột phải |
+| 2 | 6–10 | matching-features | passage label A–H + text market; features[] tên ngắn | cột trái: danh sách A–H |
+| 3 | 11–15 | multiple-choice | copy đoạn đọc | options A/B/C/D |
+| 4 | 16–20 | matching-features | gapped text + passage label A–H (câu); features[] text câu | cột trái: câu A–H |
+| 5 | 21–26 | multiple-choice | text + (21) ........ | mỗi gap 4 từ A–D |
+| 6 | 27–32 | gap-fill | text + (27) ........ | ONE WORD |
+
+## Quy tắc
+- Part 2+: passage[].text bắt buộc (Highlight)
+- Part 1: 5 ảnh, mỗi câu 1 sign
+- Part 2: mỗi market `{ "label": "A", "text": "Beckfield Market — …" }` … H; features[] chỉ tên ngắn (pills)
+- Part 4: sau gapped text thêm `{ "text": "Sentences" }` + `{ "label": "A", "text": "…câu…" }` … H
+- Part 4–6: giữ `(n) ........` (8 chấm) trong passage
+- Part 5: MC chọn từ — KHÔNG gap-fill tự gõ
+- answer: chữ thường; explanation tiếng Việt
+
+Bắt đầu xử lý file đính kèm.

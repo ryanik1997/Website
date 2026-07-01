@@ -56,38 +56,26 @@ Chỉ ảnh không Highlight được ở Part 2+.
 
 | Part | Câu | Type | Passage | Ghi chú |
 |------|-----|------|---------|---------|
-| 1 | 1–6 | multiple-choice | 6 ảnh part1-q1…q6 | prompt mô tả; options A/B/C đầy đủ |
-| 2 | 7–13 | multiple-choice | text + label Angus/Frank/Zac | matching people |
+| 1 | 1–6 | multiple-choice | 6 ảnh part1-q1…q6 | ảnh trái; A/B/C phải |
+| 2 | 7–13 | multiple-choice | text + label Angus/Frank/Zac | MC chọn tên — không matching-features |
 | 3 | 14–18 | multiple-choice | copy toàn bộ đoạn đọc | reading comprehension |
-| 4 | 19–24 | **multiple-choice** | gapped text giữ (19),(20)… | **Mỗi gap 3 từ A/B/C — KHÔNG gap-fill tự gõ** |
-| 5 | 25–30 | gap-fill | email/message + Example: 0 are | ONE WORD mỗi gap |
+| 4 | 19–24 | **multiple-choice** | gapped text (19) ........ | **3 từ A/B/C — KHÔNG gap-fill** |
+| 5 | 25–30 | gap-fill | email + Example: 0 are | ONE WORD mỗi gap |
 
-**Part 4 A2 — ví dụ câu 19:**
-```json
-{
-  "number": 19,
-  "type": "multiple-choice",
-  "prompt": "Gap (19)",
-  "options": [
-    { "id": "A", "label": "early" },
-    { "id": "B", "label": "short" },
-    { "id": "C", "label": "quick" }
-  ],
-  "answer": "b",
-  "explanation": "..."
-}
-```
+Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-KET-A2.txt**
 
 ### B1 — PET (6 parts · 32 câu)
 
 | Part | Câu | Type | Ghi chú |
 |------|-----|------|---------|
-| 1 | 1–5 | multiple-choice | signs — ảnh OK |
-| 2 | 6–10 | matching-features | features[] A–E |
-| 3 | 11–15 | gap-fill | gap-fill text |
-| 4 | 16–20 | multiple-choice | reading |
-| 5 | 21–25 | summary-completion | wordBank[] |
-| 6 | 26–32 | gap-fill | open cloze |
+| 1 | 1–5 | multiple-choice | 5 ảnh part1-q1…q5 |
+| 2 | 6–10 | matching-features | markets A–H trong passage + features[] |
+| 3 | 11–15 | multiple-choice | reading A/B/C/D |
+| 4 | 16–20 | matching-features | gapped text + câu A–H (3 thừa) |
+| 5 | 21–26 | multiple-choice | MC cloze — 4 từ A–D mỗi gap |
+| 6 | 27–32 | gap-fill | open cloze ONE WORD |
+
+Chi tiết + ví dụ ZIP: HDSD/Prompt-PET-B1.txt
 
 ### B2 — FCE (7 parts · 52 câu)
 
