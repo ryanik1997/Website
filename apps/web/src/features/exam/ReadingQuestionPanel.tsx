@@ -170,6 +170,128 @@ function MatchingParagraphGroup({
   )
 }
 
+function GapFillGroup({
+  group,
+  answers,
+  onSelectQuestion,
+  onAnswer,
+}: {
+  group: ReadingQuestionGroup
+} & Pick<Props, 'answers' | 'onSelectQuestion' | 'onAnswer'>) {
+  return (
+    <section className="reading-test-group">
+      <h3 className="reading-test-group__title">{group.range}</h3>
+      <p className="reading-test-group__instruction">{group.instruction}</p>
+      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+      {group.questions.map(question => (
+        <div key={question.id} id={`reading-q-${question.id}`} className="reading-test-mc-item">
+          <p className="reading-test-tfng-prompt">
+            <span className="reading-test-tfng-num" style={{ display: 'inline', marginRight: '0.35rem' }}>
+              {question.number}
+            </span>
+            {question.prompt}
+            {question.answerConfidence === 'inferred' && (
+              <span className="reading-test-inferred-badge">Đoán</span>
+            )}
+          </p>
+          <input
+            type="text"
+            className="reading-test-gap-input"
+            value={answers[question.id] ?? ''}
+            placeholder="ONE WORD"
+            onChange={e => onAnswer(question.id, e.target.value.trim().toLowerCase())}
+            onFocus={() => onSelectQuestion(question.id)}
+          />
+        </div>
+      ))}
+    </section>
+  )
+}
+
+function SummaryCompletionGroup({
+  group,
+  answers,
+  activeQuestionId,
+  onSelectQuestion,
+  onAnswer,
+}: {
+  group: ReadingQuestionGroup
+} & Pick<Props, 'answers' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+  const bank = group.wordBank ?? []
+  const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
+
+  return (
+    <section className="reading-test-group">
+      <h3 className="reading-test-group__title">{group.range}</h3>
+      <p className="reading-test-group__instruction">{group.instruction}</p>
+      {group.note && <p className="reading-test-group__note">{group.note}</p>}
+
+      {bank.length > 0 && (
+        <div className="reading-test-word-bank">
+          <p className="reading-test-word-bank__title">Word bank</p>
+          {bank.map(word => (
+            <p key={word.id} className="reading-test-word-bank__item">
+              <strong>{word.id.toUpperCase()}</strong> {word.label}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {group.questions.map(question => {
+        const answered = answers[question.id]
+        const isActive = activeQuestionId === question.id
+        return (
+          <div
+            key={question.id}
+            id={`reading-q-${question.id}`}
+            role="button"
+            tabIndex={0}
+            className={`reading-test-match-row${isActive ? ' is-active' : ''}${answered ? ' is-answered' : ''}`}
+            onClick={() => onSelectQuestion(question.id)}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                onSelectQuestion(question.id)
+              }
+            }}
+          >
+            <span className="reading-test-match-num">{question.number}</span>
+            <span className="reading-test-match-prompt">
+              {question.prompt}
+              {question.answerConfidence === 'inferred' && (
+                <span className="reading-test-inferred-badge">Đoán</span>
+              )}
+            </span>
+            <span className="reading-test-match-answer">{answered ? answered.toUpperCase() : ''}</span>
+          </div>
+        )
+      })}
+
+      <div className="reading-test-feature-pills">
+        {bank.map(word => (
+          <button
+            key={word.id}
+            type="button"
+            className={`reading-test-para-pill${
+              activeQuestion && answers[activeQuestion.id] === word.id ? ' is-selected' : ''
+            }`}
+            disabled={!activeQuestion}
+            onClick={() => {
+              if (!activeQuestion) return
+              onAnswer(activeQuestion.id, word.id)
+              const idx = group.questions.findIndex(q => q.id === activeQuestion.id)
+              const next = group.questions[idx + 1]
+              if (next) onSelectQuestion(next.id)
+            }}
+          >
+            {word.id.toUpperCase()}
+          </button>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function MatchingFeaturesGroup({
   group,
   answers,
@@ -285,6 +407,28 @@ export default function ReadingQuestionPanel({
           case 'matching-features':
             return (
               <MatchingFeaturesGroup
+                key={group.id}
+                group={group}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                onSelectQuestion={onSelectQuestion}
+                onAnswer={onAnswer}
+              />
+            )
+          case 'gap-fill':
+          case 'sentence-completion':
+            return (
+              <GapFillGroup
+                key={group.id}
+                group={group}
+                answers={answers}
+                onSelectQuestion={onSelectQuestion}
+                onAnswer={onAnswer}
+              />
+            )
+          case 'summary-completion':
+            return (
+              <SummaryCompletionGroup
                 key={group.id}
                 group={group}
                 answers={answers}

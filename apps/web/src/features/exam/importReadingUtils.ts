@@ -17,6 +17,7 @@ export function parsedPartToReadingPart(parsed: ParsedReadingPart, partId: strin
       type: group.type,
       paragraphLetters: group.paragraphLetters,
       features: group.features,
+      wordBank: group.wordBank,
       questions: group.questions.map(question => ({
         id: `${partId}-q${question.number}`,
         number: question.number,
@@ -25,6 +26,7 @@ export function parsedPartToReadingPart(parsed: ParsedReadingPart, partId: strin
         options: question.options,
         answer: question.answer,
         explanation: question.explanation,
+        answerConfidence: question.answerConfidence,
       })),
     })),
   }
@@ -75,6 +77,16 @@ export function defaultExamTitle(parts: ParsedReadingPart[]): string {
 export function countQuestions(parts: ParsedReadingPart[]): number {
   return parts.reduce(
     (sum, p) => sum + p.questionGroups.reduce((gs, g) => gs + g.questions.length, 0),
+    0,
+  )
+}
+
+export function countInferredAnswers(parts: ParsedReadingPart[]): number {
+  return parts.reduce(
+    (sum, p) => sum + p.questionGroups.reduce(
+      (gs, g) => gs + g.questions.filter(q => q.answerConfidence === 'inferred').length,
+      0,
+    ),
     0,
   )
 }

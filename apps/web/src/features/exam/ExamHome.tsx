@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { BookOpen, FileUp, Trash2 } from 'lucide-react'
+import { BookOpen, FileUp, Loader2, Trash2 } from 'lucide-react'
 import { examRepo } from '@ryan/db'
 import { EXAM_LIBRARY } from './examData'
 import { listAllReadingExams } from './examLoader'
-import ImportReadingPdfModal from './ImportReadingPdfModal'
 import type { ReadingExam } from './examData'
 import { getPartQuestions } from './examData'
+
+const ImportReadingPdfModal = lazy(() => import('./ImportReadingPdfModal'))
 
 export default function ExamHome() {
   const navigate = useNavigate()
@@ -181,13 +182,24 @@ export default function ExamHome() {
       </div>
 
       {showImportPdf && (
-        <ImportReadingPdfModal
-          onClose={() => setShowImportPdf(false)}
-          onCreated={id => {
-            setShowImportPdf(false)
-            navigate(`/app/exam/reading/${id}`)
-          }}
-        />
+        <Suspense
+          fallback={(
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center"
+              style={{ background: 'color-mix(in srgb, var(--bg-primary) 45%, transparent)' }}
+            >
+              <Loader2 size={28} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+            </div>
+          )}
+        >
+          <ImportReadingPdfModal
+            onClose={() => setShowImportPdf(false)}
+            onCreated={id => {
+              setShowImportPdf(false)
+              navigate(`/app/exam/reading/${id}`)
+            }}
+          />
+        </Suspense>
       )}
     </div>
   )

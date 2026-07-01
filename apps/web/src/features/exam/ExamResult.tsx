@@ -1,4 +1,10 @@
-import { getExamQuestions, type ReadingExam } from './examData'
+import {
+  formatReadingAnswer,
+  getExamQuestions,
+  isReadingAnswerCorrect,
+  type ReadingExam,
+} from './examData'
+import './readingTest.css'
 
 interface Props {
   exam: ReadingExam
@@ -9,7 +15,7 @@ interface Props {
 
 export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
   const questions = getExamQuestions(exam)
-  const correctCount = questions.filter(question => answers[question.id] === question.answer).length
+  const correctCount = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
   const scoreText = `${correctCount}/${questions.length}`
 
   return (
@@ -69,7 +75,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 <div className="flex flex-col gap-4">
                   {part.questionGroups.flatMap(group => group.questions).map(question => {
                     const userAnswer = answers[question.id] ?? ''
-                    const isCorrect = userAnswer === question.answer
+                    const isCorrect = isReadingAnswerCorrect(question, userAnswer)
 
                     return (
                       <article
@@ -90,13 +96,16 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                             className="rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em]"
                             style={{
                               background: isCorrect
-                                ? 'color-mix(in srgb, #22c55e 14%, transparent)'
-                                : 'color-mix(in srgb, #ef4444 12%, transparent)',
-                              color: isCorrect ? '#15803d' : '#b91c1c',
+                                ? 'color-mix(in srgb, var(--color-primary) 14%, transparent)'
+                                : 'color-mix(in srgb, var(--color-accent) 12%, transparent)',
+                              color: isCorrect ? 'var(--color-primary)' : 'var(--color-accent)',
                             }}
                           >
                             {isCorrect ? 'Đúng' : 'Sai'}
                           </span>
+                          {question.answerConfidence === 'inferred' && (
+                            <span className="reading-test-inferred-badge">Đáp án AI đoán</span>
+                          )}
                         </div>
 
                         <p className="mt-3 text-sm font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
@@ -107,15 +116,13 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Bạn chọn: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {question.options.find(option => option.id === userAnswer)?.label
-                                ?? (userAnswer ? userAnswer.toUpperCase() : 'Chưa trả lời')}
+                              {formatReadingAnswer(question, userAnswer)}
                             </span>
                           </div>
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Đáp án đúng: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {question.options.find(option => option.id === question.answer)?.label
-                                ?? question.answer.toUpperCase()}
+                              {formatReadingAnswer(question, question.answer)}
                             </span>
                           </div>
                         </div>
