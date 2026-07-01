@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, FileUp, Headphones, Loader2, Trash2 } from 'lucide-react'
+import { ArrowLeft, FileJson, Headphones, Loader2, Trash2 } from 'lucide-react'
 import { examRepo, listeningExamRepo } from '@ryan/db'
 import {
   CAMBRIDGE_EXAM_LEVELS,
@@ -18,9 +18,10 @@ import { getListeningExamQuestions } from './listeningExamData'
 import type { ListeningExamType } from './listeningExamData'
 import type { ReadingExam } from './examData'
 import type { ListeningExam } from './listeningExamData'
+import { isImportedReadingExamId } from './importReadingManualUtils'
 import './examHub.css'
 
-const ImportReadingPdfModal = lazy(() => import('./ImportReadingPdfModal'))
+const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
 const ImportListeningModal = lazy(() => import('./ImportListeningModal'))
 
 function filterListeningByTypes(exams: ListeningExam[], types: ListeningExamType[]): ListeningExam[] {
@@ -40,7 +41,7 @@ export default function ExamTrackPage() {
     ? getCambridgeExamLevel(levelParam)
     : null
 
-  const [showImportPdf, setShowImportPdf] = useState(false)
+  const [showImportManual, setShowImportManual] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
 
   const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
@@ -130,7 +131,7 @@ export default function ExamTrackPage() {
     ? 'ielts'
     : cambridgeLevel?.listeningExamTypes[0] ?? 'ket'
 
-  const importedReading = readingList.filter(e => e.id.startsWith('reading-pdf-'))
+  const importedReading = readingList.filter(e => isImportedReadingExamId(e.id))
   const importedListening = listeningList.filter(e => e.id.startsWith('listening-import-'))
 
   async function deleteReading(exam: ReadingExam) {
@@ -166,15 +167,15 @@ export default function ExamTrackPage() {
 
           <div className="exam-hub-actions">
             {activeTrack.skills.includes('reading') && (
-              <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportPdf(true)}>
-                <FileUp size={14} />
-                Import PDF Reading
+              <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportManual(true)}>
+                <FileJson size={14} />
+                Import thủ công Reading
               </button>
             )}
             {activeTrack.skills.includes('listening') && (
               <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportListening(true)}>
                 <Headphones size={14} />
-                Import Listening
+                Import thủ công Listening
               </button>
             )}
           </div>
@@ -186,8 +187,8 @@ export default function ExamTrackPage() {
             {readingList.length === 0 ? (
               <p className="exam-hub-desc">
                 {cambridgeLevel
-                  ? `Chưa có đề Reading ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import PDF Reading.`
-                  : 'Chưa có đề Reading. Bấm Import PDF Reading để thêm đề.'}
+                  ? `Chưa có đề Reading ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (JSON + ảnh).`
+                  : 'Chưa có đề Reading. Bấm Import thủ công — tải JSON mẫu, thêm ảnh đoạn văn, upload ZIP.'}
               </p>
             ) : (
               <div className="exam-track-list">
@@ -203,7 +204,7 @@ export default function ExamTrackPage() {
                         <button type="button" className="exam-hub-cta" style={{ marginTop: 0 }} onClick={() => navigate(`/app/exam/reading/${exam.id}`)}>
                           Làm bài
                         </button>
-                        {exam.id.startsWith('reading-pdf-') && (
+                        {isImportedReadingExamId(exam.id) && (
                           <button type="button" className="exam-hub-cta exam-hub-cta--ghost" style={{ marginTop: 0, padding: '0.5rem' }} onClick={() => void deleteReading(exam)}>
                             <Trash2 size={16} />
                           </button>
@@ -225,10 +226,10 @@ export default function ExamTrackPage() {
             {listeningList.length === 0 ? (
               <p className="exam-hub-desc">
                 {track.id === 'ielts'
-                  ? 'Chưa có đề Listening IELTS. Dùng đề mẫu hoặc Import Listening.'
+                  ? 'Chưa có đề Listening IELTS. Dùng đề mẫu hoặc Import thủ công (JSON + MP3/ảnh).'
                   : cambridgeLevel
-                    ? `Chưa có đề Listening ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import Listening (examType: "${defaultListeningType}").`
-                    : 'Chưa có đề Listening. Bấm Import Listening để thêm đề.'}
+                    ? `Chưa có đề Listening ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (examType: "${defaultListeningType}").`
+                    : 'Chưa có đề Listening. Import thủ công (JSON + MP3/ảnh) để thêm đề.'}
               </p>
             ) : (
               <div className="exam-track-list">
@@ -280,18 +281,20 @@ export default function ExamTrackPage() {
         </Suspense>
       )}
 
-      {showImportPdf && (
+      {showImportManual && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
-          <ImportReadingPdfModal
+          <ImportReadingManualModal
+            examTrack={track.id === 'ielts' ? 'ielts' : 'cambridge'}
             cambridgeLevel={cambridgeLevel?.slug}
-            onClose={() => setShowImportPdf(false)}
+            onClose={() => setShowImportManual(false)}
             onCreated={id => {
-              setShowImportPdf(false)
+              setShowImportManual(false)
               navigate(`/app/exam/reading/${id}`)
             }}
           />
         </Suspense>
       )}
+
     </div>
   )
 }

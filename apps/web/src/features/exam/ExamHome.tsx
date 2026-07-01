@@ -12,7 +12,7 @@ export default function ExamHome() {
           <p className="exam-hub-kicker">Luyện thi</p>
           <h1 className="exam-hub-title">Chọn track ôn thi</h1>
           <p className="exam-hub-desc">
-            IELTS Academic hoặc Cambridge A2–C2 — mỗi track luyện Reading + Listening, import riêng.
+            IELTS Academic hoặc Cambridge A2–C2 — luyện Reading + Listening, import thủ công JSON + media.
           </p>
         </section>
 

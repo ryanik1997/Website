@@ -64,6 +64,17 @@ export type ParseProgressEvent =
 
 export type ParseProgressCallback = (event: ParseProgressEvent) => void
 
+/** Parse JSON từ AI — bỏ markdown fence, lấy object đầu tiên. */
+export function parseAiJsonContent<T>(raw: string): T {
+  let text = raw.trim()
+  const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/i)
+  if (fence) text = fence[1].trim()
+  const start = text.indexOf('{')
+  const end = text.lastIndexOf('}')
+  if (start >= 0 && end > start) text = text.slice(start, end + 1)
+  return JSON.parse(text) as T
+}
+
 const TFNG_OPTIONS = [
   { id: 'true', label: 'TRUE' },
   { id: 'false', label: 'FALSE' },
@@ -288,7 +299,7 @@ async function callParsePdf(
 
   let parsed: ParsedReadingFull
   try {
-    const json = JSON.parse(result.content) as ParsedReadingFull | ParsedReadingPart
+    const json = parseAiJsonContent<ParsedReadingFull | ParsedReadingPart>(result.content)
     if ('parts' in json && Array.isArray(json.parts)) {
       parsed = json
     } else {

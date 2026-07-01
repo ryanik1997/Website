@@ -5,7 +5,9 @@ import type {
   ParsedReadingPart,
   ParseProgressCallback,
 } from './readingPdfPrompt'
-import { READING_PDF_PART_SLICE, READING_PDF_TEXT_SLICE } from './readingPdfPrompt'
+import { parseAiJsonContent, READING_PDF_PART_SLICE, READING_PDF_TEXT_SLICE } from './readingPdfPrompt'
+
+const KET_MIN_SLICE_CHARS = 40
 
 export type KetPartNumber = 1 | 2 | 3 | 4 | 5
 
@@ -30,9 +32,10 @@ const KET_PART_DEFAULTS: Record<KetPartNumber, { title: string; range: string }>
 const KET_QUESTION_TYPE_RULES = `
 KET A2 Reading (Parts 1–5 only — ignore Writing Parts 6–7):
 - Part 1 (Q1–6): short signs, notices, messages. group "multiple-choice", options id A/B/C with full labels.
+  Each question MUST have number 1–6. If sign text is only in options, set prompt to "Question N" and keep full text in options.
 - Part 2 (Q7–13): match people to statements. group "multiple-choice" (options A/B/C = people or statements) OR "matching-features" with features list.
 - Part 3 (Q14–18): longer text + MC. group "multiple-choice", passage required.
-- Part 4 (Q19–24): gapped text, often word bank. group "summary-completion" with wordBank OR "gap-fill" (ONE WORD).
+- Part 4 (Q19–24): gapped text — đề gốc là MULTIPLE-CHOICE: mỗi gap có 3 từ A/B/C (vd early/short/quick). group "multiple-choice", mỗi câu đủ options + answer a/b/c. KHÔNG dùng gap-fill tự gõ.
 - Part 5 (Q25–30): email/message open cloze. group "gap-fill", ONE WORD per gap.
 
 Question types: "multiple-choice", "gap-fill", "summary-completion", "matching-features".
@@ -99,45 +102,80 @@ function findEarliestIndex(text: string, patterns: RegExp[], start = 0): number 
   return best
 }
 
+function findKetPartStart(body: string, partNumber: KetPartNumber, after: number): number | null {
+  const q = KET_PART_FIRST_Q[partNumber]
+  const idx = findEarliestIndex(body, [
+    new RegExp(`\\bpart\\s*${partNumber}\\b`, 'i'),
+    new RegExp(`questions?\\s*${q}\\s*[–\\-—]`, 'i'),
+    new RegExp(`questions?\\s*${q}\\b`, 'i'),
+  ], after + 15)
+  if (idx >= body.length || idx <= after + 15) return null
+  return idx
+}
+
+function buildKetBoundaries(body: string, start: number, end: number): number[] {
+  const known: Array<number | null> = [start]
+  let cursor = start
+  for (const n of [2, 3, 4, 5] as KetPartNumber[]) {
+    const idx = findKetPartStart(body, n, cursor)
+    known.push(idx)
+    if (idx != null) cursor = idx
+  }
+  known.push(end)
+
+  const resolved: number[] = [start]
+  for (let i = 1; i <= 4; i += 1) {
+    const direct = known[i] as number | null
+    if (direct != null) {
+      resolved.push(direct)
+      continue
+    }
+    const prev = resolved[resolved.length - 1]
+    let next: number = end
+    for (let j = i + 1; j <= 5; j += 1) {
+      const later = known[j] as number | null
+      if (later != null) {
+        next = later
+        break
+      }
+    }
+    const remaining = 5 - i
+    resolved.push(Math.round(prev + (next - prev) / remaining))
+  }
+  resolved.push(end)
+  return resolved
+}
+
 /** Cắt text theo PART 1–5; bỏ Writing (Part 6+). */
 export function splitPdfTextForKetParts(fullText: string): Record<KetPartNumber, string> {
   const empty: Record<KetPartNumber, string> = { 1: '', 2: '', 3: '', 4: '', 5: '' }
   const text = fullText.replace(/\r\n/g, '\n').trim()
   if (!text) return empty
 
-  // Chỉ cắt Writing Part 6+ — KHÔNG dùng /writing\s+part/ (khớp nhầm "Reading and Writing PART 5")
   const writingIdx = findEarliestIndex(text, [
-    /\bpart\s*6\b.*\bwriting\b/i,
-    /\bwriting\b.*\bpart\s*6\b/i,
+    /\bpart\s*6\b/i,
+    /\bwriting\s+part\s*6\b/i,
     /\bpart\s*7\b/i,
   ])
   const body = writingIdx > 100 && writingIdx < text.length - 80 ? text.slice(0, writingIdx) : text
 
-  const part1Start = findEarliestIndex(body, [
-    /\bpart\s*1\b/i,
-    /questions?\s*1\s*[–\-—]/i,
-    /reading\s+and\s+writing/i,
+  const part2Idx = findEarliestIndex(body, [
+    /\bpart\s*2\b/i,
+    /questions?\s*7\s*[–\-—]/i,
   ])
-  const start = part1Start < body.length ? part1Start : 0
 
-  const boundaries: number[] = [start]
-  for (const n of [2, 3, 4, 5] as KetPartNumber[]) {
-    const q = KET_PART_FIRST_Q[n]
-    const idx = findEarliestIndex(body, [
-      new RegExp(`\\bpart\\s*${n}\\b`, 'i'),
-      new RegExp(`questions?\\s*${q}\\s*[–\\-—]`, 'i'),
-      new RegExp(`questions?\\s*${q}\\b`, 'i'),
-    ], boundaries[boundaries.length - 1] + 60)
-    if (idx < body.length && idx > boundaries[boundaries.length - 1] + 60) {
-      boundaries.push(idx)
-    }
+  let start = 0
+  if (part2Idx > 80 && part2Idx < body.length) {
+    start = 0
+  } else {
+    const part1Idx = findEarliestIndex(body, [
+      /\bpart\s*1\b/i,
+      /questions?\s*1\s*[–\-—]/i,
+    ])
+    start = part1Idx < body.length ? part1Idx : 0
   }
-  boundaries.push(body.length)
 
-  while (boundaries.length < 6) {
-    const last = boundaries[boundaries.length - 1]
-    boundaries.splice(boundaries.length - 1, 0, last)
-  }
+  const boundaries = buildKetBoundaries(body, start, body.length)
 
   return {
     1: body.slice(boundaries[0], boundaries[1]),
@@ -201,16 +239,20 @@ function normalizeKetPart(raw: ParsedReadingPart, fallbackNumber: KetPartNumber)
           const summaryOpts = qType === 'summary-completion' && group.wordBank?.length
             ? group.wordBank
             : (q.options ?? [])
+          const number = Number(q.number) || 0
+          const options = noOptions ? [] : summaryOpts
+          const prompt = q.prompt?.trim()
+            || (options.length > 0 ? `Question ${number}` : '')
           return {
-            number: Number(q.number) || 0,
+            number,
             type: qType,
-            prompt: q.prompt?.trim() ?? '',
-            options: noOptions ? [] : summaryOpts,
+            prompt,
+            options,
             answer: (q.answer ?? '').trim().toLowerCase(),
             explanation: q.explanation?.trim() || 'Kiểm tra lại đáp án trong PDF.',
             answerConfidence: q.answerConfidence === 'inferred' ? 'inferred' as const : 'key' as const,
           }
-        }).filter(q => q.prompt && q.number > 0),
+        }).filter(q => q.number > 0 && (q.prompt || q.options.length > 0 || q.answer)),
       }
     }).filter(g => g.questions.length > 0),
   }
@@ -256,14 +298,14 @@ async function callParseKetPdf(
 
   let parsed: ParsedReadingFull
   try {
-    const json = JSON.parse(result.content) as ParsedReadingFull | ParsedReadingPart
+    const json = parseAiJsonContent<ParsedReadingFull | ParsedReadingPart>(result.content)
     if ('parts' in json && Array.isArray(json.parts)) {
       parsed = json
     } else {
       parsed = { parts: [json as ParsedReadingPart] }
     }
   } catch {
-    throw new Error('AI trả về JSON không hợp lệ. Thử lại hoặc dùng provider khác.')
+    throw new Error('AI trả về JSON không hợp lệ. Thử lại hoặc dùng provider khác (OpenAI/Gemini).')
   }
 
   const normalized = normalizeKetFull(parsed)
@@ -280,7 +322,7 @@ async function parseKetSinglePart(
   apiKey: string,
   provider: AIProvider,
 ): Promise<ParsedReadingPart | null> {
-  if (partText.trim().length < 120) return null
+  if (partText.trim().length < KET_MIN_SLICE_CHARS) return null
 
   const parts = await callParseKetPdf(
     partText,
@@ -288,10 +330,41 @@ async function parseKetSinglePart(
     provider,
     `You extract KET A2 Reading Part ${partNumber} only. Respond with valid JSON only.`,
     buildKetPartPrompt(partNumber, partText),
-    100,
+    60,
   )
 
   return parts.find(p => p.partNumber === partNumber) ?? parts[0] ?? null
+}
+
+function ketPartQuestionCount(part: ParsedReadingPart): number {
+  return part.questionGroups.reduce((sum, g) => sum + g.questions.length, 0)
+}
+
+function mergeKetParts(...groups: ParsedReadingPart[][]): ParsedReadingPart[] {
+  const byPart = new Map<number, ParsedReadingPart>()
+  for (const group of groups) {
+    for (const part of group) {
+      const count = ketPartQuestionCount(part)
+      if (count === 0) continue
+      const existing = byPart.get(part.partNumber)
+      const existingCount = existing ? ketPartQuestionCount(existing) : 0
+      if (!existing || count >= existingCount) {
+        byPart.set(part.partNumber, part)
+      }
+    }
+  }
+  return [...byPart.values()].sort((a, b) => a.partNumber - b.partNumber)
+}
+
+function applyKetPassageFallbacks(
+  parts: ParsedReadingPart[],
+  pdfText: string,
+): ParsedReadingPart[] {
+  const slices = splitPdfTextForKetParts(pdfText)
+  return parts.map(p => {
+    const n = p.partNumber as KetPartNumber
+    return applyKetPassageFallback(p, n, slices[n] ?? '')
+  })
 }
 
 async function parseKetPerPart(
@@ -306,13 +379,13 @@ async function parseKetPerPart(
   for (const partNumber of KET_PART_NUMBERS) {
     onProgress?.({ phase: 'part', partNumber, status: 'start' })
     const slice = slices[partNumber]
-    if (slice.trim().length < 120) {
+    if (slice.trim().length < KET_MIN_SLICE_CHARS) {
       onProgress?.({ phase: 'part', partNumber, status: 'skip' })
       continue
     }
     try {
       const part = await parseKetSinglePart(partNumber, slice, apiKey, provider)
-      if (part) {
+      if (part && ketPartQuestionCount(part) > 0) {
         results.push(applyKetPassageFallback(part, partNumber, slice))
         onProgress?.({ phase: 'part', partNumber, status: 'done' })
       } else {
@@ -323,19 +396,10 @@ async function parseKetPerPart(
     }
   }
 
-  if (!results.length) {
-    throw new Error('Không trích được part KET nào. Thử provider khác (OpenAI/DeepSeek/Gemini).')
-  }
-
   return results.sort((a, b) => a.partNumber - b.partNumber)
 }
 
-function shouldKetFallbackToPerPart(parts: ParsedReadingPart[]): boolean {
-  if (parts.length >= 4) return false
-  return true
-}
-
-/** Trích KET A2 Reading — 5 parts; ưu tiên parse từng part. */
+/** Trích KET A2 Reading — 5 parts; full parse + per-part + merge. */
 export async function parseKetReadingPdfFull(
   pdfText: string,
   apiKey: string,
@@ -346,9 +410,11 @@ export async function parseKetReadingPdfFull(
     throw new Error('PDF không đủ chữ — có thể là file scan. Thử OCR/Vision hoặc PDF có lớp text.')
   }
 
+  let fullParts: ParsedReadingPart[] = []
+
   onProgress?.({ phase: 'full', status: 'start' })
   try {
-    const fullParts = await callParseKetPdf(
+    fullParts = await callParseKetPdf(
       pdfText,
       apiKey,
       provider,
@@ -356,17 +422,23 @@ export async function parseKetReadingPdfFull(
       buildKetFullPrompt(pdfText),
     )
     onProgress?.({ phase: 'full', status: 'done' })
-
-    if (!shouldKetFallbackToPerPart(fullParts)) {
-      const slices = splitPdfTextForKetParts(pdfText)
-      return fullParts.map(p => {
-        const n = p.partNumber as KetPartNumber
-        return applyKetPassageFallback(p, n, slices[n] ?? '')
-      })
-    }
   } catch {
     onProgress?.({ phase: 'full', status: 'error' })
   }
 
-  return parseKetPerPart(pdfText, apiKey, provider, onProgress)
+  if (fullParts.length >= 3) {
+    return applyKetPassageFallbacks(fullParts, pdfText)
+  }
+
+  const perPartResults = await parseKetPerPart(pdfText, apiKey, provider, onProgress)
+  const merged = mergeKetParts(fullParts, perPartResults)
+
+  if (merged.length > 0) {
+    return applyKetPassageFallbacks(merged, pdfText)
+  }
+
+  throw new Error(
+    'Không trích được part KET nào. PDF có thể là scan — cần OpenAI/Gemini (Vision). '
+    + 'Hoặc thử Import thủ công (JSON + ảnh).',
+  )
 }

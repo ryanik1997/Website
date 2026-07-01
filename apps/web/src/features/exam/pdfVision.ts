@@ -5,30 +5,34 @@ import {
   type AIMessagePart,
 } from '@ryan/core'
 import { renderPdfPagesAsImages, type PdfPageImage } from './pdfExtract'
+import type { PdfPageContent } from './pdfContent'
 
-const VISION_BATCH = 3
 const VISION_MAX_PAGES = 20
 
-async function ocrImageBatch(
-  images: PdfPageImage[],
+async function ocrSinglePage(
+  image: PdfPageImage,
   apiKey: string,
   provider: AIProvider,
 ): Promise<string> {
-  const pageNums = images.map(i => i.pageNum).join(', ')
   const parts: AIMessagePart[] = [
     {
       type: 'text',
-      text: `Extract ALL readable text from these IELTS Reading PDF pages (${pageNums}). Preserve question numbers, headings, paragraph labels (A, B, C…), and answer key if visible. Return plain text only, no markdown.`,
+      text: `OCR page ${image.pageNum} of a Cambridge/IELTS Reading exam PDF.
+Extract readable text: headings, "Part N", question numbers, paragraph labels (A, B, C…), options, answer key fragments.
+Preserve line breaks between blocks. Return plain text only.`,
     },
-    ...images.map(img => ({
-      type: 'image_url' as const,
-      image_url: { url: img.dataUrl, detail: 'low' as const },
-    })),
+    {
+      type: 'image_url',
+      image_url: { url: image.dataUrl, detail: 'high' as const },
+    },
   ]
 
   const result = await callAI(
     [
-      { role: 'system', content: 'You OCR exam PDF pages accurately. Output plain text only.' },
+      {
+        role: 'system',
+        content: 'You OCR exam PDF pages accurately. Output plain text only — no markdown.',
+      },
       { role: 'user', content: parts },
     ],
     apiKey,
@@ -40,34 +44,44 @@ async function ocrImageBatch(
   return result.content.trim()
 }
 
-/** Vision OCR cho PDF scan — batch theo nhóm trang. */
+/** Vision OCR từng trang — giữ ảnh gốc + text theo pageNum (map part KET/PET). */
+export async function extractPagesViaVision(
+  file: File,
+  apiKey: string,
+  provider: AIProvider,
+  onProgress?: (done: number, total: number) => void,
+): Promise<PdfPageContent[]> {
+  if (!providerSupportsVision(provider)) {
+    throw new Error('Provider hiện tại không hỗ trợ Vision. Dùng OpenAI hoặc Gemini.')
+  }
+
+  const images = await renderPdfPagesAsImages(file, VISION_MAX_PAGES, 1.6)
+  if (!images.length) {
+    throw new Error('Không render được trang PDF.')
+  }
+
+  const pages: PdfPageContent[] = []
+  for (let i = 0; i < images.length; i += 1) {
+    const image = images[i]
+    onProgress?.(i + 1, images.length)
+    const text = await ocrSinglePage(image, apiKey, provider)
+    pages.push({
+      pageNum: image.pageNum,
+      text,
+      dataUrl: image.dataUrl,
+    })
+  }
+
+  return pages
+}
+
+/** @deprecated — dùng extractPagesViaVision; giữ cho tương thích nếu cần merged text only */
 export async function extractTextViaVision(
   file: File,
   apiKey: string,
   provider: AIProvider,
   onProgress?: (done: number, total: number) => void,
 ): Promise<string> {
-  if (!providerSupportsVision(provider)) {
-    throw new Error('Provider hiện tại không hỗ trợ Vision. Dùng OpenAI hoặc Gemini.')
-  }
-
-  const images = await renderPdfPagesAsImages(file, VISION_MAX_PAGES)
-  if (!images.length) {
-    throw new Error('Không render được trang PDF.')
-  }
-
-  const chunks: string[] = []
-  for (let i = 0; i < images.length; i += VISION_BATCH) {
-    const batch = images.slice(i, i + VISION_BATCH)
-    onProgress?.(Math.min(i + batch.length, images.length), images.length)
-    const text = await ocrImageBatch(batch, apiKey, provider)
-    if (text) chunks.push(text)
-  }
-
-  const merged = chunks.join('\n\n')
-  if (merged.length < 200) {
-    throw new Error('Vision OCR không đọc được đủ chữ. Thử PDF rõ hơn hoặc provider khác.')
-  }
-
-  return merged
+  const pages = await extractPagesViaVision(file, apiKey, provider, onProgress)
+  return pages.map(p => p.text).filter(Boolean).join('\n\n')
 }

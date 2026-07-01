@@ -446,9 +446,7 @@ export default function ReadingTest() {
             part={currentPart}
             highlights={partHighlights}
             cambridgeLevel={exam.cambridgeLevel}
-            answers={answers}
             activeQuestionId={activeQuestionId}
-            onAnswer={handleAnswer}
             onSelectQuestion={handleSelectQuestion}
           />
         )}

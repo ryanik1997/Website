@@ -248,6 +248,23 @@
   margin-right: 0.35rem;
 }
 
+.reading-test-paragraph-wrap {
+  margin-bottom: 1rem;
+}
+
+.reading-test-passage-image {
+  margin: 0 0 1rem;
+}
+
+.reading-test-passage-image__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
 .reading-test-highlight {
   background: color-mix(in srgb, var(--color-accent) 42%, transparent);
   color: inherit;
@@ -826,7 +843,7 @@
   background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
 }
 
-/* KET A2 — Part 1 signs on passage panel (Giaodien/a1) */
+/* KET A2 — Part 1 sign images on passage panel (đáp án A/B/C ở cột câu hỏi) */
 .reading-ket-signs {
   display: flex;
   flex-direction: column;

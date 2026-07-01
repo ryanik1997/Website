@@ -4,7 +4,7 @@ import type {
   ParsedReadingPart,
   ParseProgressCallback,
 } from './readingPdfPrompt'
-import { READING_PDF_PART_SLICE, READING_PDF_TEXT_SLICE } from './readingPdfPrompt'
+import { parseAiJsonContent, READING_PDF_PART_SLICE, READING_PDF_TEXT_SLICE } from './readingPdfPrompt'
 
 export type PetPartNumber = 1 | 2 | 3 | 4 | 5 | 6
 
@@ -239,7 +239,7 @@ async function callParsePetPdf(
 
   let parsed: ParsedReadingFull
   try {
-    const json = JSON.parse(result.content) as ParsedReadingFull | ParsedReadingPart
+    const json = parseAiJsonContent<ParsedReadingFull | ParsedReadingPart>(result.content)
     if ('parts' in json && Array.isArray(json.parts)) {
       parsed = json
     } else {

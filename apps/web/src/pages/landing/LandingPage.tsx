@@ -463,41 +463,6 @@ function PricingSection({ onOpenPayment }: { onOpenPayment: (planId: PlanId) => 
           </p>
         </div>
 
-        {/* Plan switcher */}
-        <div className="flex justify-center mb-8">
-          <div
-            className="inline-flex p-1 rounded-xl border gap-1"
-            style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border-color)' }}
-            role="tablist"
-            aria-label="Chọn gói"
-          >
-            {PLANS.map(plan => {
-              const active = selected === plan.id
-              return (
-                <button
-                  key={plan.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setSelected(plan.id)}
-                  className="px-4 py-2.5 rounded-lg text-sm font-semibold transition-all min-w-[5.5rem]"
-                  style={
-                    active
-                      ? {
-                          background: 'var(--bg-card)',
-                          color: 'var(--color-primary)',
-                          boxShadow: '0 2px 8px color-mix(in srgb, var(--text-primary) 8%, transparent)',
-                        }
-                      : { color: 'var(--text-muted)' }
-                  }
-                >
-                  <span className="block leading-none">{plan.name}</span>
-                  <span className="block text-[11px] font-medium mt-0.5 opacity-80">{plan.shortPrice}</span>
-                </button>
-              )
-            })}
-          </div>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
           {PLANS.map(plan => {
@@ -505,11 +470,17 @@ function PricingSection({ onOpenPayment }: { onOpenPayment: (planId: PlanId) => 
             return (
               <div
                 key={plan.id}
-                role="tabpanel"
-                aria-hidden={!active}
-                className={`relative flex-col p-6 rounded-2xl border transition-all ${
-                  active ? 'flex' : 'hidden md:flex'
-                }`}
+                role="button"
+                tabIndex={0}
+                aria-pressed={active}
+                onClick={() => setSelected(plan.id)}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelected(plan.id)
+                  }
+                }}
+                className="relative flex cursor-pointer flex-col rounded-2xl border p-6 transition-all"
                 style={{
                   background: active ? 'var(--bg-card)' : 'var(--bg-secondary)',
                   borderColor: active ? 'var(--color-primary)' : 'var(--border-color)',
@@ -551,7 +522,10 @@ function PricingSection({ onOpenPayment }: { onOpenPayment: (planId: PlanId) => 
 
                 <button
                   type="button"
-                  onClick={() => handleCta(plan.id)}
+                  onClick={e => {
+                    e.stopPropagation()
+                    handleCta(plan.id)
+                  }}
                   className="w-full py-3 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
                   style={
                     active
@@ -705,3 +679,4 @@ function SunIllustration() {
     </svg>
   )
 }
+

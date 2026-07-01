@@ -92,7 +92,6 @@ function MultipleChoiceGroup({
 }: {
   group: ReadingQuestionGroup
 } & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'partNumber' | 'onSelectQuestion' | 'onAnswer'>) {
-  const hideOptions = cambridgeLevel === 'a2' && partNumber === 1
   const compactLetters = cambridgeLevel === 'a2' && partNumber === 2
   return (
     <section className="reading-test-group">
@@ -123,35 +122,33 @@ function MultipleChoiceGroup({
               as="span"
             />
           </p>
-          {!hideOptions && (
-            <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
-              {question.options.map(option => {
-                const selected = answers[question.id] === option.id
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    className={`reading-test-mc-option${selected ? ' is-selected' : ''}${compactLetters ? ' is-letter-only' : ''}`}
-                    onClick={() => {
-                      onSelectQuestion(question.id)
-                      onAnswer(question.id, option.id)
-                    }}
-                  >
-                    <span className="reading-test-mc-letter" data-highlight-skip>{option.id.toUpperCase()}</span>
-                    {!compactLetters && (
-                      <ReadingHighlightableText
-                        blockId={`${question.id}-opt-${option.id}`}
-                        text={option.label}
-                        highlights={highlights}
-                        className="reading-test-mc-label"
-                        as="span"
-                      />
-                    )}
-                  </button>
-                )
-              })}
-            </div>
-          )}
+          <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
+            {question.options.map(option => {
+              const selected = answers[question.id] === option.id
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={`reading-test-mc-option${selected ? ' is-selected' : ''}${compactLetters ? ' is-letter-only' : ''}`}
+                  onClick={() => {
+                    onSelectQuestion(question.id)
+                    onAnswer(question.id, option.id)
+                  }}
+                >
+                  <span className="reading-test-mc-letter" data-highlight-skip>{option.id.toUpperCase()}</span>
+                  {!compactLetters && (
+                    <ReadingHighlightableText
+                      blockId={`${question.id}-opt-${option.id}`}
+                      text={option.label}
+                      highlights={highlights}
+                      className="reading-test-mc-label"
+                      as="span"
+                    />
+                  )}
+                </button>
+              )
+            })}
+          </div>
         </div>
       ))}
     </section>

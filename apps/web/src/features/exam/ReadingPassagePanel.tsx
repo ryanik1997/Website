@@ -2,67 +2,70 @@ import type { ReadingPart } from './examData'
 import { getPartQuestions } from './examData'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight } from './readingHighlightUtils'
+import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface ReadingPassagePanelProps {
   part: ReadingPart
   highlights: ReadingHighlight[]
   cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
-  answers?: Record<string, string>
   activeQuestionId?: string | null
-  onAnswer?: (questionId: string, value: string) => void
   onSelectQuestion?: (questionId: string) => void
 }
 
-function KetPart1Signs({
+/** KET Part 1 — chỉ ảnh/sign ở cột trái; đáp án A/B/C ở cột phải (ReadingQuestionPanel). */
+function KetPart1PassageImages({
   part,
-  highlights,
-  answers = {},
   activeQuestionId,
-  onAnswer,
   onSelectQuestion,
-}: ReadingPassagePanelProps) {
+}: Pick<ReadingPassagePanelProps, 'part' | 'activeQuestionId' | 'onSelectQuestion'>) {
   const questions = getPartQuestions(part)
+  const imageBlocks = part.passage
+    .map((block, index) => ({ block, index }))
+    .filter(({ block }) => Boolean(block.imageKey || block.imageUrl))
+
+  if (!imageBlocks.length) return null
 
   return (
     <div className="reading-ket-signs">
-      {questions.map(question => {
-        const isActive = activeQuestionId === question.id
+      {imageBlocks.map(({ block, index }, imageIndex) => {
+        const question = questions[imageIndex] ?? questions.find(q => q.number === imageIndex + 1)
+        const isActive = question ? activeQuestionId === question.id : false
         return (
           <section
-            key={question.id}
-            id={`reading-q-${question.id}`}
+            key={`${part.id}-ket-img-${index}`}
             className={`reading-ket-signs__item${isActive ? ' is-active' : ''}`}
+            role={question ? 'button' : undefined}
+            tabIndex={question ? 0 : undefined}
+            onClick={() => question && onSelectQuestion?.(question.id)}
+            onKeyDown={e => {
+              if (!question) return
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                onSelectQuestion?.(question.id)
+              }
+            }}
           >
-            <p className="reading-ket-signs__num">{question.number}</p>
-            <div className="reading-ket-signs__options">
-              {question.options.map(option => {
-                const selected = answers[question.id] === option.id
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    className={`reading-ket-sign-option${selected ? ' is-selected' : ''}`}
-                    onClick={() => {
-                      onSelectQuestion?.(question.id)
-                      onAnswer?.(question.id, option.id)
-                    }}
-                  >
-                    <span className="reading-ket-sign-option__letter">{option.id.toUpperCase()}</span>
-                    <ReadingHighlightableText
-                      blockId={`${question.id}-sign-${option.id}`}
-                      text={option.label}
-                      highlights={highlights}
-                      className="reading-ket-sign-option__label"
-                      as="span"
-                    />
-                  </button>
-                )
-              })}
-            </div>
+            <p className="reading-ket-signs__num">{question?.number ?? imageIndex + 1}</p>
+            <PassageImage
+              imageKey={block.imageKey}
+              imageUrl={block.imageUrl}
+              alt={`${part.passageTitle} — question ${question?.number ?? imageIndex + 1}`}
+            />
           </section>
         )
       })}
     </div>
+  )
+}
+
+function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl?: string; alt: string }) {
+  const src = useBlobMediaUrl(imageKey, imageUrl)
+  if (!src) return null
+
+  return (
+    <figure className="reading-test-passage-image">
+      <img src={src} alt={alt} className="reading-test-passage-image__img" />
+    </figure>
   )
 }
 
@@ -73,38 +76,60 @@ function PassageBlocks({
   if (!part.passage.length) {
     return (
       <p className="reading-test-passage-empty">
-        Không có nội dung đọc cho part này. Thử import lại PDF hoặc kiểm tra preview khi import.
+        Không có nội dung đọc cho part này. Thử import lại hoặc kiểm tra preview khi import.
       </p>
     )
   }
 
-  return part.passage.map((block, index) => (
-    <p
-      key={`${part.id}-p-${index}`}
-      className="reading-test-paragraph"
-    >
-      {block.label && (
-        <span className="reading-test-paragraph__label" data-highlight-skip>
-          {block.label}
-        </span>
-      )}
-      <ReadingHighlightableText
-        blockId={`passage-p-${index}`}
-        text={block.text}
-        highlights={highlights}
-        as="span"
-      />
-    </p>
-  ))
+  return part.passage.map((block, index) => {
+    const hasText = Boolean(block.text?.trim())
+    const hasImage = Boolean(block.imageKey || block.imageUrl)
+
+    if (!hasText && hasImage) {
+      return (
+        <PassageImage
+          key={`${part.id}-img-${index}`}
+          imageKey={block.imageKey}
+          imageUrl={block.imageUrl}
+          alt={`${part.passageTitle} — illustration ${index + 1}`}
+        />
+      )
+    }
+
+    return (
+      <div key={`${part.id}-p-${index}`} className="reading-test-paragraph-wrap">
+        {hasImage && (
+          <PassageImage
+            imageKey={block.imageKey}
+            imageUrl={block.imageUrl}
+            alt={`${part.passageTitle} — illustration ${index + 1}`}
+          />
+        )}
+        {hasText && (
+          <p className="reading-test-paragraph">
+            {block.label && (
+              <span className="reading-test-paragraph__label" data-highlight-skip>
+                {block.label}
+              </span>
+            )}
+            <ReadingHighlightableText
+              blockId={`passage-p-${index}`}
+              text={block.text}
+              highlights={highlights}
+              as="span"
+            />
+          </p>
+        )}
+      </div>
+    )
+  })
 }
 
 export default function ReadingPassagePanel({
   part,
   highlights,
   cambridgeLevel,
-  answers,
   activeQuestionId,
-  onAnswer,
   onSelectQuestion,
 }: ReadingPassagePanelProps) {
   const isKetPart1 = cambridgeLevel === 'a2' && part.partNumber === 1
@@ -124,14 +149,22 @@ export default function ReadingPassagePanel({
       )}
 
       {isKetPart1 ? (
-        <KetPart1Signs
-          part={part}
-          highlights={highlights}
-          answers={answers}
-          activeQuestionId={activeQuestionId}
-          onAnswer={onAnswer}
-          onSelectQuestion={onSelectQuestion}
-        />
+        <>
+          <KetPart1PassageImages
+            part={part}
+            activeQuestionId={activeQuestionId}
+            onSelectQuestion={onSelectQuestion}
+          />
+          {part.passage.some(b => b.text?.trim()) && (
+            <PassageBlocks
+              part={{
+                ...part,
+                passage: part.passage.filter(b => b.text?.trim()),
+              }}
+              highlights={highlights}
+            />
+          )}
+        </>
       ) : (
         <PassageBlocks part={part} highlights={highlights} />
       )}
