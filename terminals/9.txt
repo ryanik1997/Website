@@ -1,0 +1,32 @@
+---
+pid: 46688
+cwd: "D:\App-English-Ryan\Website"
+command: "$response = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Method POST -ContentType \"application/json\" -Body '{\"text\":\"Hello world\",\"voice\":\"default\",\"speed\":1}'; Write-Host \"Status:\" $response.StatusCode; Write-Host \"Content-Type:\" $response.Headers[\"Content-Type\"]; Write-Host \"X-Cache:\" $response.Headers[\"X-Cache\"]; Write-Host \"Bytes:\" $response.RawContentLength; $response.Content | Set-Content -Path \"D:\\App-English-Ryan\\Website\\server\\.cache\\test-sample.wav\" -Encoding Byte"
+started_at: 2026-06-30T11:47:10.209Z
+running_for_ms: 19579999 
+---
+Status: Invoke-WebRequest : {"ok":false,"engine":"kokoro","error":"Kokoro synthesis failed","message":"This operation was 
+
+Bytes: 
+aborted","installHint":"See server/README.md for Windows setup 
+steps","cacheDir":"D:\\App-English-Ryan\\Website\\server\\.cache\\tts"}
+At line:1 char:13
++ $response = Invoke-WebRequest -Uri http://localhost:8787/api/tts -Met ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+Cannot index into a null array.
+At line:1 char:214
++ ... StatusCode; Write-Host "Content-Type:" $response.Headers["Content-Typ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+Cannot index into a null array.
+At line:1 char:276
++ ... ent-Type"]; Write-Host "X-Cache:" $response.Headers["X-Cache"]; Write ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 

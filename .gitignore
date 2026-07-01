@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.turbo/
+*.local
+.env
+.env.*
+!.env.example
+
+.vercel
+.env.deploy
+
+# Supabase CLI link cache (local only)
+supabase/.branches
+supabase/.temp

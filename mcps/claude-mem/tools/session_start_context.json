@@ -1,0 +1,40 @@
+{
+  "name": "session_start_context",
+  "description": "Render the exact worker-mode SessionStart context for a project. Calls /api/context/inject and returns the same text hooks inject at startup. Params: project OR projects, platformSource, full, colors.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "project": {
+        "type": "string",
+        "description": "Project name, e.g. claude-mem/night-parsnip"
+      },
+      "projects": {
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "description": "Project chain for context injection. Array or comma-separated string; last project is treated as primary."
+      },
+      "platformSource": {
+        "type": "string",
+        "description": "Optional platform source filter, e.g. claude, codex, cursor"
+      },
+      "full": {
+        "type": "boolean",
+        "description": "When true, request full context instead of configured limits"
+      },
+      "colors": {
+        "type": "boolean",
+        "description": "When true, request human terminal-color formatting"
+      }
+    },
+    "additionalProperties": false
+  }
+}
