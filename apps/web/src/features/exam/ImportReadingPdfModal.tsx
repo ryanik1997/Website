@@ -14,7 +14,7 @@ import {
   type ReadingImportValidation,
 } from '@ryan/core'
 import { examRepo, writingRepo } from '@ryan/db'
-import { extractPdfContent, type PdfExtractMethod } from './pdfContent'
+import { extractPdfContent, type PdfExtractMethod, type PdfPageContent } from './pdfContent'
 import { preloadPdfJs, type ExtractPdfProgress } from './pdfExtract'
 import {
   buildImportedReadingExam,
@@ -28,6 +28,12 @@ import {
 } from './importReadingUtils'
 import type { CambridgeLevelSlug } from './cambridgeExamLevels'
 import { examRecordFromReading } from './examLoader'
+import {
+  attachPageImagesToParts,
+  detectPartPageRanges,
+  savePdfPageImages,
+  shouldPreservePdfPageImages,
+} from './readingPdfPageImages'
 
 interface Props {
   onClose: () => void
@@ -90,6 +96,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
   const [title, setTitle] = useState('')
   const [extractedChars, setExtractedChars] = useState(0)
   const [extractMethod, setExtractMethod] = useState<PdfExtractMethod | null>(null)
+  const [extractedPages, setExtractedPages] = useState<PdfPageContent[]>([])
   const [parsedParts, setParsedParts] = useState<ParsedReadingPart[]>([])
   const [validation, setValidation] = useState<ReadingImportValidation | null>(null)
   const [previewPartIndex, setPreviewPartIndex] = useState(0)
@@ -119,6 +126,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
     setPreviewPartIndex(0)
     setExtractedChars(0)
     setExtractMethod(null)
+    setExtractedPages([])
     setProviderUsed(null)
     setParseProgress([])
     setVisionProgress('')
@@ -147,9 +155,11 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
       }
 
       setParseProgress([{ phase: 'extract', status: 'start' }])
-      const { text, method } = await extractPdfContent(file, {
+      const pdfFormat = readingPdfFormatForLevel(cambridgeLevel)
+      const { text, method, pages } = await extractPdfContent(file, {
         apiKey,
         provider: preferred,
+        preservePageImages: shouldPreservePdfPageImages(pdfFormat),
         onPageProgress: setExtractProgress,
         onVisionProgress: (done, total) => setVisionProgress(`Vision OCR: ${done}/${total} trang`),
       })
@@ -157,8 +167,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
       setParseProgress(prev => [...prev, { phase: 'extract', status: 'done' }])
       setExtractedChars(text.length)
       setExtractMethod(method)
-
-      const pdfFormat = readingPdfFormatForLevel(cambridgeLevel)
+      setExtractedPages(pages)
       const parts = await parseReadingPdfFull(text, apiKey, preferred, event => {
         setParseProgress(prev => [...prev, event])
       }, { format: pdfFormat })
@@ -184,7 +193,19 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
 
     try {
       const examId = `reading-pdf-${crypto.randomUUID()}`
-      const parts = parsedPartsToReadingParts(examId, parsedParts)
+      const pdfFormat = readingPdfFormatForLevel(cambridgeLevel)
+      let parts = parsedPartsToReadingParts(examId, parsedParts)
+
+      const pagesWithImages = extractedPages.filter(p => p.dataUrl)
+      if (pagesWithImages.length > 0) {
+        const pageKeys = await savePdfPageImages(examId, pagesWithImages)
+        const partPageRanges = detectPartPageRanges(pagesWithImages, pdfFormat)
+        parts = attachPageImagesToParts(parts, pageKeys, partPageRanges, {
+          format: pdfFormat,
+          forcePart1Images: pdfFormat === 'ket-a2' || extractMethod === 'vision-ocr',
+        })
+      }
+
       const exam = buildImportedReadingExam(
         examId,
         title.trim() || defaultExamTitle(parsedParts),
@@ -208,6 +229,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
 
   const questionCount = countQuestions(parsedParts)
   const inferredCount = countInferredAnswers(parsedParts)
+  const pageImageCount = extractedPages.filter(p => p.dataUrl).length
   const previewPart = parsedParts[previewPartIndex] ?? null
 
   const filteredGroups = previewPart?.questionGroups.map(group => ({
@@ -252,9 +274,9 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
             <>
               <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
                 {cambridgeLevel === 'a2'
-                  ? 'Upload PDF KET A2 → trích Reading Parts 1–5 bằng AI. PDF scan dùng Vision OCR (OpenAI/Gemini).'
+                  ? 'Upload PDF KET A2 → AI trích câu hỏi + giữ ảnh trang làm đề bài (passage fallback). PDF scan: Vision OCR từng trang.'
                   : cambridgeLevel === 'b1'
-                    ? 'Upload PDF PET B1 → trích Reading Parts 1–6 bằng AI. PDF scan dùng Vision OCR (OpenAI/Gemini).'
+                    ? 'Upload PDF PET B1 → AI trích câu hỏi + giữ ảnh trang khi passage yếu. PDF scan: Vision OCR.'
                     : 'Upload PDF → trích Part 1–3 bằng AI. PDF scan tự động dùng Vision OCR (OpenAI/Gemini).'}
               </p>
 
@@ -374,7 +396,8 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
                     </p>
                     <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
                       {extractedChars.toLocaleString()} ký tự · {methodLabel(extractMethod)}
-                      {extractMethod ? ' · ' : ''}
+                      {pageImageCount > 0 ? ` · ${pageImageCount} ảnh trang` : ''}
+                      {extractMethod || pageImageCount > 0 ? ' · ' : ''}
                       {questionCount} câu
                       {inferredCount > 0 ? ` · ${inferredCount} đáp án đoán` : ''}
                       {providerUsed ? ` · ${AI_PROVIDERS.find(p => p.id === providerUsed)?.name}` : ''}

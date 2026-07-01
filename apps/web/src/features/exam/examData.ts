@@ -40,6 +40,9 @@ export interface ReadingQuestion {
 export interface ReadingPassageBlock {
   label?: string
   text: string
+  /** Blob key ảnh đoạn văn (import thủ công) */
+  imageKey?: string
+  imageUrl?: string
 }
 
 export interface ReadingQuestionGroup {

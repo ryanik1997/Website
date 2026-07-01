@@ -82,32 +82,47 @@ export interface ExtractPdfPageProgress {
   total: number
 }
 
-/** Trích text từ PDF — full Reading test thường ~12–16 trang. */
-export async function extractTextFromPdf(
+export interface PdfPageText {
+  pageNum: number
+  text: string
+}
+
+/** Trích text từng trang PDF — dùng map part KET/PET + giữ ảnh trang. */
+export async function extractTextFromPdfPerPage(
   file: File,
   maxPages = 28,
   onProgress?: (progress: ExtractPdfProgress) => void,
-): Promise<string> {
+): Promise<PdfPageText[]> {
   return withTimeout(
     (async () => {
       onProgress?.({ stage: 'loading-lib' })
       const { pdf } = await openPdf(file, onProgress)
       const pageCount = Math.min(pdf.numPages, maxPages)
-      const chunks: string[] = []
+      const pages: PdfPageText[] = []
 
       for (let pageNum = 1; pageNum <= pageCount; pageNum += 1) {
         onProgress?.({ stage: 'reading', page: pageNum, total: pageCount })
         const page = await withTimeout(pdf.getPage(pageNum), PAGE_TIMEOUT_MS, `Đọc trang ${pageNum}`)
         const content = await withTimeout(page.getTextContent(), PAGE_TIMEOUT_MS, `Trích chữ trang ${pageNum}`)
         const pageText = textFromPageContent(content.items as Array<{ str?: string; hasEOL?: boolean }>)
-        if (pageText) chunks.push(pageText)
+        pages.push({ pageNum, text: pageText })
       }
 
-      return chunks.join('\n\n')
+      return pages
     })(),
     EXTRACT_TIMEOUT_MS,
     'Đọc PDF',
   )
+}
+
+/** Trích text từ PDF — full Reading test thường ~12–16 trang. */
+export async function extractTextFromPdf(
+  file: File,
+  maxPages = 28,
+  onProgress?: (progress: ExtractPdfProgress) => void,
+): Promise<string> {
+  const pages = await extractTextFromPdfPerPage(file, maxPages, onProgress)
+  return pages.map(p => p.text).filter(Boolean).join('\n\n')
 }
 
 export interface PdfPageImage {

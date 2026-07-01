@@ -711,6 +711,59 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [x] `validateReadingImport(parts, 'pet-b1')` — validation 6 parts · 32 câu (Q1–5, 6–10, 11–15, 16–20, 21–26, 27–32)
 - [x] `readingPdfFormatForLevel()` / `expectedReadingPartsForLevel()` — map a2→ket, b1→pet
 
+### Gỡ Import PDF/OCR Reading (session 2026-07-01)
+- [x] Bỏ nút **Import PDF Reading** khỏi `ExamTrackPage` — chỉ còn **Import thủ công**
+- [x] JSON mẫu KET A2: 5 parts · 30 câu + hướng dẫn trong modal
+- [x] Hướng dẫn import trong modal Reading + Listening
+
+### Import PDF OCR — giữ ảnh trang/passage (session 2026-07-01) — ĐÃ GỠ KHỎI UI
+- [x] `pdfContent.ts` — `ExtractPdfResult.pages[]` (text + `dataUrl`); `preservePageImages` cho KET/PET
+- [x] `pdfVision.ts` — OCR **từng trang** (detail high), giữ ảnh gốc — không còn plain-text-only batch
+- [x] `pdfExtract.ts` — `extractTextFromPdfPerPage()`
+- [x] `readingPdfPageImages.ts` — detect part→pages (KET/PET markers), lưu blob `reading-exam:{id}:page-N`, gắn `imageKey` passage fallback
+- [x] `ImportReadingPdfModal` — lưu ảnh khi save; KET Part 1 luôn gắn ảnh trang khi có
+- [x] `ReadingPassagePanel` — KET Part 1 hiện ảnh passage trước signs
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+#### Hành vi mới
+- PDF scan KET A2: Vision OCR từng trang → AI parse câu hỏi → ảnh trang gắn vào passage khi text yếu
+- Part 1 KET: ưu tiên ảnh trang (signs) dù passage text có hay không
+- Part 2–5: fallback `passage: [{ imageKey }]` khi passage < 80 ký tự
+
+### Import thủ công Reading + Listening (session 2026-07-01) — HOÀN THÀNH
+- [x] `importReadingManualUtils.ts` — parse/validate JSON đề Reading, lưu ảnh đoạn văn vào `audioRepo`
+- [x] `importReadingZip.ts` — ZIP bundle (exam.json + ảnh)
+- [x] `ImportReadingManualModal.tsx` — upload JSON/ZIP + ảnh, preview, lưu Dexie (`source: manual`)
+- [x] `ReadingPassageBlock.imageKey` + `ReadingPassagePanel` hiển thị ảnh đoạn văn
+- [x] `ExamTrackPage` — nút **Import thủ công Reading** (JSON + ảnh) + **Import thủ công Listening** (đã có JSON/ZIP)
+- [x] Xóa đề import: `reading-pdf-*` + `reading-manual-*`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+#### Flow Import thủ công Reading
+1. Luyện thi → track IELTS/Cambridge → **Import thủ công Reading**
+2. Tải JSON mẫu → điền passage (text + `imageFile`) + questionGroups
+3. Upload ảnh (`part1-p1.jpg`…) hoặc ZIP bundle
+4. Preview → **Lưu & làm bài** — ảnh hiển thị trong panel passage trái
+
+#### Import Reading Cambridge A2–C2 — template + prompt chuẩn (session 2026-07-01)
+- [x] `cambridgeReadingImportTemplates.ts` — LEVEL_PARTS đủ A2–C2; A2 Part 4 = MC chọn từ (không gap-fill)
+- [x] JSON mẫu tải trong modal theo level — đủ số câu mỗi part (không chỉ 2 câu mẫu)
+- [x] `cambridgeImportGuideLines()` — bảng parts trong modal Import Reading
+- [x] `validateReadingManualImport` — cảnh báo A2 Part 4 sai type
+- [x] `HDSD/Prompt-Reading-Cambridge.txt` — prompt AI cho A2–C2
+- [x] `HDSD/Prompt.txt` + `HDSD/Import De Thi.txt` — cập nhật Part 4 KET = MC
+
+#### Bundle KET A2 Reading Test 1 (Claude → ZIP) — CẦN SỬA PART 4
+- [x] Claude trả folder `C:\Users\ADMIN\Downloads\ket-reading-test1` — 5 parts · 30 câu · 6 ảnh Part 1
+- [x] `exam.json` đã chuẩn schema (`passageTitle`, `type`, `passage[].text` Part 2–5)
+- [x] ZIP: `C:\Users\ADMIN\Downloads\ket-reading-test1.zip` (~348 KB)
+- [x] Copy vào repo: `Tainguyen/ket-reading-test1/` + `Tainguyen/ket-reading-test1.zip`
+- [ ] User import trên app → xác nhận Part 1 ảnh + Part 2–5 highlight
+
+#### Flow Import thủ công Listening (đã có)
+1. **Import thủ công Listening** → JSON/ZIP + MP3/ảnh câu hỏi
+2. Tên file: `q1.mp3`, `q1-a.jpg`, `part1.mp3`…
+
 ### Fix Import PDF kẹt / timeout "Đọc PDF quá lâu" (session 2026-07-01)
 - [x] `pdfExtract.ts` — worker cố định `/pdf.worker.min.mjs`; không `await task.destroy()` (fire-and-forget 2s — tránh treo 45s)
 - [x] Timeout theo bước: mở PDF 30s, mỗi trang 20s, tổng 120s; `useWorkerFetch: false`
@@ -787,9 +840,10 @@ Production: https://ryanenglishv2.vercel.app — auto deploy sau mỗi session (
 Session trước kết thúc 2026-07-01.
 
 Ưu tiên:
-1. User test Reading highlight (passage + câu hỏi/đáp án; thoát/F5 → highlight mất; đổi Part giữ highlight trong session)
-2. User test Import PDF Reading end-to-end (upload PDF có text → preview → làm bài)
-3. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh)
+1. User import `ket-reading-test1.zip` (Luyện thi → Cambridge A2 → Import thủ công Reading) — bundle sẵn trong Downloads + Tainguyen
+2. User test Import thủ công Listening (JSON/ZIP + MP3/ảnh)
+3. User test Reading highlight + Import PDF Reading
+4. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh)
 
 Đã xong session trước:
 - Reading highlight: passage + panel câu hỏi/đáp án; chỉ trong session (thoát/F5 mất); đổi Part giữ highlight theo Part

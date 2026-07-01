@@ -1,188 +1,99 @@
-Tổng quan: app hỗ trợ gì?
+Vào đâu?
 
-┌────────────────────┬────────────────────────────────────────────────────┬──────────────────────────────────┐
-│ Kỹ năng            │ Cách import                                        │ Sách của bạn                     │
-├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
-│ Reading            │ Upload PDF → AI tự trích passage + câu hỏi         │ ✅ Dùng được                     │
-├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
-│ Listening          │ Upload ZIP (exam.json + MP3/ảnh) hoặc JSON + media │ ⚠️ Phải tự soạn JSON + gắn audio │
-├────────────────────┼────────────────────────────────────────────────────┼──────────────────────────────────┤
-│ Writing / Speaking │ Không có import ở Luyện thi                        │ Dùng module Viết riêng           │
-└────────────────────┴────────────────────────────────────────────────────┴──────────────────────────────────┘
+Luyện thi → Cambridge → chọn level A2–C2 → nút:
+• Import thủ công Reading
+• Import thủ công Listening
+
+Trong modal Reading: bấm Tải JSON mẫu — template tự đổi theo level đang chọn.
 
 ───
 
-Chuẩn bị trước khi import
+Reading Cambridge A2–C2
 
-1. Cấu hình AI (bắt buộc cho Reading):
-   Cài đặt → AI → chọn OpenAI hoặc Gemini và nhập API key.
+Bước 1 — Tải JSON mẫu
+Modal hiển thị bảng parts theo level (KET/PET/FCE/CAE/CPE).
 
-2. Tách PDF đúng phần (không upload cả cuốn sách):
-   • Chỉ lấy trang Reading Test (passage + câu hỏi).
-   • Bỏ phần Answer key, Writing, Speaking, bìa.
-   • File tối đa 12 MB — nếu quá lớn, export riêng từng Test (vd. Test 1).
+Bước 2 — Chuẩn bị nội dung từ PDF gốc
 
-3. Vào đúng track trong app:
-   • IELTS 20 → Luyện thi → IELTS
-   • A2 Key 2 → Luyện thi → Cambridge → A2
+Quy tắc chung:
+• Part 1 (A2/B1 signs): có thể dùng ảnh — không bắt buộc gõ text
+• Part 2 trở đi (mọi level): BẮT BUỘC copy text vào passage[].text để Highlight khi làm bài
+• Chỉ ảnh ở Part 2+ → không Highlight được
 
-───
+Ảnh Part 1 (tuỳ chọn):
+┌─────────────────────┬──────────────────────────────────────┐
+│ File                │ Dùng cho                             │
+├─────────────────────┼──────────────────────────────────────┤
+│ part1-page.jpg      │ 1 ảnh cả trang signs                 │
+├─────────────────────┼──────────────────────────────────────┤
+│ part1-q1.jpg … q6   │ A2 KET — mỗi câu 1 sign (khuyên dùng)│
+└─────────────────────┴──────────────────────────────────────┘
 
-1. IELTS Academic 20 — Reading
+Bước 3 — Sửa JSON theo level
 
-Đường dẫn: Luyện thi → IELTS → Import PDF Reading
+A2 KET — 5 parts · 30 câu
+┌──────┬────────┬───────────────────┬─────────────────────────────┐
+│ Part │ Câu    │ Type              │ Passage                     │
+├──────┼────────┼───────────────────┼─────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 6 ảnh hoặc text signs       │
+│ 2    │ 7–13   │ multiple-choice   │ text + label người          │
+│ 3    │ 14–18  │ multiple-choice   │ copy đoạn đọc               │
+│ 4    │ 19–24  │ multiple-choice   │ gapped text + 3 từ A/B/C/gap│
+│ 5    │ 25–30  │ gap-fill          │ email + Example: 0 are      │
+└──────┴────────┴───────────────────┴─────────────────────────────┘
+⚠ Part 4 A2: đề gốc chọn từ (MC), không tự gõ gap-fill.
 
-Các bước:
+B1 PET — 6 parts · 32 câu
+Part 1 signs (ảnh OK) · Part 2 matching-features · Part 3 gap-fill
+· Part 4 MC reading · Part 5 summary-completion + wordBank · Part 6 open cloze
 
-1. Từ PDF sách, export riêng Reading Test 1 (hoặc Test 2, 3…) — 3 passage + câu hỏi, khoảng 40 câu.
-2. Đặt tên gợi ý: Cambridge 20 — Reading Test 1.
-3. Kéo thả PDF vào modal → Phân tích.
-4. Đợi 30–120 giây (PDF scan dùng Vision OCR, chậm hơn PDF có text).
-5. Ở Preview, kiểm tra:
-   • Đủ 3 parts?
-   • Số câu gần 40?
-   • Badge "Đoán" ở đáp án — sửa tay nếu sai (lấy từ Answer key cuối sách).
-6. Lưu & làm bài.
+B2 FCE — 7 parts · 52 câu
+Part 1–4 Use of English (MC cloze, open cloze, word formation, transformation)
+· Part 5–7 Reading (MC, gapped text, matching)
 
-Lưu ý: Một lần import = một Reading test (không import cả 4 test trong một file).
+C1 CAE — 8 parts · 56 câu
+Giống B2 + cross-text matching + thêm part Reading
 
-───
+C2 CPE — 7 parts · 53 câu
+Giống FCE/CAE; Part 7 multiple matching Q43–53
 
-2. IELTS Academic 20 — Listening
+Mỗi câu hỏi:
+• prompt — copy từ đề
+• options — A/B/C (hoặc A–D, A–E tuỳ part)
+• answer — a/b/c hoặc một từ (gap-fill)
+• explanation — giải thích tiếng Việt (tuỳ chọn)
 
-App không đọc PDF cho Listening. Cần audio + JSON.
+Bước 4 — Upload
+Cách A (khuyên dùng): ZIP gồm exam.json + ảnh → chọn ZIP bundle
+Cách B: JSON riêng + ảnh riêng
 
-Đường dẫn: Luyện thi → IELTS → Import Listening
-
-Chuẩn bị file:
-
-┌──────────────────┬───────────────────────────────────────────────────────────────────────────┐
-│ Thành phần       │ Nguồn từ sách                                                             │
-├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Audio            │ CD / Resource Bank đi kèm sách (4 file MP3 theo Part, hoặc tách từng câu) │
-├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Câu hỏi + đáp án │ Test book + Answer key → gõ vào exam.json                                 │
-├──────────────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Ảnh (nếu có)     │ Part có hình → q1-a.jpg, q1-b.jpg…                                        │
-└──────────────────┴───────────────────────────────────────────────────────────────────────────┘
-
-Cấu trúc IELTS Listening: 4 parts · 40 câu · examType: "ielts"
-
-Trong modal, bấm Tải JSON mẫu để có khung sẵn. Ví dụ rút gọn:
-
-{
-  "version": 1,
-  "title": "IELTS 20 — Listening Test 1",
-  "durationMinutes": 40,
-  "bandHint": "IELTS",
-  "examType": "ielts",
-  "examMode": "practice",
-  "parts": [
-    {
-      "partNumber": 1,
-      "rangeLabel": "Questions 1–10",
-      "audioFile": "part1.mp3",
-      "questions": [
-        {
-          "number": 1,
-          "type": "gap-fill",
-          "prompt": "Name: ______",
-          "answer": "Smith",
-          "wordLimit": 1
-        }
-      ]
-    }
-  ]
-}
-
-Loại câu hỏi: gap-fill, multiple-choice, matching, picture-mc
-
-Đóng ZIP và import:
-
-ielts20-listening-test1.zip
-├── exam.json
-├── part1.mp3
-├── part2.mp3
-├── part3.mp3
-└── part4.mp3
-
-Hoặc upload JSON trước, rồi thêm MP3/ảnh. Không có MP3 vẫn được — app dùng TTS tạm nếu bạn điền ttsText.
+Bước 5 — Preview → Lưu & làm bài
+App cảnh báo nếu Part sai type (vd A2 Part 4 dùng gap-fill thay vì MC).
 
 ───
 
-3. A2 Key 2 — Reading
+Prompt AI tạo ZIP (Claude / ChatGPT)
 
-Đường dẫn: Luyện thi → Cambridge → A2 → Import PDF Reading
+• KET A2 cụ thể: HDSD/Prompt.txt
+• Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 
-Các bước: Giống IELTS, nhưng:
-
-• Export PDF Reading Parts 1–5 (32 câu).
-• Bỏ Parts 6–7 (Writing — làm ở module Viết).
-• Đặt tên: A2 Key 2 — Reading Test 1.
-
-App gắn đề vào track Cambridge A2.
+Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
 
 ───
 
-4. A2 Key 2 — Listening
+Listening
 
-Đường dẫn: Cambridge → A2 → Import Listening
+Bước 1 — Tải JSON mẫu theo level (KET dùng examType: "ket").
 
-Chuẩn bị:
+Bước 2 — Media: q1.mp3, part1.mp3, q1-a.jpg …
 
-┌────────────┬────────────────────────────────────────────────────────────┐
-│ Thành phần │ Chi tiết                                                   │
-├────────────┼────────────────────────────────────────────────────────────┤
-│ Format     │ 5 parts · 25 câu                                           │
-├────────────┼────────────────────────────────────────────────────────────┤
-│ examType   │ "ket" (không phải ielts)                                   │
-├────────────┼────────────────────────────────────────────────────────────┤
-│ Audio      │ Resource Bank / audio đi kèm sách                          │
-├────────────┼────────────────────────────────────────────────────────────┤
-│ Ảnh        │ Part 1 thường có picture-mc → q1-a.jpg, q1-b.jpg, q1-c.jpg │
-└────────────┴────────────────────────────────────────────────────────────┘
-
-Trong modal (track A2), Tải JSON mẫu sẽ có examType: "ket".
-
-Ví dụ Part 1 A2 (chọn hình):
-
-{
-  "number": 1,
-  "type": "picture-mc",
-  "prompt": "Where are they going?",
-  "audioFile": "q1.mp3",
-  "options": [
-    { "id": "A", "label": "Park", "imageFile": "q1-a.jpg" },
-    { "id": "B", "label": "Shop", "imageFile": "q1-b.jpg" },
-    { "id": "C", "label": "School", "imageFile": "q1-c.jpg" }
-  ],
-  "answer": "B"
-}
+Bước 3 — Upload ZIP hoặc JSON + file → Lưu & làm bài
 
 ───
 
-Checklist nhanh
+Mẹo
 
-┌──────┬────────────────────────────────────────┬───────────────────────────────┐
-│ Bước │ Reading                                │ Listening                     │
-├──────┼────────────────────────────────────────┼───────────────────────────────┤
-│ 1    │ Tách PDF đúng phần Reading             │ Rip/tải MP3 từ audio sách     │
-├──────┼────────────────────────────────────────┼───────────────────────────────┤
-│ 2    │ Cấu hình API key AI                    │ Tải JSON mẫu trong app        │
-├──────┼────────────────────────────────────────┼───────────────────────────────┤
-│ 3    │ Import PDF → Preview → Sửa đáp án đoán │ Soạn câu hỏi + đáp án từ sách │
-├──────┼────────────────────────────────────────┼───────────────────────────────┤
-│ 4    │ Lưu & làm bài                          │ Đóng ZIP → Import → Lưu       │
-└──────┴────────────────────────────────────────┴───────────────────────────────┘
-
-───
-
-Điều app chưa làm tự động
-
-• Không import cả cuốn PDF một lúc (nhiều test).
-• Không tự trích Listening từ PDF — phải soạn JSON thủ công.
-• Không import Writing / Speaking trong hub Luyện thi.
-
-───
-
-Nếu bạn muốn, tôi có thể soạn sẵn file exam.json mẫu đầy đủ cho Listening Test 1 của IELTS 20 hoặc A2 Key 2 (khung 40/25 câu, bạn chỉ điền nội dung từ sách). Bạn đang có PDF dạng text hay scan (ảnh chụp)?
+1. Đáp án từ answer key cuối PDF — điền thủ công, không cần AI
+2. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
+3. Bundle mẫu KET Test 1: Tainguyen/ket-reading-test1.zip (cần sửa Part 4 sang MC nếu Claude làm gap-fill)
+4. Đề import có nút xóa (thùng rác) trong danh sách Reading
