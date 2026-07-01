@@ -68,14 +68,14 @@ Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-KET-A2.txt**
 
 | Part | Câu | Type | Ghi chú |
 |------|-----|------|---------|
-| 1 | 1–5 | multiple-choice | 5 ảnh part1-q1…q5 |
-| 2 | 6–10 | matching-features | markets A–H trong passage + features[] |
+| 1 | 1–5 | multiple-choice | 5 ảnh trái; A/B/C phải |
+| 2 | 6–10 | matching-features | passage label A–H; features[] tên ngắn |
 | 3 | 11–15 | multiple-choice | reading A/B/C/D |
-| 4 | 16–20 | matching-features | gapped text + câu A–H (3 thừa) |
-| 5 | 21–26 | multiple-choice | MC cloze — 4 từ A–D mỗi gap |
+| 4 | 16–20 | matching-features | gapped text + passage câu A–H |
+| 5 | 21–26 | multiple-choice | MC cloze 4 từ — KHÔNG gap-fill |
 | 6 | 27–32 | gap-fill | open cloze ONE WORD |
 
-Chi tiết + ví dụ ZIP: HDSD/Prompt-PET-B1.txt
+Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-PET-B1.txt**
 
 ### B2 — FCE (7 parts · 52 câu)
 
@@ -85,9 +85,11 @@ Chi tiết + ví dụ ZIP: HDSD/Prompt-PET-B1.txt
 | 2 | 9–16 | gap-fill (open cloze) |
 | 3 | 17–24 | gap-fill (word formation) |
 | 4 | 25–30 | gap-fill (key word transformation) |
-| 5 | 31–36 | multiple-choice (reading) |
-| 6 | 37–42 | gap-fill (gapped text) |
-| 7 | 43–52 | matching-features |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–42 | matching-features (gapped text + câu A–G) |
+| 7 | 43–52 | matching-features (đoạn A–D, lặp được) |
+
+Chi tiết + ví dụ ZIP: **HDSD/Prompt-FCE-B2.txt**
 
 ### C1 — CAE (8 parts · 56 câu)
 

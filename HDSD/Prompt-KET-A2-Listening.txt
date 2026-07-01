@@ -1,0 +1,170 @@
+Bạn là trợ lý tạo ZIP bundle import đề Listening KET A2 vào web app "Ryan English".
+
+## Tài liệu đính kèm
+1. Test_1_Listening_KET_A2.pdf — đề Listening (Parts 1–5)
+2. Answer Key.pdf — đáp án Listening
+3. Audio Listening.mp3 — file audio cả bài (~20 MB, nghe 1 lần cho toàn test)
+
+## Deliverable
+ZIP: `ket-listening-test1.zip` — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+listening.mp3
+q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
+```
+
+```json
+{
+  "version": 1,
+  "title": "KET A2 Listening — Test 1",
+  "durationMinutes": 35,
+  "bandHint": "A2 Key Listening · 5 parts · 25 câu",
+  "examType": "ket",
+  "examMode": "practice",
+  "parts": [ /* 5 parts, 25 câu */ ]
+}
+```
+
+## Cấu trúc 5 parts (25 câu Listening)
+
+| Part | Câu | Type | Ghi chú UI app |
+|------|-----|------|----------------|
+| 1 | 1–5 | picture-mc | ảnh A/B/C mỗi câu (hoặc placeholder text) |
+| 2 | 6–10 | gap-fill | form notes — 1 từ / số / ngày |
+| 3 | 11–15 | multiple-choice | MC A/B/C |
+| 4 | 16–20 | multiple-choice | MC A/B/C |
+| 5 | 21–25 | matching | ghép người → món ăn A–H |
+
+---
+
+## Audio
+
+- Một file `listening.mp3` cho cả bài → gắn `"audioFile": "listening.mp3"` vào **mỗi part** (không cần 25 file riêng).
+- App tự dedupe — chỉ lưu 1 bản MP3 trong Dexie.
+- Có thể dùng `q1.mp3` … `q25.mp3` nếu tách từng câu (không bắt buộc).
+
+---
+
+## Part 1 (Q1–5) — Picture multiple choice
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–5",
+  "instruction": "For each question, choose the correct answer.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "picture-mc",
+      "prompt": "Where will Claire meet Alex?",
+      "options": [
+        { "id": "A", "label": "…", "imageFile": "q1-a.jpg" },
+        { "id": "B", "label": "…", "imageFile": "q1-b.jpg" },
+        { "id": "C", "label": "…", "imageFile": "q1-c.jpg" }
+      ],
+      "answer": "A",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}
+```
+
+- Không có ảnh → bỏ `imageFile`, giữ `label` mô tả (app hiện placeholder).
+- `answer`: A/B/C (chữ hoa hoặc thường đều được).
+
+---
+
+## Part 2 (Q6–10) — Gap-fill form
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 6–10",
+  "instruction": "You will hear a teacher…\n\nJobs for students…\nDates of jobs: 15th June – 20th …",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Dates of jobs: 15th June – 20th …",
+      "answer": "August",
+      "wordLimit": 3,
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- `answer`: một từ, số, hoặc ngày — viết thường OK.
+- Copy ngữ cảnh form vào `instruction` part + `prompt` từng gap.
+
+---
+
+## Part 3–4 (Q11–20) — Multiple choice
+
+```json
+{
+  "number": 11,
+  "type": "multiple-choice",
+  "prompt": "Who has already decided to go with Robert?",
+  "options": [
+    { "id": "A", "label": "family members" },
+    { "id": "B", "label": "colleagues" },
+    { "id": "C", "label": "tennis partners" }
+  ],
+  "answer": "B",
+  "explanation": "…"
+}
+```
+
+---
+
+## Part 5 (Q21–25) — Matching
+
+```json
+{
+  "number": 21,
+  "type": "matching",
+  "prompt": "Barbara will bring",
+  "options": [
+    { "id": "A", "label": "bread" },
+    { "id": "B", "label": "cake" },
+    { "id": "C", "label": "cheese" },
+    { "id": "D", "label": "chicken" },
+    { "id": "E", "label": "fish" },
+    { "id": "F", "label": "fruit" },
+    { "id": "G", "label": "ice cream" },
+    { "id": "H", "label": "salad" }
+  ],
+  "answer": "F",
+  "explanation": "…"
+}
+```
+
+- Ghi danh sách món A–H trong `instruction` part.
+- Mỗi câu: `prompt` = tên người + "will bring".
+
+---
+
+## Đáp án Test 1 (Answer Key)
+
+| Part | Câu | Đáp án |
+|------|-----|--------|
+| 1 | 1–5 | A, C, C, A, A |
+| 2 | 6–10 | August, 19, drive, 65, photograph |
+| 3 | 11–15 | B, A, C, B, B |
+| 4 | 16–20 | A, B, C, B, A |
+| 5 | 21–25 | F, C, A, D, H |
+
+---
+
+## Import trên app
+
+1. Luyện thi → Cambridge → **A2** → **Import thủ công Listening**
+2. Upload `ket-listening-test1.zip`
+3. Preview → **Lưu & làm bài**
+4. Mỗi lần sửa bundle: xóa đề cũ → import lại
+
+Bundle mẫu: `Tainguyen/ket-listening-test1.zip`
+Script build: `scripts/build-ket-a2-listening-test1.py`

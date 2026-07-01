@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import ListeningPictureOption from './ListeningPictureOption'
+import type { ExamAudioSource } from './useExamQuestionAudio'
 import type { ListeningExamMode, ListeningQuestion } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
@@ -10,6 +11,8 @@ interface Props {
   answer: string
   unsure: boolean
   examMode?: ListeningExamMode
+  partInstruction?: string
+  partAudioSource?: ExamAudioSource
   onAnswer: (value: string) => void
   onUnsureChange: (value: boolean) => void
 }
@@ -19,6 +22,8 @@ export default function ListeningQuestionCard({
   answer,
   unsure,
   examMode = 'practice',
+  partInstruction,
+  partAudioSource,
   onAnswer,
   onUnsureChange,
 }: Props) {
@@ -36,12 +41,12 @@ export default function ListeningQuestionCard({
   const playKey = `q-${question.id}`
   const maxPlays = examMode === 'exam' ? 3 : undefined
 
-  const audioSource = {
-    audioKey: question.audioKey,
-    audioUrl: question.audioUrl,
-    ttsText: question.ttsText,
+  const audioSource: ExamAudioSource = {
+    audioKey: question.audioKey ?? partAudioSource?.audioKey,
+    audioUrl: question.audioUrl ?? partAudioSource?.audioUrl,
+    ttsText: question.ttsText ?? partAudioSource?.ttsText,
   }
-  const hasAudioFile = Boolean(question.audioKey || question.audioUrl)
+  const hasAudioFile = Boolean(audioSource.audioKey || audioSource.audioUrl)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)
 
@@ -57,6 +62,10 @@ export default function ListeningQuestionCard({
   }, [question.id, stopPlayback])
 
   const isPictureMc = question.type === 'picture-mc'
+  const isGapFill = question.type === 'gap-fill'
+  const isMatching = question.type === 'matching'
+  const isMc = !isGapFill && !isMatching
+  const wordLimit = question.wordLimit ?? (isGapFill ? 3 : undefined)
 
   return (
     <article className="listening-exam-card">
@@ -71,6 +80,10 @@ export default function ListeningQuestionCard({
           Chưa chắc chắn
         </label>
       </header>
+
+      {partInstruction && (
+        <p className="listening-exam-card__instruction">{partInstruction}</p>
+      )}
 
       <p className="listening-exam-card__prompt">{question.prompt}</p>
 
@@ -104,28 +117,62 @@ export default function ListeningQuestionCard({
         </div>
       )}
 
-      <div className={`listening-exam-card__options${isPictureMc ? ' is-picture' : ''}`}>
-        {question.options.map(option => {
-          const selected = answer === option.id
-          return (
-            <label
-              key={option.id}
-              className={`listening-exam-option${selected ? ' is-selected' : ''}`}
-            >
-              <input
-                type="radio"
-                name={question.id}
-                checked={selected}
-                onChange={() => onAnswer(option.id)}
-              />
-              <span className="listening-exam-option__letter">{option.id}</span>
-              {!isPictureMc && (
-                <span className="listening-exam-option__label">{option.label}</span>
-              )}
-            </label>
-          )
-        })}
-      </div>
+      {isGapFill && (
+        <div className="listening-exam-card__gap">
+          <input
+            type="text"
+            className="listening-ielts-gap__input"
+            value={answer}
+            placeholder={wordLimit ? `Tối đa ${wordLimit} từ` : 'Nhập đáp án'}
+            onChange={e => onAnswer(e.target.value)}
+          />
+        </div>
+      )}
+
+      {isMatching && (
+        <div className="listening-exam-card__matching">
+          <div className="listening-ielts-match__pills">
+            {question.options.map(option => {
+              const selected = answer === option.id
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}`}
+                  onClick={() => onAnswer(option.id)}
+                >
+                  {option.id}. {option.label}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {isMc && (
+        <div className={`listening-exam-card__options${isPictureMc ? ' is-picture' : ''}`}>
+          {question.options.map(option => {
+            const selected = answer === option.id
+            return (
+              <label
+                key={option.id}
+                className={`listening-exam-option${selected ? ' is-selected' : ''}`}
+              >
+                <input
+                  type="radio"
+                  name={question.id}
+                  checked={selected}
+                  onChange={() => onAnswer(option.id)}
+                />
+                <span className="listening-exam-option__letter">{option.id}</span>
+                {!isPictureMc && (
+                  <span className="listening-exam-option__label">{option.label}</span>
+                )}
+              </label>
+            )
+          })}
+        </div>
+      )}
     </article>
   )
 }
