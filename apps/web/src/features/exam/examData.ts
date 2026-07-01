@@ -5,6 +5,11 @@ export type ReadingQuestionType =
   | 'multiple-choice'
   | 'matching-paragraph'
   | 'matching-features'
+  | 'gap-fill'
+  | 'summary-completion'
+  | 'sentence-completion'
+
+export type AnswerConfidence = 'key' | 'inferred'
 
 export interface ExamLibraryItem {
   id: string
@@ -27,6 +32,7 @@ export interface ReadingQuestion {
   options: ReadingQuestionOption[]
   answer: string
   explanation: string
+  answerConfidence?: AnswerConfidence
 }
 
 export interface ReadingPassageBlock {
@@ -39,9 +45,17 @@ export interface ReadingQuestionGroup {
   range: string
   instruction: string
   note?: string
-  type: 'tfng' | 'matching-paragraph' | 'matching-features' | 'multiple-choice'
+  type:
+    | 'tfng'
+    | 'matching-paragraph'
+    | 'matching-features'
+    | 'multiple-choice'
+    | 'gap-fill'
+    | 'summary-completion'
+    | 'sentence-completion'
   paragraphLetters?: string[]
   features?: { id: string; name: string }[]
+  wordBank?: ReadingQuestionOption[]
   questions: ReadingQuestion[]
 }
 
@@ -709,4 +723,29 @@ export function getExamQuestions(exam: ReadingExam): ReadingQuestion[] {
 
 export function getReadingExam(examId: string) {
   return READING_EXAMS.find(exam => exam.id === examId) ?? null
+}
+
+function normalizeReadingAnswer(value: string): string {
+  return value.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, ' ')
+}
+
+export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: string): boolean {
+  if (!userAnswer.trim()) return false
+  const expected = normalizeReadingAnswer(question.answer)
+  const given = normalizeReadingAnswer(userAnswer)
+
+  if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
+    if (given === expected) return true
+    return given.split(/\s+/).length === 1 && expected.split(/\s+/).length === 1
+      && (given === expected || given.includes(expected) || expected.includes(given))
+  }
+
+  return given === expected
+}
+
+export function formatReadingAnswer(question: ReadingQuestion, answerId: string): string {
+  if (!answerId) return 'Chưa trả lời'
+  const fromOption = question.options.find(o => o.id === answerId)
+  if (fromOption) return fromOption.label
+  return answerId.toUpperCase()
 }

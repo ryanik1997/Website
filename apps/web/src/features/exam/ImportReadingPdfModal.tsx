@@ -7,13 +7,17 @@ import {
   AI_PROVIDERS,
   parseReadingPdfFull,
   READING_PDF_MAX_BYTES,
+  validateReadingImport,
   type AIProvider,
   type ParsedReadingPart,
+  type ParseProgressEvent,
+  type ReadingImportValidation,
 } from '@ryan/core'
 import { examRepo, writingRepo } from '@ryan/db'
-import { extractTextFromPdf } from './pdfExtract'
+import { extractPdfContent, type PdfExtractMethod } from './pdfContent'
 import {
   buildImportedReadingExam,
+  countInferredAnswers,
   countQuestions,
   defaultExamTitle,
   parsedPartsToReadingParts,
@@ -42,14 +46,40 @@ function partQuestionCount(part: ParsedReadingPart): number {
   return part.questionGroups.reduce((sum, g) => sum + g.questions.length, 0)
 }
 
+function progressLabel(events: ParseProgressEvent[]): string {
+  const last = events[events.length - 1]
+  if (!last) return 'Đang khởi tạo…'
+  if (last.phase === 'extract') return 'Đang đọc PDF…'
+  if (last.phase === 'full' && last.status === 'start') return 'Đang phân tích full test…'
+  if (last.phase === 'full' && last.status === 'error') return 'Full test lỗi — chuyển parse từng part…'
+  if (last.phase === 'part') {
+    if (last.status === 'start') return `Đang phân tích Part ${last.partNumber}…`
+    if (last.status === 'done') return `Part ${last.partNumber} xong`
+    if (last.status === 'skip') return `Bỏ qua Part ${last.partNumber} (thiếu text)`
+    if (last.status === 'error') return `Part ${last.partNumber} lỗi — thử part khác…`
+  }
+  return 'Đang xử lý…'
+}
+
+function methodLabel(method: PdfExtractMethod | null): string {
+  if (method === 'vision-ocr') return 'Vision OCR (PDF scan)'
+  if (method === 'text-layer') return 'Text layer'
+  return ''
+}
+
 export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState<Step>('upload')
   const [file, setFile] = useState<File | null>(null)
   const [title, setTitle] = useState('')
   const [extractedChars, setExtractedChars] = useState(0)
+  const [extractMethod, setExtractMethod] = useState<PdfExtractMethod | null>(null)
   const [parsedParts, setParsedParts] = useState<ParsedReadingPart[]>([])
+  const [validation, setValidation] = useState<ReadingImportValidation | null>(null)
   const [previewPartIndex, setPreviewPartIndex] = useState(0)
+  const [showInferredOnly, setShowInferredOnly] = useState(false)
+  const [parseProgress, setParseProgress] = useState<ParseProgressEvent[]>([])
+  const [visionProgress, setVisionProgress] = useState('')
   const [error, setError] = useState('')
   const [providerUsed, setProviderUsed] = useState<AIProvider | null>(null)
   const [saving, setSaving] = useState(false)
@@ -68,9 +98,13 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
     setFile(next)
     setTitle(prev => prev.trim() || titleFromPdfFilename(next.name))
     setParsedParts([])
+    setValidation(null)
     setPreviewPartIndex(0)
     setExtractedChars(0)
+    setExtractMethod(null)
     setProviderUsed(null)
+    setParseProgress([])
+    setVisionProgress('')
     setStep('upload')
   }, [])
 
@@ -78,6 +112,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
     if (!file) return
     setError('')
     setStep('parsing')
+    setParseProgress([])
 
     try {
       const preferred = ((await writingRepo.getSetting('ai_provider')) as AIProvider) ?? 'openai'
@@ -88,21 +123,23 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
         return
       }
 
-      const text = await extractTextFromPdf(file)
+      setParseProgress([{ phase: 'extract', status: 'start' }])
+      const { text, method } = await extractPdfContent(file, {
+        apiKey,
+        provider: preferred,
+        onVisionProgress: (done, total) => setVisionProgress(`Vision OCR: ${done}/${total} trang`),
+      })
+      setParseProgress(prev => [...prev, { phase: 'extract', status: 'done' }])
       setExtractedChars(text.length)
+      setExtractMethod(method)
 
-      if (text.length < 200) {
-        setError(
-          'PDF gần như không có chữ (có thể là scan). Hãy dùng PDF có lớp text hoặc OCR file trước.',
-        )
-        setStep('upload')
-        return
-      }
-
-      const parts = await parseReadingPdfFull(text, apiKey, preferred)
+      const parts = await parseReadingPdfFull(text, apiKey, preferred, event => {
+        setParseProgress(prev => [...prev, event])
+      })
       await writingRepo.recordUsage('reading_pdf_import', Math.ceil(text.length / 4))
 
       setParsedParts(parts)
+      setValidation(validateReadingImport(parts))
       setPreviewPartIndex(0)
       setProviderUsed(preferred)
       setTitle(prev => prev.trim() || defaultExamTitle(parts))
@@ -115,7 +152,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
   }
 
   async function saveExam() {
-    if (!parsedParts.length || !file) return
+    if (!parsedParts.length || !file || !validation?.canSave) return
     setSaving(true)
     setError('')
 
@@ -141,8 +178,17 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
   }
 
   const questionCount = countQuestions(parsedParts)
+  const inferredCount = countInferredAnswers(parsedParts)
   const previewPart = parsedParts[previewPartIndex] ?? null
-  const previewQuestionCount = previewPart ? partQuestionCount(previewPart) : 0
+
+  const filteredGroups = previewPart?.questionGroups.map(group => ({
+    ...group,
+    questions: showInferredOnly
+      ? group.questions.filter(q => q.answerConfidence === 'inferred')
+      : group.questions,
+  })).filter(g => g.questions.length > 0) ?? []
+
+  const previewQuestionCount = filteredGroups.reduce((s, g) => s + g.questions.length, 0)
   const hasFullTest = parsedParts.length >= 3
 
   return (
@@ -175,7 +221,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
           {step === 'upload' && (
             <>
               <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
-                Upload PDF đề Reading → AI trích Part 1–3 (passage + câu hỏi) → xem trước → lưu local.
+                Upload PDF → trích Part 1–3 bằng AI. PDF scan tự động dùng Vision OCR (OpenAI/Gemini).
               </p>
 
               <div
@@ -204,7 +250,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                   Kéo thả PDF hoặc bấm để chọn
                 </p>
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                  Tối đa {formatBytes(READING_PDF_MAX_BYTES)} · PDF có lớp text (không phải scan ảnh)
+                  Tối đa {formatBytes(READING_PDF_MAX_BYTES)} · text layer hoặc scan (Vision)
                 </p>
                 <input
                   ref={inputRef}
@@ -256,15 +302,18 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
             <div className="flex flex-col items-center py-12 gap-3">
               <Loader2 size={32} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
               <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
-                Đang đọc PDF và phân tích Part 1–3…
+                {progressLabel(parseProgress)}
               </p>
+              {visionProgress && (
+                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{visionProgress}</p>
+              )}
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                Có thể mất 30–90 giây tùy độ dài file và provider AI.
+                Có thể mất 30–120 giây (Vision OCR chậm hơn text layer).
               </p>
             </div>
           )}
 
-          {step === 'preview' && parsedParts.length > 0 && previewPart && (
+          {step === 'preview' && parsedParts.length > 0 && previewPart && validation && (
             <div className="flex flex-col gap-4">
               <div
                 className="rounded-xl border px-4 py-3"
@@ -280,19 +329,33 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                       {hasFullTest
                         ? 'Đã trích đủ 3 parts'
                         : `Đã trích ${parsedParts.length} part${parsedParts.length > 1 ? 's' : ''}`}
+                      {' · '}
+                      <span style={{ color: 'var(--color-primary)' }}>Tin cậy {validation.score}%</span>
                     </p>
                     <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                      {extractedChars.toLocaleString()} ký tự PDF · {questionCount} câu tổng
+                      {extractedChars.toLocaleString()} ký tự · {methodLabel(extractMethod)}
+                      {extractMethod ? ' · ' : ''}
+                      {questionCount} câu
+                      {inferredCount > 0 ? ` · ${inferredCount} đáp án đoán` : ''}
                       {providerUsed ? ` · ${AI_PROVIDERS.find(p => p.id === providerUsed)?.name}` : ''}
                     </p>
-                    {!hasFullTest && (
-                      <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                        PDF có thể thiếu Part — vẫn lưu được các part đã trích.
-                      </p>
-                    )}
                   </div>
                 </div>
               </div>
+
+              {(validation.warnings.length > 0 || validation.errors.length > 0) && (
+                <div
+                  className="rounded-xl border px-3 py-2.5 text-xs space-y-1"
+                  style={{ borderColor: 'var(--border-color)', background: 'var(--bg-primary)' }}
+                >
+                  {validation.errors.map(msg => (
+                    <p key={msg} style={{ color: 'var(--color-accent)' }}>• {msg}</p>
+                  ))}
+                  {validation.warnings.map(msg => (
+                    <p key={msg} style={{ color: 'var(--text-muted)' }}>• {msg}</p>
+                  ))}
+                </div>
+              )}
 
               <label>
                 <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
@@ -310,7 +373,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                 />
               </label>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 items-center">
                 {parsedParts.map((part, index) => {
                   const qCount = partQuestionCount(part)
                   const active = index === previewPartIndex
@@ -332,6 +395,16 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                     </button>
                   )
                 })}
+                {inferredCount > 0 && (
+                  <label className="ml-auto flex items-center gap-1.5 text-xs cursor-pointer" style={{ color: 'var(--text-muted)' }}>
+                    <input
+                      type="checkbox"
+                      checked={showInferredOnly}
+                      onChange={e => setShowInferredOnly(e.target.checked)}
+                    />
+                    Chỉ câu đáp án đoán
+                  </label>
+                )}
               </div>
 
               <div>
@@ -352,9 +425,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                 >
                   {previewPart.passage.map((block, index) => (
                     <p key={index} className="mb-2 last:mb-0">
-                      {block.label && (
-                        <span className="font-bold mr-1">{block.label}</span>
-                      )}
+                      {block.label && <span className="font-bold mr-1">{block.label}</span>}
                       {block.text}
                     </p>
                   ))}
@@ -366,7 +437,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                   Câu hỏi Part {previewPart.partNumber} ({previewQuestionCount})
                 </p>
                 <div className="flex flex-col gap-2 max-h-44 overflow-y-auto">
-                  {previewPart.questionGroups.map(group => (
+                  {filteredGroups.map(group => (
                     <div key={group.range}>
                       <p className="text-xs font-semibold mb-1" style={{ color: 'var(--color-primary)' }}>
                         {group.range}
@@ -374,16 +445,18 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
                       {group.questions.map(q => (
                         <p key={q.number} className="text-sm mb-1.5" style={{ color: 'var(--text-primary)' }}>
                           <span className="font-bold">{q.number}.</span> {q.prompt}
+                          {q.answerConfidence === 'inferred' && (
+                            <span className="reading-test-inferred-badge">Đoán</span>
+                          )}
                         </p>
                       ))}
                     </div>
                   ))}
+                  {showInferredOnly && previewQuestionCount === 0 && (
+                    <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Không có câu đáp án đoán trong part này.</p>
+                  )}
                 </div>
               </div>
-
-              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                Kiểm tra nhanh từng part. Sau khi lưu, chuyển Part ở footer khi làm bài. Đáp án AI đoán nếu PDF không có answer key.
-              </p>
             </div>
           )}
 
@@ -407,7 +480,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
               <Link to="/app/settings?tab=ai" className="underline" style={{ color: 'var(--color-primary)' }}>
                 Cài đặt → AI
               </Link>
-              . Khuyến nghị OpenAI hoặc Gemini cho đề dài.
+              . OpenAI/Gemini cho full test + scan; Groq chỉ text layer ngắn.
             </p>
           )}
         </div>
@@ -440,7 +513,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
           {step === 'preview' && (
             <button
               type="button"
-              disabled={saving}
+              disabled={saving || !validation?.canSave}
               onClick={() => void saveExam()}
               className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold disabled:opacity-40"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}

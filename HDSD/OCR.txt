@@ -1,0 +1,11 @@
+Sử dụng OCR cho Reading
+
+Cách test nhanh
+
+1. pnpm dev → Luyện thi → Import PDF Reading
+2. PDF có text → parse bình thường
+3. PDF scan → cần OpenAI/Gemini trong Cài đặt → AI
+4. Preview: xem score %, bật Chỉ câu đáp án đoán
+5. Settings → Xuất backup → file v2 có readingExams
+
+tsc + build đều pass.

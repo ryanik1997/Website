@@ -598,31 +598,36 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [x] `ListeningLibraryPage` — dùng chung scroll shell
 - [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Import PDF Reading — Part 1–3 (session 2026-07-01) — HOÀN THÀNH
+### Import PDF Reading — Sprint 1–3 (session 2026-07-01) — HOÀN THÀNH
 
-- [x] `packages/core/src/ai/readingPdfPrompt.ts` — `parseReadingPdfFull()` (3 parts), `parseReadingPdfPart1()` (compat), `READING_PDF_TEXT_SLICE` 52k
-- [x] Dexie v10 — bảng `readingExams` + `ReadingExamRecord`
-- [x] `packages/db/src/local/repositories/examRepo.ts` — CRUD đề Reading import
-- [x] `apps/web/src/features/exam/pdfExtract.ts` — `pdfjs-dist` trích text (~10 trang đầu)
-- [x] `importReadingUtils.ts` — `part1ToReadingPart()`, `buildImportedReadingExam()`
-- [x] `examLoader.ts` — `resolveReadingExam()`, `listAllReadingExams()` merge builtin + local
-- [x] `ImportReadingPdfModal.tsx` — upload → AI parse Part 1–3 → preview tabs → lưu Dexie
-- [x] `ExamHome.tsx` — nút Import PDF, danh sách đề import, xóa đề
-- [x] `ReadingTest.tsx` — `useLiveQuery` + `resolveReadingExam()` (hỗ trợ đề import)
-- [x] `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` — pass
+**Sprint 1 — Tin cậy**
+- [x] Backup v2 — `readingExams` trong `backupRestore.ts` (import v1+v2)
+- [x] `answerConfidence: 'key' | 'inferred'` — badge "Đoán" preview + ExamResult
+- [x] `parseReadingPdfFull()` — thử full trước, fallback parse từng part + progress UI
+- [x] `readingPdfValidate.ts` — score tin cậy %, warnings trước khi lưu
+
+**Sprint 2 — Độ phủ IELTS**
+- [x] Dạng câu mới: `gap-fill`, `summary-completion`, `sentence-completion`
+- [x] `ReadingQuestionPanel` — input ONE WORD + word bank pills
+- [x] `isReadingAnswerCorrect()` — chấm gap-fill fuzzy
+
+**Sprint 3 — Scan PDF + performance**
+- [x] Hybrid `pdfContent.ts` — text layer trước, Vision OCR (OpenAI/Gemini) nếu scan
+- [x] `pdfVision.ts` — render trang → batch Vision OCR
+- [x] Lazy-load `ImportReadingPdfModal` + dynamic `pdfjs-dist` — ExamHome ~7KB (tách chunk pdf ~477KB)
 
 #### Flow Import PDF Reading
 1. Luyện thi → **Import PDF Reading**
-2. Upload PDF (≤12MB, cần lớp text — không phải scan ảnh)
-3. Cần API key trong Cài đặt → AI (OpenAI/Gemini/Groq — khuyến nghị OpenAI/Gemini cho đề dài)
-4. AI trích Part 1–3 (TFNG, matching paragraph/features, MC) → preview từng part → **Lưu & làm bài**
-5. Đề lưu local id `reading-pdf-{uuid}` — full test hoặc các part có trong PDF
+2. Upload PDF (≤12MB) — text layer hoặc scan (Vision OCR tự động)
+3. API key Cài đặt → AI (OpenAI/Gemini khuyến nghị full test + scan)
+4. Parse Part 1–3 → score tin cậy + preview (lọc câu đáp án đoán) → **Lưu & làm bài**
+5. Backup v2 gồm `readingExams`
 
-#### Giới hạn / chưa làm
-- PDF scan ảnh cần OCR/Vision (chưa hỗ trợ)
-- Đáp án AI đoán nếu PDF không có answer key — user nên kiểm tra preview
-- Một số dạng câu Part 3 (gap-fill, summary completion) chưa map — fallback MC/TFNG
-- `readingExams` chưa thêm vào backup JSON
+#### Giới hạn còn lại
+- Vision OCR tốn token/chậm (~20 trang max); chất lượng phụ thuộc ảnh scan
+- Groq không Vision — scan cần đổi OpenAI/Gemini
+- Chưa sync `readingExams` lên Supabase cloud
+- Chưa có UI sửa đề import sau khi lưu
 
 ---
 
