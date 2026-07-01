@@ -1,29 +1,99 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { useLiveQuery } from 'dexie-react-hooks'
+import {
+  Bell, ChevronLeft, ChevronRight, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
+} from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ExamResult from './ExamResult'
-import { getReadingExam } from './examData'
+import ReadingFontPanel from './ReadingFontPanel'
+import ReadingQuestionPanel from './ReadingQuestionPanel'
+import {
+  ensureReadingFontsLoaded,
+  getFontFamilyCss,
+  loadFontFamilyId,
+  loadFontSize,
+} from './readingFontSettings'
+import { getExamQuestions, getPartQuestions } from './examData'
+import { resolveReadingExam } from './examLoader'
+import './readingTest.css'
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
-
-function formatClock(totalSeconds: number) {
-  const minutes = Math.floor(totalSeconds / 60)
-  const seconds = totalSeconds % 60
-  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-}
+const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
+const SPLIT_MIN = 28
+const SPLIT_MAX = 72
 
 export default function ReadingTest() {
   const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
-  const exam = useMemo(() => (examId ? getReadingExam(examId) : null), [examId])
+  const exam = useLiveQuery(
+    () => (examId ? resolveReadingExam(examId) : null),
+    [examId],
+  )
+
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [timeLeft, setTimeLeft] = useState(() => (exam?.durationMinutes ?? 60) * 60)
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const [partIndex, setPartIndex] = useState(0)
+  const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [confirmSubmit, setConfirmSubmit] = useState(false)
+  const [splitPct, setSplitPct] = useState(50)
+  const [isResizing, setIsResizing] = useState(false)
+  const [fontSize, setFontSize] = useState(loadFontSize)
+  const [fontFamilyId, setFontFamilyId] = useState(loadFontFamilyId)
+  const [fontPanelOpen, setFontPanelOpen] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
-  const questions = useMemo(() => exam?.parts.flatMap(part => part.questions) ?? [], [exam])
-  const currentQuestion = questions[currentQuestionIndex] ?? null
-  const currentPart = exam?.parts.find(part => part.questions.some(question => question.id === currentQuestion?.id)) ?? null
+  const shellRef = useRef<HTMLDivElement>(null)
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const splitPctRef = useRef(splitPct)
+  splitPctRef.current = splitPct
+
+  const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
+  const currentPart = exam?.parts[partIndex] ?? null
+  const partQuestions = useMemo(
+    () => (currentPart ? getPartQuestions(currentPart) : []),
+    [currentPart],
+  )
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+
+  const minutesRemaining = Math.max(0, Math.ceil(timeLeft / 60))
+
+  useEffect(() => {
+    ensureReadingFontsLoaded()
+  }, [])
+
+  useEffect(() => {
+    function syncFullscreen() {
+      setIsFullscreen(document.fullscreenElement === shellRef.current)
+    }
+    document.addEventListener('fullscreenchange', syncFullscreen)
+    return () => document.removeEventListener('fullscreenchange', syncFullscreen)
+  }, [])
+
+  const toggleFullscreen = useCallback(async () => {
+    const shell = shellRef.current
+    if (!shell) return
+
+    try {
+      if (document.fullscreenElement === shell) {
+        await document.exitFullscreen()
+      } else {
+        await shell.requestFullscreen()
+      }
+    } catch (error) {
+      console.warn('Không thể bật toàn màn hình', error)
+    }
+  }, [])
+
+  useEffect(() => {
+    const savedSplit = window.localStorage.getItem(SPLIT_STORAGE_KEY)
+    if (savedSplit) {
+      const parsed = Number(savedSplit)
+      if (!Number.isNaN(parsed)) {
+        setSplitPct(Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, parsed)))
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (!exam) return
@@ -31,6 +101,8 @@ export default function ReadingTest() {
     if (!savedRaw) {
       setAnswers({})
       setTimeLeft(exam.durationMinutes * 60)
+      setPartIndex(0)
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       return
     }
 
@@ -39,15 +111,28 @@ export default function ReadingTest() {
         answers?: Record<string, string>
         timeLeft?: number
         submitted?: boolean
+        partIndex?: number
+        activeQuestionId?: string | null
       }
       setAnswers(saved.answers ?? {})
       setTimeLeft(typeof saved.timeLeft === 'number' ? saved.timeLeft : exam.durationMinutes * 60)
       setSubmitted(Boolean(saved.submitted))
+      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
+      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
     } catch {
       setAnswers({})
       setTimeLeft(exam.durationMinutes * 60)
+      setPartIndex(0)
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
   }, [exam, storageKey])
+
+  useEffect(() => {
+    if (!exam || !currentPart) return
+    if (!partQuestions.some(q => q.id === activeQuestionId)) {
+      setActiveQuestionId(partQuestions[0]?.id ?? null)
+    }
+  }, [activeQuestionId, currentPart, exam, partIndex, partQuestions])
 
   useEffect(() => {
     if (!exam) return
@@ -55,8 +140,10 @@ export default function ReadingTest() {
       answers,
       timeLeft,
       submitted,
+      partIndex,
+      activeQuestionId,
     }))
-  }, [answers, exam, storageKey, submitted, timeLeft])
+  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft])
 
   useEffect(() => {
     if (!exam || submitted) return
@@ -72,11 +159,141 @@ export default function ReadingTest() {
     return () => window.clearInterval(timer)
   }, [exam, submitted, timeLeft])
 
+  const resetPaneScroll = useCallback(() => {
+    const body = bodyRef.current
+    if (!body) return
+    body.querySelector<HTMLElement>('.reading-test-passage')?.scrollTo({ top: 0, behavior: 'auto' })
+    body.querySelector<HTMLElement>('.reading-test-questions')?.scrollTo({ top: 0, behavior: 'auto' })
+  }, [])
+
+  const scrollToQuestion = useCallback((questionId: string) => {
+    window.requestAnimationFrame(() => {
+      document.getElementById(`reading-q-${questionId}`)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      })
+    })
+  }, [])
+
+  const handleSelectQuestion = useCallback((questionId: string) => {
+    setActiveQuestionId(questionId)
+    scrollToQuestion(questionId)
+  }, [scrollToQuestion])
+
+  const handleAnswer = useCallback((questionId: string, value: string) => {
+    setAnswers(prev => ({ ...prev, [questionId]: value }))
+    setActiveQuestionId(questionId)
+  }, [])
+
+  const answeredInPart = useCallback((index: number) => {
+    if (!exam) return 0
+    return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
+  }, [answers, exam])
+
+  const goToPart = useCallback((index: number) => {
+    if (!exam || index < 0 || index >= exam.parts.length) return
+
+    const questions = getPartQuestions(exam.parts[index])
+    const first = questions[0]
+    if (!first) return
+
+    setPartIndex(index)
+    setActiveQuestionId(first.id)
+    resetPaneScroll()
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        scrollToQuestion(first.id)
+      })
+    })
+  }, [exam, resetPaneScroll, scrollToQuestion])
+
+  const clampSplit = useCallback((pct: number) => (
+    Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, pct))
+  ), [])
+
+  const updateSplitFromClientX = useCallback((clientX: number) => {
+    const body = bodyRef.current
+    if (!body) return
+    const rect = body.getBoundingClientRect()
+    if (rect.width <= 0) return
+    const pct = ((clientX - rect.left) / rect.width) * 100
+    setSplitPct(clampSplit(pct))
+  }, [clampSplit])
+
+  const stopResizing = useCallback(() => {
+    setIsResizing(false)
+    window.localStorage.setItem(SPLIT_STORAGE_KEY, String(splitPctRef.current))
+  }, [])
+
+  useEffect(() => {
+    if (!isResizing) return
+
+    const onMove = (event: MouseEvent) => {
+      updateSplitFromClientX(event.clientX)
+    }
+
+    const onUp = () => stopResizing()
+
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mouseup', onUp)
+
+    return () => {
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mouseup', onUp)
+    }
+  }, [isResizing, stopResizing, updateSplitFromClientX])
+
+  const onResizerPointerDown = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    event.currentTarget.setPointerCapture(event.pointerId)
+    setIsResizing(true)
+    updateSplitFromClientX(event.clientX)
+  }, [updateSplitFromClientX])
+
+  const onResizerPointerMove = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!isResizing) return
+    updateSplitFromClientX(event.clientX)
+  }, [isResizing, updateSplitFromClientX])
+
+  const onResizerPointerUp = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!isResizing) return
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    }
+    stopResizing()
+  }, [isResizing, stopResizing])
+
+  const goAdjacentQuestion = useCallback((delta: number) => {
+    if (!activeQuestionId) return
+    const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
+    const next = allQuestions[idx + delta]
+    if (!next) return
+
+    const nextPartIndex = exam?.parts.findIndex(part =>
+      getPartQuestions(part).some(q => q.id === next.id),
+    ) ?? partIndex
+
+    if (nextPartIndex !== partIndex) {
+      setPartIndex(nextPartIndex)
+      resetPaneScroll()
+    }
+    handleSelectQuestion(next.id)
+  }, [activeQuestionId, allQuestions, exam, handleSelectQuestion, partIndex, resetPaneScroll])
+
+  if (exam === undefined) {
+    return (
+      <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+        <Loader2 size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+      </div>
+    )
+  }
+
   if (!exam) {
     return (
       <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <div className="rounded-2xl border px-5 py-4 text-sm" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
-          Khong tim thay bai Reading.
+          Không tìm thấy bài Reading.
         </div>
       </div>
     )
@@ -91,7 +308,8 @@ export default function ReadingTest() {
           window.localStorage.removeItem(storageKey)
           setAnswers({})
           setTimeLeft(exam.durationMinutes * 60)
-          setCurrentQuestionIndex(0)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
           setSubmitted(false)
         }}
         onBack={() => navigate('/app/exam')}
@@ -100,209 +318,226 @@ export default function ReadingTest() {
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
-      <header
-        className="border-b px-4 py-4 sm:px-6"
-        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
-      >
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.24em]" style={{ color: 'var(--color-primary)' }}>
-              Luyen thi IELTS
-            </p>
-            <h1 className="mt-1 text-2xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
-              {exam.title}
-            </h1>
-            <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
-              Reading test, passage ben trai va cau hoi ben phai. Du lieu mau de mo rong sau.
-            </p>
-          </div>
+    <div
+      ref={shellRef}
+      className={`reading-test-shell${isResizing ? ' is-resizing' : ''}${isFullscreen ? ' is-fullscreen' : ''}`}
+      style={{
+        '--rt-split-pct': `${splitPct}%`,
+        '--rt-font-size': `${fontSize}px`,
+        '--rt-font-family': getFontFamilyCss(fontFamilyId),
+      } as CSSProperties}
+    >
+      <header className="reading-test-header">
+        <div>
+          <p className="reading-test-header__title">{currentPart?.passageTitle ?? exam.title}</p>
+          <p className="reading-test-header__timer">
+            {minutesRemaining} minute{minutesRemaining === 1 ? '' : 's'} remaining
+          </p>
+        </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <div
-              className="rounded-2xl border px-4 py-3"
-              style={{
-                background: 'color-mix(in srgb, var(--color-primary) 10%, var(--bg-card))',
-                borderColor: 'color-mix(in srgb, var(--color-primary) 22%, var(--border-color))',
-              }}
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'var(--text-muted)' }}>
-                Thoi gian con lai
-              </p>
-              <p className="mt-1 text-xl font-black tabular-nums" style={{ color: 'var(--text-primary)' }}>
-                {formatClock(timeLeft)}
-              </p>
-            </div>
-
+        <div className="reading-test-header__actions">
+          <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
+            Submit Test
+          </button>
+          <div className="reading-test-header__font-wrap">
             <button
               type="button"
-              onClick={() => setSubmitted(true)}
-              className="rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5"
-              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+              data-reading-font-trigger
+              className={`reading-test-icon-btn${fontPanelOpen ? ' is-active' : ''}`}
+              title="Cỡ chữ & kiểu chữ"
+              aria-label="Cỡ chữ & kiểu chữ"
+              aria-expanded={fontPanelOpen}
+              onClick={() => setFontPanelOpen(open => !open)}
             >
-              Submit Test
+              <Type size={15} />
             </button>
+            <ReadingFontPanel
+              open={fontPanelOpen}
+              fontSize={fontSize}
+              fontFamilyId={fontFamilyId}
+              onClose={() => setFontPanelOpen(false)}
+              onFontSizeChange={setFontSize}
+              onFontFamilyChange={setFontFamilyId}
+            />
           </div>
+          <button
+            type="button"
+            className={`reading-test-icon-btn${isFullscreen ? ' is-active' : ''}`}
+            title={isFullscreen ? 'Thoát toàn màn hình' : 'Toàn màn hình'}
+            aria-label={isFullscreen ? 'Thoát toàn màn hình' : 'Toàn màn hình'}
+            aria-pressed={isFullscreen}
+            onClick={() => void toggleFullscreen()}
+          >
+            {isFullscreen ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+          </button>
+          <button type="button" className="reading-test-icon-btn" title="Kết nối" aria-label="Kết nối">
+            <Wifi size={15} />
+          </button>
+          <button type="button" className="reading-test-icon-btn" title="Thông báo" aria-label="Thông báo">
+            <Bell size={15} />
+          </button>
+          <button type="button" className="reading-test-icon-btn" title="Menu" aria-label="Menu">
+            <Menu size={15} />
+          </button>
         </div>
       </header>
 
-      <div className="mx-auto flex w-full max-w-[1440px] flex-1 min-h-0 flex-col overflow-hidden px-4 py-4 sm:px-6">
-        <div className="grid flex-1 min-h-0 gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(360px,0.8fr)]">
-          <section
-            className="min-h-0 overflow-y-auto rounded-[28px] border p-5 sm:p-6"
-            style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
-          >
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
-                  {currentPart?.title ?? 'Part'}
-                </p>
-                <h2 className="mt-1 text-xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
-                  {currentPart?.passageTitle}
-                </h2>
-              </div>
-              <span
-                className="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]"
-                style={{
-                  background: 'color-mix(in srgb, var(--color-accent) 14%, transparent)',
-                  color: 'var(--color-accent)',
-                }}
-              >
-                {exam.bandHint}
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {currentPart?.passage.map((paragraph, index) => (
-                <p
-                  key={`${currentPart.id}-${index}`}
-                  className="text-sm leading-7 sm:text-[15px]"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  {paragraph}
+      <div ref={bodyRef} className="reading-test-body">
+        <article className="reading-test-passage">
+          {currentPart && (
+            <>
+              <p className="reading-test-part-kicker">Part {currentPart.partNumber}</p>
+              <p className="reading-test-part-range">{currentPart.rangeLabel}</p>
+              <h2 className="reading-test-passage-title">{currentPart.passageTitle}</h2>
+              {currentPart.passageSubtitle && (
+                <p className="reading-test-passage-subtitle">{currentPart.passageSubtitle}</p>
+              )}
+              {currentPart.passage.map((block, index) => (
+                <p key={`${currentPart.id}-p-${index}`} className="reading-test-paragraph">
+                  {block.label && (
+                    <span className="reading-test-paragraph__label">{block.label}</span>
+                  )}
+                  {block.text}
                 </p>
               ))}
-            </div>
-          </section>
+            </>
+          )}
+        </article>
 
-          <aside className="flex min-h-0 flex-col gap-4">
-            <section
-              className="rounded-[28px] border p-5 sm:p-6"
-              style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
-            >
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: 'var(--color-primary)' }}>
-                    Question {currentQuestion?.number}
-                  </p>
-                  <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                    {currentQuestion?.type === 'true-false-not-given' ? 'True / False / Not Given' : 'Multiple Choice'}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: 'var(--text-muted)' }}>
-                    Tien do
-                  </p>
-                  <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-                    {currentQuestionIndex + 1}/{questions.length}
-                  </p>
-                </div>
-              </div>
+        <button
+          type="button"
+          className={`reading-test-resizer${isResizing ? ' is-dragging' : ''}`}
+          aria-label="Kéo để chỉnh độ rộng passage và câu hỏi"
+          onPointerDown={onResizerPointerDown}
+          onPointerMove={onResizerPointerMove}
+          onPointerUp={onResizerPointerUp}
+          onPointerCancel={onResizerPointerUp}
+        >
+          <span className="reading-test-resizer__grip" aria-hidden>
+            ↔
+          </span>
+        </button>
 
-              <p className="mt-5 text-base font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
-                {currentQuestion?.prompt}
-              </p>
+        {currentPart && (
+          <ReadingQuestionPanel
+            groups={currentPart.questionGroups}
+            answers={answers}
+            activeQuestionId={activeQuestionId}
+            onSelectQuestion={handleSelectQuestion}
+            onAnswer={handleAnswer}
+          />
+        )}
+      </div>
 
-              <div className="mt-5 flex flex-col gap-2.5">
-                {currentQuestion?.options.map(option => {
-                  const checked = answers[currentQuestion.id] === option.id
-                  return (
-                    <button
-                      key={option.id}
-                      type="button"
-                      onClick={() => setAnswers(prev => ({ ...prev, [currentQuestion.id]: option.id }))}
-                      className="flex items-start gap-3 rounded-2xl border px-4 py-3 text-left transition-transform hover:-translate-y-0.5"
-                      style={{
-                        background: checked
-                          ? 'color-mix(in srgb, var(--color-primary) 11%, var(--bg-card))'
-                          : 'var(--bg-primary)',
-                        borderColor: checked
-                          ? 'color-mix(in srgb, var(--color-primary) 32%, var(--border-color))'
-                          : 'var(--border-color)',
-                      }}
-                    >
-                      <span
-                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[10px] font-bold uppercase"
-                        style={{
-                          borderColor: checked ? 'var(--color-primary)' : 'var(--border-color)',
-                          color: checked ? 'var(--color-primary)' : 'var(--text-muted)',
-                        }}
-                      >
-                        {option.id}
-                      </span>
-                      <span className="text-sm leading-6" style={{ color: 'var(--text-primary)' }}>
-                        {option.label}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
-            </section>
-
-            <section
-              className="rounded-[28px] border p-5"
-              style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
-            >
-              <div className="grid grid-cols-5 gap-2 sm:grid-cols-4 lg:grid-cols-5">
-                {questions.map((question, index) => {
-                  const isActive = index === currentQuestionIndex
+      <footer className="reading-test-footer">
+        <div className="reading-test-footer__parts">
+          {exam.parts.map((part, index) => {
+            const questions = getPartQuestions(part)
+            const answered = answeredInPart(index)
+            const isCurrent = index === partIndex
+            return (
+              <div
+                key={part.id}
+                className={`reading-test-footer-part${isCurrent ? ' is-current' : ''}`}
+              >
+                <button
+                  type="button"
+                  className="reading-test-footer-part__tab"
+                  onClick={() => goToPart(index)}
+                >
+                  <span className="reading-test-footer-part__label">Part {part.partNumber}</span>
+                  {!isCurrent && (
+                    <span className="reading-test-footer-part__count">
+                      {answered} of {questions.length}
+                    </span>
+                  )}
+                </button>
+                {isCurrent && questions.map(question => {
+                  const isActive = activeQuestionId === question.id
                   const isAnswered = Boolean(answers[question.id])
                   return (
                     <button
                       key={question.id}
                       type="button"
-                      onClick={() => setCurrentQuestionIndex(index)}
-                      className="rounded-xl px-0 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5"
-                      style={{
-                        background: isActive
-                          ? 'var(--text-primary)'
-                          : isAnswered
-                            ? 'color-mix(in srgb, var(--color-primary) 12%, var(--bg-card))'
-                            : 'var(--bg-primary)',
-                        color: isActive ? 'var(--bg-primary)' : 'var(--text-primary)',
-                        border: `1px solid ${isActive ? 'var(--text-primary)' : 'var(--border-color)'}`,
-                      }}
+                      className={`reading-test-q-pill${isActive ? ' is-current' : ''}${isAnswered ? ' is-answered' : ''}`}
+                      onClick={() => handleSelectQuestion(question.id)}
                     >
                       {question.number}
                     </button>
                   )
                 })}
               </div>
-
-              <div className="mt-5 flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setCurrentQuestionIndex(prev => Math.max(0, prev - 1))}
-                  disabled={currentQuestionIndex === 0}
-                  className="flex-1 rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.16em] disabled:opacity-40"
-                  style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
-                >
-                  ← Previous
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCurrentQuestionIndex(prev => Math.min(questions.length - 1, prev + 1))}
-                  disabled={currentQuestionIndex === questions.length - 1}
-                  className="flex-1 rounded-full px-4 py-3 text-sm font-bold uppercase tracking-[0.16em] disabled:opacity-40"
-                  style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-                >
-                  Next →
-                </button>
-              </div>
-            </section>
-          </aside>
+            )
+          })}
         </div>
-      </div>
+
+        <div className="reading-test-footer__nav">
+          <button
+            type="button"
+            className="reading-test-nav-btn"
+            disabled={allQuestions.findIndex(q => q.id === activeQuestionId) <= 0}
+            onClick={() => goAdjacentQuestion(-1)}
+            aria-label="Câu trước"
+          >
+            <ChevronLeft size={16} />
+          </button>
+          <button
+            type="button"
+            className="reading-test-nav-btn"
+            disabled={
+              allQuestions.findIndex(q => q.id === activeQuestionId) >= allQuestions.length - 1
+            }
+            onClick={() => goAdjacentQuestion(1)}
+            aria-label="Câu tiếp"
+          >
+            <ChevronRight size={16} />
+          </button>
+          <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
+            Submit Test
+          </button>
+        </div>
+      </footer>
+
+      {confirmSubmit && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'color-mix(in srgb, var(--bg-primary) 35%, transparent)' }}
+          onClick={() => setConfirmSubmit(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-xl border p-5 shadow-2xl"
+            style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+              Nộp bài Reading?
+            </h3>
+            <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+              Bạn đã trả lời {Object.keys(answers).length}/{allQuestions.length} câu. Sau khi nộp, bạn sẽ xem kết quả và đáp án.
+            </p>
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                className="rounded-md border px-4 py-2 text-sm font-semibold"
+                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                onClick={() => setConfirmSubmit(false)}
+              >
+                Tiếp tục làm
+              </button>
+              <button
+                type="button"
+                className="reading-test-submit"
+                onClick={() => {
+                  setConfirmSubmit(false)
+                  setSubmitted(true)
+                }}
+              >
+                Submit Test
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

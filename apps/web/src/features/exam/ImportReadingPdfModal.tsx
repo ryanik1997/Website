@@ -1,0 +1,456 @@
+import { useCallback, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import {
+  X, Upload, Loader2, FileText, AlertCircle, Check, BookOpen,
+} from 'lucide-react'
+import {
+  AI_PROVIDERS,
+  parseReadingPdfFull,
+  READING_PDF_MAX_BYTES,
+  type AIProvider,
+  type ParsedReadingPart,
+} from '@ryan/core'
+import { examRepo, writingRepo } from '@ryan/db'
+import { extractTextFromPdf } from './pdfExtract'
+import {
+  buildImportedReadingExam,
+  countQuestions,
+  defaultExamTitle,
+  parsedPartsToReadingParts,
+  titleFromPdfFilename,
+} from './importReadingUtils'
+import { examRecordFromReading } from './examLoader'
+
+interface Props {
+  onClose: () => void
+  onCreated?: (examId: string) => void
+}
+
+type Step = 'upload' | 'parsing' | 'preview'
+
+function formatBytes(n: number): string {
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`
+  return `${(n / 1024 / 1024).toFixed(1)} MB`
+}
+
+function isPdfFile(file: File): boolean {
+  return file.name.toLowerCase().endsWith('.pdf')
+    && (file.type === 'application/pdf' || file.type === '')
+}
+
+function partQuestionCount(part: ParsedReadingPart): number {
+  return part.questionGroups.reduce((sum, g) => sum + g.questions.length, 0)
+}
+
+export default function ImportReadingPdfModal({ onClose, onCreated }: Props) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [step, setStep] = useState<Step>('upload')
+  const [file, setFile] = useState<File | null>(null)
+  const [title, setTitle] = useState('')
+  const [extractedChars, setExtractedChars] = useState(0)
+  const [parsedParts, setParsedParts] = useState<ParsedReadingPart[]>([])
+  const [previewPartIndex, setPreviewPartIndex] = useState(0)
+  const [error, setError] = useState('')
+  const [providerUsed, setProviderUsed] = useState<AIProvider | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [dragOver, setDragOver] = useState(false)
+
+  const pickFile = useCallback((next: File) => {
+    setError('')
+    if (!isPdfFile(next)) {
+      setError('Chỉ hỗ trợ file PDF (.pdf).')
+      return
+    }
+    if (next.size > READING_PDF_MAX_BYTES) {
+      setError(`File quá lớn — tối đa ${formatBytes(READING_PDF_MAX_BYTES)}.`)
+      return
+    }
+    setFile(next)
+    setTitle(prev => prev.trim() || titleFromPdfFilename(next.name))
+    setParsedParts([])
+    setPreviewPartIndex(0)
+    setExtractedChars(0)
+    setProviderUsed(null)
+    setStep('upload')
+  }, [])
+
+  async function runParse() {
+    if (!file) return
+    setError('')
+    setStep('parsing')
+
+    try {
+      const preferred = ((await writingRepo.getSetting('ai_provider')) as AIProvider) ?? 'openai'
+      const apiKey = ((await writingRepo.getSetting(`ai_key_${preferred}`)) as string) ?? ''
+      if (!apiKey.trim()) {
+        setError('Cần API key AI. Vào Cài đặt → AI (OpenAI, Gemini hoặc Groq).')
+        setStep('upload')
+        return
+      }
+
+      const text = await extractTextFromPdf(file)
+      setExtractedChars(text.length)
+
+      if (text.length < 200) {
+        setError(
+          'PDF gần như không có chữ (có thể là scan). Hãy dùng PDF có lớp text hoặc OCR file trước.',
+        )
+        setStep('upload')
+        return
+      }
+
+      const parts = await parseReadingPdfFull(text, apiKey, preferred)
+      await writingRepo.recordUsage('reading_pdf_import', Math.ceil(text.length / 4))
+
+      setParsedParts(parts)
+      setPreviewPartIndex(0)
+      setProviderUsed(preferred)
+      setTitle(prev => prev.trim() || defaultExamTitle(parts))
+      setStep('preview')
+    } catch (err) {
+      console.error(err)
+      setError(err instanceof Error ? err.message : 'Không thể phân tích PDF.')
+      setStep('upload')
+    }
+  }
+
+  async function saveExam() {
+    if (!parsedParts.length || !file) return
+    setSaving(true)
+    setError('')
+
+    try {
+      const examId = `reading-pdf-${crypto.randomUUID()}`
+      const parts = parsedPartsToReadingParts(examId, parsedParts)
+      const exam = buildImportedReadingExam(
+        examId,
+        title.trim() || defaultExamTitle(parsedParts),
+        parts,
+        file.name,
+      )
+
+      await examRepo.create(examRecordFromReading(exam, 'pdf', file.name))
+      onCreated?.(examId)
+      onClose()
+    } catch (err) {
+      console.error(err)
+      setError(err instanceof Error ? err.message : 'Không thể lưu đề.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const questionCount = countQuestions(parsedParts)
+  const previewPart = parsedParts[previewPartIndex] ?? null
+  const previewQuestionCount = previewPart ? partQuestionCount(previewPart) : 0
+  const hasFullTest = parsedParts.length >= 3
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'color-mix(in srgb, var(--bg-primary) 45%, transparent)' }}
+      onClick={onClose}
+    >
+      <div
+        className="flex w-full max-w-2xl max-h-[90vh] flex-col rounded-2xl border shadow-2xl overflow-hidden"
+        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div
+          className="flex items-center justify-between border-b px-5 py-4 shrink-0"
+          style={{ borderColor: 'var(--border-color)' }}
+        >
+          <div className="flex items-center gap-2">
+            <BookOpen size={18} style={{ color: 'var(--color-primary)' }} />
+            <h2 className="text-base font-semibold" style={{ color: 'var(--text-primary)' }}>
+              Import PDF Reading
+            </h2>
+          </div>
+          <button type="button" onClick={onClose} className="rounded p-1" style={{ color: 'var(--text-muted)' }}>
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-5 py-5">
+          {step === 'upload' && (
+            <>
+              <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
+                Upload PDF đề Reading → AI trích Part 1–3 (passage + câu hỏi) → xem trước → lưu local.
+              </p>
+
+              <div
+                role="button"
+                tabIndex={0}
+                onDragOver={e => { e.preventDefault(); setDragOver(true) }}
+                onDragLeave={() => setDragOver(false)}
+                onDrop={e => {
+                  e.preventDefault()
+                  setDragOver(false)
+                  const dropped = e.dataTransfer.files[0]
+                  if (dropped) pickFile(dropped)
+                }}
+                onClick={() => inputRef.current?.click()}
+                onKeyDown={e => { if (e.key === 'Enter') inputRef.current?.click() }}
+                className="rounded-xl border-2 border-dashed px-6 py-10 text-center cursor-pointer transition-colors"
+                style={{
+                  borderColor: dragOver ? 'var(--color-primary)' : 'var(--border-color)',
+                  background: dragOver
+                    ? 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-card))'
+                    : 'var(--bg-secondary)',
+                }}
+              >
+                <Upload size={28} className="mx-auto mb-3" style={{ color: 'var(--text-muted)' }} />
+                <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+                  Kéo thả PDF hoặc bấm để chọn
+                </p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  Tối đa {formatBytes(READING_PDF_MAX_BYTES)} · PDF có lớp text (không phải scan ảnh)
+                </p>
+                <input
+                  ref={inputRef}
+                  type="file"
+                  accept=".pdf,application/pdf"
+                  className="hidden"
+                  onChange={e => {
+                    const f = e.target.files?.[0]
+                    if (f) pickFile(f)
+                  }}
+                />
+              </div>
+
+              {file && (
+                <div
+                  className="mt-4 flex items-center gap-3 rounded-xl border px-4 py-3"
+                  style={{ borderColor: 'var(--border-color)', background: 'var(--bg-primary)' }}
+                >
+                  <FileText size={18} style={{ color: 'var(--color-primary)' }} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium truncate" style={{ color: 'var(--text-primary)' }}>
+                      {file.name}
+                    </p>
+                    <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{formatBytes(file.size)}</p>
+                  </div>
+                </div>
+              )}
+
+              <label className="block mt-4">
+                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+                  Tên đề (tuỳ chọn)
+                </span>
+                <input
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  placeholder="VD: Cambridge 20 — Reading Test 1"
+                  className="mt-1.5 w-full rounded-lg border px-3 py-2 text-sm outline-none"
+                  style={{
+                    background: 'var(--bg-secondary)',
+                    borderColor: 'var(--border-color)',
+                    color: 'var(--text-primary)',
+                  }}
+                />
+              </label>
+            </>
+          )}
+
+          {step === 'parsing' && (
+            <div className="flex flex-col items-center py-12 gap-3">
+              <Loader2 size={32} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+              <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+                Đang đọc PDF và phân tích Part 1–3…
+              </p>
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                Có thể mất 30–90 giây tùy độ dài file và provider AI.
+              </p>
+            </div>
+          )}
+
+          {step === 'preview' && parsedParts.length > 0 && previewPart && (
+            <div className="flex flex-col gap-4">
+              <div
+                className="rounded-xl border px-4 py-3"
+                style={{
+                  background: 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-card))',
+                  borderColor: 'color-mix(in srgb, var(--color-primary) 22%, var(--border-color))',
+                }}
+              >
+                <div className="flex items-start gap-2">
+                  <Check size={18} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <div>
+                    <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                      {hasFullTest
+                        ? 'Đã trích đủ 3 parts'
+                        : `Đã trích ${parsedParts.length} part${parsedParts.length > 1 ? 's' : ''}`}
+                    </p>
+                    <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                      {extractedChars.toLocaleString()} ký tự PDF · {questionCount} câu tổng
+                      {providerUsed ? ` · ${AI_PROVIDERS.find(p => p.id === providerUsed)?.name}` : ''}
+                    </p>
+                    {!hasFullTest && (
+                      <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                        PDF có thể thiếu Part — vẫn lưu được các part đã trích.
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <label>
+                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+                  Tên đề
+                </span>
+                <input
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  className="mt-1.5 w-full rounded-lg border px-3 py-2 text-sm outline-none"
+                  style={{
+                    background: 'var(--bg-secondary)',
+                    borderColor: 'var(--border-color)',
+                    color: 'var(--text-primary)',
+                  }}
+                />
+              </label>
+
+              <div className="flex flex-wrap gap-2">
+                {parsedParts.map((part, index) => {
+                  const qCount = partQuestionCount(part)
+                  const active = index === previewPartIndex
+                  return (
+                    <button
+                      key={part.partNumber}
+                      type="button"
+                      onClick={() => setPreviewPartIndex(index)}
+                      className="rounded-full px-3 py-1.5 text-xs font-bold transition-colors"
+                      style={{
+                        background: active
+                          ? 'var(--color-primary)'
+                          : 'color-mix(in srgb, var(--color-primary) 10%, transparent)',
+                        color: active ? 'var(--bg-primary)' : 'var(--text-primary)',
+                        border: active ? 'none' : '1px solid var(--border-color)',
+                      }}
+                    >
+                      Part {part.partNumber} · {qCount} câu
+                    </button>
+                  )
+                })}
+              </div>
+
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
+                  Passage — Part {previewPart.partNumber}
+                </p>
+                <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+                  {previewPart.passageTitle}
+                </h3>
+                {previewPart.passageSubtitle && (
+                  <p className="text-sm italic mt-0.5" style={{ color: 'var(--text-muted)' }}>
+                    {previewPart.passageSubtitle}
+                  </p>
+                )}
+                <div
+                  className="mt-2 max-h-36 overflow-y-auto rounded-lg border p-3 text-sm leading-relaxed"
+                  style={{ borderColor: 'var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }}
+                >
+                  {previewPart.passage.map((block, index) => (
+                    <p key={index} className="mb-2 last:mb-0">
+                      {block.label && (
+                        <span className="font-bold mr-1">{block.label}</span>
+                      )}
+                      {block.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
+                  Câu hỏi Part {previewPart.partNumber} ({previewQuestionCount})
+                </p>
+                <div className="flex flex-col gap-2 max-h-44 overflow-y-auto">
+                  {previewPart.questionGroups.map(group => (
+                    <div key={group.range}>
+                      <p className="text-xs font-semibold mb-1" style={{ color: 'var(--color-primary)' }}>
+                        {group.range}
+                      </p>
+                      {group.questions.map(q => (
+                        <p key={q.number} className="text-sm mb-1.5" style={{ color: 'var(--text-primary)' }}>
+                          <span className="font-bold">{q.number}.</span> {q.prompt}
+                        </p>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                Kiểm tra nhanh từng part. Sau khi lưu, chuyển Part ở footer khi làm bài. Đáp án AI đoán nếu PDF không có answer key.
+              </p>
+            </div>
+          )}
+
+          {error && (
+            <div
+              className="mt-4 flex items-start gap-2 rounded-xl border px-3 py-2.5 text-sm"
+              style={{
+                borderColor: 'color-mix(in srgb, var(--color-accent) 35%, var(--border-color))',
+                background: 'color-mix(in srgb, var(--color-accent) 10%, var(--bg-card))',
+                color: 'var(--text-primary)',
+              }}
+            >
+              <AlertCircle size={16} className="shrink-0 mt-0.5" style={{ color: 'var(--color-accent)' }} />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {step === 'upload' && !error.includes('API key') && (
+            <p className="text-xs mt-4" style={{ color: 'var(--text-muted)' }}>
+              Cần API key trong{' '}
+              <Link to="/app/settings?tab=ai" className="underline" style={{ color: 'var(--color-primary)' }}>
+                Cài đặt → AI
+              </Link>
+              . Khuyến nghị OpenAI hoặc Gemini cho đề dài.
+            </p>
+          )}
+        </div>
+
+        <div
+          className="flex items-center justify-end gap-2 border-t px-5 py-4 shrink-0"
+          style={{ borderColor: 'var(--border-color)' }}
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg border px-4 py-2 text-sm font-semibold"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+          >
+            Huỷ
+          </button>
+
+          {step === 'upload' && (
+            <button
+              type="button"
+              disabled={!file}
+              onClick={() => void runParse()}
+              className="rounded-lg px-4 py-2 text-sm font-semibold disabled:opacity-40"
+              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+            >
+              Phân tích Part 1–3
+            </button>
+          )}
+
+          {step === 'preview' && (
+            <button
+              type="button"
+              disabled={saving}
+              onClick={() => void saveExam()}
+              className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold disabled:opacity-40"
+              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+            >
+              {saving ? <Loader2 size={15} className="animate-spin" /> : <Check size={15} />}
+              Lưu & làm bài
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

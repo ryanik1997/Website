@@ -10,6 +10,7 @@ import WordDiffPanel from './WordDiffPanel'
 import {
   collectBlankAnswer,
   getClozeBlankIndices,
+  isAnswerCorrect,
   normalizeWord,
   splitWordParts,
   splitWords,
@@ -29,6 +30,8 @@ interface Props {
   locked: boolean
   checked: boolean
   showLiveDiff?: boolean
+  /** Gọi khi toàn bộ câu đã đúng (dùng với Hiện kết quả ngay → tự Kiểm tra) */
+  onAllCorrect?: () => void
 }
 
 function blankWidthPx(stripped: string): number {
@@ -66,6 +69,7 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
     locked,
     checked,
     showLiveDiff = false,
+    onAllCorrect,
   },
   ref,
 ) {
@@ -87,6 +91,9 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
   const lockedRef = useRef(locked)
   const checkedRef = useRef(checked)
   const blankCountRef = useRef(blankCount)
+  const sentenceTextRef = useRef(sentenceText)
+  const onAllCorrectRef = useRef(onAllCorrect)
+  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   wordsRef.current = words
   blankSetRef.current = blankSet
@@ -94,9 +101,33 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
   lockedRef.current = locked
   checkedRef.current = checked
   blankCountRef.current = blankCount
+  sentenceTextRef.current = sentenceText
+  onAllCorrectRef.current = onAllCorrect
 
   const [liveDraft, setLiveDraft] = useState('')
   const diffTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const clearAdvanceTimer = () => {
+    if (advanceTimerRef.current) {
+      clearTimeout(advanceTimerRef.current)
+      advanceTimerRef.current = null
+    }
+  }
+
+  const tryAutoCheck = (container: HTMLElement) => {
+    const cb = onAllCorrectRef.current
+    if (!cb || lockedRef.current || checkedRef.current) return
+    const vals = readValues(container, blankCountRef.current)
+    const answer = collectBlankAnswer(
+      wordsRef.current,
+      vals,
+      modeRef.current,
+      blankSetRef.current,
+    )
+    if (isAnswerCorrect(answer, sentenceTextRef.current)) {
+      cb()
+    }
+  }
 
   const emitLiveDraft = (container: HTMLElement) => {
     const vals = readValues(container, blankCountRef.current)
@@ -162,9 +193,28 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
       input.setAttribute('aria-label', `Ô ${bIdx + 1}`)
 
       const onInput = () => {
-        if (lockedRef.current) return
+        if (lockedRef.current || checkedRef.current) return
+
+        clearAdvanceTimer()
         applyInputStatus(input, input.value, word)
         emitLiveDraft(wrap)
+
+        const val = input.value.trim()
+        if (val && normalizeWord(val) === normalizeWord(word)) {
+          advanceTimerRef.current = setTimeout(() => {
+            advanceTimerRef.current = null
+            if (lockedRef.current || checkedRef.current) return
+            const next = wrap.querySelector<HTMLInputElement>(
+              `[data-blank-idx="${bIdx + 1}"]`,
+            )
+            if (next) {
+              next.focus()
+            }
+            tryAutoCheck(wrap)
+          }, 120)
+        } else {
+          tryAutoCheck(wrap)
+        }
       }
 
       input.addEventListener('input', onInput)
@@ -196,6 +246,7 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
 
     return () => {
       window.clearTimeout(t)
+      clearAdvanceTimer()
       if (diffTimerRef.current) clearTimeout(diffTimerRef.current)
       wrap.innerHTML = ''
     }

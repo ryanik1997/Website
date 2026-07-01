@@ -6,13 +6,13 @@ export default function ListeningTest() {
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
         <p className="text-xs font-bold uppercase tracking-[0.24em]" style={{ color: 'var(--color-primary)' }}>
-          Dang phat trien
+          Đang phát triển
         </p>
         <h1 className="mt-2 text-2xl font-black" style={{ color: 'var(--text-primary)' }}>
           Listening Mock Test
         </h1>
         <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          Khung Listening se duoc bo sung sau khi flow Reading on dinh. Trang nay giu slot route de mo rong sau.
+          Khung Listening sẽ được bổ sung sau khi flow Reading ổn định. Trang này giữ slot route để mở rộng sau.
         </p>
       </div>
     </div>

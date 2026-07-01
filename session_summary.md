@@ -580,6 +580,15 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [ ] Listening Ô CHỮ trên **mobile iOS** — hard refresh production, test gõ "do" và câu dài
 - [ ] Âm thanh Web Audio trên iOS sau tương tác đầu tiên (autoplay policy)
 
+### Luyện thi Reading — IELTS UI (session 2026-07-01)
+- [x] `examData.ts` — 3 parts (kākāpō / elms / sleep), TFNG + matching paragraph + matching features + MC
+- [x] `readingTest.css` — split-pane IELTS shell (passage trái, câu hỏi phải, footer Part pills)
+- [x] `ReadingTest.tsx` — header timer + Submit, bottom nav, lưu draft localStorage
+- [x] `ReadingQuestionPanel.tsx` — TRUE/FALSE/NOT GIVEN, matching A–G, features A–C
+- [x] `ExamResult.tsx` + `ExamHome.tsx` — cập nhật theo schema mới
+- [x] Route: `/app/exam/reading/ielts-reading-01`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
 ### Session 2026-07-01 — Listening fix thanh cuộn thừa
 
 - [x] `globals.css` — `.listening-lesson-shell` + `.listening-lesson-scroll` (overflow-x hidden, scrollbar ẩn)
@@ -588,6 +597,32 @@ Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 - [x] `ListeningPracticeTab` — `min-w-0 overflow-hidden` card + textarea
 - [x] `ListeningLibraryPage` — dùng chung scroll shell
 - [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Import PDF Reading — Part 1–3 (session 2026-07-01) — HOÀN THÀNH
+
+- [x] `packages/core/src/ai/readingPdfPrompt.ts` — `parseReadingPdfFull()` (3 parts), `parseReadingPdfPart1()` (compat), `READING_PDF_TEXT_SLICE` 52k
+- [x] Dexie v10 — bảng `readingExams` + `ReadingExamRecord`
+- [x] `packages/db/src/local/repositories/examRepo.ts` — CRUD đề Reading import
+- [x] `apps/web/src/features/exam/pdfExtract.ts` — `pdfjs-dist` trích text (~10 trang đầu)
+- [x] `importReadingUtils.ts` — `part1ToReadingPart()`, `buildImportedReadingExam()`
+- [x] `examLoader.ts` — `resolveReadingExam()`, `listAllReadingExams()` merge builtin + local
+- [x] `ImportReadingPdfModal.tsx` — upload → AI parse Part 1–3 → preview tabs → lưu Dexie
+- [x] `ExamHome.tsx` — nút Import PDF, danh sách đề import, xóa đề
+- [x] `ReadingTest.tsx` — `useLiveQuery` + `resolveReadingExam()` (hỗ trợ đề import)
+- [x] `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` — pass
+
+#### Flow Import PDF Reading
+1. Luyện thi → **Import PDF Reading**
+2. Upload PDF (≤12MB, cần lớp text — không phải scan ảnh)
+3. Cần API key trong Cài đặt → AI (OpenAI/Gemini/Groq — khuyến nghị OpenAI/Gemini cho đề dài)
+4. AI trích Part 1–3 (TFNG, matching paragraph/features, MC) → preview từng part → **Lưu & làm bài**
+5. Đề lưu local id `reading-pdf-{uuid}` — full test hoặc các part có trong PDF
+
+#### Giới hạn / chưa làm
+- PDF scan ảnh cần OCR/Vision (chưa hỗ trợ)
+- Đáp án AI đoán nếu PDF không có answer key — user nên kiểm tra preview
+- Một số dạng câu Part 3 (gap-fill, summary completion) chưa map — fallback MC/TFNG
+- `readingExams` chưa thêm vào backup JSON
 
 ---
 
@@ -654,20 +689,19 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 
 Production: https://ryanenglishv2.vercel.app — auto deploy sau mỗi session (pnpm deploy:prod).
 
-Session trước kết thúc 2026-07-01. User làm tiếp ngày mai.
+Session trước kết thúc 2026-07-01.
 
 Ưu tiên:
-1. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh). Nếu vẫn lỗi → debug tiếp BlankInputMode / iOS keyboard
-2. Nếu user báo không nghe được âm thanh trên iOS → unlock Web Audio sau gesture đầu tiên
-3. (Tuỳ chọn) SRS rating: 3/4 chime nhẹ, 1/2 buzz — hoặc phản hồi cho Lặp lại ngắt quãng
+1. User test Import PDF Reading end-to-end (upload PDF có text → preview → làm bài)
+2. Hỏi / chờ user test Listening Ô CHỮ trên mobile iOS (hard refresh)
+3. (Tuỳ chọn) thêm readingExams vào backup JSON; import Part 2–3; OCR cho PDF scan
 
 Đã xong session trước:
-- Listening Ô CHỮ: BlankInputMode DOM thuần + ListeningAudioBar + practiceUtils join
-- Listening Kiểm tra 100% → chime + pháo hoa (studyFeedback + StudyFireworks)
-- Vocab Quiz / Type / Nghe & Gõ → đúng: chime+pháo hoa, sai/bỏ qua: buzz (SRS không có)
-- SRS Space → speakPhrase mỗi lần lật thẻ
+- Import PDF Reading Part 1: upload → pdfjs trích text → AI parse → preview → lưu Dexie
+- Reading UI IELTS: split-pane, footer Part nav, resize ↔, font panel T, fullscreen
+- Listening thanh cuộn thừa fix; Ô chữ auto-next khi đúng từ
 
-Chưa confirm: iOS Ô CHỮ ~75%→? sau DOM rewrite; Web Audio iOS autoplay.
+Chưa confirm: iOS Ô CHỮ; Web Audio iOS autoplay; Import PDF với PDF scan ảnh.
 ```
 # Session Update - 2026-07-01
 

@@ -89,6 +89,19 @@ export interface MindMap    { id: string; name: string; nodes: unknown; layout?:
 export interface AiUsage    { day: string; feature: string; count: number; tokens: number }
 export interface Setting    { key: string; value: unknown }
 
+/** Đề Reading import (PDF) — parts lưu JSON ReadingPart[] */
+export interface ReadingExamRecord {
+  id: string
+  title: string
+  durationMinutes: number
+  bandHint: string
+  parts: unknown[]
+  source: 'pdf' | 'manual'
+  sourceFilename?: string
+  createdAt: number
+  updatedAt: number
+}
+
 /** Cấu trúc câu — luyện điền A / B theo mẫu */
 export interface SentenceStructure {
   id: string
@@ -121,6 +134,7 @@ export class RyanDB extends Dexie {
   aiUsage!:        Table<AiUsage, [string, string]>
   settings!:       Table<Setting, string>
   sentenceStructures!: Table<SentenceStructure, string>
+  readingExams!:      Table<ReadingExamRecord, string>
 
   constructor() {
     super('RyanEnglishDB')
@@ -285,6 +299,26 @@ export class RyanDB extends Dexie {
       aiUsage:         '[day+feature], day',
       settings:        '&key',
       sentenceStructures: '&id, category, starred, updatedAt',
+    })
+    // v10: Reading exams import từ PDF
+    this.version(10).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
     })
   }
 }
