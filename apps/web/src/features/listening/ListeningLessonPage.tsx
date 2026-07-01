@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { CheckCircle2, ChevronLeft, AlertTriangle } from 'lucide-react'
+import { CheckCircle2, ChevronLeft, AlertTriangle, Loader2 } from 'lucide-react'
 import { db, lessonRepo } from '@ryan/db'
 import ListeningLessonHeader from './ListeningLessonHeader'
 import ListeningTabs, { type LessonTab } from './ListeningTabs'
@@ -17,6 +17,7 @@ export default function ListeningLessonPage() {
   const navigate = useNavigate()
   const setActiveLesson = useListeningStore(s => s.setActiveLesson)
   const [deleting, setDeleting] = useState(false)
+  const [leavingAfterDelete, setLeavingAfterDelete] = useState(false)
   const [deleteState, setDeleteState] = useState<{
     type: 'success' | 'error'
     message: string
@@ -37,6 +38,18 @@ export default function ListeningLessonPage() {
   )
 
   if (!lessonId) return <Navigate to="/app/listening" replace />
+  if (leavingAfterDelete) {
+    return (
+      <div className="h-full flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+        <div className="flex items-center gap-3 rounded-2xl px-5 py-4" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+          <Loader2 size={18} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+          <span className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+            Đã xóa bài nghe. Đang quay về thư viện...
+          </span>
+        </div>
+      </div>
+    )
+  }
   if (lesson === undefined) {
     return (
       <div className="h-full flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
@@ -60,12 +73,19 @@ export default function ListeningLessonPage() {
     if (!canDeleteLesson || deleting) return
 
     setDeleting(true)
+    let deleted = false
 
     try {
       await lessonRepo.delete(currentLesson.id)
+      setTab('practice')
+      setSentenceIndex(0)
+      setCompletedIds(new Set())
+      setShowResultImmediately(true)
+      setShowFullAnswer(false)
       setActiveLesson(null)
-      setDeleteState({ type: 'success', message: 'Đã xóa bài nghe. Đang quay về thư viện...' })
-      window.setTimeout(() => navigate('/app/listening', { replace: true }), 650)
+      setDeleteState({ type: 'success', message: 'Đã xóa bài nghe.' })
+      setLeavingAfterDelete(true)
+      deleted = true
     } catch (error) {
       console.error('Khong the xoa bai nghe', error)
       setDeleteState({
@@ -73,7 +93,9 @@ export default function ListeningLessonPage() {
         message: 'Không thể xóa bài nghe. Vui lòng thử lại.',
       })
     } finally {
-      setDeleting(false)
+      if (!deleted) {
+        setDeleting(false)
+      }
     }
   }
 
@@ -82,6 +104,14 @@ export default function ListeningLessonPage() {
     const timer = window.setTimeout(() => setDeleteState(null), 3200)
     return () => window.clearTimeout(timer)
   }, [deleteState])
+
+  useEffect(() => {
+    if (!leavingAfterDelete) return
+    const timer = window.setTimeout(() => {
+      navigate('/app/listening', { replace: true })
+    }, 700)
+    return () => window.clearTimeout(timer)
+  }, [leavingAfterDelete, navigate])
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
@@ -95,13 +125,14 @@ export default function ListeningLessonPage() {
           Quay lại thư viện
         </Link>
 
-        <ListeningLessonHeader
-          lesson={currentLesson}
+        <ListeningLessonHeader lesson={currentLesson} />
+        <ListeningTabs
+          active={tab}
+          onChange={setTab}
           canDelete={canDeleteLesson}
           deleting={deleting}
           onDelete={() => void handleDeleteLesson()}
         />
-        <ListeningTabs active={tab} onChange={setTab} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 flex flex-col gap-4">
