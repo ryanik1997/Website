@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams, Navigate } from 'react-router-dom'
+import { Link, useNavigate, useParams, Navigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ChevronLeft } from 'lucide-react'
-import { db } from '@ryan/db'
+import { CheckCircle2, ChevronLeft, AlertTriangle } from 'lucide-react'
+import { db, lessonRepo } from '@ryan/db'
 import ListeningLessonHeader from './ListeningLessonHeader'
 import ListeningTabs, { type LessonTab } from './ListeningTabs'
 import ListeningPracticeTab from './ListeningPracticeTab'
@@ -14,7 +14,13 @@ import { useListeningStore } from './listeningStore'
 
 export default function ListeningLessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>()
+  const navigate = useNavigate()
   const setActiveLesson = useListeningStore(s => s.setActiveLesson)
+  const [deleting, setDeleting] = useState(false)
+  const [deleteState, setDeleteState] = useState<{
+    type: 'success' | 'error'
+    message: string
+  } | null>(null)
 
   useEffect(() => {
     setActiveLesson(lessonId ?? null)
@@ -40,13 +46,42 @@ export default function ListeningLessonPage() {
   }
   if (!lesson) return <Navigate to="/app/listening" replace />
 
-  const sentences = parseSentences(lesson.sentences)
+  const currentLesson = lesson
+  const sentences = parseSentences(currentLesson.sentences)
   const safeIndex = Math.min(sentenceIndex, Math.max(0, sentences.length - 1))
   const current = sentences[safeIndex]
+  const canDeleteLesson = currentLesson.category === 'user'
 
   function markComplete(id: string) {
     setCompletedIds(prev => new Set(prev).add(id))
   }
+
+  async function handleDeleteLesson() {
+    if (!canDeleteLesson || deleting) return
+
+    setDeleting(true)
+
+    try {
+      await lessonRepo.delete(currentLesson.id)
+      setActiveLesson(null)
+      setDeleteState({ type: 'success', message: 'Đã xóa bài nghe. Đang quay về thư viện...' })
+      window.setTimeout(() => navigate('/app/listening', { replace: true }), 650)
+    } catch (error) {
+      console.error('Khong the xoa bai nghe', error)
+      setDeleteState({
+        type: 'error',
+        message: 'Không thể xóa bài nghe. Vui lòng thử lại.',
+      })
+    } finally {
+      setDeleting(false)
+    }
+  }
+
+  useEffect(() => {
+    if (!deleteState) return
+    const timer = window.setTimeout(() => setDeleteState(null), 3200)
+    return () => window.clearTimeout(timer)
+  }, [deleteState])
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
@@ -60,7 +95,12 @@ export default function ListeningLessonPage() {
           Quay lại thư viện
         </Link>
 
-        <ListeningLessonHeader lesson={lesson} />
+        <ListeningLessonHeader
+          lesson={currentLesson}
+          canDelete={canDeleteLesson}
+          deleting={deleting}
+          onDelete={() => void handleDeleteLesson()}
+        />
         <ListeningTabs active={tab} onChange={setTab} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -73,7 +113,7 @@ export default function ListeningLessonPage() {
               <>
                 {tab === 'practice' && current && (
                   <ListeningPracticeTab
-                    lessonId={lesson.id}
+                    lessonId={currentLesson.id}
                     sentenceIndex={safeIndex}
                     total={sentences.length}
                     sentence={current}
@@ -85,7 +125,7 @@ export default function ListeningLessonPage() {
                 )}
                 {tab === 'transcript' && (
                   <ListeningTranscriptTab
-                    lessonId={lesson.id}
+                    lessonId={currentLesson.id}
                     sentences={sentences}
                     onSentencesChange={() => {}}
                   />
@@ -134,6 +174,30 @@ export default function ListeningLessonPage() {
           </div>
         </div>
       </div>
+
+      {deleteState && (
+        <div className="pointer-events-none fixed bottom-5 right-5 z-50">
+          <div
+            className="flex max-w-sm items-start gap-2 rounded-2xl px-4 py-3 shadow-2xl"
+            style={{
+              background: deleteState.type === 'success'
+                ? 'color-mix(in srgb, #22c55e 12%, var(--bg-card))'
+                : 'color-mix(in srgb, #ef4444 10%, var(--bg-card))',
+              color: deleteState.type === 'success' ? '#166534' : '#b91c1c',
+              border: deleteState.type === 'success'
+                ? '1px solid color-mix(in srgb, #22c55e 24%, var(--border-color))'
+                : '1px solid color-mix(in srgb, #ef4444 20%, var(--border-color))',
+            }}
+          >
+            {deleteState.type === 'success' ? (
+              <CheckCircle2 size={18} className="mt-0.5 shrink-0" />
+            ) : (
+              <AlertTriangle size={18} className="mt-0.5 shrink-0" />
+            )}
+            <span className="text-sm font-medium">{deleteState.message}</span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
