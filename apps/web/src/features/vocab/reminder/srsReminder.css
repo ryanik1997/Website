@@ -1,0 +1,276 @@
+.srs-reminder-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: color-mix(in srgb, var(--text-primary) 35%, transparent);
+  backdrop-filter: blur(4px);
+}
+
+.srs-reminder-modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 22px;
+  padding: 28px 28px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--text-primary) 18%, transparent);
+  text-align: center;
+}
+
+.srs-reminder-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-secondary));
+  color: var(--color-primary);
+  transition: background 0.15s;
+}
+
+.srs-reminder-close:hover {
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--bg-secondary));
+}
+
+.srs-reminder-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+.srs-reminder-bird-wrap {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 22px;
+  border-radius: 32px;
+  background: linear-gradient(145deg, #60a5fa, #4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, #ffffff 38%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 38%, transparent),
+    0 18px 40px color-mix(in srgb, #312e81 24%, transparent);
+  overflow: hidden;
+}
+
+.srs-reminder-bird-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 28% 24%, color-mix(in srgb, #ffffff 46%, transparent), transparent 34%),
+    radial-gradient(circle at 78% 84%, color-mix(in srgb, #22c55e 18%, transparent), transparent 32%);
+  opacity: 0.95;
+}
+
+.srs-reminder-bird-wrap::after {
+  content: "";
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  right: -20px;
+  top: -24px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 12%, transparent);
+  filter: blur(1px);
+}
+
+.srs-reminder-bird {
+  position: relative;
+  z-index: 1;
+  width: 116px;
+  height: 116px;
+  animation: srs-bird-float 3.2s ease-in-out infinite;
+}
+
+.srs-bird-wing {
+  transform-origin: 79px 79px;
+  animation: srs-bird-wing 0.9s ease-in-out infinite alternate;
+}
+
+.srs-bird-head {
+  transform-origin: 91px 55px;
+  animation: srs-bird-head 2.8s ease-in-out infinite;
+}
+
+.srs-bird-tail {
+  transform-origin: 86px 100px;
+  animation: srs-bird-tail 2.4s ease-in-out infinite;
+}
+
+.srs-bird-card {
+  transform-origin: 117px 54px;
+  animation: srs-bird-card 2.6s ease-in-out infinite;
+}
+
+@keyframes srs-bird-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes srs-bird-wing {
+  from { transform: rotate(-4deg) translateY(0); }
+  to { transform: rotate(7deg) translateY(-1px); }
+}
+
+@keyframes srs-bird-head {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(-3deg); }
+  65% { transform: rotate(2deg); }
+}
+
+@keyframes srs-bird-tail {
+  0%, 100% { transform: rotate(1deg); }
+  50% { transform: rotate(-5deg); }
+}
+
+@keyframes srs-bird-card {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srs-reminder-bird,
+  .srs-bird-wing,
+  .srs-bird-head,
+  .srs-bird-tail,
+  .srs-bird-card {
+    animation: none;
+  }
+}
+
+.srs-reminder-msg {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.srs-reminder-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.srs-reminder-cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.srs-reminder-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--color-primary) 42%, transparent);
+}
+
+.srs-reminder-cta-dots {
+  font-size: 16px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.srs-reminder-pick-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.srs-reminder-deck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.srs-reminder-deck-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.srs-reminder-deck-btn:hover {
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--color-primary) 25%, var(--border-color));
+}
+
+.srs-reminder-deck-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.srs-reminder-deck-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.srs-reminder-deck-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: color-mix(in srgb, #ef4444 12%, var(--bg-secondary));
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .srs-reminder-deck-badge { color: #f87171; }
+
+.srs-reminder-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.srs-reminder-back:hover { color: var(--text-primary); }

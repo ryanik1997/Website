@@ -1,0 +1,21 @@
+{
+  "name": "ryan-english",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "dev:server": "pnpm --filter server dev",
+    "db:push": "node scripts/db-push.mjs",
+    "db:push:dry": "node scripts/db-push.mjs --dry-run",
+    "db:repair:001": "supabase migration repair --status applied 001 --linked --yes",
+    "deploy:prod": "node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes"
+  },
+  "devDependencies": {
+    "supabase": "^2.108.0"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  }
+}

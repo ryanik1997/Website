@@ -1,0 +1,72 @@
+/* Auto-generated shape — update bằng: pnpm supabase gen types typescript */
+export type Json = string | number | boolean | null | { [key: string]: Json } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      profiles: {
+        Row: {
+          id: string           // = auth.users.id
+          email: string
+          display_name: string | null
+          avatar_url: string | null
+          plan: 'free' | 'trial' | 'basic' | 'pro' | 'lifetime'
+          plan_expires_at: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: Omit<Database['public']['Tables']['profiles']['Row'], 'created_at' | 'updated_at'>
+        Update: Partial<Database['public']['Tables']['profiles']['Insert']>
+      }
+      decks: {
+        Row: {
+          id: string; user_id: string; group_name: string | null
+          name: string; book: string | null; unit: string | null
+          created_at: string; updated_at: string; deleted_at: string | null
+        }
+        Insert: Omit<Database['public']['Tables']['decks']['Row'], 'created_at' | 'updated_at'>
+        Update: Partial<Database['public']['Tables']['decks']['Insert']>
+      }
+      cards: {
+        Row: {
+          id: string; user_id: string; deck_id: string
+          phrase: string; meaning: string; example: string | null
+          ipa_us: string | null; ipa_uk: string | null; pos: string | null
+          created_at: string; updated_at: string; deleted_at: string | null
+        }
+        Insert: Omit<Database['public']['Tables']['cards']['Row'], 'created_at' | 'updated_at'>
+        Update: Partial<Database['public']['Tables']['cards']['Insert']>
+      }
+      srs: {
+        Row: {
+          card_id: string; user_id: string
+          ease: number; interval_days: number; reps: number; lapses: number
+          due_at: string; last_reviewed_at: string | null
+          state: 'new' | 'learning' | 'review'
+          updated_at: string
+        }
+        Insert: Omit<Database['public']['Tables']['srs']['Row'], 'updated_at'>
+        Update: Partial<Database['public']['Tables']['srs']['Insert']>
+      }
+      writing_docs: {
+        Row: {
+          id: string; user_id: string
+          type: 'ielts' | 'master'; prompt: string; text: string
+          created_at: string; updated_at: string; deleted_at: string | null
+        }
+        Insert: Omit<Database['public']['Tables']['writing_docs']['Row'], 'created_at' | 'updated_at'>
+        Update: Partial<Database['public']['Tables']['writing_docs']['Insert']>
+      }
+      ai_usage: {
+        Row: {
+          id: number; user_id: string
+          day: string; feature: string; count: number; tokens: number
+        }
+        Insert: Omit<Database['public']['Tables']['ai_usage']['Row'], 'id'>
+        Update: Partial<Database['public']['Tables']['ai_usage']['Insert']>
+      }
+    }
+    Views: Record<string, never>
+    Functions: Record<string, never>
+  }
+}

@@ -1,0 +1,30 @@
+---
+pid: 34644
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; $env:SUPABASE_ACCESS_TOKEN = (Get-Content .env.deploy | Where-Object { $_ -match '^SUPABASE_ACCESS_TOKEN=' }) -replace '^SUPABASE_ACCESS_TOKEN=',''; $env:SUPABASE_DB_PASSWORD = (Get-Content .env.deploy | Where-Object { $_ -match '^SUPABASE_DB_PASSWORD=' }) -replace '^SUPABASE_DB_PASSWORD=',''; npx supabase migration repair --status applied 001 --linked --yes 2>&1; npx supabase db push --linked --yes 2>&1"
+started_at: 2026-06-30T10:06:54.917Z
+running_for_ms: 25595004 
+---
+Connecting to remote database...
+Finished supabase migration repair.
+Repaired migration history: [001] => applied
+Run supabase migration list to show the updated migration history.
+Connecting to remote database...
+Do you want to push these migrations to the remote database?
+ • 002_admin_plan.sql
+ • 003_writing_mindmap_sync.sql
+ • 004_payment_requests.sql
+
+ [Y/n] y
+Applying migration 002_admin_plan.sql...
+NOTICE (42701): column "is_admin" of relation "profiles" already exists, skipping
+Applying migration 003_writing_mindmap_sync.sql...
+NOTICE (42P07): relation "mindmaps" already exists, skipping
+NOTICE (42P07): relation "mindmaps_user_updated_idx" already exists, skipping
+Applying migration 004_payment_requests.sql...
+NOTICE (00000): policy "own_read" for relation "public.payment_requests" does not exist, skipping
+NOTICE (00000): policy "admin_all" for relation "public.payment_requests" does not exist, skipping
+Finished supabase db push.
+Warning: failed to cache migrations catalog: error exporting pg-delta catalog: failed to inspect docker image: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/images/public.ecr.aws/supabase/edge-runtime:v1.74.2/json": open //./pipe/docker_engine: The system cannot find the file specified.:
+
+Docker Desktop is a prerequisite for local development. Follow the official docs to install: https://docs.docker.com/desktop
