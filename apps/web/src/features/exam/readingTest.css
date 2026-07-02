@@ -34,6 +34,11 @@
   background: var(--bg-card);
 }
 
+.reading-test-header__lead {
+  min-width: 0;
+  flex: 1;
+}
+
 .reading-test-header__title {
   font-size: 0.95rem;
   font-weight: 700;
@@ -42,9 +47,18 @@
 }
 
 .reading-test-header__timer {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 0.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--rt-submit);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.reading-test-header__timer.is-urgent {
+  color: var(--color-accent);
 }
 
 .reading-test-header__actions {

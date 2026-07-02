@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "local-tool-bundles": {
+      "cwd": ".",
+      "command": "node",
+      "args": [
+        "./mcps/local-tool-bundles-mcp/server.mjs"
+      ]
+    }
+  }
+}

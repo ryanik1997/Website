@@ -15,7 +15,8 @@
     "paths": {
       "@ryan/core": ["packages/core/src/index.ts"],
       "@ryan/ui": ["packages/ui/src/index.ts"],
-      "@ryan/db": ["packages/db/src/index.ts"]
+      "@ryan/db": ["packages/db/src/index.ts"],
+      "@ryan/catalog": ["packages/catalog/src/index.ts"]
     }
   }
 }

@@ -46,6 +46,7 @@ export default defineConfig({
       '@ryan/core': resolve(__dirname, '../../packages/core/src/index.ts'),
       '@ryan/ui': resolve(__dirname, '../../packages/ui/src/index.ts'),
       '@ryan/db': resolve(__dirname, '../../packages/db/src/index.ts'),
+      '@ryan/catalog': resolve(__dirname, '../../packages/catalog/src/index.ts'),
     },
   },
 })

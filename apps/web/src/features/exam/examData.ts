@@ -1,3 +1,4 @@
+import { CATALOG_READING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_READING_SAMPLES } from './cambridgeReadingSamples'
 
 export type ExamSkill = 'reading' | 'listening' | 'writing'
@@ -722,6 +723,7 @@ export const READING_EXAMS: ReadingExam[] = [
     ],
   },
   ...CAMBRIDGE_READING_SAMPLES,
+  ...(CATALOG_READING_EXAMS as ReadingExam[]),
 ]
 
 export function getPartQuestions(part: ReadingPart): ReadingQuestion[] {

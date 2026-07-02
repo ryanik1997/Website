@@ -1,17 +1,22 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { ArrowLeft, ChevronRight, Clock } from 'lucide-react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import FullMockStageResult from './FullMockStageResult'
 import ListeningExamResult from './ListeningExamResult'
+import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
+import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
+import ListeningSplitResizer from './ListeningSplitResizer'
 import { getFullMockTest } from './fullMockData'
 import {
   appendFullMockQuery,
   clearFullMockSession,
   patchFullMockSession,
 } from './fullMockSession'
-import ListeningQuestionCard from './ListeningQuestionCard'
 import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, isListeningAnswerCorrect } from './listeningExamData'
+import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { useListeningSplitPane } from './useListeningSplitPane'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
 
@@ -30,6 +35,14 @@ export default function ListeningKetTest({ exam }: Props) {
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
   const questions = useMemo(() => getListeningExamQuestions(exam), [exam])
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const {
+    splitPct,
+    isResizing,
+    onResizerPointerDown,
+    onResizerPointerMove,
+    onResizerPointerUp,
+  } = useListeningSplitPane()
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [unsure, setUnsure] = useState<Record<string, boolean>>({})
@@ -50,6 +63,39 @@ export default function ListeningKetTest({ exam }: Props) {
     ttsText: currentPart?.ttsText,
   }), [currentPart])
   const totalQuestions = questions.length
+
+  const {
+    playing,
+    buffering,
+    progressPct,
+    timeLabel,
+    play,
+    seekToPct,
+    stopPlayback,
+  } = useExamQuestionAudio()
+
+  const { canPlay, playsLeft, recordPlay } = useListeningPlayLimits(exam.examMode)
+  const playKey = currentQuestion ? `q-${currentQuestion.id}` : ''
+  const maxPlays = exam.examMode === 'exam' ? 3 : undefined
+  const audioSource = currentQuestion ? {
+    audioKey: currentQuestion.audioKey ?? partAudioSource.audioKey,
+    audioUrl: currentQuestion.audioUrl ?? partAudioSource.audioUrl,
+    ttsText: currentQuestion.ttsText ?? partAudioSource.ttsText,
+  } : { audioKey: undefined, audioUrl: undefined, ttsText: undefined }
+  const hasAudioFile = Boolean(audioSource.audioKey || audioSource.audioUrl)
+  const left = playsLeft(playKey, maxPlays)
+  const blocked = !canPlay(playKey, maxPlays)
+
+  const makePlayOpts = useCallback((rate: number) => ({
+    rate,
+    allowSeek: exam.examMode === 'practice',
+    beforePlay: () => canPlay(playKey, maxPlays),
+    onPlayCounted: () => recordPlay(playKey),
+  }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  useEffect(() => {
+    stopPlayback()
+  }, [currentQuestion?.id, stopPlayback])
 
   useEffect(() => {
     const savedRaw = window.localStorage.getItem(storageKey)
@@ -147,7 +193,7 @@ export default function ListeningKetTest({ exam }: Props) {
   const answeredCount = questions.filter(q => Boolean(answers[q.id])).length
 
   return (
-    <div className="listening-exam-shell">
+    <div className={`listening-exam-shell${isResizing ? ' is-resizing' : ''}`}>
       <header className="listening-exam-header">
         <button type="button" className="listening-exam-header__back" onClick={() => navigate('/app/exam')}>
           <ArrowLeft size={14} />
@@ -160,38 +206,66 @@ export default function ListeningKetTest({ exam }: Props) {
         </div>
       </header>
 
-      <main className="listening-exam-main">
-        <div className="listening-exam-main__wrap">
-          {currentQuestion && (
-            <>
-              <ListeningQuestionCard
-                question={currentQuestion}
-                answer={answers[currentQuestion.id] ?? ''}
-                unsure={Boolean(unsure[currentQuestion.id])}
-                examMode={exam.examMode}
-                partInstruction={currentPart?.instruction}
-                partAudioSource={partAudioSource}
-                onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
-                onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
-              />
-              <div className="listening-exam-card-actions">
-                <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => setConfirmSubmit(true)}>
-                  Submit
-                </button>
-                <button
-                  type="button"
-                  className="listening-exam-btn listening-exam-btn--next"
-                  disabled={questionIndex >= totalQuestions - 1}
-                  onClick={() => goToQuestion(questionIndex + 1)}
-                >
-                  Next
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </main>
+      <div
+        ref={bodyRef}
+        className="listening-exam-body"
+        style={{ '--le-split-pct': `${splitPct}%` } as CSSProperties}
+      >
+        {currentQuestion && (
+          <>
+            <ListeningQuestionPromptPanel
+              question={currentQuestion}
+              partInstruction={currentPart?.instruction}
+              partLabel={currentPart ? `Part ${currentPart.partNumber} · ${currentPart.rangeLabel}` : undefined}
+              audioBar={{
+                source: audioSource,
+                playing,
+                buffering,
+                progressPct,
+                timeLabel,
+                hasAudioFile,
+                allowSeek: exam.examMode === 'practice',
+                allowSlow: exam.examMode === 'practice',
+                playsLeft: left,
+                playBlocked: blocked,
+                onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
+                onPlaySlow: () => void play(audioSource, makePlayOpts(0.75)),
+                onSeek: pct => seekToPct(pct, exam.examMode === 'practice'),
+                onStop: stopPlayback,
+              }}
+            />
+            <ListeningSplitResizer
+              bodyRef={bodyRef}
+              isResizing={isResizing}
+              onPointerDown={onResizerPointerDown}
+              onPointerMove={onResizerPointerMove}
+              onPointerUp={onResizerPointerUp}
+            />
+            <ListeningQuestionAnswerPanel
+              question={currentQuestion}
+              answer={answers[currentQuestion.id] ?? ''}
+              unsure={Boolean(unsure[currentQuestion.id])}
+              onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
+              onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
+            />
+          </>
+        )}
+      </div>
+
+      <div className="listening-exam-card-actions listening-exam-card-actions--split">
+        <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => setConfirmSubmit(true)}>
+          Submit
+        </button>
+        <button
+          type="button"
+          className="listening-exam-btn listening-exam-btn--next"
+          disabled={questionIndex >= totalQuestions - 1}
+          onClick={() => goToQuestion(questionIndex + 1)}
+        >
+          Next
+          <ChevronRight size={16} />
+        </button>
+      </div>
 
       <footer className="listening-exam-footer">
         <div className="listening-exam-footer__dots">

@@ -11,17 +11,17 @@
 ## Trạng thái hiện tại
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
-- **Phase:** Luyện thi Cambridge — import thủ công Reading + Listening (A2 đang test)
-- **Session kết thúc:** 2026-07-01 — dừng tại **Listening KET A2 Test 1** (bundle + UI xong, chưa user test)
-- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** thay đổi Listening KET UI (local only)
+- **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
+- **Session:** 2026-07-02 — `@ryan/catalog` + builtin KET/PET/FCE Reading + KET Listening
+- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** catalog v0.2.0 (local only)
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
 |---------|-------|------|------------|
-| Reading | A2 KET | `ket-reading-test1.zip` | Sẵn — chờ user import/test |
-| Reading | B1 PET | `pet-reading-test1.zip` | Sẵn — user xóa đề cũ + import lại |
-| Reading | B2 FCE | `fce-reading-test1.zip` | Sẵn |
-| Listening | A2 KET | `ket-listening-test1.zip` | **Mới** — chờ user import/test |
+| Reading | A2 KET | `ket-reading-test1` | **Builtin** `catalog-reading-ket-a2-test1` |
+| Reading | B1 PET | `pet-reading-test1` | **Builtin** `catalog-reading-pet-b1-test1` |
+| Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
+| Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
 
 ---
 
@@ -864,12 +864,28 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 
 ---
 
+### Global Catalog — hướng 3 (session 2026-07-02) — HOÀN THÀNH
+- [x] `packages/catalog/` — manifest `GLOBAL_CATALOG_VERSION`, builtin exams, `syncGlobalCatalog()`
+- [x] `scripts/build-catalog.mjs` — Tainguyen → `public/catalog/` + `packages/catalog/data/`
+- [x] Builtin đề: KET/PET/FCE Reading + KET Listening (ID `catalog-*`) — mọi user sau deploy
+- [x] `GlobalCatalogSync` trong `AppShell` — upsert Cấu trúc câu catalog (ID cố định `catalog:ss:*`)
+- [x] `pnpm build:catalog` chạy trước `pnpm build`; web `v0.2.0`
+- [x] `packages/catalog/README.md` — quy trình admin cập nhật + deploy
+- [ ] TODO sau: vocab decks/cards, writing prompts, translation, listening lessons → `syncGlobalCatalog`
+
+#### Admin cập nhật nội dung cho mọi user (không import tay)
+1. Sửa `Tainguyen/.../exam.json` (+ media) hoặc seed trong `packages/catalog/src/seeds/`
+2. `pnpm build:catalog` (đề thi) + bump `GLOBAL_CATALOG_VERSION` (Dexie seeds)
+3. `pnpm deploy:prod`
+
+---
+
 ## Next session start prompt
 
 ```
 Đọc session_summary.md.
 
-Session kết thúc 2026-07-01 — user nghỉ, làm tiếp ngày 2026-07-02.
+Session 2026-07-02 — Global catalog hướng 3 đã xong (builtin đề + sync framework).
 
 Production: https://ryanenglishv2.vercel.app
 Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching chưa lên prod).

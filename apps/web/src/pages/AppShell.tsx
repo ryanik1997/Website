@@ -28,6 +28,7 @@ import { setTheme } from '../lib/theme'
 import { useNotifications } from '../features/notifications/useNotifications'
 import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
+import GlobalCatalogSync from '../features/catalog/GlobalCatalogSync'
 
 const NAV: Array<{
   to: string
@@ -225,6 +226,7 @@ function AppShellInner() {
         <Outlet />
       </main>
 
+      <GlobalCatalogSync />
       <DictionaryFAB />
       <DictionaryModal />
       <SrsReviewReminderModal

@@ -22,11 +22,11 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     exam: 'KET',
     reading: {
       label: 'Reading (Parts 1–5)',
-      durationMinutes: 60,
+      durationMinutes: 30,
       parts: 5,
       questions: 32,
       weightPercent: 50,
-      note: 'Đề thật gồm Reading & Writing 60 phút; Parts 6–7 là Writing (module Viết).',
+      note: 'Chỉ phần Reading (30 phút). Writing Parts 6–7 ở module Viết.',
     },
     listening: {
       label: 'Listening',
