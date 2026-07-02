@@ -83,7 +83,8 @@ Prompt AI tạo ZIP (Claude / ChatGPT)
 
 • KET A2 Reading: HDSD/Prompt-KET-A2.txt
 • KET A2 Listening: HDSD/Prompt-KET-A2-Listening.txt
-• PET B1: HDSD/Prompt-PET-B1.txt
+• PET B1 Reading: HDSD/Prompt-PET-B1.txt
+• PET B1 Listening: HDSD/Prompt-PET-B1-Listening.txt
 • FCE B2: HDSD/Prompt-FCE-B2.txt
 • Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 
@@ -99,7 +100,7 @@ A2 KET — 5 parts · 25 câu
 ┌──────┬────────┬───────────────────┬─────────────────────────────┐
 │ Part │ Câu    │ Type              │ Media                       │
 ├──────┼────────┼───────────────────┼─────────────────────────────┤
-│ 1    │ 1–5    │ picture-mc        │ q1-a.jpg … q5-c.jpg (tuỳ)   │
+│ 1    │ 1–5    │ picture-mc        │ q1.jpg … q5.jpg (1 ảnh/câu A+B+C) │
 │ 2    │ 6–10   │ gap-fill          │ listening.mp3 (chung)       │
 │ 3    │ 11–15  │ multiple-choice   │ listening.mp3               │
 │ 4    │ 16–20  │ multiple-choice   │ listening.mp3               │
@@ -109,10 +110,26 @@ A2 KET — 5 parts · 25 câu
 A2 KET — bundle mẫu: ket-listening-test1.zip (Tainguyen/)
 Prompt AI: HDSD/Prompt-KET-A2-Listening.txt
 
+B1 PET — 4 parts · 25 câu
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–7    │ picture-mc        │ q1.jpg … q7.jpg (1 ảnh/câu A+B+C)   │
+│ 2    │ 8–13   │ multiple-choice   │ context + prompt (You will hear…)   │
+│ 3    │ 14–19  │ gap-fill          │ passageTitle + gapLead/gapTrail     │
+│ 4    │ 20–25  │ multiple-choice   │ audioIntro + MC A/B/C               │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+B1 PET — bundle mẫu: pet-listening-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-PET-B1-Listening.txt
+Đóng gói: pnpm pack:listening:pet
+
 Bước 2 — Media:
 • 1 file listening.mp3 cho cả bài (gắn audioFile mỗi part)
 • Hoặc q1.mp3 … q25.mp3 từng câu
-• Part 1: q1-a.jpg, q1-b.jpg, q1-c.jpg …
+• Part 1 KET (khuyến nghị): q1.jpg … q5.jpg — mỗi câu một ảnh lớn chứa A, B, C
+• Part 1 PET (khuyến nghị): q1.jpg … q7.jpg — mỗi câu một ảnh lớn chứa A, B, C
+• Part 1 (legacy): q1-a.jpg, q1-b.jpg, q1-c.jpg …
 
 Bước 3 — Upload ZIP hoặc JSON + file → Lưu & làm bài
 
@@ -124,4 +141,5 @@ Mẹo
 2. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
 3. Bundle mẫu KET Test 1 Reading: Tainguyen/ket-reading-test1.zip — Prompt-KET-A2.txt
 4. Bundle mẫu KET Test 1 Listening: Tainguyen/ket-listening-test1.zip — Prompt-KET-A2-Listening.txt
-4. Đề import có nút xóa (thùng rác) trong danh sách Reading
+5. Bundle mẫu PET Test 1 Listening: Tainguyen/pet-listening-test1.zip — Prompt-PET-B1-Listening.txt
+6. Đề import có nút xóa (thùng rác) trong danh sách Reading / Listening

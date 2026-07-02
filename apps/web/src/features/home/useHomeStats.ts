@@ -4,14 +4,21 @@ import { db, writingRepo } from '@ryan/db'
 import type { ReviewLog } from '@ryan/db'
 import { AI_PROVIDERS } from '@ryan/core'
 
+function dateKey(date = new Date()): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 function calcStreak(logs: ReviewLog[]): number {
   if (!logs.length) return 0
-  const days = new Set(logs.map(l => new Date(l.at).toISOString().slice(0, 10)))
+  const days = new Set(logs.map(l => dateKey(new Date(l.at))))
   let streak = 0
   const cursor = new Date()
   cursor.setHours(0, 0, 0, 0)
   for (let i = 0; i < 365; i++) {
-    const key = cursor.toISOString().slice(0, 10)
+    const key = dateKey(cursor)
     if (days.has(key)) {
       streak++
       cursor.setDate(cursor.getDate() - 1)

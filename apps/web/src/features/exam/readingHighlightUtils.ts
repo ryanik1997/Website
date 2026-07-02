@@ -1,3 +1,9 @@
+export const EXAM_HIGHLIGHT_ZONE_SELECTOR = '[data-exam-highlight-zone], [data-reading-highlight-zone]'
+
+export function isInExamHighlightZone(el: Element | null | undefined): boolean {
+  return Boolean(el?.closest(EXAM_HIGHLIGHT_ZONE_SELECTOR))
+}
+
 export interface ReadingHighlight {
   id: string
   blockId: string
@@ -229,10 +235,10 @@ export function selectionToHighlightRanges(
 
   const anchorEl = selection.anchorNode?.parentElement
   const focusEl = selection.focusNode?.parentElement
-  if (!anchorEl?.closest('[data-reading-highlight-zone]') || !focusEl?.closest('[data-reading-highlight-zone]')) {
+  if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
     return null
   }
-  if (!root.contains(anchorEl) || !root.contains(focusEl)) return null
+  if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) return null
 
   const range = selection.getRangeAt(0)
   const startBlock = findBlockEl(range.startContainer)

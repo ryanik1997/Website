@@ -98,6 +98,7 @@ export function listeningMc(
   answer: 'A' | 'B' | 'C',
   explanation: string,
   type: ListeningQuestionType = 'multiple-choice',
+  extra?: Pick<ListeningQuestion, 'context' | 'gapLead' | 'gapTrail' | 'pictureImageUrl'>,
 ): ListeningQuestion {
   const ids = ['A', 'B', 'C'] as const
   return {
@@ -109,6 +110,7 @@ export function listeningMc(
     answer,
     explanation,
     ttsText: prompt,
+    ...extra,
   }
 }
 
@@ -120,6 +122,7 @@ export function listeningGap(
   answer: string,
   explanation: string,
   wordLimit = 2,
+  extra?: Pick<ListeningQuestion, 'gapLead' | 'gapTrail'>,
 ): ListeningQuestion {
   return {
     id: `${examType}-l-p${partNum}-q${num}`,
@@ -129,8 +132,9 @@ export function listeningGap(
     options: [],
     answer,
     explanation,
-    ttsText: prompt,
+    ttsText: prompt || `${extra?.gapLead ?? ''} ${extra?.gapTrail ?? ''}`.trim(),
     wordLimit,
+    ...extra,
   }
 }
 

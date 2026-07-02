@@ -22,6 +22,7 @@
 | Reading | B1 PET | `pet-reading-test1` | **Builtin** `catalog-reading-pet-b1-test1` |
 | Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
+| Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 
 ---
 
@@ -880,23 +881,86 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 
 ---
 
+### Listening picture-mc — ảnh composite A2–C2 (session 2026-07-02) — HOÀN THÀNH
+- [x] Part 1 `picture-mc`: **1 ảnh/câu** (`q1.jpg` chứa A+B+C) thay vì 3 file riêng
+- [x] `ListeningPictureBoard` + `ListeningPictureChoiceRow` — tranh trái, nút A/B/C phải
+- [x] Import + `build-catalog` + legacy `q1-a.jpg` vẫn hỗ trợ
+- [x] `exam.json` KET + HDSD cập nhật
+
+### KET Listening — Part 2 gap-fill + Part 5 drag-drop (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningKetGapFillPartView` — Part 2 (câu 6–10): đề + audio trái, tất cả ô điền chỗ trống gộp cột phải
+- [x] `ListeningKetMatchingPartView` — Part 5 (câu 21–25): tên + ô vuông kéo thả trái (theo `Giaodien/a1.jpg`), bank A–H phải
+- [x] Kéo thả hoặc chọn đáp án → bấm ô; mỗi chữ cái dùng một lần; nút × xóa ô
+- [x] `listeningKetPartLayout.ts` — detect part gap-fill / matching
+
+### Listening Luyện thi — audio không dừng khi đổi Part (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningKetTest` / `ListeningIeltsTest` — bỏ `stopPlayback()` khi `partIndex` đổi (KET + IELTS + Cambridge PET/FCE/CAE/CPE)
+- [x] `ListeningQuestionCard` — bỏ dừng audio khi đổi câu
+- [x] KET timer cố định **25 phút** (`KET_LISTENING_DURATION_MINUTES`)
+
+### Listening KET — fix audio không phát (session 2026-07-02) — HOÀN THÀNH
+- [x] `useExamQuestionAudio` — thử lần lượt blob Dexie → `audioUrl` catalog; blob rỗng/hỏng không chặn fallback
+- [x] `listeningExamCatalogMerge` — luôn bổ sung `audioUrl` từ builtin khi import thiếu
+- [x] `listeningExamLoader` — mọi đề `source: import` đều merge media catalog (match title/examType)
+- [x] `playHtmlAudio` — `preload` + `canplay`; log URL khi lỗi
+- [x] Verify local: `GET /catalog/listening/ket-a2-test1/listening.mp3` → 200 (~21MB)
+
+### PET B1 Listening — UI + bundle + prompt HDSD (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningPetTest` — 4 Part, 25 câu, timer **30 phút**, audio liên tục khi đổi Part
+- [x] `ListeningPetMcPartView` — Part 2 (context + prompt) & Part 4 (audioIntro + MC)
+- [x] `ListeningPetGapFillPartView` — Part 3 (`passageTitle` + `gapLead`/`gapTrail`)
+- [x] Part 1: **7 câu** picture-mc (`q1.jpg` … `q7.jpg` composite A+B+C)
+- [x] `Tainguyen/pet-listening-test1/exam.json` + ZIP (~21 MB) — đáp án Answer Key chính thức
+- [x] `pnpm pack:listening:pet` — đóng gói bundle
+- [x] HDSD: `Prompt-PET-B1-Listening.txt`, `Import Listening PET B1.txt`, cập nhật `Import De Thi.txt` + `Prompt-PET-B1.txt`
+- [x] `Prompt-KET-A2-Listening.txt` — `durationMinutes` 25, hướng dẫn pack/import
+
+### Luyện thi — Làm lại + Quay lại + Reading KET 30 phút (session 2026-07-02) — HOÀN THÀNH
+- [x] `FullMockStageResult` + `handleRetry` — nút **Làm lại** sau submit (Reading/Listening/Writing/Full Mock)
+- [x] `ExamHeaderBack` + `examNavigation.ts` — nút **Quay lại** khi đang làm bài (mọi chế độ)
+- [x] `KET_READING_DURATION_MINUTES = 30` — Reading A2 cố định 30 phút
+
+### Luyện thi — Highlight tô sáng Listening IELTS + Cambridge A2–C2 (session 2026-07-02) — HOÀN THÀNH
+- [x] Dùng chung logic Reading: `ReadingHighlightToolbar`, `ReadingHighlightableText`, `usePartHighlights`, `ExamHighlightZone`
+- [x] Áp dụng toàn bộ Listening: `ListeningKetTest`, `ListeningPetTest`, `ListeningIeltsTest` (IELTS + FCE/CAE/CPE)
+- [x] Vùng tô sáng: hướng dẫn, đề bài, gap-fill notes, MC/matching options; audio/ô nhập có `data-highlight-skip`
+- [x] Highlight lưu theo Part; reset khi **Làm lại**
+
+### Luyện thi — Đã làm + Làm lại trên danh sách đề (session 2026-07-02) — HOÀN THÀNH
+- [x] `examCompletion.ts` — đọc draft localStorage (`submitted` + điểm đúng/tổng); `injectKetGapFillQuestionMarkers` — KET Part 2 hiện `and:(10) …`
+- [x] `useExamDraftRevision.ts` — re-render `ExamTrackPage` khi nộp bài / làm lại
+- [x] `ExamTrackPage` — badge **Đã làm**, meta `Đúng X/Y câu`, nút **Xem kết quả** + **Làm lại** từng đề Reading/Listening
+- [x] `ExamResult` / `ListeningExamResult` — **Về luyện thi** + **Làm lại** cạnh nhau; back về đúng track Cambridge/IELTS (`examNavigation.ts`)
+- [x] `ListeningKetGapFillPartView` — ghi chú Part 2 có số câu trước chỗ trống (vd. `Send a letter and:(10) …`)
+
+### Luyện thi — Footer thống nhất + Reset timer (session 2026-07-02) — HOÀN THÀNH
+- [x] `ExamPartFooter.tsx` — thanh ngang Part + pills số câu + Prev/Next câu + Submit (dùng chung Reading/Listening)
+- [x] `ExamTimerControls.tsx` + `examTimer.ts` — đồng hồ + nút reset (RotateCcw) cạnh timer
+- [x] `ListeningKetTest.tsx` — refactor `partIndex` + `activeQuestionId` (migrate draft `questionIndex` cũ); footer giống Reading
+- [x] `ListeningIeltsTest.tsx` — footer dùng `ExamPartFooter`; nav prev/next **câu** (không chỉ Part)
+- [x] `ReadingTest.tsx` — dùng shared footer + timer reset
+- [x] `listeningTest.css` — CSS vars footer pills trên `.listening-exam-shell`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+---
+
 ## Next session start prompt
 
 ```
 Đọc session_summary.md.
 
-Session 2026-07-02 — Global catalog hướng 3 đã xong (builtin đề + sync framework).
+Session 2026-07-02 — Global catalog + footer/timer thống nhất Reading/Listening đã xong.
 
 Production: https://ryanenglishv2.vercel.app
 Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching chưa lên prod).
 
 ─── ƯU TIÊN NGÀY MAI ───
 
-1. USER TEST — Import Listening KET A2
-   • Luyện thi → Cambridge → A2 → Import thủ công Listening
-   • Upload Tainguyen/ket-listening-test1.zip
-   • Kiểm tra: audio phát, Part 2 gap-fill, Part 5 matching, chấm điểm
-   • Nếu lỗi → fix UI/import; nếu OK → deploy prod
+1. USER TEST — Listening KET A2 audio
+   • Hard refresh → mở builtin `KET A2 Listening — Test 1` hoặc re-import ZIP
+   • Bấm Phát — phải nghe được listening.mp3 (~35 phút)
+   • Nếu vẫn lỗi: DevTools Network xem listening.mp3 200; xóa đề import cũ trong Dexie
+   • OK → deploy prod (catalog v0.2.0 chưa lên production)
 
 2. USER TEST — Reading (nếu chưa)
    • ket-reading-test1.zip — Part 1 ảnh, Part 4 MC (không gap-fill)
@@ -905,10 +969,14 @@ Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching
 3. TUỲ CHỌN — Ảnh Part 1 Listening
    • Extract từ PDF → q1-a.jpg … q5-c.jpg → rebuild ZIP
 
-4. TIẾP THEO (nếu user muốn)
-   • PET B1 Listening import (tương tự KET)
-   • FCE B2 Listening
-   • Prompt + build script cho level tiếp theo
+4. USER TEST — Listening PET B1
+   • Import `Tainguyen/pet-listening-test1.zip` (B1 → Import thủ công Listening)
+   • Preview ✓ MP3 + 7 ảnh → làm bài 4 Part / 25 câu / 30 phút
+   • Prompt AI: `HDSD/Prompt-PET-B1-Listening.txt`
+
+5. TIẾP THEO (nếu user muốn)
+   • `pnpm build:catalog` — thêm PET Listening vào builtin catalog
+   • FCE B2 Listening + prompt HDSD
 
 ─── ĐÃ XONG 2026-07-01 (Import đề) ───
 • Reading: KET / PET / FCE bundles + prompts HDSD
@@ -985,7 +1053,8 @@ Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching
 1. User test `ket-listening-test1.zip` → fix nếu lỗi → `pnpm deploy:prod`
 2. User test `ket-reading-test1.zip` / `pet-reading-test1.zip` (xóa đề cũ PET)
 3. Extract ảnh Part 1 Listening từ PDF (tuỳ chọn)
-4. Bắt đầu PET B1 Listening hoặc level user chọn tiếp
+4. User test `pet-listening-test1.zip` — 4 Part, 7 ảnh Part 1, prompt `HDSD/Prompt-PET-B1-Listening.txt`
+5. Tuỳ chọn: `pnpm build:catalog` thêm PET Listening builtin
 
 ### Khác (nếu user nhắc)
 - Listening lesson: thanh cuộn thừa — `?lsnDebug=only-tabs`

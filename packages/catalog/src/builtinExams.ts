@@ -2,6 +2,7 @@ import ketReading from '../data/reading-ket-a2-test1.json'
 import petReading from '../data/reading-pet-b1-test1.json'
 import fceReading from '../data/reading-fce-b2-test1.json'
 import ketListening from '../data/listening-ket-a2-test1.json'
+import petListening from '../data/listening-pet-b1-test1.json'
 import catalogManifest from '../data/manifest.json'
 
 type WithCatalogMeta = {
@@ -24,6 +25,7 @@ export const CATALOG_READING_EXAMS = [
 /** Đề Listening ship cùng app — media tại /public/catalog/listening/ */
 export const CATALOG_LISTENING_EXAMS = [
   stripCatalogMeta(ketListening),
+  stripCatalogMeta(petListening),
 ]
 
 export const CATALOG_EXAM_MANIFEST = catalogManifest

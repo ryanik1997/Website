@@ -29,6 +29,7 @@ function mimeFromName(name: string): string {
   if (lower.endsWith('.wav')) return 'audio/wav'
   if (lower.endsWith('.m4a')) return 'audio/mp4'
   if (lower.endsWith('.ogg')) return 'audio/ogg'
+  if (lower.endsWith('.jpg') || lower.endsWith('.jpeg')) return 'image/jpeg'
   if (lower.endsWith('.webp')) return 'image/webp'
   if (lower.endsWith('.png')) return 'image/png'
   if (lower.endsWith('.gif')) return 'image/gif'

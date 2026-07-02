@@ -1,31 +1,42 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, ChevronRight, Clock } from 'lucide-react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import ExamHeaderBack from './ExamHeaderBack'
+import ExamPartFooter from './ExamPartFooter'
+import { listeningExamBackPath } from './examNavigation'
+import ExamTimerControls from './ExamTimerControls'
 import FullMockStageResult from './FullMockStageResult'
 import ListeningExamResult from './ListeningExamResult'
+import ListeningKetGapFillPartView from './ListeningKetGapFillPartView'
+import ListeningKetMatchingPartView from './ListeningKetMatchingPartView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
 import ListeningSplitResizer from './ListeningSplitResizer'
+import {
+  isKetDragMatchingPart,
+  isKetGroupedGapFillPart,
+  KET_LISTENING_DURATION_MINUTES,
+} from './listeningKetPartLayout'
 import { getFullMockTest } from './fullMockData'
 import {
   appendFullMockQuery,
   clearFullMockSession,
   patchFullMockSession,
 } from './fullMockSession'
+import { clearListeningDraft } from './examCompletion'
+import { ExamHighlightProvider } from './examHighlightContext'
+import ReadingHighlightToolbar from './ReadingHighlightToolbar'
+import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { usePartHighlights } from './usePartHighlights'
+import { initialExamTimerSeconds } from './examTimer'
 import type { ListeningExam } from './listeningExamData'
-import { getListeningExamQuestions, isListeningAnswerCorrect } from './listeningExamData'
+import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
-
-function formatTimer(seconds: number): string {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-}
 
 interface Props {
   exam: ListeningExam
@@ -35,7 +46,7 @@ export default function ListeningKetTest({ exam }: Props) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
-  const questions = useMemo(() => getListeningExamQuestions(exam), [exam])
+  const allQuestions = useMemo(() => getListeningExamQuestions(exam), [exam])
   const bodyRef = useRef<HTMLDivElement>(null)
   const {
     splitPct,
@@ -47,23 +58,27 @@ export default function ListeningKetTest({ exam }: Props) {
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [unsure, setUnsure] = useState<Record<string, boolean>>({})
-  const [timeLeft, setTimeLeft] = useState(exam.durationMinutes * 60)
-  const [questionIndex, setQuestionIndex] = useState(0)
+  const [timeLeft, setTimeLeft] = useState(initialExamTimerSeconds(KET_LISTENING_DURATION_MINUTES))
+  const [partIndex, setPartIndex] = useState(0)
+  const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
-  const currentQuestion = questions[questionIndex] ?? null
-  const currentPart = useMemo(() => {
-    if (!currentQuestion) return null
-    return exam.parts.find(part => part.questions.some(q => q.id === currentQuestion.id)) ?? null
-  }, [currentQuestion, exam.parts])
-  const partAudioSource = useMemo(() => ({
-    audioKey: currentPart?.audioKey,
-    audioUrl: currentPart?.audioUrl,
-    ttsText: currentPart?.ttsText,
-  }), [currentPart])
-  const totalQuestions = questions.length
+  const currentPart = exam.parts[partIndex] ?? null
+  const { highlights, handleHighlightsChange, clearAllHighlights } = usePartHighlights(currentPart?.id)
+  const partQuestions = useMemo(
+    () => (currentPart ? getPartQuestions(currentPart) : []),
+    [currentPart],
+  )
+  const currentQuestion = useMemo(
+    () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
+    [activeQuestionId, allQuestions],
+  )
+  const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
+  const isGroupedGapFill = Boolean(currentPart && isKetGroupedGapFillPart(currentPart))
+  const isDragMatching = Boolean(currentPart && isKetDragMatchingPart(currentPart))
+  const isPartLayout = isGroupedGapFill || isDragMatching
 
   const {
     playing,
@@ -73,17 +88,15 @@ export default function ListeningKetTest({ exam }: Props) {
     play,
     seekToPct,
     stopPlayback,
+    playError,
   } = useExamQuestionAudio()
 
-  const { canPlay, playsLeft, recordPlay } = useListeningPlayLimits(exam.examMode)
-  const playKey = currentQuestion ? `q-${currentQuestion.id}` : ''
+  const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
+  /** Một file MP3 chung — đếm lượt nghe theo cả bài, không reset khi đổi câu */
+  const playKey = `exam-${exam.id}`
   const maxPlays = exam.examMode === 'exam' ? 3 : undefined
-  const audioSource = currentQuestion ? {
-    audioKey: currentQuestion.audioKey ?? partAudioSource.audioKey,
-    audioUrl: currentQuestion.audioUrl ?? partAudioSource.audioUrl,
-    ttsText: currentQuestion.ttsText ?? partAudioSource.ttsText,
-  } : { audioKey: undefined, audioUrl: undefined, ttsText: undefined }
-  const hasAudioFile = Boolean(audioSource.audioKey || audioSource.audioUrl)
+  const audioSource = examAudioSource
+  const hasAudioFile = hasExamAudioSource(audioSource)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)
 
@@ -94,38 +107,68 @@ export default function ListeningKetTest({ exam }: Props) {
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
 
-  useEffect(() => {
-    stopPlayback()
-  }, [currentQuestion?.id, stopPlayback])
+  const resetTimer = useCallback(() => {
+    setTimeLeft(initialExamTimerSeconds(KET_LISTENING_DURATION_MINUTES))
+  }, [])
 
   useEffect(() => {
     const savedRaw = window.localStorage.getItem(storageKey)
-    if (!savedRaw) return
+    if (!savedRaw) {
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      return
+    }
     try {
       const saved = JSON.parse(savedRaw) as {
         answers?: Record<string, string>
         unsure?: Record<string, boolean>
         timeLeft?: number
+        partIndex?: number
+        activeQuestionId?: string | null
         questionIndex?: number
         submitted?: boolean
       }
       setAnswers(saved.answers ?? {})
       setUnsure(saved.unsure ?? {})
-      setTimeLeft(typeof saved.timeLeft === 'number' ? saved.timeLeft : exam.durationMinutes * 60)
-      setQuestionIndex(typeof saved.questionIndex === 'number' ? saved.questionIndex : 0)
+      setTimeLeft(
+        typeof saved.timeLeft === 'number'
+          ? saved.timeLeft
+          : initialExamTimerSeconds(KET_LISTENING_DURATION_MINUTES),
+      )
       setSubmitted(Boolean(saved.submitted))
-    } catch { /* ignore */ }
-  }, [exam.durationMinutes, storageKey])
+
+      if (typeof saved.partIndex === 'number' && saved.activeQuestionId) {
+        setPartIndex(saved.partIndex)
+        setActiveQuestionId(saved.activeQuestionId)
+      } else if (typeof saved.questionIndex === 'number') {
+        const q = allQuestions[saved.questionIndex]
+        if (q) {
+          const pi = exam.parts.findIndex(part => part.questions.some(x => x.id === q.id))
+          setPartIndex(pi >= 0 ? pi : 0)
+          setActiveQuestionId(q.id)
+        } else {
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }
+      } else {
+        setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
+        setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      }
+    } catch {
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    }
+  }, [allQuestions, exam, storageKey])
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       unsure,
       timeLeft,
-      questionIndex,
+      partIndex,
+      activeQuestionId,
       submitted,
     }))
-  }, [answers, questionIndex, storageKey, submitted, timeLeft, unsure])
+    notifyExamDraftRevision()
+  }, [activeQuestionId, answers, partIndex, storageKey, submitted, timeLeft, unsure])
 
   useEffect(() => {
     if (submitted) return
@@ -137,32 +180,82 @@ export default function ListeningKetTest({ exam }: Props) {
     return () => window.clearInterval(timer)
   }, [submitted, timeLeft])
 
-  const goToQuestion = useCallback((index: number) => {
-    if (index < 0 || index >= totalQuestions) return
-    setQuestionIndex(index)
-  }, [totalQuestions])
+  useEffect(() => {
+    if (!currentPart) return
+    if (!partQuestions.some(q => q.id === activeQuestionId)) {
+      setActiveQuestionId(partQuestions[0]?.id ?? null)
+    }
+  }, [activeQuestionId, currentPart, partQuestions])
+
+  const goToPart = useCallback((index: number) => {
+    if (index < 0 || index >= exam.parts.length) return
+    const qs = getPartQuestions(exam.parts[index])
+    setPartIndex(index)
+    setActiveQuestionId(qs[0]?.id ?? null)
+  }, [exam.parts])
+
+  const handleSelectQuestion = useCallback((questionId: string) => {
+    setActiveQuestionId(questionId)
+  }, [])
+
+  const answeredInPart = useCallback((index: number) => {
+    return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
+  }, [answers, exam.parts])
+
+  const goAdjacentQuestion = useCallback((delta: number) => {
+    if (!activeQuestionId) return
+    const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
+    const next = allQuestions[idx + delta]
+    if (!next) return
+
+    const nextPartIndex = exam.parts.findIndex(part =>
+      getPartQuestions(part).some(q => q.id === next.id),
+    )
+    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
+      setPartIndex(nextPartIndex)
+    }
+    setActiveQuestionId(next.id)
+  }, [activeQuestionId, allQuestions, exam.parts, partIndex])
 
   useEffect(() => {
-    window.requestAnimationFrame(() => resetListeningSplitPanes(bodyRef.current))
-  }, [questionIndex])
+    if (!isPartLayout) {
+      window.requestAnimationFrame(() => resetListeningSplitPanes(bodyRef.current))
+    }
+  }, [activeQuestionId, isPartLayout])
+
+  const handleRetry = useCallback(() => {
+    clearListeningDraft(exam.id)
+    clearAllHighlights()
+    stopPlayback()
+    resetPlayCounts()
+    setAnswers({})
+    setUnsure({})
+    setTimeLeft(initialExamTimerSeconds(KET_LISTENING_DURATION_MINUTES))
+    setPartIndex(0)
+    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setSubmitted(false)
+    if (fullMockId) {
+      patchFullMockSession({ stage: 'listening', listening: undefined })
+    }
+  }, [clearAllHighlights, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
 
   if (submitted) {
     const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
     if (fullMock) {
-      const correct = questions.filter(q => isListeningAnswerCorrect(q, answers[q.id] ?? '')).length
+      const correct = allQuestions.filter(q => isListeningAnswerCorrect(q, answers[q.id] ?? '')).length
       return (
         <FullMockStageResult
           mockTitle={fullMock.title}
           stage="listening"
           stageLabel="Listening"
-          scoreText={`${correct}/${questions.length}`}
+          scoreText={`${correct}/${allQuestions.length}`}
           nextLabel="Tiếp Writing"
           onContinue={() => {
             patchFullMockSession({
               stage: 'writing',
               listening: {
                 correct,
-                total: questions.length,
+                total: allQuestions.length,
                 answers: { ...answers },
                 unsure: { ...unsure },
               },
@@ -173,6 +266,8 @@ export default function ListeningKetTest({ exam }: Props) {
             clearFullMockSession()
             navigate('/app/exam')
           }}
+          onRetry={handleRetry}
+          retryLabel="Làm lại Listening"
         />
       )
     }
@@ -182,33 +277,20 @@ export default function ListeningKetTest({ exam }: Props) {
         exam={exam}
         answers={answers}
         unsure={unsure}
-        onRetry={() => {
-          window.localStorage.removeItem(storageKey)
-          setAnswers({})
-          setUnsure({})
-          setTimeLeft(exam.durationMinutes * 60)
-          setQuestionIndex(0)
-          setSubmitted(false)
-        }}
-        onBack={() => navigate('/app/exam')}
+        onRetry={handleRetry}
+        onBack={() => navigate(listeningExamBackPath(exam))}
       />
     )
   }
 
-  const answeredCount = questions.filter(q => Boolean(answers[q.id])).length
+  const answeredCount = allQuestions.filter(q => Boolean(answers[q.id])).length
 
   return (
     <div className={`listening-exam-shell${isResizing ? ' is-resizing' : ''}`}>
       <header className="listening-exam-header">
-        <button type="button" className="listening-exam-header__back" onClick={() => navigate('/app/exam')}>
-          <ArrowLeft size={14} />
-          Quay lại
-        </button>
+        <ExamHeaderBack onClick={() => navigate(listeningExamBackPath(exam))} />
         <h1 className="listening-exam-header__title">{exam.title}</h1>
-        <div className="listening-exam-header__timer">
-          <Clock size={15} />
-          {formatTimer(timeLeft)}
-        </div>
+        <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
       </header>
 
       <div
@@ -216,29 +298,17 @@ export default function ListeningKetTest({ exam }: Props) {
         className="listening-exam-body"
         style={{ '--le-split-pct': `${splitPct}%` } as CSSProperties}
       >
-        {currentQuestion && (
-          <>
-            <ListeningQuestionPromptPanel
-              question={currentQuestion}
-              partInstruction={currentPart?.instruction}
-              partLabel={currentPart ? `Part ${currentPart.partNumber} · ${currentPart.rangeLabel}` : undefined}
-              audioBar={{
-                source: audioSource,
-                playing,
-                buffering,
-                progressPct,
-                timeLabel,
-                hasAudioFile,
-                allowSeek: exam.examMode === 'practice',
-                allowSlow: exam.examMode === 'practice',
-                playsLeft: left,
-                playBlocked: blocked,
-                onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
-                onPlaySlow: () => void play(audioSource, makePlayOpts(0.75)),
-                onSeek: pct => seekToPct(pct, exam.examMode === 'practice'),
-                onStop: stopPlayback,
-              }}
-            />
+        {currentPart && (
+          <ReadingHighlightToolbar
+            rootRef={bodyRef}
+            highlights={highlights}
+            onHighlightsChange={handleHighlightsChange}
+            resetKey={currentPart.id}
+          />
+        )}
+        <ExamHighlightProvider highlights={highlights}>
+        {currentPart && (isPartLayout || currentQuestion) && (() => {
+          const resizer = (
             <ListeningSplitResizer
               bodyRef={bodyRef}
               isResizing={isResizing}
@@ -246,49 +316,96 @@ export default function ListeningKetTest({ exam }: Props) {
               onPointerMove={onResizerPointerMove}
               onPointerUp={onResizerPointerUp}
             />
-            <ListeningQuestionAnswerPanel
-              question={currentQuestion}
-              answer={answers[currentQuestion.id] ?? ''}
-              unsure={Boolean(unsure[currentQuestion.id])}
-              onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
-              onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
-            />
-          </>
-        )}
+          )
+          const audioBarProps = {
+            source: audioSource,
+            playing,
+            buffering,
+            progressPct,
+            timeLabel,
+            hasAudioFile,
+            allowSeek: exam.examMode === 'practice',
+            allowSlow: exam.examMode === 'practice',
+            playsLeft: left,
+            playBlocked: blocked,
+            playError,
+            onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
+            onPlaySlow: () => void play(audioSource, makePlayOpts(0.75)),
+            onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
+            onStop: stopPlayback,
+          }
+
+          if (isGroupedGapFill) {
+            return (
+              <ListeningKetGapFillPartView
+                part={currentPart}
+                questions={partQuestions}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                audioBar={audioBarProps}
+                resizer={resizer}
+                onAnswer={(questionId, value) => setAnswers(prev => ({ ...prev, [questionId]: value }))}
+                onSelectQuestion={handleSelectQuestion}
+              />
+            )
+          }
+
+          if (isDragMatching) {
+            return (
+              <ListeningKetMatchingPartView
+                part={currentPart}
+                questions={partQuestions}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                audioBar={audioBarProps}
+                resizer={resizer}
+                onAnswer={(questionId, value) => setAnswers(prev => ({ ...prev, [questionId]: value }))}
+                onSelectQuestion={handleSelectQuestion}
+              />
+            )
+          }
+
+          if (!currentQuestion) return null
+
+          return (
+            <>
+              <ListeningQuestionPromptPanel
+                question={currentQuestion}
+                partInstruction={currentPart.instruction}
+                partLabel={`Part ${currentPart.partNumber} · ${currentPart.rangeLabel}`}
+                audioBar={audioBarProps}
+              />
+              {resizer}
+              <ListeningQuestionAnswerPanel
+                question={currentQuestion}
+                answer={answers[currentQuestion.id] ?? ''}
+                unsure={Boolean(unsure[currentQuestion.id])}
+                onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
+                onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
+              />
+            </>
+          )
+        })()}
+        </ExamHighlightProvider>
       </div>
 
-      <div className="listening-exam-card-actions listening-exam-card-actions--split">
-        <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => setConfirmSubmit(true)}>
-          Submit
-        </button>
-        <button
-          type="button"
-          className="listening-exam-btn listening-exam-btn--next"
-          disabled={questionIndex >= totalQuestions - 1}
-          onClick={() => goToQuestion(questionIndex + 1)}
-        >
-          Next
-          <ChevronRight size={16} />
-        </button>
-      </div>
-
-      <footer className="listening-exam-footer">
-        <div className="listening-exam-footer__dots">
-          {questions.map((q, index) => (
-            <button
-              key={q.id}
-              type="button"
-              className={`listening-exam-footer__dot${index === questionIndex ? ' is-current' : ''}${answers[q.id] ? ' is-answered' : ''}`}
-              aria-label={`Câu ${q.number}`}
-              onClick={() => goToQuestion(index)}
-            />
-          ))}
-        </div>
-        <p className="listening-exam-footer__count">
-          {questionIndex + 1} / {totalQuestions} câu
-          {answeredCount > 0 && ` · Đã trả lời ${answeredCount}`}
-        </p>
-      </footer>
+      <ExamPartFooter
+        parts={exam.parts}
+        getPartQuestions={index => {
+          const part = exam.parts[index]
+          return part ? getPartQuestions(part) : []
+        }}
+        partIndex={partIndex}
+        activeQuestionId={activeQuestionId}
+        answers={answers}
+        allQuestions={allQuestions}
+        answeredInPart={answeredInPart}
+        onGoToPart={goToPart}
+        onSelectQuestion={handleSelectQuestion}
+        onAdjacentQuestion={goAdjacentQuestion}
+        onSubmit={() => setConfirmSubmit(true)}
+        submitLabel="Submit"
+      />
 
       {confirmSubmit && (
         <div
@@ -303,7 +420,7 @@ export default function ListeningKetTest({ exam }: Props) {
           >
             <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>Nộp bài Listening?</h3>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-              Bạn đã trả lời {answeredCount}/{totalQuestions} câu.
+              Bạn đã trả lời {answeredCount}/{allQuestions.length} câu.
             </p>
             <div className="mt-4 flex justify-end gap-2">
               <button type="button" className="listening-exam-btn listening-exam-btn--ghost" onClick={() => setConfirmSubmit(false)}>

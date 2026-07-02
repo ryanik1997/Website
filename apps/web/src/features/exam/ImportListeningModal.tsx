@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { X, Upload, Loader2, FileJson, AlertCircle, Check, Headphones, Download, Archive } from 'lucide-react'
 import { listeningExamRepo } from '@ryan/db'
@@ -11,7 +11,9 @@ import {
   LISTENING_IMPORT_MAX_MEDIA_BYTES,
   listeningImportTemplate,
   parseListeningImportJson,
+  checkListeningImportMedia,
   validateListeningImport,
+  validateListeningImportMedia,
   type ListeningImportPayload,
 } from './importListeningUtils'
 import { extractListeningZip } from './importListeningZip'
@@ -57,7 +59,10 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
       setJsonFile(file)
       setSourceLabel(file.name)
       setPayload(parsed)
-      setWarnings(validateListeningImport(parsed))
+      setWarnings([
+        ...validateListeningImport(parsed),
+        ...validateListeningImportMedia(parsed, mediaFiles),
+      ])
       setStep('preview')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không đọc được JSON.')
@@ -87,7 +92,10 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
       setSourceLabel(bundle.zipName)
       setPayload(bundle.payload)
       setMediaFiles(bundle.mediaFiles)
-      setWarnings(validateListeningImport(bundle.payload))
+      setWarnings([
+        ...validateListeningImport(bundle.payload),
+        ...validateListeningImportMedia(bundle.payload, bundle.mediaFiles),
+      ])
       setStep('preview')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không giải nén được ZIP.')
@@ -123,7 +131,17 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     URL.revokeObjectURL(url)
   }
 
+  useEffect(() => {
+    if (!payload || step !== 'preview') return
+    setWarnings([
+      ...validateListeningImport(payload),
+      ...validateListeningImportMedia(payload, mediaFiles),
+    ])
+  }, [mediaFiles, payload, step])
+
   const qCount = payload ? countListeningImportQuestions(payload) : 0
+  const mediaChecks = payload ? checkListeningImportMedia(payload, mediaFiles) : []
+  const missingRequiredMedia = mediaChecks.filter(m => m.required && !m.found)
 
   return (
     <div
@@ -162,8 +180,9 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                 <ol className="list-decimal list-inside space-y-1.5 leading-relaxed">
                   <li>Bấm <strong>Tải JSON mẫu</strong> → điền parts, câu hỏi, đáp án.</li>
                   <li>Thêm file âm thanh: <code>q1.mp3</code>, <code>part1.mp3</code>… (hoặc <code>ttsText</code> nếu không có MP3).</li>
-                  <li>Ảnh đáp án (KET picture MC): <code>q1-a.jpg</code>, <code>q1-b.jpg</code>…</li>
-                  <li>ZIP: <code>exam.json</code> + MP3/ảnh, hoặc upload từng loại file.</li>
+                  <li>Ảnh Part 1: <code>q1.jpg</code> … <code>q5.jpg</code> (mỗi câu 1 ảnh chứa A+B+C).</li>
+                  <li>Audio: <code>listening.mp3</code> (một file cho cả bài).</li>
+                  <li><strong>ZIP</strong> gồm tất cả file cùng cấp — chỉ đặt file vào <code>Tainguyen/</code> chưa tự import.</li>
                   <li>Preview → <strong>Lưu & làm bài</strong>.</li>
                 </ol>
               </div>
@@ -188,7 +207,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                   Chọn file ZIP bundle
                 </p>
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                  exam.json + q1.mp3 + q1-a.jpg …
+                  exam.json + listening.mp3 + q1.jpg …
                 </p>
                 <input
                   ref={zipInputRef}
@@ -271,6 +290,26 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                 </p>
               </div>
 
+              {mediaChecks.length > 0 && (
+                <div
+                  className="rounded-xl border p-3 text-xs space-y-1"
+                  style={{ borderColor: 'var(--border-color)' }}
+                >
+                  <p className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
+                    File media trong bundle
+                  </p>
+                  {mediaChecks.map(item => (
+                    <p
+                      key={item.label}
+                      style={{ color: item.found ? 'var(--color-primary)' : 'var(--color-accent)' }}
+                    >
+                      {item.found ? '✓' : '✗'} {item.label}
+                      {item.required && !item.found ? ' (bắt buộc)' : ''}
+                    </p>
+                  ))}
+                </div>
+              )}
+
               {warnings.length > 0 && (
                 <div
                   className="rounded-xl border p-3 text-xs space-y-1"
@@ -299,6 +338,16 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                   </div>
                 ))}
               </div>
+
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 self-start rounded-lg border px-3 py-2 text-xs font-semibold"
+                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                onClick={() => mediaInputRef.current?.click()}
+              >
+                <Upload size={14} />
+                Thêm MP3 / ảnh ({mediaFiles.length} file)
+              </button>
 
               {error && (
                 <p className="text-sm" style={{ color: 'var(--color-accent)' }}>{error}</p>
@@ -340,7 +389,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
             {step === 'preview' && (
               <button
                 type="button"
-                disabled={saving || qCount === 0}
+                disabled={saving || qCount === 0 || missingRequiredMedia.length > 0}
                 className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold"
                 style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
                 onClick={() => void handleSave()}

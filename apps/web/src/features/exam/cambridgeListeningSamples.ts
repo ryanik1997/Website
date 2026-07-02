@@ -4,9 +4,12 @@ import {
 } from './cambridgeExamFormats'
 import {
   countListeningQuestions,
+  listeningGap,
+  listeningMc,
   listeningPartFromGaps,
   listeningPartFromMc,
 } from './cambridgeSampleBuilders'
+import { PET_LISTENING_DURATION_MINUTES } from './listeningPetPartLayout'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 
 type McTuple = [string, [string, string, string], 'A' | 'B' | 'C', string]
@@ -53,7 +56,7 @@ function buildA2Listening(): ListeningExam {
   return {
     id: examId,
     title: 'A2 KET Sample Test — Listening',
-    durationMinutes: 30,
+    durationMinutes: 25,
     bandHint: cambridgeListeningBandHint('a2', countListeningQuestions(parts)),
     examType: 'ket',
     examMode: 'practice',
@@ -64,44 +67,75 @@ function buildA2Listening(): ListeningExam {
 function buildPetListening(): ListeningExam {
   const examId = 'pet-listening-sample-01'
   const parts: ListeningPart[] = [
-    listeningPartFromMc(examId, 'pet', 1, 1, [
-      ['Why is the man calling?', ['To book a table', 'To change an appointment', 'To ask about prices'], 'B', 'He wants to move his dentist appointment.'],
-      ['What does the woman need to buy?', ['A birthday card', 'A train ticket', 'A phone case'], 'A', 'Her friend\'s birthday is tomorrow.'],
-      ['Where are the speakers going next?', ['The library', 'The sports centre', 'The café'], 'C', 'They decide to get a drink.'],
-      ['How does the boy feel about the concert?', ['Disappointed', 'Excited', 'Worried'], 'B', 'It was better than he expected.'],
-      ['What problem does the woman have?', ['She lost her keys', 'Her laptop won\'t start', 'She missed the bus'], 'B', 'Her laptop screen stays black.'],
-      ['What does the man recommend?', ['A documentary', 'A comedy show', 'A podcast'], 'A', 'He says the science documentary is excellent.'],
-    ], 'You will hear people talking in different situations. Choose A, B or C.', 'Part 1. Listen to six short extracts.'),
-    listeningPartFromMc(examId, 'pet', 2, 7, [
-      ['The main purpose of the event is to', ['raise money', 'celebrate an anniversary', 'launch a product'], 'A', 'All profits go to the local hospital.'],
-      ['Speakers should arrive by', ['8:15', '8:45', '9:15'], 'B', 'Registration closes at eight forty-five.'],
-      ['Lunch will be', ['included', 'optional', 'cancelled'], 'A', 'The ticket price covers lunch.'],
-      ['Parking is available at', ['the front entrance', 'the rear car park', 'the station'], 'B', 'Use the rear car park on Hill Road.'],
-      ['The best contact method is', ['email', 'text message', 'phone call'], 'C', 'Call the office if you are delayed.'],
-      ['Participants must bring', ['their own laptop', 'photo ID', 'sports equipment'], 'B', 'Security checks photo ID at the door.'],
-    ], 'Choose the correct answer A, B or C.', 'Part 2. You will hear a coordinator explaining an event.'),
-    listeningPartFromGaps(examId, 'pet', 3, 13, [
-      ['Course level:', 'intermediate', 'She wants the intermediate class.'],
-      ['Day of lessons:', 'tuesday', 'Classes are on Tuesday evenings.'],
-      ['Course length:', 'ten weeks', 'The course runs for ten weeks.'],
-      ['Teacher\'s name:', 'sandra mills', 'Sandra Mills teaches the evening group.'],
-      ['Price per month:', '95', 'Monthly fee is ninety-five pounds.'],
-      ['Registration deadline:', 'friday', 'Sign up by Friday at the desk.'],
-    ], 'Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER.', 'Part 3. You will hear a woman leaving a message about a language course.'),
-    listeningPartFromMc(examId, 'pet', 4, 19, [
-      ['The speaker\'s first job was', ['in a bookshop', 'on a farm', 'at a hotel'], 'C', 'She washed dishes at a seaside hotel.'],
-      ['She decided to study', ['biology', 'journalism', 'engineering'], 'B', 'A travel article inspired her to study journalism.'],
-      ['Her biggest challenge was', ['learning shorthand', 'working night shifts', 'moving abroad'], 'A', 'Shorthand classes were demanding.'],
-      ['She advises young people to', ['avoid unpaid work', 'try different experiences', 'focus on one skill'], 'B', 'Trying different jobs builds confidence.'],
-      ['Her next project is', ['a radio series', 'a photography book', 'a charity website'], 'A', 'She is recording a radio series about coastal towns.'],
-      ['The talk is mainly about', ['how careers develop', 'how to write fiction', 'how to learn languages'], 'A', 'She describes how her career developed over time.'],
-      ['The audience is mostly', ['university students', 'retired teachers', 'primary pupils'], 'A', 'The talk is for university students.'],
-    ], 'Choose the correct answer A, B or C.', 'Part 4. You will hear a journalist giving a talk.'),
+    {
+      id: `${examId}-part-1`,
+      partNumber: 1,
+      rangeLabel: 'Questions 1–7',
+      instruction: 'For each question, choose the correct answer.',
+      ttsText: 'Part 1. For each question, choose the correct answer.',
+      questions: [
+        listeningMc('pet', 1, 1, 'What is the man doing?', ['Waiting for a bus', 'Buying a ticket', 'Reading a map'], 'B', 'He is at the ticket office.', 'picture-mc'),
+        listeningMc('pet', 1, 2, 'Where are the speakers?', ['In a café', 'At school', 'In a shop'], 'A', 'They are discussing drinks in a café.', 'picture-mc'),
+        listeningMc('pet', 1, 3, 'What does the woman need?', ['A pen', 'Her phone', 'An umbrella'], 'C', 'It has started to rain.', 'picture-mc'),
+        listeningMc('pet', 1, 4, 'How will they travel?', ['By car', 'By train', 'On foot'], 'B', 'The train leaves in ten minutes.', 'picture-mc'),
+        listeningMc('pet', 1, 5, 'What time is it?', ['Half past two', 'Quarter to three', 'Three o\'clock'], 'A', 'The clock shows two thirty.', 'picture-mc'),
+        listeningMc('pet', 1, 6, 'What is the boy holding?', ['A ball', 'A book', 'A bag'], 'C', 'He is carrying his sports bag.', 'picture-mc'),
+        listeningMc('pet', 1, 7, 'Where should the girl go next?', ['To the library', 'To the sports hall', 'To the office'], 'B', 'Her coach is waiting in the sports hall.', 'picture-mc'),
+      ],
+    },
+    {
+      id: `${examId}-part-2`,
+      partNumber: 2,
+      rangeLabel: 'Questions 8–13',
+      instruction: 'For each question, choose the correct answer.',
+      ttsText: 'Part 2. For each question, choose the correct answer.',
+      questions: [
+        listeningMc('pet', 2, 8, 'What does the girl say about it?', ['The staff are helpful.', 'It only has the latest fashions.', 'Prices are reduced at the moment.'], 'A', 'She says the assistants were friendly.', 'multiple-choice', { context: 'You will hear two friends talking about a new clothes shop.' }),
+        listeningMc('pet', 2, 9, 'They think the site would be better if', ['its information was up to date.', 'it was easier to buy concert tickets.', 'the band members answered messages.'], 'A', 'Some tour dates on the site are wrong.', 'multiple-choice', { context: 'You will hear two friends talking about a pop band\'s website.' }),
+        listeningMc('pet', 2, 10, 'How does she feel about it?', ['upset that the prize isn\'t valuable', 'excited that the judges liked her picture', 'disappointed that she can\'t use the prize'], 'B', 'She is thrilled the judges chose her work.', 'multiple-choice', { context: 'You will hear a woman telling a friend about an art competition she\'s won.' }),
+        listeningMc('pet', 2, 11, 'The girl thinks that her flatmate', ['is too untidy.', 'talks too much.', 'plays music too loud.'], 'C', 'She cannot study because of the noise.', 'multiple-choice', { context: 'You will hear two friends talking about the girl\'s flatmate.' }),
+        listeningMc('pet', 2, 12, 'What does the man decide to do?', ['leave work early', 'take a different route', 'call a taxi'], 'B', 'Roadworks mean his usual road is closed.', 'multiple-choice', { context: 'You will hear a man telling a colleague about his journey to work.' }),
+        listeningMc('pet', 2, 13, 'What do they agree about?', ['the topic is too difficult', 'they need more time', 'the teacher will help them'], 'B', 'They both think the deadline is too soon.', 'multiple-choice', { context: 'You will hear two students discussing a homework project.' }),
+      ],
+    },
+    {
+      id: `${examId}-part-3`,
+      partNumber: 3,
+      rangeLabel: 'Questions 14–19',
+      instruction: 'For each question, write the correct answer in the gap. Write one or two words or a number or a date or a time.',
+      audioIntro: 'You will hear a radio presenter called Anita talking about her holiday in Cuba.',
+      passageTitle: 'ANITA\'S HOLIDAY IN CUBA:',
+      ttsText: 'Part 3. You will hear Anita talking about her holiday in Cuba.',
+      questions: [
+        listeningGap('pet', 3, 14, 'National Gardens attraction', 'fountain', 'The fountain attracted crowds in the gardens.', 2, { gapLead: 'In the National Gardens, the', gapTrail: 'was the thing that attracted most people.' }),
+        listeningGap('pet', 3, 15, 'Swimming trip safety', 'sharks', 'Electronic armbands kept sharks away.', 2, { gapLead: 'On the swimming trip, electronic armbands kept the', gapTrail: 'away.' }),
+        listeningGap('pet', 3, 16, 'Countryside accident', 'horse', 'She nearly fell off a horse in the countryside.', 2, { gapLead: 'On the day in the countryside, Anita almost fell off a', gapTrail: '.' }),
+        listeningGap('pet', 3, 17, 'Capital city theatre', 'play', 'She saw a play in a theatre in the capital.', 2, { gapLead: 'In the capital city, Anita saw a', gapTrail: 'in a theatre.' }),
+        listeningGap('pet', 3, 18, 'Farm product', 'sugar', 'The farm produced sugar.', 2, { gapLead: 'Anita enjoyed visiting a farm where', gapTrail: 'is produced.' }),
+        listeningGap('pet', 3, 19, 'Gifts', 'jewellery', 'She bought jewellery as gifts.', 2, { gapLead: 'Anita bought some', gapTrail: 'as gifts.' }),
+      ],
+    },
+    {
+      id: `${examId}-part-4`,
+      partNumber: 4,
+      rangeLabel: 'Questions 20–25',
+      instruction: 'For each question, choose the correct answer.',
+      audioIntro: 'You will hear an interview with a woman called Vicky Prince, a champion swimmer who now works as a swimming coach.',
+      ttsText: 'Part 4. You will hear an interview with Vicky Prince.',
+      questions: [
+        listeningMc('pet', 4, 20, 'Vicky first went in for competitions because', ['she had joined a swimming club.', 'her parents were keen on swimming.', 'her swimming teacher encouraged her.'], 'C', 'Her teacher suggested she should enter races.', 'multiple-choice'),
+        listeningMc('pet', 4, 21, 'As a teenager, Vicky\'s training involved', ['exercising on land as well as in the water.', 'going without meals during the day.', 'travelling to a pool once a day.'], 'A', 'She did gym work as well as pool sessions.', 'multiple-choice'),
+        listeningMc('pet', 4, 22, 'What did Vicky find hard about her training programme?', ['She couldn\'t go on school trips.', 'She lost some of her friends.', 'She missed lots of parties.'], 'C', 'She had to miss parties because of early training.', 'multiple-choice'),
+        listeningMc('pet', 4, 23, 'What helped Vicky to do well in the national finals?', ['She was not expected to win.', 'She trained harder than usual.', 'She wanted to take a cup home.'], 'B', 'She put in extra hours before the finals.', 'multiple-choice'),
+        listeningMc('pet', 4, 24, 'As a swimming coach, Vicky thinks she\'s best at teaching people', ['to deal with failure.', 'to improve their technique.', 'to get swimming qualifications.'], 'A', 'She helps swimmers learn from mistakes.', 'multiple-choice'),
+        listeningMc('pet', 4, 25, 'Why has Vicky started doing long-distance swimming?', ['She needed to get fit again.', 'She thought it would be fun.', 'She wanted to do some travelling.'], 'C', 'She can combine swimming with visiting new places.', 'multiple-choice'),
+      ],
+    },
   ]
   return {
     id: examId,
     title: 'B1 PET Sample Test — Listening',
-    durationMinutes: 30,
+    durationMinutes: PET_LISTENING_DURATION_MINUTES,
     bandHint: cambridgeListeningBandHint('b1', countListeningQuestions(parts)),
     examType: 'pet',
     examMode: 'practice',

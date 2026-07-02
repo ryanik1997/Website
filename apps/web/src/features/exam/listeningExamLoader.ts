@@ -2,6 +2,7 @@ import type { ListeningExamRecord } from '@ryan/db'
 import { listeningExamRepo } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import { getListeningExam, LISTENING_EXAMS } from './listeningExamData'
+import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
 
 function recordToExam(record: ListeningExamRecord): ListeningExam {
   return {
@@ -21,8 +22,14 @@ export function getBuiltinListeningExam(examId: string): ListeningExam | null {
 
 export async function resolveListeningExam(examId: string): Promise<ListeningExam | null> {
   const local = await listeningExamRepo.get(examId)
-  if (local) return recordToExam(local)
-  return getBuiltinListeningExam(examId)
+  if (local) {
+    let exam = recordToExam(local)
+    exam = mergeCatalogListeningMedia(exam)
+    return exam
+  }
+  const builtin = getBuiltinListeningExam(examId)
+  if (!builtin) return null
+  return mergeCatalogListeningMedia(builtin)
 }
 
 export async function listAllListeningExams(): Promise<ListeningExam[]> {

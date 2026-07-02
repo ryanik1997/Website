@@ -30,11 +30,11 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     },
     listening: {
       label: 'Listening',
-      durationMinutes: 30,
+      durationMinutes: 25,
       parts: 5,
       questions: 25,
       weightPercent: 25,
-      note: 'Thêm 6 phút chuyển đáp án sau khi nghe.',
+      note: '25 phút làm bài (gồm thời gian nghe + điền đáp án).',
     },
   },
   {

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { audioRepo } from '@ryan/db'
+import { resolveExamMediaUrl } from './examMediaUrl'
 import { formatAudioTime } from '../listening/practiceUtils'
 import { mapRateToSpeed, speak, stop as stopTts } from '../listening/tts'
 
@@ -23,6 +24,7 @@ export function useExamQuestionAudio() {
   const [progressPct, setProgressPct] = useState(0)
   const [timeLabel, setTimeLabel] = useState('0:00 / 0:00')
   const [speed, setSpeed] = useState(1)
+  const [playError, setPlayError] = useState<string | null>(null)
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const objectUrlRef = useRef<string | null>(null)
@@ -77,23 +79,31 @@ export function useExamQuestionAudio() {
     setProgressPct(0)
     setTimeLabel('0:00 / 0:00')
 
-    const audio = new Audio(src)
+    const audio = new Audio()
+    audio.preload = 'auto'
     audio.playbackRate = rate
     audioRef.current = audio
 
     await new Promise<void>((resolve, reject) => {
-      const onReady = () => {
+      const cleanupListeners = () => {
         audio.removeEventListener('loadedmetadata', onReady)
+        audio.removeEventListener('canplay', onReady)
         audio.removeEventListener('error', onError)
+      }
+      const onReady = () => {
+        cleanupListeners()
         resolve()
       }
       const onError = () => {
-        audio.removeEventListener('loadedmetadata', onReady)
-        audio.removeEventListener('error', onError)
-        reject(new Error('Không tải được audio'))
+        cleanupListeners()
+        const code = audio.error?.code
+        reject(new Error(`Không tải được audio (${src}${code != null ? `, code ${code}` : ''})`))
       }
       audio.addEventListener('loadedmetadata', onReady)
+      audio.addEventListener('canplay', onReady)
       audio.addEventListener('error', onError)
+      audio.src = src
+      audio.load()
     })
 
     setBuffering(false)
@@ -146,22 +156,33 @@ export function useExamQuestionAudio() {
     const rate = options.rate ?? speed
     if (options.beforePlay && !options.beforePlay()) return
 
+    setPlayError(null)
+
+    const staticUrl = resolveExamMediaUrl(source.audioUrl)
+    const htmlSources: string[] = []
+
+    if (source.audioKey) {
+      const record = await audioRepo.get(source.audioKey)
+      if (record?.blob && record.blob.size > 0) {
+        const blobUrl = URL.createObjectURL(record.blob)
+        objectUrlRef.current = blobUrl
+        htmlSources.push(blobUrl)
+      }
+    }
+    if (staticUrl && !htmlSources.includes(staticUrl)) {
+      htmlSources.push(staticUrl)
+    }
+
     try {
-      if (source.audioKey) {
-        const record = await audioRepo.get(source.audioKey)
-        if (record?.blob) {
-          const url = URL.createObjectURL(record.blob)
-          objectUrlRef.current = url
-          await playHtmlAudio(url, rate)
+      for (const src of htmlSources) {
+        try {
+          await playHtmlAudio(src, rate)
           options.onPlayCounted?.()
           return
+        } catch (attemptError) {
+          console.warn('Exam audio source failed, trying next', src, attemptError)
+          cleanupAudio()
         }
-      }
-
-      if (source.audioUrl) {
-        await playHtmlAudio(source.audioUrl, rate)
-        options.onPlayCounted?.()
-        return
       }
 
       const ttsText = source.ttsText?.trim()
@@ -171,7 +192,16 @@ export function useExamQuestionAudio() {
         return
       }
 
-      setTimeLabel('— / —')
+      if (htmlSources.length === 0) {
+        setTimeLabel('— / —')
+        setPlayError('Không tìm thấy file audio. Kiểm tra MP3 trong ZIP import hoặc dùng đề builtin.')
+        return
+      }
+
+      cleanupAudio()
+      setPlaying(false)
+      setBuffering(false)
+      setPlayError('Không phát được audio. Thử import lại ZIP kèm MP3 hoặc dùng đề builtin catalog.')
     } catch (error) {
       console.warn('Exam audio playback failed', error)
       const ttsText = source.ttsText?.trim()
@@ -182,6 +212,7 @@ export function useExamQuestionAudio() {
         cleanupAudio()
         setPlaying(false)
         setBuffering(false)
+        setPlayError('Không phát được audio. Thử import lại ZIP kèm MP3 hoặc dùng đề builtin catalog.')
       }
     }
   }, [cleanupAudio, playHtmlAudio, playTtsFallback, speed])
@@ -218,6 +249,7 @@ export function useExamQuestionAudio() {
     progressPct,
     timeLabel,
     speed,
+    playError,
     toggleSpeed,
     play,
     seekToPct,

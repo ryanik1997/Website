@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Clock } from 'lucide-react'
+import { Clock } from 'lucide-react'
+import ExamHeaderBack from './ExamHeaderBack'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { getFullMockTest } from './fullMockData'
 import {
@@ -72,11 +73,15 @@ export default function WritingMockTest() {
     navigate(`/app/exam/full/${mock.id}/summary`)
   }, [mock, navigate, texts])
 
-  useEffect(() => {
-    if (submitted && mock && fullMockId) {
-      finishFullMock()
+  const handleRetry = useCallback(() => {
+    setTexts({})
+    setTaskIndex(0)
+    setSubmitted(false)
+    const first = tasks[0]
+    if (first) {
+      setTimeLeft(first.durationMinutes * 60)
     }
-  }, [submitted, mock, fullMockId, finishFullMock])
+  }, [tasks])
 
   if (!mock || !fullMockId) {
     return (
@@ -113,22 +118,90 @@ export default function WritingMockTest() {
     setSubmitted(true)
   }
 
+  if (submitted) {
+    const task1 = texts.task1 ?? ''
+    const task2 = texts.task2 ?? ''
+    const totalWords = countWords(task1) + countWords(task2)
+
+    return (
+      <div className="listening-exam-shell">
+        <div className="flex h-full min-h-0 flex-col overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
+          <div className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-8">
+            <div
+              className="rounded-[28px] border p-6"
+              style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: 'var(--color-primary)' }}>
+                Full Mock Test
+              </p>
+              <h1 className="mt-2 text-2xl font-black" style={{ color: 'var(--text-primary)' }}>
+                {mock.title} — Writing
+              </h1>
+              <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+                Đã hoàn thành Writing. Xem tổng kết hoặc làm lại phần Writing.
+              </p>
+              <div
+                className="mt-5 rounded-2xl border px-4 py-3"
+                style={{
+                  borderColor: 'color-mix(in srgb, var(--color-primary) 28%, var(--border-color))',
+                  background: 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-card))',
+                }}
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: 'var(--text-muted)' }}>
+                  Tổng số từ
+                </p>
+                <p className="text-xl font-black" style={{ color: 'var(--text-primary)' }}>{totalWords} từ</p>
+                <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
+                  Task 1: {countWords(task1)} · Task 2: {countWords(task2)}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
+              <button
+                type="button"
+                className="listening-exam-btn listening-exam-btn--ghost"
+                onClick={() => {
+                  if (confirm('Thoát Writing? Tiến độ Full Test sẽ mất.')) {
+                    clearFullMockSession()
+                    navigate('/app/exam')
+                  }
+                }}
+              >
+                Thoát Full Test
+              </button>
+              <button
+                type="button"
+                className="listening-exam-btn listening-exam-btn--ghost"
+                onClick={handleRetry}
+              >
+                Làm lại Writing
+              </button>
+              <button
+                type="button"
+                className="listening-exam-btn listening-exam-btn--primary"
+                onClick={finishFullMock}
+              >
+                Xem tổng kết Full Test
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="listening-exam-shell">
       <header className="listening-exam-header">
-        <button
-          type="button"
-          className="listening-exam-header__back"
+        <ExamHeaderBack
           onClick={() => {
-            if (confirm('Thoát Writing? Tiến độ Full Test sẽ mất.')) {
+            if (confirm('Quay lại? Tiến độ Writing trong Full Test sẽ mất.')) {
               clearFullMockSession()
-              navigate('/app/exam')
+              navigate('/app/exam/track/ielts')
             }
           }}
-        >
-          <ArrowLeft size={14} />
-          Thoát
-        </button>
+        />
         <h1 className="listening-exam-header__title">{mock.title} — Writing</h1>
         <div className="listening-exam-header__timer">
           <Clock size={15} />

@@ -5,6 +5,7 @@
  *
  * Run: node scripts/build-catalog.mjs
  */
+import { existsSync } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -46,6 +47,14 @@ const BUNDLES = [
     examId: 'catalog-listening-ket-a2-test1',
     sourceDir: 'ket-listening-test1',
     examType: 'ket',
+    examMode: 'practice',
+  },
+  {
+    kind: 'listening',
+    slug: 'pet-b1-test1',
+    examId: 'catalog-listening-pet-b1-test1',
+    sourceDir: 'pet-listening-test1',
+    examType: 'pet',
     examMode: 'practice',
   },
 ]
@@ -131,7 +140,7 @@ function transformReading(payload, bundle) {
   }
 }
 
-function transformListening(payload, bundle) {
+function transformListening(payload, bundle, sourceDir) {
   const { examId, slug, examType, examMode } = bundle
   const sharedAudio = new Map()
 
@@ -158,15 +167,32 @@ function transformListening(payload, bundle) {
         audioUrl = sharedAudio.get(key)
       }
 
+      let pictureImageUrl
+      if (qJson.type === 'picture-mc') {
+        const boardCandidates = [
+          qJson.imageFile,
+          `q${qJson.number}.jpg`,
+          `q${qJson.number}.jpeg`,
+          `q${qJson.number}.png`,
+          `part1-q${qJson.number}.jpg`,
+        ].filter(Boolean)
+        for (const name of boardCandidates) {
+          if (existsSync(path.join(sourceDir, name))) {
+            pictureImageUrl = mediaUrl('listening', slug, name)
+            break
+          }
+        }
+      }
+
       const options = (qJson.options ?? []).map(opt => {
         const option = { id: opt.id, label: opt.label }
-        if (opt.imageFile) {
+        if (!pictureImageUrl && opt.imageFile) {
           option.imageUrl = mediaUrl('listening', slug, opt.imageFile)
         }
         return option
       })
 
-      return {
+      const question = {
         id: qId,
         number: qJson.number,
         type: qJson.type,
@@ -174,13 +200,18 @@ function transformListening(payload, bundle) {
         options,
         answer: qJson.answer,
         explanation: qJson.explanation ?? '',
+        pictureImageUrl,
         audioUrl,
         ttsText: qJson.ttsText,
         wordLimit: qJson.wordLimit,
       }
+      if (qJson.context) question.context = qJson.context
+      if (qJson.gapLead) question.gapLead = qJson.gapLead
+      if (qJson.gapTrail) question.gapTrail = qJson.gapTrail
+      return question
     })
 
-    return {
+    const part = {
       id: partId,
       partNumber: partJson.partNumber,
       rangeLabel: partJson.rangeLabel,
@@ -190,6 +221,9 @@ function transformListening(payload, bundle) {
       maxPlays: partJson.maxPlays,
       questions,
     }
+    if (partJson.passageTitle) part.passageTitle = partJson.passageTitle
+    if (partJson.audioIntro) part.audioIntro = partJson.audioIntro
+    return part
   })
 
   return {
@@ -245,7 +279,7 @@ async function main() {
       outName = `reading-${bundle.slug}.json`
       manifest.reading.push({ id: bundle.examId, slug: bundle.slug, title: processed.title })
     } else {
-      processed = transformListening(raw, bundle)
+      processed = transformListening(raw, bundle, sourceDir)
       outName = `listening-${bundle.slug}.json`
       manifest.listening.push({ id: bundle.examId, slug: bundle.slug, title: processed.title })
     }

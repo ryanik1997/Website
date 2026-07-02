@@ -297,7 +297,10 @@ Bắt đầu xử lý file đính kèm.
 
 Cách dùng
 
-Đính kèm cho Claude/ChatGPT:
+Đính kèm cho Claude/ChatGPT (Reading):
 1. HDSD/Prompt-PET-B1.txt
 2. PDF đề Reading + Answer Key
 3. Ảnh part1-q1.jpg … part1-q5.jpg
+
+Listening PET B1 (4 parts · 25 câu): dùng **HDSD/Prompt-PET-B1-Listening.txt**
+Bundle mẫu: `Tainguyen/pet-listening-test1.zip` — `pnpm pack:listening:pet`

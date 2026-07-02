@@ -1,0 +1,61 @@
+.exam-header-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.exam-header-back:hover {
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--text-muted) 40%, var(--border-color));
+  background: var(--bg-card);
+}
+
+.exam-timer-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.exam-timer-controls__display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--exam-timer-color, var(--color-primary));
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.exam-timer-controls__display.is-urgent {
+  color: var(--color-accent);
+}
+
+.exam-timer-controls__reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.exam-timer-controls__reset:hover {
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--text-muted) 40%, var(--border-color));
+}

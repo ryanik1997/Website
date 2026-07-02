@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, FileJson, Headphones, Loader2, Trash2 } from 'lucide-react'
+import { ArrowLeft, FileJson, Headphones, Loader2, RotateCcw, Trash2 } from 'lucide-react'
 import { examRepo, listeningExamRepo } from '@ryan/db'
 import {
   CAMBRIDGE_EXAM_LEVELS,
@@ -19,6 +19,13 @@ import type { ListeningExamType } from './listeningExamData'
 import type { ReadingExam } from './examData'
 import type { ListeningExam } from './listeningExamData'
 import { isImportedReadingExamId } from './importReadingManualUtils'
+import {
+  clearListeningDraft,
+  clearReadingDraft,
+  readListeningDraftCompletion,
+  readReadingDraftCompletion,
+} from './examCompletion'
+import { useExamDraftRevision } from './useExamDraftRevision'
 import './examHub.css'
 
 const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
@@ -46,6 +53,7 @@ export default function ExamTrackPage() {
 
   const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
   const listeningExams = useLiveQuery(() => listAllListeningExams(), []) ?? []
+  useExamDraftRevision()
 
   if (!track) {
     return (
@@ -194,16 +202,40 @@ export default function ExamTrackPage() {
               <div className="exam-track-list">
                 {readingList.map(exam => {
                   const qCount = exam.parts.reduce((s, p) => s + getPartQuestions(p).length, 0)
+                  const completion = readReadingDraftCompletion(exam)
                   return (
                     <div key={exam.id} className="exam-track-row">
                       <div>
-                        <p className="exam-track-row__title">{exam.title}</p>
-                        <p className="exam-track-row__meta">{exam.bandHint || `${exam.parts.length} part · ${qCount} câu`}</p>
+                        <div className="exam-track-row__title-line">
+                          <p className="exam-track-row__title">{exam.title}</p>
+                          {completion && (
+                            <span className="exam-track-row__done-badge">Đã làm</span>
+                          )}
+                        </div>
+                        <p className="exam-track-row__meta">
+                          {completion
+                            ? `Đúng ${completion.correct}/${completion.total} câu`
+                            : exam.bandHint || `${exam.parts.length} part · ${qCount} câu`}
+                        </p>
                       </div>
                       <div className="exam-track-row__actions">
                         <button type="button" className="exam-hub-cta" style={{ marginTop: 0 }} onClick={() => navigate(`/app/exam/reading/${exam.id}`)}>
-                          Làm bài
+                          {completion ? 'Xem kết quả' : 'Làm bài'}
                         </button>
+                        {completion && (
+                          <button
+                            type="button"
+                            className="exam-hub-cta exam-hub-cta--ghost"
+                            style={{ marginTop: 0 }}
+                            onClick={() => {
+                              clearReadingDraft(exam.id)
+                              navigate(`/app/exam/reading/${exam.id}`)
+                            }}
+                          >
+                            <RotateCcw size={14} />
+                            Làm lại
+                          </button>
+                        )}
                         {isImportedReadingExamId(exam.id) && (
                           <button type="button" className="exam-hub-cta exam-hub-cta--ghost" style={{ marginTop: 0, padding: '0.5rem' }} onClick={() => void deleteReading(exam)}>
                             <Trash2 size={16} />
@@ -235,18 +267,45 @@ export default function ExamTrackPage() {
               <div className="exam-track-list">
                 {listeningList.map(exam => {
                   const qCount = getListeningExamQuestions(exam).length
+                  const completion = readListeningDraftCompletion(exam)
+                  const sourceLabel = exam.id.startsWith('catalog-')
+                    ? 'Builtin · '
+                    : exam.id.startsWith('listening-import-')
+                      ? 'Import · '
+                      : ''
                   return (
                     <div key={exam.id} className="exam-track-row">
                       <div>
-                        <p className="exam-track-row__title">{exam.title}</p>
+                        <div className="exam-track-row__title-line">
+                          <p className="exam-track-row__title">{exam.title}</p>
+                          {completion && (
+                            <span className="exam-track-row__done-badge">Đã làm</span>
+                          )}
+                        </div>
                         <p className="exam-track-row__meta">
-                          {exam.bandHint || `${exam.examType.toUpperCase()} · ${qCount} câu · ${exam.examMode}`}
+                          {completion
+                            ? `Đúng ${completion.correct}/${completion.total} câu`
+                            : `${sourceLabel}${exam.bandHint || `${exam.examType.toUpperCase()} · ${qCount} câu · ${exam.examMode}`}`}
                         </p>
                       </div>
                       <div className="exam-track-row__actions">
                         <button type="button" className="exam-hub-cta" style={{ marginTop: 0 }} onClick={() => navigate(`/app/exam/listening/${exam.id}`)}>
-                          Làm bài
+                          {completion ? 'Xem kết quả' : 'Làm bài'}
                         </button>
+                        {completion && (
+                          <button
+                            type="button"
+                            className="exam-hub-cta exam-hub-cta--ghost"
+                            style={{ marginTop: 0 }}
+                            onClick={() => {
+                              clearListeningDraft(exam.id)
+                              navigate(`/app/exam/listening/${exam.id}`)
+                            }}
+                          >
+                            <RotateCcw size={14} />
+                            Làm lại
+                          </button>
+                        )}
                         {exam.id.startsWith('listening-import-') && (
                           <button type="button" className="exam-hub-cta exam-hub-cta--ghost" style={{ marginTop: 0, padding: '0.5rem' }} onClick={() => void deleteListening(exam)}>
                             <Trash2 size={16} />
