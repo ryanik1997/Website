@@ -5,18 +5,21 @@ import type { ReviewLog } from '@ryan/db'
 
 const CHECKIN_CARD_ID = '__checkin__'
 
-function todayKey(): string {
-  return new Date().toISOString().slice(0, 10)
+function dateKey(date = new Date()): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }
 
 function calcCheckInStreak(logs: ReviewLog[]): number {
   if (!logs.length) return 0
-  const days = new Set(logs.map(l => new Date(l.at).toISOString().slice(0, 10)))
+  const days = new Set(logs.map(l => dateKey(new Date(l.at))))
   let streak = 0
   const cursor = new Date()
   cursor.setHours(0, 0, 0, 0)
   for (let i = 0; i < 365; i++) {
-    const key = cursor.toISOString().slice(0, 10)
+    const key = dateKey(cursor)
     if (days.has(key)) {
       streak++
       cursor.setDate(cursor.getDate() - 1)
@@ -37,7 +40,7 @@ export function useCheckIn() {
   }, []) ?? []
 
   const checkedInToday = useMemo(
-    () => checkInLogs.some(l => new Date(l.at).toISOString().slice(0, 10) === todayKey()),
+    () => checkInLogs.some(l => dateKey(new Date(l.at)) === dateKey()),
     [checkInLogs],
   )
 

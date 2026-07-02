@@ -9,6 +9,8 @@
     "dev:web": "pnpm --filter web dev",
     "dev:web:open": "pnpm --filter web dev:open",
     "build:catalog": "node scripts/build-catalog.mjs",
+    "pack:listening": "node scripts/pack-listening-bundle.mjs ket-listening-test1",
+    "pack:listening:pet": "node scripts/pack-listening-bundle.mjs pet-listening-test1",
     "build": "pnpm build:catalog && pnpm --filter web build",
     "dev:server": "pnpm --filter server dev",
     "db:push": "node scripts/db-push.mjs",

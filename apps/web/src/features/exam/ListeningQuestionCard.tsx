@@ -1,6 +1,12 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
+import ListeningPictureBoard from './ListeningPictureBoard'
+import ListeningPictureChoiceRow from './ListeningPictureChoiceRow'
 import ListeningPictureOption from './ListeningPictureOption'
+import {
+  usesCompositePictureBoard,
+  usesSplitPictureOptions,
+} from './listeningPictureMc'
 import type { ExamAudioSource } from './useExamQuestionAudio'
 import type { ListeningExamMode, ListeningQuestion } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
@@ -35,6 +41,7 @@ export default function ListeningQuestionCard({
     play,
     seekToPct,
     stopPlayback,
+    playError,
   } = useExamQuestionAudio()
 
   const { canPlay, playsLeft, recordPlay } = useListeningPlayLimits(examMode)
@@ -57,14 +64,10 @@ export default function ListeningQuestionCard({
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, examMode, maxPlays, playKey, recordPlay])
 
-  useEffect(() => {
-    stopPlayback()
-  }, [question.id, stopPlayback])
-
   const isPictureMc = question.type === 'picture-mc'
   const isGapFill = question.type === 'gap-fill'
   const isMatching = question.type === 'matching'
-  const isMc = !isGapFill && !isMatching
+  const isMc = !isGapFill && !isMatching && !isPictureMc
   const wordLimit = question.wordLimit ?? (isGapFill ? 3 : undefined)
 
   return (
@@ -87,6 +90,10 @@ export default function ListeningQuestionCard({
 
       <p className="listening-exam-card__prompt">{question.prompt}</p>
 
+      {isPictureMc && usesCompositePictureBoard(question) && (
+        <ListeningPictureBoard question={question} />
+      )}
+
       <ListeningExamAudioBar
         source={audioSource}
         playing={playing}
@@ -98,13 +105,22 @@ export default function ListeningQuestionCard({
         allowSlow={examMode === 'practice'}
         playsLeft={left}
         playBlocked={blocked}
+        playError={playError}
         onPlayNormal={() => void play(audioSource, makePlayOpts(1))}
         onPlaySlow={() => void play(audioSource, makePlayOpts(0.75))}
         onSeek={pct => seekToPct(pct, examMode === 'practice')}
         onStop={stopPlayback}
       />
 
-      {isPictureMc && (
+      {isPictureMc && usesCompositePictureBoard(question) && (
+        <ListeningPictureChoiceRow
+          options={question.options}
+          answer={answer}
+          onAnswer={onAnswer}
+        />
+      )}
+
+      {isPictureMc && usesSplitPictureOptions(question) && (
         <div className="listening-exam-card__pictures">
           {question.options.map(option => (
             <ListeningPictureOption
@@ -115,6 +131,15 @@ export default function ListeningQuestionCard({
             />
           ))}
         </div>
+      )}
+
+      {isPictureMc && !usesCompositePictureBoard(question) && !usesSplitPictureOptions(question) && (
+        <ListeningPictureChoiceRow
+          options={question.options}
+          answer={answer}
+          onAnswer={onAnswer}
+          showLabels
+        />
       )}
 
       {isGapFill && (

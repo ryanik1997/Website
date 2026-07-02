@@ -1,7 +1,7 @@
 {
   "version": 1,
   "title": "KET A2 Listening — Test 1",
-  "durationMinutes": 35,
+  "durationMinutes": 25,
   "bandHint": "A2 Key Listening · 5 parts · 25 câu",
   "examType": "ket",
   "examMode": "practice",
@@ -16,22 +16,11 @@
           "number": 1,
           "type": "picture-mc",
           "prompt": "Where will Claire meet Alex?",
+          "imageFile": "q1.jpg",
           "options": [
-            {
-              "id": "A",
-              "label": "Picture A",
-              "imageFile": "q1-a.jpg"
-            },
-            {
-              "id": "B",
-              "label": "Picture B",
-              "imageFile": "q1-b.jpg"
-            },
-            {
-              "id": "C",
-              "label": "Picture C",
-              "imageFile": "q1-c.jpg"
-            }
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
           ],
           "answer": "A",
           "explanation": "Claire will meet Alex at the place shown in picture A."
@@ -40,22 +29,11 @@
           "number": 2,
           "type": "picture-mc",
           "prompt": "What time should the man telephone again?",
+          "imageFile": "q2.jpg",
           "options": [
-            {
-              "id": "A",
-              "label": "9 o'clock",
-              "imageFile": "q2-a.jpg"
-            },
-            {
-              "id": "B",
-              "label": "10 o'clock",
-              "imageFile": "q2-b.jpg"
-            },
-            {
-              "id": "C",
-              "label": "11 o'clock",
-              "imageFile": "q2-c.jpg"
-            }
+            { "id": "A", "label": "9 o'clock" },
+            { "id": "B", "label": "10 o'clock" },
+            { "id": "C", "label": "11 o'clock" }
           ],
           "answer": "C",
           "explanation": "He should call again at eleven o'clock."
@@ -64,22 +42,11 @@
           "number": 3,
           "type": "picture-mc",
           "prompt": "When are they going to have the party?",
+          "imageFile": "q3.jpg",
           "options": [
-            {
-              "id": "A",
-              "label": "July 11",
-              "imageFile": "q3-a.jpg"
-            },
-            {
-              "id": "B",
-              "label": "July 18",
-              "imageFile": "q3-b.jpg"
-            },
-            {
-              "id": "C",
-              "label": "July 25",
-              "imageFile": "q3-c.jpg"
-            }
+            { "id": "A", "label": "July 11" },
+            { "id": "B", "label": "July 18" },
+            { "id": "C", "label": "July 25" }
           ],
           "answer": "C",
           "explanation": "The party is on July 25."
@@ -88,22 +55,11 @@
           "number": 4,
           "type": "picture-mc",
           "prompt": "What was the weather like on the picnic?",
+          "imageFile": "q4.jpg",
           "options": [
-            {
-              "id": "A",
-              "label": "Sunny",
-              "imageFile": "q4-a.jpg"
-            },
-            {
-              "id": "B",
-              "label": "Rainy",
-              "imageFile": "q4-b.jpg"
-            },
-            {
-              "id": "C",
-              "label": "Windy",
-              "imageFile": "q4-c.jpg"
-            }
+            { "id": "A", "label": "Sunny" },
+            { "id": "B", "label": "Rainy" },
+            { "id": "C", "label": "Windy" }
           ],
           "answer": "A",
           "explanation": "The weather was sunny during the picnic."
@@ -112,22 +68,11 @@
           "number": 5,
           "type": "picture-mc",
           "prompt": "How much are the shorts?",
+          "imageFile": "q5.jpg",
           "options": [
-            {
-              "id": "A",
-              "label": "£5",
-              "imageFile": "q5-a.jpg"
-            },
-            {
-              "id": "B",
-              "label": "£15",
-              "imageFile": "q5-b.jpg"
-            },
-            {
-              "id": "C",
-              "label": "£20",
-              "imageFile": "q5-c.jpg"
-            }
+            { "id": "A", "label": "£5" },
+            { "id": "B", "label": "£15" },
+            { "id": "C", "label": "£20" }
           ],
           "answer": "A",
           "explanation": "The shorts cost five pounds."

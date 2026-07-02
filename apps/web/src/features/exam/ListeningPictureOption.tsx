@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { resolveExamMediaUrl } from './examMediaUrl'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 import type { ListeningQuestionOption } from './listeningExamData'
 
@@ -8,7 +10,9 @@ interface Props {
 }
 
 export default function ListeningPictureOption({ option, selected, onSelect }: Props) {
-  const imageSrc = useBlobMediaUrl(option.imageKey, option.imageUrl)
+  const [imageFailed, setImageFailed] = useState(false)
+  const imageSrc = useBlobMediaUrl(option.imageKey, resolveExamMediaUrl(option.imageUrl))
+  const showImage = Boolean(imageSrc) && !imageFailed
 
   return (
     <button
@@ -17,16 +21,20 @@ export default function ListeningPictureOption({ option, selected, onSelect }: P
       onClick={onSelect}
     >
       <div className="listening-exam-picture__frame">
-        {imageSrc ? (
+        {showImage ? (
           <img
-            src={imageSrc}
+            src={imageSrc!}
             alt={`Option ${option.id}: ${option.label}`}
             className="listening-exam-picture__img"
+            onError={() => setImageFailed(true)}
           />
         ) : (
           <div className="listening-exam-picture__placeholder">
             <span className="listening-exam-picture__letter">{option.id}</span>
             <span className="listening-exam-picture__ph-label">{option.label}</span>
+            {imageFailed && (
+              <span className="listening-exam-picture__missing">Chưa có ảnh</span>
+            )}
           </div>
         )}
       </div>

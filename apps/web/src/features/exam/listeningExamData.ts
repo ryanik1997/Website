@@ -11,6 +11,10 @@ export function isKetStyleListening(examType: ListeningExamType): boolean {
   return examType === 'ket'
 }
 
+export function isPetStyleListening(examType: ListeningExamType): boolean {
+  return examType === 'pet'
+}
+
 export function isMultiPartListening(examType: ListeningExamType): boolean {
   return examType === 'ielts' || CAMBRIDGE_LISTENING_TYPES.has(examType)
 }
@@ -36,10 +40,19 @@ export interface ListeningQuestion {
   options: ListeningQuestionOption[]
   answer: string
   explanation: string
+  /** Part 1 picture-mc: một ảnh lớn chứa A+B+C (ưu tiên hơn ảnh từng option) */
+  pictureImageKey?: string
+  pictureImageUrl?: string
   audioKey?: string
   audioUrl?: string
   ttsText?: string
   wordLimit?: number
+  /** PET Part 2: "You will hear two friends talking about…" */
+  context?: string
+  /** PET Part 3: câu gap-fill — phần trước ô trống */
+  gapLead?: string
+  /** PET Part 3: câu gap-fill — phần sau ô trống */
+  gapTrail?: string
 }
 
 export interface ListeningPart {
@@ -53,6 +66,10 @@ export interface ListeningPart {
   ttsText?: string
   /** Giới hạn số lần nghe khi examMode = exam */
   maxPlays?: number
+  /** PET Part 3: tiêu đề khung điền (vd. ANITA'S HOLIDAY IN CUBA) */
+  passageTitle?: string
+  /** PET Part 3/4: mô tả đoạn nghe trước câu hỏi */
+  audioIntro?: string
   questions: ListeningQuestion[]
 }
 

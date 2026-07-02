@@ -8,6 +8,13 @@ import type {
   ListeningQuestionType,
 } from './listeningExamData'
 import { listeningExamAudioKey } from './listeningExamData'
+import {
+  catalogPictureImageUrl,
+  catalogQuestionAudioUrl,
+  catalogSharedListeningAudioUrl,
+  findCatalogListeningTwin,
+} from './listeningExamCatalogMerge'
+import { compositePictureFileCandidates } from './listeningPictureMc'
 
 export const LISTENING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const LISTENING_IMPORT_MAX_MEDIA_BYTES = 80 * 1024 * 1024
@@ -16,12 +23,19 @@ export interface ListeningImportQuestionJson {
   number: number
   type: ListeningQuestionType
   prompt: string
+  /** Part 1 picture-mc: một ảnh lớn q1.jpg chứa A+B+C */
+  imageFile?: string
   options?: Array<{ id: string; label: string; imageFile?: string }>
   answer: string
   explanation?: string
   audioFile?: string
   ttsText?: string
   wordLimit?: number
+  /** PET Part 2: "You will hear…" */
+  context?: string
+  /** PET Part 3: câu gap-fill */
+  gapLead?: string
+  gapTrail?: string
 }
 
 export interface ListeningImportPartJson {
@@ -31,6 +45,9 @@ export interface ListeningImportPartJson {
   audioFile?: string
   ttsText?: string
   maxPlays?: number
+  /** PET Part 3: tiêu đề khung điền */
+  passageTitle?: string
+  audioIntro?: string
   questions: ListeningImportQuestionJson[]
 }
 
@@ -116,6 +133,81 @@ export function parseListeningImportJson(text: string): ListeningImportPayload {
   }
 }
 
+export interface ListeningImportMediaCheck {
+  label: string
+  found: boolean
+  required: boolean
+}
+
+function collectExpectedMediaFiles(payload: ListeningImportPayload): Array<{ label: string; required: boolean }> {
+  const items: Array<{ label: string; required: boolean }> = []
+  const seen = new Set<string>()
+
+  const push = (label: string, required = true) => {
+    const key = label.toLowerCase()
+    if (seen.has(key)) return
+    seen.add(key)
+    items.push({ label, required })
+  }
+
+  for (const part of payload.parts) {
+    if (part.audioFile) push(part.audioFile, true)
+    for (const q of part.questions) {
+      if (q.audioFile) push(q.audioFile, false)
+      if (q.type === 'picture-mc') {
+        if (q.imageFile) {
+          push(q.imageFile, true)
+        } else {
+          push(`q${q.number}.jpg`, true)
+        }
+      }
+      for (const opt of q.options ?? []) {
+        if (opt.imageFile) push(opt.imageFile, false)
+      }
+    }
+  }
+
+  return items
+}
+
+function mediaFileFound(mediaFiles: File[], filename: string): boolean {
+  const map = buildMediaMap(mediaFiles)
+  if (resolveMediaFile(map, filename)) return true
+  const base = normalizeFileKey(filename)
+  const alt = base.replace(/\.(jpg|jpeg|png|webp)$/i, '')
+  for (const ext of ['.jpg', '.jpeg', '.png', '.webp']) {
+    if (resolveMediaFile(map, `${alt}${ext}`)) return true
+  }
+  return false
+}
+
+export function checkListeningImportMedia(
+  payload: ListeningImportPayload,
+  mediaFiles: File[],
+): ListeningImportMediaCheck[] {
+  return collectExpectedMediaFiles(payload).map(({ label, required }) => ({
+    label,
+    required,
+    found: mediaFileFound(mediaFiles, label),
+  }))
+}
+
+export function validateListeningImportMedia(
+  payload: ListeningImportPayload,
+  mediaFiles: File[],
+): string[] {
+  const warnings: string[] = []
+  for (const item of checkListeningImportMedia(payload, mediaFiles)) {
+    if (item.required && !item.found) {
+      warnings.push(`Thiếu file trong ZIP/media: ${item.label}`)
+    }
+  }
+  if (mediaFiles.length === 0) {
+    warnings.push('Chưa có file MP3/ảnh — upload ZIP (exam.json + listening.mp3 + q1.jpg …) hoặc chọn thêm media.')
+  }
+  return warnings
+}
+
 export function validateListeningImport(payload: ListeningImportPayload): string[] {
   const warnings: string[] = []
   let totalQuestions = 0
@@ -132,6 +224,15 @@ export function validateListeningImport(payload: ListeningImportPayload): string
       if ((q.type === 'picture-mc' || q.type === 'multiple-choice' || q.type === 'matching')
         && (!q.options || q.options.length < 2)) {
         warnings.push(`Câu ${q.number}: thiếu options.`)
+      }
+      if (q.type === 'picture-mc') {
+        const hasComposite = Boolean(q.imageFile?.trim())
+        const hasSplit = (q.options ?? []).some(o => o.imageFile?.trim())
+        if (!hasComposite && !hasSplit) {
+          warnings.push(
+            `Câu ${q.number} (picture-mc): thêm imageFile "q${q.number}.jpg" (ảnh A+B+C) hoặc q${q.number}-a.jpg …`,
+          )
+        }
       }
     }
   }
@@ -171,6 +272,11 @@ export async function buildListeningExamFromImport(
 ): Promise<ListeningExam> {
   const mediaMap = buildMediaMap(mediaFiles)
   const sharedMediaKeys = new Map<string, string>()
+  const catalogTwin = findCatalogListeningTwin({
+    examType: payload.examType,
+    title: payload.title,
+  })
+  const catalogAudioUrl = catalogTwin ? catalogSharedListeningAudioUrl(catalogTwin) : undefined
   const parts: ListeningPart[] = []
 
   for (const partJson of payload.parts) {
@@ -205,16 +311,29 @@ export async function buildListeningExamFromImport(
         )
       }
 
+      let pictureImageKey: string | undefined
+      if (qJson.type === 'picture-mc') {
+        for (const candidate of compositePictureFileCandidates(qJson.number, qJson.imageFile)) {
+          const boardFile = resolveMediaFile(mediaMap, candidate)
+          if (!boardFile) continue
+          pictureImageKey = listeningExamAudioKey(examId, `board-q${qJson.number}`)
+          await audioRepo.put(pictureImageKey, boardFile)
+          break
+        }
+      }
+
       const options = []
       for (const opt of qJson.options ?? []) {
         let imageKey: string | undefined
-        const imgFile = resolveMediaFile(mediaMap, opt.imageFile)
-          ?? resolveMediaFile(mediaMap, `q${qJson.number}-${opt.id.toLowerCase()}.jpg`)
-          ?? resolveMediaFile(mediaMap, `q${qJson.number}-${opt.id.toLowerCase()}.webp`)
-          ?? resolveMediaFile(mediaMap, `q${qJson.number}_${opt.id.toLowerCase()}.png`)
-        if (imgFile) {
-          imageKey = listeningExamAudioKey(examId, `img-q${qJson.number}-${opt.id}`)
-          await audioRepo.put(imageKey, imgFile)
+        if (!pictureImageKey) {
+          const imgFile = resolveMediaFile(mediaMap, opt.imageFile)
+            ?? resolveMediaFile(mediaMap, `q${qJson.number}-${opt.id.toLowerCase()}.jpg`)
+            ?? resolveMediaFile(mediaMap, `q${qJson.number}-${opt.id.toLowerCase()}.webp`)
+            ?? resolveMediaFile(mediaMap, `q${qJson.number}_${opt.id.toLowerCase()}.png`)
+          if (imgFile) {
+            imageKey = listeningExamAudioKey(examId, `img-q${qJson.number}-${opt.id}`)
+            await audioRepo.put(imageKey, imgFile)
+          }
         }
         options.push({
           id: opt.id,
@@ -222,6 +341,13 @@ export async function buildListeningExamFromImport(
           imageKey,
         })
       }
+
+      const pictureImageUrl = catalogTwin
+        ? catalogPictureImageUrl(catalogTwin, qJson.number)
+        : undefined
+      const questionAudioUrl = catalogTwin
+        ? catalogQuestionAudioUrl(catalogTwin, qJson.number)
+        : undefined
 
       questions.push({
         id: qId,
@@ -231,9 +357,15 @@ export async function buildListeningExamFromImport(
         options,
         answer: qJson.answer,
         explanation: qJson.explanation ?? '',
+        pictureImageKey,
+        pictureImageUrl,
         audioKey,
+        audioUrl: questionAudioUrl,
         ttsText: qJson.ttsText,
         wordLimit: qJson.wordLimit,
+        context: qJson.context,
+        gapLead: qJson.gapLead,
+        gapTrail: qJson.gapTrail,
       })
     }
 
@@ -243,8 +375,11 @@ export async function buildListeningExamFromImport(
       rangeLabel: partJson.rangeLabel,
       instruction: partJson.instruction,
       audioKey: partAudioKey,
+      audioUrl: catalogAudioUrl,
       ttsText: partJson.ttsText,
       maxPlays: partJson.maxPlays,
+      passageTitle: partJson.passageTitle,
+      audioIntro: partJson.audioIntro,
       questions,
     })
   }
@@ -262,9 +397,9 @@ export async function buildListeningExamFromImport(
 
 export function listeningImportTemplate(examType: ListeningExamType = 'ket'): ListeningImportPayload {
   const meta: Record<ListeningExamType, { title: string; bandHint: string; durationMinutes: number }> = {
-    ket: { title: 'KET Listening — Đề mẫu import', bandHint: 'A2 Key', durationMinutes: 30 },
+    ket: { title: 'KET Listening — Đề mẫu import', bandHint: 'A2 Key', durationMinutes: 25 },
     ielts: { title: 'IELTS Listening — Đề mẫu import', bandHint: 'IELTS', durationMinutes: 40 },
-    pet: { title: 'PET Listening — Đề mẫu import', bandHint: 'B1 Preliminary', durationMinutes: 35 },
+    pet: { title: 'PET Listening — Đề mẫu import', bandHint: 'B1 Preliminary', durationMinutes: 30 },
     fce: { title: 'FCE Listening — Đề mẫu import', bandHint: 'B2 First', durationMinutes: 40 },
     cae: { title: 'CAE Listening — Đề mẫu import', bandHint: 'C1 Advanced', durationMinutes: 40 },
     cpe: { title: 'CPE Listening — Đề mẫu import', bandHint: 'C2 Proficiency', durationMinutes: 40 },
@@ -288,11 +423,12 @@ export function listeningImportTemplate(examType: ListeningExamType = 'ket'): Li
             number: 1,
             type: 'picture-mc',
             prompt: 'Where will they meet?',
+            imageFile: 'q1.jpg',
             audioFile: 'q1.mp3',
             options: [
-              { id: 'A', label: 'Classroom', imageFile: 'q1-a.jpg' },
-              { id: 'B', label: 'Corridor', imageFile: 'q1-b.jpg' },
-              { id: 'C', label: 'Café', imageFile: 'q1-c.jpg' },
+              { id: 'A', label: 'Classroom' },
+              { id: 'B', label: 'Corridor' },
+              { id: 'C', label: 'Café' },
             ],
             answer: 'B',
             explanation: 'They agree to meet in the corridor.',

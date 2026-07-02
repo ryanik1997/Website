@@ -1,4 +1,12 @@
+import ListeningPictureChoiceRow from './ListeningPictureChoiceRow'
 import ListeningPictureOption from './ListeningPictureOption'
+import ExamHighlightZone from './ExamHighlightZone'
+import ReadingHighlightableText from './ReadingHighlightableText'
+import { useExamHighlights } from './examHighlightContext'
+import {
+  usesCompositePictureBoard,
+  usesSplitPictureOptions,
+} from './listeningPictureMc'
 import { listeningAnswerAnchorId } from './listeningScrollUtils'
 import type { ListeningQuestion } from './listeningExamData'
 
@@ -17,27 +25,37 @@ export default function ListeningQuestionAnswerPanel({
   onAnswer,
   onUnsureChange,
 }: Props) {
+  const highlights = useExamHighlights()
   const isPictureMc = question.type === 'picture-mc'
   const isGapFill = question.type === 'gap-fill'
   const isMatching = question.type === 'matching'
-  const isMc = !isGapFill && !isMatching
+  const isMc = !isGapFill && !isMatching && !isPictureMc
   const wordLimit = question.wordLimit ?? (isGapFill ? 3 : undefined)
 
   return (
-    <div className="listening-exam-answer-pane" id={listeningAnswerAnchorId(question.id)}>
+    <ExamHighlightZone className="listening-exam-answer-pane" id={listeningAnswerAnchorId(question.id)}>
       <header className="listening-exam-answer-pane__head">
         <h3 className="listening-exam-answer-pane__title">Đáp án</h3>
         <label className="listening-exam-card__unsure">
           <input
             type="checkbox"
             checked={unsure}
+            data-highlight-skip
             onChange={e => onUnsureChange(e.target.checked)}
           />
           Chưa chắc chắn
         </label>
       </header>
 
-      {isPictureMc && (
+      {isPictureMc && usesCompositePictureBoard(question) && (
+        <ListeningPictureChoiceRow
+          options={question.options}
+          answer={answer}
+          onAnswer={onAnswer}
+        />
+      )}
+
+      {isPictureMc && usesSplitPictureOptions(question) && (
         <div className="listening-exam-card__pictures">
           {question.options.map(option => (
             <ListeningPictureOption
@@ -48,6 +66,15 @@ export default function ListeningQuestionAnswerPanel({
             />
           ))}
         </div>
+      )}
+
+      {isPictureMc && !usesCompositePictureBoard(question) && !usesSplitPictureOptions(question) && (
+        <ListeningPictureChoiceRow
+          options={question.options}
+          answer={answer}
+          onAnswer={onAnswer}
+          showLabels
+        />
       )}
 
       {isGapFill && (
@@ -61,6 +88,7 @@ export default function ListeningQuestionAnswerPanel({
             className="listening-ielts-gap__input listening-exam-answer-pane__input"
             value={answer}
             placeholder={wordLimit ? `Tối đa ${wordLimit} từ` : 'Nhập đáp án'}
+            data-highlight-skip
             onChange={e => onAnswer(e.target.value)}
           />
         </div>
@@ -73,14 +101,27 @@ export default function ListeningQuestionAnswerPanel({
             {question.options.map(option => {
               const selected = answer === option.id
               return (
-                <button
+                <div
                   key={option.id}
-                  type="button"
+                  role="button"
+                  tabIndex={0}
                   className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}`}
                   onClick={() => onAnswer(option.id)}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      onAnswer(option.id)
+                    }
+                  }}
                 >
-                  {option.id}. {option.label}
-                </button>
+                  {option.id}.{' '}
+                  <ReadingHighlightableText
+                    blockId={`${question.id}-match-${option.id}`}
+                    text={option.label}
+                    highlights={highlights}
+                    as="span"
+                  />
+                </div>
               )
             })}
           </div>
@@ -100,15 +141,22 @@ export default function ListeningQuestionAnswerPanel({
                   type="radio"
                   name={question.id}
                   checked={selected}
+                  data-highlight-skip
                   onChange={() => onAnswer(option.id)}
                 />
-                <span className="listening-exam-option__letter">{option.id}</span>
-                <span className="listening-exam-option__label">{option.label}</span>
+                <span className="listening-exam-option__letter" data-highlight-skip>{option.id}</span>
+                <ReadingHighlightableText
+                  blockId={`${question.id}-opt-${option.id}`}
+                  text={option.label}
+                  highlights={highlights}
+                  className="listening-exam-option__label"
+                  as="span"
+                />
               </label>
             )
           })}
         </div>
       )}
-    </div>
+    </ExamHighlightZone>
   )
 }

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import ListeningIeltsTest from './ListeningIeltsTest'
 import ListeningKetTest from './ListeningKetTest'
-import { isKetStyleListening } from './listeningExamData'
+import ListeningPetTest from './ListeningPetTest'
+import { isKetStyleListening, isPetStyleListening } from './listeningExamData'
 import { resolveListeningExam } from './listeningExamLoader'
 import './listeningTest.css'
 
@@ -37,6 +38,10 @@ export default function ListeningTest() {
 
   if (isKetStyleListening(exam.examType)) {
     return <ListeningKetTest exam={exam} />
+  }
+
+  if (isPetStyleListening(exam.examType)) {
+    return <ListeningPetTest exam={exam} />
   }
 
   return <ListeningIeltsTest exam={exam} />

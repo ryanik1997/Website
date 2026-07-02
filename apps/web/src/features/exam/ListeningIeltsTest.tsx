@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
+import ExamHeaderBack from './ExamHeaderBack'
+import ExamPartFooter from './ExamPartFooter'
+import { listeningExamBackPath } from './examNavigation'
+import ExamTimerControls from './ExamTimerControls'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import FullMockStageResult from './FullMockStageResult'
@@ -14,18 +17,23 @@ import { ListeningPartAnswerPanel, ListeningPartPromptPanel } from './ListeningP
 import ListeningSplitResizer from './ListeningSplitResizer'
 import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
+import {
+  hasExamAudioFile,
+  resolveListeningAudioSource,
+  sharedExamAudioSource,
+} from './listeningExamAudio'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { scrollListeningToQuestion } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
+import { clearListeningDraft } from './examCompletion'
+import { ExamHighlightProvider } from './examHighlightContext'
+import ReadingHighlightToolbar from './ReadingHighlightToolbar'
+import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { usePartHighlights } from './usePartHighlights'
+import { initialExamTimerSeconds } from './examTimer'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
-
-function formatTimer(seconds: number): string {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-}
 
 interface Props {
   exam: ListeningExam
@@ -39,7 +47,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [unsure, setUnsure] = useState<Record<string, boolean>>({})
-  const [timeLeft, setTimeLeft] = useState(exam.durationMinutes * 60)
+  const [timeLeft, setTimeLeft] = useState(initialExamTimerSeconds(exam.durationMinutes))
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
@@ -55,6 +63,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
   const currentPart = exam.parts[partIndex] ?? null
+  const { highlights, handleHighlightsChange, clearAllHighlights } = usePartHighlights(currentPart?.id)
   const partQuestions = useMemo(
     () => (currentPart ? getPartQuestions(currentPart) : []),
     [currentPart],
@@ -68,19 +77,23 @@ export default function ListeningIeltsTest({ exam }: Props) {
     play,
     seekToPct,
     stopPlayback,
+    playError,
   } = useExamQuestionAudio()
 
-  const { canPlay, playsLeft, recordPlay } = useListeningPlayLimits(exam.examMode)
-  const partPlayKey = currentPart ? `part-${currentPart.id}` : ''
-  const partMaxPlays = currentPart?.maxPlays
-  const partAudioSource = {
-    audioKey: currentPart?.audioKey,
-    audioUrl: currentPart?.audioUrl,
-    ttsText: currentPart?.ttsText,
-  }
-  const hasPartAudio = Boolean(currentPart?.audioKey || currentPart?.audioUrl)
-  const partLeft = playsLeft(partPlayKey, partMaxPlays)
-  const partBlocked = !canPlay(partPlayKey, partMaxPlays)
+  const usesSharedExamAudio = useMemo(() => Boolean(sharedExamAudioSource(exam)), [exam])
+  const activeAudioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
+  const hasActiveAudioFile = hasExamAudioFile(activeAudioSource)
+
+  const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
+  const playKey = usesSharedExamAudio ? `exam-${exam.id}` : (currentPart ? `part-${currentPart.id}` : '')
+  const maxPlays = usesSharedExamAudio
+    ? (exam.examMode === 'exam' ? 2 : undefined)
+    : currentPart?.maxPlays
+  const playsRemaining = playsLeft(playKey, maxPlays)
+  const playBlocked = !canPlay(playKey, maxPlays)
 
   useEffect(() => {
     const savedRaw = window.localStorage.getItem(storageKey)
@@ -99,7 +112,11 @@ export default function ListeningIeltsTest({ exam }: Props) {
       }
       setAnswers(saved.answers ?? {})
       setUnsure(saved.unsure ?? {})
-      setTimeLeft(typeof saved.timeLeft === 'number' ? saved.timeLeft : exam.durationMinutes * 60)
+      setTimeLeft(
+        typeof saved.timeLeft === 'number'
+          ? saved.timeLeft
+          : initialExamTimerSeconds(exam.durationMinutes),
+      )
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setSubmitted(Boolean(saved.submitted))
@@ -117,6 +134,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
       activeQuestionId,
       submitted,
     }))
+    notifyExamDraftRevision()
   }, [activeQuestionId, answers, partIndex, storageKey, submitted, timeLeft, unsure])
 
   useEffect(() => {
@@ -128,10 +146,6 @@ export default function ListeningIeltsTest({ exam }: Props) {
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
   }, [submitted, timeLeft])
-
-  useEffect(() => {
-    stopPlayback()
-  }, [partIndex, stopPlayback])
 
   useEffect(() => {
     if (!currentPart) return
@@ -156,12 +170,47 @@ export default function ListeningIeltsTest({ exam }: Props) {
     return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
   }, [answers, exam.parts])
 
-  const makePartPlayOpts = useCallback((rate: number) => ({
+  const resetTimer = useCallback(() => {
+    setTimeLeft(initialExamTimerSeconds(exam.durationMinutes))
+  }, [exam.durationMinutes])
+
+  const goAdjacentQuestion = useCallback((delta: number) => {
+    if (!activeQuestionId) return
+    const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
+    const next = allQuestions[idx + delta]
+    if (!next) return
+
+    const nextPartIndex = exam.parts.findIndex(part =>
+      getPartQuestions(part).some(q => q.id === next.id),
+    )
+    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
+      setPartIndex(nextPartIndex)
+    }
+    setActiveQuestionId(next.id)
+  }, [activeQuestionId, allQuestions, exam.parts, partIndex])
+
+  const makePlayOpts = useCallback((rate: number) => ({
     rate,
     allowSeek: exam.examMode === 'practice',
-    beforePlay: () => canPlay(partPlayKey, partMaxPlays),
-    onPlayCounted: () => recordPlay(partPlayKey),
-  }), [canPlay, exam.examMode, partMaxPlays, partPlayKey, recordPlay])
+    beforePlay: () => canPlay(playKey, maxPlays),
+    onPlayCounted: () => recordPlay(playKey),
+  }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  const handleRetry = useCallback(() => {
+    clearListeningDraft(exam.id)
+    clearAllHighlights()
+    stopPlayback()
+    resetPlayCounts()
+    setAnswers({})
+    setUnsure({})
+    setTimeLeft(initialExamTimerSeconds(exam.durationMinutes))
+    setPartIndex(0)
+    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setSubmitted(false)
+    if (fullMockId) {
+      patchFullMockSession({ stage: 'listening', listening: undefined })
+    }
+  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
 
   if (submitted) {
     const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
@@ -190,6 +239,8 @@ export default function ListeningIeltsTest({ exam }: Props) {
             clearFullMockSession()
             navigate('/app/exam')
           }}
+          onRetry={handleRetry}
+          retryLabel="Làm lại Listening"
         />
       )
     }
@@ -199,16 +250,8 @@ export default function ListeningIeltsTest({ exam }: Props) {
         exam={exam}
         answers={answers}
         unsure={unsure}
-        onRetry={() => {
-          window.localStorage.removeItem(storageKey)
-          setAnswers({})
-          setUnsure({})
-          setTimeLeft(exam.durationMinutes * 60)
-          setPartIndex(0)
-          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
-          setSubmitted(false)
-        }}
-        onBack={() => navigate('/app/exam')}
+        onRetry={handleRetry}
+        onBack={() => navigate(listeningExamBackPath(exam))}
       />
     )
   }
@@ -233,15 +276,9 @@ export default function ListeningIeltsTest({ exam }: Props) {
   return (
     <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}`}>
       <header className="listening-exam-header">
-        <button type="button" className="listening-exam-header__back" onClick={() => navigate('/app/exam')}>
-          <ArrowLeft size={14} />
-          Quay lại
-        </button>
+        <ExamHeaderBack onClick={() => navigate(listeningExamBackPath(exam))} />
         <h1 className="listening-exam-header__title">{exam.title}</h1>
-        <div className="listening-exam-header__timer">
-          <Clock size={15} />
-          {formatTimer(timeLeft)}
-        </div>
+        <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
       </header>
 
       <div
@@ -249,6 +286,15 @@ export default function ListeningIeltsTest({ exam }: Props) {
         className="listening-exam-body"
         style={{ '--le-split-pct': `${splitPct}%` } as CSSProperties}
       >
+        {currentPart && (
+          <ReadingHighlightToolbar
+            rootRef={bodyRef}
+            highlights={highlights}
+            onHighlightsChange={handleHighlightsChange}
+            resetKey={currentPart.id}
+          />
+        )}
+        <ExamHighlightProvider highlights={highlights}>
         {currentPart && (
           <>
             <ListeningPartPromptPanel
@@ -261,18 +307,19 @@ export default function ListeningIeltsTest({ exam }: Props) {
                     <span className="listening-ielts-mode-badge">Chế độ thi</span>
                   )}
                   <ListeningExamAudioBar
-                    source={partAudioSource}
+                    source={activeAudioSource}
                     playing={playing}
                     buffering={buffering}
                     progressPct={progressPct}
                     timeLabel={timeLabel}
-                    hasAudioFile={hasPartAudio}
+                    hasAudioFile={hasActiveAudioFile}
                     allowSeek={exam.examMode === 'practice'}
                     allowSlow={exam.examMode === 'practice'}
-                    playsLeft={partLeft}
-                    playBlocked={partBlocked}
-                    onPlayNormal={() => void play(partAudioSource, makePartPlayOpts(1))}
-                    onPlaySlow={() => void play(partAudioSource, makePartPlayOpts(0.75))}
+                    playsLeft={playsRemaining}
+                    playBlocked={playBlocked}
+                    playError={playError}
+                    onPlayNormal={() => void play(activeAudioSource, makePlayOpts(1))}
+                    onPlaySlow={() => void play(activeAudioSource, makePlayOpts(0.75))}
                     onSeek={pct => seekToPct(pct, exam.examMode === 'practice')}
                     onStop={stopPlayback}
                   />
@@ -295,65 +342,26 @@ export default function ListeningIeltsTest({ exam }: Props) {
             />
           </>
         )}
+        </ExamHighlightProvider>
       </div>
 
-      <footer className="listening-exam-footer listening-exam-footer--ielts">
-        <div className="listening-ielts-footer-parts">
-          {exam.parts.map((part, index) => {
-            const qs = getPartQuestions(part)
-            const answered = answeredInPart(index)
-            const isCurrent = index === partIndex
-            return (
-              <div key={part.id} className={`listening-ielts-footer-part${isCurrent ? ' is-current' : ''}`}>
-                <button type="button" className="listening-ielts-footer-part__tab" onClick={() => goToPart(index)}>
-                  Part {part.partNumber}
-                  {!isCurrent && (
-                    <span className="listening-ielts-footer-part__count">{answered}/{qs.length}</span>
-                  )}
-                </button>
-                {isCurrent && qs.map(q => (
-                  <button
-                    key={q.id}
-                    type="button"
-                    className={`listening-ielts-q-pill${activeQuestionId === q.id ? ' is-current' : ''}${answers[q.id] ? ' is-answered' : ''}`}
-                    onClick={() => handleSelectQuestion(q.id)}
-                  >
-                    {q.number}
-                  </button>
-                ))}
-              </div>
-            )
-          })}
-        </div>
-        <div className="listening-ielts-footer-nav">
-          <button
-            type="button"
-            className="listening-exam-btn listening-exam-btn--ghost listening-ielts-nav-btn"
-            disabled={partIndex <= 0}
-            onClick={() => goToPart(partIndex - 1)}
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            type="button"
-            className="listening-exam-btn listening-exam-btn--primary"
-            onClick={() => setConfirmSubmit(true)}
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            className="listening-exam-btn listening-exam-btn--ghost listening-ielts-nav-btn"
-            disabled={partIndex >= exam.parts.length - 1}
-            onClick={() => goToPart(partIndex + 1)}
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
-        <p className="listening-exam-footer__count">
-          Đã trả lời {answeredCount}/{allQuestions.length} câu
-        </p>
-      </footer>
+      <ExamPartFooter
+        parts={exam.parts}
+        getPartQuestions={index => {
+          const part = exam.parts[index]
+          return part ? getPartQuestions(part) : []
+        }}
+        partIndex={partIndex}
+        activeQuestionId={activeQuestionId}
+        answers={answers}
+        allQuestions={allQuestions}
+        answeredInPart={answeredInPart}
+        onGoToPart={goToPart}
+        onSelectQuestion={handleSelectQuestion}
+        onAdjacentQuestion={goAdjacentQuestion}
+        onSubmit={() => setConfirmSubmit(true)}
+        submitLabel="Submit"
+      />
 
       {confirmSubmit && (
         <div

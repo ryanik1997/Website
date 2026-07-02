@@ -1,0 +1,14 @@
+---
+pid: 26056
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\" && pnpm dev"
+started_at: 2026-07-02T03:38:25.000Z
+running_for_ms: 4135001  
+---
+At line:1 char:34
++ cd "D:\App-English-Ryan\Website" && pnpm dev
++                                  ~~
+The token '&&' is not a valid statement separator in this version.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidEndOfLine
+ 

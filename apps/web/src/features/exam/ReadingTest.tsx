@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
-  Bell, ChevronLeft, ChevronRight, Clock, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
+  Bell, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
 } from 'lucide-react'
+import ExamHeaderBack from './ExamHeaderBack'
+import ExamPartFooter from './ExamPartFooter'
+import ExamTimerControls from './ExamTimerControls'
+import { readingExamBackPath } from './examNavigation'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamResult from './ExamResult'
 import FullMockStageResult from './FullMockStageResult'
@@ -26,18 +30,16 @@ import {
 import { getExamQuestions, getPartQuestions, isReadingAnswerCorrect } from './examData'
 import { resolveReadingExam } from './examLoader'
 import { scrollReadingToQuestion } from './readingScrollUtils'
+import { clearReadingDraft } from './examCompletion'
+import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { readingExamDurationMinutes } from './readingExamDuration'
+import { initialExamTimerSeconds } from './examTimer'
 import './readingTest.css'
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
 const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
-
-function formatTimer(seconds: number): string {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-}
 
 export default function ReadingTest() {
   const navigate = useNavigate()
@@ -50,7 +52,8 @@ export default function ReadingTest() {
   )
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [timeLeft, setTimeLeft] = useState(() => (exam?.durationMinutes ?? 60) * 60)
+  const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
+  const [timeLeft, setTimeLeft] = useState(() => initialExamTimerSeconds(examDurationMinutes))
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
@@ -124,7 +127,7 @@ export default function ReadingTest() {
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setAnswers({})
-      setTimeLeft(exam.durationMinutes * 60)
+      setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
@@ -140,14 +143,18 @@ export default function ReadingTest() {
         activeQuestionId?: string | null
       }
       setAnswers(saved.answers ?? {})
-      setTimeLeft(typeof saved.timeLeft === 'number' ? saved.timeLeft : exam.durationMinutes * 60)
+      setTimeLeft(
+        typeof saved.timeLeft === 'number'
+          ? saved.timeLeft
+          : initialExamTimerSeconds(readingExamDurationMinutes(exam)),
+      )
       setSubmitted(Boolean(saved.submitted))
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
     } catch {
       setAnswers({})
-      setTimeLeft(exam.durationMinutes * 60)
+      setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
@@ -170,6 +177,7 @@ export default function ReadingTest() {
       partIndex,
       activeQuestionId,
     }))
+    notifyExamDraftRevision()
   }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft])
 
   useEffect(() => {
@@ -291,6 +299,11 @@ export default function ReadingTest() {
     stopResizing()
   }, [isResizing, stopResizing])
 
+  const resetTimer = useCallback(() => {
+    if (!exam) return
+    setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
+  }, [exam])
+
   const goAdjacentQuestion = useCallback((delta: number) => {
     if (!activeQuestionId) return
     const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
@@ -307,6 +320,20 @@ export default function ReadingTest() {
     }
     handleSelectQuestion(next.id)
   }, [activeQuestionId, allQuestions, exam, handleSelectQuestion, partIndex, resetPaneScroll])
+
+  const handleRetry = useCallback(() => {
+    if (!exam) return
+    clearReadingDraft(exam.id)
+    setAnswers({})
+    setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
+    setPartIndex(0)
+    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setHighlightsByPart({})
+    setSubmitted(false)
+    if (fullMockId) {
+      patchFullMockSession({ stage: 'reading', reading: undefined })
+    }
+  }, [exam, fullMockId])
 
   if (exam === undefined) {
     return (
@@ -349,6 +376,8 @@ export default function ReadingTest() {
             clearFullMockSession()
             navigate('/app/exam')
           }}
+          onRetry={handleRetry}
+          retryLabel="Làm lại Reading"
         />
       )
     }
@@ -357,16 +386,8 @@ export default function ReadingTest() {
       <ExamResult
         exam={exam}
         answers={answers}
-        onRetry={() => {
-          window.localStorage.removeItem(storageKey)
-          setAnswers({})
-          setTimeLeft(exam.durationMinutes * 60)
-          setPartIndex(0)
-          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
-          setHighlightsByPart({})
-          setSubmitted(false)
-        }}
-        onBack={() => navigate('/app/exam')}
+        onRetry={handleRetry}
+        onBack={() => navigate(readingExamBackPath(exam))}
       />
     )
   }
@@ -382,18 +403,13 @@ export default function ReadingTest() {
       } as CSSProperties}
     >
       <header className="reading-test-header">
+        <ExamHeaderBack onClick={() => navigate(readingExamBackPath(exam))} />
         <div className="reading-test-header__lead">
           <p className="reading-test-header__title">{currentPart?.passageTitle ?? exam.title}</p>
         </div>
 
         <div className="reading-test-header__actions">
-          <div
-            className={`reading-test-header__timer${timeLeft <= 60 ? ' is-urgent' : ''}`}
-            title="Thời gian còn lại"
-          >
-            <Clock size={15} aria-hidden />
-            <span>{formatTimer(timeLeft)}</span>
-          </div>
+          <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
           <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
             Submit Test
           </button>
@@ -488,74 +504,22 @@ export default function ReadingTest() {
         )}
       </div>
 
-      <footer className="reading-test-footer">
-        <div className="reading-test-footer__parts">
-          {exam.parts.map((part, index) => {
-            const questions = getPartQuestions(part)
-            const answered = answeredInPart(index)
-            const isCurrent = index === partIndex
-            return (
-              <div
-                key={part.id}
-                className={`reading-test-footer-part${isCurrent ? ' is-current' : ''}`}
-              >
-                <button
-                  type="button"
-                  className="reading-test-footer-part__tab"
-                  onClick={() => goToPart(index)}
-                >
-                  <span className="reading-test-footer-part__label">Part {part.partNumber}</span>
-                  {!isCurrent && (
-                    <span className="reading-test-footer-part__count">
-                      {answered} of {questions.length}
-                    </span>
-                  )}
-                </button>
-                {isCurrent && questions.map(question => {
-                  const isActive = activeQuestionId === question.id
-                  const isAnswered = Boolean(answers[question.id])
-                  return (
-                    <button
-                      key={question.id}
-                      type="button"
-                      className={`reading-test-q-pill${isActive ? ' is-current' : ''}${isAnswered ? ' is-answered' : ''}`}
-                      onClick={() => handleSelectQuestion(question.id)}
-                    >
-                      {question.number}
-                    </button>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="reading-test-footer__nav">
-          <button
-            type="button"
-            className="reading-test-nav-btn"
-            disabled={allQuestions.findIndex(q => q.id === activeQuestionId) <= 0}
-            onClick={() => goAdjacentQuestion(-1)}
-            aria-label="Câu trước"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            type="button"
-            className="reading-test-nav-btn"
-            disabled={
-              allQuestions.findIndex(q => q.id === activeQuestionId) >= allQuestions.length - 1
-            }
-            onClick={() => goAdjacentQuestion(1)}
-            aria-label="Câu tiếp"
-          >
-            <ChevronRight size={16} />
-          </button>
-          <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
-            Submit Test
-          </button>
-        </div>
-      </footer>
+      <ExamPartFooter
+        parts={exam.parts}
+        getPartQuestions={index => {
+          const part = exam.parts[index]
+          return part ? getPartQuestions(part) : []
+        }}
+        partIndex={partIndex}
+        activeQuestionId={activeQuestionId}
+        answers={answers}
+        allQuestions={allQuestions}
+        answeredInPart={answeredInPart}
+        onGoToPart={goToPart}
+        onSelectQuestion={handleSelectQuestion}
+        onAdjacentQuestion={goAdjacentQuestion}
+        onSubmit={() => setConfirmSubmit(true)}
+      />
 
       {confirmSubmit && (
         <div

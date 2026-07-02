@@ -10,14 +10,14 @@ ZIP: `ket-listening-test1.zip` — file CÙNG CẤP, không thư mục con:
 ```
 exam.json
 listening.mp3
-q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
+q1.jpg … q5.jpg         (tuỳ chọn — Part 1: mỗi câu 1 ảnh lớn chứa A+B+C)
 ```
 
 ```json
 {
   "version": 1,
   "title": "KET A2 Listening — Test 1",
-  "durationMinutes": 35,
+  "durationMinutes": 25,
   "bandHint": "A2 Key Listening · 5 parts · 25 câu",
   "examType": "ket",
   "examMode": "practice",
@@ -29,7 +29,7 @@ q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
 
 | Part | Câu | Type | Ghi chú UI app |
 |------|-----|------|----------------|
-| 1 | 1–5 | picture-mc | ảnh A/B/C mỗi câu (hoặc placeholder text) |
+| 1 | 1–5 | picture-mc | **1 ảnh/câu** `q1.jpg`…`q5.jpg` (A+B+C trên cùng ảnh) |
 | 2 | 6–10 | gap-fill | form notes — 1 từ / số / ngày |
 | 3 | 11–15 | multiple-choice | MC A/B/C |
 | 4 | 16–20 | multiple-choice | MC A/B/C |
@@ -58,10 +58,11 @@ q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
       "number": 1,
       "type": "picture-mc",
       "prompt": "Where will Claire meet Alex?",
+      "imageFile": "q1.jpg",
       "options": [
-        { "id": "A", "label": "…", "imageFile": "q1-a.jpg" },
-        { "id": "B", "label": "…", "imageFile": "q1-b.jpg" },
-        { "id": "C", "label": "…", "imageFile": "q1-c.jpg" }
+        { "id": "A", "label": "Picture A" },
+        { "id": "B", "label": "Picture B" },
+        { "id": "C", "label": "Picture C" }
       ],
       "answer": "A",
       "explanation": "Giải thích ngắn tiếng Việt."
@@ -70,7 +71,9 @@ q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
 }
 ```
 
-- Không có ảnh → bỏ `imageFile`, giữ `label` mô tả (app hiện placeholder).
+- **Ảnh composite (khuyến nghị):** crop từ PDF **một khung/câu** gồm 3 tranh A, B, C → `q1.jpg` … `q5.jpg`.
+- Không có ảnh → bỏ `imageFile`, giữ `label` (app hiện nút A/B/C + placeholder).
+- Legacy (vẫn hỗ trợ): `q1-a.jpg`, `q1-b.jpg`, `q1-c.jpg` trên từng option.
 - `answer`: A/B/C (chữ hoa hoặc thường đều được).
 
 ---
@@ -159,12 +162,29 @@ q1-a.jpg … q5-c.jpg   (tuỳ chọn — Part 1 picture MC)
 
 ---
 
+## Đóng gói ZIP
+
+```bash
+pnpm pack:listening
+```
+
+Hoặc:
+```bash
+node scripts/pack-listening-bundle.mjs ket-listening-test1
+```
+
+Thư mục nguồn: `Tainguyen/ket-listening-test1/`
+Output: `Tainguyen/ket-listening-test1.zip`
+
+---
+
 ## Import trên app
 
 1. Luyện thi → Cambridge → **A2** → **Import thủ công Listening**
 2. Upload `ket-listening-test1.zip`
-3. Preview → **Lưu & làm bài**
-4. Mỗi lần sửa bundle: xóa đề cũ → import lại
+3. Preview phải ✓ MP3 + 5 ảnh → **Lưu & làm bài**
+4. App dùng `ListeningKetTest` — 5 Part, 25 câu, timer **25 phút**
+5. Audio **không dừng** khi chuyển Part
+6. Mỗi lần sửa bundle: xóa đề import cũ → import lại
 
 Bundle mẫu: `Tainguyen/ket-listening-test1.zip`
-Script build: `scripts/build-ket-a2-listening-test1.py`

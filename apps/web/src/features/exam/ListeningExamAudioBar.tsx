@@ -12,6 +12,7 @@ interface Props {
   allowSlow?: boolean
   playsLeft?: number | null
   playBlocked?: boolean
+  playError?: string | null
   onPlayNormal: () => void
   onPlaySlow: () => void
   onSeek: (pct: number) => void
@@ -29,6 +30,7 @@ export default function ListeningExamAudioBar({
   allowSlow = true,
   playsLeft = null,
   playBlocked = false,
+  playError = null,
   onPlayNormal,
   onPlaySlow,
   onSeek,
@@ -38,7 +40,7 @@ export default function ListeningExamAudioBar({
   const disabled = buffering || playBlocked
 
   return (
-    <div className="listening-exam-audio">
+    <div className="listening-exam-audio" data-highlight-skip>
       <div className="listening-exam-audio__row">
         <button
           type="button"
@@ -111,6 +113,12 @@ export default function ListeningExamAudioBar({
       {showTtsHint && playsLeft == null && (
         <p className="listening-exam-audio__hint">
           Chưa có MP3 — đang dùng giọng đọc tạm. Gắn file khi import.
+        </p>
+      )}
+
+      {playError && (
+        <p className="listening-exam-audio__hint listening-exam-audio__hint--error">
+          {playError}
         </p>
       )}
     </div>

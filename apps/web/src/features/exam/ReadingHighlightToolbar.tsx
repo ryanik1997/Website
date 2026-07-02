@@ -3,6 +3,7 @@ import { Check, Copy, Eraser, Highlighter } from 'lucide-react'
 import { copyToClipboard } from '../../lib/copyToClipboard'
 import {
   addHighlights,
+  isInExamHighlightZone,
   removeHighlights,
   selectionOverlapsHighlight,
   selectionToHighlightRanges,
@@ -55,11 +56,11 @@ export default function ReadingHighlightToolbar({
 
     const anchorEl = selection.anchorNode?.parentElement
     const focusEl = selection.focusNode?.parentElement
-    if (!anchorEl?.closest('[data-reading-highlight-zone]') || !focusEl?.closest('[data-reading-highlight-zone]')) {
+    if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
       setToolbar(null)
       return
     }
-    if (!root.contains(anchorEl) || !root.contains(focusEl)) {
+    if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) {
       setToolbar(null)
       return
     }

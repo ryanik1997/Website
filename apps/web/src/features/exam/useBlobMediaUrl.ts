@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { audioRepo } from '@ryan/db'
+import { resolveExamMediaUrl } from './examMediaUrl'
 
 /** Resolve ảnh/audio preview từ public URL hoặc Dexie blob key */
 export function useBlobMediaUrl(blobKey?: string, staticUrl?: string): string | null {
-  const [url, setUrl] = useState<string | null>(staticUrl ?? null)
+  const resolvedStatic = resolveExamMediaUrl(staticUrl)
+  const [url, setUrl] = useState<string | null>(resolvedStatic ?? null)
 
   useEffect(() => {
-    if (staticUrl) {
-      setUrl(staticUrl)
+    if (resolvedStatic) {
+      setUrl(resolvedStatic)
       return
     }
     if (!blobKey) {
@@ -32,7 +34,7 @@ export function useBlobMediaUrl(blobKey?: string, staticUrl?: string): string | 
       cancelled = true
       if (objectUrl) URL.revokeObjectURL(objectUrl)
     }
-  }, [blobKey, staticUrl])
+  }, [blobKey, resolvedStatic])
 
   return url
 }

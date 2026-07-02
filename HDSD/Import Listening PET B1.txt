@@ -1,0 +1,24 @@
+ZIP cần có:
+
+exam.json
+Test_1_Listening_PET_B1_Audio.mp3   (hoặc listening.mp3)
+q1.jpg … q7.jpg
+
+Tên file tự nhận: q1.jpg, part1-q1.jpg, hoặc khai báo rõ "imageFile": "q1.jpg".
+
+Cấu trúc đề PET B1 Listening (25 câu)
+
+Part 1 (1–7): picture-mc — 7 ảnh composite (mỗi câu A+B+C trên 1 ảnh)
+Part 2 (8–13): multiple-choice — mỗi câu có context "You will hear…" (xem Giaodien/a3.jpg)
+Part 3 (14–19): gap-fill — passageTitle + gapLead/gapTrail (xem Giaodien/a4.jpg)
+Part 4 (20–25): multiple-choice — phỏng vấn + audioIntro
+
+Việc bạn cần làm
+
+1. Crop từ PDF 7 ảnh Part 1 (mỗi câu 1 khung A+B+C) → Tainguyen/pet-listening-test1/
+2. Đảm bảo exam.json + MP3 đã có trong thư mục
+3. Chạy: pnpm pack:listening:pet
+4. Import ZIP: Luyện thi → Cambridge → B1 → Import thủ công Listening
+
+Prompt AI đầy đủ: HDSD/Prompt-PET-B1-Listening.txt
+Bundle mẫu: Tainguyen/pet-listening-test1.zip

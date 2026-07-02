@@ -1,7 +1,7 @@
 {
   "id": "catalog-listening-ket-a2-test1",
   "title": "KET A2 Listening — Test 1",
-  "durationMinutes": 35,
+  "durationMinutes": 25,
   "bandHint": "A2 Key Listening · 5 parts · 25 câu",
   "examType": "ket",
   "examMode": "practice",
@@ -21,22 +21,20 @@
           "options": [
             {
               "id": "A",
-              "label": "Picture A",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q1-a.jpg"
+              "label": "Picture A"
             },
             {
               "id": "B",
-              "label": "Picture B",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q1-b.jpg"
+              "label": "Picture B"
             },
             {
               "id": "C",
-              "label": "Picture C",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q1-c.jpg"
+              "label": "Picture C"
             }
           ],
           "answer": "A",
-          "explanation": "Claire will meet Alex at the place shown in picture A."
+          "explanation": "Claire will meet Alex at the place shown in picture A.",
+          "pictureImageUrl": "/catalog/listening/ket-a2-test1/q1.jpg"
         },
         {
           "id": "catalog-listening-ket-a2-test1-q-2",
@@ -46,22 +44,20 @@
           "options": [
             {
               "id": "A",
-              "label": "9 o'clock",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q2-a.jpg"
+              "label": "9 o'clock"
             },
             {
               "id": "B",
-              "label": "10 o'clock",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q2-b.jpg"
+              "label": "10 o'clock"
             },
             {
               "id": "C",
-              "label": "11 o'clock",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q2-c.jpg"
+              "label": "11 o'clock"
             }
           ],
           "answer": "C",
-          "explanation": "He should call again at eleven o'clock."
+          "explanation": "He should call again at eleven o'clock.",
+          "pictureImageUrl": "/catalog/listening/ket-a2-test1/q2.jpg"
         },
         {
           "id": "catalog-listening-ket-a2-test1-q-3",
@@ -71,22 +67,20 @@
           "options": [
             {
               "id": "A",
-              "label": "July 11",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q3-a.jpg"
+              "label": "July 11"
             },
             {
               "id": "B",
-              "label": "July 18",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q3-b.jpg"
+              "label": "July 18"
             },
             {
               "id": "C",
-              "label": "July 25",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q3-c.jpg"
+              "label": "July 25"
             }
           ],
           "answer": "C",
-          "explanation": "The party is on July 25."
+          "explanation": "The party is on July 25.",
+          "pictureImageUrl": "/catalog/listening/ket-a2-test1/q3.jpg"
         },
         {
           "id": "catalog-listening-ket-a2-test1-q-4",
@@ -96,22 +90,20 @@
           "options": [
             {
               "id": "A",
-              "label": "Sunny",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q4-a.jpg"
+              "label": "Sunny"
             },
             {
               "id": "B",
-              "label": "Rainy",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q4-b.jpg"
+              "label": "Rainy"
             },
             {
               "id": "C",
-              "label": "Windy",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q4-c.jpg"
+              "label": "Windy"
             }
           ],
           "answer": "A",
-          "explanation": "The weather was sunny during the picnic."
+          "explanation": "The weather was sunny during the picnic.",
+          "pictureImageUrl": "/catalog/listening/ket-a2-test1/q4.jpg"
         },
         {
           "id": "catalog-listening-ket-a2-test1-q-5",
@@ -121,22 +113,20 @@
           "options": [
             {
               "id": "A",
-              "label": "£5",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q5-a.jpg"
+              "label": "£5"
             },
             {
               "id": "B",
-              "label": "£15",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q5-b.jpg"
+              "label": "£15"
             },
             {
               "id": "C",
-              "label": "£20",
-              "imageUrl": "/catalog/listening/ket-a2-test1/q5-c.jpg"
+              "label": "£20"
             }
           ],
           "answer": "A",
-          "explanation": "The shorts cost five pounds."
+          "explanation": "The shorts cost five pounds.",
+          "pictureImageUrl": "/catalog/listening/ket-a2-test1/q5.jpg"
         }
       ]
     },

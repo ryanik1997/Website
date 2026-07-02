@@ -269,10 +269,29 @@
   background: var(--bg-card);
 }
 
+.exam-track-row__title-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .exam-track-row__title {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.exam-track-row__done-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, var(--border-color));
 }
 
 .exam-track-row__meta {

@@ -150,7 +150,15 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 Bạn có thể làm lại bài Reading này hoặc quay về thư viện Luyện thi để chọn đề khác.
               </p>
 
-              <div className="mt-5 flex flex-col gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={onBack}
+                  className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
+                  style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                >
+                  Về luyện thi
+                </button>
                 <button
                   type="button"
                   onClick={onRetry}
@@ -158,14 +166,6 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                   style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
                 >
                   Làm lại
-                </button>
-                <button
-                  type="button"
-                  onClick={onBack}
-                  className="rounded-full border px-4 py-3 text-sm font-bold uppercase tracking-[0.18em]"
-                  style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
-                >
-                  Quay lại thư viện thi
                 </button>
               </div>
             </div>

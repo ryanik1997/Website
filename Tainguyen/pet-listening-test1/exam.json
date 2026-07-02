@@ -1,0 +1,346 @@
+{
+  "version": 1,
+  "title": "PET B1 Listening — Test 1",
+  "durationMinutes": 30,
+  "bandHint": "B1 Preliminary Listening · 4 parts · 25 câu",
+  "examType": "pet",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–7",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "picture-mc",
+          "prompt": "What did the girl buy on her shopping trip?",
+          "imageFile": "q1.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "B",
+          "explanation": "The girl bought the item shown in picture B."
+        },
+        {
+          "number": 2,
+          "type": "picture-mc",
+          "prompt": "Why did the plane leave late?",
+          "imageFile": "q2.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "B",
+          "explanation": "The delay was caused by the situation in picture B."
+        },
+        {
+          "number": 3,
+          "type": "picture-mc",
+          "prompt": "What activity does the woman want to book for the weekend?",
+          "imageFile": "q3.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "A",
+          "explanation": "She wants to book the activity in picture A."
+        },
+        {
+          "number": 4,
+          "type": "picture-mc",
+          "prompt": "Which cake will the girl order?",
+          "imageFile": "q4.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "C",
+          "explanation": "She will order the cake in picture C."
+        },
+        {
+          "number": 5,
+          "type": "picture-mc",
+          "prompt": "How much must customers spend to get a free gift?",
+          "imageFile": "q5.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "B",
+          "explanation": "The minimum spend for a free gift is shown in picture B."
+        },
+        {
+          "number": 6,
+          "type": "picture-mc",
+          "prompt": "What did the family do on Sunday?",
+          "imageFile": "q6.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "B",
+          "explanation": "On Sunday the family did the activity in picture B."
+        },
+        {
+          "number": 7,
+          "type": "picture-mc",
+          "prompt": "Which programme is on first?",
+          "imageFile": "q7.jpg",
+          "options": [
+            { "id": "A", "label": "Picture A" },
+            { "id": "B", "label": "Picture B" },
+            { "id": "C", "label": "Picture C" }
+          ],
+          "answer": "C",
+          "explanation": "The first programme is the one in picture C."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 8–13",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+      "questions": [
+        {
+          "number": 8,
+          "type": "multiple-choice",
+          "context": "You will hear two friends talking about a new clothes shop.",
+          "prompt": "What does the girl say about it?",
+          "options": [
+            { "id": "A", "label": "The staff are helpful." },
+            { "id": "B", "label": "It only has the latest fashions." },
+            { "id": "C", "label": "Prices are reduced at the moment." }
+          ],
+          "answer": "A",
+          "explanation": "She says the staff are helpful."
+        },
+        {
+          "number": 9,
+          "type": "multiple-choice",
+          "context": "You will hear two friends talking about a pop band's website.",
+          "prompt": "They think the site would be better if",
+          "options": [
+            { "id": "A", "label": "its information was up to date." },
+            { "id": "B", "label": "it was easier to buy concert tickets." },
+            { "id": "C", "label": "the band members answered messages." }
+          ],
+          "answer": "B",
+          "explanation": "They want it to be easier to buy concert tickets."
+        },
+        {
+          "number": 10,
+          "type": "multiple-choice",
+          "context": "You will hear a woman telling a friend about an art competition she's won.",
+          "prompt": "How does she feel about it?",
+          "options": [
+            { "id": "A", "label": "upset that the prize isn't valuable" },
+            { "id": "B", "label": "excited that the judges liked her picture" },
+            { "id": "C", "label": "disappointed that she can't use the prize" }
+          ],
+          "answer": "C",
+          "explanation": "She is disappointed that she can't use the prize."
+        },
+        {
+          "number": 11,
+          "type": "multiple-choice",
+          "context": "You will hear two friends talking about the girl's flatmate.",
+          "prompt": "The girl thinks that her flatmate",
+          "options": [
+            { "id": "A", "label": "is too untidy." },
+            { "id": "B", "label": "talks too much." },
+            { "id": "C", "label": "plays music too loud." }
+          ],
+          "answer": "A",
+          "explanation": "She thinks her flatmate is too untidy."
+        },
+        {
+          "number": 12,
+          "type": "multiple-choice",
+          "context": "You will hear two friends talking about a football match.",
+          "prompt": "They agree that their team lost because",
+          "options": [
+            { "id": "A", "label": "the players weren't confident enough." },
+            { "id": "B", "label": "they were missing some key players." },
+            { "id": "C", "label": "the players didn't do the right training." }
+          ],
+          "answer": "A",
+          "explanation": "They think the team lacked confidence."
+        },
+        {
+          "number": 13,
+          "type": "multiple-choice",
+          "context": "You will hear two friends talking about a tennis match they played.",
+          "prompt": "The boy wants the girl to",
+          "options": [
+            { "id": "A", "label": "help him to get fitter." },
+            { "id": "B", "label": "practise with him more often." },
+            { "id": "C", "label": "enter more competitions with him." }
+          ],
+          "answer": "A",
+          "explanation": "He wants her to help him get fitter."
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–19",
+      "instruction": "For each question, write the correct answer in the gap. Write one or two words or a number or a date or a time.",
+      "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+      "audioIntro": "You will hear a radio presenter called Anita talking about her holiday in Cuba.",
+      "passageTitle": "ANITA'S HOLIDAY IN CUBA:",
+      "questions": [
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "National Gardens attraction",
+          "gapLead": "In the National Gardens, the",
+          "gapTrail": "was the thing that attracted most people.",
+          "answer": "waterfall",
+          "explanation": "A (fantastic) waterfall attracted most people.",
+          "wordLimit": 2
+        },
+        {
+          "number": 15,
+          "type": "gap-fill",
+          "prompt": "Swimming trip safety",
+          "gapLead": "On the swimming trip, electronic armbands kept the",
+          "gapTrail": "away.",
+          "answer": "sharks",
+          "explanation": "Electronic armbands kept the sharks away.",
+          "wordLimit": 2
+        },
+        {
+          "number": 16,
+          "type": "gap-fill",
+          "prompt": "Countryside accident",
+          "gapLead": "On the day in the countryside, Anita almost fell off a",
+          "gapTrail": ".",
+          "answer": "horse",
+          "explanation": "She almost fell off a horse.",
+          "wordLimit": 2
+        },
+        {
+          "number": 17,
+          "type": "gap-fill",
+          "prompt": "Capital city theatre",
+          "gapLead": "In the capital city, Anita saw a",
+          "gapTrail": "in a theatre.",
+          "answer": "musical",
+          "explanation": "She saw a musical (show/play) in a theatre.",
+          "wordLimit": 2
+        },
+        {
+          "number": 18,
+          "type": "gap-fill",
+          "prompt": "Farm product",
+          "gapLead": "Anita enjoyed visiting a farm where",
+          "gapTrail": "is produced.",
+          "answer": "sugar",
+          "explanation": "Sugar is produced on the farm.",
+          "wordLimit": 2
+        },
+        {
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "Gifts",
+          "gapLead": "Anita bought some",
+          "gapTrail": "as gifts.",
+          "answer": "rings",
+          "explanation": "She bought some rings as gifts.",
+          "wordLimit": 2
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 20–25",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "Test_1_Listening_PET_B1_Audio.mp3",
+      "audioIntro": "You will hear an interview with a woman called Vicky Prince, a champion swimmer who now works as a swimming coach.",
+      "questions": [
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Vicky first went in for competitions because",
+          "options": [
+            { "id": "A", "label": "she had joined a swimming club." },
+            { "id": "B", "label": "her parents were keen on swimming." },
+            { "id": "C", "label": "her swimming teacher encouraged her." }
+          ],
+          "answer": "C",
+          "explanation": "Her swimming teacher encouraged her."
+        },
+        {
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "As a teenager, Vicky's training involved",
+          "options": [
+            { "id": "A", "label": "exercising on land as well as in the water." },
+            { "id": "B", "label": "going without meals during the day." },
+            { "id": "C", "label": "travelling to a pool once a day." }
+          ],
+          "answer": "A",
+          "explanation": "She exercised on land as well as in the water."
+        },
+        {
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "What did Vicky find hard about her training programme?",
+          "options": [
+            { "id": "A", "label": "She couldn't go on school trips." },
+            { "id": "B", "label": "She lost some of her friends." },
+            { "id": "C", "label": "She missed lots of parties." }
+          ],
+          "answer": "B",
+          "explanation": "She lost some of her friends."
+        },
+        {
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "What helped Vicky to do well in the national finals?",
+          "options": [
+            { "id": "A", "label": "She was not expected to win." },
+            { "id": "B", "label": "She trained harder than usual." },
+            { "id": "C", "label": "She wanted to take a cup home." }
+          ],
+          "answer": "A",
+          "explanation": "She was not expected to win."
+        },
+        {
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "As a swimming coach, Vicky thinks she's best at teaching people",
+          "options": [
+            { "id": "A", "label": "to deal with failure." },
+            { "id": "B", "label": "to improve their technique." },
+            { "id": "C", "label": "to get swimming qualifications." }
+          ],
+          "answer": "A",
+          "explanation": "She is best at teaching people to deal with failure."
+        },
+        {
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "Why has Vicky started doing long-distance swimming?",
+          "options": [
+            { "id": "A", "label": "She needed to get fit again." },
+            { "id": "B", "label": "She thought it would be fun." },
+            { "id": "C", "label": "She wanted to do some travelling." }
+          ],
+          "answer": "C",
+          "explanation": "She wanted to do some travelling."
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,8 @@ interface Props {
   nextLabel: string
   onContinue: () => void
   onExit: () => void
+  onRetry?: () => void
+  retryLabel?: string
 }
 
 const STAGE_ORDER: FullMockStage[] = ['reading', 'listening', 'writing', 'done']
@@ -21,6 +23,8 @@ export default function FullMockStageResult({
   nextLabel,
   onContinue,
   onExit,
+  onRetry,
+  retryLabel = 'Làm lại',
 }: Props) {
   const stageIndex = STAGE_ORDER.indexOf(stage)
 
@@ -72,7 +76,7 @@ export default function FullMockStageResult({
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
+        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
           <button
             type="button"
             className="listening-exam-btn listening-exam-btn--ghost"
@@ -80,6 +84,15 @@ export default function FullMockStageResult({
           >
             Thoát Full Test
           </button>
+          {onRetry && (
+            <button
+              type="button"
+              className="listening-exam-btn listening-exam-btn--ghost"
+              onClick={onRetry}
+            >
+              {retryLabel}
+            </button>
+          )}
           <button
             type="button"
             className="listening-exam-btn listening-exam-btn--primary inline-flex items-center gap-2"

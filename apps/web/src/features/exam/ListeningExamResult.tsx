@@ -95,7 +95,7 @@ export default function ListeningExamResult({
 
         <div className="listening-exam-result__actions">
           <button type="button" className="listening-exam-btn listening-exam-btn--ghost" onClick={onBack}>
-            Về Luyện thi
+            Về luyện thi
           </button>
           <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={onRetry}>
             Làm lại
