@@ -5,6 +5,8 @@ import ExamHighlightableLines from './ExamHighlightableLines'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ExamAudioSource } from './useExamQuestionAudio'
+import ListeningIeltsNotePassageBox from './ListeningIeltsNotePassageBox'
+import { notePassageForGapSegment } from './listeningNotePassage'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
 
 interface AudioBarProps {
@@ -108,17 +110,35 @@ function GapRow({
   const wordLimit = question.wordLimit ?? 3
   const hasInline = Boolean(question.gapLead || question.gapTrail)
 
+  const noteBeforeBlock = question.noteBefore ? (
+    <ExamHighlightableLines
+      blockIdPrefix={`${question.id}-before`}
+      text={question.noteBefore}
+      lineClassName="listening-ielts-notes__static"
+    />
+  ) : null
+  const contextBlock = question.context ? (
+    <ReadingHighlightableText
+      blockId={`${question.id}-context`}
+      text={question.context}
+      highlights={highlights}
+      className="listening-ielts-notes__section"
+      as="p"
+    />
+  ) : null
+
   return (
     <div className={`listening-ielts-notes__row${isActive ? ' is-active' : ''}`}>
-      {question.noteBefore && (
-        <ExamHighlightableLines
-          blockIdPrefix={`${question.id}-before`}
-          text={question.noteBefore}
-          lineClassName="listening-ielts-notes__static"
-        />
-      )}
-      {question.context && (
-        <p className="listening-ielts-notes__section">{question.context}</p>
+      {question.contextFirst ? (
+        <>
+          {contextBlock}
+          {noteBeforeBlock}
+        </>
+      ) : (
+        <>
+          {noteBeforeBlock}
+          {contextBlock}
+        </>
       )}
       {hasInline ? (
         <label className="listening-ielts-notes__sentence" htmlFor={`ielts-gap-${question.id}`}>
@@ -171,6 +191,13 @@ function GapRow({
             onFocus={onSelect}
           />
         </label>
+      )}
+      {question.noteAfter && (
+        <ExamHighlightableLines
+          blockIdPrefix={`${question.id}-after`}
+          text={question.noteAfter}
+          lineClassName="listening-ielts-notes__static"
+        />
       )}
     </div>
   )
@@ -359,6 +386,11 @@ export default function ListeningIeltsPartView({
 
       {segments.map((segment, index) => {
         if (segment.kind === 'gaps') {
+          const passageBlocks = part.notePassage
+            ? notePassageForGapSegment(part.notePassage, segment.questions)
+            : null
+          const questionsByNumber = new Map(segment.questions.map(q => [q.number, q]))
+
           return (
             <section key={`gaps-${index}`} className="listening-ielts-notes">
               {part.passageTitle && (
@@ -370,25 +402,39 @@ export default function ListeningIeltsPartView({
                   as="h3"
                 />
               )}
-              {part.audioIntro && (
-                <ExamHighlightableLines
-                  blockIdPrefix={`${part.id}-intro`}
-                  text={part.audioIntro}
-                  lineClassName="listening-ielts-notes__intro"
+              {passageBlocks ? (
+                <ListeningIeltsNotePassageBox
+                  partId={part.id}
+                  blocks={passageBlocks}
+                  questionsByNumber={questionsByNumber}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  onAnswer={onAnswer}
+                  onSelectQuestion={onSelectQuestion}
                 />
+              ) : (
+                <>
+                  {part.audioIntro && (
+                    <ExamHighlightableLines
+                      blockIdPrefix={`${part.id}-intro`}
+                      text={part.audioIntro}
+                      lineClassName="listening-ielts-notes__intro"
+                    />
+                  )}
+                  <div className="listening-ielts-notes__box">
+                    {segment.questions.map(question => (
+                      <GapRow
+                        key={question.id}
+                        question={question}
+                        answer={answers[question.id] ?? ''}
+                        isActive={activeQuestionId === question.id}
+                        onAnswer={v => onAnswer(question.id, v)}
+                        onSelect={() => onSelectQuestion(question.id)}
+                      />
+                    ))}
+                  </div>
+                </>
               )}
-              <div className="listening-ielts-notes__box">
-                {segment.questions.map(question => (
-                  <GapRow
-                    key={question.id}
-                    question={question}
-                    answer={answers[question.id] ?? ''}
-                    isActive={activeQuestionId === question.id}
-                    onAnswer={v => onAnswer(question.id, v)}
-                    onSelect={() => onSelectQuestion(question.id)}
-                  />
-                ))}
-              </div>
             </section>
           )
         }

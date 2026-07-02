@@ -3,10 +3,12 @@ import type {
   ListeningExam,
   ListeningExamMode,
   ListeningExamType,
+  ListeningNotePassageBlock,
   ListeningPart,
   ListeningQuestion,
   ListeningQuestionType,
 } from './listeningExamData'
+import { validateNotePassageBlocks } from './listeningNotePassage'
 import { listeningExamAudioKey } from './listeningExamData'
 import {
   catalogPartImageUrl,
@@ -38,6 +40,8 @@ export interface ListeningImportQuestionJson {
   gapLead?: string
   gapTrail?: string
   noteBefore?: string
+  noteAfter?: string
+  contextFirst?: boolean
 }
 
 export interface ListeningImportPartJson {
@@ -56,6 +60,7 @@ export interface ListeningImportPartJson {
   matchingDualTask?: boolean
   taskOneInstruction?: string
   taskTwoInstruction?: string
+  notePassage?: ListeningNotePassageBlock[]
   questions: ListeningImportQuestionJson[]
 }
 
@@ -221,6 +226,18 @@ export function validateListeningImport(payload: ListeningImportPayload): string
   let totalQuestions = 0
 
   for (const part of payload.parts) {
+    if (payload.examType === 'ielts') {
+      const gapNumbers = (part.questions ?? [])
+        .filter(q => q.type === 'gap-fill')
+        .map(q => q.number)
+      warnings.push(
+        ...validateNotePassageBlocks(
+          part.notePassage,
+          gapNumbers,
+          `Part ${part.partNumber}`,
+        ),
+      )
+    }
     if (!part.questions?.length) {
       warnings.push(`Part ${part.partNumber}: không có câu hỏi.`)
       continue
@@ -375,6 +392,8 @@ export async function buildListeningExamFromImport(
         gapLead: qJson.gapLead,
         gapTrail: qJson.gapTrail,
         noteBefore: qJson.noteBefore,
+        noteAfter: qJson.noteAfter,
+        contextFirst: qJson.contextFirst,
       })
     }
 
@@ -407,6 +426,7 @@ export async function buildListeningExamFromImport(
       matchingDualTask: partJson.matchingDualTask,
       taskOneInstruction: partJson.taskOneInstruction,
       taskTwoInstruction: partJson.taskTwoInstruction,
+      notePassage: partJson.notePassage,
       questions,
     })
   }

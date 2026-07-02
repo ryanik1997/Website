@@ -17,7 +17,7 @@
           "id": "catalog-listening-ielts-cam20-test1-q-1",
           "number": 1,
           "type": "gap-fill",
-          "prompt": "The Junction — good for people keen on:",
+          "prompt": "Keen on:",
           "options": [],
           "answer": "fish",
           "explanation": "Món cá.",
@@ -27,47 +27,53 @@
           "id": "catalog-listening-ielts-cam20-test1-q-2",
           "number": 2,
           "type": "gap-fill",
-          "prompt": "The … is a good place for a drink (The Junction):",
+          "prompt": "Good place for a drink:",
           "options": [],
           "answer": "roof",
           "explanation": "Sân thượng/roof.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "is a good place for a drink"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-3",
           "number": 3,
           "type": "gap-fill",
-          "prompt": "Paloma — type of food:",
+          "prompt": "Type of food:",
           "options": [],
           "answer": "spanish",
           "explanation": "Ẩm thực Tây Ban Nha.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapTrail": "food, good for sharing"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-4",
           "number": 4,
           "type": "gap-fill",
-          "prompt": "Paloma — limited section on the menu:",
+          "prompt": "Limited selection:",
           "options": [],
           "answer": "vegetarian",
           "explanation": "Món chay.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "A limited selection of",
+          "gapTrail": "food on the menu"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-5",
           "number": 5,
           "type": "gap-fill",
-          "prompt": "Name of restaurant at top of a hotel:",
+          "prompt": "Restaurant name:",
           "options": [],
           "answer": "audley",
           "explanation": "The Audley.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "The"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-6",
           "number": 6,
           "type": "gap-fill",
-          "prompt": "The Audley — located at the top of a:",
+          "prompt": "Location:",
           "options": [],
           "answer": "hotel",
           "explanation": "Khách sạn.",
@@ -77,44 +83,144 @@
           "id": "catalog-listening-ielts-cam20-test1-q-7",
           "number": 7,
           "type": "gap-fill",
-          "prompt": "The Audley — all the … are very good:",
+          "prompt": "Reviews:",
           "options": [],
           "answer": "reviews",
           "explanation": "Đánh giá tốt.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "All the",
+          "gapTrail": "are very good"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-8",
           "number": 8,
           "type": "gap-fill",
-          "prompt": "The Audley — only uses … ingredients:",
+          "prompt": "Ingredients:",
           "options": [],
           "answer": "local",
           "explanation": "Nguyên liệu địa phương.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "Only uses",
+          "gapTrail": "ingredients"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-9",
           "number": 9,
           "type": "gap-fill",
-          "prompt": "Set lunch cost per person:",
+          "prompt": "Set lunch cost:",
           "options": [],
           "answer": "30",
           "explanation": "£30.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapTrail": "per person"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-10",
           "number": 10,
           "type": "gap-fill",
-          "prompt": "Proportions probably … size:",
+          "prompt": "Portion size:",
           "options": [],
           "answer": "average",
           "explanation": "Khẩu phần trung bình.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapTrail": "size"
         }
       ],
-      "passageTitle": "Restaurant recommendations"
+      "passageTitle": "Restaurant recommendations",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "The Junction"
+        },
+        {
+          "type": "static",
+          "text": "Greyston Street, near the station"
+        },
+        {
+          "type": "static",
+          "text": "Good for people who are especially keen on"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "Quite expensive"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "section",
+          "text": "Paloma"
+        },
+        {
+          "type": "static",
+          "text": "In Bow Street next to the cinema"
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "static",
+          "text": "Staff are very friendly"
+        },
+        {
+          "type": "static",
+          "text": "Need to pay £50 deposit"
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "section",
+          "text": "The Audley"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": "At the top of a"
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "static",
+          "text": "A famous chef"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "Set lunch costs £"
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "Portions probably of"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        }
+      ]
     },
     {
       "id": "catalog-listening-ielts-cam20-test1-part-2",
@@ -259,121 +365,121 @@
           "id": "catalog-listening-ielts-cam20-test1-q-17",
           "number": 17,
           "type": "matching",
-          "prompt": "Which TWO things does Heather explain about kilns? (17)",
+          "prompt": "Which TWO things does Heather explain about kilns?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "What their function is."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "When they were invented."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Ways of keeping them safe."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Where to put one in your home."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "What some people use instead of one."
             }
           ],
           "answer": "A/E",
-          "explanation": "Chức năng lò (A) hoặc thay thế (E)."
+          "explanation": "Chức năng lò (A) và thay thế (E)."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-18",
           "number": 18,
           "type": "matching",
-          "prompt": "Which TWO things does Heather explain about kilns? (18)",
+          "prompt": "Which TWO things does Heather explain about kilns?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "What their function is."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "When they were invented."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Ways of keeping them safe."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Where to put one in your home."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "What some people use instead of one."
             }
           ],
           "answer": "A/E",
-          "explanation": "Cặp đáp án 17–18: A và E."
+          "explanation": "Chức năng lò (A) và thay thế (E). (cặp 17–18)"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-19",
           "number": 19,
           "type": "matching",
-          "prompt": "Which TWO points does Heather make about a potter's tools? (19)",
+          "prompt": "Which TWO points does Heather make about a potter's tools?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "Some are hard to hold."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Some are worth buying."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Some are essential items."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Some have memorable names."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "Some are available for use by participants."
             }
           ],
           "answer": "C/E",
-          "explanation": "Dụng cụ thiết yếu (C) hoặc dùng chung (E)."
+          "explanation": "Thiết yếu (C) và dùng chung (E)."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-20",
           "number": 20,
           "type": "matching",
-          "prompt": "Which TWO points does Heather make about a potter's tools? (20)",
+          "prompt": "Which TWO points does Heather make about a potter's tools?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "Some are hard to hold."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Some are worth buying."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Some are essential items."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Some have memorable names."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "Some are available for use by participants."
             }
           ],
           "answer": "C/E",
-          "explanation": "Cặp đáp án 19–20: C và E."
+          "explanation": "Thiết yếu (C) và dùng chung (E). (cặp 19–20)"
         }
       ],
       "passageTitle": "Edelman Pottery — visitor talk"
@@ -389,27 +495,27 @@
           "id": "catalog-listening-ielts-cam20-test1-q-21",
           "number": 21,
           "type": "matching",
-          "prompt": "TWO causes of increased loneliness (21)",
+          "prompt": "Which TWO things do the students both believe are responsible for the increase in loneliness?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "Social media"
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Smaller nuclear families"
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Urban design"
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Longer lifespans"
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "A mobile workforce"
             }
           ],
           "answer": "C/E",
@@ -419,57 +525,57 @@
           "id": "catalog-listening-ielts-cam20-test1-q-22",
           "number": 22,
           "type": "matching",
-          "prompt": "TWO causes of increased loneliness (22)",
+          "prompt": "Which TWO things do the students both believe are responsible for the increase in loneliness?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "Social media"
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Smaller nuclear families"
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Urban design"
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Longer lifespans"
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "A mobile workforce"
             }
           ],
           "answer": "C/E",
-          "explanation": "Cặp 21–22: C và E."
+          "explanation": "Thiết kế đô thị (C) / lực lượng di động (E). (cặp 21–22)"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-23",
           "number": 23,
           "type": "matching",
-          "prompt": "TWO health risks with solid evidence (23)",
+          "prompt": "Which TWO health risks associated with loneliness do the students agree are based on solid evidence?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "A weakened immune system"
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Dementia"
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Cancer"
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Obesity"
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "Cardiovascular disease"
             }
           ],
           "answer": "A/C",
@@ -479,57 +585,57 @@
           "id": "catalog-listening-ielts-cam20-test1-q-24",
           "number": 24,
           "type": "matching",
-          "prompt": "TWO health risks with solid evidence (24)",
+          "prompt": "Which TWO health risks associated with loneliness do the students agree are based on solid evidence?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "A weakened immune system"
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "Dementia"
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "Cancer"
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "Obesity"
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "Cardiovascular disease"
             }
           ],
           "answer": "A/C",
-          "explanation": "Cặp 23–24: A và C."
+          "explanation": "Miễn dịch (A) / ung thư (C). (cặp 23–24)"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-25",
           "number": 25,
           "type": "matching",
-          "prompt": "TWO opinions on evolutionary theory (25)",
+          "prompt": "Which TWO opinions do both the students express about the evolutionary theory of loneliness?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "It has little practical relevance."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "It needs further investigation."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "It is misleading."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "It should be more widely accepted."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "It is difficult to understand."
             }
           ],
           "answer": "A/B",
@@ -539,31 +645,31 @@
           "id": "catalog-listening-ielts-cam20-test1-q-26",
           "number": 26,
           "type": "matching",
-          "prompt": "TWO opinions on evolutionary theory (26)",
+          "prompt": "Which TWO opinions do both the students express about the evolutionary theory of loneliness?",
           "options": [
             {
               "id": "A",
-              "label": "A"
+              "label": "It has little practical relevance."
             },
             {
               "id": "B",
-              "label": "B"
+              "label": "It needs further investigation."
             },
             {
               "id": "C",
-              "label": "C"
+              "label": "It is misleading."
             },
             {
               "id": "D",
-              "label": "D"
+              "label": "It should be more widely accepted."
             },
             {
               "id": "E",
-              "label": "E"
+              "label": "It is difficult to understand."
             }
           ],
           "answer": "A/B",
-          "explanation": "Cặp 25–26: A và B."
+          "explanation": "Ít thực tiễn (A) / cần nghiên cứu (B). (cặp 25–26)"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-27",
@@ -667,104 +773,197 @@
           "id": "catalog-listening-ielts-cam20-test1-q-31",
           "number": 31,
           "type": "gap-fill",
-          "prompt": "Pollution from … on the river bank:",
+          "prompt": "Pollution source:",
           "options": [],
           "answer": "factories",
           "explanation": "Nhà máy.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "pollution from",
+          "gapTrail": "on the river bank"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-32",
           "number": 32,
           "type": "gap-fill",
-          "prompt": "River Thames declared biologically …",
+          "prompt": "Thames declared biologically:",
           "options": [],
           "answer": "dead",
           "explanation": "Sông 'chết'.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "In 1957, the River Thames in London was declared biologically"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-33",
           "number": 33,
           "type": "gap-fill",
-          "prompt": "A … has been seen in the Thames:",
+          "prompt": "Seen in the Thames:",
           "options": [],
           "answer": "whale",
           "explanation": "Cá voi.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "Seals and even a",
+          "gapTrail": "have been seen in the River Thames."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-34",
           "number": 34,
           "type": "gap-fill",
-          "prompt": "Warehouses converted to restaurants and …",
+          "prompt": "Warehouses converted to:",
           "options": [],
           "answer": "apartments",
           "explanation": "Căn hộ.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "Riverside warehouses are converted to restaurants and"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-35",
           "number": 35,
           "type": "gap-fill",
-          "prompt": "Los Angeles — build a riverside …",
+          "prompt": "Los Angeles riverside:",
           "options": [],
           "answer": "park",
           "explanation": "Công viên.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "build a riverside"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-36",
           "number": 36,
           "type": "gap-fill",
-          "prompt": "Display … projects:",
+          "prompt": "Display projects:",
           "options": [],
           "answer": "art",
           "explanation": "Dự án nghệ thuật.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "display",
+          "gapTrail": "projects"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-37",
           "number": 37,
           "type": "gap-fill",
-          "prompt": "In Paris, … created on river sides each summer:",
+          "prompt": "Paris summer feature:",
           "options": [],
           "answer": "beaches",
           "explanation": "Bãi biển nhân tạo.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "In Paris,",
+          "gapTrail": "are created on the sides of the river every summer."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-38",
           "number": 38,
           "type": "gap-fill",
-          "prompt": "Over 2 billion passengers travel by …",
+          "prompt": "Passengers travel by:",
           "options": [],
           "answer": "ferry",
           "explanation": "Phà.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "Over 2 billion passengers already travel by",
+          "gapTrail": "in cities around the world."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-39",
           "number": 39,
           "type": "gap-fill",
-          "prompt": "Goods by barges and electric …",
+          "prompt": "Electric transport:",
           "options": [],
           "answer": "bikes",
           "explanation": "Xe đạp điện.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "goods could be transported by large freight barges and electric"
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-40",
           "number": 40,
           "type": "gap-fill",
-          "prompt": "In the future, goods by …",
+          "prompt": "Future transport:",
           "options": [],
           "answer": "drone",
           "explanation": "Drone.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": ", or in the future, by"
         }
       ],
-      "passageTitle": "Reclaiming urban rivers"
+      "passageTitle": "Reclaiming urban rivers",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Historical background"
+        },
+        {
+          "type": "static",
+          "text": "Nearly all major cities were built on a river."
+        },
+        {
+          "type": "static",
+          "text": "Rivers were traditionally used by city dwellers for transport, fishing and recreation."
+        },
+        {
+          "type": "static",
+          "text": "Industrial development and rising populations later led to:"
+        },
+        {
+          "type": "static",
+          "text": "more sewage from houses being discharged into the river"
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "section",
+          "text": "Recent improvements"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "In Los Angeles, there are plans to:"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "section",
+          "text": "Transport possibilities"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": "Changes in shopping habits mean the number of deliveries that are made is increasing."
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "gap",
+          "number": 40
+        }
+      ]
     }
   ],
   "catalogSlug": "ielts-cam20-test1",

@@ -12,8 +12,9 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-02 — `@ryan/catalog` + builtin KET/PET/FCE Reading + KET Listening
-- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** catalog v0.2.0 (local only)
+- **Session:** 2026-07-02 (tiếp) — IELTS Listening Cam9/Cam20: `notePassage` + fix đáp án thiếu (`Giaodien/a5–a10`)
+- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** catalog IELTS + fix Cam20 (local only)
+- **Dev:** `pnpm dev` → hard refresh sau rebuild catalog
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -359,6 +360,8 @@ pnpm --filter server typecheck
 - [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix (mất chữ "o" trong "do", ô trống, vòng tròn đỏ trùng WordDiff). Đã rewrite DOM thuần + tách `ListeningAudioBar`; **chờ user hard refresh production và xác nhận**
 - [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar; bỏ `overflow-x-auto` tabs + debug observer
 - [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần tương tác người dùng trước (autoplay policy)
+- [ ] **IELTS Cam20 Listening UI** — fix `notePassage` + Choose TWO đã rebuild catalog/ZIP; **chờ user hard refresh + so sánh `Giaodien/a5–a10`**
+- [ ] Nếu user đã import ZIP Cam20 cũ vào Dexie → xóa đề cũ hoặc re-import `Listening IELTS_Test1_Cam20.zip` mới
 - [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
 - [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
 
@@ -954,6 +957,10 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 - [x] `pnpm pack:listening:ielts-cam9` / `ielts-cam20` + `pnpm build:ielts-listening`
 - [x] HDSD: `Prompt-IELTS-Listening-Cam9-Cam20.txt`
 - [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] **`notePassage` system** — `static` | `section` | `gap` trên `ListeningPart`; render `ListeningIeltsNotePassageBox.tsx` + `listeningNotePassage.ts`; validation import IELTS; catalog merge pass-through
+- [x] **Fix Cam 9 static lines** — P1 (12 hours, referees…), P4 (Several other theories, Cape Cod, Thurston…) trong `build-ielts-listening-tests.py`
+- [x] **Fix Cam 20 đáp án thiếu** (`Giaodien/a5–a10`): `notePassage` P1/P4 đầy đủ static + `gapLead`/`gapTrail`; Choose TWO P2–P3 `choose_two()` nhãn đầy đủ (không còn "A A"); rebuild catalog + ZIP
+- [x] Rebuild: `python scripts/build-ielts-listening-tests.py` → `pnpm build:catalog` → `pnpm pack:listening:ielts-cam9` / `ielts-cam20` — `tsc` pass
 
 ### Luyện thi — CAE C1 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
 - [x] `Tainguyen/cae-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC 3 extracts, Part 2 gap-fill TRIP TO SOUTH AFRICA, Part 3 MC A/B/C/D, Part 4 dual matching)
@@ -991,55 +998,51 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 ```
 Đọc session_summary.md.
 
-Session 2026-07-02 — Global catalog + footer/timer thống nhất Reading/Listening đã xong.
+Session 2026-07-02 (tiếp) — Fix IELTS Listening Cam20 đáp án thiếu (Giaodien/a5–a10) ĐÃ CODE XONG, chưa user confirm.
 
-Production: https://ryanenglishv2.vercel.app
-Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching chưa lên prod).
+Production: https://ryanenglishv2.vercel.app — chưa deploy fix IELTS Cam20.
 
-─── ƯU TIÊN NGÀY MAI ───
+─── ƯU TIÊN PHIÊN TIẾP (~30 phút) ───
 
-1. USER TEST — Listening KET A2 audio
-   • Hard refresh → mở builtin `KET A2 Listening — Test 1` hoặc re-import ZIP
-   • Bấm Phát — phải nghe được listening.mp3 (~35 phút)
-   • Nếu vẫn lỗi: DevTools Network xem listening.mp3 200; xóa đề import cũ trong Dexie
-   • OK → deploy prod (catalog v0.2.0 chưa lên production)
+1. USER TEST — IELTS Cam 20 Test 1 (so sánh Giaodien/a5–a10)
+   • Hard refresh (Ctrl+Shift+R) → Luyện thi → IELTS → Listening Cam 20 Test 1
+   • Part 1: bảng nhà hàng có dòng tĩnh (The Junction / Paloma / The Audley), không chỉ số 1–10
+   • Part 2 Q17–20 + Part 3 Q21–26: Choose TWO hiện nhãn đầy đủ (vd. "Social media"), KHÔNG "A A"
+   • Part 4: notes "Reclaiming urban rivers" có sections + câu inline (gapLead/gapTrail), giống a8
+   • Nếu vẫn lỗi: xóa đề import cũ trong Dexie HOẶC re-import ZIP mới:
+     Tainguyen/IELTS/Listening IELTS_Test1_Cam20.zip
 
-2. USER TEST — Reading (nếu chưa)
-   • ket-reading-test1.zip — Part 1 ảnh, Part 4 MC (không gap-fill)
-   • pet-reading-test1.zip — xóa đề cũ trước khi import lại (fix a8/a9)
+2. USER TEST — IELTS Cam 9 Test 1 (nếu chưa)
+   • P1 JOB INQUIRY: "12 hours", "Qualities required" highlight được
+   • P4 Whales: "Several other theories", Cape Cod, Thurston
+   • Re-import ZIP nếu dùng bản import cũ
 
-3. TUỲ CHỌN — Ảnh Part 1 Listening
-   • Extract từ PDF → q1-a.jpg … q5-c.jpg → rebuild ZIP
+3. NẾU OK → deploy prod
+   pnpm deploy:prod   (catalog + IELTS fix chưa lên production)
 
-4. USER TEST — Listening PET B1
-   • Import `Tainguyen/pet-listening-test1.zip` (B1 → Import thủ công Listening)
-   • Preview ✓ MP3 + 7 ảnh → làm bài 4 Part / 25 câu / 30 phút
-   • Prompt AI: `HDSD/Prompt-PET-B1-Listening.txt`
+4. TUỲ CHỌN polish (nếu user muốn layout đẹp hơn)
+   • Cam20 P1: layout dạng bảng 4 cột như đề giấy (hiện notePassage dạng list)
+   • Cam9 P2 Q11–16: notePassage chỉ gap — có thể bổ sung static map labels
+   • Cam20 P4 gap 39–40: kiểm tra câu nối ", or in the future, by" hiển thị đúng
 
-5. USER TEST — Listening FCE B2 + CAE C1
-   • Builtin `catalog-listening-fce-b2-test1` / `catalog-listening-cae-c1-test1`
-   • CAE Part 4: kiểm tra dual-task (Task One + Task Two, a10.jpg)
-   • Prompt: `HDSD/Prompt-FCE-B2-Listening.txt`, `HDSD/Prompt-CAE-C1-Listening.txt`
+─── REBUILD (nếu sửa thêm exam.json) ───
+python scripts/build-ielts-listening-tests.py
+pnpm build:catalog
+pnpm pack:listening:ielts-cam9
+pnpm pack:listening:ielts-cam20
+pnpm --filter web exec tsc --noEmit
 
-6. USER TEST — Reading CAE C1
-   • Hard refresh → Luyện thi → Cambridge → C1 → **CAE C1 Reading — Test 1**
-   • 8 parts / 56 câu / 90 phút; Part 6 reviews A–D trái, Part 7 gapped text, Part 8 consultants A–E
-   • Part 4 transformation: placeholder `3–6 words`; Submit → kết quả (không blank page)
-   • Prompt: `HDSD/Prompt-CAE-C1-Reading.txt`
+─── FILE CHÍNH IELTS ───
+scripts/build-ielts-listening-tests.py          ← nguồn exam Cam9/Cam20
+packages/catalog/data/listening-ielts-cam20-test1.json
+apps/web/src/features/exam/ListeningIeltsPartView.tsx
+apps/web/src/features/exam/ListeningIeltsNotePassageBox.tsx
+apps/web/src/features/exam/listeningNotePassage.ts
+HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt    ← Choose TWO: options nhãn đầy đủ
 
-7. TIẾP THEO (nếu user muốn)
-   • CPE C2 Listening / Reading
-   • Deploy prod (catalog chưa lên production)
-
-─── ĐÃ XONG 2026-07-01 (Import đề) ───
-• Reading: KET / PET / FCE bundles + prompts HDSD
-• Listening KET: UI gap-fill + matching, dedupe MP3, build script, ZIP ~12MB
-• Files chính: ListeningQuestionCard.tsx, ListeningKetTest.tsx, importListeningUtils.ts
-• scripts/build-ket-a2-listening-test1.py, HDSD/Prompt-KET-A2-Listening.txt
-
-─── CHƯA CONFIRM (cũ) ───
-• Listening Ô CHỮ mobile iOS
-• Web Audio autoplay iOS
+─── BACKLOG (nếu user nhắc) ───
+• Listening KET/PET/FCE/CAE builtin test + deploy
+• Listening Ô CHỮ mobile iOS · Web Audio autoplay iOS
 • Thanh cuộn thừa Listening lesson page
 ```
 # Session Update - 2026-07-01
@@ -1100,15 +1103,18 @@ Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching
   - `http://localhost:5173/auth/callback`
   - production domain `/auth/callback`
 
-## Mục tiêu ưu tiên phiên sau (2026-07-02)
+## Mục tiêu ưu tiên phiên sau (2026-07-02, tiếp)
 
-### Luyện thi — Import đề
-1. User test `ket-listening-test1.zip` → fix nếu lỗi → `pnpm deploy:prod`
-2. User test `ket-reading-test1.zip` / `pet-reading-test1.zip` (xóa đề cũ PET)
-3. Extract ảnh Part 1 Listening từ PDF (tuỳ chọn)
-4. User test `pet-listening-test1.zip` — 4 Part, 7 ảnh Part 1, prompt `HDSD/Prompt-PET-B1-Listening.txt`
-5. Tuỳ chọn: `pnpm build:catalog` thêm PET Listening builtin
+### IELTS Listening — user confirm
+1. Hard refresh → Cam20 Test 1 — so `Giaodien/a5–a10`
+2. Cam9 Test 1 — static lines P1/P4
+3. OK → `pnpm deploy:prod`
+
+### Luyện thi — Import đề (backlog)
+- KET/PET/FCE/CAE Listening + Reading ZIP test
+- PET Listening: `HDSD/Prompt-PET-B1-Listening.txt`
 
 ### Khác (nếu user nhắc)
-- Listening lesson: thanh cuộn thừa — `?lsnDebug=only-tabs`
+- Cam20 P1 table layout 4 cột
+- Listening lesson thanh cuộn thừa — `?lsnDebug=only-tabs`
 - iOS Ô CHỮ + Web Audio autoplay

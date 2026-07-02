@@ -43,19 +43,48 @@ App render: `ListeningIeltsTest`. Timer **30 phút**. `audioFile`: `"listening.m
 
 ## Part schema
 
+### Bắt buộc: `notePassage` cho Part gap-fill (note-completion)
+
+IELTS form/table/lecture notes có **nhiều dòng chữ tĩnh** xen giữa các ô trống. Phải khai báo **đầy đủ thứ tự** trong `notePassage` — app render y hệt đề gốc.
+
+```json
+"notePassage": [
+  { "type": "static", "text": "Example: Work at: a restaurant" },
+  { "type": "gap", "number": 1 },
+  { "type": "static", "text": "Number of hours per week: 12 hours" },
+  { "type": "static", "text": "Would need work permit" },
+  { "type": "gap", "number": 2 },
+  { "type": "section", "text": "Extra benefits" },
+  { "type": "static", "text": "a free dinner" },
+  { "type": "gap", "number": 5 }
+]
+```
+
+| Block | Ý nghĩa |
+|-------|---------|
+| `static` | Dòng chữ không có ô trống |
+| `section` | Tiêu đề mục (Parasites, Toxins…) |
+| `gap` | Ô trống — `number` trùng `questions[].number` |
+
+Mỗi câu `gap-fill` trong `questions` **phải xuất hiện đúng 1 lần** trong `notePassage`. Preview import sẽ cảnh báo nếu thiếu.
+
+`gapLead` / `gapTrail` trên từng câu = chữ trước/sau ô trống (inline). Không dùng `noteBefore`/`audioIntro` thay cho `notePassage`.
+
 ```json
 {
   "partNumber": 1,
   "rangeLabel": "Questions 1–10",
   "instruction": "Complete the form…",
-  "passageTitle": "West Bay Health Centre",
+  "passageTitle": "JOB INQUIRY",
   "audioFile": "listening.mp3",
+  "notePassage": [ /* static + section + gap theo đề PDF */ ],
   "questions": [
     {
       "number": 1,
       "type": "gap-fill",
-      "prompt": "First name:",
-      "answer": "keith",
+      "prompt": "Type of work:",
+      "gapLead": "Type of work:",
+      "answer": "answering phone",
       "wordLimit": 3,
       "explanation": "…"
     },
@@ -77,9 +106,11 @@ App render: `ListeningIeltsTest`. Timer **30 phút**. `audioFile`: `"listening.m
 }
 ```
 
-## Choose TWO (Cam 20 Part 2–3)
+## Choose TWO (Cam 9 Part 2 · Cam 20 Part 2–3)
 - Tách **2 câu** (vd. 17 + 18) cùng prompt nhóm.
+- `options`: **bắt buộc nhãn đầy đủ** — vd. `{ "id": "A", "label": "Social media" }`. Không chỉ `"label": "A"` (UI sẽ hiện "A A").
 - `answer`: `"A/E"` — app chấp nhận **A hoặc E** cho mỗi ô (dấu `/`).
+- Dùng helper `choose_two()` trong `scripts/build-ielts-listening-tests.py`.
 
 ## Đáp án Test 1
 

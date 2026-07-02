@@ -25,6 +25,17 @@ export type ListeningQuestionType =
   | 'gap-fill'
   | 'matching'
 
+export type ListeningNotePassageBlockType = 'static' | 'section' | 'gap'
+
+/** IELTS note-completion: thứ tự đầy đủ của form (chữ tĩnh + ô trống). */
+export interface ListeningNotePassageBlock {
+  type: ListeningNotePassageBlockType
+  /** static / section */
+  text?: string
+  /** gap — tham chiếu questions[].number */
+  number?: number
+}
+
 export interface ListeningQuestionOption {
   id: string
   label: string
@@ -55,6 +66,10 @@ export interface ListeningQuestion {
   gapTrail?: string
   /** IELTS note-completion: dòng tĩnh ngay trước câu (không có ô trống) */
   noteBefore?: string
+  /** IELTS note-completion: dòng tĩnh ngay sau ô trống của câu */
+  noteAfter?: string
+  /** Khi có cả context + noteBefore: true = hiện tiêu đề mục trước dòng tĩnh */
+  contextFirst?: boolean
 }
 
 export interface ListeningPart {
@@ -79,6 +94,8 @@ export interface ListeningPart {
   matchingDualTask?: boolean
   taskOneInstruction?: string
   taskTwoInstruction?: string
+  /** IELTS: toàn bộ form note-completion theo đúng thứ tự đề gốc */
+  notePassage?: ListeningNotePassageBlock[]
   questions: ListeningQuestion[]
 }
 

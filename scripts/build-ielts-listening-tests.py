@@ -56,6 +56,113 @@ def part(num, start, end, instruction, questions, **extra):
     }
 
 
+def np_static(text):
+    return {"type": "static", "text": text}
+
+
+def np_section(text):
+    return {"type": "section", "text": text}
+
+
+def np_gap(number):
+    return {"type": "gap", "number": number}
+
+
+CAM9_P1_NOTE = [
+    np_static("Example: Work at: a restaurant"),
+    np_gap(1),
+    np_static("Number of hours per week: 12 hours"),
+    np_static("Would need work permit"),
+    np_gap(2),
+    np_gap(3),
+    np_gap(4),
+    np_section("Extra benefits"),
+    np_static("a free dinner"),
+    np_gap(5),
+    np_gap(6),
+    np_section("Qualities required"),
+    np_gap(7),
+    np_gap(8),
+    np_gap(9),
+    np_static("Bring the names of two referees"),
+    np_gap(10),
+]
+
+CAM9_P2_NOTE = [np_gap(n) for n in range(11, 17)]
+
+CAM9_P4_NOTE = [
+    np_static("Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die."),
+    np_gap(31),
+    np_static("Several other theories:"),
+    np_section("Parasites"),
+    np_gap(32),
+    np_section("Toxins"),
+    np_gap(33),
+    np_static("e.g. Cape Cod (1988) — whales were killed by saxitoxin"),
+    np_section("Accidental Strandings"),
+    np_static("Animals may follow prey ashore, e.g. Thurston (1995)"),
+    np_gap(34),
+    np_section("Human Activity"),
+    np_gap(35),
+    np_static("The Bahamas (2000) military sonar was unusual because the whales"),
+    np_gap(36),
+    np_gap(37),
+    np_section("Group Behaviour"),
+    np_gap(38),
+    np_gap(39),
+    np_section("Further Reading"),
+    np_gap(40),
+]
+
+CAM20_P1_NOTE = [
+    np_section("The Junction"),
+    np_static("Greyston Street, near the station"),
+    np_static("Good for people who are especially keen on"),
+    np_gap(1),
+    np_static("Quite expensive"),
+    np_gap(2),
+    np_section("Paloma"),
+    np_static("In Bow Street next to the cinema"),
+    np_gap(3),
+    np_static("Staff are very friendly"),
+    np_static("Need to pay £50 deposit"),
+    np_gap(4),
+    np_section("The Audley"),
+    np_gap(5),
+    np_static("At the top of a"),
+    np_gap(6),
+    np_static("A famous chef"),
+    np_gap(7),
+    np_gap(8),
+    np_static("Set lunch costs £"),
+    np_gap(9),
+    np_static("Portions probably of"),
+    np_gap(10),
+]
+
+CAM20_P4_NOTE = [
+    np_section("Historical background"),
+    np_static("Nearly all major cities were built on a river."),
+    np_static("Rivers were traditionally used by city dwellers for transport, fishing and recreation."),
+    np_static("Industrial development and rising populations later led to:"),
+    np_static("more sewage from houses being discharged into the river"),
+    np_gap(31),
+    np_gap(32),
+    np_section("Recent improvements"),
+    np_gap(33),
+    np_gap(34),
+    np_static("In Los Angeles, there are plans to:"),
+    np_gap(35),
+    np_gap(36),
+    np_gap(37),
+    np_section("Transport possibilities"),
+    np_gap(38),
+    np_static("Changes in shopping habits mean the number of deliveries that are made is increasing."),
+    np_gap(39),
+    np_gap(40),
+]
+
+
 def build_cam9():
     fitness_opts = [
         ("A", "You need to reserve a place."),
@@ -83,29 +190,26 @@ def build_cam9():
                     gap(1, "Type of work:", "answering phone", "Trả lời điện thoại.", 3,
                          gapLead="Type of work:"),
                     gap(2, "Branch:", "hillsdunne road", "Chi nhánh Hillsdunne Road.", 3,
-                         noteBefore="Number of hours per week: 12 hours\nWould need work permit",
                          gapLead="Work in the", gapTrail="branch"),
                     gap(3, "Nearest bus stop:", "library", "Bến xe cạnh thư viện.", 1,
                          gapLead="Nearest bus stop: next to"),
                     gap(4, "Pay per hour:", "4.45", "£4.45/giờ.", 1,
                          gapLead="Pay £", gapTrail="an hour"),
                     gap(5, "Extra pay on:", "national holidays", "Ngày lễ.", 2,
-                         noteBefore="Extra benefits:\na free dinner",
                          gapLead="extra pay when you work on"),
                     gap(6, "Transport home when:", "after 11", "Sau 11 giờ.", 3,
                          gapLead="transport home when you work"),
                     gap(7, "Quality required:", "clear voice", "Giọng rõ.", 2,
-                         gapLead="Qualities required:"),
+                         gapLead=""),
                     gap(8, "Ability to:", "think quickly", "Suy nghĩ nhanh.", 2,
                          gapLead="ability to"),
                     gap(9, "Interview date:", "22 october", "22 tháng 10.", 2,
                          gapLead="Interview arranged for: Thursday", gapTrail="at 6 pm"),
                     gap(10, "Ask for:", "manuja", "Hỏi Samira Manuja.", 1,
-                         noteBefore="Bring the names of two referees",
                          gapLead="Ask for:"),
                 ],
                 passageTitle="JOB INQUIRY",
-                audioIntro="Example: Work at: a restaurant",
+                notePassage=CAM9_P1_NOTE,
             ),
             part(
                 2, 11, 20,
@@ -139,6 +243,7 @@ def build_cam9():
                     match(20, choose_two_prompt, list("ABCDE"), "A/E", "Cặp đáp án 19–20: A và E.", fitness_opts),
                 ],
                 passageTitle="SPORTS WORLD",
+                notePassage=CAM9_P2_NOTE,
             ),
             part(
                 3, 21, 30,
@@ -203,43 +308,79 @@ def build_cam9():
                     gap(31, "Areas where … can change quickly:", "tide", "Thủy triều.", 1,
                          gapLead="Common in areas where the", gapTrail="can change quickly"),
                     gap(32, "Parasites affect:", "hearing", "Thính giác.", 1,
-                         noteBefore="Several other theories:",
-                         context="Parasites",
                          gapLead="e.g. some parasites can affect marine animals'", gapTrail=", which they depend on for navigation"),
                     gap(33, "Toxins from:", "plants animals", "Độc tố từ thực vật/động vật.", 2,
-                         context="Toxins",
                          gapLead="Poisons from", gapTrail="or ……….. are commonly consumed by whales"),
                     gap(34, "Accidental strandings:", "feeding", "Không phải lúc kiếm ăn.", 1,
-                         context="Accidental Strandings",
                          gapLead="Unlikely because the majority of animals were not", gapTrail="when they stranded"),
                     gap(35, "Noise from military tests:", "noise", "Tiếng ồn thử nghiệm quân sự.", 1,
-                         context="Human Activity",
-                         gapLead="•", gapTrail="from military tests are linked to some recent strandings"),
+                         gapTrail="from military tests are linked to some recent strandings"),
                     gap(36, "Whales were all:", "healthy", "Khỏe mạnh.", 1,
-                         gapLead="The Bahamas (2000) — whales were all"),
+                         gapLead="• were all"),
                     gap(37, "Were not in a:", "group", "Không ở nhóm.", 1,
-                         gapLead="were not in a"),
+                         gapLead="• were not in a"),
                     gap(38, "Most … species:", "social", "Loài mang tính xã hội.", 1,
-                         context="Group Behaviour",
-                         gapLead="More strandings in the most", gapTrail="species of whales"),
+                         gapLead="• More strandings in the most", gapTrail="species of whales"),
                     gap(39, "Only the … was ill:", "leader", "Chỉ con đầu đàn bệnh.", 1,
-                         gapLead="1994 dolphin stranding — only the", gapTrail="was ill"),
+                         gapLead="• 1990s dolphin stranding — only the", gapTrail="was ill"),
                     gap(40, "Further reading topic:", "network", "Mạng lưới cứu hộ.", 1,
-                         context="Further Reading",
-                         gapLead="Marine Mammals Ashore (Connors) — gives information about stranding"),
+                         gapLead="Marine Mammals Ashore (Geraci) — gives information about strandings"),
                 ],
                 passageTitle="Mass Strandings of Whales and Dolphins",
-                audioIntro="Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die.",
+                notePassage=CAM9_P4_NOTE,
             ),
         ],
     }
+
+
+def choose_two(n1, n2, prompt, options, answer, explanation):
+    """Hai câu Choose TWO cùng prompt và options A–E có nhãn đầy đủ."""
+    return [
+        match(n1, prompt, list("ABCDE"), answer, explanation, options),
+        match(n2, prompt, list("ABCDE"), answer, f"{explanation} (cặp {n1}–{n2})", options),
+    ]
 
 
 def build_cam20():
     mc_abc = lambda n, prompt, a, b, c, ans, expl: mc(
         n, prompt, [("A", a), ("B", b), ("C", c)], ans, expl
     )
-    match_ae = lambda n, prompt, ans, expl: match(n, prompt, list("ABCDE"), ans, expl)
+
+    kilns_opts = [
+        ("A", "What their function is."),
+        ("B", "When they were invented."),
+        ("C", "Ways of keeping them safe."),
+        ("D", "Where to put one in your home."),
+        ("E", "What some people use instead of one."),
+    ]
+    tools_opts = [
+        ("A", "Some are hard to hold."),
+        ("B", "Some are worth buying."),
+        ("C", "Some are essential items."),
+        ("D", "Some have memorable names."),
+        ("E", "Some are available for use by participants."),
+    ]
+    loneliness_causes_opts = [
+        ("A", "Social media"),
+        ("B", "Smaller nuclear families"),
+        ("C", "Urban design"),
+        ("D", "Longer lifespans"),
+        ("E", "A mobile workforce"),
+    ]
+    health_risks_opts = [
+        ("A", "A weakened immune system"),
+        ("B", "Dementia"),
+        ("C", "Cancer"),
+        ("D", "Obesity"),
+        ("E", "Cardiovascular disease"),
+    ]
+    evolution_opts = [
+        ("A", "It has little practical relevance."),
+        ("B", "It needs further investigation."),
+        ("C", "It is misleading."),
+        ("D", "It should be more widely accepted."),
+        ("E", "It is difficult to understand."),
+    ]
 
     return {
         "version": 1,
@@ -253,18 +394,28 @@ def build_cam20():
                 1, 1, 10,
                 "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
                 [
-                    gap(1, "The Junction — good for people keen on:", "fish", "Món cá.", 1),
-                    gap(2, "The … is a good place for a drink (The Junction):", "roof", "Sân thượng/roof.", 1),
-                    gap(3, "Paloma — type of food:", "spanish", "Ẩm thực Tây Ban Nha.", 1),
-                    gap(4, "Paloma — limited section on the menu:", "vegetarian", "Món chay.", 1),
-                    gap(5, "Name of restaurant at top of a hotel:", "audley", "The Audley.", 1),
-                    gap(6, "The Audley — located at the top of a:", "hotel", "Khách sạn.", 1),
-                    gap(7, "The Audley — all the … are very good:", "reviews", "Đánh giá tốt.", 1),
-                    gap(8, "The Audley — only uses … ingredients:", "local", "Nguyên liệu địa phương.", 1),
-                    gap(9, "Set lunch cost per person:", "30", "£30.", 1),
-                    gap(10, "Proportions probably … size:", "average", "Khẩu phần trung bình.", 1),
+                    gap(1, "Keen on:", "fish", "Món cá.", 1),
+                    gap(2, "Good place for a drink:", "roof", "Sân thượng/roof.", 1,
+                         gapLead="The", gapTrail="is a good place for a drink"),
+                    gap(3, "Type of food:", "spanish", "Ẩm thực Tây Ban Nha.", 1,
+                         gapTrail="food, good for sharing"),
+                    gap(4, "Limited selection:", "vegetarian", "Món chay.", 1,
+                         gapLead="A limited selection of", gapTrail="food on the menu"),
+                    gap(5, "Restaurant name:", "audley", "The Audley.", 1,
+                         gapLead="The"),
+                    gap(6, "Location:", "hotel", "Khách sạn.", 1,
+                         gapTrail=""),
+                    gap(7, "Reviews:", "reviews", "Đánh giá tốt.", 1,
+                         gapLead="All the", gapTrail="are very good"),
+                    gap(8, "Ingredients:", "local", "Nguyên liệu địa phương.", 1,
+                         gapLead="Only uses", gapTrail="ingredients"),
+                    gap(9, "Set lunch cost:", "30", "£30.", 1,
+                         gapTrail="per person"),
+                    gap(10, "Portion size:", "average", "Khẩu phần trung bình.", 1,
+                         gapTrail="size"),
                 ],
                 passageTitle="Restaurant recommendations",
+                notePassage=CAM20_P1_NOTE,
             ),
             part(
                 2, 11, 20,
@@ -277,10 +428,16 @@ def build_cam20():
                     mc_abc(14, "What does Heather value most about being a potter?", "Its calming effect", "Its messy nature", "Its physical benefits", "A", "Tính thư giãn."),
                     mc_abc(15, "Most visitors to Edelman Pottery", "bring friends to join courses", "have never made a pot before", "try to learn techniques too quickly", "B", "Chưa từng làm gốm."),
                     mc_abc(16, "Heather reminds visitors they should", "put on their aprons", "change their clothes", "take off their jewellery", "C", "Tháo trang sức."),
-                    match_ae(17, "Which TWO things does Heather explain about kilns? (17)", "A/E", "Chức năng lò (A) hoặc thay thế (E)."),
-                    match_ae(18, "Which TWO things does Heather explain about kilns? (18)", "A/E", "Cặp đáp án 17–18: A và E."),
-                    match_ae(19, "Which TWO points does Heather make about a potter's tools? (19)", "C/E", "Dụng cụ thiết yếu (C) hoặc dùng chung (E)."),
-                    match_ae(20, "Which TWO points does Heather make about a potter's tools? (20)", "C/E", "Cặp đáp án 19–20: C và E."),
+                    *choose_two(
+                        17, 18,
+                        "Which TWO things does Heather explain about kilns?",
+                        kilns_opts, "A/E", "Chức năng lò (A) và thay thế (E).",
+                    ),
+                    *choose_two(
+                        19, 20,
+                        "Which TWO points does Heather make about a potter's tools?",
+                        tools_opts, "C/E", "Thiết yếu (C) và dùng chung (E).",
+                    ),
                 ],
                 passageTitle="Edelman Pottery — visitor talk",
             ),
@@ -288,12 +445,24 @@ def build_cam20():
                 3, 21, 30,
                 "Questions 21–26: Choose TWO letters, A–E. Questions 27–30: Choose A, B or C.",
                 [
-                    match_ae(21, "TWO causes of increased loneliness (21)", "C/E", "Thiết kế đô thị (C) / lực lượng di động (E)."),
-                    match_ae(22, "TWO causes of increased loneliness (22)", "C/E", "Cặp 21–22: C và E."),
-                    match_ae(23, "TWO health risks with solid evidence (23)", "A/C", "Miễn dịch (A) / ung thư (C)."),
-                    match_ae(24, "TWO health risks with solid evidence (24)", "A/C", "Cặp 23–24: A và C."),
-                    match_ae(25, "TWO opinions on evolutionary theory (25)", "A/B", "Ít thực tiễn (A) / cần nghiên cứu (B)."),
-                    match_ae(26, "TWO opinions on evolutionary theory (26)", "A/B", "Cặp 25–26: A và B."),
+                    *choose_two(
+                        21, 22,
+                        "Which TWO things do the students both believe are responsible for the increase in loneliness?",
+                        loneliness_causes_opts, "C/E",
+                        "Thiết kế đô thị (C) / lực lượng di động (E).",
+                    ),
+                    *choose_two(
+                        23, 24,
+                        "Which TWO health risks associated with loneliness do the students agree are based on solid evidence?",
+                        health_risks_opts, "A/C",
+                        "Miễn dịch (A) / ung thư (C).",
+                    ),
+                    *choose_two(
+                        25, 26,
+                        "Which TWO opinions do both the students express about the evolutionary theory of loneliness?",
+                        evolution_opts, "A/B",
+                        "Ít thực tiễn (A) / cần nghiên cứu (B).",
+                    ),
                     mc_abc(27, "When comparing loneliness to depression, the students", "doubt a medical cure for loneliness", "say the link is overstated", "feel loneliness is not taken seriously", "A", "Nghi ngờ có thuốc chữa cô đơn."),
                     mc_abc(28, "Why start the presentation with their own experience?", "to explain how difficult loneliness can be", "to highlight a situation students recognise", "to emphasise loneliness is more common for men", "B", "Tình huống quen thuộc."),
                     mc_abc(29, "Talking to strangers helps because it", "creates a sense of belonging", "builds self-confidence", "makes people feel more positive", "A", "Cảm giác thuộc về."),
@@ -305,18 +474,29 @@ def build_cam20():
                 4, 31, 40,
                 "Complete the notes below. Write ONE WORD ONLY for each answer.",
                 [
-                    gap(31, "Pollution from … on the river bank:", "factories", "Nhà máy.", 1),
-                    gap(32, "River Thames declared biologically …", "dead", "Sông 'chết'.", 1),
-                    gap(33, "A … has been seen in the Thames:", "whale", "Cá voi.", 1),
-                    gap(34, "Warehouses converted to restaurants and …", "apartments", "Căn hộ.", 1),
-                    gap(35, "Los Angeles — build a riverside …", "park", "Công viên.", 1),
-                    gap(36, "Display … projects:", "art", "Dự án nghệ thuật.", 1),
-                    gap(37, "In Paris, … created on river sides each summer:", "beaches", "Bãi biển nhân tạo.", 1),
-                    gap(38, "Over 2 billion passengers travel by …", "ferry", "Phà.", 1),
-                    gap(39, "Goods by barges and electric …", "bikes", "Xe đạp điện.", 1),
-                    gap(40, "In the future, goods by …", "drone", "Drone.", 1),
+                    gap(31, "Pollution source:", "factories", "Nhà máy.", 1,
+                         gapLead="pollution from", gapTrail="on the river bank"),
+                    gap(32, "Thames declared biologically:", "dead", "Sông 'chết'.", 1,
+                         gapLead="In 1957, the River Thames in London was declared biologically"),
+                    gap(33, "Seen in the Thames:", "whale", "Cá voi.", 1,
+                         gapLead="Seals and even a", gapTrail="have been seen in the River Thames."),
+                    gap(34, "Warehouses converted to:", "apartments", "Căn hộ.", 1,
+                         gapLead="Riverside warehouses are converted to restaurants and"),
+                    gap(35, "Los Angeles riverside:", "park", "Công viên.", 1,
+                         gapLead="build a riverside"),
+                    gap(36, "Display projects:", "art", "Dự án nghệ thuật.", 1,
+                         gapLead="display", gapTrail="projects"),
+                    gap(37, "Paris summer feature:", "beaches", "Bãi biển nhân tạo.", 1,
+                         gapLead="In Paris,", gapTrail="are created on the sides of the river every summer."),
+                    gap(38, "Passengers travel by:", "ferry", "Phà.", 1,
+                         gapLead="Over 2 billion passengers already travel by", gapTrail="in cities around the world."),
+                    gap(39, "Electric transport:", "bikes", "Xe đạp điện.", 1,
+                         gapLead="goods could be transported by large freight barges and electric"),
+                    gap(40, "Future transport:", "drone", "Drone.", 1,
+                         gapLead=", or in the future, by"),
                 ],
                 passageTitle="Reclaiming urban rivers",
+                notePassage=CAM20_P4_NOTE,
             ),
         ],
     }

@@ -249,6 +249,8 @@ function transformListening(payload, bundle, sourceDir) {
       if (qJson.gapLead) question.gapLead = qJson.gapLead
       if (qJson.gapTrail) question.gapTrail = qJson.gapTrail
       if (qJson.noteBefore) question.noteBefore = qJson.noteBefore
+      if (qJson.noteAfter) question.noteAfter = qJson.noteAfter
+      if (qJson.contextFirst) question.contextFirst = qJson.contextFirst
       return question
     })
 
@@ -264,6 +266,7 @@ function transformListening(payload, bundle, sourceDir) {
     }
     if (partJson.passageTitle) part.passageTitle = partJson.passageTitle
     if (partJson.audioIntro) part.audioIntro = partJson.audioIntro
+    if (partJson.notePassage) part.notePassage = partJson.notePassage
     if (partJson.imageFile && existsSync(path.join(sourceDir, partJson.imageFile))) {
       part.partImageUrl = mediaUrl('listening', slug, partJson.imageFile)
     }
