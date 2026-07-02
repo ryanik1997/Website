@@ -25,7 +25,7 @@ export type ListeningQuestionType =
   | 'gap-fill'
   | 'matching'
 
-export type ListeningNotePassageBlockType = 'static' | 'section' | 'gap'
+export type ListeningNotePassageBlockType = 'static' | 'section' | 'gap' | 'example'
 
 /** IELTS note-completion: thứ tự đầy đủ của form (chữ tĩnh + ô trống). */
 export interface ListeningNotePassageBlock {
@@ -35,6 +35,41 @@ export interface ListeningNotePassageBlock {
   /** gap — tham chiếu questions[].number */
   number?: number
 }
+
+export type ListeningNoteTableCellBlockType = 'static' | 'gap' | 'break'
+
+/** Một ô trong bảng IELTS (table-completion). */
+export interface ListeningNoteTableCellBlock {
+  type: ListeningNoteTableCellBlockType
+  text?: string
+  number?: number
+}
+
+export interface ListeningNoteTableRow {
+  cells: ListeningNoteTableCellBlock[][]
+}
+
+/** Bảng note-completion (vd. Cam20 P1 Restaurant recommendations). */
+export interface ListeningNoteTable {
+  headers: string[]
+  rows: ListeningNoteTableRow[]
+  /** Tiêu đề phụ trên bảng (vd. Talks for patients…) */
+  title?: string
+  /** Hướng dẫn riêng cho đoạn bảng này */
+  instruction?: string
+  /** Câu gap-fill thuộc bảng — bắt buộc khi Part có nhiều bảng (a4) */
+  gapNumbers?: number[]
+}
+
+/** Một khối note-completion tách biệt trong Part (c1/c2 Part 3). */
+export interface ListeningNotePassageSection {
+  blocks: ListeningNotePassageBlock[]
+  gapNumbers?: number[]
+  instruction?: string
+  title?: string
+}
+
+export type ListeningNotePassageLayout = 'list' | 'table' | 'form'
 
 export interface ListeningQuestionOption {
   id: string
@@ -70,6 +105,20 @@ export interface ListeningQuestion {
   noteAfter?: string
   /** Khi có cả context + noteBefore: true = hiện tiêu đề mục trước dòng tĩnh */
   contextFirst?: boolean
+  /** IELTS Part 2+: tiêu đề đoạn (vd. Questions 11 – 16) — gắn câu đầu nhóm */
+  sectionRange?: string
+  /** IELTS Part 2+: hướng dẫn đoạn (Choose TWO / Complete the table…) */
+  sectionInstruction?: string
+  /** IELTS Part 2+: tiêu đề nội dung (SPORTS WORLD, HINCHINGBROOKE PARK…) */
+  sectionTitle?: string
+  /** IELTS map labeling — hiện ảnh bản đồ + chọn chữ cái A–I */
+  mapLabel?: boolean
+  /** IELTS diagram labeling — ảnh sơ đồ + bank A–E + chọn chữ cái */
+  diagramLabel?: boolean
+  /** IELTS flow-chart matching — bước dọc + bank A–G (c6) */
+  flowChart?: boolean
+  /** Dòng kết thúc flow-chart (gắn câu đầu nhóm) */
+  flowChartEnd?: string
 }
 
 export interface ListeningPart {
@@ -96,6 +145,13 @@ export interface ListeningPart {
   taskTwoInstruction?: string
   /** IELTS: toàn bộ form note-completion theo đúng thứ tự đề gốc */
   notePassage?: ListeningNotePassageBlock[]
+  /** IELTS: list (mặc định) hoặc table — dùng noteTable khi table */
+  notePassageLayout?: ListeningNotePassageLayout
+  noteTable?: ListeningNoteTable
+  /** Nhiều bảng trong cùng Part (bảng + MC + bảng — Giaodien/a4) */
+  noteTables?: ListeningNoteTable[]
+  /** Nhiều khối note tách biệt (c1/c2 Part 3) */
+  notePassageSections?: ListeningNotePassageSection[]
   questions: ListeningQuestion[]
 }
 
@@ -161,7 +217,17 @@ export function formatListeningAnswer(
   question: ListeningQuestion,
   answerId: string,
 ): string {
-  if (!answerId) return '—'
+  if (!answerId.trim()) return '—'
+
+  if (/[/|]/.test(answerId)) {
+    const letters = answerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
+    const parts = letters.map(id => {
+      const option = question.options.find(o => o.id.toUpperCase() === id)
+      return option ? `${option.id}. ${option.label}` : id
+    })
+    return parts.length > 1 ? parts.join(' hoặc ') : parts[0] ?? answerId
+  }
+
   const option = question.options.find(o => o.id === answerId)
   if (option) return `${option.id}. ${option.label}`
   return answerId

@@ -12,8 +12,9 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-02 (tiếp) — IELTS Listening Cam9/Cam20: `notePassage` + fix đáp án thiếu (`Giaodien/a5–a10`)
-- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** catalog IELTS + fix Cam20 (local only)
+- **Session:** 2026-07-02 (kết thúc) — IELTS bundle pipeline + **Cam9 Test 2 hoàn chỉnh** (4 parts · catalog builtin)
+- **Ngày mai (2026-07-03):** User import **~100 đề Listening IELTS** — agent hỗ trợ batch (ChatGPT JSON → validate → bundle → catalog)
+- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** Cam9 Test 2 + catalog mới (local OK sau `pnpm build:catalog`)
 - **Dev:** `pnpm dev` → hard refresh sau rebuild catalog
 
 ### Bundle đề sẵn trong `Tainguyen/`
@@ -28,6 +29,7 @@
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
 | Listening | IELTS Cam 9 | `IELTS/Listening IELTS_Test1_Cam9` | **Builtin** `catalog-listening-ielts-cam9-test1` |
+| Listening | IELTS Cam 9 Test 2 | `IELTS/Listening IELTS_Test2_Cam9` | **Builtin** `catalog-listening-ielts-cam9-test2` |
 | Listening | IELTS Cam 20 | `IELTS/Listening IELTS_Test1_Cam20` | **Builtin** `catalog-listening-ielts-cam20-test1` |
 
 ---
@@ -360,7 +362,7 @@ pnpm --filter server typecheck
 - [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix (mất chữ "o" trong "do", ô trống, vòng tròn đỏ trùng WordDiff). Đã rewrite DOM thuần + tách `ListeningAudioBar`; **chờ user hard refresh production và xác nhận**
 - [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar; bỏ `overflow-x-auto` tabs + debug observer
 - [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần tương tác người dùng trước (autoplay policy)
-- [ ] **IELTS Cam20 Listening UI** — fix `notePassage` + Choose TWO đã rebuild catalog/ZIP; **chờ user hard refresh + so sánh `Giaodien/a5–a10`**
+- [ ] **IELTS Cam20 Listening UI** — fix `notePassage` + Choose TWO + **P1 bảng 4 cột** + **Part 2 segment UI**; **chờ user hard refresh + so sánh `Giaodien/a2` (bảng) + `a5–a10` + `Part2-Listening/a7,a10`**
 - [ ] Nếu user đã import ZIP Cam20 cũ vào Dexie → xóa đề cũ hoặc re-import `Listening IELTS_Test1_Cam20.zip` mới
 - [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
 - [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
@@ -961,6 +963,21 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 - [x] **Fix Cam 9 static lines** — P1 (12 hours, referees…), P4 (Several other theories, Cape Cod, Thurston…) trong `build-ielts-listening-tests.py`
 - [x] **Fix Cam 20 đáp án thiếu** (`Giaodien/a5–a10`): `notePassage` P1/P4 đầy đủ static + `gapLead`/`gapTrail`; Choose TWO P2–P3 `choose_two()` nhãn đầy đủ (không còn "A A"); rebuild catalog + ZIP
 - [x] Rebuild: `python scripts/build-ielts-listening-tests.py` → `pnpm build:catalog` → `pnpm pack:listening:ielts-cam9` / `ielts-cam20` — `tsc` pass
+- [x] **Cam20 P1 table layout** — `notePassageLayout: table` + `noteTable` (4 cột như đề giấy); `ListeningIeltsNoteTable.tsx`; so `Giaodien/a2` giống `a1` (bảng có viền, ô trống inline)
+- [x] **IELTS import templates** — modal 5 nút (full / P1 form a3 / table a2 / mixed a4 / mixed a5); `noteTables[]` cho Part 1 bảng+Choose TWO+bảng; `ieltsListeningImportTemplates.ts`; `HDSD/Import Listening IELTS.txt` + Prompt IELTS; `Tainguyen/templates/ielts-listening-*.json`
+- [x] **IELTS Listening Part 2 UI** (`Giaodien/Part2-Listening/a6–a14`) — segment: gaps / MC / matching / choose-two / diagram / map; `ListeningIeltsSectionHeader`, `ListeningIeltsMatchingBlock`, `ListeningIeltsMapBlock`, `ListeningIeltsDiagramBlock`; `sectionRange`/`sectionInstruction`/`sectionTitle`/`mapLabel`/`diagramLabel`; CSS `listeningTest.css`
+- [x] **Part 2 import templates** — modal 9 nút (a6–a14); `ieltsListeningP2Templates.ts`; `Tainguyen/templates/ielts-listening-p2-a*.json`; export `pnpm export:ielts-p2` (`scripts/export-ielts-p2-templates.ts`, ngoài `tsc` web)
+- [x] **Cam9/Cam20 P2 catalog** — `build-ielts-listening-tests.py`: gapLead `•`, section meta Cam9 SPORTS WORLD + Cam20 Pottery; rebuild catalog
+- [x] **IELTS Listening Part 3 UI** (`Giaodien/Part3-Listening/c1–c7`) — `notePassageSections[]`, `ListeningIeltsFlowChartBlock` (c6), segment flowchart; templates `ieltsListeningP3Templates.ts`; modal 7 nút; `pnpm export:ielts-p3`; Cam9 P3 section meta + Cam20 P3 Choose TWO×3 + MC section headers
+- [x] **HDSD prompt ChatGPT Part 1/2/3** — `HDSD/Prompt-IELTS-Listening-Part1.txt`, `Part2.txt`, `Part3.txt` (bảng nhận dạng a/c, quy tắc JSON, prompt mẫu copy-dán, checklist); cập nhật `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
+- [x] **IELTS Listening Part 4** — lecture notes d1–d3 (Cam9 Whales, Cam20 Rivers, generic); `ieltsListeningP4Templates.ts`; modal 3 nút; `pnpm export:ielts-p4`; `HDSD/Prompt-IELTS-Listening-Part4.txt`
+- [x] **HDSD ChatGPT tổng 4 parts** — `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` (workflow A/B, nhận dạng a/c/d, prompt copy-dán, ghép exam.json, checklist); cập nhật `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
+- [x] **Choose TWO A/E** — tài liệu `Giaodien/two-choice.jpg`; `ChooseTwoBlock` clickable (chọn 2 đáp án trên list A–E); `isChooseTwoGroup` nhận dạng mọi "Which TWO" / answer slash; áp dụng tổng quát Part 1–3 qua `ListeningIeltsPartView`
+- [x] **IELTS bundle pipeline (pilot Cam9 Test 2)** — `meta.json` + `exam_partN.json`; `pnpm ielts:merge|validate|pack|bundle`; `ieltsListeningBundle.ts`; pilot `Listening IELTS_Test2_Cam9` (**HOÀN CHỈNH** · 4 parts · 40 câu · `pnpm ielts:bundle`)
+- [x] **Cam9 Test 2 Part 2** — `exam_part2.json` (a6: bảng Parks + MC Longfield + map Hinchingbrooke); `map.jpg` từ PDF; đáp án Key: trees, friday, farm, C, B, A, A, I, F, E
+- [x] **Cam9 Test 2 Part 3** — `exam_part3.json` (MC 21–24 Self-Access Centre + notes 25–30); meta `p3-mc4+notes6`; Key: C, B, B, C, reading, CD, workbooks, timetable/schedule, alarm, email/emails
+- [x] **Cam9 Test 2 Part 4** — `exam_part4.json` (d1: Business Cultures — Power/Role/Task culture, ONE WORD); Key: central, conversation, effectively, risk, levels, description, technical, change, responsibility, flexible
+- [x] **Cam9 Test 2 catalog builtin** — `build-catalog.mjs` + `builtinExams.ts` + `pnpm pack:listening:ielts-cam9-test2`; media `listening.mp3`, `a3.jpg`, `map.jpg` → `/catalog/listening/ielts-cam9-test2/`
 
 ### Luyện thi — CAE C1 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
 - [x] `Tainguyen/cae-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC 3 extracts, Part 2 gap-fill TRIP TO SOUTH AFRICA, Part 3 MC A/B/C/D, Part 4 dual matching)
@@ -974,6 +991,7 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 - [x] Áp dụng toàn bộ Listening: `ListeningKetTest`, `ListeningPetTest`, `ListeningIeltsTest` (IELTS + FCE/CAE/CPE)
 - [x] Vùng tô sáng: hướng dẫn, đề bài, gap-fill notes, MC/matching options; audio/ô nhập có `data-highlight-skip`
 - [x] Highlight lưu theo Part; reset khi **Làm lại**
+- [x] Theme **light**: tô sáng exam (`--exam-highlight-bg`) màu vàng `#fff3a3`; mid/dark giữ accent tím
 
 ### Luyện thi — Đã làm + Làm lại trên danh sách đề (session 2026-07-02) — HOÀN THÀNH
 - [x] `examCompletion.ts` — đọc draft localStorage (`submitted` + điểm đúng/tổng); `injectKetGapFillQuestionMarkers` — KET Part 2 hiện `and:(10) …`
@@ -993,57 +1011,106 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 
 ---
 
+## Kế hoạch ngày mai — Import ~100 đề Listening IELTS
+
+**Mục tiêu:** User đưa PDF + Answer Key + MP3 hàng loạt; agent hỗ trợ tạo JSON, validate, gộp đề, đưa vào app.
+
+### Chuẩn folder (đã pilot Cam9 Test 2)
+
+```
+Tainguyen/IELTS/Listening IELTS_Test{N}_Cam{9|10|…|20}/
+  meta.json              ← cambridge, test, template từng part (p1-a3, p2-a6…)
+  exam_part1.json … exam_part4.json
+  listening.mp3
+  map.jpg / diagram.jpg / a3.jpg … (nếu có)
+  Answer key.pdf         (tuỳ chọn)
+```
+
+### Workflow mỗi đề (lặp ×100)
+
+| Bước | Việc | Lệnh / file |
+|------|------|-------------|
+| 1 | Nhận dạng dạng Part 1–4 | `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` + `Prompt-Part1…4.txt` |
+| 2 | ChatGPT → `exam_partN.json` | Đính kèm PDF part + Key + mẫu `Tainguyen/templates/ielts-listening-*.json` |
+| 3 | Validate + merge | `pnpm ielts:validate "IELTS/…"` → `pnpm ielts:bundle "IELTS/…"` |
+| 4 | Import thử (1 đề) | ZIP hoặc builtin catalog |
+| 5 | Batch catalog | Thêm entry `build-catalog.mjs` + `builtinExams.ts` → `pnpm build:catalog` |
+
+**Lệnh bundle (1 đề):**
+```bash
+pnpm ielts:bundle "IELTS/Listening IELTS_Test2_Cam9"
+pnpm ielts:validate "IELTS/Listening IELTS_Test2_Cam9" --partial   # dev part lẻ
+```
+
+### Pilot thành công (mẫu copy)
+
+| Đề | ID catalog | Parts | Ghi chú |
+|----|------------|-------|---------|
+| Cam9 Test 2 | `catalog-listening-ielts-cam9-test2` | 4×40 câu | P1 a3 form · P2 a6 table+MC+map · P3 MC4+notes6 · P4 d1 Business Cultures |
+
+### Scale 100 đề — agent sẽ hỗ trợ
+
+- [ ] Thống nhất naming: `Listening IELTS_Test{N}_Cam{X}` + `meta.json` template
+- [ ] Batch validate: script quét folder `Tainguyen/IELTS/` (nếu cần viết thêm)
+- [ ] Batch `build-catalog.mjs`: generate BUNDLES[] từ manifest hoặc glob (tránh sửa tay 100 dòng)
+- [ ] Choose TWO / map / gap: so Answer Key trước khi merge
+- [ ] Deploy 1 lần sau khi catalog ổn: `pnpm build:catalog` → `pnpm deploy:prod`
+
+### Tài liệu tham chiếu
+
+- `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` — workflow ChatGPT tổng
+- `HDSD/Import Listening IELTS.txt` — import UI + bundle pipeline
+- `apps/web/src/features/exam/ieltsListeningBundle.ts` — merge/validate logic
+- `Giaodien/two-choice.jpg` — Choose TWO (answer `A/E`, UI 2 ô)
+
+### Lỗi còn tồn tại (IELTS import)
+
+- Cam9 Test 1 / Cam20 Test 1: nguồn Python `build-ielts-listening-tests.py` (Test 2+ dùng bundle)
+- Production chưa deploy catalog Cam9 Test 2
+- Chưa có batch script catalog cho 100 đề (cần làm ngày mai nếu user chọn builtin thay vì import ZIP tay)
+
+---
+
 ## Next session start prompt
 
 ```
 Đọc session_summary.md.
 
-Session 2026-07-02 (tiếp) — Fix IELTS Listening Cam20 đáp án thiếu (Giaodien/a5–a10) ĐÃ CODE XONG, chưa user confirm.
+Session 2026-07-03 — USER IMPORT ~100 ĐỀ LISTENING IELTS.
 
-Production: https://ryanenglishv2.vercel.app — chưa deploy fix IELTS Cam20.
+Context đã xong (2026-07-02):
+- Bundle pipeline: meta.json + exam_part1…4.json + pnpm ielts:merge|validate|pack|bundle
+- Pilot HOÀN CHỈNH: Cam9 Test 2 → catalog-listening-ielts-cam9-test2 (local: pnpm dev → IELTS → Listening)
+- HDSD ChatGPT 4 parts + Choose TWO UI + templates p1/p2/p3/p4
 
-─── ƯU TIÊN PHIÊN TIẾP (~30 phút) ───
+─── USER SẼ LÀM NGÀY MAI ───
+Import ~100 đề Listening (PDF + Key + MP3). Agent hỗ trợ:
+1. Tạo/sửa exam_partN.json từ ChatGPT (theo Prompt Part 1–4 + mẫu template)
+2. pnpm ielts:validate + ielts:bundle từng đề / batch
+3. Scale catalog (build-catalog.mjs + builtinExams) — tránh sửa tay 100 entry
+4. Fix lỗi validate (gap, Choose TWO, map.jpg thiếu)
 
-1. USER TEST — IELTS Cam 20 Test 1 (so sánh Giaodien/a5–a10)
-   • Hard refresh (Ctrl+Shift+R) → Luyện thi → IELTS → Listening Cam 20 Test 1
-   • Part 1: bảng nhà hàng có dòng tĩnh (The Junction / Paloma / The Audley), không chỉ số 1–10
-   • Part 2 Q17–20 + Part 3 Q21–26: Choose TWO hiện nhãn đầy đủ (vd. "Social media"), KHÔNG "A A"
-   • Part 4: notes "Reclaiming urban rivers" có sections + câu inline (gapLead/gapTrail), giống a8
-   • Nếu vẫn lỗi: xóa đề import cũ trong Dexie HOẶC re-import ZIP mới:
-     Tainguyen/IELTS/Listening IELTS_Test1_Cam20.zip
+─── BẮT ĐẦU SESSION ───
+Hỏi user:
+- 100 đề nằm folder nào? (Cam 9–20? Test 1–4?)
+- Import qua ZIP thủ công hay ship builtin catalog?
+- Đã có sẵn exam_partN.json hay cần ChatGPT từ PDF?
 
-2. USER TEST — IELTS Cam 9 Test 1 (nếu chưa)
-   • P1 JOB INQUIRY: "12 hours", "Qualities required" highlight được
-   • P4 Whales: "Several other theories", Cape Cod, Thurston
-   • Re-import ZIP nếu dùng bản import cũ
+Mẫu folder: Tainguyen/IELTS/Listening IELTS_Test2_Cam9/ (xem meta.json)
 
-3. NẾU OK → deploy prod
-   pnpm deploy:prod   (catalog + IELTS fix chưa lên production)
-
-4. TUỲ CHỌN polish (nếu user muốn layout đẹp hơn)
-   • Cam20 P1: layout dạng bảng 4 cột như đề giấy (hiện notePassage dạng list)
-   • Cam9 P2 Q11–16: notePassage chỉ gap — có thể bổ sung static map labels
-   • Cam20 P4 gap 39–40: kiểm tra câu nối ", or in the future, by" hiển thị đúng
-
-─── REBUILD (nếu sửa thêm exam.json) ───
-python scripts/build-ielts-listening-tests.py
+─── LỆNH THƯỜNG DÙNG ───
+pnpm ielts:bundle "IELTS/Listening IELTS_Test{N}_Cam{X}"
 pnpm build:catalog
-pnpm pack:listening:ielts-cam9
-pnpm pack:listening:ielts-cam20
 pnpm --filter web exec tsc --noEmit
+pnpm deploy:prod   # sau khi catalog ổn
 
-─── FILE CHÍNH IELTS ───
-scripts/build-ielts-listening-tests.py          ← nguồn exam Cam9/Cam20
-packages/catalog/data/listening-ielts-cam20-test1.json
-apps/web/src/features/exam/ListeningIeltsPartView.tsx
-apps/web/src/features/exam/ListeningIeltsNotePassageBox.tsx
-apps/web/src/features/exam/listeningNotePassage.ts
-HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt    ← Choose TWO: options nhãn đầy đủ
-
-─── BACKLOG (nếu user nhắc) ───
-• Listening KET/PET/FCE/CAE builtin test + deploy
-• Listening Ô CHỮ mobile iOS · Web Audio autoplay iOS
-• Thanh cuộn thừa Listening lesson page
+─── FILE CHÍNH ───
+HDSD/ChatGPT-IELTS-Listening-4-Parts.txt
+HDSD/Import Listening IELTS.txt
+apps/web/src/features/exam/ieltsListeningBundle.ts
+scripts/build-catalog.mjs
+scripts/ielts-listening-bundle.ts
+Tainguyen/IELTS/Listening IELTS_Test2_Cam9/   ← pilot
 ```
 # Session Update - 2026-07-01
 

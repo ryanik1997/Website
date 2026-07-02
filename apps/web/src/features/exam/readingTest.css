@@ -280,7 +280,7 @@
 }
 
 .reading-test-highlight {
-  background: color-mix(in srgb, var(--color-accent) 42%, transparent);
+  background: var(--exam-highlight-bg);
   color: inherit;
   border-radius: 0.15rem;
   padding: 0.05rem 0;
@@ -288,14 +288,9 @@
   -webkit-box-decoration-break: clone;
 }
 
-[data-theme='dark'] .reading-test-highlight,
-[data-theme='mid'] .reading-test-highlight {
-  background: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
-}
-
 .reading-test-passage ::selection,
 .reading-test-questions ::selection {
-  background: color-mix(in srgb, var(--rt-submit) 28%, transparent);
+  background: var(--exam-highlight-selection);
 }
 
 .reading-test-questions [data-highlight-block] {

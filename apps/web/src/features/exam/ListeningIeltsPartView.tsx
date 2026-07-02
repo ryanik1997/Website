@@ -6,7 +6,25 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ExamAudioSource } from './useExamQuestionAudio'
 import ListeningIeltsNotePassageBox from './ListeningIeltsNotePassageBox'
-import { notePassageForGapSegment } from './listeningNotePassage'
+import ListeningIeltsNoteTable from './ListeningIeltsNoteTable'
+import ListeningIeltsDiagramBlock from './ListeningIeltsDiagramBlock'
+import ListeningIeltsFlowChartBlock from './ListeningIeltsFlowChartBlock'
+import ListeningIeltsMapBlock from './ListeningIeltsMapBlock'
+import ListeningIeltsMatchingBlock from './ListeningIeltsMatchingBlock'
+import ListeningIeltsSectionHeader from './ListeningIeltsSectionHeader'
+import {
+  isChooseTwoGroup,
+  isDiagramLabelGroup,
+  isFlowChartGroup,
+  isLetterMatchingGroup,
+  isMapLabelGroup,
+  sectionMetaFromQuestions,
+} from './ieltsListeningSegmentUtils'
+import {
+  notePassageForGapSegment,
+  notePassageSectionForGapSegment,
+  noteTableForGapSegment,
+} from './listeningNotePassage'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
 
 interface AudioBarProps {
@@ -40,6 +58,25 @@ type Segment =
   | { kind: 'gaps'; questions: ListeningQuestion[] }
   | { kind: 'mc'; questions: ListeningQuestion[] }
   | { kind: 'choose-two'; prompt: string; questions: ListeningQuestion[] }
+  | { kind: 'matching'; questions: ListeningQuestion[] }
+  | { kind: 'diagram'; questions: ListeningQuestion[] }
+  | { kind: 'flowchart'; questions: ListeningQuestion[] }
+  | { kind: 'map'; questions: ListeningQuestion[] }
+
+function collectMatchingRun(questions: ListeningQuestion[], start: number): ListeningQuestion[] {
+  const sig = questions[start].options.map(o => `${o.id}:${o.label}`).join('|')
+  const run = [questions[start]]
+  let j = start + 1
+  while (j < questions.length) {
+    const next = questions[j]
+    if (next.type !== 'matching') break
+    const nextSig = next.options.map(o => `${o.id}:${o.label}`).join('|')
+    if (nextSig !== sig) break
+    run.push(next)
+    j += 1
+  }
+  return run
+}
 
 function buildSegments(questions: ListeningQuestion[]): Segment[] {
   const segments: Segment[] = []
@@ -47,6 +84,7 @@ function buildSegments(questions: ListeningQuestion[]): Segment[] {
 
   while (i < questions.length) {
     const q = questions[i]
+
     if (q.type === 'gap-fill') {
       const run: ListeningQuestion[] = []
       while (i < questions.length && questions[i].type === 'gap-fill') {
@@ -57,32 +95,52 @@ function buildSegments(questions: ListeningQuestion[]): Segment[] {
       continue
     }
 
-    if (q.type === 'matching' && q.options.length >= 4) {
-      const run: ListeningQuestion[] = [q]
-      const basePrompt = q.prompt.replace(/\s*\(\d+\)\s*$/, '').trim()
-      let j = i + 1
-      while (j < questions.length) {
-        const next = questions[j]
-        if (next.type !== 'matching') break
-        const nextPrompt = next.prompt.replace(/\s*\(\d+\)\s*$/, '').trim()
-        if (nextPrompt !== basePrompt) break
-        run.push(next)
-        j += 1
+    if (q.type === 'matching') {
+      const run = collectMatchingRun(questions, i)
+      if (isChooseTwoGroup(run)) {
+        segments.push({
+          kind: 'choose-two',
+          prompt: run[0].prompt.replace(/\s*\(\d+\)\s*$/, '').trim(),
+          questions: run,
+        })
+        i += run.length
+        continue
       }
-      if (run.length >= 2) {
-        segments.push({ kind: 'choose-two', prompt: basePrompt, questions: run })
-        i = j
+      if (isDiagramLabelGroup(run)) {
+        segments.push({ kind: 'diagram', questions: run })
+        i += run.length
+        continue
+      }
+      if (isMapLabelGroup(run)) {
+        segments.push({ kind: 'map', questions: run })
+        i += run.length
+        continue
+      }
+      if (isFlowChartGroup(run)) {
+        segments.push({ kind: 'flowchart', questions: run })
+        i += run.length
+        continue
+      }
+      if (isLetterMatchingGroup(run)) {
+        segments.push({ kind: 'matching', questions: run })
+        i += run.length
         continue
       }
     }
 
-    if (q.type === 'multiple-choice' || q.type === 'matching') {
+    if (q.type === 'multiple-choice') {
       const run: ListeningQuestion[] = []
-      while (i < questions.length && (questions[i].type === 'multiple-choice' || questions[i].type === 'matching')) {
+      while (i < questions.length && questions[i].type === 'multiple-choice') {
         run.push(questions[i])
         i += 1
       }
       segments.push({ kind: 'mc', questions: run })
+      continue
+    }
+
+    if (q.type === 'matching') {
+      segments.push({ kind: 'matching', questions: [q] })
+      i += 1
       continue
     }
 
@@ -209,12 +267,14 @@ function McBlock({
   isActive,
   onAnswer,
   onSelect,
+  showSectionHeader = false,
 }: {
   question: ListeningQuestion
   answer: string
   isActive: boolean
   onAnswer: (v: string) => void
   onSelect: () => void
+  showSectionHeader?: boolean
 }) {
   const highlights = useExamHighlights()
 
@@ -224,6 +284,12 @@ function McBlock({
       className={`listening-ielts-mc${isActive ? ' is-active' : ''}`}
       onClick={onSelect}
     >
+      {showSectionHeader && (
+        <ListeningIeltsSectionHeader
+          blockIdPrefix={`${question.id}-section`}
+          meta={sectionMetaFromQuestions([question])}
+        />
+      )}
       <p className="listening-ielts-mc__prompt">
         <span className="listening-ielts-mc__num">{question.number}</span>
         <ReadingHighlightableText
@@ -270,6 +336,44 @@ function McBlock({
   )
 }
 
+function toggleChooseTwoOption(
+  optionId: string,
+  questions: ListeningQuestion[],
+  answers: Record<string, string>,
+  onAnswer: (questionId: string, value: string) => void,
+  onSelectQuestion: (questionId: string) => void,
+) {
+  const [first, second] = questions
+  if (!first) return
+
+  const firstVal = answers[first.id] ?? ''
+  const secondVal = second ? answers[second.id] ?? '' : ''
+
+  if (firstVal === optionId) {
+    onAnswer(first.id, '')
+    return
+  }
+  if (second && secondVal === optionId) {
+    onAnswer(second.id, '')
+    return
+  }
+
+  if (!firstVal) {
+    onAnswer(first.id, optionId)
+    onSelectQuestion(first.id)
+    return
+  }
+  if (second && !secondVal) {
+    onAnswer(second.id, optionId)
+    onSelectQuestion(second.id)
+    return
+  }
+  if (second) {
+    onAnswer(second.id, optionId)
+    onSelectQuestion(second.id)
+  }
+}
+
 function ChooseTwoBlock({
   prompt,
   questions,
@@ -287,17 +391,22 @@ function ChooseTwoBlock({
 }) {
   const highlights = useExamHighlights()
   const options = questions[0]?.options ?? []
-  const rangeLabel = `${questions[0]?.number ?? ''}–${questions[questions.length - 1]?.number ?? ''}`
+  const meta = sectionMetaFromQuestions(questions)
+  const rangeLabel = meta.range
+    ?? `Questions ${questions[0]?.number ?? ''}–${questions[questions.length - 1]?.number ?? ''}`
   const isActive = questions.some(q => q.id === activeQuestionId)
+  const selectedIds = new Set(questions.map(q => answers[q.id]).filter(Boolean))
 
   return (
     <div className={`listening-ielts-choose-two${isActive ? ' is-active' : ''}`}>
-      <p className="listening-ielts-choose-two__heading">
-        Questions {rangeLabel}
-      </p>
-      <p className="listening-ielts-choose-two__instruction">
-        Choose TWO letters, A–E.
-      </p>
+      <ListeningIeltsSectionHeader
+        blockIdPrefix={`choose-two-${questions[0]?.id ?? 'group'}`}
+        meta={{
+          range: rangeLabel,
+          instruction: meta.instruction ?? 'Choose TWO letters, A–E.',
+          title: meta.title,
+        }}
+      />
       <p className="listening-ielts-choose-two__prompt">
         <ReadingHighlightableText
           blockId={`choose-two-${questions[0]?.id ?? 'group'}`}
@@ -306,20 +415,38 @@ function ChooseTwoBlock({
           as="span"
         />
       </p>
-      <ul className="listening-ielts-choose-two__options">
-        {options.map(option => (
-          <li key={option.id} className="listening-ielts-choose-two__option">
-            <span className="listening-ielts-choose-two__letter">{option.id}</span>
-            <ReadingHighlightableText
-              blockId={`choose-two-opt-${option.id}`}
-              text={option.label}
-              highlights={highlights}
-              as="span"
-            />
-          </li>
-        ))}
+      <p className="listening-ielts-choose-two__hint" data-highlight-skip>
+        Chọn đúng 2 đáp án — bấm vào các lựa chọn bên dưới hoặc ô {questions.map(q => q.number).join(' và ')}.
+      </p>
+      <ul className="listening-ielts-choose-two__options" data-highlight-skip>
+        {options.map(option => {
+          const checked = selectedIds.has(option.id)
+          return (
+            <li key={option.id}>
+              <button
+                type="button"
+                className={`listening-ielts-choose-two__option${checked ? ' is-selected' : ''}`}
+                aria-pressed={checked}
+                onClick={() => toggleChooseTwoOption(
+                  option.id,
+                  questions,
+                  answers,
+                  onAnswer,
+                  onSelectQuestion,
+                )}
+              >
+                <span
+                  className={`listening-ielts-choose-two__checkbox${checked ? ' is-checked' : ''}`}
+                  aria-hidden
+                />
+                <span className="listening-ielts-choose-two__letter">{option.id}</span>
+                <span className="listening-ielts-choose-two__label">{option.label}</span>
+              </button>
+            </li>
+          )
+        })}
       </ul>
-      <div className="listening-ielts-choose-two__slots">
+      <div className="listening-ielts-choose-two__slots" data-highlight-skip>
         {questions.map(question => (
           <div key={question.id} className="listening-ielts-choose-two__slot">
             <span className="listening-ielts-choose-two__slot-num">{question.number}</span>
@@ -331,6 +458,7 @@ function ChooseTwoBlock({
                     key={option.id}
                     type="button"
                     className={`listening-ielts-choose-two__pill${selected ? ' is-selected' : ''}`}
+                    aria-pressed={selected}
                     onClick={() => {
                       onSelectQuestion(question.id)
                       onAnswer(question.id, selected ? '' : option.id)
@@ -360,6 +488,7 @@ export default function ListeningIeltsPartView({
 }: Props) {
   const highlights = useExamHighlights()
   const segments = buildSegments(questions)
+  const firstGapSegmentIndex = segments.findIndex(segment => segment.kind === 'gaps')
 
   const headerSlot: ReactNode = (
     <div className="listening-ielts-audio-inline">
@@ -386,23 +515,66 @@ export default function ListeningIeltsPartView({
 
       {segments.map((segment, index) => {
         if (segment.kind === 'gaps') {
-          const passageBlocks = part.notePassage
-            ? notePassageForGapSegment(part.notePassage, segment.questions)
-            : null
+          const passageSection = notePassageSectionForGapSegment(
+            part.notePassageSections,
+            segment.questions,
+          )
+          const passageBlocks = passageSection?.blocks
+            ?? (part.notePassage
+              ? notePassageForGapSegment(part.notePassage, segment.questions)
+              : null)
           const questionsByNumber = new Map(segment.questions.map(q => [q.number, q]))
+          const segmentTable = noteTableForGapSegment(
+            part.noteTables,
+            part.noteTable,
+            segment.questions,
+          )
+          const showPartTitle = Boolean(
+            part.passageTitle
+            && index === firstGapSegmentIndex
+            && !segmentTable?.title
+            && !passageSection?.title,
+          )
+
+          const gapSectionMeta = sectionMetaFromQuestions(segment.questions)
+          const sectionHeaderMeta = {
+            range: gapSectionMeta.range,
+            instruction: gapSectionMeta.instruction ?? passageSection?.instruction,
+            title: gapSectionMeta.title ?? passageSection?.title,
+          }
 
           return (
             <section key={`gaps-${index}`} className="listening-ielts-notes">
-              {part.passageTitle && (
+              {(sectionHeaderMeta.range || sectionHeaderMeta.instruction) && (
+                <ListeningIeltsSectionHeader
+                  blockIdPrefix={`${part.id}-gap-section-${index}`}
+                  meta={{
+                    range: sectionHeaderMeta.range,
+                    instruction: sectionHeaderMeta.instruction,
+                    title: showPartTitle ? undefined : sectionHeaderMeta.title,
+                  }}
+                />
+              )}
+              {showPartTitle && (
                 <ReadingHighlightableText
                   blockId={`${part.id}-title`}
-                  text={part.passageTitle}
+                  text={part.passageTitle!}
                   highlights={highlights}
                   className="listening-ielts-notes__title"
                   as="h3"
                 />
               )}
-              {passageBlocks ? (
+              {segmentTable ? (
+                <ListeningIeltsNoteTable
+                  partId={`${part.id}-tbl-${index}`}
+                  table={segmentTable}
+                  questionsByNumber={questionsByNumber}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  onAnswer={onAnswer}
+                  onSelectQuestion={onSelectQuestion}
+                />
+              ) : passageBlocks ? (
                 <ListeningIeltsNotePassageBox
                   partId={part.id}
                   blocks={passageBlocks}
@@ -411,6 +583,7 @@ export default function ListeningIeltsPartView({
                   activeQuestionId={activeQuestionId}
                   onAnswer={onAnswer}
                   onSelectQuestion={onSelectQuestion}
+                  layout={part.notePassageLayout === 'form' ? 'form' : 'list'}
                 />
               ) : (
                 <>
@@ -453,9 +626,67 @@ export default function ListeningIeltsPartView({
           )
         }
 
+        if (segment.kind === 'matching') {
+          return (
+            <ListeningIeltsMatchingBlock
+              key={`matching-${index}`}
+              blockIdPrefix={`${part.id}-match-${index}`}
+              questions={segment.questions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
+        if (segment.kind === 'diagram') {
+          return (
+            <ListeningIeltsDiagramBlock
+              key={`diagram-${index}`}
+              part={part}
+              blockIdPrefix={`${part.id}-diagram-${index}`}
+              questions={segment.questions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
+        if (segment.kind === 'flowchart') {
+          return (
+            <ListeningIeltsFlowChartBlock
+              key={`flowchart-${index}`}
+              blockIdPrefix={`${part.id}-flow-${index}`}
+              questions={segment.questions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
+        if (segment.kind === 'map') {
+          return (
+            <ListeningIeltsMapBlock
+              key={`map-${index}`}
+              part={part}
+              blockIdPrefix={`${part.id}-map-${index}`}
+              questions={segment.questions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
         return (
           <section key={`mc-${index}`} className="listening-ielts-mc-group">
-            {segment.questions.map(question => (
+            {segment.questions.map((question, qIndex) => (
               <McBlock
                 key={question.id}
                 question={question}
@@ -463,6 +694,7 @@ export default function ListeningIeltsPartView({
                 isActive={activeQuestionId === question.id}
                 onAnswer={v => onAnswer(question.id, v)}
                 onSelect={() => onSelectQuestion(question.id)}
+                showSectionHeader={qIndex === 0 && Boolean(question.sectionRange || question.sectionInstruction)}
               />
             ))}
           </section>

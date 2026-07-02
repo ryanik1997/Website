@@ -94,6 +94,10 @@ function GapInline({
   )
 }
 
+interface BoxProps extends Props {
+  layout?: 'list' | 'form'
+}
+
 export default function ListeningIeltsNotePassageBox({
   partId,
   blocks,
@@ -102,11 +106,16 @@ export default function ListeningIeltsNotePassageBox({
   activeQuestionId,
   onAnswer,
   onSelectQuestion,
-}: Props) {
+  layout = 'list',
+}: BoxProps) {
   const highlights = useExamHighlights()
+  const boxClass =
+    layout === 'form'
+      ? 'listening-ielts-notes__box listening-ielts-notes__box--form'
+      : 'listening-ielts-notes__box'
 
   return (
-    <div className="listening-ielts-notes__box">
+    <div className={boxClass}>
       {blocks.map((block, index) => {
         if (block.type === 'static') {
           return (
@@ -115,6 +124,17 @@ export default function ListeningIeltsNotePassageBox({
               blockIdPrefix={`${partId}-np-static-${index}`}
               text={block.text ?? ''}
               lineClassName="listening-ielts-notes__static"
+            />
+          )
+        }
+
+        if (block.type === 'example') {
+          return (
+            <ExamHighlightableLines
+              key={`${partId}-np-${index}`}
+              blockIdPrefix={`${partId}-np-example-${index}`}
+              text={block.text ?? ''}
+              lineClassName="listening-ielts-notes__example"
             />
           )
         }

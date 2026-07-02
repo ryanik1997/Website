@@ -1,0 +1,181 @@
+Import thủ công Listening — IELTS (Cambridge 9–20+)
+========================================================
+
+App: Luyện thi → IELTS → Import thủ công Listening
+
+ZIP bundle (file CÙNG CẤP):
+  exam.json
+  listening.mp3
+
+Tham chiếu giao diện:
+  Giaodien/a3.jpg — Part 1 FORM (notePassage + layout "form")
+  Giaodien/a2.jpg — Part 1 BẢNG (noteTable + layout "table")
+  Giaodien/a1.jpg — Part 1 bảng 3 cột (cùng kiểu table, số cột tùy đề)
+  Giaodien/a4.jpg — Part 1 HỖN HỢP: bảng 1–4 + Choose TWO 5–6 + bảng 7–10 (noteTables[])
+  Giaodien/a5.jpg — Part 1 HỖN HỢP: MC 1–6 + sentence completion 7–10 (notePassage)
+  Giaodien/two-choice.jpg — Choose TWO (Which TWO) Part 1–3: UI + Answer Key A/E
+
+─── Choose TWO — "Which TWO …?" (Part 1, 2, 3 — KHÔNG có ở Part 4) ───
+
+Xem Giaodien/two-choice.jpg (Cam20 P2 câu 17–20):
+  • Trái: Answer Key — 17 A/E, 18 A/E nghĩa là mỗi ô chấp nhận A hoặc E
+  • Phải: UI app — danh sách A–E (checkbox) + 2 ô 17 và 18 (pill A B C D E)
+
+Ý nghĩa đáp án "A/E" trong exam.json:
+  • Một nhóm Choose TWO = 2 câu matching LIÊN TIẾP, cùng prompt, cùng 5 options A–E
+  • Cả 2 câu đều answer "A/E" → mỗi ô (17 và 18) đều đúng nếu học sinh chọn A hoặc E
+  • Ví dụ đúng: 17=A + 18=E, hoặc 17=E + 18=A (thứ tự hai chữ cái không bắt buộc)
+  • Nhóm khác có thể khác: 19 C/E, 20 C/E (đáp án C hoặc E cho mỗi ô)
+
+JSON bắt buộc:
+  • type: "matching" (không phải multiple-choice)
+  • 2 câu liên tiếp, prompt GIỐNG NHAU
+  • options: 5 mục A–E — NHÃN ĐẦY ĐỦ (vd. "What their function is.")
+    KHÔNG dùng "label": "A" (UI sẽ hiện "A A")
+  • answer: "A/E" hoặc "C/E" — hai chữ cái đúng, slash
+  • Câu đầu nhóm: sectionRange + sectionInstruction
+
+Xuất hiện ở đâu:
+  Part 1 — a4 (câu 5–6)
+  Part 2 — a7, a10, a13 … (vd. Cam9 19–20, Cam20 17–20)
+  Part 3 — c3, c5 … (vd. Cam20 21–24)
+  Part 4 — không có Choose TWO (chỉ gap-fill lecture notes)
+
+Mẫu JSON: p1-mixed-a4, p2-a10, p3-c3
+
+─── Chọn layout Part 1 ───
+
+PDF có bảng (cột + hàng)     → notePassageLayout: "table" + noteTable
+PDF là form/notes dọc        → notePassageLayout: "form" + notePassage
+                              (hoặc bỏ layout = "list" — giống form)
+
+─── JSON mẫu trong app ───
+
+Modal Import có 5 nút tải:
+  • Mẫu đủ 4 parts
+  • Part 1 — Form (a3)           → Tainguyen/templates/ielts-listening-p1-form.json
+  • Part 1 — Bảng (a2)           → Tainguyen/templates/ielts-listening-p1-table.json
+  • Part 1 — Bảng+Choose TWO (a4) → ielts-listening-p1-mixed-a4.json
+  • Part 1 — MC+Notes (a5)       → ielts-listening-p1-mixed-a5.json
+
+─── notePassage (form / notes) ───
+
+Block types:
+  static   — dòng chữ cố định
+  section  — tiêu đề mục (Personal information, Details of theft…)
+  example  — dòng Example (in nghiêng trên UI)
+  gap      — ô trống, number = questions[].number
+
+Mỗi câu gap-fill PHẢI có đúng 1 gap trong notePassage (hoặc noteTable).
+
+─── noteTable (bảng) ───
+
+notePassageLayout: "table"
+noteTable:
+  headers: ["Cột 1", "Cột 2", …]
+  rows:
+    cells: [[{type:"static",text:"…"},{type:"gap",number:1}], …]
+
+Cell block: static | gap | break (xuống dòng trong ô)
+
+─── Part 2 (Giaodien/Part2-Listening/) ───
+
+Tham chiếu 9 dạng (modal có 9 nút tải mẫu):
+
+  a6  — Bảng 11–13 + MC 14–16 + Map 17–20 (cần map.jpg)
+  a7  — Notes 11–16 + MC 17–18 + Choose TWO 19–20 (Cam9 SPORTS WORLD)
+  a8  — MC 11–13 + Matching A–H 14–18 + Bảng 19–20
+  a9  — Diagram 11–13 (diagram.jpg) + Matching 14–18 + Notes 19–20
+  a10 — MC 11–16 + Choose TWO 17–18 + 19–20 (Cam20 Pottery)
+  a11 — Matching A–I 11–16 + MC 17–20
+  a12 — MC 11–16 + Map 17–20 (map.jpg)
+  a13 — Choose TWO 11–12 + 13–14 + Matching 15–20
+  a14 — MC 11–14 + Map 15–20 (map.jpg)
+
+Quy tắc JSON Part 2:
+  • questions[] đúng thứ tự — app tách segment: gap → MC → matching → choose-two → diagram → map
+  • sectionRange / sectionInstruction / sectionTitle — gắn câu ĐẦU mỗi nhóm
+  • Choose TWO — 2 câu type "matching", cùng prompt, 5 options nhãn đầy đủ, answer "A/E"
+  • Letter matching — nhiều câu matching, options A–H giống nhau
+  • mapLabel: true + imageFile: "map.jpg" ở Part — map labeling A–I
+  • diagramLabel: true + imageFile: "diagram.jpg" — diagram labeling A–E
+  • noteTable / notePassage — giống Part 1 cho gap-fill và bảng
+
+Mẫu JSON: Tainguyen/templates/ielts-listening-p2-a*.json
+Export lại: pnpm export:ielts-p2
+
+─── Part 3 (Giaodien/Part3-Listening/) ───
+
+Tham chiếu 7 dạng (modal có 7 nút tải mẫu):
+
+  c1  — MC 21–22 + sentence completion 23–25 + notes 26–30 (notePassageSections)
+  c2  — Notes 21–23 + bảng 24–28 + notes 29–30 (notePassageSections + noteTables)
+  c3  — Choose TWO 21–22 + 23–24 + MC 25–30 (Cam20 P3 / Heyerdahl)
+  c4  — MC 21–25 + matching A–G 26–30
+  c5  — Choose TWO ×2 + matching 25–30
+  c6  — MC 21–25 + flow-chart 26–30 (flowChart: true + gapLead/gapTrail)
+  c7  — Bảng 21–24 + matching 25–30
+
+Quy tắc JSON Part 3:
+  • questions[] đúng thứ tự — segment: gap → MC → matching → choose-two → flowchart
+  • notePassageSections[] — nhiều khối note tách (c1/c2), mỗi section có gapNumbers + blocks
+  • flowChart: true — matching dạng flow-chart (c6), gapLead/gapTrail = câu từng bước
+  • sectionRange / sectionInstruction / sectionTitle — gắn câu đầu mỗi nhóm
+
+Mẫu JSON: Tainguyen/templates/ielts-listening-p3-c*.json
+Export lại: pnpm export:ielts-p3
+
+─── Part 4 (lecture notes) ───
+
+Tham chiếu 3 dạng (modal có 3 nút tải mẫu):
+
+  d1  — Sections + static + bullet • (Cam9 Whales, TWO WORDS)
+  d2  — ONE WORD, gap liên tiếp + câu tách 39–40 (Cam20 Rivers)
+  d3  — Generic lecture (THREE WORDS AND/OR A NUMBER)
+
+Quy tắc JSON Part 4:
+  • 10 câu gap-fill (31–40), thứ tự liên tiếp
+  • notePassage[] — static + section + gap theo đúng thứ tự PDF
+  • gapLead / gapTrail trên từng câu — bullet • (d1), câu nối (d2)
+  • Không dùng notePassageSections, noteTable, MC, matching
+
+Mẫu JSON: Tainguyen/templates/ielts-listening-p4-d*.json
+Export lại: pnpm export:ielts-p4
+
+─── ChatGPT — hướng dẫn tổng 4 parts ───
+
+Đọc trước: HDSD/ChatGPT-IELTS-Listening-4-Parts.txt
+  (workflow từng Part / cả đề, prompt copy-dán, ghép exam.json, checklist)
+
+─── Prompt chi tiết từng Part (đưa kèm PDF + Answer Key + mẫu JSON) ───
+
+| Part | Prompt | Ảnh UI | Mẫu JSON |
+|------|--------|--------|----------|
+| 1 | HDSD/Prompt-IELTS-Listening-Part1.txt | Giaodien/a1–a5 | Tainguyen/templates/ielts-listening-p1-*.json |
+| 2 | HDSD/Prompt-IELTS-Listening-Part2.txt | Part2-Listening/a6–a14 | Tainguyen/templates/ielts-listening-p2-a*-template.json |
+| 3 | HDSD/Prompt-IELTS-Listening-Part3.txt | Part3-Listening/c1–c7 | Tainguyen/templates/ielts-listening-p3-c*-template.json |
+| 4 | HDSD/Prompt-IELTS-Listening-Part4.txt | Cam9/Cam20 P4 | Tainguyen/templates/ielts-listening-p4-d*-template.json |
+| Cả đề 4 parts | HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt | — | ielts-listening-full.json |
+
+Cách dùng: đính kèm prompt Part X + PDF + Answer Key + 1 file mẫu JSON khớp dạng đề.
+Đề trộn nhiều dạng → ghi sẵn trong prompt từng đoạn thuộc a?/c? + đính kèm nhiều mẫu JSON.
+
+─── Bundle pipeline (admin — 100 đề, không import tay từng part) ───
+
+Mỗi đề 1 folder + meta.json (mã mẫu p1-a3, p2-a10…) + exam_part1…4.json + listening.mp3
+
+  pnpm ielts:merge "IELTS/Listening IELTS_Test2_Cam9"     → exam.json
+  pnpm ielts:validate "IELTS/Listening IELTS_Test2_Cam9"  → kiểm tra gap / Choose TWO
+  pnpm ielts:pack "IELTS/Listening IELTS_Test2_Cam9"      → .zip import
+  pnpm ielts:bundle "IELTS/…"                           → cả 3 bước
+
+  --partial   chỉ Part đã có file (dev: mới xong Part 1)
+
+Pilot: Tainguyen/IELTS/Listening IELTS_Test2_Cam9/meta.json
+
+─── Ship builtin (admin) ───
+
+python scripts/build-ielts-listening-tests.py
+pnpm build:catalog
+pnpm pack:listening:ielts-cam9
+pnpm pack:listening:ielts-cam20

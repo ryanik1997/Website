@@ -99,6 +99,18 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
   if (!merged.notePassage?.length && catalog.notePassage?.length) {
     merged = { ...merged, notePassage: catalog.notePassage }
   }
+  if (!merged.noteTable?.rows?.length && catalog.noteTable?.rows?.length) {
+    merged = { ...merged, noteTable: catalog.noteTable }
+  }
+  if (!merged.noteTables?.length && catalog.noteTables?.length) {
+    merged = { ...merged, noteTables: catalog.noteTables }
+  }
+  if (!merged.notePassageSections?.length && catalog.notePassageSections?.length) {
+    merged = { ...merged, notePassageSections: catalog.notePassageSections }
+  }
+  if (!merged.notePassageLayout && catalog.notePassageLayout) {
+    merged = { ...merged, notePassageLayout: catalog.notePassageLayout }
+  }
   if (!merged.partImageUrl && catalog.partImageUrl) {
     merged = { ...merged, partImageUrl: catalog.partImageUrl }
   }
