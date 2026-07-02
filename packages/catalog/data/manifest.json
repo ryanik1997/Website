@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "builtAt": "2026-07-02T04:26:05.390Z",
+  "builtAt": "2026-07-02T06:19:14.487Z",
   "reading": [
     {
       "id": "catalog-reading-ket-a2-test1",
@@ -16,6 +16,11 @@
       "id": "catalog-reading-fce-b2-test1",
       "slug": "fce-b2-test1",
       "title": "FCE B2 Reading — Test 1"
+    },
+    {
+      "id": "catalog-reading-cae-c1-test1",
+      "slug": "cae-c1-test1",
+      "title": "CAE C1 Reading — Test 1"
     }
   ],
   "listening": [
@@ -28,6 +33,16 @@
       "id": "catalog-listening-pet-b1-test1",
       "slug": "pet-b1-test1",
       "title": "PET B1 Listening — Test 1"
+    },
+    {
+      "id": "catalog-listening-fce-b2-test1",
+      "slug": "fce-b2-test1",
+      "title": "FCE B2 Listening — Test 1"
+    },
+    {
+      "id": "catalog-listening-cae-c1-test1",
+      "slug": "cae-c1-test1",
+      "title": "CAE C1 Listening — Test 1"
     }
   ]
 }

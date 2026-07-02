@@ -3,7 +3,6 @@
   --le-accent: var(--color-primary);
   --le-accent-soft: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card));
   --le-slow: var(--color-accent);
-  --le-slow-soft: color-mix(in srgb, var(--color-accent) 18%, var(--bg-card));
   --exam-timer-color: var(--le-accent);
   --rt-divider: var(--border-color);
   --rt-pill-active: var(--text-primary);
@@ -468,12 +467,6 @@
   color: var(--bg-primary);
 }
 
-.listening-exam-audio__btn--slow {
-  background: var(--le-slow-soft);
-  color: var(--text-primary);
-  border: 1px solid color-mix(in srgb, var(--le-slow) 35%, var(--border-color));
-}
-
 .listening-exam-audio__hint {
   margin-top: 0.5rem;
   font-size: 0.72rem;
@@ -794,17 +787,17 @@
   color: var(--text-muted);
 }
 
-/* Result */
+/* Result — flex-1 + min-h-0 so main overflow-hidden does not clip content */
 .listening-exam-result {
-  height: 100%;
-  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
   background: var(--bg-primary);
 }
 
 .listening-exam-result__inner {
   max-width: 48rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 2rem;
+  padding: 1.25rem 1rem 5.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1416,6 +1409,229 @@
   color: var(--text-primary);
 }
 
+/* FCE/CAE Part 3 — matching A–H → ô Speaker (a9.jpg) */
+.listening-letter-match__instruction {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  white-space: pre-line;
+  margin-bottom: 0.85rem;
+}
+
+.listening-letter-match__bank {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  max-width: 26rem;
+}
+
+.listening-letter-match__bank-row {
+  display: grid;
+  grid-template-columns: 1.35rem 1fr;
+  align-items: start;
+  gap: 0.45rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.35rem;
+  border: 1px solid transparent;
+  cursor: grab;
+  user-select: none;
+  transition: opacity 0.12s, border-color 0.12s, background 0.12s;
+}
+
+.listening-letter-match__bank-row.is-picked {
+  border-color: var(--le-accent);
+  background: color-mix(in srgb, var(--le-accent) 10%, var(--bg-card));
+}
+
+.listening-letter-match__bank-row.is-used {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.listening-letter-match__bank-row:active {
+  cursor: grabbing;
+}
+
+.listening-letter-match__bank-letter {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.listening-letter-match__bank-label {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.listening-letter-match__pick-hint {
+  font-size: 0.72rem;
+  color: var(--le-accent);
+  font-weight: 600;
+  margin: 0;
+}
+
+.listening-letter-match__speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 20rem;
+}
+
+.listening-letter-match__speaker-row {
+  display: grid;
+  grid-template-columns: 1fr 2.75rem 2rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.25rem 0.35rem;
+  border-radius: 0.35rem;
+  transition: background 0.12s;
+}
+
+.listening-letter-match__speaker-row.is-active {
+  background: color-mix(in srgb, var(--le-accent) 8%, transparent);
+}
+
+.listening-letter-match__speaker-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.listening-letter-match__slot {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1.5px solid var(--text-primary);
+  border-radius: 0.2rem;
+  background: var(--bg-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.listening-letter-match__slot.is-filled {
+  border-color: color-mix(in srgb, var(--le-accent) 55%, var(--text-primary));
+  background: color-mix(in srgb, var(--le-accent) 10%, var(--bg-card));
+}
+
+.listening-letter-match__slot-letter {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.listening-letter-match__slot-clear {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: var(--text-muted);
+  color: var(--bg-primary);
+  font-size: 0.72rem;
+  line-height: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.listening-letter-match__qnum {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.2rem 0.35rem;
+  border-radius: 0.25rem;
+  background: color-mix(in srgb, var(--text-muted) 12%, var(--bg-card));
+}
+
+/* CAE Part 4 — dual task matching (a10.jpg) */
+.listening-dual-match__prompt {
+  max-width: 28rem;
+}
+
+.listening-dual-match__note {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0.75rem;
+  text-align: center;
+}
+
+.listening-dual-match__answers {
+  overflow-x: auto;
+}
+
+.listening-dual-match__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  min-width: min(100%, 42rem);
+}
+
+.listening-dual-match__task {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.listening-dual-match__task-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.listening-dual-match__task-instruction {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+}
+
+.listening-dual-match__task-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.listening-dual-match__bank {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.listening-dual-match__bank .listening-letter-match__bank-row {
+  padding: 0.2rem 0.3rem;
+}
+
+.listening-dual-match__bank .listening-letter-match__bank-label {
+  font-size: 0.78rem;
+}
+
+.listening-dual-match__task .listening-letter-match__speakers {
+  max-width: 11rem;
+}
+
+@media (max-width: 900px) {
+  .listening-dual-match__grid {
+    grid-template-columns: 1fr;
+    min-width: 0;
+  }
+}
+
 /* PET B1 Listening — Part 2/4 MC + Part 3 gap-fill */
 .listening-pet-mc__instruction,
 .listening-pet-gapfill__instruction {
@@ -1595,4 +1811,37 @@
 [data-theme='dark'] .listening-exam-body .reading-test-highlight,
 [data-theme='mid'] .listening-exam-body .reading-test-highlight {
   background: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
+}
+
+/* FCE/CAE Part 2 — tiêu đề + ảnh minh họa (một ảnh cho cả Part) */
+.listening-part-image-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin: 0.85rem 0 1rem;
+  padding: 0.75rem 0 0.85rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.listening-part-image-header__title {
+  flex: 1 1 12rem;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.listening-part-image-header__img {
+  flex: 0 0 auto;
+  width: min(7.5rem, 32vw);
+  height: auto;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  background: var(--bg-secondary);
 }

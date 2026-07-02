@@ -5,18 +5,15 @@ import { listeningExamBackPath } from './examNavigation'
 import ExamTimerControls from './ExamTimerControls'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
-import FullMockStageResult from './FullMockStageResult'
-import ListeningExamResult from './ListeningExamResult'
-import { getFullMockTest } from './fullMockData'
-import {
-  appendFullMockQuery,
-  clearFullMockSession,
-  patchFullMockSession,
-} from './fullMockSession'
+import ListeningSubmittedScreen from './ListeningSubmittedScreen'
+import { patchFullMockSession } from './fullMockSession'
+import ListeningDualLetterMatchingPartView from './ListeningDualLetterMatchingPartView'
+import ListeningLetterMatchingPartView from './ListeningLetterMatchingPartView'
 import { ListeningPartAnswerPanel, ListeningPartPromptPanel } from './ListeningPartQuestionPanel'
 import ListeningSplitResizer from './ListeningSplitResizer'
+import { isDualLetterMatchingPart, isGroupedLetterMatchingPart } from './listeningMultiPartLayout'
 import type { ListeningExam } from './listeningExamData'
-import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
+import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
 import {
   hasExamAudioFile,
   resolveListeningAudioSource,
@@ -68,6 +65,8 @@ export default function ListeningIeltsTest({ exam }: Props) {
     () => (currentPart ? getPartQuestions(currentPart) : []),
     [currentPart],
   )
+  const isDualLetterMatching = Boolean(currentPart && isDualLetterMatchingPart(currentPart))
+  const isLetterMatching = Boolean(currentPart && isGroupedLetterMatchingPart(currentPart))
 
   const {
     playing,
@@ -196,6 +195,21 @@ export default function ListeningIeltsTest({ exam }: Props) {
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
 
+  const scrollToQuestion = useCallback((questionId: string) => {
+    window.requestAnimationFrame(() => {
+      scrollListeningToQuestion(bodyRef.current, questionId)
+    })
+  }, [])
+
+  const handleSelectQuestion = useCallback((questionId: string) => {
+    setActiveQuestionId(questionId)
+  }, [])
+
+  useEffect(() => {
+    if (submitted || !activeQuestionId) return
+    scrollToQuestion(activeQuestionId)
+  }, [activeQuestionId, partIndex, scrollToQuestion, submitted])
+
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
     clearAllHighlights()
@@ -212,66 +226,24 @@ export default function ListeningIeltsTest({ exam }: Props) {
     }
   }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
 
-  if (submitted) {
-    const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
-    if (fullMock) {
-      const correct = allQuestions.filter(q => isListeningAnswerCorrect(q, answers[q.id] ?? '')).length
-      return (
-        <FullMockStageResult
-          mockTitle={fullMock.title}
-          stage="listening"
-          stageLabel="Listening"
-          scoreText={`${correct}/${allQuestions.length}`}
-          nextLabel="Tiếp Writing"
-          onContinue={() => {
-            patchFullMockSession({
-              stage: 'writing',
-              listening: {
-                correct,
-                total: allQuestions.length,
-                answers: { ...answers },
-                unsure: { ...unsure },
-              },
-            })
-            navigate(appendFullMockQuery(`/app/exam/writing/${fullMock.id}`, fullMock.id))
-          }}
-          onExit={() => {
-            clearFullMockSession()
-            navigate('/app/exam')
-          }}
-          onRetry={handleRetry}
-          retryLabel="Làm lại Listening"
-        />
-      )
-    }
+  const answeredCount = useMemo(
+    () => allQuestions.filter(q => Boolean(answers[q.id])).length,
+    [allQuestions, answers],
+  )
 
+  // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
+  if (submitted) {
     return (
-      <ListeningExamResult
+      <ListeningSubmittedScreen
         exam={exam}
         answers={answers}
         unsure={unsure}
+        allQuestions={allQuestions}
+        fullMockId={fullMockId}
         onRetry={handleRetry}
-        onBack={() => navigate(listeningExamBackPath(exam))}
       />
     )
   }
-
-  const answeredCount = allQuestions.filter(q => Boolean(answers[q.id])).length
-
-  const scrollToQuestion = useCallback((questionId: string) => {
-    window.requestAnimationFrame(() => {
-      scrollListeningToQuestion(bodyRef.current, questionId)
-    })
-  }, [])
-
-  const handleSelectQuestion = useCallback((questionId: string) => {
-    setActiveQuestionId(questionId)
-  }, [])
-
-  useEffect(() => {
-    if (!activeQuestionId) return
-    scrollToQuestion(activeQuestionId)
-  }, [activeQuestionId, partIndex, scrollToQuestion])
 
   return (
     <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}`}>
@@ -295,37 +267,8 @@ export default function ListeningIeltsTest({ exam }: Props) {
           />
         )}
         <ExamHighlightProvider highlights={highlights}>
-        {currentPart && (
-          <>
-            <ListeningPartPromptPanel
-              part={currentPart}
-              activeQuestionId={activeQuestionId}
-              onSelectQuestion={handleSelectQuestion}
-              audioSlot={(
-                <div className="listening-ielts-audio-inline">
-                  {exam.examMode === 'exam' && (
-                    <span className="listening-ielts-mode-badge">Chế độ thi</span>
-                  )}
-                  <ListeningExamAudioBar
-                    source={activeAudioSource}
-                    playing={playing}
-                    buffering={buffering}
-                    progressPct={progressPct}
-                    timeLabel={timeLabel}
-                    hasAudioFile={hasActiveAudioFile}
-                    allowSeek={exam.examMode === 'practice'}
-                    allowSlow={exam.examMode === 'practice'}
-                    playsLeft={playsRemaining}
-                    playBlocked={playBlocked}
-                    playError={playError}
-                    onPlayNormal={() => void play(activeAudioSource, makePlayOpts(1))}
-                    onPlaySlow={() => void play(activeAudioSource, makePlayOpts(0.75))}
-                    onSeek={pct => seekToPct(pct, exam.examMode === 'practice')}
-                    onStop={stopPlayback}
-                  />
-                </div>
-              )}
-            />
+        {currentPart && (() => {
+          const resizer = (
             <ListeningSplitResizer
               bodyRef={bodyRef}
               isResizing={isResizing}
@@ -333,15 +276,79 @@ export default function ListeningIeltsTest({ exam }: Props) {
               onPointerMove={onResizerPointerMove}
               onPointerUp={onResizerPointerUp}
             />
-            <ListeningPartAnswerPanel
-              part={currentPart}
-              answers={answers}
-              activeQuestionId={activeQuestionId}
-              onSelectQuestion={handleSelectQuestion}
-              onAnswer={handleAnswer}
-            />
-          </>
-        )}
+          )
+          const audioBarProps = {
+            source: activeAudioSource,
+            playing,
+            buffering,
+            progressPct,
+            timeLabel,
+            hasAudioFile: hasActiveAudioFile,
+            allowSeek: exam.examMode === 'practice',
+            playsLeft: playsRemaining,
+            playBlocked,
+            playError,
+            onPlayNormal: () => void play(activeAudioSource, makePlayOpts(1)),
+            onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
+            onStop: stopPlayback,
+          }
+
+          if (isDualLetterMatching) {
+            return (
+              <ListeningDualLetterMatchingPartView
+                part={currentPart}
+                questions={partQuestions}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                audioBar={audioBarProps}
+                resizer={resizer}
+                onAnswer={handleAnswer}
+                onSelectQuestion={handleSelectQuestion}
+              />
+            )
+          }
+
+          if (isLetterMatching) {
+            return (
+              <ListeningLetterMatchingPartView
+                part={currentPart}
+                questions={partQuestions}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                audioBar={audioBarProps}
+                resizer={resizer}
+                onAnswer={handleAnswer}
+                onSelectQuestion={handleSelectQuestion}
+              />
+            )
+          }
+
+          return (
+            <>
+              <ListeningPartPromptPanel
+                part={currentPart}
+                activeQuestionId={activeQuestionId}
+                onSelectQuestion={handleSelectQuestion}
+                audioSlot={(
+                  <div className="listening-ielts-audio-inline">
+                    {exam.examMode === 'exam' && (
+                      <span className="listening-ielts-mode-badge">Chế độ thi</span>
+                    )}
+                    <ListeningExamAudioBar {...audioBarProps} />
+                  </div>
+                )}
+              />
+              {resizer}
+              <ListeningPartAnswerPanel
+                part={currentPart}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                onSelectQuestion={handleSelectQuestion}
+                onAnswer={handleAnswer}
+              />
+            </>
+          )
+        })()}
         </ExamHighlightProvider>
       </div>
 

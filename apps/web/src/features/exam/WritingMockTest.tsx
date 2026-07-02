@@ -83,6 +83,14 @@ export default function WritingMockTest() {
     }
   }, [tasks])
 
+  const handleSubmitTask = useCallback(() => {
+    if (taskIndex < tasks.length - 1) {
+      setTaskIndex(i => i + 1)
+      return
+    }
+    setSubmitted(true)
+  }, [taskIndex, tasks.length])
+
   if (!mock || !fullMockId) {
     return (
       <div className="flex h-full items-center justify-center px-4" style={{ background: 'var(--bg-primary)' }}>
@@ -110,14 +118,7 @@ export default function WritingMockTest() {
     )
   }
 
-  function handleSubmitTask() {
-    if (taskIndex < tasks.length - 1) {
-      setTaskIndex(i => i + 1)
-      return
-    }
-    setSubmitted(true)
-  }
-
+  // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
   if (submitted) {
     const task1 = texts.task1 ?? ''
     const task2 = texts.task2 ?? ''

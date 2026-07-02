@@ -242,6 +242,8 @@ export default function ReadingPassagePanel({
   const introPassageBlocks = isB1MatchingRef && b1Part
     ? getB1IntroPassageBlocks(part.passage, b1Part)
     : part.passage
+  /** B2/C1 Part 6–8: reviews / paragraphs / consultants đã có label trong passage — không lặp danh sách. */
+  const passageHasLabeledRefs = part.passage.some(b => Boolean(b.label?.trim()))
 
   return (
     <article
@@ -302,7 +304,7 @@ export default function ReadingPassagePanel({
         />
       )}
 
-      {!useB1ReferenceList && features.length > 0 && (
+      {!useB1ReferenceList && features.length > 0 && !passageHasLabeledRefs && (
         <div className="reading-ket-features">
           <p className="reading-ket-features__title">Danh sách {featureRangeLabel}</p>
           <ul className="reading-ket-features__list reading-ket-ref-list">

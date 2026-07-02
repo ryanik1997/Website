@@ -1,0 +1,21 @@
+ZIP cần có:
+
+exam.json
+listening.mp3
+
+Cấu trúc đề CAE C1 Listening (30 câu · 40 phút)
+
+Part 1 (1–6): multiple-choice — 3 extracts A/B/C (2 câu/extract)
+Part 2 (7–14): gap-fill — passageTitle TRIP TO SOUTH AFRICA
+Part 3 (15–20): multiple-choice — phỏng vấn dài A/B/C/D (4 đáp án)
+Part 4 (21–30): matching dual-task — Task One + Task Two, kéo A–H vào Speaker 1–5 (Giaodien/a10.jpg)
+
+Việc bạn cần làm
+
+1. Đảm bảo exam.json + listening.mp3 trong Tainguyen/cae-Listening-test1/
+2. Chạy: pnpm pack:listening:cae
+3. Import ZIP: Luyện thi → Cambridge → C1 → Import thủ công Listening
+   Hoặc dùng builtin sau pnpm build:catalog (catalog-listening-cae-c1-test1)
+
+Prompt AI đầy đủ: HDSD/Prompt-CAE-C1-Listening.txt
+Bundle mẫu: Tainguyen/cae-Listening-test1/

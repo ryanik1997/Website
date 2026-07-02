@@ -19,7 +19,4 @@ export function matchingPersonName(prompt: string): string {
   return first ?? prompt
 }
 
-export function sharedMatchingOptions(questions: ListeningQuestion[]) {
-  const first = questions[0]
-  return first?.options ?? []
-}
+export { sharedMatchingOptions } from './listeningMultiPartLayout'

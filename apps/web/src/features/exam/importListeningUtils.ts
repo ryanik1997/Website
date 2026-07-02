@@ -9,6 +9,7 @@ import type {
 } from './listeningExamData'
 import { listeningExamAudioKey } from './listeningExamData'
 import {
+  catalogPartImageUrl,
   catalogPictureImageUrl,
   catalogQuestionAudioUrl,
   catalogSharedListeningAudioUrl,
@@ -45,9 +46,15 @@ export interface ListeningImportPartJson {
   audioFile?: string
   ttsText?: string
   maxPlays?: number
-  /** PET Part 3: tiêu đề khung điền */
+  /** PET Part 3 / FCE Part 2: tiêu đề đoạn */
   passageTitle?: string
+  /** FCE Part 2: ảnh minh họa (vd. q2.jpg) */
+  imageFile?: string
   audioIntro?: string
+  /** CAE Part 4: hai task matching song song */
+  matchingDualTask?: boolean
+  taskOneInstruction?: string
+  taskTwoInstruction?: string
   questions: ListeningImportQuestionJson[]
 }
 
@@ -369,6 +376,19 @@ export async function buildListeningExamFromImport(
       })
     }
 
+    let partImageKey: string | undefined
+    let partImageUrl: string | undefined
+    if (partJson.imageFile) {
+      const partImgFile = resolveMediaFile(mediaMap, partJson.imageFile)
+      if (partImgFile) {
+        partImageKey = listeningExamAudioKey(examId, `part-img-${partJson.partNumber}`)
+        await audioRepo.put(partImageKey, partImgFile)
+      }
+      if (catalogTwin) {
+        partImageUrl = catalogPartImageUrl(catalogTwin, partJson.partNumber)
+      }
+    }
+
     parts.push({
       id: partId,
       partNumber: partJson.partNumber,
@@ -379,7 +399,12 @@ export async function buildListeningExamFromImport(
       ttsText: partJson.ttsText,
       maxPlays: partJson.maxPlays,
       passageTitle: partJson.passageTitle,
+      partImageKey,
+      partImageUrl,
       audioIntro: partJson.audioIntro,
+      matchingDualTask: partJson.matchingDualTask,
+      taskOneInstruction: partJson.taskOneInstruction,
+      taskTwoInstruction: partJson.taskTwoInstruction,
       questions,
     })
   }

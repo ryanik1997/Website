@@ -28,7 +28,7 @@ export default function ListeningExamResult({
   const unsureCount = questions.filter(q => unsure[q.id]).length
 
   return (
-    <div className="listening-exam-result">
+    <div className="listening-exam-result flex flex-1 min-h-0 flex-col overflow-y-auto">
       <div className="listening-exam-result__inner">
         <section
           className="listening-exam-result__hero"

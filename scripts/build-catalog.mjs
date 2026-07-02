@@ -42,6 +42,14 @@ const BUNDLES = [
     examTrack: 'cambridge',
   },
   {
+    kind: 'reading',
+    slug: 'cae-c1-test1',
+    examId: 'catalog-reading-cae-c1-test1',
+    sourceDir: 'cae-Reading-test1',
+    cambridgeLevel: 'c1',
+    examTrack: 'cambridge',
+  },
+  {
     kind: 'listening',
     slug: 'ket-a2-test1',
     examId: 'catalog-listening-ket-a2-test1',
@@ -55,6 +63,22 @@ const BUNDLES = [
     examId: 'catalog-listening-pet-b1-test1',
     sourceDir: 'pet-listening-test1',
     examType: 'pet',
+    examMode: 'practice',
+  },
+  {
+    kind: 'listening',
+    slug: 'fce-b2-test1',
+    examId: 'catalog-listening-fce-b2-test1',
+    sourceDir: 'fce-Listening-test1',
+    examType: 'fce',
+    examMode: 'practice',
+  },
+  {
+    kind: 'listening',
+    slug: 'cae-c1-test1',
+    examId: 'catalog-listening-cae-c1-test1',
+    sourceDir: 'cae-Listening-test1',
+    examType: 'cae',
     examMode: 'practice',
   },
 ]
@@ -223,6 +247,12 @@ function transformListening(payload, bundle, sourceDir) {
     }
     if (partJson.passageTitle) part.passageTitle = partJson.passageTitle
     if (partJson.audioIntro) part.audioIntro = partJson.audioIntro
+    if (partJson.imageFile && existsSync(path.join(sourceDir, partJson.imageFile))) {
+      part.partImageUrl = mediaUrl('listening', slug, partJson.imageFile)
+    }
+    if (partJson.matchingDualTask) part.matchingDualTask = true
+    if (partJson.taskOneInstruction) part.taskOneInstruction = partJson.taskOneInstruction
+    if (partJson.taskTwoInstruction) part.taskTwoInstruction = partJson.taskTwoInstruction
     return part
   })
 

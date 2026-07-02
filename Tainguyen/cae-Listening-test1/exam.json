@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "title": "CAE C1 Listening — Test 1",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "instruction": "You will hear three different extracts. For questions 1–6, choose the answer (A, B or C) which fits best according to what you hear. There are two questions for each extract.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "You hear two friends discussing the topic of marketing.\n\nWhich aspect of college publicity material do the friends disagree about?",
+          "options": [
+            { "id": "A", "label": "how useful the environmental rating system is" },
+            { "id": "B", "label": "how well the different courses are described" },
+            { "id": "C", "label": "how visually attractive the brochures are" }
+          ],
+          "answer": "A",
+          "explanation": "Họ bất đồng về mức độ hữu ích của hệ thống đánh giá môi trường."
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "You hear two friends discussing the topic of marketing.\n\nIn the woman's opinion, companies link themselves with charities in order to",
+          "options": [
+            { "id": "A", "label": "boost their profits." },
+            { "id": "B", "label": "improve their image in society." },
+            { "id": "C", "label": "distract attention away from other issues." }
+          ],
+          "answer": "B",
+          "explanation": "Cô ấy cho rằng công ty làm vậy để cải thiện hình ảnh."
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "You hear two friends talking about ways of keeping fit.\n\nWhat is the woman's criticism of exercising in gyms?",
+          "options": [
+            { "id": "A", "label": "Members get limited access to the facilities." },
+            { "id": "B", "label": "The membership cost is too high for the services offered." },
+            { "id": "C", "label": "It encourages exercise habits that lead to unhealthy lifestyles." }
+          ],
+          "answer": "C",
+          "explanation": "Cô ấy phê phán thói quen tập luyện ở phòng gym dẫn đến lối sống không lành mạnh."
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "You hear two friends talking about ways of keeping fit.\n\nHow does the man respond to his friend's criticism?",
+          "options": [
+            { "id": "A", "label": "He objects to her making sweeping generalisations about gyms." },
+            { "id": "B", "label": "He questions the value of excessive gym attendance." },
+            { "id": "C", "label": "He suspects she'd enjoy a different type of gym." }
+          ],
+          "answer": "A",
+          "explanation": "Anh ấy phản đối việc cô ấy khái quát hóa về phòng gym."
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "You hear a woman telling a friend about living in her capital city as a student.\n\nWhat is she doing during the conversation?",
+          "options": [
+            { "id": "A", "label": "admitting to regrets about her choice of place to study" },
+            { "id": "B", "label": "complaining about challenges she's had to face" },
+            { "id": "C", "label": "expressing her admiration for people in the city" }
+          ],
+          "answer": "C",
+          "explanation": "Cô ấy bày tỏ sự ngưỡng mộ với người dân thành phố."
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "You hear a woman telling a friend about living in her capital city as a student.\n\nWhy does the man give the example of trees?",
+          "options": [
+            { "id": "A", "label": "to support her main point" },
+            { "id": "B", "label": "to present a counter-argument to hers" },
+            { "id": "C", "label": "to express a reservation about her interpretation" }
+          ],
+          "answer": "A",
+          "explanation": "Ví dụ về cây được dùng để ủng hộ quan điểm chính của cô ấy."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–14",
+      "passageTitle": "TRIP TO SOUTH AFRICA",
+      "instruction": "You will hear a student called Josh Brady talking about visiting South Africa as part of his university course in botany. For questions 7–14, complete the sentences with a word or short phrase.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "As well as his research project, Josh planned to write a … for a website while he was in Africa.",
+          "options": [],
+          "answer": "report",
+          "explanation": "Josh dự định viết một bài report cho website.",
+          "wordLimit": 3
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Josh's group planned to check out a particular region after a … that had occurred there.",
+          "options": [],
+          "answer": "fire",
+          "explanation": "Nhóm đi khảo sát sau một vụ cháy.",
+          "wordLimit": 3
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Josh was surprised to see … being grown in the first area they visited.",
+          "options": [],
+          "answer": "red tea",
+          "explanation": "Anh ấy ngạc nhiên thấy trà đỏ được trồng ở đó.",
+          "wordLimit": 3
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Josh describes the vehicle they travelled in as a … when they went in search of specimens.",
+          "options": [],
+          "answer": "safari truck",
+          "explanation": "Họ đi tìm mẫu vật bằng xe safari truck.",
+          "wordLimit": 3
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Josh uses the word … to give us an idea of the shape of the leaves he found.",
+          "options": [],
+          "answer": "needle",
+          "explanation": "Lá có hình dạng giống kim (needle).",
+          "wordLimit": 3
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Josh was particularly impressed by one type of flower which was … in colour.",
+          "options": [],
+          "answer": "deep orange",
+          "explanation": "Một loài hoa có màu cam đậm.",
+          "wordLimit": 3
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Josh uses the word … to convey his feelings about an area of vegetation he studied.",
+          "options": [],
+          "answer": "paradise",
+          "explanation": "Anh ấy mô tả khu thực vật như một paradise.",
+          "wordLimit": 3
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Josh really appreciated the view he got from the … of his accommodation.",
+          "options": [],
+          "answer": "roof",
+          "explanation": "Tầm nhìn từ mái nhà nơi ở.",
+          "wordLimit": 3
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 15–20",
+      "instruction": "You will hear an interview in which two journalists called Jenny Langdon and Peter Sharples are talking about their work. For questions 15–20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Jenny say about the story which made her name?",
+          "options": [
+            { "id": "A", "label": "She'd been on the lookout for just such a lucky break." },
+            { "id": "B", "label": "She resented colleagues trying to take the credit for it." },
+            { "id": "C", "label": "She wasn't actually responsible for the finished article." },
+            { "id": "D", "label": "She asked for a more prestigious job on the strength of it." }
+          ],
+          "answer": "C",
+          "explanation": "Jenny nói cô không phải người hoàn thiện bài báo đó."
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "What does Jenny suggest about the editor she worked for on her first national daily newspaper?",
+          "options": [
+            { "id": "A", "label": "He respected her for standing up to him." },
+            { "id": "B", "label": "He tended to blame her for things unfairly." },
+            { "id": "C", "label": "He wasn't as unreasonable as everyone says." },
+            { "id": "D", "label": "He taught her the value of constructive criticism." }
+          ],
+          "answer": "B",
+          "explanation": "Cô ấy cho rằng biên tập viên hay đổ lỗi oan cho cô."
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "When Jenny got her own daily column on the newspaper, she felt",
+          "options": [
+            { "id": "A", "label": "satisfied that the good work she'd done elsewhere had been recognised." },
+            { "id": "B", "label": "relieved that it was only likely to be a short-term appointment." },
+            { "id": "C", "label": "determined to prove exactly what she was capable of." },
+            { "id": "D", "label": "unsure of her ability to make a success of it." }
+          ],
+          "answer": "C",
+          "explanation": "Cô quyết tâm chứng minh khả năng của mình."
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "Peter thinks he got a job on Carp Magazine thanks to",
+          "options": [
+            { "id": "A", "label": "his academic achievements at college." },
+            { "id": "B", "label": "his practical knowledge of everyday journalism." },
+            { "id": "C", "label": "his familiarity with the interests of its main target audience." },
+            { "id": "D", "label": "his understanding of how best to present himself at interview." }
+          ],
+          "answer": "B",
+          "explanation": "Peter nhờ kinh nghiệm thực tế trong báo chí hàng ngày."
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "Peter and Jenny agree that courses in journalism",
+          "options": [
+            { "id": "A", "label": "need to be supplemented by first-hand experience." },
+            { "id": "B", "label": "are attractive because they lead to paid employment." },
+            { "id": "C", "label": "are of little value compared to working on a student newspaper." },
+            { "id": "D", "label": "provide an opportunity for writers to address contentious issues." }
+          ],
+          "answer": "A",
+          "explanation": "Họ đồng ý khóa học cần bổ sung bằng kinh nghiệm thực tế."
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "When asked about their novels, Peter and Jenny reveal",
+          "options": [
+            { "id": "A", "label": "an ambition to gain recognition for their craft." },
+            { "id": "B", "label": "a desire to develop careers outside journalism." },
+            { "id": "C", "label": "a need to prove how versatile they are as writers." },
+            { "id": "D", "label": "a wish to keep their journalism fresh and appealing." }
+          ],
+          "answer": "D",
+          "explanation": "Họ muốn viết tiểu thuyết để giữ báo chí luôn mới mẻ."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "You will hear five short extracts in which people are talking about changing their jobs.",
+      "matchingDualTask": true,
+      "taskOneInstruction": "For questions 21 – 25, choose from the list (A – H) the reason each speaker gives for changing job.",
+      "taskTwoInstruction": "For questions 26 – 30, choose from the list (A – H) what each speaker feels about their new job.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            { "id": "A", "label": "unfriendly colleagues" },
+            { "id": "B", "label": "poor holiday entitlement" },
+            { "id": "C", "label": "lacking a sense of purpose" },
+            { "id": "D", "label": "needing more of a challenge" },
+            { "id": "E", "label": "the workload" },
+            { "id": "F", "label": "disagreements with superiors" },
+            { "id": "G", "label": "no prospect of advancement" },
+            { "id": "H", "label": "the physical environment" }
+          ],
+          "answer": "C",
+          "explanation": "Speaker 1 đổi việc vì thiếu cảm giác mục đích."
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            { "id": "A", "label": "unfriendly colleagues" },
+            { "id": "B", "label": "poor holiday entitlement" },
+            { "id": "C", "label": "lacking a sense of purpose" },
+            { "id": "D", "label": "needing more of a challenge" },
+            { "id": "E", "label": "the workload" },
+            { "id": "F", "label": "disagreements with superiors" },
+            { "id": "G", "label": "no prospect of advancement" },
+            { "id": "H", "label": "the physical environment" }
+          ],
+          "answer": "D",
+          "explanation": "Speaker 2 cần thêm thử thách."
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            { "id": "A", "label": "unfriendly colleagues" },
+            { "id": "B", "label": "poor holiday entitlement" },
+            { "id": "C", "label": "lacking a sense of purpose" },
+            { "id": "D", "label": "needing more of a challenge" },
+            { "id": "E", "label": "the workload" },
+            { "id": "F", "label": "disagreements with superiors" },
+            { "id": "G", "label": "no prospect of advancement" },
+            { "id": "H", "label": "the physical environment" }
+          ],
+          "answer": "A",
+          "explanation": "Speaker 3 đổi việc vì đồng nghiệp không thân thiện."
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            { "id": "A", "label": "unfriendly colleagues" },
+            { "id": "B", "label": "poor holiday entitlement" },
+            { "id": "C", "label": "lacking a sense of purpose" },
+            { "id": "D", "label": "needing more of a challenge" },
+            { "id": "E", "label": "the workload" },
+            { "id": "F", "label": "disagreements with superiors" },
+            { "id": "G", "label": "no prospect of advancement" },
+            { "id": "H", "label": "the physical environment" }
+          ],
+          "answer": "G",
+          "explanation": "Speaker 4 không có triển vọng thăng tiến."
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            { "id": "A", "label": "unfriendly colleagues" },
+            { "id": "B", "label": "poor holiday entitlement" },
+            { "id": "C", "label": "lacking a sense of purpose" },
+            { "id": "D", "label": "needing more of a challenge" },
+            { "id": "E", "label": "the workload" },
+            { "id": "F", "label": "disagreements with superiors" },
+            { "id": "G", "label": "no prospect of advancement" },
+            { "id": "H", "label": "the physical environment" }
+          ],
+          "answer": "E",
+          "explanation": "Speaker 5 đổi việc vì khối lượng công việc."
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            { "id": "A", "label": "encouraged by early results" },
+            { "id": "B", "label": "hopeful about future success" },
+            { "id": "C", "label": "delighted by a change in lifestyle" },
+            { "id": "D", "label": "relieved the initial uncertainty is over" },
+            { "id": "E", "label": "glad to be helping other people" },
+            { "id": "F", "label": "grateful for an increase in salary" },
+            { "id": "G", "label": "happy to feel in control" },
+            { "id": "H", "label": "satisfied with the training received" }
+          ],
+          "answer": "D",
+          "explanation": "Speaker 1 nhẹ nhõm vì đã qua giai đoạn bất ổn ban đầu."
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            { "id": "A", "label": "encouraged by early results" },
+            { "id": "B", "label": "hopeful about future success" },
+            { "id": "C", "label": "delighted by a change in lifestyle" },
+            { "id": "D", "label": "relieved the initial uncertainty is over" },
+            { "id": "E", "label": "glad to be helping other people" },
+            { "id": "F", "label": "grateful for an increase in salary" },
+            { "id": "G", "label": "happy to feel in control" },
+            { "id": "H", "label": "satisfied with the training received" }
+          ],
+          "answer": "C",
+          "explanation": "Speaker 2 vui vì thay đổi lối sống."
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            { "id": "A", "label": "encouraged by early results" },
+            { "id": "B", "label": "hopeful about future success" },
+            { "id": "C", "label": "delighted by a change in lifestyle" },
+            { "id": "D", "label": "relieved the initial uncertainty is over" },
+            { "id": "E", "label": "glad to be helping other people" },
+            { "id": "F", "label": "grateful for an increase in salary" },
+            { "id": "G", "label": "happy to feel in control" },
+            { "id": "H", "label": "satisfied with the training received" }
+          ],
+          "answer": "E",
+          "explanation": "Speaker 3 vui vì được giúp đỡ người khác."
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            { "id": "A", "label": "encouraged by early results" },
+            { "id": "B", "label": "hopeful about future success" },
+            { "id": "C", "label": "delighted by a change in lifestyle" },
+            { "id": "D", "label": "relieved the initial uncertainty is over" },
+            { "id": "E", "label": "glad to be helping other people" },
+            { "id": "F", "label": "grateful for an increase in salary" },
+            { "id": "G", "label": "happy to feel in control" },
+            { "id": "H", "label": "satisfied with the training received" }
+          ],
+          "answer": "B",
+          "explanation": "Speaker 4 hy vọng vào thành công tương lai."
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            { "id": "A", "label": "encouraged by early results" },
+            { "id": "B", "label": "hopeful about future success" },
+            { "id": "C", "label": "delighted by a change in lifestyle" },
+            { "id": "D", "label": "relieved the initial uncertainty is over" },
+            { "id": "E", "label": "glad to be helping other people" },
+            { "id": "F", "label": "grateful for an increase in salary" },
+            { "id": "G", "label": "happy to feel in control" },
+            { "id": "H", "label": "satisfied with the training received" }
+          ],
+          "answer": "G",
+          "explanation": "Speaker 5 hạnh phúc vì cảm giác được kiểm soát."
+        }
+      ]
+    }
+  ]
+}

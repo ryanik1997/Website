@@ -1,0 +1,24 @@
+ZIP cần có:
+
+exam.json
+
+Cấu trúc đề CAE C1 Reading (56 câu · 90 phút)
+
+Part 1 (1–8): MC cloze A–D
+Part 2 (9–16): open cloze ONE WORD
+Part 3 (17–24): word formation
+Part 4 (25–30): key word transformation
+Part 5 (31–36): reading MC A–D
+Part 6 (37–40): cross-text matching — 4 reviews A–D
+Part 7 (41–46): gapped text — paragraphs A–G
+Part 8 (47–56): multiple matching — 5 consultants A–E
+
+Việc bạn cần làm
+
+1. Đảm bảo exam.json trong Tainguyen/cae-Reading-test1/
+   (hoặc chạy: python scripts/build-cae-reading-test1.py)
+2. Chạy: pnpm build:catalog
+3. Luyện thi → Cambridge → C1 → đề builtin catalog-reading-cae-c1-test1
+   Hoặc Import thủ công Reading ZIP
+
+Prompt AI: HDSD/Prompt-CAE-C1-Reading.txt

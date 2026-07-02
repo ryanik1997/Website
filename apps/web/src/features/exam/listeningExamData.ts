@@ -66,10 +66,17 @@ export interface ListeningPart {
   ttsText?: string
   /** Giới hạn số lần nghe khi examMode = exam */
   maxPlays?: number
-  /** PET Part 3: tiêu đề khung điền (vd. ANITA'S HOLIDAY IN CUBA) */
+  /** PET Part 3 / FCE Part 2: tiêu đề đoạn (vd. Spectacled Bears) */
   passageTitle?: string
+  /** FCE Part 2: ảnh minh họa cạnh tiêu đề (một ảnh cho cả Part) */
+  partImageUrl?: string
+  partImageKey?: string
   /** PET Part 3/4: mô tả đoạn nghe trước câu hỏi */
   audioIntro?: string
+  /** CAE Part 4: hai task matching song song (Task One + Task Two) */
+  matchingDualTask?: boolean
+  taskOneInstruction?: string
+  taskTwoInstruction?: string
   questions: ListeningQuestion[]
 }
 

@@ -23,6 +23,9 @@
 | Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
+| Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
+| Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` |
+| Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
 
 ---
 
@@ -920,6 +923,31 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 - [x] `ExamHeaderBack` + `examNavigation.ts` — nút **Quay lại** khi đang làm bài (mọi chế độ)
 - [x] `KET_READING_DURATION_MINUTES = 30` — Reading A2 cố định 30 phút
 
+### Luyện thi — FCE B2 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] `Tainguyen/fce-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC, Part 2 gap-fill Spectacled Bears, Part 3 matching, Part 4 MC)
+- [x] Part 2: `passageTitle` + `imageFile: q2.jpg` → `ListeningPartImageHeader` (một ảnh gấu như Giaodien/a7.jpg)
+- [x] Catalog builtin `catalog-listening-fce-b2-test1` + `pnpm pack:listening:fce` → ZIP import
+- [x] `build-catalog.mjs` + `builtinExams.ts` — ship media `listening.mp3` + `q2.jpg`
+- [x] FCE Part 3 matching (a9.jpg) — `ListeningLetterMatchingPartView`: A–H bên trái, kéo/thả chữ cái vào ô Speaker 19–23
+- [x] HDSD FCE B2 Listening — `Prompt-FCE-B2-Listening.txt`, `Import Listening FCE B2.txt`, cập nhật `Import De Thi.txt` + `Prompt-FCE-B2.txt`
+
+### Luyện thi — CAE C1 Reading Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] Nguồn: `Tainguyen/cae-Reading-test1/` (PDF `Test_1_Reading_CAE_C1.pdf` + `answer keys.pdf`) → `scripts/build-cae-reading-test1.py`
+- [x] `exam.json` — 8 parts · **56 câu** · 90 phút (Part 1–4 Use of English, Part 5–8 Reading)
+- [x] Catalog builtin `catalog-reading-cae-c1-test1` + `build-catalog.mjs` + `builtinExams.ts`
+- [x] `cambridgeReadingImportTemplates.ts` — C1 Part 6: 37–40 cross-text, Part 7: 41–46 gapped text, Part 8: 47–56 multiple matching
+- [x] `pnpm pack:reading:cae` → `Tainguyen/cae-Reading-test1.zip` (exam.json only — không ảnh)
+- [x] HDSD: `Prompt-CAE-C1-Reading.txt`, `Import Reading CAE C1.txt`, cập nhật `Import De Thi.txt`
+- [x] UI Reading: ẩn danh sách features trùng khi passage đã có label A–G (B2/C1 Part 6–8); placeholder Part 4 = `3–6 words`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Luyện thi — CAE C1 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] `Tainguyen/cae-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC 3 extracts, Part 2 gap-fill TRIP TO SOUTH AFRICA, Part 3 MC A/B/C/D, Part 4 dual matching)
+- [x] Part 4 dual-task (a10.jpg) — `ListeningDualLetterMatchingPartView`: TASK ONE 21–25 + TASK TWO 26–30, hai bảng A–H riêng, kéo/thả vào Speaker 1–5
+- [x] `isDualLetterMatchingPart()` + `dualMatchingTaskGroups()` trong `listeningMultiPartLayout.ts`
+- [x] Catalog builtin `catalog-listening-cae-c1-test1` + `pnpm pack:listening:cae` + `build-catalog.mjs` + `builtinExams.ts`
+- [x] HDSD CAE C1 Listening — `Prompt-CAE-C1-Listening.txt`, `Import Listening CAE C1.txt`, cập nhật `Import De Thi.txt`
+
 ### Luyện thi — Highlight tô sáng Listening IELTS + Cambridge A2–C2 (session 2026-07-02) — HOÀN THÀNH
 - [x] Dùng chung logic Reading: `ReadingHighlightToolbar`, `ReadingHighlightableText`, `usePartHighlights`, `ExamHighlightZone`
 - [x] Áp dụng toàn bộ Listening: `ListeningKetTest`, `ListeningPetTest`, `ListeningIeltsTest` (IELTS + FCE/CAE/CPE)
@@ -974,9 +1002,20 @@ Sau khi user confirm Listening KET OK → pnpm deploy:prod (UI gap-fill/matching
    • Preview ✓ MP3 + 7 ảnh → làm bài 4 Part / 25 câu / 30 phút
    • Prompt AI: `HDSD/Prompt-PET-B1-Listening.txt`
 
-5. TIẾP THEO (nếu user muốn)
-   • `pnpm build:catalog` — thêm PET Listening vào builtin catalog
-   • FCE B2 Listening + prompt HDSD
+5. USER TEST — Listening FCE B2 + CAE C1
+   • Builtin `catalog-listening-fce-b2-test1` / `catalog-listening-cae-c1-test1`
+   • CAE Part 4: kiểm tra dual-task (Task One + Task Two, a10.jpg)
+   • Prompt: `HDSD/Prompt-FCE-B2-Listening.txt`, `HDSD/Prompt-CAE-C1-Listening.txt`
+
+6. USER TEST — Reading CAE C1
+   • Hard refresh → Luyện thi → Cambridge → C1 → **CAE C1 Reading — Test 1**
+   • 8 parts / 56 câu / 90 phút; Part 6 reviews A–D trái, Part 7 gapped text, Part 8 consultants A–E
+   • Part 4 transformation: placeholder `3–6 words`; Submit → kết quả (không blank page)
+   • Prompt: `HDSD/Prompt-CAE-C1-Reading.txt`
+
+7. TIẾP THEO (nếu user muốn)
+   • CPE C2 Listening / Reading
+   • Deploy prod (catalog chưa lên production)
 
 ─── ĐÃ XONG 2026-07-01 (Import đề) ───
 • Reading: KET / PET / FCE bundles + prompts HDSD

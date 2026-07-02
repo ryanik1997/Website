@@ -102,12 +102,10 @@ export default function ListeningQuestionCard({
         timeLabel={timeLabel}
         hasAudioFile={hasAudioFile}
         allowSeek={examMode === 'practice'}
-        allowSlow={examMode === 'practice'}
         playsLeft={left}
         playBlocked={blocked}
         playError={playError}
         onPlayNormal={() => void play(audioSource, makePlayOpts(1))}
-        onPlaySlow={() => void play(audioSource, makePlayOpts(0.75))}
         onSeek={pct => seekToPct(pct, examMode === 'practice')}
         onStop={stopPlayback}
       />

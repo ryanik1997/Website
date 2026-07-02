@@ -1,0 +1,136 @@
+Bạn là trợ lý tạo ZIP bundle import đề Reading CAE C1 vào web app "Ryan English".
+
+→ Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ Listening CAE C1: HDSD/Prompt-CAE-C1-Listening.txt
+
+## Tài liệu đính kèm
+1. Test_1_Reading_CAE_C1.pdf — Reading and Use of English (Parts 1–8)
+2. answer keys.pdf — đáp án Sample Paper 1
+3. Không có ảnh — CAE C1 dùng text passage toàn bộ
+
+## Deliverable
+ZIP: `cae-Reading-test1.zip` — file CÙNG CẤP:
+```
+exam.json
+```
+
+```json
+{
+  "version": 1,
+  "title": "CAE C1 Reading — Test 1",
+  "durationMinutes": 90,
+  "bandHint": "C1 Advanced Reading & Use of English",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "c1",
+  "parts": [ /* 8 parts, 56 câu */ ]
+}
+```
+
+## Cấu trúc 8 parts (56 câu)
+
+| Part | Câu | Type | Nội dung |
+|------|-----|------|----------|
+| 1 | 1–8 | multiple-choice | MC cloze — 4 từ A–D/gap |
+| 2 | 9–16 | gap-fill | Open cloze — ONE WORD |
+| 3 | 17–24 | gap-fill | Word formation (stem → từ) |
+| 4 | 25–30 | gap-fill | Key word transformation (3–6 từ) |
+| 5 | 31–36 | multiple-choice | Reading comprehension A–D |
+| 6 | 37–40 | matching-features | Cross-text matching — 4 reviews A–D |
+| 7 | 41–46 | matching-features | Gapped text + paragraphs A–G |
+| 8 | 47–56 | matching-features | Multiple matching — 5 consultants A–E |
+
+Timer **90 phút**. App render: `ReadingTest` (Cambridge track C1).
+
+---
+
+## Part 1–4 (Use of English)
+
+Giống FCE B2 — xem `HDSD/Prompt-FCE-B2.txt` Part 1–4.
+- Part 1: giữ `(1) ........` trong passage
+- Part 3: `prompt`: `Gap (17) — COME`, `answer`: `overcome`
+- Part 4: `prompt` gồm câu gốc + từ khóa + câu đích
+
+---
+
+## Part 5 (Q31–36) — Reading MC
+
+Copy toàn bộ passage + 6 câu hỏi A/B/C/D.
+
+---
+
+## Part 6 (Q37–40) — Cross-text matching
+
+```json
+{
+  "partNumber": 6,
+  "passage": [
+    { "text": "The Architecture of Happiness" },
+    { "label": "A", "text": "Review A…" },
+    { "label": "B", "text": "Review B…" },
+    { "label": "C", "text": "Review C…" },
+    { "label": "D", "text": "Review D…" }
+  ],
+  "questionGroups": [{
+    "type": "matching-features",
+    "features": [
+      { "id": "a", "name": "Review A" },
+      { "id": "b", "name": "Review B" },
+      { "id": "c", "name": "Review C" },
+      { "id": "d", "name": "Review D" }
+    ],
+    "questions": [
+      {
+        "number": 37,
+        "type": "matching-features",
+        "prompt": "has a different opinion from the others on the confidence…",
+        "options": [{ "id": "A", "label": "A" }, …],
+        "answer": "b"
+      }
+    ]
+  }]
+}
+```
+
+---
+
+## Part 7 (Q41–46) — Gapped text
+
+Giống FCE Part 6 / PET Part 4:
+- Passage có `(41) ........` … `(46) ........`
+- Paragraphs A–G ở cuối passage (label A–G)
+- `type`: matching-features, `features` A–G
+
+---
+
+## Part 8 (Q47–56) — Multiple matching
+
+Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
+- Passage: Consultant A … E
+- Mỗi câu: statement → chọn A/B/C/D/E
+
+---
+
+## Đáp án Test 1
+
+| Part | Câu | Đáp án |
+|------|-----|--------|
+| 1 | 1–8 | B,C,C,A,B,B,C,D |
+| 2 | 9–16 | because, such, other, could/may/might, despite, if/when, nothing/little, in |
+| 3 | 17–24 | overcome, fitness, endurance, beneficial, inability, strength, typically, severity |
+| 4 | 25–30 | (xem answer key — nhiều cách đúng) |
+| 5 | 31–36 | C,A,C,D,D,C |
+| 6 | 37–40 | B,C,A,B |
+| 7 | 41–46 | G,D,A,F,C,E |
+| 8 | 47–56 | D,E,C,A,D,B,C,A,B,E |
+
+---
+
+## Builtin catalog
+
+```bash
+pnpm build:catalog
+```
+→ `catalog-reading-cae-c1-test1`
+
+Bundle mẫu: `Tainguyen/cae-Reading-test1/`
+Script tạo JSON: `python scripts/build-cae-reading-test1.py`

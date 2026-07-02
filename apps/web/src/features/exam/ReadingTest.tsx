@@ -8,14 +8,8 @@ import ExamPartFooter from './ExamPartFooter'
 import ExamTimerControls from './ExamTimerControls'
 import { readingExamBackPath } from './examNavigation'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import ExamResult from './ExamResult'
-import FullMockStageResult from './FullMockStageResult'
-import { getFullMockTest } from './fullMockData'
-import {
-  appendFullMockQuery,
-  clearFullMockSession,
-  patchFullMockSession,
-} from './fullMockSession'
+import ReadingSubmittedScreen from './ReadingSubmittedScreen'
+import { patchFullMockSession } from './fullMockSession'
 import ReadingFontPanel from './ReadingFontPanel'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import ReadingPassagePanel from './ReadingPassagePanel'
@@ -27,7 +21,7 @@ import {
   loadFontFamilyId,
   loadFontSize,
 } from './readingFontSettings'
-import { getExamQuestions, getPartQuestions, isReadingAnswerCorrect } from './examData'
+import { getExamQuestions, getPartQuestions } from './examData'
 import { resolveReadingExam } from './examLoader'
 import { scrollReadingToQuestion } from './readingScrollUtils'
 import { clearReadingDraft } from './examCompletion'
@@ -222,9 +216,9 @@ export default function ReadingTest() {
   }, [])
 
   useEffect(() => {
-    if (!activeQuestionId) return
+    if (submitted || !activeQuestionId) return
     scrollToQuestion(activeQuestionId)
-  }, [activeQuestionId, partIndex, scrollToQuestion])
+  }, [activeQuestionId, partIndex, scrollToQuestion, submitted])
 
   const answeredInPart = useCallback((index: number) => {
     if (!exam) return 0
@@ -353,41 +347,14 @@ export default function ReadingTest() {
     )
   }
 
+  // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
   if (submitted) {
-    const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
-    if (fullMock) {
-      const questions = getExamQuestions(exam)
-      const correct = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
-      return (
-        <FullMockStageResult
-          mockTitle={fullMock.title}
-          stage="reading"
-          stageLabel="Reading"
-          scoreText={`${correct}/${questions.length}`}
-          nextLabel="Tiếp Listening"
-          onContinue={() => {
-            patchFullMockSession({
-              stage: 'listening',
-              reading: { correct, total: questions.length, answers: { ...answers } },
-            })
-            navigate(appendFullMockQuery(`/app/exam/listening/${fullMock.listeningExamId}`, fullMock.id))
-          }}
-          onExit={() => {
-            clearFullMockSession()
-            navigate('/app/exam')
-          }}
-          onRetry={handleRetry}
-          retryLabel="Làm lại Reading"
-        />
-      )
-    }
-
     return (
-      <ExamResult
+      <ReadingSubmittedScreen
         exam={exam}
         answers={answers}
+        fullMockId={fullMockId}
         onRetry={handleRetry}
-        onBack={() => navigate(readingExamBackPath(exam))}
       />
     )
   }

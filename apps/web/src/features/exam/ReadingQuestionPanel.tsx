@@ -256,6 +256,16 @@ function MatchingParagraphGroup({
   )
 }
 
+function gapFillPlaceholder(group: ReadingQuestionGroup): string {
+  const hint = `${group.instruction ?? ''} ${group.note ?? ''}`.toLowerCase()
+  if (hint.includes('three and six') || hint.includes('3 and 6') || hint.includes('3–6')) {
+    return '3–6 words'
+  }
+  const multiWordAnswer = group.questions.some(q => q.answer.trim().includes(' '))
+  if (multiWordAnswer && hint.includes('transformation')) return '3–6 words'
+  return 'ONE WORD'
+}
+
 function GapFillGroup({
   group,
   answers,
@@ -265,6 +275,7 @@ function GapFillGroup({
 }: {
   group: ReadingQuestionGroup
 } & Pick<Props, 'answers' | 'highlights' | 'onSelectQuestion' | 'onAnswer'>) {
+  const placeholder = gapFillPlaceholder(group)
   return (
     <section className="reading-test-group">
       <ReadingHighlightableText
@@ -310,7 +321,7 @@ function GapFillGroup({
             type="text"
             className="reading-test-gap-input"
             value={answers[question.id] ?? ''}
-            placeholder="ONE WORD"
+            placeholder={placeholder}
             onChange={e => onAnswer(question.id, e.target.value.trim().toLowerCase())}
             onFocus={() => onSelectQuestion(question.id)}
           />
@@ -451,8 +462,12 @@ function MatchingFeaturesGroup({
   group: ReadingQuestionGroup
 } & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const features = group.features ?? []
-  /** Đề B1: passage trái đã có markets/câu — không lặp list đầy đủ bên phải. */
-  const hideFeatureList = cambridgeLevel === 'a2' || cambridgeLevel === 'b1'
+  /** Cambridge: passage trái đã có reviews/sections — không lặp list đầy đủ bên phải. */
+  const hideFeatureList =
+    cambridgeLevel === 'a2'
+    || cambridgeLevel === 'b1'
+    || cambridgeLevel === 'b2'
+    || cambridgeLevel === 'c1'
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
 
   return (

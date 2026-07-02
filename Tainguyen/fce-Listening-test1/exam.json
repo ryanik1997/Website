@@ -1,0 +1,399 @@
+{
+  "version": 1,
+  "title": "FCE B2 Listening — Test 1",
+  "durationMinutes": 40,
+  "bandHint": "B2 First Listening · 4 parts · 30 câu",
+  "examType": "fce",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–8",
+      "instruction": "You will hear people talking in eight different situations. For questions 1–8, choose the best answer (A, B or C).",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "You hear a message on a telephone answering machine. Why is the speaker calling?",
+          "options": [
+            { "id": "A", "label": "to confirm some arrangements" },
+            { "id": "B", "label": "to issue an invitation" },
+            { "id": "C", "label": "to persuade someone to do something" }
+          ],
+          "answer": "B",
+          "explanation": "The speaker is inviting someone to an event."
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "You hear two people talking about a water-sports centre. The man says the centre should",
+          "options": [
+            { "id": "A", "label": "pay more attention to safety" },
+            { "id": "B", "label": "offer activities for small children" },
+            { "id": "C", "label": "provide all the equipment needed" }
+          ],
+          "answer": "B",
+          "explanation": "He thinks the centre should cater better for young children."
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "You hear a professional tennis player talking about her career. What annoys her most about interviewers?",
+          "options": [
+            { "id": "A", "label": "their belief that she leads a glamorous life" },
+            { "id": "B", "label": "their assumption that she's motivated by money" },
+            { "id": "C", "label": "their tendency to disturb her while she's travelling" }
+          ],
+          "answer": "A",
+          "explanation": "She resents the idea that her life is glamorous."
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "You hear a poet talking about his work. What is he doing?",
+          "options": [
+            { "id": "A", "label": "giving his reasons for starting to visit schools" },
+            { "id": "B", "label": "justifying the childlike nature of some of his recent poems" },
+            { "id": "C", "label": "explaining that his poems appeal to people of different ages" }
+          ],
+          "answer": "C",
+          "explanation": "He explains how readers of different ages respond to his poetry."
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "You hear two people talking about a programme they saw on TV. The woman thinks the programme was",
+          "options": [
+            { "id": "A", "label": "irritating" },
+            { "id": "B", "label": "sad" },
+            { "id": "C", "label": "uninformative" }
+          ],
+          "answer": "C",
+          "explanation": "She felt it did not give enough useful information."
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "You hear two people talking about an ice-hockey game they've just seen. How does the girl feel about it?",
+          "options": [
+            { "id": "A", "label": "pleased to have had the experience" },
+            { "id": "B", "label": "relieved that she'd dressed appropriately" },
+            { "id": "C", "label": "impressed by the performance of the team" }
+          ],
+          "answer": "A",
+          "explanation": "She is glad she went, even though the result was disappointing."
+        },
+        {
+          "number": 7,
+          "type": "multiple-choice",
+          "prompt": "You overhear two friends talking about a restaurant. What do they both like about it?",
+          "options": [
+            { "id": "A", "label": "the presentation of the food" },
+            { "id": "B", "label": "the atmosphere of the place" },
+            { "id": "C", "label": "the originality of the cooking" }
+          ],
+          "answer": "A",
+          "explanation": "They agree the dishes are beautifully presented."
+        },
+        {
+          "number": 8,
+          "type": "multiple-choice",
+          "prompt": "You hear a man talking on the radio. What type of information is he giving?",
+          "options": [
+            { "id": "A", "label": "a travel announcement" },
+            { "id": "B", "label": "a weather forecast" },
+            { "id": "C", "label": "an accident report" }
+          ],
+          "answer": "A",
+          "explanation": "He is announcing changes to a transport service."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 9–18",
+      "passageTitle": "Spectacled Bears",
+      "imageFile": "q2.jpg",
+      "instruction": "You will hear a woman called Angela Thomas, who works for a wildlife organisation, talking about the spectacled bear.\nFor questions 9–18, complete the sentences with a word or short phrase.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Angela says that it was the … of the spectacled bear that first interested her.",
+          "options": [],
+          "answer": "great name",
+          "explanation": "She was fascinated by the bear's name.",
+          "wordLimit": 3
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Angela mentions that the bear's markings can be found on its … as well as its eyes and cheeks.",
+          "options": [],
+          "answer": "chest",
+          "explanation": "Markings also appear on the chest.",
+          "wordLimit": 3
+        },
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Angela is pleased by evidence that spectacled bears have been seen in … areas of Argentina.",
+          "options": [],
+          "answer": "northern",
+          "explanation": "Bears have been sighted in northern regions.",
+          "wordLimit": 3
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Angela says the bears usually live in …, though they can also be found in other places.",
+          "options": [],
+          "answer": "forests",
+          "explanation": "Their typical habitat is forest.",
+          "wordLimit": 3
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Spectacled bears behave differently from other types of bear during …, which Angela finds surprising.",
+          "options": [],
+          "answer": "the winter",
+          "explanation": "Their winter behaviour is unusual compared with other bears.",
+          "wordLimit": 3
+        },
+        {
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Angela is upset that … are the biggest danger to spectacled bears.",
+          "options": [],
+          "answer": "humans",
+          "explanation": "Human activity poses the greatest threat.",
+          "wordLimit": 3
+        },
+        {
+          "number": 15,
+          "type": "gap-fill",
+          "prompt": "Angela says that spectacled bears usually eat … and tree bark.",
+          "options": [],
+          "answer": "berries",
+          "explanation": "Berries are a staple food.",
+          "wordLimit": 3
+        },
+        {
+          "number": 16,
+          "type": "gap-fill",
+          "prompt": "Bears climb trees and make a …, which fascinated Angela.",
+          "options": [],
+          "answer": "platform",
+          "explanation": "They build platforms in trees.",
+          "wordLimit": 3
+        },
+        {
+          "number": 17,
+          "type": "gap-fill",
+          "prompt": "When bears eat meat, they much prefer … although they do eat other creatures.",
+          "options": [],
+          "answer": "mice",
+          "explanation": "Small mice are their preferred meat.",
+          "wordLimit": 3
+        },
+        {
+          "number": 18,
+          "type": "gap-fill",
+          "prompt": "One man has produced an amusing … about the time he spent studying the bears.",
+          "options": [],
+          "answer": "diary",
+          "explanation": "He wrote a humorous diary of his research.",
+          "wordLimit": 3
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 19–23",
+      "instruction": "You will hear five short extracts in which people are talking about their visit to a city. For questions 19–23, choose from the list (A–H) what each speaker liked most about the city they visited. Use the letters only once. There are three extra letters which you do not need to use.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 19,
+          "type": "matching",
+          "prompt": "Speaker 1",
+          "options": [
+            { "id": "A", "label": "the efficiency of the public transport system" },
+            { "id": "B", "label": "the natural beauty of the scenery" },
+            { "id": "C", "label": "the variety of goods in the markets" },
+            { "id": "D", "label": "the style of the architecture" },
+            { "id": "E", "label": "the well-designed plan of the city" },
+            { "id": "F", "label": "the helpfulness of the people" },
+            { "id": "G", "label": "the range of leisure opportunities" },
+            { "id": "H", "label": "the standard of the accommodation" }
+          ],
+          "answer": "G",
+          "explanation": "Speaker 1 most enjoyed leisure activities."
+        },
+        {
+          "number": 20,
+          "type": "matching",
+          "prompt": "Speaker 2",
+          "options": [
+            { "id": "A", "label": "the efficiency of the public transport system" },
+            { "id": "B", "label": "the natural beauty of the scenery" },
+            { "id": "C", "label": "the variety of goods in the markets" },
+            { "id": "D", "label": "the style of the architecture" },
+            { "id": "E", "label": "the well-designed plan of the city" },
+            { "id": "F", "label": "the helpfulness of the people" },
+            { "id": "G", "label": "the range of leisure opportunities" },
+            { "id": "H", "label": "the standard of the accommodation" }
+          ],
+          "answer": "B",
+          "explanation": "Speaker 2 was impressed by the scenery."
+        },
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Speaker 3",
+          "options": [
+            { "id": "A", "label": "the efficiency of the public transport system" },
+            { "id": "B", "label": "the natural beauty of the scenery" },
+            { "id": "C", "label": "the variety of goods in the markets" },
+            { "id": "D", "label": "the style of the architecture" },
+            { "id": "E", "label": "the well-designed plan of the city" },
+            { "id": "F", "label": "the helpfulness of the people" },
+            { "id": "G", "label": "the range of leisure opportunities" },
+            { "id": "H", "label": "the standard of the accommodation" }
+          ],
+          "answer": "A",
+          "explanation": "Speaker 3 praised public transport."
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Speaker 4",
+          "options": [
+            { "id": "A", "label": "the efficiency of the public transport system" },
+            { "id": "B", "label": "the natural beauty of the scenery" },
+            { "id": "C", "label": "the variety of goods in the markets" },
+            { "id": "D", "label": "the style of the architecture" },
+            { "id": "E", "label": "the well-designed plan of the city" },
+            { "id": "F", "label": "the helpfulness of the people" },
+            { "id": "G", "label": "the range of leisure opportunities" },
+            { "id": "H", "label": "the standard of the accommodation" }
+          ],
+          "answer": "H",
+          "explanation": "Speaker 4 liked where they stayed."
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Speaker 5",
+          "options": [
+            { "id": "A", "label": "the efficiency of the public transport system" },
+            { "id": "B", "label": "the natural beauty of the scenery" },
+            { "id": "C", "label": "the variety of goods in the markets" },
+            { "id": "D", "label": "the style of the architecture" },
+            { "id": "E", "label": "the well-designed plan of the city" },
+            { "id": "F", "label": "the helpfulness of the people" },
+            { "id": "G", "label": "the range of leisure opportunities" },
+            { "id": "H", "label": "the standard of the accommodation" }
+          ],
+          "answer": "F",
+          "explanation": "Speaker 5 valued how friendly people were."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 24–30",
+      "instruction": "You will hear part of a radio interview with a woman called Rachel Reed, who works in a commercial art gallery. For questions 24–30, choose the best answer (A, B or C).",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "What does Rachel say about her job title?",
+          "options": [
+            { "id": "A", "label": "It makes her feel more important than she is." },
+            { "id": "B", "label": "It gives people the wrong idea about her work." },
+            { "id": "C", "label": "It is appropriate for most of the work she does." }
+          ],
+          "answer": "C",
+          "explanation": "She feels the title fits most of her duties."
+        },
+        {
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "What is the most common reason for the gallery not exhibiting an artist's work?",
+          "options": [
+            { "id": "A", "label": "The subject matter is unsuitable." },
+            { "id": "B", "label": "It is not of a high enough quality." },
+            { "id": "C", "label": "The gallery manager doesn't like it." }
+          ],
+          "answer": "B",
+          "explanation": "Work is usually rejected on quality grounds."
+        },
+        {
+          "number": 26,
+          "type": "multiple-choice",
+          "prompt": "When can phone calls from artists be difficult for Rachel?",
+          "options": [
+            { "id": "A", "label": "when their work doesn't sell" },
+            { "id": "B", "label": "when they don't receive payments" },
+            { "id": "C", "label": "when their work is not accepted" }
+          ],
+          "answer": "C",
+          "explanation": "Rejecting artists' work leads to awkward calls."
+        },
+        {
+          "number": 27,
+          "type": "multiple-choice",
+          "prompt": "Why does Rachel include a commentary in the catalogue?",
+          "options": [
+            { "id": "A", "label": "It gives background information about the artist." },
+            { "id": "B", "label": "It encourages people to buy paintings over the phone." },
+            { "id": "C", "label": "It tells people what experts think of the work." }
+          ],
+          "answer": "A",
+          "explanation": "The commentary provides context about the artist."
+        },
+        {
+          "number": 28,
+          "type": "multiple-choice",
+          "prompt": "What does Rachel say about administrative work?",
+          "options": [
+            { "id": "A", "label": "She is able to leave a lot of it to others." },
+            { "id": "B", "label": "She would like to have an assistant to help with it." },
+            { "id": "C", "label": "She finds it hard to get it all organised." }
+          ],
+          "answer": "A",
+          "explanation": "Colleagues handle much of the admin."
+        },
+        {
+          "number": 29,
+          "type": "multiple-choice",
+          "prompt": "What is Rachel's role in the service the gallery offers to large companies?",
+          "options": [
+            { "id": "A", "label": "making initial contacts" },
+            { "id": "B", "label": "responding to enquiries" },
+            { "id": "C", "label": "promoting a certain type of art" }
+          ],
+          "answer": "A",
+          "explanation": "She makes the first approach to companies."
+        },
+        {
+          "number": 30,
+          "type": "multiple-choice",
+          "prompt": "What does Rachel find most enjoyable about her job?",
+          "options": [
+            { "id": "A", "label": "meeting interesting people" },
+            { "id": "B", "label": "the fact that it's unpredictable" },
+            { "id": "C", "label": "being close to works of art" }
+          ],
+          "answer": "B",
+          "explanation": "She loves that no two days are the same."
+        }
+      ]
+    }
+  ]
+}
