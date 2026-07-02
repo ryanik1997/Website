@@ -92,7 +92,7 @@ function buildA2Reading(): ReadingExam {
   return {
     id: examId,
     title: 'A2 KET Sample Test — Reading (Parts 1–5)',
-    durationMinutes: 60,
+    durationMinutes: 30,
     bandHint: cambridgeReadingBandHint('a2', countReadingQuestions(parts)),
     examTrack: 'cambridge',
     cambridgeLevel: 'a2',

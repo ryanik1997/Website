@@ -1,64 +1,7 @@
+import { CATALOG_SENTENCE_STRUCTURES } from '@ryan/catalog'
 import type { StructureSeed } from './types'
 
-export const SAMPLE_STRUCTURES: StructureSeed[] = [
-  {
-    title: "Just because ... doesn't mean ...",
-    template: "Just because [A] doesn't mean [B].",
-    description: 'Dùng để nói một lý do chưa đủ để kết luận điều gì.',
-    category: 'Liên từ / Lý do',
-    exampleA: 'you fail once',
-    exampleB: 'you should give up',
-    exampleNoteVi: 'Chỉ vì bạn thất bại một lần không có nghĩa là bạn nên bỏ cuộc.',
-    starred: true,
-  },
-  {
-    title: 'The more ..., the more ...',
-    template: 'The more [A], the more [B].',
-    description: 'Hai vế tỷ lệ thuận — càng… càng…',
-    category: 'So sánh',
-    exampleA: 'you practise',
-    exampleB: 'you improve',
-    exampleNoteVi: 'Bạn càng luyện tập nhiều, bạn càng tiến bộ.',
-    starred: true,
-  },
-  {
-    title: 'S + V ... so that S + can + V',
-    template: '[A] so that I can [B].',
-    description: 'Nêu mục đích của hành động — để có thể làm gì.',
-    category: 'Mục đích',
-    exampleA: 'I wake up early',
-    exampleB: 'finish my homework',
-    exampleNoteVi: 'Tôi dậy sớm để có thể hoàn thành bài tập.',
-    starred: false,
-  },
-  {
-    title: 'Although ..., ...',
-    template: 'Although [A], [B].',
-    description: 'Mệnh đề tương phản — mặc dù… nhưng…',
-    category: 'Tương phản',
-    exampleA: 'it was raining',
-    exampleB: 'we still went out',
-    exampleNoteVi: 'Mặc dù trời mưa, chúng tôi vẫn đi ra ngoài.',
-    starred: false,
-  },
-  {
-    title: 'If ..., ... will ...',
-    template: 'If [A], [B].',
-    description: 'Câu điều kiện loại 1 — nếu… thì sẽ…',
-    category: 'Điều kiện',
-    exampleA: 'you study hard',
-    exampleB: 'you will succeed',
-    exampleNoteVi: 'Nếu bạn học chăm, bạn sẽ đạt kết quả tốt.',
-    starred: false,
-  },
-  {
-    title: 'Not only ... but also ...',
-    template: 'Not only [A], but also [B].',
-    description: 'Nhấn mạnh hai ý song song.',
-    category: 'Liên từ / Lý do',
-    exampleA: 'is it cheap',
-    exampleB: 'it is effective',
-    exampleNoteVi: 'Không những rẻ mà còn hiệu quả.',
-    starred: false,
-  },
-]
+/** @deprecated Dùng CATALOG_SENTENCE_STRUCTURES + syncGlobalCatalog */
+export const SAMPLE_STRUCTURES: StructureSeed[] = CATALOG_SENTENCE_STRUCTURES.map(
+  ({ id: _id, ...rest }) => rest,
+)

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { ArrowLeft, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
@@ -10,11 +10,13 @@ import {
   clearFullMockSession,
   patchFullMockSession,
 } from './fullMockSession'
-import ListeningPartQuestionPanel from './ListeningPartQuestionPanel'
+import { ListeningPartAnswerPanel, ListeningPartPromptPanel } from './ListeningPartQuestionPanel'
+import ListeningSplitResizer from './ListeningSplitResizer'
 import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { useListeningSplitPane } from './useListeningSplitPane'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
 
@@ -41,6 +43,14 @@ export default function ListeningIeltsTest({ exam }: Props) {
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const {
+    splitPct,
+    isResizing,
+    onResizerPointerDown,
+    onResizerPointerMove,
+    onResizerPointerUp,
+  } = useListeningSplitPane()
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
   const currentPart = exam.parts[partIndex] ?? null
@@ -204,8 +214,26 @@ export default function ListeningIeltsTest({ exam }: Props) {
 
   const answeredCount = allQuestions.filter(q => Boolean(answers[q.id])).length
 
+  const scrollToQuestion = useCallback((questionId: string) => {
+    window.requestAnimationFrame(() => {
+      document.getElementById(`listening-q-${questionId}`)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      })
+      document.getElementById(`listening-a-${questionId}`)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      })
+    })
+  }, [])
+
+  const handleSelectQuestion = useCallback((questionId: string) => {
+    setActiveQuestionId(questionId)
+    scrollToQuestion(questionId)
+  }, [scrollToQuestion])
+
   return (
-    <div className="listening-exam-shell listening-exam-shell--ielts">
+    <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}`}>
       <header className="listening-exam-header">
         <button type="button" className="listening-exam-header__back" onClick={() => navigate('/app/exam')}>
           <ArrowLeft size={14} />
@@ -218,44 +246,58 @@ export default function ListeningIeltsTest({ exam }: Props) {
         </div>
       </header>
 
-      {currentPart && (
-        <div className="listening-ielts-audio-sticky">
-          <p className="listening-ielts-audio-sticky__label">
-            Part {currentPart.partNumber} · {currentPart.rangeLabel}
-            {exam.examMode === 'exam' && (
-              <span className="listening-ielts-mode-badge">Chế độ thi</span>
-            )}
-          </p>
-          <ListeningExamAudioBar
-            source={partAudioSource}
-            playing={playing}
-            buffering={buffering}
-            progressPct={progressPct}
-            timeLabel={timeLabel}
-            hasAudioFile={hasPartAudio}
-            allowSeek={exam.examMode === 'practice'}
-            allowSlow={exam.examMode === 'practice'}
-            playsLeft={partLeft}
-            playBlocked={partBlocked}
-            onPlayNormal={() => void play(partAudioSource, makePartPlayOpts(1))}
-            onPlaySlow={() => void play(partAudioSource, makePartPlayOpts(0.75))}
-            onSeek={pct => seekToPct(pct, exam.examMode === 'practice')}
-            onStop={stopPlayback}
-          />
-        </div>
-      )}
-
-      <main className="listening-ielts-main">
+      <div
+        ref={bodyRef}
+        className="listening-exam-body"
+        style={{ '--le-split-pct': `${splitPct}%` } as CSSProperties}
+      >
         {currentPart && (
-          <ListeningPartQuestionPanel
-            part={currentPart}
-            answers={answers}
-            activeQuestionId={activeQuestionId}
-            onSelectQuestion={setActiveQuestionId}
-            onAnswer={handleAnswer}
-          />
+          <>
+            <ListeningPartPromptPanel
+              part={currentPart}
+              activeQuestionId={activeQuestionId}
+              onSelectQuestion={handleSelectQuestion}
+              audioSlot={(
+                <div className="listening-ielts-audio-inline">
+                  {exam.examMode === 'exam' && (
+                    <span className="listening-ielts-mode-badge">Chế độ thi</span>
+                  )}
+                  <ListeningExamAudioBar
+                    source={partAudioSource}
+                    playing={playing}
+                    buffering={buffering}
+                    progressPct={progressPct}
+                    timeLabel={timeLabel}
+                    hasAudioFile={hasPartAudio}
+                    allowSeek={exam.examMode === 'practice'}
+                    allowSlow={exam.examMode === 'practice'}
+                    playsLeft={partLeft}
+                    playBlocked={partBlocked}
+                    onPlayNormal={() => void play(partAudioSource, makePartPlayOpts(1))}
+                    onPlaySlow={() => void play(partAudioSource, makePartPlayOpts(0.75))}
+                    onSeek={pct => seekToPct(pct, exam.examMode === 'practice')}
+                    onStop={stopPlayback}
+                  />
+                </div>
+              )}
+            />
+            <ListeningSplitResizer
+              bodyRef={bodyRef}
+              isResizing={isResizing}
+              onPointerDown={onResizerPointerDown}
+              onPointerMove={onResizerPointerMove}
+              onPointerUp={onResizerPointerUp}
+            />
+            <ListeningPartAnswerPanel
+              part={currentPart}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onSelectQuestion={handleSelectQuestion}
+              onAnswer={handleAnswer}
+            />
+          </>
         )}
-      </main>
+      </div>
 
       <footer className="listening-exam-footer listening-exam-footer--ielts">
         <div className="listening-ielts-footer-parts">
@@ -276,7 +318,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
                     key={q.id}
                     type="button"
                     className={`listening-ielts-q-pill${activeQuestionId === q.id ? ' is-current' : ''}${answers[q.id] ? ' is-answered' : ''}`}
-                    onClick={() => setActiveQuestionId(q.id)}
+                    onClick={() => handleSelectQuestion(q.id)}
                   >
                     {q.number}
                   </button>

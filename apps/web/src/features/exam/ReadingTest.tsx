@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
-  Bell, ChevronLeft, ChevronRight, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
+  Bell, ChevronLeft, ChevronRight, Clock, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
 } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamResult from './ExamResult'
@@ -31,6 +31,12 @@ const STORAGE_PREFIX = 'exam-reading-draft:'
 const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
+
+function formatTimer(seconds: number): string {
+  const m = Math.floor(seconds / 60)
+  const s = seconds % 60
+  return `${m}:${s.toString().padStart(2, '0')}`
+}
 
 export default function ReadingTest() {
   const navigate = useNavigate()
@@ -69,8 +75,6 @@ export default function ReadingTest() {
   )
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
-
-  const minutesRemaining = Math.max(0, Math.ceil(timeLeft / 60))
 
   const handlePartHighlightsChange = useCallback((highlights: ReadingHighlight[]) => {
     if (!currentPart) return
@@ -377,14 +381,18 @@ export default function ReadingTest() {
       } as CSSProperties}
     >
       <header className="reading-test-header">
-        <div>
+        <div className="reading-test-header__lead">
           <p className="reading-test-header__title">{currentPart?.passageTitle ?? exam.title}</p>
-          <p className="reading-test-header__timer">
-            {minutesRemaining} minute{minutesRemaining === 1 ? '' : 's'} remaining
-          </p>
         </div>
 
         <div className="reading-test-header__actions">
+          <div
+            className={`reading-test-header__timer${timeLeft <= 60 ? ' is-urgent' : ''}`}
+            title="Thời gian còn lại"
+          >
+            <Clock size={15} aria-hidden />
+            <span>{formatTimer(timeLeft)}</span>
+          </div>
           <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
             Submit Test
           </button>

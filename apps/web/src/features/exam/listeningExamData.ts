@@ -1,3 +1,4 @@
+import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_LISTENING_SAMPLES } from './cambridgeListeningSamples'
 import { IELTS_LISTENING_SAMPLES } from './ieltsListeningSamples'
 
@@ -72,6 +73,7 @@ function normalizeListeningAnswer(value: string): string {
 export const LISTENING_EXAMS: ListeningExam[] = [
   ...CAMBRIDGE_LISTENING_SAMPLES,
   ...IELTS_LISTENING_SAMPLES,
+  ...(CATALOG_LISTENING_EXAMS as ListeningExam[]),
 ]
 
 export function getListeningExam(examId: string): ListeningExam | null {
