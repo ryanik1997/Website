@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Palette, Bot, User, Mail, MessageCircle, ExternalLink, Check, Bell, Database, Download, Upload, Cloud, LoaderCircle, Headphones, Sparkles } from 'lucide-react'
+import { Palette, Bot, User, Mail, MessageCircle, ExternalLink, Check, Bell, Database, Download, Upload, Cloud, LoaderCircle, Headphones, Sparkles, Camera } from 'lucide-react'
 import { useAuth } from '../features/auth/AuthContext'
 import { db } from '@ryan/db'
 import { canUse, type Plan, type Feature } from '@ryan/core'
 import { THEMES, getTheme, setTheme, type Theme } from '../lib/theme'
 import { SUPPORT_EMAIL, supportMailto } from '../lib/contact'
+import { supabase } from '../lib/supabase'
 import AiSettingsPanel from '../features/settings/AiSettingsPanel'
 import { useNotifications } from '../features/notifications/useNotifications'
 import { estimateBackupSize, exportBackup } from '../features/settings/backupRestore'
@@ -19,7 +20,7 @@ type Tab = 'appearance' | 'ai' | 'account'
 const TABS: { id: Tab; label: string; icon: typeof Palette }[] = [
   { id: 'appearance', label: 'Giao diện', icon: Palette },
   { id: 'ai',         label: 'AI',        icon: Bot },
-  { id: 'account',    label: 'Tài khoản', icon: User },
+  { id: 'account',    label: 'Tai khoan', icon: User },
 ]
 
 const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = {
@@ -33,7 +34,7 @@ const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = 
 const FEATURE_LABELS: Partial<Record<Feature, string>> = {
   sentence_patterns: 'Mẫu câu',
   vocab_basic: 'Từ vựng cơ bản',
-  settings: 'Cài đặt',
+  settings: 'Cai dat',
   vocab_srs: 'SRS ôn tập',
   review_reminder: 'Nhắc ôn tập',
   backup: 'Sao lưu',
@@ -105,7 +106,7 @@ export default function SettingsPage() {
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-2xl mx-auto px-6 py-8">
         <header className="mb-6">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Cài đặt</h1>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Cai dat</h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
             Giao diện, AI và thông tin tài khoản
           </p>
@@ -243,7 +244,7 @@ function AppearanceTab({ theme, onChange }: { theme: Theme; onChange: (t: Theme)
               Nhắc nhở ôn từ hàng ngày
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-              Trạng thái:{' '}
+              Trang thai:{' '}
               <span style={{ color: isEnabled ? 'var(--color-primary)' : 'var(--text-primary)' }}>
                 {statusLabel}
               </span>
@@ -329,9 +330,200 @@ function AccountTab({
   daysLeft: number | null
 }) {
   const enabledFeatures = ALL_FEATURES.filter(f => canUse(plan, f))
+  const [displayName, setDisplayName] = useState('')
+  const [avatarUrl, setAvatarUrl] = useState('')
+  const [savingProfile, setSavingProfile] = useState(false)
+  const [profileMsg, setProfileMsg] = useState<string | null>(null)
+  const [profileErr, setProfileErr] = useState<string | null>(null)
+  const avatarInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    setDisplayName((user?.user_metadata?.full_name as string | undefined) ?? '')
+    setAvatarUrl((user?.user_metadata?.avatar_url as string | undefined) ?? '')
+  }, [user?.id, user?.user_metadata])
+
+  async function handleSaveProfile(overrides?: { displayName?: string; avatarUrl?: string }) {
+    if (!user) return
+
+    const nextName = (overrides?.displayName ?? displayName).trim()
+    const nextAvatar = (overrides?.avatarUrl ?? avatarUrl).trim()
+
+    setSavingProfile(true)
+    setProfileMsg(null)
+    setProfileErr(null)
+
+    const { error: authError } = await supabase.auth.updateUser({
+      data: {
+        full_name: nextName || null,
+        avatar_url: nextAvatar || null,
+      },
+    })
+
+    if (authError) {
+      setSavingProfile(false)
+      setProfileErr(authError.message)
+      return
+    }
+
+    const { error: profileError } = await (supabase as any)
+      .from('profiles')
+      .update({
+        display_name: nextName || null,
+        avatar_url: nextAvatar || null,
+      })
+      .eq('id', user.id)
+
+    setSavingProfile(false)
+
+    if (profileError) {
+      setProfileErr(profileError.message)
+      return
+    }
+
+    setProfileMsg('Da cap nhat thong tin tai khoan.')
+  }
+
+  async function handleAvatarPicked(file: File) {
+    if (!file.type.startsWith('image/')) {
+      setProfileErr('Chi ho tro file anh.')
+      return
+    }
+    if (file.size > 1_500_000) {
+      setProfileErr('Anh qua lon. Hay chon file duoi 1.5MB.')
+      return
+    }
+
+    setProfileErr(null)
+    setProfileMsg(null)
+
+    const dataUrl = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(String(reader.result ?? ''))
+      reader.onerror = () => reject(new Error('Khong doc duoc file anh.'))
+      reader.readAsDataURL(file)
+    })
+
+    setAvatarUrl(dataUrl)
+    await handleSaveProfile({ avatarUrl: dataUrl })
+  }
 
   return (
     <div className="flex flex-col gap-6">
+      <section
+        className="rounded-xl p-4 flex flex-col gap-5"
+        style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
+      >
+        <div className="flex items-center gap-4">
+          <div className="relative shrink-0">
+            {(avatarUrl || user?.user_metadata?.avatar_url) ? (
+              <img
+                src={avatarUrl || String(user?.user_metadata?.avatar_url ?? '')}
+                className="w-16 h-16 rounded-full shrink-0 object-cover"
+                alt=""
+              />
+            ) : (
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold text-white shrink-0"
+                style={{ background: 'var(--color-primary)' }}
+              >
+                {((displayName || (user?.user_metadata?.full_name as string | undefined) || user?.email || '?')[0] ?? '?').toUpperCase()}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => avatarInputRef.current?.click()}
+              className="absolute -right-1 -bottom-1 h-7 w-7 rounded-full border flex items-center justify-center transition-opacity hover:opacity-90"
+              style={{
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-primary)',
+              }}
+              title="Chon anh tu may"
+            >
+              <Camera size={13} />
+            </button>
+            <input
+              ref={avatarInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={e => {
+                const file = e.target.files?.[0]
+                if (file) void handleAvatarPicked(file)
+                e.target.value = ''
+              }}
+            />
+          </div>
+          <div className="min-w-0">
+            <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
+              {displayName.trim() || user?.user_metadata?.full_name || 'Nguoi dung'}
+            </p>
+            <p className="text-sm truncate" style={{ color: 'var(--text-muted)' }}>{user?.email}</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <label className="flex flex-col gap-2">
+            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Ten hien thi</span>
+            <input
+              type="text"
+              value={displayName}
+              onChange={e => setDisplayName(e.target.value)}
+              placeholder="Nhap ten hien thi"
+              className="w-full rounded-xl border px-3 py-2.5 text-sm"
+              style={{
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-primary)',
+              }}
+            />
+          </label>
+
+          <label className="flex flex-col gap-2">
+            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Anh dai dien URL</span>
+            <input
+              type="url"
+              value={avatarUrl}
+              onChange={e => setAvatarUrl(e.target.value)}
+              placeholder="https://..."
+              className="w-full rounded-xl border px-3 py-2.5 text-sm"
+              style={{
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-primary)',
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() => void handleSaveProfile()}
+            disabled={!user || savingProfile}
+            className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
+            style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+          >
+            {savingProfile ? (
+              <>
+                <LoaderCircle size={15} className="animate-spin" />
+                Dang luu...
+              </>
+            ) : 'Luu thong tin'}
+          </button>
+
+          {profileMsg && (
+            <p className="text-xs" style={{ color: 'var(--color-primary)' }}>{profileMsg}</p>
+          )}
+          {profileErr && (
+            <p className="text-xs" style={{ color: 'var(--color-accent)' }}>{profileErr}</p>
+          )}
+          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            Chon anh tu may se tu dong luu avatar. Neu sua ten hoac URL, nhan Luu thong tin de cap nhat tai khoan.
+          </p>
+        </div>
+      </section>
+
       {/* User card */}
       <section className="flex items-center gap-4">
         {user?.user_metadata?.avatar_url ? (

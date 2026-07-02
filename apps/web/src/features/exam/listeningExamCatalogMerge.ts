@@ -96,6 +96,9 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
   if (!merged.passageTitle && catalog.passageTitle) {
     merged = { ...merged, passageTitle: catalog.passageTitle }
   }
+  if (!merged.notePassage?.length && catalog.notePassage?.length) {
+    merged = { ...merged, notePassage: catalog.notePassage }
+  }
   if (!merged.partImageUrl && catalog.partImageUrl) {
     merged = { ...merged, partImageUrl: catalog.partImageUrl }
   }

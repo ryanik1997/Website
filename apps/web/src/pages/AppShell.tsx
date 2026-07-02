@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import {
   BookOpen,
   PenLine,
@@ -42,7 +42,7 @@ const NAV: Array<{
   { to: '/app/exam', icon: ClipboardCheck, label: 'Luyện thi' },
   { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
   { to: '/app/mindmap', icon: GitBranch, label: 'MindMap' },
-  { to: '/app/settings', icon: Settings, label: 'Cài đặt' },
+  { to: '/app/settings', icon: Settings, label: 'Cai dat' },
 ]
 
 export default function AppShell() {
@@ -57,6 +57,7 @@ function AppShellInner() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(
     () => localStorage.getItem('ryan-sidebar-collapsed') === '1',
   )
+  const navigate = useNavigate()
   const { user, signOut } = useAuth()
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
   usePlanSync()
@@ -173,7 +174,11 @@ function AppShellInner() {
         )}
 
         <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
-          <div className={`px-1 mb-2 flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}>
+          <button
+            type="button"
+            onClick={() => navigate('/app/settings?tab=account')}
+            className={`w-full px-1 mb-2 flex items-center rounded-xl transition-colors hover:bg-[var(--bg-secondary)] ${sidebarCollapsed ? 'justify-center py-1.5' : 'gap-2.5 py-1.5'}`}
+          >
             {user?.user_metadata?.avatar_url ? (
               <img src={user.user_metadata.avatar_url} className="w-8 h-8 rounded-full shrink-0" alt="" />
             ) : (
@@ -194,7 +199,7 @@ function AppShellInner() {
                 </p>
               </div>
             )}
-          </div>
+          </button>
 
           {!sidebarCollapsed && <div className="h-px mb-2 mx-1" style={{ background: 'var(--border-color)' }} />}
 

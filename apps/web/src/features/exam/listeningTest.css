@@ -1059,7 +1059,9 @@
   white-space: pre-line;
 }
 
-.listening-ielts-notes__row.is-active .listening-ielts-notes__input {
+.listening-ielts-notes__row.is-active .listening-ielts-notes__input,
+.listening-ielts-notes__sentence.is-active .listening-ielts-notes__input,
+.listening-ielts-notes__field.is-active .listening-ielts-notes__input {
   border-color: color-mix(in srgb, var(--color-primary) 50%, var(--border-color));
 }
 

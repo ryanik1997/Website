@@ -34,8 +34,7 @@
           "explanation": "Chi nhánh Hillsdunne Road.",
           "wordLimit": 3,
           "gapLead": "Work in the",
-          "gapTrail": "branch",
-          "noteBefore": "Number of hours per week: 12 hours\nWould need work permit"
+          "gapTrail": "branch"
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-3",
@@ -69,8 +68,7 @@
           "answer": "national holidays",
           "explanation": "Ngày lễ.",
           "wordLimit": 2,
-          "gapLead": "extra pay when you work on",
-          "noteBefore": "Extra benefits:\na free dinner"
+          "gapLead": "extra pay when you work on"
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-6",
@@ -91,8 +89,7 @@
           "options": [],
           "answer": "clear voice",
           "explanation": "Giọng rõ.",
-          "wordLimit": 2,
-          "gapLead": "Qualities required:"
+          "wordLimit": 2
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-8",
@@ -126,12 +123,80 @@
           "answer": "manuja",
           "explanation": "Hỏi Samira Manuja.",
           "wordLimit": 1,
-          "gapLead": "Ask for:",
-          "noteBefore": "Bring the names of two referees"
+          "gapLead": "Ask for:"
         }
       ],
       "passageTitle": "JOB INQUIRY",
-      "audioIntro": "Example: Work at: a restaurant"
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "Example: Work at: a restaurant"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "Number of hours per week: 12 hours"
+        },
+        {
+          "type": "static",
+          "text": "Would need work permit"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "section",
+          "text": "Extra benefits"
+        },
+        {
+          "type": "static",
+          "text": "a free dinner"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "section",
+          "text": "Qualities required"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "Bring the names of two referees"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        }
+      ]
     },
     {
       "id": "catalog-listening-ielts-cam9-test1-part-2",
@@ -315,7 +380,33 @@
           "explanation": "Cặp đáp án 19–20: A và E."
         }
       ],
-      "passageTitle": "SPORTS WORLD"
+      "passageTitle": "SPORTS WORLD",
+      "notePassage": [
+        {
+          "type": "gap",
+          "number": 11
+        },
+        {
+          "type": "gap",
+          "number": 12
+        },
+        {
+          "type": "gap",
+          "number": 13
+        },
+        {
+          "type": "gap",
+          "number": 14
+        },
+        {
+          "type": "gap",
+          "number": 15
+        },
+        {
+          "type": "gap",
+          "number": 16
+        }
+      ]
     },
     {
       "id": "catalog-listening-ielts-cam9-test1-part-3",
@@ -574,10 +665,8 @@
           "answer": "hearing",
           "explanation": "Thính giác.",
           "wordLimit": 1,
-          "context": "Parasites",
           "gapLead": "e.g. some parasites can affect marine animals'",
-          "gapTrail": ", which they depend on for navigation",
-          "noteBefore": "Several other theories:"
+          "gapTrail": ", which they depend on for navigation"
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-33",
@@ -588,7 +677,6 @@
           "answer": "plants animals",
           "explanation": "Độc tố từ thực vật/động vật.",
           "wordLimit": 2,
-          "context": "Toxins",
           "gapLead": "Poisons from",
           "gapTrail": "or ……….. are commonly consumed by whales"
         },
@@ -601,7 +689,6 @@
           "answer": "feeding",
           "explanation": "Không phải lúc kiếm ăn.",
           "wordLimit": 1,
-          "context": "Accidental Strandings",
           "gapLead": "Unlikely because the majority of animals were not",
           "gapTrail": "when they stranded"
         },
@@ -614,8 +701,6 @@
           "answer": "noise",
           "explanation": "Tiếng ồn thử nghiệm quân sự.",
           "wordLimit": 1,
-          "context": "Human Activity",
-          "gapLead": "•",
           "gapTrail": "from military tests are linked to some recent strandings"
         },
         {
@@ -627,7 +712,7 @@
           "answer": "healthy",
           "explanation": "Khỏe mạnh.",
           "wordLimit": 1,
-          "gapLead": "The Bahamas (2000) — whales were all"
+          "gapLead": "• were all"
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-37",
@@ -638,7 +723,7 @@
           "answer": "group",
           "explanation": "Không ở nhóm.",
           "wordLimit": 1,
-          "gapLead": "were not in a"
+          "gapLead": "• were not in a"
         },
         {
           "id": "catalog-listening-ielts-cam9-test1-q-38",
@@ -649,8 +734,7 @@
           "answer": "social",
           "explanation": "Loài mang tính xã hội.",
           "wordLimit": 1,
-          "context": "Group Behaviour",
-          "gapLead": "More strandings in the most",
+          "gapLead": "• More strandings in the most",
           "gapTrail": "species of whales"
         },
         {
@@ -662,7 +746,7 @@
           "answer": "leader",
           "explanation": "Chỉ con đầu đàn bệnh.",
           "wordLimit": 1,
-          "gapLead": "1994 dolphin stranding — only the",
+          "gapLead": "• 1990s dolphin stranding — only the",
           "gapTrail": "was ill"
         },
         {
@@ -674,12 +758,96 @@
           "answer": "network",
           "explanation": "Mạng lưới cứu hộ.",
           "wordLimit": 1,
-          "context": "Further Reading",
-          "gapLead": "Marine Mammals Ashore (Connors) — gives information about stranding"
+          "gapLead": "Marine Mammals Ashore (Geraci) — gives information about strandings"
         }
       ],
       "passageTitle": "Mass Strandings of Whales and Dolphins",
-      "audioIntro": "Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die."
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die."
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": "Several other theories:"
+        },
+        {
+          "type": "section",
+          "text": "Parasites"
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "section",
+          "text": "Toxins"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": "e.g. Cape Cod (1988) — whales were killed by saxitoxin"
+        },
+        {
+          "type": "section",
+          "text": "Accidental Strandings"
+        },
+        {
+          "type": "static",
+          "text": "Animals may follow prey ashore, e.g. Thurston (1995)"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "section",
+          "text": "Human Activity"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "The Bahamas (2000) military sonar was unusual because the whales"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "section",
+          "text": "Group Behaviour"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "section",
+          "text": "Further Reading"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        }
+      ]
     }
   ],
   "catalogSlug": "ielts-cam9-test1",
