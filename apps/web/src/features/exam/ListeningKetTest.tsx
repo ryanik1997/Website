@@ -16,6 +16,7 @@ import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, isListeningAnswerCorrect } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
@@ -140,6 +141,10 @@ export default function ListeningKetTest({ exam }: Props) {
     if (index < 0 || index >= totalQuestions) return
     setQuestionIndex(index)
   }, [totalQuestions])
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => resetListeningSplitPanes(bodyRef.current))
+  }, [questionIndex])
 
   if (submitted) {
     const fullMock = fullMockId ? getFullMockTest(fullMockId) : null

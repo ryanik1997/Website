@@ -4,19 +4,20 @@ This local MCP server exposes the tool descriptor bundles under `mcps/` as a rea
 
 Current behavior:
 
-- Exposes all tools from:
-  - `mcps/claude-mem/tools`
-  - `mcps/codebase-memory/tools`
-  - `mcps/codebase-memory-mcp/tools`
+- Exposes each bundle as its own MCP server via workspace `.mcp.json`:
+  - `claude-mem`
+  - `codebase-memory`
+  - `codebase-memory-mcp`
+- Tool names remain the original names inside each server, for example `search_graph` instead of a prefixed fallback.
 - Implements heuristic local behavior for:
-  - `codebase_memory__search_graph`
-  - `codebase_memory__get_code_snippet`
-  - `codebase_memory__trace_path`
-  - `codebase_memory__get_architecture`
-  - `codebase_memory_mcp__search_graph`
-  - `codebase_memory_mcp__get_code_snippet`
-  - `codebase_memory_mcp__trace_path`
-  - `codebase_memory_mcp__get_architecture`
+  - `search_graph`
+  - `search_code`
+  - `get_code_snippet`
+  - `trace_path`
+  - `get_architecture`
+  - `list_projects`
+  - `detect_changes`
+  - `index_status`
 - Returns explicit "descriptor only / backend missing" responses for the remaining tools.
 
 This is a fallback runtime because the imported bundles only shipped `tools/*.json` descriptors and no original MCP backend.

@@ -4,7 +4,7 @@
       "cwd": ".",
       "command": "node",
       "args": [
-        "./mcps/local-tool-bundles-mcp/server.mjs",
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
         "claude-mem"
       ]
     },
@@ -12,7 +12,7 @@
       "cwd": ".",
       "command": "node",
       "args": [
-        "./mcps/local-tool-bundles-mcp/server.mjs",
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
         "codebase-memory"
       ]
     },
@@ -20,7 +20,7 @@
       "cwd": ".",
       "command": "node",
       "args": [
-        "./mcps/local-tool-bundles-mcp/server.mjs",
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
         "codebase-memory-mcp"
       ]
     }

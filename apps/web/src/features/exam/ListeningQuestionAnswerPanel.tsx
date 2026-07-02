@@ -1,4 +1,5 @@
 import ListeningPictureOption from './ListeningPictureOption'
+import { listeningAnswerAnchorId } from './listeningScrollUtils'
 import type { ListeningQuestion } from './listeningExamData'
 
 interface Props {
@@ -23,7 +24,7 @@ export default function ListeningQuestionAnswerPanel({
   const wordLimit = question.wordLimit ?? (isGapFill ? 3 : undefined)
 
   return (
-    <div className="listening-exam-answer-pane">
+    <div className="listening-exam-answer-pane" id={listeningAnswerAnchorId(question.id)}>
       <header className="listening-exam-answer-pane__head">
         <h3 className="listening-exam-answer-pane__title">Đáp án</h3>
         <label className="listening-exam-card__unsure">

@@ -865,10 +865,27 @@
 }
 
 .reading-ket-signs__item {
+  scroll-margin-top: 1rem;
   border-radius: 12px;
   padding: 0.75rem;
   border: 1px solid transparent;
   transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.reading-test-paragraph-wrap {
+  scroll-margin-top: 1rem;
+}
+
+.reading-ket-ref-item {
+  scroll-margin-top: 0.75rem;
+}
+
+.reading-test-paragraph-wrap.is-active,
+.reading-ket-ref-item.is-active {
+  border-radius: 0.55rem;
+  outline: 2px solid color-mix(in srgb, var(--rt-submit) 45%, transparent);
+  outline-offset: 2px;
+  background: color-mix(in srgb, var(--rt-submit) 6%, transparent);
 }
 
 .reading-ket-signs__item.is-active {
