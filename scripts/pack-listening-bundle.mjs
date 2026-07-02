@@ -40,7 +40,9 @@ async function main() {
     zipData[name] = new Uint8Array(await fs.readFile(path.join(sourceDir, name)))
   }
 
-  const outPath = path.join(TAINGUYEN, `${bundleDir}.zip`)
+  const zipBase = path.basename(bundleDir)
+  const outDir = path.dirname(path.join(TAINGUYEN, bundleDir))
+  const outPath = path.join(outDir, `${zipBase}.zip`)
   await fs.writeFile(outPath, zipSync(zipData))
   console.log(`✓ ${outPath}`)
   console.log(`  ${zipFiles.length} files: ${zipFiles.join(', ')}`)

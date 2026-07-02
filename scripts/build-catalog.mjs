@@ -81,6 +81,22 @@ const BUNDLES = [
     examType: 'cae',
     examMode: 'practice',
   },
+  {
+    kind: 'listening',
+    slug: 'ielts-cam9-test1',
+    examId: 'catalog-listening-ielts-cam9-test1',
+    sourceDir: 'IELTS/Listening IELTS_Test1_Cam9',
+    examType: 'ielts',
+    examMode: 'practice',
+  },
+  {
+    kind: 'listening',
+    slug: 'ielts-cam20-test1',
+    examId: 'catalog-listening-ielts-cam20-test1',
+    sourceDir: 'IELTS/Listening IELTS_Test1_Cam20',
+    examType: 'ielts',
+    examMode: 'practice',
+  },
 ]
 
 const MEDIA_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.mp3', '.wav', '.ogg'])
@@ -232,6 +248,7 @@ function transformListening(payload, bundle, sourceDir) {
       if (qJson.context) question.context = qJson.context
       if (qJson.gapLead) question.gapLead = qJson.gapLead
       if (qJson.gapTrail) question.gapTrail = qJson.gapTrail
+      if (qJson.noteBefore) question.noteBefore = qJson.noteBefore
       return question
     })
 

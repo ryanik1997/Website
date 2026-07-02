@@ -74,7 +74,10 @@ C1 CAE — 8 parts · 56 câu · 90 phút
 
 C1 CAE — bundle mẫu: cae-Reading-test1/ (Tainguyen/)
 Prompt AI: HDSD/Prompt-CAE-C1-Reading.txt
+Script JSON: python scripts/build-cae-reading-test1.py
+Pack ZIP: pnpm pack:reading:cae → cae-Reading-test1.zip
 Builtin: catalog-reading-cae-c1-test1 (pnpm build:catalog)
+UI: Part 4 placeholder 3–6 words; Part 6–8 passage trái có label A–D/E/G
 
 C2 CPE — 7 parts · 53 câu
 Giống FCE/CAE; Part 7 multiple matching Q43–53
@@ -104,6 +107,7 @@ Prompt AI tạo ZIP (Claude / ChatGPT)
 • FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening.txt
 • CAE C1 Reading: HDSD/Prompt-CAE-C1-Reading.txt
 • CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening.txt
+• IELTS Listening Cam 9 + 20: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
 • Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 
 Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
@@ -171,6 +175,22 @@ C1 CAE — bundle mẫu: cae-Listening-test1/ (Tainguyen/)
 Prompt AI: HDSD/Prompt-CAE-C1-Listening.txt
 Đóng gói: pnpm pack:listening:cae
 Builtin: catalog-listening-cae-c1-test1 (pnpm build:catalog)
+
+IELTS — 4 parts · 40 câu · 30 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Ghi chú                             │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–10   │ gap-fill          │ form / table completion             │
+│ 2    │ 11–20  │ matching / MC     │ map A–I hoặc MC + Choose TWO A–E    │
+│ 3    │ 21–30  │ matching / MC     │ discussion                          │
+│ 4    │ 31–40  │ gap-fill          │ lecture notes                       │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+IELTS Cam 9 + 20 — bundle: Tainguyen/IELTS/Listening IELTS_Test1_Cam9|Cam20/
+Script: python scripts/build-ielts-listening-tests.py
+Pack: pnpm pack:listening:ielts-cam9 | pack:listening:ielts-cam20
+Builtin: catalog-listening-ielts-cam9-test1 · catalog-listening-ielts-cam20-test1
+Prompt: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
 
 Bước 2 — Media:
 • 1 file listening.mp3 cho cả bài (gắn audioFile mỗi part)

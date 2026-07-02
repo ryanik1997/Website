@@ -42,6 +42,11 @@ function isMacOsMeta(path: string): boolean {
   return n.startsWith('__MACOSX/') || n.includes('/._') || baseName(n).startsWith('._')
 }
 
+function isSkippedZipEntry(name: string): boolean {
+  const lower = name.toLowerCase()
+  return lower.endsWith('.pdf') || lower.endsWith('.txt') || lower.endsWith('.md')
+}
+
 export async function extractListeningZip(file: File): Promise<ListeningZipBundle> {
   if (file.size > LISTENING_IMPORT_MAX_ZIP_BYTES) {
     throw new Error(`ZIP quá lớn (tối đa ${Math.round(LISTENING_IMPORT_MAX_ZIP_BYTES / 1024 / 1024)}MB).`)
@@ -64,7 +69,7 @@ export async function extractListeningZip(file: File): Promise<ListeningZipBundl
   for (const [path, bytes] of Object.entries(entries)) {
     if (isMacOsMeta(path)) continue
     const name = baseName(path)
-    if (!name || name.endsWith('/')) continue
+    if (!name || name.endsWith('/') || isSkippedZipEntry(name)) continue
 
     const blob = new Blob([new Uint8Array(bytes)], { type: mimeFromName(name) })
     const f = new File([blob], name, { type: blob.type, lastModified: Date.now() })

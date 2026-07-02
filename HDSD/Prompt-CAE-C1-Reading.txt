@@ -2,6 +2,7 @@ Bạn là trợ lý tạo ZIP bundle import đề Reading CAE C1 vào web app "R
 
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 → Listening CAE C1: HDSD/Prompt-CAE-C1-Listening.txt
+→ FCE B2 Reading (Part 1–5 tương tự): HDSD/Prompt-FCE-B2.txt
 
 ## Tài liệu đính kèm
 1. Test_1_Reading_CAE_C1.pdf — Reading and Use of English (Parts 1–8)
@@ -9,7 +10,7 @@ Bạn là trợ lý tạo ZIP bundle import đề Reading CAE C1 vào web app "R
 3. Không có ảnh — CAE C1 dùng text passage toàn bộ
 
 ## Deliverable
-ZIP: `cae-Reading-test1.zip` — file CÙNG CẤP:
+ZIP: `cae-Reading-test1.zip` — file CÙNG CẤP, không thư mục con:
 ```
 exam.json
 ```
@@ -28,33 +29,105 @@ exam.json
 
 ## Cấu trúc 8 parts (56 câu)
 
-| Part | Câu | Type | Nội dung |
-|------|-----|------|----------|
-| 1 | 1–8 | multiple-choice | MC cloze — 4 từ A–D/gap |
-| 2 | 9–16 | gap-fill | Open cloze — ONE WORD |
-| 3 | 17–24 | gap-fill | Word formation (stem → từ) |
-| 4 | 25–30 | gap-fill | Key word transformation (3–6 từ) |
-| 5 | 31–36 | multiple-choice | Reading comprehension A–D |
-| 6 | 37–40 | matching-features | Cross-text matching — 4 reviews A–D |
-| 7 | 41–46 | matching-features | Gapped text + paragraphs A–G |
-| 8 | 47–56 | matching-features | Multiple matching — 5 consultants A–E |
+| Part | Câu | Type | Nội dung | Ghi chú UI app |
+|------|-----|------|----------|----------------|
+| 1 | 1–8 | multiple-choice | MC cloze — 4 từ A–D/gap | Use of English |
+| 2 | 9–16 | gap-fill | Open cloze — ONE WORD | placeholder ONE WORD |
+| 3 | 17–24 | gap-fill | Word formation (stem → từ) | stem trong prompt |
+| 4 | 25–30 | gap-fill | Key word transformation (3–6 từ) | placeholder **3–6 words** |
+| 5 | 31–36 | multiple-choice | Reading comprehension A–D | passage đầy đủ trái |
+| 6 | 37–40 | matching-features | Cross-text — 4 reviews A–D | reviews ở passage trái |
+| 7 | 41–46 | matching-features | Gapped text + paragraphs A–G | gap + paragraphs cuối passage |
+| 8 | 47–56 | matching-features | Multiple matching — 5 consultants A–E | consultants ở passage trái |
 
-Timer **90 phút**. App render: `ReadingTest` (Cambridge track C1).
+App render: `ReadingTest` (Cambridge track C1). Timer **90 phút**.
+Part 6–8: app **không lặp** danh sách A–D/E/G bên phải khi passage trái đã có `label`.
 
 ---
 
-## Part 1–4 (Use of English)
+## Part 1 (Q1–8) — Multiple-choice cloze
 
-Giống FCE B2 — xem `HDSD/Prompt-FCE-B2.txt` Part 1–4.
-- Part 1: giữ `(1) ........` trong passage
-- Part 3: `prompt`: `Gap (17) — COME`, `answer`: `overcome`
-- Part 4: `prompt` gồm câu gốc + từ khóa + câu đích
+```json
+"passage": [
+  { "text": "Studying black bears" },
+  { "text": "After years studying … he had to (1) ........ their trust." }
+],
+"questionGroups": [{
+  "range": "Questions 1–8",
+  "instruction": "For questions 1–8, read the text and choose the answer (A, B, C or D) which best fits each gap.",
+  "type": "multiple-choice",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "Gap (1)",
+      "options": [
+        { "id": "A", "label": "catch" },
+        { "id": "B", "label": "win" },
+        { "id": "C", "label": "achieve" },
+        { "id": "D", "label": "receive" }
+      ],
+      "answer": "b",
+      "explanation": "win their trust"
+    }
+  ]
+}]
+```
+
+- Giữ `(1) ........` trong passage (8 chấm).
+- Example (0) có đáp án trong passage — **không** tạo câu 0.
+- `answer`: chữ thường `a`/`b`/`c`/`d`.
+
+---
+
+## Part 2 (Q9–16) — Open cloze
+
+- `type`: gap-fill, ONE WORD mỗi gap.
+- Passage copy nguyên văn, giữ `(9) ........` … `(16) ........`.
+- Nhiều đáp án hợp lệ (could/may/might) → chọn 1 làm `answer`, ghi biến thể trong `explanation`.
+
+---
+
+## Part 3 (Q17–24) — Word formation
+
+```json
+{
+  "number": 17,
+  "type": "gap-fill",
+  "prompt": "Gap (17) — COME",
+  "answer": "overcome",
+  "explanation": "overcome the problem"
+}
+```
+
+- Passage có dòng stems: `Word stems: COME · FIT · ENDURE …`
+- `answer` = từ đã biến đổi (chữ thường).
+
+---
+
+## Part 4 (Q25–30) — Key word transformation
+
+```json
+{
+  "number": 25,
+  "type": "gap-fill",
+  "prompt": "My brother now earns far less than he did when he was younger.\n\nNEARLY → My brother ………… much now as he did when he was younger.",
+  "answer": "does not earn nearly as",
+  "explanation": "doesn't earn nearly as much / doesn't make nearly as much"
+}
+```
+
+- `prompt`: 3 dòng — câu gốc + từ KEY + câu đích có `…………`.
+- `answer` = cụm **3–6 từ thiếu** (không gồm phần đã in sẵn sau gap nếu đề vậy).
+- App chấm **khớp chính xác** (normalize lowercase); ghi biến thể trong `explanation`.
+- `questionGroups[].instruction` nên có "three and six words" → UI hiện placeholder `3–6 words`.
 
 ---
 
 ## Part 5 (Q31–36) — Reading MC
 
-Copy toàn bộ passage + 6 câu hỏi A/B/C/D.
+- Passage: copy toàn bộ bài đọc (nhiều block `text` OK).
+- 6 câu MC, 4 options A/B/C/D, `prompt` = câu hỏi đầy đủ từ PDF.
 
 ---
 
@@ -63,14 +136,19 @@ Copy toàn bộ passage + 6 câu hỏi A/B/C/D.
 ```json
 {
   "partNumber": 6,
+  "rangeLabel": "Questions 37–40",
+  "passageTitle": "Part 6 — The Architecture of Happiness",
   "passage": [
     { "text": "The Architecture of Happiness" },
-    { "label": "A", "text": "Review A…" },
-    { "label": "B", "text": "Review B…" },
-    { "label": "C", "text": "Review C…" },
-    { "label": "D", "text": "Review D…" }
+    { "text": "Four reviewers comment on philosopher Alain De Botton's book" },
+    { "label": "A", "text": "Alain de Botton is a brave and highly intelligent writer…" },
+    { "label": "B", "text": "Alain de Botton raises important, previously unasked…" },
+    { "label": "C", "text": "In The Architecture of Happiness…" },
+    { "label": "D", "text": "Do we want our buildings merely to shelter us…" }
   ],
   "questionGroups": [{
+    "range": "Questions 37–40",
+    "instruction": "For questions 37–40, choose from the reviews (A–D). The reviews may be chosen more than once.",
     "type": "matching-features",
     "features": [
       { "id": "a", "name": "Review A" },
@@ -82,42 +160,139 @@ Copy toàn bộ passage + 6 câu hỏi A/B/C/D.
       {
         "number": 37,
         "type": "matching-features",
-        "prompt": "has a different opinion from the others on the confidence…",
-        "options": [{ "id": "A", "label": "A" }, …],
-        "answer": "b"
+        "prompt": "has a different opinion from the others on the confidence with which de Botton discusses architecture?",
+        "options": [
+          { "id": "A", "label": "A" },
+          { "id": "B", "label": "B" },
+          { "id": "C", "label": "C" },
+          { "id": "D", "label": "D" }
+        ],
+        "answer": "b",
+        "explanation": "Reviewer B — needed help from earlier authors."
       }
     ]
   }]
 }
 ```
 
+- **Bắt buộc** copy toàn bộ 4 reviews vào `passage` với `label` A–D.
+- `features[]` vẫn khai báo (id a–d) — app dùng cho pills chọn đáp án; **không** hiện list trùng bên phải.
+- Một review có thể là đáp án nhiều câu.
+
 ---
 
 ## Part 7 (Q41–46) — Gapped text
 
 Giống FCE Part 6 / PET Part 4:
-- Passage có `(41) ........` … `(46) ........`
-- Paragraphs A–G ở cuối passage (label A–G)
-- `type`: matching-features, `features` A–G
+
+```json
+"passage": [
+  { "text": "Scottish Wildcat" },
+  { "text": "On my living-room wall…" },
+  { "text": "(41) ........" },
+  { "text": "However, the physical differences…" },
+  { "text": "Paragraphs" },
+  { "label": "A", "text": "The recruitment of men to the armed forces…" },
+  { "label": "G", "text": "It is a typical image most folk have…" }
+],
+"questionGroups": [{
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "A" },
+    { "id": "b", "name": "B" },
+    { "id": "g", "name": "G" }
+  ],
+  "questions": [
+    {
+      "number": 41,
+      "type": "matching-features",
+      "prompt": "Gap (41)",
+      "options": [ /* A–G */ ],
+      "answer": "g"
+    }
+  ]
+}]
+```
+
+- Passage có `(41) ........` … `(46) ........` xen kẽ đoạn văn.
+- Paragraphs A–G ở **cuối** passage (sau dòng "Paragraphs" hoặc tương đương).
+- `features[].name` = chữ cái A–G (hoặc nội dung ngắn); đủ 7 đoạn; 6 gap; 1 đoạn thừa.
 
 ---
 
 ## Part 8 (Q47–56) — Multiple matching
 
 Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
-- Passage: Consultant A … E
-- Mỗi câu: statement → chọn A/B/C/D/E
+
+```json
+"passage": [
+  { "text": "Starting out on your career" },
+  { "text": "Are you a graduate trying to plan out…" },
+  { "label": "A", "text": "A university degree is no guarantee…" },
+  { "label": "E", "text": "A prospective employer does not want…" }
+],
+"questionGroups": [{
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "Consultant A" },
+    { "id": "b", "name": "Consultant B" },
+    { "id": "c", "name": "Consultant C" },
+    { "id": "d", "name": "Consultant D" },
+    { "id": "e", "name": "Consultant E" }
+  ],
+  "questions": [
+    {
+      "number": 47,
+      "type": "matching-features",
+      "prompt": "Keep your final objective in mind when you are planning to change jobs.",
+      "options": [
+        { "id": "A", "label": "A" },
+        { "id": "B", "label": "B" },
+        { "id": "C", "label": "C" },
+        { "id": "D", "label": "D" },
+        { "id": "E", "label": "E" }
+      ],
+      "answer": "d"
+    }
+  ]
+}]
+```
+
+- Copy toàn bộ 5 consultants vào `passage` với `label` A–E.
+- Mỗi consultant có thể là đáp án nhiều câu.
 
 ---
 
-## Đáp án Test 1
+## Quy tắc bắt buộc
+
+1. Đủ **56 câu** (Q1–56), đánh số liên tục.
+2. `cambridgeLevel`: `"c1"`, `examTrack`: `"cambridge"`.
+3. `passageTitle` mô tả nội dung từng part (vd "Part 6 — The Architecture of Happiness").
+4. Mọi part: `passage[].text` bắt buộc (Highlight khi làm bài).
+5. `answer`: MC/matching → chữ thường; gap-fill → từ/cụm từ tiếng Anh.
+6. `explanation`: tiếng Việt ngắn; Part 4 ghi biến thể đáp án hợp lệ.
+
+## Lỗi thường gặp
+
+| Lỗi | Cách đúng |
+|-----|-----------|
+| Part 1 dùng gap-fill | Part 1 = multiple-choice + 4 options A–D |
+| Part 4 answer 1 từ | Part 4 = cụm 3–6 từ; instruction có "three and six words" |
+| Part 6 chỉ có features[], không có passage reviews | Copy 4 reviews vào passage với label A–D |
+| Part 7 thiếu paragraphs A–G trong passage | Thêm label A–G sau phần gapped text |
+| Part 8 options A–G | Chỉ A–E (5 consultants) |
+| Part 6–8 đánh số sai | C1: Part 6 = 37–40, Part 7 = 41–46, Part 8 = 47–56 |
+
+---
+
+## Đáp án Test 1 (Sample Paper 1)
 
 | Part | Câu | Đáp án |
 |------|-----|--------|
 | 1 | 1–8 | B,C,C,A,B,B,C,D |
 | 2 | 9–16 | because, such, other, could/may/might, despite, if/when, nothing/little, in |
 | 3 | 17–24 | overcome, fitness, endurance, beneficial, inability, strength, typically, severity |
-| 4 | 25–30 | (xem answer key — nhiều cách đúng) |
+| 4 | 25–30 | does not earn nearly as · being pulled down and replaced · the highest it has ever · disappointing in comparison with · in spite of a lack · warning about the dangers of cycling |
 | 5 | 31–36 | C,A,C,D,D,C |
 | 6 | 37–40 | B,C,A,B |
 | 7 | 41–46 | G,D,A,F,C,E |
@@ -125,12 +300,26 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
 
 ---
 
-## Builtin catalog
+## Ship builtin (mọi user sau deploy)
 
 ```bash
+# Tạo / cập nhật exam.json từ PDF + answer key
+python scripts/build-cae-reading-test1.py
+
+# Build catalog
 pnpm build:catalog
 ```
-→ `catalog-reading-cae-c1-test1`
 
-Bundle mẫu: `Tainguyen/cae-Reading-test1/`
-Script tạo JSON: `python scripts/build-cae-reading-test1.py`
+→ ID: `catalog-reading-cae-c1-test1`
+→ Bundle: `Tainguyen/cae-Reading-test1/`
+
+## ZIP import thủ công
+
+```bash
+pnpm pack:reading:cae
+```
+
+→ `Tainguyen/cae-Reading-test1.zip` (chỉ exam.json)
+→ Luyện thi → Cambridge → C1 → **Import thủ công Reading**
+
+Bắt đầu xử lý file đính kèm.

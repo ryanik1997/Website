@@ -1,0 +1,427 @@
+import type { ReactNode } from 'react'
+import ListeningExamAudioBar from './ListeningExamAudioBar'
+import ExamHighlightZone from './ExamHighlightZone'
+import ExamHighlightableLines from './ExamHighlightableLines'
+import ReadingHighlightableText from './ReadingHighlightableText'
+import { useExamHighlights } from './examHighlightContext'
+import type { ExamAudioSource } from './useExamQuestionAudio'
+import type { ListeningPart, ListeningQuestion } from './listeningExamData'
+
+interface AudioBarProps {
+  source: ExamAudioSource
+  playing: boolean
+  buffering: boolean
+  progressPct: number
+  timeLabel: string
+  hasAudioFile: boolean
+  allowSeek: boolean
+  playsLeft?: number | null
+  playBlocked: boolean
+  playError?: string | null
+  onPlayNormal: () => void
+  onSeek: (pct: number) => void
+  onStop: () => void
+}
+
+interface Props {
+  part: ListeningPart
+  questions: ListeningQuestion[]
+  answers: Record<string, string>
+  activeQuestionId: string | null
+  audioBar: AudioBarProps
+  examMode: 'practice' | 'exam'
+  onAnswer: (questionId: string, value: string) => void
+  onSelectQuestion: (questionId: string) => void
+}
+
+type Segment =
+  | { kind: 'gaps'; questions: ListeningQuestion[] }
+  | { kind: 'mc'; questions: ListeningQuestion[] }
+  | { kind: 'choose-two'; prompt: string; questions: ListeningQuestion[] }
+
+function buildSegments(questions: ListeningQuestion[]): Segment[] {
+  const segments: Segment[] = []
+  let i = 0
+
+  while (i < questions.length) {
+    const q = questions[i]
+    if (q.type === 'gap-fill') {
+      const run: ListeningQuestion[] = []
+      while (i < questions.length && questions[i].type === 'gap-fill') {
+        run.push(questions[i])
+        i += 1
+      }
+      segments.push({ kind: 'gaps', questions: run })
+      continue
+    }
+
+    if (q.type === 'matching' && q.options.length >= 4) {
+      const run: ListeningQuestion[] = [q]
+      const basePrompt = q.prompt.replace(/\s*\(\d+\)\s*$/, '').trim()
+      let j = i + 1
+      while (j < questions.length) {
+        const next = questions[j]
+        if (next.type !== 'matching') break
+        const nextPrompt = next.prompt.replace(/\s*\(\d+\)\s*$/, '').trim()
+        if (nextPrompt !== basePrompt) break
+        run.push(next)
+        j += 1
+      }
+      if (run.length >= 2) {
+        segments.push({ kind: 'choose-two', prompt: basePrompt, questions: run })
+        i = j
+        continue
+      }
+    }
+
+    if (q.type === 'multiple-choice' || q.type === 'matching') {
+      const run: ListeningQuestion[] = []
+      while (i < questions.length && (questions[i].type === 'multiple-choice' || questions[i].type === 'matching')) {
+        run.push(questions[i])
+        i += 1
+      }
+      segments.push({ kind: 'mc', questions: run })
+      continue
+    }
+
+    segments.push({ kind: 'mc', questions: [q] })
+    i += 1
+  }
+
+  return segments
+}
+
+function GapRow({
+  question,
+  answer,
+  isActive,
+  onAnswer,
+  onSelect,
+}: {
+  question: ListeningQuestion
+  answer: string
+  isActive: boolean
+  onAnswer: (v: string) => void
+  onSelect: () => void
+}) {
+  const highlights = useExamHighlights()
+  const wordLimit = question.wordLimit ?? 3
+  const hasInline = Boolean(question.gapLead || question.gapTrail)
+
+  return (
+    <div className={`listening-ielts-notes__row${isActive ? ' is-active' : ''}`}>
+      {question.noteBefore && (
+        <ExamHighlightableLines
+          blockIdPrefix={`${question.id}-before`}
+          text={question.noteBefore}
+          lineClassName="listening-ielts-notes__static"
+        />
+      )}
+      {question.context && (
+        <p className="listening-ielts-notes__section">{question.context}</p>
+      )}
+      {hasInline ? (
+        <label className="listening-ielts-notes__sentence" htmlFor={`ielts-gap-${question.id}`}>
+          <span className="listening-ielts-notes__num">{question.number}</span>
+          {question.gapLead && (
+            <ReadingHighlightableText
+              blockId={`${question.id}-lead`}
+              text={`${question.gapLead} `}
+              highlights={highlights}
+              as="span"
+            />
+          )}
+          <input
+            id={`ielts-gap-${question.id}`}
+            type="text"
+            className="listening-ielts-notes__input"
+            value={answer}
+            placeholder={`${wordLimit} từ`}
+            data-highlight-skip
+            onChange={e => onAnswer(e.target.value)}
+            onFocus={onSelect}
+          />
+          {question.gapTrail && (
+            <ReadingHighlightableText
+              blockId={`${question.id}-trail`}
+              text={` ${question.gapTrail}`}
+              highlights={highlights}
+              as="span"
+            />
+          )}
+        </label>
+      ) : (
+        <label className="listening-ielts-notes__field" htmlFor={`ielts-gap-${question.id}`}>
+          <span className="listening-ielts-notes__num">{question.number}</span>
+          <ReadingHighlightableText
+            blockId={`${question.id}-prompt`}
+            text={question.prompt}
+            highlights={highlights}
+            className="listening-ielts-notes__prompt"
+            as="span"
+          />
+          <input
+            id={`ielts-gap-${question.id}`}
+            type="text"
+            className="listening-ielts-notes__input"
+            value={answer}
+            placeholder={`Tối đa ${wordLimit} từ`}
+            data-highlight-skip
+            onChange={e => onAnswer(e.target.value)}
+            onFocus={onSelect}
+          />
+        </label>
+      )}
+    </div>
+  )
+}
+
+function McBlock({
+  question,
+  answer,
+  isActive,
+  onAnswer,
+  onSelect,
+}: {
+  question: ListeningQuestion
+  answer: string
+  isActive: boolean
+  onAnswer: (v: string) => void
+  onSelect: () => void
+}) {
+  const highlights = useExamHighlights()
+
+  return (
+    <div
+      id={`listening-q-${question.id}`}
+      className={`listening-ielts-mc${isActive ? ' is-active' : ''}`}
+      onClick={onSelect}
+    >
+      <p className="listening-ielts-mc__prompt">
+        <span className="listening-ielts-mc__num">{question.number}</span>
+        <ReadingHighlightableText
+          blockId={`${question.id}-prompt`}
+          text={question.prompt}
+          highlights={highlights}
+          as="span"
+        />
+      </p>
+      <div className="listening-ielts-mc__options">
+        {question.options.map(option => {
+          const selected = answer === option.id
+          return (
+            <div
+              key={option.id}
+              role="button"
+              tabIndex={0}
+              className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}`}
+              onClick={e => {
+                e.stopPropagation()
+                onSelect()
+                onAnswer(option.id)
+              }}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  onSelect()
+                  onAnswer(option.id)
+                }
+              }}
+            >
+              <span className="listening-ielts-mc__letter">{option.id}</span>
+              <ReadingHighlightableText
+                blockId={`${question.id}-opt-${option.id}`}
+                text={option.label}
+                highlights={highlights}
+                as="span"
+              />
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function ChooseTwoBlock({
+  prompt,
+  questions,
+  answers,
+  activeQuestionId,
+  onAnswer,
+  onSelectQuestion,
+}: {
+  prompt: string
+  questions: ListeningQuestion[]
+  answers: Record<string, string>
+  activeQuestionId: string | null
+  onAnswer: (questionId: string, value: string) => void
+  onSelectQuestion: (questionId: string) => void
+}) {
+  const highlights = useExamHighlights()
+  const options = questions[0]?.options ?? []
+  const rangeLabel = `${questions[0]?.number ?? ''}–${questions[questions.length - 1]?.number ?? ''}`
+  const isActive = questions.some(q => q.id === activeQuestionId)
+
+  return (
+    <div className={`listening-ielts-choose-two${isActive ? ' is-active' : ''}`}>
+      <p className="listening-ielts-choose-two__heading">
+        Questions {rangeLabel}
+      </p>
+      <p className="listening-ielts-choose-two__instruction">
+        Choose TWO letters, A–E.
+      </p>
+      <p className="listening-ielts-choose-two__prompt">
+        <ReadingHighlightableText
+          blockId={`choose-two-${questions[0]?.id ?? 'group'}`}
+          text={prompt}
+          highlights={highlights}
+          as="span"
+        />
+      </p>
+      <ul className="listening-ielts-choose-two__options">
+        {options.map(option => (
+          <li key={option.id} className="listening-ielts-choose-two__option">
+            <span className="listening-ielts-choose-two__letter">{option.id}</span>
+            <ReadingHighlightableText
+              blockId={`choose-two-opt-${option.id}`}
+              text={option.label}
+              highlights={highlights}
+              as="span"
+            />
+          </li>
+        ))}
+      </ul>
+      <div className="listening-ielts-choose-two__slots">
+        {questions.map(question => (
+          <div key={question.id} className="listening-ielts-choose-two__slot">
+            <span className="listening-ielts-choose-two__slot-num">{question.number}</span>
+            <div className="listening-ielts-choose-two__slot-pills">
+              {options.map(option => {
+                const selected = answers[question.id] === option.id
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    className={`listening-ielts-choose-two__pill${selected ? ' is-selected' : ''}`}
+                    onClick={() => {
+                      onSelectQuestion(question.id)
+                      onAnswer(question.id, selected ? '' : option.id)
+                    }}
+                  >
+                    {option.id}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default function ListeningIeltsPartView({
+  part,
+  questions,
+  answers,
+  activeQuestionId,
+  audioBar,
+  examMode,
+  onAnswer,
+  onSelectQuestion,
+}: Props) {
+  const highlights = useExamHighlights()
+  const segments = buildSegments(questions)
+
+  const headerSlot: ReactNode = (
+    <div className="listening-ielts-audio-inline">
+      {examMode === 'exam' && (
+        <span className="listening-ielts-mode-badge">Chế độ thi</span>
+      )}
+      <ListeningExamAudioBar {...audioBar} />
+    </div>
+  )
+
+  return (
+    <ExamHighlightZone className="listening-ielts-main">
+      <p className="listening-exam-prompt-pane__part">
+        Part {part.partNumber} · {part.rangeLabel}
+      </p>
+      {part.instruction && (
+        <ExamHighlightableLines
+          blockIdPrefix={`${part.id}-instruction`}
+          text={part.instruction}
+          lineClassName="listening-ielts-questions__instruction"
+        />
+      )}
+      {headerSlot}
+
+      {segments.map((segment, index) => {
+        if (segment.kind === 'gaps') {
+          return (
+            <section key={`gaps-${index}`} className="listening-ielts-notes">
+              {part.passageTitle && (
+                <ReadingHighlightableText
+                  blockId={`${part.id}-title`}
+                  text={part.passageTitle}
+                  highlights={highlights}
+                  className="listening-ielts-notes__title"
+                  as="h3"
+                />
+              )}
+              {part.audioIntro && (
+                <ExamHighlightableLines
+                  blockIdPrefix={`${part.id}-intro`}
+                  text={part.audioIntro}
+                  lineClassName="listening-ielts-notes__intro"
+                />
+              )}
+              <div className="listening-ielts-notes__box">
+                {segment.questions.map(question => (
+                  <GapRow
+                    key={question.id}
+                    question={question}
+                    answer={answers[question.id] ?? ''}
+                    isActive={activeQuestionId === question.id}
+                    onAnswer={v => onAnswer(question.id, v)}
+                    onSelect={() => onSelectQuestion(question.id)}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        if (segment.kind === 'choose-two') {
+          return (
+            <ChooseTwoBlock
+              key={`choose-${index}`}
+              prompt={segment.prompt}
+              questions={segment.questions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
+        return (
+          <section key={`mc-${index}`} className="listening-ielts-mc-group">
+            {segment.questions.map(question => (
+              <McBlock
+                key={question.id}
+                question={question}
+                answer={answers[question.id] ?? ''}
+                isActive={activeQuestionId === question.id}
+                onAnswer={v => onAnswer(question.id, v)}
+                onSelect={() => onSelectQuestion(question.id)}
+              />
+            ))}
+          </section>
+        )
+      })}
+    </ExamHighlightZone>
+  )
+}

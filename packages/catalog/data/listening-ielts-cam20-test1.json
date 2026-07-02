@@ -1,0 +1,772 @@
+{
+  "id": "catalog-listening-ielts-cam20-test1",
+  "title": "IELTS Listening — Cambridge 20 Test 1",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 20 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam20-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam20-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "The Junction — good for people keen on:",
+          "options": [],
+          "answer": "fish",
+          "explanation": "Món cá.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "The … is a good place for a drink (The Junction):",
+          "options": [],
+          "answer": "roof",
+          "explanation": "Sân thượng/roof.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Paloma — type of food:",
+          "options": [],
+          "answer": "spanish",
+          "explanation": "Ẩm thực Tây Ban Nha.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Paloma — limited section on the menu:",
+          "options": [],
+          "answer": "vegetarian",
+          "explanation": "Món chay.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Name of restaurant at top of a hotel:",
+          "options": [],
+          "answer": "audley",
+          "explanation": "The Audley.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "The Audley — located at the top of a:",
+          "options": [],
+          "answer": "hotel",
+          "explanation": "Khách sạn.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The Audley — all the … are very good:",
+          "options": [],
+          "answer": "reviews",
+          "explanation": "Đánh giá tốt.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "The Audley — only uses … ingredients:",
+          "options": [],
+          "answer": "local",
+          "explanation": "Nguyên liệu địa phương.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Set lunch cost per person:",
+          "options": [],
+          "answer": "30",
+          "explanation": "£30.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Proportions probably … size:",
+          "options": [],
+          "answer": "average",
+          "explanation": "Khẩu phần trung bình.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Restaurant recommendations"
+    },
+    {
+      "id": "catalog-listening-ielts-cam20-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–16: Choose the correct letter, A, B or C. Questions 17–18 and 19–20: Choose TWO letters, A–E.",
+      "audioUrl": "/catalog/listening/ielts-cam20-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Heather says pottery differs from other art forms because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it lasts longer in the ground"
+            },
+            {
+              "id": "B",
+              "label": "it is practised by more people"
+            },
+            {
+              "id": "C",
+              "label": "it can be repaired more easily"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Gốm bền trong đất."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "Archaeologists identify ancient pottery from",
+          "options": [
+            {
+              "id": "A",
+              "label": "the clay it was made with"
+            },
+            {
+              "id": "B",
+              "label": "the marks that are on it"
+            },
+            {
+              "id": "C",
+              "label": "the basic shape of it"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Vết/mark trên đồ gốm."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "Some people join Heather's class because they want to",
+          "options": [
+            {
+              "id": "A",
+              "label": "create something that looks old"
+            },
+            {
+              "id": "B",
+              "label": "find something they are good at"
+            },
+            {
+              "id": "C",
+              "label": "make something that will outlive them"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Tạo vật bền với thời gian."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-14",
+          "number": 14,
+          "type": "multiple-choice",
+          "prompt": "What does Heather value most about being a potter?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Its calming effect"
+            },
+            {
+              "id": "B",
+              "label": "Its messy nature"
+            },
+            {
+              "id": "C",
+              "label": "Its physical benefits"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Tính thư giãn."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "Most visitors to Edelman Pottery",
+          "options": [
+            {
+              "id": "A",
+              "label": "bring friends to join courses"
+            },
+            {
+              "id": "B",
+              "label": "have never made a pot before"
+            },
+            {
+              "id": "C",
+              "label": "try to learn techniques too quickly"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chưa từng làm gốm."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "Heather reminds visitors they should",
+          "options": [
+            {
+              "id": "A",
+              "label": "put on their aprons"
+            },
+            {
+              "id": "B",
+              "label": "change their clothes"
+            },
+            {
+              "id": "C",
+              "label": "take off their jewellery"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Tháo trang sức."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "Which TWO things does Heather explain about kilns? (17)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Chức năng lò (A) hoặc thay thế (E)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "Which TWO things does Heather explain about kilns? (18)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Cặp đáp án 17–18: A và E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-19",
+          "number": 19,
+          "type": "matching",
+          "prompt": "Which TWO points does Heather make about a potter's tools? (19)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Dụng cụ thiết yếu (C) hoặc dùng chung (E)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-20",
+          "number": 20,
+          "type": "matching",
+          "prompt": "Which TWO points does Heather make about a potter's tools? (20)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Cặp đáp án 19–20: C và E."
+        }
+      ],
+      "passageTitle": "Edelman Pottery — visitor talk"
+    },
+    {
+      "id": "catalog-listening-ielts-cam20-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–26: Choose TWO letters, A–E. Questions 27–30: Choose A, B or C.",
+      "audioUrl": "/catalog/listening/ielts-cam20-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "TWO causes of increased loneliness (21)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Thiết kế đô thị (C) / lực lượng di động (E)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "TWO causes of increased loneliness (22)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Cặp 21–22: C và E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "TWO health risks with solid evidence (23)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Miễn dịch (A) / ung thư (C)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "TWO health risks with solid evidence (24)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Cặp 23–24: A và C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "TWO opinions on evolutionary theory (25)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/B",
+          "explanation": "Ít thực tiễn (A) / cần nghiên cứu (B)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "TWO opinions on evolutionary theory (26)",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            }
+          ],
+          "answer": "A/B",
+          "explanation": "Cặp 25–26: A và B."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-27",
+          "number": 27,
+          "type": "multiple-choice",
+          "prompt": "When comparing loneliness to depression, the students",
+          "options": [
+            {
+              "id": "A",
+              "label": "doubt a medical cure for loneliness"
+            },
+            {
+              "id": "B",
+              "label": "say the link is overstated"
+            },
+            {
+              "id": "C",
+              "label": "feel loneliness is not taken seriously"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Nghi ngờ có thuốc chữa cô đơn."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-28",
+          "number": 28,
+          "type": "multiple-choice",
+          "prompt": "Why start the presentation with their own experience?",
+          "options": [
+            {
+              "id": "A",
+              "label": "to explain how difficult loneliness can be"
+            },
+            {
+              "id": "B",
+              "label": "to highlight a situation students recognise"
+            },
+            {
+              "id": "C",
+              "label": "to emphasise loneliness is more common for men"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Tình huống quen thuộc."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-29",
+          "number": 29,
+          "type": "multiple-choice",
+          "prompt": "Talking to strangers helps because it",
+          "options": [
+            {
+              "id": "A",
+              "label": "creates a sense of belonging"
+            },
+            {
+              "id": "B",
+              "label": "builds self-confidence"
+            },
+            {
+              "id": "C",
+              "label": "makes people feel more positive"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Cảm giác thuộc về."
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-30",
+          "number": 30,
+          "type": "multiple-choice",
+          "prompt": "They find it hard to understand why solitude is considered",
+          "options": [
+            {
+              "id": "A",
+              "label": "similar to loneliness"
+            },
+            {
+              "id": "B",
+              "label": "necessary for mental health"
+            },
+            {
+              "id": "C",
+              "label": "an enjoyable experience"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Trải nghiệm thú vị."
+        }
+      ],
+      "passageTitle": "Loneliness and mental health — student presentation"
+    },
+    {
+      "id": "catalog-listening-ielts-cam20-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam20-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "Pollution from … on the river bank:",
+          "options": [],
+          "answer": "factories",
+          "explanation": "Nhà máy.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "River Thames declared biologically …",
+          "options": [],
+          "answer": "dead",
+          "explanation": "Sông 'chết'.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "A … has been seen in the Thames:",
+          "options": [],
+          "answer": "whale",
+          "explanation": "Cá voi.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "Warehouses converted to restaurants and …",
+          "options": [],
+          "answer": "apartments",
+          "explanation": "Căn hộ.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Los Angeles — build a riverside …",
+          "options": [],
+          "answer": "park",
+          "explanation": "Công viên.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Display … projects:",
+          "options": [],
+          "answer": "art",
+          "explanation": "Dự án nghệ thuật.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "In Paris, … created on river sides each summer:",
+          "options": [],
+          "answer": "beaches",
+          "explanation": "Bãi biển nhân tạo.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Over 2 billion passengers travel by …",
+          "options": [],
+          "answer": "ferry",
+          "explanation": "Phà.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Goods by barges and electric …",
+          "options": [],
+          "answer": "bikes",
+          "explanation": "Xe đạp điện.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam20-test1-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "In the future, goods by …",
+          "options": [],
+          "answer": "drone",
+          "explanation": "Drone.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Reclaiming urban rivers"
+    }
+  ],
+  "catalogSlug": "ielts-cam20-test1",
+  "catalogBase": "/catalog/listening/ielts-cam20-test1"
+}

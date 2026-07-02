@@ -91,9 +91,21 @@ Chi tiết + ví dụ ZIP + lỗi thường gặp: **HDSD/Prompt-PET-B1.txt**
 
 Chi tiết + ví dụ ZIP: **HDSD/Prompt-FCE-B2.txt**
 
-### C1 — CAE (8 parts · 56 câu)
+### C1 — CAE (8 parts · 56 câu · 90 phút)
 
-Giống B2 + Part 6 cross-text matching, Part 7 gapped text, Part 8 multiple matching.
+| Part | Câu | Type |
+|------|-----|------|
+| 1 | 1–8 | multiple-choice (cloze A–D) |
+| 2 | 9–16 | gap-fill (open cloze) |
+| 3 | 17–24 | gap-fill (word formation) |
+| 4 | 25–30 | gap-fill (key word transformation, 3–6 từ) |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–40 | matching-features (cross-text — 4 reviews A–D) |
+| 7 | 41–46 | matching-features (gapped text + paragraphs A–G) |
+| 8 | 47–56 | matching-features (multiple matching — 5 consultants A–E) |
+
+Chi tiết + ví dụ ZIP + đáp án Test 1: **HDSD/Prompt-CAE-C1-Reading.txt**
+Bundle mẫu: `Tainguyen/cae-Reading-test1/` · Builtin: `catalog-reading-cae-c1-test1`
 
 ### C2 — CPE (7 parts · 53 câu)
 
