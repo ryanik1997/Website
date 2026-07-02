@@ -16,6 +16,7 @@ import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { scrollListeningToQuestion } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
@@ -216,21 +217,18 @@ export default function ListeningIeltsTest({ exam }: Props) {
 
   const scrollToQuestion = useCallback((questionId: string) => {
     window.requestAnimationFrame(() => {
-      document.getElementById(`listening-q-${questionId}`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-      })
-      document.getElementById(`listening-a-${questionId}`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-      })
+      scrollListeningToQuestion(bodyRef.current, questionId)
     })
   }, [])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
-    scrollToQuestion(questionId)
-  }, [scrollToQuestion])
+  }, [])
+
+  useEffect(() => {
+    if (!activeQuestionId) return
+    scrollToQuestion(activeQuestionId)
+  }, [activeQuestionId, partIndex, scrollToQuestion])
 
   return (
     <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}`}>

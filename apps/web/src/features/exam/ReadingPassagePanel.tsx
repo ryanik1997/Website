@@ -10,6 +10,13 @@ import {
 } from './readingB1ReferenceList'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight } from './readingHighlightUtils'
+import {
+  isPassageAnchorActive,
+  readingPassageAnchorId,
+  readingPassageBlockAnchorId,
+  readingPassageFeatureAnchorId,
+  readingPassageRefAnchorId,
+} from './readingPassageAnchor'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface ReadingPassagePanelProps {
@@ -41,6 +48,7 @@ function SignsPart1PassageImages({
         return (
           <section
             key={`${part.id}-ket-img-${index}`}
+            id={question ? readingPassageAnchorId(question.id) : undefined}
             className={`reading-ket-signs__item${isActive ? ' is-active' : ''}`}
             role={question ? 'button' : undefined}
             tabIndex={question ? 0 : undefined}
@@ -84,12 +92,18 @@ function PassageLabeledReferenceList({
   highlights,
   partId,
   partNumber,
+  activeQuestionId,
+  part,
+  cambridgeLevel,
 }: {
   blocks: ReadingPart['passage']
   rangeLabel: string
   highlights: ReadingHighlight[]
   partId: string
   partNumber: number
+  activeQuestionId?: string | null
+  part: ReadingPart
+  cambridgeLevel?: ReadingPassagePanelProps['cambridgeLevel']
 }) {
   if (!blocks.length) return null
   const showMarketTitle = partNumber === 2
@@ -104,8 +118,13 @@ function PassageLabeledReferenceList({
             showMarketTitle && body.length < 80 && !/[—–-]/.test(body) ? body : undefined
           ))
           const displayBody = displayTitle === body ? '' : body
+          const anchorId = readingPassageRefAnchorId(partId, letter)
           return (
-            <li key={`${partId}-ref-${letter}-${index}`} className="reading-ket-ref-item">
+            <li
+              key={`${partId}-ref-${letter}-${index}`}
+              id={anchorId}
+              className={`reading-ket-ref-item${isPassageAnchorActive(anchorId, part, activeQuestionId, cambridgeLevel) ? ' is-active' : ''}`}
+            >
               <span className="reading-ket-ref-item__letter" data-highlight-skip>
                 {letter}
               </span>
@@ -137,7 +156,8 @@ function PassageBlocks({
   part,
   highlights,
   cambridgeLevel,
-}: Pick<ReadingPassagePanelProps, 'part' | 'highlights' | 'cambridgeLevel'>) {
+  activeQuestionId,
+}: Pick<ReadingPassagePanelProps, 'part' | 'highlights' | 'cambridgeLevel' | 'activeQuestionId'>) {
   if (!part.passage.length) {
     return (
       <p className="reading-test-passage-empty">
@@ -151,18 +171,29 @@ function PassageBlocks({
     const hasImage = Boolean(block.imageKey || block.imageUrl)
 
     if (!hasText && hasImage) {
+      const anchorId = readingPassageBlockAnchorId(part.id, index)
       return (
-        <PassageImage
+        <div
           key={`${part.id}-img-${index}`}
-          imageKey={block.imageKey}
-          imageUrl={block.imageUrl}
-          alt={`${part.passageTitle} — illustration ${index + 1}`}
-        />
+          id={anchorId}
+          className={isPassageAnchorActive(anchorId, part, activeQuestionId, cambridgeLevel) ? 'is-active' : undefined}
+        >
+          <PassageImage
+            imageKey={block.imageKey}
+            imageUrl={block.imageUrl}
+            alt={`${part.passageTitle} — illustration ${index + 1}`}
+          />
+        </div>
       )
     }
 
+    const anchorId = readingPassageBlockAnchorId(part.id, index)
     return (
-      <div key={`${part.id}-p-${index}`} className="reading-test-paragraph-wrap">
+      <div
+        key={`${part.id}-p-${index}`}
+        id={anchorId}
+        className={`reading-test-paragraph-wrap${isPassageAnchorActive(anchorId, part, activeQuestionId, cambridgeLevel) ? ' is-active' : ''}`}
+      >
         {hasImage && (
           <PassageImage
             imageKey={block.imageKey}
@@ -239,6 +270,7 @@ export default function ReadingPassagePanel({
               }}
               highlights={highlights}
               cambridgeLevel={cambridgeLevel}
+              activeQuestionId={activeQuestionId}
             />
           )}
         </>
@@ -248,6 +280,7 @@ export default function ReadingPassagePanel({
             part={{ ...part, passage: introPassageBlocks }}
             highlights={highlights}
             cambridgeLevel={cambridgeLevel}
+            activeQuestionId={activeQuestionId}
           />
           <PassageLabeledReferenceList
             blocks={referenceBlocks}
@@ -255,10 +288,18 @@ export default function ReadingPassagePanel({
             highlights={highlights}
             partId={part.id}
             partNumber={part.partNumber}
+            activeQuestionId={activeQuestionId}
+            part={part}
+            cambridgeLevel={cambridgeLevel}
           />
         </>
       ) : (
-        <PassageBlocks part={part} highlights={highlights} cambridgeLevel={cambridgeLevel} />
+        <PassageBlocks
+          part={part}
+          highlights={highlights}
+          cambridgeLevel={cambridgeLevel}
+          activeQuestionId={activeQuestionId}
+        />
       )}
 
       {!useB1ReferenceList && features.length > 0 && (
@@ -268,8 +309,13 @@ export default function ReadingPassagePanel({
             {features.map((feature, index) => {
               const letter = referenceLetter(feature.id, index)
               const { title, body } = splitReferenceText(feature.name, part.partNumber === 2)
+              const anchorId = readingPassageFeatureAnchorId(part.id, feature.id)
               return (
-                <li key={feature.id} className="reading-ket-ref-item">
+                <li
+                  key={feature.id}
+                  id={anchorId}
+                  className={`reading-ket-ref-item${isPassageAnchorActive(anchorId, part, activeQuestionId, cambridgeLevel) ? ' is-active' : ''}`}
+                >
                   <span className="reading-ket-ref-item__letter" data-highlight-skip>
                     {letter}
                   </span>

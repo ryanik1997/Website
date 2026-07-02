@@ -25,6 +25,7 @@ import {
 } from './readingFontSettings'
 import { getExamQuestions, getPartQuestions, isReadingAnswerCorrect } from './examData'
 import { resolveReadingExam } from './examLoader'
+import { scrollReadingToQuestion } from './readingScrollUtils'
 import './readingTest.css'
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
@@ -194,22 +195,28 @@ export default function ReadingTest() {
 
   const scrollToQuestion = useCallback((questionId: string) => {
     window.requestAnimationFrame(() => {
-      document.getElementById(`reading-q-${questionId}`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-      })
+      scrollReadingToQuestion(
+        bodyRef.current,
+        questionId,
+        currentPart ?? undefined,
+        exam?.cambridgeLevel,
+      )
     })
-  }, [])
+  }, [currentPart, exam?.cambridgeLevel])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
-    scrollToQuestion(questionId)
-  }, [scrollToQuestion])
+  }, [])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
   }, [])
+
+  useEffect(() => {
+    if (!activeQuestionId) return
+    scrollToQuestion(activeQuestionId)
+  }, [activeQuestionId, partIndex, scrollToQuestion])
 
   const answeredInPart = useCallback((index: number) => {
     if (!exam) return 0
@@ -224,15 +231,9 @@ export default function ReadingTest() {
     if (!first) return
 
     setPartIndex(index)
-    setActiveQuestionId(first.id)
     resetPaneScroll()
-
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        scrollToQuestion(first.id)
-      })
-    })
-  }, [exam, resetPaneScroll, scrollToQuestion])
+    setActiveQuestionId(first.id)
+  }, [exam, resetPaneScroll])
 
   const clampSplit = useCallback((pct: number) => (
     Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, pct))

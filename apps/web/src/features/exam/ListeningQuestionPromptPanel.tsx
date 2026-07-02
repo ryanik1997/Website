@@ -1,5 +1,6 @@
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import type { ExamAudioSource } from './useExamQuestionAudio'
+import { listeningPromptAnchorId } from './listeningScrollUtils'
 import type { ListeningQuestion } from './listeningExamData'
 
 interface AudioBarProps {
@@ -33,7 +34,7 @@ export default function ListeningQuestionPromptPanel({
   audioBar,
 }: Props) {
   return (
-    <div className="listening-exam-prompt-pane">
+    <div className="listening-exam-prompt-pane" id={listeningPromptAnchorId(question.id)}>
       {partLabel && (
         <p className="listening-exam-prompt-pane__part">{partLabel}</p>
       )}
