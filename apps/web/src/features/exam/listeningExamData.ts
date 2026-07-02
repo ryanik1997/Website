@@ -53,6 +53,8 @@ export interface ListeningQuestion {
   gapLead?: string
   /** PET Part 3: câu gap-fill — phần sau ô trống */
   gapTrail?: string
+  /** IELTS note-completion: dòng tĩnh ngay trước câu (không có ô trống) */
+  noteBefore?: string
 }
 
 export interface ListeningPart {
@@ -116,14 +118,26 @@ export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer
   if (!userAnswer.trim()) return false
 
   if (question.type === 'gap-fill') {
-    const expected = normalizeListeningAnswer(question.answer)
     const given = normalizeListeningAnswer(userAnswer)
-    if (given === expected) return true
-    return given.split(/\s+/).length <= (question.wordLimit ?? 3)
-      && (given === expected || given.includes(expected) || expected.includes(given))
+    const expectedRaw = question.answer.trim()
+    const variants = /[/|]/.test(expectedRaw)
+      ? expectedRaw.split(/[/|]/).map(s => normalizeListeningAnswer(s)).filter(Boolean)
+      : [normalizeListeningAnswer(expectedRaw)]
+
+    return variants.some(expected => {
+      if (given === expected) return true
+      return given.split(/\s+/).length <= (question.wordLimit ?? 3)
+        && (given.includes(expected) || expected.includes(given))
+    })
   }
 
-  return userAnswer.trim().toUpperCase() === question.answer.trim().toUpperCase()
+  const given = userAnswer.trim().toUpperCase()
+  const expectedRaw = question.answer.trim()
+  if (/[/|]/.test(expectedRaw)) {
+    const variants = expectedRaw.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
+    return variants.includes(given)
+  }
+  return given === expectedRaw.toUpperCase()
 }
 
 export function formatListeningAnswer(

@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, FileJson, Headphones, Loader2, RotateCcw, Trash2 } from 'lucide-react'
+import { ArrowLeft, Eye, EyeOff, FileJson, Headphones, Loader2, RotateCcw, Trash2 } from 'lucide-react'
 import { examRepo, listeningExamRepo } from '@ryan/db'
 import {
   CAMBRIDGE_EXAM_LEVELS,
@@ -26,6 +26,11 @@ import {
   readReadingDraftCompletion,
 } from './examCompletion'
 import { useExamDraftRevision } from './useExamDraftRevision'
+import {
+  filterListeningExamsForDisplay,
+  filterReadingExamsForDisplay,
+} from './examListFilter'
+import { useExamImportsOnlyFilter } from './useExamImportsOnlyFilter'
 import './examHub.css'
 
 const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
@@ -50,6 +55,7 @@ export default function ExamTrackPage() {
 
   const [showImportManual, setShowImportManual] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
+  const { importsOnly, toggleImportsOnly } = useExamImportsOnlyFilter()
 
   const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
   const listeningExams = useLiveQuery(() => listAllListeningExams(), []) ?? []
@@ -124,16 +130,21 @@ export default function ExamTrackPage() {
       skills: track.skills,
     }
 
-  const readingList = track.id === 'ielts'
+  const readingListAll = track.id === 'ielts'
     ? filterReadingForIelts(readingExams)
     : cambridgeLevel
       ? filterReadingForCambridgeLevel(readingExams, cambridgeLevel.slug)
       : []
-  const listeningList = track.id === 'ielts'
+  const listeningListAll = track.id === 'ielts'
     ? filterListeningByTypes(listeningExams, ['ielts'])
     : cambridgeLevel
       ? filterListeningByTypes(listeningExams, cambridgeLevel.listeningExamTypes)
       : []
+
+  const readingList = filterReadingExamsForDisplay(readingListAll, importsOnly)
+  const listeningList = filterListeningExamsForDisplay(listeningListAll, importsOnly)
+  const hiddenReadingCount = readingListAll.length - readingList.length
+  const hiddenListeningCount = listeningListAll.length - listeningList.length
 
   const defaultListeningType = track.id === 'ielts'
     ? 'ielts'
@@ -174,6 +185,15 @@ export default function ExamTrackPage() {
           <p className="exam-hub-desc">{activeTrack.description}</p>
 
           <div className="exam-hub-actions">
+            <button
+              type="button"
+              className={`exam-hub-cta exam-hub-cta--ghost${importsOnly ? ' is-active' : ''}`}
+              onClick={toggleImportsOnly}
+              title={importsOnly ? 'Hiện lại đề mẫu và đề builtin của hệ thống' : 'Ẩn đề mẫu hệ thống — chỉ hiện đề bạn đã import'}
+            >
+              {importsOnly ? <Eye size={14} /> : <EyeOff size={14} />}
+              {importsOnly ? 'Hiện đề mẫu hệ thống' : 'Chỉ đề import'}
+            </button>
             {activeTrack.skills.includes('reading') && (
               <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportManual(true)}>
                 <FileJson size={14} />
@@ -187,16 +207,30 @@ export default function ExamTrackPage() {
               </button>
             )}
           </div>
+          {importsOnly && (hiddenReadingCount > 0 || hiddenListeningCount > 0) && (
+            <p className="exam-hub-filter-note">
+              Đang ẩn {hiddenReadingCount > 0 ? `${hiddenReadingCount} Reading` : ''}
+              {hiddenReadingCount > 0 && hiddenListeningCount > 0 ? ' · ' : ''}
+              {hiddenListeningCount > 0 ? `${hiddenListeningCount} Listening` : ''} đề mẫu/builtin hệ thống.
+            </p>
+          )}
         </section>
 
         {activeTrack.skills.includes('reading') && (
           <section className="exam-track-section">
-            <h2 className="exam-track-section__title">Reading ({readingList.length})</h2>
+            <h2 className="exam-track-section__title">
+              Reading ({readingList.length}
+              {importsOnly && hiddenReadingCount > 0 ? ` / ${readingListAll.length}` : ''})
+            </h2>
             {readingList.length === 0 ? (
               <p className="exam-hub-desc">
-                {cambridgeLevel
-                  ? `Chưa có đề Reading ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (JSON + ảnh).`
-                  : 'Chưa có đề Reading. Bấm Import thủ công — tải JSON mẫu, thêm ảnh đoạn văn, upload ZIP.'}
+                {importsOnly
+                  ? (hiddenReadingCount > 0
+                    ? 'Đang ẩn đề mẫu hệ thống — chưa có đề Reading nào do bạn import. Bấm Import thủ công hoặc tắt "Chỉ đề import".'
+                    : 'Chưa có đề Reading import. Bấm Import thủ công (JSON + ảnh).')
+                  : cambridgeLevel
+                    ? `Chưa có đề Reading ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (JSON + ảnh).`
+                    : 'Chưa có đề Reading. Bấm Import thủ công — tải JSON mẫu, thêm ảnh đoạn văn, upload ZIP.'}
               </p>
             ) : (
               <div className="exam-track-list">
@@ -253,15 +287,20 @@ export default function ExamTrackPage() {
         {activeTrack.skills.includes('listening') && (
           <section className="exam-track-section">
             <h2 className="exam-track-section__title">
-              Listening ({listeningList.length})
+              Listening ({listeningList.length}
+              {importsOnly && hiddenListeningCount > 0 ? ` / ${listeningListAll.length}` : ''})
             </h2>
             {listeningList.length === 0 ? (
               <p className="exam-hub-desc">
-                {track.id === 'ielts'
-                  ? 'Chưa có đề Listening IELTS. Dùng đề mẫu hoặc Import thủ công (JSON + MP3/ảnh).'
-                  : cambridgeLevel
-                    ? `Chưa có đề Listening ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (examType: "${defaultListeningType}").`
-                    : 'Chưa có đề Listening. Import thủ công (JSON + MP3/ảnh) để thêm đề.'}
+                {importsOnly
+                  ? (hiddenListeningCount > 0
+                    ? 'Đang ẩn đề mẫu hệ thống — chưa có đề Listening nào do bạn import. Bấm Import thủ công hoặc tắt "Chỉ đề import".'
+                    : 'Chưa có đề Listening import. Bấm Import thủ công (JSON/ZIP + MP3/ảnh).')
+                  : track.id === 'ielts'
+                    ? 'Chưa có đề Listening IELTS. Dùng đề mẫu hoặc Import thủ công (JSON + MP3/ảnh).'
+                    : cambridgeLevel
+                      ? `Chưa có đề Listening ${cambridgeLevel.exam}. Dùng đề mẫu hoặc Import thủ công (examType: "${defaultListeningType}").`
+                      : 'Chưa có đề Listening. Import thủ công (JSON + MP3/ảnh) để thêm đề.'}
               </p>
             ) : (
               <div className="exam-track-list">

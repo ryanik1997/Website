@@ -9,7 +9,7 @@ import ListeningSubmittedScreen from './ListeningSubmittedScreen'
 import { patchFullMockSession } from './fullMockSession'
 import ListeningDualLetterMatchingPartView from './ListeningDualLetterMatchingPartView'
 import ListeningLetterMatchingPartView from './ListeningLetterMatchingPartView'
-import { ListeningPartAnswerPanel, ListeningPartPromptPanel } from './ListeningPartQuestionPanel'
+import ListeningIeltsPartView from './ListeningIeltsPartView'
 import ListeningSplitResizer from './ListeningSplitResizer'
 import { isDualLetterMatchingPart, isGroupedLetterMatchingPart } from './listeningMultiPartLayout'
 import type { ListeningExam } from './listeningExamData'
@@ -324,29 +324,16 @@ export default function ListeningIeltsTest({ exam }: Props) {
           }
 
           return (
-            <>
-              <ListeningPartPromptPanel
-                part={currentPart}
-                activeQuestionId={activeQuestionId}
-                onSelectQuestion={handleSelectQuestion}
-                audioSlot={(
-                  <div className="listening-ielts-audio-inline">
-                    {exam.examMode === 'exam' && (
-                      <span className="listening-ielts-mode-badge">Chế độ thi</span>
-                    )}
-                    <ListeningExamAudioBar {...audioBarProps} />
-                  </div>
-                )}
-              />
-              {resizer}
-              <ListeningPartAnswerPanel
-                part={currentPart}
-                answers={answers}
-                activeQuestionId={activeQuestionId}
-                onSelectQuestion={handleSelectQuestion}
-                onAnswer={handleAnswer}
-              />
-            </>
+            <ListeningIeltsPartView
+              part={currentPart}
+              questions={partQuestions}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              audioBar={audioBarProps}
+              examMode={exam.examMode}
+              onAnswer={handleAnswer}
+              onSelectQuestion={handleSelectQuestion}
+            />
           )
         })()}
         </ExamHighlightProvider>

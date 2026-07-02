@@ -5,7 +5,7 @@ import { useAuth } from '../../features/auth/AuthContext'
 import { SUPPORT_EMAIL, supportMailto } from '../../lib/contact'
 import PaymentModal from '../../components/PaymentModal'
 import {
-  User, LogIn, UserPlus, ChevronDown, Bell, ArrowRight,
+  User, LogIn, UserPlus, ChevronDown, ArrowRight,
   BookOpen, PenLine, Headphones, GitBranch, BookMarked, WifiOff,
   Check, Mail, MessageCircle, Sparkles,
 } from 'lucide-react'
@@ -97,7 +97,7 @@ const PLANS: Array<{
 
 const CONTACTS = [
   { icon: Mail, label: 'Email hỗ trợ', href: supportMailto(), text: SUPPORT_EMAIL },
-  { icon: MessageCircle, label: 'Nâng cấp gói', href: supportMailto('Nâng cấp gói Ryan English'), text: 'Liên hệ nâng cấp' },
+  { icon: MessageCircle, label: 'Nâng cấp gói', href: supportMailto('Nâng cấp gói Study with Genius'), text: 'Liên hệ nâng cấp' },
 ]
 
 const PAY_PLAN_DATA: Record<'pro' | 'lifetime', { name: string; price: string }> = {
@@ -139,7 +139,6 @@ export default function LandingPage() {
       )}
       <main className="flex-1">
         <Hero />
-        <FeaturesSection />
         <PricingSection onOpenPayment={planId => setPayModal({ open: true, planId })} />
       </main>
       <Footer />
@@ -162,6 +161,38 @@ function SunAnimationStyles() {
       @keyframes sun-spin {
         from { transform: rotate(0deg); }
         to   { transform: rotate(360deg); }
+      }
+      @keyframes sun-hero-enter {
+        0% {
+          transform: translate3d(240px, 28px, 0) scale(0.92);
+          opacity: 0;
+        }
+        45% {
+          transform: translate3d(168px, 20px, 0) scale(0.94);
+          opacity: 0.45;
+        }
+        78% {
+          transform: translate3d(48px, 7px, 0) scale(0.985);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes sun-bubble-enter {
+        0% {
+          transform: translate3d(120px, 16px, 0) scale(0.94);
+          opacity: 0;
+        }
+        55% {
+          transform: translate3d(76px, 10px, 0) scale(0.96);
+          opacity: 0.38;
+        }
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 1;
+        }
       }
       @keyframes sun-float {
         0%, 100% { transform: translate3d(0, 0px, 0); }
@@ -203,6 +234,14 @@ function SunAnimationStyles() {
       .sun-rays  { transform-origin: 200px 230px; animation: sun-spin 14s linear infinite; }
       .sun-body  { transform-origin: 200px 230px; animation: sun-pulse 3.5s ease-in-out infinite; }
       .sun-wrap  { animation: sun-float 5.6s cubic-bezier(.45,.05,.55,.95) infinite; }
+      .sun-hero-enter {
+        animation: sun-hero-enter 5.2s cubic-bezier(.22,.61,.2,1) both;
+        will-change: transform, opacity;
+      }
+      .sun-bubble-enter {
+        animation: sun-bubble-enter 3.1s cubic-bezier(.24,.62,.2,1) 1.35s both;
+        will-change: transform, opacity;
+      }
       .sun-halo-a { animation: halo-drift-a 10s ease-in-out infinite; }
       .sun-halo-b { animation: halo-drift-b 13s ease-in-out infinite; }
       .sun-parallax-halo {
@@ -237,23 +276,10 @@ function Header() {
       className="flex items-center justify-between px-6 md:px-8 py-4 border-b sticky top-0 z-40 backdrop-blur-md"
       style={{ borderColor: 'var(--border-color)', background: 'color-mix(in srgb, var(--bg-primary) 85%, transparent)' }}
     >
-      <div className="flex items-center gap-2">
-        <div
-          className="w-8 h-8 rounded-lg flex items-center justify-center"
-          style={{ background: 'var(--color-primary)' }}
-        >
-          <span className="text-white text-xs font-bold">RE</span>
-        </div>
-        <span className="font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>Ryan English</span>
+      <div className="flex items-center">
+        <span className="font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>Study with Genius</span>
       </div>
       <div className="flex items-center gap-2">
-        <button
-          className="w-9 h-9 rounded-full border flex items-center justify-center transition-colors relative"
-          style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
-        >
-          <Bell size={16} />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full" style={{ background: '#ef4444' }} />
-        </button>
         {!loading && user ? <UserChip user={user} /> : <GuestMenu />}
       </div>
     </header>
@@ -397,45 +423,34 @@ function Hero() {
     }
   }, [])
 
-  function scrollToFeatures() {
-    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })
+  const featuredProofs = FEATURES.slice(0, 4)
+
+  function scrollToPricing() {
+    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <section
       ref={heroRef}
-      className="flex items-center px-6 md:px-16 lg:px-24 pt-10 pb-16 md:pb-20 overflow-visible relative"
+      className="relative flex min-h-[calc(100dvh-72px)] items-center overflow-visible px-6 pt-12 pb-12 md:px-16 md:pt-16 md:pb-16 lg:px-24"
     >
       {/* Warm glow behind sun */}
-      <div
-        className="sun-halo-a sun-parallax-halo absolute right-[6%] top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full pointer-events-none md:block"
-        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFF3A3 36%, transparent) 0%, color-mix(in srgb, #FFD36A 14%, transparent) 34%, transparent 72%)' }}
-      />
-      <div
-        className="sun-halo-b sun-parallax-halo absolute right-[-10%] top-[44%] hidden h-[760px] w-[760px] -translate-y-1/2 rounded-full pointer-events-none md:block"
-        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFE28A 18%, transparent) 0%, color-mix(in srgb, #FFDA5A 8%, transparent) 42%, transparent 78%)' }}
-      />
-      <div
-        className="sun-parallax-halo absolute right-[-4%] top-1/2 hidden w-[640px] h-[640px] -translate-y-1/2 rounded-full pointer-events-none md:block"
-        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 24%, transparent) 0%, color-mix(in srgb, #FFD36A 12%, transparent) 38%, transparent 74%)' }}
-      />
-
-      <div className="flex-1 max-w-xl z-10">
-        <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--color-primary)' }}>
+      <div className="z-10 max-w-2xl flex-[1.1]">
+        <p className="mb-5 text-sm font-semibold uppercase tracking-[0.28em]" style={{ color: 'var(--color-primary)' }}>
           Nền tảng
         </p>
-        <h1 className="text-5xl md:text-6xl font-black leading-[1.05] mb-6" style={{ color: 'var(--text-primary)' }}>
+        <h1 className="mb-7 text-6xl font-black leading-[0.96] sm:text-7xl md:text-[5.5rem] lg:text-[6.5rem]" style={{ color: 'var(--text-primary)' }}>
           Luyện thi<br />
           <span style={{ color: 'var(--color-primary)' }}>IELTS/ CAMBRIDGE</span>
         </h1>
-        <p className="text-base leading-relaxed mb-8 max-w-md" style={{ color: 'var(--text-muted)' }}>
+        <p className="mb-10 max-w-xl text-lg leading-relaxed md:text-xl" style={{ color: 'var(--text-muted)' }}>
           Hệ thống học từ vựng SRS, luyện viết IELTS với AI chấm điểm,
           nghe dictation — tất cả trong một nền tảng.
         </p>
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="mb-10 flex flex-wrap items-center gap-3">
           <button
             onClick={signInWithGoogle}
-            className="flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold text-sm transition-opacity hover:opacity-90"
+            className="flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             style={{
               background: 'var(--color-primary)',
               boxShadow: '0 8px 24px color-mix(in srgb, var(--color-primary) 35%, transparent)',
@@ -445,17 +460,60 @@ function Hero() {
             <ArrowRight size={16} />
           </button>
           <button
-            onClick={scrollToFeatures}
-            className="px-6 py-3 rounded-full border font-semibold text-sm transition-colors"
+            onClick={scrollToPricing}
+            className="rounded-full border px-7 py-3.5 text-sm font-semibold transition-colors"
             style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
           >
-            Tìm hiểu thêm
+            Xem gói học
           </button>
+        </div>
+        <div className="grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+          {featuredProofs.map(({ icon: Icon, title, desc, accent }) => (
+            <div
+              key={title}
+              className="rounded-2xl border p-4 backdrop-blur-sm"
+              style={{
+                background: 'color-mix(in srgb, var(--bg-card) 82%, transparent)',
+                borderColor: 'color-mix(in srgb, var(--border-color) 82%, transparent)',
+              }}
+            >
+              <div className="mb-2 flex items-center gap-3">
+                <div
+                  className="flex h-10 w-10 items-center justify-center rounded-xl"
+                  style={{ background: `color-mix(in srgb, ${accent} 18%, transparent)` }}
+                >
+                  <Icon size={18} style={{ color: accent }} />
+                </div>
+                <h3 className="text-sm font-bold uppercase tracking-[0.12em]" style={{ color: 'var(--text-primary)' }}>
+                  {title}
+                </h3>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                {desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="hidden md:flex flex-1 items-end justify-center h-full max-h-[520px] relative overflow-visible">
-        <SunIllustration />
+      <div className="relative hidden flex-1 items-center justify-center overflow-visible md:flex md:min-h-[720px]">
+        <div className="sun-hero-enter absolute inset-0 pointer-events-none">
+          <div
+            className="sun-halo-a sun-parallax-halo absolute right-[6%] top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full"
+            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFF3A3 36%, transparent) 0%, color-mix(in srgb, #FFD36A 14%, transparent) 34%, transparent 72%)' }}
+          />
+          <div
+            className="sun-halo-b sun-parallax-halo absolute right-[-10%] top-[44%] h-[760px] w-[760px] -translate-y-1/2 rounded-full"
+            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFE28A 18%, transparent) 0%, color-mix(in srgb, #FFDA5A 8%, transparent) 42%, transparent 78%)' }}
+          />
+          <div
+            className="sun-parallax-halo absolute right-[-4%] top-1/2 h-[640px] w-[640px] -translate-y-1/2 rounded-full"
+            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 24%, transparent) 0%, color-mix(in srgb, #FFD36A 12%, transparent) 38%, transparent 74%)' }}
+          />
+        </div>
+        <div className="sun-hero-enter relative z-10">
+          <SunIllustration />
+        </div>
       </div>
     </section>
   )
@@ -520,7 +578,7 @@ function PricingSection({ onOpenPayment }: { onOpenPayment: (planId: PlanId) => 
   }
 
   return (
-    <section id="pricing" className="px-6 md:px-16 lg:px-24 py-20">
+    <section id="pricing" className="px-6 md:px-16 lg:px-24 py-20" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--color-primary)' }}>
@@ -626,14 +684,8 @@ function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div
-                className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: 'var(--color-primary)' }}
-              >
-                <span className="text-white text-[10px] font-bold">RE</span>
-              </div>
-              <span className="font-bold" style={{ color: 'var(--text-primary)' }}>Ryan English</span>
+            <div className="mb-2">
+              <span className="font-bold" style={{ color: 'var(--text-primary)' }}>Study with Genius</span>
             </div>
             <p className="text-sm max-w-xs" style={{ color: 'var(--text-muted)' }}>
               Nền tảng luyện thi IELTS & Cambridge — học thông minh, offline-first.
@@ -663,9 +715,8 @@ function Footer() {
           className="mt-8 pt-6 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs"
           style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
         >
-          <p>© {new Date().getFullYear()} Ryan English. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Study with Genius. All rights reserved.</p>
           <div className="flex gap-4">
-            <button type="button" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} className="hover:opacity-80 transition-opacity">Tính năng</button>
             <button type="button" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="hover:opacity-80 transition-opacity">Bảng giá</button>
             <a href={supportMailto()} className="hover:opacity-80 transition-opacity">Liên hệ</a>
           </div>
@@ -681,7 +732,7 @@ function SunIllustration() {
   return (
     <svg
       viewBox="-40 -30 500 500"
-      className="sun-parallax-main w-full max-w-md overflow-visible drop-shadow-xl"
+      className="sun-parallax-main w-[188%] max-w-[52rem] overflow-visible drop-shadow-xl"
       fill="none"
     >
       <defs>
@@ -741,7 +792,7 @@ function SunIllustration() {
         <ellipse cx="138" cy="248" rx="16" ry="10" fill="#FF7043" opacity="0.25" />
         <ellipse cx="262" cy="248" rx="16" ry="10" fill="#FF7043" opacity="0.25" />
 
-        <g className="sun-bubble sun-bubble-layer">
+        <g className="sun-bubble sun-bubble-layer sun-bubble-enter">
           <rect x="228" y="58" width="168" height="98" rx="18"
             fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5"
             filter="url(#glow)" />

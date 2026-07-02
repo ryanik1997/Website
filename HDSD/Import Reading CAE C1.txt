@@ -2,23 +2,42 @@ ZIP cần có:
 
 exam.json
 
+(CAE C1 Reading không dùng ảnh — chỉ exam.json)
+
 Cấu trúc đề CAE C1 Reading (56 câu · 90 phút)
 
-Part 1 (1–8): MC cloze A–D
-Part 2 (9–16): open cloze ONE WORD
-Part 3 (17–24): word formation
-Part 4 (25–30): key word transformation
+Part 1 (1–8):   MC cloze A–D
+Part 2 (9–16):  open cloze ONE WORD
+Part 3 (17–24): word formation (stem trong prompt)
+Part 4 (25–30): key word transformation (3–6 từ — UI placeholder "3–6 words")
 Part 5 (31–36): reading MC A–D
-Part 6 (37–40): cross-text matching — 4 reviews A–D
-Part 7 (41–46): gapped text — paragraphs A–G
-Part 8 (47–56): multiple matching — 5 consultants A–E
+Part 6 (37–40): cross-text matching — 4 reviews A–D (copy vào passage trái)
+Part 7 (41–46): gapped text — paragraphs A–G cuối passage
+Part 8 (47–56): multiple matching — 5 consultants A–E (copy vào passage trái)
+
+UI app (ReadingTest · Cambridge C1)
+• Timer 90 phút
+• Part 6–8: reviews/paragraphs/consultants hiện cột trái; pills A–E bên phải
+• Không lặp danh sách features đầy đủ khi passage đã có label
 
 Việc bạn cần làm
 
-1. Đảm bảo exam.json trong Tainguyen/cae-Reading-test1/
-   (hoặc chạy: python scripts/build-cae-reading-test1.py)
-2. Chạy: pnpm build:catalog
-3. Luyện thi → Cambridge → C1 → đề builtin catalog-reading-cae-c1-test1
-   Hoặc Import thủ công Reading ZIP
+1. Tạo / cập nhật exam.json:
+   python scripts/build-cae-reading-test1.py
+   (hoặc sửa trực tiếp Tainguyen/cae-Reading-test1/exam.json)
 
-Prompt AI: HDSD/Prompt-CAE-C1-Reading.txt
+2. Ship builtin:
+   pnpm build:catalog
+   → catalog-reading-cae-c1-test1
+
+3. (Tuỳ chọn) ZIP import thủ công:
+   pnpm pack:reading:cae
+   → Tainguyen/cae-Reading-test1.zip
+
+4. Test:
+   Hard refresh → Luyện thi → Cambridge → C1
+   → CAE C1 Reading — Test 1 (builtin)
+   Hoặc Import thủ công Reading → chọn ZIP
+
+Prompt AI tạo ZIP: HDSD/Prompt-CAE-C1-Reading.txt
+Bundle mẫu: Tainguyen/cae-Reading-test1/

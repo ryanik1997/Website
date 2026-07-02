@@ -26,6 +26,8 @@
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
+| Listening | IELTS Cam 9 | `IELTS/Listening IELTS_Test1_Cam9` | **Builtin** `catalog-listening-ielts-cam9-test1` |
+| Listening | IELTS Cam 20 | `IELTS/Listening IELTS_Test1_Cam20` | **Builtin** `catalog-listening-ielts-cam20-test1` |
 
 ---
 
@@ -939,6 +941,18 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 - [x] `pnpm pack:reading:cae` → `Tainguyen/cae-Reading-test1.zip` (exam.json only — không ảnh)
 - [x] HDSD: `Prompt-CAE-C1-Reading.txt`, `Import Reading CAE C1.txt`, cập nhật `Import De Thi.txt`
 - [x] UI Reading: ẩn danh sách features trùng khi passage đã có label A–G (B2/C1 Part 6–8); placeholder Part 4 = `3–6 words`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Luyện thi — IELTS Listening Cam 9 + Cam 20 Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] Nguồn: `Tainguyen/IELTS/Listening IELTS_Test1_Cam9|Cam20/` (PDF + Answer Key + MP3)
+- [x] `scripts/build-ielts-listening-tests.py` — 2× exam.json · 40 câu · 4 parts · `listening.mp3`
+- [x] **Fix Cam 9 Test 1 nội dung đúng** (JOB INQUIRY / SPORTS WORLD / Spiros–Hiroko / Whales) — trước đó nhầm đề khác
+- [x] `ListeningIeltsPartView` — UI một cột theo `Giaodien/a1–a4`: note-completion inline (`gapLead`/`gapTrail`), MC dọc, Choose TWO
+- [x] ZIP import: `pnpm pack:listening:ielts-cam9` → **flat** `exam.json` + `listening.mp3` (không thư mục con/PDF); `importListeningZip` bỏ qua PDF
+- [x] Catalog: `catalog-listening-ielts-cam9-test1` + `catalog-listening-ielts-cam20-test1`
+- [x] `isListeningAnswerCorrect` — đáp án thay thế `A/E` (Choose TWO) + gap-fill `/` variants
+- [x] `pnpm pack:listening:ielts-cam9` / `ielts-cam20` + `pnpm build:ielts-listening`
+- [x] HDSD: `Prompt-IELTS-Listening-Cam9-Cam20.txt`
 - [x] `pnpm --filter web exec tsc --noEmit` — pass
 
 ### Luyện thi — CAE C1 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH

@@ -37,6 +37,7 @@ export interface ListeningImportQuestionJson {
   /** PET Part 3: câu gap-fill */
   gapLead?: string
   gapTrail?: string
+  noteBefore?: string
 }
 
 export interface ListeningImportPartJson {
@@ -373,6 +374,7 @@ export async function buildListeningExamFromImport(
         context: qJson.context,
         gapLead: qJson.gapLead,
         gapTrail: qJson.gapTrail,
+        noteBefore: qJson.noteBefore,
       })
     }
 
