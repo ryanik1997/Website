@@ -30,6 +30,10 @@ export function catalogSharedListeningAudioUrl(twin: ListeningExam): string | un
   return undefined
 }
 
+export function catalogPartImageUrl(twin: ListeningExam, partNumber: number): string | undefined {
+  return twin.parts.find(p => p.partNumber === partNumber)?.partImageUrl
+}
+
 export function catalogPictureImageUrl(twin: ListeningExam, questionNumber: number): string | undefined {
   for (const part of twin.parts) {
     const q = part.questions.find(cq => cq.number === questionNumber)
@@ -88,6 +92,12 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
   }
   if (!merged.ttsText && catalog.ttsText) {
     merged = { ...merged, ttsText: catalog.ttsText }
+  }
+  if (!merged.passageTitle && catalog.passageTitle) {
+    merged = { ...merged, passageTitle: catalog.passageTitle }
+  }
+  if (!merged.partImageUrl && catalog.partImageUrl) {
+    merged = { ...merged, partImageUrl: catalog.partImageUrl }
   }
   if (!hasExamAudioSource(partAudioSource(local))) {
     merged = {

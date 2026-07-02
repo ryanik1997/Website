@@ -164,16 +164,26 @@ function SunAnimationStyles() {
         to   { transform: rotate(360deg); }
       }
       @keyframes sun-float {
-        0%, 100% { transform: translateY(0px); }
-        50%       { transform: translateY(-18px); }
+        0%, 100% { transform: translate3d(0, 0px, 0); }
+        25%      { transform: translate3d(8px, -10px, 0); }
+        50%      { transform: translate3d(-6px, -28px, 0); }
+        75%      { transform: translate3d(-10px, -12px, 0); }
       }
       @keyframes sun-pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50%       { transform: scale(1.06); opacity: 0.85; }
+        0%, 100% { transform: scale(1); opacity: 0.96; }
+        50%      { transform: scale(1.08); opacity: 0.82; }
+      }
+      @keyframes halo-drift-a {
+        0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.42; }
+        50%      { transform: translate3d(18px, -20px, 0) scale(1.08); opacity: 0.58; }
+      }
+      @keyframes halo-drift-b {
+        0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.26; }
+        50%      { transform: translate3d(-24px, 16px, 0) scale(0.94); opacity: 0.4; }
       }
       @keyframes ray-breathe {
-        0%, 100% { stroke-width: 14px; opacity: 0.9; }
-        50%       { stroke-width: 20px; opacity: 1; }
+        0%, 100% { stroke-width: 14px; opacity: 0.88; }
+        50%      { stroke-width: 21px; opacity: 1; }
       }
       @keyframes bubble-pop {
         0%   { transform: scale(0.8) translateY(6px); opacity: 0; }
@@ -190,9 +200,26 @@ function SunAnimationStyles() {
         75%       { transform: rotate(-3deg); }
       }
 
-      .sun-rays  { transform-origin: 200px 230px; animation: sun-spin 12s linear infinite; }
+      .sun-rays  { transform-origin: 200px 230px; animation: sun-spin 14s linear infinite; }
       .sun-body  { transform-origin: 200px 230px; animation: sun-pulse 3.5s ease-in-out infinite; }
-      .sun-wrap  { animation: sun-float 4s ease-in-out infinite; }
+      .sun-wrap  { animation: sun-float 5.6s cubic-bezier(.45,.05,.55,.95) infinite; }
+      .sun-halo-a { animation: halo-drift-a 10s ease-in-out infinite; }
+      .sun-halo-b { animation: halo-drift-b 13s ease-in-out infinite; }
+      .sun-parallax-halo {
+        transform: translate3d(calc(var(--sun-px, 0px) * 0.35), calc(var(--sun-py, 0px) * 0.35), 0);
+        transition: transform 220ms ease-out;
+        will-change: transform;
+      }
+      .sun-parallax-main {
+        transform: translate3d(calc(var(--sun-px, 0px) * 0.7), calc(var(--sun-py, 0px) * 0.7), 0);
+        transition: transform 180ms ease-out;
+        will-change: transform;
+      }
+      .sun-bubble-layer {
+        transform: translate3d(calc(var(--sun-px, 0px) * 1.1), calc(var(--sun-py, 0px) * 1.1), 0);
+        transition: transform 200ms ease-out;
+        will-change: transform;
+      }
       .sun-eye-l { transform-origin: 165px 215px; animation: blink 4s ease-in-out infinite; }
       .sun-eye-r { transform-origin: 235px 215px; animation: blink 4s ease-in-out infinite 0.05s; }
       .sun-smile { transform-origin: 200px 255px; animation: smile-wiggle 4s ease-in-out infinite; }
@@ -336,17 +363,61 @@ function GuestMenu() {
 /* ── Hero ────────────────────────────────────────────────── */
 function Hero() {
   const { signInWithGoogle } = useAuth()
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero) return
+    const heroEl: HTMLElement = hero
+
+    function resetParallax() {
+      heroEl.style.setProperty('--sun-px', '0px')
+      heroEl.style.setProperty('--sun-py', '0px')
+    }
+
+    function handlePointerMove(event: PointerEvent) {
+      if (window.innerWidth < 768) {
+        resetParallax()
+        return
+      }
+
+      const rect = heroEl.getBoundingClientRect()
+      const nx = (event.clientX - rect.left) / rect.width - 0.5
+      const ny = (event.clientY - rect.top) / rect.height - 0.5
+      heroEl.style.setProperty('--sun-px', `${Math.max(-14, Math.min(14, nx * 28))}px`)
+      heroEl.style.setProperty('--sun-py', `${Math.max(-10, Math.min(10, ny * 20))}px`)
+    }
+
+    resetParallax()
+    heroEl.addEventListener('pointermove', handlePointerMove)
+    heroEl.addEventListener('pointerleave', resetParallax)
+    return () => {
+      heroEl.removeEventListener('pointermove', handlePointerMove)
+      heroEl.removeEventListener('pointerleave', resetParallax)
+    }
+  }, [])
 
   function scrollToFeatures() {
     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="flex items-center px-6 md:px-16 lg:px-24 pt-10 pb-16 md:pb-20 overflow-hidden relative">
+    <section
+      ref={heroRef}
+      className="flex items-center px-6 md:px-16 lg:px-24 pt-10 pb-16 md:pb-20 overflow-visible relative"
+    >
       {/* Warm glow behind sun */}
       <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none hidden md:block"
-        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 18%, transparent) 0%, transparent 70%)' }}
+        className="sun-halo-a sun-parallax-halo absolute right-[6%] top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full pointer-events-none md:block"
+        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFF3A3 36%, transparent) 0%, color-mix(in srgb, #FFD36A 14%, transparent) 34%, transparent 72%)' }}
+      />
+      <div
+        className="sun-halo-b sun-parallax-halo absolute right-[-10%] top-[44%] hidden h-[760px] w-[760px] -translate-y-1/2 rounded-full pointer-events-none md:block"
+        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFE28A 18%, transparent) 0%, color-mix(in srgb, #FFDA5A 8%, transparent) 42%, transparent 78%)' }}
+      />
+      <div
+        className="sun-parallax-halo absolute right-[-4%] top-1/2 hidden w-[640px] h-[640px] -translate-y-1/2 rounded-full pointer-events-none md:block"
+        style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 24%, transparent) 0%, color-mix(in srgb, #FFD36A 12%, transparent) 38%, transparent 74%)' }}
       />
 
       <div className="flex-1 max-w-xl z-10">
@@ -383,7 +454,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hidden md:flex flex-1 items-end justify-center h-full max-h-[520px] relative">
+      <div className="hidden md:flex flex-1 items-end justify-center h-full max-h-[520px] relative overflow-visible">
         <SunIllustration />
       </div>
     </section>
@@ -608,23 +679,28 @@ function Footer() {
 function SunIllustration() {
   const RAYS = 16
   return (
-    <svg viewBox="0 0 400 420" className="w-full max-w-md drop-shadow-xl" fill="none">
+    <svg
+      viewBox="-40 -30 500 500"
+      className="sun-parallax-main w-full max-w-md overflow-visible drop-shadow-xl"
+      fill="none"
+    >
       <defs>
         <radialGradient id="bodyGrad" cx="50%" cy="40%" r="60%">
           <stop offset="0%"   stopColor="#FFDA5A" />
           <stop offset="100%" stopColor="#F5850A" />
         </radialGradient>
         <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stopColor="#FFF3A3" stopOpacity="0.6" />
+          <stop offset="0%"   stopColor="#FFF6B8" stopOpacity="0.74" />
+          <stop offset="52%"  stopColor="#FFE17A" stopOpacity="0.28" />
           <stop offset="100%" stopColor="#FFF3A3" stopOpacity="0" />
         </radialGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="6" result="blur" />
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox">
+          <feGaussianBlur stdDeviation="9" result="blur" />
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
 
-      <circle className="sun-wrap" cx="200" cy="235" r="175" fill="url(#glowGrad)" />
+      <circle className="sun-wrap" cx="200" cy="235" r="190" fill="url(#glowGrad)" />
 
       <g className="sun-wrap">
         <g className="sun-rays" filter="url(#glow)">
@@ -665,7 +741,7 @@ function SunIllustration() {
         <ellipse cx="138" cy="248" rx="16" ry="10" fill="#FF7043" opacity="0.25" />
         <ellipse cx="262" cy="248" rx="16" ry="10" fill="#FF7043" opacity="0.25" />
 
-        <g className="sun-bubble">
+        <g className="sun-bubble sun-bubble-layer">
           <rect x="228" y="58" width="168" height="98" rx="18"
             fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5"
             filter="url(#glow)" />

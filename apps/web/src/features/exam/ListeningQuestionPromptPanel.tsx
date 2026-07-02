@@ -16,11 +16,9 @@ interface AudioBarProps {
   timeLabel: string
   hasAudioFile: boolean
   allowSeek: boolean
-  allowSlow: boolean
   playsLeft?: number | null
   playBlocked: boolean
   onPlayNormal: () => void
-  onPlaySlow: () => void
   onSeek: (pct: number) => void
   onStop: () => void
 }

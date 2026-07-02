@@ -4,8 +4,7 @@ import ExamHeaderBack from './ExamHeaderBack'
 import ExamPartFooter from './ExamPartFooter'
 import { listeningExamBackPath } from './examNavigation'
 import ExamTimerControls from './ExamTimerControls'
-import FullMockStageResult from './FullMockStageResult'
-import ListeningExamResult from './ListeningExamResult'
+import ListeningSubmittedScreen from './ListeningSubmittedScreen'
 import ListeningPetGapFillPartView from './ListeningPetGapFillPartView'
 import ListeningPetMcPartView from './ListeningPetMcPartView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
@@ -19,12 +18,7 @@ import {
   isPetSpecialPartLayout,
   PET_LISTENING_DURATION_MINUTES,
 } from './listeningPetPartLayout'
-import { getFullMockTest } from './fullMockData'
-import {
-  appendFullMockQuery,
-  clearFullMockSession,
-  patchFullMockSession,
-} from './fullMockSession'
+import { patchFullMockSession } from './fullMockSession'
 import { clearListeningDraft } from './examCompletion'
 import { ExamHighlightProvider } from './examHighlightContext'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
@@ -32,7 +26,7 @@ import { notifyExamDraftRevision } from './useExamDraftRevision'
 import { usePartHighlights } from './usePartHighlights'
 import { initialExamTimerSeconds } from './examTimer'
 import type { ListeningExam } from './listeningExamData'
-import { getListeningExamQuestions, getPartQuestions, isListeningAnswerCorrect } from './listeningExamData'
+import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
@@ -222,10 +216,9 @@ export default function ListeningPetTest({ exam }: Props) {
   }, [activeQuestionId, allQuestions, exam.parts, partIndex])
 
   useEffect(() => {
-    if (!isPartLayout) {
-      window.requestAnimationFrame(() => resetListeningSplitPanes(bodyRef.current))
-    }
-  }, [activeQuestionId, isPartLayout])
+    if (submitted || isPartLayout) return
+    window.requestAnimationFrame(() => resetListeningSplitPanes(bodyRef.current))
+  }, [activeQuestionId, isPartLayout, submitted])
 
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
@@ -243,51 +236,24 @@ export default function ListeningPetTest({ exam }: Props) {
     }
   }, [clearAllHighlights, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
 
-  if (submitted) {
-    const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
-    if (fullMock) {
-      const correct = allQuestions.filter(q => isListeningAnswerCorrect(q, answers[q.id] ?? '')).length
-      return (
-        <FullMockStageResult
-          mockTitle={fullMock.title}
-          stage="listening"
-          stageLabel="Listening"
-          scoreText={`${correct}/${allQuestions.length}`}
-          nextLabel="Tiếp Writing"
-          onContinue={() => {
-            patchFullMockSession({
-              stage: 'writing',
-              listening: {
-                correct,
-                total: allQuestions.length,
-                answers: { ...answers },
-                unsure: { ...unsure },
-              },
-            })
-            navigate(appendFullMockQuery(`/app/exam/writing/${fullMock.id}`, fullMock.id))
-          }}
-          onExit={() => {
-            clearFullMockSession()
-            navigate('/app/exam')
-          }}
-          onRetry={handleRetry}
-          retryLabel="Làm lại Listening"
-        />
-      )
-    }
+  const answeredCount = useMemo(
+    () => allQuestions.filter(q => Boolean(answers[q.id])).length,
+    [allQuestions, answers],
+  )
 
+  // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
+  if (submitted) {
     return (
-      <ListeningExamResult
+      <ListeningSubmittedScreen
         exam={exam}
         answers={answers}
         unsure={unsure}
+        allQuestions={allQuestions}
+        fullMockId={fullMockId}
         onRetry={handleRetry}
-        onBack={() => navigate(listeningExamBackPath(exam))}
       />
     )
   }
-
-  const answeredCount = allQuestions.filter(q => Boolean(answers[q.id])).length
 
   return (
     <div className={`listening-exam-shell${isResizing ? ' is-resizing' : ''}`}>
@@ -329,12 +295,10 @@ export default function ListeningPetTest({ exam }: Props) {
             timeLabel,
             hasAudioFile,
             allowSeek: exam.examMode === 'practice',
-            allowSlow: exam.examMode === 'practice',
             playsLeft: left,
             playBlocked: blocked,
             playError,
             onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
-            onPlaySlow: () => void play(audioSource, makePlayOpts(0.75)),
             onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
             onStop: stopPlayback,
           }

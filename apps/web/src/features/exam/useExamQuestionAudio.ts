@@ -13,7 +13,6 @@ export interface ExamAudioSource {
 export interface ExamAudioPlayOptions {
   rate?: number
   allowSeek?: boolean
-  allowSlow?: boolean
   beforePlay?: () => boolean
   onPlayCounted?: () => void
 }

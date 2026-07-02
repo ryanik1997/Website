@@ -4,6 +4,7 @@ import ListeningPictureChoiceRow from './ListeningPictureChoiceRow'
 import ListeningPictureOption from './ListeningPictureOption'
 import ExamHighlightZone from './ExamHighlightZone'
 import ExamHighlightableLines from './ExamHighlightableLines'
+import ListeningPartImageHeader from './ListeningPartImageHeader'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
@@ -228,6 +229,11 @@ export function ListeningPartPromptPanel({
           lineClassName="listening-exam-prompt-pane__instruction"
         />
       )}
+      <ListeningPartImageHeader
+        partId={part.id}
+        passageTitle={part.passageTitle}
+        partImageUrl={part.partImageUrl}
+      />
       {audioSlot}
       {activeQuestion && usesCompositePictureBoard(activeQuestion) && (
         <ListeningPictureBoard

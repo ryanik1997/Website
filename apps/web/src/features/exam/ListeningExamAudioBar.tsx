@@ -9,12 +9,10 @@ interface Props {
   timeLabel: string
   hasAudioFile: boolean
   allowSeek?: boolean
-  allowSlow?: boolean
   playsLeft?: number | null
   playBlocked?: boolean
   playError?: string | null
   onPlayNormal: () => void
-  onPlaySlow: () => void
   onSeek: (pct: number) => void
   onStop: () => void
 }
@@ -27,12 +25,10 @@ export default function ListeningExamAudioBar({
   timeLabel,
   hasAudioFile,
   allowSeek = true,
-  allowSlow = true,
   playsLeft = null,
   playBlocked = false,
   playError = null,
   onPlayNormal,
-  onPlaySlow,
   onSeek,
   onStop,
 }: Props) {
@@ -90,16 +86,6 @@ export default function ListeningExamAudioBar({
         >
           Phát
         </button>
-        {allowSlow && (
-          <button
-            type="button"
-            className="listening-exam-audio__btn listening-exam-audio__btn--slow"
-            onClick={onPlaySlow}
-            disabled={disabled}
-          >
-            Phát chậm
-          </button>
-        )}
       </div>
 
       {playsLeft != null && (

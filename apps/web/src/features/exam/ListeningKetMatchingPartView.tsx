@@ -6,7 +6,8 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ExamAudioSource } from './useExamQuestionAudio'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
-import { matchingPersonName, sharedMatchingOptions } from './listeningKetPartLayout'
+import { matchingPersonName } from './listeningKetPartLayout'
+import { sharedMatchingOptions } from './listeningMultiPartLayout'
 
 interface AudioBarProps {
   source: ExamAudioSource
@@ -16,12 +17,10 @@ interface AudioBarProps {
   timeLabel: string
   hasAudioFile: boolean
   allowSeek: boolean
-  allowSlow: boolean
   playsLeft?: number | null
   playBlocked: boolean
   playError?: string | null
   onPlayNormal: () => void
-  onPlaySlow: () => void
   onSeek: (pct: number) => void
   onStop: () => void
 }

@@ -121,9 +121,9 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
     { partNumber: 3, from: 17, to: 24, title: 'Word formation', groupType: 'gap-fill' },
     { partNumber: 4, from: 25, to: 30, title: 'Key word transformation', groupType: 'gap-fill' },
     { partNumber: 5, from: 31, to: 36, title: 'Reading — text 1', groupType: 'multiple-choice', optionCount: 4 },
-    { partNumber: 6, from: 37, to: 42, title: 'Reading — cross-text matching', groupType: 'matching-features', optionCount: 5 },
-    { partNumber: 7, from: 43, to: 48, title: 'Reading — gapped text', groupType: 'gap-fill' },
-    { partNumber: 8, from: 49, to: 56, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 5 },
+    { partNumber: 6, from: 37, to: 40, title: 'Reading — cross-text matching', groupType: 'matching-features', optionCount: 4 },
+    { partNumber: 7, from: 41, to: 46, title: 'Reading — gapped text', groupType: 'matching-features', optionCount: 7 },
+    { partNumber: 8, from: 47, to: 56, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 5 },
   ],
   c2: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },

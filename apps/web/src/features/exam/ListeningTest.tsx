@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
@@ -36,13 +37,19 @@ export default function ListeningTest() {
     )
   }
 
+  const shell = (child: ReactNode) => (
+    <div className="flex h-full min-h-0 flex-col overflow-hidden">
+      {child}
+    </div>
+  )
+
   if (isKetStyleListening(exam.examType)) {
-    return <ListeningKetTest exam={exam} />
+    return shell(<ListeningKetTest exam={exam} />)
   }
 
   if (isPetStyleListening(exam.examType)) {
-    return <ListeningPetTest exam={exam} />
+    return shell(<ListeningPetTest exam={exam} />)
   }
 
-  return <ListeningIeltsTest exam={exam} />
+  return shell(<ListeningIeltsTest exam={exam} />)
 }

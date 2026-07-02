@@ -58,8 +58,23 @@ Part 1–4 Use of English · Part 5–7 Reading
 Bundle mẫu: fce-reading-test1.zip (Tainguyen/)
 Prompt AI: HDSD/Prompt-FCE-B2.txt
 
-C1 CAE — 8 parts · 56 câu
-Giống B2 + cross-text matching + thêm part Reading
+C1 CAE — 8 parts · 56 câu · 90 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Ghi chú                             │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–8    │ multiple-choice   │ MC cloze A–D                        │
+│ 2    │ 9–16   │ gap-fill          │ open cloze ONE WORD                 │
+│ 3    │ 17–24  │ gap-fill          │ word formation                      │
+│ 4    │ 25–30  │ gap-fill          │ key word transformation             │
+│ 5    │ 31–36  │ multiple-choice   │ reading A–D                         │
+│ 6    │ 37–40  │ matching-features │ cross-text — 4 reviews A–D          │
+│ 7    │ 41–46  │ matching-features │ gapped text — paragraphs A–G        │
+│ 8    │ 47–56  │ matching-features │ multiple matching — consultants A–E │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C1 CAE — bundle mẫu: cae-Reading-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CAE-C1-Reading.txt
+Builtin: catalog-reading-cae-c1-test1 (pnpm build:catalog)
 
 C2 CPE — 7 parts · 53 câu
 Giống FCE/CAE; Part 7 multiple matching Q43–53
@@ -85,7 +100,10 @@ Prompt AI tạo ZIP (Claude / ChatGPT)
 • KET A2 Listening: HDSD/Prompt-KET-A2-Listening.txt
 • PET B1 Reading: HDSD/Prompt-PET-B1.txt
 • PET B1 Listening: HDSD/Prompt-PET-B1-Listening.txt
-• FCE B2: HDSD/Prompt-FCE-B2.txt
+• FCE B2 Reading: HDSD/Prompt-FCE-B2.txt
+• FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening.txt
+• CAE C1 Reading: HDSD/Prompt-CAE-C1-Reading.txt
+• CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening.txt
 • Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 
 Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
@@ -124,6 +142,36 @@ B1 PET — bundle mẫu: pet-listening-test1.zip (Tainguyen/)
 Prompt AI: HDSD/Prompt-PET-B1-Listening.txt
 Đóng gói: pnpm pack:listening:pet
 
+B2 FCE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–8    │ multiple-choice   │ listening.mp3 (chung)               │
+│ 2    │ 9–18   │ gap-fill          │ passageTitle + imageFile q2.jpg     │
+│ 3    │ 19–23  │ matching A–H      │ Speaker 1–5 → thả chữ cái (a9.jpg)  │
+│ 4    │ 24–30  │ multiple-choice   │ phỏng vấn dài A/B/C                 │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+B2 FCE — bundle mẫu: fce-Listening-test1.zip (Tainguyen/)
+Prompt AI: HDSD/Prompt-FCE-B2-Listening.txt
+Đóng gói: pnpm pack:listening:fce
+Builtin: catalog-listening-fce-b2-test1 (pnpm build:catalog)
+
+C1 CAE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 3 extracts A/B/C                    │
+│ 2    │ 7–14   │ gap-fill          │ passageTitle TRIP TO SOUTH AFRICA   │
+│ 3    │ 15–20  │ multiple-choice   │ phỏng vấn dài A/B/C/D               │
+│ 4    │ 21–30  │ matching dual     │ Task One + Task Two (a10.jpg)       │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C1 CAE — bundle mẫu: cae-Listening-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CAE-C1-Listening.txt
+Đóng gói: pnpm pack:listening:cae
+Builtin: catalog-listening-cae-c1-test1 (pnpm build:catalog)
+
 Bước 2 — Media:
 • 1 file listening.mp3 cho cả bài (gắn audioFile mỗi part)
 • Hoặc q1.mp3 … q25.mp3 từng câu
@@ -142,4 +190,5 @@ Mẹo
 3. Bundle mẫu KET Test 1 Reading: Tainguyen/ket-reading-test1.zip — Prompt-KET-A2.txt
 4. Bundle mẫu KET Test 1 Listening: Tainguyen/ket-listening-test1.zip — Prompt-KET-A2-Listening.txt
 5. Bundle mẫu PET Test 1 Listening: Tainguyen/pet-listening-test1.zip — Prompt-PET-B1-Listening.txt
-6. Đề import có nút xóa (thùng rác) trong danh sách Reading / Listening
+6. Bundle mẫu FCE Test 1 Listening: Tainguyen/fce-Listening-test1.zip — Prompt-FCE-B2-Listening.txt
+7. Đề import có nút xóa (thùng rác) trong danh sách Reading / Listening
