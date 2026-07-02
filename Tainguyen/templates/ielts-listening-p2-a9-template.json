@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 2 (a9 — Diagram + Match + Notes)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 2 · Giaodien/Part2-Listening/a9.jpg",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Label the diagram. Questions 14–18: Matching. Questions 19–20: Complete the notes.",
+      "audioFile": "listening.mp3",
+      "imageFile": "diagram.jpg",
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "The best place to park in town is next to station"
+        },
+        {
+          "type": "gap",
+          "number": 19
+        },
+        {
+          "type": "gap",
+          "number": 20
+        }
+      ],
+      "questions": [
+        {
+          "number": 11,
+          "type": "matching",
+          "prompt": "Item 11",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "D",
+          "diagramLabel": true,
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Label the diagram below. Choose THREE answers from the box and write the correct letter A–E.",
+          "sectionTitle": "WATER HEATER"
+        },
+        {
+          "number": 12,
+          "type": "matching",
+          "prompt": "Item 12",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "C",
+          "diagramLabel": true
+        },
+        {
+          "number": 13,
+          "type": "matching",
+          "prompt": "Item 13",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "E",
+          "diagramLabel": true
+        },
+        {
+          "number": 14,
+          "type": "matching",
+          "prompt": "Pillows",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "B",
+          "sectionRange": "Questions 14 – 18",
+          "sectionInstruction": "Where can each of the following items be found? Choose FIVE answers from the options and write the correct letter A–G."
+        },
+        {
+          "number": 15,
+          "type": "matching",
+          "prompt": "Washing powder",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "G"
+        },
+        {
+          "number": 16,
+          "type": "matching",
+          "prompt": "Key",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "E"
+        },
+        {
+          "number": 17,
+          "type": "matching",
+          "prompt": "Light bulbs",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "C"
+        },
+        {
+          "number": 18,
+          "type": "matching",
+          "prompt": "Map",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "D"
+        },
+        {
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "Phone number for takeaway pizzas:",
+          "options": [],
+          "answer": "327616",
+          "wordLimit": 2,
+          "gapLead": "Phone number for takeaway pizzas –",
+          "sectionRange": "Questions 19 – 20",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer."
+        },
+        {
+          "number": 20,
+          "type": "gap-fill",
+          "prompt": "Railway museum closed on:",
+          "options": [],
+          "answer": "Monday",
+          "wordLimit": 2,
+          "gapLead": "Railway museum closed on"
+        }
+      ]
+    }
+  ]
+}

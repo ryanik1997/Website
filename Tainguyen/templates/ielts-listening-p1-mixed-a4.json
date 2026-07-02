@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 1 Mixed bảng+Choose TWO (mẫu a4)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 1 · noteTables + Choose TWO · Giaodien/a4",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–4: Complete the table below. Write ONE WORD ONLY for each answer.\nQuestions 5–6: Choose TWO letters, A–E.\nQuestions 7–10: Complete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "instruction": "Questions 1–4\nComplete the table below. Write ONE WORD ONLY for each answer.",
+          "headers": [
+            "Name of centre",
+            "Doctor's name",
+            "Advantage"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The Harvey Clinic"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr Green"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Especially good with "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  },
+                  {
+                    "type": "static",
+                    "text": " Health Practice"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr Fuller"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Offers "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  },
+                  {
+                    "type": "static",
+                    "text": " appointments"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The Shore Lane Health Centre"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 7–10\nComplete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "title": "Talks for patients at Shore Lane Health Centre",
+          "headers": [
+            "Subject of talk",
+            "Date/time",
+            "Location",
+            "Notes"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Giving up smoking"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "25th Feb at 7pm"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Room 4"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Useful for people with asthma or "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " problems"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Healthy eating"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "1st March at 5pm"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 8
+                  },
+                  {
+                    "type": "static",
+                    "text": " (Shore Lane)"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Anyone welcome"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Avoiding injuries during exercise"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 9
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Room 6"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "For all "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Especially good with:",
+          "options": [],
+          "answer": "elderly",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Name of centre:",
+          "options": [],
+          "answer": "college",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "Health Practice"
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Appointments:",
+          "options": [],
+          "answer": "same day",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "Offers",
+          "gapTrail": "appointments"
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Doctor's name:",
+          "options": [],
+          "answer": "white",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Dr"
+        },
+        {
+          "number": 5,
+          "type": "matching",
+          "prompt": "Which TWO of the following are offered free of charge at Shore Lane Health Centre?",
+          "options": [
+            {
+              "id": "A",
+              "label": "acupuncture"
+            },
+            {
+              "id": "B",
+              "label": "employment medicals"
+            },
+            {
+              "id": "C",
+              "label": "sports injury therapy"
+            },
+            {
+              "id": "D",
+              "label": "travel advice"
+            },
+            {
+              "id": "E",
+              "label": "vaccinations"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Hai dịch vụ miễn phí — điền A/E."
+        },
+        {
+          "number": 6,
+          "type": "matching",
+          "prompt": "Which TWO of the following are offered free of charge at Shore Lane Health Centre?",
+          "options": [
+            {
+              "id": "A",
+              "label": "acupuncture"
+            },
+            {
+              "id": "B",
+              "label": "employment medicals"
+            },
+            {
+              "id": "C",
+              "label": "sports injury therapy"
+            },
+            {
+              "id": "D",
+              "label": "travel advice"
+            },
+            {
+              "id": "E",
+              "label": "vaccinations"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Hai dịch vụ miễn phí — điền A/E."
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Health problems:",
+          "options": [],
+          "answer": "heart",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "asthma or",
+          "gapTrail": "problems"
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Location:",
+          "options": [],
+          "answer": "dentist",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "(Shore Lane)"
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Date/time:",
+          "options": [],
+          "answer": "4th march",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Notes:",
+          "options": [],
+          "answer": "ages",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "For all"
+        }
+      ]
+    }
+  ]
+}

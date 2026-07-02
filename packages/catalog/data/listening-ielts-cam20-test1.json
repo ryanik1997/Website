@@ -220,7 +220,208 @@
           "type": "gap",
           "number": 10
         }
-      ]
+      ],
+      "notePassageLayout": "table",
+      "noteTable": {
+        "headers": [
+          "Name of restaurants",
+          "Location",
+          "Reason for recommendation",
+          "Other comments"
+        ],
+        "rows": [
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "The Junction"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Greyston Street, near the station"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Good for people who are especially keen on "
+                },
+                {
+                  "type": "gap",
+                  "number": 1
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Quite expensive"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "The "
+                },
+                {
+                  "type": "gap",
+                  "number": 2
+                },
+                {
+                  "type": "static",
+                  "text": " is a good place for a drink"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "Paloma"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "In Bow Street next to the cinema"
+                }
+              ],
+              [
+                {
+                  "type": "gap",
+                  "number": 3
+                },
+                {
+                  "type": "static",
+                  "text": " food, good for sharing"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Staff are very friendly"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Need to pay £50 deposit"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "A limited selection of "
+                },
+                {
+                  "type": "gap",
+                  "number": 4
+                },
+                {
+                  "type": "static",
+                  "text": " food on the menu"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "The "
+                },
+                {
+                  "type": "gap",
+                  "number": 5
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "At the top of a "
+                },
+                {
+                  "type": "gap",
+                  "number": 6
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "A famous chef"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "All the "
+                },
+                {
+                  "type": "gap",
+                  "number": 7
+                },
+                {
+                  "type": "static",
+                  "text": " are very good"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Only uses "
+                },
+                {
+                  "type": "gap",
+                  "number": 8
+                },
+                {
+                  "type": "static",
+                  "text": " ingredients"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Set lunch costs £"
+                },
+                {
+                  "type": "gap",
+                  "number": 9
+                },
+                {
+                  "type": "static",
+                  "text": " per person"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Portions probably of "
+                },
+                {
+                  "type": "gap",
+                  "number": 10
+                },
+                {
+                  "type": "static",
+                  "text": " size"
+                }
+              ]
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "catalog-listening-ielts-cam20-test1-part-2",
@@ -249,7 +450,9 @@
             }
           ],
           "answer": "A",
-          "explanation": "Gốm bền trong đất."
+          "explanation": "Gốm bền trong đất.",
+          "sectionRange": "Questions 11 – 16",
+          "sectionInstruction": "Choose the correct letter A, B or C."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-12",
@@ -389,7 +592,9 @@
             }
           ],
           "answer": "A/E",
-          "explanation": "Chức năng lò (A) và thay thế (E)."
+          "explanation": "Chức năng lò (A) và thay thế (E).",
+          "sectionRange": "Questions 17 – 18",
+          "sectionInstruction": "Choose TWO letters, A–E."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-18",
@@ -449,7 +654,9 @@
             }
           ],
           "answer": "C/E",
-          "explanation": "Thiết yếu (C) và dùng chung (E)."
+          "explanation": "Thiết yếu (C) và dùng chung (E).",
+          "sectionRange": "Questions 19 – 20",
+          "sectionInstruction": "Choose TWO letters, A–E."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-20",
@@ -519,7 +726,9 @@
             }
           ],
           "answer": "C/E",
-          "explanation": "Thiết kế đô thị (C) / lực lượng di động (E)."
+          "explanation": "Thiết kế đô thị (C) / lực lượng di động (E).",
+          "sectionRange": "Questions 21 – 22",
+          "sectionInstruction": "Choose TWO letters, A–E."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-22",
@@ -579,7 +788,9 @@
             }
           ],
           "answer": "A/C",
-          "explanation": "Miễn dịch (A) / ung thư (C)."
+          "explanation": "Miễn dịch (A) / ung thư (C).",
+          "sectionRange": "Questions 23 – 24",
+          "sectionInstruction": "Choose TWO letters, A–E."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-24",
@@ -639,7 +850,9 @@
             }
           ],
           "answer": "A/B",
-          "explanation": "Ít thực tiễn (A) / cần nghiên cứu (B)."
+          "explanation": "Ít thực tiễn (A) / cần nghiên cứu (B).",
+          "sectionRange": "Questions 25 – 26",
+          "sectionInstruction": "Choose TWO letters, A–E."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-26",
@@ -691,7 +904,9 @@
             }
           ],
           "answer": "A",
-          "explanation": "Nghi ngờ có thuốc chữa cô đơn."
+          "explanation": "Nghi ngờ có thuốc chữa cô đơn.",
+          "sectionRange": "Questions 27 – 30",
+          "sectionInstruction": "Choose the correct letter A, B or C."
         },
         {
           "id": "catalog-listening-ielts-cam20-test1-q-28",

@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 3 (c7 — Table + Matching)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 3 · Giaodien/Part3-Listening/c7.jpg",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–24: Complete the table (ONE WORD). Questions 25–30: Matching A–G.",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            21,
+            22,
+            23,
+            24
+          ],
+          "instruction": "Complete the table below. Write ONE WORD ONLY for each answer.",
+          "title": "Presentation of film adaptations of Shakespeare's plays",
+          "headers": [
+            "Stages of presentation",
+            "Work still to be done"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Introduce Giannetti's book containing a"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 21
+                  },
+                  {
+                    "type": "static",
+                    "text": "of adaptations"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Organise notes"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Ask class to suggest the"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 22
+                  },
+                  {
+                    "type": "static",
+                    "text": "adaptations"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "No further work needed"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Present Rachel Malchow's ideas"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Prepare some"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 23
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Discuss relationship between adaptations and"
+                  },
+                  {
+                    "type": "gap",
+                    "number": 24
+                  },
+                  {
+                    "type": "static",
+                    "text": "at the time of making the film"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "No further work needed"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 21,
+          "type": "gap-fill",
+          "prompt": "Book contains:",
+          "options": [],
+          "answer": "collection",
+          "wordLimit": 1
+        },
+        {
+          "number": 22,
+          "type": "gap-fill",
+          "prompt": "Suggest:",
+          "options": [],
+          "answer": "best",
+          "wordLimit": 1
+        },
+        {
+          "number": 23,
+          "type": "gap-fill",
+          "prompt": "Prepare:",
+          "options": [],
+          "answer": "slides",
+          "wordLimit": 1
+        },
+        {
+          "number": 24,
+          "type": "gap-fill",
+          "prompt": "Relationship:",
+          "options": [],
+          "answer": "politics",
+          "wordLimit": 1
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Ran",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "A",
+          "sectionRange": "Questions 25 – 30",
+          "sectionInstruction": "What do the speakers say about each of the following films? Choose SIX answers from the box and write the correct letter A–G next to questions 25–30.",
+          "sectionTitle": "FILMS"
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Much Ado About Nothing",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "E"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "Romeo & Juliet",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "F"
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "Hamlet",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "Prospero's Books",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "G"
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "Looking for Richard",
+          "options": [
+            {
+              "id": "A",
+              "label": "clearly shows the historical period"
+            },
+            {
+              "id": "B",
+              "label": "contains only parts of the play"
+            },
+            {
+              "id": "C",
+              "label": "is too similar to another kind of film"
+            },
+            {
+              "id": "D",
+              "label": "turned out to be unpopular with audiences"
+            },
+            {
+              "id": "E",
+              "label": "presents the play in a different period from the original"
+            },
+            {
+              "id": "F",
+              "label": "sets the original in a different country"
+            },
+            {
+              "id": "G",
+              "label": "incorporates a variety of art forms"
+            }
+          ],
+          "answer": "C"
+        }
+      ]
+    }
+  ]
+}

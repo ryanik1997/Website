@@ -1,0 +1,1241 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Cambridge 9 Test 2",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 9 · Test 2 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "passageTitle": "CRIME REPORT FORM",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "form",
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "Type of crime: theft"
+        },
+        {
+          "type": "section",
+          "text": "Personal information"
+        },
+        {
+          "type": "example",
+          "text": "Example\nName: Louise …Taylor…"
+        },
+        {
+          "type": "static",
+          "text": "Nationality:"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "Date of birth: 14 December 1977"
+        },
+        {
+          "type": "static",
+          "text": "Occupation: interior designer"
+        },
+        {
+          "type": "static",
+          "text": "Reason for visit: business (to buy antique"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "static",
+          "text": ")"
+        },
+        {
+          "type": "static",
+          "text": "Length of stay: two months"
+        },
+        {
+          "type": "static",
+          "text": "Current address:"
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "static",
+          "text": "Apartments (No 15)"
+        },
+        {
+          "type": "section",
+          "text": "Details of theft"
+        },
+        {
+          "type": "static",
+          "text": "Items stolen:\n– a wallet containing approximately £"
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "static",
+          "text": "– a"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": "Date of theft:"
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "section",
+          "text": "Possible time and place of theft"
+        },
+        {
+          "type": "static",
+          "text": "Location: outside the"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "static",
+          "text": "at about 4 pm"
+        },
+        {
+          "type": "static",
+          "text": "Details of suspect:\n– some boys asked for the"
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "then ran off"
+        },
+        {
+          "type": "static",
+          "text": "– one had a T-shirt with a picture of a tiger"
+        },
+        {
+          "type": "static",
+          "text": "– he was about 12, slim build with"
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "hair"
+        },
+        {
+          "type": "static",
+          "text": "Crime reference number allocated"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Nationality:",
+          "options": [],
+          "answer": "bhatt",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Nationality:"
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Reason for visit:",
+          "options": [],
+          "answer": "31 march",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "Reason for visit: business (to buy antique"
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Current address:",
+          "options": [],
+          "answer": "nursing",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Current address:"
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Amount in wallet:",
+          "options": [],
+          "answer": "2",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "a wallet containing approximately £"
+        },
+        {
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Stolen item:",
+          "options": [],
+          "answer": "meat",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "– a"
+        },
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Date of theft:",
+          "options": [],
+          "answer": "bedsit",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Date of theft:"
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Location:",
+          "options": [],
+          "answer": "theatre",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Location: outside the",
+          "gapTrail": "at about 4 pm"
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Asked for:",
+          "options": [],
+          "answer": "mature",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "some boys asked for the",
+          "gapTrail": "then ran off"
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Hair:",
+          "options": [],
+          "answer": "town",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "he was about 12, slim build with",
+          "gapTrail": "hair"
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Crime reference number:",
+          "options": [],
+          "answer": "shared",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Crime reference number allocated"
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Complete the table. Questions 14–16: Choose A, B or C. Questions 17–20: Label the map A–I.",
+      "audioFile": "listening.mp3",
+      "imageFile": "map.jpg",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            11,
+            12,
+            13
+          ],
+          "instruction": "Questions 11 – 13\nComplete the table below. Write NO MORE THAN THREE WORDS for each answer.",
+          "sectionTitle": "Parks and open spaces",
+          "headers": [
+            "Name of place",
+            "Of particular interest",
+            "Open"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Halland Common"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "source of River Ouse"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "24 hours"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Holt Island"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "many different "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 11
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "between "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 12
+                  },
+                  {
+                    "type": "static",
+                    "text": " and Sunday"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Longfield Country Park"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "reconstruction of a 2,000-year-old "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 13
+                  },
+                  {
+                    "type": "static",
+                    "text": " with activities for children"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "daylight hours"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 11,
+          "type": "gap-fill",
+          "prompt": "Holt Island — of particular interest:",
+          "options": [],
+          "answer": "trees",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 3,
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Complete the table below. Write NO MORE THAN THREE WORDS for each answer.",
+          "sectionTitle": "Parks and open spaces"
+        },
+        {
+          "number": 12,
+          "type": "gap-fill",
+          "prompt": "Holt Island — open from:",
+          "options": [],
+          "answer": "friday",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 3
+        },
+        {
+          "number": 13,
+          "type": "gap-fill",
+          "prompt": "Longfield Country Park — of particular interest:",
+          "options": [],
+          "answer": "farm",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 3
+        },
+        {
+          "number": 14,
+          "type": "multiple-choice",
+          "prompt": "As part of Monday's activity, visitors will",
+          "options": [
+            {
+              "id": "A",
+              "label": "prepare food with herbs"
+            },
+            {
+              "id": "B",
+              "label": "meet a well-known herbalist"
+            },
+            {
+              "id": "C",
+              "label": "dye cloth with herbs"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 14 – 16",
+          "sectionInstruction": "Choose the correct letter A, B or C.",
+          "sectionTitle": "Longfield Park"
+        },
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "For the activity on Wednesday,",
+          "options": [
+            {
+              "id": "A",
+              "label": "only group bookings are accepted"
+            },
+            {
+              "id": "B",
+              "label": "visitors should book in advance"
+            },
+            {
+              "id": "C",
+              "label": "attendance is free"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "For the activity on Saturday, visitors should",
+          "options": [
+            {
+              "id": "A",
+              "label": "come in suitable clothing"
+            },
+            {
+              "id": "B",
+              "label": "make sure they are able to stay for the whole day"
+            },
+            {
+              "id": "C",
+              "label": "tell the rangers before the event what they wish to do"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 17,
+          "type": "matching",
+          "prompt": "bird hide",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "A",
+          "mapLabel": true,
+          "sectionRange": "Questions 17 – 20",
+          "sectionInstruction": "Label the map below. Write the correct letter A–I next to questions 17–20.",
+          "sectionTitle": "HINCHINGBROOKE PARK"
+        },
+        {
+          "number": 18,
+          "type": "matching",
+          "prompt": "dog-walking area",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "I",
+          "mapLabel": true
+        },
+        {
+          "number": 19,
+          "type": "matching",
+          "prompt": "flower garden",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "F",
+          "mapLabel": true
+        },
+        {
+          "number": 20,
+          "type": "matching",
+          "prompt": "wooded area",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "E",
+          "mapLabel": true
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–24: Choose A, B or C. Questions 25–30: Complete the notes (NO MORE THAN TWO WORDS).",
+      "passageTitle": "Self-Access Centre",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "form",
+      "notePassageSections": [
+        {
+          "gapNumbers": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "instruction": "Questions 25 – 30\nComplete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+          "title": "Necessary improvements to the existing Self-Access Centre",
+          "blocks": [
+            {
+              "type": "section",
+              "text": "Equipment"
+            },
+            {
+              "type": "static",
+              "text": "• Replace computers to create more space."
+            },
+            {
+              "type": "section",
+              "text": "Resources"
+            },
+            {
+              "type": "static",
+              "text": "• The level of the"
+            },
+            {
+              "type": "gap",
+              "number": 25
+            },
+            {
+              "type": "static",
+              "text": "materials, in particular, should be more clearly shown."
+            },
+            {
+              "type": "static",
+              "text": "• Update the"
+            },
+            {
+              "type": "gap",
+              "number": 26
+            },
+            {
+              "type": "static",
+              "text": "collection."
+            },
+            {
+              "type": "static",
+              "text": "• Buy some"
+            },
+            {
+              "type": "gap",
+              "number": 27
+            },
+            {
+              "type": "static",
+              "text": "and divide them up."
+            },
+            {
+              "type": "section",
+              "text": "Use of the room"
+            },
+            {
+              "type": "static",
+              "text": "• Speak to the teachers and organise a"
+            },
+            {
+              "type": "gap",
+              "number": 28
+            },
+            {
+              "type": "static",
+              "text": "for supervising the centre."
+            },
+            {
+              "type": "static",
+              "text": "• Install an"
+            },
+            {
+              "type": "gap",
+              "number": 29
+            },
+            {
+              "type": "static",
+              "text": "."
+            },
+            {
+              "type": "static",
+              "text": "• Restrict personal use of"
+            },
+            {
+              "type": "gap",
+              "number": 30
+            },
+            {
+              "type": "static",
+              "text": "on computers."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "Students want to keep the Self-Access Centre because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they enjoy the variety of equipment."
+            },
+            {
+              "id": "B",
+              "label": "they like being able to work on their own."
+            },
+            {
+              "id": "C",
+              "label": "it is an important part of their studies."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 24",
+          "sectionInstruction": "Choose the correct letter A, B or C.",
+          "sectionTitle": "Self-Access Centre"
+        },
+        {
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "Some teachers would prefer to",
+          "options": [
+            {
+              "id": "A",
+              "label": "close the Self-Access Centre."
+            },
+            {
+              "id": "B",
+              "label": "move the Self-Access Centre elsewhere."
+            },
+            {
+              "id": "C",
+              "label": "restrict access to the Self-Access Centre."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "The students' main concern about using the library would be",
+          "options": [
+            {
+              "id": "A",
+              "label": "the size of the library."
+            },
+            {
+              "id": "B",
+              "label": "difficulty in getting help."
+            },
+            {
+              "id": "C",
+              "label": "the lack of materials."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "The Director of Studies is concerned about",
+          "options": [
+            {
+              "id": "A",
+              "label": "the cost of upgrading the centre."
+            },
+            {
+              "id": "B",
+              "label": "the lack of space in the centre."
+            },
+            {
+              "id": "C",
+              "label": "the difficulty in supervising the centre."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 25,
+          "type": "gap-fill",
+          "prompt": "Level of materials:",
+          "options": [],
+          "answer": "reading",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• The level of the",
+          "gapTrail": "materials, in particular, should be more clearly shown.",
+          "sectionRange": "Questions 25 – 30",
+          "sectionInstruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+          "sectionTitle": "Necessary improvements to the existing Self-Access Centre"
+        },
+        {
+          "number": 26,
+          "type": "gap-fill",
+          "prompt": "Update collection:",
+          "options": [],
+          "answer": "cd",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• Update the",
+          "gapTrail": "collection."
+        },
+        {
+          "number": 27,
+          "type": "gap-fill",
+          "prompt": "Buy and divide:",
+          "options": [],
+          "answer": "workbooks",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• Buy some",
+          "gapTrail": "and divide them up."
+        },
+        {
+          "number": 28,
+          "type": "gap-fill",
+          "prompt": "Supervising schedule:",
+          "options": [],
+          "answer": "timetable/schedule",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• Speak to the teachers and organise a",
+          "gapTrail": "for supervising the centre."
+        },
+        {
+          "number": 29,
+          "type": "gap-fill",
+          "prompt": "Install:",
+          "options": [],
+          "answer": "alarm",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• Install an"
+        },
+        {
+          "number": 30,
+          "type": "gap-fill",
+          "prompt": "Restrict on computers:",
+          "options": [],
+          "answer": "email/emails",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "• Restrict personal use of",
+          "gapTrail": "on computers."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "passageTitle": "Business Cultures",
+      "audioFile": "listening.mp3",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Power culture"
+        },
+        {
+          "type": "static",
+          "text": "Characteristics of organisation"
+        },
+        {
+          "type": "static",
+          "text": "• small"
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": "power source"
+        },
+        {
+          "type": "static",
+          "text": "• few rules and procedures"
+        },
+        {
+          "type": "static",
+          "text": "• communication by"
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": "Advantage"
+        },
+        {
+          "type": "static",
+          "text": "• can act quickly"
+        },
+        {
+          "type": "static",
+          "text": "Disadvantage"
+        },
+        {
+          "type": "static",
+          "text": "• might not act"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": "Suitable employee"
+        },
+        {
+          "type": "static",
+          "text": "• not afraid of"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "• doesn't need job security"
+        },
+        {
+          "type": "section",
+          "text": "Role culture"
+        },
+        {
+          "type": "static",
+          "text": "Characteristics of organisation"
+        },
+        {
+          "type": "static",
+          "text": "• large, many"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "• specialised departments"
+        },
+        {
+          "type": "static",
+          "text": "• rules and procedure, e.g. job"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "and rules for discipline"
+        },
+        {
+          "type": "static",
+          "text": "Advantages"
+        },
+        {
+          "type": "static",
+          "text": "• economies of scale"
+        },
+        {
+          "type": "static",
+          "text": "• successful when"
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": "ability is important"
+        },
+        {
+          "type": "static",
+          "text": "Disadvantages"
+        },
+        {
+          "type": "static",
+          "text": "• slow to see when"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": "is needed"
+        },
+        {
+          "type": "static",
+          "text": "• slow to react"
+        },
+        {
+          "type": "static",
+          "text": "Suitable employee"
+        },
+        {
+          "type": "static",
+          "text": "• values security"
+        },
+        {
+          "type": "static",
+          "text": "• doesn't want"
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "section",
+          "text": "Task culture"
+        },
+        {
+          "type": "static",
+          "text": "Characteristics of organisation"
+        },
+        {
+          "type": "static",
+          "text": "• project orientated"
+        },
+        {
+          "type": "static",
+          "text": "• in competitive market or making product with short life"
+        },
+        {
+          "type": "static",
+          "text": "• a lot of delegation"
+        },
+        {
+          "type": "static",
+          "text": "Advantage"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        },
+        {
+          "type": "static",
+          "text": "Disadvantages"
+        },
+        {
+          "type": "static",
+          "text": "• no economies of scale or special expertise"
+        },
+        {
+          "type": "static",
+          "text": "Suitable employee"
+        },
+        {
+          "type": "static",
+          "text": "• likes to work in groups"
+        }
+      ],
+      "questions": [
+        {
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "Power source:",
+          "options": [],
+          "answer": "central",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "•",
+          "gapTrail": "power source"
+        },
+        {
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Communication by:",
+          "options": [],
+          "answer": "conversation/conversations",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• communication by"
+        },
+        {
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "Might not act:",
+          "options": [],
+          "answer": "effectively",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• might not act"
+        },
+        {
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "Not afraid of:",
+          "options": [],
+          "answer": "risk/risks",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• not afraid of"
+        },
+        {
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Large, many:",
+          "options": [],
+          "answer": "levels",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• large, many"
+        },
+        {
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Job description:",
+          "options": [],
+          "answer": "description/descriptions",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• rules and procedure, e.g. job",
+          "gapTrail": "and rules for discipline"
+        },
+        {
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "Ability is important:",
+          "options": [],
+          "answer": "technical",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• successful when",
+          "gapTrail": "ability is important"
+        },
+        {
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "When change is needed:",
+          "options": [],
+          "answer": "change",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• slow to see when",
+          "gapTrail": "is needed"
+        },
+        {
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Doesn't want:",
+          "options": [],
+          "answer": "responsibility",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "• doesn't want"
+        },
+        {
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "Task culture advantage:",
+          "options": [],
+          "answer": "flexible",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Advantage",
+          "sectionRange": "Questions 31 – 40",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+          "sectionTitle": "Business Cultures"
+        }
+      ]
+    }
+  ]
+}

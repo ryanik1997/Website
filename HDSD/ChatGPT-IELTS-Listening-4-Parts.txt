@@ -1,0 +1,325 @@
+═══════════════════════════════════════════════════════════════
+HƯỚNG DẪN DÙNG CHATGPT — IELTS LISTENING (4 PARTS)
+Web app "Ryan English" · Import thủ công Listening
+═══════════════════════════════════════════════════════════════
+
+File này là **hướng dẫn tổng** — cách đưa đề cho ChatGPT và nhận `exam.json` import được.
+Chi tiết JSON từng Part: xem 4 file prompt riêng (bảng cuối file).
+
+───────────────────────────────────────────────────────────────
+1. CHUẨN BỊ TRƯỚC KHI CHAT
+───────────────────────────────────────────────────────────────
+
+Bạn cần có:
+  • PDF đề Listening (hoặc ảnh/screenshot từng Section)
+  • Answer Key (đáp án 1–40)
+  • File audio ~30 phút (đổi tên listening.mp3 khi đóng ZIP)
+  • (Khuyến nghị) Ảnh UI tham chiếu trong Giaodien/ — để ChatGPT khớp layout
+  • Choose TWO: Giaodien/two-choice.jpg — Answer Key A/E + UI 2 ô (Part 1–3)
+
+Tải mẫu JSON trong app:
+  Luyện thi → IELTS → Import thủ công Listening → nút tải theo Part/dạng
+  Hoặc lấy sẵn: Tainguyen/templates/ielts-listening-*.json
+
+───────────────────────────────────────────────────────────────
+2. CHỌN CÁCH LÀM — 2 WORKFLOW
+───────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────┐
+│ A. LÀM TỪNG PART (khuyến nghị — đề trộn nhiều dạng)        │
+│    4 lần chat → ghép 4 parts[] → 1 exam.json                │
+├─────────────────────────────────────────────────────────────┤
+│ B. LÀM CẢ ĐỀ MỘT LẦN (đề đơn giản / đã quen format)       │
+│    1 lần chat → exam.json đủ 4 parts                        │
+└─────────────────────────────────────────────────────────────┘
+
+**Workflow A — từng Part (đề trộn a6 + c3 + d2…):**
+
+  Bước 1  Nhìn PDF Part 1 → chọn dạng (a2/a3/a4/a5) → tải JSON mẫu
+  Bước 2  ChatGPT: đính kèm Prompt-Part1.txt + PDF P1 + Key 1–10 + mẫu JSON
+  Bước 3  Lưu kết quả → part1.json (object parts[0])
+  Bước 4  Lặp Part 2 (a6–a14), Part 3 (c1–c7), Part 4 (d1–d3)
+  Bước 5  Ghép 4 part → exam.json (mục 5 bên dưới)
+  Bước 6  ZIP: exam.json + listening.mp3 (+ map.jpg / diagram.jpg nếu có)
+  Bước 7  Import trong app → Preview → Lưu & làm bài
+
+**Workflow B — cả đề một lần:**
+
+  Đính kèm: Prompt-IELTS-Listening-Cam9-Cam20.txt + PDF + Key + ielts-listening-full.json
+  Yêu cầu ChatGPT xuất exam.json đủ 4 parts, 40 câu.
+  Phù hợp Cam9/Cam20 Test 1 hoặc đề có cấu trúc tương tự builtin.
+
+───────────────────────────────────────────────────────────────
+3. NHẬN DẠNG ĐỀ → CHỌN MẪU JSON (TÓM TẮT)
+───────────────────────────────────────────────────────────────
+
+── Part 1 (câu 1–10) — ảnh Giaodien/a1–a5 ──
+
+| PDF có…                          | Dạng   | Mẫu JSON                          |
+|----------------------------------|--------|-----------------------------------|
+| Form + Example                   | a3     | ielts-listening-p1-form-template  |
+| Notes dọc (JOB INQUIRY)          | list   | Cam9 P1 trong full.json           |
+| Bảng nhiều cột                   | a2     | ielts-listening-p1-table-template |
+| Bảng + Choose TWO + bảng         | a4     | ielts-listening-p1-mixed-a4       |
+| MC 1–6 + điền từ / notes 7–10    | a5     | ielts-listening-p1-mixed-a5       |
+
+── Part 2 (câu 11–20) — ảnh Part2-Listening/a6–a14 ──
+
+| Dạng chính                       | Mẫu    |
+|----------------------------------|--------|
+| Bảng + MC + Map                  | a6     |
+| Notes + MC + Choose TWO (Cam9)   | a7     |
+| MC + Matching + Bảng             | a8     |
+| Diagram + Matching + Notes       | a9     |
+| MC + Choose TWO ×2 (Cam20)       | a10    |
+| Matching + MC                    | a11    |
+| MC + Map                         | a12    |
+| Choose TWO ×2 + Matching         | a13    |
+| MC + Map                         | a14    |
+
+File: ielts-listening-p2-a6-template.json … a14
+
+── Part 3 (câu 21–30) — ảnh Part3-Listening/c1–c7 ──
+
+| Dạng chính                       | Mẫu    |
+|----------------------------------|--------|
+| MC + sentences + notes           | c1     |
+| Notes + bảng + notes             | c2     |
+| Choose TWO ×2 + MC (Cam20)       | c3     |
+| MC + Matching A–G                | c4     |
+| Choose TWO ×2 + Matching         | c5     |
+| MC + Flow-chart                  | c6     |
+| Bảng + Matching                  | c7     |
+
+File: ielts-listening-p3-c1-template.json … c7
+
+── Part 4 (câu 31–40) — lecture notes ──
+
+| Dạng chính                       | Mẫu    |
+|----------------------------------|--------|
+| Sections + bullet • (Cam9)       | d1     |
+| ONE WORD + câu tách 39–40        | d2     |
+| Generic THREE WORDS/NUMBER       | d3     |
+
+File: ielts-listening-p4-d1-template.json … d3
+
+**Đề trộn:** Part 2 có thể ghép a7 + a12 — ghi rõ từng đoạn câu thuộc a?/c?/d?
+và đính kèm **nhiều file mẫu JSON** cùng lúc.
+
+Chi tiết nhận dạng + quy tắc JSON: 4 file Prompt-IELTS-Listening-Part1…Part4.txt
+
+───────────────────────────────────────────────────────────────
+3b. CHOOSE TWO — "Which TWO …?" (Part 1–3, không có Part 4)
+───────────────────────────────────────────────────────────────
+
+Tham chiếu: Giaodien/two-choice.jpg (Cam20 Part 2, câu 17–20)
+
+Trên Answer Key:
+  17  A/E    → câu 17 đúng nếu chọn A hoặc E
+  18  A/E    → câu 18 đúng nếu chọn A hoặc E
+  19  C/E    → nhóm khác: C hoặc E
+  20  C/E
+
+Trên UI app:
+  • Danh sách 5 lựa chọn A–E (có ô checkbox trang trí)
+  • 2 hàng đánh số 17 và 18 — mỗi hàng pill A B C D E để chọn
+
+Khi viết exam.json cho ChatGPT:
+  • Tách 2 câu matching liên tiếp (không gộp 1 câu)
+  • Cùng prompt: "Which TWO things does Heather explain about kilns?"
+  • Cả 2 câu: "answer": "A/E"
+  • options nhãn đầy đủ — xem p2-a10-template.json
+
+ChatGPT đọc Answer Key "17 A/E" → ghi answer "A/E" cho câu 17 VÀ câu 18.
+
+───────────────────────────────────────────────────────────────
+4. PROMPT COPY-DÁN — WORKFLOW A (TỪNG PART)
+───────────────────────────────────────────────────────────────
+
+Mỗi Part: upload file prompt tương ứng + PDF (hoặc ảnh Section) + Answer Key + mẫu JSON.
+Dán block dưới (sửa [Part X] và điền dạng đề).
+
+─── PROMPT CHUNG (đầu mỗi lần chat Part) ───
+
+```
+Bạn là trợ lý tạo exam.json IELTS Listening cho web app "Ryan English".
+
+Đọc KỸ file đính kèm: HDSD/Prompt-IELTS-Listening-Part[N].txt
+Copy CẤU TRÚC từ file JSON mẫu đính kèm — chỉ đổi nội dung và đáp án.
+
+## Tôi đính kèm
+- Prompt Part [N] (quy tắc JSON)
+- PDF / ảnh Section [N]
+- Answer Key câu [range]
+- File mẫu JSON: [tên file]
+- (Nếu có) ảnh UI Giaodien/…
+- (Nếu có) map.jpg / diagram.jpg
+
+## Đề Part [N] này gồm (theo thứ tự câu trên PDF):
+[Ghi từng đoạn — ví dụ Part 2:]
+- Questions 11–16: notes → a7
+- Questions 17–18: MC → a7
+- Questions 19–20: Choose TWO → a7
+
+## Yêu cầu output
+1. Xuất 1 object JSON part (partNumber: [N], đủ 10 câu).
+2. questions[] ĐÚNG THỨ TỰ trên đề.
+3. gap-fill: mỗi gap có trong notePassage / noteTable / notePassageSections.
+4. Choose TWO: 2 câu matching, options A–E NHÃN ĐẦY ĐỦ, answer "X/Y".
+5. Section header (sectionRange, sectionInstruction, sectionTitle) trên câu ĐẦU mỗi nhóm.
+6. wordLimit khớp instruction đề; explanation tiếng Việt ngắn.
+7. audioFile: "listening.mp3" trên Part.
+8. Chỉ JSON thuần — không markdown, không giải thích thêm.
+
+Bắt đầu.
+```
+
+─── Gợi ý điền nhanh theo Part ───
+
+Part 1 — range 1–10 · prompt Part1.txt · mẫu p1-form / p1-table / p1-mixed-a4 / a5
+Part 2 — range 11–20 · prompt Part2.txt · mẫu p2-a6…a14 · thêm map/diagram nếu a6/a9/a12/a14
+Part 3 — range 21–30 · prompt Part3.txt · mẫu p3-c1…c7 · notePassageSections nếu c1/c2
+Part 4 — range 31–40 · prompt Part4.txt · mẫu p4-d1/d2/d3 · notePassage đủ static+section+gap
+
+───────────────────────────────────────────────────────────────
+5. GHÉP 4 PART → exam.json
+───────────────────────────────────────────────────────────────
+
+Sau 4 lần chat, dán prompt ghép:
+
+```
+Ghép 4 object part JSON đính kèm thành 1 file exam.json import IELTS Listening.
+
+Cấu trúc:
+{
+  "version": 1,
+  "title": "IELTS Listening — Cambridge [N] Test [M]",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge [N] · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [ part1, part2, part3, part4 ]
+}
+
+Yêu cầu:
+- parts[0].partNumber = 1 … parts[3].partNumber = 4
+- Tổng 40 câu, số câu 1→40 liên tục, không trùng
+- Giữ nguyên nội dung từng part (không tự sửa đáp án)
+- Mỗi part: audioFile "listening.mp3"
+- Chỉ xuất JSON thuần
+```
+
+Hoặc tự ghép tay: mở 4 file → copy từng object vào mảng `parts[]`.
+
+───────────────────────────────────────────────────────────────
+6. PROMPT COPY-DÁN — WORKFLOW B (CẢ ĐỀ MỘT LẦN)
+───────────────────────────────────────────────────────────────
+
+```
+Đọc file HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt.
+
+Tạo exam.json đủ 4 parts (40 câu) IELTS Listening cho web app "Ryan English".
+
+## Đính kèm
+- PDF đề Listening đầy đủ (4 sections)
+- Answer Key 1–40
+- File mẫu: Tainguyen/templates/ielts-listening-full-template.json
+
+## Cấu trúc đề này
+- Part 1: [form / bảng / mixed — a?]
+- Part 2: [a6–a14]
+- Part 3: [c1–c7 hoặc 10 MC như Cam9]
+- Part 4: [d1 / d2 / d3]
+
+## Yêu cầu
+1. exam.json: version 1, examType "ielts", durationMinutes 30, 4 parts.
+2. Mỗi part 10 câu, đúng thứ tự PDF.
+3. Tuân thủ quy tắc trong Prompt-IELTS-Listening-Cam9-Cam20.txt
+   và 4 file Prompt-Part1…Part4 nếu cần chi tiết từng dạng.
+4. Choose TWO: options nhãn đầy đủ, answer "X/Y".
+5. notePassage / noteTable / notePassageSections đầy đủ static lines.
+6. audioFile: "listening.mp3" mỗi part.
+7. Chỉ JSON thuần — không markdown.
+
+Bắt đầu xử lý file đính kèm.
+```
+
+───────────────────────────────────────────────────────────────
+7. ĐÓNG ZIP & IMPORT VÀO APP
+───────────────────────────────────────────────────────────────
+
+Cấu trúc ZIP (file CÙNG CẤP, không thư mục con):
+
+  exam.json
+  listening.mp3
+  map.jpg          ← nếu Part 2 có mapLabel (a6, a12, a14…)
+  diagram.jpg      ← nếu Part 2 có diagramLabel (a9)
+
+Trong app:
+  Luyện thi → IELTS → Import thủ công Listening
+  → Chọn ZIP (hoặc JSON + thêm MP3)
+  → Xem Preview (app cảnh báo gap thiếu / media thiếu)
+  → Lưu & làm bài
+
+───────────────────────────────────────────────────────────────
+8. CHECKLIST TRƯỚC IMPORT
+───────────────────────────────────────────────────────────────
+
+[ ] exam.json: 4 parts, 40 câu, partNumber 1–4
+[ ] questions[] mỗi part đúng thứ tự trên đề PDF
+[ ] Part 1: gap trong notePassage / noteTable / noteTables
+[ ] Part 2–3: sectionRange trên câu đầu mỗi nhóm
+[ ] Choose TWO (P1/P2/P3): 2 câu matching, options nhãn đầy đủ, answer "X/Y"
+[ ] Part 3 c1/c2: notePassageSections[] — không nhét hết vào 1 notePassage
+[ ] Part 4: notePassage đủ static + section; gapLead/gapTrail (•, câu nối)
+[ ] wordLimit khớp instruction từng Part
+[ ] map.jpg / diagram.jpg có trong ZIP nếu part khai báo imageFile
+[ ] listening.mp3 ~30 phút, tên đúng
+[ ] Preview import không có cảnh báo nghiêm trọng
+
+───────────────────────────────────────────────────────────────
+9. VÍ DỤ THỰC TẾ — CAMBRIDGE 9 TEST 1
+───────────────────────────────────────────────────────────────
+
+| Part | Dạng      | Mẫu JSON              | Builtin tham chiếu        |
+|------|-----------|-----------------------|---------------------------|
+| 1    | Notes     | full.json / p1-form   | JOB INQUIRY               |
+| 2    | a7        | p2-a7-template        | SPORTS WORLD              |
+| 3    | 10 MC     | p3-c4 (phần MC)       | Spiros & Hiroko           |
+| 4    | d1        | p4-d1-template        | Mass Strandings of Whales |
+
+Cambridge 20 Test 1:
+  P1 → p1-table (restaurants) · P2 → a10 · P3 → c3 · P4 → d2
+
+───────────────────────────────────────────────────────────────
+10. BẢNG FILE THAM CHIẾU
+───────────────────────────────────────────────────────────────
+
+| Mục đích              | File                                              |
+|-----------------------|---------------------------------------------------|
+| Hướng dẫn này         | HDSD/ChatGPT-IELTS-Listening-4-Parts.txt          |
+| Import app + layout   | HDSD/Import Listening IELTS.txt                   |
+| Prompt Part 1         | HDSD/Prompt-IELTS-Listening-Part1.txt             |
+| Prompt Part 2         | HDSD/Prompt-IELTS-Listening-Part2.txt             |
+| Prompt Part 3         | HDSD/Prompt-IELTS-Listening-Part3.txt             |
+| Prompt Part 4         | HDSD/Prompt-IELTS-Listening-Part4.txt             |
+| Prompt cả đề          | HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt        |
+| Mẫu JSON              | Tainguyen/templates/ielts-listening-*.json          |
+| Tải mẫu trong app     | Import thủ công Listening (nút theo Part/dạng)    |
+
+───────────────────────────────────────────────────────────────
+11. LỖI THƯỜNG GẶP
+───────────────────────────────────────────────────────────────
+
+| Triệu chứng              | Nguyên nhân              | Cách sửa                          |
+|--------------------------|--------------------------|-----------------------------------|
+| Choose TWO hiện "A A"    | options label chỉ "A"    | Nhãn đầy đủ: "Social media"      |
+| Notes thiếu dòng chữ     | Thiếu static trong notePassage | Bổ sung static theo PDF      |
+| Gap không render         | Thiếu gap block          | Thêm {type:"gap", number:N}       |
+| Part 3 layout lệch       | 1 notePassage dài        | Dùng notePassageSections[]        |
+| Map/diagram trống        | Thiếu ảnh trong ZIP    | Thêm map.jpg / diagram.jpg        |
+| Preview cảnh báo gap     | Số câu ≠ gap trong note  | Đối chiếu questions vs notePassage |
+
+═══════════════════════════════════════════════════════════════
+Bắt đầu: chọn Workflow A hoặc B → tải mẫu JSON → chat từng Part.
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 1 Mixed MC+notes (mẫu a5)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 1 · MC 1–6 + notePassage 7–10 · Giaodien/a5",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–6: Choose the correct letter, A, B or C.\nQuestions 7–10: Complete the sentences below. Write ONE WORD ONLY for each answer.",
+      "audioFile": "listening.mp3",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Paxton Nature Reserve"
+        },
+        {
+          "type": "static",
+          "text": "• Paxton is a good place for seeing rare"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "static",
+          "text": "all year round."
+        },
+        {
+          "type": "static",
+          "text": "• This is a particularly good time for seeing certain unusual"
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "• Visitors will be able to learn about"
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "and then collect some."
+        },
+        {
+          "type": "static",
+          "text": "• Part of the"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        },
+        {
+          "type": "static",
+          "text": "has been made suitable for swimming."
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "The 'Family Welcome' event in the art gallery begins at",
+          "options": [
+            {
+              "id": "A",
+              "label": "10 am."
+            },
+            {
+              "id": "B",
+              "label": "10.30 am."
+            },
+            {
+              "id": "C",
+              "label": "2 pm."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "The film that is now shown in the 'Family Welcome' event is about",
+          "options": [
+            {
+              "id": "A",
+              "label": "sculpture."
+            },
+            {
+              "id": "B",
+              "label": "painting."
+            },
+            {
+              "id": "C",
+              "label": "ceramics."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "When do most of the free concerts take place?",
+          "options": [
+            {
+              "id": "A",
+              "label": "in the morning."
+            },
+            {
+              "id": "B",
+              "label": "at lunchtime."
+            },
+            {
+              "id": "C",
+              "label": "in the evening."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "Where will the 4 pm concert of Latin American music take place?",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a museum."
+            },
+            {
+              "id": "B",
+              "label": "in a theatre."
+            },
+            {
+              "id": "C",
+              "label": "in a library."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "The boat race begins at",
+          "options": [
+            {
+              "id": "A",
+              "label": "Summer Pool."
+            },
+            {
+              "id": "B",
+              "label": "Charlesworth Bridge."
+            },
+            {
+              "id": "C",
+              "label": "Offord Marina."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "One of the boat race teams",
+          "options": [
+            {
+              "id": "A",
+              "label": "won a regional competition earlier this year."
+            },
+            {
+              "id": "B",
+              "label": "has represented the region in a national competition."
+            },
+            {
+              "id": "C",
+              "label": "has won several regional competitions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Rare animals:",
+          "options": [],
+          "answer": "birds",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "seeing rare",
+          "gapTrail": "all year round"
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Unusual:",
+          "options": [],
+          "answer": "flowers",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "unusual"
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Learn about:",
+          "options": [],
+          "answer": "seeds",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "learn about",
+          "gapTrail": "and then collect some"
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Part of the:",
+          "options": [],
+          "answer": "river",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Part of the",
+          "gapTrail": "has been made suitable for swimming"
+        }
+      ]
+    }
+  ]
+}

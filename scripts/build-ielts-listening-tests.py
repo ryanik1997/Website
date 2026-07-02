@@ -1,4 +1,9 @@
-"""Generate exam.json for IELTS Listening Cam 9 + Cam 20 Test 1."""
+"""Generate exam.json for IELTS Listening Cam 9 + Cam 20 Test 1.
+
+Cam 9 Test 2+ dùng bundle pipeline (meta.json + exam_partN.json):
+  pnpm ielts:bundle "IELTS/Listening IELTS_Test2_Cam9"
+  pnpm build:catalog
+"""
 import json
 import shutil
 from pathlib import Path
@@ -22,18 +27,7 @@ def gap(n, prompt, answer, explanation, word_limit=3, **extra):
     }
 
 
-def mc(n, prompt, options, answer, explanation):
-    return {
-        "number": n,
-        "type": "multiple-choice",
-        "prompt": prompt,
-        "options": MC3(options),
-        "answer": answer.upper() if len(answer) == 1 else answer.lower(),
-        "explanation": explanation,
-    }
-
-
-def match(n, prompt, option_letters, answer, explanation, labeled=None):
+def match(n, prompt, option_letters, answer, explanation, labeled=None, **extra):
     options = MC3(labeled) if labeled else LETTER_OPTS(option_letters)
     return {
         "number": n,
@@ -42,6 +36,19 @@ def match(n, prompt, option_letters, answer, explanation, labeled=None):
         "options": options,
         "answer": answer.upper(),
         "explanation": explanation,
+        **extra,
+    }
+
+
+def mc(n, prompt, options, answer, explanation, **extra):
+    return {
+        "number": n,
+        "type": "multiple-choice",
+        "prompt": prompt,
+        "options": MC3(options),
+        "answer": answer.upper() if len(answer) == 1 else answer.lower(),
+        "explanation": explanation,
+        **extra,
     }
 
 
@@ -66,6 +73,98 @@ def np_section(text):
 
 def np_gap(number):
     return {"type": "gap", "number": number}
+
+
+def tbl_static(text):
+    return {"type": "static", "text": text}
+
+
+def tbl_gap(number):
+    return {"type": "gap", "number": number}
+
+
+def tbl_break():
+    return {"type": "break"}
+
+
+CAM20_P1_TABLE = {
+    "headers": [
+        "Name of restaurants",
+        "Location",
+        "Reason for recommendation",
+        "Other comments",
+    ],
+    "rows": [
+        {
+            "cells": [
+                [tbl_static("The Junction")],
+                [tbl_static("Greyston Street, near the station")],
+                [
+                    tbl_static("Good for people who are especially keen on "),
+                    tbl_gap(1),
+                ],
+                [
+                    tbl_static("Quite expensive"),
+                    tbl_break(),
+                    tbl_static("The "),
+                    tbl_gap(2),
+                    tbl_static(" is a good place for a drink"),
+                ],
+            ],
+        },
+        {
+            "cells": [
+                [tbl_static("Paloma")],
+                [tbl_static("In Bow Street next to the cinema")],
+                [
+                    tbl_gap(3),
+                    tbl_static(" food, good for sharing"),
+                ],
+                [
+                    tbl_static("Staff are very friendly"),
+                    tbl_break(),
+                    tbl_static("Need to pay £50 deposit"),
+                    tbl_break(),
+                    tbl_static("A limited selection of "),
+                    tbl_gap(4),
+                    tbl_static(" food on the menu"),
+                ],
+            ],
+        },
+        {
+            "cells": [
+                [
+                    tbl_static("The "),
+                    tbl_gap(5),
+                ],
+                [
+                    tbl_static("At the top of a "),
+                    tbl_gap(6),
+                ],
+                [
+                    tbl_static("A famous chef"),
+                    tbl_break(),
+                    tbl_static("All the "),
+                    tbl_gap(7),
+                    tbl_static(" are very good"),
+                    tbl_break(),
+                    tbl_static("Only uses "),
+                    tbl_gap(8),
+                    tbl_static(" ingredients"),
+                ],
+                [
+                    tbl_static("Set lunch costs £"),
+                    tbl_gap(9),
+                    tbl_static(" per person"),
+                    tbl_break(),
+                    tbl_static("Portions probably of "),
+                    tbl_gap(10),
+                    tbl_static(" size"),
+                ],
+            ],
+        },
+    ],
+}
 
 
 CAM9_P1_NOTE = [
@@ -218,28 +317,35 @@ def build_cam9():
                 "Questions 19–20: Choose TWO letters, A–E.",
                 [
                     gap(11, "Type of store:", "branch", "Chi nhánh mới.", 1,
-                         gapLead="a new", gapTrail="of an international sports goods company"),
+                         gapLead="• a new", gapTrail="of an international sports goods company",
+                         sectionRange="Questions 11 – 16",
+                         sectionInstruction="Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+                         sectionTitle="SPORTS WORLD"),
                     gap(12, "Location:", "west", "Phía tây Bradcaster.", 1,
-                         gapLead="located in the shopping centre to the", gapTrail="of Bradcaster"),
+                         gapLead="• located in the shopping centre to the", gapTrail="of Bradcaster"),
                     gap(13, "Floors 1–3:", "clothing", "Quần áo thể thao.", 1,
-                         gapLead="has sports", gapTrail="and equipment on floors 1–3"),
+                         gapLead="• has sports", gapTrail="and equipment on floors 1–3"),
                     gap(14, "Delivery time:", "10", "Giao trong 10 ngày.", 1,
-                         gapLead="can get you any item within", gapTrail="days"),
+                         gapLead="• can get you any item within", gapTrail="days"),
                     gap(15, "Specialises in:", "running", "Thiết bị chạy bộ.", 1,
-                         gapLead="shop specialises in equipment for"),
+                         gapLead="• shop specialises in equipment for"),
                     gap(16, "Special section:", "bags", "Khu bán túi.", 1,
-                         gapLead="has a special section which just sells"),
+                         gapLead="• has a special section which just sells"),
                     mc(17, "A champion athlete will be in the shop", [
                         ("A", "on Saturday morning only"),
                         ("B", "all day Saturday"),
                         ("C", "for the whole weekend"),
-                    ], "A", "Sáng thứ Bảy."),
+                    ], "A", "Sáng thứ Bảy.",
+                       sectionRange="Questions 17 – 18",
+                       sectionInstruction="Choose the correct letter A, B or C."),
                     mc(18, "The first person to answer 20 quiz questions correctly will win", [
                         ("A", "gym membership"),
                         ("B", "a video"),
                         ("C", "a calendar"),
                     ], "A", "Thẻ phòng gym."),
-                    match(19, choose_two_prompt, list("ABCDE"), "A/E", "Đặt chỗ (A) hoặc giá ưu đãi (E).", fitness_opts),
+                    match(19, choose_two_prompt, list("ABCDE"), "A/E", "Đặt chỗ (A) hoặc giá ưu đãi (E).", fitness_opts,
+                          sectionRange="Questions 19 – 20",
+                          sectionInstruction="Choose TWO letters, A–E."),
                     match(20, choose_two_prompt, list("ABCDE"), "A/E", "Cặp đáp án 19–20: A và E.", fitness_opts),
                 ],
                 passageTitle="SPORTS WORLD",
@@ -253,7 +359,9 @@ def build_cam9():
                         ("A", "he was not nervous"),
                         ("B", "his style was good"),
                         ("C", "the presentation was the best in his group"),
-                    ], "B", "Phong cách tốt."),
+                    ], "B", "Phong cách tốt.",
+                       sectionRange="Questions 21 – 30",
+                       sectionInstruction="Choose the correct letter A, B or C."),
                     mc(22, "What surprised Hiroko about the other students' presentations?", [
                         ("A", "Their presentations were not interesting"),
                         ("B", "They found their presentations stressful"),
@@ -333,18 +441,17 @@ def build_cam9():
     }
 
 
-def choose_two(n1, n2, prompt, options, answer, explanation):
+def choose_two(n1, n2, prompt, options, answer, explanation, **section):
     """Hai câu Choose TWO cùng prompt và options A–E có nhãn đầy đủ."""
     return [
-        match(n1, prompt, list("ABCDE"), answer, explanation, options),
+        match(n1, prompt, list("ABCDE"), answer, explanation, options, **section),
         match(n2, prompt, list("ABCDE"), answer, f"{explanation} (cặp {n1}–{n2})", options),
     ]
 
 
 def build_cam20():
-    mc_abc = lambda n, prompt, a, b, c, ans, expl: mc(
-        n, prompt, [("A", a), ("B", b), ("C", c)], ans, expl
-    )
+    def mc_abc(n, prompt, a, b, c, ans, expl, **extra):
+        return mc(n, prompt, [("A", a), ("B", b), ("C", c)], ans, expl, **extra)
 
     kilns_opts = [
         ("A", "What their function is."),
@@ -415,6 +522,8 @@ def build_cam20():
                          gapTrail="size"),
                 ],
                 passageTitle="Restaurant recommendations",
+                notePassageLayout="table",
+                noteTable=CAM20_P1_TABLE,
                 notePassage=CAM20_P1_NOTE,
             ),
             part(
@@ -422,7 +531,9 @@ def build_cam20():
                 "Questions 11–16: Choose the correct letter, A, B or C. "
                 "Questions 17–18 and 19–20: Choose TWO letters, A–E.",
                 [
-                    mc_abc(11, "Heather says pottery differs from other art forms because", "it lasts longer in the ground", "it is practised by more people", "it can be repaired more easily", "A", "Gốm bền trong đất."),
+                    mc_abc(11, "Heather says pottery differs from other art forms because", "it lasts longer in the ground", "it is practised by more people", "it can be repaired more easily", "A", "Gốm bền trong đất.",
+                           sectionRange="Questions 11 – 16",
+                           sectionInstruction="Choose the correct letter A, B or C."),
                     mc_abc(12, "Archaeologists identify ancient pottery from", "the clay it was made with", "the marks that are on it", "the basic shape of it", "B", "Vết/mark trên đồ gốm."),
                     mc_abc(13, "Some people join Heather's class because they want to", "create something that looks old", "find something they are good at", "make something that will outlive them", "C", "Tạo vật bền với thời gian."),
                     mc_abc(14, "What does Heather value most about being a potter?", "Its calming effect", "Its messy nature", "Its physical benefits", "A", "Tính thư giãn."),
@@ -432,11 +543,15 @@ def build_cam20():
                         17, 18,
                         "Which TWO things does Heather explain about kilns?",
                         kilns_opts, "A/E", "Chức năng lò (A) và thay thế (E).",
+                        sectionRange="Questions 17 – 18",
+                        sectionInstruction="Choose TWO letters, A–E.",
                     ),
                     *choose_two(
                         19, 20,
                         "Which TWO points does Heather make about a potter's tools?",
                         tools_opts, "C/E", "Thiết yếu (C) và dùng chung (E).",
+                        sectionRange="Questions 19 – 20",
+                        sectionInstruction="Choose TWO letters, A–E.",
                     ),
                 ],
                 passageTitle="Edelman Pottery — visitor talk",
@@ -450,20 +565,28 @@ def build_cam20():
                         "Which TWO things do the students both believe are responsible for the increase in loneliness?",
                         loneliness_causes_opts, "C/E",
                         "Thiết kế đô thị (C) / lực lượng di động (E).",
+                        sectionRange="Questions 21 – 22",
+                        sectionInstruction="Choose TWO letters, A–E.",
                     ),
                     *choose_two(
                         23, 24,
                         "Which TWO health risks associated with loneliness do the students agree are based on solid evidence?",
                         health_risks_opts, "A/C",
                         "Miễn dịch (A) / ung thư (C).",
+                        sectionRange="Questions 23 – 24",
+                        sectionInstruction="Choose TWO letters, A–E.",
                     ),
                     *choose_two(
                         25, 26,
                         "Which TWO opinions do both the students express about the evolutionary theory of loneliness?",
                         evolution_opts, "A/B",
                         "Ít thực tiễn (A) / cần nghiên cứu (B).",
+                        sectionRange="Questions 25 – 26",
+                        sectionInstruction="Choose TWO letters, A–E.",
                     ),
-                    mc_abc(27, "When comparing loneliness to depression, the students", "doubt a medical cure for loneliness", "say the link is overstated", "feel loneliness is not taken seriously", "A", "Nghi ngờ có thuốc chữa cô đơn."),
+                    mc_abc(27, "When comparing loneliness to depression, the students", "doubt a medical cure for loneliness", "say the link is overstated", "feel loneliness is not taken seriously", "A", "Nghi ngờ có thuốc chữa cô đơn.",
+                           sectionRange="Questions 27 – 30",
+                           sectionInstruction="Choose the correct letter A, B or C."),
                     mc_abc(28, "Why start the presentation with their own experience?", "to explain how difficult loneliness can be", "to highlight a situation students recognise", "to emphasise loneliness is more common for men", "B", "Tình huống quen thuộc."),
                     mc_abc(29, "Talking to strangers helps because it", "creates a sense of belonging", "builds self-confidence", "makes people feel more positive", "A", "Cảm giác thuộc về."),
                     mc_abc(30, "They find it hard to understand why solitude is considered", "similar to loneliness", "necessary for mental health", "an enjoyable experience", "C", "Trải nghiệm thú vị."),

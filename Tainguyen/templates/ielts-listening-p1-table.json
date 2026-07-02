@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 1 Table (mẫu a2)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 1 table · noteTable · Giaodien/a2",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "passageTitle": "Restaurant recommendations",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "table",
+      "noteTable": {
+        "headers": [
+          "Name of restaurants",
+          "Location",
+          "Reason for recommendation",
+          "Other comments"
+        ],
+        "rows": [
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "The Junction"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Greyston Street, near the station"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Good for people who are especially keen on "
+                },
+                {
+                  "type": "gap",
+                  "number": 1
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Quite expensive"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "The "
+                },
+                {
+                  "type": "gap",
+                  "number": 2
+                },
+                {
+                  "type": "static",
+                  "text": " is a good place for a drink"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "Paloma"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "In Bow Street next to the cinema"
+                }
+              ],
+              [
+                {
+                  "type": "gap",
+                  "number": 3
+                },
+                {
+                  "type": "static",
+                  "text": " food, good for sharing"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Staff are very friendly"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Need to pay £50 deposit"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "A limited selection of "
+                },
+                {
+                  "type": "gap",
+                  "number": 4
+                },
+                {
+                  "type": "static",
+                  "text": " food on the menu"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "The "
+                },
+                {
+                  "type": "gap",
+                  "number": 5
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "At the top of a "
+                },
+                {
+                  "type": "gap",
+                  "number": 6
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "A famous chef"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "All the "
+                },
+                {
+                  "type": "gap",
+                  "number": 7
+                },
+                {
+                  "type": "static",
+                  "text": " are very good"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Only uses "
+                },
+                {
+                  "type": "gap",
+                  "number": 8
+                },
+                {
+                  "type": "static",
+                  "text": " ingredients"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "Set lunch costs £"
+                },
+                {
+                  "type": "gap",
+                  "number": 9
+                },
+                {
+                  "type": "static",
+                  "text": " per person"
+                },
+                {
+                  "type": "break"
+                },
+                {
+                  "type": "static",
+                  "text": "Portions probably of "
+                },
+                {
+                  "type": "gap",
+                  "number": 10
+                },
+                {
+                  "type": "static",
+                  "text": " size"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Keen on:",
+          "options": [],
+          "answer": "fish",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Good place for a drink:",
+          "options": [],
+          "answer": "roof",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "is a good place for a drink"
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Type of food:",
+          "options": [],
+          "answer": "spanish",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapTrail": "food, good for sharing"
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Limited selection:",
+          "options": [],
+          "answer": "vegetarian",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "A limited selection of",
+          "gapTrail": "food on the menu"
+        },
+        {
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Restaurant name:",
+          "options": [],
+          "answer": "audley",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The"
+        },
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Location:",
+          "options": [],
+          "answer": "hotel",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Reviews:",
+          "options": [],
+          "answer": "reviews",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "All the",
+          "gapTrail": "are very good"
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Ingredients:",
+          "options": [],
+          "answer": "local",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Only uses",
+          "gapTrail": "ingredients"
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Set lunch cost:",
+          "options": [],
+          "answer": "30",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapTrail": "per person"
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Portion size:",
+          "options": [],
+          "answer": "average",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapTrail": "size"
+        }
+      ]
+    }
+  ]
+}

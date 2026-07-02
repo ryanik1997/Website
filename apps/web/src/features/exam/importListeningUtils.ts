@@ -4,11 +4,12 @@ import type {
   ListeningExamMode,
   ListeningExamType,
   ListeningNotePassageBlock,
+  ListeningNoteTable,
   ListeningPart,
   ListeningQuestion,
   ListeningQuestionType,
 } from './listeningExamData'
-import { validateNotePassageBlocks } from './listeningNotePassage'
+import { validateNotePassageBlocks, validateNoteTable, validateNoteTables } from './listeningNotePassage'
 import { listeningExamAudioKey } from './listeningExamData'
 import {
   catalogPartImageUrl,
@@ -18,6 +19,7 @@ import {
   findCatalogListeningTwin,
 } from './listeningExamCatalogMerge'
 import { compositePictureFileCandidates } from './listeningPictureMc'
+import { ieltsListeningFullTemplate } from './ieltsListeningImportTemplates'
 
 export const LISTENING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const LISTENING_IMPORT_MAX_MEDIA_BYTES = 80 * 1024 * 1024
@@ -42,6 +44,13 @@ export interface ListeningImportQuestionJson {
   noteBefore?: string
   noteAfter?: string
   contextFirst?: boolean
+  sectionRange?: string
+  sectionInstruction?: string
+  sectionTitle?: string
+  mapLabel?: boolean
+  diagramLabel?: boolean
+  flowChart?: boolean
+  flowChartEnd?: string
 }
 
 export interface ListeningImportPartJson {
@@ -61,6 +70,15 @@ export interface ListeningImportPartJson {
   taskOneInstruction?: string
   taskTwoInstruction?: string
   notePassage?: ListeningNotePassageBlock[]
+  notePassageLayout?: 'list' | 'table' | 'form'
+  noteTable?: ListeningNoteTable
+  noteTables?: ListeningNoteTable[]
+  notePassageSections?: Array<{
+    blocks: ListeningNotePassageBlock[]
+    gapNumbers?: number[]
+    instruction?: string
+    title?: string
+  }>
   questions: ListeningImportQuestionJson[]
 }
 
@@ -230,13 +248,32 @@ export function validateListeningImport(payload: ListeningImportPayload): string
       const gapNumbers = (part.questions ?? [])
         .filter(q => q.type === 'gap-fill')
         .map(q => q.number)
-      warnings.push(
-        ...validateNotePassageBlocks(
-          part.notePassage,
-          gapNumbers,
-          `Part ${part.partNumber}`,
-        ),
-      )
+      if (part.notePassageLayout === 'table' || part.noteTables?.length) {
+        warnings.push(
+          ...validateNoteTables(
+            part.noteTables,
+            part.noteTable,
+            gapNumbers,
+            `Part ${part.partNumber}`,
+          ),
+        )
+      } else if (part.noteTable) {
+        warnings.push(
+          ...validateNoteTable(
+            part.noteTable,
+            gapNumbers,
+            `Part ${part.partNumber}`,
+          ),
+        )
+      } else {
+        warnings.push(
+          ...validateNotePassageBlocks(
+            part.notePassage,
+            gapNumbers,
+            `Part ${part.partNumber}`,
+          ),
+        )
+      }
     }
     if (!part.questions?.length) {
       warnings.push(`Part ${part.partNumber}: không có câu hỏi.`)
@@ -394,6 +431,13 @@ export async function buildListeningExamFromImport(
         noteBefore: qJson.noteBefore,
         noteAfter: qJson.noteAfter,
         contextFirst: qJson.contextFirst,
+        sectionRange: qJson.sectionRange,
+        sectionInstruction: qJson.sectionInstruction,
+        sectionTitle: qJson.sectionTitle,
+        mapLabel: qJson.mapLabel,
+        diagramLabel: qJson.diagramLabel,
+        flowChart: qJson.flowChart,
+        flowChartEnd: qJson.flowChartEnd,
       })
     }
 
@@ -427,6 +471,10 @@ export async function buildListeningExamFromImport(
       taskOneInstruction: partJson.taskOneInstruction,
       taskTwoInstruction: partJson.taskTwoInstruction,
       notePassage: partJson.notePassage,
+      notePassageLayout: partJson.notePassageLayout,
+      noteTable: partJson.noteTable,
+      noteTables: partJson.noteTables,
+      notePassageSections: partJson.notePassageSections,
       questions,
     })
   }
@@ -443,6 +491,8 @@ export async function buildListeningExamFromImport(
 }
 
 export function listeningImportTemplate(examType: ListeningExamType = 'ket'): ListeningImportPayload {
+  if (examType === 'ielts') return ieltsListeningFullTemplate()
+
   const meta: Record<ListeningExamType, { title: string; bandHint: string; durationMinutes: number }> = {
     ket: { title: 'KET Listening — Đề mẫu import', bandHint: 'A2 Key', durationMinutes: 25 },
     ielts: { title: 'IELTS Listening — Đề mẫu import', bandHint: 'IELTS', durationMinutes: 40 },

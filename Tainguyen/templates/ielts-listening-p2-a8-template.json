@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 2 (a8 — MC + Matching + Table)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 2 · Giaodien/Part2-Listening/a8.jpg",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Choose A, B or C. Questions 14–18: matching A–H. Questions 19–20: Complete the table.",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            19,
+            20
+          ],
+          "instruction": "Questions 19 – 20\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "headers": [
+            "Feature",
+            "Size",
+            "Biggest challenge",
+            "Target age group"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Railway"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "1.2 km"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Making tunnels"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 19
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Go-kart arena"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 20
+                  },
+                  {
+                    "type": "static",
+                    "text": " sq.m."
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Removing mounds on the track"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "… years old"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Simon's idea for a theme park came from",
+          "options": [
+            {
+              "id": "A",
+              "label": "his childhood hobby"
+            },
+            {
+              "id": "B",
+              "label": "his interest in landscape design"
+            },
+            {
+              "id": "C",
+              "label": "his visit to another park"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "When they started, the family decided to open the park only when",
+          "options": [
+            {
+              "id": "A",
+              "label": "the weather was expected to be good"
+            },
+            {
+              "id": "B",
+              "label": "the children weren't at school"
+            },
+            {
+              "id": "C",
+              "label": "there were fewer farming commitments"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "Since opening, the park has had",
+          "options": [
+            {
+              "id": "A",
+              "label": "50,000 visitors"
+            },
+            {
+              "id": "B",
+              "label": "1,000,000 visitors"
+            },
+            {
+              "id": "C",
+              "label": "1,500,000 visitors"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 14,
+          "type": "matching",
+          "prompt": "Simon",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "C",
+          "sectionRange": "Questions 14 – 18",
+          "sectionInstruction": "What is currently the main area of work of each of the following people? Choose FIVE answers from the box and write the correct letter A–H next to questions 14–18.",
+          "sectionTitle": "AREA OF WORK"
+        },
+        {
+          "number": 15,
+          "type": "matching",
+          "prompt": "Liz",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "G"
+        },
+        {
+          "number": 16,
+          "type": "matching",
+          "prompt": "Sarah",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "D"
+        },
+        {
+          "number": 17,
+          "type": "matching",
+          "prompt": "Duncan",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "E"
+        },
+        {
+          "number": 18,
+          "type": "matching",
+          "prompt": "Judith",
+          "options": [
+            {
+              "id": "A",
+              "label": "advertising"
+            },
+            {
+              "id": "B",
+              "label": "animal care"
+            },
+            {
+              "id": "C",
+              "label": "building"
+            },
+            {
+              "id": "D",
+              "label": "educational links"
+            },
+            {
+              "id": "E",
+              "label": "engine maintenance"
+            },
+            {
+              "id": "F",
+              "label": "food and drink"
+            },
+            {
+              "id": "G",
+              "label": "sales"
+            },
+            {
+              "id": "H",
+              "label": "staffing"
+            }
+          ],
+          "answer": "F"
+        },
+        {
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "Target age group (Railway):",
+          "options": [],
+          "answer": "12",
+          "wordLimit": 2
+        },
+        {
+          "number": 20,
+          "type": "gap-fill",
+          "prompt": "Go-kart size:",
+          "options": [],
+          "answer": "400",
+          "wordLimit": 1
+        }
+      ]
+    }
+  ]
+}

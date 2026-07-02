@@ -1,0 +1,160 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–24: Choose A, B or C. Questions 25–30: Complete the notes (NO MORE THAN TWO WORDS).",
+  "passageTitle": "Self-Access Centre",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassageSections": [
+    {
+      "gapNumbers": [25, 26, 27, 28, 29, 30],
+      "instruction": "Questions 25 – 30\nComplete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+      "title": "Necessary improvements to the existing Self-Access Centre",
+      "blocks": [
+        { "type": "section", "text": "Equipment" },
+        { "type": "static", "text": "• Replace computers to create more space." },
+        { "type": "section", "text": "Resources" },
+        { "type": "static", "text": "• The level of the" },
+        { "type": "gap", "number": 25 },
+        { "type": "static", "text": "materials, in particular, should be more clearly shown." },
+        { "type": "static", "text": "• Update the" },
+        { "type": "gap", "number": 26 },
+        { "type": "static", "text": "collection." },
+        { "type": "static", "text": "• Buy some" },
+        { "type": "gap", "number": 27 },
+        { "type": "static", "text": "and divide them up." },
+        { "type": "section", "text": "Use of the room" },
+        { "type": "static", "text": "• Speak to the teachers and organise a" },
+        { "type": "gap", "number": 28 },
+        { "type": "static", "text": "for supervising the centre." },
+        { "type": "static", "text": "• Install an" },
+        { "type": "gap", "number": 29 },
+        { "type": "static", "text": "." },
+        { "type": "static", "text": "• Restrict personal use of" },
+        { "type": "gap", "number": 30 },
+        { "type": "static", "text": "on computers." }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "Students want to keep the Self-Access Centre because",
+      "options": [
+        { "id": "A", "label": "they enjoy the variety of equipment." },
+        { "id": "B", "label": "they like being able to work on their own." },
+        { "id": "C", "label": "it is an important part of their studies." }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 21 – 24",
+      "sectionInstruction": "Choose the correct letter A, B or C.",
+      "sectionTitle": "Self-Access Centre"
+    },
+    {
+      "number": 22,
+      "type": "multiple-choice",
+      "prompt": "Some teachers would prefer to",
+      "options": [
+        { "id": "A", "label": "close the Self-Access Centre." },
+        { "id": "B", "label": "move the Self-Access Centre elsewhere." },
+        { "id": "C", "label": "restrict access to the Self-Access Centre." }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 23,
+      "type": "multiple-choice",
+      "prompt": "The students' main concern about using the library would be",
+      "options": [
+        { "id": "A", "label": "the size of the library." },
+        { "id": "B", "label": "difficulty in getting help." },
+        { "id": "C", "label": "the lack of materials." }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 24,
+      "type": "multiple-choice",
+      "prompt": "The Director of Studies is concerned about",
+      "options": [
+        { "id": "A", "label": "the cost of upgrading the centre." },
+        { "id": "B", "label": "the lack of space in the centre." },
+        { "id": "C", "label": "the difficulty in supervising the centre." }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Level of materials:",
+      "options": [],
+      "answer": "reading",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• The level of the",
+      "gapTrail": "materials, in particular, should be more clearly shown.",
+      "sectionRange": "Questions 25 – 30",
+      "sectionInstruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+      "sectionTitle": "Necessary improvements to the existing Self-Access Centre"
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Update collection:",
+      "options": [],
+      "answer": "cd",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• Update the",
+      "gapTrail": "collection."
+    },
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "Buy and divide:",
+      "options": [],
+      "answer": "workbooks",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• Buy some",
+      "gapTrail": "and divide them up."
+    },
+    {
+      "number": 28,
+      "type": "gap-fill",
+      "prompt": "Supervising schedule:",
+      "options": [],
+      "answer": "timetable/schedule",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• Speak to the teachers and organise a",
+      "gapTrail": "for supervising the centre."
+    },
+    {
+      "number": 29,
+      "type": "gap-fill",
+      "prompt": "Install:",
+      "options": [],
+      "answer": "alarm",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• Install an"
+    },
+    {
+      "number": 30,
+      "type": "gap-fill",
+      "prompt": "Restrict on computers:",
+      "options": [],
+      "answer": "email/emails",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "• Restrict personal use of",
+      "gapTrail": "on computers."
+    }
+  ]
+}

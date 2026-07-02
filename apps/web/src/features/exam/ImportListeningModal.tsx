@@ -19,6 +19,27 @@ import {
 import { extractListeningZip } from './importListeningZip'
 import { examRecordFromListening } from './listeningExamLoader'
 import type { ListeningExamType } from './listeningExamData'
+import {
+  buildIeltsListeningImportTemplate,
+  downloadJsonTemplate,
+  ieltsListeningTemplateFilename,
+  type IeltsListeningTemplateKind,
+} from './ieltsListeningImportTemplates'
+import {
+  buildIeltsListeningP2Template,
+  ieltsListeningP2TemplateFilename,
+  type IeltsListeningP2TemplateKind,
+} from './ieltsListeningP2Templates'
+import {
+  buildIeltsListeningP3Template,
+  ieltsListeningP3TemplateFilename,
+  type IeltsListeningP3TemplateKind,
+} from './ieltsListeningP3Templates'
+import {
+  buildIeltsListeningP4Template,
+  ieltsListeningP4TemplateFilename,
+  type IeltsListeningP4TemplateKind,
+} from './ieltsListeningP4Templates'
 
 interface Props {
   onClose: () => void
@@ -120,16 +141,67 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     }
   }
 
-  function downloadTemplate() {
-    const json = JSON.stringify(listeningImportTemplate(defaultExamType), null, 2)
-    const blob = new Blob([json], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `listening-import-${defaultExamType}-template.json`
-    a.click()
-    URL.revokeObjectURL(url)
+  function downloadTemplate(kind?: IeltsListeningTemplateKind) {
+    if (defaultExamType === 'ielts' && kind) {
+      downloadJsonTemplate(
+        buildIeltsListeningImportTemplate(kind),
+        ieltsListeningTemplateFilename(kind),
+      )
+      return
+    }
+    downloadJsonTemplate(
+      listeningImportTemplate(defaultExamType),
+      `listening-import-${defaultExamType}-template.json`,
+    )
   }
+
+  function downloadP2Template(kind: IeltsListeningP2TemplateKind) {
+    downloadJsonTemplate(
+      buildIeltsListeningP2Template(kind),
+      ieltsListeningP2TemplateFilename(kind),
+    )
+  }
+
+  function downloadP3Template(kind: IeltsListeningP3TemplateKind) {
+    downloadJsonTemplate(
+      buildIeltsListeningP3Template(kind),
+      ieltsListeningP3TemplateFilename(kind),
+    )
+  }
+
+  function downloadP4Template(kind: IeltsListeningP4TemplateKind) {
+    downloadJsonTemplate(
+      buildIeltsListeningP4Template(kind),
+      ieltsListeningP4TemplateFilename(kind),
+    )
+  }
+
+  const isIelts = defaultExamType === 'ielts'
+  const p2TemplateButtons: Array<{ kind: IeltsListeningP2TemplateKind; label: string }> = [
+    { kind: 'p2-a6', label: 'a6 Table+MC+Map' },
+    { kind: 'p2-a7', label: 'a7 Notes+MC+TWO' },
+    { kind: 'p2-a8', label: 'a8 MC+Match+Table' },
+    { kind: 'p2-a9', label: 'a9 Diagram+Match' },
+    { kind: 'p2-a10', label: 'a10 MC+TWO×2' },
+    { kind: 'p2-a11', label: 'a11 Match+MC' },
+    { kind: 'p2-a12', label: 'a12 MC+Map' },
+    { kind: 'p2-a13', label: 'a13 TWO×2+Match' },
+    { kind: 'p2-a14', label: 'a14 MC+Map' },
+  ]
+  const p3TemplateButtons: Array<{ kind: IeltsListeningP3TemplateKind; label: string }> = [
+    { kind: 'p3-c1', label: 'c1 MC+Sent+Notes' },
+    { kind: 'p3-c2', label: 'c2 Notes+Table' },
+    { kind: 'p3-c3', label: 'c3 TWO×2+MC' },
+    { kind: 'p3-c4', label: 'c4 MC+Match' },
+    { kind: 'p3-c5', label: 'c5 TWO×2+Match' },
+    { kind: 'p3-c6', label: 'c6 MC+Flow' },
+    { kind: 'p3-c7', label: 'c7 Table+Match' },
+  ]
+  const p4TemplateButtons: Array<{ kind: IeltsListeningP4TemplateKind; label: string }> = [
+    { kind: 'p4-d1', label: 'd1 Sections+bullets' },
+    { kind: 'p4-d2', label: 'd2 ONE WORD (Cam20)' },
+    { kind: 'p4-d3', label: 'd3 Generic lecture' },
+  ]
 
   useEffect(() => {
     if (!payload || step !== 'preview') return
@@ -178,24 +250,146 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
               >
                 <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>Cách import Listening</p>
                 <ol className="list-decimal list-inside space-y-1.5 leading-relaxed">
-                  <li>Bấm <strong>Tải JSON mẫu</strong> → điền parts, câu hỏi, đáp án.</li>
-                  <li>Thêm file âm thanh: <code>q1.mp3</code>, <code>part1.mp3</code>… (hoặc <code>ttsText</code> nếu không có MP3).</li>
-                  <li>Ảnh Part 1: <code>q1.jpg</code> … <code>q5.jpg</code> (mỗi câu 1 ảnh chứa A+B+C).</li>
-                  <li>Audio: <code>listening.mp3</code> (một file cho cả bài).</li>
-                  <li><strong>ZIP</strong> gồm tất cả file cùng cấp — chỉ đặt file vào <code>Tainguyen/</code> chưa tự import.</li>
-                  <li>Preview → <strong>Lưu & làm bài</strong>.</li>
+                  {isIelts ? (
+                    <>
+                      <li>Chọn mẫu JSON theo layout Part 1: form (a3), bảng (a2), <strong>hỗn hợp bảng+Choose TWO</strong> (a4), <strong>MC+điền từ</strong> (a5).</li>
+                      <li>Part 1 form → <code>notePassage</code> + <code>notePassageLayout: &quot;form&quot;</code>.</li>
+                      <li>Part 1 bảng → <code>noteTable</code> hoặc <code>noteTables[]</code> + layout <code>table</code>.</li>
+                      <li>Part 1 hỗn hợp → xếp <code>questions</code> đúng thứ tại: gap → MC/Choose TWO → gap.</li>
+                      <li>Audio: <code>listening.mp3</code> (một file ~30 phút cho cả bài).</li>
+                      <li><strong>ZIP</strong> = <code>exam.json</code> + <code>listening.mp3</code> cùng cấp.</li>
+                      <li>Preview → <strong>Lưu & làm bài</strong>.</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>Bấm <strong>Tải JSON mẫu</strong> → điền parts, câu hỏi, đáp án.</li>
+                      <li>Thêm file âm thanh: <code>q1.mp3</code>, <code>part1.mp3</code>… (hoặc <code>ttsText</code> nếu không có MP3).</li>
+                      <li>Ảnh Part 1: <code>q1.jpg</code> … <code>q5.jpg</code> (mỗi câu 1 ảnh chứa A+B+C).</li>
+                      <li>Audio: <code>listening.mp3</code> (một file cho cả bài).</li>
+                      <li><strong>ZIP</strong> gồm tất cả file cùng cấp — chỉ đặt file vào <code>Tainguyen/</code> chưa tự import.</li>
+                      <li>Preview → <strong>Lưu & làm bài</strong>.</li>
+                    </>
+                  )}
                 </ol>
               </div>
 
-              <button
-                type="button"
-                onClick={downloadTemplate}
-                className="inline-flex items-center gap-2 self-start rounded-lg border px-3 py-2 text-xs font-semibold"
-                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
-              >
-                <Download size={14} />
-                Tải JSON mẫu
-              </button>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => downloadTemplate(isIelts ? 'full' : undefined)}
+                  className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                  style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                >
+                  <Download size={14} />
+                  {isIelts ? 'Mẫu đủ 4 parts' : 'Tải JSON mẫu'}
+                </button>
+                {isIelts && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => downloadTemplate('p1-form')}
+                      className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                    >
+                      <Download size={14} />
+                      Part 1 — Form (a3)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => downloadTemplate('p1-table')}
+                      className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                    >
+                      <Download size={14} />
+                      Part 1 — Bảng (a2)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => downloadTemplate('p1-mixed-a4')}
+                      className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                    >
+                      <Download size={14} />
+                      Part 1 — Bảng+TWO (a4)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => downloadTemplate('p1-mixed-a5')}
+                      className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                    >
+                      <Download size={14} />
+                      Part 1 — MC+Notes (a5)
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {isIelts && (
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs font-semibold" style={{ color: 'var(--text-muted)' }}>
+                    Part 2 — mẫu theo Giaodien/Part2-Listening (a6–a14)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {p2TemplateButtons.map(({ kind, label }) => (
+                      <button
+                        key={kind}
+                        type="button"
+                        onClick={() => downloadP2Template(kind)}
+                        className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                        style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                      >
+                        <Download size={14} />
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {isIelts && (
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs font-semibold" style={{ color: 'var(--text-muted)' }}>
+                    Part 3 — mẫu theo Giaodien/Part3-Listening (c1–c7)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {p3TemplateButtons.map(({ kind, label }) => (
+                      <button
+                        key={kind}
+                        type="button"
+                        onClick={() => downloadP3Template(kind)}
+                        className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                        style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                      >
+                        <Download size={14} />
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {isIelts && (
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs font-semibold" style={{ color: 'var(--text-muted)' }}>
+                    Part 4 — lecture notes (d1–d3)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {p4TemplateButtons.map(({ kind, label }) => (
+                      <button
+                        key={kind}
+                        type="button"
+                        onClick={() => downloadP4Template(kind)}
+                        className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                        style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                      >
+                        <Download size={14} />
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div
                 className="rounded-xl border border-dashed p-6 text-center cursor-pointer"

@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 3 (c6 — MC + Flow-chart)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 3 · Giaodien/Part3-Listening/c6.jpg",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–25: Choose A, B or C. Questions 26–30: Complete the flow-chart A–G.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "James chose to take Scandinavian Studies because when he was a child",
+          "options": [
+            {
+              "id": "A",
+              "label": "he was often taken to Denmark"
+            },
+            {
+              "id": "B",
+              "label": "his mother spoke to him in Danish"
+            },
+            {
+              "id": "C",
+              "label": "a number of Danish people visited his family"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 25",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "When he graduates, James would like to",
+          "options": [
+            {
+              "id": "A",
+              "label": "take a postgraduate course"
+            },
+            {
+              "id": "B",
+              "label": "work in the media"
+            },
+            {
+              "id": "C",
+              "label": "become a translator"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "Which course will end this term?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Swedish cinema"
+            },
+            {
+              "id": "B",
+              "label": "Danish television programmes"
+            },
+            {
+              "id": "C",
+              "label": "Scandinavian literature"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "They agree that James's literature paper this term will be on",
+          "options": [
+            {
+              "id": "A",
+              "label": "19th century playwrights"
+            },
+            {
+              "id": "B",
+              "label": "the Icelandic sagas"
+            },
+            {
+              "id": "C",
+              "label": "modern Scandinavian novels"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "Beth recommends that James's paper should be",
+          "options": [
+            {
+              "id": "A",
+              "label": "a historical overview of the genre"
+            },
+            {
+              "id": "B",
+              "label": "an in-depth analysis of a single writer"
+            },
+            {
+              "id": "C",
+              "label": "a study of the social background to the literature"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "",
+          "options": [
+            {
+              "id": "A",
+              "label": "bullet points"
+            },
+            {
+              "id": "B",
+              "label": "film"
+            },
+            {
+              "id": "C",
+              "label": "notes"
+            },
+            {
+              "id": "D",
+              "label": "structure"
+            },
+            {
+              "id": "E",
+              "label": "student paper"
+            },
+            {
+              "id": "F",
+              "label": "textbook"
+            },
+            {
+              "id": "G",
+              "label": "documentary"
+            }
+          ],
+          "answer": "G",
+          "flowChart": true,
+          "flowChartEnd": "He'll write the complete paper.",
+          "gapLead": "He'll read",
+          "gapTrail": "and choose his topic.",
+          "sectionRange": "Questions 26 – 30",
+          "sectionInstruction": "Complete the flow-chart below. Choose FIVE answers from the box and write the correct letter A–G next to questions 26–30.",
+          "sectionTitle": "How James will write his paper on the Vikings"
+        },
+        {
+          "number": 27,
+          "type": "matching",
+          "prompt": "",
+          "options": [
+            {
+              "id": "A",
+              "label": "bullet points"
+            },
+            {
+              "id": "B",
+              "label": "film"
+            },
+            {
+              "id": "C",
+              "label": "notes"
+            },
+            {
+              "id": "D",
+              "label": "structure"
+            },
+            {
+              "id": "E",
+              "label": "student paper"
+            },
+            {
+              "id": "F",
+              "label": "textbook"
+            },
+            {
+              "id": "G",
+              "label": "documentary"
+            }
+          ],
+          "answer": "F",
+          "flowChart": true,
+          "gapLead": "He'll borrow a",
+          "gapTrail": "from Beth."
+        },
+        {
+          "number": 28,
+          "type": "matching",
+          "prompt": "",
+          "options": [
+            {
+              "id": "A",
+              "label": "bullet points"
+            },
+            {
+              "id": "B",
+              "label": "film"
+            },
+            {
+              "id": "C",
+              "label": "notes"
+            },
+            {
+              "id": "D",
+              "label": "structure"
+            },
+            {
+              "id": "E",
+              "label": "student paper"
+            },
+            {
+              "id": "F",
+              "label": "textbook"
+            },
+            {
+              "id": "G",
+              "label": "documentary"
+            }
+          ],
+          "answer": "D",
+          "flowChart": true,
+          "gapLead": "He'll plan the",
+          "gapTrail": "of the paper."
+        },
+        {
+          "number": 29,
+          "type": "matching",
+          "prompt": "",
+          "options": [
+            {
+              "id": "A",
+              "label": "bullet points"
+            },
+            {
+              "id": "B",
+              "label": "film"
+            },
+            {
+              "id": "C",
+              "label": "notes"
+            },
+            {
+              "id": "D",
+              "label": "structure"
+            },
+            {
+              "id": "E",
+              "label": "student paper"
+            },
+            {
+              "id": "F",
+              "label": "textbook"
+            },
+            {
+              "id": "G",
+              "label": "documentary"
+            }
+          ],
+          "answer": "C",
+          "flowChart": true,
+          "gapLead": "He'll read some source material and write",
+          "gapTrail": ""
+        },
+        {
+          "number": 30,
+          "type": "matching",
+          "prompt": "",
+          "options": [
+            {
+              "id": "A",
+              "label": "bullet points"
+            },
+            {
+              "id": "B",
+              "label": "film"
+            },
+            {
+              "id": "C",
+              "label": "notes"
+            },
+            {
+              "id": "D",
+              "label": "structure"
+            },
+            {
+              "id": "E",
+              "label": "student paper"
+            },
+            {
+              "id": "F",
+              "label": "textbook"
+            },
+            {
+              "id": "G",
+              "label": "documentary"
+            }
+          ],
+          "answer": "A",
+          "flowChart": true,
+          "gapLead": "He'll write the paper using",
+          "gapTrail": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Đề mẫu import",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · 4 parts · 40 câu · listening.mp3",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "passageTitle": "CRIME REPORT FORM",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "form",
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "Type of crime: theft"
+        },
+        {
+          "type": "section",
+          "text": "Personal information"
+        },
+        {
+          "type": "example",
+          "text": "Example\nName: Louise …Taylor…"
+        },
+        {
+          "type": "static",
+          "text": "Nationality:"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "Date of birth: 14 December 1977"
+        },
+        {
+          "type": "static",
+          "text": "Occupation: interior designer"
+        },
+        {
+          "type": "static",
+          "text": "Reason for visit: business (to buy antique)"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "static",
+          "text": "Length of stay: two months"
+        },
+        {
+          "type": "static",
+          "text": "Current address:"
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "static",
+          "text": "Apartments (No 15)"
+        },
+        {
+          "type": "section",
+          "text": "Details of theft"
+        },
+        {
+          "type": "static",
+          "text": "Items stolen:\n– a wallet containing approximately £"
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "static",
+          "text": "– a"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": "Date of theft:"
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "section",
+          "text": "Possible time and place of theft"
+        },
+        {
+          "type": "static",
+          "text": "Location: outside the"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "static",
+          "text": "at about 4 pm"
+        },
+        {
+          "type": "static",
+          "text": "Details of suspect:\n– some boys asked for the"
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "then ran off"
+        },
+        {
+          "type": "static",
+          "text": "– one had a T-shirt with a picture of a tiger"
+        },
+        {
+          "type": "static",
+          "text": "– he was about 12, slim build with"
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "hair"
+        },
+        {
+          "type": "static",
+          "text": "Crime reference number allocated"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Nationality:",
+          "options": [],
+          "answer": "canadian",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Nationality:"
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Reason for visit:",
+          "options": [],
+          "answer": "antiques",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Reason for visit: business (to buy antique)"
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Current address:",
+          "options": [],
+          "answer": "riverside",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Current address:"
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Amount in wallet:",
+          "options": [],
+          "answer": "250",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "a wallet containing approximately £"
+        },
+        {
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Stolen item:",
+          "options": [],
+          "answer": "passport",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "– a"
+        },
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Date of theft:",
+          "options": [],
+          "answer": "10 december",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "Date of theft:"
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Location:",
+          "options": [],
+          "answer": "museum",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Location: outside the",
+          "gapTrail": "at about 4 pm"
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Asked for:",
+          "options": [],
+          "answer": "money",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "some boys asked for the",
+          "gapTrail": "then ran off"
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Hair colour:",
+          "options": [],
+          "answer": "blond",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "slim build with",
+          "gapTrail": "hair"
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Crime reference:",
+          "options": [],
+          "answer": "745255",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Crime reference number allocated"
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–16: Choose the correct letter, A, B or C. Questions 17–18 and 19–20: Choose TWO letters, A–E.",
+      "passageTitle": "TOPIC TITLE (Part 2)",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Sample question 11",
+          "options": [
+            {
+              "id": "A",
+              "label": "Option A"
+            },
+            {
+              "id": "B",
+              "label": "Option B"
+            },
+            {
+              "id": "C",
+              "label": "Option C"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Đáp án A."
+        },
+        {
+          "number": 17,
+          "type": "matching",
+          "prompt": "Which TWO things does the speaker mention?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Full label for A"
+            },
+            {
+              "id": "B",
+              "label": "Full label for B"
+            },
+            {
+              "id": "C",
+              "label": "Full label for C"
+            },
+            {
+              "id": "D",
+              "label": "Full label for D"
+            },
+            {
+              "id": "E",
+              "label": "Full label for E"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Choose TWO — đáp án A hoặc E cho mỗi ô."
+        },
+        {
+          "number": 18,
+          "type": "matching",
+          "prompt": "Which TWO things does the speaker mention?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Full label for A"
+            },
+            {
+              "id": "B",
+              "label": "Full label for B"
+            },
+            {
+              "id": "C",
+              "label": "Full label for C"
+            },
+            {
+              "id": "D",
+              "label": "Full label for D"
+            },
+            {
+              "id": "E",
+              "label": "Full label for E"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Cặp đáp án 17–18."
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Choose the correct letter, A, B or C.",
+      "passageTitle": "Academic discussion",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "Sample question 21",
+          "options": [
+            {
+              "id": "A",
+              "label": "Option A"
+            },
+            {
+              "id": "B",
+              "label": "Option B"
+            },
+            {
+              "id": "C",
+              "label": "Option C"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Đáp án B."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "passageTitle": "LECTURE TITLE",
+      "audioFile": "listening.mp3",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Section heading"
+        },
+        {
+          "type": "static",
+          "text": "Introductory sentence from the lecture notes."
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": "Another static line before the next gap."
+        },
+        {
+          "type": "gap",
+          "number": 32
+        }
+      ],
+      "questions": [
+        {
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "Gap 31:",
+          "options": [],
+          "answer": "keyword",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Introductory sentence from the lecture notes."
+        },
+        {
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Gap 32:",
+          "options": [],
+          "answer": "answer",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Another static line before the next gap."
+        }
+      ]
+    }
+  ]
+}

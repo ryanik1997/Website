@@ -91,6 +91,14 @@ const BUNDLES = [
   },
   {
     kind: 'listening',
+    slug: 'ielts-cam9-test2',
+    examId: 'catalog-listening-ielts-cam9-test2',
+    sourceDir: 'IELTS/Listening IELTS_Test2_Cam9',
+    examType: 'ielts',
+    examMode: 'practice',
+  },
+  {
+    kind: 'listening',
     slug: 'ielts-cam20-test1',
     examId: 'catalog-listening-ielts-cam20-test1',
     sourceDir: 'IELTS/Listening IELTS_Test1_Cam20',
@@ -251,6 +259,13 @@ function transformListening(payload, bundle, sourceDir) {
       if (qJson.noteBefore) question.noteBefore = qJson.noteBefore
       if (qJson.noteAfter) question.noteAfter = qJson.noteAfter
       if (qJson.contextFirst) question.contextFirst = qJson.contextFirst
+      if (qJson.sectionRange) question.sectionRange = qJson.sectionRange
+      if (qJson.sectionInstruction) question.sectionInstruction = qJson.sectionInstruction
+      if (qJson.sectionTitle) question.sectionTitle = qJson.sectionTitle
+      if (qJson.mapLabel) question.mapLabel = qJson.mapLabel
+      if (qJson.diagramLabel) question.diagramLabel = qJson.diagramLabel
+      if (qJson.flowChart) question.flowChart = qJson.flowChart
+      if (qJson.flowChartEnd) question.flowChartEnd = qJson.flowChartEnd
       return question
     })
 
@@ -267,6 +282,10 @@ function transformListening(payload, bundle, sourceDir) {
     if (partJson.passageTitle) part.passageTitle = partJson.passageTitle
     if (partJson.audioIntro) part.audioIntro = partJson.audioIntro
     if (partJson.notePassage) part.notePassage = partJson.notePassage
+    if (partJson.notePassageLayout) part.notePassageLayout = partJson.notePassageLayout
+    if (partJson.noteTable) part.noteTable = partJson.noteTable
+    if (partJson.noteTables) part.noteTables = partJson.noteTables
+    if (partJson.notePassageSections) part.notePassageSections = partJson.notePassageSections
     if (partJson.imageFile && existsSync(path.join(sourceDir, partJson.imageFile))) {
       part.partImageUrl = mediaUrl('listening', slug, partJson.imageFile)
     }

@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Part 3 (c1 — MC + Sentences + Notes)",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Part 3 · Giaodien/Part3-Listening/c1.jpg",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–22: Choose A, B or C. Questions 23–25: Complete sentences (ONE WORD). Questions 26–30: Complete notes (NO MORE THAN THREE WORDS AND/OR A NUMBER).",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "form",
+      "notePassageSections": [
+        {
+          "gapNumbers": [
+            23,
+            24,
+            25
+          ],
+          "instruction": "Complete the sentences below. Write ONE WORD ONLY for each answer.",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "Kira says that lecturers are easier to"
+            },
+            {
+              "type": "gap",
+              "number": 23
+            },
+            {
+              "type": "static",
+              "text": "than those in her home country."
+            },
+            {
+              "type": "static",
+              "text": "Paul suggests that Kira may be more"
+            },
+            {
+              "type": "gap",
+              "number": 24
+            },
+            {
+              "type": "static",
+              "text": "than when she was studying before."
+            },
+            {
+              "type": "static",
+              "text": "Kira says that students want to discuss things that worry them or that"
+            },
+            {
+              "type": "gap",
+              "number": 25
+            },
+            {
+              "type": "static",
+              "text": "them very much."
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "instruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "How did the students do their practical sessions?"
+            },
+            {
+              "type": "gap",
+              "number": 26
+            },
+            {
+              "type": "static",
+              "text": "In the second semester how often did Kira work in a hospital?"
+            },
+            {
+              "type": "gap",
+              "number": 27
+            },
+            {
+              "type": "static",
+              "text": "How much full-time work did Kira do during the year?"
+            },
+            {
+              "type": "gap",
+              "number": 28
+            },
+            {
+              "type": "static",
+              "text": "Having completed the year, how does Kira feel?"
+            },
+            {
+              "type": "gap",
+              "number": 29
+            },
+            {
+              "type": "static",
+              "text": "In addition to the language, what do overseas students need to become familiar with?"
+            },
+            {
+              "type": "gap",
+              "number": 30
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "In her home country, Kira had",
+          "options": [
+            {
+              "id": "A",
+              "label": "completed a course"
+            },
+            {
+              "id": "B",
+              "label": "done two years of a course"
+            },
+            {
+              "id": "C",
+              "label": "found her course difficult"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 22",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "To succeed with assignments, Kira had to",
+          "options": [
+            {
+              "id": "A",
+              "label": "read faster"
+            },
+            {
+              "id": "B",
+              "label": "write faster"
+            },
+            {
+              "id": "C",
+              "label": "change her way of thinking"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 23,
+          "type": "gap-fill",
+          "prompt": "Lecturers easier to:",
+          "options": [],
+          "answer": "understand",
+          "wordLimit": 1,
+          "sectionRange": "Questions 23 – 25",
+          "sectionInstruction": "Complete the sentences below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "number": 24,
+          "type": "gap-fill",
+          "prompt": "More:",
+          "options": [],
+          "answer": "mature",
+          "wordLimit": 1
+        },
+        {
+          "number": 25,
+          "type": "gap-fill",
+          "prompt": "Affect them:",
+          "options": [],
+          "answer": "affect",
+          "wordLimit": 1
+        },
+        {
+          "number": 26,
+          "type": "gap-fill",
+          "prompt": "Practical sessions:",
+          "options": [],
+          "answer": "in small groups",
+          "wordLimit": 3,
+          "sectionRange": "Questions 26 – 30",
+          "sectionInstruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer."
+        },
+        {
+          "number": 27,
+          "type": "gap-fill",
+          "prompt": "Hospital work frequency:",
+          "options": [],
+          "answer": "every other day",
+          "wordLimit": 3
+        },
+        {
+          "number": 28,
+          "type": "gap-fill",
+          "prompt": "Full-time work:",
+          "options": [],
+          "answer": "two days",
+          "wordLimit": 2
+        },
+        {
+          "number": 29,
+          "type": "gap-fill",
+          "prompt": "How Kira feels:",
+          "options": [],
+          "answer": "much more confident",
+          "wordLimit": 3
+        },
+        {
+          "number": 30,
+          "type": "gap-fill",
+          "prompt": "Become familiar with:",
+          "options": [],
+          "answer": "the education system",
+          "wordLimit": 3
+        }
+      ]
+    }
+  ]
+}
