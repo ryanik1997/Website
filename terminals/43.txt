@@ -1,0 +1,40 @@
+---
+pid: 40932
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"
+$tests = @(
+  \"IELTS/Listening IELTS_Test3_Cam9\",
+  \"IELTS/Listening IELTS_Test4_Cam9\",
+  \"IELTS/Listening IELTS_Test1_Cam10\",
+  \"IELTS/Listening IELTS_Test2_Cam10\",
+  \"IELTS/Listening IELTS_Test3_Cam10\",
+  \"IELTS/Listening IELTS_Test4_Cam10\"
+)
+foreach ($t in $tests) {
+  Write-Host \"`n=== $t ===\"
+  pnpm ielts:validate $t 2>&1 | Select-String -Pattern \"Parts:|Cảnh báo|Lỗi|Không có\"
+}"
+started_at: 2026-07-03T06:20:01.585Z
+running_for_ms: 4580010  
+---
+
+=== IELTS/Listening IELTS_Test3_Cam9 ===
+
+   Parts: 1, 2, 3, 4 · 40 câu
+
+=== IELTS/Listening IELTS_Test4_Cam9 ===
+   Parts: 1, 2, 3, 4 · 40 câu
+
+=== IELTS/Listening IELTS_Test1_Cam10 ===
+   Parts: 1, 2, 3, 4 · 40 câu
+
+=== IELTS/Listening IELTS_Test2_Cam10 ===
+   Parts: 1, 2, 3, 4 · 40 câu
+
+=== IELTS/Listening IELTS_Test3_Cam10 ===
+   Parts: 1, 2, 3, 4 · 40 câu
+
+=== IELTS/Listening IELTS_Test4_Cam10 ===
+   Parts: 1, 2, 3, 4 · 40 câu
+
+

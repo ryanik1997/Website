@@ -1,0 +1,19 @@
+---
+pid: 40260
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"
+@(\"Cam11\",\"Cam12\") | ForEach-Object { $cam = $_ -replace 'Cam',''; 1..4 | ForEach-Object { \"IELTS/Listening IELTS_Test${_}_Cam$cam\" } } | ForEach-Object {
+  $r = pnpm ielts:validate $_ 2>&1 | Out-String
+  if ($r -match 'exit code|process\\.exit|❌') { Write-Host \"FAIL $_\" } else { Write-Host \"OK $_\" }
+}"
+started_at: 2026-07-03T06:58:36.069Z
+running_for_ms: 2265004  
+---
+OK IELTS/Listening IELTS_Test1_Cam11
+OK IELTS/Listening IELTS_Test2_Cam11
+OK IELTS/Listening IELTS_Test3_Cam11
+OK IELTS/Listening IELTS_Test4_Cam11
+OK IELTS/Listening IELTS_Test1_Cam12
+OK IELTS/Listening IELTS_Test2_Cam12
+OK IELTS/Listening IELTS_Test3_Cam12
+OK IELTS/Listening IELTS_Test4_Cam12
