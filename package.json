@@ -9,6 +9,8 @@
     "dev:web": "pnpm --filter web dev",
     "dev:web:open": "pnpm --filter web dev:open",
     "build:catalog": "node scripts/build-catalog.mjs",
+    "fix:ielts-notes": "python scripts/sync-ielts-inline-gaps.py && python scripts/fix-all-ielts-p1.py && pnpm build:catalog",
+    "sync:ielts-gaps": "python scripts/sync-ielts-inline-gaps.py",
     "pack:listening": "node scripts/pack-listening-bundle.mjs ket-listening-test1",
     "pack:listening:pet": "node scripts/pack-listening-bundle.mjs pet-listening-test1",
     "pack:listening:fce": "node scripts/pack-listening-bundle.mjs fce-Listening-test1",
@@ -30,7 +32,8 @@
     "db:push": "node scripts/db-push.mjs",
     "db:push:dry": "node scripts/db-push.mjs --dry-run",
     "db:repair:001": "supabase migration repair --status applied 001 --linked --yes",
-    "deploy:prod": "node scripts/db-push.mjs && pnpm build && vercel deploy --prod --yes"
+    "deploy:web": "vercel deploy --prod --yes",
+    "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes"
   },
   "devDependencies": {
     "supabase": "^2.108.0"

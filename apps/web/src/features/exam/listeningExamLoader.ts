@@ -1,3 +1,4 @@
+import { isCatalogListeningExamId } from '@ryan/catalog'
 import type { ListeningExamRecord } from '@ryan/db'
 import { listeningExamRepo } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
@@ -21,13 +22,20 @@ export function getBuiltinListeningExam(examId: string): ListeningExam | null {
 }
 
 export async function resolveListeningExam(examId: string): Promise<ListeningExam | null> {
+  const builtin = getBuiltinListeningExam(examId)
+
+  // Đề catalog builtin: luôn lấy JSON trong bundle (tránh bản Dexie cũ ghi đè notePassage/bullets).
+  if (builtin && isCatalogListeningExamId(examId)) {
+    return mergeCatalogListeningMedia(builtin)
+  }
+
   const local = await listeningExamRepo.get(examId)
   if (local) {
     let exam = recordToExam(local)
     exam = mergeCatalogListeningMedia(exam)
     return exam
   }
-  const builtin = getBuiltinListeningExam(examId)
+
   if (!builtin) return null
   return mergeCatalogListeningMedia(builtin)
 }

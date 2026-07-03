@@ -42,7 +42,7 @@ const NAV: Array<{
   { to: '/app/exam', icon: ClipboardCheck, label: 'Luyện thi' },
   { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
   { to: '/app/mindmap', icon: GitBranch, label: 'MindMap' },
-  { to: '/app/settings', icon: Settings, label: 'Cai dat' },
+  { to: '/app/settings', icon: Settings, label: 'C?i ??t' },
 ]
 
 export default function AppShell() {

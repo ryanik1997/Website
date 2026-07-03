@@ -8,7 +8,7 @@ foreach ($cam in 13,14) { 1..4 | ForEach-Object {
   Write-Host \"$(if($ok){'OK'}else{'FAIL'}) Cam$cam T$_\"
 }}"
 started_at: 2026-07-03T07:47:37.551Z
-running_for_ms: 20845004 
+running_for_ms: 30555010 
 ---
 FAIL Cam13 T1
 FAIL Cam13 T2

@@ -1073,14 +1073,33 @@
   color: var(--text-primary);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  flex-shrink: 0;
 }
 
 .listening-ielts-notes__line--bullet {
-  padding-left: 0.15rem;
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.listening-ielts-notes__line--bullet::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
 }
 
 .listening-ielts-notes__line--sub {
-  padding-left: 1.35rem;
+  position: relative;
+  padding-left: 2.1rem;
+}
+
+.listening-ielts-notes__line--sub::before {
+  content: '–';
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  font-weight: 600;
 }
 
 .listening-ielts-notes__box--lecture .listening-ielts-notes__section {
