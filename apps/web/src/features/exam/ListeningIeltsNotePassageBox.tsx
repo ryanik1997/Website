@@ -2,7 +2,11 @@ import ExamHighlightableLines from './ExamHighlightableLines'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningNotePassageBlock, ListeningQuestion } from './listeningExamData'
-import { groupNotePassageIntoLines, prepareNotePassageBlocks } from './listeningNotePassage'
+import {
+  groupNotePassageIntoLines,
+  noteLineMarkerKind,
+  prepareNotePassageBlocks,
+} from './listeningNotePassage'
 
 interface Props {
   partId: string
@@ -101,10 +105,7 @@ function GapInlineCompact({
 function lineVariant(blocks: ListeningNotePassageBlock[]): '' | 'bullet' | 'sub' {
   const firstStatic = blocks.find(block => block.type === 'static')
   if (!firstStatic?.text) return ''
-  const trimmed = firstStatic.text.trimStart()
-  if (trimmed.startsWith('•')) return 'bullet'
-  if (trimmed.startsWith('–') || trimmed.startsWith('−') || trimmed.startsWith('- ')) return 'sub'
-  return ''
+  return noteLineMarkerKind(firstStatic.text)
 }
 
 export default function ListeningIeltsNotePassageBox({
@@ -126,7 +127,11 @@ export default function ListeningIeltsNotePassageBox({
   ].filter(Boolean).join(' ')
 
   const preparedBlocks = prepareNotePassageBlocks(blocks, questionsByNumber)
-  const lines = groupNotePassageIntoLines(preparedBlocks)
+  // Luôn dùng quy tắc form/lecture (1 static = 1 dòng) — không gom list mode.
+  const lines = groupNotePassageIntoLines(
+    preparedBlocks,
+    layout === 'lecture' ? 'lecture' : 'form',
+  )
 
   return (
     <div className={boxClass}>

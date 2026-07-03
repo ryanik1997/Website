@@ -156,10 +156,15 @@
           "explanation": "Chọn theo audio."
         }
       ],
+      "passageTitle": "Enquiry about booking hotel room for event",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nAndrew is the Events Manager"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Andrew is the Events Manager"
         },
         {
           "type": "section",
@@ -1186,7 +1191,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam14-test4",

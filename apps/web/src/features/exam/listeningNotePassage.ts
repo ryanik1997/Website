@@ -120,12 +120,68 @@ export type NotePassageRenderLine =
   | { kind: 'example'; block: ListeningNotePassageBlock }
   | { kind: 'inline'; blocks: ListeningNotePassageBlock[] }
 
-function isBulletLineStart(text: string): boolean {
+/** Ký hiệu đầu dòng trong đề IELTS: • – + * ▪ · … (giữ nguyên như đề giấy). */
+export const NOTE_LINE_MARKER_RE = /^[•‣▪◦○·*+–−\-►▸]\s*/
+
+const NOTE_LINE_PRIMARY_MARKERS = new Set(['•', '‣', '▪', '◦', '○', '·', '*'])
+
+export function hasNoteLineMarker(text: string): boolean {
+  return NOTE_LINE_MARKER_RE.test(text.trimStart())
+}
+
+/** Phân cấp hiển thị: bullet chính (•) · sub (– + - …). */
+export function noteLineMarkerKind(text: string): 'bullet' | 'sub' | '' {
   const trimmed = text.trimStart()
-  return trimmed.startsWith('•')
-    || trimmed.startsWith('–')
-    || trimmed.startsWith('−')
-    || trimmed.startsWith('- ')
+  if (!NOTE_LINE_MARKER_RE.test(trimmed)) return ''
+  const marker = trimmed[0]
+  return NOTE_LINE_PRIMARY_MARKERS.has(marker) ? 'bullet' : 'sub'
+}
+
+function isBulletLineStart(text: string): boolean {
+  return hasNoteLineMarker(text)
+}
+
+/** Static ngay sau gap, tiếp nối cùng câu trên đề giấy (vd. " the caring involves"). */
+function isGapTrailBlock(
+  block: ListeningNotePassageBlock,
+  prevBlock: ListeningNotePassageBlock | undefined,
+): boolean {
+  return block.type === 'static'
+    && prevBlock?.type === 'gap'
+    && !hasNoteLineMarker(block.text ?? '')
+}
+
+/** Tách static/example chứa \\n thành nhiều block — mỗi dòng đề = một block. */
+export function atomizeNotePassageBlocks(
+  blocks: ListeningNotePassageBlock[],
+): ListeningNotePassageBlock[] {
+  const out: ListeningNotePassageBlock[] = []
+
+  for (const block of blocks) {
+    if (block.type !== 'static' && block.type !== 'example') {
+      out.push(block)
+      continue
+    }
+
+    const text = block.text ?? ''
+    const parts = text.split(/\r?\n/)
+    if (parts.length <= 1) {
+      out.push(block)
+      continue
+    }
+
+    for (const part of parts) {
+      if (!part.trim()) continue
+      const trimmed = part.trim()
+      if (block.type === 'example' || trimmed.toLowerCase().startsWith('example')) {
+        out.push({ type: 'example', text: part })
+      } else {
+        out.push({ type: 'static', text: part })
+      }
+    }
+  }
+
+  return out
 }
 
 function isCompleteFormLine(text: string): boolean {
@@ -150,30 +206,15 @@ export function prepareNotePassageBlocks(
   blocks: ListeningNotePassageBlock[],
   questionsByNumber: Map<number, ListeningQuestion>,
 ): ListeningNotePassageBlock[] {
-  const normalized: ListeningNotePassageBlock[] = []
-
-  for (const block of blocks) {
-    if (block.type === 'static' || block.type === 'example') {
-      const text = block.text ?? ''
-      const lines = text.split('\n')
-      if (lines.length > 1) {
-        for (const line of lines) {
-          if (!line.trim()) continue
-          if (line.trim().toLowerCase().startsWith('example')) {
-            normalized.push({ type: 'example', text: line })
-          } else {
-            normalized.push({ type: 'static', text: line })
-          }
-        }
-        continue
-      }
-      if (block.type === 'static' && text.trim().toLowerCase().startsWith('example')) {
-        normalized.push({ type: 'example', text })
-        continue
-      }
+  const normalized = atomizeNotePassageBlocks(blocks).map(block => {
+    if (
+      block.type === 'static'
+      && (block.text ?? '').trim().toLowerCase().startsWith('example')
+    ) {
+      return { type: 'example' as const, text: block.text }
     }
-    normalized.push(block)
-  }
+    return block
+  })
 
   const enriched: ListeningNotePassageBlock[] = []
   for (let index = 0; index < normalized.length; index += 1) {
@@ -215,10 +256,59 @@ export function prepareNotePassageBlocks(
   return enriched
 }
 
+/**
+ * Part 1 form / Part 4 lecture — khớp đề giấy 100%:
+ * - Mỗi static block JSON → một dòng (không nối dài).
+ * - Chỉ gom static + gap (+ trail) khi trail tiếp nối gap trên cùng câu.
+ */
+function groupNotePassageFormLines(
+  blocks: ListeningNotePassageBlock[],
+): NotePassageRenderLine[] {
+  const lines: NotePassageRenderLine[] = []
+  let current: ListeningNotePassageBlock[] = []
+
+  const flush = () => {
+    if (!current.length) return
+    lines.push({ kind: 'inline', blocks: [...current] })
+    current = []
+  }
+
+  for (const block of blocks) {
+    if (block.type === 'section' || block.type === 'example') {
+      flush()
+      lines.push({ kind: block.type, block })
+      continue
+    }
+
+    if (block.type === 'gap') {
+      current.push(block)
+      continue
+    }
+
+    if (block.type === 'static') {
+      const prev = current[current.length - 1]
+      if (isGapTrailBlock(block, prev)) {
+        current.push(block)
+        continue
+      }
+      flush()
+      current.push(block)
+    }
+  }
+
+  flush()
+  return lines
+}
+
 /** Gom static + gap thành dòng inline giống đề giấy (Part 1 form · Part 4 lecture). */
 export function groupNotePassageIntoLines(
   blocks: ListeningNotePassageBlock[],
+  layout: 'list' | 'form' | 'lecture' = 'list',
 ): NotePassageRenderLine[] {
+  if (layout === 'form' || layout === 'lecture') {
+    return groupNotePassageFormLines(blocks)
+  }
+
   const lines: NotePassageRenderLine[] = []
   let current: ListeningNotePassageBlock[] = []
 

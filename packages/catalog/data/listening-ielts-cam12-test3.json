@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "PUBLIC LIBRARY",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nThe library re-opened last month"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "The library re-opened last month"
         },
         {
           "type": "section",
@@ -1199,7 +1204,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam12-test3",

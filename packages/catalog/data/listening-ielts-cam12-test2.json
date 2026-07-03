@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "Events during Kenton Festival",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nStart date: 16th May"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Start date: 16th May"
         },
         {
           "type": "section",
@@ -1133,7 +1138,8 @@
           "type": "static",
           "text": "in order to resolve conflicts."
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam12-test2",

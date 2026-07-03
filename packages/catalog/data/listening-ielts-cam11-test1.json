@@ -120,8 +120,12 @@
       "passageTitle": "HIRING A PUBLIC ROOM",
       "notePassage": [
         {
+          "type": "example",
+          "text": "Example"
+        },
+        {
           "type": "static",
-          "text": "Example\nThe Main Hall – seats 200"
+          "text": "The Main Hall – seats 200"
         },
         {
           "type": "section",
@@ -1132,7 +1136,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam11-test1",

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import copy
+import re
 from pathlib import Path
 
 try:
@@ -144,6 +145,147 @@ def merge_parts(meta: dict, parts: dict[int, dict]) -> dict:
     }
 
 
+def _note_passage_starts_with_intro(part: dict) -> bool:
+    passage = part.get("notePassage") or []
+    return bool(passage and passage[0].get("type") == "static")
+
+
+def infer_p1_title(part: dict) -> str | None:
+    if part.get("passageTitle", "").strip():
+        return part["passageTitle"].strip()
+    for table in part.get("noteTables") or []:
+        title = (table.get("title") or "").strip()
+        if title:
+            return title
+    single = part.get("noteTable") or {}
+    title = (single.get("title") or "").strip()
+    if title:
+        return title
+    if not _note_passage_starts_with_intro(part):
+        for question in part.get("questions") or []:
+            section_title = (question.get("sectionTitle") or "").strip()
+            if section_title:
+                return section_title
+    return None
+
+
+NOTE_LINE_MARKER_RE = re.compile(r"^[•‣▪◦○·*+–−\-►▸]\s")
+
+
+def _has_note_line_marker(text: str) -> bool:
+    return bool(NOTE_LINE_MARKER_RE.match(text.strip()))
+
+
+def _atomize_note_passage(passage: list) -> list:
+    """Tách static/example có xuống dòng \\n thành nhiều block (1 dòng đề = 1 block)."""
+    out: list = []
+    for block in passage:
+        btype = block.get("type")
+        if btype not in ("static", "example"):
+            out.append(block)
+            continue
+        text = block.get("text") or ""
+        parts = re.split(r"\r?\n", text)
+        if len(parts) <= 1:
+            out.append(block)
+            continue
+        for part in parts:
+            if not part.strip():
+                continue
+            if btype == "example" or part.strip().lower().startswith("example"):
+                out.append({"type": "example", "text": part})
+            else:
+                out.append({"type": "static", "text": part})
+    return out
+
+
+def _enrich_passage_bullets(passage: list) -> None:
+    """Thêm • / – cho list items thiếu marker (giữ + * ▪ … nếu đề gốc đã có)."""
+    for index, block in enumerate(passage):
+        if block.get("type") != "static":
+            continue
+        text = block.get("text") or ""
+        stripped = text.strip()
+        if not stripped or _has_note_line_marker(stripped):
+            continue
+        prev = passage[index - 1] if index > 0 else None
+        if not prev:
+            continue
+        if prev.get("type") == "section" and prev.get("text", "").rstrip().endswith(":"):
+            block["text"] = f"• {stripped}"
+        elif prev.get("type") == "static":
+            prev_text = (prev.get("text") or "").strip()
+            if prev_text.endswith(":") and not _has_note_line_marker(prev_text):
+                block["text"] = f"– {stripped}"
+
+
+def infer_p4_title(part: dict) -> str | None:
+    if part.get("passageTitle", "").strip():
+        return part["passageTitle"].strip()
+    for question in part.get("questions") or []:
+        section_title = (question.get("sectionTitle") or "").strip()
+        if section_title:
+            return section_title
+    passage = part.get("notePassage") or []
+    if passage and passage[0].get("type") == "section":
+        return (passage[0].get("text") or "").strip() or None
+    return None
+
+
+def normalize_part1(part: dict) -> dict:
+    """Chuẩn hóa Part 1: layout form/table, tiêu đề, bỏ notePassage thừa khi có bảng."""
+    if part.get("partNumber") != 1:
+        return part
+
+    has_table = bool(part.get("noteTables") or part.get("noteTable"))
+    has_passage = bool(part.get("notePassage") or part.get("notePassageSections"))
+
+    if has_table:
+        part["notePassageLayout"] = "table"
+        if part.get("noteTable") and part.get("notePassage"):
+            del part["notePassage"]
+    elif has_passage:
+        part["notePassageLayout"] = part.get("notePassageLayout") or "form"
+
+    title = infer_p1_title(part)
+    if title:
+        part["passageTitle"] = title
+
+    passage = part.get("notePassage") or []
+    if passage:
+        passage = _atomize_note_passage(passage)
+        _enrich_passage_bullets(passage)
+        part["notePassage"] = passage
+
+    return part
+
+
+def normalize_part4(part: dict) -> dict:
+    """Chuẩn hóa Part 4 lecture notes: layout lecture, tiêu đề, bullets."""
+    if part.get("partNumber") != 4:
+        return part
+
+    if part.get("notePassage"):
+        part["notePassageLayout"] = "lecture"
+
+    title = infer_p4_title(part)
+    if title:
+        part["passageTitle"] = title
+
+    passage = part.get("notePassage") or []
+    if passage and title and passage[0].get("type") == "section":
+        if (passage[0].get("text") or "").strip().lower() == title.lower():
+            part["notePassage"] = passage[1:]
+            passage = part["notePassage"]
+
+    if passage:
+        passage = _atomize_note_passage(passage)
+        _enrich_passage_bullets(passage)
+        part["notePassage"] = passage
+
+    return part
+
+
 def write_test(folder: str, meta: dict, parts: dict[int, dict]) -> int:
     out = IELTS / folder
     out.mkdir(parents=True, exist_ok=True)
@@ -156,13 +298,20 @@ def write_test(folder: str, meta: dict, parts: dict[int, dict]) -> int:
         json.dumps(clean_meta, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    normalized: dict[int, dict] = {}
     for spec in meta["parts"]:
         n = spec["partNumber"]
+        payload = copy.deepcopy(parts[n])
+        if n == 1:
+            payload = normalize_part1(payload)
+        elif n == 4:
+            payload = normalize_part4(payload)
+        normalized[n] = payload
         (out / spec["file"]).write_text(
-            json.dumps(parts[n], ensure_ascii=False, indent=2) + "\n",
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
-    exam = merge_parts(clean_meta, parts)
+    exam = merge_parts(clean_meta, normalized)
     (out / "exam.json").write_text(
         json.dumps(exam, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -172,25 +321,244 @@ def write_test(folder: str, meta: dict, parts: dict[int, dict]) -> int:
     return total
 
 
-def extract_map_image(pdf_path: Path, page_idx: int, out_path: Path) -> bool:
+def _group_words_into_lines(words: list, bucket: float = 4.0) -> list[tuple[float, float, str]]:
+    """Gom words PyMuPDF thành dòng (y0, y1, text)."""
+    buckets: dict[float, list] = {}
+    for w in words:
+        y0, y1, token = w[1], w[3], w[4]
+        key = round(y0 / bucket) * bucket
+        buckets.setdefault(key, []).append(w)
+    lines: list[tuple[float, float, str]] = []
+    for key in sorted(buckets):
+        row = sorted(buckets[key], key=lambda item: item[0])
+        text = " ".join(item[4] for item in row)
+        y0 = min(item[1] for item in row)
+        y1 = max(item[3] for item in row)
+        lines.append((y0, y1, text))
+    return lines
+
+
+PLAN_PAGE_MARKERS = (
+    "label the map",
+    "label the diagram",
+    "label the plan",
+    "complete the labels",
+    "complete the diagram",
+)
+
+
+def is_plan_label_page(page) -> bool:
+    text_lower = page.get_text().lower()
+    return any(marker in text_lower for marker in PLAN_PAGE_MARKERS)
+
+
+def find_plan_page_index(doc) -> int | None:
+    """Tìm trang PDF chứa map/diagram (0-based)."""
+    for index in range(len(doc)):
+        if is_plan_label_page(doc[index]):
+            return index
+    return None
+
+
+def resolve_listening_pdf(folder: Path) -> Path | None:
+    """Chọn file PDF đề Listening trong thư mục bundle."""
+    pdfs = [
+        path
+        for path in folder.glob("*.pdf")
+        if "answer" not in path.name.lower() and "key" not in path.name.lower()
+    ]
+    if not pdfs:
+        return None
+    pdfs.sort(
+        key=lambda path: (
+            0 if "listening" in path.name.lower() else 1,
+            0 if "test" in path.name.lower() else 1,
+            path.name.lower(),
+        )
+    )
+    return pdfs[0]
+
+
+def find_fallback_plan_clip_rect(page) -> "fitz.Rect | None":
+    """PDF scan không có text — crop ảnh embedded (bỏ header/footer scan)."""
+    if fitz is None:
+        return None
+
+    page_rect = page.rect
+    page_area = page_rect.width * page_rect.height
+    candidates: list = []
+    for img in page.get_images(full=True):
+        for rect in page.get_image_rects(img[0]):
+            frac = (rect.width * rect.height) / page_area
+            if 0.18 < frac < 0.95:
+                candidates.append(rect)
+    if not candidates:
+        return None
+
+    rect = max(candidates, key=lambda item: item.width * item.height)
+    inset_x = rect.width * 0.04
+    inset_top = rect.height * 0.20
+    inset_bottom = rect.height * 0.34
+    clip = fitz.Rect(
+        rect.x0 + inset_x,
+        rect.y0 + inset_top,
+        rect.x1 - inset_x,
+        rect.y1 - inset_bottom,
+    )
+    return clip & page_rect
+
+
+def find_map_diagram_clip_rect(page) -> "fitz.Rect | None":
+    """Tìm vùng crop chỉ map/diagram — không lấy nguyên trang PDF."""
+    if fitz is None:
+        return None
+
+    page_rect = page.rect
+    if not is_plan_label_page(page):
+        return None
+
+    header_bottom: float | None = None
+    questions_top: float | None = None
+
+    header_phrases = PLAN_PAGE_MARKERS
+    instruction_phrases = (
+        "write the correct letter",
+        "choose the correct letter",
+        "write the correct answers",
+    )
+
+    for _y0, y1, text in _group_words_into_lines(page.get_text("words")):
+        tl = text.lower().strip()
+        if any(p in tl for p in header_phrases):
+            header_bottom = max(header_bottom or 0, y1)
+        if any(p in tl for p in instruction_phrases) and "next to" in tl:
+            header_bottom = max(header_bottom or 0, y1)
+
+    question_line_re = re.compile(r"^\d{1,2}\.?\s+[A-Za-z]{2,}")
+
+    for y0, _y1, text in _group_words_into_lines(page.get_text("words")):
+        line = text.strip()
+        if question_line_re.match(line):
+            if header_bottom and y0 > header_bottom + 60:
+                if y0 > page_rect.height * 0.42:
+                    questions_top = y0 if questions_top is None else min(questions_top, y0)
+
+    if header_bottom is None:
+        for block in page.get_text("blocks"):
+            tl = block[4].strip().lower().replace("\n", " ")
+            if any(p in tl for p in header_phrases):
+                header_bottom = max(header_bottom or 0, block[3])
+            if any(p in tl for p in instruction_phrases) and "next to" in tl:
+                header_bottom = max(header_bottom or 0, block[3])
+        for block in page.get_text("blocks"):
+            line = block[4].strip().replace("\n", " ")
+            if question_line_re.match(line):
+                if header_bottom and block[1] > header_bottom + 60:
+                    if block[1] > page_rect.height * 0.42:
+                        questions_top = (
+                            block[1] if questions_top is None else min(questions_top, block[1])
+                        )
+
+    if header_bottom is None:
+        return None
+
+    top = header_bottom + 10
+    bottom = (questions_top - 14) if questions_top else min(page_rect.height, top + page_rect.height * 0.58)
+
+    content_left = page_rect.width
+    content_right = 0.0
+    found = False
+    skip_phrases = header_phrases + instruction_phrases
+
+    for x0, y0, x1, y1, token, *_ in page.get_text("words"):
+        if y1 < top - 8 or y0 > bottom + 8:
+            continue
+        t = token.strip()
+        tl = t.lower()
+        if re.match(r"^\d{1,2}\.?$", tl):
+            continue
+        if tl in {"questions", "listening", "part", "test"}:
+            continue
+        if len(t) > 40:
+            continue
+        content_left = min(content_left, x0)
+        content_right = max(content_right, x1)
+        found = True
+
+    margin_x = 24
+    margin_y = 14
+    left = max(0, (content_left if found else 40) - margin_x)
+    right = min(page_rect.width, (content_right if found else page_rect.width - 40) + margin_x)
+    top = max(0, top - margin_y)
+    bottom = min(page_rect.height, bottom + margin_y)
+
+    clip = fitz.Rect(left, top, right, bottom) & page_rect
+    if clip.width < 80 or clip.height < 80:
+        return None
+    return clip
+
+
+def extract_map_image(
+    pdf_path: Path,
+    page_idx: int,
+    out_path: Path,
+    *,
+    zoom: float = 2.0,
+) -> bool:
+    """Render vùng map/diagram từ PDF (crop), không extract nguyên trang."""
     if fitz is None:
         print(f"  ⚠ pymupdf not installed — skip {out_path.name}")
         return False
+
     doc = fitz.open(str(pdf_path))
-    page = doc[page_idx]
-    imgs = page.get_images(full=True)
-    if not imgs:
+    if page_idx < 0 or page_idx >= len(doc):
         doc.close()
+        print(f"  ⚠ page {page_idx} out of range in {pdf_path.name}")
         return False
-    xref = imgs[0][0]
-    pix = fitz.Pixmap(doc, xref)
-    if pix.n - pix.alpha > 3:
-        pix = fitz.Pixmap(fitz.csRGB, pix)
+
+    page = doc[page_idx]
+    clip = find_map_diagram_clip_rect(page) or find_fallback_plan_clip_rect(page)
+    if clip is None:
+        doc.close()
+        print(f"  ⚠ could not find map/diagram region in {pdf_path.name} p{page_idx + 1}")
+        return False
+
+    mat = fitz.Matrix(zoom, zoom)
+    pix = page.get_pixmap(matrix=mat, clip=clip, alpha=False)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    pix.save(str(out_path))
+    pix.save(str(out_path), jpg_quality=92)
     doc.close()
-    print(f"  ✓ {out_path.relative_to(ROOT)}")
+    print(
+        f"  ✓ {out_path.relative_to(ROOT)} "
+        f"({int(pix.width)}×{int(pix.height)})"
+    )
     return True
+
+
+extract_plan_image = extract_map_image
+
+
+def extract_plan_image_auto(folder: Path, image_name: str, *, zoom: float = 2.0) -> bool:
+    """Tự tìm PDF + trang map/diagram và crop ảnh (map.jpg / diagram.jpg)."""
+    pdf_path = resolve_listening_pdf(folder)
+    if not pdf_path:
+        print(f"  ⚠ {folder.name}: no listening PDF for {image_name}")
+        return False
+
+    doc = fitz.open(str(pdf_path))
+    page_idx = find_plan_page_index(doc)
+    if page_idx is None:
+        doc.close()
+        print(f"  ⚠ {folder.name}: no plan page in {pdf_path.name}")
+        return False
+
+    doc.close()
+    return extract_map_image(
+        pdf_path,
+        page_idx,
+        folder / image_name,
+        zoom=zoom,
+    )
 
 
 MAP_IMAGES = [

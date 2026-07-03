@@ -650,7 +650,7 @@ def cam10_t2_p1():
         "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
         [
             gap(1, "Name:", "hardie", word_limit=1, gapLead="Name: Luisa",
-                passageTitle="Transport Survey"),
+                sectionTitle="Transport Survey"),
             gap(2, "Address number:", "19", word_limit=1, gapLead="Address:"),
             gap(3, "Postcode:", "gt82lc", word_limit=1),
             gap(4, "Occupation:", "hairdresser", word_limit=1),
@@ -665,6 +665,7 @@ def cam10_t2_p1():
             gap(10, "Cycling:", "training", word_limit=1,
                 gapLead="the opportunity to have cycling", gapTrail="on busy roads"),
         ],
+        passageTitle="Transport Survey",
         notePassageLayout="form",
         notePassage=[
             np_static("Example\nTravelled to town today: by bus"),
