@@ -11,6 +11,7 @@ import ListeningIeltsDiagramBlock from './ListeningIeltsDiagramBlock'
 import ListeningIeltsFlowChartBlock from './ListeningIeltsFlowChartBlock'
 import ListeningIeltsMapBlock from './ListeningIeltsMapBlock'
 import ListeningIeltsMatchingBlock from './ListeningIeltsMatchingBlock'
+import ListeningIeltsChooseTwoBlock from './ListeningIeltsChooseTwoBlock'
 import ListeningIeltsSectionHeader from './ListeningIeltsSectionHeader'
 import {
   isChooseTwoGroup,
@@ -336,146 +337,6 @@ function McBlock({
   )
 }
 
-function toggleChooseTwoOption(
-  optionId: string,
-  questions: ListeningQuestion[],
-  answers: Record<string, string>,
-  onAnswer: (questionId: string, value: string) => void,
-  onSelectQuestion: (questionId: string) => void,
-) {
-  const [first, second] = questions
-  if (!first) return
-
-  const firstVal = answers[first.id] ?? ''
-  const secondVal = second ? answers[second.id] ?? '' : ''
-
-  if (firstVal === optionId) {
-    onAnswer(first.id, '')
-    return
-  }
-  if (second && secondVal === optionId) {
-    onAnswer(second.id, '')
-    return
-  }
-
-  if (!firstVal) {
-    onAnswer(first.id, optionId)
-    onSelectQuestion(first.id)
-    return
-  }
-  if (second && !secondVal) {
-    onAnswer(second.id, optionId)
-    onSelectQuestion(second.id)
-    return
-  }
-  if (second) {
-    onAnswer(second.id, optionId)
-    onSelectQuestion(second.id)
-  }
-}
-
-function ChooseTwoBlock({
-  prompt,
-  questions,
-  answers,
-  activeQuestionId,
-  onAnswer,
-  onSelectQuestion,
-}: {
-  prompt: string
-  questions: ListeningQuestion[]
-  answers: Record<string, string>
-  activeQuestionId: string | null
-  onAnswer: (questionId: string, value: string) => void
-  onSelectQuestion: (questionId: string) => void
-}) {
-  const highlights = useExamHighlights()
-  const options = questions[0]?.options ?? []
-  const meta = sectionMetaFromQuestions(questions)
-  const rangeLabel = meta.range
-    ?? `Questions ${questions[0]?.number ?? ''}–${questions[questions.length - 1]?.number ?? ''}`
-  const isActive = questions.some(q => q.id === activeQuestionId)
-  const selectedIds = new Set(questions.map(q => answers[q.id]).filter(Boolean))
-
-  return (
-    <div className={`listening-ielts-choose-two${isActive ? ' is-active' : ''}`}>
-      <ListeningIeltsSectionHeader
-        blockIdPrefix={`choose-two-${questions[0]?.id ?? 'group'}`}
-        meta={{
-          range: rangeLabel,
-          instruction: meta.instruction ?? 'Choose TWO letters, A–E.',
-          title: meta.title,
-        }}
-      />
-      <p className="listening-ielts-choose-two__prompt">
-        <ReadingHighlightableText
-          blockId={`choose-two-${questions[0]?.id ?? 'group'}`}
-          text={prompt}
-          highlights={highlights}
-          as="span"
-        />
-      </p>
-      <p className="listening-ielts-choose-two__hint" data-highlight-skip>
-        Chọn đúng 2 đáp án — bấm vào các lựa chọn bên dưới hoặc ô {questions.map(q => q.number).join(' và ')}.
-      </p>
-      <ul className="listening-ielts-choose-two__options" data-highlight-skip>
-        {options.map(option => {
-          const checked = selectedIds.has(option.id)
-          return (
-            <li key={option.id}>
-              <button
-                type="button"
-                className={`listening-ielts-choose-two__option${checked ? ' is-selected' : ''}`}
-                aria-pressed={checked}
-                onClick={() => toggleChooseTwoOption(
-                  option.id,
-                  questions,
-                  answers,
-                  onAnswer,
-                  onSelectQuestion,
-                )}
-              >
-                <span
-                  className={`listening-ielts-choose-two__checkbox${checked ? ' is-checked' : ''}`}
-                  aria-hidden
-                />
-                <span className="listening-ielts-choose-two__letter">{option.id}</span>
-                <span className="listening-ielts-choose-two__label">{option.label}</span>
-              </button>
-            </li>
-          )
-        })}
-      </ul>
-      <div className="listening-ielts-choose-two__slots" data-highlight-skip>
-        {questions.map(question => (
-          <div key={question.id} className="listening-ielts-choose-two__slot">
-            <span className="listening-ielts-choose-two__slot-num">{question.number}</span>
-            <div className="listening-ielts-choose-two__slot-pills">
-              {options.map(option => {
-                const selected = answers[question.id] === option.id
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    className={`listening-ielts-choose-two__pill${selected ? ' is-selected' : ''}`}
-                    aria-pressed={selected}
-                    onClick={() => {
-                      onSelectQuestion(question.id)
-                      onAnswer(question.id, selected ? '' : option.id)
-                    }}
-                  >
-                    {option.id}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function ListeningIeltsPartView({
   part,
   questions,
@@ -555,7 +416,7 @@ export default function ListeningIeltsPartView({
                   }}
                 />
               )}
-              {showPartTitle && (
+              {showPartTitle && !passageBlocks && (
                 <ReadingHighlightableText
                   blockId={`${part.id}-title`}
                   text={part.passageTitle!}
@@ -583,7 +444,8 @@ export default function ListeningIeltsPartView({
                   activeQuestionId={activeQuestionId}
                   onAnswer={onAnswer}
                   onSelectQuestion={onSelectQuestion}
-                  layout={part.notePassageLayout === 'form' ? 'form' : 'list'}
+                  passageTitle={showPartTitle ? part.passageTitle : undefined}
+                  layout={part.notePassageLayout === 'form' ? 'form' : 'lecture'}
                 />
               ) : (
                 <>
@@ -614,7 +476,7 @@ export default function ListeningIeltsPartView({
 
         if (segment.kind === 'choose-two') {
           return (
-            <ChooseTwoBlock
+            <ListeningIeltsChooseTwoBlock
               key={`choose-${index}`}
               prompt={segment.prompt}
               questions={segment.questions}

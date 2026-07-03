@@ -6,9 +6,7 @@ import ketListening from '../data/listening-ket-a2-test1.json'
 import petListening from '../data/listening-pet-b1-test1.json'
 import fceListening from '../data/listening-fce-b2-test1.json'
 import caeListening from '../data/listening-cae-c1-test1.json'
-import ieltsCam9Listening from '../data/listening-ielts-cam9-test1.json'
-import ieltsCam9Test2Listening from '../data/listening-ielts-cam9-test2.json'
-import ieltsCam20Listening from '../data/listening-ielts-cam20-test1.json'
+import { GENERATED_IELTS_LISTENING_EXAMS } from './generatedIeltsListening'
 import catalogManifest from '../data/manifest.json'
 
 type WithCatalogMeta = {
@@ -35,9 +33,7 @@ export const CATALOG_LISTENING_EXAMS = [
   stripCatalogMeta(petListening),
   stripCatalogMeta(fceListening),
   stripCatalogMeta(caeListening),
-  stripCatalogMeta(ieltsCam9Listening),
-  stripCatalogMeta(ieltsCam9Test2Listening),
-  stripCatalogMeta(ieltsCam20Listening),
+  ...GENERATED_IELTS_LISTENING_EXAMS.map(exam => stripCatalogMeta(exam)),
 ]
 
 export const CATALOG_EXAM_MANIFEST = catalogManifest
