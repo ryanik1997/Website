@@ -1,0 +1,301 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageSections": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD ONLY for each answer.",
+      "title": "THORNDYKE'S BUILDERS",
+      "blocks": [
+        {
+          "type": "static",
+          "text": "Example\nCustomer heard about Thorndyke's from a friend"
+        },
+        {
+          "type": "static",
+          "text": "Name: Edith"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "Address: Flat 4,"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "static",
+          "text": "Park Flats"
+        },
+        {
+          "type": "static",
+          "text": "(Behind the"
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "static",
+          "text": ")"
+        },
+        {
+          "type": "static",
+          "text": "Best time to contact customer: during the"
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "static",
+          "text": "Where to park: opposite entrance next to the"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": "Needs full quote showing all the jobs and the"
+        },
+        {
+          "type": "gap",
+          "number": 6
+        }
+      ]
+    }
+  ],
+  "notePassageLayout": "form",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "headers": [
+        "Area",
+        "Work to be done",
+        "Notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Kitchen"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Replace the "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              },
+              {
+                "type": "static",
+                "text": " in the door"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Fix tomorrow"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Kitchen"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Paint wall above the "
+              },
+              {
+                "type": "gap",
+                "number": 8
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Strip paint and plaster approximately one "
+              },
+              {
+                "type": "gap",
+                "number": 9
+              },
+              {
+                "type": "static",
+                "text": " in advance"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Garden"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "One "
+              },
+              {
+                "type": "gap",
+                "number": 10
+              },
+              {
+                "type": "static",
+                "text": " needs replacing (end of garden)"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": ""
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Name:",
+      "options": [],
+      "answer": "pargetter",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Name: Edith",
+      "sectionRange": "Questions 1 – 6",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "THORNDYKE'S BUILDERS"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Park Flats area:",
+      "options": [],
+      "answer": "east",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Flat 4,"
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Behind the:",
+      "options": [],
+      "answer": "library",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Behind the"
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Best time:",
+      "options": [],
+      "answer": "mornings",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "during the"
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Next to:",
+      "options": [],
+      "answer": "postbox",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "opposite entrance next to the"
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Show all:",
+      "options": [],
+      "answer": "prices",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Needs full quote showing all the jobs and the"
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Replace:",
+      "options": [],
+      "answer": "glass",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 7 – 10",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Above the:",
+      "options": [],
+      "answer": "cooker",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Paint wall above the"
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Approximately one:",
+      "options": [],
+      "answer": "week",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Replace:",
+      "options": [],
+      "answer": "fence",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "One",
+      "gapTrail": "needs replacing (end of garden)"
+    }
+  ]
+}

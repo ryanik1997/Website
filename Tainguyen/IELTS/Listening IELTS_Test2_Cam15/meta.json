@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "cambridge": 15,
+  "test": 2,
+  "title": "IELTS Listening — Cambridge 15 Test 2",
+  "bandHint": "IELTS · Cambridge 15 · Test 2 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "durationMinutes": 30,
+  "audioFile": "listening.mp3",
+  "parts": [
+    {
+      "partNumber": 1,
+      "template": "p1-TBD",
+      "file": "exam_part1.json",
+      "note": "Sửa template: p1-a2|a3|a4|a5 sau khi nhìn PDF"
+    },
+    {
+      "partNumber": 2,
+      "template": "p2-TBD",
+      "file": "exam_part2.json",
+      "note": "Sửa template: p2-a6…a14"
+    },
+    {
+      "partNumber": 3,
+      "template": "p3-TBD",
+      "file": "exam_part3.json",
+      "note": "Sửa template: p3-c1…c7"
+    },
+    {
+      "partNumber": 4,
+      "template": "p4-TBD",
+      "file": "exam_part4.json",
+      "note": "Sửa template: p4-d1|d2|d3"
+    }
+  ]
+}

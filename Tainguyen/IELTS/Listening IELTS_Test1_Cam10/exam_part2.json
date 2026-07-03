@@ -1,0 +1,242 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–12: Choose TWO letters A–E. Questions 13–20: Complete the notes. Write NO MORE THAN TWO WORDS for each answer.",
+  "audioFile": "listening.mp3",
+  "passageTitle": "Leisure club",
+  "notePassage": [
+    {
+      "type": "section",
+      "text": "Personal Assessment"
+    },
+    {
+      "type": "static",
+      "text": "New members should describe any"
+    },
+    {
+      "type": "gap",
+      "number": 13
+    },
+    {
+      "type": "static",
+      "text": "The"
+    },
+    {
+      "type": "gap",
+      "number": 14
+    },
+    {
+      "type": "static",
+      "text": "will be explained to you before you use the equipment"
+    },
+    {
+      "type": "static",
+      "text": "You will be given a six-week"
+    },
+    {
+      "type": "gap",
+      "number": 15
+    },
+    {
+      "type": "section",
+      "text": "Types of membership"
+    },
+    {
+      "type": "static",
+      "text": "There is a compulsory £90"
+    },
+    {
+      "type": "gap",
+      "number": 16
+    },
+    {
+      "type": "static",
+      "text": "fee for members"
+    },
+    {
+      "type": "static",
+      "text": "Gold members are given"
+    },
+    {
+      "type": "gap",
+      "number": 17
+    },
+    {
+      "type": "static",
+      "text": "to all the LP clubs"
+    },
+    {
+      "type": "static",
+      "text": "Premier members are given priority during"
+    },
+    {
+      "type": "gap",
+      "number": 18
+    },
+    {
+      "type": "static",
+      "text": "hours"
+    },
+    {
+      "type": "static",
+      "text": "Premier members can bring some"
+    },
+    {
+      "type": "gap",
+      "number": 19
+    },
+    {
+      "type": "static",
+      "text": "every month"
+    },
+    {
+      "type": "static",
+      "text": "Members should always take their"
+    },
+    {
+      "type": "gap",
+      "number": 20
+    },
+    {
+      "type": "static",
+      "text": "with them"
+    }
+  ],
+  "questions": [
+    {
+      "number": 11,
+      "type": "matching",
+      "prompt": "Which TWO facilities at the leisure club have recently been improved?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the gym"
+        },
+        {
+          "id": "B",
+          "label": "the tracks"
+        },
+        {
+          "id": "C",
+          "label": "the indoor pool"
+        },
+        {
+          "id": "D",
+          "label": "the outdoor pool"
+        },
+        {
+          "id": "E",
+          "label": "the sports training for children"
+        }
+      ],
+      "answer": "A/C",
+      "explanation": "Hồ bơi trong (C) và ngoài (A).",
+      "sectionRange": "Questions 11 – 12",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 12,
+      "type": "matching",
+      "prompt": "Which TWO facilities at the leisure club have recently been improved?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the gym"
+        },
+        {
+          "id": "B",
+          "label": "the tracks"
+        },
+        {
+          "id": "C",
+          "label": "the indoor pool"
+        },
+        {
+          "id": "D",
+          "label": "the outdoor pool"
+        },
+        {
+          "id": "E",
+          "label": "the sports training for children"
+        }
+      ],
+      "answer": "A/C",
+      "explanation": "Hồ bơi trong (C) và ngoài (A). (cặp 11–12)"
+    },
+    {
+      "number": 13,
+      "type": "gap-fill",
+      "prompt": "Health problems:",
+      "options": [],
+      "answer": "health problems",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "sectionRange": "Questions 13 – 20",
+      "sectionInstruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+      "sectionTitle": "Joining the leisure club"
+    },
+    {
+      "number": 14,
+      "type": "gap-fill",
+      "prompt": "Safety rules:",
+      "options": [],
+      "answer": "safety rules",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    },
+    {
+      "number": 15,
+      "type": "gap-fill",
+      "prompt": "Six-week:",
+      "options": [],
+      "answer": "plan",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 16,
+      "type": "gap-fill",
+      "prompt": "Compulsory fee:",
+      "options": [],
+      "answer": "joining",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 17,
+      "type": "gap-fill",
+      "prompt": "Gold members:",
+      "options": [],
+      "answer": "free entry",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    },
+    {
+      "number": 18,
+      "type": "gap-fill",
+      "prompt": "Priority during:",
+      "options": [],
+      "answer": "peak",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 19,
+      "type": "gap-fill",
+      "prompt": "Bring guests:",
+      "options": [],
+      "answer": "guests",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 20,
+      "type": "gap-fill",
+      "prompt": "Take:",
+      "options": [],
+      "answer": "photo card",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    }
+  ]
+}

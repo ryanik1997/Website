@@ -1,0 +1,370 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–14: Complete the notes. Write ONE WORD for each answer. Questions 15–20: Label the map A–I.",
+  "audioFile": "listening.mp3",
+  "imageFile": "map.jpg",
+  "passageTitle": "Fiddy Working Heritage Farm",
+  "notePassage": [
+    {
+      "type": "section",
+      "text": "Advice about visiting the farm"
+    },
+    {
+      "type": "static",
+      "text": "• take care not to harm any"
+    },
+    {
+      "type": "gap",
+      "number": 11
+    },
+    {
+      "type": "static",
+      "text": "• not touch any"
+    },
+    {
+      "type": "gap",
+      "number": 12
+    },
+    {
+      "type": "static",
+      "text": "• not touch any"
+    },
+    {
+      "type": "gap",
+      "number": 13
+    },
+    {
+      "type": "static",
+      "text": "• not bring"
+    },
+    {
+      "type": "gap",
+      "number": 14
+    },
+    {
+      "type": "static",
+      "text": "into the farm, with certain exceptions"
+    }
+  ],
+  "questions": [
+    {
+      "number": 11,
+      "type": "gap-fill",
+      "prompt": "Do not harm:",
+      "options": [],
+      "answer": "animals",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 11 – 14",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD for each answer.",
+      "sectionTitle": "Fiddy Working Heritage Farm"
+    },
+    {
+      "number": 12,
+      "type": "gap-fill",
+      "prompt": "Do not touch:",
+      "options": [],
+      "answer": "tools",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 13,
+      "type": "gap-fill",
+      "prompt": "Do not touch:",
+      "options": [],
+      "answer": "shoes",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 14,
+      "type": "gap-fill",
+      "prompt": "Do not bring:",
+      "options": [],
+      "answer": "dogs",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 15,
+      "type": "matching",
+      "prompt": "Scarecrow",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "F",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true,
+      "sectionRange": "Questions 15 – 20",
+      "sectionInstruction": "Label the map below. Write the correct letter A–I.",
+      "sectionTitle": "Fiddy Working Heritage Farm"
+    },
+    {
+      "number": 16,
+      "type": "matching",
+      "prompt": "Maze",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "G",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "Café",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "Black Barn",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "H",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "Covered picnic area",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "Fiddy House",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    }
+  ]
+}

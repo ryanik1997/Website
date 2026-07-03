@@ -1,0 +1,222 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–23: Choose A, B or C. Questions 24–30: Complete the notes. Write ONE WORD ONLY.",
+  "audioFile": "listening.mp3",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "• whether it has a"
+    },
+    {
+      "type": "gap",
+      "number": 24
+    },
+    {
+      "type": "static",
+      "text": "of its own"
+    },
+    {
+      "type": "static",
+      "text": "• its policy regarding noise of various kinds"
+    },
+    {
+      "type": "static",
+      "text": "• how it's affected by laws regarding all aspects of"
+    },
+    {
+      "type": "gap",
+      "number": 25
+    },
+    {
+      "type": "static",
+      "text": "• how the design needs to take the"
+    },
+    {
+      "type": "gap",
+      "number": 26
+    },
+    {
+      "type": "static",
+      "text": "of customers into account"
+    },
+    {
+      "type": "static",
+      "text": "• what"
+    },
+    {
+      "type": "gap",
+      "number": 27
+    },
+    {
+      "type": "static",
+      "text": "is required in case of accidents"
+    },
+    {
+      "type": "static",
+      "text": "• why a famous person's"
+    },
+    {
+      "type": "gap",
+      "number": 28
+    },
+    {
+      "type": "static",
+      "text": "is located in the library"
+    },
+    {
+      "type": "static",
+      "text": "• whether it has a"
+    },
+    {
+      "type": "gap",
+      "number": 29
+    },
+    {
+      "type": "static",
+      "text": "of local organisations"
+    },
+    {
+      "type": "static",
+      "text": "• how it's different from a library in a"
+    },
+    {
+      "type": "gap",
+      "number": 30
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "What will be the main topic of Trudie and Stewart's paper?",
+      "options": [
+        {
+          "id": "A",
+          "label": "how public library services are organised in different countries"
+        },
+        {
+          "id": "B",
+          "label": "how changes in society are reflected in public libraries"
+        },
+        {
+          "id": "C",
+          "label": "how the funding of public libraries has changed"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 21 – 23",
+      "sectionInstruction": "Choose the correct letter, A, B or C.",
+      "sectionTitle": "Paper on Public Libraries"
+    },
+    {
+      "number": 22,
+      "type": "multiple-choice",
+      "prompt": "They agree that one disadvantage of free digitalised books is that",
+      "options": [
+        {
+          "id": "A",
+          "label": "they may take a long time to read."
+        },
+        {
+          "id": "B",
+          "label": "they can be difficult to read."
+        },
+        {
+          "id": "C",
+          "label": "they are generally old."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 23,
+      "type": "multiple-choice",
+      "prompt": "Stewart expects that in the future libraries will",
+      "options": [
+        {
+          "id": "A",
+          "label": "maintain their traditional function."
+        },
+        {
+          "id": "B",
+          "label": "become centres for local communities."
+        },
+        {
+          "id": "C",
+          "label": "no longer contain any books."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 24,
+      "type": "gap-fill",
+      "prompt": "Whether it has a … of its own:",
+      "options": [],
+      "answer": "budget",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 24 – 30",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Study of local library: possible questions"
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Laws regarding all aspects of:",
+      "options": [],
+      "answer": "employment",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Take the … of customers into account:",
+      "options": [],
+      "answer": "safety",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "… required in case of accidents:",
+      "options": [],
+      "answer": "insurance",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 28,
+      "type": "gap-fill",
+      "prompt": "A famous person's … located in the library:",
+      "options": [],
+      "answer": "diary",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 29,
+      "type": "gap-fill",
+      "prompt": "A … of local organisations:",
+      "options": [],
+      "answer": "database",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 30,
+      "type": "gap-fill",
+      "prompt": "Different from a library in a:",
+      "options": [],
+      "answer": "museum",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

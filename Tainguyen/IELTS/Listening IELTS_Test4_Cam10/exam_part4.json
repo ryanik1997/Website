@@ -1,0 +1,238 @@
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 31–40",
+  "instruction": "Questions 31–33: Choose A, B or C. Questions 34–40: Complete the notes. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "passageTitle": "Uses of Nanotechnology",
+  "notePassage": [
+    {
+      "type": "section",
+      "text": "Transport"
+    },
+    {
+      "type": "static",
+      "text": "Nanotechnology could allow the development of stronger"
+    },
+    {
+      "type": "gap",
+      "number": 34
+    },
+    {
+      "type": "static",
+      "text": "35"
+    },
+    {
+      "type": "gap",
+      "number": 35
+    },
+    {
+      "type": "static",
+      "text": "travel will be made available to the masses"
+    },
+    {
+      "type": "section",
+      "text": "Technology"
+    },
+    {
+      "type": "static",
+      "text": "Computers will be even smaller, faster, and will have a greater"
+    },
+    {
+      "type": "gap",
+      "number": 36
+    },
+    {
+      "type": "static",
+      "text": "37"
+    },
+    {
+      "type": "gap",
+      "number": 37
+    },
+    {
+      "type": "static",
+      "text": "energy will become more affordable"
+    },
+    {
+      "type": "section",
+      "text": "The Environment"
+    },
+    {
+      "type": "static",
+      "text": "Pollutants such as"
+    },
+    {
+      "type": "gap",
+      "number": 38
+    },
+    {
+      "type": "static",
+      "text": "could be removed from water more easily"
+    },
+    {
+      "type": "static",
+      "text": "There will be no"
+    },
+    {
+      "type": "gap",
+      "number": 39
+    },
+    {
+      "type": "static",
+      "text": "from manufacturing"
+    },
+    {
+      "type": "section",
+      "text": "Health and Medicine"
+    },
+    {
+      "type": "static",
+      "text": "Analysis of medical"
+    },
+    {
+      "type": "gap",
+      "number": 40
+    },
+    {
+      "type": "static",
+      "text": "will be speeded up"
+    }
+  ],
+  "questions": [
+    {
+      "number": 31,
+      "type": "multiple-choice",
+      "prompt": "One problem with nanotechnology is that",
+      "options": [
+        {
+          "id": "A",
+          "label": "it could threaten our way of life"
+        },
+        {
+          "id": "B",
+          "label": "it could be used to spy on people"
+        },
+        {
+          "id": "C",
+          "label": "it is misunderstood by the public"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 31 – 33",
+      "sectionInstruction": "Choose the correct letter A, B or C.",
+      "sectionTitle": "Nanotechnology"
+    },
+    {
+      "number": 32,
+      "type": "multiple-choice",
+      "prompt": "Some scientists believe that nano-particles",
+      "options": [
+        {
+          "id": "A",
+          "label": "should be restricted to secure environments"
+        },
+        {
+          "id": "B",
+          "label": "should be used with more caution"
+        },
+        {
+          "id": "C",
+          "label": "should only be developed for essential products"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 33,
+      "type": "multiple-choice",
+      "prompt": "In the speaker's opinion, research into nanotechnology",
+      "options": [
+        {
+          "id": "A",
+          "label": "has yet to win popular support"
+        },
+        {
+          "id": "B",
+          "label": "could be seen as unethical"
+        },
+        {
+          "id": "C",
+          "label": "ought to be continued"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 34,
+      "type": "gap-fill",
+      "prompt": "Stronger:",
+      "options": [],
+      "answer": "metal",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 34 – 40",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Uses of Nanotechnology"
+    },
+    {
+      "number": 35,
+      "type": "gap-fill",
+      "prompt": "Travel:",
+      "options": [],
+      "answer": "space",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 36,
+      "type": "gap-fill",
+      "prompt": "Greater:",
+      "options": [],
+      "answer": "memory",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 37,
+      "type": "gap-fill",
+      "prompt": "Energy:",
+      "options": [],
+      "answer": "solar",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 38,
+      "type": "gap-fill",
+      "prompt": "Pollutants such as:",
+      "options": [],
+      "answer": "oil",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 39,
+      "type": "gap-fill",
+      "prompt": "No:",
+      "options": [],
+      "answer": "waste",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "There will be no",
+      "gapTrail": "from manufacturing"
+    },
+    {
+      "number": 40,
+      "type": "gap-fill",
+      "prompt": "Medical:",
+      "options": [],
+      "answer": "tests",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Analysis of medical"
+    }
+  ]
+}

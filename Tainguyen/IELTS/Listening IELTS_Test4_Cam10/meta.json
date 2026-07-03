@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "cambridge": 10,
+  "test": 4,
+  "title": "IELTS Listening — Cambridge 10 Test 4",
+  "bandHint": "IELTS · Cambridge 10 · Test 4 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "durationMinutes": 30,
+  "audioFile": "listening.mp3",
+  "parts": [
+    {
+      "partNumber": 1,
+      "template": "p1-a4",
+      "file": "exam_part1.json"
+    },
+    {
+      "partNumber": 2,
+      "template": "p2-a8",
+      "file": "exam_part2.json"
+    },
+    {
+      "partNumber": 3,
+      "template": "p3-c5",
+      "file": "exam_part3.json"
+    },
+    {
+      "partNumber": 4,
+      "template": "p4-d1",
+      "file": "exam_part4.json"
+    }
+  ]
+}

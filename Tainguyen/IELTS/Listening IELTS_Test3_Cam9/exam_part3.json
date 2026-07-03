@@ -1,0 +1,288 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Complete the notes and table. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageSections": [
+    {
+      "gapNumbers": [
+        21,
+        22,
+        23
+      ],
+      "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "title": "Study Skills Tutorial – Caroline Benning",
+      "blocks": [
+        {
+          "type": "static",
+          "text": "Dissertation topic: the"
+        },
+        {
+          "type": "gap",
+          "number": 21
+        },
+        {
+          "type": "section",
+          "text": "Strengths:"
+        },
+        {
+          "type": "gap",
+          "number": 22
+        },
+        {
+          "type": "static",
+          "text": "computer modelling"
+        },
+        {
+          "type": "section",
+          "text": "Weaknesses:"
+        },
+        {
+          "type": "static",
+          "text": "lack of background information"
+        },
+        {
+          "type": "static",
+          "text": "poor"
+        },
+        {
+          "type": "gap",
+          "number": 23
+        },
+        {
+          "type": "static",
+          "text": "skills"
+        }
+      ]
+    },
+    {
+      "gapNumbers": [
+        29,
+        30
+      ],
+      "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "blocks": [
+        {
+          "type": "section",
+          "text": "Recommendations:"
+        },
+        {
+          "type": "static",
+          "text": "use a card index"
+        },
+        {
+          "type": "static",
+          "text": "read all notes"
+        },
+        {
+          "type": "gap",
+          "number": 29
+        },
+        {
+          "type": "static",
+          "text": "Next tutorial date:"
+        },
+        {
+          "type": "gap",
+          "number": 30
+        },
+        {
+          "type": "static",
+          "text": "January"
+        }
+      ]
+    }
+  ],
+  "noteTables": [
+    {
+      "gapNumbers": [
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "instruction": "Complete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "title": "Study Strategies",
+      "headers": [
+        "Possible strategy",
+        "Benefits",
+        "Problems"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "peer group discussion"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "increases"
+              },
+              {
+                "type": "gap",
+                "number": 24
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "dissertations tend to contain the same"
+              },
+              {
+                "type": "gap",
+                "number": 25
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "use the"
+              },
+              {
+                "type": "gap",
+                "number": 26
+              },
+              {
+                "type": "static",
+                "text": "service"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "provides structured programme"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "limited"
+              },
+              {
+                "type": "gap",
+                "number": 27
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "consult study skills books"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "are a good source of reference"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "can be too"
+              },
+              {
+                "type": "gap",
+                "number": 28
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "gap-fill",
+      "prompt": "Dissertation topic:",
+      "options": [],
+      "answer": "fishing industry",
+      "wordLimit": 2
+    },
+    {
+      "number": 22,
+      "type": "gap-fill",
+      "prompt": "Strength:",
+      "options": [],
+      "answer": "statistics",
+      "wordLimit": 2
+    },
+    {
+      "number": 23,
+      "type": "gap-fill",
+      "prompt": "Weakness:",
+      "options": [],
+      "answer": "note-taking",
+      "wordLimit": 1
+    },
+    {
+      "number": 24,
+      "type": "gap-fill",
+      "prompt": "Benefit:",
+      "options": [],
+      "answer": "confidence",
+      "wordLimit": 1
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Problem:",
+      "options": [],
+      "answer": "ideas",
+      "wordLimit": 1
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Service:",
+      "options": [],
+      "answer": "student support",
+      "wordLimit": 1
+    },
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "Limited:",
+      "options": [],
+      "answer": "places",
+      "wordLimit": 1
+    },
+    {
+      "number": 28,
+      "type": "gap-fill",
+      "prompt": "Too:",
+      "options": [],
+      "answer": "general",
+      "wordLimit": 1
+    },
+    {
+      "number": 29,
+      "type": "gap-fill",
+      "prompt": "Read notes:",
+      "options": [],
+      "answer": "3 times",
+      "wordLimit": 1
+    },
+    {
+      "number": 30,
+      "type": "gap-fill",
+      "prompt": "Tutorial date:",
+      "options": [],
+      "answer": "25",
+      "wordLimit": 1
+    }
+  ]
+}

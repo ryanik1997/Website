@@ -1,0 +1,218 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "example",
+      "text": "Example\nName: Margaret Smith"
+    },
+    {
+      "type": "section",
+      "text": "About the applicant:"
+    },
+    {
+      "type": "static",
+      "text": "• wants a"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "job"
+    },
+    {
+      "type": "static",
+      "text": "• will soon start work as a"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "• has led cycle trips in"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "• interested in being a leader of a cycling trip for families"
+    },
+    {
+      "type": "static",
+      "text": "• is currently doing voluntary work with members of a"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "static",
+      "text": "club"
+    },
+    {
+      "type": "static",
+      "text": "• available for five months from the 1st of"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "• can't eat"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "section",
+      "text": "Contact details:"
+    },
+    {
+      "type": "static",
+      "text": "• address: 277"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "static",
+      "text": "Place, Dumfries"
+    },
+    {
+      "type": "static",
+      "text": "• postcode:"
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "section",
+      "text": "Interview:"
+    },
+    {
+      "type": "static",
+      "text": "• interview at 2.30 pm on"
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "static",
+      "text": "• will plan a short"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    },
+    {
+      "type": "static",
+      "text": "about being a tour guide"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Wants a … job:",
+      "options": [],
+      "answer": "temporary",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionTitle": "Cycle tour leader: Applicant enquiry"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Will soon start work as a:",
+      "options": [],
+      "answer": "doctor",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Has led cycle trips in:",
+      "options": [],
+      "answer": "africa",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Voluntary work with a … club:",
+      "options": [],
+      "answer": "youth",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Available from the 1st of:",
+      "options": [],
+      "answer": "may",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Can't eat:",
+      "options": [],
+      "answer": "cheese",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Address: 277 … Place:",
+      "options": [],
+      "answer": "arbuthnot",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Postcode:",
+      "options": [],
+      "answer": "dg7 4ph",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Interview on:",
+      "options": [],
+      "answer": "tuesday",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Will plan a short … about being a tour guide:",
+      "options": [],
+      "answer": "talk/presentation",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    }
+  ]
+}

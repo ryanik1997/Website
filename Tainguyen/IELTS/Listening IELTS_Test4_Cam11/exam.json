@@ -1,0 +1,1196 @@
+{
+  "version": 1,
+  "title": "IELTS Listening — Cambridge 11 Test 4",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 11 · Test 4 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–7: Complete the table. Questions 8–10: Matching A–C.",
+      "audioFile": "listening.mp3",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "instruction": "Questions 1 – 7\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "headers": [
+            "Event",
+            "Cost",
+            "Venue",
+            "Notes"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Jazz band"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Tickets available for £15"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  },
+                  {
+                    "type": "static",
+                    "text": " school"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Carolyn Hart (plays the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  },
+                  {
+                    "type": "static",
+                    "text": ")"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Duck races"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "£1 per duck"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Start behind the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Ducks can be bought in the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 5
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Flower show"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Free"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Bythwaite "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Prize: tickets for "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  },
+                  {
+                    "type": "static",
+                    "text": " — presented by a well-known "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Venue:",
+          "options": [],
+          "answer": "secondary",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 1 – 7",
+          "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer."
+        },
+        {
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Plays the:",
+          "options": [],
+          "answer": "flute",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Start behind:",
+          "options": [],
+          "answer": "cinema",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Prize:",
+          "options": [],
+          "answer": "concert",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Ducks bought in:",
+          "options": [],
+          "answer": "market",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Venue:",
+          "options": [],
+          "answer": "bythwaite",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Presented by a:",
+          "options": [],
+          "answer": "actor",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 8,
+          "type": "matching",
+          "prompt": "The Mystery of Muldoon",
+          "options": [
+            {
+              "id": "A",
+              "label": "mainly for children"
+            },
+            {
+              "id": "B",
+              "label": "mainly for adults"
+            },
+            {
+              "id": "C",
+              "label": "suitable for people of all ages"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 8 – 10",
+          "sectionInstruction": "Who is each play suitable for? Write A, B or C."
+        },
+        {
+          "number": 9,
+          "type": "matching",
+          "prompt": "Fire and Flood",
+          "options": [
+            {
+              "id": "A",
+              "label": "mainly for children"
+            },
+            {
+              "id": "B",
+              "label": "mainly for adults"
+            },
+            {
+              "id": "C",
+              "label": "suitable for people of all ages"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 10,
+          "type": "matching",
+          "prompt": "Silly Sailor",
+          "options": [
+            {
+              "id": "A",
+              "label": "mainly for children"
+            },
+            {
+              "id": "B",
+              "label": "mainly for adults"
+            },
+            {
+              "id": "C",
+              "label": "suitable for people of all ages"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–16: Matching A–G. Questions 17–20: Label the plan A–H.",
+      "audioFile": "listening.mp3",
+      "imageFile": "map.jpg",
+      "questions": [
+        {
+          "number": 11,
+          "type": "matching",
+          "prompt": "20th- and 21st-century paintings",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 11 – 16",
+          "sectionInstruction": "What does the speaker say about each collection? Choose SIX answers A–G."
+        },
+        {
+          "number": 12,
+          "type": "matching",
+          "prompt": "19th-century paintings",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 13,
+          "type": "matching",
+          "prompt": "Sculptures",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 14,
+          "type": "matching",
+          "prompt": "'Around the world' exhibition",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 15,
+          "type": "matching",
+          "prompt": "Coins",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 16,
+          "type": "matching",
+          "prompt": "Porcelain and glass",
+          "options": [
+            {
+              "id": "A",
+              "label": "was given by one person"
+            },
+            {
+              "id": "B",
+              "label": "was recently publicised in the media"
+            },
+            {
+              "id": "C",
+              "label": "includes some items given by members of the public"
+            },
+            {
+              "id": "D",
+              "label": "includes some items given by the artists"
+            },
+            {
+              "id": "E",
+              "label": "includes the most popular exhibits in the museum"
+            },
+            {
+              "id": "F",
+              "label": "is the largest of its kind in the country"
+            },
+            {
+              "id": "G",
+              "label": "has had some of its contents relocated"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 17,
+          "type": "matching",
+          "prompt": "Restaurant",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true,
+          "sectionRange": "Questions 17 – 20",
+          "sectionInstruction": "Label the plan below. Write the correct letter A–H.",
+          "sectionTitle": "Basement of museum"
+        },
+        {
+          "number": 18,
+          "type": "matching",
+          "prompt": "Café",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "number": 19,
+          "type": "matching",
+          "prompt": "Baby-changing facilities",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "number": 20,
+          "type": "matching",
+          "prompt": "Cloakroom",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–26: Choose TWO letters A–E. Questions 27–30: Choose A, B or C.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Which TWO characteristics were shared by the subjects of Joanna's psychology study?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They had all won prizes for their music."
+            },
+            {
+              "id": "B",
+              "label": "They had all made music recordings."
+            },
+            {
+              "id": "C",
+              "label": "They were all under 27 years old."
+            },
+            {
+              "id": "D",
+              "label": "They had all toured internationally."
+            },
+            {
+              "id": "E",
+              "label": "They all played a string instrument."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Đã thu âm (B) và từng biểu diễn quốc tế (D).",
+          "sectionRange": "Questions 21 – 22",
+          "sectionInstruction": "Choose TWO letters, A–E.",
+          "sectionTitle": "Psychology study on concert dress"
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Which TWO characteristics were shared by the subjects of Joanna's psychology study?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They had all won prizes for their music."
+            },
+            {
+              "id": "B",
+              "label": "They had all made music recordings."
+            },
+            {
+              "id": "C",
+              "label": "They were all under 27 years old."
+            },
+            {
+              "id": "D",
+              "label": "They had all toured internationally."
+            },
+            {
+              "id": "E",
+              "label": "They all played a string instrument."
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Đã thu âm (B) và từng biểu diễn quốc tế (D). (cặp 21–22)"
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Which TWO points does Joanna make about her use of telephone interviews?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It meant rich data could be collected."
+            },
+            {
+              "id": "B",
+              "label": "It allowed the involvement of top performers."
+            },
+            {
+              "id": "C",
+              "label": "It led to a stressful atmosphere at times."
+            },
+            {
+              "id": "D",
+              "label": "It meant interview times had to be limited."
+            },
+            {
+              "id": "E",
+              "label": "It caused some technical problems."
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Dữ liệu phong phú (A) và căng thẳng (C)."
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Which TWO points does Joanna make about her use of telephone interviews?",
+          "options": [
+            {
+              "id": "A",
+              "label": "It meant rich data could be collected."
+            },
+            {
+              "id": "B",
+              "label": "It allowed the involvement of top performers."
+            },
+            {
+              "id": "C",
+              "label": "It led to a stressful atmosphere at times."
+            },
+            {
+              "id": "D",
+              "label": "It meant interview times had to be limited."
+            },
+            {
+              "id": "E",
+              "label": "It caused some technical problems."
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Dữ liệu phong phú (A) và căng thẳng (C). (cặp 23–24)"
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Which TWO topics did Joanna originally intend to investigate?",
+          "options": [
+            {
+              "id": "A",
+              "label": "regulations concerning concert dress"
+            },
+            {
+              "id": "B",
+              "label": "audience reactions to the dress of performers"
+            },
+            {
+              "id": "C",
+              "label": "changes in performer attitudes to concert dress"
+            },
+            {
+              "id": "D",
+              "label": "how choice of dress relates to performer roles"
+            },
+            {
+              "id": "E",
+              "label": "links between musical instrument and dress choice"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Quy định trang phục (A) và nhạc cụ–trang phục (E)."
+        },
+        {
+          "number": 26,
+          "type": "matching",
+          "prompt": "Which TWO topics did Joanna originally intend to investigate?",
+          "options": [
+            {
+              "id": "A",
+              "label": "regulations concerning concert dress"
+            },
+            {
+              "id": "B",
+              "label": "audience reactions to the dress of performers"
+            },
+            {
+              "id": "C",
+              "label": "changes in performer attitudes to concert dress"
+            },
+            {
+              "id": "D",
+              "label": "how choice of dress relates to performer roles"
+            },
+            {
+              "id": "E",
+              "label": "links between musical instrument and dress choice"
+            }
+          ],
+          "answer": "A/E",
+          "explanation": "Quy định trang phục (A) và nhạc cụ–trang phục (E). (cặp 25–26)"
+        },
+        {
+          "number": 27,
+          "type": "multiple-choice",
+          "prompt": "Joanna concentrated on women performers because",
+          "options": [
+            {
+              "id": "A",
+              "label": "women are more influenced by fashion"
+            },
+            {
+              "id": "B",
+              "label": "women's dress has led to more controversy"
+            },
+            {
+              "id": "C",
+              "label": "women's code of dress is less strict than men's"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 27 – 30",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "number": 28,
+          "type": "multiple-choice",
+          "prompt": "Mike Frost's article suggests that in popular music, women's dress is affected by",
+          "options": [
+            {
+              "id": "A",
+              "label": "their wish to be taken seriously"
+            },
+            {
+              "id": "B",
+              "label": "their tendency to copy each other"
+            },
+            {
+              "id": "C",
+              "label": "their reaction to the masculine nature of the music"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 29,
+          "type": "multiple-choice",
+          "prompt": "What did Joanna's subjects say about the audience at a performance?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The musicians' choice of clothing is linked to respect for the audience"
+            },
+            {
+              "id": "B",
+              "label": "The clothing should not distract the audience from the music"
+            },
+            {
+              "id": "C",
+              "label": "The audience should make the effort to dress appropriately"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "number": 30,
+          "type": "multiple-choice",
+          "prompt": "According to the speakers, musicians could learn from sports scientists about",
+          "options": [
+            {
+              "id": "A",
+              "label": "the importance of clothing for physical freedom"
+            },
+            {
+              "id": "B",
+              "label": "the part played by clothing in improving performance"
+            },
+            {
+              "id": "C",
+              "label": "the way clothing may protect against physical injury"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioFile": "listening.mp3",
+      "passageTitle": "The use of soil to reduce carbon dioxide (CO2)",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Rattan Lal"
+        },
+        {
+          "type": "static",
+          "text": "• Erosion is more likely in soil that is"
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": "• Lal found soil in Africa that was very"
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "section",
+          "text": "Soil and carbon"
+        },
+        {
+          "type": "static",
+          "text": "• plants turn CO2 into carbon-based substances such as"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": "• some carbon moves from the"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "of plants to microbes in the soil"
+        },
+        {
+          "type": "section",
+          "text": "Regenerative agriculture"
+        },
+        {
+          "type": "static",
+          "text": "• make sure soil remains fertile and"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "• increasing the"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "of plants that are grown"
+        },
+        {
+          "type": "section",
+          "text": "California study"
+        },
+        {
+          "type": "static",
+          "text": "• taking place on a big"
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": "farm"
+        },
+        {
+          "type": "static",
+          "text": "• uses compost made from waste from agriculture and"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "section",
+          "text": "Australia study"
+        },
+        {
+          "type": "static",
+          "text": "• using"
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "that are always green"
+        },
+        {
+          "type": "section",
+          "text": "Future developments"
+        },
+        {
+          "type": "static",
+          "text": "• giving farmers"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        },
+        {
+          "type": "static",
+          "text": "for carbon storage, as well as their produce"
+        }
+      ],
+      "questions": [
+        {
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "Soil that is:",
+          "options": [],
+          "answer": "dry",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionTitle": "The use of soil to reduce carbon dioxide (CO2)"
+        },
+        {
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Soil in Africa was very:",
+          "options": [],
+          "answer": "hard",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "Substances such as:",
+          "options": [],
+          "answer": "sugar/sugars",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "Moves from the:",
+          "options": [],
+          "answer": "roots",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Soil remains:",
+          "options": [],
+          "answer": "moist/damp/wet",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Increasing the:",
+          "options": [],
+          "answer": "variety",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "On a big:",
+          "options": [],
+          "answer": "cattle",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Compost from:",
+          "options": [],
+          "answer": "gardens/gardening",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Using grasses that are always:",
+          "options": [],
+          "answer": "grasses",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "Farmers:",
+          "options": [],
+          "answer": "payment/payments/money",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ]
+    }
+  ]
+}

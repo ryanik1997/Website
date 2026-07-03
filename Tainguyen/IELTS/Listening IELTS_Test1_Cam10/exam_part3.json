@@ -1,0 +1,215 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–25: Choose A, B or C. Questions 26–30: Complete the notes. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "John needs help preparing for his"
+    },
+    {
+      "type": "gap",
+      "number": 26
+    },
+    {
+      "type": "static",
+      "text": "The professor advises John to make a"
+    },
+    {
+      "type": "gap",
+      "number": 27
+    },
+    {
+      "type": "static",
+      "text": "of his design"
+    },
+    {
+      "type": "static",
+      "text": "John's main problem is getting good quality"
+    },
+    {
+      "type": "gap",
+      "number": 28
+    },
+    {
+      "type": "static",
+      "text": "The professor suggests John apply for a"
+    },
+    {
+      "type": "gap",
+      "number": 29
+    },
+    {
+      "type": "static",
+      "text": "The professor will check the"
+    },
+    {
+      "type": "gap",
+      "number": 30
+    },
+    {
+      "type": "static",
+      "text": "information in John's written report"
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "Students entering the design competition have to",
+      "options": [
+        {
+          "id": "A",
+          "label": "produce an energy-efficient design"
+        },
+        {
+          "id": "B",
+          "label": "adapt an existing energy-saving appliance"
+        },
+        {
+          "id": "C",
+          "label": "develop a new use for current technology"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 21 – 25",
+      "sectionInstruction": "Choose the correct letter A, B or C.",
+      "sectionTitle": "Global Design Competition"
+    },
+    {
+      "number": 22,
+      "type": "multiple-choice",
+      "prompt": "John chose a dishwasher because he wanted to make dishwashers",
+      "options": [
+        {
+          "id": "A",
+          "label": "more appealing"
+        },
+        {
+          "id": "B",
+          "label": "more common"
+        },
+        {
+          "id": "C",
+          "label": "more economical"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 23,
+      "type": "multiple-choice",
+      "prompt": "The stone in John's 'Rockpool' design is used",
+      "options": [
+        {
+          "id": "A",
+          "label": "for decoration"
+        },
+        {
+          "id": "B",
+          "label": "to switch it on"
+        },
+        {
+          "id": "C",
+          "label": "to stop water escaping"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 24,
+      "type": "multiple-choice",
+      "prompt": "In the holding chamber, the carbon dioxide",
+      "options": [
+        {
+          "id": "A",
+          "label": "changes back to a gas"
+        },
+        {
+          "id": "B",
+          "label": "dries the dishes"
+        },
+        {
+          "id": "C",
+          "label": "is allowed to cool"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 25,
+      "type": "multiple-choice",
+      "prompt": "At the end of the cleaning process, the carbon dioxide",
+      "options": [
+        {
+          "id": "A",
+          "label": "is released into the air"
+        },
+        {
+          "id": "B",
+          "label": "is disposed of with the waste"
+        },
+        {
+          "id": "C",
+          "label": "is collected ready to be re-used"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Prepare for:",
+      "options": [],
+      "answer": "presentation",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 26 – 30",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "Make a:",
+      "options": [],
+      "answer": "model",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 28,
+      "type": "gap-fill",
+      "prompt": "Good quality:",
+      "options": [],
+      "answer": "material",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 29,
+      "type": "gap-fill",
+      "prompt": "Apply for a:",
+      "options": [],
+      "answer": "grant",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 30,
+      "type": "gap-fill",
+      "prompt": "Check:",
+      "options": [],
+      "answer": "technical",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "The professor will check the",
+      "gapTrail": "information in John's written report"
+    }
+  ]
+}

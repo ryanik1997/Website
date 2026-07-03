@@ -1,0 +1,285 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–7: Complete the table. Questions 8–10: Matching A–C.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "instruction": "Questions 1 – 7\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "headers": [
+        "Event",
+        "Cost",
+        "Venue",
+        "Notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Jazz band"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Tickets available for £15"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "The "
+              },
+              {
+                "type": "gap",
+                "number": 1
+              },
+              {
+                "type": "static",
+                "text": " school"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Carolyn Hart (plays the "
+              },
+              {
+                "type": "gap",
+                "number": 2
+              },
+              {
+                "type": "static",
+                "text": ")"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Duck races"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "£1 per duck"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Start behind the "
+              },
+              {
+                "type": "gap",
+                "number": 3
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Ducks can be bought in the "
+              },
+              {
+                "type": "gap",
+                "number": 5
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Flower show"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Free"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Bythwaite "
+              },
+              {
+                "type": "gap",
+                "number": 6
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Prize: tickets for "
+              },
+              {
+                "type": "gap",
+                "number": 4
+              },
+              {
+                "type": "static",
+                "text": " — presented by a well-known "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Venue:",
+      "options": [],
+      "answer": "secondary",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 1 – 7",
+      "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer."
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Plays the:",
+      "options": [],
+      "answer": "flute",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Start behind:",
+      "options": [],
+      "answer": "cinema",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Prize:",
+      "options": [],
+      "answer": "concert",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Ducks bought in:",
+      "options": [],
+      "answer": "market",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Venue:",
+      "options": [],
+      "answer": "bythwaite",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Presented by a:",
+      "options": [],
+      "answer": "actor",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "matching",
+      "prompt": "The Mystery of Muldoon",
+      "options": [
+        {
+          "id": "A",
+          "label": "mainly for children"
+        },
+        {
+          "id": "B",
+          "label": "mainly for adults"
+        },
+        {
+          "id": "C",
+          "label": "suitable for people of all ages"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 8 – 10",
+      "sectionInstruction": "Who is each play suitable for? Write A, B or C."
+    },
+    {
+      "number": 9,
+      "type": "matching",
+      "prompt": "Fire and Flood",
+      "options": [
+        {
+          "id": "A",
+          "label": "mainly for children"
+        },
+        {
+          "id": "B",
+          "label": "mainly for adults"
+        },
+        {
+          "id": "C",
+          "label": "suitable for people of all ages"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 10,
+      "type": "matching",
+      "prompt": "Silly Sailor",
+      "options": [
+        {
+          "id": "A",
+          "label": "mainly for children"
+        },
+        {
+          "id": "B",
+          "label": "mainly for adults"
+        },
+        {
+          "id": "C",
+          "label": "suitable for people of all ages"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 31–40",
+  "instruction": "Questions 31–36: Choose A, B or C. Questions 37–40: Complete the table. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTable": {
+    "headers": [
+      "Animals",
+      "Reason for population increase in gardens",
+      "Comments"
+    ],
+    "rows": [
+      {
+        "cells": [
+          [
+            {
+              "type": "gap",
+              "number": 37
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "suitable stretches of water"
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "massive increase in urban population"
+            }
+          ]
+        ]
+      },
+      {
+        "cells": [
+          [
+            {
+              "type": "static",
+              "text": "Hedgehogs"
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "safer from "
+            },
+            {
+              "type": "gap",
+              "number": 38
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "easy to "
+            },
+            {
+              "type": "gap",
+              "number": 39
+            },
+            {
+              "type": "static",
+              "text": " them accurately"
+            }
+          ]
+        ]
+      },
+      {
+        "cells": [
+          [
+            {
+              "type": "static",
+              "text": "Song thrushes"
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "a variety of "
+            },
+            {
+              "type": "gap",
+              "number": 40
+            },
+            {
+              "type": "static",
+              "text": " to eat"
+            }
+          ],
+          [
+            {
+              "type": "static",
+              "text": "more nesting places available"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "number": 31,
+      "type": "multiple-choice",
+      "prompt": "What led the group to choose their topic?",
+      "options": [
+        {
+          "id": "A",
+          "label": "They were concerned about the decline of one species"
+        },
+        {
+          "id": "B",
+          "label": "They were interested in the effects of city growth"
+        },
+        {
+          "id": "C",
+          "label": "They wanted to investigate a recent phenomenon"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 31 – 36",
+      "sectionInstruction": "Choose the correct letter A, B or C.",
+      "sectionTitle": "Wildlife in city gardens"
+    },
+    {
+      "number": 32,
+      "type": "multiple-choice",
+      "prompt": "The exact proportion of land devoted to private gardens was confirmed by",
+      "options": [
+        {
+          "id": "A",
+          "label": "consulting some official documents"
+        },
+        {
+          "id": "B",
+          "label": "taking large-scale photos"
+        },
+        {
+          "id": "C",
+          "label": "discussions with town surveyors"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 33,
+      "type": "multiple-choice",
+      "prompt": "The group asked garden owners to",
+      "options": [
+        {
+          "id": "A",
+          "label": "take part in formal interviews"
+        },
+        {
+          "id": "B",
+          "label": "keep a record of animals they saw"
+        },
+        {
+          "id": "C",
+          "label": "get in contact when they saw a rare species"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 34,
+      "type": "multiple-choice",
+      "prompt": "The group made their observations in gardens",
+      "options": [
+        {
+          "id": "A",
+          "label": "which had a large number of animal species"
+        },
+        {
+          "id": "B",
+          "label": "which they considered to be representative"
+        },
+        {
+          "id": "C",
+          "label": "which had stable populations of rare animals"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 35,
+      "type": "multiple-choice",
+      "prompt": "The group did extensive reading on",
+      "options": [
+        {
+          "id": "A",
+          "label": "wildlife problems in rural areas"
+        },
+        {
+          "id": "B",
+          "label": "urban animal populations"
+        },
+        {
+          "id": "C",
+          "label": "current gardening practices"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 36,
+      "type": "multiple-choice",
+      "prompt": "The speaker focuses on three animal species because",
+      "options": [
+        {
+          "id": "A",
+          "label": "a lot of data has been obtained about them"
+        },
+        {
+          "id": "B",
+          "label": "the group were most interested in them"
+        },
+        {
+          "id": "C",
+          "label": "they best indicated general trends"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 37,
+      "type": "gap-fill",
+      "prompt": "Frogs:",
+      "options": [],
+      "answer": "frog",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 37 – 40",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 38,
+      "type": "gap-fill",
+      "prompt": "Safer from:",
+      "options": [],
+      "answer": "predators",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 39,
+      "type": "gap-fill",
+      "prompt": "Easy to:",
+      "options": [],
+      "answer": "count",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 40,
+      "type": "gap-fill",
+      "prompt": "Variety of:",
+      "options": [],
+      "answer": "seed",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

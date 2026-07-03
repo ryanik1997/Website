@@ -1,0 +1,274 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–26: Complete the table. Write ONE WORD ONLY. Questions 27–30: Matching A–D.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "instruction": "Questions 21 – 26\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "headers": [
+        "Subject of drawing",
+        "Change to be made"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "A "
+              },
+              {
+                "type": "gap",
+                "number": 21
+              },
+              {
+                "type": "static",
+                "text": " surrounded by trees"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Add Malcolm and a "
+              },
+              {
+                "type": "gap",
+                "number": 22
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "People who are "
+              },
+              {
+                "type": "gap",
+                "number": 23
+              },
+              {
+                "type": "static",
+                "text": " and "
+              },
+              {
+                "type": "gap",
+                "number": 24
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Add Malcolm sitting on a tree trunk and dissuading two people from "
+              },
+              {
+                "type": "gap",
+                "number": 23
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Ice-skating on "
+              },
+              {
+                "type": "gap",
+                "number": 25
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Add a "
+              },
+              {
+                "type": "gap",
+                "number": 26
+              },
+              {
+                "type": "static",
+                "text": " tied to each person's waist"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "gap-fill",
+      "prompt": "Subject:",
+      "options": [],
+      "answer": "cave",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 21 – 26",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 22,
+      "type": "gap-fill",
+      "prompt": "Add:",
+      "options": [],
+      "answer": "tiger",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 23,
+      "type": "gap-fill",
+      "prompt": "People who are:",
+      "options": [],
+      "answer": "dancing",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 24,
+      "type": "gap-fill",
+      "prompt": "And:",
+      "options": [],
+      "answer": "playing",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Ice-skating on:",
+      "options": [],
+      "answer": "grass",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Add a:",
+      "options": [],
+      "answer": "scarf",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 27,
+      "type": "matching",
+      "prompt": "How they planned the project",
+      "options": [
+        {
+          "id": "A",
+          "label": "Helen only"
+        },
+        {
+          "id": "B",
+          "label": "Jeremy only"
+        },
+        {
+          "id": "C",
+          "label": "both Helen and Jeremy"
+        },
+        {
+          "id": "D",
+          "label": "neither Helen nor Jeremy"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 27 – 30",
+      "sectionInstruction": "Who is going to write each part of the report? Write A–D."
+    },
+    {
+      "number": 28,
+      "type": "matching",
+      "prompt": "How they had ideas for their stories",
+      "options": [
+        {
+          "id": "A",
+          "label": "Helen only"
+        },
+        {
+          "id": "B",
+          "label": "Jeremy only"
+        },
+        {
+          "id": "C",
+          "label": "both Helen and Jeremy"
+        },
+        {
+          "id": "D",
+          "label": "neither Helen nor Jeremy"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 29,
+      "type": "matching",
+      "prompt": "An interpretation of their stories",
+      "options": [
+        {
+          "id": "A",
+          "label": "Helen only"
+        },
+        {
+          "id": "B",
+          "label": "Jeremy only"
+        },
+        {
+          "id": "C",
+          "label": "both Helen and Jeremy"
+        },
+        {
+          "id": "D",
+          "label": "neither Helen nor Jeremy"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 30,
+      "type": "matching",
+      "prompt": "Comments on the illustrations",
+      "options": [
+        {
+          "id": "A",
+          "label": "Helen only"
+        },
+        {
+          "id": "B",
+          "label": "Jeremy only"
+        },
+        {
+          "id": "C",
+          "label": "both Helen and Jeremy"
+        },
+        {
+          "id": "D",
+          "label": "neither Helen nor Jeremy"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

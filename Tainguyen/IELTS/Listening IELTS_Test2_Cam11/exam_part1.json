@@ -1,0 +1,203 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "Example\nName: Roger Brown"
+    },
+    {
+      "type": "static",
+      "text": "Age: 18"
+    },
+    {
+      "type": "static",
+      "text": "Lives in a"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "Postal address: 2 17,"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "Street, Stamford, Lincs"
+    },
+    {
+      "type": "static",
+      "text": "Postcode:"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "Occupation: student and part-time job as a"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "static",
+      "text": "Studying"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "(major subject) and history (minor subject)"
+    },
+    {
+      "type": "static",
+      "text": "Hobbies: does a lot of"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "static",
+      "text": "and is interested in the"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "static",
+      "text": "On Youth Council, wants to work with young people who are"
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "static",
+      "text": "Will come to talk to the Elections Officer next Monday at"
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "static",
+      "text": "pm"
+    },
+    {
+      "type": "static",
+      "text": "Phone:"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Lives in a:",
+      "options": [],
+      "answer": "hostel",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionTitle": "Enquiry about joining Youth Council"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Street:",
+      "options": [],
+      "answer": "buckleigh",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "17,"
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Postcode:",
+      "options": [],
+      "answer": "pe97qt",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Part-time job:",
+      "options": [],
+      "answer": "waiter",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Major subject:",
+      "options": [],
+      "answer": "politics",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Hobby:",
+      "options": [],
+      "answer": "cycling",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Interested in:",
+      "options": [],
+      "answer": "cinema",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Wants to work with:",
+      "options": [],
+      "answer": "disabled",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Meeting time:",
+      "options": [],
+      "answer": "4.30/half past four",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Phone:",
+      "options": [],
+      "answer": "07788136711",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

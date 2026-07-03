@@ -1,0 +1,226 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "Example\nParent or guardian: Carol …Smith…"
+    },
+    {
+      "type": "section",
+      "text": "Personal Details"
+    },
+    {
+      "type": "static",
+      "text": "Child's name: Kate"
+    },
+    {
+      "type": "static",
+      "text": "Age:"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "Address:"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "Road, Woodside, 4032"
+    },
+    {
+      "type": "section",
+      "text": "Childcare Information"
+    },
+    {
+      "type": "static",
+      "text": "Days enrolled for: Monday and"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "Start time:"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "static",
+      "text": "am"
+    },
+    {
+      "type": "static",
+      "text": "Childcare group: the"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "group"
+    },
+    {
+      "type": "static",
+      "text": "Which meal/s are required each day?"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "static",
+      "text": "Medical conditions: needs"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "static",
+      "text": "Emergency contact: Jenny"
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "static",
+      "text": "Phone: 3346 7523"
+    },
+    {
+      "type": "static",
+      "text": "Relationship to child:"
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "section",
+      "text": "Fees"
+    },
+    {
+      "type": "static",
+      "text": "Will pay each"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Age:",
+      "options": [],
+      "answer": "4",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Age:",
+      "sectionTitle": "Early Learning Childcare Centre — Enrolment Form"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Address:",
+      "options": [],
+      "answer": "46 wombat",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "Address:"
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Days:",
+      "options": [],
+      "answer": "thursday",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Monday and"
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Start time:",
+      "options": [],
+      "answer": "8.30",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Group:",
+      "options": [],
+      "answer": "red",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "the",
+      "gapTrail": "group"
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Meals:",
+      "options": [],
+      "answer": "lunch",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Needs:",
+      "options": [],
+      "answer": "glasses",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "needs"
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Emergency contact:",
+      "options": [],
+      "answer": "ball",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Jenny"
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Relationship:",
+      "options": [],
+      "answer": "aunt",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Pay each:",
+      "options": [],
+      "answer": "month",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Will pay each"
+    }
+  ]
+}

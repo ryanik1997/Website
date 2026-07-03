@@ -1,0 +1,282 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–15: Choose A, B or C. Questions 16–20: Complete the table. Write NO MORE THAN TWO WORDS for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "instruction": "Questions 16 – 20\nComplete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+      "headers": [
+        "Place",
+        "Features and activities",
+        "Advice"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Copper mine"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "specially adapted miners' "
+              },
+              {
+                "type": "gap",
+                "number": 16
+              },
+              {
+                "type": "static",
+                "text": " take visitors into the mountain"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "the mine is "
+              },
+              {
+                "type": "gap",
+                "number": 17
+              },
+              {
+                "type": "static",
+                "text": " and enclosed — unsuitable for children and animals"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Village school"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "classrooms and a special exhibition of "
+              },
+              {
+                "type": "gap",
+                "number": 18
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a "
+              },
+              {
+                "type": "gap",
+                "number": 19
+              },
+              {
+                "type": "static",
+                "text": " is recommended"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "The George (old sailing ship)"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "the ship's wheel (was lost but has now been restored)"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "children shouldn't use the "
+              },
+              {
+                "type": "gap",
+                "number": 20
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 11,
+      "type": "multiple-choice",
+      "prompt": "Why did a port originally develop at Manham?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It was safe from enemy attack"
+        },
+        {
+          "id": "B",
+          "label": "It was convenient for river transport"
+        },
+        {
+          "id": "C",
+          "label": "It had a good position on the sea coast"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 11 – 15",
+      "sectionInstruction": "Choose the correct letter A, B or C.",
+      "sectionTitle": "MANHAM PORT"
+    },
+    {
+      "number": 12,
+      "type": "multiple-choice",
+      "prompt": "What caused Manham's sudden expansion during the Industrial Revolution?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the improvement in mining techniques"
+        },
+        {
+          "id": "B",
+          "label": "the increase in demand for metals"
+        },
+        {
+          "id": "C",
+          "label": "the discovery of tin in the area"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 13,
+      "type": "multiple-choice",
+      "prompt": "Why did rocks have to be sent away from Manham to be processed?",
+      "options": [
+        {
+          "id": "A",
+          "label": "shortage of fuel"
+        },
+        {
+          "id": "B",
+          "label": "poor transport systems"
+        },
+        {
+          "id": "C",
+          "label": "lack of skills among local people"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 14,
+      "type": "multiple-choice",
+      "prompt": "What happened when the port declined in the twentieth century?",
+      "options": [
+        {
+          "id": "A",
+          "label": "The workers went away"
+        },
+        {
+          "id": "B",
+          "label": "Traditional skills were lost"
+        },
+        {
+          "id": "C",
+          "label": "Buildings were used for new purposes"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 15,
+      "type": "multiple-choice",
+      "prompt": "What did the Manham Trust hope to do?",
+      "options": [
+        {
+          "id": "A",
+          "label": "discover the location of the original port"
+        },
+        {
+          "id": "B",
+          "label": "provide jobs for the unemployed"
+        },
+        {
+          "id": "C",
+          "label": "rebuild the port complex"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 16,
+      "type": "gap-fill",
+      "prompt": "Take visitors into:",
+      "options": [],
+      "answer": "trains",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "sectionRange": "Questions 16 – 20",
+      "sectionInstruction": "Complete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+      "sectionTitle": "Tourist attractions in Manham"
+    },
+    {
+      "number": 17,
+      "type": "gap-fill",
+      "prompt": "Mine is:",
+      "options": [],
+      "answer": "dark",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 18,
+      "type": "gap-fill",
+      "prompt": "Exhibition of:",
+      "options": [],
+      "answer": "games",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 19,
+      "type": "gap-fill",
+      "prompt": "Recommended:",
+      "options": [],
+      "answer": "guided tour",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2
+    },
+    {
+      "number": 20,
+      "type": "gap-fill",
+      "prompt": "Children shouldn't use the:",
+      "options": [],
+      "answer": "ladder",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

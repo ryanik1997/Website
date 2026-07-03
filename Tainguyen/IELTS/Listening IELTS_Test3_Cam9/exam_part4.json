@@ -1,0 +1,246 @@
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 31–40",
+  "instruction": "Questions 31–32: Choose A, B or C. Questions 33–40: Complete the notes. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "passageTitle": "The Underground House",
+  "notePassage": [
+    {
+      "type": "section",
+      "text": "Design"
+    },
+    {
+      "type": "static",
+      "text": "Built in the earth, with two floors"
+    },
+    {
+      "type": "static",
+      "text": "The south-facing side was constructed of two layers of"
+    },
+    {
+      "type": "gap",
+      "number": 33
+    },
+    {
+      "type": "static",
+      "text": "Photovoltaic tiles were attached"
+    },
+    {
+      "type": "static",
+      "text": "A layer of foam was used to improve the"
+    },
+    {
+      "type": "gap",
+      "number": 34
+    },
+    {
+      "type": "static",
+      "text": "of the building"
+    },
+    {
+      "type": "section",
+      "text": "Special features"
+    },
+    {
+      "type": "static",
+      "text": "To increase the light, the building has many internal mirrors and"
+    },
+    {
+      "type": "gap",
+      "number": 35
+    },
+    {
+      "type": "static",
+      "text": "In future, the house may produce more"
+    },
+    {
+      "type": "gap",
+      "number": 36
+    },
+    {
+      "type": "static",
+      "text": "than it needs"
+    },
+    {
+      "type": "static",
+      "text": "Recycled wood was used for the"
+    },
+    {
+      "type": "gap",
+      "number": 37
+    },
+    {
+      "type": "static",
+      "text": "of the house"
+    },
+    {
+      "type": "static",
+      "text": "The system for processing domestic"
+    },
+    {
+      "type": "gap",
+      "number": 38
+    },
+    {
+      "type": "static",
+      "text": "is organic"
+    },
+    {
+      "type": "section",
+      "text": "Environmental issues"
+    },
+    {
+      "type": "static",
+      "text": "The use of large quantities of"
+    },
+    {
+      "type": "gap",
+      "number": 39
+    },
+    {
+      "type": "static",
+      "text": "in construction was environmentally harmful"
+    },
+    {
+      "type": "static",
+      "text": "But the house will have paid its 'environmental debt' within"
+    },
+    {
+      "type": "gap",
+      "number": 40
+    }
+  ],
+  "questions": [
+    {
+      "number": 31,
+      "type": "multiple-choice",
+      "prompt": "The owners of the underground house",
+      "options": [
+        {
+          "id": "A",
+          "label": "had no experience of living in a rural area"
+        },
+        {
+          "id": "B",
+          "label": "were interested in environmental issues"
+        },
+        {
+          "id": "C",
+          "label": "wanted a professional project manager"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 31 – 32",
+      "sectionInstruction": "Choose the correct letter A, B or C."
+    },
+    {
+      "number": 32,
+      "type": "multiple-choice",
+      "prompt": "What does the speaker say about the site of the house?",
+      "options": [
+        {
+          "id": "A",
+          "label": "The land was quite cheap"
+        },
+        {
+          "id": "B",
+          "label": "Stone was being extracted nearby"
+        },
+        {
+          "id": "C",
+          "label": "It was in a completely unspoilt area"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 33,
+      "type": "gap-fill",
+      "prompt": "Constructed of two layers of:",
+      "options": [],
+      "answer": "glass",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "The south-facing side was constructed of two layers of",
+      "sectionRange": "Questions 33 – 40",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "sectionTitle": "The Underground House"
+    },
+    {
+      "number": 34,
+      "type": "gap-fill",
+      "prompt": "Improve the:",
+      "options": [],
+      "answer": "insulation",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "A layer of foam was used to improve the",
+      "gapTrail": "of the building"
+    },
+    {
+      "number": 35,
+      "type": "gap-fill",
+      "prompt": "Internal mirrors and:",
+      "options": [],
+      "answer": "windows",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "To increase the light, the building has many internal mirrors and"
+    },
+    {
+      "number": 36,
+      "type": "gap-fill",
+      "prompt": "Produce more:",
+      "options": [],
+      "answer": "electricity",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "In future, the house may produce more",
+      "gapTrail": "than it needs"
+    },
+    {
+      "number": 37,
+      "type": "gap-fill",
+      "prompt": "Recycled wood for the:",
+      "options": [],
+      "answer": "floor",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "Recycled wood was used for the",
+      "gapTrail": "of the house"
+    },
+    {
+      "number": 38,
+      "type": "gap-fill",
+      "prompt": "Processing domestic:",
+      "options": [],
+      "answer": "waste",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "The system for processing domestic"
+    },
+    {
+      "number": 39,
+      "type": "gap-fill",
+      "prompt": "Large quantities of:",
+      "options": [],
+      "answer": "concrete",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "gapLead": "The use of large quantities of",
+      "gapTrail": "in construction was environmentally harmful"
+    },
+    {
+      "number": 40,
+      "type": "gap-fill",
+      "prompt": "Within:",
+      "options": [],
+      "answer": "15 years",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 2,
+      "gapLead": "But the house will have paid its 'environmental debt' within"
+    }
+  ]
+}

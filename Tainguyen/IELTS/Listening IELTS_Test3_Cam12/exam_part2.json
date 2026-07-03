@@ -1,0 +1,329 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–17: Choose A, B or C. Questions 18–20: Complete the table.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        18,
+        19,
+        20
+      ],
+      "instruction": "Questions 18 – 20\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "title": "Fitness Holidays",
+      "headers": [
+        "Location",
+        "Main focus",
+        "Other comments"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Ireland and Italy"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "general fitness"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "• personally designed programme."
+              },
+              {
+                "type": "static",
+                "text": "• also reduces"
+              },
+              {
+                "type": "gap",
+                "number": 18
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Greece"
+              }
+            ],
+            [
+              {
+                "type": "gap",
+                "number": 19
+              },
+              {
+                "type": "static",
+                "text": "control"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "• includes exercise on the beach"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Morocco"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "mountain biking"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "• wide variety of levels"
+              },
+              {
+                "type": "static",
+                "text": "• one holiday that is specially designed for"
+              },
+              {
+                "type": "gap",
+                "number": 20
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 11,
+      "type": "matching",
+      "prompt": "Which TWO age groups are taking increasing numbers of holidays with BC Travel?",
+      "options": [
+        {
+          "id": "A",
+          "label": "16–30 years"
+        },
+        {
+          "id": "B",
+          "label": "31–42 years"
+        },
+        {
+          "id": "C",
+          "label": "43–54 years"
+        },
+        {
+          "id": "D",
+          "label": "55–64 years"
+        },
+        {
+          "id": "E",
+          "label": "over 65 years"
+        }
+      ],
+      "answer": "D/E",
+      "explanation": "55–64 (D) và trên 65 (E).",
+      "sectionRange": "Questions 11 and 12",
+      "sectionInstruction": "Choose TWO letters, A–E.",
+      "sectionTitle": "BC Travel"
+    },
+    {
+      "number": 12,
+      "type": "matching",
+      "prompt": "Which TWO age groups are taking increasing numbers of holidays with BC Travel?",
+      "options": [
+        {
+          "id": "A",
+          "label": "16–30 years"
+        },
+        {
+          "id": "B",
+          "label": "31–42 years"
+        },
+        {
+          "id": "C",
+          "label": "43–54 years"
+        },
+        {
+          "id": "D",
+          "label": "55–64 years"
+        },
+        {
+          "id": "E",
+          "label": "over 65 years"
+        }
+      ],
+      "answer": "D/E",
+      "explanation": "55–64 (D) và trên 65 (E). (cặp 11–12)"
+    },
+    {
+      "number": 13,
+      "type": "matching",
+      "prompt": "Which TWO are the main reasons given for the popularity of activity holidays?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Clients make new friends."
+        },
+        {
+          "id": "B",
+          "label": "Clients learn a useful skill."
+        },
+        {
+          "id": "C",
+          "label": "Clients learn about a different culture."
+        },
+        {
+          "id": "D",
+          "label": "Clients are excited by the risk involved."
+        },
+        {
+          "id": "E",
+          "label": "Clients find them good value for money."
+        }
+      ],
+      "answer": "A/C",
+      "explanation": "Bạn mới (A) và văn hóa (C).",
+      "sectionRange": "Questions 13 and 14",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 14,
+      "type": "matching",
+      "prompt": "Which TWO are the main reasons given for the popularity of activity holidays?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Clients make new friends."
+        },
+        {
+          "id": "B",
+          "label": "Clients learn a useful skill."
+        },
+        {
+          "id": "C",
+          "label": "Clients learn about a different culture."
+        },
+        {
+          "id": "D",
+          "label": "Clients are excited by the risk involved."
+        },
+        {
+          "id": "E",
+          "label": "Clients find them good value for money."
+        }
+      ],
+      "answer": "A/C",
+      "explanation": "Bạn mới (A) và văn hóa (C). (cặp 13–14)"
+    },
+    {
+      "number": 15,
+      "type": "multiple-choice",
+      "prompt": "How does BC Travel plan to expand the painting holidays?",
+      "options": [
+        {
+          "id": "A",
+          "label": "by adding to the number of locations"
+        },
+        {
+          "id": "B",
+          "label": "by increasing the range of levels"
+        },
+        {
+          "id": "C",
+          "label": "by employing more teachers"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 15 – 17",
+      "sectionInstruction": "Choose the correct letter, A, B or C."
+    },
+    {
+      "number": 16,
+      "type": "multiple-choice",
+      "prompt": "Why are BC Travel's cooking holidays unusual?",
+      "options": [
+        {
+          "id": "A",
+          "label": "They only use organic foods."
+        },
+        {
+          "id": "B",
+          "label": "They have an international focus."
+        },
+        {
+          "id": "C",
+          "label": "They mainly involve vegetarian dishes."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 17,
+      "type": "multiple-choice",
+      "prompt": "What does the speaker say about the photography holidays?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Clients receive individual tuition."
+        },
+        {
+          "id": "B",
+          "label": "The tutors are also trained guides."
+        },
+        {
+          "id": "C",
+          "label": "Advice is given on selling photographs."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 18,
+      "type": "gap-fill",
+      "prompt": "Also reduces:",
+      "options": [],
+      "answer": "stress",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 18 – 20",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Fitness Holidays"
+    },
+    {
+      "number": 19,
+      "type": "gap-fill",
+      "prompt": "Main focus:",
+      "options": [],
+      "answer": "weight",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 20,
+      "type": "gap-fill",
+      "prompt": "Specially designed for:",
+      "options": [],
+      "answer": "families",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}
