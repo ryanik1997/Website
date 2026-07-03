@@ -7,7 +7,11 @@
   "notePassage": [
     {
       "type": "example",
-      "text": "Example\nThe library re-opened last month"
+      "text": "Example"
+    },
+    {
+      "type": "example",
+      "text": "The library re-opened last month"
     },
     {
       "type": "section",
@@ -222,5 +226,6 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ]
+  ],
+  "passageTitle": "PUBLIC LIBRARY"
 }

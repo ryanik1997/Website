@@ -1,0 +1,356 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–7: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 8–10: Complete the table below. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "instruction": "Questions 1 – 7\nComplete the notes below. Write ONE WORD ONLY for each answer.",
+      "title": "Opportunities for voluntary work in Southoe village",
+      "headers": [
+        "Section",
+        "Details"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Library"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Help with "
+              },
+              {
+                "type": "gap",
+                "number": 1
+              },
+              {
+                "type": "static",
+                "text": " books (times to be arranged)"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Help needed to keep "
+              },
+              {
+                "type": "gap",
+                "number": 2
+              },
+              {
+                "type": "static",
+                "text": " of books up to date"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Library is in the "
+              },
+              {
+                "type": "gap",
+                "number": 3
+              },
+              {
+                "type": "static",
+                "text": " Room in the village hall"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Lunch club"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Help by providing "
+              },
+              {
+                "type": "gap",
+                "number": 4
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Help with hobbies such as "
+              },
+              {
+                "type": "gap",
+                "number": 5
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Help for individuals needed next week"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Taking Mrs Carroll to "
+              },
+              {
+                "type": "gap",
+                "number": 6
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Work in the "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              },
+              {
+                "type": "static",
+                "text": " at Mr Selsbury's house"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "gapNumbers": [
+        8,
+        9,
+        10
+      ],
+      "instruction": "Questions 8 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "title": "Village social events",
+      "headers": [
+        "Date",
+        "Event",
+        "Location",
+        "Help needed"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "19 Oct"
+              }
+            ],
+            [
+              {
+                "type": "gap",
+                "number": 8
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Village hall"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "providing refreshments"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "18 Nov"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "dance"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Village hall"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "checking "
+              },
+              {
+                "type": "gap",
+                "number": 9
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "31 Dec"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "New Year's Eve party"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Mountfort Hotel"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "designing the "
+              },
+              {
+                "type": "gap",
+                "number": 10
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Help with … books:",
+      "options": [],
+      "answer": "collecting",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 1 – 7",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Opportunities for voluntary work in Southoe village"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Help needed to keep … of books up to date:",
+      "options": [],
+      "answer": "records",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Library is in the … Room in the village hall:",
+      "options": [],
+      "answer": "west",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Help by providing …:",
+      "options": [],
+      "answer": "transport",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Help with hobbies such as …:",
+      "options": [],
+      "answer": "art",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Taking Mrs Carroll to …:",
+      "options": [],
+      "answer": "hospital",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Work in the … at Mr Selsbury's house:",
+      "options": [],
+      "answer": "garden",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "19 Oct …:",
+      "options": [],
+      "answer": "quiz",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 8 – 10",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Village social events"
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "18 Nov dance — checking …:",
+      "options": [],
+      "answer": "tickets",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "31 Dec New Year's Eve party — designing the …:",
+      "options": [],
+      "answer": "poster",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ],
+  "notePassageLayout": "table",
+  "passageTitle": "Opportunities for voluntary work in Southoe village"
+}

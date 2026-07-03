@@ -1,0 +1,375 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–14: Choose A, B or C. Questions 15–20: Label the map A–I.",
+  "audioFile": "listening.mp3",
+  "imageFile": "map.jpg",
+  "questions": [
+    {
+      "number": 11,
+      "type": "multiple-choice",
+      "prompt": "A survey found people's main concern about traffic in the area was",
+      "options": [
+        {
+          "id": "A",
+          "label": "cuts to public transport."
+        },
+        {
+          "id": "B",
+          "label": "poor maintenance of roads."
+        },
+        {
+          "id": "C",
+          "label": "changes in the type of traffic."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 11 – 14",
+      "sectionInstruction": "Choose the correct letter, A, B or C.",
+      "sectionTitle": "Local council report on traffic and highways"
+    },
+    {
+      "number": 12,
+      "type": "multiple-choice",
+      "prompt": "Which change will shortly be made to the cycle path next to the river?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It will be widened."
+        },
+        {
+          "id": "B",
+          "label": "It will be extended."
+        },
+        {
+          "id": "C",
+          "label": "It will be resurfaced."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 13,
+      "type": "multiple-choice",
+      "prompt": "Plans for a pedestrian crossing have been postponed because",
+      "options": [
+        {
+          "id": "A",
+          "label": "the Post Office has moved."
+        },
+        {
+          "id": "B",
+          "label": "the proposed location is unsafe."
+        },
+        {
+          "id": "C",
+          "label": "funding is not available at present."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 14,
+      "type": "multiple-choice",
+      "prompt": "On Station Road, notices have been erected",
+      "options": [
+        {
+          "id": "A",
+          "label": "telling cyclists not to leave their bikes outside the station ticket office."
+        },
+        {
+          "id": "B",
+          "label": "asking motorists to switch off engines when waiting at the level crossing."
+        },
+        {
+          "id": "C",
+          "label": "warning pedestrians to leave enough time when crossing the railway line."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 15,
+      "type": "matching",
+      "prompt": "New car park",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true,
+      "sectionRange": "Questions 15 – 20",
+      "sectionInstruction": "Label the map below. Write the correct letter, A–I, next to Questions 15–20.",
+      "sectionTitle": "Recreation ground after proposed changes"
+    },
+    {
+      "number": 16,
+      "type": "matching",
+      "prompt": "New cricket pitch",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "F",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "Children's playground",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "Skateboard ramp",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "I",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "Pavilion",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "E",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "Notice board",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "H",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    }
+  ]
+}

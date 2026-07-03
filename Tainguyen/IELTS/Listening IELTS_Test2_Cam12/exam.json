@@ -15,7 +15,11 @@
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nStart date: 16th May"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Start date: 16th May"
         },
         {
           "type": "section",
@@ -246,7 +250,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "passageTitle": "Events during Kenton Festival"
     },
     {
       "partNumber": 2,
@@ -1091,7 +1096,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

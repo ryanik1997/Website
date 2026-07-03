@@ -7,7 +7,11 @@
   "notePassage": [
     {
       "type": "example",
-      "text": "Example\nAlex completed his training in 2014"
+      "text": "Example"
+    },
+    {
+      "type": "example",
+      "text": "Alex completed his training in 2014"
     },
     {
       "type": "section",
@@ -218,5 +222,6 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ]
+  ],
+  "passageTitle": "Alex's Training"
 }

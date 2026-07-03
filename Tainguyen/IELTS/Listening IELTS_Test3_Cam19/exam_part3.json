@@ -1,0 +1,339 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–25: Choose A, B or C. Questions 26–30: Complete the flow-chart A–H.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "How does Clare feel about the students in her Year 12 science class?",
+      "options": [
+        {
+          "id": "A",
+          "label": "worried that they are not making progress"
+        },
+        {
+          "id": "B",
+          "label": "challenged by their poor behaviour in class"
+        },
+        {
+          "id": "C",
+          "label": "frustrated at their lack of interest in the subject"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Thiếu hứng thú (C).",
+      "sectionRange": "Questions 21 – 25",
+      "sectionInstruction": "Choose the correct letter, A, B or C.",
+      "sectionTitle": "Science experiment for Year 12 students"
+    },
+    {
+      "number": 22,
+      "type": "multiple-choice",
+      "prompt": "How does Jake react to Clare's suggestion about an experiment based on children's diet?",
+      "options": [
+        {
+          "id": "A",
+          "label": "He is concerned that the results might not be meaningful."
+        },
+        {
+          "id": "B",
+          "label": "He feels some of the data might be difficult to obtain."
+        },
+        {
+          "id": "C",
+          "label": "He suspects that the conclusions might be upsetting."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Khó thu thập dữ liệu (B)."
+    },
+    {
+      "number": 23,
+      "type": "multiple-choice",
+      "prompt": "What problem do they agree may be involved in an experiment involving animals?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Any results may not apply to humans."
+        },
+        {
+          "id": "B",
+          "label": "It may be complicated to get permission."
+        },
+        {
+          "id": "C",
+          "label": "Students may not be happy about animal experiments."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Không áp dụng cho người (A)."
+    },
+    {
+      "number": 24,
+      "type": "multiple-choice",
+      "prompt": "What question do they decide the experiment should address?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Are mice capable of controlling their food intake?"
+        },
+        {
+          "id": "B",
+          "label": "Does an increase in sugar lead to health problems?"
+        },
+        {
+          "id": "C",
+          "label": "How much do supplements of different kinds affect health?"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Kiểm soát ăn uống (A)."
+    },
+    {
+      "number": 25,
+      "type": "multiple-choice",
+      "prompt": "Clare might also consider doing another experiment involving",
+      "options": [
+        {
+          "id": "A",
+          "label": "other types of food supplement."
+        },
+        {
+          "id": "B",
+          "label": "different genetic strains of mice."
+        },
+        {
+          "id": "C",
+          "label": "varying amounts of exercise."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Lượng vận động (C)."
+    },
+    {
+      "number": 26,
+      "type": "matching",
+      "prompt": "Choose mice which are all the same",
+      "options": [
+        {
+          "id": "A",
+          "label": "size"
+        },
+        {
+          "id": "B",
+          "label": "escape"
+        },
+        {
+          "id": "C",
+          "label": "age"
+        },
+        {
+          "id": "D",
+          "label": "water"
+        },
+        {
+          "id": "E",
+          "label": "cereal"
+        },
+        {
+          "id": "F",
+          "label": "calculations"
+        },
+        {
+          "id": "G",
+          "label": "changes"
+        },
+        {
+          "id": "H",
+          "label": "colour"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "flowChart": true,
+      "gapLead": "Choose mice which are all the same",
+      "gapTrail": ".",
+      "sectionRange": "Questions 26 – 30",
+      "sectionInstruction": "Complete the flowchart below. Choose FIVE answers from the box and write the correct letter, A–H, next to Questions 26–30."
+    },
+    {
+      "number": 27,
+      "type": "matching",
+      "prompt": "Divide the mice into two groups, each with a different",
+      "options": [
+        {
+          "id": "A",
+          "label": "size"
+        },
+        {
+          "id": "B",
+          "label": "escape"
+        },
+        {
+          "id": "C",
+          "label": "age"
+        },
+        {
+          "id": "D",
+          "label": "water"
+        },
+        {
+          "id": "E",
+          "label": "cereal"
+        },
+        {
+          "id": "F",
+          "label": "calculations"
+        },
+        {
+          "id": "G",
+          "label": "changes"
+        },
+        {
+          "id": "H",
+          "label": "colour"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "flowChart": true,
+      "gapLead": "Divide the mice into two groups, each with a different",
+      "gapTrail": "."
+    },
+    {
+      "number": 28,
+      "type": "matching",
+      "prompt": "Feed group B the same, but also sugar contained in",
+      "options": [
+        {
+          "id": "A",
+          "label": "size"
+        },
+        {
+          "id": "B",
+          "label": "escape"
+        },
+        {
+          "id": "C",
+          "label": "age"
+        },
+        {
+          "id": "D",
+          "label": "water"
+        },
+        {
+          "id": "E",
+          "label": "cereal"
+        },
+        {
+          "id": "F",
+          "label": "calculations"
+        },
+        {
+          "id": "G",
+          "label": "changes"
+        },
+        {
+          "id": "H",
+          "label": "colour"
+        }
+      ],
+      "answer": "E",
+      "explanation": "Chọn theo audio.",
+      "flowChart": true,
+      "gapLead": "Feed group B the same, but also sugar contained in",
+      "gapTrail": "."
+    },
+    {
+      "number": 29,
+      "type": "matching",
+      "prompt": "Place them in a weighing chamber to prevent",
+      "options": [
+        {
+          "id": "A",
+          "label": "size"
+        },
+        {
+          "id": "B",
+          "label": "escape"
+        },
+        {
+          "id": "C",
+          "label": "age"
+        },
+        {
+          "id": "D",
+          "label": "water"
+        },
+        {
+          "id": "E",
+          "label": "cereal"
+        },
+        {
+          "id": "F",
+          "label": "calculations"
+        },
+        {
+          "id": "G",
+          "label": "changes"
+        },
+        {
+          "id": "H",
+          "label": "colour"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "flowChart": true,
+      "gapLead": "Place them in a weighing chamber to prevent",
+      "gapTrail": "."
+    },
+    {
+      "number": 30,
+      "type": "matching",
+      "prompt": "Do all necessary",
+      "options": [
+        {
+          "id": "A",
+          "label": "size"
+        },
+        {
+          "id": "B",
+          "label": "escape"
+        },
+        {
+          "id": "C",
+          "label": "age"
+        },
+        {
+          "id": "D",
+          "label": "water"
+        },
+        {
+          "id": "E",
+          "label": "cereal"
+        },
+        {
+          "id": "F",
+          "label": "calculations"
+        },
+        {
+          "id": "G",
+          "label": "changes"
+        },
+        {
+          "id": "H",
+          "label": "colour"
+        }
+      ],
+      "answer": "F",
+      "explanation": "Chọn theo audio.",
+      "flowChart": true,
+      "gapLead": "Do all necessary",
+      "gapTrail": ".",
+      "flowChartEnd": "Investigate the findings."
+    }
+  ]
+}

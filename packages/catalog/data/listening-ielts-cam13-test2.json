@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "South City Cycling Club",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nName of club secretary: Jim Hunter"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Name of club secretary: Jim Hunter"
         },
         {
           "type": "section",
@@ -1101,7 +1106,8 @@
           "type": "static",
           "text": "memory training may help autistic children develop social skills"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam13-test2",

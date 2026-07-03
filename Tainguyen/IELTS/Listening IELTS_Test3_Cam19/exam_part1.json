@@ -1,0 +1,362 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "title": "Local food shops",
+      "headers": [
+        "Shop",
+        "Details"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Where to go"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Kite Place — near the "
+              },
+              {
+                "type": "gap",
+                "number": 1
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Fish market"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "cross the "
+              },
+              {
+                "type": "gap",
+                "number": 2
+              },
+              {
+                "type": "static",
+                "text": " and turn right"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "best to go before "
+              },
+              {
+                "type": "gap",
+                "number": 3
+              },
+              {
+                "type": "static",
+                "text": " pm"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Organic shop"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "called '"
+              },
+              {
+                "type": "gap",
+                "number": 4
+              },
+              {
+                "type": "static",
+                "text": "'"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "below a restaurant in the large, grey building"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "look for the large "
+              },
+              {
+                "type": "gap",
+                "number": 5
+              },
+              {
+                "type": "static",
+                "text": " outside"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Supermarket"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "take a "
+              },
+              {
+                "type": "gap",
+                "number": 6
+              },
+              {
+                "type": "static",
+                "text": " minibus, number 289"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "gapNumbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "headers": [
+        "Shopping",
+        "To buy",
+        "Other ideas"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Fish market"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a dozen prawns"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a handful of "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              },
+              {
+                "type": "static",
+                "text": " (type of seaweed)"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Organic shop"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "beans and a "
+              },
+              {
+                "type": "gap",
+                "number": 8
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "spices and "
+              },
+              {
+                "type": "gap",
+                "number": 9
+              },
+              {
+                "type": "static",
+                "text": " for dessert"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Bakery"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a brown loaf"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a "
+              },
+              {
+                "type": "gap",
+                "number": 10
+              },
+              {
+                "type": "static",
+                "text": " tart"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Kite Place — near the …:",
+      "options": [],
+      "answer": "harbour",
+      "explanation": "Bến cảng.",
+      "wordLimit": 2,
+      "sectionRange": "Questions 1 – 6",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "sectionTitle": "Local food shops"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "cross the … and turn right:",
+      "options": [],
+      "answer": "bridge",
+      "explanation": "Cầu.",
+      "wordLimit": 2
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "best to go before … pm:",
+      "options": [],
+      "answer": "3.30",
+      "explanation": "3:30 chiều.",
+      "wordLimit": 2
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Organic shop called …:",
+      "options": [],
+      "answer": "rose",
+      "explanation": "Rose.",
+      "wordLimit": 2
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "look for the large … outside:",
+      "options": [],
+      "answer": "sign",
+      "explanation": "Biển hiệu.",
+      "wordLimit": 2
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "take a … minibus, number 289:",
+      "options": [],
+      "answer": "purple",
+      "explanation": "Màu tím.",
+      "wordLimit": 2
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "a handful of … (seaweed):",
+      "options": [],
+      "answer": "samphire",
+      "explanation": "Rong samphire.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 7 – 10",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "beans and a …:",
+      "options": [],
+      "answer": "melon",
+      "explanation": "Dưa.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "spices and … for dessert:",
+      "options": [],
+      "answer": "coconut",
+      "explanation": "Dừa.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "a … tart:",
+      "options": [],
+      "answer": "strawberry",
+      "explanation": "Dâu.",
+      "wordLimit": 1
+    }
+  ],
+  "notePassageLayout": "table",
+  "passageTitle": "Local food shops"
+}

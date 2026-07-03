@@ -6,8 +6,12 @@
   "notePassageLayout": "form",
   "notePassage": [
     {
+      "type": "example",
+      "text": "Example"
+    },
+    {
       "type": "static",
-      "text": "Example\nName: Roger Brown"
+      "text": "Name: Roger Brown"
     },
     {
       "type": "static",

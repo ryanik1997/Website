@@ -1,0 +1,349 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–4: Complete the table below. Write ONE WORD ONLY for each answer. Questions 5–10: Complete the notes below. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instruction": "Questions 1 – 4\nComplete the table below. Write ONE WORD ONLY for each answer.",
+      "title": "Festival information",
+      "headers": [
+        "Date",
+        "Type of event",
+        "Details"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "17th"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a concert"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "performers from Canada"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "18th"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a ballet"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "company called "
+              },
+              {
+                "type": "gap",
+                "number": 1
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "19th–20th (afternoon)"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "a play"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "type of play: a comedy called Jemima"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "has had a good "
+              },
+              {
+                "type": "gap",
+                "number": 2
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "20th (evening)"
+              }
+            ],
+            [
+              {
+                "type": "gap",
+                "number": 3
+              },
+              {
+                "type": "static",
+                "text": " show"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "show is called "
+              },
+              {
+                "type": "gap",
+                "number": 4
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "gapNumbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "instruction": "Questions 5 – 10\nComplete the notes below. Write ONE WORD ONLY for each answer.",
+      "title": "Workshops and outdoor activities",
+      "headers": [
+        "Section",
+        "Details"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Workshops"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Making "
+              },
+              {
+                "type": "gap",
+                "number": 5
+              },
+              {
+                "type": "static",
+                "text": " food"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "(children only) Making "
+              },
+              {
+                "type": "gap",
+                "number": 6
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "(adults only) Making toys from "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              },
+              {
+                "type": "static",
+                "text": " using various tools"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Outdoor activities"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Swimming in the "
+              },
+              {
+                "type": "gap",
+                "number": 8
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "Walking in the woods, led by an expert on "
+              },
+              {
+                "type": "gap",
+                "number": 9
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "See the festival organiser's "
+              },
+              {
+                "type": "gap",
+                "number": 10
+              },
+              {
+                "type": "static",
+                "text": " for more information"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "company called …:",
+      "options": [],
+      "answer": "eustatis",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 1 – 4",
+      "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Festival information"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "has had a good …:",
+      "options": [],
+      "answer": "review",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "a … show:",
+      "options": [],
+      "answer": "dance",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "show is called …:",
+      "options": [],
+      "answer": "chat",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Making … food:",
+      "options": [],
+      "answer": "healthy",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 5 – 10",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Making …:",
+      "options": [],
+      "answer": "posters",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Making toys from …:",
+      "options": [],
+      "answer": "wood",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Swimming in the …:",
+      "options": [],
+      "answer": "lake",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "expert on …:",
+      "options": [],
+      "answer": "insects",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "festival organiser's …:",
+      "options": [],
+      "answer": "blog",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ],
+  "notePassageLayout": "table",
+  "passageTitle": "Festival information"
+}

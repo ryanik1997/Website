@@ -118,7 +118,11 @@
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nName: Louise Taylor"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Name: Louise Taylor"
         },
         {
           "type": "section",
@@ -1098,7 +1102,8 @@
           "type": "static",
           "text": "and building up silt"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam14-test1",

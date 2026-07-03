@@ -1,0 +1,321 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–12: Choose TWO A–E. Questions 13–15: Choose A, B or C. Questions 16–20: Matching A–G.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 11,
+      "type": "matching",
+      "prompt": "Which TWO facts are given about the school's extended hours childcare service?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It started recently."
+        },
+        {
+          "id": "B",
+          "label": "More children attend after school than before school."
+        },
+        {
+          "id": "C",
+          "label": "An average of 50 children attend in the mornings."
+        },
+        {
+          "id": "D",
+          "label": "A child cannot attend both the before and after school sessions."
+        },
+        {
+          "id": "E",
+          "label": "The maximum number of children who can attend is 70."
+        }
+      ],
+      "answer": "B/E",
+      "explanation": "Nhiều hơn sau giờ học (B) và tối đa 70 (E).",
+      "sectionRange": "Questions 11 and 12",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 12,
+      "type": "matching",
+      "prompt": "Which TWO facts are given about the school's extended hours childcare service?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It started recently."
+        },
+        {
+          "id": "B",
+          "label": "More children attend after school than before school."
+        },
+        {
+          "id": "C",
+          "label": "An average of 50 children attend in the mornings."
+        },
+        {
+          "id": "D",
+          "label": "A child cannot attend both the before and after school sessions."
+        },
+        {
+          "id": "E",
+          "label": "The maximum number of children who can attend is 70."
+        }
+      ],
+      "answer": "B/E",
+      "explanation": "Nhiều hơn sau giờ học (B) và tối đa 70 (E). (cặp 11–12)"
+    },
+    {
+      "number": 13,
+      "type": "multiple-choice",
+      "prompt": "How much does childcare cost for a complete afternoon session per child?",
+      "options": [
+        {
+          "id": "A",
+          "label": "£3.50"
+        },
+        {
+          "id": "B",
+          "label": "£5.70"
+        },
+        {
+          "id": "C",
+          "label": "£7.20"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 13 – 15",
+      "sectionInstruction": "Choose the correct letter, A, B or C."
+    },
+    {
+      "number": 14,
+      "type": "multiple-choice",
+      "prompt": "What does the manager say about food?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Children with allergies should bring their own food."
+        },
+        {
+          "id": "B",
+          "label": "Children may bring healthy snacks with them."
+        },
+        {
+          "id": "C",
+          "label": "Children are given a proper meal at 5 p.m."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 15,
+      "type": "multiple-choice",
+      "prompt": "What is different about arrangements in the school holidays?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Children from other schools can attend."
+        },
+        {
+          "id": "B",
+          "label": "Older children can attend."
+        },
+        {
+          "id": "C",
+          "label": "A greater number of children can attend."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 16,
+      "type": "matching",
+      "prompt": "Spanish",
+      "options": [
+        {
+          "id": "A",
+          "label": "has limited availability"
+        },
+        {
+          "id": "B",
+          "label": "is no longer available"
+        },
+        {
+          "id": "C",
+          "label": "is for over 8s only"
+        },
+        {
+          "id": "D",
+          "label": "requires help from parents"
+        },
+        {
+          "id": "E",
+          "label": "involves an additional fee"
+        },
+        {
+          "id": "F",
+          "label": "is a new activity"
+        },
+        {
+          "id": "G",
+          "label": "was requested by children"
+        }
+      ],
+      "answer": "E",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 16 – 20",
+      "sectionInstruction": "What information is given about each of the following activities on offer? Choose FIVE answers from the box and write the correct letter, A–G, next to Questions 16–20.",
+      "sectionTitle": "Activities"
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "Music",
+      "options": [
+        {
+          "id": "A",
+          "label": "has limited availability"
+        },
+        {
+          "id": "B",
+          "label": "is no longer available"
+        },
+        {
+          "id": "C",
+          "label": "is for over 8s only"
+        },
+        {
+          "id": "D",
+          "label": "requires help from parents"
+        },
+        {
+          "id": "E",
+          "label": "involves an additional fee"
+        },
+        {
+          "id": "F",
+          "label": "is a new activity"
+        },
+        {
+          "id": "G",
+          "label": "was requested by children"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "Painting",
+      "options": [
+        {
+          "id": "A",
+          "label": "has limited availability"
+        },
+        {
+          "id": "B",
+          "label": "is no longer available"
+        },
+        {
+          "id": "C",
+          "label": "is for over 8s only"
+        },
+        {
+          "id": "D",
+          "label": "requires help from parents"
+        },
+        {
+          "id": "E",
+          "label": "involves an additional fee"
+        },
+        {
+          "id": "F",
+          "label": "is a new activity"
+        },
+        {
+          "id": "G",
+          "label": "was requested by children"
+        }
+      ],
+      "answer": "G",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "Yoga",
+      "options": [
+        {
+          "id": "A",
+          "label": "has limited availability"
+        },
+        {
+          "id": "B",
+          "label": "is no longer available"
+        },
+        {
+          "id": "C",
+          "label": "is for over 8s only"
+        },
+        {
+          "id": "D",
+          "label": "requires help from parents"
+        },
+        {
+          "id": "E",
+          "label": "involves an additional fee"
+        },
+        {
+          "id": "F",
+          "label": "is a new activity"
+        },
+        {
+          "id": "G",
+          "label": "was requested by children"
+        }
+      ],
+      "answer": "F",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "Cooking",
+      "options": [
+        {
+          "id": "A",
+          "label": "has limited availability"
+        },
+        {
+          "id": "B",
+          "label": "is no longer available"
+        },
+        {
+          "id": "C",
+          "label": "is for over 8s only"
+        },
+        {
+          "id": "D",
+          "label": "requires help from parents"
+        },
+        {
+          "id": "E",
+          "label": "involves an additional fee"
+        },
+        {
+          "id": "F",
+          "label": "is a new activity"
+        },
+        {
+          "id": "G",
+          "label": "was requested by children"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

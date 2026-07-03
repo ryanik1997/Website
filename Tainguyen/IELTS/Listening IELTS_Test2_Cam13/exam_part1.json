@@ -7,7 +7,11 @@
   "notePassage": [
     {
       "type": "example",
-      "text": "Example\nName of club secretary: Jim Hunter"
+      "text": "Example"
+    },
+    {
+      "type": "example",
+      "text": "Name of club secretary: Jim Hunter"
     },
     {
       "type": "section",
@@ -230,5 +234,6 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ]
+  ],
+  "passageTitle": "South City Cycling Club"
 }

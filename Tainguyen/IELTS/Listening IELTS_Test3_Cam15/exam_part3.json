@@ -1,0 +1,222 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–26: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 27–30: Matching A–C.",
+  "audioFile": "listening.mp3",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "• what "
+    },
+    {
+      "type": "gap",
+      "number": 21
+    },
+    {
+      "type": "static",
+      "text": " the item is on"
+    },
+    {
+      "type": "static",
+      "text": "• the "
+    },
+    {
+      "type": "gap",
+      "number": 22
+    },
+    {
+      "type": "static",
+      "text": " of the item, including the headline"
+    },
+    {
+      "type": "static",
+      "text": "• any "
+    },
+    {
+      "type": "gap",
+      "number": 23
+    },
+    {
+      "type": "static",
+      "text": " accompanying the item"
+    },
+    {
+      "type": "static",
+      "text": "• the "
+    },
+    {
+      "type": "gap",
+      "number": 24
+    },
+    {
+      "type": "static",
+      "text": " of the item, e.g. what's made prominent"
+    },
+    {
+      "type": "static",
+      "text": "• the writer's main "
+    },
+    {
+      "type": "gap",
+      "number": 25
+    },
+    {
+      "type": "static",
+      "text": "• the "
+    },
+    {
+      "type": "gap",
+      "number": 26
+    },
+    {
+      "type": "static",
+      "text": " the writer may make about the reader"
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "gap-fill",
+      "prompt": "what … the item is on:",
+      "options": [],
+      "answer": "page",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 21 – 26",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "What Hazel should analyse about items in newspapers"
+    },
+    {
+      "number": 22,
+      "type": "gap-fill",
+      "prompt": "the … of the item, including the headline:",
+      "options": [],
+      "answer": "size",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 23,
+      "type": "gap-fill",
+      "prompt": "any … accompanying the item:",
+      "options": [],
+      "answer": "graphic/graphics",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 24,
+      "type": "gap-fill",
+      "prompt": "the … of the item:",
+      "options": [],
+      "answer": "structure",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "the writer's main …:",
+      "options": [],
+      "answer": "purpose",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "the … the writer may make about the reader:",
+      "options": [],
+      "answer": "assumption/assumptions",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 27,
+      "type": "matching",
+      "prompt": "national news item",
+      "options": [
+        {
+          "id": "A",
+          "label": "She will definitely look for a suitable article."
+        },
+        {
+          "id": "B",
+          "label": "She may look for a suitable article."
+        },
+        {
+          "id": "C",
+          "label": "She definitely won't look for an article."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 27 – 30",
+      "sectionInstruction": "What does Hazel decide to do about each of the following types of articles? Write the correct letter, A, B or C, next to Questions 27–30.",
+      "sectionTitle": "Types of articles"
+    },
+    {
+      "number": 28,
+      "type": "matching",
+      "prompt": "editorial",
+      "options": [
+        {
+          "id": "A",
+          "label": "She will definitely look for a suitable article."
+        },
+        {
+          "id": "B",
+          "label": "She may look for a suitable article."
+        },
+        {
+          "id": "C",
+          "label": "She definitely won't look for an article."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 29,
+      "type": "matching",
+      "prompt": "human interest",
+      "options": [
+        {
+          "id": "A",
+          "label": "She will definitely look for a suitable article."
+        },
+        {
+          "id": "B",
+          "label": "She may look for a suitable article."
+        },
+        {
+          "id": "C",
+          "label": "She definitely won't look for an article."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 30,
+      "type": "matching",
+      "prompt": "arts",
+      "options": [
+        {
+          "id": "A",
+          "label": "She will definitely look for a suitable article."
+        },
+        {
+          "id": "B",
+          "label": "She may look for a suitable article."
+        },
+        {
+          "id": "C",
+          "label": "She definitely won't look for an article."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

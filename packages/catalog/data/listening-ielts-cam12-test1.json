@@ -123,7 +123,11 @@
         },
         {
           "type": "example",
-          "text": "Example\nTravel on an old steamship"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Travel on an old steamship"
         },
         {
           "type": "static",
@@ -223,11 +227,11 @@
         },
         {
           "type": "static",
-          "text": "a repair kit"
+          "text": "• a repair kit"
         },
         {
           "type": "static",
-          "text": "food and drink"
+          "text": "• food and drink"
         },
         {
           "type": "static",
@@ -1041,7 +1045,8 @@
           "type": "static",
           "text": "Companies that always aim at excellence may miss opportunities."
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam12-test1",

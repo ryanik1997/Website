@@ -1,0 +1,291 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–16: Choose A, B or C. Questions 17–20: Label the map A–G.",
+  "audioFile": "listening.mp3",
+  "imageFile": "map.jpg",
+  "questions": [
+    {
+      "number": 11,
+      "type": "multiple-choice",
+      "prompt": "Who was responsible for starting the community project?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the castle owners"
+        },
+        {
+          "id": "B",
+          "label": "a national charity"
+        },
+        {
+          "id": "C",
+          "label": "the local council"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Tổ chức từ thiện (B).",
+      "sectionRange": "Questions 11 – 16",
+      "sectionInstruction": "Choose the correct letter, A, B or C."
+    },
+    {
+      "number": 12,
+      "type": "multiple-choice",
+      "prompt": "How was the gold coin found?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Heavy rain had removed some of the soil."
+        },
+        {
+          "id": "B",
+          "label": "The ground was dug up by wild rabbits."
+        },
+        {
+          "id": "C",
+          "label": "A person with a metal detector searched the area."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Mưa làm lộ đất (A)."
+    },
+    {
+      "number": 13,
+      "type": "multiple-choice",
+      "prompt": "What led the archaeologists to believe there was an ancient village on this site?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the lucky discovery of old records"
+        },
+        {
+          "id": "B",
+          "label": "the bases of several structures visible in the grass"
+        },
+        {
+          "id": "C",
+          "label": "the unusual stones found near the castle"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Móng công trình (B)."
+    },
+    {
+      "number": 14,
+      "type": "multiple-choice",
+      "prompt": "What are the team still hoping to find?",
+      "options": [
+        {
+          "id": "A",
+          "label": "everyday pottery"
+        },
+        {
+          "id": "B",
+          "label": "animal bones"
+        },
+        {
+          "id": "C",
+          "label": "pieces of jewellery"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Đồ gốm hàng ngày (A)."
+    },
+    {
+      "number": 15,
+      "type": "multiple-choice",
+      "prompt": "What was found on the other side of the river from the castle?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the remains of a large palace"
+        },
+        {
+          "id": "B",
+          "label": "the outline of fields"
+        },
+        {
+          "id": "C",
+          "label": "a number of small huts"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Lều nhỏ (C)."
+    },
+    {
+      "number": 16,
+      "type": "multiple-choice",
+      "prompt": "What do the team plan to do after work ends this summer?",
+      "options": [
+        {
+          "id": "A",
+          "label": "prepare a display for a museum"
+        },
+        {
+          "id": "B",
+          "label": "take part in a television programme"
+        },
+        {
+          "id": "C",
+          "label": "start to organise school visits"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Triển lãm bảo tàng (A)."
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "bridge foundations",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true,
+      "sectionRange": "Questions 17 – 20",
+      "sectionInstruction": "Label the map below. Write the correct letter, A–G, next to Questions 17–20."
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "rubbish pit",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "meeting hall",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        }
+      ],
+      "answer": "G",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "fish pond",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        }
+      ],
+      "answer": "E",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    }
+  ]
+}

@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "Moving to Sanford City",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nDalton's friend living in suburb of: Sanford"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Dalton's friend living in suburb of: Sanford"
         },
         {
           "type": "section",
@@ -1159,7 +1164,7 @@
         },
         {
           "type": "static",
-          "text": "to improve the survival of their young"
+          "text": "– to improve the survival of their young"
         },
         {
           "type": "static",
@@ -1225,7 +1230,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam13-test3",

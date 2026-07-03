@@ -396,6 +396,7 @@ export default function ListeningIeltsPartView({
             && !segmentTable?.title
             && !passageSection?.title,
           )
+          const partTitleAboveBox = (part.partNumber === 1 || part.partNumber === 4) && showPartTitle
 
           const gapSectionMeta = sectionMetaFromQuestions(segment.questions)
           const sectionHeaderMeta = {
@@ -416,12 +417,15 @@ export default function ListeningIeltsPartView({
                   }}
                 />
               )}
-              {showPartTitle && !passageBlocks && (
+              {showPartTitle && (partTitleAboveBox || !passageBlocks) && (
                 <ReadingHighlightableText
                   blockId={`${part.id}-title`}
                   text={part.passageTitle!}
                   highlights={highlights}
-                  className="listening-ielts-notes__title"
+                  className={[
+                    'listening-ielts-notes__title',
+                    partTitleAboveBox ? 'listening-ielts-notes__title--part1' : '',
+                  ].filter(Boolean).join(' ')}
                   as="h3"
                 />
               )}
@@ -444,7 +448,7 @@ export default function ListeningIeltsPartView({
                   activeQuestionId={activeQuestionId}
                   onAnswer={onAnswer}
                   onSelectQuestion={onSelectQuestion}
-                  passageTitle={showPartTitle ? part.passageTitle : undefined}
+                  passageTitle={showPartTitle && !partTitleAboveBox ? part.passageTitle : undefined}
                   layout={part.notePassageLayout === 'form' ? 'form' : 'lecture'}
                 />
               ) : (

@@ -87,7 +87,7 @@
           ]
         }
       ],
-      "notePassageLayout": "form",
+      "notePassageLayout": "table",
       "noteTables": [
         {
           "gapNumbers": [
@@ -305,7 +305,8 @@
           "gapLead": "One",
           "gapTrail": "needs replacing (end of garden)"
         }
-      ]
+      ],
+      "passageTitle": "THORNDYKE'S BUILDERS"
     },
     {
       "partNumber": 2,
@@ -1176,7 +1177,8 @@
           "wordLimit": 1,
           "gapLead": "Analysis of medical"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

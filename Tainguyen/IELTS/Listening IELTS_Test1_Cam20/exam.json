@@ -2,7 +2,7 @@
   "version": 1,
   "title": "IELTS Listening — Cambridge 20 Test 1",
   "durationMinutes": 30,
-  "bandHint": "IELTS · Cambridge 20 · 4 parts · 40 câu",
+  "bandHint": "IELTS · Cambridge 20 · Test 1 · 4 parts · 40 câu",
   "examType": "ielts",
   "examMode": "practice",
   "parts": [
@@ -213,100 +213,6 @@
           }
         ]
       },
-      "notePassage": [
-        {
-          "type": "section",
-          "text": "The Junction"
-        },
-        {
-          "type": "static",
-          "text": "Greyston Street, near the station"
-        },
-        {
-          "type": "static",
-          "text": "Good for people who are especially keen on"
-        },
-        {
-          "type": "gap",
-          "number": 1
-        },
-        {
-          "type": "static",
-          "text": "Quite expensive"
-        },
-        {
-          "type": "gap",
-          "number": 2
-        },
-        {
-          "type": "section",
-          "text": "Paloma"
-        },
-        {
-          "type": "static",
-          "text": "In Bow Street next to the cinema"
-        },
-        {
-          "type": "gap",
-          "number": 3
-        },
-        {
-          "type": "static",
-          "text": "Staff are very friendly"
-        },
-        {
-          "type": "static",
-          "text": "Need to pay £50 deposit"
-        },
-        {
-          "type": "gap",
-          "number": 4
-        },
-        {
-          "type": "section",
-          "text": "The Audley"
-        },
-        {
-          "type": "gap",
-          "number": 5
-        },
-        {
-          "type": "static",
-          "text": "At the top of a"
-        },
-        {
-          "type": "gap",
-          "number": 6
-        },
-        {
-          "type": "static",
-          "text": "A famous chef"
-        },
-        {
-          "type": "gap",
-          "number": 7
-        },
-        {
-          "type": "gap",
-          "number": 8
-        },
-        {
-          "type": "static",
-          "text": "Set lunch costs £"
-        },
-        {
-          "type": "gap",
-          "number": 9
-        },
-        {
-          "type": "static",
-          "text": "Portions probably of"
-        },
-        {
-          "type": "gap",
-          "number": 10
-        }
-      ],
       "questions": [
         {
           "number": 1,
@@ -323,7 +229,7 @@
           "prompt": "Good place for a drink:",
           "options": [],
           "answer": "roof",
-          "explanation": "Sân thượng/roof.",
+          "explanation": "Sân thượng.",
           "wordLimit": 1,
           "gapLead": "The",
           "gapTrail": "is a good place for a drink"
@@ -366,8 +272,7 @@
           "options": [],
           "answer": "hotel",
           "explanation": "Khách sạn.",
-          "wordLimit": 1,
-          "gapTrail": ""
+          "wordLimit": 1
         },
         {
           "number": 7,
@@ -416,7 +321,7 @@
     {
       "partNumber": 2,
       "rangeLabel": "Questions 11–20",
-      "instruction": "Questions 11–16: Choose the correct letter, A, B or C. Questions 17–18 and 19–20: Choose TWO letters, A–E.",
+      "instruction": "Questions 11–16: Choose A, B or C. Questions 17–18 and 19–20: Choose TWO A–E.",
       "audioFile": "listening.mp3",
       "passageTitle": "Edelman Pottery — visitor talk",
       "questions": [
@@ -441,7 +346,7 @@
           "answer": "A",
           "explanation": "Gốm bền trong đất.",
           "sectionRange": "Questions 11 – 16",
-          "sectionInstruction": "Choose the correct letter A, B or C."
+          "sectionInstruction": "Choose the correct letter, A, B or C."
         },
         {
           "number": 12,
@@ -462,7 +367,7 @@
             }
           ],
           "answer": "B",
-          "explanation": "Vết/mark trên đồ gốm."
+          "explanation": "Vết trên đồ gốm (B)."
         },
         {
           "number": 13,
@@ -483,7 +388,7 @@
             }
           ],
           "answer": "C",
-          "explanation": "Tạo vật bền với thời gian."
+          "explanation": "Tạo vật bền với thời gian (C)."
         },
         {
           "number": 14,
@@ -504,7 +409,7 @@
             }
           ],
           "answer": "A",
-          "explanation": "Tính thư giãn."
+          "explanation": "Tính thư giãn (A)."
         },
         {
           "number": 15,
@@ -525,7 +430,7 @@
             }
           ],
           "answer": "B",
-          "explanation": "Chưa từng làm gốm."
+          "explanation": "Chưa từng làm gốm (B)."
         },
         {
           "number": 16,
@@ -546,7 +451,7 @@
             }
           ],
           "answer": "C",
-          "explanation": "Tháo trang sức."
+          "explanation": "Tháo trang sức (C)."
         },
         {
           "number": 17,
@@ -555,23 +460,23 @@
           "options": [
             {
               "id": "A",
-              "label": "What their function is."
+              "label": "what their function is"
             },
             {
               "id": "B",
-              "label": "When they were invented."
+              "label": "when they were invented"
             },
             {
               "id": "C",
-              "label": "Ways of keeping them safe."
+              "label": "ways of keeping them safe"
             },
             {
               "id": "D",
-              "label": "Where to put one in your home."
+              "label": "where to put one in your home"
             },
             {
               "id": "E",
-              "label": "What some people use instead of one."
+              "label": "what some people use instead of one"
             }
           ],
           "answer": "A/E",
@@ -586,23 +491,23 @@
           "options": [
             {
               "id": "A",
-              "label": "What their function is."
+              "label": "what their function is"
             },
             {
               "id": "B",
-              "label": "When they were invented."
+              "label": "when they were invented"
             },
             {
               "id": "C",
-              "label": "Ways of keeping them safe."
+              "label": "ways of keeping them safe"
             },
             {
               "id": "D",
-              "label": "Where to put one in your home."
+              "label": "where to put one in your home"
             },
             {
               "id": "E",
-              "label": "What some people use instead of one."
+              "label": "what some people use instead of one"
             }
           ],
           "answer": "A/E",
@@ -673,7 +578,7 @@
     {
       "partNumber": 3,
       "rangeLabel": "Questions 21–30",
-      "instruction": "Questions 21–26: Choose TWO letters, A–E. Questions 27–30: Choose A, B or C.",
+      "instruction": "Questions 21–26: Choose TWO A–E. Questions 27–30: Choose A, B or C.",
       "audioFile": "listening.mp3",
       "passageTitle": "Loneliness and mental health — student presentation",
       "questions": [
@@ -684,23 +589,23 @@
           "options": [
             {
               "id": "A",
-              "label": "Social media"
+              "label": "social media"
             },
             {
               "id": "B",
-              "label": "Smaller nuclear families"
+              "label": "smaller nuclear families"
             },
             {
               "id": "C",
-              "label": "Urban design"
+              "label": "urban design"
             },
             {
               "id": "D",
-              "label": "Longer lifespans"
+              "label": "longer lifespans"
             },
             {
               "id": "E",
-              "label": "A mobile workforce"
+              "label": "a mobile workforce"
             }
           ],
           "answer": "C/E",
@@ -715,23 +620,23 @@
           "options": [
             {
               "id": "A",
-              "label": "Social media"
+              "label": "social media"
             },
             {
               "id": "B",
-              "label": "Smaller nuclear families"
+              "label": "smaller nuclear families"
             },
             {
               "id": "C",
-              "label": "Urban design"
+              "label": "urban design"
             },
             {
               "id": "D",
-              "label": "Longer lifespans"
+              "label": "longer lifespans"
             },
             {
               "id": "E",
-              "label": "A mobile workforce"
+              "label": "a mobile workforce"
             }
           ],
           "answer": "C/E",
@@ -744,23 +649,23 @@
           "options": [
             {
               "id": "A",
-              "label": "A weakened immune system"
+              "label": "a weakened immune system"
             },
             {
               "id": "B",
-              "label": "Dementia"
+              "label": "dementia"
             },
             {
               "id": "C",
-              "label": "Cancer"
+              "label": "cancer"
             },
             {
               "id": "D",
-              "label": "Obesity"
+              "label": "obesity"
             },
             {
               "id": "E",
-              "label": "Cardiovascular disease"
+              "label": "cardiovascular disease"
             }
           ],
           "answer": "A/C",
@@ -775,23 +680,23 @@
           "options": [
             {
               "id": "A",
-              "label": "A weakened immune system"
+              "label": "a weakened immune system"
             },
             {
               "id": "B",
-              "label": "Dementia"
+              "label": "dementia"
             },
             {
               "id": "C",
-              "label": "Cancer"
+              "label": "cancer"
             },
             {
               "id": "D",
-              "label": "Obesity"
+              "label": "obesity"
             },
             {
               "id": "E",
-              "label": "Cardiovascular disease"
+              "label": "cardiovascular disease"
             }
           ],
           "answer": "A/C",
@@ -876,9 +781,9 @@
             }
           ],
           "answer": "A",
-          "explanation": "Nghi ngờ có thuốc chữa cô đơn.",
+          "explanation": "Nghi ngờ có thuốc chữa cô đơn (A).",
           "sectionRange": "Questions 27 – 30",
-          "sectionInstruction": "Choose the correct letter A, B or C."
+          "sectionInstruction": "Choose the correct letter, A, B or C."
         },
         {
           "number": 28,
@@ -899,7 +804,7 @@
             }
           ],
           "answer": "B",
-          "explanation": "Tình huống quen thuộc."
+          "explanation": "Tình huống quen thuộc (B)."
         },
         {
           "number": 29,
@@ -920,7 +825,7 @@
             }
           ],
           "answer": "A",
-          "explanation": "Cảm giác thuộc về."
+          "explanation": "Cảm giác thuộc về (A)."
         },
         {
           "number": 30,
@@ -941,7 +846,7 @@
             }
           ],
           "answer": "C",
-          "explanation": "Trải nghiệm thú vị."
+          "explanation": "Trải nghiệm thú vị (C)."
         }
       ]
     },
@@ -970,11 +875,23 @@
         },
         {
           "type": "static",
-          "text": "more sewage from houses being discharged into the river"
+          "text": "– more sewage from houses being discharged into the river"
+        },
+        {
+          "type": "static",
+          "text": "pollution from "
         },
         {
           "type": "gap",
           "number": 31
+        },
+        {
+          "type": "static",
+          "text": " on the river bank"
+        },
+        {
+          "type": "static",
+          "text": "In 1957, the River Thames in London was declared biologically "
         },
         {
           "type": "gap",
@@ -985,8 +902,20 @@
           "text": "Recent improvements"
         },
         {
+          "type": "static",
+          "text": "Seals and even a "
+        },
+        {
           "type": "gap",
           "number": 33
+        },
+        {
+          "type": "static",
+          "text": " have been seen in the River Thames."
+        },
+        {
+          "type": "static",
+          "text": "Riverside warehouses are converted to restaurants and "
         },
         {
           "type": "gap",
@@ -997,20 +926,44 @@
           "text": "In Los Angeles, there are plans to:"
         },
         {
+          "type": "static",
+          "text": "– build a riverside"
+        },
+        {
           "type": "gap",
           "number": 35
+        },
+        {
+          "type": "static",
+          "text": "display "
         },
         {
           "type": "gap",
           "number": 36
         },
         {
+          "type": "static",
+          "text": " projects"
+        },
+        {
+          "type": "static",
+          "text": "In Paris, "
+        },
+        {
           "type": "gap",
           "number": 37
         },
         {
+          "type": "static",
+          "text": " are created on the sides of the river every summer."
+        },
+        {
           "type": "section",
           "text": "Transport possibilities"
+        },
+        {
+          "type": "static",
+          "text": "Over 2 billion passengers already travel by "
         },
         {
           "type": "gap",
@@ -1021,8 +974,16 @@
           "text": "Changes in shopping habits mean the number of deliveries that are made is increasing."
         },
         {
+          "type": "static",
+          "text": "goods could be transported by large freight barges and electric "
+        },
+        {
           "type": "gap",
           "number": 39
+        },
+        {
+          "type": "static",
+          "text": ", or in the future, by "
         },
         {
           "type": "gap",
@@ -1037,9 +998,7 @@
           "options": [],
           "answer": "factories",
           "explanation": "Nhà máy.",
-          "wordLimit": 1,
-          "gapLead": "pollution from",
-          "gapTrail": "on the river bank"
+          "wordLimit": 1
         },
         {
           "number": 32,
@@ -1048,8 +1007,7 @@
           "options": [],
           "answer": "dead",
           "explanation": "Sông 'chết'.",
-          "wordLimit": 1,
-          "gapLead": "In 1957, the River Thames in London was declared biologically"
+          "wordLimit": 1
         },
         {
           "number": 33,
@@ -1058,9 +1016,7 @@
           "options": [],
           "answer": "whale",
           "explanation": "Cá voi.",
-          "wordLimit": 1,
-          "gapLead": "Seals and even a",
-          "gapTrail": "have been seen in the River Thames."
+          "wordLimit": 1
         },
         {
           "number": 34,
@@ -1069,8 +1025,7 @@
           "options": [],
           "answer": "apartments",
           "explanation": "Căn hộ.",
-          "wordLimit": 1,
-          "gapLead": "Riverside warehouses are converted to restaurants and"
+          "wordLimit": 1
         },
         {
           "number": 35,
@@ -1079,8 +1034,7 @@
           "options": [],
           "answer": "park",
           "explanation": "Công viên.",
-          "wordLimit": 1,
-          "gapLead": "build a riverside"
+          "wordLimit": 1
         },
         {
           "number": 36,
@@ -1089,9 +1043,7 @@
           "options": [],
           "answer": "art",
           "explanation": "Dự án nghệ thuật.",
-          "wordLimit": 1,
-          "gapLead": "display",
-          "gapTrail": "projects"
+          "wordLimit": 1
         },
         {
           "number": 37,
@@ -1100,9 +1052,7 @@
           "options": [],
           "answer": "beaches",
           "explanation": "Bãi biển nhân tạo.",
-          "wordLimit": 1,
-          "gapLead": "In Paris,",
-          "gapTrail": "are created on the sides of the river every summer."
+          "wordLimit": 1
         },
         {
           "number": 38,
@@ -1111,9 +1061,7 @@
           "options": [],
           "answer": "ferry",
           "explanation": "Phà.",
-          "wordLimit": 1,
-          "gapLead": "Over 2 billion passengers already travel by",
-          "gapTrail": "in cities around the world."
+          "wordLimit": 1
         },
         {
           "number": 39,
@@ -1122,8 +1070,7 @@
           "options": [],
           "answer": "bikes",
           "explanation": "Xe đạp điện.",
-          "wordLimit": 1,
-          "gapLead": "goods could be transported by large freight barges and electric"
+          "wordLimit": 1
         },
         {
           "number": 40,
@@ -1132,10 +1079,10 @@
           "options": [],
           "answer": "drone",
           "explanation": "Drone.",
-          "wordLimit": 1,
-          "gapLead": ", or in the future, by"
+          "wordLimit": 1
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

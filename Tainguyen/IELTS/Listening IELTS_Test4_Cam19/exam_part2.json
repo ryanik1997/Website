@@ -1,0 +1,259 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–18: Matching A–C. Questions 19–20: Choose A, B or C.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 11,
+      "type": "matching",
+      "prompt": "Which TWO problems with some training programmes for new runners does Liz mention?",
+      "options": [
+        {
+          "id": "A",
+          "label": "There is a risk of serious injury."
+        },
+        {
+          "id": "B",
+          "label": "They are unsuitable for certain age groups."
+        },
+        {
+          "id": "C",
+          "label": "They are unsuitable for people with health issues."
+        },
+        {
+          "id": "D",
+          "label": "It is difficult to stay motivated."
+        },
+        {
+          "id": "E",
+          "label": "There is a lack of individual support."
+        }
+      ],
+      "answer": "C/E",
+      "explanation": "Vấn đề sức khỏe (C) và thiếu hỗ trợ (E).",
+      "sectionRange": "Questions 11 and 12",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 12,
+      "type": "matching",
+      "prompt": "Which TWO problems with some training programmes for new runners does Liz mention?",
+      "options": [
+        {
+          "id": "A",
+          "label": "There is a risk of serious injury."
+        },
+        {
+          "id": "B",
+          "label": "They are unsuitable for certain age groups."
+        },
+        {
+          "id": "C",
+          "label": "They are unsuitable for people with health issues."
+        },
+        {
+          "id": "D",
+          "label": "It is difficult to stay motivated."
+        },
+        {
+          "id": "E",
+          "label": "There is a lack of individual support."
+        }
+      ],
+      "answer": "C/E",
+      "explanation": "Vấn đề sức khỏe (C) và thiếu hỗ trợ (E). (cặp 11–12)"
+    },
+    {
+      "number": 13,
+      "type": "matching",
+      "prompt": "Which TWO tips does Liz recommend for new runners?",
+      "options": [
+        {
+          "id": "A",
+          "label": "doing two runs a week"
+        },
+        {
+          "id": "B",
+          "label": "running in the evening"
+        },
+        {
+          "id": "C",
+          "label": "going on runs with a friend"
+        },
+        {
+          "id": "D",
+          "label": "listening to music during runs"
+        },
+        {
+          "id": "E",
+          "label": "running very slowly"
+        }
+      ],
+      "answer": "A/D",
+      "explanation": "Chạy 2 lần/tuần (A) và chạy chậm (D).",
+      "sectionRange": "Questions 13 and 14",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 14,
+      "type": "matching",
+      "prompt": "Which TWO tips does Liz recommend for new runners?",
+      "options": [
+        {
+          "id": "A",
+          "label": "doing two runs a week"
+        },
+        {
+          "id": "B",
+          "label": "running in the evening"
+        },
+        {
+          "id": "C",
+          "label": "going on runs with a friend"
+        },
+        {
+          "id": "D",
+          "label": "listening to music during runs"
+        },
+        {
+          "id": "E",
+          "label": "running very slowly"
+        }
+      ],
+      "answer": "A/D",
+      "explanation": "Chạy 2 lần/tuần (A) và chạy chậm (D). (cặp 13–14)"
+    },
+    {
+      "number": 15,
+      "type": "matching",
+      "prompt": "Ceri",
+      "options": [
+        {
+          "id": "A",
+          "label": "a lack of confidence"
+        },
+        {
+          "id": "B",
+          "label": "a dislike of running"
+        },
+        {
+          "id": "C",
+          "label": "a lack of time"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 15 – 18",
+      "sectionInstruction": "What reason prevented each of the following members of the Compton Park Runners Club from joining until recently? Write the correct letter, A, B or C, next to Questions 15–18.",
+      "sectionTitle": "Club members"
+    },
+    {
+      "number": 16,
+      "type": "matching",
+      "prompt": "James",
+      "options": [
+        {
+          "id": "A",
+          "label": "a lack of confidence"
+        },
+        {
+          "id": "B",
+          "label": "a dislike of running"
+        },
+        {
+          "id": "C",
+          "label": "a lack of time"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "Leo",
+      "options": [
+        {
+          "id": "A",
+          "label": "a lack of confidence"
+        },
+        {
+          "id": "B",
+          "label": "a dislike of running"
+        },
+        {
+          "id": "C",
+          "label": "a lack of time"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "Mark",
+      "options": [
+        {
+          "id": "A",
+          "label": "a lack of confidence"
+        },
+        {
+          "id": "B",
+          "label": "a dislike of running"
+        },
+        {
+          "id": "C",
+          "label": "a lack of time"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 19,
+      "type": "multiple-choice",
+      "prompt": "What does Liz say about running her first marathon?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It had always been her ambition."
+        },
+        {
+          "id": "B",
+          "label": "Her husband persuaded her to do it."
+        },
+        {
+          "id": "C",
+          "label": "She nearly gave up before the end."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Suýt bỏ cuộc (C).",
+      "sectionRange": "Questions 19 – 20",
+      "sectionInstruction": "Choose the correct letter, A, B or C."
+    },
+    {
+      "number": 20,
+      "type": "multiple-choice",
+      "prompt": "Liz says new runners should sign up for a race",
+      "options": [
+        {
+          "id": "A",
+          "label": "every six months."
+        },
+        {
+          "id": "B",
+          "label": "within a few weeks of taking up running."
+        },
+        {
+          "id": "C",
+          "label": "after completing several practice runs."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Vài tuần sau khi bắt đầu (B)."
+    }
+  ]
+}

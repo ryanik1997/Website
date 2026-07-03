@@ -22,7 +22,8 @@
           "answer": "hardie",
           "explanation": "Điền theo audio.",
           "wordLimit": 1,
-          "gapLead": "Name: Luisa"
+          "gapLead": "Name: Luisa",
+          "sectionTitle": "Transport Survey"
         },
         {
           "id": "catalog-listening-ielts-cam10-test2-q-2",
@@ -123,10 +124,15 @@
           "gapTrail": "on busy roads"
         }
       ],
+      "passageTitle": "Transport Survey",
       "notePassage": [
         {
+          "type": "example",
+          "text": "Example"
+        },
+        {
           "type": "static",
-          "text": "Example\nTravelled to town today: by bus"
+          "text": "Travelled to town today: by bus"
         },
         {
           "type": "static",
@@ -1145,7 +1151,8 @@
           "type": "static",
           "text": "workers"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam10-test2",

@@ -1,0 +1,77 @@
+---
+pid: 280
+cwd: "D:\App-English-Ryan\Website"
+command: "pnpm ielts:validate \"IELTS/Listening IELTS_Test2_Cam15\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test3_Cam15\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test4_Cam15\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test1_Cam16\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test2_Cam16\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test3_Cam16\"; pnpm ielts:validate \"IELTS/Listening IELTS_Test4_Cam16\""
+started_at: 2026-07-03T09:34:57.936Z
+running_for_ms: 14405002 
+---
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam15"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam15
+
+📋 IELTS Listening — Cambridge 15 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam15"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam15
+
+📋 IELTS Listening — Cambridge 15 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam15"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam15
+
+📋 IELTS Listening — Cambridge 15 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test1_Cam16"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam16
+
+📋 IELTS Listening — Cambridge 16 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test2_Cam16"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam16
+
+📋 IELTS Listening — Cambridge 16 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test3_Cam16"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam16
+
+📋 IELTS Listening — Cambridge 16 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+
+> ryan-english@ ielts:validate D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts validate "IELTS/Listening IELTS_Test4_Cam16"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam16
+
+📋 IELTS Listening — Cambridge 16 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.

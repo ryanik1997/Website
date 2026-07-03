@@ -1,0 +1,320 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–14: Choose A, B or C. Questions 15–20: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "instruction": "Questions 15 – 20\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "title": "Timetable for Isle of Man holiday",
+      "headers": [
+        "Activity",
+        "Notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 1 — Arrive"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Hotel dining room has view of the "
+              },
+              {
+                "type": "gap",
+                "number": 15
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 2 — Tynwald Exhibition and Peel"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Tynwald may have been founded in "
+              },
+              {
+                "type": "gap",
+                "number": 16
+              },
+              {
+                "type": "static",
+                "text": " not 979"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 3 — Trip to Snaefell"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Travel along promenade in a tram; train to Laxey; train to the "
+              },
+              {
+                "type": "gap",
+                "number": 17
+              },
+              {
+                "type": "static",
+                "text": " of Snaefell"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 4 — Free day"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Company provides a "
+              },
+              {
+                "type": "gap",
+                "number": 18
+              },
+              {
+                "type": "static",
+                "text": " for local transport and heritage sites"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 5"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Take the "
+              },
+              {
+                "type": "gap",
+                "number": 19
+              },
+              {
+                "type": "static",
+                "text": " railway"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "former "
+              },
+              {
+                "type": "gap",
+                "number": 20
+              },
+              {
+                "type": "static",
+                "text": " has old castle"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Day 6 — Leave"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "Leave the island by ferry or plane"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 11,
+      "type": "multiple-choice",
+      "prompt": "According to the speaker, the company",
+      "options": [
+        {
+          "id": "A",
+          "label": "has been in business for longer than most of its competitors."
+        },
+        {
+          "id": "B",
+          "label": "arranges holidays to more destinations than its competitors."
+        },
+        {
+          "id": "C",
+          "label": "has more customers than its competitors."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 11 – 14",
+      "sectionInstruction": "Choose the correct letter, A, B or C.",
+      "sectionTitle": "Matthews Island Holidays"
+    },
+    {
+      "number": 12,
+      "type": "multiple-choice",
+      "prompt": "Where can customers meet the tour manager before travelling to the Isle of Man?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Liverpool"
+        },
+        {
+          "id": "B",
+          "label": "Heysham"
+        },
+        {
+          "id": "C",
+          "label": "Luton"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 13,
+      "type": "multiple-choice",
+      "prompt": "How many lunches are included in the price of the holiday?",
+      "options": [
+        {
+          "id": "A",
+          "label": "three"
+        },
+        {
+          "id": "B",
+          "label": "four"
+        },
+        {
+          "id": "C",
+          "label": "five"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 14,
+      "type": "multiple-choice",
+      "prompt": "Customers have to pay extra for",
+      "options": [
+        {
+          "id": "A",
+          "label": "guaranteeing themselves a larger room."
+        },
+        {
+          "id": "B",
+          "label": "booking at short notice."
+        },
+        {
+          "id": "C",
+          "label": "transferring to another date."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 15,
+      "type": "gap-fill",
+      "prompt": "Hotel dining room has view of the …:",
+      "options": [],
+      "answer": "river",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 15 – 20",
+      "sectionInstruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "sectionTitle": "Timetable for Isle of Man holiday"
+    },
+    {
+      "number": 16,
+      "type": "gap-fill",
+      "prompt": "Tynwald may have been founded in … not 979:",
+      "options": [],
+      "answer": "1422",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 17,
+      "type": "gap-fill",
+      "prompt": "Train to the … of Snaefell:",
+      "options": [],
+      "answer": "top",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 18,
+      "type": "gap-fill",
+      "prompt": "Company provides a … for local transport and heritage sites:",
+      "options": [],
+      "answer": "pass",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 19,
+      "type": "gap-fill",
+      "prompt": "Take the … railway:",
+      "options": [],
+      "answer": "steam",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 20,
+      "type": "gap-fill",
+      "prompt": "Former … has old castle:",
+      "options": [],
+      "answer": "capital",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

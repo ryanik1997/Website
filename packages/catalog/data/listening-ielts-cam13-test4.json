@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "Alex's Training",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nAlex completed his training in 2014"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Alex completed his training in 2014"
         },
         {
           "type": "section",
@@ -1025,7 +1030,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam13-test4",

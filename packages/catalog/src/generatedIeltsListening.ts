@@ -24,7 +24,30 @@ import ieltsCam14Test1 from '../data/listening-ielts-cam14-test1.json'
 import ieltsCam14Test2 from '../data/listening-ielts-cam14-test2.json'
 import ieltsCam14Test3 from '../data/listening-ielts-cam14-test3.json'
 import ieltsCam14Test4 from '../data/listening-ielts-cam14-test4.json'
+import ieltsCam15Test1 from '../data/listening-ielts-cam15-test1.json'
+import ieltsCam15Test2 from '../data/listening-ielts-cam15-test2.json'
+import ieltsCam15Test3 from '../data/listening-ielts-cam15-test3.json'
+import ieltsCam15Test4 from '../data/listening-ielts-cam15-test4.json'
+import ieltsCam16Test1 from '../data/listening-ielts-cam16-test1.json'
+import ieltsCam16Test2 from '../data/listening-ielts-cam16-test2.json'
+import ieltsCam16Test3 from '../data/listening-ielts-cam16-test3.json'
+import ieltsCam16Test4 from '../data/listening-ielts-cam16-test4.json'
+import ieltsCam17Test1 from '../data/listening-ielts-cam17-test1.json'
+import ieltsCam17Test2 from '../data/listening-ielts-cam17-test2.json'
+import ieltsCam17Test3 from '../data/listening-ielts-cam17-test3.json'
+import ieltsCam17Test4 from '../data/listening-ielts-cam17-test4.json'
+import ieltsCam18Test1 from '../data/listening-ielts-cam18-test1.json'
+import ieltsCam18Test2 from '../data/listening-ielts-cam18-test2.json'
+import ieltsCam18Test3 from '../data/listening-ielts-cam18-test3.json'
+import ieltsCam18Test4 from '../data/listening-ielts-cam18-test4.json'
+import ieltsCam19Test1 from '../data/listening-ielts-cam19-test1.json'
+import ieltsCam19Test2 from '../data/listening-ielts-cam19-test2.json'
+import ieltsCam19Test3 from '../data/listening-ielts-cam19-test3.json'
+import ieltsCam19Test4 from '../data/listening-ielts-cam19-test4.json'
 import ieltsCam20Test1 from '../data/listening-ielts-cam20-test1.json'
+import ieltsCam20Test2 from '../data/listening-ielts-cam20-test2.json'
+import ieltsCam20Test3 from '../data/listening-ielts-cam20-test3.json'
+import ieltsCam20Test4 from '../data/listening-ielts-cam20-test4.json'
 
 export const GENERATED_IELTS_LISTENING_EXAMS = [
   ieltsCam9Test1,
@@ -51,5 +74,28 @@ export const GENERATED_IELTS_LISTENING_EXAMS = [
   ieltsCam14Test2,
   ieltsCam14Test3,
   ieltsCam14Test4,
+  ieltsCam15Test1,
+  ieltsCam15Test2,
+  ieltsCam15Test3,
+  ieltsCam15Test4,
+  ieltsCam16Test1,
+  ieltsCam16Test2,
+  ieltsCam16Test3,
+  ieltsCam16Test4,
+  ieltsCam17Test1,
+  ieltsCam17Test2,
+  ieltsCam17Test3,
+  ieltsCam17Test4,
+  ieltsCam18Test1,
+  ieltsCam18Test2,
+  ieltsCam18Test3,
+  ieltsCam18Test4,
+  ieltsCam19Test1,
+  ieltsCam19Test2,
+  ieltsCam19Test3,
+  ieltsCam19Test4,
   ieltsCam20Test1,
+  ieltsCam20Test2,
+  ieltsCam20Test3,
+  ieltsCam20Test4,
 ]

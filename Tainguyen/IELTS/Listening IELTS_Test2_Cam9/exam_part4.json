@@ -5,56 +5,206 @@
   "passageTitle": "Business Cultures",
   "audioFile": "listening.mp3",
   "notePassage": [
-    { "type": "section", "text": "Power culture" },
-    { "type": "static", "text": "Characteristics of organisation" },
-    { "type": "static", "text": "• small" },
-    { "type": "gap", "number": 31 },
-    { "type": "static", "text": "power source" },
-    { "type": "static", "text": "• few rules and procedures" },
-    { "type": "static", "text": "• communication by" },
-    { "type": "gap", "number": 32 },
-    { "type": "static", "text": "Advantage" },
-    { "type": "static", "text": "• can act quickly" },
-    { "type": "static", "text": "Disadvantage" },
-    { "type": "static", "text": "• might not act" },
-    { "type": "gap", "number": 33 },
-    { "type": "static", "text": "Suitable employee" },
-    { "type": "static", "text": "• not afraid of" },
-    { "type": "gap", "number": 34 },
-    { "type": "static", "text": "• doesn't need job security" },
-    { "type": "section", "text": "Role culture" },
-    { "type": "static", "text": "Characteristics of organisation" },
-    { "type": "static", "text": "• large, many" },
-    { "type": "gap", "number": 35 },
-    { "type": "static", "text": "• specialised departments" },
-    { "type": "static", "text": "• rules and procedure, e.g. job" },
-    { "type": "gap", "number": 36 },
-    { "type": "static", "text": "and rules for discipline" },
-    { "type": "static", "text": "Advantages" },
-    { "type": "static", "text": "• economies of scale" },
-    { "type": "static", "text": "• successful when" },
-    { "type": "gap", "number": 37 },
-    { "type": "static", "text": "ability is important" },
-    { "type": "static", "text": "Disadvantages" },
-    { "type": "static", "text": "• slow to see when" },
-    { "type": "gap", "number": 38 },
-    { "type": "static", "text": "is needed" },
-    { "type": "static", "text": "• slow to react" },
-    { "type": "static", "text": "Suitable employee" },
-    { "type": "static", "text": "• values security" },
-    { "type": "static", "text": "• doesn't want" },
-    { "type": "gap", "number": 39 },
-    { "type": "section", "text": "Task culture" },
-    { "type": "static", "text": "Characteristics of organisation" },
-    { "type": "static", "text": "• project orientated" },
-    { "type": "static", "text": "• in competitive market or making product with short life" },
-    { "type": "static", "text": "• a lot of delegation" },
-    { "type": "static", "text": "Advantage" },
-    { "type": "gap", "number": 40 },
-    { "type": "static", "text": "Disadvantages" },
-    { "type": "static", "text": "• no economies of scale or special expertise" },
-    { "type": "static", "text": "Suitable employee" },
-    { "type": "static", "text": "• likes to work in groups" }
+    {
+      "type": "section",
+      "text": "Power culture"
+    },
+    {
+      "type": "static",
+      "text": "Characteristics of organisation"
+    },
+    {
+      "type": "static",
+      "text": "• small"
+    },
+    {
+      "type": "gap",
+      "number": 31
+    },
+    {
+      "type": "static",
+      "text": "power source"
+    },
+    {
+      "type": "static",
+      "text": "• few rules and procedures"
+    },
+    {
+      "type": "static",
+      "text": "• communication by"
+    },
+    {
+      "type": "gap",
+      "number": 32
+    },
+    {
+      "type": "static",
+      "text": "Advantage"
+    },
+    {
+      "type": "static",
+      "text": "• can act quickly"
+    },
+    {
+      "type": "static",
+      "text": "Disadvantage"
+    },
+    {
+      "type": "static",
+      "text": "• might not act"
+    },
+    {
+      "type": "gap",
+      "number": 33
+    },
+    {
+      "type": "static",
+      "text": "Suitable employee"
+    },
+    {
+      "type": "static",
+      "text": "• not afraid of"
+    },
+    {
+      "type": "gap",
+      "number": 34
+    },
+    {
+      "type": "static",
+      "text": "• doesn't need job security"
+    },
+    {
+      "type": "section",
+      "text": "Role culture"
+    },
+    {
+      "type": "static",
+      "text": "Characteristics of organisation"
+    },
+    {
+      "type": "static",
+      "text": "• large, many"
+    },
+    {
+      "type": "gap",
+      "number": 35
+    },
+    {
+      "type": "static",
+      "text": "• specialised departments"
+    },
+    {
+      "type": "static",
+      "text": "• rules and procedure, e.g. job"
+    },
+    {
+      "type": "gap",
+      "number": 36
+    },
+    {
+      "type": "static",
+      "text": "and rules for discipline"
+    },
+    {
+      "type": "static",
+      "text": "Advantages"
+    },
+    {
+      "type": "static",
+      "text": "• economies of scale"
+    },
+    {
+      "type": "static",
+      "text": "• successful when"
+    },
+    {
+      "type": "gap",
+      "number": 37
+    },
+    {
+      "type": "static",
+      "text": "ability is important"
+    },
+    {
+      "type": "static",
+      "text": "Disadvantages"
+    },
+    {
+      "type": "static",
+      "text": "• slow to see when"
+    },
+    {
+      "type": "gap",
+      "number": 38
+    },
+    {
+      "type": "static",
+      "text": "is needed"
+    },
+    {
+      "type": "static",
+      "text": "• slow to react"
+    },
+    {
+      "type": "static",
+      "text": "Suitable employee"
+    },
+    {
+      "type": "static",
+      "text": "• values security"
+    },
+    {
+      "type": "static",
+      "text": "• doesn't want"
+    },
+    {
+      "type": "gap",
+      "number": 39
+    },
+    {
+      "type": "section",
+      "text": "Task culture"
+    },
+    {
+      "type": "static",
+      "text": "Characteristics of organisation"
+    },
+    {
+      "type": "static",
+      "text": "• project orientated"
+    },
+    {
+      "type": "static",
+      "text": "• in competitive market or making product with short life"
+    },
+    {
+      "type": "static",
+      "text": "• a lot of delegation"
+    },
+    {
+      "type": "static",
+      "text": "Advantage"
+    },
+    {
+      "type": "gap",
+      "number": 40
+    },
+    {
+      "type": "static",
+      "text": "Disadvantages"
+    },
+    {
+      "type": "static",
+      "text": "• no economies of scale or special expertise"
+    },
+    {
+      "type": "static",
+      "text": "Suitable employee"
+    },
+    {
+      "type": "static",
+      "text": "• likes to work in groups"
+    }
   ],
   "questions": [
     {
@@ -164,5 +314,6 @@
       "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "sectionTitle": "Business Cultures"
     }
-  ]
+  ],
+  "notePassageLayout": "lecture"
 }

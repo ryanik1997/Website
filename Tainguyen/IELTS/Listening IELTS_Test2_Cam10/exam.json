@@ -11,11 +11,16 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
+      "passageTitle": "Transport Survey",
       "notePassageLayout": "form",
       "notePassage": [
         {
+          "type": "example",
+          "text": "Example"
+        },
+        {
           "type": "static",
-          "text": "Example\nTravelled to town today: by bus"
+          "text": "Travelled to town today: by bus"
         },
         {
           "type": "static",
@@ -136,7 +141,7 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1,
           "gapLead": "Name: Luisa",
-          "passageTitle": "Transport Survey"
+          "sectionTitle": "Transport Survey"
         },
         {
           "number": 2,
@@ -1102,7 +1107,8 @@
           "gapLead": "more and more",
           "gapTrail": "workers"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

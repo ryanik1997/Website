@@ -24,7 +24,11 @@
         },
         {
           "type": "example",
-          "text": "Example\nName: Louise …Taylor…"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Name: Louise …Taylor…"
         },
         {
           "type": "static",
@@ -76,7 +80,11 @@
         },
         {
           "type": "static",
-          "text": "Items stolen:\n– a wallet containing approximately £"
+          "text": "Items stolen:"
+        },
+        {
+          "type": "static",
+          "text": "– a wallet containing approximately £"
         },
         {
           "type": "gap",
@@ -116,7 +124,11 @@
         },
         {
           "type": "static",
-          "text": "Details of suspect:\n– some boys asked for the"
+          "text": "Details of suspect:"
+        },
+        {
+          "type": "static",
+          "text": "– some boys asked for the"
         },
         {
           "type": "gap",
@@ -1235,7 +1247,8 @@
           "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
           "sectionTitle": "Business Cultures"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

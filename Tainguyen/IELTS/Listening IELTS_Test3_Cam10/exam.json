@@ -14,8 +14,12 @@
       "notePassageLayout": "form",
       "notePassage": [
         {
+          "type": "example",
+          "text": "Example"
+        },
+        {
           "type": "static",
-          "text": "Example\nParent or guardian: Carol …Smith…"
+          "text": "Parent or guardian: Carol …Smith…"
         },
         {
           "type": "section",
@@ -1019,7 +1023,8 @@
           "wordLimit": 1,
           "gapLead": "Promotion Focus is good for jobs requiring"
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "Islanders conference",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nCustomer Services Manager: Wilby"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Customer Services Manager: Wilby"
         },
         {
           "type": "static",
@@ -1123,7 +1128,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam14-test3",

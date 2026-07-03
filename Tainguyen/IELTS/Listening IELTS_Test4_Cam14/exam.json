@@ -15,7 +15,11 @@
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nAndrew is the Events Manager"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Andrew is the Events Manager"
         },
         {
           "type": "section",
@@ -251,7 +255,8 @@
           "answer": "B",
           "explanation": "Chọn theo audio."
         }
-      ]
+      ],
+      "passageTitle": "Enquiry about booking hotel room for event"
     },
     {
       "partNumber": 2,
@@ -1142,7 +1147,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

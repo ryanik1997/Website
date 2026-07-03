@@ -115,10 +115,15 @@
           "wordLimit": 1
         }
       ],
+      "passageTitle": "TOTAL HEALTH CLINIC",
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nName: Julie Anne Garcia"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Name: Julie Anne Garcia"
         },
         {
           "type": "section",
@@ -1162,7 +1167,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam14-test2",

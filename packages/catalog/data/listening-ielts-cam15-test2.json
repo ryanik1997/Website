@@ -1,0 +1,1408 @@
+{
+  "id": "catalog-listening-ielts-cam15-test2",
+  "title": "IELTS Listening — Cambridge 15 Test 2",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 15 · Test 2 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam15-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–4: Complete the table below. Write ONE WORD ONLY for each answer. Questions 5–10: Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam15-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "company called …:",
+          "options": [],
+          "answer": "eustatis",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 1 – 4",
+          "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer.",
+          "sectionTitle": "Festival information"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "has had a good …:",
+          "options": [],
+          "answer": "review",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "a … show:",
+          "options": [],
+          "answer": "dance",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "show is called …:",
+          "options": [],
+          "answer": "chat",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Making … food:",
+          "options": [],
+          "answer": "healthy",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 5 – 10",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Making …:",
+          "options": [],
+          "answer": "posters",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Making toys from …:",
+          "options": [],
+          "answer": "wood",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Swimming in the …:",
+          "options": [],
+          "answer": "lake",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "expert on …:",
+          "options": [],
+          "answer": "insects",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "festival organiser's …:",
+          "options": [],
+          "answer": "blog",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Festival information",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "instruction": "Questions 1 – 4\nComplete the table below. Write ONE WORD ONLY for each answer.",
+          "title": "Festival information",
+          "headers": [
+            "Date",
+            "Type of event",
+            "Details"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "17th"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "a concert"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "performers from Canada"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "18th"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "a ballet"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "company called "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "19th–20th (afternoon)"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "a play"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "type of play: a comedy called Jemima"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "has had a good "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "20th (evening)"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 3
+                  },
+                  {
+                    "type": "static",
+                    "text": " show"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "show is called "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 5 – 10\nComplete the notes below. Write ONE WORD ONLY for each answer.",
+          "title": "Workshops and outdoor activities",
+          "headers": [
+            "Section",
+            "Details"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Workshops"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Making "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 5
+                  },
+                  {
+                    "type": "static",
+                    "text": " food"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "(children only) Making "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "(adults only) Making toys from "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " using various tools"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Outdoor activities"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Swimming in the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 8
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "Walking in the woods, led by an expert on "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 9
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "See the festival organiser's "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  },
+                  {
+                    "type": "static",
+                    "text": " for more information"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam15-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–14: Choose A, B or C. Questions 15–20: Label the map A–I.",
+      "audioUrl": "/catalog/listening/ielts-cam15-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "The park was originally established",
+          "options": [
+            {
+              "id": "A",
+              "label": "as an amenity provided by the city council."
+            },
+            {
+              "id": "B",
+              "label": "as land belonging to a private house."
+            },
+            {
+              "id": "C",
+              "label": "as a shared area set up by the local community."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 11 – 14",
+          "sectionInstruction": "Choose the correct letter, A, B or C.",
+          "sectionTitle": "Minster Park"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "Why is there a statue of Diane Gosforth in the park?",
+          "options": [
+            {
+              "id": "A",
+              "label": "She was a resident who helped to lead a campaign."
+            },
+            {
+              "id": "B",
+              "label": "She was a council member responsible for giving the public access."
+            },
+            {
+              "id": "C",
+              "label": "She was a senior worker at the park for many years."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "During the First World War, the park was mainly used for",
+          "options": [
+            {
+              "id": "A",
+              "label": "exercises by troops."
+            },
+            {
+              "id": "B",
+              "label": "growing vegetables."
+            },
+            {
+              "id": "C",
+              "label": "public meetings."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-14",
+          "number": 14,
+          "type": "multiple-choice",
+          "prompt": "When did the physical transformation of the park begin?",
+          "options": [
+            {
+              "id": "A",
+              "label": "2013"
+            },
+            {
+              "id": "B",
+              "label": "2015"
+            },
+            {
+              "id": "C",
+              "label": "2016"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-15",
+          "number": 15,
+          "type": "matching",
+          "prompt": "statue of Diane Gosforth",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 15 – 20",
+          "sectionInstruction": "Label the map below. Write the correct letter, A–I, next to Questions 15–20.",
+          "sectionTitle": "Minster Park",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-16",
+          "number": 16,
+          "type": "matching",
+          "prompt": "wooden sculptures",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "playground",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "maze",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-19",
+          "number": 19,
+          "type": "matching",
+          "prompt": "tennis courts",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-20",
+          "number": 20,
+          "type": "matching",
+          "prompt": "fitness area",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        }
+      ],
+      "partImageUrl": "/catalog/listening/ielts-cam15-test2/map.jpg"
+    },
+    {
+      "id": "catalog-listening-ielts-cam15-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–22 and 23–24: Choose TWO A–E. Questions 25–30: Matching A–H.",
+      "audioUrl": "/catalog/listening/ielts-cam15-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-21",
+          "number": 21,
+          "type": "matching",
+          "prompt": "Which TWO groups of people is the display primarily intended for?",
+          "options": [
+            {
+              "id": "A",
+              "label": "students from the English department"
+            },
+            {
+              "id": "B",
+              "label": "residents of the local area"
+            },
+            {
+              "id": "C",
+              "label": "the university's teaching staff"
+            },
+            {
+              "id": "D",
+              "label": "potential new students"
+            },
+            {
+              "id": "E",
+              "label": "students from other departments"
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Cư dân (B) và sinh viên mới (D).",
+          "sectionRange": "Questions 21 and 22",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-22",
+          "number": 22,
+          "type": "matching",
+          "prompt": "Which TWO groups of people is the display primarily intended for?",
+          "options": [
+            {
+              "id": "A",
+              "label": "students from the English department"
+            },
+            {
+              "id": "B",
+              "label": "residents of the local area"
+            },
+            {
+              "id": "C",
+              "label": "the university's teaching staff"
+            },
+            {
+              "id": "D",
+              "label": "potential new students"
+            },
+            {
+              "id": "E",
+              "label": "students from other departments"
+            }
+          ],
+          "answer": "B/D",
+          "explanation": "Cư dân (B) và sinh viên mới (D). (cặp 21–22)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-23",
+          "number": 23,
+          "type": "matching",
+          "prompt": "What are Cathy and Graham's TWO reasons for choosing the novelist Charles Dickens?",
+          "options": [
+            {
+              "id": "A",
+              "label": "His speeches inspired others to try to improve society."
+            },
+            {
+              "id": "B",
+              "label": "He used his publications to draw attention to social problems."
+            },
+            {
+              "id": "C",
+              "label": "His novels are well-known now."
+            },
+            {
+              "id": "D",
+              "label": "He was consulted on a number of social issues."
+            },
+            {
+              "id": "E",
+              "label": "His reputation has changed in recent times."
+            }
+          ],
+          "answer": "B/C",
+          "explanation": "Vấn đề xã hội (B) và tiểu thuyết nổi tiếng (C).",
+          "sectionRange": "Questions 23 and 24",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-24",
+          "number": 24,
+          "type": "matching",
+          "prompt": "What are Cathy and Graham's TWO reasons for choosing the novelist Charles Dickens?",
+          "options": [
+            {
+              "id": "A",
+              "label": "His speeches inspired others to try to improve society."
+            },
+            {
+              "id": "B",
+              "label": "He used his publications to draw attention to social problems."
+            },
+            {
+              "id": "C",
+              "label": "His novels are well-known now."
+            },
+            {
+              "id": "D",
+              "label": "He was consulted on a number of social issues."
+            },
+            {
+              "id": "E",
+              "label": "His reputation has changed in recent times."
+            }
+          ],
+          "answer": "B/C",
+          "explanation": "Vấn đề xã hội (B) và tiểu thuyết nổi tiếng (C). (cặp 23–24)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "The Pickwick Papers",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 25 – 30",
+          "sectionInstruction": "What topic do Cathy and Graham choose to illustrate with each novel? Choose SIX answers from the box and write the correct letter, A–H, next to Questions 25–30.",
+          "sectionTitle": "Novels by Dickens"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Oliver Twist",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Nicholas Nickleby",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Martin Chuzzlewit",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Bleak House",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "Little Dorrit",
+          "options": [
+            {
+              "id": "A",
+              "label": "poverty"
+            },
+            {
+              "id": "B",
+              "label": "education"
+            },
+            {
+              "id": "C",
+              "label": "Dickens's travels"
+            },
+            {
+              "id": "D",
+              "label": "entertainment"
+            },
+            {
+              "id": "E",
+              "label": "crime and the law"
+            },
+            {
+              "id": "F",
+              "label": "wealth"
+            },
+            {
+              "id": "G",
+              "label": "medicine"
+            },
+            {
+              "id": "H",
+              "label": "a woman's life"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam15-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam15-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "… was seen as the main priority to ensure the supply of water:",
+          "options": [],
+          "answer": "irrigation",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionTitle": "Agricultural programme in Mozambique"
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Most of the work organised by farmers' associations was done by …:",
+          "options": [],
+          "answer": "women",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "provided … for the fences:",
+          "options": [],
+          "answer": "wire/wires",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "… for suitable crops:",
+          "options": [],
+          "answer": "seed/seeds",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "… for the fences on their land:",
+          "options": [],
+          "answer": "posts",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "lack of …:",
+          "options": [],
+          "answer": "transport",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "Training in methods of food …:",
+          "options": [],
+          "answer": "preservation",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "special places where … could be kept:",
+          "options": [],
+          "answer": "fish/fishes",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "suggested keeping …:",
+          "options": [],
+          "answer": "bees",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam15-test2-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "the … phase of the programme:",
+          "options": [],
+          "answer": "design",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Agricultural programme in Mozambique",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "How the programme was organised"
+        },
+        {
+          "type": "static",
+          "text": "• It focused on a dry and arid region in Chicualacuala district, near the Limpopo River."
+        },
+        {
+          "type": "static",
+          "text": "• People depended on the forest to provide charcoal as a source of income."
+        },
+        {
+          "type": "static",
+          "text": "• "
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": " was seen as the main priority to ensure the supply of water."
+        },
+        {
+          "type": "static",
+          "text": "• Most of the work organised by farmers' associations was done by "
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": "• Fenced areas were created to keep animals away from crops."
+        },
+        {
+          "type": "static",
+          "text": "• The programme provided"
+        },
+        {
+          "type": "static",
+          "text": "– "
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": " for the fences"
+        },
+        {
+          "type": "static",
+          "text": "– "
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": " for suitable crops"
+        },
+        {
+          "type": "static",
+          "text": "– water pumps"
+        },
+        {
+          "type": "static",
+          "text": "• The farmers provided"
+        },
+        {
+          "type": "static",
+          "text": "– labour"
+        },
+        {
+          "type": "static",
+          "text": "– "
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": " for the fences on their land"
+        },
+        {
+          "type": "section",
+          "text": "Further developments"
+        },
+        {
+          "type": "static",
+          "text": "• The marketing of produce was sometimes difficult due to lack of "
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "• Training was therefore provided in methods of food "
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": "• Farmers made special places where "
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": " could be kept"
+        },
+        {
+          "type": "static",
+          "text": "• Local people later suggested keeping "
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "section",
+          "text": "Evaluation and lessons learned"
+        },
+        {
+          "type": "static",
+          "text": "• Agricultural production increased, improving incomes and food security."
+        },
+        {
+          "type": "static",
+          "text": "• Enough time must be allowed, particularly for the "
+        },
+        {
+          "type": "gap",
+          "number": 40
+        },
+        {
+          "type": "static",
+          "text": " phase of the programme."
+        }
+      ],
+      "notePassageLayout": "lecture"
+    }
+  ],
+  "catalogSlug": "ielts-cam15-test2",
+  "catalogBase": "/catalog/listening/ielts-cam15-test2"
+}

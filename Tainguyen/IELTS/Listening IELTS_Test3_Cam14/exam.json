@@ -15,7 +15,11 @@
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nCustomer Services Manager: Wilby"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Customer Services Manager: Wilby"
         },
         {
           "type": "static",
@@ -234,7 +238,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "passageTitle": "Islanders conference"
     },
     {
       "partNumber": 2,
@@ -1079,7 +1084,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

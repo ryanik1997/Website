@@ -15,7 +15,11 @@
       "notePassage": [
         {
           "type": "example",
-          "text": "Example\nName: Margaret Smith"
+          "text": "Example"
+        },
+        {
+          "type": "example",
+          "text": "Name: Margaret Smith"
         },
         {
           "type": "section",
@@ -222,7 +226,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 2
         }
-      ]
+      ],
+      "passageTitle": "Cycle tour leader: Applicant enquiry"
     },
     {
       "partNumber": 2,
@@ -1258,7 +1263,8 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ]
 }

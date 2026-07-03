@@ -7,8 +7,12 @@
   "notePassageLayout": "form",
   "notePassage": [
     {
+      "type": "example",
+      "text": "Example"
+    },
+    {
       "type": "static",
-      "text": "Example\nThe Main Hall – seats 200"
+      "text": "The Main Hall – seats 200"
     },
     {
       "type": "section",

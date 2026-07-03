@@ -1,0 +1,183 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "passageTitle": "JOB INQUIRY",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "Example: Work at: a restaurant"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "Number of hours per week: 12 hours"
+    },
+    {
+      "type": "static",
+      "text": "Would need work permit"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "section",
+      "text": "Extra benefits"
+    },
+    {
+      "type": "static",
+      "text": "a free dinner"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "section",
+      "text": "Qualities required"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "static",
+      "text": "Bring the names of two referees"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Type of work:",
+      "options": [],
+      "answer": "answering phone",
+      "explanation": "Trả lời điện thoại.",
+      "wordLimit": 3,
+      "gapLead": "Type of work:"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Branch:",
+      "options": [],
+      "answer": "hillsdunne road",
+      "explanation": "Chi nhánh Hillsdunne Road.",
+      "wordLimit": 3,
+      "gapLead": "Work in the",
+      "gapTrail": "branch"
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "Nearest bus stop:",
+      "options": [],
+      "answer": "library",
+      "explanation": "Bến xe cạnh thư viện.",
+      "wordLimit": 1,
+      "gapLead": "Nearest bus stop: next to"
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Pay per hour:",
+      "options": [],
+      "answer": "4.45",
+      "explanation": "£4.45/giờ.",
+      "wordLimit": 1,
+      "gapLead": "Pay £",
+      "gapTrail": "an hour"
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "Extra pay on:",
+      "options": [],
+      "answer": "national holidays",
+      "explanation": "Ngày lễ.",
+      "wordLimit": 2,
+      "gapLead": "extra pay when you work on"
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Transport home when:",
+      "options": [],
+      "answer": "after 11",
+      "explanation": "Sau 11 giờ.",
+      "wordLimit": 3,
+      "gapLead": "transport home when you work"
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Quality required:",
+      "options": [],
+      "answer": "clear voice",
+      "explanation": "Giọng rõ.",
+      "wordLimit": 2,
+      "gapLead": ""
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Ability to:",
+      "options": [],
+      "answer": "think quickly",
+      "explanation": "Suy nghĩ nhanh.",
+      "wordLimit": 2,
+      "gapLead": "ability to"
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Interview date:",
+      "options": [],
+      "answer": "22 october",
+      "explanation": "22 tháng 10.",
+      "wordLimit": 2,
+      "gapLead": "Interview arranged for: Thursday",
+      "gapTrail": "at 6 pm"
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Ask for:",
+      "options": [],
+      "answer": "manuja",
+      "explanation": "Hỏi Samira Manuja.",
+      "wordLimit": 1,
+      "gapLead": "Ask for:"
+    }
+  ]
+}

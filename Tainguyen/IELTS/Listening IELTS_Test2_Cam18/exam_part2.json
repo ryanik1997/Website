@@ -1,0 +1,407 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 11–20",
+  "instruction": "Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–20: Label the map A–I.",
+  "audioFile": "listening.mp3",
+  "imageFile": "map.jpg",
+  "questions": [
+    {
+      "number": 11,
+      "type": "matching",
+      "prompt": "What are the TWO main reasons why this site has been chosen for the housing development?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It has suitable geographical features."
+        },
+        {
+          "id": "B",
+          "label": "There is easy access to local facilities."
+        },
+        {
+          "id": "C",
+          "label": "It has good connections with the airport."
+        },
+        {
+          "id": "D",
+          "label": "The land is of little agricultural value."
+        },
+        {
+          "id": "E",
+          "label": "It will be convenient for workers."
+        }
+      ],
+      "answer": "B/E",
+      "explanation": "Tiện ích địa phương (B) và thuận tiện cho người lao động (E).",
+      "sectionRange": "Questions 11 and 12",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 12,
+      "type": "matching",
+      "prompt": "What are the TWO main reasons why this site has been chosen for the housing development?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It has suitable geographical features."
+        },
+        {
+          "id": "B",
+          "label": "There is easy access to local facilities."
+        },
+        {
+          "id": "C",
+          "label": "It has good connections with the airport."
+        },
+        {
+          "id": "D",
+          "label": "The land is of little agricultural value."
+        },
+        {
+          "id": "E",
+          "label": "It will be convenient for workers."
+        }
+      ],
+      "answer": "B/E",
+      "explanation": "Tiện ích địa phương (B) và thuận tiện cho người lao động (E). (cặp 11–12)"
+    },
+    {
+      "number": 13,
+      "type": "matching",
+      "prompt": "Which TWO aspects of the planned housing development have people given positive feedback about?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the facilities for cyclists"
+        },
+        {
+          "id": "B",
+          "label": "the impact on the environment"
+        },
+        {
+          "id": "C",
+          "label": "the encouragement of good relations between residents"
+        },
+        {
+          "id": "D",
+          "label": "the low cost of all the accommodation"
+        },
+        {
+          "id": "E",
+          "label": "the rural location"
+        }
+      ],
+      "answer": "B/C",
+      "explanation": "Môi trường (B) và quan hệ cư dân (C).",
+      "sectionRange": "Questions 13 and 14",
+      "sectionInstruction": "Choose TWO letters, A–E."
+    },
+    {
+      "number": 14,
+      "type": "matching",
+      "prompt": "Which TWO aspects of the planned housing development have people given positive feedback about?",
+      "options": [
+        {
+          "id": "A",
+          "label": "the facilities for cyclists"
+        },
+        {
+          "id": "B",
+          "label": "the impact on the environment"
+        },
+        {
+          "id": "C",
+          "label": "the encouragement of good relations between residents"
+        },
+        {
+          "id": "D",
+          "label": "the low cost of all the accommodation"
+        },
+        {
+          "id": "E",
+          "label": "the rural location"
+        }
+      ],
+      "answer": "B/C",
+      "explanation": "Môi trường (B) và quan hệ cư dân (C). (cặp 13–14)"
+    },
+    {
+      "number": 15,
+      "type": "matching",
+      "prompt": "School",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "G",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true,
+      "sectionRange": "Questions 15 – 20",
+      "sectionInstruction": "Label the map below. Write the correct letter, A–I, next to Questions 15–20."
+    },
+    {
+      "number": 16,
+      "type": "matching",
+      "prompt": "Sports centre",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 17,
+      "type": "matching",
+      "prompt": "Clinic",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 18,
+      "type": "matching",
+      "prompt": "Community centre",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 19,
+      "type": "matching",
+      "prompt": "Supermarket",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "H",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    },
+    {
+      "number": 20,
+      "type": "matching",
+      "prompt": "Playground",
+      "options": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
+    }
+  ]
+}

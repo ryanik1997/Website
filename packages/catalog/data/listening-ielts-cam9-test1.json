@@ -129,12 +129,8 @@
       "passageTitle": "JOB INQUIRY",
       "notePassage": [
         {
-          "type": "example",
-          "text": "Example\n• Work at: a restaurant"
-        },
-        {
           "type": "static",
-          "text": "• Type of work:"
+          "text": "Example: Work at: a restaurant"
         },
         {
           "type": "gap",
@@ -142,43 +138,23 @@
         },
         {
           "type": "static",
-          "text": "• Number of hours per week: 12 hours"
+          "text": "Number of hours per week: 12 hours"
         },
         {
           "type": "static",
-          "text": "• Would need work permit"
-        },
-        {
-          "type": "static",
-          "text": "• Work in the:"
+          "text": "Would need work permit"
         },
         {
           "type": "gap",
           "number": 2
         },
         {
-          "type": "static",
-          "text": " branch"
-        },
-        {
-          "type": "static",
-          "text": "• Nearest bus stop: next to "
-        },
-        {
           "type": "gap",
           "number": 3
         },
         {
-          "type": "static",
-          "text": "• Pay: £ "
-        },
-        {
           "type": "gap",
           "number": 4
-        },
-        {
-          "type": "static",
-          "text": " an hour"
         },
         {
           "type": "section",
@@ -186,19 +162,11 @@
         },
         {
           "type": "static",
-          "text": "– a free dinner"
-        },
-        {
-          "type": "static",
-          "text": "– extra pay when you work on "
+          "text": "a free dinner"
         },
         {
           "type": "gap",
           "number": 5
-        },
-        {
-          "type": "static",
-          "text": "– transport home when you work "
         },
         {
           "type": "gap",
@@ -209,24 +177,12 @@
           "text": "Qualities required"
         },
         {
-          "type": "static",
-          "text": "– "
-        },
-        {
           "type": "gap",
           "number": 7
         },
         {
-          "type": "static",
-          "text": "– ability to "
-        },
-        {
           "type": "gap",
           "number": 8
-        },
-        {
-          "type": "static",
-          "text": "• Interview arranged for: Thursday "
         },
         {
           "type": "gap",
@@ -234,15 +190,7 @@
         },
         {
           "type": "static",
-          "text": " at 6 pm"
-        },
-        {
-          "type": "static",
-          "text": "• Bring the names of two referees"
-        },
-        {
-          "type": "static",
-          "text": "• Ask for: Samira "
+          "text": "Bring the names of two referees"
         },
         {
           "type": "gap",
@@ -909,7 +857,8 @@
           "type": "gap",
           "number": 40
         }
-      ]
+      ],
+      "notePassageLayout": "lecture"
     }
   ],
   "catalogSlug": "ielts-cam9-test1",

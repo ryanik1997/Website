@@ -308,6 +308,7 @@ def build_cam9():
                          gapLead="Ask for:"),
                 ],
                 passageTitle="JOB INQUIRY",
+                notePassageLayout="form",
                 notePassage=CAM9_P1_NOTE,
             ),
             part(
@@ -640,8 +641,38 @@ def write_bundle(folder_name: str, audio_name: str, exam: dict):
 
 
 def main():
-    write_bundle("Listening IELTS_Test1_Cam9", "AudioTest1_Cam9.mp3", build_cam9())
-    write_bundle("Listening IELTS_Test1_Cam20", "AudioTest1_Cam20.mp3", build_cam20())
+    import importlib.util
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    base_path = ROOT / "scripts" / "build-ielts-cam11-12-listening.py"
+    spec = importlib.util.spec_from_file_location("ielts_base", base_path)
+    base = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(base)
+
+    cam9 = build_cam9()
+    meta = {
+        "version": 1,
+        "cambridge": 9,
+        "test": 1,
+        "title": cam9["title"],
+        "bandHint": cam9["bandHint"],
+        "examType": cam9["examType"],
+        "examMode": cam9["examMode"],
+        "durationMinutes": cam9["durationMinutes"],
+        "audioFile": "listening.mp3",
+        "parts": [
+            {"partNumber": 1, "template": "p1-a3", "file": "exam_part1.json"},
+            {"partNumber": 2, "template": "p2-a10", "file": "exam_part2.json"},
+            {"partNumber": 3, "template": "p3-c3", "file": "exam_part3.json"},
+            {"partNumber": 4, "template": "p4-d1", "file": "exam_part4.json"},
+        ],
+    }
+    parts = {index + 1: cam9["parts"][index] for index in range(4)}
+    base.write_test("Listening IELTS_Test1_Cam9", meta, parts)
+    audio_src = ROOT / "Tainguyen" / "IELTS" / "Listening IELTS_Test1_Cam9" / "AudioTest1_Cam9.mp3"
+    if audio_src.exists():
+        shutil.copy2(audio_src, audio_src.parent / "listening.mp3")
 
 
 if __name__ == "__main__":

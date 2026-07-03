@@ -1,0 +1,73 @@
+---
+pid: 18876
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm build:catalog; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-03T11:46:34.550Z
+running_for_ms: 6510004  
+---
+
+> ryan-english@ build:catalog D:\App-English-Ryan\Website
+> node scripts/build-catalog.mjs
+
+✓ reading/ket-a2-test1 — 6 media, → reading-ket-a2-test1.json
+✓ reading/pet-b1-test1 — 5 media, → reading-pet-b1-test1.json
+✓ reading/fce-b2-test1 — 0 media, → reading-fce-b2-test1.json
+✓ reading/cae-c1-test1 — 0 media, → reading-cae-c1-test1.json
+✓ listening/ket-a2-test1 — 6 media, → listening-ket-a2-test1.json
+✓ listening/pet-b1-test1 — 8 media, → listening-pet-b1-test1.json
+✓ listening/fce-b2-test1 — 2 media, → listening-fce-b2-test1.json
+✓ listening/cae-c1-test1 — 1 media, → listening-cae-c1-test1.json
+✓ listening/ielts-cam9-test1 — 1 media, → listening-ielts-cam9-test1.json
+✓ listening/ielts-cam9-test2 — 3 media, → listening-ielts-cam9-test2.json
+✓ listening/ielts-cam9-test3 — 1 media, → listening-ielts-cam9-test3.json
+✓ listening/ielts-cam9-test4 — 2 media, → listening-ielts-cam9-test4.json
+✓ listening/ielts-cam10-test1 — 1 media, → listening-ielts-cam10-test1.json
+✓ listening/ielts-cam10-test2 — 1 media, → listening-ielts-cam10-test2.json
+✓ listening/ielts-cam10-test3 — 1 media, → listening-ielts-cam10-test3.json
+✓ listening/ielts-cam10-test4 — 1 media, → listening-ielts-cam10-test4.json
+✓ listening/ielts-cam11-test1 — 2 media, → listening-ielts-cam11-test1.json
+✓ listening/ielts-cam11-test2 — 2 media, → listening-ielts-cam11-test2.json
+✓ listening/ielts-cam11-test3 — 1 media, → listening-ielts-cam11-test3.json
+✓ listening/ielts-cam11-test4 — 2 media, → listening-ielts-cam11-test4.json
+✓ listening/ielts-cam12-test1 — 1 media, → listening-ielts-cam12-test1.json
+✓ listening/ielts-cam12-test2 — 1 media, → listening-ielts-cam12-test2.json
+✓ listening/ielts-cam12-test3 — 1 media, → listening-ielts-cam12-test3.json
+✓ listening/ielts-cam12-test4 — 2 media, → listening-ielts-cam12-test4.json
+✓ listening/ielts-cam13-test1 — 2 media, → listening-ielts-cam13-test1.json
+✓ listening/ielts-cam13-test2 — 1 media, → listening-ielts-cam13-test2.json
+✓ listening/ielts-cam13-test3 — 1 media, → listening-ielts-cam13-test3.json
+✓ listening/ielts-cam13-test4 — 1 media, → listening-ielts-cam13-test4.json
+✓ listening/ielts-cam14-test1 — 1 media, → listening-ielts-cam14-test1.json
+✓ listening/ielts-cam14-test2 — 2 media, → listening-ielts-cam14-test2.json
+✓ listening/ielts-cam14-test3 — 1 media, → listening-ielts-cam14-test3.json
+✓ listening/ielts-cam14-test4 — 1 media, → listening-ielts-cam14-test4.json
+✓ listening/ielts-cam15-test1 — 1 media, → listening-ielts-cam15-test1.json
+✓ listening/ielts-cam15-test2 — 2 media, → listening-ielts-cam15-test2.json
+✓ listening/ielts-cam15-test3 — 1 media, → listening-ielts-cam15-test3.json
+✓ listening/ielts-cam15-test4 — 2 media, → listening-ielts-cam15-test4.json
+✓ listening/ielts-cam16-test1 — 2 media, → listening-ielts-cam16-test1.json
+✓ listening/ielts-cam16-test2 — 1 media, → listening-ielts-cam16-test2.json
+✓ listening/ielts-cam16-test3 — 1 media, → listening-ielts-cam16-test3.json
+✓ listening/ielts-cam16-test4 — 2 media, → listening-ielts-cam16-test4.json
+✓ listening/ielts-cam17-test1 — 1 media, → listening-ielts-cam17-test1.json
+✓ listening/ielts-cam17-test2 — 1 media, → listening-ielts-cam17-test2.json
+✓ listening/ielts-cam17-test3 — 1 media, → listening-ielts-cam17-test3.json
+✓ listening/ielts-cam17-test4 — 1 media, → listening-ielts-cam17-test4.json
+✓ listening/ielts-cam18-test1 — 1 media, → listening-ielts-cam18-test1.json
+✓ listening/ielts-cam18-test2 — 2 media, → listening-ielts-cam18-test2.json
+✓ listening/ielts-cam18-test3 — 1 media, → listening-ielts-cam18-test3.json
+✓ listening/ielts-cam18-test4 — 1 media, → listening-ielts-cam18-test4.json
+✓ listening/ielts-cam19-test1 — 2 media, → listening-ielts-cam19-test1.json
+✓ listening/ielts-cam19-test2 — 1 media, → listening-ielts-cam19-test2.json
+✓ listening/ielts-cam19-test3 — 1 media, → listening-ielts-cam19-test3.json
+✓ listening/ielts-cam19-test4 — 1 media, → listening-ielts-cam19-test4.json
+✓ listening/ielts-cam20-test1 — 1 media, → listening-ielts-cam20-test1.json
+✓ listening/ielts-cam20-test2 — 1 media, → listening-ielts-cam20-test2.json
+✓ listening/ielts-cam20-test3 — 2 media, → listening-ielts-cam20-test3.json
+✓ listening/ielts-cam20-test4 — 1 media, → listening-ielts-cam20-test4.json
+
+IELTS listening: 48 đề auto-discovered
+
+Catalog build complete.
+  Public: D:\App-English-Ryan\Website\apps\web\public\catalog
+  Data:   D:\App-English-Ryan\Website\packages\catalog\data

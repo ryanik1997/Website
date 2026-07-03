@@ -1026,6 +1026,15 @@
   margin: 0 0 0.75rem;
 }
 
+.listening-ielts-notes__title--part1 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin: 0.25rem 0 1rem;
+  line-height: 1.35;
+}
+
 .listening-ielts-notes__intro {
   font-size: 0.84rem;
   line-height: 1.55;
@@ -1056,10 +1065,14 @@
 }
 
 .listening-ielts-notes__line {
+  display: block;
+  width: 100%;
   margin: 0;
   font-size: 0.88rem;
   line-height: 1.65;
   color: var(--text-primary);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .listening-ielts-notes__line--bullet {

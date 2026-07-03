@@ -1,0 +1,171 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–24: Choose A, B or C. Questions 25–30: Complete the flow-chart below. Write ONE WORD ONLY for each answer.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "Luke read that one reason why we often forget dreams is that",
+      "options": [
+        {
+          "id": "A",
+          "label": "our memories cannot cope with too much information."
+        },
+        {
+          "id": "B",
+          "label": "we might otherwise be confused about what is real."
+        },
+        {
+          "id": "C",
+          "label": "we do not think they are important."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 21 – 24",
+      "sectionInstruction": "Choose the correct letter, A, B or C.",
+      "sectionTitle": "Assignment on sleep and dreams"
+    },
+    {
+      "number": 22,
+      "type": "multiple-choice",
+      "prompt": "What do Luke and Susie agree about dreams predicting the future?",
+      "options": [
+        {
+          "id": "A",
+          "label": "It may just be due to chance."
+        },
+        {
+          "id": "B",
+          "label": "It only happens with certain types of event."
+        },
+        {
+          "id": "C",
+          "label": "It happens more often than some people think."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 23,
+      "type": "multiple-choice",
+      "prompt": "Susie says that a study on pre-school children having a short nap in the day",
+      "options": [
+        {
+          "id": "A",
+          "label": "had controversial results."
+        },
+        {
+          "id": "B",
+          "label": "used faulty research methodology."
+        },
+        {
+          "id": "C",
+          "label": "failed to reach any clear conclusions."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 24,
+      "type": "multiple-choice",
+      "prompt": "In their last assignment, both students had problems with",
+      "options": [
+        {
+          "id": "A",
+          "label": "statistical analysis."
+        },
+        {
+          "id": "B",
+          "label": "making an action plan."
+        },
+        {
+          "id": "C",
+          "label": "self-assessment."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Twelve students from the … department:",
+      "options": [],
+      "answer": "history",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "Twelve students from the",
+      "gapTrail": "department",
+      "sectionRange": "Questions 25 – 30",
+      "sectionInstruction": "Complete the flow-chart below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Assignment plan"
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Answers on …:",
+      "options": [],
+      "answer": "paper",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "Answers on",
+      "gapTrail": ""
+    },
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "Check ethical guidelines for working with …:",
+      "options": [],
+      "answer": "humans/people",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "Check ethical guidelines for working with",
+      "gapTrail": ""
+    },
+    {
+      "number": 28,
+      "type": "gap-fill",
+      "prompt": "risk is assessed and … is kept to a minimum:",
+      "options": [],
+      "answer": "stress",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "Ensure that risk is assessed and",
+      "gapTrail": "is kept to a minimum"
+    },
+    {
+      "number": 29,
+      "type": "gap-fill",
+      "prompt": "Calculate the correlation and make a …:",
+      "options": [],
+      "answer": "graph",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "Calculate the correlation and make a",
+      "gapTrail": ""
+    },
+    {
+      "number": 30,
+      "type": "gap-fill",
+      "prompt": "… the research:",
+      "options": [],
+      "answer": "evaluate",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "flowChart": true,
+      "gapLead": "",
+      "gapTrail": "the research",
+      "flowChartEnd": "Evaluate the research."
+    }
+  ]
+}
