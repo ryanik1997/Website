@@ -1,0 +1,274 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "Questions 21–26: Complete the notes. Questions 27–30: Matching A–F.",
+  "audioFile": "listening.mp3",
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "• It consists of around"
+    },
+    {
+      "type": "gap",
+      "number": 21
+    },
+    {
+      "type": "static",
+      "text": "students."
+    },
+    {
+      "type": "static",
+      "text": "• It is due to play in a"
+    },
+    {
+      "type": "gap",
+      "number": 22
+    },
+    {
+      "type": "static",
+      "text": "band competition."
+    },
+    {
+      "type": "static",
+      "text": "• It has been invited to play in the town's"
+    },
+    {
+      "type": "gap",
+      "number": 23
+    },
+    {
+      "type": "static",
+      "text": "."
+    },
+    {
+      "type": "static",
+      "text": "• They have listened to a talk by a"
+    },
+    {
+      "type": "gap",
+      "number": 24
+    },
+    {
+      "type": "static",
+      "text": "."
+    },
+    {
+      "type": "static",
+      "text": "• Joe will discuss a"
+    },
+    {
+      "type": "gap",
+      "number": 25
+    },
+    {
+      "type": "static",
+      "text": "with the band."
+    },
+    {
+      "type": "static",
+      "text": "• Joe hopes the band will attend a"
+    },
+    {
+      "type": "gap",
+      "number": 26
+    },
+    {
+      "type": "static",
+      "text": "next month."
+    }
+  ],
+  "questions": [
+    {
+      "number": 21,
+      "type": "gap-fill",
+      "prompt": "consists of around … students:",
+      "options": [],
+      "answer": "50",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 21 – 26",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "sectionTitle": "Background on school marching band"
+    },
+    {
+      "number": 22,
+      "type": "gap-fill",
+      "prompt": "due to play in a … band competition:",
+      "options": [],
+      "answer": "regional",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 23,
+      "type": "gap-fill",
+      "prompt": "invited to play in the town's …:",
+      "options": [],
+      "answer": "carnival",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 24,
+      "type": "gap-fill",
+      "prompt": "listened to a talk by a …:",
+      "options": [],
+      "answer": "drummer",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 25,
+      "type": "gap-fill",
+      "prompt": "Joe will discuss a … with the band:",
+      "options": [],
+      "answer": "film",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 26,
+      "type": "gap-fill",
+      "prompt": "Joe hopes the band will attend a … next month:",
+      "options": [],
+      "answer": "parade",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 27,
+      "type": "matching",
+      "prompt": "flautist",
+      "options": [
+        {
+          "id": "A",
+          "label": "makes a lot of mistakes in rehearsals"
+        },
+        {
+          "id": "B",
+          "label": "keeps making unhelpful suggestions"
+        },
+        {
+          "id": "C",
+          "label": "has difficulty with rhythm"
+        },
+        {
+          "id": "D",
+          "label": "misses too many rehearsals"
+        },
+        {
+          "id": "E",
+          "label": "has a health problem"
+        },
+        {
+          "id": "F",
+          "label": "doesn't mix with other students"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 27 – 30",
+      "sectionInstruction": "What problem does Joe mention in connection with each of the following band members? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 27–30.",
+      "sectionTitle": "Band members"
+    },
+    {
+      "number": 28,
+      "type": "matching",
+      "prompt": "trumpeter",
+      "options": [
+        {
+          "id": "A",
+          "label": "makes a lot of mistakes in rehearsals"
+        },
+        {
+          "id": "B",
+          "label": "keeps making unhelpful suggestions"
+        },
+        {
+          "id": "C",
+          "label": "has difficulty with rhythm"
+        },
+        {
+          "id": "D",
+          "label": "misses too many rehearsals"
+        },
+        {
+          "id": "E",
+          "label": "has a health problem"
+        },
+        {
+          "id": "F",
+          "label": "doesn't mix with other students"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 29,
+      "type": "matching",
+      "prompt": "trombonist",
+      "options": [
+        {
+          "id": "A",
+          "label": "makes a lot of mistakes in rehearsals"
+        },
+        {
+          "id": "B",
+          "label": "keeps making unhelpful suggestions"
+        },
+        {
+          "id": "C",
+          "label": "has difficulty with rhythm"
+        },
+        {
+          "id": "D",
+          "label": "misses too many rehearsals"
+        },
+        {
+          "id": "E",
+          "label": "has a health problem"
+        },
+        {
+          "id": "F",
+          "label": "doesn't mix with other students"
+        }
+      ],
+      "answer": "E",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 30,
+      "type": "matching",
+      "prompt": "percussionist",
+      "options": [
+        {
+          "id": "A",
+          "label": "makes a lot of mistakes in rehearsals"
+        },
+        {
+          "id": "B",
+          "label": "keeps making unhelpful suggestions"
+        },
+        {
+          "id": "C",
+          "label": "has difficulty with rhythm"
+        },
+        {
+          "id": "D",
+          "label": "misses too many rehearsals"
+        },
+        {
+          "id": "E",
+          "label": "has a health problem"
+        },
+        {
+          "id": "F",
+          "label": "doesn't mix with other students"
+        }
+      ],
+      "answer": "F",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

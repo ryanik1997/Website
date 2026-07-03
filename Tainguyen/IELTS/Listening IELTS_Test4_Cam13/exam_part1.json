@@ -1,0 +1,222 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "example",
+      "text": "Example\nAlex completed his training in 2014"
+    },
+    {
+      "type": "section",
+      "text": "About the applicant:"
+    },
+    {
+      "type": "static",
+      "text": "• At first, Alex did his training in the"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "department."
+    },
+    {
+      "type": "static",
+      "text": "• Alex didn't have a qualification from school in"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "• Alex thinks he should have done the diploma in"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "skills."
+    },
+    {
+      "type": "static",
+      "text": "• Age of other trainees: the youngest was"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "section",
+      "text": "Benefits of doing training at JPNW:"
+    },
+    {
+      "type": "static",
+      "text": "• Lots of opportunities because of the size of the organisation."
+    },
+    {
+      "type": "static",
+      "text": "• Trainees receive the same amount of"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "as permanent staff."
+    },
+    {
+      "type": "static",
+      "text": "• The training experience increases people's confidence a lot."
+    },
+    {
+      "type": "static",
+      "text": "• Trainees go to"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "static",
+      "text": "one day per month."
+    },
+    {
+      "type": "static",
+      "text": "• The company is in a convenient"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "section",
+      "text": "Advice for interview:"
+    },
+    {
+      "type": "static",
+      "text": "• Don't wear"
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "static",
+      "text": "• Don't be"
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "static",
+      "text": "• Make sure you"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Alex is training in …:",
+      "options": [],
+      "answer": "finance",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionTitle": "Alex's Training"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "didn't have a qualification from school in …:",
+      "options": [],
+      "answer": "maths/math/mathematics",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "should have done the diploma in … skills:",
+      "options": [],
+      "answer": "business",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "the youngest was …:",
+      "options": [],
+      "answer": "17/seventeen",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "same amount of … as permanent staff:",
+      "options": [],
+      "answer": "holiday/holidays/vacation/vacations",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Trainees go to … one day per month:",
+      "options": [],
+      "answer": "college",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "company is in a convenient …:",
+      "options": [],
+      "answer": "location",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Don't wear …:",
+      "options": [],
+      "answer": "jeans",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Don't be …:",
+      "options": [],
+      "answer": "late",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Make sure you …:",
+      "options": [],
+      "answer": "smile",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

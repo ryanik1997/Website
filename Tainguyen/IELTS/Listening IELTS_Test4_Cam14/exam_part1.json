@@ -1,0 +1,247 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Questions 1–7: Complete the notes. Questions 8–10: Matching A–C.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "example",
+      "text": "Example\nAndrew is the Events Manager"
+    },
+    {
+      "type": "section",
+      "text": "Rooms"
+    },
+    {
+      "type": "static",
+      "text": "Adelphi Room"
+    },
+    {
+      "type": "static",
+      "text": "• number of people who can sit down to eat:"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "• can go out and see the"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "in pots on the terrace"
+    },
+    {
+      "type": "static",
+      "text": "• terrace has a view of a group of"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "Carlton Room"
+    },
+    {
+      "type": "static",
+      "text": "• number of people who can sit down to eat: 110"
+    },
+    {
+      "type": "static",
+      "text": "• has a"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "static",
+      "text": "view of the lake"
+    },
+    {
+      "type": "section",
+      "text": "Options"
+    },
+    {
+      "type": "static",
+      "text": "Master of Ceremonies:"
+    },
+    {
+      "type": "static",
+      "text": "• can give a"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "while people are eating"
+    },
+    {
+      "type": "static",
+      "text": "• will provide"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "static",
+      "text": "if there are any problems"
+    },
+    {
+      "type": "section",
+      "text": "Accommodation:"
+    },
+    {
+      "type": "static",
+      "text": "• in hotel rooms or"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "number of people who can sit down to eat:",
+      "options": [],
+      "answer": "85",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionRange": "Questions 1 – 7",
+      "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "sectionTitle": "Enquiry about booking hotel room for event"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "see the … in pots on the terrace:",
+      "options": [],
+      "answer": "roses",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "view of a group of …:",
+      "options": [],
+      "answer": "trees",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "has a … view of the lake:",
+      "options": [],
+      "answer": "stage",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "can give a … while people are eating:",
+      "options": [],
+      "answer": "speech",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "will provide … if there are any problems:",
+      "options": [],
+      "answer": "support",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "in hotel rooms or …:",
+      "options": [],
+      "answer": "cabins",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "matching",
+      "prompt": "outdoor swimming pool",
+      "options": [
+        {
+          "id": "A",
+          "label": "included in cost of hiring room"
+        },
+        {
+          "id": "B",
+          "label": "available at extra charge"
+        },
+        {
+          "id": "C",
+          "label": "not available"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chọn theo audio.",
+      "sectionRange": "Questions 8 – 10",
+      "sectionInstruction": "What is said about using each of the following hotel facilities? Choose THREE answers from the box and write the correct letter, A, B or C, next to Questions 8–10.",
+      "sectionTitle": "Hotel facilities"
+    },
+    {
+      "number": 9,
+      "type": "matching",
+      "prompt": "gym",
+      "options": [
+        {
+          "id": "A",
+          "label": "included in cost of hiring room"
+        },
+        {
+          "id": "B",
+          "label": "available at extra charge"
+        },
+        {
+          "id": "C",
+          "label": "not available"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Chọn theo audio."
+    },
+    {
+      "number": 10,
+      "type": "matching",
+      "prompt": "tennis courts",
+      "options": [
+        {
+          "id": "A",
+          "label": "included in cost of hiring room"
+        },
+        {
+          "id": "B",
+          "label": "available at extra charge"
+        },
+        {
+          "id": "C",
+          "label": "not available"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Chọn theo audio."
+    }
+  ]
+}

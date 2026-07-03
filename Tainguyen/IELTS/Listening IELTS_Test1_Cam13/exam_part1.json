@@ -1,0 +1,290 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "passageTitle": "COOKERY CLASSES",
+  "notePassageLayout": "table",
+  "noteTables": [
+    {
+      "gapNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "title": "COOKERY CLASSES",
+      "headers": [
+        "Cookery Class",
+        "Focus",
+        "Other Information"
+      ],
+      "rows": [
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "The Food Studio"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "how to "
+              },
+              {
+                "type": "gap",
+                "number": 1
+              },
+              {
+                "type": "static",
+                "text": " and cook with seasonal products"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": ""
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Bond's Cookery School"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "food that is "
+              },
+              {
+                "type": "gap",
+                "number": 4
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "• small classes"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• also offers "
+              },
+              {
+                "type": "gap",
+                "number": 2
+              },
+              {
+                "type": "static",
+                "text": " classes"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• clients who return get a "
+              },
+              {
+                "type": "gap",
+                "number": 3
+              },
+              {
+                "type": "static",
+                "text": " discount"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• includes recipes to strengthen your "
+              },
+              {
+                "type": "gap",
+                "number": 5
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• they have a free "
+              },
+              {
+                "type": "gap",
+                "number": 6
+              },
+              {
+                "type": "static",
+                "text": " every Thursday"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "The "
+              },
+              {
+                "type": "gap",
+                "number": 7
+              },
+              {
+                "type": "static",
+                "text": " Centre"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "mainly "
+              },
+              {
+                "type": "gap",
+                "number": 8
+              },
+              {
+                "type": "static",
+                "text": " food"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "• located near the "
+              },
+              {
+                "type": "gap",
+                "number": 9
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• a special course in skills with a "
+              },
+              {
+                "type": "gap",
+                "number": 10
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "how to … and cook with seasonal products:",
+      "options": [],
+      "answer": "choose",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "also offers … classes:",
+      "options": [],
+      "answer": "private",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "clients who return get a … discount:",
+      "options": [],
+      "answer": "20/percent/twenty percent",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "food that is …:",
+      "options": [],
+      "answer": "healthy",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "recipes to strengthen your …:",
+      "options": [],
+      "answer": "bones",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "they have a free … every Thursday:",
+      "options": [],
+      "answer": "lecture",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "The … Centre:",
+      "options": [],
+      "answer": "arretsa",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "mainly … food:",
+      "options": [],
+      "answer": "vegetarian",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "located near the …:",
+      "options": [],
+      "answer": "market",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "skills with a …:",
+      "options": [],
+      "answer": "knife",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}

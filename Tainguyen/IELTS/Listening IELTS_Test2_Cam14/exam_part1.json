@@ -1,0 +1,222 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–10",
+  "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassage": [
+    {
+      "type": "example",
+      "text": "Example\nName: Julie Anne Garcia"
+    },
+    {
+      "type": "section",
+      "text": "Personal information"
+    },
+    {
+      "type": "static",
+      "text": "• Contact phone:"
+    },
+    {
+      "type": "gap",
+      "number": 1
+    },
+    {
+      "type": "static",
+      "text": "• Date of birth:"
+    },
+    {
+      "type": "gap",
+      "number": 2
+    },
+    {
+      "type": "static",
+      "text": "• Occupation: works as a"
+    },
+    {
+      "type": "gap",
+      "number": 3
+    },
+    {
+      "type": "static",
+      "text": "• Insurance company:"
+    },
+    {
+      "type": "gap",
+      "number": 4
+    },
+    {
+      "type": "section",
+      "text": "Details of the problem"
+    },
+    {
+      "type": "static",
+      "text": "• Type of problem: pain in her left"
+    },
+    {
+      "type": "gap",
+      "number": 5
+    },
+    {
+      "type": "static",
+      "text": "• When it began"
+    },
+    {
+      "type": "gap",
+      "number": 6
+    },
+    {
+      "type": "static",
+      "text": "ago"
+    },
+    {
+      "type": "static",
+      "text": "• Action already taken: has taken painkillers and applied ice"
+    },
+    {
+      "type": "section",
+      "text": "Other information"
+    },
+    {
+      "type": "static",
+      "text": "• Sports played: belongs to a"
+    },
+    {
+      "type": "gap",
+      "number": 7
+    },
+    {
+      "type": "static",
+      "text": "club"
+    },
+    {
+      "type": "static",
+      "text": "• goes"
+    },
+    {
+      "type": "gap",
+      "number": 8
+    },
+    {
+      "type": "static",
+      "text": "regularly"
+    },
+    {
+      "type": "static",
+      "text": "• injured her"
+    },
+    {
+      "type": "gap",
+      "number": 9
+    },
+    {
+      "type": "static",
+      "text": "last year"
+    },
+    {
+      "type": "static",
+      "text": "• no allergies"
+    },
+    {
+      "type": "static",
+      "text": "• no regular medication apart from"
+    },
+    {
+      "type": "gap",
+      "number": 10
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "type": "gap-fill",
+      "prompt": "Contact phone:",
+      "options": [],
+      "answer": "2194429785/219 442 9785",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1,
+      "sectionTitle": "TOTAL HEALTH CLINIC"
+    },
+    {
+      "number": 2,
+      "type": "gap-fill",
+      "prompt": "Date of birth:",
+      "options": [],
+      "answer": "10 october/10th october",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 3,
+      "type": "gap-fill",
+      "prompt": "works as a …:",
+      "options": [],
+      "answer": "manager",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 4,
+      "type": "gap-fill",
+      "prompt": "Insurance company:",
+      "options": [],
+      "answer": "cawley",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 5,
+      "type": "gap-fill",
+      "prompt": "pain in her left …:",
+      "options": [],
+      "answer": "knee",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "When it began … ago:",
+      "options": [],
+      "answer": "3weeks/3 weeks",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "belongs to a … club:",
+      "options": [],
+      "answer": "tennis",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "goes … regularly:",
+      "options": [],
+      "answer": "running",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "injured her … last year:",
+      "options": [],
+      "answer": "shoulder",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "no regular medication apart from …:",
+      "options": [],
+      "answer": "vitamins",
+      "explanation": "Điền theo audio.",
+      "wordLimit": 1
+    }
+  ]
+}
