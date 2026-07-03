@@ -3,7 +3,10 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningNotePassageBlock, ListeningQuestion } from './listeningExamData'
 import {
+  gapLeadRenderedAdjacent,
+  gapTrailRenderedAdjacent,
   groupNotePassageIntoLines,
+  noteLineBodyText,
   noteLineMarkerKind,
   prepareNotePassageBlocks,
 } from './listeningNotePassage'
@@ -26,15 +29,21 @@ function GapInlineCompact({
   isActive,
   onAnswer,
   onSelect,
+  suppressLead = false,
+  suppressTrail = false,
 }: {
   question: ListeningQuestion
   answer: string
   isActive: boolean
   onAnswer: (v: string) => void
   onSelect: () => void
+  suppressLead?: boolean
+  suppressTrail?: boolean
 }) {
   const wordLimit = question.wordLimit ?? 3
-  const hasInline = Boolean(question.gapLead || question.gapTrail)
+  const showLead = Boolean(question.gapLead) && !suppressLead
+  const showTrail = Boolean(question.gapTrail) && !suppressTrail
+  const hasInline = showLead || showTrail
   const highlights = useExamHighlights()
 
   if (hasInline) {
@@ -43,7 +52,7 @@ function GapInlineCompact({
         className={`listening-ielts-notes__inline-gap${isActive ? ' is-active' : ''}`}
         htmlFor={`ielts-gap-${question.id}`}
       >
-        {question.gapLead && (
+        {showLead && question.gapLead && (
           <ReadingHighlightableText
             blockId={`${question.id}-lead`}
             text={question.gapLead.endsWith(' ') ? question.gapLead : `${question.gapLead} `}
@@ -67,7 +76,7 @@ function GapInlineCompact({
             onFocus={onSelect}
           />
         </span>
-        {question.gapTrail && (
+        {showTrail && question.gapTrail && (
           <ReadingHighlightableText
             blockId={`${question.id}-trail`}
             text={question.gapTrail.startsWith(' ') ? question.gapTrail : ` ${question.gapTrail}`}
@@ -178,14 +187,16 @@ export default function ListeningIeltsNotePassageBox({
         ].filter(Boolean).join(' ')
 
         return (
-          <p key={`${partId}-line-${lineIndex}`} className={lineClass}>
+          <div key={`${partId}-line-${lineIndex}`} className={lineClass} role="listitem">
             {line.blocks.map((block, blockIndex) => {
               if (block.type === 'static') {
+                const raw = block.text ?? ''
+                const text = variant ? noteLineBodyText(raw) : raw
                 return (
                   <ReadingHighlightableText
                     key={`${partId}-line-${lineIndex}-b-${blockIndex}`}
                     blockId={`${partId}-np-static-${lineIndex}-${blockIndex}`}
-                    text={block.text ?? ''}
+                    text={text}
                     highlights={highlights}
                     as="span"
                   />
@@ -197,6 +208,9 @@ export default function ListeningIeltsNotePassageBox({
                 : undefined
               if (!question) return null
 
+              const prevBlock = line.blocks[blockIndex - 1]
+              const nextBlock = line.blocks[blockIndex + 1]
+
               return (
                 <GapInlineCompact
                   key={question.id}
@@ -205,10 +219,12 @@ export default function ListeningIeltsNotePassageBox({
                   isActive={activeQuestionId === question.id}
                   onAnswer={v => onAnswer(question.id, v)}
                   onSelect={() => onSelectQuestion(question.id)}
+                  suppressLead={gapLeadRenderedAdjacent(prevBlock, question.gapLead)}
+                  suppressTrail={gapTrailRenderedAdjacent(nextBlock, question.gapTrail)}
                 />
               )
             })}
-          </p>
+          </div>
         )
       })}
     </div>

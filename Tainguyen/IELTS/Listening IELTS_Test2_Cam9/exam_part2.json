@@ -7,41 +7,103 @@
   "notePassageLayout": "table",
   "noteTables": [
     {
-      "gapNumbers": [11, 12, 13],
+      "gapNumbers": [
+        11,
+        12,
+        13
+      ],
       "instruction": "Questions 11 – 13\nComplete the table below. Write NO MORE THAN THREE WORDS for each answer.",
       "sectionTitle": "Parks and open spaces",
-      "headers": ["Name of place", "Of particular interest", "Open"],
+      "headers": [
+        "Name of place",
+        "Of particular interest",
+        "Open"
+      ],
       "rows": [
         {
           "cells": [
-            [{ "type": "static", "text": "Halland Common" }],
-            [{ "type": "static", "text": "source of River Ouse" }],
-            [{ "type": "static", "text": "24 hours" }]
-          ]
-        },
-        {
-          "cells": [
-            [{ "type": "static", "text": "Holt Island" }],
             [
-              { "type": "static", "text": "many different " },
-              { "type": "gap", "number": 11 }
+              {
+                "type": "static",
+                "text": "Halland Common"
+              }
             ],
             [
-              { "type": "static", "text": "between " },
-              { "type": "gap", "number": 12 },
-              { "type": "static", "text": " and Sunday" }
+              {
+                "type": "static",
+                "text": "source of River Ouse"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "24 hours"
+              }
             ]
           ]
         },
         {
           "cells": [
-            [{ "type": "static", "text": "Longfield Country Park" }],
             [
-              { "type": "static", "text": "reconstruction of a 2,000-year-old " },
-              { "type": "gap", "number": 13 },
-              { "type": "static", "text": " with activities for children" }
+              {
+                "type": "static",
+                "text": "Holt Island"
+              }
             ],
-            [{ "type": "static", "text": "daylight hours" }]
+            [
+              {
+                "type": "static",
+                "text": "many different "
+              },
+              {
+                "type": "gap",
+                "number": 11
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "between "
+              },
+              {
+                "type": "gap",
+                "number": 12
+              },
+              {
+                "type": "static",
+                "text": " and Sunday"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Longfield Country Park"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "reconstruction of a 2,000-year-old "
+              },
+              {
+                "type": "gap",
+                "number": 13
+              },
+              {
+                "type": "static",
+                "text": " with activities for children"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "daylight hours"
+              }
+            ]
           ]
         }
       ]
@@ -83,9 +145,18 @@
       "type": "multiple-choice",
       "prompt": "As part of Monday's activity, visitors will",
       "options": [
-        { "id": "A", "label": "prepare food with herbs" },
-        { "id": "B", "label": "meet a well-known herbalist" },
-        { "id": "C", "label": "dye cloth with herbs" }
+        {
+          "id": "A",
+          "label": "prepare food with herbs"
+        },
+        {
+          "id": "B",
+          "label": "meet a well-known herbalist"
+        },
+        {
+          "id": "C",
+          "label": "dye cloth with herbs"
+        }
       ],
       "answer": "C",
       "explanation": "Chọn theo audio.",
@@ -98,9 +169,18 @@
       "type": "multiple-choice",
       "prompt": "For the activity on Wednesday,",
       "options": [
-        { "id": "A", "label": "only group bookings are accepted" },
-        { "id": "B", "label": "visitors should book in advance" },
-        { "id": "C", "label": "attendance is free" }
+        {
+          "id": "A",
+          "label": "only group bookings are accepted"
+        },
+        {
+          "id": "B",
+          "label": "visitors should book in advance"
+        },
+        {
+          "id": "C",
+          "label": "attendance is free"
+        }
       ],
       "answer": "B",
       "explanation": "Chọn theo audio."
@@ -110,9 +190,18 @@
       "type": "multiple-choice",
       "prompt": "For the activity on Saturday, visitors should",
       "options": [
-        { "id": "A", "label": "come in suitable clothing" },
-        { "id": "B", "label": "make sure they are able to stay for the whole day" },
-        { "id": "C", "label": "tell the rangers before the event what they wish to do" }
+        {
+          "id": "A",
+          "label": "come in suitable clothing"
+        },
+        {
+          "id": "B",
+          "label": "make sure they are able to stay for the whole day"
+        },
+        {
+          "id": "C",
+          "label": "tell the rangers before the event what they wish to do"
+        }
       ],
       "answer": "A",
       "explanation": "Chọn theo audio."
@@ -122,15 +211,42 @@
       "type": "matching",
       "prompt": "bird hide",
       "options": [
-        { "id": "A", "label": "A" },
-        { "id": "B", "label": "B" },
-        { "id": "C", "label": "C" },
-        { "id": "D", "label": "D" },
-        { "id": "E", "label": "E" },
-        { "id": "F", "label": "F" },
-        { "id": "G", "label": "G" },
-        { "id": "H", "label": "H" },
-        { "id": "I", "label": "I" }
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
       ],
       "answer": "A",
       "mapLabel": true,
@@ -143,15 +259,42 @@
       "type": "matching",
       "prompt": "dog-walking area",
       "options": [
-        { "id": "A", "label": "A" },
-        { "id": "B", "label": "B" },
-        { "id": "C", "label": "C" },
-        { "id": "D", "label": "D" },
-        { "id": "E", "label": "E" },
-        { "id": "F", "label": "F" },
-        { "id": "G", "label": "G" },
-        { "id": "H", "label": "H" },
-        { "id": "I", "label": "I" }
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
       ],
       "answer": "I",
       "mapLabel": true
@@ -161,15 +304,42 @@
       "type": "matching",
       "prompt": "flower garden",
       "options": [
-        { "id": "A", "label": "A" },
-        { "id": "B", "label": "B" },
-        { "id": "C", "label": "C" },
-        { "id": "D", "label": "D" },
-        { "id": "E", "label": "E" },
-        { "id": "F", "label": "F" },
-        { "id": "G", "label": "G" },
-        { "id": "H", "label": "H" },
-        { "id": "I", "label": "I" }
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
       ],
       "answer": "F",
       "mapLabel": true
@@ -179,15 +349,42 @@
       "type": "matching",
       "prompt": "wooded area",
       "options": [
-        { "id": "A", "label": "A" },
-        { "id": "B", "label": "B" },
-        { "id": "C", "label": "C" },
-        { "id": "D", "label": "D" },
-        { "id": "E", "label": "E" },
-        { "id": "F", "label": "F" },
-        { "id": "G", "label": "G" },
-        { "id": "H", "label": "H" },
-        { "id": "I", "label": "I" }
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "E",
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
+        }
       ],
       "answer": "E",
       "mapLabel": true

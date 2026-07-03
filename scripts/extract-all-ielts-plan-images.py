@@ -25,8 +25,8 @@ _spec.loader.exec_module(_base)
 
 extract_map_image = _base.extract_map_image
 find_plan_page_index = _base.find_plan_page_index
+find_scanned_plan_page_index = _base.find_scanned_plan_page_index
 find_fallback_plan_clip_rect = _base.find_fallback_plan_clip_rect
-is_plan_label_page = _base.is_plan_label_page
 resolve_listening_pdf = _base.resolve_listening_pdf
 
 try:
@@ -36,7 +36,8 @@ except ImportError:
 
 # Override khi PDF scan / layout đặc biệt: (folder_name, image_file) → page index 0-based
 PAGE_OVERRIDES: dict[tuple[str, str], int] = {
-    ("Listening IELTS_Test2_Cam9", "map.jpg"): 2,
+    # PDF scan Part 2 — map Hinchingbrooke Park ở trang 4 (index 3)
+    ("Listening IELTS_Test2_Cam9", "map.jpg"): 3,
 }
 
 
@@ -77,9 +78,9 @@ def resolve_plan_page_index(doc, folder_name: str, image_name: str) -> int | Non
     if fitz is None:
         return None
 
-    for index in range(len(doc)):
-        if find_fallback_plan_clip_rect(doc[index]):
-            return index
+    scanned = find_scanned_plan_page_index(doc)
+    if scanned is not None:
+        return scanned
 
     return None
 

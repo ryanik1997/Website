@@ -11,12 +11,16 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
-      "passageTitle": "JOB INQUIRY",
+      "passageTitle": "JOB ENQUIRY",
       "notePassageLayout": "form",
       "notePassage": [
         {
+          "type": "example",
+          "text": "• Work at: a restaurant"
+        },
+        {
           "type": "static",
-          "text": "Example: Work at: a restaurant"
+          "text": "• Type of work:"
         },
         {
           "type": "gap",
@@ -28,47 +32,83 @@
         },
         {
           "type": "static",
-          "text": "Would need work permit"
+          "text": "– Would need work permit"
+        },
+        {
+          "type": "static",
+          "text": "– Work in the:"
         },
         {
           "type": "gap",
           "number": 2
         },
         {
+          "type": "static",
+          "text": " branch"
+        },
+        {
+          "type": "static",
+          "text": "– Nearest bus stop: next to"
+        },
+        {
           "type": "gap",
           "number": 3
+        },
+        {
+          "type": "static",
+          "text": "– Pay £"
         },
         {
           "type": "gap",
           "number": 4
         },
         {
-          "type": "section",
-          "text": "Extra benefits"
+          "type": "static",
+          "text": " an hour"
         },
         {
           "type": "static",
-          "text": "a free dinner"
+          "text": "Extra benefits:"
+        },
+        {
+          "type": "static",
+          "text": "– a free dinner"
+        },
+        {
+          "type": "static",
+          "text": "– extra pay when you work on"
         },
         {
           "type": "gap",
           "number": 5
         },
         {
+          "type": "static",
+          "text": "– transport home when you work"
+        },
+        {
           "type": "gap",
           "number": 6
         },
         {
-          "type": "section",
-          "text": "Qualities required"
+          "type": "static",
+          "text": "Qualities required:"
         },
         {
           "type": "gap",
           "number": 7
         },
         {
+          "type": "static",
+          "text": "– ability to"
+        },
+        {
           "type": "gap",
           "number": 8
+        },
+        {
+          "type": "static",
+          "text": "– Interview arranged for: Thursday"
         },
         {
           "type": "gap",
@@ -76,7 +116,15 @@
         },
         {
           "type": "static",
-          "text": "Bring the names of two referees"
+          "text": " at 6 p.m."
+        },
+        {
+          "type": "static",
+          "text": "– Bring the names of two referees"
+        },
+        {
+          "type": "static",
+          "text": "– Ask for: Samira"
         },
         {
           "type": "gap",
@@ -91,8 +139,7 @@
           "options": [],
           "answer": "answering phone",
           "explanation": "Trả lời điện thoại.",
-          "wordLimit": 3,
-          "gapLead": "Type of work:"
+          "wordLimit": 3
         },
         {
           "number": 2,
@@ -101,9 +148,7 @@
           "options": [],
           "answer": "hillsdunne road",
           "explanation": "Chi nhánh Hillsdunne Road.",
-          "wordLimit": 3,
-          "gapLead": "Work in the",
-          "gapTrail": "branch"
+          "wordLimit": 3
         },
         {
           "number": 3,
@@ -112,8 +157,7 @@
           "options": [],
           "answer": "library",
           "explanation": "Bến xe cạnh thư viện.",
-          "wordLimit": 1,
-          "gapLead": "Nearest bus stop: next to"
+          "wordLimit": 1
         },
         {
           "number": 4,
@@ -122,9 +166,7 @@
           "options": [],
           "answer": "4.45",
           "explanation": "£4.45/giờ.",
-          "wordLimit": 1,
-          "gapLead": "Pay £",
-          "gapTrail": "an hour"
+          "wordLimit": 1
         },
         {
           "number": 5,
@@ -133,8 +175,7 @@
           "options": [],
           "answer": "national holidays",
           "explanation": "Ngày lễ.",
-          "wordLimit": 2,
-          "gapLead": "extra pay when you work on"
+          "wordLimit": 2
         },
         {
           "number": 6,
@@ -143,8 +184,7 @@
           "options": [],
           "answer": "after 11",
           "explanation": "Sau 11 giờ.",
-          "wordLimit": 3,
-          "gapLead": "transport home when you work"
+          "wordLimit": 3
         },
         {
           "number": 7,
@@ -153,8 +193,7 @@
           "options": [],
           "answer": "clear voice",
           "explanation": "Giọng rõ.",
-          "wordLimit": 2,
-          "gapLead": ""
+          "wordLimit": 2
         },
         {
           "number": 8,
@@ -163,8 +202,7 @@
           "options": [],
           "answer": "think quickly",
           "explanation": "Suy nghĩ nhanh.",
-          "wordLimit": 2,
-          "gapLead": "ability to"
+          "wordLimit": 2
         },
         {
           "number": 9,
@@ -173,9 +211,7 @@
           "options": [],
           "answer": "22 october",
           "explanation": "22 tháng 10.",
-          "wordLimit": 2,
-          "gapLead": "Interview arranged for: Thursday",
-          "gapTrail": "at 6 pm"
+          "wordLimit": 2
         },
         {
           "number": 10,
@@ -184,8 +220,7 @@
           "options": [],
           "answer": "manuja",
           "explanation": "Hỏi Samira Manuja.",
-          "wordLimit": 1,
-          "gapLead": "Ask for:"
+          "wordLimit": 1
         }
       ]
     },
@@ -624,7 +659,7 @@
       "notePassage": [
         {
           "type": "static",
-          "text": "Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die."
+          "text": "• Mass strandings: situations where groups of whales, dolphins, etc. swim onto the beach and die."
         },
         {
           "type": "gap",
@@ -632,7 +667,7 @@
         },
         {
           "type": "static",
-          "text": "Several other theories:"
+          "text": "• Several other theories:"
         },
         {
           "type": "section",
@@ -652,7 +687,7 @@
         },
         {
           "type": "static",
-          "text": "e.g. Cape Cod (1988) — whales were killed by saxitoxin"
+          "text": "• e.g. Cape Cod (1988) — whales were killed by saxitoxin"
         },
         {
           "type": "section",
@@ -660,7 +695,7 @@
         },
         {
           "type": "static",
-          "text": "Animals may follow prey ashore, e.g. Thurston (1995)"
+          "text": "• Animals may follow prey ashore, e.g. Thurston (1995)"
         },
         {
           "type": "gap",
@@ -676,7 +711,7 @@
         },
         {
           "type": "static",
-          "text": "The Bahamas (2000) military sonar was unusual because the whales"
+          "text": "• The Bahamas (2000) military sonar was unusual because the whales"
         },
         {
           "type": "gap",

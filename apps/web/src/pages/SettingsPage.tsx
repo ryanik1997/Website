@@ -20,7 +20,7 @@ type Tab = 'appearance' | 'ai' | 'account'
 const TABS: { id: Tab; label: string; icon: typeof Palette }[] = [
   { id: 'appearance', label: 'Giao diện', icon: Palette },
   { id: 'ai',         label: 'AI',        icon: Bot },
-  { id: 'account',    label: 'Tai khoan', icon: User },
+  { id: 'account',    label: 'T?i kho?n', icon: User },
 ]
 
 const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = {
@@ -34,7 +34,7 @@ const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = 
 const FEATURE_LABELS: Partial<Record<Feature, string>> = {
   sentence_patterns: 'Mẫu câu',
   vocab_basic: 'Từ vựng cơ bản',
-  settings: 'Cai dat',
+  settings: 'C?i ??t',
   vocab_srs: 'SRS ôn tập',
   review_reminder: 'Nhắc ôn tập',
   backup: 'Sao lưu',
@@ -106,7 +106,7 @@ export default function SettingsPage() {
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-2xl mx-auto px-6 py-8">
         <header className="mb-6">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Cai dat</h1>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>C?i ??t</h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
             Giao diện, AI và thông tin tài khoản
           </p>
@@ -244,7 +244,7 @@ function AppearanceTab({ theme, onChange }: { theme: Theme; onChange: (t: Theme)
               Nhắc nhở ôn từ hàng ngày
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-              Trang thai:{' '}
+              Tr?ng th?i:{' '}
               <span style={{ color: isEnabled ? 'var(--color-primary)' : 'var(--text-primary)' }}>
                 {statusLabel}
               </span>
@@ -380,16 +380,16 @@ function AccountTab({
       return
     }
 
-    setProfileMsg('Da cap nhat thong tin tai khoan.')
+    setProfileMsg('Đã cập nhật thông tin tài khoản.')
   }
 
   async function handleAvatarPicked(file: File) {
     if (!file.type.startsWith('image/')) {
-      setProfileErr('Chi ho tro file anh.')
+      setProfileErr('Chỉ hỗ trợ file ảnh.')
       return
     }
     if (file.size > 1_500_000) {
-      setProfileErr('Anh qua lon. Hay chon file duoi 1.5MB.')
+      setProfileErr('Ảnh quá lớn. Hãy chọn file dưới 1.5MB.')
       return
     }
 
@@ -399,7 +399,7 @@ function AccountTab({
     const dataUrl = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader()
       reader.onload = () => resolve(String(reader.result ?? ''))
-      reader.onerror = () => reject(new Error('Khong doc duoc file anh.'))
+      reader.onerror = () => reject(new Error('Không đọc được file ảnh.'))
       reader.readAsDataURL(file)
     })
 
@@ -438,7 +438,7 @@ function AccountTab({
                 borderColor: 'var(--border-color)',
                 color: 'var(--text-primary)',
               }}
-              title="Chon anh tu may"
+              title="Chọn ảnh từ máy"
             >
               <Camera size={13} />
             </button>
@@ -456,7 +456,7 @@ function AccountTab({
           </div>
           <div className="min-w-0">
             <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-              {displayName.trim() || user?.user_metadata?.full_name || 'Nguoi dung'}
+              {displayName.trim() || user?.user_metadata?.full_name || 'Người dùng'}
             </p>
             <p className="text-sm truncate" style={{ color: 'var(--text-muted)' }}>{user?.email}</p>
           </div>
@@ -464,12 +464,12 @@ function AccountTab({
 
         <div className="grid gap-4 md:grid-cols-2">
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Ten hien thi</span>
+            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Tên hiển thị</span>
             <input
               type="text"
               value={displayName}
               onChange={e => setDisplayName(e.target.value)}
-              placeholder="Nhap ten hien thi"
+              placeholder="Nhập tên hiển thị"
               className="w-full rounded-xl border px-3 py-2.5 text-sm"
               style={{
                 background: 'var(--bg-card)',
@@ -480,7 +480,7 @@ function AccountTab({
           </label>
 
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Anh dai dien URL</span>
+            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Ảnh đại diện URL</span>
             <input
               type="url"
               value={avatarUrl}
@@ -507,9 +507,9 @@ function AccountTab({
             {savingProfile ? (
               <>
                 <LoaderCircle size={15} className="animate-spin" />
-                Dang luu...
+                Đang lưu...
               </>
-            ) : 'Luu thong tin'}
+            ) : 'Lưu thông tin'}
           </button>
 
           {profileMsg && (
@@ -519,7 +519,7 @@ function AccountTab({
             <p className="text-xs" style={{ color: 'var(--color-accent)' }}>{profileErr}</p>
           )}
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            Chon anh tu may se tu dong luu avatar. Neu sua ten hoac URL, nhan Luu thong tin de cap nhat tai khoan.
+            Chọn ảnh từ máy sẽ tự động lưu avatar. Nếu sửa tên hoặc URL, nhấn Lưu thông tin để cập nhật tài khoản.
           </p>
         </div>
       </section>
@@ -835,6 +835,39 @@ function KokoroSetupSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div
+        className="rounded-xl p-4 flex flex-col gap-3"
+        style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-primary)' }}>
+          File gửi cho user
+        </p>
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+          Để đơn giản nhất, gửi cả thư mục app cho user. User double-click <code>Cai-Kokoro.bat</code> một lần để cài, sau đó double-click <code>Bat-Kokoro.bat</code> mỗi khi muốn dùng giọng Kokoro.
+        </p>
+        <div
+          className="rounded-lg px-3 py-2 text-sm font-mono"
+          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+        >
+          Cài đặt một lần: <code>Cai-Kokoro.bat</code>
+        </div>
+        <div
+          className="rounded-lg px-3 py-2 text-sm font-mono"
+          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+        >
+          Bật mỗi lần dùng: <code>Bat-Kokoro.bat</code>
+        </div>
+        <div
+          className="rounded-lg px-3 py-2 text-sm font-mono"
+          style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+        >
+          Nếu dùng CMD: <code>server\scripts\install-kokoro-local.bat</code> rồi <code>server\scripts\start-kokoro-local.bat</code>
+        </div>
+        <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+          Lưu ý: user cần cài Node.js + Python 3.10-3.12 trước. Khi chạy <code>Bat-Kokoro.bat</code>, hãy giữ cửa sổ terminal mở trong lúc dùng web app.
+        </p>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">

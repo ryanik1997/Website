@@ -176,6 +176,424 @@ def _has_note_line_marker(text: str) -> bool:
     return bool(NOTE_LINE_MARKER_RE.match(text.strip()))
 
 
+def _note_marker_char(text: str) -> str:
+    stripped = text.strip()
+    return stripped[0] if stripped and NOTE_LINE_MARKER_RE.match(stripped) else ""
+
+
+def _pad_note_marker(marker: str, text: str) -> str:
+    stripped = text.strip()
+    leading = text[: len(text) - len(text.lstrip())]
+    return f"{leading}{marker} {stripped}"
+
+
+def _strip_note_marker(text: str) -> str:
+    leading = text[: len(text) - len(text.lstrip())]
+    stripped = text.lstrip()
+    while stripped and _has_note_line_marker(stripped):
+        stripped = NOTE_LINE_MARKER_RE.sub("", stripped, count=1).lstrip()
+    return leading + stripped
+
+
+def _bare_note_text(text: str) -> str:
+    return _strip_note_marker(text).strip()
+
+
+SUBJECT_LIST_ITEM_RE = re.compile(
+    r"^(Science|Geography|History|Music|Maths|English|Art|Biology|Chemistry|Physics|PE|Drama):\s"
+)
+
+
+def _is_note_intro_line(text: str) -> bool:
+    stripped = _bare_note_text(text)
+    if not stripped:
+        return False
+    lower = stripped.lower()
+    if lower.startswith("example"):
+        return True
+    if not stripped.endswith(":"):
+        return False
+    return any(
+        phrase in lower
+        for phrase in (
+            "discussion of",
+            "give the",
+            "items stolen",
+            "may include",
+            "this can give",
+        )
+    )
+
+
+def _colon_introduces_sub_items(text: str) -> bool:
+    """Dòng kết thúc ':' mà các mục sau là sub-bullet (–), không phải • chính."""
+    bare = _bare_note_text(text)
+    if not bare.endswith(":"):
+        return False
+    if _is_note_intro_line(text):
+        return False
+    return True
+
+
+def _colon_introduces_sub_items_at(passage: list, index: int) -> bool:
+    if not _colon_introduces_sub_items(passage[index].get("text") or ""):
+        return False
+    if index + 1 < len(passage) and passage[index + 1].get("type") == "gap":
+        return False
+    return True
+
+
+def _is_pure_form_label(text: str) -> bool:
+    stripped = _bare_note_text(text)
+    if not re.match(r"^[A-Z][A-Za-z '&/-]{0,40}:\s*$", stripped):
+        return False
+    label = stripped[:-1].strip()
+    return len(label.split()) <= 2
+
+
+def _is_subject_list_item(text: str) -> bool:
+    return bool(SUBJECT_LIST_ITEM_RE.match(_bare_note_text(text)))
+
+
+def _is_same_line_form_field(passage: list, index: int) -> bool:
+    stripped = _bare_note_text(passage[index].get("text") or "")
+    if not re.match(r"^[A-Z][^:]+:\s+.+$", stripped):
+        return False
+    if index + 1 < len(passage) and passage[index + 1].get("type") == "gap":
+        return False
+    return True
+
+
+def _is_form_style_passage(passage: list) -> bool:
+    has_example = any(b.get("type") == "example" for b in passage)
+    pure_labels = sum(
+        1
+        for b in passage
+        if b.get("type") == "static" and _is_pure_form_label(b.get("text") or "")
+    )
+    same_line_fields = sum(
+        1
+        for i, b in enumerate(passage)
+        if b.get("type") == "static" and _is_same_line_form_field(passage, i)
+    )
+    return has_example and (pure_labels >= 2 or same_line_fields >= 2)
+
+
+def _looks_like_prose(text: str) -> bool:
+    stripped = _bare_note_text(text)
+    if len(stripped) < 40:
+        return False
+    if re.match(
+        r"^(show|do not|help|look|found|identify|transport|sleep|increase|effect|any |the |a |an |will |need )",
+        stripped,
+        re.I,
+    ):
+        return False
+    if re.match(
+        r"^(During|When|While|Many|The |Some |In |It |This |Past |Senior |Local |Hard work)",
+        stripped,
+    ):
+        return True
+    return len(stripped) > 55 and bool(
+        re.search(r"\b(was|were|is|are|had|have|can|may|that|which)\b", stripped)
+    )
+
+
+def _next_has_sub_list(passage: list, index: int) -> bool:
+    colon_parent = _colon_introduces_sub_items(passage[index].get("text") or "")
+    for j in range(index + 1, min(index + 6, len(passage))):
+        block = passage[j]
+        if block.get("type") == "section":
+            return False
+        if block.get("type") != "static":
+            continue
+        text = block.get("text") or ""
+        marker = _note_marker_char(text.strip())
+        if marker and marker in "–-+−*":
+            return True
+        bare = _bare_note_text(text)
+        if bare.startswith("–") or bare.startswith("-"):
+            return True
+        if colon_parent and marker and marker in "•*+":
+            return True
+        if colon_parent and bare and not _is_gap_trail_block(passage, j):
+            if _LIST_ITEM_START_RE.match(bare) or bare[0].islower():
+                return True
+    return False
+
+
+def _prev_non_gap_block(passage: list, index: int) -> tuple[dict | None, int]:
+    j = index - 1
+    while j >= 0 and passage[j].get("type") == "gap":
+        j -= 1
+    if j < 0:
+        return None, -1
+    return passage[j], j
+
+
+def _is_gap_lead_block(passage: list, index: int) -> bool:
+    if index < 0 or index >= len(passage) - 1:
+        return False
+    if passage[index + 1].get("type") != "gap":
+        return False
+    return not _has_note_line_marker((passage[index].get("text") or "").strip())
+
+
+_GAP_TRAIL_START_RE = re.compile(
+    r"^(of|in|at|the|a|an|from|were|was|is|are|issue|that|which|and|or|but|to|for|with|her|his|their|our|my|your|its|hair|licence|\)|,)\b",
+    re.I,
+)
+
+
+def _gap_lead_before(passage: list, index: int) -> dict | None:
+    if index <= 0 or passage[index - 1].get("type") != "gap":
+        return None
+    j = index - 2
+    while j >= 0 and passage[j].get("type") == "gap":
+        j -= 2
+    if j >= 0 and passage[j].get("type") == "static":
+        return passage[j]
+    return None
+
+
+def _is_gap_trail_block(passage: list, index: int) -> bool:
+    if index <= 0 or passage[index - 1].get("type") != "gap":
+        return False
+    stripped = _bare_note_text(passage[index].get("text") or "")
+    if not stripped:
+        return False
+    if index < len(passage) - 1 and passage[index + 1].get("type") == "gap":
+        return False
+    if stripped[0].isupper():
+        return False
+    if _NEW_LIST_AFTER_GAP_RE.match(stripped):
+        return False
+    if _GAP_TRAIL_START_RE.match(stripped):
+        return True
+    lead = _gap_lead_before(passage, index)
+    if lead:
+        lead_bare = _bare_note_text(lead.get("text") or "").rstrip()
+        if lead_bare.endswith((" a", " an")) and not _GAP_TRAIL_START_RE.match(stripped):
+            return False
+    if len(stripped.split()) > 5:
+        return False
+    return len(stripped.split()) <= 4
+
+
+_LIST_ITEM_START_RE = re.compile(
+    r"^(do not|does not|did not|show|ignore|have|has|had|help|look|found|increase|effect|sleep|transport|any |what |how |why |when |where |will |need |can |may |should )",
+    re.I,
+)
+
+_NEW_LIST_AFTER_GAP_RE = re.compile(
+    r"^(ignore|show|do not|have |has |help|look|found|increase|effect|sleep|transport|regard|plenty|some |will |need )",
+    re.I,
+)
+
+_INCOMPLETE_TRAIL_ENDINGS = (
+    "'s",
+    "'",
+    "(",
+    ",",
+    " the",
+    " a",
+    " an",
+    " of",
+    " in",
+    " with",
+    " for",
+    " to",
+    " and",
+    " or",
+    " on",
+    " at",
+    " by",
+    " from",
+    " their",
+    " her",
+    " his",
+    " our",
+    " your",
+    " my",
+    " its",
+)
+
+
+def _prev_ends_incomplete(text: str) -> bool:
+    stripped = text.rstrip()
+    if not stripped or stripped[-1] in ".!?":
+        return False
+    lower = stripped.lower()
+    return any(lower.endswith(end) for end in _INCOMPLETE_TRAIL_ENDINGS)
+
+
+def _is_form_gap_label(passage: list, index: int, form_style: bool) -> bool:
+    if not form_style or index >= len(passage) - 1:
+        return False
+    if passage[index + 1].get("type") != "gap":
+        return False
+    return _is_pure_form_label(passage[index].get("text") or "")
+
+
+def _is_static_continuation(passage: list, index: int) -> bool:
+    block = passage[index]
+    if block.get("type") != "static":
+        return False
+    stripped = _bare_note_text(block.get("text") or "")
+    if not stripped or stripped[0].isupper():
+        return False
+    if _LIST_ITEM_START_RE.match(stripped):
+        return False
+    if len(stripped.split()) > 4:
+        return False
+    prev, _ = _prev_non_gap_block(passage, index)
+    if not prev or prev.get("type") != "static":
+        return False
+    prev_text = _bare_note_text(prev.get("text") or "")
+    if not prev_text or prev_text.endswith(":"):
+        return False
+    if prev_text.rstrip().endswith((" a", " an")):
+        return False
+    return _prev_ends_incomplete(prev_text)
+
+
+def _is_prose_after_section(passage: list, index: int) -> bool:
+    prev, _ = _prev_non_gap_block(passage, index)
+    if not prev or prev.get("type") != "section":
+        return False
+    return _looks_like_prose(passage[index].get("text") or "")
+
+
+def _should_strip_marker(passage: list, index: int, form_style: bool) -> bool:
+    block = passage[index]
+    text = block.get("text") or ""
+    if not _has_note_line_marker(text.strip()):
+        return False
+
+    stripped = _strip_note_marker(text)
+    bare = stripped.strip()
+
+    if _is_gap_trail_block(passage, index):
+        return True
+    if _is_static_continuation(passage, index):
+        return True
+    if bare in ("•", "*", "+", "–", "-", "·") or not bare:
+        return True
+    if bare.lower().endswith("e.g.") and _has_note_line_marker(text.strip()):
+        return True
+    if _is_pure_form_label(text) and index + 1 < len(passage) and passage[index + 1].get("type") == "gap":
+        return True
+    if _is_form_gap_label(passage, index, form_style):
+        return True
+    if _is_prose_after_section(passage, index):
+        return True
+    if bare.endswith(":") and not _next_has_sub_list(passage, index):
+        if index + 1 < len(passage) and passage[index + 1].get("type") == "gap":
+            return False
+        return True
+    if _is_note_intro_line(bare):
+        return True
+    marker = _note_marker_char(text.strip())
+    if marker and marker in "–-+−*" and not _in_sub_list_context(passage, index):
+        return True
+    if marker and marker in "•*+" and _in_sub_list_context(passage, index):
+        if not _bare_note_text(text).lower().endswith("e.g."):
+            return True
+    if marker and marker in "•*+":
+        colon_idx = bare.find(":")
+        if colon_idx >= 0 and bare[colon_idx + 1 :].strip():
+            return False
+    return False
+
+
+def _sanitize_passage_markers(passage: list) -> None:
+    """Gỡ • / – thừa trước khi enrich lại."""
+    form_style = _is_form_style_passage(passage)
+    for index, block in enumerate(passage):
+        if block.get("type") != "static":
+            continue
+        if _should_strip_marker(passage, index, form_style):
+            block["text"] = _strip_note_marker(block.get("text") or "")
+
+
+def _find_colon_sub_parent(passage: list, index: int) -> dict | None:
+    j = index - 1
+    while j >= 0:
+        block = passage[j]
+        if block.get("type") == "section":
+            return None
+        if block.get("type") == "gap":
+            if _is_gap_trail_block(passage, j):
+                j -= 2
+                continue
+            j -= 1
+            continue
+        if block.get("type") == "static":
+            text = block.get("text") or ""
+            if _is_gap_trail_block(passage, j):
+                j -= 2
+                continue
+            if _colon_introduces_sub_items(text):
+                return block
+            bare = _bare_note_text(text)
+            if _note_marker_char(text.strip()) in "–-+−*":
+                j -= 1
+                continue
+            if bare.lower().endswith("e.g."):
+                return block
+            if _has_note_line_marker(text.strip()):
+                marker = _note_marker_char(text.strip())
+                if marker in "•*+":
+                    return block if _colon_introduces_sub_items(text) else None
+        j -= 1
+    return None
+
+
+def _in_sub_list_context(passage: list, index: int) -> bool:
+    anchor, _ = _walk_prev_list_anchor(passage, index)
+    if anchor and anchor.get("type") == "static":
+        anchor_text = (anchor.get("text") or "").strip()
+        anchor_marker = _note_marker_char(anchor_text)
+        if anchor_marker and anchor_marker in "–-+−*":
+            return True
+        if _bare_note_text(anchor_text).lower().endswith("e.g."):
+            return True
+        if _colon_introduces_sub_items(anchor_text):
+            return True
+    return _find_colon_sub_parent(passage, index) is not None
+
+
+def _resolve_list_depth(passage: list, index: int, marker: str) -> int:
+    if marker and marker in "–-+−*":
+        return 2
+    text = passage[index].get("text") or ""
+    if marker and marker in "•*+" and _colon_introduces_sub_items(text):
+        return 2
+    if _in_sub_list_context(passage, index):
+        return 2
+    return 1
+
+
+def _walk_prev_list_anchor(passage: list, index: int) -> tuple[dict | None, int]:
+    j = index - 1
+    while j >= 0:
+        block = passage[j]
+        btype = block.get("type")
+        if btype == "gap":
+            j -= 1
+            continue
+        if btype == "static":
+            text = (block.get("text") or "").strip()
+            if _is_gap_trail_block(passage, j):
+                j -= 2
+                continue
+            if _is_gap_lead_block(passage, j):
+                j -= 1
+                continue
+        return block, j
+    return None, -1
+
+
 def _atomize_note_passage(passage: list) -> list:
     """Tách static/example có xuống dòng \\n thành nhiều block (1 dòng đề = 1 block)."""
     out: list = []
@@ -200,23 +618,127 @@ def _atomize_note_passage(passage: list) -> list:
 
 
 def _enrich_passage_bullets(passage: list) -> None:
-    """Thêm • / – cho list items thiếu marker (giữ + * ▪ … nếu đề gốc đã có)."""
+    """Thêm • / – cho list items thiếu marker; gỡ marker sai trước."""
+    _sanitize_passage_markers(passage)
+    list_depth = 0
+    form_style = _is_form_style_passage(passage)
+
     for index, block in enumerate(passage):
-        if block.get("type") != "static":
+        btype = block.get("type")
+        if btype == "section":
+            list_depth = 0
             continue
+        if btype != "static":
+            continue
+
         text = block.get("text") or ""
         stripped = text.strip()
-        if not stripped or _has_note_line_marker(stripped):
+        bare = _bare_note_text(text)
+        if not bare:
             continue
-        prev = passage[index - 1] if index > 0 else None
+
+        if _has_note_line_marker(stripped):
+            marker = _note_marker_char(stripped)
+            list_depth = _resolve_list_depth(passage, index, marker)
+            if marker in "•*+" and list_depth >= 2 and not _colon_introduces_sub_items(text):
+                block["text"] = _pad_note_marker("–", text)
+            continue
+
+        if _is_gap_trail_block(passage, index) or _is_static_continuation(passage, index):
+            continue
+
+        if _is_pure_form_label(text):
+            continue
+        if _is_form_gap_label(passage, index, form_style):
+            continue
+        if form_style and _is_same_line_form_field(passage, index):
+            continue
+        if _is_prose_after_section(passage, index):
+            continue
+
+        if _is_note_intro_line(bare):
+            list_depth = 1
+            continue
+
+        if bare.endswith(":") and _next_has_sub_list(passage, index):
+            if _colon_introduces_sub_items(text):
+                list_depth = 2
+                if not _has_note_line_marker(stripped):
+                    block["text"] = _pad_note_marker("•", text)
+                continue
+            block["text"] = _pad_note_marker("•", text)
+            list_depth = 1
+            continue
+
+        if bare.lower().endswith("e.g."):
+            block["text"] = _pad_note_marker("•", text)
+            list_depth = 1
+            continue
+
+        if _is_gap_lead_block(passage, index):
+            if _is_subject_list_item(text) or re.match(r"^[A-Z][A-Za-z]+:\s", bare):
+                block["text"] = _pad_note_marker("•", text)
+                list_depth = 1
+                continue
+            prev, _ = _walk_prev_list_anchor(passage, index)
+            if prev and list_depth >= 1:
+                marker = "–" if list_depth >= 2 else "•"
+                block["text"] = _pad_note_marker(marker, text)
+                list_depth = 2 if list_depth >= 2 else 1
+            continue
+
+        prev, _ = _walk_prev_list_anchor(passage, index)
         if not prev:
             continue
-        if prev.get("type") == "section" and prev.get("text", "").rstrip().endswith(":"):
-            block["text"] = f"• {stripped}"
-        elif prev.get("type") == "static":
+
+        if prev.get("type") == "section":
+            if not _looks_like_prose(text):
+                block["text"] = _pad_note_marker("•", text)
+                list_depth = 1
+            continue
+
+        if prev.get("type") == "static":
             prev_text = (prev.get("text") or "").strip()
-            if prev_text.endswith(":") and not _has_note_line_marker(prev_text):
-                block["text"] = f"– {stripped}"
+            if _is_note_intro_line(prev_text):
+                block["text"] = _pad_note_marker("•", text)
+                list_depth = 1
+                continue
+            if _bare_note_text(prev_text).lower().endswith("e.g."):
+                block["text"] = _pad_note_marker("–", text)
+                list_depth = 2
+                continue
+            if _has_note_line_marker(prev_text):
+                prev_marker = _note_marker_char(prev_text)
+                prev_bare = _bare_note_text(prev_text).lower()
+                if prev_marker == "•" and prev_bare.endswith("e.g."):
+                    block["text"] = _pad_note_marker("–", text)
+                    list_depth = 2
+                elif prev_marker and prev_marker in "•*+":
+                    if _colon_introduces_sub_items(prev_text):
+                        block["text"] = _pad_note_marker("–", text)
+                        list_depth = 2
+                    else:
+                        block["text"] = _pad_note_marker("•", text)
+                        list_depth = 1
+                else:
+                    block["text"] = _pad_note_marker("–", text)
+                    list_depth = 2
+                continue
+
+        if _is_subject_list_item(text):
+            block["text"] = _pad_note_marker("•", text)
+            list_depth = 1
+            continue
+
+        if re.match(r"^[A-Z][A-Za-z &/]+:", bare) and _next_has_sub_list(passage, index):
+            block["text"] = _pad_note_marker("•", text)
+            list_depth = 1
+            continue
+
+        if list_depth >= 2:
+            block["text"] = _pad_note_marker("–", text)
+        elif list_depth >= 1:
+            block["text"] = _pad_note_marker("•", text)
 
 
 def infer_p4_title(part: dict) -> str | None:
@@ -379,12 +901,180 @@ def resolve_listening_pdf(folder: Path) -> Path | None:
     return pdfs[0]
 
 
+def _union_rects(rects: list) -> "fitz.Rect":
+    return fitz.Rect(
+        min(r.x0 for r in rects),
+        min(r.y0 for r in rects),
+        max(r.x1 for r in rects),
+        max(r.y1 for r in rects),
+    )
+
+
+def _is_full_page_rect(rect: "fitz.Rect", page_rect: "fitz.Rect") -> bool:
+    page_area = page_rect.width * page_rect.height
+    if page_area <= 0:
+        return False
+    return (rect.width * rect.height) / page_area > 0.88
+
+
+def _page_has_full_bleed_scan(page) -> bool:
+    page_rect = page.rect
+    for img in page.get_images(full=True):
+        for rect in page.get_image_rects(img[0]):
+            if _is_full_page_rect(rect, page_rect):
+                return True
+    return False
+
+
+def _find_plan_vertical_bounds(page) -> tuple[float | None, float | None]:
+    """Trả về (header_bottom, questions_top) từ text OCR."""
+    page_rect = page.rect
+    header_bottom: float | None = None
+    questions_top: float | None = None
+
+    instruction_phrases = (
+        "write the correct letter",
+        "choose the correct letter",
+        "write the correct answers",
+        "choose three answers from the box",
+        "choose five answers from the box",
+    )
+    question_line_re = re.compile(r"^\d{1,2}\.?\s+[A-Za-z]{2,}")
+
+    for _y0, y1, text in _group_words_into_lines(page.get_text("words")):
+        tl = text.lower().strip()
+        if any(p in tl for p in PLAN_PAGE_MARKERS):
+            header_bottom = max(header_bottom or 0, y1)
+        if any(p in tl for p in instruction_phrases):
+            header_bottom = max(header_bottom or 0, y1)
+
+    for y0, _y1, text in _group_words_into_lines(page.get_text("words")):
+        line = text.strip()
+        if question_line_re.match(line):
+            if header_bottom and y0 > header_bottom + 50:
+                if y0 > page_rect.height * 0.38:
+                    questions_top = y0 if questions_top is None else min(questions_top, y0)
+
+    if header_bottom is None:
+        for block in page.get_text("blocks"):
+            tl = block[4].strip().lower().replace("\n", " ")
+            if any(p in tl for p in PLAN_PAGE_MARKERS):
+                header_bottom = max(header_bottom or 0, block[3])
+            if any(p in tl for p in instruction_phrases):
+                header_bottom = max(header_bottom or 0, block[3])
+        for block in page.get_text("blocks"):
+            line = block[4].strip().replace("\n", " ")
+            if question_line_re.match(line):
+                if header_bottom and block[1] > header_bottom + 50:
+                    if block[1] > page_rect.height * 0.38:
+                        questions_top = (
+                            block[1] if questions_top is None else min(questions_top, block[1])
+                        )
+
+    return header_bottom, questions_top
+
+
+def _is_page_edge_decoration(rect: "fitz.Rect", page_rect: "fitz.Rect") -> bool:
+    tol = 16
+    if rect.height < 6 and rect.width > page_rect.width * 0.65:
+        return True
+    if rect.width < 6 and rect.height > page_rect.height * 0.65:
+        return True
+    if rect.height > page_rect.height * 0.82:
+        return True
+    if rect.width > page_rect.width * 0.82:
+        return True
+    if rect.y0 <= page_rect.y0 + tol and rect.y1 >= page_rect.y1 - tol:
+        return True
+    return False
+
+
+def _collect_map_visual_rects(
+    page,
+    band_top: float,
+    band_bottom: float,
+    *,
+    slack: float = 70,
+) -> list:
+    page_rect = page.rect
+    page_area = page_rect.width * page_rect.height
+    rects: list = []
+
+    for drawing in page.get_drawings():
+        rect = drawing["rect"]
+        if rect.width < 8 and rect.height < 8:
+            continue
+        if _is_page_edge_decoration(rect, page_rect):
+            continue
+        if rect.y1 < band_top - slack or rect.y0 > band_bottom + slack:
+            continue
+        rects.append(rect)
+
+    for img in page.get_images(full=True):
+        for rect in page.get_image_rects(img[0]):
+            if _is_full_page_rect(rect, page_rect):
+                continue
+            if rect.y1 < band_top - slack or rect.y0 > band_bottom + slack:
+                continue
+            if rect.width * rect.height < page_area * 0.015:
+                continue
+            rects.append(rect)
+
+    return rects
+
+
+def _collect_map_text_rects(
+    page,
+    band_top: float,
+    band_bottom: float,
+    *,
+    slack: float = 50,
+) -> list:
+    rects: list = []
+    option_re = re.compile(r"^[A-I]\s+\S", re.MULTILINE)
+
+    for block in page.get_text("blocks"):
+        rect = fitz.Rect(block[:4])
+        text = block[4].strip()
+        if not text:
+            continue
+        if rect.y1 < band_top - slack or rect.y0 > band_bottom + slack:
+            continue
+        if option_re.search(text) or any(
+            kw in text.lower()
+            for kw in ("electricity", "indicator", "switch", "water heater", "on/off")
+        ):
+            rects.append(rect)
+            continue
+        if len(text) <= 48 and rect.height < 36:
+            rects.append(rect)
+
+    return rects
+
+
 def find_fallback_plan_clip_rect(page) -> "fitz.Rect | None":
-    """PDF scan không có text — crop ảnh embedded (bỏ header/footer scan)."""
+    """PDF scan không có text — crop theo khối vẽ map/diagram."""
     if fitz is None:
         return None
 
     page_rect = page.rect
+    drawing_rects = [
+        drawing["rect"]
+        for drawing in page.get_drawings()
+        if drawing["rect"].width > 60 and drawing["rect"].height > 50
+    ]
+    if drawing_rects:
+        union = _union_rects(drawing_rects)
+        pad_x, pad_y = 56, 48
+        clip = fitz.Rect(
+            union.x0 - pad_x,
+            union.y0 - pad_y - 36,
+            union.x1 + pad_x,
+            union.y1 + pad_y,
+        ) & page_rect
+        if clip.width > 80 and clip.height > 80:
+            return clip
+
     page_area = page_rect.width * page_rect.height
     candidates: list = []
     for img in page.get_images(full=True):
@@ -396,9 +1086,9 @@ def find_fallback_plan_clip_rect(page) -> "fitz.Rect | None":
         return None
 
     rect = max(candidates, key=lambda item: item.width * item.height)
-    inset_x = rect.width * 0.04
-    inset_top = rect.height * 0.20
-    inset_bottom = rect.height * 0.34
+    inset_x = rect.width * 0.02
+    inset_top = rect.height * 0.10
+    inset_bottom = rect.height * 0.18
     clip = fitz.Rect(
         rect.x0 + inset_x,
         rect.y0 + inset_top,
@@ -409,7 +1099,7 @@ def find_fallback_plan_clip_rect(page) -> "fitz.Rect | None":
 
 
 def find_map_diagram_clip_rect(page) -> "fitz.Rect | None":
-    """Tìm vùng crop chỉ map/diagram — không lấy nguyên trang PDF."""
+    """Tìm vùng crop map/diagram — giữ đủ hình, bỏ phần câu hỏi phía dưới."""
     if fitz is None:
         return None
 
@@ -417,85 +1107,90 @@ def find_map_diagram_clip_rect(page) -> "fitz.Rect | None":
     if not is_plan_label_page(page):
         return None
 
-    header_bottom: float | None = None
-    questions_top: float | None = None
-
-    header_phrases = PLAN_PAGE_MARKERS
-    instruction_phrases = (
-        "write the correct letter",
-        "choose the correct letter",
-        "write the correct answers",
-    )
-
-    for _y0, y1, text in _group_words_into_lines(page.get_text("words")):
-        tl = text.lower().strip()
-        if any(p in tl for p in header_phrases):
-            header_bottom = max(header_bottom or 0, y1)
-        if any(p in tl for p in instruction_phrases) and "next to" in tl:
-            header_bottom = max(header_bottom or 0, y1)
-
-    question_line_re = re.compile(r"^\d{1,2}\.?\s+[A-Za-z]{2,}")
-
-    for y0, _y1, text in _group_words_into_lines(page.get_text("words")):
-        line = text.strip()
-        if question_line_re.match(line):
-            if header_bottom and y0 > header_bottom + 60:
-                if y0 > page_rect.height * 0.42:
-                    questions_top = y0 if questions_top is None else min(questions_top, y0)
-
-    if header_bottom is None:
-        for block in page.get_text("blocks"):
-            tl = block[4].strip().lower().replace("\n", " ")
-            if any(p in tl for p in header_phrases):
-                header_bottom = max(header_bottom or 0, block[3])
-            if any(p in tl for p in instruction_phrases) and "next to" in tl:
-                header_bottom = max(header_bottom or 0, block[3])
-        for block in page.get_text("blocks"):
-            line = block[4].strip().replace("\n", " ")
-            if question_line_re.match(line):
-                if header_bottom and block[1] > header_bottom + 60:
-                    if block[1] > page_rect.height * 0.42:
-                        questions_top = (
-                            block[1] if questions_top is None else min(questions_top, block[1])
-                        )
-
+    header_bottom, questions_top = _find_plan_vertical_bounds(page)
     if header_bottom is None:
         return None
 
-    top = header_bottom + 10
-    bottom = (questions_top - 14) if questions_top else min(page_rect.height, top + page_rect.height * 0.58)
+    band_top = max(0, header_bottom - 6)
+    band_bottom = questions_top if questions_top else page_rect.height * 0.82
 
-    content_left = page_rect.width
-    content_right = 0.0
-    found = False
-    skip_phrases = header_phrases + instruction_phrases
+    rects = _collect_map_visual_rects(page, band_top, band_bottom)
+    rects.extend(_collect_map_text_rects(page, band_top, band_bottom))
 
-    for x0, y0, x1, y1, token, *_ in page.get_text("words"):
-        if y1 < top - 8 or y0 > bottom + 8:
-            continue
-        t = token.strip()
-        tl = t.lower()
-        if re.match(r"^\d{1,2}\.?$", tl):
-            continue
-        if tl in {"questions", "listening", "part", "test"}:
-            continue
-        if len(t) > 40:
-            continue
-        content_left = min(content_left, x0)
-        content_right = max(content_right, x1)
-        found = True
+    margin_x = 44
+    margin_y = 32
 
-    margin_x = 24
-    margin_y = 14
-    left = max(0, (content_left if found else 40) - margin_x)
-    right = min(page_rect.width, (content_right if found else page_rect.width - 40) + margin_x)
-    top = max(0, top - margin_y)
-    bottom = min(page_rect.height, bottom + margin_y)
+    if _page_has_full_bleed_scan(page) and not rects:
+        top = max(0, header_bottom + 2)
+        bottom = min(page_rect.height, (questions_top - 6) if questions_top else page_rect.height * 0.74)
+        left = page_rect.x0 + 28
+        right = page_rect.x1 - 28
+        clip = fitz.Rect(left, top, right, bottom) & page_rect
+        if clip.width > 80 and clip.height > 80:
+            return clip
+
+    if not rects:
+        return None
+
+    union = _union_rects(rects)
+    visual_bottom = union.y1 + margin_y + 18
+    top = max(0, union.y0 - margin_y)
+    bottom = min(page_rect.height, visual_bottom)
+    left = max(0, union.x0 - margin_x)
+    right = min(page_rect.width, union.x1 + margin_x)
+
+    if union.height > page_rect.height * 0.62:
+        top = max(0, min(union.y0 - margin_y, header_bottom + 2 - margin_y))
+        left = max(0, union.x0 - margin_x)
+        right = min(page_rect.width, union.x1 + margin_x)
+
+    if questions_top:
+        if visual_bottom <= questions_top - 14:
+            bottom = min(page_rect.height, visual_bottom)
+        elif union.y1 <= questions_top + 12:
+            bottom = min(page_rect.height, visual_bottom)
+        else:
+            bottom = min(page_rect.height, questions_top - 6)
+
+    if _page_has_full_bleed_scan(page):
+        left = min(left, page_rect.x0 + 24)
+        right = max(right, page_rect.x1 - 24)
+        if union.height > page_rect.height * 0.45:
+            top = max(0, header_bottom + 2 - margin_y)
+            scan_bottom = (questions_top - 6) if questions_top else header_bottom + page_rect.height * 0.58
+            bottom = min(page_rect.height, max(visual_bottom, scan_bottom))
 
     clip = fitz.Rect(left, top, right, bottom) & page_rect
     if clip.width < 80 or clip.height < 80:
         return None
     return clip
+
+
+def find_scanned_plan_page_index(doc) -> int | None:
+    """Tìm trang map scan (không OCR) — loại bảng/note quá cao."""
+    best_idx: int | None = None
+    best_score = 0.0
+    for index, page in enumerate(doc):
+        if is_plan_label_page(page):
+            continue
+        drawing_rects = [
+            drawing["rect"]
+            for drawing in page.get_drawings()
+            if drawing["rect"].width > 100 and drawing["rect"].height > 70
+        ]
+        if not drawing_rects:
+            continue
+        union = _union_rects(drawing_rects)
+        if union.height > 360 or union.width < 160:
+            continue
+        aspect = union.width / max(union.height, 1)
+        if aspect < 0.65 or aspect > 4.5:
+            continue
+        score = union.width * union.height
+        if score > best_score:
+            best_score = score
+            best_idx = index
+    return best_idx
 
 
 def extract_map_image(
