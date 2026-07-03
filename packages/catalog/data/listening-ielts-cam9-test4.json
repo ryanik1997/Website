@@ -1,0 +1,1260 @@
+{
+  "id": "catalog-listening-ielts-cam9-test4",
+  "title": "IELTS Listening — Cambridge 9 Test 4",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 9 · Test 4 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam9-test4-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–4: Complete the table below. Write ONE WORD ONLY for each answer.\nQuestions 5–6: Choose TWO letters, A–E.\nQuestions 7–10: Complete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test4/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Especially good with:",
+          "options": [],
+          "answer": "babies",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Name of centre:",
+          "options": [],
+          "answer": "eshcol",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "Health Practice"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Appointments:",
+          "options": [],
+          "answer": "evening",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2,
+          "gapLead": "Offers",
+          "gapTrail": "appointments"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "Doctor's name:",
+          "options": [],
+          "answer": "gormley",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "Dr"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-5",
+          "number": 5,
+          "type": "matching",
+          "prompt": "Which TWO of the following are offered free of charge at Shore Lane Health Centre?",
+          "options": [
+            {
+              "id": "A",
+              "label": "acupuncture"
+            },
+            {
+              "id": "B",
+              "label": "employment medicals"
+            },
+            {
+              "id": "C",
+              "label": "sports injury therapy"
+            },
+            {
+              "id": "D",
+              "label": "travel advice"
+            },
+            {
+              "id": "E",
+              "label": "vaccinations"
+            }
+          ],
+          "answer": "B/E",
+          "explanation": "Hai dịch vụ miễn phí — điền A/E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-6",
+          "number": 6,
+          "type": "matching",
+          "prompt": "Which TWO of the following are offered free of charge at Shore Lane Health Centre?",
+          "options": [
+            {
+              "id": "A",
+              "label": "acupuncture"
+            },
+            {
+              "id": "B",
+              "label": "employment medicals"
+            },
+            {
+              "id": "C",
+              "label": "sports injury therapy"
+            },
+            {
+              "id": "D",
+              "label": "travel advice"
+            },
+            {
+              "id": "E",
+              "label": "vaccinations"
+            }
+          ],
+          "answer": "B/E",
+          "explanation": "Hai dịch vụ miễn phí — điền A/E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Health problems:",
+          "options": [],
+          "answer": "heart",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "asthma or",
+          "gapTrail": "problems"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Location:",
+          "options": [],
+          "answer": "primary school",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "The",
+          "gapTrail": "(Shore Lane)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Date/time:",
+          "options": [],
+          "answer": "4.30",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Notes:",
+          "options": [],
+          "answer": "ages",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "gapLead": "For all"
+        }
+      ],
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "instruction": "Questions 1–4\nComplete the table below. Write ONE WORD ONLY for each answer.",
+          "headers": [
+            "Name of centre",
+            "Doctor's name",
+            "Advantage"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The Harvey Clinic"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr Green"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Especially good with "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  },
+                  {
+                    "type": "static",
+                    "text": " Health Practice"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr Fuller"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Offers "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  },
+                  {
+                    "type": "static",
+                    "text": " appointments"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The Shore Lane Health Centre"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Dr "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 7–10\nComplete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "title": "Talks for patients at Shore Lane Health Centre",
+          "headers": [
+            "Subject of talk",
+            "Date/time",
+            "Location",
+            "Notes"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Giving up smoking"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "25th Feb at 7pm"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Room 4"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Useful for people with asthma or "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " problems"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Healthy eating"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "1st March at 5pm"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 8
+                  },
+                  {
+                    "type": "static",
+                    "text": " (Shore Lane)"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Anyone welcome"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Avoiding injuries during exercise"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 9
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Room 6"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "For all "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test4-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Label the diagram. Questions 14–18: Matching. Questions 19–20: Complete the notes.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test4/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-11",
+          "number": 11,
+          "type": "matching",
+          "prompt": "Item 11",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Label the diagram below. Choose THREE answers from the box and write the correct letter A–E.",
+          "sectionTitle": "WATER HEATER",
+          "diagramLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-12",
+          "number": 12,
+          "type": "matching",
+          "prompt": "Item 12",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "diagramLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-13",
+          "number": 13,
+          "type": "matching",
+          "prompt": "Item 13",
+          "options": [
+            {
+              "id": "A",
+              "label": "electricity indicator"
+            },
+            {
+              "id": "B",
+              "label": "on/off switch"
+            },
+            {
+              "id": "C",
+              "label": "reset button"
+            },
+            {
+              "id": "D",
+              "label": "time control"
+            },
+            {
+              "id": "E",
+              "label": "warning indicator"
+            }
+          ],
+          "answer": "E",
+          "explanation": "",
+          "diagramLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-14",
+          "number": 14,
+          "type": "matching",
+          "prompt": "Pillows",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "sectionRange": "Questions 14 – 18",
+          "sectionInstruction": "Where can each of the following items be found? Choose FIVE answers from the options and write the correct letter A–G."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-15",
+          "number": 15,
+          "type": "matching",
+          "prompt": "Washing powder",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "E",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-16",
+          "number": 16,
+          "type": "matching",
+          "prompt": "Key",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "D",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "Light bulbs",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "A",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "Map",
+          "options": [
+            {
+              "id": "A",
+              "label": "in box on washing machine"
+            },
+            {
+              "id": "B",
+              "label": "in cupboard on landing"
+            },
+            {
+              "id": "C",
+              "label": "in chest of drawers"
+            },
+            {
+              "id": "D",
+              "label": "next to window in living room"
+            },
+            {
+              "id": "E",
+              "label": "on shelf of back door"
+            },
+            {
+              "id": "F",
+              "label": "on top of television"
+            },
+            {
+              "id": "G",
+              "label": "under kitchen sink"
+            }
+          ],
+          "answer": "C",
+          "explanation": ""
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-19",
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "Phone number for takeaway pizzas:",
+          "options": [],
+          "answer": "732281",
+          "explanation": "",
+          "wordLimit": 2,
+          "gapLead": "Phone number for takeaway pizzas –",
+          "sectionRange": "Questions 19 – 20",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-20",
+          "number": 20,
+          "type": "gap-fill",
+          "prompt": "Railway museum closed on:",
+          "options": [],
+          "answer": "thursday",
+          "explanation": "",
+          "wordLimit": 2,
+          "gapLead": "Railway museum closed on"
+        }
+      ],
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "The best place to park in town is next to station"
+        },
+        {
+          "type": "gap",
+          "number": 19
+        },
+        {
+          "type": "gap",
+          "number": 20
+        }
+      ],
+      "partImageUrl": "/catalog/listening/ielts-cam9-test4/diagram.jpg"
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test4-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–22: Choose A, B or C. Questions 23–25: Complete sentences (ONE WORD). Questions 26–30: Complete notes (NO MORE THAN THREE WORDS AND/OR A NUMBER).",
+      "audioUrl": "/catalog/listening/ielts-cam9-test4/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "In her home country, Kira had",
+          "options": [
+            {
+              "id": "A",
+              "label": "completed a course"
+            },
+            {
+              "id": "B",
+              "label": "done two years of a course"
+            },
+            {
+              "id": "C",
+              "label": "found her course difficult"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 22",
+          "sectionInstruction": "Choose the correct letter A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "To succeed with assignments, Kira had to",
+          "options": [
+            {
+              "id": "A",
+              "label": "read faster"
+            },
+            {
+              "id": "B",
+              "label": "write faster"
+            },
+            {
+              "id": "C",
+              "label": "change her way of thinking"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-23",
+          "number": 23,
+          "type": "gap-fill",
+          "prompt": "Lecturers easier to:",
+          "options": [],
+          "answer": "approach",
+          "explanation": "",
+          "wordLimit": 1,
+          "sectionRange": "Questions 23 – 25",
+          "sectionInstruction": "Complete the sentences below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-24",
+          "number": 24,
+          "type": "gap-fill",
+          "prompt": "More:",
+          "options": [],
+          "answer": "mature",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-25",
+          "number": 25,
+          "type": "gap-fill",
+          "prompt": "Affect them:",
+          "options": [],
+          "answer": "interest",
+          "explanation": "",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-26",
+          "number": 26,
+          "type": "gap-fill",
+          "prompt": "Practical sessions:",
+          "options": [],
+          "answer": "groups",
+          "explanation": "",
+          "wordLimit": 3,
+          "sectionRange": "Questions 26 – 30",
+          "sectionInstruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-27",
+          "number": 27,
+          "type": "gap-fill",
+          "prompt": "Hospital work frequency:",
+          "options": [],
+          "answer": "every 2 days",
+          "explanation": "",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-28",
+          "number": 28,
+          "type": "gap-fill",
+          "prompt": "Full-time work:",
+          "options": [],
+          "answer": "2 weeks",
+          "explanation": "",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-29",
+          "number": 29,
+          "type": "gap-fill",
+          "prompt": "How Kira feels:",
+          "options": [],
+          "answer": "confident",
+          "explanation": "",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-30",
+          "number": 30,
+          "type": "gap-fill",
+          "prompt": "Become familiar with:",
+          "options": [],
+          "answer": "education system",
+          "explanation": "",
+          "wordLimit": 3
+        }
+      ],
+      "notePassageLayout": "form",
+      "notePassageSections": [
+        {
+          "gapNumbers": [
+            23,
+            24,
+            25
+          ],
+          "instruction": "Complete the sentences below. Write ONE WORD ONLY for each answer.",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "Kira says that lecturers are easier to"
+            },
+            {
+              "type": "gap",
+              "number": 23
+            },
+            {
+              "type": "static",
+              "text": "than those in her home country."
+            },
+            {
+              "type": "static",
+              "text": "Paul suggests that Kira may be more"
+            },
+            {
+              "type": "gap",
+              "number": 24
+            },
+            {
+              "type": "static",
+              "text": "than when she was studying before."
+            },
+            {
+              "type": "static",
+              "text": "Kira says that students want to discuss things that worry them or that"
+            },
+            {
+              "type": "gap",
+              "number": 25
+            },
+            {
+              "type": "static",
+              "text": "them very much."
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "instruction": "Complete the notes below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
+          "blocks": [
+            {
+              "type": "static",
+              "text": "How did the students do their practical sessions?"
+            },
+            {
+              "type": "gap",
+              "number": 26
+            },
+            {
+              "type": "static",
+              "text": "In the second semester how often did Kira work in a hospital?"
+            },
+            {
+              "type": "gap",
+              "number": 27
+            },
+            {
+              "type": "static",
+              "text": "How much full-time work did Kira do during the year?"
+            },
+            {
+              "type": "gap",
+              "number": 28
+            },
+            {
+              "type": "static",
+              "text": "Having completed the year, how does Kira feel?"
+            },
+            {
+              "type": "gap",
+              "number": 29
+            },
+            {
+              "type": "static",
+              "text": "In addition to the language, what do overseas students need to become familiar with?"
+            },
+            {
+              "type": "gap",
+              "number": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam9-test4-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Questions 31–36: Choose A, B or C. Questions 37–40: Complete the table. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam9-test4/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-31",
+          "number": 31,
+          "type": "multiple-choice",
+          "prompt": "What led the group to choose their topic?",
+          "options": [
+            {
+              "id": "A",
+              "label": "They were concerned about the decline of one species"
+            },
+            {
+              "id": "B",
+              "label": "They were interested in the effects of city growth"
+            },
+            {
+              "id": "C",
+              "label": "They wanted to investigate a recent phenomenon"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 31 – 36",
+          "sectionInstruction": "Choose the correct letter A, B or C.",
+          "sectionTitle": "Wildlife in city gardens"
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-32",
+          "number": 32,
+          "type": "multiple-choice",
+          "prompt": "The exact proportion of land devoted to private gardens was confirmed by",
+          "options": [
+            {
+              "id": "A",
+              "label": "consulting some official documents"
+            },
+            {
+              "id": "B",
+              "label": "taking large-scale photos"
+            },
+            {
+              "id": "C",
+              "label": "discussions with town surveyors"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-33",
+          "number": 33,
+          "type": "multiple-choice",
+          "prompt": "The group asked garden owners to",
+          "options": [
+            {
+              "id": "A",
+              "label": "take part in formal interviews"
+            },
+            {
+              "id": "B",
+              "label": "keep a record of animals they saw"
+            },
+            {
+              "id": "C",
+              "label": "get in contact when they saw a rare species"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-34",
+          "number": 34,
+          "type": "multiple-choice",
+          "prompt": "The group made their observations in gardens",
+          "options": [
+            {
+              "id": "A",
+              "label": "which had a large number of animal species"
+            },
+            {
+              "id": "B",
+              "label": "which they considered to be representative"
+            },
+            {
+              "id": "C",
+              "label": "which had stable populations of rare animals"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-35",
+          "number": 35,
+          "type": "multiple-choice",
+          "prompt": "The group did extensive reading on",
+          "options": [
+            {
+              "id": "A",
+              "label": "wildlife problems in rural areas"
+            },
+            {
+              "id": "B",
+              "label": "urban animal populations"
+            },
+            {
+              "id": "C",
+              "label": "current gardening practices"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-36",
+          "number": 36,
+          "type": "multiple-choice",
+          "prompt": "The speaker focuses on three animal species because",
+          "options": [
+            {
+              "id": "A",
+              "label": "a lot of data has been obtained about them"
+            },
+            {
+              "id": "B",
+              "label": "the group were most interested in them"
+            },
+            {
+              "id": "C",
+              "label": "they best indicated general trends"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "Frogs:",
+          "options": [],
+          "answer": "frog",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 37 – 40",
+          "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Safer from:",
+          "options": [],
+          "answer": "predators",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Easy to:",
+          "options": [],
+          "answer": "count",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam9-test4-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "Variety of:",
+          "options": [],
+          "answer": "seed",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "notePassageLayout": "table",
+      "noteTable": {
+        "headers": [
+          "Animals",
+          "Reason for population increase in gardens",
+          "Comments"
+        ],
+        "rows": [
+          {
+            "cells": [
+              [
+                {
+                  "type": "gap",
+                  "number": 37
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "suitable stretches of water"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "massive increase in urban population"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "Hedgehogs"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "safer from "
+                },
+                {
+                  "type": "gap",
+                  "number": 38
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "easy to "
+                },
+                {
+                  "type": "gap",
+                  "number": 39
+                },
+                {
+                  "type": "static",
+                  "text": " them accurately"
+                }
+              ]
+            ]
+          },
+          {
+            "cells": [
+              [
+                {
+                  "type": "static",
+                  "text": "Song thrushes"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "a variety of "
+                },
+                {
+                  "type": "gap",
+                  "number": 40
+                },
+                {
+                  "type": "static",
+                  "text": " to eat"
+                }
+              ],
+              [
+                {
+                  "type": "static",
+                  "text": "more nesting places available"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "catalogSlug": "ielts-cam9-test4",
+  "catalogBase": "/catalog/listening/ielts-cam9-test4"
+}

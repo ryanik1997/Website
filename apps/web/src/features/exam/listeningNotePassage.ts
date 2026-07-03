@@ -115,6 +115,162 @@ export function notePassageForGapSegment(
     .filter(block => block.type !== 'gap' || (block.number != null && numSet.has(block.number)))
 }
 
+export type NotePassageRenderLine =
+  | { kind: 'section'; block: ListeningNotePassageBlock }
+  | { kind: 'example'; block: ListeningNotePassageBlock }
+  | { kind: 'inline'; blocks: ListeningNotePassageBlock[] }
+
+function isBulletLineStart(text: string): boolean {
+  const trimmed = text.trimStart()
+  return trimmed.startsWith('•')
+    || trimmed.startsWith('–')
+    || trimmed.startsWith('−')
+    || trimmed.startsWith('- ')
+}
+
+function isCompleteFormLine(text: string): boolean {
+  const trimmed = text.trim()
+  if (trimmed.endsWith('.') || trimmed.endsWith('?')) return true
+  if (trimmed.endsWith(')')) return true
+
+  const colon = trimmed.indexOf(':')
+  if (colon < 0) return false
+
+  const after = trimmed.slice(colon + 1).trim()
+  if (!after) return false
+  if (trimmed.endsWith('(')) return false
+
+  if (/\d/.test(after)) return true
+  if (after.split(/\s+/).length >= 2) return true
+  return false
+}
+
+/** Tách dòng, nhận dạng Example, bổ sung gapLead/gapTrail cho gap trần (đề cũ). */
+export function prepareNotePassageBlocks(
+  blocks: ListeningNotePassageBlock[],
+  questionsByNumber: Map<number, ListeningQuestion>,
+): ListeningNotePassageBlock[] {
+  const normalized: ListeningNotePassageBlock[] = []
+
+  for (const block of blocks) {
+    if (block.type === 'static' || block.type === 'example') {
+      const text = block.text ?? ''
+      const lines = text.split('\n')
+      if (lines.length > 1) {
+        for (const line of lines) {
+          if (!line.trim()) continue
+          if (line.trim().toLowerCase().startsWith('example')) {
+            normalized.push({ type: 'example', text: line })
+          } else {
+            normalized.push({ type: 'static', text: line })
+          }
+        }
+        continue
+      }
+      if (block.type === 'static' && text.trim().toLowerCase().startsWith('example')) {
+        normalized.push({ type: 'example', text })
+        continue
+      }
+    }
+    normalized.push(block)
+  }
+
+  const enriched: ListeningNotePassageBlock[] = []
+  for (let index = 0; index < normalized.length; index += 1) {
+    const block = normalized[index]
+    if (block.type !== 'gap' || block.number == null) {
+      enriched.push(block)
+      continue
+    }
+
+    const prev = normalized[index - 1]
+    const next = normalized[index + 1]
+    const hasContext = (prev?.type === 'static' && Boolean(prev.text?.trim()))
+      || (next?.type === 'static' && Boolean(next.text?.trim()))
+
+    if (hasContext) {
+      enriched.push(block)
+      continue
+    }
+
+    const question = questionsByNumber.get(block.number)
+    if (question?.gapLead?.trim()) {
+      const lead = question.gapLead.trim()
+      const needsBullet = !isBulletLineStart(lead) && !lead.startsWith('Example')
+      enriched.push({
+        type: 'static',
+        text: needsBullet ? `• ${lead}${lead.endsWith(' ') ? '' : ' '}` : `${lead}${lead.endsWith(' ') ? '' : ' '}`,
+      })
+    } else if (question) {
+      enriched.push({ type: 'static', text: '– ' })
+    }
+
+    enriched.push(block)
+
+    if (question?.gapTrail?.trim()) {
+      enriched.push({ type: 'static', text: question.gapTrail })
+    }
+  }
+
+  return enriched
+}
+
+/** Gom static + gap thành dòng inline giống đề giấy (Part 1 form · Part 4 lecture). */
+export function groupNotePassageIntoLines(
+  blocks: ListeningNotePassageBlock[],
+): NotePassageRenderLine[] {
+  const lines: NotePassageRenderLine[] = []
+  let current: ListeningNotePassageBlock[] = []
+
+  const flush = () => {
+    if (!current.length) return
+    lines.push({ kind: 'inline', blocks: [...current] })
+    current = []
+  }
+
+  for (const block of blocks) {
+    if (block.type === 'section' || block.type === 'example') {
+      flush()
+      lines.push({ kind: block.type, block })
+      continue
+    }
+
+    if (block.type === 'static') {
+      const text = block.text ?? ''
+
+      if (current.length === 0) {
+        current.push(block)
+        if (isCompleteFormLine(text) && !isBulletLineStart(text)) flush()
+        continue
+      }
+
+      if (isBulletLineStart(text)) {
+        flush()
+        current.push(block)
+        continue
+      }
+
+      const lineHasGap = current.some(item => item.type === 'gap')
+      const startsNewSentence = /^[A-Z]/.test(text.trim()) && !isBulletLineStart(text)
+      if (lineHasGap && startsNewSentence) flush()
+
+      const last = current[current.length - 1]
+      if (last?.type === 'static' && isCompleteFormLine(last.text ?? '')) flush()
+
+      current.push(block)
+      if (isCompleteFormLine(text) && !isBulletLineStart(text)) flush()
+      continue
+    }
+
+    if (block.type === 'gap') {
+      current.push(block)
+    }
+  }
+
+  flush()
+  return lines
+}
+
 export function validateNotePassageBlocks(
   blocks: ListeningNotePassageBlock[] | undefined,
   gapQuestionNumbers: number[],

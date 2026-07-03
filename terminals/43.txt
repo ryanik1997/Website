@@ -15,7 +15,7 @@ foreach ($t in $tests) {
   pnpm ielts:validate $t 2>&1 | Select-String -Pattern \"Parts:|Cảnh báo|Lỗi|Không có\"
 }"
 started_at: 2026-07-03T06:20:01.585Z
-running_for_ms: 4580010  
+running_for_ms: 8965008  
 ---
 
 === IELTS/Listening IELTS_Test3_Cam9 ===

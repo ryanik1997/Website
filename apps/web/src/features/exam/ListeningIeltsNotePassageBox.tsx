@@ -2,6 +2,7 @@ import ExamHighlightableLines from './ExamHighlightableLines'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningNotePassageBlock, ListeningQuestion } from './listeningExamData'
+import { groupNotePassageIntoLines, prepareNotePassageBlocks } from './listeningNotePassage'
 
 interface Props {
   partId: string
@@ -11,9 +12,11 @@ interface Props {
   activeQuestionId: string | null
   onAnswer: (questionId: string, value: string) => void
   onSelectQuestion: (questionId: string) => void
+  passageTitle?: string
+  layout?: 'list' | 'form' | 'lecture'
 }
 
-function GapInline({
+function GapInlineCompact({
   question,
   answer,
   isActive,
@@ -26,76 +29,82 @@ function GapInline({
   onAnswer: (v: string) => void
   onSelect: () => void
 }) {
-  const highlights = useExamHighlights()
   const wordLimit = question.wordLimit ?? 3
   const hasInline = Boolean(question.gapLead || question.gapTrail)
+  const highlights = useExamHighlights()
 
-  if (!hasInline) {
+  if (hasInline) {
     return (
       <label
-        className={`listening-ielts-notes__field${isActive ? ' is-active' : ''}`}
+        className={`listening-ielts-notes__inline-gap${isActive ? ' is-active' : ''}`}
         htmlFor={`ielts-gap-${question.id}`}
       >
-        <span className="listening-ielts-notes__num">{question.number}</span>
-        <ReadingHighlightableText
-          blockId={`${question.id}-prompt`}
-          text={question.prompt}
-          highlights={highlights}
-          className="listening-ielts-notes__prompt"
-          as="span"
-        />
-        <input
-          id={`ielts-gap-${question.id}`}
-          type="text"
-          className="listening-ielts-notes__input"
-          value={answer}
-          placeholder={`Tối đa ${wordLimit} từ`}
-          data-highlight-skip
-          onChange={e => onAnswer(e.target.value)}
-          onFocus={onSelect}
-        />
+        {question.gapLead && (
+          <ReadingHighlightableText
+            blockId={`${question.id}-lead`}
+            text={question.gapLead.endsWith(' ') ? question.gapLead : `${question.gapLead} `}
+            highlights={highlights}
+            as="span"
+          />
+        )}
+        <span className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}>
+          <span className="listening-ielts-notes__gap-num" aria-hidden>
+            {question.number}
+          </span>
+          <input
+            id={`ielts-gap-${question.id}`}
+            type="text"
+            className="listening-ielts-notes__input listening-ielts-notes__input--inline"
+            value={answer}
+            placeholder=""
+            aria-label={`Question ${question.number}`}
+            data-highlight-skip
+            onChange={e => onAnswer(e.target.value)}
+            onFocus={onSelect}
+          />
+        </span>
+        {question.gapTrail && (
+          <ReadingHighlightableText
+            blockId={`${question.id}-trail`}
+            text={question.gapTrail.startsWith(' ') ? question.gapTrail : ` ${question.gapTrail}`}
+            highlights={highlights}
+            as="span"
+          />
+        )}
       </label>
     )
   }
 
   return (
-    <label
-      className={`listening-ielts-notes__sentence${isActive ? ' is-active' : ''}`}
-      htmlFor={`ielts-gap-${question.id}`}
+    <span
+      className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}
+      id={`listening-q-${question.id}`}
     >
-      <span className="listening-ielts-notes__num">{question.number}</span>
-      {question.gapLead && (
-        <ReadingHighlightableText
-          blockId={`${question.id}-lead`}
-          text={`${question.gapLead} `}
-          highlights={highlights}
-          as="span"
-        />
-      )}
+      <span className="listening-ielts-notes__gap-num" aria-hidden>
+        {question.number}
+      </span>
       <input
         id={`ielts-gap-${question.id}`}
         type="text"
-        className="listening-ielts-notes__input"
+        className="listening-ielts-notes__input listening-ielts-notes__input--inline"
         value={answer}
-        placeholder={`${wordLimit} từ`}
+        placeholder=""
+        aria-label={`Question ${question.number}`}
         data-highlight-skip
         onChange={e => onAnswer(e.target.value)}
         onFocus={onSelect}
       />
-      {question.gapTrail && (
-        <ReadingHighlightableText
-          blockId={`${question.id}-trail`}
-          text={` ${question.gapTrail}`}
-          highlights={highlights}
-          as="span"
-        />
-      )}
-    </label>
+    </span>
   )
 }
 
-interface BoxProps extends Props {
-  layout?: 'list' | 'form'
+function lineVariant(blocks: ListeningNotePassageBlock[]): '' | 'bullet' | 'sub' {
+  const firstStatic = blocks.find(block => block.type === 'static')
+  if (!firstStatic?.text) return ''
+  const trimmed = firstStatic.text.trimStart()
+  if (trimmed.startsWith('•')) return 'bullet'
+  if (trimmed.startsWith('–') || trimmed.startsWith('−') || trimmed.startsWith('- ')) return 'sub'
+  return ''
 }
 
 export default function ListeningIeltsNotePassageBox({
@@ -106,45 +115,38 @@ export default function ListeningIeltsNotePassageBox({
   activeQuestionId,
   onAnswer,
   onSelectQuestion,
+  passageTitle,
   layout = 'list',
-}: BoxProps) {
+}: Props) {
   const highlights = useExamHighlights()
-  const boxClass =
-    layout === 'form'
-      ? 'listening-ielts-notes__box listening-ielts-notes__box--form'
-      : 'listening-ielts-notes__box'
+  const boxClass = [
+    'listening-ielts-notes__box',
+    'listening-ielts-notes__box--lecture',
+    layout === 'form' ? 'listening-ielts-notes__box--form' : '',
+  ].filter(Boolean).join(' ')
+
+  const preparedBlocks = prepareNotePassageBlocks(blocks, questionsByNumber)
+  const lines = groupNotePassageIntoLines(preparedBlocks)
 
   return (
     <div className={boxClass}>
-      {blocks.map((block, index) => {
-        if (block.type === 'static') {
-          return (
-            <ExamHighlightableLines
-              key={`${partId}-np-${index}`}
-              blockIdPrefix={`${partId}-np-static-${index}`}
-              text={block.text ?? ''}
-              lineClassName="listening-ielts-notes__static"
-            />
-          )
-        }
+      {passageTitle && (
+        <ReadingHighlightableText
+          blockId={`${partId}-title`}
+          text={passageTitle}
+          highlights={highlights}
+          className="listening-ielts-notes__title listening-ielts-notes__title--in-box"
+          as="h3"
+        />
+      )}
 
-        if (block.type === 'example') {
-          return (
-            <ExamHighlightableLines
-              key={`${partId}-np-${index}`}
-              blockIdPrefix={`${partId}-np-example-${index}`}
-              text={block.text ?? ''}
-              lineClassName="listening-ielts-notes__example"
-            />
-          )
-        }
-
-        if (block.type === 'section') {
+      {lines.map((line, lineIndex) => {
+        if (line.kind === 'section') {
           return (
             <ReadingHighlightableText
-              key={`${partId}-np-${index}`}
-              blockId={`${partId}-np-section-${index}`}
-              text={block.text ?? ''}
+              key={`${partId}-line-${lineIndex}`}
+              blockId={`${partId}-np-section-${lineIndex}`}
+              text={line.block.text ?? ''}
               highlights={highlights}
               className="listening-ielts-notes__section"
               as="p"
@@ -152,23 +154,56 @@ export default function ListeningIeltsNotePassageBox({
           )
         }
 
-        const question = block.number != null ? questionsByNumber.get(block.number) : undefined
-        if (!question) return null
+        if (line.kind === 'example') {
+          return (
+            <ExamHighlightableLines
+              key={`${partId}-line-${lineIndex}`}
+              blockIdPrefix={`${partId}-np-example-${lineIndex}`}
+              text={line.block.text ?? ''}
+              lineClassName="listening-ielts-notes__example"
+            />
+          )
+        }
+
+        const variant = lineVariant(line.blocks)
+        const lineClass = [
+          'listening-ielts-notes__line',
+          variant === 'bullet' ? 'listening-ielts-notes__line--bullet' : '',
+          variant === 'sub' ? 'listening-ielts-notes__line--sub' : '',
+        ].filter(Boolean).join(' ')
 
         return (
-          <div
-            key={question.id}
-            id={`listening-q-${question.id}`}
-            className={`listening-ielts-notes__row${activeQuestionId === question.id ? ' is-active' : ''}`}
-          >
-            <GapInline
-              question={question}
-              answer={answers[question.id] ?? ''}
-              isActive={activeQuestionId === question.id}
-              onAnswer={v => onAnswer(question.id, v)}
-              onSelect={() => onSelectQuestion(question.id)}
-            />
-          </div>
+          <p key={`${partId}-line-${lineIndex}`} className={lineClass}>
+            {line.blocks.map((block, blockIndex) => {
+              if (block.type === 'static') {
+                return (
+                  <ReadingHighlightableText
+                    key={`${partId}-line-${lineIndex}-b-${blockIndex}`}
+                    blockId={`${partId}-np-static-${lineIndex}-${blockIndex}`}
+                    text={block.text ?? ''}
+                    highlights={highlights}
+                    as="span"
+                  />
+                )
+              }
+
+              const question = block.number != null
+                ? questionsByNumber.get(block.number)
+                : undefined
+              if (!question) return null
+
+              return (
+                <GapInlineCompact
+                  key={question.id}
+                  question={question}
+                  answer={answers[question.id] ?? ''}
+                  isActive={activeQuestionId === question.id}
+                  onAnswer={v => onAnswer(question.id, v)}
+                  onSelect={() => onSelectQuestion(question.id)}
+                />
+              )
+            })}
+          </p>
         )
       })}
     </div>

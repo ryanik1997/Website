@@ -1,0 +1,1106 @@
+{
+  "id": "catalog-listening-ielts-cam14-test1",
+  "title": "IELTS Listening — Cambridge 14 Test 1",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 14 · Test 1 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam14-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam14-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Nationality:",
+          "options": [],
+          "answer": "canadian",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "business (to buy antique …):",
+          "options": [],
+          "answer": "furniture",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Current address:",
+          "options": [],
+          "answer": "park",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "wallet containing approximately £ …:",
+          "options": [],
+          "answer": "250",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Items stolen — a …:",
+          "options": [],
+          "answer": "phone",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Date of theft:",
+          "options": [],
+          "answer": "10 september/10th september",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "outside the … at about 4 pm:",
+          "options": [],
+          "answer": "museum",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "boys asked for the …:",
+          "options": [],
+          "answer": "time",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "slim build with … hair:",
+          "options": [],
+          "answer": "blond/blonde",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Crime reference number:",
+          "options": [],
+          "answer": "8795482361",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "CRIME REPORT FORM",
+      "notePassage": [
+        {
+          "type": "example",
+          "text": "Example\nName: Louise Taylor"
+        },
+        {
+          "type": "section",
+          "text": "Personal information"
+        },
+        {
+          "type": "static",
+          "text": "• Nationality:"
+        },
+        {
+          "type": "gap",
+          "number": 1
+        },
+        {
+          "type": "static",
+          "text": "• Date of birth: 14 December 1977"
+        },
+        {
+          "type": "static",
+          "text": "• Occupation: interior designer"
+        },
+        {
+          "type": "static",
+          "text": "• Reason for visit: business (to buy antique"
+        },
+        {
+          "type": "gap",
+          "number": 2
+        },
+        {
+          "type": "static",
+          "text": ")"
+        },
+        {
+          "type": "static",
+          "text": "• Length of stay: two months"
+        },
+        {
+          "type": "static",
+          "text": "• Current address:"
+        },
+        {
+          "type": "gap",
+          "number": 3
+        },
+        {
+          "type": "static",
+          "text": "Apartments (No 15)"
+        },
+        {
+          "type": "section",
+          "text": "Details of theft"
+        },
+        {
+          "type": "static",
+          "text": "Items stolen:"
+        },
+        {
+          "type": "static",
+          "text": "• a wallet containing approximately £"
+        },
+        {
+          "type": "gap",
+          "number": 4
+        },
+        {
+          "type": "static",
+          "text": "• a"
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": "• Date of theft:"
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "section",
+          "text": "Possible time and place of theft"
+        },
+        {
+          "type": "static",
+          "text": "Location: outside the"
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "static",
+          "text": "at about 4 pm"
+        },
+        {
+          "type": "section",
+          "text": "Details of suspect"
+        },
+        {
+          "type": "static",
+          "text": "• some boys asked for the"
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "then ran off"
+        },
+        {
+          "type": "static",
+          "text": "• one had a T-shirt with a picture of a tiger"
+        },
+        {
+          "type": "static",
+          "text": "• he was about 12, slim build with"
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "hair"
+        },
+        {
+          "type": "section",
+          "text": "Crime reference number allocated"
+        },
+        {
+          "type": "static",
+          "text": "•"
+        },
+        {
+          "type": "gap",
+          "number": 10
+        }
+      ],
+      "notePassageLayout": "form"
+    },
+    {
+      "id": "catalog-listening-ielts-cam14-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–20: Matching A–C.",
+      "audioUrl": "/catalog/listening/ielts-cam14-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-11",
+          "number": 11,
+          "type": "matching",
+          "prompt": "Which TWO pieces of advice for the first week of an apprenticeship does the manager give?",
+          "options": [
+            {
+              "id": "A",
+              "label": "get to know colleagues"
+            },
+            {
+              "id": "B",
+              "label": "learn from any mistakes"
+            },
+            {
+              "id": "C",
+              "label": "ask lots of questions"
+            },
+            {
+              "id": "D",
+              "label": "react positively to feedback"
+            },
+            {
+              "id": "E",
+              "label": "enjoy new challenges"
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Quen đồng nghiệp (A) và hỏi nhiều (C).",
+          "sectionRange": "Questions 11 and 12",
+          "sectionInstruction": "Choose TWO letters, A–E.",
+          "sectionTitle": "Induction talk for new apprentices"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-12",
+          "number": 12,
+          "type": "matching",
+          "prompt": "Which TWO pieces of advice for the first week of an apprenticeship does the manager give?",
+          "options": [
+            {
+              "id": "A",
+              "label": "get to know colleagues"
+            },
+            {
+              "id": "B",
+              "label": "learn from any mistakes"
+            },
+            {
+              "id": "C",
+              "label": "ask lots of questions"
+            },
+            {
+              "id": "D",
+              "label": "react positively to feedback"
+            },
+            {
+              "id": "E",
+              "label": "enjoy new challenges"
+            }
+          ],
+          "answer": "A/C",
+          "explanation": "Quen đồng nghiệp (A) và hỏi nhiều (C). (cặp 11–12)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-13",
+          "number": 13,
+          "type": "matching",
+          "prompt": "Which TWO things does the manager say mentors can help with?",
+          "options": [
+            {
+              "id": "A",
+              "label": "confidence-building"
+            },
+            {
+              "id": "B",
+              "label": "making career plans"
+            },
+            {
+              "id": "C",
+              "label": "completing difficult tasks"
+            },
+            {
+              "id": "D",
+              "label": "making a weekly timetable"
+            },
+            {
+              "id": "E",
+              "label": "reviewing progress"
+            }
+          ],
+          "answer": "B/E",
+          "explanation": "Kế hoạch nghề (B) và review tiến độ (E).",
+          "sectionRange": "Questions 13 and 14",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-14",
+          "number": 14,
+          "type": "matching",
+          "prompt": "Which TWO things does the manager say mentors can help with?",
+          "options": [
+            {
+              "id": "A",
+              "label": "confidence-building"
+            },
+            {
+              "id": "B",
+              "label": "making career plans"
+            },
+            {
+              "id": "C",
+              "label": "completing difficult tasks"
+            },
+            {
+              "id": "D",
+              "label": "making a weekly timetable"
+            },
+            {
+              "id": "E",
+              "label": "reviewing progress"
+            }
+          ],
+          "answer": "B/E",
+          "explanation": "Kế hoạch nghề (B) và review tiến độ (E). (cặp 13–14)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-15",
+          "number": 15,
+          "type": "matching",
+          "prompt": "Using the internet",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 15 – 20",
+          "sectionInstruction": "What does the manager say about each of the following aspects of the company policy for apprentices? Write the correct letter, A, B or C, next to Questions 15–20.",
+          "sectionTitle": "Company policy for apprentices"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-16",
+          "number": 16,
+          "type": "matching",
+          "prompt": "Flexible working",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "Booking holidays",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "Working overtime",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-19",
+          "number": 19,
+          "type": "matching",
+          "prompt": "Wearing trainers",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-20",
+          "number": 20,
+          "type": "matching",
+          "prompt": "Bringing food to work",
+          "options": [
+            {
+              "id": "A",
+              "label": "It is encouraged."
+            },
+            {
+              "id": "B",
+              "label": "There are some restrictions."
+            },
+            {
+              "id": "C",
+              "label": "It is against the rules."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam14-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–25: Choose A, B or C. Questions 26–30: Matching A–G.",
+      "audioUrl": "/catalog/listening/ielts-cam14-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "Carla and Rob were surprised to learn that coastal cities",
+          "options": [
+            {
+              "id": "A",
+              "label": "contain nearly half the world's population."
+            },
+            {
+              "id": "B",
+              "label": "include most of the world's largest cities."
+            },
+            {
+              "id": "C",
+              "label": "are growing twice as fast as other cities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 25",
+          "sectionInstruction": "Choose the correct letter, A, B or C.",
+          "sectionTitle": "Cities built by the sea"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "According to Rob, building coastal cities near to rivers",
+          "options": [
+            {
+              "id": "A",
+              "label": "may bring pollution to the cities."
+            },
+            {
+              "id": "B",
+              "label": "may reduce the land available for agriculture."
+            },
+            {
+              "id": "C",
+              "label": "may mean the countryside is spoiled by industry."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-23",
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "What mistake was made when building water drainage channels in Miami in the 1950s?",
+          "options": [
+            {
+              "id": "A",
+              "label": "There were not enough of them."
+            },
+            {
+              "id": "B",
+              "label": "They were made of unsuitable materials."
+            },
+            {
+              "id": "C",
+              "label": "They did not allow for the effects of climate change."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-24",
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "What do Rob and Carla think that the authorities in Miami should do immediately?",
+          "options": [
+            {
+              "id": "A",
+              "label": "take measures to restore ecosystems"
+            },
+            {
+              "id": "B",
+              "label": "pay for a new flood prevention system"
+            },
+            {
+              "id": "C",
+              "label": "stop disposing of waste materials into the ocean"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-25",
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "What do they agree should be the priority for international action?",
+          "options": [
+            {
+              "id": "A",
+              "label": "greater coordination of activities"
+            },
+            {
+              "id": "B",
+              "label": "more sharing of information"
+            },
+            {
+              "id": "C",
+              "label": "agreement on shared policies"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Historical background",
+          "options": [
+            {
+              "id": "A",
+              "label": "use visuals"
+            },
+            {
+              "id": "B",
+              "label": "keep it short"
+            },
+            {
+              "id": "C",
+              "label": "involve other students"
+            },
+            {
+              "id": "D",
+              "label": "check the information is accurate"
+            },
+            {
+              "id": "E",
+              "label": "provide a handout"
+            },
+            {
+              "id": "F",
+              "label": "focus on one example"
+            },
+            {
+              "id": "G",
+              "label": "do online research"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 26 – 30",
+          "sectionInstruction": "What decision do the students make about each of the following parts of their presentation? Choose FIVE answers from the box and write the correct letter, A–G, next to Questions 26–30.",
+          "sectionTitle": "Parts of the presentation"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Geographical factors",
+          "options": [
+            {
+              "id": "A",
+              "label": "use visuals"
+            },
+            {
+              "id": "B",
+              "label": "keep it short"
+            },
+            {
+              "id": "C",
+              "label": "involve other students"
+            },
+            {
+              "id": "D",
+              "label": "check the information is accurate"
+            },
+            {
+              "id": "E",
+              "label": "provide a handout"
+            },
+            {
+              "id": "F",
+              "label": "focus on one example"
+            },
+            {
+              "id": "G",
+              "label": "do online research"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Past mistakes",
+          "options": [
+            {
+              "id": "A",
+              "label": "use visuals"
+            },
+            {
+              "id": "B",
+              "label": "keep it short"
+            },
+            {
+              "id": "C",
+              "label": "involve other students"
+            },
+            {
+              "id": "D",
+              "label": "check the information is accurate"
+            },
+            {
+              "id": "E",
+              "label": "provide a handout"
+            },
+            {
+              "id": "F",
+              "label": "focus on one example"
+            },
+            {
+              "id": "G",
+              "label": "do online research"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Future risks",
+          "options": [
+            {
+              "id": "A",
+              "label": "use visuals"
+            },
+            {
+              "id": "B",
+              "label": "keep it short"
+            },
+            {
+              "id": "C",
+              "label": "involve other students"
+            },
+            {
+              "id": "D",
+              "label": "check the information is accurate"
+            },
+            {
+              "id": "E",
+              "label": "provide a handout"
+            },
+            {
+              "id": "F",
+              "label": "focus on one example"
+            },
+            {
+              "id": "G",
+              "label": "do online research"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "International implications",
+          "options": [
+            {
+              "id": "A",
+              "label": "use visuals"
+            },
+            {
+              "id": "B",
+              "label": "keep it short"
+            },
+            {
+              "id": "C",
+              "label": "involve other students"
+            },
+            {
+              "id": "D",
+              "label": "check the information is accurate"
+            },
+            {
+              "id": "E",
+              "label": "provide a handout"
+            },
+            {
+              "id": "F",
+              "label": "focus on one example"
+            },
+            {
+              "id": "G",
+              "label": "do online research"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam14-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam14-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "growth in population and …:",
+          "options": [],
+          "answer": "industry",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionTitle": "Marine renewable energy (ocean energy)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "waves provide a … source of renewable energy:",
+          "options": [],
+          "answer": "constant",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "waves can move in any …:",
+          "options": [],
+          "answer": "direction",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "movement of sand on the … of the ocean:",
+          "options": [],
+          "answer": "floor",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Tides are more … than waves:",
+          "options": [],
+          "answer": "predictable",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "will be created in a … at Swansea:",
+          "options": [],
+          "answer": "bay",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "stored water released through …:",
+          "options": [],
+          "answer": "gates",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "no … is required to make it work:",
+          "options": [],
+          "answer": "fuel",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "likely to create a number of …:",
+          "options": [],
+          "answer": "jobs",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam14-test1-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "may harm fish by affecting …:",
+          "options": [],
+          "answer": "migration",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Marine renewable energy (ocean energy)",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Introduction"
+        },
+        {
+          "type": "static",
+          "text": "More energy required because of growth in population and"
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "section",
+          "text": "Wave energy"
+        },
+        {
+          "type": "static",
+          "text": "Advantage: waves provide a"
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": "source of renewable energy"
+        },
+        {
+          "type": "static",
+          "text": "Problems:"
+        },
+        {
+          "type": "static",
+          "text": "• waves can move in any"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": "• movement of sand, etc. on the"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": "of the ocean may be affected"
+        },
+        {
+          "type": "section",
+          "text": "Tidal energy"
+        },
+        {
+          "type": "static",
+          "text": "Tides are more"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "than waves"
+        },
+        {
+          "type": "static",
+          "text": "Planned tidal lagoon in Wales:"
+        },
+        {
+          "type": "static",
+          "text": "• will be created in a"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "at Swansea"
+        },
+        {
+          "type": "static",
+          "text": "• stored water is released through"
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": ", driving the turbines in the reverse direction"
+        },
+        {
+          "type": "static",
+          "text": "Advantages:"
+        },
+        {
+          "type": "static",
+          "text": "• not dependent on weather"
+        },
+        {
+          "type": "static",
+          "text": "• no"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": "is required to make it work"
+        },
+        {
+          "type": "static",
+          "text": "• likely to create a number of"
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "Problem:"
+        },
+        {
+          "type": "static",
+          "text": "• may harm fish and birds, e.g. by affecting"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        },
+        {
+          "type": "static",
+          "text": "and building up silt"
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "ielts-cam14-test1",
+  "catalogBase": "/catalog/listening/ielts-cam14-test1"
+}
