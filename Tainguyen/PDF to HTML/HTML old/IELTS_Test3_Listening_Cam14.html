@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 3 • Listening • Cambridge 14</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 3</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 14</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 3. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Islanders conference</span></div>
+<div class="form-row mb-3"><div class="form-label font-medium">• Example</div><div class="flex-1"><span class="text-gray-700">(example)</span><span class="example-badge">(Example)</span></div></div>
+<div class="form-row mb-3"><div class="form-label font-medium">• Customer Services Manager: Wilby</div><div class="flex-1"><span class="text-gray-700">(example)</span><span class="example-badge">(Example)</span></div></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Date available: weekend beginning February 4th</span></div>
+<div class="font-semibold mt-2 mb-1">Conference facilities</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>the</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">room for talks</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>(projector and</span><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">available)</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>area for coffee and an</span><span class="question-number">3</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>free</span><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">throughout</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>a standard buffet lunch costs $</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">per head</span></div>
+<div class="font-semibold mt-2 mb-1">Accommodation</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Rooms will cost $</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">including breakfast.</span></div>
+<div class="font-semibold mt-2 mb-1">Other facilities</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The hotel also has a spa and rooftop</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>There&#x27;s a free shuttle service to the</span><span class="question-number">8</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="font-semibold mt-2 mb-1">Location</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Wilby Street (quite near the</span><span class="question-number">9</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">)</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>near to restaurants and many</span><span class="question-number">10</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Islanders conference</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–12 and 13–14: Choose TWO A–E. Questions 15–20: Matching A–G.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 and 12<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">11 &amp; 12 Which TWO activities that volunteers do are mentioned?</div><div class="mcq-container space-y-1" data-question="q11-12"><div onclick="toggleMultiOption(this, 'q11-12')" class="option" data-value="A"><span class="option-label">A</span><span>decorating</span></div>
+<div onclick="toggleMultiOption(this, 'q11-12')" class="option" data-value="B"><span class="option-label">B</span><span>cleaning</span></div>
+<div onclick="toggleMultiOption(this, 'q11-12')" class="option" data-value="C"><span class="option-label">C</span><span>delivering meals</span></div>
+<div onclick="toggleMultiOption(this, 'q11-12')" class="option" data-value="D"><span class="option-label">D</span><span>shopping</span></div>
+<div onclick="toggleMultiOption(this, 'q11-12')" class="option" data-value="E"><span class="option-label">E</span><span>childcare</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 13 and 14<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">13 &amp; 14 Which TWO ways that volunteers can benefit from volunteering are mentioned?</div><div class="mcq-container space-y-1" data-question="q13-14"><div onclick="toggleMultiOption(this, 'q13-14')" class="option" data-value="A"><span class="option-label">A</span><span>learning how to be part of a team</span></div>
+<div onclick="toggleMultiOption(this, 'q13-14')" class="option" data-value="B"><span class="option-label">B</span><span>having a sense of purpose</span></div>
+<div onclick="toggleMultiOption(this, 'q13-14')" class="option" data-value="C"><span class="option-label">C</span><span>realising how lucky they are</span></div>
+<div onclick="toggleMultiOption(this, 'q13-14')" class="option" data-value="D"><span class="option-label">D</span><span>improved ability at time management</span></div>
+<div onclick="toggleMultiOption(this, 'q13-14')" class="option" data-value="E"><span class="option-label">E</span><span>boosting their employment prospects</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 15 – 20<br><span class="section-subinstruction">What has each of the following volunteers helped someone to do? Choose SIX answers from the box and write the correct letter, A–G, next to Questions 15–20.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Volunteers</span></div>
+<div class="map-label-row"><span class="question-number">15</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Habib</span></div>
+<div class="map-label-row"><span class="question-number">16</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Consuela</span></div>
+<div class="map-label-row"><span class="question-number">17</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Minh</span></div>
+<div class="map-label-row"><span class="question-number">18</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Tanya</span></div>
+<div class="map-label-row"><span class="question-number">19</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Alexei</span></div>
+<div class="map-label-row"><span class="question-number">20</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Juba</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–26: Complete the notes. Questions 27–30: Matching A–F.</p>
+  <div class="paper-box">
+<div class="bullet-item"><span class="mr-2">•</span><span>It consists of around</span><span class="question-number">21</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">students.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>It is due to play in a</span><span class="question-number">22</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>band competition.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>It has been invited to play in the town&#x27;s</span><span class="question-number">23</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>They have listened to a talk by a</span><span class="question-number">24</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Joe will discuss a</span><span class="question-number">25</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">with the band.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Joe hopes the band will attend a</span><span class="question-number">26</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>next month.</span></div>
+  </div>
+  <div class="mt-6">
+<div class="section-subheader">Questions 21 – 26<br><span class="section-subinstruction">Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Background on school marching band</span></div>
+<div class="section-subheader">Questions 27 – 30<br><span class="section-subinstruction">What problem does Joe mention in connection with each of the following band members? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 27–30.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Band members</span></div>
+<div class="map-label-row"><span class="question-number">27</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>flautist</span></div>
+<div class="map-label-row"><span class="question-number">28</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>trumpeter</span></div>
+<div class="map-label-row"><span class="question-number">29</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>trombonist</span></div>
+<div class="map-label-row"><span class="question-number">30</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>percussionist</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Concerts in university arts festival</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Concert 1</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Australian composer: Liza Lim</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>studied piano and</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">before turning to composition</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>compositions show a great deal of</span><span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">and are drawn from various cultural sources</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>her music is very expressive and also</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>festival will include her</span><span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">called The Oresteia</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Concert 2</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The Tower of Remoteness is performed by piano and</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The Tower of Remoteness is</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>celebrates Australia&#x27;s cultural</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Concert 3</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Australian composer: Carl Vine</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>studied</span><span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">before studying music</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>became well known as composer of music for</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>festival will include his music for the 1996</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Concerts in university arts festival</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 3 • Cambridge IELTS 14 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

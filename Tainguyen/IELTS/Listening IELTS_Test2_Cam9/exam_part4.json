@@ -4,18 +4,19 @@
   "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
   "passageTitle": "Business Cultures",
   "audioFile": "listening.mp3",
+  "notePassageLayout": "lecture",
   "notePassage": [
     {
       "type": "section",
-      "text": "Power culture"
+      "text": "Power Culture"
     },
     {
       "type": "static",
-      "text": "• Characteristics of organisation"
+      "text": "• Characteristics of organization:"
     },
     {
       "type": "static",
-      "text": "• small"
+      "text": "– small"
     },
     {
       "type": "gap",
@@ -23,15 +24,15 @@
     },
     {
       "type": "static",
-      "text": "power source"
+      "text": " power source"
     },
     {
       "type": "static",
-      "text": "• few rules and procedures"
+      "text": "– few rules and procedures"
     },
     {
       "type": "static",
-      "text": "• communication by"
+      "text": "– communication by"
     },
     {
       "type": "gap",
@@ -39,19 +40,11 @@
     },
     {
       "type": "static",
-      "text": "• Advantage"
+      "text": "• Advantage: can act quickly"
     },
     {
       "type": "static",
-      "text": "• can act quickly"
-    },
-    {
-      "type": "static",
-      "text": "• Disadvantage"
-    },
-    {
-      "type": "static",
-      "text": "• might not act"
+      "text": "• Disadvantage: might not act"
     },
     {
       "type": "gap",
@@ -59,11 +52,11 @@
     },
     {
       "type": "static",
-      "text": "• Suitable employee"
+      "text": "• Suitable employee:"
     },
     {
       "type": "static",
-      "text": "• not afraid of"
+      "text": "– not afraid of"
     },
     {
       "type": "gap",
@@ -71,19 +64,19 @@
     },
     {
       "type": "static",
-      "text": "doesn't need job security"
+      "text": ", doesn't need job security"
     },
     {
       "type": "section",
-      "text": "Role culture"
+      "text": "Role Culture"
     },
     {
       "type": "static",
-      "text": "• Characteristics of organisation"
+      "text": "• Characteristics of organization:"
     },
     {
       "type": "static",
-      "text": "• large, many"
+      "text": "– large, many"
     },
     {
       "type": "gap",
@@ -91,11 +84,11 @@
     },
     {
       "type": "static",
-      "text": "specialised departments"
+      "text": "– specialized departments"
     },
     {
       "type": "static",
-      "text": "• rules and procedure, e.g. job"
+      "text": "– rules and procedures, e.g. job"
     },
     {
       "type": "gap",
@@ -103,19 +96,19 @@
     },
     {
       "type": "static",
-      "text": "and rules for discipline"
+      "text": " and rules for discipline"
     },
     {
       "type": "static",
-      "text": "• Advantages"
+      "text": "• Advantages:"
     },
     {
       "type": "static",
-      "text": "• economies of scale"
+      "text": "– economies of scale"
     },
     {
       "type": "static",
-      "text": "• successful when"
+      "text": "– successful when"
     },
     {
       "type": "gap",
@@ -123,15 +116,15 @@
     },
     {
       "type": "static",
-      "text": "ability is important"
+      "text": " ability is important"
     },
     {
       "type": "static",
-      "text": "• Disadvantages"
+      "text": "• Disadvantages:"
     },
     {
       "type": "static",
-      "text": "• slow to see when"
+      "text": "– slow to see when"
     },
     {
       "type": "gap",
@@ -139,23 +132,23 @@
     },
     {
       "type": "static",
-      "text": "is needed"
+      "text": " is needed"
     },
     {
       "type": "static",
-      "text": "• slow to react"
+      "text": "– slow to react"
     },
     {
       "type": "static",
-      "text": "• Suitable employee"
+      "text": "• Suitable employee:"
     },
     {
       "type": "static",
-      "text": "• values security"
+      "text": "– values security"
     },
     {
       "type": "static",
-      "text": "• doesn't want"
+      "text": "– does not want"
     },
     {
       "type": "gap",
@@ -163,27 +156,27 @@
     },
     {
       "type": "section",
-      "text": "Task culture"
+      "text": "Task Culture"
     },
     {
       "type": "static",
-      "text": "• Characteristics of organisation"
+      "text": "• Characteristic of organization:"
     },
     {
       "type": "static",
-      "text": "• project orientated"
+      "text": "– project oriented"
     },
     {
       "type": "static",
-      "text": "• in competitive market or making product with short life"
+      "text": "– in competitive market or making product with short life"
     },
     {
       "type": "static",
-      "text": "• a lot of delegation"
+      "text": "– a lot of delegation"
     },
     {
       "type": "static",
-      "text": "• Advantage"
+      "text": "• Advantages:"
     },
     {
       "type": "gap",
@@ -191,19 +184,19 @@
     },
     {
       "type": "static",
-      "text": "• Disadvantages"
+      "text": "• Disadvantages:"
     },
     {
       "type": "static",
-      "text": "• no economies of scale or special expertise"
+      "text": "– no economies of scale or special expertise"
     },
     {
       "type": "static",
-      "text": "• Suitable employee"
+      "text": "• Suitable employee:"
     },
     {
       "type": "static",
-      "text": "• likes to work in groups"
+      "text": "– likes to work in groups"
     }
   ],
   "questions": [
@@ -214,8 +207,7 @@
       "options": [],
       "answer": "central",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "•"
+      "wordLimit": 1
     },
     {
       "number": 32,
@@ -296,11 +288,7 @@
       "options": [],
       "answer": "flexible",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "sectionRange": "Questions 31 – 40",
-      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
-      "sectionTitle": "Business Cultures"
+      "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "lecture"
+  ]
 }

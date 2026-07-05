@@ -1,11 +1,211 @@
 {
   "partNumber": 1,
   "rangeLabel": "Questions 1–10",
-  "instruction": "Questions 1–6: Choose A, B or C. Questions 7–10: Complete the sentences. Write ONE WORD ONLY.",
+  "instruction": "Choose the correct letter A, B or C.",
   "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "The 'Family Welcome' event in the art gallery begins at",
+      "options": [
+        {
+          "id": "A",
+          "label": "10 am."
+        },
+        {
+          "id": "B",
+          "label": "10.30 am."
+        },
+        {
+          "id": "C",
+          "label": "2 pm."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 2,
+      "type": "multiple-choice",
+      "prompt": "The film that is now shown in the 'Family Welcome' event is about",
+      "options": [
+        {
+          "id": "A",
+          "label": "sculptur"
+        },
+        {
+          "id": "E",
+          "label": ""
+        },
+        {
+          "id": "B",
+          "label": "paintin"
+        },
+        {
+          "id": "G",
+          "label": ""
+        },
+        {
+          "id": "C",
+          "label": "ceramics."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 3,
+      "type": "multiple-choice",
+      "prompt": "When do most of the free concerts take place?",
+      "options": [
+        {
+          "id": "A",
+          "label": "in the mornin"
+        },
+        {
+          "id": "G",
+          "label": ""
+        },
+        {
+          "id": "B",
+          "label": "at lunchtim"
+        },
+        {
+          "id": "E",
+          "label": ""
+        },
+        {
+          "id": "C",
+          "label": "in the evenin"
+        },
+        {
+          "id": "G",
+          "label": ""
+        }
+      ],
+      "answer": "b",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 4,
+      "type": "multiple-choice",
+      "prompt": "Where will the 4 pm concert of Latin American music take place?",
+      "options": [
+        {
+          "id": "A",
+          "label": "in a museum."
+        },
+        {
+          "id": "B",
+          "label": "in a theatr"
+        },
+        {
+          "id": "E",
+          "label": ""
+        },
+        {
+          "id": "C",
+          "label": "in a library."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 5,
+      "type": "multiple-choice",
+      "prompt": "The boat race begins at",
+      "options": [
+        {
+          "id": "A",
+          "label": "SummerPool."
+        },
+        {
+          "id": "B",
+          "label": "CharlesworthBridg"
+        },
+        {
+          "id": "E",
+          "label": ""
+        },
+        {
+          "id": "C",
+          "label": "Offord Marin"
+        },
+        {
+          "id": "A",
+          "label": ""
+        }
+      ],
+      "answer": "c",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 6,
+      "type": "multiple-choice",
+      "prompt": "One of the boat race teams",
+      "options": [
+        {
+          "id": "A",
+          "label": "won a regional competition earlier this year."
+        },
+        {
+          "id": "B",
+          "label": "has represented the region in a national competition."
+        },
+        {
+          "id": "C",
+          "label": "has won several regional competitions."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Chọn theo answer key."
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Question 7",
+      "options": [],
+      "answer": "birds",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Question 8",
+      "options": [],
+      "answer": "furniture",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
+    },
+    {
+      "number": 9,
+      "type": "gap-fill",
+      "prompt": "Question 9",
+      "options": [],
+      "answer": "mushrooms",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
+    },
+    {
+      "number": 10,
+      "type": "gap-fill",
+      "prompt": "Question 10",
+      "options": [],
+      "answer": "river",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
+    }
+  ],
   "notePassage": [
     {
-      "type": "section",
+      "type": "static",
+      "text": "Complete the sentences below. Write ONE WORD ONLY for each answer."
+    },
+    {
+      "type": "static",
       "text": "Paxton Nature Reserve"
     },
     {
@@ -18,7 +218,7 @@
     },
     {
       "type": "static",
-      "text": "all year round"
+      "text": "all year round."
     },
     {
       "type": "static",
@@ -30,6 +230,10 @@
     },
     {
       "type": "static",
+      "text": "."
+    },
+    {
+      "type": "static",
       "text": "• Visitors will be able to learn about"
     },
     {
@@ -38,7 +242,7 @@
     },
     {
       "type": "static",
-      "text": "and then collect some"
+      "text": "and then collect some."
     },
     {
       "type": "static",
@@ -50,179 +254,8 @@
     },
     {
       "type": "static",
-      "text": "• has been made suitable for swimming"
+      "text": "has been made suitable for swimming."
     }
   ],
-  "questions": [
-    {
-      "number": 1,
-      "type": "multiple-choice",
-      "prompt": "The 'Family Welcome' event in the art gallery begins at",
-      "options": [
-        {
-          "id": "A",
-          "label": "10 am"
-        },
-        {
-          "id": "B",
-          "label": "10.30 am"
-        },
-        {
-          "id": "C",
-          "label": "2 pm"
-        }
-      ],
-      "answer": "B",
-      "explanation": "Chọn theo audio.",
-      "sectionRange": "Questions 1 – 6",
-      "sectionInstruction": "Choose the correct letter A, B or C.",
-      "sectionTitle": "Free activities in the Burnham area"
-    },
-    {
-      "number": 2,
-      "type": "multiple-choice",
-      "prompt": "The film that is now shown in the 'Family Welcome' event is about",
-      "options": [
-        {
-          "id": "A",
-          "label": "sculpture"
-        },
-        {
-          "id": "B",
-          "label": "painting"
-        },
-        {
-          "id": "C",
-          "label": "ceramics"
-        }
-      ],
-      "answer": "C",
-      "explanation": "Chọn theo audio."
-    },
-    {
-      "number": 3,
-      "type": "multiple-choice",
-      "prompt": "When do most of the free concerts take place?",
-      "options": [
-        {
-          "id": "A",
-          "label": "in the morning"
-        },
-        {
-          "id": "B",
-          "label": "at lunchtime"
-        },
-        {
-          "id": "C",
-          "label": "in the evening"
-        }
-      ],
-      "answer": "B",
-      "explanation": "Chọn theo audio."
-    },
-    {
-      "number": 4,
-      "type": "multiple-choice",
-      "prompt": "Where will the 4 pm concert of Latin American music take place?",
-      "options": [
-        {
-          "id": "A",
-          "label": "in a museum"
-        },
-        {
-          "id": "B",
-          "label": "in a theatre"
-        },
-        {
-          "id": "C",
-          "label": "in a library"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Chọn theo audio."
-    },
-    {
-      "number": 5,
-      "type": "multiple-choice",
-      "prompt": "The boat race begins at",
-      "options": [
-        {
-          "id": "A",
-          "label": "Summer Pool"
-        },
-        {
-          "id": "B",
-          "label": "Charlesworth Bridge"
-        },
-        {
-          "id": "C",
-          "label": "Offord Marina"
-        }
-      ],
-      "answer": "C",
-      "explanation": "Chọn theo audio."
-    },
-    {
-      "number": 6,
-      "type": "multiple-choice",
-      "prompt": "One of the boat race teams",
-      "options": [
-        {
-          "id": "A",
-          "label": "won a regional competition earlier this year"
-        },
-        {
-          "id": "B",
-          "label": "has represented the region in a national competition"
-        },
-        {
-          "id": "C",
-          "label": "has won several regional competitions"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Chọn theo audio."
-    },
-    {
-      "number": 7,
-      "type": "gap-fill",
-      "prompt": "Rare:",
-      "options": [],
-      "answer": "birds",
-      "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "sectionRange": "Questions 7 – 10",
-      "sectionInstruction": "Complete the sentences below. Write ONE WORD ONLY for each answer.",
-      "sectionTitle": "Paxton Nature Reserve"
-    },
-    {
-      "number": 8,
-      "type": "gap-fill",
-      "prompt": "Unusual:",
-      "options": [],
-      "answer": "furniture",
-      "explanation": "Điền theo audio.",
-      "wordLimit": 1
-    },
-    {
-      "number": 9,
-      "type": "gap-fill",
-      "prompt": "Learn about and collect:",
-      "options": [],
-      "answer": "mushrooms",
-      "explanation": "Điền theo audio.",
-      "wordLimit": 1
-    },
-    {
-      "number": 10,
-      "type": "gap-fill",
-      "prompt": "Part of the:",
-      "options": [],
-      "answer": "river",
-      "explanation": "Điền theo audio.",
-      "wordLimit": 1
-    }
-  ],
-  "notePassageLayout": "form",
-  "passageTitle": "Free activities in the Burnham area"
+  "notePassageLayout": "form"
 }

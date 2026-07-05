@@ -3,131 +3,44 @@
   "rangeLabel": "Questions 31–40",
   "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
   "audioFile": "listening.mp3",
+  "notePassageLayout": "lecture",
+  "passageTitle": "Inclusive design",
   "notePassage": [
-    {
-      "type": "section",
-      "text": "Definition"
-    },
-    {
-      "type": "static",
-      "text": "Designing products that can be accessed by a diverse range of people without the need for any"
-    },
-    {
-      "type": "gap",
-      "number": 31
-    },
-    {
-      "type": "static",
-      "text": "• Not the same as universal design: that is design for everyone, including catering for people with"
-    },
-    {
-      "type": "gap",
-      "number": 32
-    },
-    {
-      "type": "section",
-      "text": "Examples of inclusive design"
-    },
-    {
-      "type": "static",
-      "text": "•"
-    },
-    {
-      "type": "gap",
-      "number": 33
-    },
-    {
-      "type": "static",
-      "text": " which are adjustable, avoiding back or neck problems"
-    },
-    {
-      "type": "static",
-      "text": "•"
-    },
-    {
-      "type": "gap",
-      "number": 34
-    },
-    {
-      "type": "static",
-      "text": " in public toilets which are easier to use"
-    },
-    {
-      "type": "static",
-      "text": "• To assist the elderly:"
-    },
-    {
-      "type": "static",
-      "text": "– Designers avoid using"
-    },
-    {
-      "type": "gap",
-      "number": 35
-    },
-    {
-      "type": "static",
-      "text": " in interfaces"
-    },
-    {
-      "type": "static",
-      "text": "– People can make commands using a mouse, keyboard or their"
-    },
-    {
-      "type": "gap",
-      "number": 36
-    },
-    {
-      "type": "section",
-      "text": "Impact of non-inclusive designs"
-    },
-    {
-      "type": "static",
-      "text": "• Access — Loss of independence for disabled people."
-    },
-    {
-      "type": "static",
-      "text": "• Safety — Seatbelts are especially problematic for"
-    },
-    {
-      "type": "gap",
-      "number": 37
-    },
-    {
-      "type": "static",
-      "text": " women."
-    },
-    {
-      "type": "static",
-      "text": "• PPE jackets are often unsuitable because of the size of women's"
-    },
-    {
-      "type": "gap",
-      "number": 38
-    },
-    {
-      "type": "static",
-      "text": "• PPE for female"
-    },
-    {
-      "type": "gap",
-      "number": 39
-    },
-    {
-      "type": "static",
-      "text": " • officers dealing with emergencies is the worst."
-    },
-    {
-      "type": "static",
-      "text": "• Comfort in the workplace — The"
-    },
-    {
-      "type": "gap",
-      "number": 40
-    },
-    {
-      "type": "static",
-      "text": " in offices is often too low for women."
-    }
+    { "type": "section", "text": "Definition" },
+    { "type": "static", "text": "• Designing products that can be accessed by a diverse range of people without the need for any " },
+    { "type": "gap", "number": 31 },
+    { "type": "static", "text": "• Not the same as universal design: that is design for everyone, including catering for people with " },
+    { "type": "gap", "number": 32 },
+    { "type": "static", "text": " problems" },
+    { "type": "section", "text": "Examples of inclusive design" },
+    { "type": "static", "text": "• " },
+    { "type": "gap", "number": 33 },
+    { "type": "static", "text": " which are adjustable, avoiding back or neck problems" },
+    { "type": "static", "text": "• " },
+    { "type": "gap", "number": 34 },
+    { "type": "static", "text": " in public toilets which are easier to use" },
+    { "type": "section", "text": "To assist the elderly:" },
+    { "type": "static", "text": "• Designers avoid using " },
+    { "type": "gap", "number": 35 },
+    { "type": "static", "text": " in interfaces" },
+    { "type": "static", "text": "• People can make commands using a mouse, keyboard or their " },
+    { "type": "gap", "number": 36 },
+    { "type": "section", "text": "Impact of non-inclusive designs" },
+    { "type": "static", "text": "Access" },
+    { "type": "static", "text": "– Loss of independence for disabled people." },
+    { "type": "static", "text": "Safety" },
+    { "type": "static", "text": "– Seatbelts are especially problematic for " },
+    { "type": "gap", "number": 37 },
+    { "type": "static", "text": " women." },
+    { "type": "static", "text": "– PPE jackets are often unsuitable because of the size of women's " },
+    { "type": "gap", "number": 38 },
+    { "type": "static", "text": "– PPE for female " },
+    { "type": "gap", "number": 39 },
+    { "type": "static", "text": " officers dealing with emergencies is the worst." },
+    { "type": "static", "text": "Comfort in the workplace" },
+    { "type": "static", "text": "– The " },
+    { "type": "gap", "number": 40 },
+    { "type": "static", "text": " in offices is often too low for women." }
   ],
   "questions": [
     {
@@ -221,7 +134,5 @@
       "explanation": "Nhiệt độ.",
       "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "lecture",
-  "passageTitle": "Inclusive design"
+  ]
 }

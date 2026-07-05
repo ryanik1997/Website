@@ -10,29 +10,21 @@
       "partNumber": 1,
       "rangeLabel": "Questions 1–10",
       "instruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
-      "passageTitle": "CRIME REPORT FORM",
+      "passageTitle": "ACCOMMODATION FORM – STUDENT INFORMATION",
       "audioFile": "listening.mp3",
       "notePassageLayout": "form",
       "notePassage": [
-        {
-          "type": "static",
-          "text": "Type of crime: theft"
-        },
-        {
-          "type": "section",
-          "text": "Personal information"
-        },
         {
           "type": "example",
           "text": "Example"
         },
         {
-          "type": "example",
-          "text": "Name: Louise …Taylor…"
+          "type": "static",
+          "text": "Type of accommodation: hall of residence"
         },
         {
           "type": "static",
-          "text": "Nationality:"
+          "text": "Name: Anu"
         },
         {
           "type": "gap",
@@ -40,15 +32,7 @@
         },
         {
           "type": "static",
-          "text": "Date of birth: 14 December 1977"
-        },
-        {
-          "type": "static",
-          "text": "Occupation: interior designer"
-        },
-        {
-          "type": "static",
-          "text": "Reason for visit: business (to buy antique"
+          "text": "Date of birth:"
         },
         {
           "type": "gap",
@@ -56,15 +40,11 @@
         },
         {
           "type": "static",
-          "text": ")"
+          "text": "Country of origin: India"
         },
         {
           "type": "static",
-          "text": "Length of stay: two months"
-        },
-        {
-          "type": "static",
-          "text": "Current address:"
+          "text": "Course of study:"
         },
         {
           "type": "gap",
@@ -72,19 +52,7 @@
         },
         {
           "type": "static",
-          "text": "Apartments (No 15)"
-        },
-        {
-          "type": "section",
-          "text": "Details of theft"
-        },
-        {
-          "type": "static",
-          "text": "Items stolen:"
-        },
-        {
-          "type": "static",
-          "text": "a wallet containing approximately £"
+          "text": "Number of years planned in hall:"
         },
         {
           "type": "gap",
@@ -92,7 +60,11 @@
         },
         {
           "type": "static",
-          "text": "a"
+          "text": "Preferred catering arrangement: half board"
+        },
+        {
+          "type": "static",
+          "text": "Special dietary requirements: no"
         },
         {
           "type": "gap",
@@ -100,19 +72,19 @@
         },
         {
           "type": "static",
-          "text": "Date of theft:"
+          "text": "(red)"
+        },
+        {
+          "type": "static",
+          "text": "Preferred room type: a single"
         },
         {
           "type": "gap",
           "number": 6
         },
         {
-          "type": "section",
-          "text": "Possible time and place of theft"
-        },
-        {
           "type": "static",
-          "text": "• Location: outside the"
+          "text": "Interests: the"
         },
         {
           "type": "gap",
@@ -120,15 +92,15 @@
         },
         {
           "type": "static",
-          "text": "at about 4 pm"
+          "text": "and badminton"
+        },
+        {
+          "type": "section",
+          "text": "Priorities in choice of hall"
         },
         {
           "type": "static",
-          "text": "• Details of suspect:"
-        },
-        {
-          "type": "static",
-          "text": "– some boys asked for the"
+          "text": "– to be with other students who are"
         },
         {
           "type": "gap",
@@ -136,15 +108,7 @@
         },
         {
           "type": "static",
-          "text": "then ran off"
-        },
-        {
-          "type": "static",
-          "text": "– one had a T-shirt with a picture of a tiger"
-        },
-        {
-          "type": "static",
-          "text": "– he was about 12, slim build with"
+          "text": "– to live outside the"
         },
         {
           "type": "gap",
@@ -152,22 +116,22 @@
         },
         {
           "type": "static",
-          "text": "hair"
-        },
-        {
-          "type": "static",
-          "text": "– Crime reference number allocated"
+          "text": "– to have a"
         },
         {
           "type": "gap",
           "number": 10
+        },
+        {
+          "type": "static",
+          "text": "area for socialising"
         }
       ],
       "questions": [
         {
           "number": 1,
           "type": "gap-fill",
-          "prompt": "Nationality:",
+          "prompt": "Name: Anu",
           "options": [],
           "answer": "bhatt",
           "explanation": "Điền theo audio.",
@@ -176,7 +140,7 @@
         {
           "number": 2,
           "type": "gap-fill",
-          "prompt": "Reason for visit:",
+          "prompt": "Date of birth:",
           "options": [],
           "answer": "31 march",
           "explanation": "Điền theo audio.",
@@ -185,7 +149,7 @@
         {
           "number": 3,
           "type": "gap-fill",
-          "prompt": "Current address:",
+          "prompt": "Course of study:",
           "options": [],
           "answer": "nursing",
           "explanation": "Điền theo audio.",
@@ -194,7 +158,7 @@
         {
           "number": 4,
           "type": "gap-fill",
-          "prompt": "Amount in wallet:",
+          "prompt": "Number of years planned in hall:",
           "options": [],
           "answer": "2",
           "explanation": "Điền theo audio.",
@@ -203,7 +167,7 @@
         {
           "number": 5,
           "type": "gap-fill",
-          "prompt": "Stolen item:",
+          "prompt": " (food type, red)",
           "options": [],
           "answer": "meat",
           "explanation": "Điền theo audio.",
@@ -212,7 +176,7 @@
         {
           "number": 6,
           "type": "gap-fill",
-          "prompt": "Date of theft:",
+          "prompt": "Preferred room type (a single ...)",
           "options": [],
           "answer": "bedsit",
           "explanation": "Điền theo audio.",
@@ -221,7 +185,7 @@
         {
           "number": 7,
           "type": "gap-fill",
-          "prompt": "Location:",
+          "prompt": "Interests (the ... badminton)",
           "options": [],
           "answer": "theatre",
           "explanation": "Điền theo audio.",
@@ -230,7 +194,7 @@
         {
           "number": 8,
           "type": "gap-fill",
-          "prompt": "Asked for:",
+          "prompt": "to be with other students who are",
           "options": [],
           "answer": "mature",
           "explanation": "Điền theo audio.",
@@ -239,7 +203,7 @@
         {
           "number": 9,
           "type": "gap-fill",
-          "prompt": "Hair:",
+          "prompt": "to live outside the",
           "options": [],
           "answer": "town",
           "explanation": "Điền theo audio.",
@@ -248,7 +212,7 @@
         {
           "number": 10,
           "type": "gap-fill",
-          "prompt": "Crime reference number:",
+          "prompt": "to have a ... area for socialising",
           "options": [],
           "answer": "shared",
           "explanation": "Điền theo audio.",
@@ -924,18 +888,19 @@
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "passageTitle": "Business Cultures",
       "audioFile": "listening.mp3",
+      "notePassageLayout": "lecture",
       "notePassage": [
         {
           "type": "section",
-          "text": "Power culture"
+          "text": "Power Culture"
         },
         {
           "type": "static",
-          "text": "• Characteristics of organisation"
+          "text": "• Characteristics of organization:"
         },
         {
           "type": "static",
-          "text": "• small"
+          "text": "– small"
         },
         {
           "type": "gap",
@@ -943,15 +908,15 @@
         },
         {
           "type": "static",
-          "text": "power source"
+          "text": " power source"
         },
         {
           "type": "static",
-          "text": "• few rules and procedures"
+          "text": "– few rules and procedures"
         },
         {
           "type": "static",
-          "text": "• communication by"
+          "text": "– communication by"
         },
         {
           "type": "gap",
@@ -959,19 +924,11 @@
         },
         {
           "type": "static",
-          "text": "• Advantage"
+          "text": "• Advantage: can act quickly"
         },
         {
           "type": "static",
-          "text": "• can act quickly"
-        },
-        {
-          "type": "static",
-          "text": "• Disadvantage"
-        },
-        {
-          "type": "static",
-          "text": "• might not act"
+          "text": "• Disadvantage: might not act"
         },
         {
           "type": "gap",
@@ -979,11 +936,11 @@
         },
         {
           "type": "static",
-          "text": "• Suitable employee"
+          "text": "• Suitable employee:"
         },
         {
           "type": "static",
-          "text": "• not afraid of"
+          "text": "– not afraid of"
         },
         {
           "type": "gap",
@@ -991,19 +948,19 @@
         },
         {
           "type": "static",
-          "text": "doesn't need job security"
+          "text": ", doesn't need job security"
         },
         {
           "type": "section",
-          "text": "Role culture"
+          "text": "Role Culture"
         },
         {
           "type": "static",
-          "text": "• Characteristics of organisation"
+          "text": "• Characteristics of organization:"
         },
         {
           "type": "static",
-          "text": "• large, many"
+          "text": "– large, many"
         },
         {
           "type": "gap",
@@ -1011,11 +968,11 @@
         },
         {
           "type": "static",
-          "text": "specialised departments"
+          "text": "– specialized departments"
         },
         {
           "type": "static",
-          "text": "• rules and procedure, e.g. job"
+          "text": "– rules and procedures, e.g. job"
         },
         {
           "type": "gap",
@@ -1023,19 +980,19 @@
         },
         {
           "type": "static",
-          "text": "and rules for discipline"
+          "text": " and rules for discipline"
         },
         {
           "type": "static",
-          "text": "• Advantages"
+          "text": "• Advantages:"
         },
         {
           "type": "static",
-          "text": "• economies of scale"
+          "text": "– economies of scale"
         },
         {
           "type": "static",
-          "text": "• successful when"
+          "text": "– successful when"
         },
         {
           "type": "gap",
@@ -1043,15 +1000,15 @@
         },
         {
           "type": "static",
-          "text": "ability is important"
+          "text": " ability is important"
         },
         {
           "type": "static",
-          "text": "• Disadvantages"
+          "text": "• Disadvantages:"
         },
         {
           "type": "static",
-          "text": "• slow to see when"
+          "text": "– slow to see when"
         },
         {
           "type": "gap",
@@ -1059,23 +1016,23 @@
         },
         {
           "type": "static",
-          "text": "is needed"
+          "text": " is needed"
         },
         {
           "type": "static",
-          "text": "• slow to react"
+          "text": "– slow to react"
         },
         {
           "type": "static",
-          "text": "• Suitable employee"
+          "text": "• Suitable employee:"
         },
         {
           "type": "static",
-          "text": "• values security"
+          "text": "– values security"
         },
         {
           "type": "static",
-          "text": "• doesn't want"
+          "text": "– does not want"
         },
         {
           "type": "gap",
@@ -1083,27 +1040,27 @@
         },
         {
           "type": "section",
-          "text": "Task culture"
+          "text": "Task Culture"
         },
         {
           "type": "static",
-          "text": "• Characteristics of organisation"
+          "text": "• Characteristic of organization:"
         },
         {
           "type": "static",
-          "text": "• project orientated"
+          "text": "– project oriented"
         },
         {
           "type": "static",
-          "text": "• in competitive market or making product with short life"
+          "text": "– in competitive market or making product with short life"
         },
         {
           "type": "static",
-          "text": "• a lot of delegation"
+          "text": "– a lot of delegation"
         },
         {
           "type": "static",
-          "text": "• Advantage"
+          "text": "• Advantages:"
         },
         {
           "type": "gap",
@@ -1111,19 +1068,19 @@
         },
         {
           "type": "static",
-          "text": "• Disadvantages"
+          "text": "• Disadvantages:"
         },
         {
           "type": "static",
-          "text": "• no economies of scale or special expertise"
+          "text": "– no economies of scale or special expertise"
         },
         {
           "type": "static",
-          "text": "• Suitable employee"
+          "text": "• Suitable employee:"
         },
         {
           "type": "static",
-          "text": "• likes to work in groups"
+          "text": "– likes to work in groups"
         }
       ],
       "questions": [
@@ -1134,8 +1091,7 @@
           "options": [],
           "answer": "central",
           "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "gapLead": "•"
+          "wordLimit": 1
         },
         {
           "number": 32,
@@ -1216,13 +1172,9 @@
           "options": [],
           "answer": "flexible",
           "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "sectionRange": "Questions 31 – 40",
-          "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
-          "sectionTitle": "Business Cultures"
+          "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }

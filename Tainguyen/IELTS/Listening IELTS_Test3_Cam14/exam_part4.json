@@ -3,7 +3,8 @@
   "rangeLabel": "Questions 31–40",
   "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
   "audioFile": "listening.mp3",
-  "passageTitle": "Concerts in university arts festival",
+  "passageTitle": "CONCERTS IN UNIVERSITY ARTS FESTIVAL",
+  "notePassageLayout": "lecture",
   "notePassage": [
     {
       "type": "section",
@@ -11,11 +12,11 @@
     },
     {
       "type": "static",
-      "text": "• Australian composer: Liza Lim"
+      "text": "● Australian composer: Liza Lim"
     },
     {
       "type": "static",
-      "text": "• studied piano and"
+      "text": "● studied piano and "
     },
     {
       "type": "gap",
@@ -23,11 +24,15 @@
     },
     {
       "type": "static",
-      "text": "before turning to composition"
+      "text": " before turning to composition"
     },
     {
       "type": "static",
-      "text": "• compositions show a great deal of"
+      "text": "● performers and festivals around the world have given her a lot of commissions"
+    },
+    {
+      "type": "static",
+      "text": "● compositions show a great deal of "
     },
     {
       "type": "gap",
@@ -35,11 +40,11 @@
     },
     {
       "type": "static",
-      "text": "and are drawn from various cultural sources"
+      "text": " and are drawn from various cultural sources"
     },
     {
       "type": "static",
-      "text": "• her music is very expressive and also"
+      "text": "● her music is very expressive and also "
     },
     {
       "type": "gap",
@@ -47,7 +52,7 @@
     },
     {
       "type": "static",
-      "text": "• festival will include her"
+      "text": "● festival will include her "
     },
     {
       "type": "gap",
@@ -55,23 +60,11 @@
     },
     {
       "type": "static",
-      "text": "called The Oresteia"
-    },
-    {
-      "type": "section",
-      "text": "Concert 2"
+      "text": " called The Oresteia"
     },
     {
       "type": "static",
-      "text": "• The Tower of Remoteness is performed by piano and"
-    },
-    {
-      "type": "gap",
-      "number": 36
-    },
-    {
-      "type": "static",
-      "text": "• The Tower of Remoteness is"
+      "text": "● Lim described the sounds in The Oresteia as "
     },
     {
       "type": "gap",
@@ -79,7 +72,39 @@
     },
     {
       "type": "static",
-      "text": "• celebrates Australia's cultural"
+      "text": "● British composers: Ralph Vaughan Williams, Frederick Delius"
+    },
+    {
+      "type": "section",
+      "text": "Concert 2"
+    },
+    {
+      "type": "static",
+      "text": "● British composers: Benjamin Britten, Judith Weir"
+    },
+    {
+      "type": "static",
+      "text": "● Australian composer: Ross Edwards"
+    },
+    {
+      "type": "static",
+      "text": "● festival will include The Tower of Remoteness, inspired by nature"
+    },
+    {
+      "type": "static",
+      "text": "● The Tower of Remoteness is performed by piano and "
+    },
+    {
+      "type": "gap",
+      "number": 36
+    },
+    {
+      "type": "static",
+      "text": "● compositions include music for children"
+    },
+    {
+      "type": "static",
+      "text": "● celebrates Australia's cultural "
     },
     {
       "type": "gap",
@@ -91,11 +116,15 @@
     },
     {
       "type": "static",
-      "text": "• Australian composer: Carl Vine"
+      "text": "● Australian composer: Carl Vine"
     },
     {
       "type": "static",
-      "text": "• studied"
+      "text": "● played cornet then piano"
+    },
+    {
+      "type": "static",
+      "text": "● studied "
     },
     {
       "type": "gap",
@@ -103,11 +132,15 @@
     },
     {
       "type": "static",
-      "text": "before studying music"
+      "text": " before studying music"
     },
     {
       "type": "static",
-      "text": "• became well known as composer of music for"
+      "text": "● worked in Sydney as a pianist and composer"
+    },
+    {
+      "type": "static",
+      "text": "● became well known as composer of music for "
     },
     {
       "type": "gap",
@@ -115,11 +148,15 @@
     },
     {
       "type": "static",
-      "text": "• festival will include his music for the 1996"
+      "text": "● festival will include his music for the 1996 "
     },
     {
       "type": "gap",
       "number": 40
+    },
+    {
+      "type": "static",
+      "text": "● British composers: Edward Elgar, Thomas Adès"
     }
   ],
   "questions": [
@@ -131,7 +168,7 @@
       "answer": "violin",
       "explanation": "Điền theo audio.",
       "wordLimit": 1,
-      "sectionTitle": "Concerts in university arts festival"
+      "sectionTitle": "CONCERTS IN UNIVERSITY ARTS FESTIVAL"
     },
     {
       "number": 32,
@@ -163,7 +200,7 @@
     {
       "number": 35,
       "type": "gap-fill",
-      "prompt": "The Tower of Remoteness is …:",
+      "prompt": "Lim described the sounds in The Oresteia as …:",
       "options": [],
       "answer": "disturbing",
       "explanation": "Điền theo audio.",
@@ -214,6 +251,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "lecture"
+  ]
 }

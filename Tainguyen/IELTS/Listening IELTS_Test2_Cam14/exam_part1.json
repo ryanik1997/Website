@@ -4,22 +4,23 @@
   "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
   "notePassageLayout": "form",
+  "passageTitle": "TOTAL HEALTH CLINIC – PATIENT DETAILS",
   "notePassage": [
-    {
-      "type": "example",
-      "text": "Example"
-    },
-    {
-      "type": "example",
-      "text": "Name: Julie Anne Garcia"
-    },
     {
       "type": "section",
       "text": "Personal information"
     },
     {
+      "type": "example",
+      "text": "Example"
+    },
+    {
       "type": "static",
-      "text": "Contact phone:"
+      "text": "Name: Julie Anne ……Garcia….."
+    },
+    {
+      "type": "static",
+      "text": "Contact phone: "
     },
     {
       "type": "gap",
@@ -27,7 +28,7 @@
     },
     {
       "type": "static",
-      "text": "Date of birth:"
+      "text": "Date of birth: "
     },
     {
       "type": "gap",
@@ -35,7 +36,11 @@
     },
     {
       "type": "static",
-      "text": "• Occupation: works as a"
+      "text": ", 1992"
+    },
+    {
+      "type": "static",
+      "text": "Occupation: works as a "
     },
     {
       "type": "gap",
@@ -43,11 +48,15 @@
     },
     {
       "type": "static",
-      "text": "Insurance company:"
+      "text": "Insurance company: "
     },
     {
       "type": "gap",
       "number": 4
+    },
+    {
+      "type": "static",
+      "text": " Life Insurance"
     },
     {
       "type": "section",
@@ -55,7 +64,7 @@
     },
     {
       "type": "static",
-      "text": "Type of problem: pain in her left"
+      "text": "Type of problem: pain in her left "
     },
     {
       "type": "gap",
@@ -63,7 +72,7 @@
     },
     {
       "type": "static",
-      "text": "• When it began"
+      "text": "When it began: "
     },
     {
       "type": "gap",
@@ -71,7 +80,7 @@
     },
     {
       "type": "static",
-      "text": "ago"
+      "text": " ago"
     },
     {
       "type": "static",
@@ -83,7 +92,7 @@
     },
     {
       "type": "static",
-      "text": "Sports played: belongs to a"
+      "text": "Sports played: belongs to a "
     },
     {
       "type": "gap",
@@ -91,11 +100,11 @@
     },
     {
       "type": "static",
-      "text": "• club"
+      "text": " club"
     },
     {
       "type": "static",
-      "text": "• goes"
+      "text": "goes "
     },
     {
       "type": "gap",
@@ -103,11 +112,11 @@
     },
     {
       "type": "static",
-      "text": "regularly"
+      "text": " regularly"
     },
     {
       "type": "static",
-      "text": "• injured her"
+      "text": "Medical history: injured her "
     },
     {
       "type": "gap",
@@ -115,15 +124,15 @@
     },
     {
       "type": "static",
-      "text": "last year"
+      "text": " last year"
     },
     {
       "type": "static",
-      "text": "• no allergies"
+      "text": "no allergies"
     },
     {
       "type": "static",
-      "text": "• no regular medication apart from"
+      "text": "no regular medication apart from "
     },
     {
       "type": "gap",
@@ -139,7 +148,7 @@
       "answer": "2194429785/219 442 9785",
       "explanation": "Điền theo audio.",
       "wordLimit": 1,
-      "sectionTitle": "TOTAL HEALTH CLINIC"
+      "sectionTitle": "TOTAL HEALTH CLINIC – PATIENT DETAILS"
     },
     {
       "number": 2,
@@ -222,6 +231,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "passageTitle": "TOTAL HEALTH CLINIC"
+  ]
 }

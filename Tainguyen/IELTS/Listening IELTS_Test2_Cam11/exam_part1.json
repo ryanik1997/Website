@@ -1,8 +1,9 @@
 {
   "partNumber": 1,
   "rangeLabel": "Questions 1–10",
-  "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+  "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
+  "passageTitle": "Enquiry about joining Youth Council",
   "notePassageLayout": "form",
   "notePassage": [
     {
@@ -11,7 +12,11 @@
     },
     {
       "type": "static",
-      "text": "Name: Roger Brown"
+      "text": "Name: Roger ........Brown........."
+    },
+    {
+      "type": "static",
+      "text": "Example – Name: Roger Brown"
     },
     {
       "type": "static",
@@ -19,7 +24,7 @@
     },
     {
       "type": "static",
-      "text": "Lives in a"
+      "text": "Currently staying in a"
     },
     {
       "type": "gap",
@@ -27,7 +32,11 @@
     },
     {
       "type": "static",
-      "text": "Postal address: 2 17,"
+      "text": "during the week"
+    },
+    {
+      "type": "static",
+      "text": "Postal address: 17,"
     },
     {
       "type": "gap",
@@ -47,7 +56,7 @@
     },
     {
       "type": "static",
-      "text": "• Occupation: student and part-time job as a"
+      "text": "Occupation: student and part-time job as a"
     },
     {
       "type": "gap",
@@ -55,7 +64,7 @@
     },
     {
       "type": "static",
-      "text": "• Studying"
+      "text": "Studying"
     },
     {
       "type": "gap",
@@ -63,11 +72,11 @@
     },
     {
       "type": "static",
-      "text": "• (major subject) and history (minor subject)"
+      "text": "(major subject) and history (minor subject)"
     },
     {
       "type": "static",
-      "text": "• Hobbies: does a lot of"
+      "text": "Hobbies: does a lot of"
     },
     {
       "type": "gap",
@@ -75,7 +84,7 @@
     },
     {
       "type": "static",
-      "text": "• and is interested in the"
+      "text": ", and is interested in the"
     },
     {
       "type": "gap",
@@ -83,7 +92,7 @@
     },
     {
       "type": "static",
-      "text": "• On Youth Council, wants to work with young people who are"
+      "text": "On Youth Council, wants to work with young people who are"
     },
     {
       "type": "gap",
@@ -91,7 +100,7 @@
     },
     {
       "type": "static",
-      "text": "• Will come to talk to the Elections Officer next Monday at"
+      "text": "Will come to talk to the Elections Officer next Monday at"
     },
     {
       "type": "gap",
@@ -103,7 +112,7 @@
     },
     {
       "type": "static",
-      "text": "Phone:"
+      "text": "Mobile number:"
     },
     {
       "type": "gap",
@@ -114,12 +123,11 @@
     {
       "number": 1,
       "type": "gap-fill",
-      "prompt": "Lives in a:",
+      "prompt": "Currently staying in a:",
       "options": [],
       "answer": "hostel",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "sectionTitle": "Enquiry about joining Youth Council"
+      "wordLimit": 1
     },
     {
       "number": 2,
@@ -128,7 +136,8 @@
       "options": [],
       "answer": "buckleigh",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1
+      "wordLimit": 1,
+      "gapLead": "17,"
     },
     {
       "number": 3,
@@ -160,7 +169,7 @@
     {
       "number": 6,
       "type": "gap-fill",
-      "prompt": "Hobby:",
+      "prompt": "Hobbies:",
       "options": [],
       "answer": "cycling",
       "explanation": "Điền theo audio.",
@@ -178,7 +187,7 @@
     {
       "number": 8,
       "type": "gap-fill",
-      "prompt": "Wants to work with:",
+      "prompt": "Young people who are:",
       "options": [],
       "answer": "disabled",
       "explanation": "Điền theo audio.",
@@ -196,12 +205,11 @@
     {
       "number": 10,
       "type": "gap-fill",
-      "prompt": "Phone:",
+      "prompt": "Mobile number:",
       "options": [],
       "answer": "07788136711",
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "passageTitle": "Enquiry about joining Youth Council"
+  ]
 }

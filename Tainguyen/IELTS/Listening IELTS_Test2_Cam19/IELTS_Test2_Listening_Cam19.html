@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 2 • Listening • Cambridge 19</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 2</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 19</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 2. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 1–6: Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Guitar Group</span></div>
+<p class="section-subinstruction mb-2">Questions 1 – 6</p>
+<p class="section-subinstruction mb-2">Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.</p>
+<table class="exam-table">
+<thead><tr>
+<th>Field</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><div class="cell-line"><span>Coordinator</span></div></td>
+<td><div class="cell-line"><span>Gary</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Level</span></div></td>
+<td><div class="cell-line"><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Place</span></div></td>
+<td><div class="cell-line"><span>the</span><span class="question-number">3</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Address</span></div></td>
+<td><div class="cell-line"><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>Street</span><span class="cell-break"></span><span>First floor, Room T347</span></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Time</span></div></td>
+<td><div class="cell-line"><span>Thursday morning at</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Recommended website</span></div></td>
+<td><div class="cell-line"><span>&#x27;The perfect</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>&#x27;</span></div></td>
+</tr>
+</tbody></table>
+<p class="section-subinstruction mb-2">Questions 7 – 10</p>
+<p class="section-subinstruction mb-2">Complete the table below. Write ONE WORD ONLY for each answer.</p>
+<table class="exam-table">
+<thead><tr>
+<th>Time</th>
+<th>Activity</th>
+<th>Notes</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><div class="cell-line"><span>5 minutes</span></div></td>
+<td><div class="cell-line"><span>tuning guitars</span></div></td>
+<td><div class="cell-line"><span>using an app or by</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>10 minutes</span></div></td>
+<td><div class="cell-line"><span>strumming chords using our thumbs</span></div></td>
+<td><div class="cell-line"><span>keeping time while the teacher is</span><span class="question-number">8</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>15 minutes</span></div></td>
+<td><div class="cell-line"><span>playing songs</span></div></td>
+<td><div class="cell-line"><span>often listening to a</span><span class="question-number">9</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>of a song</span></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>10 minutes</span></div></td>
+<td><div class="cell-line"><span>playing single notes and simple tunes</span></div></td>
+<td><div class="cell-line"><span>playing together, then</span><span class="question-number">10</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+</tbody></table>
+  </div>
+  <div class="mt-6">
+<div class="section-subheader">Questions 1 – 6<br><span class="section-subinstruction">Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Guitar Group</span></div>
+<div class="section-subheader">Questions 7 – 10<br><span class="section-subinstruction">Complete the table below. Write ONE WORD ONLY for each answer.</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–16: Choose A, B or C. Questions 17–18 and 19–20: Choose TWO A–E.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 – 16<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Working as a lifeboat volunteer</span></div>
+<div class="mb-5"><div class="font-medium mb-2">11 What made David leave London and move to Northsea?</div><div class="mcq-container space-y-1" data-question="q11"><div onclick="selectOption(this, 'q11')" class="option" data-value="A"><span class="option-label">A</span><span>He was eager to develop a hobby.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="B"><span class="option-label">B</span><span>He wanted to work shorter hours.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="C"><span class="option-label">C</span><span>He found his job in website design unsatisfying.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">12 The Lifeboat Institution in Northsea was built with money provided by</div><div class="mcq-container space-y-1" data-question="q12"><div onclick="selectOption(this, 'q12')" class="option" data-value="A"><span class="option-label">A</span><span>a local organisation.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="B"><span class="option-label">B</span><span>a local resident.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="C"><span class="option-label">C</span><span>the local council.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">13 In his health assessment, the doctor was concerned about the fact that David</div><div class="mcq-container space-y-1" data-question="q13"><div onclick="selectOption(this, 'q13')" class="option" data-value="A"><span class="option-label">A</span><span>might be colour blind.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="B"><span class="option-label">B</span><span>was rather short-sighted.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="C"><span class="option-label">C</span><span>had undergone eye surgery.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">14 After arriving at the lifeboat station, they aim to launch the boat within</div><div class="mcq-container space-y-1" data-question="q14"><div onclick="selectOption(this, 'q14')" class="option" data-value="A"><span class="option-label">A</span><span>five minutes.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="B"><span class="option-label">B</span><span>six to eight minutes.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="C"><span class="option-label">C</span><span>eight and a half minutes.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">15 As a &#x27;helmsman&#x27;, David has the responsibility of deciding</div><div class="mcq-container space-y-1" data-question="q15"><div onclick="selectOption(this, 'q15')" class="option" data-value="A"><span class="option-label">A</span><span>who will be the members of his crew.</span></div>
+<div onclick="selectOption(this, 'q15')" class="option" data-value="B"><span class="option-label">B</span><span>what equipment it will be necessary to take.</span></div>
+<div onclick="selectOption(this, 'q15')" class="option" data-value="C"><span class="option-label">C</span><span>if the lifeboat should be launched.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">16 As well as going out on the lifeboat, David</div><div class="mcq-container space-y-1" data-question="q16"><div onclick="selectOption(this, 'q16')" class="option" data-value="A"><span class="option-label">A</span><span>gives talks on safety at sea.</span></div>
+<div onclick="selectOption(this, 'q16')" class="option" data-value="B"><span class="option-label">B</span><span>helps with fundraising.</span></div>
+<div onclick="selectOption(this, 'q16')" class="option" data-value="C"><span class="option-label">C</span><span>recruits new volunteers.</span></div></div></div>
+<div class="section-subheader">Questions 17 and 18<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">17 &amp; 18 Which TWO things does David say about the lifeboat volunteer training?</div><div class="mcq-container space-y-1" data-question="q17-18"><div onclick="toggleMultiOption(this, 'q17-18')" class="option" data-value="A"><span class="option-label">A</span><span>The residential course developed his leadership skills.</span></div>
+<div onclick="toggleMultiOption(this, 'q17-18')" class="option" data-value="B"><span class="option-label">B</span><span>The training in use of ropes and knots was quite brief.</span></div>
+<div onclick="toggleMultiOption(this, 'q17-18')" class="option" data-value="C"><span class="option-label">C</span><span>The training exercises have built up his mental strength.</span></div>
+<div onclick="toggleMultiOption(this, 'q17-18')" class="option" data-value="D"><span class="option-label">D</span><span>The casualty care activities were particularly challenging for him.</span></div>
+<div onclick="toggleMultiOption(this, 'q17-18')" class="option" data-value="E"><span class="option-label">E</span><span>The wave tank activities provided practice in survival techniques.</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 19 and 20<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">19 &amp; 20 Which TWO things does David find most motivating about the work he does?</div><div class="mcq-container space-y-1" data-question="q19-20"><div onclick="toggleMultiOption(this, 'q19-20')" class="option" data-value="A"><span class="option-label">A</span><span>working as part of a team</span></div>
+<div onclick="toggleMultiOption(this, 'q19-20')" class="option" data-value="B"><span class="option-label">B</span><span>experiences when working in winter</span></div>
+<div onclick="toggleMultiOption(this, 'q19-20')" class="option" data-value="C"><span class="option-label">C</span><span>being thanked by those he has helped</span></div>
+<div onclick="toggleMultiOption(this, 'q19-20')" class="option" data-value="D"><span class="option-label">D</span><span>the fact that it keeps him fit</span></div>
+<div onclick="toggleMultiOption(this, 'q19-20')" class="option" data-value="E"><span class="option-label">E</span><span>the chance to develop new equipment</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–24: Choose A, B or C. Questions 25–28: Matching A–F. Questions 29–30: Choose A, B or C.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 21 – 24<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">21 At first, Don thought the topic of recycling footwear might be too</div><div class="mcq-container space-y-1" data-question="q21"><div onclick="selectOption(this, 'q21')" class="option" data-value="A"><span class="option-label">A</span><span>limited in scope.</span></div>
+<div onclick="selectOption(this, 'q21')" class="option" data-value="B"><span class="option-label">B</span><span>hard to research.</span></div>
+<div onclick="selectOption(this, 'q21')" class="option" data-value="C"><span class="option-label">C</span><span>boring for listeners.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">22 When discussing trainers, Bella and Don disagree about</div><div class="mcq-container space-y-1" data-question="q22"><div onclick="selectOption(this, 'q22')" class="option" data-value="A"><span class="option-label">A</span><span>how popular they are among young people.</span></div>
+<div onclick="selectOption(this, 'q22')" class="option" data-value="B"><span class="option-label">B</span><span>how suitable they are for school.</span></div>
+<div onclick="selectOption(this, 'q22')" class="option" data-value="C"><span class="option-label">C</span><span>how quickly they wear out.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">23 Bella says that she sometimes recycles shoes because</div><div class="mcq-container space-y-1" data-question="q23"><div onclick="selectOption(this, 'q23')" class="option" data-value="A"><span class="option-label">A</span><span>they no longer fit.</span></div>
+<div onclick="selectOption(this, 'q23')" class="option" data-value="B"><span class="option-label">B</span><span>she no longer likes them.</span></div>
+<div onclick="selectOption(this, 'q23')" class="option" data-value="C"><span class="option-label">C</span><span>they are no longer in fashion.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">24 What did the article say that confused Don?</div><div class="mcq-container space-y-1" data-question="q24"><div onclick="selectOption(this, 'q24')" class="option" data-value="A"><span class="option-label">A</span><span>Public consumption of footwear has risen.</span></div>
+<div onclick="selectOption(this, 'q24')" class="option" data-value="B"><span class="option-label">B</span><span>Less footwear is recycled now than in the past.</span></div>
+<div onclick="selectOption(this, 'q24')" class="option" data-value="C"><span class="option-label">C</span><span>People dispose of more footwear than they used to.</span></div></div></div>
+<div class="section-subheader">Questions 25 – 28<br><span class="section-subinstruction">What reasons did the recycling manager give for rejecting footwear? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 25–28.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Footwear</span></div>
+<div class="map-label-row"><span class="question-number">25</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>the high-heeled shoes</span></div>
+<div class="map-label-row"><span class="question-number">26</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>the ankle boots</span></div>
+<div class="map-label-row"><span class="question-number">27</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>the baby shoes</span></div>
+<div class="map-label-row"><span class="question-number">28</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>the trainers</span></div>
+<div class="section-subheader">Questions 29 – 30<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">29 Why did the project to make &#x27;new&#x27; shoes out of old shoes fail?</div><div class="mcq-container space-y-1" data-question="q29"><div onclick="selectOption(this, 'q29')" class="option" data-value="A"><span class="option-label">A</span><span>People believed the &#x27;new&#x27; pairs of shoes were unhygienic.</span></div>
+<div onclick="selectOption(this, 'q29')" class="option" data-value="B"><span class="option-label">B</span><span>There were not enough good parts to use in the old shoes.</span></div>
+<div onclick="selectOption(this, 'q29')" class="option" data-value="C"><span class="option-label">C</span><span>The shoes in the &#x27;new&#x27; pairs were not completely alike.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">30 Bella and Don agree that they can present their topic</div><div class="mcq-container space-y-1" data-question="q30"><div onclick="selectOption(this, 'q30')" class="option" data-value="A"><span class="option-label">A</span><span>from a new angle.</span></div>
+<div onclick="selectOption(this, 'q30')" class="option" data-value="B"><span class="option-label">B</span><span>with relevant images.</span></div>
+<div onclick="selectOption(this, 'q30')" class="option" data-value="C"><span class="option-label">C</span><span>in a straightforward way.</span></div></div></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Tardigrades</span></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">more than 1,000 species, 0.05–1.2 millimetres long<span>also known as water &#x27;bears&#x27; (due to how they</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">) and &#x27;moss piglets&#x27;</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Physical appearance</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>a</span><span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>round body and four pairs of legs</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>claws or</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">for gripping</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>absence of respiratory organs</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>body filled with a liquid that carries both</span><span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">and blood</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>mouth shaped like a</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">with teeth called stylets</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Habitat</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>often found at the bottom of a lake or on plants</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>very resilient and can exist in very low or high</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Cryptobiosis</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">In dry conditions, they roll into a ball called a &#x27;tun&#x27;.</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">They stay alive with a much lower metabolism than usual.<span>A type of</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">ensures their DNA is not damaged.</span></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">Research is underway to find out how many days they can stay alive in<span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Feeding</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>consume liquids, e.g., those found in moss or</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">may eat other tardigrades</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Conservation status</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>They are not considered to be</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Tardigrades</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 2 • Cambridge IELTS 19 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

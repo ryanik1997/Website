@@ -14,7 +14,6 @@
         25,
         26
       ],
-      "instruction": "Questions 21 – 26\nComplete the table below. Write ONE WORD ONLY for each answer.",
       "headers": [
         "Subject of drawing",
         "Change to be made"
@@ -44,6 +43,10 @@
               {
                 "type": "gap",
                 "number": 22
+              },
+              {
+                "type": "static",
+                "text": " noticing him"
               }
             ]
           ]
@@ -58,24 +61,16 @@
               {
                 "type": "gap",
                 "number": 23
-              },
-              {
-                "type": "static",
-                "text": " and "
-              },
-              {
-                "type": "gap",
-                "number": 24
               }
             ],
             [
               {
                 "type": "static",
-                "text": "Add Malcolm sitting on a tree trunk and dissuading two people from "
+                "text": "Add Malcolm sitting on a tree trunk and "
               },
               {
                 "type": "gap",
-                "number": 23
+                "number": 24
               }
             ]
           ]
@@ -85,11 +80,15 @@
             [
               {
                 "type": "static",
-                "text": "Ice-skating on "
+                "text": "Ice-skaters on "
               },
               {
                 "type": "gap",
                 "number": 25
+              },
+              {
+                "type": "static",
+                "text": " covered with ice"
               }
             ],
             [
@@ -103,7 +102,7 @@
               },
               {
                 "type": "static",
-                "text": " tied to each person's waist"
+                "text": " for each person"
               }
             ]
           ]
@@ -171,7 +170,7 @@
     {
       "number": 27,
       "type": "matching",
-      "prompt": "How they planned the project",
+      "prompt": "how they planned the project",
       "options": [
         {
           "id": "A",
@@ -193,12 +192,13 @@
       "answer": "A",
       "explanation": "Chọn theo audio.",
       "sectionRange": "Questions 27 – 30",
-      "sectionInstruction": "Who is going to write each part of the report? Write A–D."
+      "sectionInstruction": "Who is going to write each of the following parts of the report? Write the correct letter A–D next to questions 27–30.",
+      "sectionTitle": "REPORT PARTS"
     },
     {
       "number": 28,
       "type": "matching",
-      "prompt": "How they had ideas for their stories",
+      "prompt": "how they had ideas for their stories",
       "options": [
         {
           "id": "A",
@@ -223,7 +223,7 @@
     {
       "number": 29,
       "type": "matching",
-      "prompt": "An interpretation of their stories",
+      "prompt": "an interpretation of their stories",
       "options": [
         {
           "id": "A",
@@ -248,7 +248,7 @@
     {
       "number": 30,
       "type": "matching",
-      "prompt": "Comments on the illustrations",
+      "prompt": "comments on the illustrations",
       "options": [
         {
           "id": "A",

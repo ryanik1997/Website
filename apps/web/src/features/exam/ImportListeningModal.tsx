@@ -187,6 +187,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     { kind: 'p2-a12', label: 'a12 MC+Map' },
     { kind: 'p2-a13', label: 'a13 TWO×2+Match' },
     { kind: 'p2-a14', label: 'a14 MC+Map' },
+    { kind: 'p2-a15', label: 'a15 MC+Table' },
   ]
   const p3TemplateButtons: Array<{ kind: IeltsListeningP3TemplateKind; label: string }> = [
     { kind: 'p3-c1', label: 'c1 MC+Sent+Notes' },
@@ -201,6 +202,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     { kind: 'p4-d1', label: 'd1 Sections+bullets' },
     { kind: 'p4-d2', label: 'd2 ONE WORD (Cam20)' },
     { kind: 'p4-d3', label: 'd3 Generic lecture' },
+    { kind: 'p4-d4', label: 'd4 MC+Notes' },
   ]
 
   useEffect(() => {

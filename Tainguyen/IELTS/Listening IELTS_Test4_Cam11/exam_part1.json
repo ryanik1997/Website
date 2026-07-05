@@ -15,7 +15,7 @@
         6,
         7
       ],
-      "instruction": "Questions 1 – 7\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "title": "FESTIVAL EVENTS",
       "headers": [
         "Event",
         "Cost",
@@ -54,7 +54,7 @@
             [
               {
                 "type": "static",
-                "text": "Carolyn Hart (plays the "
+                "text": "Also appearing: Carolyn Hart (plays the "
               },
               {
                 "type": "gap",
@@ -94,6 +94,21 @@
             [
               {
                 "type": "static",
+                "text": "Prize: tickets for "
+              },
+              {
+                "type": "gap",
+                "number": 4
+              },
+              {
+                "type": "static",
+                "text": " held at the end of the festival."
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
                 "text": "Ducks can be bought in the "
               },
               {
@@ -119,26 +134,18 @@
             ],
             [
               {
-                "type": "static",
-                "text": "Bythwaite "
-              },
-              {
                 "type": "gap",
                 "number": 6
+              },
+              {
+                "type": "static",
+                "text": " Hall"
               }
             ],
             [
               {
                 "type": "static",
-                "text": "Prize: tickets for "
-              },
-              {
-                "type": "gap",
-                "number": 4
-              },
-              {
-                "type": "static",
-                "text": " — presented by a well-known "
+                "text": "Prizes presented at 5 pm by a well-known "
               },
               {
                 "type": "gap",
@@ -237,7 +244,8 @@
       "answer": "A",
       "explanation": "Chọn theo audio.",
       "sectionRange": "Questions 8 – 10",
-      "sectionInstruction": "Who is each play suitable for? Write A, B or C."
+      "sectionInstruction": "Who is each play suitable for? Write the correct letter A, B or C next to questions 8–10.",
+      "sectionTitle": "PLAYS"
     },
     {
       "number": 9,
@@ -281,5 +289,6 @@
       "answer": "C",
       "explanation": "Chọn theo audio."
     }
-  ]
+  ],
+  "passageTitle": "FESTIVAL EVENTS"
 }

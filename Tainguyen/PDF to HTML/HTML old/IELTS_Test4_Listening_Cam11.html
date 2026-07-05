@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 4 • Listening • Cambridge 11</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 4</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 11</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 4. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 1–7: Complete the table. Questions 8–10: Matching A–C.</p>
+  <div class="paper-box">
+<p class="section-subinstruction mb-2">Questions 1 – 7</p>
+<p class="section-subinstruction mb-2">Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.</p>
+<table class="exam-table">
+<thead><tr>
+<th>Event</th>
+<th>Cost</th>
+<th>Venue</th>
+<th>Notes</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><div class="cell-line"><span>Jazz band</span></div></td>
+<td><div class="cell-line"><span>Tickets available for £15</span></div></td>
+<td><div class="cell-line"><span>The</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>school</span></div></td>
+<td><div class="cell-line"><span>Carolyn Hart (plays the</span><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>)</span></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Duck races</span></div></td>
+<td><div class="cell-line"><span>£1 per duck</span></div></td>
+<td><div class="cell-line"><span>Start behind the</span><span class="question-number">3</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+<td><div class="cell-line"><span>Ducks can be bought in the</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Flower show</span></div></td>
+<td><div class="cell-line"><span>Free</span></div></td>
+<td><div class="cell-line"><span>Bythwaite</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+<td><div class="cell-line"><span>Prize: tickets for</span><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>— presented by a well-known</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+</tbody></table>
+  </div>
+  <div class="mt-6">
+<div class="section-subheader">Questions 1 – 7<br><span class="section-subinstruction">Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.</span></div>
+<div class="section-subheader">Questions 8 – 10<br><span class="section-subinstruction">Who is each play suitable for? Write A, B or C.</span></div>
+<div class="map-label-row"><span class="question-number">8</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>The Mystery of Muldoon</span></div>
+<div class="map-label-row"><span class="question-number">9</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Fire and Flood</span></div>
+<div class="map-label-row"><span class="question-number">10</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Silly Sailor</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–16: Matching A–G. Questions 17–20: Label the plan A–H.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 – 16<br><span class="section-subinstruction">What does the speaker say about each collection? Choose SIX answers A–G.</span></div>
+<div class="map-label-row"><span class="question-number">11</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>20th- and 21st-century paintings</span></div>
+<div class="map-label-row"><span class="question-number">12</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>19th-century paintings</span></div>
+<div class="map-label-row"><span class="question-number">13</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Sculptures</span></div>
+<div class="map-label-row"><span class="question-number">14</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>&#x27;Around the world&#x27; exhibition</span></div>
+<div class="map-label-row"><span class="question-number">15</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Coins</span></div>
+<div class="map-label-row"><span class="question-number">16</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Porcelain and glass</span></div>
+<div class="section-subheader">Questions 17 – 20<br><span class="section-subinstruction">Label the plan below. Write the correct letter A–H.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Basement of museum</span></div>
+<img src="map.jpg" alt="" class="map-image">
+<div class="map-label-row"><span class="question-number">17</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Restaurant</span></div>
+<div class="map-label-row"><span class="question-number">18</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Café</span></div>
+<div class="map-label-row"><span class="question-number">19</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Baby-changing facilities</span></div>
+<div class="map-label-row"><span class="question-number">20</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Cloakroom</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–26: Choose TWO letters A–E. Questions 27–30: Choose A, B or C.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 21 – 22<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Psychology study on concert dress</span></div>
+<div class="mb-5"><div class="font-medium mb-2">21 &amp; 22 Which TWO characteristics were shared by the subjects of Joanna&#x27;s psychology study?</div><div class="mcq-container space-y-1" data-question="q21-22"><div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="A"><span class="option-label">A</span><span>They had all won prizes for their music.</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="B"><span class="option-label">B</span><span>They had all made music recordings.</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="C"><span class="option-label">C</span><span>They were all under 27 years old.</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="D"><span class="option-label">D</span><span>They had all toured internationally.</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="E"><span class="option-label">E</span><span>They all played a string instrument.</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="mb-5"><div class="font-medium mb-2">23 &amp; 24 Which TWO points does Joanna make about her use of telephone interviews?</div><div class="mcq-container space-y-1" data-question="q23-24"><div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="A"><span class="option-label">A</span><span>It meant rich data could be collected.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="B"><span class="option-label">B</span><span>It allowed the involvement of top performers.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="C"><span class="option-label">C</span><span>It led to a stressful atmosphere at times.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="D"><span class="option-label">D</span><span>It meant interview times had to be limited.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="E"><span class="option-label">E</span><span>It caused some technical problems.</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="mb-5"><div class="font-medium mb-2">25 &amp; 26 Which TWO topics did Joanna originally intend to investigate?</div><div class="mcq-container space-y-1" data-question="q25-26"><div onclick="toggleMultiOption(this, 'q25-26')" class="option" data-value="A"><span class="option-label">A</span><span>regulations concerning concert dress</span></div>
+<div onclick="toggleMultiOption(this, 'q25-26')" class="option" data-value="B"><span class="option-label">B</span><span>audience reactions to the dress of performers</span></div>
+<div onclick="toggleMultiOption(this, 'q25-26')" class="option" data-value="C"><span class="option-label">C</span><span>changes in performer attitudes to concert dress</span></div>
+<div onclick="toggleMultiOption(this, 'q25-26')" class="option" data-value="D"><span class="option-label">D</span><span>how choice of dress relates to performer roles</span></div>
+<div onclick="toggleMultiOption(this, 'q25-26')" class="option" data-value="E"><span class="option-label">E</span><span>links between musical instrument and dress choice</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 27 – 30<br><span class="section-subinstruction">Choose the correct letter A, B or C.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">27 Joanna concentrated on women performers because</div><div class="mcq-container space-y-1" data-question="q27"><div onclick="selectOption(this, 'q27')" class="option" data-value="A"><span class="option-label">A</span><span>women are more influenced by fashion</span></div>
+<div onclick="selectOption(this, 'q27')" class="option" data-value="B"><span class="option-label">B</span><span>women&#x27;s dress has led to more controversy</span></div>
+<div onclick="selectOption(this, 'q27')" class="option" data-value="C"><span class="option-label">C</span><span>women&#x27;s code of dress is less strict than men&#x27;s</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">28 Mike Frost&#x27;s article suggests that in popular music, women&#x27;s dress is affected by</div><div class="mcq-container space-y-1" data-question="q28"><div onclick="selectOption(this, 'q28')" class="option" data-value="A"><span class="option-label">A</span><span>their wish to be taken seriously</span></div>
+<div onclick="selectOption(this, 'q28')" class="option" data-value="B"><span class="option-label">B</span><span>their tendency to copy each other</span></div>
+<div onclick="selectOption(this, 'q28')" class="option" data-value="C"><span class="option-label">C</span><span>their reaction to the masculine nature of the music</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">29 What did Joanna&#x27;s subjects say about the audience at a performance?</div><div class="mcq-container space-y-1" data-question="q29"><div onclick="selectOption(this, 'q29')" class="option" data-value="A"><span class="option-label">A</span><span>The musicians&#x27; choice of clothing is linked to respect for the audience</span></div>
+<div onclick="selectOption(this, 'q29')" class="option" data-value="B"><span class="option-label">B</span><span>The clothing should not distract the audience from the music</span></div>
+<div onclick="selectOption(this, 'q29')" class="option" data-value="C"><span class="option-label">C</span><span>The audience should make the effort to dress appropriately</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">30 According to the speakers, musicians could learn from sports scientists about</div><div class="mcq-container space-y-1" data-question="q30"><div onclick="selectOption(this, 'q30')" class="option" data-value="A"><span class="option-label">A</span><span>the importance of clothing for physical freedom</span></div>
+<div onclick="selectOption(this, 'q30')" class="option" data-value="B"><span class="option-label">B</span><span>the part played by clothing in improving performance</span></div>
+<div onclick="selectOption(this, 'q30')" class="option" data-value="C"><span class="option-label">C</span><span>the way clothing may protect against physical injury</span></div></div></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">The use of soil to reduce carbon dioxide (CO2)</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Rattan Lal</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Erosion is more likely in soil that is</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Lal found soil in Africa that was very</span><span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Soil and carbon</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>plants turn CO2 into carbon-based substances such as</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>some carbon moves from the</span><span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">of plants to microbes in the soil</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Regenerative agriculture</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>make sure soil remains fertile and</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">increasing the</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">of plants that are grown</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">California study</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>taking place on a big</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">farm</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>uses compost made from waste from agriculture and</span><span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Australia study</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>using</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">that are always green</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Future developments</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>giving farmers</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">for carbon storage, as well as their produce</span></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">The use of soil to reduce carbon dioxide (CO2)</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 4 • Cambridge IELTS 11 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

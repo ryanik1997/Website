@@ -3,8 +3,7 @@
   "rangeLabel": "Questions 1–10",
   "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD for each answer. Questions 7–10: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
-  "passageTitle": "Self-drive tours in the USA",
-  "notePassageLayout": "table",
+  "notePassageLayout": "form",
   "notePassageSections": [
     {
       "gapNumbers": [
@@ -48,7 +47,7 @@
         },
         {
           "type": "static",
-          "text": "Los Angeles: customer wants to visit some"
+          "text": "• Los Angeles: customer wants to visit some "
         },
         {
           "type": "gap",
@@ -56,11 +55,11 @@
         },
         {
           "type": "static",
-          "text": "parks with her children"
+          "text": " parks with her children"
         },
         {
           "type": "static",
-          "text": "Yosemite Park: customer wants to stay in a lodge, not a"
+          "text": "• Yosemite Park: customer wants to stay in a lodge, not a "
         },
         {
           "type": "gap",
@@ -72,7 +71,7 @@
         },
         {
           "type": "static",
-          "text": "Customer wants to see the"
+          "text": "• Customer wants to see the "
         },
         {
           "type": "gap",
@@ -80,11 +79,11 @@
         },
         {
           "type": "static",
-          "text": "on the way to Cambria"
+          "text": " on the way to Cambria"
         },
         {
           "type": "static",
-          "text": "At San Diego, wants to spend time on the"
+          "text": "• At San Diego, wants to spend time on the "
         },
         {
           "type": "gap",
@@ -101,7 +100,6 @@
         9,
         10
       ],
-      "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "headers": [
         "",
         "Number of days",
@@ -126,10 +124,6 @@
             ],
             [
               {
-                "type": "static",
-                "text": "7 "
-              },
-              {
                 "type": "gap",
                 "number": 7
               },
@@ -147,7 +141,21 @@
             [
               {
                 "type": "static",
-                "text": "accommodation, car, one "
+                "text": "• accommodation"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• car"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• one "
               },
               {
                 "type": "gap",
@@ -178,18 +186,28 @@
             ],
             [
               {
-                "type": "static",
-                "text": "9 £"
-              },
-              {
                 "type": "gap",
                 "number": 9
+              },
+              {
+                "type": "static",
+                "text": "£"
               }
             ],
             [
               {
                 "type": "static",
-                "text": "accommodation, car, "
+                "text": "• accommodation"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
+                "text": "• car"
+              },
+              {
+                "type": "break"
               },
               {
                 "type": "gap",
@@ -210,7 +228,6 @@
       "answer": "ardleigh",
       "explanation": "Điền theo audio.",
       "wordLimit": 1,
-      "gapLead": "Address: 24",
       "sectionRange": "Questions 1 – 6",
       "sectionInstruction": "Complete the notes below. Write ONE WORD for each answer.",
       "sectionTitle": "SELF-DRIVE TOURS IN THE USA"
@@ -231,9 +248,7 @@
       "options": [],
       "answer": "theme",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "customer wants to visit some",
-      "gapTrail": "parks with her children"
+      "wordLimit": 1
     },
     {
       "number": 4,
@@ -242,8 +257,7 @@
       "options": [],
       "answer": "tent",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "customer wants to stay in a lodge, not a"
+      "wordLimit": 1
     },
     {
       "number": 5,
@@ -252,9 +266,7 @@
       "options": [],
       "answer": "castle",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "Customer wants to see the",
-      "gapTrail": "on the way to Cambria"
+      "wordLimit": 1
     },
     {
       "number": 6,
@@ -263,8 +275,7 @@
       "options": [],
       "answer": "beach",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "At San Diego, wants to spend time on the"
+      "wordLimit": 1
     },
     {
       "number": 7,
@@ -293,8 +304,7 @@
       "options": [],
       "answer": "429",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "gapLead": "£"
+      "wordLimit": 1
     },
     {
       "number": 10,

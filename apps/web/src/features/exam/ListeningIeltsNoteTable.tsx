@@ -1,7 +1,43 @@
 import ExamHighlightableLines from './ExamHighlightableLines'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
-import type { ListeningNoteTable, ListeningQuestion } from './listeningExamData'
+import type {
+  ListeningNoteTable,
+  ListeningNoteTableCellBlock,
+  ListeningQuestion,
+} from './listeningExamData'
+import { hasNoteLineMarker } from './listeningNotePassage'
+
+/** Mỗi bullet • trong ô bảng = một dòng (Cam12 T3 P2 Fitness Holidays). */
+function groupTableCellLines(cell: ListeningNoteTableCellBlock[]): ListeningNoteTableCellBlock[][] {
+  const lines: ListeningNoteTableCellBlock[][] = []
+  let current: ListeningNoteTableCellBlock[] = []
+
+  const flush = () => {
+    if (!current.length) return
+    lines.push(current)
+    current = []
+  }
+
+  for (const block of cell) {
+    if (block.type === 'break') {
+      flush()
+      continue
+    }
+
+    const startsNewBulletLine = block.type === 'static'
+      && hasNoteLineMarker((block.text ?? '').trim())
+      && current.length > 0
+
+    if (startsNewBulletLine) {
+      flush()
+    }
+    current.push(block)
+  }
+
+  flush()
+  return lines.length ? lines : [[]]
+}
 
 interface Props {
   partId: string
@@ -11,6 +47,10 @@ interface Props {
   activeQuestionId: string | null
   onAnswer: (questionId: string, value: string) => void
   onSelectQuestion: (questionId: string) => void
+  /** Khi section header đã hiện instruction — tránh lặp trong bảng. */
+  suppressInstruction?: boolean
+  /** Khi section header đã hiện cùng title — tránh lặp (vd. a15 Manham). */
+  suppressTitle?: boolean
 }
 
 function TableGapInput({
@@ -26,8 +66,6 @@ function TableGapInput({
   onAnswer: (v: string) => void
   onSelect: () => void
 }) {
-  const wordLimit = question.wordLimit ?? 3
-
   return (
     <span className={`listening-ielts-notes__table-gap${isActive ? ' is-active' : ''}`}>
       <span className="listening-ielts-notes__num">{question.number}</span>
@@ -36,7 +74,8 @@ function TableGapInput({
         type="text"
         className="listening-ielts-notes__input listening-ielts-notes__input--table"
         value={answer}
-        placeholder={`${wordLimit} từ`}
+        placeholder=""
+        aria-label={`Question ${question.number}`}
         data-highlight-skip
         onChange={e => onAnswer(e.target.value)}
         onFocus={onSelect}
@@ -53,19 +92,21 @@ export default function ListeningIeltsNoteTable({
   activeQuestionId,
   onAnswer,
   onSelectQuestion,
+  suppressInstruction = false,
+  suppressTitle = false,
 }: Props) {
   const highlights = useExamHighlights()
 
   return (
     <div className="listening-ielts-notes__table-block">
-      {table.instruction && (
+      {table.instruction && !suppressInstruction && (
         <ExamHighlightableLines
           blockIdPrefix={`${partId}-tbl-instruction`}
           text={table.instruction}
           lineClassName="listening-ielts-notes__intro"
         />
       )}
-      {table.title && (
+      {table.title && !suppressTitle && (
         <ReadingHighlightableText
           blockId={`${partId}-tbl-title`}
           text={table.title}
@@ -78,8 +119,10 @@ export default function ListeningIeltsNoteTable({
       <table className="listening-ielts-notes__table">
         <thead>
           <tr>
-            {table.headers.map(header => (
-              <th key={header}>{header}</th>
+            {table.headers.map((header, headerIndex) => (
+              <th key={`${partId}-hdr-${headerIndex}`}>
+                {header || '\u00a0'}
+              </th>
             ))}
           </tr>
         </thead>
@@ -89,47 +132,50 @@ export default function ListeningIeltsNoteTable({
               {row.cells.map((cell, cellIndex) => (
                 <td key={`${partId}-cell-${rowIndex}-${cellIndex}`}>
                   <div className="listening-ielts-notes__cell">
-                    {cell.map((block, blockIndex) => {
-                      if (block.type === 'break') {
-                        return <br key={`${partId}-br-${rowIndex}-${cellIndex}-${blockIndex}`} />
-                      }
-
-                      if (block.type === 'static') {
-                        return (
-                          <ReadingHighlightableText
-                            key={`${partId}-static-${rowIndex}-${cellIndex}-${blockIndex}`}
-                            blockId={`${partId}-tbl-${rowIndex}-${cellIndex}-${blockIndex}`}
-                            text={block.text ?? ''}
-                            highlights={highlights}
-                            as="span"
-                          />
-                        )
-                      }
-
-                      const question =
-                        block.number != null ? questionsByNumber.get(block.number) : undefined
-                      if (!question) return null
-
-                      return (
-                        <span
-                          key={question.id}
-                          id={`listening-q-${question.id}`}
-                          className={
-                            activeQuestionId === question.id
-                              ? 'listening-ielts-notes__table-gap-wrap is-active'
-                              : 'listening-ielts-notes__table-gap-wrap'
+                    {groupTableCellLines(cell).map((line, lineIndex) => (
+                      <div
+                        key={`${partId}-cell-line-${rowIndex}-${cellIndex}-${lineIndex}`}
+                        className="listening-ielts-notes__cell-line"
+                      >
+                        {line.map((block, blockIndex) => {
+                          if (block.type === 'static') {
+                            return (
+                              <ReadingHighlightableText
+                                key={`${partId}-static-${rowIndex}-${cellIndex}-${lineIndex}-${blockIndex}`}
+                                blockId={`${partId}-tbl-${rowIndex}-${cellIndex}-${lineIndex}-${blockIndex}`}
+                                text={block.text ?? ''}
+                                highlights={highlights}
+                                as="span"
+                              />
+                            )
                           }
-                        >
-                          <TableGapInput
-                            question={question}
-                            answer={answers[question.id] ?? ''}
-                            isActive={activeQuestionId === question.id}
-                            onAnswer={v => onAnswer(question.id, v)}
-                            onSelect={() => onSelectQuestion(question.id)}
-                          />
-                        </span>
-                      )
-                    })}
+
+                          const question =
+                            block.number != null ? questionsByNumber.get(block.number) : undefined
+                          if (!question) return null
+
+                          return (
+                            <span
+                              key={question.id}
+                              id={`listening-q-${question.id}`}
+                              className={
+                                activeQuestionId === question.id
+                                  ? 'listening-ielts-notes__table-gap-wrap is-active'
+                                  : 'listening-ielts-notes__table-gap-wrap'
+                              }
+                            >
+                              <TableGapInput
+                                question={question}
+                                answer={answers[question.id] ?? ''}
+                                isActive={activeQuestionId === question.id}
+                                onAnswer={v => onAnswer(question.id, v)}
+                                onSelect={() => onSelectQuestion(question.id)}
+                              />
+                            </span>
+                          )
+                        })}
+                      </div>
+                    ))}
                   </div>
                 </td>
               ))}

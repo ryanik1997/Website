@@ -4,14 +4,15 @@
   "instruction": "Questions 1–7: Complete the notes. Questions 8–10: Matching A–C.",
   "audioFile": "listening.mp3",
   "notePassageLayout": "form",
+  "passageTitle": "Enquiry about booking hotel room for event",
   "notePassage": [
     {
       "type": "example",
       "text": "Example"
     },
     {
-      "type": "example",
-      "text": "Andrew is the Events Manager"
+      "type": "static",
+      "text": "Andrew is the ……Events…… Manager"
     },
     {
       "type": "section",
@@ -19,11 +20,11 @@
     },
     {
       "type": "static",
-      "text": "• Adelphi Room"
+      "text": "Adelphi Room"
     },
     {
       "type": "static",
-      "text": "• number of people who can sit down to eat:"
+      "text": "number of people who can sit down to eat: "
     },
     {
       "type": "gap",
@@ -31,7 +32,11 @@
     },
     {
       "type": "static",
-      "text": "– can go out and see the"
+      "text": "has a gallery suitable for musicians"
+    },
+    {
+      "type": "static",
+      "text": "can go out and see the "
     },
     {
       "type": "gap",
@@ -39,11 +44,11 @@
     },
     {
       "type": "static",
-      "text": "in pots on the terrace"
+      "text": " in pots on the terrace"
     },
     {
       "type": "static",
-      "text": "– terrace has a view of a group of"
+      "text": "terrace has a view of a group of "
     },
     {
       "type": "gap",
@@ -51,15 +56,15 @@
     },
     {
       "type": "static",
-      "text": "– Carlton Room"
+      "text": "Carlton Room"
     },
     {
       "type": "static",
-      "text": "– number of people who can sit down to eat: 110"
+      "text": "number of people who can sit down to eat: 110"
     },
     {
       "type": "static",
-      "text": "– has a"
+      "text": "has a "
     },
     {
       "type": "gap",
@@ -67,7 +72,7 @@
     },
     {
       "type": "static",
-      "text": "– view of the lake"
+      "text": " view of the lake"
     },
     {
       "type": "section",
@@ -75,11 +80,11 @@
     },
     {
       "type": "static",
-      "text": "• Master of Ceremonies:"
+      "text": "Master of Ceremonies:"
     },
     {
       "type": "static",
-      "text": "– can give a"
+      "text": "can give a "
     },
     {
       "type": "gap",
@@ -87,11 +92,11 @@
     },
     {
       "type": "static",
-      "text": "– while people are eating"
+      "text": " while people are eating"
     },
     {
       "type": "static",
-      "text": "– will provide"
+      "text": "will provide "
     },
     {
       "type": "gap",
@@ -99,7 +104,7 @@
     },
     {
       "type": "static",
-      "text": "– if there are any problems"
+      "text": " if there are any problems"
     },
     {
       "type": "section",
@@ -107,7 +112,7 @@
     },
     {
       "type": "static",
-      "text": "• in hotel rooms or"
+      "text": "in the hotel rooms or "
     },
     {
       "type": "gap",
@@ -247,6 +252,5 @@
       "answer": "B",
       "explanation": "Chọn theo audio."
     }
-  ],
-  "passageTitle": "Enquiry about booking hotel room for event"
+  ]
 }

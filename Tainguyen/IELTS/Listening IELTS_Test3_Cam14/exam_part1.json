@@ -4,18 +4,23 @@
   "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
   "notePassageLayout": "form",
+  "passageTitle": "Flanders Conference Hotel",
   "notePassage": [
     {
       "type": "example",
       "text": "Example"
     },
     {
-      "type": "example",
-      "text": "Customer Services Manager: Wilby"
+      "type": "static",
+      "text": "Customer Services Manager: …………Angela……….."
     },
     {
       "type": "static",
-      "text": "• Date available: weekend beginning February 4th"
+      "text": "Date available"
+    },
+    {
+      "type": "static",
+      "text": "● weekend beginning February 4th"
     },
     {
       "type": "section",
@@ -23,7 +28,7 @@
     },
     {
       "type": "static",
-      "text": "• the"
+      "text": "● the "
     },
     {
       "type": "gap",
@@ -31,11 +36,11 @@
     },
     {
       "type": "static",
-      "text": "room for talks"
+      "text": " room for talks"
     },
     {
       "type": "static",
-      "text": "• (projector and"
+      "text": "(projector and "
     },
     {
       "type": "gap",
@@ -43,11 +48,11 @@
     },
     {
       "type": "static",
-      "text": "available)"
+      "text": " available)"
     },
     {
       "type": "static",
-      "text": "• area for coffee and an"
+      "text": "● area for coffee and an "
     },
     {
       "type": "gap",
@@ -55,7 +60,7 @@
     },
     {
       "type": "static",
-      "text": "• free"
+      "text": "● free "
     },
     {
       "type": "gap",
@@ -63,11 +68,11 @@
     },
     {
       "type": "static",
-      "text": "throughout"
+      "text": " throughout"
     },
     {
       "type": "static",
-      "text": "• a standard buffet lunch costs $"
+      "text": "● a standard buffet lunch costs $"
     },
     {
       "type": "gap",
@@ -75,7 +80,7 @@
     },
     {
       "type": "static",
-      "text": "per head"
+      "text": " per head"
     },
     {
       "type": "section",
@@ -83,7 +88,7 @@
     },
     {
       "type": "static",
-      "text": "• Rooms will cost $"
+      "text": "● Rooms will cost $"
     },
     {
       "type": "gap",
@@ -91,7 +96,7 @@
     },
     {
       "type": "static",
-      "text": "including breakfast."
+      "text": " including breakfast."
     },
     {
       "type": "section",
@@ -99,7 +104,7 @@
     },
     {
       "type": "static",
-      "text": "• The hotel also has a spa and rooftop"
+      "text": "● The hotel also has a spa and rooftop "
     },
     {
       "type": "gap",
@@ -107,7 +112,7 @@
     },
     {
       "type": "static",
-      "text": "• There's a free shuttle service to the"
+      "text": "● There's a free shuttle service to the "
     },
     {
       "type": "gap",
@@ -119,7 +124,7 @@
     },
     {
       "type": "static",
-      "text": "• Wilby Street (quite near the"
+      "text": "● Wilby Street (quite near the "
     },
     {
       "type": "gap",
@@ -131,7 +136,7 @@
     },
     {
       "type": "static",
-      "text": "• near to restaurants and many"
+      "text": "● near to restaurants and many "
     },
     {
       "type": "gap",
@@ -147,7 +152,7 @@
       "answer": "tesla",
       "explanation": "Điền theo audio.",
       "wordLimit": 1,
-      "sectionTitle": "Islanders conference"
+      "sectionTitle": "Flanders Conference Hotel"
     },
     {
       "number": 2,
@@ -230,6 +235,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "passageTitle": "Islanders conference"
+  ]
 }

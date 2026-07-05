@@ -103,7 +103,7 @@
         },
         {
           "type": "static",
-          "text": "It may be possible to remove an object from a photo, or change the "
+          "text": "• It may be possible to remove an object from a photo, or change the "
         },
         {
           "type": "gap",
@@ -498,6 +498,45 @@
       "rangeLabel": "Questions 21–30",
       "instruction": "Questions 21–24: Choose A, B or C. Questions 25–30: Complete the flow-chart below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
+      "flowChartSteps": [
+        {
+          "type": "static",
+          "label": "Decide on research question:",
+          "text": "Is there a relationship between hours of sleep and number of dreams?"
+        },
+        {
+          "type": "gap",
+          "label": "Decide on sample:",
+          "number": 25
+        },
+        {
+          "type": "static",
+          "label": "Decide on methodology:",
+          "text": "Self-reporting"
+        },
+        {
+          "type": "gap",
+          "label": "Decide on procedure:",
+          "number": 26
+        },
+        {
+          "type": "gap",
+          "number": 27
+        },
+        {
+          "type": "gap",
+          "number": 28
+        },
+        {
+          "type": "gap",
+          "label": "Analyse the results:",
+          "number": 29
+        },
+        {
+          "type": "gap",
+          "number": 30
+        }
+      ],
       "questions": [
         {
           "number": 21,
@@ -659,8 +698,7 @@
           "wordLimit": 1,
           "flowChart": true,
           "gapLead": "",
-          "gapTrail": "the research",
-          "flowChartEnd": "Evaluate the research."
+          "gapTrail": "the research"
         }
       ]
     },
@@ -717,7 +755,7 @@
         },
         {
           "type": "static",
-          "text": "• better"
+          "text": "• better "
         },
         {
           "type": "gap",
@@ -729,7 +767,7 @@
         },
         {
           "type": "static",
-          "text": "• improves"
+          "text": "• improves "
         },
         {
           "type": "gap",
@@ -745,7 +783,7 @@
         },
         {
           "type": "static",
-          "text": "• gives people more"
+          "text": "• gives people more "
         },
         {
           "type": "gap",
@@ -757,7 +795,7 @@
         },
         {
           "type": "static",
-          "text": "• can lessen the feeling of"
+          "text": "• can lessen the feeling of "
         },
         {
           "type": "gap",
@@ -789,7 +827,7 @@
         },
         {
           "type": "static",
-          "text": "– women suffering from"
+          "text": "– women suffering from "
         },
         {
           "type": "gap",
@@ -801,7 +839,7 @@
         },
         {
           "type": "static",
-          "text": "– Zumba became a"
+          "text": "– Zumba became a "
         },
         {
           "type": "gap",

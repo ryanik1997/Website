@@ -3,9 +3,11 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningNotePassageBlock, ListeningQuestion } from './listeningExamData'
 import {
-  gapLeadRenderedAdjacent,
-  gapTrailRenderedAdjacent,
+  gapLeadRenderedInPassage,
+  gapTrailRenderedInPassage,
   groupNotePassageIntoLines,
+  hasNoteLineMarker,
+  isFormSubFieldRenderLine,
   noteLineBodyText,
   noteLineMarkerKind,
   prepareNotePassageBlocks,
@@ -113,8 +115,10 @@ function GapInlineCompact({
 
 function lineVariant(blocks: ListeningNotePassageBlock[]): '' | 'bullet' | 'sub' {
   const firstStatic = blocks.find(block => block.type === 'static')
-  if (!firstStatic?.text) return ''
-  return noteLineMarkerKind(firstStatic.text)
+  if (firstStatic?.text) {
+    return noteLineMarkerKind(firstStatic.text)
+  }
+  return ''
 }
 
 export default function ListeningIeltsNotePassageBox({
@@ -129,13 +133,19 @@ export default function ListeningIeltsNotePassageBox({
   layout = 'list',
 }: Props) {
   const highlights = useExamHighlights()
+  const isForm = layout === 'form'
   const boxClass = [
     'listening-ielts-notes__box',
-    'listening-ielts-notes__box--lecture',
-    layout === 'form' ? 'listening-ielts-notes__box--form' : '',
+    isForm ? 'listening-ielts-notes__box--form' : 'listening-ielts-notes__box--lecture',
   ].filter(Boolean).join(' ')
 
   const preparedBlocks = prepareNotePassageBlocks(blocks, questionsByNumber)
+  const gapBlockIndices = new Map<number, number>()
+  preparedBlocks.forEach((block, index) => {
+    if (block.type === 'gap' && block.number != null) {
+      gapBlockIndices.set(block.number, index)
+    }
+  })
   // Luôn dùng quy tắc form/lecture (1 static = 1 dòng) — không gom list mode.
   const lines = groupNotePassageIntoLines(
     preparedBlocks,
@@ -180,10 +190,12 @@ export default function ListeningIeltsNotePassageBox({
         }
 
         const variant = lineVariant(line.blocks)
+        const subField = isForm && isFormSubFieldRenderLine(line.blocks)
         const lineClass = [
           'listening-ielts-notes__line',
           variant === 'bullet' ? 'listening-ielts-notes__line--bullet' : '',
           variant === 'sub' ? 'listening-ielts-notes__line--sub' : '',
+          subField ? 'listening-ielts-notes__line--indent' : '',
         ].filter(Boolean).join(' ')
 
         return (
@@ -191,7 +203,8 @@ export default function ListeningIeltsNotePassageBox({
             {line.blocks.map((block, blockIndex) => {
               if (block.type === 'static') {
                 const raw = block.text ?? ''
-                const text = variant ? noteLineBodyText(raw) : raw
+                // Always strip leading bullet marker for form/lecture to avoid double bullets (CSS ::before provides it)
+                const text = hasNoteLineMarker(raw) ? noteLineBodyText(raw) : raw
                 return (
                   <ReadingHighlightableText
                     key={`${partId}-line-${lineIndex}-b-${blockIndex}`}
@@ -208,8 +221,9 @@ export default function ListeningIeltsNotePassageBox({
                 : undefined
               if (!question) return null
 
-              const prevBlock = line.blocks[blockIndex - 1]
-              const nextBlock = line.blocks[blockIndex + 1]
+              const gapIndex = block.number != null
+                ? gapBlockIndices.get(block.number) ?? -1
+                : -1
 
               return (
                 <GapInlineCompact
@@ -219,8 +233,8 @@ export default function ListeningIeltsNotePassageBox({
                   isActive={activeQuestionId === question.id}
                   onAnswer={v => onAnswer(question.id, v)}
                   onSelect={() => onSelectQuestion(question.id)}
-                  suppressLead={gapLeadRenderedAdjacent(prevBlock, question.gapLead)}
-                  suppressTrail={gapTrailRenderedAdjacent(nextBlock, question.gapTrail)}
+                  suppressLead={gapLeadRenderedInPassage(preparedBlocks, gapIndex, question.gapLead)}
+                  suppressTrail={gapTrailRenderedInPassage(preparedBlocks, gapIndex, question.gapTrail)}
                 />
               )
             })}

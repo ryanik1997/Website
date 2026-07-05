@@ -68,7 +68,7 @@
         },
         {
           "type": "static",
-          "text": "• •"
+          "text": "•"
         },
         {
           "type": "gap",
@@ -116,23 +116,23 @@
         },
         {
           "type": "static",
-          "text": "• (near the Cruise Ship Terminal)"
-        },
-        {
-          "type": "section",
-          "text": "Cyclists need:"
+          "text": "(near the Cruise Ship Terminal)"
         },
         {
           "type": "static",
-          "text": "• a repair kit"
+          "text": "• Cyclists need:"
         },
         {
           "type": "static",
-          "text": "• food and drink"
+          "text": "– a repair kit"
         },
         {
           "type": "static",
-          "text": "• a"
+          "text": "– food and drink"
+        },
+        {
+          "type": "static",
+          "text": "– a"
         },
         {
           "type": "gap",
@@ -448,7 +448,7 @@
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 17 – 20",
           "sectionInstruction": "What is the responsibility of each of the following restaurant staff? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 17–20.",
-          "sectionTitle": "Restaurant staff"
+          "sectionTitle": "RESPONSIBILITIES"
         },
         {
           "number": 18,
@@ -779,6 +779,7 @@
       "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
       "audioFile": "listening.mp3",
       "passageTitle": "Four business values",
+      "notePassageLayout": "lecture",
       "notePassage": [
         {
           "type": "static",
@@ -814,7 +815,7 @@
         },
         {
           "type": "static",
-          "text": "• Other teams experienced"
+          "text": "Other teams experienced"
         },
         {
           "type": "gap",
@@ -826,11 +827,11 @@
         },
         {
           "type": "static",
-          "text": "• The speaker's team won because they reduced collaboration."
+          "text": "The speaker's team won because they reduced collaboration."
         },
         {
           "type": "static",
-          "text": "• Sales of a"
+          "text": "Sales of a"
         },
         {
           "type": "gap",
@@ -854,7 +855,7 @@
         },
         {
           "type": "static",
-          "text": "• The word 'lazy' in this context refers to people who avoid doing tasks that are"
+          "text": "The word 'lazy' in this context refers to people who avoid doing tasks that are"
         },
         {
           "type": "gap",
@@ -866,7 +867,7 @@
         },
         {
           "type": "static",
-          "text": "• An advertising campaign for a"
+          "text": "An advertising campaign for a"
         },
         {
           "type": "gap",
@@ -878,7 +879,7 @@
         },
         {
           "type": "static",
-          "text": "• Creativity should be used as a response to a particular"
+          "text": "Creativity should be used as a response to a particular"
         },
         {
           "type": "gap",
@@ -890,7 +891,7 @@
         },
         {
           "type": "static",
-          "text": "• According to one study, on average, pioneers had a"
+          "text": "According to one study, on average, pioneers had a"
         },
         {
           "type": "gap",
@@ -902,7 +903,7 @@
         },
         {
           "type": "static",
-          "text": "• Companies that always aim at excellence may miss opportunities."
+          "text": "Companies that always aim at excellence may miss opportunities."
         }
       ],
       "questions": [
@@ -1001,8 +1002,7 @@
           "wordLimit": 2,
           "sectionTitle": "Excellence"
         }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }

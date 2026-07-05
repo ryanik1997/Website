@@ -7,6 +7,23 @@ function normalizeExamTitle(title: string): string {
   return title.trim().toLowerCase().replace(/\s+/g, ' ')
 }
 
+/** URL audio catalog theo title IELTS (Cambridge X Test Y) khi không có twin trong bundle. */
+export function inferIeltsCatalogAudioUrl(title: string): string | undefined {
+  const match = title.match(/Cambridge\s*(\d+)\s*Test\s*(\d+)/i)
+  if (!match) return undefined
+  return `/catalog/listening/ielts-cam${match[1]}-test${match[2]}/listening.mp3`
+}
+
+/** Audio URL từ builtin catalog hoặc đường dẫn public suy ra từ title IELTS. */
+export function resolveListeningCatalogAudioUrl(
+  exam: Pick<ListeningExam, 'examType' | 'title'>,
+): string | undefined {
+  const twin = findCatalogListeningTwin(exam)
+  if (twin) return catalogSharedListeningAudioUrl(twin)
+  if (exam.examType === 'ielts') return inferIeltsCatalogAudioUrl(exam.title)
+  return undefined
+}
+
 /** Tìm đề builtin catalog khớp examType + title (dùng khi import / resolve) */
 export function findCatalogListeningTwin(
   exam: Pick<ListeningExam, 'examType' | 'title'>,
@@ -96,7 +113,7 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
   if (!merged.passageTitle && catalog.passageTitle) {
     merged = { ...merged, passageTitle: catalog.passageTitle }
   }
-  if (catalog.notePassage?.length) {
+  if (catalog.notePassage?.length && !local.notePassage?.length) {
     merged = { ...merged, notePassage: catalog.notePassage }
   }
   if (!merged.noteTable?.rows?.length && catalog.noteTable?.rows?.length) {
@@ -136,12 +153,21 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
 /** Bổ sung audioUrl / pictureImageUrl từ builtin catalog khi bản import thiếu blob */
 export function mergeCatalogListeningMedia(local: ListeningExam): ListeningExam {
   const catalog = findCatalogListeningTwin(local)
-  if (!catalog) return local
+  const fallbackAudioUrl = resolveListeningCatalogAudioUrl(local)
 
-  const parts = local.parts.map(part => {
-    const catPart = catalog.parts.find(p => p.partNumber === part.partNumber)
-    return mergePartMedia(part, catPart)
-  })
+  let parts = catalog
+    ? local.parts.map(part => {
+        const catPart = catalog.parts.find(p => p.partNumber === part.partNumber)
+        return mergePartMedia(part, catPart)
+      })
+    : [...local.parts]
+
+  if (fallbackAudioUrl) {
+    parts = parts.map(part => ({
+      ...part,
+      audioUrl: part.audioUrl ?? fallbackAudioUrl,
+    }))
+  }
 
   return { ...local, parts }
 }

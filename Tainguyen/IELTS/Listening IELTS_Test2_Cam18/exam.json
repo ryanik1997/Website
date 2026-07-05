@@ -11,7 +11,8 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Questions 1–5: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 6–10: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
-      "noteTables": [
+      "notePassageLayout": "form",
+      "notePassageSections": [
         {
           "gapNumbers": [
             1,
@@ -22,105 +23,75 @@
           ],
           "instruction": "Questions 1 – 5\nComplete the notes below. Write ONE WORD ONLY for each answer.",
           "title": "Working at Milo's Restaurants",
-          "headers": [
-            "Section",
-            "Details"
-          ],
-          "rows": [
+          "blocks": [
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Benefits"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "• "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 1
-                  },
-                  {
-                    "type": "static",
-                    "text": " provided for all staff"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "• "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 2
-                  },
-                  {
-                    "type": "static",
-                    "text": " during weekdays at all Milo's Restaurants"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "• "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 3
-                  },
-                  {
-                    "type": "static",
-                    "text": " provided after midnight"
-                  }
-                ]
-              ]
+              "type": "section",
+              "text": "Benefits"
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Person specification"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "• must be prepared to work well in a team"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "• must care about maintaining a high standard of "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "• must have a qualification in "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 5
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "• "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " provided for all staff"
+            },
+            {
+              "type": "static",
+              "text": "• "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " during weekdays at all Milo's Restaurants"
+            },
+            {
+              "type": "static",
+              "text": "• "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " provided after midnight"
+            },
+            {
+              "type": "section",
+              "text": "Person specification"
+            },
+            {
+              "type": "static",
+              "text": "• must be prepared to work well in a team"
+            },
+            {
+              "type": "static",
+              "text": "• must care about maintaining a high standard of "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "• must have a qualification in "
+            },
+            {
+              "type": "gap",
+              "number": 5
             }
           ]
-        },
+        }
+      ],
+      "noteTables": [
         {
           "gapNumbers": [
             6,
@@ -140,10 +111,6 @@
             {
               "cells": [
                 [
-                  {
-                    "type": "static",
-                    "text": "6 "
-                  },
                   {
                     "type": "gap",
                     "number": 6
@@ -357,7 +324,6 @@
           "wordLimit": 1
         }
       ],
-      "notePassageLayout": "table",
       "passageTitle": "Working at Milo's Restaurants"
     },
     {

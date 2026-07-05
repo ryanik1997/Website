@@ -25,7 +25,10 @@
     "ielts:merge": "npx vite-node scripts/ielts-listening-bundle.ts merge",
     "ielts:validate": "npx vite-node scripts/ielts-listening-bundle.ts validate",
     "ielts:pack": "npx vite-node scripts/ielts-listening-bundle.ts pack",
+    "ielts:publish-media": "node scripts/publish-ielts-listening-media.mjs",
     "ielts:bundle": "npx vite-node scripts/ielts-listening-bundle.ts all",
+    "gen:ielts-html": "python gen.py",
+    "ielts:docx:bundle": "npx vite-node scripts/ielts-listening-docx-bundle.ts",
     "pack:reading:cae": "node scripts/pack-reading-bundle.mjs cae-Reading-test1",
     "build": "pnpm build:catalog && pnpm --filter web build",
     "dev:server": "pnpm --filter server dev",
@@ -36,6 +39,7 @@
     "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes"
   },
   "devDependencies": {
+    "@xmldom/xmldom": "^0.9.10",
     "supabase": "^2.108.0"
   },
   "engines": {

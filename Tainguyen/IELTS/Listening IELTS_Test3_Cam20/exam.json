@@ -12,6 +12,7 @@
       "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
       "notePassageLayout": "table",
+      "passageTitle": "Furniture rental companies",
       "noteTable": {
         "headers": [
           "Name of companies",
@@ -44,7 +45,7 @@
               [
                 {
                   "type": "static",
-                  "text": "The furniture is very "
+                  "text": "• The furniture is very "
                 },
                 {
                   "type": "gap",
@@ -55,14 +56,14 @@
                 },
                 {
                   "type": "static",
-                  "text": "Delivers in 1–2 days"
+                  "text": "• Delivers in 1-2 days"
                 },
                 {
                   "type": "break"
                 },
                 {
                   "type": "static",
-                  "text": "Special offer: free "
+                  "text": "• Special offer: free "
                 },
                 {
                   "type": "gap",
@@ -90,21 +91,21 @@
               [
                 {
                   "type": "static",
-                  "text": "Mid-range prices"
-                }
-              ],
-              [
-                {
-                  "type": "static",
-                  "text": "12% monthly fee for "
-                },
-                {
-                  "type": "gap",
-                  "number": 5
+                  "text": "• Mid-range prices"
                 },
                 {
                   "type": "break"
                 },
+                {
+                  "type": "static",
+                  "text": "• 12% monthly fee for "
+                },
+                {
+                  "type": "gap",
+                  "number": 5
+                }
+              ],
+              [
                 {
                   "type": "static",
                   "text": "Also offers a cleaning service"
@@ -137,7 +138,7 @@
               [
                 {
                   "type": "static",
-                  "text": "Must have own "
+                  "text": "• Must have own "
                 },
                 {
                   "type": "gap",
@@ -148,18 +149,7 @@
                 },
                 {
                   "type": "static",
-                  "text": "Must have enough "
-                },
-                {
-                  "type": "gap",
-                  "number": 8
-                },
-                {
-                  "type": "break"
-                },
-                {
-                  "type": "static",
-                  "text": "Minimum contract length: six months"
+                  "text": "• Minimum contract length: six months"
                 }
               ]
             ]
@@ -168,8 +158,12 @@
             "cells": [
               [
                 {
+                  "type": "gap",
+                  "number": 8
+                },
+                {
                   "type": "static",
-                  "text": "8 Rentals"
+                  "text": " Rentals"
                 }
               ],
               [
@@ -268,10 +262,10 @@
         {
           "number": 8,
           "type": "gap-fill",
-          "prompt": "must have enough …:",
+          "prompt": "… Rentals (company name):",
           "options": [],
           "answer": "space",
-          "explanation": "Không gian.",
+          "explanation": "Space Rentals.",
           "wordLimit": 2
         },
         {
@@ -292,8 +286,7 @@
           "explanation": "Đổi trả.",
           "wordLimit": 2
         }
-      ],
-      "passageTitle": "Furniture rental companies"
+      ]
     },
     {
       "partNumber": 2,
@@ -862,6 +855,8 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
+      "notePassageLayout": "lecture",
+      "passageTitle": "Inclusive design",
       "notePassage": [
         {
           "type": "section",
@@ -869,7 +864,7 @@
         },
         {
           "type": "static",
-          "text": "Designing products that can be accessed by a diverse range of people without the need for any"
+          "text": "• Designing products that can be accessed by a diverse range of people without the need for any "
         },
         {
           "type": "gap",
@@ -877,11 +872,15 @@
         },
         {
           "type": "static",
-          "text": "• Not the same as universal design: that is design for everyone, including catering for people with"
+          "text": "• Not the same as universal design: that is design for everyone, including catering for people with "
         },
         {
           "type": "gap",
           "number": 32
+        },
+        {
+          "type": "static",
+          "text": " problems"
         },
         {
           "type": "section",
@@ -889,7 +888,7 @@
         },
         {
           "type": "static",
-          "text": "•"
+          "text": "• "
         },
         {
           "type": "gap",
@@ -901,7 +900,7 @@
         },
         {
           "type": "static",
-          "text": "•"
+          "text": "• "
         },
         {
           "type": "gap",
@@ -912,12 +911,12 @@
           "text": " in public toilets which are easier to use"
         },
         {
-          "type": "static",
-          "text": "• To assist the elderly:"
+          "type": "section",
+          "text": "To assist the elderly:"
         },
         {
           "type": "static",
-          "text": "– Designers avoid using"
+          "text": "• Designers avoid using "
         },
         {
           "type": "gap",
@@ -929,7 +928,7 @@
         },
         {
           "type": "static",
-          "text": "– People can make commands using a mouse, keyboard or their"
+          "text": "• People can make commands using a mouse, keyboard or their "
         },
         {
           "type": "gap",
@@ -941,11 +940,19 @@
         },
         {
           "type": "static",
-          "text": "• Access — Loss of independence for disabled people."
+          "text": "Access"
         },
         {
           "type": "static",
-          "text": "• Safety — Seatbelts are especially problematic for"
+          "text": "– Loss of independence for disabled people."
+        },
+        {
+          "type": "static",
+          "text": "Safety"
+        },
+        {
+          "type": "static",
+          "text": "– Seatbelts are especially problematic for "
         },
         {
           "type": "gap",
@@ -957,7 +964,7 @@
         },
         {
           "type": "static",
-          "text": "• PPE jackets are often unsuitable because of the size of women's"
+          "text": "– PPE jackets are often unsuitable because of the size of women's "
         },
         {
           "type": "gap",
@@ -965,7 +972,7 @@
         },
         {
           "type": "static",
-          "text": "• PPE for female"
+          "text": "– PPE for female "
         },
         {
           "type": "gap",
@@ -973,11 +980,15 @@
         },
         {
           "type": "static",
-          "text": " • officers dealing with emergencies is the worst."
+          "text": " officers dealing with emergencies is the worst."
         },
         {
           "type": "static",
-          "text": "• Comfort in the workplace — The"
+          "text": "Comfort in the workplace"
+        },
+        {
+          "type": "static",
+          "text": "– The "
         },
         {
           "type": "gap",
@@ -1080,9 +1091,7 @@
           "explanation": "Nhiệt độ.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture",
-      "passageTitle": "Inclusive design"
+      ]
     }
   ]
 }

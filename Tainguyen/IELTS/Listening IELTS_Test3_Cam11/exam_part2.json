@@ -3,6 +3,7 @@
   "rangeLabel": "Questions 11–20",
   "instruction": "Questions 11–15: Choose A, B or C. Questions 16–20: Matching A–G.",
   "audioFile": "listening.mp3",
+  "imageFile": "map.jpg",
   "questions": [
     {
       "number": 11,
@@ -148,8 +149,10 @@
       ],
       "answer": "G",
       "explanation": "Chọn theo audio.",
+      "mapLabel": true,
       "sectionRange": "Questions 16 – 20",
-      "sectionInstruction": "What is planned for each facility? Choose FIVE answers A–G."
+      "sectionInstruction": "What is planned for each of the following facilities? Choose FIVE answers from the box and write the correct letter A–G next to questions 16–20.",
+      "sectionTitle": "PLANS FOR FACILITIES"
     },
     {
       "number": 17,
@@ -186,7 +189,8 @@
         }
       ],
       "answer": "A",
-      "explanation": "Chọn theo audio."
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
     },
     {
       "number": 18,
@@ -223,7 +227,8 @@
         }
       ],
       "answer": "C",
-      "explanation": "Chọn theo audio."
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
     },
     {
       "number": 19,
@@ -260,7 +265,8 @@
         }
       ],
       "answer": "B",
-      "explanation": "Chọn theo audio."
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
     },
     {
       "number": 20,
@@ -297,7 +303,8 @@
         }
       ],
       "answer": "F",
-      "explanation": "Chọn theo audio."
+      "explanation": "Chọn theo audio.",
+      "mapLabel": true
     }
   ]
 }

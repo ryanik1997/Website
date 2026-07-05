@@ -161,11 +161,15 @@ export function useExamQuestionAudio() {
     const htmlSources: string[] = []
 
     if (source.audioKey) {
-      const record = await audioRepo.get(source.audioKey)
-      if (record?.blob && record.blob.size > 0) {
-        const blobUrl = URL.createObjectURL(record.blob)
-        objectUrlRef.current = blobUrl
-        htmlSources.push(blobUrl)
+      try {
+        const record = await audioRepo.get(source.audioKey)
+        if (record?.blob && record.blob.size > 0) {
+          const blobUrl = URL.createObjectURL(record.blob)
+          objectUrlRef.current = blobUrl
+          htmlSources.push(blobUrl)
+        }
+      } catch (blobError) {
+        console.warn('Exam audio blob unavailable, trying URL fallback', source.audioKey, blobError)
       }
     }
     if (staticUrl && !htmlSources.includes(staticUrl)) {

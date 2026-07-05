@@ -42,7 +42,8 @@
       "answer": "E",
       "explanation": "Chọn theo audio.",
       "sectionRange": "Questions 11 – 16",
-      "sectionInstruction": "What does the speaker say about each collection? Choose SIX answers A–G."
+      "sectionInstruction": "What does the speaker say about each of the following collections? Choose SIX answers from the box and write the correct letter A–G next to questions 11–16.",
+      "sectionTitle": "MUSEUM COLLECTIONS"
     },
     {
       "number": 12,
@@ -232,7 +233,7 @@
     {
       "number": 17,
       "type": "matching",
-      "prompt": "Restaurant",
+      "prompt": "restaurant",
       "options": [
         {
           "id": "A",
@@ -271,13 +272,13 @@
       "explanation": "Chọn theo audio.",
       "mapLabel": true,
       "sectionRange": "Questions 17 – 20",
-      "sectionInstruction": "Label the plan below. Write the correct letter A–H.",
-      "sectionTitle": "Basement of museum"
+      "sectionInstruction": "Label the plan below. Write the correct letter A–H next to Questions 17–20.",
+      "sectionTitle": "MUSEUM PLAN"
     },
     {
       "number": 18,
       "type": "matching",
-      "prompt": "Café",
+      "prompt": "café",
       "options": [
         {
           "id": "A",
@@ -319,7 +320,7 @@
     {
       "number": 19,
       "type": "matching",
-      "prompt": "Baby-changing facilities",
+      "prompt": "baby-changing facilities",
       "options": [
         {
           "id": "A",
@@ -361,7 +362,7 @@
     {
       "number": 20,
       "type": "matching",
-      "prompt": "Cloakroom",
+      "prompt": "cloakroom",
       "options": [
         {
           "id": "A",

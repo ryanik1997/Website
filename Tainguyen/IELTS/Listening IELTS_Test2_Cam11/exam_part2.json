@@ -1,191 +1,289 @@
 {
   "partNumber": 2,
   "rangeLabel": "Questions 11–20",
-  "instruction": "Questions 11–16: Choose TWO letters A–E. Questions 17–20: Label the plan A–G.",
+  "instruction": "Choose TWO letters A–E.",
   "audioFile": "listening.mp3",
-  "imageFile": "map.jpg",
   "questions": [
     {
       "number": 11,
       "type": "matching",
-      "prompt": "Which TWO changes have been made so far during the refurbishment of the theatre?",
+      "prompt": "Question 11",
       "options": [
         {
           "id": "A",
-          "label": "Some rooms now have a different use."
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "A different type of seating has been installed."
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "An elevator has been installed."
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "The outside of the building has been repaired."
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "Extra seats have been added."
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "E/A",
-      "explanation": "Sửa ngoài (E) và đổi chức năng phòng (A).",
-      "sectionRange": "Questions 11 – 12",
-      "sectionInstruction": "Choose TWO letters, A–E.",
-      "sectionTitle": "New staff at theatre"
+      "answer": "E",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 12,
       "type": "matching",
-      "prompt": "Which TWO changes have been made so far during the refurbishment of the theatre?",
+      "prompt": "Question 12",
       "options": [
         {
           "id": "A",
-          "label": "Some rooms now have a different use."
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "A different type of seating has been installed."
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "An elevator has been installed."
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "The outside of the building has been repaired."
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "Extra seats have been added."
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "E/A",
-      "explanation": "Sửa ngoài (E) và đổi chức năng phòng (A). (cặp 11–12)"
+      "answer": "E",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 13,
       "type": "matching",
-      "prompt": "Which TWO facilities does the theatre currently offer to the public?",
+      "prompt": "Question 13",
       "options": [
         {
           "id": "A",
-          "label": "rooms for hire"
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "backstage tours"
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "hire of costumes"
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "a bookshop"
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "a café"
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "B/D",
-      "explanation": "Tham quan hậu trường (B) và hiệu sách (D)."
+      "answer": "B",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 14,
       "type": "matching",
-      "prompt": "Which TWO facilities does the theatre currently offer to the public?",
+      "prompt": "Question 14",
       "options": [
         {
           "id": "A",
-          "label": "rooms for hire"
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "backstage tours"
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "hire of costumes"
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "a bookshop"
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "a café"
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "B/D",
-      "explanation": "Tham quan hậu trường (B) và hiệu sách (D). (cặp 13–14)"
+      "answer": "B",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 15,
       "type": "matching",
-      "prompt": "Which TWO workshops does the theatre currently offer?",
+      "prompt": "Question 15",
       "options": [
         {
           "id": "A",
-          "label": "sound"
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "acting"
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "making puppets"
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "make-up"
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "lighting"
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "C/E",
-      "explanation": "Làm rối (C) và ánh sáng (E)."
+      "answer": "C",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 16,
       "type": "matching",
-      "prompt": "Which TWO workshops does the theatre currently offer?",
+      "prompt": "Question 16",
       "options": [
         {
           "id": "A",
-          "label": "sound"
+          "label": "A"
         },
         {
           "id": "B",
-          "label": "acting"
+          "label": "B"
         },
         {
           "id": "C",
-          "label": "making puppets"
+          "label": "C"
         },
         {
           "id": "D",
-          "label": "make-up"
+          "label": "D"
         },
         {
           "id": "E",
-          "label": "lighting"
+          "label": "E"
+        },
+        {
+          "id": "F",
+          "label": "F"
+        },
+        {
+          "id": "G",
+          "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
-      "answer": "C/E",
-      "explanation": "Làm rối (C) và ánh sáng (E). (cặp 15–16)"
+      "answer": "C",
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 17,
       "type": "matching",
-      "prompt": "Box office",
+      "prompt": "box office",
       "options": [
         {
           "id": "A",
@@ -214,19 +312,24 @@
         {
           "id": "G",
           "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
       "answer": "G",
-      "explanation": "Chọn theo audio.",
-      "mapLabel": true,
-      "sectionRange": "Questions 17 – 20",
-      "sectionInstruction": "Label the plan below. Write the correct letter A–G.",
-      "sectionTitle": "Ground floor plan of theatre"
+      "explanation": "Chọn theo answer key.",
+      "mapLabel": true
     },
     {
       "number": 18,
       "type": "matching",
-      "prompt": "Theatre manager's office",
+      "prompt": "theatre manager's office",
       "options": [
         {
           "id": "A",
@@ -255,16 +358,24 @@
         {
           "id": "G",
           "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
       "answer": "D",
-      "explanation": "Chọn theo audio.",
+      "explanation": "Chọn theo answer key.",
       "mapLabel": true
     },
     {
       "number": 19,
       "type": "matching",
-      "prompt": "Lighting box",
+      "prompt": "lighting box",
       "options": [
         {
           "id": "A",
@@ -293,16 +404,24 @@
         {
           "id": "G",
           "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
       "answer": "B",
-      "explanation": "Chọn theo audio.",
+      "explanation": "Chọn theo answer key.",
       "mapLabel": true
     },
     {
       "number": 20,
       "type": "matching",
-      "prompt": "Artistic director's office",
+      "prompt": "artistic director's offices",
       "options": [
         {
           "id": "A",
@@ -331,11 +450,49 @@
         {
           "id": "G",
           "label": "G"
+        },
+        {
+          "id": "H",
+          "label": "H"
+        },
+        {
+          "id": "I",
+          "label": "I"
         }
       ],
       "answer": "F",
-      "explanation": "Chọn theo audio.",
+      "explanation": "Chọn theo answer key.",
       "mapLabel": true
+    }
+  ],
+  "notePassage": [
+    {
+      "type": "static",
+      "text": "11–12Which TWO changes have been made so far during the refurbishment of the theatre?"
+    },
+    {
+      "type": "static",
+      "text": "Choose TWO letters A–E."
+    },
+    {
+      "type": "static",
+      "text": "13–14Which TWO facilities does the theatre currently offer to the public?"
+    },
+    {
+      "type": "static",
+      "text": "Choose TWO letters A–E."
+    },
+    {
+      "type": "static",
+      "text": "15–16Which TWO workshops does the theatre currently offer?"
+    },
+    {
+      "type": "static",
+      "text": "PLAN OF THEATRE"
+    },
+    {
+      "type": "static",
+      "text": "AABBCCDDEEFFGG"
     }
   ]
 }

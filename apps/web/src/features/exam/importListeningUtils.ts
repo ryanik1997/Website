@@ -3,23 +3,30 @@ import type {
   ListeningExam,
   ListeningExamMode,
   ListeningExamType,
+  ListeningFlowChartStep,
   ListeningNotePassageBlock,
   ListeningNoteTable,
   ListeningPart,
   ListeningQuestion,
   ListeningQuestionType,
 } from './listeningExamData'
-import { validateNotePassageBlocks, validateNoteTable, validateNoteTables } from './listeningNotePassage'
+import {
+  gapNumbersFromSections,
+  validateNotePassageBlocks,
+  validateNoteTable,
+  validateNoteTables,
+} from './listeningNotePassage'
 import { listeningExamAudioKey } from './listeningExamData'
 import {
   catalogPartImageUrl,
   catalogPictureImageUrl,
   catalogQuestionAudioUrl,
-  catalogSharedListeningAudioUrl,
   findCatalogListeningTwin,
+  resolveListeningCatalogAudioUrl,
 } from './listeningExamCatalogMerge'
 import { compositePictureFileCandidates } from './listeningPictureMc'
 import { ieltsListeningFullTemplate } from './ieltsListeningImportTemplates'
+import { normalizeListeningImportPayload } from './listeningImportNormalize'
 
 export const LISTENING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const LISTENING_IMPORT_MAX_MEDIA_BYTES = 80 * 1024 * 1024
@@ -70,7 +77,7 @@ export interface ListeningImportPartJson {
   taskOneInstruction?: string
   taskTwoInstruction?: string
   notePassage?: ListeningNotePassageBlock[]
-  notePassageLayout?: 'list' | 'table' | 'form'
+  notePassageLayout?: 'list' | 'table' | 'form' | 'lecture'
   noteTable?: ListeningNoteTable
   noteTables?: ListeningNoteTable[]
   notePassageSections?: Array<{
@@ -79,6 +86,7 @@ export interface ListeningImportPartJson {
     instruction?: string
     title?: string
   }>
+  flowChartSteps?: ListeningFlowChartStep[]
   questions: ListeningImportQuestionJson[]
 }
 
@@ -248,24 +256,42 @@ export function validateListeningImport(payload: ListeningImportPayload): string
       const gapNumbers = (part.questions ?? [])
         .filter(q => q.type === 'gap-fill')
         .map(q => q.number)
-      if (part.notePassageLayout === 'table' || part.noteTables?.length) {
+      const sectionGaps = gapNumbersFromSections(part.notePassageSections)
+      const hasSections = Boolean(part.notePassageSections?.length)
+      const hasTables = part.notePassageLayout === 'table' || Boolean(part.noteTables?.length)
+      const hasSingleTable = Boolean(part.noteTable)
+      const tableGapNumbers = sectionGaps.length
+        ? gapNumbers.filter(n => !sectionGaps.includes(n))
+        : gapNumbers
+
+      if (hasTables) {
         warnings.push(
           ...validateNoteTables(
             part.noteTables,
             part.noteTable,
-            gapNumbers,
+            tableGapNumbers,
             `Part ${part.partNumber}`,
           ),
         )
-      } else if (part.noteTable) {
+      } else if (hasSingleTable) {
         warnings.push(
           ...validateNoteTable(
             part.noteTable,
-            gapNumbers,
+            tableGapNumbers,
             `Part ${part.partNumber}`,
           ),
         )
-      } else {
+      }
+
+      if (hasSections) {
+        warnings.push(
+          ...validateNotePassageBlocks(
+            part.notePassageSections!.flatMap(s => s.blocks),
+            sectionGaps.length ? sectionGaps : gapNumbers,
+            `Part ${part.partNumber}`,
+          ),
+        )
+      } else if (!hasTables && !hasSingleTable) {
         warnings.push(
           ...validateNotePassageBlocks(
             part.notePassage,
@@ -321,7 +347,8 @@ async function storeSharedMedia(
   const cached = cache.get(fileKey)
   if (cached) return cached
 
-  const mediaKey = listeningExamAudioKey(examId, suffix)
+  const sharedListening = fileKey === 'listening.mp3'
+  const mediaKey = listeningExamAudioKey(examId, sharedListening ? 'shared-listening' : suffix)
   await audioRepo.put(mediaKey, file)
   cache.set(fileKey, mediaKey)
   return mediaKey
@@ -332,16 +359,20 @@ export async function buildListeningExamFromImport(
   mediaFiles: File[],
   examId = buildImportedListeningExamId(),
 ): Promise<ListeningExam> {
+  const normalized = normalizeListeningImportPayload(payload)
   const mediaMap = buildMediaMap(mediaFiles)
   const sharedMediaKeys = new Map<string, string>()
   const catalogTwin = findCatalogListeningTwin({
     examType: payload.examType,
     title: payload.title,
   })
-  const catalogAudioUrl = catalogTwin ? catalogSharedListeningAudioUrl(catalogTwin) : undefined
+  const catalogAudioUrl = resolveListeningCatalogAudioUrl({
+    examType: payload.examType,
+    title: payload.title,
+  })
   const parts: ListeningPart[] = []
 
-  for (const partJson of payload.parts) {
+  for (const partJson of normalized.parts) {
     const partId = `${examId}-part-${partJson.partNumber}`
     let partAudioKey: string | undefined
 
@@ -475,6 +506,7 @@ export async function buildListeningExamFromImport(
       noteTable: partJson.noteTable,
       noteTables: partJson.noteTables,
       notePassageSections: partJson.notePassageSections,
+      flowChartSteps: partJson.flowChartSteps,
       questions,
     })
   }

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 4 • Listening • Cambridge 13</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 4</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 13</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 4. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Alex&#x27;s Training</span></div>
+<div class="form-row mb-3"><div class="form-label font-medium">• Example</div><div class="flex-1"><span class="text-gray-700">(example)</span><span class="example-badge">(Example)</span></div></div>
+<div class="form-row mb-3"><div class="form-label font-medium">• Alex completed his training in 2014</div><div class="flex-1"><span class="text-gray-700">(example)</span><span class="example-badge">(Example)</span></div></div>
+<div class="font-semibold mt-2 mb-1">About the applicant:</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>At first, Alex did his training in the</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">department.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Alex didn&#x27;t have a qualification from school in</span><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Alex thinks he should have done the diploma in</span><span class="question-number">3</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">skills.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Age of other trainees: the youngest was</span><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="font-semibold mt-2 mb-1">Benefits of doing training at JPNW:</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Lots of opportunities because of the size of the organisation.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Trainees receive the same amount of</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">as permanent staff.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The training experience increases people&#x27;s confidence a lot.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Trainees go to</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">one day per month.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The company is in a convenient</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="font-semibold mt-2 mb-1">Advice for interview:</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Don&#x27;t wear</span><span class="question-number">8</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Don&#x27;t be</span><span class="question-number">9</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Make sure you</span><span class="question-number">10</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Alex&#x27;s Training</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–16: Choose A, B or C. Questions 17–20: Matching A–F.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 – 16<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">The Snow Centre</span></div>
+<div class="mb-5"><div class="font-medium mb-2">11 Annie recommends that when cross-country skiing the visitors should</div><div class="mcq-container space-y-1" data-question="q11"><div onclick="selectOption(this, 'q11')" class="option" data-value="A"><span class="option-label">A</span><span>get away from the regular trails.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="B"><span class="option-label">B</span><span>stop to enjoy views of the scenery.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="C"><span class="option-label">C</span><span>go at a slow speed at the beginning.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">12 What does Annie tell the group about this afternoon&#x27;s dog-sled trip?</div><div class="mcq-container space-y-1" data-question="q12"><div onclick="selectOption(this, 'q12')" class="option" data-value="A"><span class="option-label">A</span><span>Those who want to can take part in a race.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="B"><span class="option-label">B</span><span>Anyone has the chance to drive a team of dogs.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="C"><span class="option-label">C</span><span>One group member will be chosen to lead the trail.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">13 What does Annie say about the team relay event?</div><div class="mcq-container space-y-1" data-question="q13"><div onclick="selectOption(this, 'q13')" class="option" data-value="A"><span class="option-label">A</span><span>All participants receive a medal.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="B"><span class="option-label">B</span><span>The course is 4 km long.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="C"><span class="option-label">C</span><span>Each team is led by a teacher.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">14 On the snow-shoe trip, the visitors will</div><div class="mcq-container space-y-1" data-question="q14"><div onclick="selectOption(this, 'q14')" class="option" data-value="A"><span class="option-label">A</span><span>visit an old gold mine.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="B"><span class="option-label">B</span><span>learn about unusual flowers.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="C"><span class="option-label">C</span><span>climb to the top of a mountain.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">15 The cost of accommodation in the mountain hut includes</div><div class="mcq-container space-y-1" data-question="q15"><div onclick="selectOption(this, 'q15')" class="option" data-value="A"><span class="option-label">A</span><span>a supply of drinking water.</span></div>
+<div onclick="selectOption(this, 'q15')" class="option" data-value="B"><span class="option-label">B</span><span>transport of visitors&#x27; luggage.</span></div>
+<div onclick="selectOption(this, 'q15')" class="option" data-value="C"><span class="option-label">C</span><span>cooked meals.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">16 If there is a storm while the visitors are in the hut, they should</div><div class="mcq-container space-y-1" data-question="q16"><div onclick="selectOption(this, 'q16')" class="option" data-value="A"><span class="option-label">A</span><span>contact the bus driver.</span></div>
+<div onclick="selectOption(this, 'q16')" class="option" data-value="B"><span class="option-label">B</span><span>wait until the weather improves.</span></div>
+<div onclick="selectOption(this, 'q16')" class="option" data-value="C"><span class="option-label">C</span><span>use the emergency locator beacon.</span></div></div></div>
+<div class="section-subheader">Questions 17 – 20<br><span class="section-subinstruction">What information does Annie give about skiing on each of the following mountain trails? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 17–20.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Mountain trails</span></div>
+<div class="map-label-row"><span class="question-number">17</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Highland Trail</span></div>
+<div class="map-label-row"><span class="question-number">18</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Pine Trail</span></div>
+<div class="map-label-row"><span class="question-number">19</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Stony Trail</span></div>
+<div class="map-label-row"><span class="question-number">20</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Loser&#x27;s Trail</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–26: Choose A, B or C. Questions 27–28 and 29–30: Choose TWO A–E.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 21 – 26<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Labels giving nutritional information on food packaging</span></div>
+<div class="mb-5"><div class="font-medium mb-2">21 What was Jack&#x27;s attitude to nutritional food labels before this project?</div><div class="mcq-container space-y-1" data-question="q21"><div onclick="selectOption(this, 'q21')" class="option" data-value="A"><span class="option-label">A</span><span>He didn&#x27;t read everything on them.</span></div>
+<div onclick="selectOption(this, 'q21')" class="option" data-value="B"><span class="option-label">B</span><span>He didn&#x27;t think they were important.</span></div>
+<div onclick="selectOption(this, 'q21')" class="option" data-value="C"><span class="option-label">C</span><span>He thought they were too complicated.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">22 Alice says that before doing this project,</div><div class="mcq-container space-y-1" data-question="q22"><div onclick="selectOption(this, 'q22')" class="option" data-value="A"><span class="option-label">A</span><span>she was unaware of what certain foods contained.</span></div>
+<div onclick="selectOption(this, 'q22')" class="option" data-value="B"><span class="option-label">B</span><span>she was too lazy to read food labels.</span></div>
+<div onclick="selectOption(this, 'q22')" class="option" data-value="C"><span class="option-label">C</span><span>she was only interested in the number of calories.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">23 When discussing supermarket brands of pizza, Jack agrees with Alice that</div><div class="mcq-container space-y-1" data-question="q23"><div onclick="selectOption(this, 'q23')" class="option" data-value="A"><span class="option-label">A</span><span>the list of ingredients is shocking.</span></div>
+<div onclick="selectOption(this, 'q23')" class="option" data-value="B"><span class="option-label">B</span><span>he will hesitate before buying pizza again.</span></div>
+<div onclick="selectOption(this, 'q23')" class="option" data-value="C"><span class="option-label">C</span><span>the nutritional label is misleading.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">24 Jack prefers the daily value system to other labelling systems because it is</div><div class="mcq-container space-y-1" data-question="q24"><div onclick="selectOption(this, 'q24')" class="option" data-value="A"><span class="option-label">A</span><span>more accessible.</span></div>
+<div onclick="selectOption(this, 'q24')" class="option" data-value="B"><span class="option-label">B</span><span>more logical.</span></div>
+<div onclick="selectOption(this, 'q24')" class="option" data-value="C"><span class="option-label">C</span><span>more comprehensive.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">25 What surprised both students about one flavour of crisps?</div><div class="mcq-container space-y-1" data-question="q25"><div onclick="selectOption(this, 'q25')" class="option" data-value="A"><span class="option-label">A</span><span>The percentage of artificial additives given was incorrect.</span></div>
+<div onclick="selectOption(this, 'q25')" class="option" data-value="B"><span class="option-label">B</span><span>The products did not contain any meat.</span></div>
+<div onclick="selectOption(this, 'q25')" class="option" data-value="C"><span class="option-label">C</span><span>The labels did not list all the ingredients.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">26 What do the students think about research into the impact of nutritional food labelling?</div><div class="mcq-container space-y-1" data-question="q26"><div onclick="selectOption(this, 'q26')" class="option" data-value="A"><span class="option-label">A</span><span>It did not produce clear results.</span></div>
+<div onclick="selectOption(this, 'q26')" class="option" data-value="B"><span class="option-label">B</span><span>It focused on the wrong people.</span></div>
+<div onclick="selectOption(this, 'q26')" class="option" data-value="C"><span class="option-label">C</span><span>It made unrealistic recommendations.</span></div></div></div>
+<div class="section-subheader">Questions 27 and 28<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">27 &amp; 28 Which TWO things surprised the students about the traffic-light system for nutritional labels?</div><div class="mcq-container space-y-1" data-question="q27-28"><div onclick="toggleMultiOption(this, 'q27-28')" class="option" data-value="A"><span class="option-label">A</span><span>its widespread use</span></div>
+<div onclick="toggleMultiOption(this, 'q27-28')" class="option" data-value="B"><span class="option-label">B</span><span>the fact that it is voluntary for supermarkets</span></div>
+<div onclick="toggleMultiOption(this, 'q27-28')" class="option" data-value="C"><span class="option-label">C</span><span>how little research was done before its introduction</span></div>
+<div onclick="toggleMultiOption(this, 'q27-28')" class="option" data-value="D"><span class="option-label">D</span><span>its unpopularity with food manufacturers</span></div>
+<div onclick="toggleMultiOption(this, 'q27-28')" class="option" data-value="E"><span class="option-label">E</span><span>the way that certain colours are used</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 29 and 30<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">29 &amp; 30 Which TWO things are true about the participants in the study on the traffic-light system?</div><div class="mcq-container space-y-1" data-question="q29-30"><div onclick="toggleMultiOption(this, 'q29-30')" class="option" data-value="A"><span class="option-label">A</span><span>They had low literacy levels.</span></div>
+<div onclick="toggleMultiOption(this, 'q29-30')" class="option" data-value="B"><span class="option-label">B</span><span>They were regular consumers of packaged food.</span></div>
+<div onclick="toggleMultiOption(this, 'q29-30')" class="option" data-value="C"><span class="option-label">C</span><span>They were selected randomly.</span></div>
+<div onclick="toggleMultiOption(this, 'q29-30')" class="option" data-value="D"><span class="option-label">D</span><span>They were from all socio-economic groups.</span></div>
+<div onclick="toggleMultiOption(this, 'q29-30')" class="option" data-value="E"><span class="option-label">E</span><span>They were interviewed face-to-face</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">The history of coffee</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Coffee in the Arab world</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">There was small-scale trade in wild coffee from Ethiopia.</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">1522 — Coffee was approved in the Ottoman court as a type of medicine.<span>1623 In Constantinople, the ruler ordered the</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">of every coffee house.</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Coffee arrives in Europe (17th century)</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Coffee shops were compared to</span><span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>They played an important part in social and</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">changes</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Coffee and European colonisation</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>European powers established coffee plantations in their colonies.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Types of coffee were often named according to the</span><span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">they came from</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>In Brazil and the Caribbean, most cultivation depended on</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>In Java, coffee was used as a form of</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Coffee became almost as important as</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Coffee in the 19th century</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The move towards the consumption of</span><span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">in Britain did not also take place in the USA</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Prices dropped because of improvements in</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Industrial workers found coffee helped them to work at</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">The history of coffee</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 4 • Cambridge IELTS 13 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

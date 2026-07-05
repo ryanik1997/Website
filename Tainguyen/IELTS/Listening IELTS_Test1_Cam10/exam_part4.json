@@ -3,7 +3,8 @@
   "rangeLabel": "Questions 31–40",
   "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
   "audioFile": "listening.mp3",
-  "passageTitle": "The Spirit Bear",
+  "passageTitle": "THE SPIRIT BEAR",
+  "notePassageLayout": "lecture",
   "notePassage": [
     {
       "type": "section",
@@ -11,11 +12,11 @@
     },
     {
       "type": "static",
-      "text": "It is a white bear belonging to the black bear family"
+      "text": "• It is a white bear belonging to the black bear family"
     },
     {
       "type": "static",
-      "text": "Its colour comes from an uncommon"
+      "text": "• Its colour comes from an uncommon "
     },
     {
       "type": "gap",
@@ -23,7 +24,7 @@
     },
     {
       "type": "static",
-      "text": "Local people believe that it has unusual"
+      "text": "• Local people believe that it has unusual "
     },
     {
       "type": "gap",
@@ -31,7 +32,7 @@
     },
     {
       "type": "static",
-      "text": "They protect the bear from"
+      "text": "• They protect the bear from "
     },
     {
       "type": "gap",
@@ -43,7 +44,11 @@
     },
     {
       "type": "static",
-      "text": "• Tree roots stop"
+      "text": "• The bear's relationship with the forest is complex"
+    },
+    {
+      "type": "static",
+      "text": "• Tree roots stop "
     },
     {
       "type": "gap",
@@ -51,11 +56,15 @@
     },
     {
       "type": "static",
-      "text": "along salmon streams"
+      "text": " along salmon streams"
     },
     {
       "type": "static",
-      "text": "• It is currently found on a small number of"
+      "text": "• The bears' feeding habits provide nutrients for forest vegetation"
+    },
+    {
+      "type": "static",
+      "text": "• It is currently found on a small number of "
     },
     {
       "type": "gap",
@@ -67,7 +76,7 @@
     },
     {
       "type": "static",
-      "text": "Habitat is being lost due to deforestation and construction of"
+      "text": "• Habitat is being lost due to deforestation and construction of "
     },
     {
       "type": "gap",
@@ -75,7 +84,11 @@
     },
     {
       "type": "static",
-      "text": "• Unrestricted"
+      "text": " by logging companies"
+    },
+    {
+      "type": "static",
+      "text": "• Unrestricted "
     },
     {
       "type": "gap",
@@ -83,11 +96,11 @@
     },
     {
       "type": "static",
-      "text": "is affecting the salmon supply"
+      "text": " is affecting the salmon supply"
     },
     {
       "type": "static",
-      "text": "• The bears' existence is also threatened by their low rate of"
+      "text": "• The bears' existence is also threatened by their low rate of "
     },
     {
       "type": "gap",
@@ -99,7 +112,11 @@
     },
     {
       "type": "static",
-      "text": "• Logging companies must improve their"
+      "text": "• Interested parties are working together"
+    },
+    {
+      "type": "static",
+      "text": "• Logging companies must improve their "
     },
     {
       "type": "gap",
@@ -107,11 +124,11 @@
     },
     {
       "type": "static",
-      "text": "of logging"
+      "text": " of logging"
     },
     {
       "type": "static",
-      "text": "• Maintenance and"
+      "text": "• Maintenance and "
     },
     {
       "type": "gap",
@@ -119,7 +136,7 @@
     },
     {
       "type": "static",
-      "text": "of the spirit bears' territory is needed"
+      "text": " of the spirit bears' territory is needed"
     }
   ],
   "questions": [
@@ -130,8 +147,7 @@
       "options": [],
       "answer": "gene",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "sectionTitle": "THE SPIRIT BEAR"
+      "wordLimit": 1
     },
     {
       "number": 32,
@@ -214,6 +230,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "lecture"
+  ]
 }

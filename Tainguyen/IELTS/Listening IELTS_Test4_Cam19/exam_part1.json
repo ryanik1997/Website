@@ -3,264 +3,76 @@
   "rangeLabel": "Questions 1–10",
   "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
   "audioFile": "listening.mp3",
-  "noteTables": [
+  "notePassageLayout": "form",
+  "passageTitle": "First day at work",
+  "notePassageSections": [
     {
-      "gapNumbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "gapNumbers": [1, 2, 3, 4, 5, 6],
       "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "title": "First day at work",
-      "headers": [
-        "Item",
-        "Details"
-      ],
-      "rows": [
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Name of supervisor"
-              }
-            ],
-            [
-              {
-                "type": "gap",
-                "number": 1
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Where to leave coat and bag"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "use "
-              },
-              {
-                "type": "gap",
-                "number": 2
-              },
-              {
-                "type": "static",
-                "text": " in staffroom"
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "See Tiffany in HR"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "to give "
-              },
-              {
-                "type": "gap",
-                "number": 3
-              },
-              {
-                "type": "static",
-                "text": " number"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "to collect "
-              },
-              {
-                "type": "gap",
-                "number": 4
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Location of HR office"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "on "
-              },
-              {
-                "type": "gap",
-                "number": 5
-              },
-              {
-                "type": "static",
-                "text": " floor"
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Supervisor's mobile number"
-              }
-            ],
-            [
-              {
-                "type": "gap",
-                "number": 6
-              }
-            ]
-          ]
-        }
+      "blocks": [
+        { "type": "static", "text": "• Name of supervisor: " },
+        { "type": "gap", "number": 1 },
+        { "type": "static", "text": "• Where to leave coat and bag: use " },
+        { "type": "gap", "number": 2 },
+        { "type": "static", "text": "• See Tiffany in HR: to give " },
+        { "type": "gap", "number": 3 },
+        { "type": "static", "text": " number to collect " },
+        { "type": "gap", "number": 4 },
+        { "type": "static", "text": "• Location of HR office: on " },
+        { "type": "gap", "number": 5 },
+        { "type": "static", "text": " floor" },
+        { "type": "static", "text": "• Supervisor's mobile number: " },
+        { "type": "gap", "number": 6 }
       ]
-    },
+    }
+  ],
+  "noteTables": [
     {
-      "gapNumbers": [
-        7,
-        8,
-        9,
-        10
-      ],
+      "gapNumbers": [7, 8, 9, 10],
       "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
-      "headers": [
-        "Section",
-        "Task 1",
-        "Task 2",
-        "Notes"
-      ],
+      "headers": ["Responsibility", "Task 1", "Task 2", "Notes"],
       "rows": [
         {
           "cells": [
+            [{ "type": "static", "text": "Bakery section" }],
+            [{ "type": "static", "text": "Check sell-by dates" }],
+            [{ "type": "static", "text": "Change price labels" }],
             [
-              {
-                "type": "static",
-                "text": "Bakery section"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Check sell-by dates"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Change price labels"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Use "
-              },
-              {
-                "type": "gap",
-                "number": 7
-              },
-              {
-                "type": "static",
-                "text": " labels"
-              }
+              { "type": "static", "text": "Use " },
+              { "type": "gap", "number": 7 },
+              { "type": "static", "text": " labels" }
             ]
           ]
         },
         {
           "cells": [
+            [{ "type": "static", "text": "Sushi takeaway counter" }],
             [
-              {
-                "type": "static",
-                "text": "Sushi takeaway"
-              }
+              { "type": "static", "text": "Re-stock with " },
+              { "type": "gap", "number": 8 },
+              { "type": "static", "text": " boxes if needed" }
             ],
             [
-              {
-                "type": "static",
-                "text": "Re-stock with boxes if needed"
-              }
+              { "type": "static", "text": "Wipe preparation area and clean the sink" },
+              { "type": "break" },
+              { "type": "static", "text": "Do not clean any knives" }
             ],
-            [
-              {
-                "type": "static",
-                "text": "Wipe preparation area"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Do not clean "
-              },
-              {
-                "type": "gap",
-                "number": 8
-              },
-              {
-                "type": "static",
-                "text": " and clean the sink"
-              }
-            ]
+            [{ "type": "static", "text": "Do not clean any knives" }]
           ]
         },
         {
           "cells": [
+            [{ "type": "static", "text": "Meat and fish counters" }],
+            [{ "type": "static", "text": "Clean the serving area, including the weighing scales" }],
             [
-              {
-                "type": "static",
-                "text": "Meat and fish counters"
-              }
+              { "type": "static", "text": "Collect " },
+              { "type": "gap", "number": 9 },
+              { "type": "static", "text": " for the fish from the cold-room" }
             ],
             [
-              {
-                "type": "static",
-                "text": "Clean the serving area, including the weighing scales"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Collect "
-              },
-              {
-                "type": "gap",
-                "number": 9
-              },
-              {
-                "type": "static",
-                "text": " for the fish from the cold-room"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Must wear special "
-              },
-              {
-                "type": "gap",
-                "number": 10
-              }
+              { "type": "static", "text": "Must wear special " },
+              { "type": "gap", "number": 10 }
             ]
           ]
         }
@@ -283,7 +95,7 @@
     {
       "number": 2,
       "type": "gap-fill",
-      "prompt": "use … in staffroom:",
+      "prompt": "Where to leave coat and bag: use …:",
       "options": [],
       "answer": "locker",
       "explanation": "Tủ khóa.",
@@ -339,7 +151,7 @@
     {
       "number": 8,
       "type": "gap-fill",
-      "prompt": "Sushi — do not clean … and clean the sink:",
+      "prompt": "Re-stock with … boxes if needed:",
       "options": [],
       "answer": "plastic",
       "explanation": "Nhựa.",
@@ -363,7 +175,5 @@
       "explanation": "Găng tay.",
       "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "table",
-  "passageTitle": "First day at work"
+  ]
 }

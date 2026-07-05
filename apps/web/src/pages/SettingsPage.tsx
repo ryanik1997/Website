@@ -20,7 +20,7 @@ type Tab = 'appearance' | 'ai' | 'account'
 const TABS: { id: Tab; label: string; icon: typeof Palette }[] = [
   { id: 'appearance', label: 'Giao diện', icon: Palette },
   { id: 'ai',         label: 'AI',        icon: Bot },
-  { id: 'account',    label: 'T?i kho?n', icon: User },
+  { id: 'account',    label: 'Tài khoản', icon: User },
 ]
 
 const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = {
@@ -34,7 +34,7 @@ const PLAN_META: Record<Plan, { label: string; color: string; desc: string }> = 
 const FEATURE_LABELS: Partial<Record<Feature, string>> = {
   sentence_patterns: 'Mẫu câu',
   vocab_basic: 'Từ vựng cơ bản',
-  settings: 'C?i ??t',
+  settings: 'Cài đặt',
   vocab_srs: 'SRS ôn tập',
   review_reminder: 'Nhắc ôn tập',
   backup: 'Sao lưu',
@@ -106,7 +106,7 @@ export default function SettingsPage() {
     <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-2xl mx-auto px-6 py-8">
         <header className="mb-6">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>C?i ??t</h1>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Cài đặt</h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
             Giao diện, AI và thông tin tài khoản
           </p>
@@ -244,7 +244,7 @@ function AppearanceTab({ theme, onChange }: { theme: Theme; onChange: (t: Theme)
               Nhắc nhở ôn từ hàng ngày
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-              Tr?ng th?i:{' '}
+              Trạng thái:{' '}
               <span style={{ color: isEnabled ? 'var(--color-primary)' : 'var(--text-primary)' }}>
                 {statusLabel}
               </span>

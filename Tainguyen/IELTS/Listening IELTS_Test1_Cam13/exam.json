@@ -40,6 +40,13 @@
                 [
                   {
                     "type": "static",
+                    "text": "Example"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
                     "text": "The Food Studio"
                   }
                 ],
@@ -55,32 +62,6 @@
                   {
                     "type": "static",
                     "text": " and cook with seasonal products"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": ""
-                  }
-                ]
-              ]
-            },
-            {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Bond's Cookery School"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "food that is "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
                   }
                 ],
                 [
@@ -117,10 +98,29 @@
                   {
                     "type": "static",
                     "text": " discount"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Bond's Cookery School"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "food that is "
                   },
                   {
-                    "type": "break"
-                  },
+                    "type": "gap",
+                    "number": 4
+                  }
+                ],
+                [
                   {
                     "type": "static",
                     "text": "• includes recipes to strengthen your "
@@ -196,6 +196,10 @@
                   {
                     "type": "gap",
                     "number": 10
+                  },
+                  {
+                    "type": "static",
+                    "text": " is sometimes available"
                   }
                 ]
               ]
@@ -324,8 +328,7 @@
           "answer": "B",
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 11 – 13",
-          "sectionInstruction": "Choose the correct letter, A, B or C.",
-          "sectionTitle": "Traffic Changes in Granford"
+          "sectionInstruction": "Choose the correct letter, A, B or C."
         },
         {
           "number": 12,
@@ -723,8 +726,7 @@
           "answer": "A",
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 21 – 25",
-          "sectionInstruction": "Choose the correct letter, A, B or C.",
-          "sectionTitle": "Seed germination"
+          "sectionInstruction": "Choose the correct letter, A, B or C."
         },
         {
           "number": 22,
@@ -1049,11 +1051,7 @@
         },
         {
           "type": "static",
-          "text": "• Recent urban developments represent massive environmental changes."
-        },
-        {
-          "type": "static",
-          "text": "• It was previously thought that only a few animals were suitable for city life, e.g."
+          "text": "Recent urban developments represent massive environmental changes. Previously thought that only a few animals were suitable for city life, e.g."
         },
         {
           "type": "static",
@@ -1065,7 +1063,7 @@
         },
         {
           "type": "static",
-          "text": " • — because of its general adaptability"
+          "text": " — because of its general adaptability"
         },
         {
           "type": "static",
@@ -1169,11 +1167,7 @@
         },
         {
           "type": "static",
-          "text": "Species of animals may develop which are unique to cities."
-        },
-        {
-          "type": "static",
-          "text": "However, some changes may not be"
+          "text": "Species of animals may develop which are unique to cities. However, some changes may not be"
         },
         {
           "type": "gap",

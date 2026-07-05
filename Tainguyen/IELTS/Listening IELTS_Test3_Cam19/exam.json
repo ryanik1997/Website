@@ -11,7 +11,8 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "noteTables": [
+      "notePassageLayout": "form",
+      "notePassageSections": [
         {
           "gapNumbers": [
             1,
@@ -23,140 +24,99 @@
           ],
           "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
           "title": "Local food shops",
-          "headers": [
-            "Shop",
-            "Details"
-          ],
-          "rows": [
+          "blocks": [
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Where to go"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Kite Place — near the "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 1
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "Fish market"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "cross the "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 2
-                  },
-                  {
-                    "type": "static",
-                    "text": " and turn right"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "best to go before "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 3
-                  },
-                  {
-                    "type": "static",
-                    "text": " pm"
-                  }
-                ]
-              ]
+              "type": "section",
+              "text": "Where to go"
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Organic shop"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "called '"
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
-                  },
-                  {
-                    "type": "static",
-                    "text": "'"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "below a restaurant in the large, grey building"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "look for the large "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 5
-                  },
-                  {
-                    "type": "static",
-                    "text": " outside"
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "• Kite Place – near the "
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Supermarket"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "take a "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 6
-                  },
-                  {
-                    "type": "static",
-                    "text": " minibus, number 289"
-                  }
-                ]
-              ]
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "section",
+              "text": "Fish market"
+            },
+            {
+              "type": "static",
+              "text": "• cross the "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " and turn right"
+            },
+            {
+              "type": "static",
+              "text": "• best to go before "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " pm, earlier than closing time"
+            },
+            {
+              "type": "section",
+              "text": "Organic shop"
+            },
+            {
+              "type": "static",
+              "text": "• called '"
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "',"
+            },
+            {
+              "type": "static",
+              "text": "• below a restaurant in the large, grey building"
+            },
+            {
+              "type": "static",
+              "text": "• look for the large "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": " outside"
+            },
+            {
+              "type": "section",
+              "text": "Supermarket"
+            },
+            {
+              "type": "static",
+              "text": "• take a "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            },
+            {
+              "type": "static",
+              "text": " minibus, number 289"
             }
           ]
-        },
+        }
+      ],
+      "noteTables": [
         {
           "gapNumbers": [
             7,
@@ -365,7 +325,6 @@
           "wordLimit": 1
         }
       ],
-      "notePassageLayout": "table",
       "passageTitle": "Local food shops"
     },
     {
@@ -1079,8 +1038,7 @@
           "explanation": "Chọn theo audio.",
           "flowChart": true,
           "gapLead": "Do all necessary",
-          "gapTrail": ".",
-          "flowChartEnd": "Investigate the findings."
+          "gapTrail": "."
         }
       ]
     },

@@ -142,14 +142,14 @@ export default function ListeningLessonPage() {
       setShowResultImmediately(true)
       setShowFullAnswer(false)
       setActiveLesson(null)
-      setDeleteState({ type: 'success', message: 'Da xoa bai nghe.' })
+      setDeleteState({ type: 'success', message: 'Đã xóa bài nghe.' })
       setLeavingAfterDelete(true)
       deleted = true
     } catch (error) {
-      console.error('Khong the xoa bai nghe', error)
+      console.error('Không thể xóa bài nghe', error)
       setDeleteState({
         type: 'error',
-        message: 'Khong the xoa bai nghe. Vui long thu lai.',
+        message: 'Không thể xóa bài nghe. Vui lòng thử lại.',
       })
     } finally {
       if (!deleted) {
@@ -168,7 +168,7 @@ export default function ListeningLessonPage() {
         >
           <Loader2 size={18} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
           <span className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
-            Da xoa bai nghe. Dang quay ve thu vien...
+            Đã xóa bài nghe. Đang quay về thư viện...
           </span>
         </div>
       </div>
@@ -177,7 +177,7 @@ export default function ListeningLessonPage() {
   if (lesson === undefined) {
     return (
       <div className="h-full flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
-        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Dang tai...</p>
+        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Đang tải...</p>
       </div>
     )
   }
@@ -257,7 +257,7 @@ export default function ListeningLessonPage() {
                       onChange={e => setShowResultImmediately(e.target.checked)}
                       className="accent-[var(--color-primary)]"
                     />
-                    Hien ket qua ngay
+                    Hiện kết quả ngay
                   </label>
                   <label className="flex cursor-pointer items-center gap-2" style={{ color: 'var(--text-muted)' }}>
                     <input
@@ -266,7 +266,7 @@ export default function ListeningLessonPage() {
                       onChange={e => setShowFullAnswer(e.target.checked)}
                       className="accent-[var(--color-primary)]"
                     />
-                    Hien dap an day du
+                    Hiện đáp án đầy đủ
                   </label>
                 </div>
               )}

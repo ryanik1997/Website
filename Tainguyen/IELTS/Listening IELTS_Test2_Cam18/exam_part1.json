@@ -3,249 +3,74 @@
   "rangeLabel": "Questions 1–10",
   "instruction": "Questions 1–5: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 6–10: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
-  "noteTables": [
+  "notePassageLayout": "form",
+  "notePassageSections": [
     {
-      "gapNumbers": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "gapNumbers": [1, 2, 3, 4, 5],
       "instruction": "Questions 1 – 5\nComplete the notes below. Write ONE WORD ONLY for each answer.",
       "title": "Working at Milo's Restaurants",
-      "headers": [
-        "Section",
-        "Details"
-      ],
-      "rows": [
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Benefits"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "• "
-              },
-              {
-                "type": "gap",
-                "number": 1
-              },
-              {
-                "type": "static",
-                "text": " provided for all staff"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "• "
-              },
-              {
-                "type": "gap",
-                "number": 2
-              },
-              {
-                "type": "static",
-                "text": " during weekdays at all Milo's Restaurants"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "• "
-              },
-              {
-                "type": "gap",
-                "number": 3
-              },
-              {
-                "type": "static",
-                "text": " provided after midnight"
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Person specification"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "• must be prepared to work well in a team"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "• must care about maintaining a high standard of "
-              },
-              {
-                "type": "gap",
-                "number": 4
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "• must have a qualification in "
-              },
-              {
-                "type": "gap",
-                "number": 5
-              }
-            ]
-          ]
-        }
+      "blocks": [
+        { "type": "section", "text": "Benefits" },
+        { "type": "static", "text": "• " },
+        { "type": "gap", "number": 1 },
+        { "type": "static", "text": " provided for all staff" },
+        { "type": "static", "text": "• " },
+        { "type": "gap", "number": 2 },
+        { "type": "static", "text": " during weekdays at all Milo's Restaurants" },
+        { "type": "static", "text": "• " },
+        { "type": "gap", "number": 3 },
+        { "type": "static", "text": " provided after midnight" },
+        { "type": "section", "text": "Person specification" },
+        { "type": "static", "text": "• must be prepared to work well in a team" },
+        { "type": "static", "text": "• must care about maintaining a high standard of " },
+        { "type": "gap", "number": 4 },
+        { "type": "static", "text": "• must have a qualification in " },
+        { "type": "gap", "number": 5 }
       ]
-    },
+    }
+  ],
+  "noteTables": [
     {
-      "gapNumbers": [
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
+      "gapNumbers": [6, 7, 8, 9, 10],
       "instruction": "Questions 6 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
-      "headers": [
-        "Location",
-        "Job title",
-        "Responsibilities include",
-        "Pay and conditions"
-      ],
+      "headers": ["Location", "Job title", "Responsibilities include", "Pay and conditions"],
       "rows": [
         {
           "cells": [
+            [{ "type": "gap", "number": 6 }, { "type": "static", "text": " Street" }],
+            [{ "type": "static", "text": "Breakfast supervisor" }],
             [
-              {
-                "type": "static",
-                "text": "6 "
-              },
-              {
-                "type": "gap",
-                "number": 6
-              },
-              {
-                "type": "static",
-                "text": " Street"
-              }
+              { "type": "static", "text": "Checking portions, etc. are correct" },
+              { "type": "break" },
+              { "type": "static", "text": "Making sure " },
+              { "type": "gap", "number": 7 },
+              { "type": "static", "text": " is clean" }
             ],
             [
-              {
-                "type": "static",
-                "text": "Breakfast supervisor"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Checking portions, etc. are correct"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "Making sure "
-              },
-              {
-                "type": "gap",
-                "number": 7
-              },
-              {
-                "type": "static",
-                "text": " is clean"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Starting salary £"
-              },
-              {
-                "type": "gap",
-                "number": 8
-              },
-              {
-                "type": "static",
-                "text": " per hour"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "Start work at 5.30 a.m."
-              }
+              { "type": "static", "text": "Starting salary £" },
+              { "type": "gap", "number": 8 },
+              { "type": "static", "text": " per hour" },
+              { "type": "break" },
+              { "type": "static", "text": "Start work at 5.30 a.m." }
             ]
           ]
         },
         {
           "cells": [
+            [{ "type": "static", "text": "City Road" }],
+            [{ "type": "static", "text": "Junior chef" }],
             [
-              {
-                "type": "static",
-                "text": "City Road"
-              }
+              { "type": "static", "text": "Supporting senior chefs" },
+              { "type": "break" },
+              { "type": "static", "text": "Maintaining stock and organising " },
+              { "type": "gap", "number": 9 }
             ],
             [
-              {
-                "type": "static",
-                "text": "Junior chef"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Supporting senior chefs"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "Maintaining stock and organising "
-              },
-              {
-                "type": "gap",
-                "number": 9
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Annual salary £23,000"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "No work on a "
-              },
-              {
-                "type": "gap",
-                "number": 10
-              },
-              {
-                "type": "static",
-                "text": " once a month"
-              }
+              { "type": "static", "text": "Annual salary £23,000" },
+              { "type": "break" },
+              { "type": "static", "text": "No work on a " },
+              { "type": "gap", "number": 10 },
+              { "type": "static", "text": " once a month" }
             ]
           ]
         }
@@ -349,6 +174,5 @@
       "wordLimit": 1
     }
   ],
-  "notePassageLayout": "table",
   "passageTitle": "Working at Milo's Restaurants"
 }

@@ -7,11 +7,19 @@
   "notePassage": [
     {
       "type": "static",
-      "text": "The best place to park in town is next to station"
+      "text": "The best place to park in town – next to the station"
+    },
+    {
+      "type": "static",
+      "text": "Phone number for takeaway pizzas – "
     },
     {
       "type": "gap",
       "number": 19
+    },
+    {
+      "type": "static",
+      "text": "Railway museum closed on "
     },
     {
       "type": "gap",
@@ -298,7 +306,6 @@
       "options": [],
       "answer": "732281",
       "wordLimit": 2,
-      "gapLead": "Phone number for takeaway pizzas –",
       "sectionRange": "Questions 19 – 20",
       "sectionInstruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer."
     },
@@ -308,8 +315,7 @@
       "prompt": "Railway museum closed on:",
       "options": [],
       "answer": "thursday",
-      "wordLimit": 2,
-      "gapLead": "Railway museum closed on"
+      "wordLimit": 2
     }
   ]
 }

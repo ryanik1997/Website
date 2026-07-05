@@ -1,11 +1,30 @@
 import type { ListeningImportPayload } from './importListeningUtils'
+import { ieltsListeningP1HybridA6Part } from './ieltsListeningP1HybridA6Part'
+import { ieltsListeningP1HybridFormTablePart } from './ieltsListeningP1HybridFormTable'
 
 export type IeltsListeningTemplateKind =
   | 'full'
+  | 'p1-hybrid-form-table'
+  | 'p1-hybrid-a6'
   | 'p1-form'
   | 'p1-table'
   | 'p1-mixed-a4'
   | 'p1-mixed-a5'
+
+/** Part 1 layout kinds for Import Wizard (a1–a6). */
+export type IeltsListeningP1TemplateKind = Exclude<IeltsListeningTemplateKind, 'full'>
+
+export function getIeltsListeningP1TemplatePart(kind: IeltsListeningP1TemplateKind) {
+  const builders = {
+    'p1-hybrid-form-table': ieltsListeningP1HybridFormTablePart,
+    'p1-hybrid-a6': ieltsListeningP1HybridA6Part,
+    'p1-form': ieltsListeningP1FormPart,
+    'p1-table': ieltsListeningP1TablePart,
+    'p1-mixed-a4': ieltsListeningP1MixedA4Part,
+    'p1-mixed-a5': ieltsListeningP1MixedA5Part,
+  } as const
+  return builders[kind]()
+}
 
 const IELTS_META = {
   title: 'IELTS Listening — Đề mẫu import',
@@ -560,6 +579,30 @@ export function ieltsListeningFullTemplate(): ListeningImportPayload {
 export function buildIeltsListeningImportTemplate(
   kind: IeltsListeningTemplateKind,
 ): ListeningImportPayload {
+  if (kind === 'p1-hybrid-form-table') {
+    return {
+      version: 1,
+      title: 'IELTS Listening — Part 1 Form+Bảng (mẫu Cam10)',
+      durationMinutes: 30,
+      bandHint: 'IELTS · Part 1 · notePassageSections + noteTables · Cam10 T1',
+      examType: 'ielts',
+      examMode: 'practice',
+      parts: [ieltsListeningP1HybridFormTablePart()],
+    }
+  }
+
+  if (kind === 'p1-hybrid-a6') {
+    return {
+      version: 1,
+      title: "IELTS Listening — Part 1 Form+Bảng (mẫu a6 Thorndyke's)",
+      durationMinutes: 30,
+      bandHint: 'IELTS · Part 1 · form + bảng 3 cột · Cam10 T4',
+      examType: 'ielts',
+      examMode: 'practice',
+      parts: [ieltsListeningP1HybridA6Part()],
+    }
+  }
+
   if (kind === 'p1-form') {
     return {
       version: 1,
@@ -614,6 +657,8 @@ export function buildIeltsListeningImportTemplate(
 export function ieltsListeningTemplateFilename(kind: IeltsListeningTemplateKind): string {
   const names: Record<IeltsListeningTemplateKind, string> = {
     full: 'ielts-listening-full-template.json',
+    'p1-hybrid-form-table': 'ielts-listening-p1-hybrid-form-table-template.json',
+    'p1-hybrid-a6': 'ielts-listening-p1-hybrid-a6-template.json',
     'p1-form': 'ielts-listening-p1-form-template.json',
     'p1-table': 'ielts-listening-p1-table-template.json',
     'p1-mixed-a4': 'ielts-listening-p1-mixed-a4-template.json',

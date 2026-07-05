@@ -3,19 +3,32 @@
   "rangeLabel": "Questions 31–40",
   "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
   "audioFile": "listening.mp3",
-  "passageTitle": "Ethnography in business",
+  "passageTitle": "ETHNOGRAPHY IN BUSINESS",
+  "notePassageLayout": "lecture",
   "notePassage": [
     {
-      "type": "section",
-      "text": "Ethnography"
+      "type": "static",
+      "text": "Ethnography: research which explores human cultures"
     },
     {
       "type": "static",
-      "text": "Research which explores human cultures; used in business to investigate customer needs and"
+      "text": "It can be used in business:"
+    },
+    {
+      "type": "static",
+      "text": "• to investigate customer needs and"
     },
     {
       "type": "gap",
       "number": 31
+    },
+    {
+      "type": "static",
+      "text": "• to help companies develop new designs"
+    },
+    {
+      "type": "section",
+      "text": "Examples of ethnographic research in business"
     },
     {
       "type": "section",
@@ -31,7 +44,7 @@
     },
     {
       "type": "static",
-      "text": "in measuring cups"
+      "text": "in measuring cups."
     },
     {
       "type": "section",
@@ -39,7 +52,11 @@
     },
     {
       "type": "static",
-      "text": "• Customers wanted to check the"
+      "text": "• In Uganda, customers paid to use the cell phones of entrepreneurs."
+    },
+    {
+      "type": "static",
+      "text": "• These customers wanted to check the"
     },
     {
       "type": "gap",
@@ -47,7 +64,7 @@
     },
     {
       "type": "static",
-      "text": "used"
+      "text": "used."
     },
     {
       "type": "section",
@@ -55,7 +72,7 @@
     },
     {
       "type": "static",
-      "text": "• Need to develop"
+      "text": "• There was a need to develop"
     },
     {
       "type": "gap",
@@ -63,7 +80,7 @@
     },
     {
       "type": "static",
-      "text": "to improve communication"
+      "text": "to improve communication between system administrators and colleagues."
     },
     {
       "type": "section",
@@ -71,11 +88,15 @@
     },
     {
       "type": "static",
-      "text": "• Nurses needed access to information about"
+      "text": "• Nurses needed to access information about"
     },
     {
       "type": "gap",
       "number": 35
+    },
+    {
+      "type": "static",
+      "text": "in different parts of the hospital."
     },
     {
       "type": "section",
@@ -91,15 +112,19 @@
     },
     {
       "type": "static",
-      "text": "while travelling"
+      "text": "while travelling."
     },
     {
       "type": "section",
-      "text": "Principles"
+      "text": "Principles of ethnographic research in business"
     },
     {
       "type": "static",
-      "text": "• Participants selected by criteria such as age,"
+      "text": "• The researcher does not start off with a hypothesis."
+    },
+    {
+      "type": "static",
+      "text": "• Participants may be selected by criteria such as age,"
     },
     {
       "type": "gap",
@@ -107,7 +132,11 @@
     },
     {
       "type": "static",
-      "text": "• Participants must feel"
+      "text": "or product used."
+    },
+    {
+      "type": "static",
+      "text": "• The participants must feel"
     },
     {
       "type": "gap",
@@ -115,11 +144,11 @@
     },
     {
       "type": "static",
-      "text": "about taking part"
+      "text": "about taking part in the research."
     },
     {
       "type": "static",
-      "text": "• Usually direct"
+      "text": "• There is usually direct"
     },
     {
       "type": "gap",
@@ -127,11 +156,15 @@
     },
     {
       "type": "static",
-      "text": "of the participants"
+      "text": "of the participants."
     },
     {
       "type": "static",
-      "text": "• A lot of time needed for the"
+      "text": "• The interview is guided by the participant."
+    },
+    {
+      "type": "static",
+      "text": "• A lot of time is needed for the"
     },
     {
       "type": "gap",
@@ -139,7 +172,11 @@
     },
     {
       "type": "static",
-      "text": "of the data"
+      "text": "of the data."
+    },
+    {
+      "type": "static",
+      "text": "• Researchers look for a meaningful pattern in the data."
     }
   ],
   "questions": [
@@ -150,8 +187,7 @@
       "options": [],
       "answer": "attitude/attitudes",
       "explanation": "Điền theo audio.",
-      "wordLimit": 1,
-      "sectionTitle": "ETHNOGRAPHY IN BUSINESS"
+      "wordLimit": 1
     },
     {
       "number": 32,
@@ -234,6 +270,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "notePassageLayout": "lecture"
+  ]
 }

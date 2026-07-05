@@ -11,7 +11,8 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Questions 1–7: Complete the notes below. Write ONE WORD ONLY for each answer. Questions 8–10: Complete the table below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "noteTables": [
+      "notePassageLayout": "form",
+      "notePassageSections": [
         {
           "gapNumbers": [
             1,
@@ -24,133 +25,95 @@
           ],
           "instruction": "Questions 1 – 7\nComplete the notes below. Write ONE WORD ONLY for each answer.",
           "title": "Opportunities for voluntary work in Southoe village",
-          "headers": [
-            "Section",
-            "Details"
-          ],
-          "rows": [
+          "blocks": [
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Library"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Help with "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 1
-                  },
-                  {
-                    "type": "static",
-                    "text": " books (times to be arranged)"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "Help needed to keep "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 2
-                  },
-                  {
-                    "type": "static",
-                    "text": " of books up to date"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "Library is in the "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 3
-                  },
-                  {
-                    "type": "static",
-                    "text": " Room in the village hall"
-                  }
-                ]
-              ]
+              "type": "section",
+              "text": "Library"
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Lunch club"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Help by providing "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "Help with hobbies such as "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 5
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "Help with "
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Help for individuals needed next week"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Taking Mrs Carroll to "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 6
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "Work in the "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 7
-                  },
-                  {
-                    "type": "static",
-                    "text": " at Mr Selsbury's house"
-                  }
-                ]
-              ]
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " books (times to be arranged)"
+            },
+            {
+              "type": "static",
+              "text": "Help needed to keep "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " of books up to date"
+            },
+            {
+              "type": "static",
+              "text": "Library is in the "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " Room in the village hall"
+            },
+            {
+              "type": "section",
+              "text": "Lunch club"
+            },
+            {
+              "type": "static",
+              "text": "Help by providing "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "Help with hobbies such as "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": "Help for individuals needed next week"
+            },
+            {
+              "type": "static",
+              "text": "Taking Mrs Carroll to "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            },
+            {
+              "type": "static",
+              "text": "Work in the "
+            },
+            {
+              "type": "gap",
+              "number": 7
+            },
+            {
+              "type": "static",
+              "text": " at Mr. Selsbury's house"
             }
           ]
-        },
+        }
+      ],
+      "noteTables": [
         {
           "gapNumbers": [
             8,
@@ -359,7 +322,6 @@
           "wordLimit": 1
         }
       ],
-      "notePassageLayout": "table",
       "passageTitle": "Opportunities for voluntary work in Southoe village"
     },
     {

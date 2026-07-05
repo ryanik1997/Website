@@ -11,7 +11,9 @@
       "rangeLabel": "Questions 1–10",
       "instruction": "Questions 1–6: Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "noteTables": [
+      "notePassageLayout": "form",
+      "passageTitle": "First day at work",
+      "notePassageSections": [
         {
           "gapNumbers": [
             1,
@@ -23,128 +25,63 @@
           ],
           "instruction": "Questions 1 – 6\nComplete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
           "title": "First day at work",
-          "headers": [
-            "Item",
-            "Details"
-          ],
-          "rows": [
+          "blocks": [
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Name of supervisor"
-                  }
-                ],
-                [
-                  {
-                    "type": "gap",
-                    "number": 1
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "• Name of supervisor: "
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Where to leave coat and bag"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "use "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 2
-                  },
-                  {
-                    "type": "static",
-                    "text": " in staffroom"
-                  }
-                ]
-              ]
+              "type": "gap",
+              "number": 1
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "See Tiffany in HR"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "to give "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 3
-                  },
-                  {
-                    "type": "static",
-                    "text": " number"
-                  },
-                  {
-                    "type": "break"
-                  },
-                  {
-                    "type": "static",
-                    "text": "to collect "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "• Where to leave coat and bag: use "
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Location of HR office"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "on "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 5
-                  },
-                  {
-                    "type": "static",
-                    "text": " floor"
-                  }
-                ]
-              ]
+              "type": "gap",
+              "number": 2
             },
             {
-              "cells": [
-                [
-                  {
-                    "type": "static",
-                    "text": "Supervisor's mobile number"
-                  }
-                ],
-                [
-                  {
-                    "type": "gap",
-                    "number": 6
-                  }
-                ]
-              ]
+              "type": "static",
+              "text": "• See Tiffany in HR: to give "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " number to collect "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "• Location of HR office: on "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": " floor"
+            },
+            {
+              "type": "static",
+              "text": "• Supervisor's mobile number: "
+            },
+            {
+              "type": "gap",
+              "number": 6
             }
           ]
-        },
+        }
+      ],
+      "noteTables": [
         {
           "gapNumbers": [
             7,
@@ -154,7 +91,7 @@
           ],
           "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
           "headers": [
-            "Section",
+            "Responsibility",
             "Task 1",
             "Task 2",
             "Notes"
@@ -201,25 +138,13 @@
                 [
                   {
                     "type": "static",
-                    "text": "Sushi takeaway"
+                    "text": "Sushi takeaway counter"
                   }
                 ],
                 [
                   {
                     "type": "static",
-                    "text": "Re-stock with boxes if needed"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Wipe preparation area"
-                  }
-                ],
-                [
-                  {
-                    "type": "static",
-                    "text": "Do not clean "
+                    "text": "Re-stock with "
                   },
                   {
                     "type": "gap",
@@ -227,7 +152,26 @@
                   },
                   {
                     "type": "static",
-                    "text": " and clean the sink"
+                    "text": " boxes if needed"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Wipe preparation area and clean the sink"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "Do not clean any knives"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Do not clean any knives"
                   }
                 ]
               ]
@@ -291,7 +235,7 @@
         {
           "number": 2,
           "type": "gap-fill",
-          "prompt": "use … in staffroom:",
+          "prompt": "Where to leave coat and bag: use …:",
           "options": [],
           "answer": "locker",
           "explanation": "Tủ khóa.",
@@ -347,7 +291,7 @@
         {
           "number": 8,
           "type": "gap-fill",
-          "prompt": "Sushi — do not clean … and clean the sink:",
+          "prompt": "Re-stock with … boxes if needed:",
           "options": [],
           "answer": "plastic",
           "explanation": "Nhựa.",
@@ -371,9 +315,7 @@
           "explanation": "Găng tay.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "table",
-      "passageTitle": "First day at work"
+      ]
     },
     {
       "partNumber": 2,
@@ -942,18 +884,20 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
+      "notePassageLayout": "lecture",
+      "passageTitle": "Tree planting",
       "notePassage": [
         {
-          "type": "static",
-          "text": "• Reforestation projects should:"
+          "type": "section",
+          "text": "Reforestation projects should:"
         },
         {
           "type": "static",
-          "text": "– include a range of tree species"
+          "text": "• include a range of tree species"
         },
         {
           "type": "static",
-          "text": "– not include invasive species because of possible"
+          "text": "• not include invasive species because of possible "
         },
         {
           "type": "gap",
@@ -965,7 +909,7 @@
         },
         {
           "type": "static",
-          "text": "– aim to capture carbon, protect the environment and provide sustainable sources of"
+          "text": "• aim to capture carbon, protect the environment and provide sustainable sources of "
         },
         {
           "type": "gap",
@@ -977,7 +921,7 @@
         },
         {
           "type": "static",
-          "text": "– use tree seeds with a high genetic diversity to increase resistance to"
+          "text": "• use tree seeds with a high genetic diversity to increase resistance to "
         },
         {
           "type": "gap",
@@ -989,7 +933,7 @@
         },
         {
           "type": "static",
-          "text": "– plant trees on previously forested land which is in a bad condition, not select land which is being used for"
+          "text": "• plant trees on previously forested land which is in a bad condition, not select land which is being used for "
         },
         {
           "type": "gap",
@@ -1001,7 +945,7 @@
         },
         {
           "type": "static",
-          "text": "• Base planning decisions on information from accurate"
+          "text": "• Base planning decisions on information from accurate "
         },
         {
           "type": "gap",
@@ -1009,7 +953,7 @@
         },
         {
           "type": "static",
-          "text": "• Drones are useful for identifying areas in Brazil which are endangered by keeping"
+          "text": "• Drones are useful for identifying areas in Brazil which are endangered by keeping "
         },
         {
           "type": "gap",
@@ -1033,11 +977,11 @@
         },
         {
           "type": "static",
-          "text": "supporting many wildlife species"
+          "text": "– supporting many wildlife species"
         },
         {
           "type": "static",
-          "text": "• increasing the"
+          "text": "– increasing the "
         },
         {
           "type": "gap",
@@ -1045,7 +989,7 @@
         },
         {
           "type": "static",
-          "text": " • of recovery by attracting animals and birds, e.g.,"
+          "text": " of recovery by attracting animals and birds, e.g., "
         },
         {
           "type": "gap",
@@ -1061,7 +1005,7 @@
         },
         {
           "type": "static",
-          "text": "• Destruction of mangrove forests in Madagascar made it difficult for people to make a living from"
+          "text": "• Destruction of mangrove forests in Madagascar made it difficult for people to make a living from "
         },
         {
           "type": "gap",
@@ -1081,7 +1025,7 @@
         },
         {
           "type": "static",
-          "text": "– protects against the higher risk of"
+          "text": "– protects against the higher risk of "
         },
         {
           "type": "gap",
@@ -1180,9 +1124,7 @@
           "explanation": "Lũ lụt.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture",
-      "passageTitle": "Tree planting"
+      ]
     }
   ]
 }

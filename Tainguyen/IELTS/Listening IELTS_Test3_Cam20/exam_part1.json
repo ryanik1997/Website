@@ -4,189 +4,75 @@
   "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
   "audioFile": "listening.mp3",
   "notePassageLayout": "table",
+  "passageTitle": "Furniture rental companies",
   "noteTable": {
-    "headers": [
-      "Name of companies",
-      "Information about costs",
-      "Additional notes"
-    ],
+    "headers": ["Name of companies", "Information about costs", "Additional notes"],
     "rows": [
       {
         "cells": [
+          [{ "type": "static", "text": "Peak Rentals" }],
           [
-            {
-              "type": "static",
-              "text": "Peak Rentals"
-            }
+            { "type": "static", "text": "Prices range from 105 dollars to " },
+            { "type": "gap", "number": 1 },
+            { "type": "static", "text": " dollars per room per month" }
           ],
           [
-            {
-              "type": "static",
-              "text": "Prices range from 105 dollars to "
-            },
-            {
-              "type": "gap",
-              "number": 1
-            },
-            {
-              "type": "static",
-              "text": " dollars per room per month"
-            }
-          ],
-          [
-            {
-              "type": "static",
-              "text": "The furniture is very "
-            },
-            {
-              "type": "gap",
-              "number": 2
-            },
-            {
-              "type": "break"
-            },
-            {
-              "type": "static",
-              "text": "Delivers in 1–2 days"
-            },
-            {
-              "type": "break"
-            },
-            {
-              "type": "static",
-              "text": "Special offer: free "
-            },
-            {
-              "type": "gap",
-              "number": 3
-            },
-            {
-              "type": "static",
-              "text": " with every living room set"
-            }
+            { "type": "static", "text": "• The furniture is very " },
+            { "type": "gap", "number": 2 },
+            { "type": "break" },
+            { "type": "static", "text": "• Delivers in 1-2 days" },
+            { "type": "break" },
+            { "type": "static", "text": "• Special offer: free " },
+            { "type": "gap", "number": 3 },
+            { "type": "static", "text": " with every living room set" }
           ]
         ]
       },
       {
         "cells": [
           [
-            {
-              "type": "gap",
-              "number": 4
-            },
-            {
-              "type": "static",
-              "text": " and Oliver"
-            }
+            { "type": "gap", "number": 4 },
+            { "type": "static", "text": " and Oliver" }
           ],
           [
-            {
-              "type": "static",
-              "text": "Mid-range prices"
-            }
+            { "type": "static", "text": "• Mid-range prices" },
+            { "type": "break" },
+            { "type": "static", "text": "• 12% monthly fee for " },
+            { "type": "gap", "number": 5 }
+          ],
+          [{ "type": "static", "text": "Also offers a cleaning service" }]
+        ]
+      },
+      {
+        "cells": [
+          [{ "type": "static", "text": "Larch Furniture" }],
+          [
+            { "type": "static", "text": "Offers cheapest prices for renting furniture and " },
+            { "type": "gap", "number": 6 },
+            { "type": "static", "text": " items" }
           ],
           [
-            {
-              "type": "static",
-              "text": "12% monthly fee for "
-            },
-            {
-              "type": "gap",
-              "number": 5
-            },
-            {
-              "type": "break"
-            },
-            {
-              "type": "static",
-              "text": "Also offers a cleaning service"
-            }
+            { "type": "static", "text": "• Must have own " },
+            { "type": "gap", "number": 7 },
+            { "type": "break" },
+            { "type": "static", "text": "• Minimum contract length: six months" }
           ]
         ]
       },
       {
         "cells": [
           [
-            {
-              "type": "static",
-              "text": "Larch Furniture"
-            }
+            { "type": "gap", "number": 8 },
+            { "type": "static", "text": " Rentals" }
           ],
           [
-            {
-              "type": "static",
-              "text": "Offers cheapest prices for renting furniture and "
-            },
-            {
-              "type": "gap",
-              "number": 6
-            },
-            {
-              "type": "static",
-              "text": " items"
-            }
+            { "type": "static", "text": "See the " },
+            { "type": "gap", "number": 9 },
+            { "type": "static", "text": " for the most up-to-date prices" }
           ],
           [
-            {
-              "type": "static",
-              "text": "Must have own "
-            },
-            {
-              "type": "gap",
-              "number": 7
-            },
-            {
-              "type": "break"
-            },
-            {
-              "type": "static",
-              "text": "Must have enough "
-            },
-            {
-              "type": "gap",
-              "number": 8
-            },
-            {
-              "type": "break"
-            },
-            {
-              "type": "static",
-              "text": "Minimum contract length: six months"
-            }
-          ]
-        ]
-      },
-      {
-        "cells": [
-          [
-            {
-              "type": "static",
-              "text": "8 Rentals"
-            }
-          ],
-          [
-            {
-              "type": "static",
-              "text": "See the "
-            },
-            {
-              "type": "gap",
-              "number": 9
-            },
-            {
-              "type": "static",
-              "text": " for the most up-to-date prices"
-            }
-          ],
-          [
-            {
-              "type": "gap",
-              "number": 10
-            },
-            {
-              "type": "static",
-              "text": " are allowed within 7 days of delivery"
-            }
+            { "type": "gap", "number": 10 },
+            { "type": "static", "text": " are allowed within 7 days of delivery" }
           ]
         ]
       }
@@ -260,10 +146,10 @@
     {
       "number": 8,
       "type": "gap-fill",
-      "prompt": "must have enough …:",
+      "prompt": "… Rentals (company name):",
       "options": [],
       "answer": "space",
-      "explanation": "Không gian.",
+      "explanation": "Space Rentals.",
       "wordLimit": 2
     },
     {
@@ -284,6 +170,5 @@
       "explanation": "Đổi trả.",
       "wordLimit": 2
     }
-  ],
-  "passageTitle": "Furniture rental companies"
+  ]
 }

@@ -1,0 +1,191 @@
+/**
+ * Part 1 — Form/notes Q1–6 + bảng Q7–10 (Cam10 Test 1 — SELF-DRIVE TOURS).
+ * Dùng làm mẫu schema cho Import Wizard (a1-hybrid).
+ */
+export function ieltsListeningP1HybridFormTablePart() {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Questions 1–10',
+    instruction:
+      'Questions 1–6: Complete the notes below. Write ONE WORD for each answer. '
+      + 'Questions 7–10: Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.',
+    audioFile: 'listening.mp3',
+    notePassageLayout: 'form' as const,
+    notePassageSections: [
+      {
+        gapNumbers: [1, 2, 3, 4, 5, 6],
+        instruction: 'Questions 1 – 6\nComplete the notes below. Write ONE WORD for each answer.',
+        title: 'SELF-DRIVE TOURS IN THE USA',
+        blocks: [
+          { type: 'static' as const, text: 'Example\nName: Andrea …Brown…' },
+          { type: 'static' as const, text: 'Address: 24' },
+          { type: 'gap' as const, number: 1 },
+          { type: 'static' as const, text: 'Road' },
+          { type: 'static' as const, text: 'Postcode: BH5 2OP' },
+          { type: 'static' as const, text: 'Phone (mobile): 077 8664 3091' },
+          { type: 'static' as const, text: 'Heard about company from:' },
+          { type: 'gap' as const, number: 2 },
+          { type: 'section' as const, text: 'Possible self-drive tours' },
+          { type: 'section' as const, text: 'Trip One' },
+          { type: 'static' as const, text: '• Los Angeles: customer wants to visit some ' },
+          { type: 'gap' as const, number: 3 },
+          { type: 'static' as const, text: ' parks with her children' },
+          { type: 'static' as const, text: '• Yosemite Park: customer wants to stay in a lodge, not a ' },
+          { type: 'gap' as const, number: 4 },
+          { type: 'section' as const, text: 'Trip Two' },
+          { type: 'static' as const, text: '• Customer wants to see the ' },
+          { type: 'gap' as const, number: 5 },
+          { type: 'static' as const, text: ' on the way to Cambria' },
+          { type: 'static' as const, text: '• At Santa Monica: not interested in shopping' },
+          { type: 'static' as const, text: '• At San Diego, wants to spend time on the ' },
+          { type: 'gap' as const, number: 6 },
+        ],
+      },
+    ],
+    noteTables: [
+      {
+        gapNumbers: [7, 8, 9, 10],
+        instruction:
+          'Questions 7 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.',
+        headers: ['', 'Number of days', 'Total distance', 'Price (per person)', 'Includes'],
+        rows: [
+          {
+            cells: [
+              [{ type: 'static' as const, text: 'Trip One' }],
+              [{ type: 'static' as const, text: '12 days' }],
+              [
+                { type: 'gap' as const, number: 7 },
+                { type: 'static' as const, text: ' km' },
+              ],
+              [{ type: 'static' as const, text: '£525' }],
+              [
+                { type: 'static' as const, text: '• accommodation' },
+                { type: 'break' as const },
+                { type: 'static' as const, text: '• car' },
+                { type: 'break' as const },
+                { type: 'static' as const, text: '• one ' },
+                { type: 'gap' as const, number: 8 },
+              ],
+            ],
+          },
+          {
+            cells: [
+              [{ type: 'static' as const, text: 'Trip Two' }],
+              [{ type: 'static' as const, text: '9 days' }],
+              [{ type: 'static' as const, text: '980 km' }],
+              [
+                { type: 'gap' as const, number: 9 },
+                { type: 'static' as const, text: '£' },
+              ],
+              [
+                { type: 'static' as const, text: '• accommodation' },
+                { type: 'break' as const },
+                { type: 'static' as const, text: '• car' },
+                { type: 'break' as const },
+                { type: 'gap' as const, number: 10 },
+              ],
+            ],
+          },
+        ],
+      },
+    ],
+    questions: [
+      {
+        number: 1,
+        type: 'gap-fill' as const,
+        prompt: 'Address:',
+        options: [],
+        answer: 'ardleigh',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+        sectionRange: 'Questions 1 – 6',
+        sectionInstruction: 'Complete the notes below. Write ONE WORD for each answer.',
+        sectionTitle: 'SELF-DRIVE TOURS IN THE USA',
+      },
+      {
+        number: 2,
+        type: 'gap-fill' as const,
+        prompt: 'Heard about company from:',
+        options: [],
+        answer: 'newspaper',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 3,
+        type: 'gap-fill' as const,
+        prompt: 'Theme parks:',
+        options: [],
+        answer: 'theme',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 4,
+        type: 'gap-fill' as const,
+        prompt: 'Not a:',
+        options: [],
+        answer: 'tent',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 5,
+        type: 'gap-fill' as const,
+        prompt: 'See the:',
+        options: [],
+        answer: 'castle',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 6,
+        type: 'gap-fill' as const,
+        prompt: 'Spend time on the:',
+        options: [],
+        answer: 'beach',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 7,
+        type: 'gap-fill' as const,
+        prompt: 'Total distance:',
+        options: [],
+        answer: '2020',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+        sectionRange: 'Questions 7 – 10',
+        sectionInstruction:
+          'Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.',
+      },
+      {
+        number: 8,
+        type: 'gap-fill' as const,
+        prompt: 'Includes:',
+        options: [],
+        answer: 'flight',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 9,
+        type: 'gap-fill' as const,
+        prompt: 'Price:',
+        options: [],
+        answer: '429',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+      {
+        number: 10,
+        type: 'gap-fill' as const,
+        prompt: 'Includes:',
+        options: [],
+        answer: 'dinner',
+        explanation: 'Điền theo audio.',
+        wordLimit: 1,
+      },
+    ],
+  }
+}

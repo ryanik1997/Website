@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 2 • Listening • Cambridge 15</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 2</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 15</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 2. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 1–4: Complete the table below. Write ONE WORD ONLY for each answer. Questions 5–10: Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Festival information</span></div>
+<p class="section-subinstruction mb-2">Questions 1 – 4</p>
+<p class="section-subinstruction mb-2">Complete the table below. Write ONE WORD ONLY for each answer.</p>
+<table class="exam-table">
+<thead><tr>
+<th>Date</th>
+<th>Type of event</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><div class="cell-line"><span>17th</span></div></td>
+<td><div class="cell-line"><span>a concert</span></div></td>
+<td><div class="cell-line"><span>performers from Canada</span></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>18th</span></div></td>
+<td><div class="cell-line"><span>a ballet</span></div></td>
+<td><div class="cell-line"><span>company called</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>19th–20th (afternoon)</span></div></td>
+<td><div class="cell-line"><span>a play</span></div></td>
+<td><div class="cell-line"><span>type of play: a comedy called Jemima</span><span class="cell-break"></span><span>has had a good</span><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>20th (evening)</span></div></td>
+<td><div class="cell-line"><span class="question-number">3</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>show</span></div></td>
+<td><div class="cell-line"><span>show is called</span><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"></div></td>
+</tr>
+</tbody></table>
+<p class="section-subinstruction mb-2">Questions 5 – 10</p>
+<p class="section-subinstruction mb-2">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+<table class="exam-table">
+<thead><tr>
+<th>Section</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><div class="cell-line"><span>Workshops</span></div></td>
+<td><div class="cell-line"><span>Making</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>food</span><span class="cell-break"></span><span>(children only) Making</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span class="cell-break"></span><span>(adults only) Making toys from</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>using various tools</span></div></td>
+</tr>
+<tr>
+<td><div class="cell-line"><span>Outdoor activities</span></div></td>
+<td><div class="cell-line"><span>Swimming in the</span><span class="question-number">8</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span class="cell-break"></span><span>Walking in the woods, led by an expert on</span><span class="question-number">9</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span class="cell-break"></span><span>See the festival organiser&#x27;s</span><span class="question-number">10</span><input type="text" class="answer-input" style="min-width:80px" placeholder="________________"><span>for more information</span></div></td>
+</tr>
+</tbody></table>
+  </div>
+  <div class="mt-6">
+<div class="section-subheader">Questions 1 – 4<br><span class="section-subinstruction">Complete the table below. Write ONE WORD ONLY for each answer.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Festival information</span></div>
+<div class="section-subheader">Questions 5 – 10<br><span class="section-subinstruction">Complete the notes below. Write ONE WORD ONLY for each answer.</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–14: Choose A, B or C. Questions 15–20: Label the map A–I.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 – 14<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Minster Park</span></div>
+<div class="mb-5"><div class="font-medium mb-2">11 The park was originally established</div><div class="mcq-container space-y-1" data-question="q11"><div onclick="selectOption(this, 'q11')" class="option" data-value="A"><span class="option-label">A</span><span>as an amenity provided by the city council.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="B"><span class="option-label">B</span><span>as land belonging to a private house.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="C"><span class="option-label">C</span><span>as a shared area set up by the local community.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">12 Why is there a statue of Diane Gosforth in the park?</div><div class="mcq-container space-y-1" data-question="q12"><div onclick="selectOption(this, 'q12')" class="option" data-value="A"><span class="option-label">A</span><span>She was a resident who helped to lead a campaign.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="B"><span class="option-label">B</span><span>She was a council member responsible for giving the public access.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="C"><span class="option-label">C</span><span>She was a senior worker at the park for many years.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">13 During the First World War, the park was mainly used for</div><div class="mcq-container space-y-1" data-question="q13"><div onclick="selectOption(this, 'q13')" class="option" data-value="A"><span class="option-label">A</span><span>exercises by troops.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="B"><span class="option-label">B</span><span>growing vegetables.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="C"><span class="option-label">C</span><span>public meetings.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">14 When did the physical transformation of the park begin?</div><div class="mcq-container space-y-1" data-question="q14"><div onclick="selectOption(this, 'q14')" class="option" data-value="A"><span class="option-label">A</span><span>2013</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="B"><span class="option-label">B</span><span>2015</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="C"><span class="option-label">C</span><span>2016</span></div></div></div>
+<div class="section-subheader">Questions 15 – 20<br><span class="section-subinstruction">Label the map below. Write the correct letter, A–I, next to Questions 15–20.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Minster Park</span></div>
+<img src="map.jpg" alt="" class="map-image">
+<div class="map-label-row"><span class="question-number">15</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>statue of Diane Gosforth</span></div>
+<div class="map-label-row"><span class="question-number">16</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>wooden sculptures</span></div>
+<div class="map-label-row"><span class="question-number">17</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>playground</span></div>
+<div class="map-label-row"><span class="question-number">18</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>maze</span></div>
+<div class="map-label-row"><span class="question-number">19</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>tennis courts</span></div>
+<div class="map-label-row"><span class="question-number">20</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>fitness area</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–22 and 23–24: Choose TWO A–E. Questions 25–30: Matching A–H.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 21 and 22<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">21 &amp; 22 Which TWO groups of people is the display primarily intended for?</div><div class="mcq-container space-y-1" data-question="q21-22"><div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="A"><span class="option-label">A</span><span>students from the English department</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="B"><span class="option-label">B</span><span>residents of the local area</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="C"><span class="option-label">C</span><span>the university&#x27;s teaching staff</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="D"><span class="option-label">D</span><span>potential new students</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="E"><span class="option-label">E</span><span>students from other departments</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 23 and 24<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">23 &amp; 24 What are Cathy and Graham&#x27;s TWO reasons for choosing the novelist Charles Dickens?</div><div class="mcq-container space-y-1" data-question="q23-24"><div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="A"><span class="option-label">A</span><span>His speeches inspired others to try to improve society.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="B"><span class="option-label">B</span><span>He used his publications to draw attention to social problems.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="C"><span class="option-label">C</span><span>His novels are well-known now.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="D"><span class="option-label">D</span><span>He was consulted on a number of social issues.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="E"><span class="option-label">E</span><span>His reputation has changed in recent times.</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 25 – 30<br><span class="section-subinstruction">What topic do Cathy and Graham choose to illustrate with each novel? Choose SIX answers from the box and write the correct letter, A–H, next to Questions 25–30.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Novels by Dickens</span></div>
+<div class="map-label-row"><span class="question-number">25</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>The Pickwick Papers</span></div>
+<div class="map-label-row"><span class="question-number">26</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Oliver Twist</span></div>
+<div class="map-label-row"><span class="question-number">27</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Nicholas Nickleby</span></div>
+<div class="map-label-row"><span class="question-number">28</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Martin Chuzzlewit</span></div>
+<div class="map-label-row"><span class="question-number">29</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Bleak House</span></div>
+<div class="map-label-row"><span class="question-number">30</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Little Dorrit</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">Agricultural programme in Mozambique</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">How the programme was organised</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">It focused on a dry and arid region in Chicualacuala district, near the Limpopo River.</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">People depended on the forest to provide charcoal as a source of income.<span>•</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">was seen as the main priority to ensure the supply of water.</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">Most of the work organised by farmers&#x27; associations was done by<span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">Fenced areas were created to keep animals away from crops.<span>The programme provided</span><span>–</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">for the fences</span></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">–<span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">for suitable crops</span></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">water pumps<span>The farmers provided</span><span>labour</span><span>–</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">for the fences on their land</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Further developments</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The marketing of produce was sometimes difficult due to lack of</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Training was therefore provided in methods of food</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Farmers made special places where</span><span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">could be kept</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Local people later suggested keeping</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Evaluation and lessons learned</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Agricultural production increased, improving incomes and food security.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Enough time must be allowed, particularly for the</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">phase of the programme.</span></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Agricultural programme in Mozambique</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 2 • Cambridge IELTS 15 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

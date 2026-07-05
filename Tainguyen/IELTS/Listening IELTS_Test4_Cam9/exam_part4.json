@@ -5,6 +5,7 @@
   "audioFile": "listening.mp3",
   "notePassageLayout": "table",
   "noteTable": {
+    "gapNumbers": [37, 38, 39, 40],
     "headers": [
       "Animals",
       "Reason for population increase in gardens",
@@ -22,13 +23,13 @@
           [
             {
               "type": "static",
-              "text": "suitable stretches of water"
+              "text": "Suitable stretches of water"
             }
           ],
           [
             {
               "type": "static",
-              "text": "massive increase in urban population"
+              "text": "Massive increase in urban areas"
             }
           ]
         ]
@@ -44,17 +45,21 @@
           [
             {
               "type": "static",
-              "text": "safer from "
+              "text": "Safe from "
             },
             {
               "type": "gap",
               "number": 38
+            },
+            {
+              "type": "static",
+              "text": " when in cities"
             }
           ],
           [
             {
               "type": "static",
-              "text": "easy to "
+              "text": "Easy to "
             },
             {
               "type": "gap",
@@ -78,7 +83,7 @@
           [
             {
               "type": "static",
-              "text": "a variety of "
+              "text": "• A variety of "
             },
             {
               "type": "gap",
@@ -87,12 +92,19 @@
             {
               "type": "static",
               "text": " to eat"
+            },
+            {
+              "type": "break"
+            },
+            {
+              "type": "static",
+              "text": "• More nesting places available"
             }
           ],
           [
             {
               "type": "static",
-              "text": "more nesting places available"
+              "text": "Large survey starting soon"
             }
           ]
         ]
@@ -267,6 +279,5 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1
     }
-  ],
-  "passageTitle": "Wildlife in city gardens"
+  ]
 }

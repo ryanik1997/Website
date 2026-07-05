@@ -12,22 +12,23 @@
       "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
       "notePassageLayout": "form",
+      "passageTitle": "TOTAL HEALTH CLINIC – PATIENT DETAILS",
       "notePassage": [
-        {
-          "type": "example",
-          "text": "Example"
-        },
-        {
-          "type": "example",
-          "text": "Name: Julie Anne Garcia"
-        },
         {
           "type": "section",
           "text": "Personal information"
         },
         {
+          "type": "example",
+          "text": "Example"
+        },
+        {
           "type": "static",
-          "text": "Contact phone:"
+          "text": "Name: Julie Anne ……Garcia….."
+        },
+        {
+          "type": "static",
+          "text": "Contact phone: "
         },
         {
           "type": "gap",
@@ -35,7 +36,7 @@
         },
         {
           "type": "static",
-          "text": "Date of birth:"
+          "text": "Date of birth: "
         },
         {
           "type": "gap",
@@ -43,7 +44,11 @@
         },
         {
           "type": "static",
-          "text": "• Occupation: works as a"
+          "text": ", 1992"
+        },
+        {
+          "type": "static",
+          "text": "Occupation: works as a "
         },
         {
           "type": "gap",
@@ -51,11 +56,15 @@
         },
         {
           "type": "static",
-          "text": "Insurance company:"
+          "text": "Insurance company: "
         },
         {
           "type": "gap",
           "number": 4
+        },
+        {
+          "type": "static",
+          "text": " Life Insurance"
         },
         {
           "type": "section",
@@ -63,7 +72,7 @@
         },
         {
           "type": "static",
-          "text": "Type of problem: pain in her left"
+          "text": "Type of problem: pain in her left "
         },
         {
           "type": "gap",
@@ -71,7 +80,7 @@
         },
         {
           "type": "static",
-          "text": "• When it began"
+          "text": "When it began: "
         },
         {
           "type": "gap",
@@ -79,7 +88,7 @@
         },
         {
           "type": "static",
-          "text": "ago"
+          "text": " ago"
         },
         {
           "type": "static",
@@ -91,7 +100,7 @@
         },
         {
           "type": "static",
-          "text": "Sports played: belongs to a"
+          "text": "Sports played: belongs to a "
         },
         {
           "type": "gap",
@@ -99,11 +108,11 @@
         },
         {
           "type": "static",
-          "text": "• club"
+          "text": " club"
         },
         {
           "type": "static",
-          "text": "• goes"
+          "text": "goes "
         },
         {
           "type": "gap",
@@ -111,11 +120,11 @@
         },
         {
           "type": "static",
-          "text": "regularly"
+          "text": " regularly"
         },
         {
           "type": "static",
-          "text": "• injured her"
+          "text": "Medical history: injured her "
         },
         {
           "type": "gap",
@@ -123,15 +132,15 @@
         },
         {
           "type": "static",
-          "text": "last year"
+          "text": " last year"
         },
         {
           "type": "static",
-          "text": "• no allergies"
+          "text": "no allergies"
         },
         {
           "type": "static",
-          "text": "• no regular medication apart from"
+          "text": "no regular medication apart from "
         },
         {
           "type": "gap",
@@ -147,7 +156,7 @@
           "answer": "2194429785/219 442 9785",
           "explanation": "Điền theo audio.",
           "wordLimit": 1,
-          "sectionTitle": "TOTAL HEALTH CLINIC"
+          "sectionTitle": "TOTAL HEALTH CLINIC – PATIENT DETAILS"
         },
         {
           "number": 2,
@@ -230,8 +239,7 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ],
-      "passageTitle": "TOTAL HEALTH CLINIC"
+      ]
     },
     {
       "partNumber": 2,
@@ -912,7 +920,8 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "passageTitle": "The history of weather forecasting",
+      "passageTitle": "THE HISTORY OF WEATHER FORECASTING",
+      "notePassageLayout": "lecture",
       "notePassage": [
         {
           "type": "section",
@@ -920,7 +929,11 @@
         },
         {
           "type": "static",
-          "text": "• many cultures invented"
+          "text": "● many cultures believed that floods and other disasters were involved in the creation of the world"
+        },
+        {
+          "type": "static",
+          "text": "● many cultures invented"
         },
         {
           "type": "gap",
@@ -928,11 +941,11 @@
         },
         {
           "type": "static",
-          "text": "and other ceremonies to make the weather gods friendly"
+          "text": " and other ceremonies to make the weather gods friendly"
         },
         {
           "type": "static",
-          "text": "• people needed to observe and interpret the sky to ensure their"
+          "text": "● people needed to observe and interpret the sky to ensure their"
         },
         {
           "type": "gap",
@@ -940,7 +953,7 @@
         },
         {
           "type": "static",
-          "text": "• around 650 BC, Babylonians started forecasting, using weather phenomena such as"
+          "text": "● around 650 BC, Babylonians started forecasting, using weather phenomena such as"
         },
         {
           "type": "gap",
@@ -948,7 +961,7 @@
         },
         {
           "type": "static",
-          "text": "• by 300 BC, the Chinese had a calendar made up of a number of"
+          "text": "● by 300 BC, the Chinese had a calendar made up of a number of"
         },
         {
           "type": "gap",
@@ -956,7 +969,7 @@
         },
         {
           "type": "static",
-          "text": "connected with the weather"
+          "text": " connected with the weather"
         },
         {
           "type": "section",
@@ -964,11 +977,15 @@
         },
         {
           "type": "static",
-          "text": "• Aristotle tried to explain the formation of various weather phenomena"
+          "text": "● a more scientific approach"
         },
         {
           "type": "static",
-          "text": "• Aristotle also described haloes and"
+          "text": "● Aristotle tried to explain the formation of various weather phenomena"
+        },
+        {
+          "type": "static",
+          "text": "● Aristotle also described haloes and"
         },
         {
           "type": "gap",
@@ -980,7 +997,11 @@
         },
         {
           "type": "static",
-          "text": "• many proverbs, e.g. about the significance of the colour of the"
+          "text": "● Aristotle's work considered accurate"
+        },
+        {
+          "type": "static",
+          "text": "● many proverbs, e.g. about the significance of the colour of the"
         },
         {
           "type": "gap",
@@ -988,7 +1009,7 @@
         },
         {
           "type": "static",
-          "text": "• , passed on accurate information."
+          "text": ", passed on accurate information."
         },
         {
           "type": "section",
@@ -996,7 +1017,7 @@
         },
         {
           "type": "static",
-          "text": "• 15th century: scientists recognised value of"
+          "text": "● 15th century: scientists recognised value of"
         },
         {
           "type": "gap",
@@ -1004,11 +1025,11 @@
         },
         {
           "type": "static",
-          "text": "for the first time"
+          "text": " for the first time"
         },
         {
           "type": "static",
-          "text": "• Galileo invented the"
+          "text": "● Galileo invented the"
         },
         {
           "type": "gap",
@@ -1016,7 +1037,15 @@
         },
         {
           "type": "static",
-          "text": "• 18th century: Franklin identified the movement of"
+          "text": "● Pascal showed relationship between atmospheric pressure and altitude"
+        },
+        {
+          "type": "static",
+          "text": "● from the 17th century, scientists could measure atmospheric pressure and temperature"
+        },
+        {
+          "type": "static",
+          "text": "● 18th century: Franklin identified the movement of"
         },
         {
           "type": "gap",
@@ -1024,7 +1053,7 @@
         },
         {
           "type": "static",
-          "text": "• 19th century: data from different locations could be sent to the same place by"
+          "text": "● 19th century: data from different locations could be sent to the same place by"
         },
         {
           "type": "gap",
@@ -1040,7 +1069,7 @@
           "answer": "dances",
           "explanation": "Điền theo audio.",
           "wordLimit": 1,
-          "sectionTitle": "The history of weather forecasting"
+          "sectionTitle": "THE HISTORY OF WEATHER FORECASTING"
         },
         {
           "number": 32,
@@ -1123,8 +1152,7 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }

@@ -9,11 +9,211 @@
     {
       "partNumber": 1,
       "rangeLabel": "Questions 1–10",
-      "instruction": "Questions 1–6: Choose A, B or C. Questions 7–10: Complete the sentences. Write ONE WORD ONLY.",
+      "instruction": "Choose the correct letter A, B or C.",
       "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "multiple-choice",
+          "prompt": "The 'Family Welcome' event in the art gallery begins at",
+          "options": [
+            {
+              "id": "A",
+              "label": "10 am."
+            },
+            {
+              "id": "B",
+              "label": "10.30 am."
+            },
+            {
+              "id": "C",
+              "label": "2 pm."
+            }
+          ],
+          "answer": "b",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 2,
+          "type": "multiple-choice",
+          "prompt": "The film that is now shown in the 'Family Welcome' event is about",
+          "options": [
+            {
+              "id": "A",
+              "label": "sculptur"
+            },
+            {
+              "id": "E",
+              "label": ""
+            },
+            {
+              "id": "B",
+              "label": "paintin"
+            },
+            {
+              "id": "G",
+              "label": ""
+            },
+            {
+              "id": "C",
+              "label": "ceramics."
+            }
+          ],
+          "answer": "c",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 3,
+          "type": "multiple-choice",
+          "prompt": "When do most of the free concerts take place?",
+          "options": [
+            {
+              "id": "A",
+              "label": "in the mornin"
+            },
+            {
+              "id": "G",
+              "label": ""
+            },
+            {
+              "id": "B",
+              "label": "at lunchtim"
+            },
+            {
+              "id": "E",
+              "label": ""
+            },
+            {
+              "id": "C",
+              "label": "in the evenin"
+            },
+            {
+              "id": "G",
+              "label": ""
+            }
+          ],
+          "answer": "b",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 4,
+          "type": "multiple-choice",
+          "prompt": "Where will the 4 pm concert of Latin American music take place?",
+          "options": [
+            {
+              "id": "A",
+              "label": "in a museum."
+            },
+            {
+              "id": "B",
+              "label": "in a theatr"
+            },
+            {
+              "id": "E",
+              "label": ""
+            },
+            {
+              "id": "C",
+              "label": "in a library."
+            }
+          ],
+          "answer": "a",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 5,
+          "type": "multiple-choice",
+          "prompt": "The boat race begins at",
+          "options": [
+            {
+              "id": "A",
+              "label": "SummerPool."
+            },
+            {
+              "id": "B",
+              "label": "CharlesworthBridg"
+            },
+            {
+              "id": "E",
+              "label": ""
+            },
+            {
+              "id": "C",
+              "label": "Offord Marin"
+            },
+            {
+              "id": "A",
+              "label": ""
+            }
+          ],
+          "answer": "c",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 6,
+          "type": "multiple-choice",
+          "prompt": "One of the boat race teams",
+          "options": [
+            {
+              "id": "A",
+              "label": "won a regional competition earlier this year."
+            },
+            {
+              "id": "B",
+              "label": "has represented the region in a national competition."
+            },
+            {
+              "id": "C",
+              "label": "has won several regional competitions."
+            }
+          ],
+          "answer": "a",
+          "explanation": "Chọn theo answer key."
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Question 7",
+          "options": [],
+          "answer": "birds",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Question 8",
+          "options": [],
+          "answer": "furniture",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Question 9",
+          "options": [],
+          "answer": "mushrooms",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Question 10",
+          "options": [],
+          "answer": "river",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        }
+      ],
       "notePassage": [
         {
-          "type": "section",
+          "type": "static",
+          "text": "Complete the sentences below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "type": "static",
           "text": "Paxton Nature Reserve"
         },
         {
@@ -26,7 +226,7 @@
         },
         {
           "type": "static",
-          "text": "all year round"
+          "text": "all year round."
         },
         {
           "type": "static",
@@ -38,6 +238,10 @@
         },
         {
           "type": "static",
+          "text": "."
+        },
+        {
+          "type": "static",
           "text": "• Visitors will be able to learn about"
         },
         {
@@ -46,7 +250,7 @@
         },
         {
           "type": "static",
-          "text": "and then collect some"
+          "text": "and then collect some."
         },
         {
           "type": "static",
@@ -58,187 +262,17 @@
         },
         {
           "type": "static",
-          "text": "• has been made suitable for swimming"
+          "text": "has been made suitable for swimming."
         }
       ],
-      "questions": [
-        {
-          "number": 1,
-          "type": "multiple-choice",
-          "prompt": "The 'Family Welcome' event in the art gallery begins at",
-          "options": [
-            {
-              "id": "A",
-              "label": "10 am"
-            },
-            {
-              "id": "B",
-              "label": "10.30 am"
-            },
-            {
-              "id": "C",
-              "label": "2 pm"
-            }
-          ],
-          "answer": "B",
-          "explanation": "Chọn theo audio.",
-          "sectionRange": "Questions 1 – 6",
-          "sectionInstruction": "Choose the correct letter A, B or C.",
-          "sectionTitle": "Free activities in the Burnham area"
-        },
-        {
-          "number": 2,
-          "type": "multiple-choice",
-          "prompt": "The film that is now shown in the 'Family Welcome' event is about",
-          "options": [
-            {
-              "id": "A",
-              "label": "sculpture"
-            },
-            {
-              "id": "B",
-              "label": "painting"
-            },
-            {
-              "id": "C",
-              "label": "ceramics"
-            }
-          ],
-          "answer": "C",
-          "explanation": "Chọn theo audio."
-        },
-        {
-          "number": 3,
-          "type": "multiple-choice",
-          "prompt": "When do most of the free concerts take place?",
-          "options": [
-            {
-              "id": "A",
-              "label": "in the morning"
-            },
-            {
-              "id": "B",
-              "label": "at lunchtime"
-            },
-            {
-              "id": "C",
-              "label": "in the evening"
-            }
-          ],
-          "answer": "B",
-          "explanation": "Chọn theo audio."
-        },
-        {
-          "number": 4,
-          "type": "multiple-choice",
-          "prompt": "Where will the 4 pm concert of Latin American music take place?",
-          "options": [
-            {
-              "id": "A",
-              "label": "in a museum"
-            },
-            {
-              "id": "B",
-              "label": "in a theatre"
-            },
-            {
-              "id": "C",
-              "label": "in a library"
-            }
-          ],
-          "answer": "A",
-          "explanation": "Chọn theo audio."
-        },
-        {
-          "number": 5,
-          "type": "multiple-choice",
-          "prompt": "The boat race begins at",
-          "options": [
-            {
-              "id": "A",
-              "label": "Summer Pool"
-            },
-            {
-              "id": "B",
-              "label": "Charlesworth Bridge"
-            },
-            {
-              "id": "C",
-              "label": "Offord Marina"
-            }
-          ],
-          "answer": "C",
-          "explanation": "Chọn theo audio."
-        },
-        {
-          "number": 6,
-          "type": "multiple-choice",
-          "prompt": "One of the boat race teams",
-          "options": [
-            {
-              "id": "A",
-              "label": "won a regional competition earlier this year"
-            },
-            {
-              "id": "B",
-              "label": "has represented the region in a national competition"
-            },
-            {
-              "id": "C",
-              "label": "has won several regional competitions"
-            }
-          ],
-          "answer": "A",
-          "explanation": "Chọn theo audio."
-        },
-        {
-          "number": 7,
-          "type": "gap-fill",
-          "prompt": "Rare:",
-          "options": [],
-          "answer": "birds",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "sectionRange": "Questions 7 – 10",
-          "sectionInstruction": "Complete the sentences below. Write ONE WORD ONLY for each answer.",
-          "sectionTitle": "Paxton Nature Reserve"
-        },
-        {
-          "number": 8,
-          "type": "gap-fill",
-          "prompt": "Unusual:",
-          "options": [],
-          "answer": "furniture",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 9,
-          "type": "gap-fill",
-          "prompt": "Learn about and collect:",
-          "options": [],
-          "answer": "mushrooms",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 10,
-          "type": "gap-fill",
-          "prompt": "Part of the:",
-          "options": [],
-          "answer": "river",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        }
-      ],
-      "notePassageLayout": "form",
-      "passageTitle": "Free activities in the Burnham area"
+      "notePassageLayout": "form"
     },
     {
       "partNumber": 2,
       "rangeLabel": "Questions 11–20",
       "instruction": "Questions 11–15: Choose A, B or C. Questions 16–20: Matching A–G.",
       "audioFile": "listening.mp3",
+      "imageFile": "map.jpg",
       "questions": [
         {
           "number": 11,
@@ -384,8 +418,10 @@
           ],
           "answer": "G",
           "explanation": "Chọn theo audio.",
+          "mapLabel": true,
           "sectionRange": "Questions 16 – 20",
-          "sectionInstruction": "What is planned for each facility? Choose FIVE answers A–G."
+          "sectionInstruction": "What is planned for each of the following facilities? Choose FIVE answers from the box and write the correct letter A–G next to questions 16–20.",
+          "sectionTitle": "PLANS FOR FACILITIES"
         },
         {
           "number": 17,
@@ -422,7 +458,8 @@
             }
           ],
           "answer": "A",
-          "explanation": "Chọn theo audio."
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
         },
         {
           "number": 18,
@@ -459,7 +496,8 @@
             }
           ],
           "answer": "C",
-          "explanation": "Chọn theo audio."
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
         },
         {
           "number": 19,
@@ -496,7 +534,8 @@
             }
           ],
           "answer": "B",
-          "explanation": "Chọn theo audio."
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
         },
         {
           "number": 20,
@@ -533,7 +572,8 @@
             }
           ],
           "answer": "F",
-          "explanation": "Chọn theo audio."
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
         }
       ]
     },
@@ -553,7 +593,6 @@
             25,
             26
           ],
-          "instruction": "Questions 21 – 26\nComplete the table below. Write ONE WORD ONLY for each answer.",
           "headers": [
             "Subject of drawing",
             "Change to be made"
@@ -583,6 +622,10 @@
                   {
                     "type": "gap",
                     "number": 22
+                  },
+                  {
+                    "type": "static",
+                    "text": " noticing him"
                   }
                 ]
               ]
@@ -597,24 +640,16 @@
                   {
                     "type": "gap",
                     "number": 23
-                  },
-                  {
-                    "type": "static",
-                    "text": " and "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 24
                   }
                 ],
                 [
                   {
                     "type": "static",
-                    "text": "Add Malcolm sitting on a tree trunk and dissuading two people from "
+                    "text": "Add Malcolm sitting on a tree trunk and "
                   },
                   {
                     "type": "gap",
-                    "number": 23
+                    "number": 24
                   }
                 ]
               ]
@@ -624,11 +659,15 @@
                 [
                   {
                     "type": "static",
-                    "text": "Ice-skating on "
+                    "text": "Ice-skaters on "
                   },
                   {
                     "type": "gap",
                     "number": 25
+                  },
+                  {
+                    "type": "static",
+                    "text": " covered with ice"
                   }
                 ],
                 [
@@ -642,7 +681,7 @@
                   },
                   {
                     "type": "static",
-                    "text": " tied to each person's waist"
+                    "text": " for each person"
                   }
                 ]
               ]
@@ -710,7 +749,7 @@
         {
           "number": 27,
           "type": "matching",
-          "prompt": "How they planned the project",
+          "prompt": "how they planned the project",
           "options": [
             {
               "id": "A",
@@ -732,12 +771,13 @@
           "answer": "A",
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 27 – 30",
-          "sectionInstruction": "Who is going to write each part of the report? Write A–D."
+          "sectionInstruction": "Who is going to write each of the following parts of the report? Write the correct letter A–D next to questions 27–30.",
+          "sectionTitle": "REPORT PARTS"
         },
         {
           "number": 28,
           "type": "matching",
-          "prompt": "How they had ideas for their stories",
+          "prompt": "how they had ideas for their stories",
           "options": [
             {
               "id": "A",
@@ -762,7 +802,7 @@
         {
           "number": 29,
           "type": "matching",
-          "prompt": "An interpretation of their stories",
+          "prompt": "an interpretation of their stories",
           "options": [
             {
               "id": "A",
@@ -787,7 +827,7 @@
         {
           "number": 30,
           "type": "matching",
-          "prompt": "Comments on the illustrations",
+          "prompt": "comments on the illustrations",
           "options": [
             {
               "id": "A",
@@ -816,19 +856,32 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "passageTitle": "Ethnography in business",
+      "passageTitle": "ETHNOGRAPHY IN BUSINESS",
+      "notePassageLayout": "lecture",
       "notePassage": [
         {
-          "type": "section",
-          "text": "Ethnography"
+          "type": "static",
+          "text": "Ethnography: research which explores human cultures"
         },
         {
           "type": "static",
-          "text": "Research which explores human cultures; used in business to investigate customer needs and"
+          "text": "It can be used in business:"
+        },
+        {
+          "type": "static",
+          "text": "• to investigate customer needs and"
         },
         {
           "type": "gap",
           "number": 31
+        },
+        {
+          "type": "static",
+          "text": "• to help companies develop new designs"
+        },
+        {
+          "type": "section",
+          "text": "Examples of ethnographic research in business"
         },
         {
           "type": "section",
@@ -844,7 +897,7 @@
         },
         {
           "type": "static",
-          "text": "in measuring cups"
+          "text": "in measuring cups."
         },
         {
           "type": "section",
@@ -852,7 +905,11 @@
         },
         {
           "type": "static",
-          "text": "• Customers wanted to check the"
+          "text": "• In Uganda, customers paid to use the cell phones of entrepreneurs."
+        },
+        {
+          "type": "static",
+          "text": "• These customers wanted to check the"
         },
         {
           "type": "gap",
@@ -860,7 +917,7 @@
         },
         {
           "type": "static",
-          "text": "used"
+          "text": "used."
         },
         {
           "type": "section",
@@ -868,7 +925,7 @@
         },
         {
           "type": "static",
-          "text": "• Need to develop"
+          "text": "• There was a need to develop"
         },
         {
           "type": "gap",
@@ -876,7 +933,7 @@
         },
         {
           "type": "static",
-          "text": "to improve communication"
+          "text": "to improve communication between system administrators and colleagues."
         },
         {
           "type": "section",
@@ -884,11 +941,15 @@
         },
         {
           "type": "static",
-          "text": "• Nurses needed access to information about"
+          "text": "• Nurses needed to access information about"
         },
         {
           "type": "gap",
           "number": 35
+        },
+        {
+          "type": "static",
+          "text": "in different parts of the hospital."
         },
         {
           "type": "section",
@@ -904,15 +965,19 @@
         },
         {
           "type": "static",
-          "text": "while travelling"
+          "text": "while travelling."
         },
         {
           "type": "section",
-          "text": "Principles"
+          "text": "Principles of ethnographic research in business"
         },
         {
           "type": "static",
-          "text": "• Participants selected by criteria such as age,"
+          "text": "• The researcher does not start off with a hypothesis."
+        },
+        {
+          "type": "static",
+          "text": "• Participants may be selected by criteria such as age,"
         },
         {
           "type": "gap",
@@ -920,7 +985,11 @@
         },
         {
           "type": "static",
-          "text": "• Participants must feel"
+          "text": "or product used."
+        },
+        {
+          "type": "static",
+          "text": "• The participants must feel"
         },
         {
           "type": "gap",
@@ -928,11 +997,11 @@
         },
         {
           "type": "static",
-          "text": "about taking part"
+          "text": "about taking part in the research."
         },
         {
           "type": "static",
-          "text": "• Usually direct"
+          "text": "• There is usually direct"
         },
         {
           "type": "gap",
@@ -940,11 +1009,15 @@
         },
         {
           "type": "static",
-          "text": "of the participants"
+          "text": "of the participants."
         },
         {
           "type": "static",
-          "text": "• A lot of time needed for the"
+          "text": "• The interview is guided by the participant."
+        },
+        {
+          "type": "static",
+          "text": "• A lot of time is needed for the"
         },
         {
           "type": "gap",
@@ -952,7 +1025,11 @@
         },
         {
           "type": "static",
-          "text": "of the data"
+          "text": "of the data."
+        },
+        {
+          "type": "static",
+          "text": "• Researchers look for a meaningful pattern in the data."
         }
       ],
       "questions": [
@@ -963,8 +1040,7 @@
           "options": [],
           "answer": "attitude/attitudes",
           "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "sectionTitle": "ETHNOGRAPHY IN BUSINESS"
+          "wordLimit": 1
         },
         {
           "number": 32,
@@ -1047,8 +1123,7 @@
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }

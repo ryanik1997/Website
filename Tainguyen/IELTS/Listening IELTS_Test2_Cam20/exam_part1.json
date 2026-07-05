@@ -5,142 +5,40 @@
   "audioFile": "listening.mp3",
   "notePassageLayout": "form",
   "notePassage": [
-    {
-      "type": "static",
-      "text": "Local councils can arrange practical support to help those caring for elderly people at home."
-    },
-    {
-      "type": "static",
-      "text": "This can give the carer:"
-    },
-    {
-      "type": "static",
-      "text": "• time for other responsibilities"
-    },
-    {
-      "type": "static",
-      "text": "• a"
-    },
-    {
-      "type": "gap",
-      "number": 1
-    },
-    {
-      "type": "section",
-      "text": "Assessment of mother's needs"
-    },
-    {
-      "type": "static",
-      "text": "This may include discussion of:"
-    },
-    {
-      "type": "static",
-      "text": "• how much"
-    },
-    {
-      "type": "gap",
-      "number": 2
-    },
-    {
-      "type": "static",
-      "text": " the caring involves"
-    },
-    {
-      "type": "static",
-      "text": "• what types of tasks are involved, e.g."
-    },
-    {
-      "type": "static",
-      "text": "– help with dressing"
-    },
-    {
-      "type": "static",
-      "text": "– helping her have a"
-    },
-    {
-      "type": "gap",
-      "number": 3
-    },
-    {
-      "type": "static",
-      "text": "– shopping"
-    },
-    {
-      "type": "static",
-      "text": "– helping with meals"
-    },
-    {
-      "type": "static",
-      "text": "– dealing with"
-    },
-    {
-      "type": "gap",
-      "number": 4
-    },
-    {
-      "type": "static",
-      "text": "• any aspects of caring that are especially difficult, e.g."
-    },
-    {
-      "type": "static",
-      "text": "– loss of "
-    },
-    {
-      "type": "gap",
-      "number": 5
-    },
-    {
-      "type": "static",
-      "text": "–"
-    },
-    {
-      "type": "gap",
-      "number": 6
-    },
-    {
-      "type": "static",
-      "text": " her"
-    },
-    {
-      "type": "static",
-      "text": "– preventing a"
-    },
-    {
-      "type": "gap",
-      "number": 7
-    },
-    {
-      "type": "section",
-      "text": "Types of support that may be offered to carers"
-    },
-    {
-      "type": "static",
-      "text": "• transport costs, e.g. cost of a "
-    },
-    {
-      "type": "gap",
-      "number": 8
-    },
-    {
-      "type": "static",
-      "text": "• car-related costs, e.g. fuel and"
-    },
-    {
-      "type": "gap",
-      "number": 9
-    },
-    {
-      "type": "static",
-      "text": "• help with housework"
-    },
-    {
-      "type": "static",
-      "text": "• help to reduce"
-    },
-    {
-      "type": "gap",
-      "number": 10
-    }
+    { "type": "static", "text": "Local councils can arrange practical support to help those caring for elderly people at home." },
+    { "type": "static", "text": "This can give the carer:" },
+    { "type": "static", "text": "• time for other responsibilities" },
+    { "type": "static", "text": "• a " },
+    { "type": "gap", "number": 1 },
+    { "type": "section", "text": "Assessment of mother's needs" },
+    { "type": "static", "text": "This may include discussion of:" },
+    { "type": "static", "text": "• how much " },
+    { "type": "gap", "number": 2 },
+    { "type": "static", "text": " the caring involves" },
+    { "type": "static", "text": "• what types of tasks are involved, e.g." },
+    { "type": "static", "text": "– help with dressing" },
+    { "type": "static", "text": "– helping her have a " },
+    { "type": "gap", "number": 3 },
+    { "type": "static", "text": "– shopping" },
+    { "type": "static", "text": "– helping with meals" },
+    { "type": "static", "text": "– dealing with " },
+    { "type": "gap", "number": 4 },
+    { "type": "static", "text": "• any aspects of caring that are especially difficult, e.g." },
+    { "type": "static", "text": "– loss of " },
+    { "type": "gap", "number": 5 },
+    { "type": "static", "text": "– " },
+    { "type": "gap", "number": 6 },
+    { "type": "static", "text": " her" },
+    { "type": "static", "text": "– preventing a " },
+    { "type": "gap", "number": 7 },
+    { "type": "section", "text": "Types of support that may be offered to carers" },
+    { "type": "static", "text": "• transport costs, e.g. cost of a " },
+    { "type": "gap", "number": 8 },
+    { "type": "static", "text": "• car-related costs, e.g. fuel and " },
+    { "type": "gap", "number": 9 },
+    { "type": "static", "text": "• help with housework" },
+    { "type": "static", "text": "• help to reduce " },
+    { "type": "gap", "number": 10 }
   ],
   "questions": [
     {
@@ -150,8 +48,7 @@
       "options": [],
       "answer": "break",
       "explanation": "Giờ nghỉ.",
-      "wordLimit": 1,
-      "sectionTitle": "Local councils — practical support for carers"
+      "wordLimit": 1
     },
     {
       "number": 2,

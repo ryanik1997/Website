@@ -23,7 +23,7 @@
             6,
             7
           ],
-          "instruction": "Questions 1 – 7\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "title": "FESTIVAL EVENTS",
           "headers": [
             "Event",
             "Cost",
@@ -62,7 +62,7 @@
                 [
                   {
                     "type": "static",
-                    "text": "Carolyn Hart (plays the "
+                    "text": "Also appearing: Carolyn Hart (plays the "
                   },
                   {
                     "type": "gap",
@@ -102,6 +102,21 @@
                 [
                   {
                     "type": "static",
+                    "text": "Prize: tickets for "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  },
+                  {
+                    "type": "static",
+                    "text": " held at the end of the festival."
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
                     "text": "Ducks can be bought in the "
                   },
                   {
@@ -127,26 +142,18 @@
                 ],
                 [
                   {
-                    "type": "static",
-                    "text": "Bythwaite "
-                  },
-                  {
                     "type": "gap",
                     "number": 6
+                  },
+                  {
+                    "type": "static",
+                    "text": " Hall"
                   }
                 ],
                 [
                   {
                     "type": "static",
-                    "text": "Prize: tickets for "
-                  },
-                  {
-                    "type": "gap",
-                    "number": 4
-                  },
-                  {
-                    "type": "static",
-                    "text": " — presented by a well-known "
+                    "text": "Prizes presented at 5 pm by a well-known "
                   },
                   {
                     "type": "gap",
@@ -245,7 +252,8 @@
           "answer": "A",
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 8 – 10",
-          "sectionInstruction": "Who is each play suitable for? Write A, B or C."
+          "sectionInstruction": "Who is each play suitable for? Write the correct letter A, B or C next to questions 8–10.",
+          "sectionTitle": "PLAYS"
         },
         {
           "number": 9,
@@ -289,7 +297,8 @@
           "answer": "C",
           "explanation": "Chọn theo audio."
         }
-      ]
+      ],
+      "passageTitle": "FESTIVAL EVENTS"
     },
     {
       "partNumber": 2,
@@ -335,7 +344,8 @@
           "answer": "E",
           "explanation": "Chọn theo audio.",
           "sectionRange": "Questions 11 – 16",
-          "sectionInstruction": "What does the speaker say about each collection? Choose SIX answers A–G."
+          "sectionInstruction": "What does the speaker say about each of the following collections? Choose SIX answers from the box and write the correct letter A–G next to questions 11–16.",
+          "sectionTitle": "MUSEUM COLLECTIONS"
         },
         {
           "number": 12,
@@ -525,7 +535,7 @@
         {
           "number": 17,
           "type": "matching",
-          "prompt": "Restaurant",
+          "prompt": "restaurant",
           "options": [
             {
               "id": "A",
@@ -564,13 +574,13 @@
           "explanation": "Chọn theo audio.",
           "mapLabel": true,
           "sectionRange": "Questions 17 – 20",
-          "sectionInstruction": "Label the plan below. Write the correct letter A–H.",
-          "sectionTitle": "Basement of museum"
+          "sectionInstruction": "Label the plan below. Write the correct letter A–H next to Questions 17–20.",
+          "sectionTitle": "MUSEUM PLAN"
         },
         {
           "number": 18,
           "type": "matching",
-          "prompt": "Café",
+          "prompt": "café",
           "options": [
             {
               "id": "A",
@@ -612,7 +622,7 @@
         {
           "number": 19,
           "type": "matching",
-          "prompt": "Baby-changing facilities",
+          "prompt": "baby-changing facilities",
           "options": [
             {
               "id": "A",
@@ -654,7 +664,7 @@
         {
           "number": 20,
           "type": "matching",
-          "prompt": "Cloakroom",
+          "prompt": "cloakroom",
           "options": [
             {
               "id": "A",
@@ -971,11 +981,16 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "passageTitle": "The use of soil to reduce carbon dioxide (CO2)",
+      "passageTitle": "THE USE OF SOIL TO REDUCE CO₂ IN THE ATMOSPHERE",
+      "notePassageLayout": "lecture",
       "notePassage": [
         {
           "type": "section",
-          "text": "Rattan Lal"
+          "text": "Rattan Lal:"
+        },
+        {
+          "type": "static",
+          "text": "• Claims that 13% of CO₂ in the atmosphere could be absorbed by agricultural soils"
         },
         {
           "type": "static",
@@ -994,12 +1009,16 @@
           "number": 32
         },
         {
+          "type": "static",
+          "text": "• It was suggested that carbon from soil was entering the atmosphere"
+        },
+        {
           "type": "section",
-          "text": "Soil and carbon"
+          "text": "Soil and carbon:"
         },
         {
           "type": "static",
-          "text": "• plants turn CO2 into carbon-based substances such as"
+          "text": "• plants turn CO₂ from the air into carbon-based substances such as"
         },
         {
           "type": "gap",
@@ -1007,7 +1026,7 @@
         },
         {
           "type": "static",
-          "text": "• some carbon moves from the"
+          "text": "• some CO₂ moves from the"
         },
         {
           "type": "gap",
@@ -1018,12 +1037,16 @@
           "text": "of plants to microbes in the soil"
         },
         {
+          "type": "static",
+          "text": "• carbon was lost from the soil when agriculture was invented"
+        },
+        {
           "type": "section",
-          "text": "Regenerative agriculture"
+          "text": "Regenerative agriculture:"
         },
         {
           "type": "static",
-          "text": "• make sure soil remains fertile and"
+          "text": "• uses established practices to make sure soil remains fertile and"
         },
         {
           "type": "gap",
@@ -1031,7 +1054,7 @@
         },
         {
           "type": "static",
-          "text": "increasing the"
+          "text": "• e.g. through year-round planting and increasing the"
         },
         {
           "type": "gap",
@@ -1043,7 +1066,7 @@
         },
         {
           "type": "section",
-          "text": "California study"
+          "text": "California study:"
         },
         {
           "type": "static",
@@ -1067,11 +1090,11 @@
         },
         {
           "type": "section",
-          "text": "Australia study"
+          "text": "Australia study:"
         },
         {
           "type": "static",
-          "text": "• using"
+          "text": "• aims to increase soil carbon by using"
         },
         {
           "type": "gap",
@@ -1083,7 +1106,11 @@
         },
         {
           "type": "section",
-          "text": "Future developments"
+          "text": "Future developments may include:"
+        },
+        {
+          "type": "static",
+          "text": "• reducing the amount of fertilizer used in farming"
         },
         {
           "type": "static",
@@ -1107,7 +1134,7 @@
           "answer": "dry",
           "explanation": "Điền theo audio.",
           "wordLimit": 1,
-          "sectionTitle": "The use of soil to reduce carbon dioxide (CO2)"
+          "sectionTitle": "THE USE OF SOIL TO REDUCE CO₂ IN THE ATMOSPHERE"
         },
         {
           "number": 32,
@@ -1121,7 +1148,7 @@
         {
           "number": 33,
           "type": "gap-fill",
-          "prompt": "Substances such as:",
+          "prompt": "Carbon-based substances such as:",
           "options": [],
           "answer": "sugar/sugars",
           "explanation": "Điền theo audio.",
@@ -1139,7 +1166,7 @@
         {
           "number": 35,
           "type": "gap-fill",
-          "prompt": "Soil remains:",
+          "prompt": "Soil remains fertile and:",
           "options": [],
           "answer": "moist/damp/wet",
           "explanation": "Điền theo audio.",
@@ -1175,7 +1202,7 @@
         {
           "number": 39,
           "type": "gap-fill",
-          "prompt": "Using grasses that are always:",
+          "prompt": "Using:",
           "options": [],
           "answer": "grasses",
           "explanation": "Điền theo audio.",
@@ -1184,14 +1211,13 @@
         {
           "number": 40,
           "type": "gap-fill",
-          "prompt": "Farmers:",
+          "prompt": "Giving farmers:",
           "options": [],
           "answer": "payment/payments/money",
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }

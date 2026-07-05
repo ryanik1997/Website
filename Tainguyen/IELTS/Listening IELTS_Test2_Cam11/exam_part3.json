@@ -1,7 +1,7 @@
 {
   "partNumber": 3,
   "rangeLabel": "Questions 21–30",
-  "instruction": "Questions 21–26: Choose A, B or C. Questions 27–28 and 29–30: Choose TWO letters A–E.",
+  "instruction": "Choose the correct letter A, B or C.",
   "audioFile": "listening.mp3",
   "questions": [
     {
@@ -11,22 +11,23 @@
       "options": [
         {
           "id": "A",
-          "label": "factors affecting where organisms live"
+          "label": "factors affecting where organisms liv"
+        },
+        {
+          "id": "E",
+          "label": ""
         },
         {
           "id": "B",
-          "label": "the need to preserve endangered species"
+          "label": "the need to preserve endangered species."
         },
         {
           "id": "C",
-          "label": "techniques for classifying different organisms"
+          "label": "techniques for classifying different organisms."
         }
       ],
-      "answer": "A",
-      "explanation": "Chọn theo audio.",
-      "sectionRange": "Questions 21 – 26",
-      "sectionInstruction": "Choose the correct letter A, B or C.",
-      "sectionTitle": "Rocky Bay field trip"
+      "answer": "a",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 22,
@@ -35,19 +36,23 @@
       "options": [
         {
           "id": "A",
-          "label": "string"
+          "label": "strin"
+        },
+        {
+          "id": "G",
+          "label": ""
         },
         {
           "id": "B",
-          "label": "a compass"
+          "label": "a compass."
         },
         {
           "id": "C",
-          "label": "a ruler"
+          "label": "a ruler."
         }
       ],
-      "answer": "A",
-      "explanation": "Chọn theo audio."
+      "answer": "a",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 23,
@@ -56,19 +61,23 @@
       "options": [
         {
           "id": "A",
-          "label": "the order in which information is given"
+          "label": "the order in which information is given."
         },
         {
           "id": "B",
-          "label": "the way the information is divided up"
+          "label": "the way the information is divided up."
         },
         {
           "id": "C",
-          "label": "the amount of information provided"
+          "label": "the amount of information provide"
+        },
+        {
+          "id": "D",
+          "label": ""
         }
       ],
-      "answer": "C",
-      "explanation": "Chọn theo audio."
+      "answer": "c",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 24,
@@ -77,19 +86,19 @@
       "options": [
         {
           "id": "A",
-          "label": "It provided accurate results"
+          "label": "It provided accurate results."
         },
         {
           "id": "B",
-          "label": "It was simple to carry out"
+          "label": "It was simple to carry out."
         },
         {
           "id": "C",
-          "label": "It required special equipment"
+          "label": "It required special equipment."
         }
       ],
-      "answer": "B",
-      "explanation": "Chọn theo audio."
+      "answer": "b",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 25,
@@ -98,19 +107,31 @@
       "options": [
         {
           "id": "A",
-          "label": "She chose the wrong scale"
+          "label": "She chose the wrong scal"
+        },
+        {
+          "id": "E",
+          "label": ""
         },
         {
           "id": "B",
-          "label": "She stood in the wrong place"
+          "label": "She stood in the wrong plac"
+        },
+        {
+          "id": "E",
+          "label": ""
         },
         {
           "id": "C",
-          "label": "She did it at the wrong time"
+          "label": "She did it at the wrong tim"
+        },
+        {
+          "id": "E",
+          "label": ""
         }
       ],
-      "answer": "B",
-      "explanation": "Chọn theo audio."
+      "answer": "b",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 26,
@@ -119,139 +140,55 @@
       "options": [
         {
           "id": "A",
-          "label": "scan it onto a computer"
+          "label": "scan it onto a computer."
         },
         {
           "id": "B",
-          "label": "check it using photographs"
+          "label": "check it using photographs."
         },
         {
           "id": "C",
-          "label": "add information from the internet"
+          "label": "add information from the internet."
         }
       ],
-      "answer": "C",
-      "explanation": "Chọn theo audio."
+      "answer": "c",
+      "explanation": "Chọn theo answer key."
     },
     {
       "number": 27,
-      "type": "matching",
-      "prompt": "Which TWO problems affecting organisms in the splash zone are mentioned?",
-      "options": [
-        {
-          "id": "A",
-          "label": "lack of water"
-        },
-        {
-          "id": "B",
-          "label": "strong winds"
-        },
-        {
-          "id": "C",
-          "label": "lack of food"
-        },
-        {
-          "id": "D",
-          "label": "high temperatures"
-        },
-        {
-          "id": "E",
-          "label": "large waves"
-        }
-      ],
-      "answer": "A/D",
-      "explanation": "Thiếu nước (A) và nhiệt cao (D).",
-      "sectionRange": "Questions 27 – 28",
-      "sectionInstruction": "Choose TWO letters, A–E."
+      "type": "gap-fill",
+      "prompt": "Question 27",
+      "options": [],
+      "answer": "a/d",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
     },
     {
       "number": 28,
-      "type": "matching",
-      "prompt": "Which TWO problems affecting organisms in the splash zone are mentioned?",
-      "options": [
-        {
-          "id": "A",
-          "label": "lack of water"
-        },
-        {
-          "id": "B",
-          "label": "strong winds"
-        },
-        {
-          "id": "C",
-          "label": "lack of food"
-        },
-        {
-          "id": "D",
-          "label": "high temperatures"
-        },
-        {
-          "id": "E",
-          "label": "large waves"
-        }
-      ],
-      "answer": "A/D",
-      "explanation": "Thiếu nước (A) và nhiệt cao (D). (cặp 27–28)"
+      "type": "gap-fill",
+      "prompt": "Question 28",
+      "options": [],
+      "answer": "a/d",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
     },
     {
       "number": 29,
-      "type": "matching",
-      "prompt": "Which TWO reasons for possible error will they include in their report?",
-      "options": [
-        {
-          "id": "A",
-          "label": "inaccurate records of the habitat of organisms"
-        },
-        {
-          "id": "B",
-          "label": "influence on behaviour of organisms by observer"
-        },
-        {
-          "id": "C",
-          "label": "incorrect identification of some organisms"
-        },
-        {
-          "id": "D",
-          "label": "making generalisations from a small sample"
-        },
-        {
-          "id": "E",
-          "label": "missing some organisms when counting"
-        }
-      ],
-      "answer": "C/E",
-      "explanation": "Nhận dạng sai (C) và bỏ sót (E).",
-      "sectionRange": "Questions 29 – 30",
-      "sectionInstruction": "Choose TWO letters, A–E."
+      "type": "gap-fill",
+      "prompt": "Question 29",
+      "options": [],
+      "answer": "c/e",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
     },
     {
       "number": 30,
-      "type": "matching",
-      "prompt": "Which TWO reasons for possible error will they include in their report?",
-      "options": [
-        {
-          "id": "A",
-          "label": "inaccurate records of the habitat of organisms"
-        },
-        {
-          "id": "B",
-          "label": "influence on behaviour of organisms by observer"
-        },
-        {
-          "id": "C",
-          "label": "incorrect identification of some organisms"
-        },
-        {
-          "id": "D",
-          "label": "making generalisations from a small sample"
-        },
-        {
-          "id": "E",
-          "label": "missing some organisms when counting"
-        }
-      ],
-      "answer": "C/E",
-      "explanation": "Nhận dạng sai (C) và bỏ sót (E). (cặp 29–30)"
+      "type": "gap-fill",
+      "prompt": "Question 30",
+      "options": [],
+      "answer": "c/e",
+      "explanation": "Điền theo answer key.",
+      "wordLimit": 3
     }
   ]
 }

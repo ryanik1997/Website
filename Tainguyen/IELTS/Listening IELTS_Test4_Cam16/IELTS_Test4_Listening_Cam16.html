@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test 4 • Listening • Cambridge 16</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;600&amp;family=Helvetica:wght@400;700&amp;display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .exam-header {
+            background: #111827;
+            color: white;
+            padding: 6px 24px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-header {
+            background: #111827;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .paper-box {
+            border: 2px solid #374151;
+            border-radius: 4px;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        .question-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            min-width: 22px;
+            color: #111827;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #4b5563;
+            background: transparent;
+            padding: 2px 6px;
+            font-size: 15px;
+            min-width: 180px;
+            margin-left: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #1e40af;
+            background: #f8fafc;
+        }
+        
+        .answer-input::placeholder {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .exam-text {
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .bullet-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .option.selected {
+            background-color: #dbeafe;
+            border: 1px solid #3b82f6;
+        }
+        
+        .option-label {
+            font-weight: 700;
+            margin-right: 10px;
+            min-width: 22px;
+            color: #1e40af;
+        }
+        
+        .mcq-container {
+            margin-left: 24px;
+        }
+        
+        .notes-box {
+            border: 2px solid #374151;
+            padding: 18px 22px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .notes-title {
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #111827;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .ielts-instruction {
+            font-size: 14px;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .shadow-xl {
+                box-shadow: none;
+            }
+            .max-w-\[900px\] {
+                max-width: 100%;
+            }
+            .answer-input {
+                border-bottom: 1.5px solid #000;
+                background: transparent;
+            }
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        
+        .form-label {
+            min-width: 195px;
+            font-size: 15px;
+        }
+    
+        .exam-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 1.5rem; }
+        .exam-table th, .exam-table td { border: 1px solid #374151; padding: 8px 10px; vertical-align: top; }
+        .exam-table thead th { background: #f3f4f6; font-weight: 600; text-align: left; }
+        .map-image, .diagram-image { display: block; max-width: 100%; margin: 1rem auto; border: 1px solid #d1d5db; }
+        .section-subheader { font-weight: 600; margin: 1.25rem 0 0.75rem; font-size: 15px; }
+        .section-subinstruction { font-size: 14px; font-weight: normal; color: #374151; }
+        .flow-step { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; font-size: 15px; }
+        .flow-arrow { text-align: center; color: #6b7280; font-size: 18px; margin: 2px 0 6px 24px; }
+        .option-box { border: 1px solid #374151; padding: 12px 16px; margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; font-size: 14px; }
+        .option-box-item { display: flex; gap: 6px; }
+        .option-box-letter { font-weight: 700; min-width: 18px; }
+        .map-label-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font-size: 15px; }
+        .letter-input { width: 40px; border: none; border-bottom: 2px solid #4b5563; text-align: center; font-weight: 700; font-size: 15px; outline: none; }
+        .cell-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+        .cell-break { display: block; height: 6px; }
+        .example-badge { margin-left: 8px; font-size: 12px; color: #059669; font-weight: 600; }
+
+    </style>
+</head>
+<body class="bg-zinc-100 py-8">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-zinc-200">
+        
+        <!-- Top Header -->
+        <div class="bg-zinc-900 text-white px-8 py-5 flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Test 4</h1>
+                <p class="text-zinc-400 text-sm mt-0.5">Cambridge IELTS 16</p>
+            </div>
+            <div class="text-right">
+                <div class="exam-header text-lg tracking-[2px]">LISTENING</div>
+                <p class="text-xs text-zinc-400 mt-1">Time: approx. 30 minutes</p>
+            </div>
+        </div>
+
+        <div class="p-8">
+<div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+  <div class="flex items-start gap-3">
+    <i class="fa-solid fa-info-circle text-amber-600 mt-1"></i>
+    <div class="text-sm">
+      <p class="font-semibold text-amber-800">Instructions</p>
+      <p class="text-amber-700 mt-1">
+        Digital recreation of Cambridge IELTS Listening Test 4. 
+        Type answers in the gaps. Click options for multiple choice.
+        <br><span class="font-medium">Print this page</span> for paper-like practice.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 1</div>
+    <div><span class="font-bold text-lg">Questions 1–10</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.</p>
+  <div class="paper-box">
+<div class="form-row"><div class="form-label">Owners&#x27; names: Jack Fitzgerald and Shirley Fitzgerald</div><div class="flex-1 flex items-center flex-wrap"></div></div>
+<div class="font-semibold mt-2 mb-1">Granary Cottage</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>available for week beginning</span><span class="question-number">1</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>May</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>cost for the week: £</span><span class="question-number">2</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="font-semibold mt-2 mb-1">Chervil Cottage</div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">•<span class="question-number">3</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Cottage</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>cost for the week: £480</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>building was originally a</span><span class="question-number">4</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>walk through doors from living room into a</span><span class="question-number">5</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>several</span><span class="question-number">6</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">spaces at the front</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>bathroom has a shower</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>central heating and stove that burns</span><span class="question-number">7</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>views of old</span><span class="question-number">8</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">from living room</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>view of hilltop</span><span class="question-number">9</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"><span class="ml-1 text-gray-600">from the bedroom</span></div>
+<div class="font-semibold mt-2 mb-1">Payment</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>deposit: £144</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>deadline for final payment: end of</span><span class="question-number">10</span><input type="text" class="answer-input" style="min-width:120px" placeholder="________________"></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Holiday rental</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 2</div>
+    <div><span class="font-bold text-lg">Questions 11–20</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 11–14: Choose A, B or C. Questions 15–20: Label the map A–I.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 11 – 14<br><span class="section-subinstruction">Choose the correct letter, A, B or C.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Local council report on traffic and highways</span></div>
+<div class="mb-5"><div class="font-medium mb-2">11 A survey found people&#x27;s main concern about traffic in the area was</div><div class="mcq-container space-y-1" data-question="q11"><div onclick="selectOption(this, 'q11')" class="option" data-value="A"><span class="option-label">A</span><span>cuts to public transport.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="B"><span class="option-label">B</span><span>poor maintenance of roads.</span></div>
+<div onclick="selectOption(this, 'q11')" class="option" data-value="C"><span class="option-label">C</span><span>changes in the type of traffic.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">12 Which change will shortly be made to the cycle path next to the river?</div><div class="mcq-container space-y-1" data-question="q12"><div onclick="selectOption(this, 'q12')" class="option" data-value="A"><span class="option-label">A</span><span>It will be widened.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="B"><span class="option-label">B</span><span>It will be extended.</span></div>
+<div onclick="selectOption(this, 'q12')" class="option" data-value="C"><span class="option-label">C</span><span>It will be resurfaced.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">13 Plans for a pedestrian crossing have been postponed because</div><div class="mcq-container space-y-1" data-question="q13"><div onclick="selectOption(this, 'q13')" class="option" data-value="A"><span class="option-label">A</span><span>the Post Office has moved.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="B"><span class="option-label">B</span><span>the proposed location is unsafe.</span></div>
+<div onclick="selectOption(this, 'q13')" class="option" data-value="C"><span class="option-label">C</span><span>funding is not available at present.</span></div></div></div>
+<div class="mb-5"><div class="font-medium mb-2">14 On Station Road, notices have been erected</div><div class="mcq-container space-y-1" data-question="q14"><div onclick="selectOption(this, 'q14')" class="option" data-value="A"><span class="option-label">A</span><span>telling cyclists not to leave their bikes outside the station ticket office.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="B"><span class="option-label">B</span><span>asking motorists to switch off engines when waiting at the level crossing.</span></div>
+<div onclick="selectOption(this, 'q14')" class="option" data-value="C"><span class="option-label">C</span><span>warning pedestrians to leave enough time when crossing the railway line.</span></div></div></div>
+<div class="section-subheader">Questions 15 – 20<br><span class="section-subinstruction">Label the map below. Write the correct letter, A–I, next to Questions 15–20.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Recreation ground after proposed changes</span></div>
+<img src="map.jpg" alt="" class="map-image">
+<div class="map-label-row"><span class="question-number">15</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>New car park</span></div>
+<div class="map-label-row"><span class="question-number">16</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>New cricket pitch</span></div>
+<div class="map-label-row"><span class="question-number">17</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Children&#x27;s playground</span></div>
+<div class="map-label-row"><span class="question-number">18</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Skateboard ramp</span></div>
+<div class="map-label-row"><span class="question-number">19</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Pavilion</span></div>
+<div class="map-label-row"><span class="question-number">20</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Notice board</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 3</div>
+    <div><span class="font-bold text-lg">Questions 21–30</span></div>
+  </div>
+  <p class="ielts-instruction">Questions 21–22 and 23–24: Choose TWO A–E. Questions 25–30: Matching A–G.</p>
+  <div class="paper-box">
+<div class="section-subheader">Questions 21 and 22<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">21 &amp; 22 Which TWO benefits of city bike-sharing schemes do the students agree are the most important?</div><div class="mcq-container space-y-1" data-question="q21-22"><div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="A"><span class="option-label">A</span><span>reducing noise pollution</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="B"><span class="option-label">B</span><span>reducing traffic congestion</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="C"><span class="option-label">C</span><span>improving air quality</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="D"><span class="option-label">D</span><span>encouraging health and fitness</span></div>
+<div onclick="toggleMultiOption(this, 'q21-22')" class="option" data-value="E"><span class="option-label">E</span><span>making cycling affordable</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 23 and 24<br><span class="section-subinstruction">Choose TWO letters, A–E.</span></div>
+<div class="mb-5"><div class="font-medium mb-2">23 &amp; 24 Which TWO things do the students think are necessary for successful bike-sharing schemes?</div><div class="mcq-container space-y-1" data-question="q23-24"><div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="A"><span class="option-label">A</span><span>Bikes should have a GPS system.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="B"><span class="option-label">B</span><span>The app should be easy to use.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="C"><span class="option-label">C</span><span>Public awareness should be raised.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="D"><span class="option-label">D</span><span>Only one scheme should be available.</span></div>
+<div onclick="toggleMultiOption(this, 'q23-24')" class="option" data-value="E"><span class="option-label">E</span><span>There should be a large network of cycle lanes.</span></div></div><p class="text-xs text-gray-500 mt-1 ml-6">Click to select (max 2)</p></div>
+<div class="section-subheader">Questions 25 – 30<br><span class="section-subinstruction">What is the speakers&#x27; opinion of the bike-sharing schemes in each of the following cities? Choose SIX answers from the box and write the correct letter, A–G, next to Questions 25–30.</span></div>
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">Cities</span></div>
+<div class="map-label-row"><span class="question-number">25</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Amsterdam</span></div>
+<div class="map-label-row"><span class="question-number">26</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Dublin</span></div>
+<div class="map-label-row"><span class="question-number">27</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>London</span></div>
+<div class="map-label-row"><span class="question-number">28</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Buenos Aires</span></div>
+<div class="map-label-row"><span class="question-number">29</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>New York</span></div>
+<div class="map-label-row"><span class="question-number">30</span><input type="text" class="letter-input" maxlength="1" placeholder="_"><span>Sydney</span></div>
+  </div>
+</div>
+<div class="mb-10">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="section-header">SECTION 4</div>
+    <div><span class="font-bold text-lg">Questions 31–40</span></div>
+  </div>
+  <p class="ielts-instruction">Complete the notes below. Write ONE WORD ONLY for each answer.</p>
+  <div class="paper-box">
+<div class="text-center mb-4"><span class="font-extrabold text-xl tracking-wide">The extinction of the dodo bird</span></div>
+<div class="exam-text mb-1" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">The dodo was a large flightless bird which used to inhabit the island of Mauritius.</div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">History</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>1507 — Portuguese ships transporting</span><span class="question-number">31</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>stopped at the island to collect food and water.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>1638 — The Dutch established a</span><span class="question-number">32</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>on the island.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>They killed the dodo birds for their meat.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The last one was killed in 1681.</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Description</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The only record we have is written descriptions and pictures (possibly unreliable).</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>A Dutch painting suggests the dodo was very</span><span class="question-number">33</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The only remaining soft tissue is a dried</span><span class="question-number">34</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Recent studies of a dodo skeleton suggest the birds were capable of rapid</span><span class="question-number">35</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>It&#x27;s thought they were able to use their small wings to maintain</span><span class="question-number">36</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Their</span><span class="question-number">37</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">was of average size.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Their sense of</span><span class="question-number">38</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>enabled them to find food.</span></div>
+<div class="font-semibold mt-3 mb-1 text-sm tracking-wide">Reasons for extinction</div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Hunting was probably not the main cause.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>Sailors brought dogs and monkeys.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>•</span><span class="question-number">39</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>also escaped onto the island and ate the birds&#x27; eggs.</span></div>
+<div class="bullet-item"><span class="mr-2">•</span><span>The arrival of farming meant the</span><span class="question-number">40</span><input type="text" class="answer-input" style="min-width:100px" placeholder="________________"><span class="ml-1 text-gray-600">was destroyed.</span></div>
+  </div>
+  <div class="mt-6">
+<div class="text-center mb-3"><span class="font-extrabold text-lg tracking-wide">The extinction of the dodo bird</span></div>
+  </div>
+</div>
+<div class="mt-10 pt-6 border-t text-center text-xs text-gray-500">
+  <p>IELTS Listening Test 4 • Cambridge IELTS 16 • Practice recreation (content from official PDF)</p>
+</div>
+</div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e40af');
+        }
+        
+        // Single choice selection (A, B, C)
+        function selectOption(element, questionNum) {
+            const container = element.parentElement;
+            // Deselect all
+            container.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            // Select current
+            element.classList.add('selected');
+            
+            // Store answer (optional - for future use)
+            container.dataset.selected = element.dataset.value;
+        }
+        
+        // Multiple choice (choose TWO)
+        function toggleMultiOption(element, questionId) {
+            const container = element.parentElement;
+            const selected = container.querySelectorAll('.option.selected');
+            
+            if (element.classList.contains('selected')) {
+                // Deselect
+                element.classList.remove('selected');
+            } else {
+                // Select only if less than 2 already selected
+                if (selected.length < 2) {
+                    element.classList.add('selected');
+                } else {
+                    // Optional: show message
+                    const msg = document.createElement('div');
+                    msg.className = 'text-xs text-red-500 ml-6 mt-1';
+                    msg.textContent = 'Maximum 2 options allowed';
+                    container.parentNode.appendChild(msg);
+                    setTimeout(() => msg.remove(), 1500);
+                }
+            }
+        }
+        
+        // Keyboard support for inputs
+        function addInputListeners() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderBottomColor = '#1e40af';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderBottomColor = '#4b5563';
+                });
+                
+                // Allow Enter to move to next input
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const allInputs = Array.from(document.querySelectorAll('.answer-input'));
+                        const currentIndex = allInputs.indexOf(this);
+                        if (currentIndex < allInputs.length - 1) {
+                            allInputs[currentIndex + 1].focus();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Make options keyboard accessible (basic)
+        function addKeyboardSupport() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (this.parentElement.dataset.question && this.parentElement.dataset.question.includes('-')) {
+                            toggleMultiOption(this, this.parentElement.dataset.question);
+                        } else {
+                            const q = this.parentElement.dataset.question;
+                            selectOption(this, q);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            addInputListeners();
+            addKeyboardSupport();
+            
+            // Optional: Add a subtle print hint
+            console.log('%c[IELTS HTML] Digital recreation of Cambridge IELTS 9 Test 1 Listening ready.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+        
+        // Bonus: Allow printing with Ctrl/Cmd + P hint
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                // Let default print happen
+            }
+        });
+    </script>
+</body>
+</html>

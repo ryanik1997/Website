@@ -32,6 +32,13 @@
             [
               {
                 "type": "static",
+                "text": "Example"
+              },
+              {
+                "type": "break"
+              },
+              {
+                "type": "static",
                 "text": "The Food Studio"
               }
             ],
@@ -47,32 +54,6 @@
               {
                 "type": "static",
                 "text": " and cook with seasonal products"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": ""
-              }
-            ]
-          ]
-        },
-        {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Bond's Cookery School"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "food that is "
-              },
-              {
-                "type": "gap",
-                "number": 4
               }
             ],
             [
@@ -109,10 +90,29 @@
               {
                 "type": "static",
                 "text": " discount"
+              }
+            ]
+          ]
+        },
+        {
+          "cells": [
+            [
+              {
+                "type": "static",
+                "text": "Bond's Cookery School"
+              }
+            ],
+            [
+              {
+                "type": "static",
+                "text": "food that is "
               },
               {
-                "type": "break"
-              },
+                "type": "gap",
+                "number": 4
+              }
+            ],
+            [
               {
                 "type": "static",
                 "text": "• includes recipes to strengthen your "
@@ -188,6 +188,10 @@
               {
                 "type": "gap",
                 "number": 10
+              },
+              {
+                "type": "static",
+                "text": " is sometimes available"
               }
             ]
           ]

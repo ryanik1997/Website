@@ -9,6 +9,7 @@ import ListeningIeltsNotePassageBox from './ListeningIeltsNotePassageBox'
 import ListeningIeltsNoteTable from './ListeningIeltsNoteTable'
 import ListeningIeltsDiagramBlock from './ListeningIeltsDiagramBlock'
 import ListeningIeltsFlowChartBlock from './ListeningIeltsFlowChartBlock'
+import ListeningIeltsGapFlowChartBlock from './ListeningIeltsGapFlowChartBlock'
 import ListeningIeltsMapBlock from './ListeningIeltsMapBlock'
 import ListeningIeltsMatchingBlock from './ListeningIeltsMatchingBlock'
 import ListeningIeltsChooseTwoBlock from './ListeningIeltsChooseTwoBlock'
@@ -17,6 +18,7 @@ import {
   isChooseTwoGroup,
   isDiagramLabelGroup,
   isFlowChartGroup,
+  isGapFillFlowChartGroup,
   isLetterMatchingGroup,
   isMapLabelGroup,
   sectionMetaFromQuestions,
@@ -26,7 +28,7 @@ import {
   notePassageSectionForGapSegment,
   noteTableForGapSegment,
 } from './listeningNotePassage'
-import type { ListeningPart, ListeningQuestion } from './listeningExamData'
+import type { ListeningFlowChartStep, ListeningPart, ListeningQuestion } from './listeningExamData'
 
 interface AudioBarProps {
   source: ExamAudioSource
@@ -62,6 +64,7 @@ type Segment =
   | { kind: 'matching'; questions: ListeningQuestion[] }
   | { kind: 'diagram'; questions: ListeningQuestion[] }
   | { kind: 'flowchart'; questions: ListeningQuestion[] }
+  | { kind: 'flowchart-gaps'; questions: ListeningQuestion[]; flowChartSteps: ListeningFlowChartStep[] }
   | { kind: 'map'; questions: ListeningQuestion[] }
 
 function collectMatchingRun(questions: ListeningQuestion[], start: number): ListeningQuestion[] {
@@ -79,7 +82,40 @@ function collectMatchingRun(questions: ListeningQuestion[], start: number): List
   return run
 }
 
-function buildSegments(questions: ListeningQuestion[]): Segment[] {
+function normalizeTitleKey(text: string | undefined): string {
+  return (text ?? '').trim().toLowerCase()
+}
+
+/** MC + notes/bảng sau (a15, d4): tiêu đề chỉ ở nhóm sau — MC chỉ range + instruction. */
+function mcSectionHeaderMeta(
+  part: ListeningPart,
+  segments: Segment[],
+  segmentIndex: number,
+  mcSectionMeta: ReturnType<typeof sectionMetaFromQuestions>,
+): ReturnType<typeof sectionMetaFromQuestions> {
+  const laterNotesSegments = segments
+    .slice(segmentIndex + 1)
+    .filter((seg): seg is Extract<Segment, { kind: 'gaps' }> => seg.kind === 'gaps')
+
+  if (!laterNotesSegments.length) return mcSectionMeta
+
+  const laterSectionTitle = laterNotesSegments
+    .flatMap(seg => seg.questions)
+    .find(q => q.sectionTitle)?.sectionTitle
+
+  const laterTableTitle = part.noteTables?.find(t => t.title?.trim())?.title
+
+  if (laterSectionTitle || laterTableTitle) {
+    return {
+      range: mcSectionMeta.range,
+      instruction: mcSectionMeta.instruction,
+    }
+  }
+
+  return mcSectionMeta
+}
+
+function buildSegments(questions: ListeningQuestion[], part: ListeningPart): Segment[] {
   const segments: Segment[] = []
   let i = 0
 
@@ -88,11 +124,25 @@ function buildSegments(questions: ListeningQuestion[]): Segment[] {
 
     if (q.type === 'gap-fill') {
       const run: ListeningQuestion[] = []
+      const sectionKey = q.sectionRange ?? ''
       while (i < questions.length && questions[i].type === 'gap-fill') {
-        run.push(questions[i])
+        const curr = questions[i]
+        const currSection = curr.sectionRange ?? ''
+        if (run.length > 0 && currSection && sectionKey && currSection !== sectionKey) {
+          break
+        }
+        run.push(curr)
         i += 1
       }
-      segments.push({ kind: 'gaps', questions: run })
+      if (isGapFillFlowChartGroup(run) && part.flowChartSteps?.length) {
+        segments.push({
+          kind: 'flowchart-gaps',
+          questions: run,
+          flowChartSteps: part.flowChartSteps,
+        })
+      } else {
+        segments.push({ kind: 'gaps', questions: run })
+      }
       continue
     }
 
@@ -269,6 +319,7 @@ function McBlock({
   onAnswer,
   onSelect,
   showSectionHeader = false,
+  sectionHeaderMeta,
 }: {
   question: ListeningQuestion
   answer: string
@@ -276,6 +327,7 @@ function McBlock({
   onAnswer: (v: string) => void
   onSelect: () => void
   showSectionHeader?: boolean
+  sectionHeaderMeta?: ReturnType<typeof sectionMetaFromQuestions>
 }) {
   const highlights = useExamHighlights()
 
@@ -288,7 +340,7 @@ function McBlock({
       {showSectionHeader && (
         <ListeningIeltsSectionHeader
           blockIdPrefix={`${question.id}-section`}
-          meta={sectionMetaFromQuestions([question])}
+          meta={sectionHeaderMeta ?? sectionMetaFromQuestions([question])}
         />
       )}
       <p className="listening-ielts-mc__prompt">
@@ -348,7 +400,7 @@ export default function ListeningIeltsPartView({
   onSelectQuestion,
 }: Props) {
   const highlights = useExamHighlights()
-  const segments = buildSegments(questions)
+  const segments = buildSegments(questions, part)
   const firstGapSegmentIndex = segments.findIndex(segment => segment.kind === 'gaps')
 
   const headerSlot: ReactNode = (
@@ -390,34 +442,91 @@ export default function ListeningIeltsPartView({
             part.noteTable,
             segment.questions,
           )
-          const showPartTitle = Boolean(
+          const gapSectionMeta = sectionMetaFromQuestions(segment.questions)
+          const gapsSectionTitle = gapSectionMeta.title ?? passageSection?.title
+          const hasPriorMcSegment = segments.slice(0, index).some(seg => seg.kind === 'mc')
+          const passageTitleKey = normalizeTitleKey(part.passageTitle)
+          const gapsSectionTitleKey = normalizeTitleKey(gapsSectionTitle)
+          const sectionTitleDuplicatesPassage = Boolean(
+            passageTitleKey
+            && gapsSectionTitleKey
+            && passageTitleKey === gapsSectionTitleKey,
+          )
+          const notePassageStartsWithTitle = Boolean(
+            passageTitleKey
+            && passageBlocks?.[0]?.type === 'section'
+            && normalizeTitleKey(passageBlocks[0].text) === passageTitleKey,
+          )
+          // P1 form + P2/P4 khi sectionTitle trùng passageTitle: tiêu đề trong box (Cam11 T1)
+          const titleGoesInNoteBox = Boolean(
+            passageBlocks
+            && part.passageTitle
+            && (
+              (part.partNumber === 1 && part.notePassageLayout === 'form')
+              || (gapsSectionTitle && (part.partNumber === 1 || part.partNumber === 4))
+              || sectionTitleDuplicatesPassage
+            ),
+          )
+          // Tiêu đề part-level phía trên box — khi không đặt trong box
+          const showPartTitleAboveBox = Boolean(
             part.passageTitle
             && index === firstGapSegmentIndex
+            && !titleGoesInNoteBox
             && !segmentTable?.title
-            && !passageSection?.title,
+            && !passageSection?.title
+            && !gapsSectionTitle
+            && !hasPriorMcSegment
+            && !notePassageStartsWithTitle,
           )
-          const partTitleAboveBox = (part.partNumber === 1 || part.partNumber === 4) && showPartTitle
+          const partTitleAboveBox = (part.partNumber === 1 || part.partNumber === 4) && showPartTitleAboveBox
+          const noteBoxTitle = passageBlocks
+            ? titleGoesInNoteBox
+              ? (sectionTitleDuplicatesPassage || !gapsSectionTitle
+                  ? part.passageTitle
+                  : gapsSectionTitle)
+                ?? (part.partNumber === 4 && part.passageTitle && hasPriorMcSegment
+                  ? part.passageTitle
+                  : undefined)
+              : !showPartTitleAboveBox && part.partNumber !== 4
+                ? part.passageTitle
+                : undefined
+            : undefined
+          const sectionHeaderTitle = titleGoesInNoteBox
+            ? undefined
+            : gapsSectionTitle && !showPartTitleAboveBox && !sectionTitleDuplicatesPassage
+              ? gapsSectionTitle
+              : undefined
 
-          const gapSectionMeta = sectionMetaFromQuestions(segment.questions)
+          const sectionShowsInstruction = Boolean(
+            gapSectionMeta.range
+            || gapSectionMeta.instruction
+            || passageSection?.instruction,
+          )
           const sectionHeaderMeta = {
             range: gapSectionMeta.range,
             instruction: gapSectionMeta.instruction ?? passageSection?.instruction,
-            title: gapSectionMeta.title ?? passageSection?.title,
+            title: sectionHeaderTitle,
           }
+          const sectionHeaderShowsTitle = Boolean(sectionHeaderMeta.title)
+          const suppressTableTitle = Boolean(
+            sectionHeaderShowsTitle
+            && segmentTable?.title
+            && normalizeTitleKey(segmentTable.title) === normalizeTitleKey(sectionHeaderMeta.title),
+          )
 
           return (
             <section key={`gaps-${index}`} className="listening-ielts-notes">
-              {(sectionHeaderMeta.range || sectionHeaderMeta.instruction) && (
+              {(sectionHeaderMeta.range || sectionHeaderMeta.instruction || sectionHeaderMeta.title) && (
                 <ListeningIeltsSectionHeader
                   blockIdPrefix={`${part.id}-gap-section-${index}`}
                   meta={{
                     range: sectionHeaderMeta.range,
                     instruction: sectionHeaderMeta.instruction,
-                    title: showPartTitle ? undefined : sectionHeaderMeta.title,
+                    title: sectionHeaderMeta.title,
                   }}
                 />
               )}
-              {showPartTitle && (partTitleAboveBox || !passageBlocks) && (
+              {showPartTitleAboveBox && (partTitleAboveBox || !passageBlocks) && (
                 <ReadingHighlightableText
                   blockId={`${part.id}-title`}
                   text={part.passageTitle!}
@@ -438,6 +547,8 @@ export default function ListeningIeltsPartView({
                   activeQuestionId={activeQuestionId}
                   onAnswer={onAnswer}
                   onSelectQuestion={onSelectQuestion}
+                  suppressInstruction={sectionShowsInstruction}
+                  suppressTitle={suppressTableTitle}
                 />
               ) : passageBlocks ? (
                 <ListeningIeltsNotePassageBox
@@ -448,7 +559,7 @@ export default function ListeningIeltsPartView({
                   activeQuestionId={activeQuestionId}
                   onAnswer={onAnswer}
                   onSelectQuestion={onSelectQuestion}
-                  passageTitle={showPartTitle && !partTitleAboveBox ? part.passageTitle : undefined}
+                  passageTitle={noteBoxTitle}
                   layout={part.notePassageLayout === 'form' ? 'form' : 'lecture'}
                 />
               ) : (
@@ -535,6 +646,22 @@ export default function ListeningIeltsPartView({
           )
         }
 
+        if (segment.kind === 'flowchart-gaps') {
+          const gapFlowQuestionsByNumber = new Map(segment.questions.map(q => [q.number, q]))
+          return (
+            <ListeningIeltsGapFlowChartBlock
+              key={`flowchart-gaps-${index}`}
+              blockIdPrefix={`${part.id}-flow-gaps-${index}`}
+              steps={segment.flowChartSteps}
+              questionsByNumber={gapFlowQuestionsByNumber}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onAnswer={onAnswer}
+              onSelectQuestion={onSelectQuestion}
+            />
+          )
+        }
+
         if (segment.kind === 'map') {
           return (
             <ListeningIeltsMapBlock
@@ -550,6 +677,9 @@ export default function ListeningIeltsPartView({
           )
         }
 
+        const mcSectionMeta = sectionMetaFromQuestions(segment.questions)
+        const mcHeaderMeta = mcSectionHeaderMeta(part, segments, index, mcSectionMeta)
+
         return (
           <section key={`mc-${index}`} className="listening-ielts-mc-group">
             {segment.questions.map((question, qIndex) => (
@@ -560,7 +690,10 @@ export default function ListeningIeltsPartView({
                 isActive={activeQuestionId === question.id}
                 onAnswer={v => onAnswer(question.id, v)}
                 onSelect={() => onSelectQuestion(question.id)}
-                showSectionHeader={qIndex === 0 && Boolean(question.sectionRange || question.sectionInstruction)}
+                showSectionHeader={qIndex === 0 && Boolean(
+                  mcHeaderMeta.range || mcHeaderMeta.instruction || mcHeaderMeta.title,
+                )}
+                sectionHeaderMeta={mcHeaderMeta}
               />
             ))}
           </section>

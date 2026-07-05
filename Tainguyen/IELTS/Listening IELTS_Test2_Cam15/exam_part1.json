@@ -131,7 +131,9 @@
           ]
         }
       ]
-    },
+    }
+  ],
+  "notePassageSections": [
     {
       "gapNumbers": [
         5,
@@ -142,111 +144,80 @@
         10
       ],
       "instruction": "Questions 5 – 10\nComplete the notes below. Write ONE WORD ONLY for each answer.",
-      "title": "Workshops and outdoor activities",
-      "headers": [
-        "Section",
-        "Details"
-      ],
-      "rows": [
+      "title": "Activities",
+      "blocks": [
         {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Workshops"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Making "
-              },
-              {
-                "type": "gap",
-                "number": 5
-              },
-              {
-                "type": "static",
-                "text": " food"
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "(children only) Making "
-              },
-              {
-                "type": "gap",
-                "number": 6
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "(adults only) Making toys from "
-              },
-              {
-                "type": "gap",
-                "number": 7
-              },
-              {
-                "type": "static",
-                "text": " using various tools"
-              }
-            ]
-          ]
+          "type": "section",
+          "text": "Workshops"
         },
         {
-          "cells": [
-            [
-              {
-                "type": "static",
-                "text": "Outdoor activities"
-              }
-            ],
-            [
-              {
-                "type": "static",
-                "text": "Swimming in the "
-              },
-              {
-                "type": "gap",
-                "number": 8
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "Walking in the woods, led by an expert on "
-              },
-              {
-                "type": "gap",
-                "number": 9
-              },
-              {
-                "type": "break"
-              },
-              {
-                "type": "static",
-                "text": "See the festival organiser's "
-              },
-              {
-                "type": "gap",
-                "number": 10
-              },
-              {
-                "type": "static",
-                "text": " for more information"
-              }
-            ]
-          ]
+          "type": "static",
+          "text": "• Making "
+        },
+        {
+          "type": "gap",
+          "number": 5
+        },
+        {
+          "type": "static",
+          "text": " food"
+        },
+        {
+          "type": "static",
+          "text": "• (children only) Making "
+        },
+        {
+          "type": "gap",
+          "number": 6
+        },
+        {
+          "type": "static",
+          "text": "• (adults only) Making toys from "
+        },
+        {
+          "type": "gap",
+          "number": 7
+        },
+        {
+          "type": "static",
+          "text": " using various tools"
+        },
+        {
+          "type": "section",
+          "text": "Outdoor activities"
+        },
+        {
+          "type": "static",
+          "text": "• Swimming in the "
+        },
+        {
+          "type": "gap",
+          "number": 8
+        },
+        {
+          "type": "static",
+          "text": "• Walking in the woods, led by an expert on "
+        },
+        {
+          "type": "gap",
+          "number": 9
+        },
+        {
+          "type": "static",
+          "text": "See the festival organiser's "
+        },
+        {
+          "type": "gap",
+          "number": 10
+        },
+        {
+          "type": "static",
+          "text": " for more information"
         }
       ]
     }
   ],
+  "passageTitle": "Festival information",
   "questions": [
     {
       "number": 1,
@@ -296,7 +267,8 @@
       "explanation": "Điền theo audio.",
       "wordLimit": 1,
       "sectionRange": "Questions 5 – 10",
-      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer."
+      "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "sectionTitle": "Activities"
     },
     {
       "number": 6,
@@ -344,6 +316,5 @@
       "wordLimit": 1
     }
   ],
-  "notePassageLayout": "table",
-  "passageTitle": "Festival information"
+  "notePassageLayout": "table"
 }

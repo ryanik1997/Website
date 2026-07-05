@@ -9,8 +9,9 @@
     {
       "partNumber": 1,
       "rangeLabel": "Questions 1–10",
-      "instruction": "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
       "audioFile": "listening.mp3",
+      "passageTitle": "Enquiry about joining Youth Council",
       "notePassageLayout": "form",
       "notePassage": [
         {
@@ -19,7 +20,11 @@
         },
         {
           "type": "static",
-          "text": "Name: Roger Brown"
+          "text": "Name: Roger ........Brown........."
+        },
+        {
+          "type": "static",
+          "text": "Example – Name: Roger Brown"
         },
         {
           "type": "static",
@@ -27,7 +32,7 @@
         },
         {
           "type": "static",
-          "text": "Lives in a"
+          "text": "Currently staying in a"
         },
         {
           "type": "gap",
@@ -35,7 +40,11 @@
         },
         {
           "type": "static",
-          "text": "Postal address: 2 17,"
+          "text": "during the week"
+        },
+        {
+          "type": "static",
+          "text": "Postal address: 17,"
         },
         {
           "type": "gap",
@@ -55,7 +64,7 @@
         },
         {
           "type": "static",
-          "text": "• Occupation: student and part-time job as a"
+          "text": "Occupation: student and part-time job as a"
         },
         {
           "type": "gap",
@@ -63,7 +72,7 @@
         },
         {
           "type": "static",
-          "text": "• Studying"
+          "text": "Studying"
         },
         {
           "type": "gap",
@@ -71,11 +80,11 @@
         },
         {
           "type": "static",
-          "text": "• (major subject) and history (minor subject)"
+          "text": "(major subject) and history (minor subject)"
         },
         {
           "type": "static",
-          "text": "• Hobbies: does a lot of"
+          "text": "Hobbies: does a lot of"
         },
         {
           "type": "gap",
@@ -83,7 +92,7 @@
         },
         {
           "type": "static",
-          "text": "• and is interested in the"
+          "text": ", and is interested in the"
         },
         {
           "type": "gap",
@@ -91,7 +100,7 @@
         },
         {
           "type": "static",
-          "text": "• On Youth Council, wants to work with young people who are"
+          "text": "On Youth Council, wants to work with young people who are"
         },
         {
           "type": "gap",
@@ -99,7 +108,7 @@
         },
         {
           "type": "static",
-          "text": "• Will come to talk to the Elections Officer next Monday at"
+          "text": "Will come to talk to the Elections Officer next Monday at"
         },
         {
           "type": "gap",
@@ -111,7 +120,7 @@
         },
         {
           "type": "static",
-          "text": "Phone:"
+          "text": "Mobile number:"
         },
         {
           "type": "gap",
@@ -122,12 +131,11 @@
         {
           "number": 1,
           "type": "gap-fill",
-          "prompt": "Lives in a:",
+          "prompt": "Currently staying in a:",
           "options": [],
           "answer": "hostel",
           "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "sectionTitle": "Enquiry about joining Youth Council"
+          "wordLimit": 1
         },
         {
           "number": 2,
@@ -136,7 +144,8 @@
           "options": [],
           "answer": "buckleigh",
           "explanation": "Điền theo audio.",
-          "wordLimit": 1
+          "wordLimit": 1,
+          "gapLead": "17,"
         },
         {
           "number": 3,
@@ -168,7 +177,7 @@
         {
           "number": 6,
           "type": "gap-fill",
-          "prompt": "Hobby:",
+          "prompt": "Hobbies:",
           "options": [],
           "answer": "cycling",
           "explanation": "Điền theo audio.",
@@ -186,7 +195,7 @@
         {
           "number": 8,
           "type": "gap-fill",
-          "prompt": "Wants to work with:",
+          "prompt": "Young people who are:",
           "options": [],
           "answer": "disabled",
           "explanation": "Điền theo audio.",
@@ -204,203 +213,300 @@
         {
           "number": 10,
           "type": "gap-fill",
-          "prompt": "Phone:",
+          "prompt": "Mobile number:",
           "options": [],
           "answer": "07788136711",
           "explanation": "Điền theo audio.",
           "wordLimit": 1
         }
-      ],
-      "passageTitle": "Enquiry about joining Youth Council"
+      ]
     },
     {
       "partNumber": 2,
       "rangeLabel": "Questions 11–20",
-      "instruction": "Questions 11–16: Choose TWO letters A–E. Questions 17–20: Label the plan A–G.",
+      "instruction": "Choose TWO letters A–E.",
       "audioFile": "listening.mp3",
-      "imageFile": "map.jpg",
       "questions": [
         {
           "number": 11,
           "type": "matching",
-          "prompt": "Which TWO changes have been made so far during the refurbishment of the theatre?",
+          "prompt": "Question 11",
           "options": [
             {
               "id": "A",
-              "label": "Some rooms now have a different use."
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "A different type of seating has been installed."
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "An elevator has been installed."
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "The outside of the building has been repaired."
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "Extra seats have been added."
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "E/A",
-          "explanation": "Sửa ngoài (E) và đổi chức năng phòng (A).",
-          "sectionRange": "Questions 11 – 12",
-          "sectionInstruction": "Choose TWO letters, A–E.",
-          "sectionTitle": "New staff at theatre"
+          "answer": "E",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 12,
           "type": "matching",
-          "prompt": "Which TWO changes have been made so far during the refurbishment of the theatre?",
+          "prompt": "Question 12",
           "options": [
             {
               "id": "A",
-              "label": "Some rooms now have a different use."
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "A different type of seating has been installed."
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "An elevator has been installed."
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "The outside of the building has been repaired."
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "Extra seats have been added."
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "E/A",
-          "explanation": "Sửa ngoài (E) và đổi chức năng phòng (A). (cặp 11–12)"
+          "answer": "E",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 13,
           "type": "matching",
-          "prompt": "Which TWO facilities does the theatre currently offer to the public?",
+          "prompt": "Question 13",
           "options": [
             {
               "id": "A",
-              "label": "rooms for hire"
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "backstage tours"
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "hire of costumes"
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "a bookshop"
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "a café"
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "B/D",
-          "explanation": "Tham quan hậu trường (B) và hiệu sách (D)."
+          "answer": "B",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 14,
           "type": "matching",
-          "prompt": "Which TWO facilities does the theatre currently offer to the public?",
+          "prompt": "Question 14",
           "options": [
             {
               "id": "A",
-              "label": "rooms for hire"
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "backstage tours"
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "hire of costumes"
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "a bookshop"
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "a café"
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "B/D",
-          "explanation": "Tham quan hậu trường (B) và hiệu sách (D). (cặp 13–14)"
+          "answer": "B",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 15,
           "type": "matching",
-          "prompt": "Which TWO workshops does the theatre currently offer?",
+          "prompt": "Question 15",
           "options": [
             {
               "id": "A",
-              "label": "sound"
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "acting"
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "making puppets"
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "make-up"
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "lighting"
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "C/E",
-          "explanation": "Làm rối (C) và ánh sáng (E)."
+          "answer": "C",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 16,
           "type": "matching",
-          "prompt": "Which TWO workshops does the theatre currently offer?",
+          "prompt": "Question 16",
           "options": [
             {
               "id": "A",
-              "label": "sound"
+              "label": "A"
             },
             {
               "id": "B",
-              "label": "acting"
+              "label": "B"
             },
             {
               "id": "C",
-              "label": "making puppets"
+              "label": "C"
             },
             {
               "id": "D",
-              "label": "make-up"
+              "label": "D"
             },
             {
               "id": "E",
-              "label": "lighting"
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
-          "answer": "C/E",
-          "explanation": "Làm rối (C) và ánh sáng (E). (cặp 15–16)"
+          "answer": "C",
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 17,
           "type": "matching",
-          "prompt": "Box office",
+          "prompt": "box office",
           "options": [
             {
               "id": "A",
@@ -429,19 +535,24 @@
             {
               "id": "G",
               "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
           "answer": "G",
-          "explanation": "Chọn theo audio.",
-          "mapLabel": true,
-          "sectionRange": "Questions 17 – 20",
-          "sectionInstruction": "Label the plan below. Write the correct letter A–G.",
-          "sectionTitle": "Ground floor plan of theatre"
+          "explanation": "Chọn theo answer key.",
+          "mapLabel": true
         },
         {
           "number": 18,
           "type": "matching",
-          "prompt": "Theatre manager's office",
+          "prompt": "theatre manager's office",
           "options": [
             {
               "id": "A",
@@ -470,16 +581,24 @@
             {
               "id": "G",
               "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
           "answer": "D",
-          "explanation": "Chọn theo audio.",
+          "explanation": "Chọn theo answer key.",
           "mapLabel": true
         },
         {
           "number": 19,
           "type": "matching",
-          "prompt": "Lighting box",
+          "prompt": "lighting box",
           "options": [
             {
               "id": "A",
@@ -508,16 +627,24 @@
             {
               "id": "G",
               "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
           "answer": "B",
-          "explanation": "Chọn theo audio.",
+          "explanation": "Chọn theo answer key.",
           "mapLabel": true
         },
         {
           "number": 20,
           "type": "matching",
-          "prompt": "Artistic director's office",
+          "prompt": "artistic director's offices",
           "options": [
             {
               "id": "A",
@@ -546,18 +673,56 @@
             {
               "id": "G",
               "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
             }
           ],
           "answer": "F",
-          "explanation": "Chọn theo audio.",
+          "explanation": "Chọn theo answer key.",
           "mapLabel": true
+        }
+      ],
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "11–12Which TWO changes have been made so far during the refurbishment of the theatre?"
+        },
+        {
+          "type": "static",
+          "text": "Choose TWO letters A–E."
+        },
+        {
+          "type": "static",
+          "text": "13–14Which TWO facilities does the theatre currently offer to the public?"
+        },
+        {
+          "type": "static",
+          "text": "Choose TWO letters A–E."
+        },
+        {
+          "type": "static",
+          "text": "15–16Which TWO workshops does the theatre currently offer?"
+        },
+        {
+          "type": "static",
+          "text": "PLAN OF THEATRE"
+        },
+        {
+          "type": "static",
+          "text": "AABBCCDDEEFFGG"
         }
       ]
     },
     {
       "partNumber": 3,
       "rangeLabel": "Questions 21–30",
-      "instruction": "Questions 21–26: Choose A, B or C. Questions 27–28 and 29–30: Choose TWO letters A–E.",
+      "instruction": "Choose the correct letter A, B or C.",
       "audioFile": "listening.mp3",
       "questions": [
         {
@@ -567,22 +732,23 @@
           "options": [
             {
               "id": "A",
-              "label": "factors affecting where organisms live"
+              "label": "factors affecting where organisms liv"
+            },
+            {
+              "id": "E",
+              "label": ""
             },
             {
               "id": "B",
-              "label": "the need to preserve endangered species"
+              "label": "the need to preserve endangered species."
             },
             {
               "id": "C",
-              "label": "techniques for classifying different organisms"
+              "label": "techniques for classifying different organisms."
             }
           ],
-          "answer": "A",
-          "explanation": "Chọn theo audio.",
-          "sectionRange": "Questions 21 – 26",
-          "sectionInstruction": "Choose the correct letter A, B or C.",
-          "sectionTitle": "Rocky Bay field trip"
+          "answer": "a",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 22,
@@ -591,19 +757,23 @@
           "options": [
             {
               "id": "A",
-              "label": "string"
+              "label": "strin"
+            },
+            {
+              "id": "G",
+              "label": ""
             },
             {
               "id": "B",
-              "label": "a compass"
+              "label": "a compass."
             },
             {
               "id": "C",
-              "label": "a ruler"
+              "label": "a ruler."
             }
           ],
-          "answer": "A",
-          "explanation": "Chọn theo audio."
+          "answer": "a",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 23,
@@ -612,19 +782,23 @@
           "options": [
             {
               "id": "A",
-              "label": "the order in which information is given"
+              "label": "the order in which information is given."
             },
             {
               "id": "B",
-              "label": "the way the information is divided up"
+              "label": "the way the information is divided up."
             },
             {
               "id": "C",
-              "label": "the amount of information provided"
+              "label": "the amount of information provide"
+            },
+            {
+              "id": "D",
+              "label": ""
             }
           ],
-          "answer": "C",
-          "explanation": "Chọn theo audio."
+          "answer": "c",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 24,
@@ -633,19 +807,19 @@
           "options": [
             {
               "id": "A",
-              "label": "It provided accurate results"
+              "label": "It provided accurate results."
             },
             {
               "id": "B",
-              "label": "It was simple to carry out"
+              "label": "It was simple to carry out."
             },
             {
               "id": "C",
-              "label": "It required special equipment"
+              "label": "It required special equipment."
             }
           ],
-          "answer": "B",
-          "explanation": "Chọn theo audio."
+          "answer": "b",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 25,
@@ -654,19 +828,31 @@
           "options": [
             {
               "id": "A",
-              "label": "She chose the wrong scale"
+              "label": "She chose the wrong scal"
+            },
+            {
+              "id": "E",
+              "label": ""
             },
             {
               "id": "B",
-              "label": "She stood in the wrong place"
+              "label": "She stood in the wrong plac"
+            },
+            {
+              "id": "E",
+              "label": ""
             },
             {
               "id": "C",
-              "label": "She did it at the wrong time"
+              "label": "She did it at the wrong tim"
+            },
+            {
+              "id": "E",
+              "label": ""
             }
           ],
-          "answer": "B",
-          "explanation": "Chọn theo audio."
+          "answer": "b",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 26,
@@ -675,139 +861,55 @@
           "options": [
             {
               "id": "A",
-              "label": "scan it onto a computer"
+              "label": "scan it onto a computer."
             },
             {
               "id": "B",
-              "label": "check it using photographs"
+              "label": "check it using photographs."
             },
             {
               "id": "C",
-              "label": "add information from the internet"
+              "label": "add information from the internet."
             }
           ],
-          "answer": "C",
-          "explanation": "Chọn theo audio."
+          "answer": "c",
+          "explanation": "Chọn theo answer key."
         },
         {
           "number": 27,
-          "type": "matching",
-          "prompt": "Which TWO problems affecting organisms in the splash zone are mentioned?",
-          "options": [
-            {
-              "id": "A",
-              "label": "lack of water"
-            },
-            {
-              "id": "B",
-              "label": "strong winds"
-            },
-            {
-              "id": "C",
-              "label": "lack of food"
-            },
-            {
-              "id": "D",
-              "label": "high temperatures"
-            },
-            {
-              "id": "E",
-              "label": "large waves"
-            }
-          ],
-          "answer": "A/D",
-          "explanation": "Thiếu nước (A) và nhiệt cao (D).",
-          "sectionRange": "Questions 27 – 28",
-          "sectionInstruction": "Choose TWO letters, A–E."
+          "type": "gap-fill",
+          "prompt": "Question 27",
+          "options": [],
+          "answer": "a/d",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
         },
         {
           "number": 28,
-          "type": "matching",
-          "prompt": "Which TWO problems affecting organisms in the splash zone are mentioned?",
-          "options": [
-            {
-              "id": "A",
-              "label": "lack of water"
-            },
-            {
-              "id": "B",
-              "label": "strong winds"
-            },
-            {
-              "id": "C",
-              "label": "lack of food"
-            },
-            {
-              "id": "D",
-              "label": "high temperatures"
-            },
-            {
-              "id": "E",
-              "label": "large waves"
-            }
-          ],
-          "answer": "A/D",
-          "explanation": "Thiếu nước (A) và nhiệt cao (D). (cặp 27–28)"
+          "type": "gap-fill",
+          "prompt": "Question 28",
+          "options": [],
+          "answer": "a/d",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
         },
         {
           "number": 29,
-          "type": "matching",
-          "prompt": "Which TWO reasons for possible error will they include in their report?",
-          "options": [
-            {
-              "id": "A",
-              "label": "inaccurate records of the habitat of organisms"
-            },
-            {
-              "id": "B",
-              "label": "influence on behaviour of organisms by observer"
-            },
-            {
-              "id": "C",
-              "label": "incorrect identification of some organisms"
-            },
-            {
-              "id": "D",
-              "label": "making generalisations from a small sample"
-            },
-            {
-              "id": "E",
-              "label": "missing some organisms when counting"
-            }
-          ],
-          "answer": "C/E",
-          "explanation": "Nhận dạng sai (C) và bỏ sót (E).",
-          "sectionRange": "Questions 29 – 30",
-          "sectionInstruction": "Choose TWO letters, A–E."
+          "type": "gap-fill",
+          "prompt": "Question 29",
+          "options": [],
+          "answer": "c/e",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
         },
         {
           "number": 30,
-          "type": "matching",
-          "prompt": "Which TWO reasons for possible error will they include in their report?",
-          "options": [
-            {
-              "id": "A",
-              "label": "inaccurate records of the habitat of organisms"
-            },
-            {
-              "id": "B",
-              "label": "influence on behaviour of organisms by observer"
-            },
-            {
-              "id": "C",
-              "label": "incorrect identification of some organisms"
-            },
-            {
-              "id": "D",
-              "label": "making generalisations from a small sample"
-            },
-            {
-              "id": "E",
-              "label": "missing some organisms when counting"
-            }
-          ],
-          "answer": "C/E",
-          "explanation": "Nhận dạng sai (C) và bỏ sót (E). (cặp 29–30)"
+          "type": "gap-fill",
+          "prompt": "Question 30",
+          "options": [],
+          "answer": "c/e",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
         }
       ]
     },
@@ -816,15 +918,120 @@
       "rangeLabel": "Questions 31–40",
       "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
       "audioFile": "listening.mp3",
-      "passageTitle": "Designing a public building: The Taylor Concert Hall",
+      "questions": [
+        {
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "Question 31",
+          "options": [],
+          "answer": "social",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3,
+          "sectionRange": "Questions 31–40",
+          "sectionInstruction": "Complete the notes below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "Question 32",
+          "options": [],
+          "answer": "factory",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "Question 33",
+          "options": [],
+          "answer": "canal",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "Question 34",
+          "options": [],
+          "answer": "bridge",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "Question 35",
+          "options": [],
+          "answer": "boat",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Question 36",
+          "options": [],
+          "answer": "screen",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "Question 37",
+          "options": [],
+          "answer": "rubber",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "Question 38",
+          "options": [],
+          "answer": "cleaned",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "Question 39",
+          "options": [],
+          "answer": "curtains",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        },
+        {
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "Question 40",
+          "options": [],
+          "answer": "international",
+          "explanation": "Điền theo answer key.",
+          "wordLimit": 3
+        }
+      ],
       "notePassage": [
+        {
+          "type": "static",
+          "text": "DESIGNING A PUBLIC BUILDING: THE TAYLOR CONCERT HALL"
+        },
         {
           "type": "section",
           "text": "Introduction"
         },
         {
           "type": "static",
-          "text": "• The designer may need to consider the building's function, physical and"
+          "text": "The designer of a public building may need to consider the building’s"
+        },
+        {
+          "type": "static",
+          "text": "● function"
+        },
+        {
+          "type": "static",
+          "text": "● physical and"
         },
         {
           "type": "gap",
@@ -832,7 +1039,11 @@
         },
         {
           "type": "static",
-          "text": "context, and symbolic meaning"
+          "text": "context"
+        },
+        {
+          "type": "static",
+          "text": "● symbolic meaning"
         },
         {
           "type": "section",
@@ -840,7 +1051,7 @@
         },
         {
           "type": "static",
-          "text": "• On the site of a disused"
+          "text": "On the site of a disused"
         },
         {
           "type": "gap",
@@ -848,7 +1059,7 @@
         },
         {
           "type": "static",
-          "text": "• Approached by a"
+          "text": "• Beside a"
         },
         {
           "type": "gap",
@@ -856,23 +1067,7 @@
         },
         {
           "type": "static",
-          "text": "for pedestrians"
-        },
-        {
-          "type": "static",
-          "text": "• Crossed by a"
-        },
-        {
-          "type": "gap",
-          "number": 34
-        },
-        {
-          "type": "static",
-          "text": "• The building is the shape of a"
-        },
-        {
-          "type": "gap",
-          "number": 35
+          "text": "• The design is based on the concept of a mystery"
         },
         {
           "type": "section",
@@ -880,11 +1075,39 @@
         },
         {
           "type": "static",
-          "text": "• In the auditorium:"
+          "text": "It's approached by a"
+        },
+        {
+          "type": "gap",
+          "number": 34
         },
         {
           "type": "static",
-          "text": "– the floor is built on huge pads made of"
+          "text": "for pedestrians"
+        },
+        {
+          "type": "static",
+          "text": "The building is the shape of a"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "• One exterior wall acts as a large"
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "section",
+          "text": "In the auditorium:"
+        },
+        {
+          "type": "static",
+          "text": "● the floor is built on huge pads made of"
         },
         {
           "type": "gap",
@@ -892,7 +1115,7 @@
         },
         {
           "type": "static",
-          "text": "– the walls are made of local wood and are"
+          "text": "● the walls are made of local wood and are"
         },
         {
           "type": "gap",
@@ -904,7 +1127,7 @@
         },
         {
           "type": "static",
-          "text": "– ceiling panels and"
+          "text": "● ceiling panels and"
         },
         {
           "type": "gap",
@@ -912,15 +1135,7 @@
         },
         {
           "type": "static",
-          "text": "– on walls allow adjustment of acoustics"
-        },
-        {
-          "type": "static",
-          "text": "– displayed on a"
-        },
-        {
-          "type": "gap",
-          "number": 36
+          "text": "on walls allow adjustment of acoustics"
         },
         {
           "type": "section",
@@ -928,7 +1143,7 @@
         },
         {
           "type": "static",
-          "text": "• Some critics say the"
+          "text": "Some critics say the"
         },
         {
           "type": "gap",
@@ -936,103 +1151,9 @@
         },
         {
           "type": "static",
-          "text": "• style of the building is inappropriate"
+          "text": "style of the building is inappropriate"
         }
-      ],
-      "questions": [
-        {
-          "number": 31,
-          "type": "gap-fill",
-          "prompt": "Physical and:",
-          "options": [],
-          "answer": "social",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1,
-          "sectionTitle": "DESIGNING A PUBLIC BUILDING: THE TAYLOR CONCERT HALL"
-        },
-        {
-          "number": 32,
-          "type": "gap-fill",
-          "prompt": "Site of a disused:",
-          "options": [],
-          "answer": "factory",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 33,
-          "type": "gap-fill",
-          "prompt": "Approached by a:",
-          "options": [],
-          "answer": "canal",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 34,
-          "type": "gap-fill",
-          "prompt": "Approached by a:",
-          "options": [],
-          "answer": "bridge",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 35,
-          "type": "gap-fill",
-          "prompt": "Shape of a:",
-          "options": [],
-          "answer": "boat",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 36,
-          "type": "gap-fill",
-          "prompt": "On a:",
-          "options": [],
-          "answer": "screen",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 37,
-          "type": "gap-fill",
-          "prompt": "Pads made of:",
-          "options": [],
-          "answer": "rubber",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 38,
-          "type": "gap-fill",
-          "prompt": "Walls are:",
-          "options": [],
-          "answer": "cleaned",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 39,
-          "type": "gap-fill",
-          "prompt": "Ceiling panels and:",
-          "options": [],
-          "answer": "curtains",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        },
-        {
-          "number": 40,
-          "type": "gap-fill",
-          "prompt": "Style:",
-          "options": [],
-          "answer": "international",
-          "explanation": "Điền theo audio.",
-          "wordLimit": 1
-        }
-      ],
-      "notePassageLayout": "lecture"
+      ]
     }
   ]
 }
