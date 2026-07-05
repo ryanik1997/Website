@@ -666,6 +666,172 @@ export function ieltsListeningP2A13Part() {
   }
 }
 
+/** a15 — MC 11–15 + table 16–20 (Cam10 Manham — Giaodien/a15.jpg). */
+export function ieltsListeningP2A15Part() {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Questions 11–20',
+    instruction:
+      'Questions 11–15: Choose A, B or C. '
+      + 'Questions 16–20: Complete the table. Write NO MORE THAN TWO WORDS for each answer.',
+    audioFile: 'listening.mp3',
+    notePassageLayout: 'table' as const,
+    noteTables: [
+      {
+        gapNumbers: [16, 17, 18, 19, 20],
+        instruction:
+          'Questions 16 – 20\nComplete the table below. Write NO MORE THAN TWO WORDS for each answer.',
+        title: 'Tourist attractions in Manham',
+        headers: ['Place', 'Features and activities', 'Advice'],
+        rows: [
+          {
+            cells: [
+              [{ type: 'static' as const, text: 'Copper mine' }],
+              [
+                { type: 'static' as const, text: "specially adapted miners' " },
+                { type: 'gap' as const, number: 16 },
+                { type: 'static' as const, text: ' take visitors into the mountain' },
+              ],
+              [
+                { type: 'static' as const, text: 'the mine is ' },
+                { type: 'gap' as const, number: 17 },
+                { type: 'static' as const, text: ' and enclosed — unsuitable for children and animals' },
+              ],
+            ],
+          },
+          {
+            cells: [
+              [{ type: 'static' as const, text: 'Village school' }],
+              [
+                { type: 'static' as const, text: 'classrooms and a special exhibition of ' },
+                { type: 'gap' as const, number: 18 },
+              ],
+              [
+                { type: 'static' as const, text: 'a ' },
+                { type: 'gap' as const, number: 19 },
+                { type: 'static' as const, text: ' is recommended' },
+              ],
+            ],
+          },
+          {
+            cells: [
+              [{ type: 'static' as const, text: "The George (old sailing ship)" }],
+              [
+                {
+                  type: 'static' as const,
+                  text: "the ship's wheel (was lost but has now been restored)",
+                },
+              ],
+              [
+                { type: 'static' as const, text: "children shouldn't use the " },
+                { type: 'gap' as const, number: 20 },
+              ],
+            ],
+          },
+        ],
+      },
+    ],
+    questions: [
+      mc(
+        11,
+        'Why did a port originally develop at Manham?',
+        'It was safe from enemy attack.',
+        'It was convenient for river transport.',
+        'It had a good position on the sea coast.',
+        'B',
+        {
+          sectionRange: 'Questions 11 – 15',
+          sectionInstruction: 'Choose the correct letter A, B or C.',
+        },
+      ),
+      mc(
+        12,
+        "What caused Manham's sudden expansion during the Industrial Revolution?",
+        'the improvement in mining techniques',
+        'the increase in demand for metals',
+        'the discovery of tin in the area',
+        'B',
+      ),
+      mc(
+        13,
+        'Why did rocks have to be sent away from Manham to be processed?',
+        'shortage of fuel',
+        'poor transport systems',
+        'lack of skills among local people',
+        'A',
+      ),
+      mc(
+        14,
+        'What happened when the port declined in the twentieth century?',
+        'The workers went away.',
+        'Traditional skills were lost.',
+        'Buildings were used for new purposes.',
+        'A',
+      ),
+      mc(
+        15,
+        'What did the Manham Trust hope to do?',
+        'discover the location of the original port',
+        'provide jobs for the unemployed',
+        'rebuild the port complex',
+        'C',
+      ),
+      {
+        number: 16,
+        type: 'gap-fill' as const,
+        prompt: "Miners' transport:",
+        options: [],
+        answer: 'trains',
+        wordLimit: 2,
+        gapLead: "specially adapted miners'",
+        gapTrail: 'take visitors into the mountain',
+        sectionRange: 'Questions 16 – 20',
+        sectionInstruction:
+          'Complete the table below. Write NO MORE THAN TWO WORDS for each answer.',
+        sectionTitle: 'Tourist attractions in Manham',
+      },
+      {
+        number: 17,
+        type: 'gap-fill' as const,
+        prompt: 'Mine is:',
+        options: [],
+        answer: 'dark',
+        wordLimit: 2,
+        gapLead: 'the mine is',
+        gapTrail: 'and enclosed — unsuitable for children and animals',
+      },
+      {
+        number: 18,
+        type: 'gap-fill' as const,
+        prompt: 'Exhibition of:',
+        options: [],
+        answer: 'games',
+        wordLimit: 2,
+        gapLead: 'classrooms and a special exhibition of',
+      },
+      {
+        number: 19,
+        type: 'gap-fill' as const,
+        prompt: 'Recommended:',
+        options: [],
+        answer: 'guided tour',
+        wordLimit: 2,
+        gapLead: 'a',
+        gapTrail: 'is recommended',
+      },
+      {
+        number: 20,
+        type: 'gap-fill' as const,
+        prompt: "Children shouldn't use the:",
+        options: [],
+        answer: 'ladder',
+        wordLimit: 2,
+        gapLead: "children shouldn't use the",
+      },
+    ],
+  }
+}
+
 /** a14 — MC 11–14 + Map 15–20 (cần map.jpg). */
 export function ieltsListeningP2A14Part() {
   const mapOpts = 'ABCDEFGHI'.split('').map(id => ({ id, label: id }))
@@ -723,6 +889,7 @@ export type IeltsListeningP2TemplateKind =
   | 'p2-a12'
   | 'p2-a13'
   | 'p2-a14'
+  | 'p2-a15'
 
 export function buildIeltsListeningP2Template(
   kind: IeltsListeningP2TemplateKind,
@@ -737,6 +904,7 @@ export function buildIeltsListeningP2Template(
     'p2-a12': ieltsListeningP2A12Part,
     'p2-a13': ieltsListeningP2A13Part,
     'p2-a14': ieltsListeningP2A14Part,
+    'p2-a15': ieltsListeningP2A15Part,
   }
 
   const labels: Record<IeltsListeningP2TemplateKind, string> = {
@@ -749,6 +917,7 @@ export function buildIeltsListeningP2Template(
     'p2-a12': 'a12 — MC + Map',
     'p2-a13': 'a13 — Choose TWO ×2 + Match',
     'p2-a14': 'a14 — MC + Map',
+    'p2-a15': 'a15 — MC + Table (Cam10 Manham)',
   }
 
   return {

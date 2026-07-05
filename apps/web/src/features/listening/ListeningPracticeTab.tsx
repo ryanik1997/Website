@@ -90,8 +90,8 @@ export default function ListeningPracticeTab({
   )
 
   const clozeLabel = clozeCount === 0 || clozeCount >= clozeMax
-    ? 'Tat ca'
-    : `${clozeCount} tu`
+    ? 'Tất cả'
+    : `${clozeCount} từ`
 
   const blankResetKey = `${sentence.id}-${sentenceIndex}-${mode}-${clozeCount}`
 
@@ -309,11 +309,11 @@ export default function ListeningPracticeTab({
         <>
           <div className="mb-5 flex flex-wrap items-center gap-2">
             <span className="mr-1 text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-              Che do:
+              Chế độ:
             </span>
             {([
-              { id: 'boxes' as const, label: 'O chu' },
-              { id: 'type' as const, label: 'Tu go' },
+              { id: 'boxes' as const, label: 'Ô chữ' },
+              { id: 'type' as const, label: 'Tự gõ' },
               { id: 'cloze' as const, label: 'Cloze' },
             ]).map(item => (
               <button
@@ -336,7 +336,7 @@ export default function ListeningPracticeTab({
                 style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
               >
                 <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-                  An:
+                  Ẩn:
                 </span>
                 <button
                   type="button"
@@ -384,7 +384,7 @@ export default function ListeningPracticeTab({
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 disabled={inputsLocked}
-                placeholder="Go cau ban nghe duoc..."
+                placeholder="Gõ câu bạn nghe được..."
                 rows={4}
                 autoComplete="off"
                 autoCorrect="off"
@@ -422,7 +422,7 @@ export default function ListeningPracticeTab({
                 className="mb-2 text-sm font-semibold"
                 style={{ color: pct >= 70 ? 'var(--color-primary)' : 'var(--color-accent)' }}
               >
-                {pct}% chinh xac
+                {pct}% chính xác
               </p>
 
               <div className="mb-2 flex flex-wrap gap-1.5">
@@ -444,13 +444,13 @@ export default function ListeningPracticeTab({
 
               {showFullAnswer && (
                 <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  <strong style={{ color: 'var(--text-primary)' }}>Dap an:</strong> {sentence.text}
+                  <strong style={{ color: 'var(--text-primary)' }}>Đáp án:</strong> {sentence.text}
                 </p>
               )}
 
               {isPerfect && autoNextLeft != null && sentenceIndex < total - 1 && (
                 <p className="mt-3 text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>
-                  Dung hoan toan. Tu chuyen cau tiep theo sau {autoNextLeft}s.
+                  Đúng hoàn toàn. Tự chuyển câu tiếp theo sau {autoNextLeft}s.
                 </p>
               )}
             </div>
@@ -470,7 +470,7 @@ export default function ListeningPracticeTab({
               border: '1px solid var(--border-color)',
             }}
           >
-            Bo qua
+            Bỏ qua
           </button>
 
           {phase !== 'result' ? (
@@ -481,7 +481,7 @@ export default function ListeningPracticeTab({
               className="rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide disabled:opacity-40"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
             >
-              Kiem tra
+              Kiểm tra
             </button>
           ) : (
             <button
@@ -490,7 +490,7 @@ export default function ListeningPracticeTab({
               className="inline-flex items-center gap-1.5 rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-wide"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
             >
-              {sentenceIndex === total - 1 ? 'Xem ket qua' : 'Cau tiep theo'}
+              {sentenceIndex === total - 1 ? 'Xem kết quả' : 'Câu tiếp theo'}
               <SkipForward size={14} />
             </button>
           )}

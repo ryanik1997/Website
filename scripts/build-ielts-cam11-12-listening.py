@@ -461,6 +461,9 @@ def _is_prose_after_section(passage: list, index: int) -> bool:
     prev, _ = _prev_non_gap_block(passage, index)
     if not prev or prev.get("type") != "section":
         return False
+    section_text = (prev.get("text") or "").strip()
+    if section_text.endswith(":"):
+        return False
     return _looks_like_prose(passage[index].get("text") or "")
 
 
@@ -478,6 +481,8 @@ def _should_strip_marker(passage: list, index: int, form_style: bool) -> bool:
     if _is_static_continuation(passage, index):
         return True
     if bare in ("•", "*", "+", "–", "-", "·") or not bare:
+        if bare == "•" and index + 1 < len(passage) and passage[index + 1].get("type") == "gap":
+            return False
         return True
     if bare.lower().endswith("e.g.") and _has_note_line_marker(text.strip()):
         return True
@@ -639,7 +644,10 @@ def _enrich_passage_bullets(passage: list) -> None:
 
         if _has_note_line_marker(stripped):
             marker = _note_marker_char(stripped)
-            list_depth = _resolve_list_depth(passage, index, marker)
+            if marker in "•*+" and bare and not bare.endswith(":"):
+                list_depth = 1
+            else:
+                list_depth = _resolve_list_depth(passage, index, marker)
             if marker in "•*+" and list_depth >= 2 and not _colon_introduces_sub_items(text):
                 block["text"] = _pad_note_marker("–", text)
             continue
@@ -754,6 +762,34 @@ def infer_p4_title(part: dict) -> str | None:
     return None
 
 
+def _note_passage_has_structured_markers(passage: list) -> bool:
+    """JSON Tainguyen đã có •/– — không enrich lại (tránh gom/demote sai)."""
+    statics = [
+        b for b in passage
+        if b.get("type") == "static" and (b.get("text") or "").strip()
+    ]
+    if not statics:
+        return False
+    marked = sum(
+        1 for b in statics
+        if _has_note_line_marker((b.get("text") or "").strip())
+    )
+    return marked >= min(3, -(-len(statics) * 2 // 10))  # ceil(20%)
+
+
+def _note_passage_is_prose_lecture(passage: list) -> bool:
+    """Part 4 lecture prose thuần — không inject • (Cam12 T1 Four business values)."""
+    statics = [
+        b for b in passage
+        if b.get("type") == "static" and (b.get("text") or "").strip()
+    ]
+    if not statics:
+        return False
+    return not any(
+        _has_note_line_marker((b.get("text") or "").strip()) for b in statics
+    )
+
+
 def normalize_part1(part: dict) -> dict:
     """Chuẩn hóa Part 1: layout form/table, tiêu đề, bỏ notePassage thừa khi có bảng."""
     if part.get("partNumber") != 1:
@@ -776,7 +812,8 @@ def normalize_part1(part: dict) -> dict:
     passage = part.get("notePassage") or []
     if passage:
         passage = _atomize_note_passage(passage)
-        _enrich_passage_bullets(passage)
+        if not _note_passage_has_structured_markers(passage):
+            _enrich_passage_bullets(passage)
         part["notePassage"] = passage
 
     return part
@@ -802,7 +839,8 @@ def normalize_part4(part: dict) -> dict:
 
     if passage:
         passage = _atomize_note_passage(passage)
-        _enrich_passage_bullets(passage)
+        if not _note_passage_is_prose_lecture(passage):
+            _enrich_passage_bullets(passage)
         part["notePassage"] = passage
 
     return part
@@ -1271,7 +1309,7 @@ def cam11_t1_p1():
         1, 1, 10,
         "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
         [
-            gap(1, "Room:", "charlton", gapLead="the", gapTrail="Room – seats 100"),
+            gap(1, "Room:", "charlton"),
             gap(2, "Cost of Main Hall:", "115", gapLead="£"),
             gap(3, "Deposit payment:", "cash"),
             gap(4, "Cost includes:", "parking"),
@@ -1450,33 +1488,35 @@ def cam11_t1_p4():
 def cam11_t2_p1():
     return part(
         1, 1, 10,
-        "Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.",
+        "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
         [
-            gap(1, "Lives in a:", "hostel", sectionTitle="Enquiry about joining Youth Council"),
+            gap(1, "Currently staying in a:", "hostel"),
             gap(2, "Street:", "buckleigh", gapLead="17,"),
             gap(3, "Postcode:", "pe97qt"),
             gap(4, "Part-time job:", "waiter"),
             gap(5, "Major subject:", "politics"),
-            gap(6, "Hobby:", "cycling"),
+            gap(6, "Hobbies:", "cycling"),
             gap(7, "Interested in:", "cinema"),
-            gap(8, "Wants to work with:", "disabled"),
+            gap(8, "Young people who are:", "disabled"),
             gap(9, "Meeting time:", "4.30/half past four", word_limit=2),
-            gap(10, "Phone:", "07788136711", word_limit=1),
+            gap(10, "Mobile number:", "07788136711", word_limit=1),
         ],
+        passageTitle="Enquiry about joining Youth Council",
         notePassageLayout="form",
         notePassage=[
-            np_static("Example\nName: Roger Brown"),
+            np_static("Example"),
+            np_static("Name: Roger ........Brown........."),
+            np_static("Example – Name: Roger Brown"),
             np_static("Age: 18"),
-            np_static("Lives in a"), np_gap(1),
-            np_static("Postal address: 2 17,"), np_gap(2), np_static("Street, Stamford, Lincs"),
+            np_static("Currently staying in a"), np_gap(1), np_static("during the week"),
+            np_static("Postal address: 17,"), np_gap(2), np_static("Street, Stamford, Lincs"),
             np_static("Postcode:"), np_gap(3),
             np_static("Occupation: student and part-time job as a"), np_gap(4),
             np_static("Studying"), np_gap(5), np_static("(major subject) and history (minor subject)"),
-            np_static("Hobbies: does a lot of"), np_gap(6),
-            np_static("and is interested in the"), np_gap(7),
+            np_static("Hobbies: does a lot of"), np_gap(6), np_static(", and is interested in the"), np_gap(7),
             np_static("On Youth Council, wants to work with young people who are"), np_gap(8),
             np_static("Will come to talk to the Elections Officer next Monday at"), np_gap(9), np_static("pm"),
-            np_static("Phone:"), np_gap(10),
+            np_static("Mobile number:"), np_gap(10),
         ],
     )
 
@@ -1707,13 +1747,20 @@ def cam11_t3_p2():
                 ("A", "manufacturing"), ("B", "services"), ("C", "education"),
             ], "C"),
             match(16, "Railway station car park", list("ABCDEFG"), "G", labeled=plan_opts,
+                  mapLabel=True,
                   sectionRange="Questions 16 – 20",
-                  sectionInstruction="What is planned for each facility? Choose FIVE answers A–G."),
-            match(17, "Cinema", list("ABCDEFG"), "A", labeled=plan_opts),
-            match(18, "Indoor market", list("ABCDEFG"), "C", labeled=plan_opts),
-            match(19, "Library", list("ABCDEFG"), "B", labeled=plan_opts),
-            match(20, "Nature reserve", list("ABCDEFG"), "F", labeled=plan_opts),
+                  sectionInstruction=(
+                      "What is planned for each of the following facilities? "
+                      "Choose FIVE answers from the box and write the correct letter A–G "
+                      "next to questions 16–20."
+                  ),
+                  sectionTitle="PLANS FOR FACILITIES"),
+            match(17, "Cinema", list("ABCDEFG"), "A", labeled=plan_opts, mapLabel=True),
+            match(18, "Indoor market", list("ABCDEFG"), "C", labeled=plan_opts, mapLabel=True),
+            match(19, "Library", list("ABCDEFG"), "B", labeled=plan_opts, mapLabel=True),
+            match(20, "Nature reserve", list("ABCDEFG"), "F", labeled=plan_opts, mapLabel=True),
         ],
+        imageFile="map.jpg",
     )
 
 
@@ -1734,30 +1781,33 @@ def cam11_t3_p3():
             gap(24, "And:", "playing", word_limit=1),
             gap(25, "Ice-skating on:", "grass", word_limit=1),
             gap(26, "Add a:", "scarf", word_limit=1),
-            match(27, "How they planned the project", list("ABCD"), "A", labeled=who_opts,
+            match(27, "how they planned the project", list("ABCD"), "A", labeled=who_opts,
                   sectionRange="Questions 27 – 30",
-                  sectionInstruction="Who is going to write each part of the report? Write A–D."),
-            match(28, "How they had ideas for their stories", list("ABCD"), "C", labeled=who_opts),
-            match(29, "An interpretation of their stories", list("ABCD"), "D", labeled=who_opts),
-            match(30, "Comments on the illustrations", list("ABCD"), "B", labeled=who_opts),
+                  sectionInstruction=(
+                      "Who is going to write each of the following parts of the report? "
+                      "Write the correct letter A–D next to questions 27–30."
+                  ),
+                  sectionTitle="REPORT PARTS"),
+            match(28, "how they had ideas for their stories", list("ABCD"), "C", labeled=who_opts),
+            match(29, "an interpretation of their stories", list("ABCD"), "D", labeled=who_opts),
+            match(30, "comments on the illustrations", list("ABCD"), "B", labeled=who_opts),
         ],
         notePassageLayout="table",
         noteTables=[{
             "gapNumbers": [21, 22, 23, 24, 25, 26],
-            "instruction": "Questions 21 – 26\nComplete the table below. Write ONE WORD ONLY for each answer.",
             "headers": ["Subject of drawing", "Change to be made"],
             "rows": [
                 {"cells": [
                     [tbl_static("A "), tbl_gap(21), tbl_static(" surrounded by trees")],
-                    [tbl_static("Add Malcolm and a "), tbl_gap(22)],
+                    [tbl_static("Add Malcolm and a "), tbl_gap(22), tbl_static(" noticing him")],
                 ]},
                 {"cells": [
-                    [tbl_static("People who are "), tbl_gap(23), tbl_static(" and "), tbl_gap(24)],
-                    [tbl_static("Add Malcolm sitting on a tree trunk and dissuading two people from "), tbl_gap(23)],
+                    [tbl_static("People who are "), tbl_gap(23)],
+                    [tbl_static("Add Malcolm sitting on a tree trunk and "), tbl_gap(24)],
                 ]},
                 {"cells": [
-                    [tbl_static("Ice-skating on "), tbl_gap(25)],
-                    [tbl_static("Add a "), tbl_gap(26), tbl_static(" tied to each person's waist")],
+                    [tbl_static("Ice-skaters on "), tbl_gap(25), tbl_static(" covered with ice")],
+                    [tbl_static("Add a "), tbl_gap(26), tbl_static(" for each person")],
                 ]},
             ],
         }],
@@ -1769,36 +1819,50 @@ def cam11_t3_p4():
         4, 31, 40,
         "Complete the notes below. Write ONE WORD ONLY for each answer.",
         [
-            gap(31, "Customer needs and:", "attitude/attitudes", sectionTitle="ETHNOGRAPHY IN BUSINESS"),
-            gap(32, "Cannot easily see the:", "numbers"),
-            gap(33, "Check the:", "time/minutes"),
-            gap(34, "Develop:", "software"),
-            gap(35, "Information about:", "patients"),
-            gap(36, "Recorded their:", "emotions/feelings"),
-            gap(37, "Criteria such as age,:", "income"),
-            gap(38, "Must feel:", "comfortable"),
-            gap(39, "Direct:", "observation"),
-            gap(40, "Analysis of the:", "analysis"),
+            gap(31, "Customer needs and:", "attitude/attitudes", word_limit=1),
+            gap(32, "Cannot easily see the:", "numbers", word_limit=1),
+            gap(33, "Check the:", "time/minutes", word_limit=1),
+            gap(34, "Develop:", "software", word_limit=1),
+            gap(35, "Information about:", "patients", word_limit=1),
+            gap(36, "Recorded their:", "emotions/feelings", word_limit=1),
+            gap(37, "Criteria such as age,:", "income", word_limit=1),
+            gap(38, "Must feel:", "comfortable", word_limit=1),
+            gap(39, "Direct:", "observation", word_limit=1),
+            gap(40, "Analysis of the:", "analysis", word_limit=1),
         ],
-        passageTitle="Ethnography in business",
+        passageTitle="ETHNOGRAPHY IN BUSINESS",
+        notePassageLayout="lecture",
         notePassage=[
-            np_section("Ethnography"),
-            np_static("Research which explores human cultures; used in business to investigate customer needs and"), np_gap(31),
+            np_static("Ethnography: research which explores human cultures"),
+            np_static("It can be used in business:"),
+            np_static("• to investigate customer needs and"), np_gap(31),
+            np_static("• to help companies develop new designs"),
+            np_section("Examples of ethnographic research in business"),
             np_section("Kitchen equipment"),
-            np_static("Researchers found that cooks could not easily see the"), np_gap(32), np_static("in measuring cups"),
+            np_static("• Researchers found that cooks could not easily see the"),
+            np_gap(32), np_static("in measuring cups."),
             np_section("Cell phones"),
-            np_static("Customers wanted to check the"), np_gap(33), np_static("used"),
+            np_static("• In Uganda, customers paid to use the cell phones of entrepreneurs."),
+            np_static("• These customers wanted to check the"), np_gap(33), np_static("used."),
             np_section("Computer companies"),
-            np_static("Need to develop"), np_gap(34), np_static("to improve communication"),
+            np_static("• There was a need to develop"), np_gap(34),
+            np_static("to improve communication between system administrators and colleagues."),
             np_section("Hospitals"),
-            np_static("Nurses needed access to information about"), np_gap(35),
+            np_static("• Nurses needed to access information about"), np_gap(35),
+            np_static("in different parts of the hospital."),
             np_section("Airlines"),
-            np_static("Respondents recorded information about their"), np_gap(36), np_static("while travelling"),
-            np_section("Principles"),
-            np_static("Participants selected by criteria such as age,"), np_gap(37),
-            np_static("Participants must feel"), np_gap(38), np_static("about taking part"),
-            np_static("Usually direct"), np_gap(39), np_static("of the participants"),
-            np_static("A lot of time needed for the"), np_gap(40), np_static("of the data"),
+            np_static("• Respondents recorded information about their"), np_gap(36),
+            np_static("while travelling."),
+            np_section("Principles of ethnographic research in business"),
+            np_static("• The researcher does not start off with a hypothesis."),
+            np_static("• Participants may be selected by criteria such as age,"), np_gap(37),
+            np_static("or product used."),
+            np_static("• The participants must feel"), np_gap(38),
+            np_static("about taking part in the research."),
+            np_static("• There is usually direct"), np_gap(39), np_static("of the participants."),
+            np_static("• The interview is guided by the participant."),
+            np_static("• A lot of time is needed for the"), np_gap(40), np_static("of the data."),
+            np_static("• Researchers look for a meaningful pattern in the data."),
         ],
     )
 
@@ -1825,30 +1889,42 @@ def cam11_t4_p1():
             gap(7, "Presented by a:", "actor", word_limit=1),
             match(8, "The Mystery of Muldoon", list("ABC"), "A", labeled=play_opts,
                   sectionRange="Questions 8 – 10",
-                  sectionInstruction="Who is each play suitable for? Write A, B or C."),
+                  sectionInstruction=(
+                      "Who is each play suitable for? "
+                      "Write the correct letter A, B or C next to questions 8–10."
+                  ),
+                  sectionTitle="PLAYS"),
             match(9, "Fire and Flood", list("ABC"), "B", labeled=play_opts),
             match(10, "Silly Sailor", list("ABC"), "C", labeled=play_opts),
         ],
         notePassageLayout="table",
         noteTables=[{
             "gapNumbers": [1, 2, 3, 4, 5, 6, 7],
-            "instruction": "Questions 1 – 7\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+            "title": "FESTIVAL EVENTS",
             "headers": ["Event", "Cost", "Venue", "Notes"],
             "rows": [
                 {"cells": [
-                    [tbl_static("Jazz band")], [tbl_static("Tickets available for £15")],
+                    [tbl_static("Jazz band")],
+                    [tbl_static("Tickets available for £15")],
                     [tbl_static("The "), tbl_gap(1), tbl_static(" school")],
-                    [tbl_static("Carolyn Hart (plays the "), tbl_gap(2), tbl_static(")")],
+                    [tbl_static("Also appearing: Carolyn Hart (plays the "), tbl_gap(2), tbl_static(")")],
                 ]},
                 {"cells": [
-                    [tbl_static("Duck races")], [tbl_static("£1 per duck")],
+                    [tbl_static("Duck races")],
+                    [tbl_static("£1 per duck")],
                     [tbl_static("Start behind the "), tbl_gap(3)],
-                    [tbl_static("Ducks can be bought in the "), tbl_gap(5)],
+                    [
+                        tbl_static("Prize: tickets for "), tbl_gap(4),
+                        tbl_static(" held at the end of the festival."),
+                        tbl_break(),
+                        tbl_static("Ducks can be bought in the "), tbl_gap(5),
+                    ],
                 ]},
                 {"cells": [
-                    [tbl_static("Flower show")], [tbl_static("Free")],
-                    [tbl_static("Bythwaite "), tbl_gap(6)],
-                    [tbl_static("Prize: tickets for "), tbl_gap(4), tbl_static(" — presented by a well-known "), tbl_gap(7)],
+                    [tbl_static("Flower show")],
+                    [tbl_static("Free")],
+                    [tbl_gap(6), tbl_static(" Hall")],
+                    [tbl_static("Prizes presented at 5 pm by a well-known "), tbl_gap(7)],
                 ]},
             ],
         }],
@@ -1872,19 +1948,27 @@ def cam11_t4_p2():
         [
             match(11, "20th- and 21st-century paintings", list("ABCDEFG"), "E", labeled=comment_opts,
                   sectionRange="Questions 11 – 16",
-                  sectionInstruction="What does the speaker say about each collection? Choose SIX answers A–G."),
+                  sectionInstruction=(
+                      "What does the speaker say about each of the following collections? "
+                      "Choose SIX answers from the box and write the correct letter A–G "
+                      "next to questions 11–16."
+                  ),
+                  sectionTitle="MUSEUM COLLECTIONS"),
             match(12, "19th-century paintings", list("ABCDEFG"), "D", labeled=comment_opts),
             match(13, "Sculptures", list("ABCDEFG"), "G", labeled=comment_opts),
             match(14, "'Around the world' exhibition", list("ABCDEFG"), "B", labeled=comment_opts),
             match(15, "Coins", list("ABCDEFG"), "C", labeled=comment_opts),
             match(16, "Porcelain and glass", list("ABCDEFG"), "A", labeled=comment_opts),
-            map_label(17, "Restaurant", letters, "F",
+            map_label(17, "restaurant", letters, "F",
                       sectionRange="Questions 17 – 20",
-                      sectionInstruction="Label the plan below. Write the correct letter A–H.",
-                      sectionTitle="Basement of museum"),
-            map_label(18, "Café", letters, "H"),
-            map_label(19, "Baby-changing facilities", letters, "C"),
-            map_label(20, "Cloakroom", letters, "B"),
+                      sectionInstruction=(
+                          "Label the plan below. Write the correct letter A–H "
+                          "next to Questions 17–20."
+                      ),
+                      sectionTitle="MUSEUM PLAN"),
+            map_label(18, "café", letters, "H"),
+            map_label(19, "baby-changing facilities", letters, "C"),
+            map_label(20, "cloakroom", letters, "B"),
         ],
         imageFile="map.jpg",
     )
@@ -1958,35 +2042,47 @@ def cam11_t4_p4():
         4, 31, 40,
         "Complete the notes below. Write ONE WORD ONLY for each answer.",
         [
-            gap(31, "Soil that is:", "dry", sectionTitle="The use of soil to reduce carbon dioxide (CO2)"),
+            gap(31, "Soil that is:", "dry",
+                sectionTitle="THE USE OF SOIL TO REDUCE CO₂ IN THE ATMOSPHERE"),
             gap(32, "Soil in Africa was very:", "hard"),
-            gap(33, "Substances such as:", "sugar/sugars"),
+            gap(33, "Carbon-based substances such as:", "sugar/sugars"),
             gap(34, "Moves from the:", "roots"),
-            gap(35, "Soil remains:", "moist/damp/wet"),
+            gap(35, "Soil remains fertile and:", "moist/damp/wet"),
             gap(36, "Increasing the:", "variety"),
             gap(37, "On a big:", "cattle"),
             gap(38, "Compost from:", "gardens/gardening"),
-            gap(39, "Using grasses that are always:", "grasses"),
-            gap(40, "Farmers:", "payment/payments/money"),
+            gap(39, "Using:", "grasses"),
+            gap(40, "Giving farmers:", "payment/payments/money"),
         ],
-        passageTitle="The use of soil to reduce carbon dioxide (CO2)",
+        passageTitle="THE USE OF SOIL TO REDUCE CO₂ IN THE ATMOSPHERE",
+        notePassageLayout="lecture",
         notePassage=[
-            np_section("Rattan Lal"),
+            np_section("Rattan Lal:"),
+            np_static(
+                "• Claims that 13% of CO₂ in the atmosphere could be absorbed by agricultural soils"
+            ),
             np_static("• Erosion is more likely in soil that is"), np_gap(31),
             np_static("• Lal found soil in Africa that was very"), np_gap(32),
-            np_section("Soil and carbon"),
-            np_static("• plants turn CO2 into carbon-based substances such as"), np_gap(33),
-            np_static("• some carbon moves from the"), np_gap(34), np_static("of plants to microbes in the soil"),
-            np_section("Regenerative agriculture"),
-            np_static("• make sure soil remains fertile and"), np_gap(35),
-            np_static("• increasing the"), np_gap(36), np_static("of plants that are grown"),
-            np_section("California study"),
+            np_static("• It was suggested that carbon from soil was entering the atmosphere"),
+            np_section("Soil and carbon:"),
+            np_static("• plants turn CO₂ from the air into carbon-based substances such as"), np_gap(33),
+            np_static("• some CO₂ moves from the"), np_gap(34),
+            np_static("of plants to microbes in the soil"),
+            np_static("• carbon was lost from the soil when agriculture was invented"),
+            np_section("Regenerative agriculture:"),
+            np_static("• uses established practices to make sure soil remains fertile and"), np_gap(35),
+            np_static("• e.g. through year-round planting and increasing the"), np_gap(36),
+            np_static("of plants that are grown"),
+            np_section("California study:"),
             np_static("• taking place on a big"), np_gap(37), np_static("farm"),
             np_static("• uses compost made from waste from agriculture and"), np_gap(38),
-            np_section("Australia study"),
-            np_static("• using"), np_gap(39), np_static("that are always green"),
-            np_section("Future developments"),
-            np_static("• giving farmers"), np_gap(40), np_static("for carbon storage, as well as their produce"),
+            np_section("Australia study:"),
+            np_static("• aims to increase soil carbon by using"), np_gap(39),
+            np_static("that are always green"),
+            np_section("Future developments may include:"),
+            np_static("• reducing the amount of fertilizer used in farming"),
+            np_static("• giving farmers"), np_gap(40),
+            np_static("for carbon storage, as well as their produce"),
         ],
     )
 

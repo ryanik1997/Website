@@ -25,12 +25,20 @@ export default function ListeningIeltsMatchingBlock({
   const options = questions[0]?.options ?? []
   const meta = sectionMetaFromQuestions(questions)
   const isActive = questions.some(q => q.id === activeQuestionId)
+  const inlineBank = options.length <= 6
+    && options.every(option => {
+      const label = option.label.trim()
+      return label.length > 1 && label.length <= 42
+    })
 
   return (
     <section className={`listening-ielts-matching${isActive ? ' is-active' : ''}`}>
       <ListeningIeltsSectionHeader blockIdPrefix={blockIdPrefix} meta={meta} />
 
-      <ul className="listening-ielts-matching__bank">
+      <ul className={[
+        'listening-ielts-matching__bank',
+        inlineBank ? 'listening-ielts-matching__bank--inline' : '',
+      ].filter(Boolean).join(' ')}>
         {options.map(option => (
           <li key={option.id} className="listening-ielts-matching__bank-item">
             <span className="listening-ielts-matching__bank-letter">{option.id}</span>

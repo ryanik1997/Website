@@ -62,6 +62,12 @@ export function isFlowChartGroup(questions: ListeningQuestion[]): boolean {
   return questions.some(q => q.flowChart === true)
 }
 
+/** Flow-chart gap-fill (ONE WORD) — không có bank A–G (Cam16 T2 P3). */
+export function isGapFillFlowChartGroup(questions: ListeningQuestion[]): boolean {
+  if (questions.length < 2) return false
+  return questions.every(q => q.type === 'gap-fill' && q.flowChart === true)
+}
+
 export interface IeltsSectionMeta {
   range?: string
   instruction?: string

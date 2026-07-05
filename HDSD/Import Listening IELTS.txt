@@ -3,17 +3,19 @@ Import thủ công Listening — IELTS (Cambridge 9–20+)
 
 App: Luyện thi → IELTS → Import thủ công Listening
 
+**QUY TẮC MỚI (từ 2026-07):** 
+- **Nguồn chính xác 100% là file HTML** bạn cung cấp (ví dụ: IELTS_Test1_Listening_Cam9.html trong thư mục đề).
+- PDF chỉ dùng để lấy audio, ảnh (map, diagram, picture), và Answer Key.
+- **Không dựa vào PDF OCR / parsing nữa** vì dễ sai text, năm, bullet, line break, inline gap.
+- Cấu trúc notePassage, bullet (• / –), form-row, vị trí gap, text trước/sau gap → copy y hệt từ HTML.
+
 ZIP bundle (file CÙNG CẤP):
   exam.json
   listening.mp3
 
 Tham chiếu giao diện:
-  Giaodien/a3.jpg — Part 1 FORM (notePassage + layout "form")
-  Giaodien/a2.jpg — Part 1 BẢNG (noteTable + layout "table")
-  Giaodien/a1.jpg — Part 1 bảng 3 cột (cùng kiểu table, số cột tùy đề)
-  Giaodien/a4.jpg — Part 1 HỖN HỢP: bảng 1–4 + Choose TWO 5–6 + bảng 7–10 (noteTables[])
-  Giaodien/a5.jpg — Part 1 HỖN HỢP: MC 1–6 + sentence completion 7–10 (notePassage)
-  Giaodien/two-choice.jpg — Choose TWO (Which TWO) Part 1–3: UI + Answer Key A/E
+  HTML file bạn đưa (Job Enquiry, Crime Report Form, Sports World…) là nguồn gốc
+  Giaodien/*.jpg chỉ dùng tham khảo nhanh khi chưa có HTML
 
 ─── Choose TWO — "Which TWO …?" (Part 1, 2, 3 — KHÔNG có ở Part 4) ───
 
@@ -45,9 +47,11 @@ Mẫu JSON: p1-mixed-a4, p2-a10, p3-c3
 
 ─── Chọn layout Part 1 ───
 
-PDF có bảng (cột + hàng)     → notePassageLayout: "table" + noteTable
-PDF là form/notes dọc        → notePassageLayout: "form" + notePassage
-                              (hoặc bỏ layout = "list" — giống form)
+Dựa trên HTML bạn cung cấp:
+- Form / notes dọc (có •, –, label + gap inline hoặc xuống dòng) → notePassageLayout: "form" + notePassage
+- Bảng (cột + hàng) → notePassageLayout: "table" + noteTable
+
+Không parse từ PDF nữa.
 
 ─── JSON mẫu trong app ───
 
@@ -135,7 +139,7 @@ Tham chiếu 3 dạng (modal có 3 nút tải mẫu):
 
 Quy tắc JSON Part 4:
   • 10 câu gap-fill (31–40), thứ tự liên tiếp
-  • notePassage[] — static + section + gap theo đúng thứ tự PDF
+  • notePassage[] — static + section + gap theo đúng thứ tự và bullet trong HTML bạn cung cấp
   • gapLead / gapTrail trên từng câu — bullet • (d1), câu nối (d2)
   • Không dùng notePassageSections, noteTable, MC, matching
 
@@ -149,33 +153,33 @@ Export lại: pnpm export:ielts-p4
 
 ─── Prompt chi tiết từng Part (đưa kèm PDF + Answer Key + mẫu JSON) ───
 
-| Part | Prompt | Ảnh UI | Mẫu JSON |
-|------|--------|--------|----------|
-| 1 | HDSD/Prompt-IELTS-Listening-Part1.txt | Giaodien/a1–a5 | Tainguyen/templates/ielts-listening-p1-*.json |
-| 2 | HDSD/Prompt-IELTS-Listening-Part2.txt | Part2-Listening/a6–a14 | Tainguyen/templates/ielts-listening-p2-a*-template.json |
-| 3 | HDSD/Prompt-IELTS-Listening-Part3.txt | Part3-Listening/c1–c7 | Tainguyen/templates/ielts-listening-p3-c*-template.json |
-| 4 | HDSD/Prompt-IELTS-Listening-Part4.txt | Cam9/Cam20 P4 | Tainguyen/templates/ielts-listening-p4-d*-template.json |
+| Part | Prompt | Tham chiếu | Mẫu JSON |
+|------|--------|-----------|----------|
+| 1 | HDSD/Prompt-IELTS-Listening-Part1.txt | HTML bạn cung cấp (Job Enquiry, form...) | Tainguyen/templates/ielts-listening-p1-*.json |
+| 2 | HDSD/Prompt-IELTS-Listening-Part2.txt | HTML + Giaodien/Part2 | Tainguyen/templates/ielts-listening-p2-a*-template.json |
+| 3 | HDSD/Prompt-IELTS-Listening-Part3.txt | HTML + Giaodien/Part3 | Tainguyen/templates/ielts-listening-p3-c*-template.json |
+| 4 | HDSD/Prompt-IELTS-Listening-Part4.txt | HTML (lecture notes) | Tainguyen/templates/ielts-listening-p4-d*-template.json |
 | Cả đề 4 parts | HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt | — | ielts-listening-full.json |
 
-Cách dùng: đính kèm prompt Part X + PDF + Answer Key + 1 file mẫu JSON khớp dạng đề.
+Cách dùng: đính kèm prompt Part X + **HTML bạn cung cấp** + Answer Key + 1 file mẫu JSON. (PDF chỉ tham khảo audio/media)
 Đề trộn nhiều dạng → ghi sẵn trong prompt từng đoạn thuộc a?/c? + đính kèm nhiều mẫu JSON.
 
-─── Bundle pipeline (admin — 100 đề, không import tay từng part) ───
+─── Bundle pipeline (admin — 100 đề) ───
 
-Mỗi đề 1 folder + meta.json (mã mẫu p1-a3, p2-a10…) + exam_part1…4.json + listening.mp3
+Mỗi đề 1 folder + meta.json + exam_part*.json (tạo từ HTML bạn cung cấp) + listening.mp3
 
-  pnpm ielts:merge "IELTS/Listening IELTS_Test2_Cam9"     → exam.json
-  pnpm ielts:validate "IELTS/Listening IELTS_Test2_Cam9"  → kiểm tra gap / Choose TWO
-  pnpm ielts:pack "IELTS/Listening IELTS_Test2_Cam9"      → .zip import
-  pnpm ielts:bundle "IELTS/…"                           → cả 3 bước
+  pnpm ielts:merge "IELTS/..."     → exam.json
+  pnpm ielts:validate "IELTS/..."  → kiểm tra
+  pnpm ielts:pack "IELTS/..."      → .zip
+  pnpm ielts:bundle "IELTS/..."    → build
 
-  --partial   chỉ Part đã có file (dev: mới xong Part 1)
+Khi bạn đưa HTML mới → extract thủ công hoặc script nhỏ từ HTML thành exam_partN.json (ưu tiên độ chính xác 100% layout, text, bullet, gap position).
 
-Pilot: Tainguyen/IELTS/Listening IELTS_Test2_Cam9/meta.json
+PDF chỉ để lấy audio + media.
 
 ─── Ship builtin (admin) ───
 
-python scripts/build-ielts-listening-tests.py
-pnpm build:catalog
-pnpm pack:listening:ielts-cam9
-pnpm pack:listening:ielts-cam20
+1. Dựa trên HTML bạn cung cấp để tạo/cập nhật exam_part*.json (nguồn gốc chính xác)
+2. pnpm ielts:bundle ...
+3. pnpm build:catalog
+4. pnpm pack:listening:... (nếu cần)

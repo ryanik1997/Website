@@ -85,38 +85,14 @@ const STATIC_BUNDLES = [
 
 const IELTS_FOLDER_RE = /^Listening IELTS_Test(\d+)_Cam(\d+)$/i
 
+// IELTS Cam9–20 (48 đề) removed from builtin catalog per user request "Xóa sạch 48 đề mẫu".
+// User will manually import correct versions from Tainguyen/IELTS/... via Import thủ công.
+// To re-enable in future: restore discover + writeGenerated + include in BUNDLES.
 async function discoverIeltsListeningBundles() {
-  const ieltsRoot = path.join(TAINGUYEN, 'IELTS')
-  if (!existsSync(ieltsRoot)) return []
-
-  const entries = await fs.readdir(ieltsRoot, { withFileTypes: true })
-  const bundles = []
-
-  for (const entry of entries) {
-    if (!entry.isDirectory()) continue
-    const match = entry.name.match(IELTS_FOLDER_RE)
-    if (!match) continue
-
-    const test = Number.parseInt(match[1], 10)
-    const cam = Number.parseInt(match[2], 10)
-    const sourceDir = `IELTS/${entry.name}`
-    const examJsonPath = path.join(ieltsRoot, entry.name, 'exam.json')
-    if (!existsSync(examJsonPath)) continue
-
-    bundles.push({
-      kind: 'listening',
-      slug: `ielts-cam${cam}-test${test}`,
-      examId: `catalog-listening-ielts-cam${cam}-test${test}`,
-      sourceDir,
-      examType: 'ielts',
-      examMode: 'practice',
-      cam,
-      test,
-    })
-  }
-
-  bundles.sort((a, b) => a.cam - b.cam || a.test - b.test)
-  return bundles
+  // DISABLED: return []
+  // const ieltsRoot = path.join(TAINGUYEN, 'IELTS')
+  // ... discovery removed to keep catalog clean of the 48 samples
+  return []
 }
 
 async function writeGeneratedIeltsImports(ieltsBundles) {
@@ -365,7 +341,8 @@ async function main() {
 
   const ieltsBundles = await discoverIeltsListeningBundles()
   const BUNDLES = [...STATIC_BUNDLES, ...ieltsBundles]
-  await writeGeneratedIeltsImports(ieltsBundles)
+  // writeGeneratedIeltsImports skipped (ielts disabled)
+  // await writeGeneratedIeltsImports(ieltsBundles)
 
   const manifest = {
     version: 2,
@@ -409,7 +386,7 @@ async function main() {
     'utf8',
   )
 
-  console.log(`\nIELTS listening: ${ieltsBundles.length} đề auto-discovered`)
+  console.log(`\nIELTS listening: ${ieltsBundles.length} đề (DISABLED - 48 Cam9-20 samples removed per "Xóa sạch 48 đề mẫu")`)
   console.log('\nCatalog build complete.')
   console.log(`  Public: ${PUBLIC_CATALOG}`)
   console.log(`  Data:   ${DATA_OUT}`)

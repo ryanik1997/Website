@@ -24,7 +24,7 @@ export default function ListeningIeltsFlowChartBlock({
   const highlights = useExamHighlights()
   const options = questions[0]?.options ?? []
   const meta = sectionMetaFromQuestions(questions)
-  const flowChartEnd = questions[0]?.flowChartEnd
+  const flowChartEnd = [...questions].reverse().find(q => q.flowChartEnd)?.flowChartEnd
   const isActive = questions.some(q => q.id === activeQuestionId)
 
   return (

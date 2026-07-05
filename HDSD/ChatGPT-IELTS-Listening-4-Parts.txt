@@ -14,7 +14,12 @@ Bạn cần có:
   • PDF đề Listening (hoặc ảnh/screenshot từng Section)
   • Answer Key (đáp án 1–40)
   • File audio ~30 phút (đổi tên listening.mp3 khi đóng ZIP)
-  • (Khuyến nghị) Ảnh UI tham chiếu trong Giaodien/ — để ChatGPT khớp layout
+  • **File HTML bạn cung cấp** (ví dụ IELTS_TestX_Listening_CamY.html) là nguồn gốc 100% cho:
+    - text chính xác
+    - bullet (• / –)
+    - vị trí gap, inline / xuống dòng
+    - section, example, form structure
+  → Không parse PDF OCR. PDF chỉ dùng lấy audio + ảnh (nếu cần).
   • Choose TWO: Giaodien/two-choice.jpg — Answer Key A/E + UI 2 ô (Part 1–3)
 
 Tải mẫu JSON trong app:

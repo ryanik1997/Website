@@ -4,6 +4,7 @@ import { listeningExamRepo } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import { getListeningExam, LISTENING_EXAMS } from './listeningExamData'
 import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
+import { normalizeListeningExamForDisplay } from './listeningImportNormalize'
 
 function recordToExam(record: ListeningExamRecord): ListeningExam {
   return {
@@ -32,6 +33,7 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
   const local = await listeningExamRepo.get(examId)
   if (local) {
     let exam = recordToExam(local)
+    exam = normalizeListeningExamForDisplay(exam)
     exam = mergeCatalogListeningMedia(exam)
     return exam
   }

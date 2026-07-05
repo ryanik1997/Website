@@ -30,8 +30,15 @@ export default function ListeningIeltsMapBlock({
   const meta = sectionMetaFromQuestions(questions)
   const imageSrc = useBlobMediaUrl(part.partImageKey, resolveExamMediaUrl(part.partImageUrl))
   const isActive = questions.some(q => q.id === activeQuestionId)
+  const showOptionBank = options.some(
+    option => option.label.trim().length > 2 && option.label.trim() !== option.id,
+  )
 
-  const title = meta.title ?? part.passageTitle
+  const passageTitleKey = (part.passageTitle ?? '').trim().toLowerCase()
+  const metaTitleKey = (meta.title ?? '').trim().toLowerCase()
+  const title = meta.title && metaTitleKey !== passageTitleKey
+    ? meta.title
+    : undefined
 
   return (
     <section className={`listening-ielts-map${isActive ? ' is-active' : ''}`}>
@@ -40,7 +47,10 @@ export default function ListeningIeltsMapBlock({
         meta={{ ...meta, title: title ?? meta.title }}
       />
 
-      <div className="listening-ielts-map__body">
+      <div className={[
+        'listening-ielts-map__body',
+        showOptionBank ? 'listening-ielts-map__body--stacked' : '',
+      ].filter(Boolean).join(' ')}>
         {imageSrc && (
           <div className="listening-ielts-map__image-wrap">
             <img
@@ -52,13 +62,29 @@ export default function ListeningIeltsMapBlock({
         )}
 
         <div className="listening-ielts-map__labels">
-          <div className="listening-ielts-map__letter-row" aria-hidden>
-            {options.map(option => (
-              <span key={option.id} className="listening-ielts-map__letter-ref">
-                {option.id}
-              </span>
-            ))}
-          </div>
+          {showOptionBank ? (
+            <ul className="listening-ielts-matching__bank">
+              {options.map(option => (
+                <li key={option.id} className="listening-ielts-matching__bank-item">
+                  <span className="listening-ielts-matching__bank-letter">{option.id}</span>
+                  <ReadingHighlightableText
+                    blockId={`${blockIdPrefix}-bank-${option.id}`}
+                    text={option.label}
+                    highlights={highlights}
+                    as="span"
+                  />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="listening-ielts-map__letter-row" aria-hidden>
+              {options.map(option => (
+                <span key={option.id} className="listening-ielts-map__letter-ref">
+                  {option.id}
+                </span>
+              ))}
+            </div>
+          )}
 
           {questions.map(question => (
             <div

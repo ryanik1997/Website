@@ -282,34 +282,27 @@ def cam17_t2_p1():
             gap(9, "18 Nov dance — checking …:", "tickets", word_limit=1),
             gap(10, "31 Dec New Year's Eve party — designing the …:", "poster", word_limit=1),
         ],
-        noteTables=[
+        notePassageLayout="form",
+        notePassageSections=[
             {
                 "gapNumbers": list(range(1, 8)),
                 "instruction": "Questions 1 – 7\nComplete the notes below. Write ONE WORD ONLY for each answer.",
                 "title": "Opportunities for voluntary work in Southoe village",
-                "headers": ["Section", "Details"],
-                "rows": [
-                    {"cells": [
-                        [tbl_static("Library")],
-                        [tbl_static("Help with "), tbl_gap(1), tbl_static(" books (times to be arranged)"),
-                         tbl_break(), tbl_static("Help needed to keep "), tbl_gap(2),
-                         tbl_static(" of books up to date"),
-                         tbl_break(), tbl_static("Library is in the "), tbl_gap(3),
-                         tbl_static(" Room in the village hall")],
-                    ]},
-                    {"cells": [
-                        [tbl_static("Lunch club")],
-                        [tbl_static("Help by providing "), tbl_gap(4),
-                         tbl_break(), tbl_static("Help with hobbies such as "), tbl_gap(5)],
-                    ]},
-                    {"cells": [
-                        [tbl_static("Help for individuals needed next week")],
-                        [tbl_static("Taking Mrs Carroll to "), tbl_gap(6),
-                         tbl_break(), tbl_static("Work in the "), tbl_gap(7),
-                         tbl_static(" at Mr Selsbury's house")],
-                    ]},
+                "blocks": [
+                    np_section("Library"),
+                    np_static("Help with "), np_gap(1), np_static(" books (times to be arranged)"),
+                    np_static("Help needed to keep "), np_gap(2), np_static(" of books up to date"),
+                    np_static("Library is in the "), np_gap(3), np_static(" Room in the village hall"),
+                    np_section("Lunch club"),
+                    np_static("Help by providing "), np_gap(4),
+                    np_static("Help with hobbies such as "), np_gap(5),
+                    np_static("Help for individuals needed next week"),
+                    np_static("Taking Mrs Carroll to "), np_gap(6),
+                    np_static("Work in the "), np_gap(7), np_static(" at Mr. Selsbury's house"),
                 ],
             },
+        ],
+        noteTables=[
             {
                 "gapNumbers": [8, 9, 10],
                 "instruction": "Questions 8 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
@@ -870,7 +863,7 @@ def cam18_t1_p1():
             np_static("Reason for trip: shopping and visit to the "), np_gap(3),
             np_static("Travelled by bus because cost of "), np_gap(4), np_static(" too high"),
             np_static("Got on bus at "), np_gap(5), np_static(" Street"),
-            np_static("Complaints about bus service:"),
+            np_static("• Complaints about bus service:"),
             np_static("– bus today was "), np_gap(6),
             np_static("– frequency of buses in the "), np_gap(7),
             np_section("Travelling by car"),
@@ -1061,35 +1054,32 @@ def cam18_t2_p1():
             gap(9, "Maintaining stock and organising …:", "deliveries"),
             gap(10, "No work on a … once a month:", "sunday"),
         ],
-        noteTables=[
+        notePassageLayout="form",
+        notePassageSections=[
             {
                 "gapNumbers": list(range(1, 6)),
                 "instruction": "Questions 1 – 5\nComplete the notes below. Write ONE WORD ONLY for each answer.",
                 "title": "Working at Milo's Restaurants",
-                "headers": ["Section", "Details"],
-                "rows": [
-                    {"cells": [
-                        [tbl_static("Benefits")],
-                        [tbl_static("• "), tbl_gap(1), tbl_static(" provided for all staff"),
-                         tbl_break(), tbl_static("• "), tbl_gap(2),
-                         tbl_static(" during weekdays at all Milo's Restaurants"),
-                         tbl_break(), tbl_static("• "), tbl_gap(3), tbl_static(" provided after midnight")],
-                    ]},
-                    {"cells": [
-                        [tbl_static("Person specification")],
-                        [tbl_static("• must be prepared to work well in a team"),
-                         tbl_break(), tbl_static("• must care about maintaining a high standard of "), tbl_gap(4),
-                         tbl_break(), tbl_static("• must have a qualification in "), tbl_gap(5)],
-                    ]},
+                "blocks": [
+                    np_section("Benefits"),
+                    np_static("• "), np_gap(1), np_static(" provided for all staff"),
+                    np_static("• "), np_gap(2), np_static(" during weekdays at all Milo's Restaurants"),
+                    np_static("• "), np_gap(3), np_static(" provided after midnight"),
+                    np_section("Person specification"),
+                    np_static("• must be prepared to work well in a team"),
+                    np_static("• must care about maintaining a high standard of "), np_gap(4),
+                    np_static("• must have a qualification in "), np_gap(5),
                 ],
             },
+        ],
+        noteTables=[
             {
                 "gapNumbers": list(range(6, 11)),
                 "instruction": "Questions 6 – 10\nComplete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
                 "headers": ["Location", "Job title", "Responsibilities include", "Pay and conditions"],
                 "rows": [
                     {"cells": [
-                        [tbl_static("6 "), tbl_gap(6), tbl_static(" Street")],
+                        [tbl_gap(6), tbl_static(" Street")],
                         [tbl_static("Breakfast supervisor")],
                         [tbl_static("Checking portions, etc. are correct"),
                          tbl_break(), tbl_static("Making sure "), tbl_gap(7), tbl_static(" is clean")],

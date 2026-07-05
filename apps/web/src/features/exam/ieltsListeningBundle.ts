@@ -4,8 +4,7 @@ import {
   type ListeningImportPayload,
 } from './importListeningUtils'
 import { isChooseTwoGroup } from './ieltsListeningSegmentUtils'
-import { validateNotePassageBlocks } from './listeningNotePassage'
-import type { ListeningNotePassageBlock, ListeningQuestion } from './listeningExamData'
+import type { ListeningQuestion } from './listeningExamData'
 
 export interface IeltsListeningBundleMetaPart {
   partNumber: number
@@ -98,22 +97,6 @@ export function mergeIeltsListeningParts(
   }
 }
 
-function gapNumbersFromSections(
-  sections: Array<{ blocks: ListeningNotePassageBlock[]; gapNumbers?: number[] }> | undefined,
-): number[] {
-  if (!sections?.length) return []
-  const numbers: number[] = []
-  for (const section of sections) {
-    const fromMeta = section.gapNumbers ?? []
-    const fromBlocks = section.blocks
-      .filter((b): b is ListeningNotePassageBlock & { number: number } =>
-        b.type === 'gap' && typeof b.number === 'number')
-      .map(b => b.number)
-    numbers.push(...(fromMeta.length ? fromMeta : fromBlocks))
-  }
-  return numbers
-}
-
 function validateChooseTwoPairs(part: ListeningImportPartJson): string[] {
   const warnings: string[] = []
   const qs = part.questions ?? []
@@ -197,20 +180,6 @@ export function validateIeltsListeningBundle(
     warnings.push(...validatePartNumbers(part))
     warnings.push(...validateChooseTwoPairs(part))
 
-    const gapNumbers = part.questions
-      .filter(q => q.type === 'gap-fill')
-      .map(q => q.number)
-
-    if (part.notePassageSections?.length) {
-      const sectionGaps = gapNumbersFromSections(part.notePassageSections)
-      warnings.push(
-        ...validateNotePassageBlocks(
-          part.notePassageSections.flatMap(s => s.blocks),
-          sectionGaps.length ? sectionGaps : gapNumbers,
-          `Part ${part.partNumber} notePassageSections`,
-        ),
-      )
-    }
   }
 
   const totalQ = payload.parts.reduce((s, p) => s + p.questions.length, 0)

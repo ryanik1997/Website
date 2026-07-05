@@ -21,6 +21,30 @@ function gap(
   }
 }
 
+function mc(
+  number: number,
+  prompt: string,
+  a: string,
+  b: string,
+  c: string,
+  answer: string,
+  extra?: Partial<Q>,
+): Q {
+  return {
+    number,
+    type: 'multiple-choice',
+    prompt,
+    options: [
+      { id: 'A', label: a },
+      { id: 'B', label: b },
+      { id: 'C', label: c },
+    ],
+    answer,
+    explanation: 'Chọn theo audio.',
+    ...extra,
+  }
+}
+
 /** d1 — Lecture notes nhiều section + bullet • (Cam9 Whales, TWO WORDS). */
 export function ieltsListeningP4D1Part() {
   return {
@@ -179,7 +203,94 @@ export function ieltsListeningP4D3Part() {
   }
 }
 
-export type IeltsListeningP4TemplateKind = 'p4-d1' | 'p4-d2' | 'p4-d3'
+/** d4 — MC 31–33 + notes 34–40 ONE WORD (Cam10 Nanotechnology — Giaodien/d4.jpg). */
+export function ieltsListeningP4D4Part() {
+  return {
+    partNumber: 4,
+    rangeLabel: 'Questions 31–40',
+    instruction:
+      'Questions 31–33: Choose A, B or C. '
+      + 'Questions 34–40: Complete the notes below. Write ONE WORD ONLY for each answer.',
+    audioFile: 'listening.mp3',
+    passageTitle: 'Uses of Nanotechnology',
+    notePassage: [
+      { type: 'section' as const, text: 'Transport' },
+      { type: 'static' as const, text: '• Nanotechnology could allow the development of stronger' },
+      { type: 'gap' as const, number: 34 },
+      { type: 'static' as const, text: '• Planes would be much lighter in weight' },
+      { type: 'gap' as const, number: 35 },
+      { type: 'static' as const, text: ' travel will be made available to the masses.' },
+      { type: 'section' as const, text: 'Technology' },
+      {
+        type: 'static' as const,
+        text: '• Computers will be even smaller, faster, and will have a greater',
+      },
+      { type: 'gap' as const, number: 36 },
+      { type: 'gap' as const, number: 37 },
+      { type: 'static' as const, text: ' energy will become more affordable.' },
+      { type: 'section' as const, text: 'The Environment' },
+      { type: 'static' as const, text: '• Nano-robots could rebuild the ozone layer.' },
+      { type: 'static' as const, text: '• Pollutants such as' },
+      { type: 'gap' as const, number: 38 },
+      { type: 'static' as const, text: ' could be removed from water more easily.' },
+      { type: 'static' as const, text: '• There will be no' },
+      { type: 'gap' as const, number: 39 },
+      { type: 'static' as const, text: ' from manufacturing.' },
+      { type: 'section' as const, text: 'Health and Medicine' },
+      { type: 'static' as const, text: '• New methods of food production could eradicate famine.' },
+      { type: 'static' as const, text: '• Analysis of medical' },
+      { type: 'gap' as const, number: 40 },
+      { type: 'static' as const, text: ' will be speeded up.' },
+      { type: 'static' as const, text: '• Life expectancy could be increased.' },
+    ],
+    questions: [
+      mc(
+        31,
+        'The speaker says that one problem with nanotechnology is that',
+        'it could threaten our way of life.',
+        'it could be used to spy on people.',
+        'it is misunderstood by the public.',
+        'C',
+        {
+          sectionRange: 'Questions 31 – 33',
+          sectionInstruction: 'Choose the correct letter A, B or C.',
+        },
+      ),
+      mc(
+        32,
+        'According to the speaker, some scientists believe that nano-particles',
+        'should be restricted to secure environments.',
+        'should be used with more caution.',
+        'should only be developed for essential products.',
+        'B',
+      ),
+      mc(
+        33,
+        "In the speaker's opinion, research into nanotechnology",
+        'has yet to win popular support.',
+        'could be seen as unethical.',
+        'ought to be continued.',
+        'C',
+      ),
+      gap(34, 'Stronger:', 'metal', 1, {
+        gapLead: 'Nanotechnology could allow the development of stronger',
+        sectionRange: 'Questions 34 – 40',
+        sectionInstruction: 'Complete the notes below. Write ONE WORD ONLY for each answer.',
+        sectionTitle: 'Uses of Nanotechnology',
+      }),
+      gap(35, 'Travel:', 'space', 1, { gapTrail: 'travel will be made available to the masses.' }),
+      gap(36, 'Greater:', 'memory', 1, {
+        gapLead: 'Computers will be even smaller, faster, and will have a greater',
+      }),
+      gap(37, 'Energy:', 'solar', 1, { gapTrail: 'energy will become more affordable.' }),
+      gap(38, 'Pollutants such as:', 'oil', 1, { gapLead: 'Pollutants such as' }),
+      gap(39, 'No:', 'waste', 1, { gapLead: 'There will be no', gapTrail: 'from manufacturing' }),
+      gap(40, 'Medical:', 'tests', 1, { gapLead: 'Analysis of medical', gapTrail: 'will be speeded up.' }),
+    ],
+  }
+}
+
+export type IeltsListeningP4TemplateKind = 'p4-d1' | 'p4-d2' | 'p4-d3' | 'p4-d4'
 
 export function buildIeltsListeningP4Template(
   kind: IeltsListeningP4TemplateKind,
@@ -188,12 +299,14 @@ export function buildIeltsListeningP4Template(
     'p4-d1': ieltsListeningP4D1Part,
     'p4-d2': ieltsListeningP4D2Part,
     'p4-d3': ieltsListeningP4D3Part,
+    'p4-d4': ieltsListeningP4D4Part,
   }
 
   const labels: Record<IeltsListeningP4TemplateKind, string> = {
     'p4-d1': 'd1 — Sections + bullets (Cam9 Whales)',
     'p4-d2': 'd2 — ONE WORD + split sentence (Cam20 Rivers)',
     'p4-d3': 'd3 — Generic lecture (THREE WORDS/NUMBER)',
+    'p4-d4': 'd4 — MC + Notes ONE WORD (Cam10 Nanotechnology)',
   }
 
   return {

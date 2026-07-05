@@ -34,6 +34,8 @@ export interface ListeningNotePassageBlock {
   text?: string
   /** gap — tham chiếu questions[].number */
   number?: number
+  /** Gap nằm trên dòng riêng trong Word (soft line break) — không gom 1 dòng khi render form. */
+  gapOnOwnLine?: boolean
 }
 
 export type ListeningNoteTableCellBlockType = 'static' | 'gap' | 'break'
@@ -69,7 +71,7 @@ export interface ListeningNotePassageSection {
   title?: string
 }
 
-export type ListeningNotePassageLayout = 'list' | 'table' | 'form'
+export type ListeningNotePassageLayout = 'list' | 'table' | 'form' | 'lecture'
 
 export interface ListeningQuestionOption {
   id: string
@@ -121,6 +123,11 @@ export interface ListeningQuestion {
   flowChartEnd?: string
 }
 
+/** Một bước trong flow-chart gap-fill (Cam16 T2 P3 — ONE WORD ONLY). */
+export type ListeningFlowChartStep =
+  | { type: 'static'; label?: string; text: string }
+  | { type: 'gap'; label?: string; number: number }
+
 export interface ListeningPart {
   id: string
   partNumber: number
@@ -152,6 +159,8 @@ export interface ListeningPart {
   noteTables?: ListeningNoteTable[]
   /** Nhiều khối note tách biệt (c1/c2 Part 3) */
   notePassageSections?: ListeningNotePassageSection[]
+  /** Flow-chart gap-fill — thứ tự bước + nhãn cột trái (Cam16 T2 P3) */
+  flowChartSteps?: ListeningFlowChartStep[]
   questions: ListeningQuestion[]
 }
 

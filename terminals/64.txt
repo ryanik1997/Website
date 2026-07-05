@@ -1,0 +1,73 @@
+---
+pid: 41072
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; pnpm ielts:bundle \"IELTS/Listening IELTS_Test1_Cam9\"; pnpm ielts:bundle \"IELTS/Listening IELTS_Test2_Cam9\"; pnpm ielts:bundle \"IELTS/Listening IELTS_Test3_Cam9\"; pnpm ielts:bundle \"IELTS/Listening IELTS_Test4_Cam9\"; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-04T09:16:30.625Z
+running_for_ms: 24550015 
+---
+
+> ryan-english@ ielts:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts all "IELTS/Listening IELTS_Test1_Cam9"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam9
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam9\exam.json
+  4 part(s) · 40 câu
+
+📋 IELTS Listening — Cambridge 9 Test 1
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 4: notePassage static thiếu text.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam9.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts all "IELTS/Listening IELTS_Test2_Cam9"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam9
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam9\exam.json
+  4 part(s) · 40 câu
+
+📋 IELTS Listening — Cambridge 9 Test 2
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test2_Cam9.zip
+  3 files: exam.json, listening.mp3, map.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts all "IELTS/Listening IELTS_Test3_Cam9"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam9
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam9\exam.json
+  4 part(s) · 40 câu
+
+📋 IELTS Listening — Cambridge 9 Test 3
+   Parts: 1, 2, 3, 4 · 40 câu
+
+⚠️  Cảnh báo:
+   • Part 3: câu 21 thiếu trong noteTable/noteTables.
+   • Part 3: câu 22 thiếu trong noteTable/noteTables.
+   • Part 3: câu 23 thiếu trong noteTable/noteTables.
+   • Part 3: câu 29 thiếu trong noteTable/noteTables.
+   • Part 3: câu 30 thiếu trong noteTable/noteTables.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test3_Cam9.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+> ryan-english@ ielts:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts all "IELTS/Listening IELTS_Test4_Cam9"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam9
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam9\exam.json
+  4 part(s) · 40 câu
+
+📋 IELTS Listening — Cambridge 9 Test 4
+   Parts: 1, 2, 3, 4 · 40 câu
+
+✓ Không có cảnh báo.
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test4_Cam9.zip
+  5 files: diagram.jpg, exam.json, listening.mp3, Questions 23_30.jpg, Questions 37_40.jpg
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
