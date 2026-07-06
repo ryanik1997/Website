@@ -1,8 +1,8 @@
 {
   "id": "catalog-reading-cae-c1-test1",
-  "title": "CAE C1 Reading — Test 1",
-  "durationMinutes": 90,
-  "bandHint": "C1 Advanced Reading & Use of English — 8 parts",
+  "title": "CAE C1 Reading & Writing — Test 1",
+  "durationMinutes": 120,
+  "bandHint": "C1 Advanced Reading & Writing — 10 parts",
   "parts": [
     {
       "id": "catalog-reading-cae-c1-test1-part-1",
@@ -787,19 +787,19 @@
           "features": [
             {
               "id": "a",
-              "name": "Review A"
+              "name": "Reviewer A"
             },
             {
               "id": "b",
-              "name": "Review B"
+              "name": "Reviewer B"
             },
             {
               "id": "c",
-              "name": "Review C"
+              "name": "Reviewer C"
             },
             {
               "id": "d",
-              "name": "Review D"
+              "name": "Reviewer D"
             }
           ],
           "questions": [
@@ -811,19 +811,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Reviewer A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Reviewer B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Reviewer C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Reviewer D"
                 }
               ],
               "answer": "b",
@@ -838,19 +838,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Reviewer A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Reviewer B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Reviewer C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Reviewer D"
                 }
               ],
               "answer": "c",
@@ -865,19 +865,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Reviewer A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Reviewer B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Reviewer C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Reviewer D"
                 }
               ],
               "answer": "a",
@@ -892,19 +892,19 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Reviewer A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Reviewer B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Reviewer C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Reviewer D"
                 }
               ],
               "answer": "b",
@@ -1343,23 +1343,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "d",
@@ -1374,23 +1374,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "e",
@@ -1405,23 +1405,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "c",
@@ -1436,23 +1436,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "a",
@@ -1467,23 +1467,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "d",
@@ -1498,23 +1498,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "b",
@@ -1529,23 +1529,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "c",
@@ -1560,23 +1560,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "a",
@@ -1591,23 +1591,23 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "b",
@@ -1622,27 +1622,91 @@
               "options": [
                 {
                   "id": "A",
-                  "label": "A"
+                  "label": "Consultant A"
                 },
                 {
                   "id": "B",
-                  "label": "B"
+                  "label": "Consultant B"
                 },
                 {
                   "id": "C",
-                  "label": "C"
+                  "label": "Consultant C"
                 },
                 {
                   "id": "D",
-                  "label": "D"
+                  "label": "Consultant D"
                 },
                 {
                   "id": "E",
-                  "label": "E"
+                  "label": "Consultant E"
                 }
               ],
               "answer": "e",
               "explanation": "Consultant E — 18 months before ROI",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-cae-c1-test1-part-9",
+      "partNumber": 9,
+      "rangeLabel": "Question 57",
+      "passageTitle": "Part 9 — Writing",
+      "passage": [
+        {
+          "imageUrl": "/catalog/reading/cae-c1-test1/part9-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-cae-c1-test1-part-9-g0",
+          "range": "Question 57",
+          "instruction": "Write 220–260 words.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-cae-c1-test1-part-9-q57",
+              "number": 57,
+              "type": "writing-task",
+              "prompt": "Write your answer to Question 1 in the box on the right.",
+              "options": [],
+              "answer": "",
+              "minWords": 220,
+              "explanation": "Writing — chấm bằng AI.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-cae-c1-test1-part-10",
+      "partNumber": 10,
+      "rangeLabel": "Question 58",
+      "passageTitle": "Part 10 — Writing",
+      "passage": [
+        {
+          "imageUrl": "/catalog/reading/cae-c1-test1/part10-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-cae-c1-test1-part-10-g0",
+          "range": "Question 58",
+          "instruction": "Write 220–260 words.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-cae-c1-test1-part-10-q58",
+              "number": 58,
+              "type": "writing-task",
+              "prompt": "Write your answer to Question 2 in the box on the right.",
+              "options": [],
+              "answer": "",
+              "minWords": 220,
+              "explanation": "Writing — chấm bằng AI.",
               "answerConfidence": "key"
             }
           ]

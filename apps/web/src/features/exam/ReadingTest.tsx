@@ -30,7 +30,14 @@ import { readingExamDurationMinutes } from './readingExamDuration'
 import { initialExamTimerSeconds } from './examTimer'
 import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
 import ReadingPetRwTest from './petRw/ReadingPetRwTest'
-import { isKetReadingWritingExam, isPetReadingWritingExam } from './examData'
+import ReadingFceRwTest from './fceRw/ReadingFceRwTest'
+import ReadingCaeRwTest from './caeRw/ReadingCaeRwTest'
+import {
+  isCaeReadingWritingExam,
+  isFceReadingWritingExam,
+  isKetReadingWritingExam,
+  isPetReadingWritingExam,
+} from './examData'
 import './readingTest.css'
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
@@ -49,6 +56,8 @@ export default function ReadingTest() {
   )
   const useKetRwShell = exam ? isKetReadingWritingExam(exam) : false
   const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
+  const useFceRwShell = exam ? isFceReadingWritingExam(exam) : false
+  const useCaeRwShell = exam ? isCaeReadingWritingExam(exam) : false
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
@@ -122,7 +131,7 @@ export default function ReadingTest() {
   }, [])
 
   useEffect(() => {
-    if (!exam || useKetRwShell) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell) return
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setAnswers({})
@@ -158,17 +167,17 @@ export default function ReadingTest() {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
     }
-  }, [exam, storageKey, useKetRwShell])
+  }, [exam, storageKey, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || !currentPart) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || !currentPart) return
     if (!partQuestions.some(q => q.id === activeQuestionId)) {
       setActiveQuestionId(partQuestions[0]?.id ?? null)
     }
   }, [activeQuestionId, currentPart, exam, partIndex, partQuestions])
 
   useEffect(() => {
-    if (!exam || useKetRwShell) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell) return
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       timeLeft,
@@ -177,10 +186,10 @@ export default function ReadingTest() {
       activeQuestionId,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useKetRwShell])
+  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || submitted) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || submitted) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
@@ -191,7 +200,7 @@ export default function ReadingTest() {
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [exam, submitted, timeLeft, useKetRwShell])
+  }, [exam, submitted, timeLeft, useFceRwShell, useKetRwShell, usePetRwShell])
 
   const resetPaneScroll = useCallback(() => {
     const body = bodyRef.current
@@ -340,6 +349,14 @@ export default function ReadingTest() {
 
   if (exam && usePetRwShell) {
     return <ReadingPetRwTest />
+  }
+
+  if (exam && useFceRwShell) {
+    return <ReadingFceRwTest />
+  }
+
+  if (exam && useCaeRwShell) {
+    return <ReadingCaeRwTest />
   }
 
   if (exam === undefined) {

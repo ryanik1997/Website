@@ -146,6 +146,22 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
     { partNumber: 5, from: 31, to: 36, title: 'Reading — text 1', groupType: 'multiple-choice', optionCount: 4 },
     { partNumber: 6, from: 37, to: 42, title: 'Reading — gapped text', groupType: 'matching-features', optionCount: 7 },
     { partNumber: 7, from: 43, to: 52, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 4 },
+    {
+      partNumber: 8,
+      from: 53,
+      to: 53,
+      title: 'Writing — essay',
+      groupType: 'sentence-completion',
+      instruction: 'Write 140–190 words.',
+    },
+    {
+      partNumber: 9,
+      from: 54,
+      to: 54,
+      title: 'Writing — picture story',
+      groupType: 'sentence-completion',
+      instruction: 'Write 140–190 words.',
+    },
   ],
   c1: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },
@@ -156,6 +172,22 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
     { partNumber: 6, from: 37, to: 40, title: 'Reading — cross-text matching', groupType: 'matching-features', optionCount: 4 },
     { partNumber: 7, from: 41, to: 46, title: 'Reading — gapped text', groupType: 'matching-features', optionCount: 7 },
     { partNumber: 8, from: 47, to: 56, title: 'Reading — multiple matching', groupType: 'matching-features', optionCount: 5 },
+    {
+      partNumber: 9,
+      from: 57,
+      to: 57,
+      title: 'Writing — task 1',
+      groupType: 'sentence-completion',
+      instruction: 'Write 220–260 words.',
+    },
+    {
+      partNumber: 10,
+      from: 58,
+      to: 58,
+      title: 'Writing — task 2',
+      groupType: 'sentence-completion',
+      instruction: 'Write 220–260 words.',
+    },
   ],
   c2: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },
@@ -200,6 +232,54 @@ function mcQuestion(n: number, meta: PartMeta) {
   }
 }
 
+function fceParagraphOptions(count: 4 | 5) {
+  const letters = ['A', 'B', 'C', 'D', 'E'].slice(0, count)
+  return letters.map(id => ({ id, label: `Paragraph ${id}` }))
+}
+
+function fceParagraphMatchingQuestion(n: number, meta: PartMeta) {
+  const count = (meta.optionCount ?? 4) as 4 | 5
+  return {
+    number: n,
+    type: 'matching-features' as const,
+    prompt: `Question ${n} — copy từ đề`,
+    options: fceParagraphOptions(count),
+    answer: 'a',
+    explanation: 'Paragraph A/B/C/D theo answer key.',
+  }
+}
+
+function caeReviewerOptions(count: 4) {
+  const letters = ['A', 'B', 'C', 'D'].slice(0, count)
+  return letters.map(id => ({ id, label: `Reviewer ${id}` }))
+}
+
+function caeConsultantOptions(count: 5) {
+  const letters = ['A', 'B', 'C', 'D', 'E'].slice(0, count)
+  return letters.map(id => ({ id, label: `Consultant ${id}` }))
+}
+
+function caeLabeledMatchingQuestion(
+  n: number,
+  meta: PartMeta,
+  kind: 'reviewer' | 'consultant',
+) {
+  const count = (meta.optionCount ?? (kind === 'reviewer' ? 4 : 5)) as 4 | 5
+  const options = kind === 'reviewer'
+    ? caeReviewerOptions(count as 4)
+    : caeConsultantOptions(count as 5)
+  return {
+    number: n,
+    type: 'matching-features' as const,
+    prompt: `Question ${n} — copy từ đề`,
+    options,
+    answer: 'a',
+    explanation: kind === 'reviewer'
+      ? 'Reviewer A/B/C/D theo answer key.'
+      : 'Consultant A/B/C/D/E theo answer key.',
+  }
+}
+
 function gapQuestion(n: number) {
   return {
     number: n,
@@ -237,6 +317,27 @@ function sampleQuestions(meta: PartMeta, level: CambridgeLevelSlug) {
   }
   if (level === 'b1' && meta.partNumber === 8) {
     return [writingQuestion(34, 100, 'Look at the picture. Write the story shown in the picture. Write 100 words or more.')]
+  }
+  if (level === 'b2' && meta.partNumber === 8) {
+    return [writingQuestion(53, 140, 'Write your answer in the box on the right.')]
+  }
+  if (level === 'b2' && meta.partNumber === 9) {
+    return [writingQuestion(54, 140, 'Look at the picture. Write the story shown in the picture. Write 140–190 words.')]
+  }
+  if (level === 'b2' && meta.partNumber === 7) {
+    return nums.map(n => fceParagraphMatchingQuestion(n, meta))
+  }
+  if (level === 'c1' && meta.partNumber === 6) {
+    return nums.map(n => caeLabeledMatchingQuestion(n, meta, 'reviewer'))
+  }
+  if (level === 'c1' && meta.partNumber === 8) {
+    return nums.map(n => caeLabeledMatchingQuestion(n, meta, 'consultant'))
+  }
+  if (level === 'c1' && meta.partNumber === 9) {
+    return [writingQuestion(57, 220, 'Write your answer to Question 1 in the box on the right.')]
+  }
+  if (level === 'c1' && meta.partNumber === 10) {
+    return [writingQuestion(58, 220, 'Write your answer to Question 2 in the box on the right.')]
   }
 
   if (meta.groupType === 'gap-fill' || meta.groupType === 'summary-completion') {
@@ -308,6 +409,22 @@ function passageBlocks(meta: PartMeta, level: CambridgeLevelSlug): ReadingImport
     return [{ imageFile: 'part8-page.jpg' }]
   }
 
+  if (level === 'b2' && meta.partNumber === 8) {
+    return [{ imageFile: 'part8-page.jpg' }]
+  }
+
+  if (level === 'b2' && meta.partNumber === 9) {
+    return [{ imageFile: 'part9-page.jpg' }]
+  }
+
+  if (level === 'c1' && meta.partNumber === 9) {
+    return [{ imageFile: 'part9-page.jpg' }]
+  }
+
+  if (level === 'c1' && meta.partNumber === 10) {
+    return [{ imageFile: 'part10-page.jpg' }]
+  }
+
   if (meta.partNumber === 1 && level !== 'a2' && level !== 'b1') {
     return [{
       text: 'Copy toàn bộ text Part 1 từ PDF. Text = Highlight khi làm bài.',
@@ -338,6 +455,15 @@ function buildPart(meta: PartMeta, level: CambridgeLevelSlug): ReadingImportPayl
       { id: 'c', label: 'word C' },
       { id: 'd', label: 'word D' },
       { id: 'e', label: 'word E' },
+    ]
+  }
+
+  if (meta.groupType === 'matching-features' && level === 'b2' && meta.partNumber === 7) {
+    group.features = [
+      { id: 'a', name: 'Paragraph A' },
+      { id: 'b', name: 'Paragraph B' },
+      { id: 'c', name: 'Paragraph C' },
+      { id: 'd', name: 'Paragraph D' },
     ]
   }
 
@@ -387,6 +513,34 @@ export function cambridgeReadingPartGuides(level: CambridgeLevelSlug): Cambridge
     }
     if (level === 'b1' && meta.partNumber === 8) {
       passageHint = '1 ảnh part8-page.jpg (truyện tranh 3 khung trong 1 file) — KHÔNG tách part8-p1…p3 như KET.'
+    }
+    if (level === 'b2' && meta.partNumber === 7) {
+      passageHint = 'Tiêu đề + intro; mỗi đoạn A–D = { "label": "A", "text": "..." } — UI hiển thị "Paragraph A" phía trên.'
+      questionHint = 'matching-features: options label "Paragraph A" … "Paragraph D"; answer key a/b/c/d.'
+    }
+    if (level === 'b2' && meta.partNumber === 8) {
+      passageHint = 'Ảnh JPG part8-page.jpg (screenshot đề essay) HOẶC copy text đề vào passage[].text.'
+    }
+    if (level === 'b2' && meta.partNumber === 9) {
+      passageHint = '1 ảnh part9-page.jpg (truyện tranh 3 khung trong 1 file) — KHÔNG tách part9-p1…p3 như KET.'
+    }
+    if (level === 'c1' && meta.partNumber === 6) {
+      passageHint = 'Tiêu đề + intro; mỗi reviewer A–D = { "label": "A", "text": "..." } — UI hiển thị "Reviewer A".'
+      questionHint = 'matching-features: options label "Reviewer A" … "Reviewer D"; answer key a/b/c/d.'
+    }
+    if (level === 'c1' && meta.partNumber === 7) {
+      passageHint = 'Gapped text: giữ (41) … (46) trong passage; bank A–G trong passage label.'
+      questionHint = 'matching-features kéo thả A–G; answer key a–g.'
+    }
+    if (level === 'c1' && meta.partNumber === 8) {
+      passageHint = 'Tiêu đề + intro; mỗi consultant A–E = { "label": "A", "text": "..." } — UI hiển thị "Consultant A".'
+      questionHint = 'matching-features: options label "Consultant A" … "Consultant E"; answer key a/b/c/d/e.'
+    }
+    if (level === 'c1' && meta.partNumber === 9) {
+      passageHint = 'Ảnh JPG part9-page.jpg (screenshot đề Writing Q57) HOẶC copy text đề vào passage[].text.'
+    }
+    if (level === 'c1' && meta.partNumber === 10) {
+      passageHint = 'Ảnh JPG part10-page.jpg (screenshot đề Writing Q58) HOẶC copy text đề vào passage[].text.'
     }
 
     if (meta.imagePerQuestion) {
@@ -452,6 +606,12 @@ export function cambridgeImportGuideNote(level?: CambridgeLevelSlug): string {
   }
   if (level === 'b1') {
     return `${fmt?.exam ?? 'PET'}: 8 parts · ${qCount} câu. Part 1 + Part 7–8 ảnh JPG (Part 8 = 1 ảnh); Part 2–6 copy text.`
+  }
+  if (level === 'b2') {
+    return `${fmt?.exam ?? 'FCE'}: 9 parts · ${qCount} câu. Part 1–7 copy text; Part 8–9 ảnh JPG (mỗi part 1 ảnh: part8-page.jpg, part9-page.jpg).`
+  }
+  if (level === 'c1') {
+    return `${fmt?.exam ?? 'CAE'}: 10 parts · ${qCount} câu. Part 1–8 copy text; Part 9–10 ảnh JPG (part9-page.jpg Q57, part10-page.jpg Q58).`
   }
   return `${fmt?.exam ?? level.toUpperCase()}: ${parts.length} parts · ${qCount} câu Reading. ${imageNote}; Part 2+ bắt buộc text.`
 }

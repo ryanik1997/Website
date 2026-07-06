@@ -1,37 +1,53 @@
-Bạn là trợ lý tạo ZIP bundle import đề Reading FCE B2 (Cambridge) vào web app "Ryan English".
+Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** FCE B2 (Cambridge) vào web app "Ryan English".
 
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
 Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
-1. Test_{N}_Reading_FCE_B2.pdf — Reading and Use of English (Parts 1–7; BỎ Writing nếu có)
-2. Answer Key.pdf — đáp án Reading & Use of English
-
-**FCE B2 không dùng ảnh** — copy toàn bộ text vào `passage[].text` (Highlight khi làm bài).
+1. Test_{N}_Reading_FCE_B2.pdf — đề Reading & Writing (Parts 1–9)
+2. Answer Key.pdf — đáp án Reading Parts 1–7 (Writing Part 8–9 không có key)
+3. part8-page.jpg — screenshot trang đề Part 8 (essay Q53) — **bắt buộc khi pack Writing**
+4. part9-page.jpg — **1 ảnh** truyện Part 9 (3 khung trong 1 file, Q54) — **bắt buộc khi pack Writing**
 
 → Đọc **Book** từ thư mục: `FCE B2_Cam 1` → Book 1, `FCE B2_Cam 2` → Book 2
 → Đọc **Test** từ tên PDF / thư mục: `Test_3_Reading` hoặc `Test 3` → Test 3
 → Xuất ZIP: fce-reading-test{N}.zip (tên file ZIP tuỳ ý; quan trọng là `title` trong exam.json)
 
+**Parts 1–7:** copy toàn bộ text vào `passage[].text` (Highlight khi làm bài) — **không dùng ảnh**.
+**Parts 8–9:** dùng ảnh JPG (khuyến nghị) hoặc copy text đề vào JSON.
+
 Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
+
+Tham chiếu UI: `Giaodien/Taicautruc/Reading_Writing_FCE_B2/Part1.jpg` … `Part7.jpg`
 
 ---
 
 ## Deliverable
 
 ZIP fce-reading-test{N}.zip — file CÙNG CẤP, không thư mục con:
+
+### Chế độ A — Đủ 9 parts (khuyến nghị)
 ```
-exam.json
+exam.json               ← 9 parts · Q1–54
+part8-page.jpg
+part9-page.jpg
+```
+
+### Chế độ B — Chỉ Reading 7 parts + ảnh Writing (app tự ghép Part 8–9)
+```
+exam.json               ← 7 parts · Q1–52
+part8-page.jpg
+part9-page.jpg
 ```
 
 ```json
 {
   "version": 1,
   "title": "FCE B2 Reading — Book {B} — Test {T}",
-  "durationMinutes": 75,
-  "bandHint": "B2 First Reading & Use of English",
+  "durationMinutes": 80,
+  "bandHint": "B2 First Reading & Writing",
   "examTrack": "cambridge",
   "cambridgeLevel": "b2",
-  "parts": [ /* 7 parts, 52 câu */ ]
+  "parts": [ /* 7 hoặc 9 parts */ ]
 }
 ```
 
@@ -51,8 +67,29 @@ exam.json
 | FCE B2_Cam 2 / Test 3 | `"FCE B2 Reading — Book 2 — Test 3"` |
 
 - Card Library: **CAMBRIDGE FCE 1** (Book 1) · **CAMBRIDGE FCE 2** (Book 2)
+- Skill label: **Reading · Writing**
 - **SAI:** `"FCE B2 Reading — Test 6"` → app tự gom vào Book 2 (ceil(6/4))
 - **ĐÚNG:** `"FCE B2 Reading — Book 1 — Test 6"` → vẫn nằm Book 1 nếu bạn cố ý
+
+---
+
+## App UI — cách hiển thị từng Part (Ryan English)
+
+Shell Inspera-style · footer **9 tab Part** · 80 phút · Submit nộp cả Reading + Writing.
+
+| Part | Layout app | Ghi chú JSON |
+|------|------------|--------------|
+| 1 | 1 cột — passage inline, gap MC dropdown trong text | `(1) ........` trong passage; type `multiple-choice` |
+| 2 | 1 cột — passage inline, ô gõ ONE WORD trong text | type `gap-fill` |
+| 3 | Split — passage trái (gap) + **Keyword List** phải | `prompt`: `Gap (17) — PRODUCT` |
+| 4 | 1 cột — danh sách câu transformation, ô gap mỗi câu | `prompt` dùng ` → ` giữa 2 câu |
+| 5 | Split — passage trái + MC phải | 6 câu × 4 options |
+| 6 | Split — bài + gap trái + bank kéo thả A–G phải | giống PET Part 4 |
+| 7 | Split — đoạn **Paragraph A**…**D** trái + MC phải | options label Paragraph A–D |
+| 8 | Split — ảnh/text đề trái + textarea phải | `part8-page.jpg` |
+| 9 | 1 cột — **1 ảnh** truyện + textarea dưới | `part9-page.jpg` |
+
+Writing Part 8–9: chấm **AI** sau Submit (gói TRIAL/PRO/LIFETIME).
 
 ---
 
@@ -69,6 +106,8 @@ Mỗi câu PHẢI có:
 - number (KHÔNG id), type, prompt (KHÔNG question)
 - options: [{ "id": "A", "label": "..." }] khi cần (MC / matching-features)
 - answer, explanation
+
+Tuỳ chọn (builtin catalog): `answerConfidence`, `passageSubtitle` — **không bắt buộc** khi import thủ công.
 
 ---
 
@@ -87,6 +126,7 @@ Mọi giá trị text (`prompt`, `label`, `text`, `explanation`…) là chuỗi 
 | `"explanation": "... cụm "rather than" ..."` | `"explanation": "... cụm rather than ..."` |
 | `"answer": "b (rather)"` | `"answer": "b"` |
 | `"features": [{ "name": "A. Through endless tries…" }]` | `"name": "Through endless tries…"` |
+| Đoạn có lời thoại `"Look, if you can…"` trong passage | Escape: `\"Look, if you can…\"` hoặc dùng nháy đơn trong PDF |
 
 **Quy tắc explanation (tiếng Việt):** KHÔNG bọc từ EN bằng `"..."` — ghi thẳng hoặc dùng nháy đơn `'rather than'`.
 
@@ -96,11 +136,12 @@ Mọi giá trị text (`prompt`, `label`, `text`, `explanation`…) là chuỗi 
 |----------|---------------|-----|
 | multiple-choice (Part 1, 5) | `"a"` / `"b"` / `"c"` / `"d"` — chữ thường, 1 ký tự | `"B"`, `"c (best)"` |
 | matching-features (Part 6) | `"a"` … `"g"` — chữ thường, 1 ký tự | `"G - sentence text"` |
-| matching-features (Part 7) | `"a"` … `"d"` — chữ thường, 1 ký tự | `"Section A"` |
+| matching-features (Part 7) | `"a"` … `"d"` — chữ thường, 1 ký tự | `"Paragraph A"`, `"Section A"` |
 | gap-fill Part 2 (open cloze) | **một từ**: `"where"`, `"which"` | `"which (that)"` |
 | gap-fill Part 3 (word formation) | **một từ** biến đổi: `"producer"` | `"PRODUCT → producer"` |
 | gap-fill Part 4 (key word) | **cụm 2–5 từ** thiếu: `"a good idea to go"` | ghi KEY word vào answer |
 | đáp án kép (key có 2+ cách) | `"a good idea to go|a good idea of going"` hoặc `từ1/từ2` | `"idea to go (or of going)"` |
+| writing-task Part 8–9 | `""` (chuỗi rỗng) | `"N/A"`, bỏ trường answer |
 
 Giải thích / biến thể → `explanation` hoặc `/` `|` trong `answer` — **không** ghi chú ngoặc trong answer.
 
@@ -110,41 +151,82 @@ Giải thích / biến thể → `explanation` hoặc `/` `|` trong `answer` —
 - Trailing comma, comment `//`, smart quotes `"` `"`
 - Single quotes bọc key/value: `'answer': 'a'`
 
-### 4. Tự kiểm tra TRƯỚC KHI xuất ZIP (bắt buộc)
+### 4. Tên file ảnh — so sánh KET / PET / FCE
+
+| Level | Part Writing | Quy ước ảnh |
+|-------|--------------|-------------|
+| KET A2 | P6 email | 1 ảnh `part6-page.jpg` |
+| KET A2 | P7 story | **3 ảnh** `part7-p1.jpg` … `part7-p3.jpg` |
+| PET B1 | P7 message | 1 ảnh `part7-page.jpg` |
+| PET B1 | P8 story | **1 ảnh** `part8-page.jpg` (3 khung trong 1 file) |
+| **FCE B2** | **P8 essay** | **1 ảnh** `part8-page.jpg` |
+| **FCE B2** | **P9 story** | **1 ảnh** `part9-page.jpg` (3 khung trong 1 file) — **KHÔNG** `part9-p1…p3` |
+
+### 5. Tự kiểm tra TRƯỚC KHI xuất ZIP (bắt buộc)
 
 1. **JSON.parse** toàn bộ `exam.json` — nếu fail thì sửa, không giao file
 2. File chỉ có **1** object JSON (không có `}{` thừa)
-3. Đếm: 7 parts · 52 câu (Q1–52)
+3. Đếm: **9 parts · 54 mục** (Q1–52 Reading + Q53–54 Writing) — hoặc 7 part + ảnh Writing
 4. Part 1: 8 câu MC × 4 options — KHÔNG gap-fill
 5. Part 6: đủ 7 câu A–G trong passage + features; 6 gap 37–42
-6. Part 7: options chỉ A–D (4 đoạn); 10 câu 43–52
-7. Mọi part: `passage[].text` có nội dung (Highlight)
+6. Part 7: options label **Paragraph A** … **Paragraph D**; 10 câu 43–52
+7. Part 8–9: type `writing-task`, `minWords: 140`, `answer: ""`
+8. Part 8–9 (ảnh): passage[] có **đúng 1** block `imageFile`
+9. Parts 1–7: `passage[].text` có nội dung (Highlight)
+10. `imageFile` trong JSON = tên file thật trong ZIP
+11. `durationMinutes`: **80** (không 75)
 
 ---
 
-## 7 parts (52 câu) — giống nhau mọi test FCE B2
+## 9 parts (54 mục) — giống nhau mọi test FCE B2
 
-| Part | Câu | questionGroups.type | Options | Nội dung |
-|------|-----|---------------------|---------|----------|
-| 1 | 1–8 | multiple-choice | A/B/C/D | MC cloze — Use of English |
-| 2 | 9–16 | gap-fill | — | Open cloze ONE WORD |
-| 3 | 17–24 | gap-fill | — | Word formation (stem → từ) |
-| 4 | 25–30 | gap-fill | — | Key word transformation (2–5 từ) |
-| 5 | 31–36 | multiple-choice | A/B/C/D | Reading comprehension |
-| 6 | 37–42 | matching-features | A–G | Gapped text + câu A–G |
-| 7 | 43–52 | matching-features | A–D | Multiple matching 4 đoạn |
+| Part | Câu | questionGroups.type | Options | Passage |
+|------|-----|---------------------|---------|---------|
+| 1 | 1–8 | multiple-choice | A/B/C/D (từ) | text — MC cloze inline |
+| 2 | 9–16 | gap-fill | — | text — open cloze ONE WORD inline |
+| 3 | 17–24 | gap-fill | — | text + Keyword List |
+| 4 | 25–30 | gap-fill | — | prompt từng câu transformation |
+| 5 | 31–36 | multiple-choice | A/B/C/D | text — reading split pane |
+| 6 | 37–42 | matching-features | A–G | gapped text + câu A–G |
+| 7 | 43–52 | matching-features | **Paragraph A–D** | 4 đoạn label A–D |
+| 8 | 53 | writing-task | — | **ảnh** part8-page.jpg — minWords 140 |
+| 9 | 54 | writing-task | — | **1 ảnh** part9-page.jpg — minWords 140 |
+
+---
+
+## ⚠ Import Part 8–9 bằng ảnh JPG (app Ryan English)
+
+Dùng khi JSON chỉ có **7 part** (Reading) hoặc không muốn gõ text Part 8–9.
+
+| File | Part | Ghi chú |
+|------|------|---------|
+| `part8-page.jpg` | Part 8 | Screenshot đề essay Q53. Alias: `part8.jpg`, `part8-prompt.jpg` |
+| `part9-page.jpg` | Part 9 | **1 ảnh** — 3 khung truyện trong 1 file. Alias: `part9.jpg`, `part9-prompt.jpg` |
+
+**App tự ghép** khi:
+- ZIP có `exam.json` **7 part** + ảnh Part 8–9, hoặc
+- Import JSON → bấm **「Part 8–9 bằng ảnh JPG」** → chọn ảnh
+
+Kết quả: thêm Part 8–9, `durationMinutes: 80`, `bandHint` có chữ **Reading & Writing**.
+
+**Khi pack bằng AI:**
+- Part 8: cắt trang đề essay từ PDF → `part8-page.jpg`
+- Part 9: cắt **cả 3 khung truyện** thành **1 ảnh** → `part9-page.jpg`
 
 ---
 
 ## Part 1 (Q1–8) — Multiple-choice cloze
 
+App: gap `(1)` … `(8)` **trong passage** — bấm gap → chọn 1 trong 4 từ A/B/C/D.
+
 ```json
 {
   "partNumber": 1,
   "rangeLabel": "Questions 1–8",
-  "passageTitle": "[tiêu đề bài, vd What is genealogy?]",
+  "passageTitle": "What is genealogy?",
   "passage": [
-    { "text": "Genealogy is a (0) …..... of history. It concerns family history, (1) ........ than the national history…" }
+    { "text": "What is genealogy?" },
+    { "text": "Genealogy is a (0) …..... of history. It concerns family history, (1) ........ than the national or world history studied at school. It doesn't merely involve drawing a family tree, however – tracing your family history can also (2) ........ in learning about your roots and your identity." }
   ],
   "questionGroups": [{
     "range": "Questions 1–8",
@@ -162,20 +244,23 @@ Giải thích / biến thể → `explanation` hoặc `/` `|` trong `answer` —
           { "id": "D", "label": "sooner" }
         ],
         "answer": "b",
-        "explanation": "[tiếng Việt ngắn]"
+        "explanation": "rather than — hơn là."
       }
     ]
   }]
 }
 ```
 
-- Giữ `(1) ........` … `(8) ........` (8 chấm) trong passage
+- Giữ `(1) ........` … `(8) ........` (**8 chấm**) trong passage
 - Example `(0)` có đáp án trong passage — **KHÔNG** tạo câu hỏi số 0
+- `options[].label` = **từ tiếng Anh** từ đề (không phải Option A)
 - **KHÔNG** dùng `gap-fill` — Part 1 luôn `multiple-choice` + 4 options
 
 ---
 
 ## Part 2 (Q9–16) — Open cloze (ONE WORD)
+
+App: ô gõ text **inline** trong passage tại mỗi `(9) ........`.
 
 ```json
 {
@@ -212,6 +297,7 @@ Giải thích / biến thể → `explanation` hoặc `/` `|` trong `answer` —
 ## Part 3 (Q17–24) — Word formation
 
 PDF có dòng **Word stems** + passage có `(17) ........`.
+App: split pane — passage trái + **Keyword List** phải (stem từ `prompt`).
 
 ```json
 {
@@ -242,24 +328,26 @@ PDF có dòng **Word stems** + passage có `(17) ........`.
 
 - `prompt` ghi stem: `"Gap (17) — PRODUCT"` (theo PDF)
 - `answer` = từ đã biến đổi, chữ thường — **không** ghi stem trong answer
+- Block `Word stems:` trong passage — app bỏ qua khi render gap (stem lấy từ prompt)
 
 ---
 
 ## Part 4 (Q25–30) — Key word transformation
 
 Mỗi câu: câu gốc + **KEY WORD** + câu đệm có gap `…`.
+App: danh sách câu — câu nguồn, KEY in đậm, câu đích có ô gap.
 
 ```json
 {
   "partNumber": 4,
   "rangeLabel": "Questions 25–30",
-  "passageTitle": "Key word transformation",
+  "passageTitle": "Part 4 — Key word transformation",
   "passage": [
-    { "text": "Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given." }
+    { "text": "Complete the second sentence using the word given. Use between two and five words, including the word given." }
   ],
   "questionGroups": [{
     "range": "Questions 25–30",
-    "instruction": "Write between two and five words, including the word given.",
+    "instruction": "Write only the missing words. Use between two and five words, including the word given.",
     "type": "gap-fill",
     "questions": [
       {
@@ -268,16 +356,24 @@ Mỗi câu: câu gốc + **KEY WORD** + câu đệm có gap `…`.
         "prompt": "Joan was in favour of visiting the museum. IDEA → Joan thought it would be … to the museum.",
         "options": [],
         "answer": "a good idea to go",
-        "explanation": "a good idea to go — cụm thiếu (2–5 từ, không gồm KEY đã in sẵn nếu đề vậy)."
+        "explanation": "a good idea to go"
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I knocked for ages at Ruth's door but I got no reply. LONG → I … knocking at Ruth's door but I got no reply.",
+        "options": [],
+        "answer": "spent a long time",
+        "explanation": "spent/took/was a long time — answer key chấp nhận nhiều cách."
       }
     ]
   }]
 }
 ```
 
-- `answer` = **cụm từ thí sinh điền** (phần gap), không phải cả câu hoàn chỉnh trừ khi key yêu cầu
-- Copy đúng answer key — nhiều đáp án chấp nhận → `"cụm1|cụm2"` hoặc `"cụm1/cụm2"`
-- Part 4 **không** có passage dài — nội dung nằm trong `prompt` từng câu
+- `prompt` dùng ` → ` hoặc `->` — app tách câu 1 / KEY / câu 2
+- `answer` = **cụm từ thí sinh điền** (phần gap)
+- Nhiều đáp án key → `"spent a long time|took a long time|was a long time"`
 
 ---
 
@@ -287,9 +383,9 @@ Mỗi câu: câu gốc + **KEY WORD** + câu đệm có gap `…`.
 {
   "partNumber": 5,
   "rangeLabel": "Questions 31–36",
-  "passageTitle": "[tiêu đề bài đọc]",
-  "passageSubtitle": "[subtitle nếu có]",
+  "passageTitle": "Caitlin on Hale island",
   "passage": [
+    { "text": "Caitlin on Hale island" },
     { "text": "[đoạn 1]" },
     { "text": "[đoạn 2]" }
   ],
@@ -317,29 +413,26 @@ Mỗi câu: câu gốc + **KEY WORD** + câu đệm có gap `…`.
 ```
 
 - **Phân đoạn theo PDF:** mỗi đoạn = 1 block `passage[]`
+- Tiêu đề bài có thể là block `text` đầu (như catalog Test 1)
 - 6 câu × 4 options A–D
 
 ---
 
 ## Part 6 (Q37–42) — Gapped text + câu A–G ⚠
 
-Giống PET B1 Part 4 — app hiển thị bài + gap bên trái, pills A–G bên phải.
+Giống PET B1 Part 4 — kéo thả A–G vào gap trong bài.
 
 ```json
 {
   "partNumber": 6,
   "rangeLabel": "Questions 37–42",
-  "passageTitle": "[tiêu đề bài, vd Ballet dancing]",
+  "passageTitle": "Ballet dancing",
   "passage": [
     { "text": "[đoạn 1 có (37) ........]" },
     { "text": "[đoạn 2 có (38)…(39)…]" },
     { "text": "Sentences" },
     { "label": "A", "text": "Through endless tries at the usual exercises…" },
     { "label": "B", "text": "…" },
-    { "label": "C", "text": "…" },
-    { "label": "D", "text": "…" },
-    { "label": "E", "text": "…" },
-    { "label": "F", "text": "…" },
     { "label": "G", "text": "It takes at least a decade…" }
   ],
   "questionGroups": [{
@@ -380,43 +473,57 @@ Quy tắc Part 6:
 
 ## Part 7 (Q43–52) — Multiple matching ⚠
 
-4 đoạn A–D; mỗi đoạn có thể là đáp án **nhiều câu**.
+4 đoạn A–D. App hiển thị **Paragraph A** … **Paragraph D** phía trên mỗi đoạn (Giaodien Part7.jpg).
 
 ```json
 {
   "partNumber": 7,
   "rangeLabel": "Questions 43–52",
-  "passageTitle": "[tiêu đề bài, vd Rising Star]",
+  "passageTitle": "Part 7 — Rising Star",
   "passage": [
-    { "text": "[intro từ PDF — You are going to read a magazine article…]" },
-    { "label": "A", "text": "[copy toàn bộ đoạn A]" },
-    { "label": "B", "text": "[đoạn B]" },
-    { "label": "C", "text": "[đoạn C]" },
-    { "label": "D", "text": "[đoạn D]" }
+    { "text": "Rising Star" },
+    { "text": "Margaret Garelly goes to meet Duncan Williams, who plays for Chelsea Football Club." },
+    { "label": "A", "text": "It's my first time driving to Chelsea's training ground…" },
+    { "label": "B", "text": "Gavin, himself a fine footballer…" },
+    { "label": "C", "text": "Duncan takes up the story…" },
+    { "label": "D", "text": "Not every kid gets advice from an ex-England player…" }
   ],
   "questionGroups": [{
     "range": "Questions 43–52",
-    "instruction": "For each question, choose the correct answer.",
+    "instruction": "For each question, choose from the sections (A–D). The sections may be chosen more than once.",
     "type": "matching-features",
     "features": [
-      { "id": "a", "name": "Section A" },
-      { "id": "b", "name": "Section B" },
-      { "id": "c", "name": "Section C" },
-      { "id": "d", "name": "Section D" }
+      { "id": "a", "name": "Paragraph A" },
+      { "id": "b", "name": "Paragraph B" },
+      { "id": "c", "name": "Paragraph C" },
+      { "id": "d", "name": "Paragraph D" }
     ],
     "questions": [
       {
         "number": 43,
         "type": "matching-features",
-        "prompt": "states how surprised the writer was at the number of people who wanted tickets?",
+        "prompt": "states how surprised the writer was at Duncan's early difficulties?",
         "options": [
-          { "id": "A", "label": "A" },
-          { "id": "B", "label": "B" },
-          { "id": "C", "label": "C" },
-          { "id": "D", "label": "D" }
+          { "id": "A", "label": "Paragraph A" },
+          { "id": "B", "label": "Paragraph B" },
+          { "id": "C", "label": "Paragraph C" },
+          { "id": "D", "label": "Paragraph D" }
         ],
         "answer": "a",
-        "explanation": "[tiếng Việt ngắn]"
+        "explanation": "Para A — disbelief career nearly over."
+      },
+      {
+        "number": 44,
+        "type": "matching-features",
+        "prompt": "says that Duncan sometimes seems much more mature than he really is?",
+        "options": [
+          { "id": "A", "label": "Paragraph A" },
+          { "id": "B", "label": "Paragraph B" },
+          { "id": "C", "label": "Paragraph C" },
+          { "id": "D", "label": "Paragraph D" }
+        ],
+        "answer": "d",
+        "explanation": "Para D — old head on young shoulders."
       }
     ]
   }]
@@ -424,54 +531,167 @@ Quy tắc Part 6:
 ```
 
 Quy tắc Part 7:
-- Options chỉ **A–D** (4 đoạn) — **KHÔNG** A–G
-- `features[]` = nhãn ngắn Section A–D (cho pills)
-- Full text đoạn trong `passage[]` label A–D
-- 10 câu 43–52; một section có thể trả lời nhiều câu
+- `passage[].label` = **một chữ** `A`–`D` — **không** ghi `Paragraph A` vào label
+- App tự hiển thị tiêu đề **Paragraph A** … **Paragraph D** phía trên từng đoạn
+- `options[].label` = **Paragraph A** … **Paragraph D** (bắt buộc — không chỉ `A`/`B`/`C`/`D`)
+- `features[]` = `Paragraph A` … `Paragraph D`
+- `answer` = `"a"` … `"d"` (chữ thường 1 ký tự) — **không** ghi Paragraph vào answer
+- Intro (tiêu đề, byline) = block `text` **không** label
+- 10 câu 43–52; một paragraph có thể trả lời **nhiều câu**
+- Copy **nguyên văn** đoạn — escape `"` trong lời thoại
+
+---
+
+## Part 8 (Q53) — Writing essay ⚠
+
+App: **cột trái** đề (ảnh/text) · **cột phải** textarea · min 140 từ.
+
+### Cách A — Ảnh (khuyến nghị)
+
+```json
+{
+  "partNumber": 8,
+  "rangeLabel": "Question 53",
+  "passageTitle": "Writing Part 8",
+  "passage": [
+    { "imageFile": "part8-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 53",
+    "instruction": "Write 140–190 words.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 53,
+      "type": "writing-task",
+      "prompt": "Write your answer in the box on the right.",
+      "options": [],
+      "answer": "",
+      "minWords": 140,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+ZIP: `part8-page.jpg`
+
+### Cách B — Text
+
+```json
+"passage": [
+  { "text": "[copy nguyên đề Part 8 từ PDF]" }
+]
+```
+
+- `answer`: `""` · `minWords`: **140** · type: `writing-task`
+
+---
+
+## Part 9 (Q54) — Writing picture story ⚠
+
+**CHỈ 1 ẢNH** — 3 khung truyện trong 1 screenshot (giống PET Part 8, không phải KET 3 file).
+
+```json
+{
+  "partNumber": 9,
+  "rangeLabel": "Question 54",
+  "passageTitle": "Writing Part 9",
+  "passage": [
+    { "imageFile": "part9-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 54",
+    "instruction": "Write 140–190 words.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 54,
+      "type": "writing-task",
+      "prompt": "Look at the picture. Write the story shown in the picture. Write 140–190 words.",
+      "options": [],
+      "answer": "",
+      "minWords": 140,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+- ZIP: `part9-page.jpg` (alias `part9.jpg`)
+- `passage[]` chỉ **1** block `imageFile`
+- App: ảnh + textarea story phía dưới
 
 ---
 
 ## Quy tắc bắt buộc (mọi test)
 
-1. Đủ 52 câu Q1–52, không nhảy số
+1. Đủ **Q1–54** (Reading 1–52 + Writing 53–54), không nhảy số
 2. Chỉ dùng PDF + Answer Key — không bịa
 3. **Phân đoạn theo PDF:** mỗi đoạn = 1 block `passage[]` — KHÔNG gộp `\n\n`
-4. **Mọi part:** `passage[].text` bắt buộc (Highlight) — FCE không dùng ảnh
-5. answer: MC/matching → chữ thường 1 ký tự; gap-fill → từ/cụm theo part
-6. explanation: tiếng Việt ngắn — **KHÔNG** dấu `"` ASCII bọc từ trong chuỗi JSON
-7. passageTitle = tiêu đề nội dung bài, KHÔNG "PART N — QUESTIONS"
-8. exam.json = **đúng 1 object JSON** — không append test khác
-9. ZIP ≤ 40MB, UTF-8, không __MACOSX, không thư mục con
+4. Parts 1–7: `passage[].text` bắt buộc (Highlight)
+5. Part 8: `part8-page.jpg` HOẶC text · Part 9: **1 ảnh** `part9-page.jpg`
+6. answer: MC/matching → chữ thường 1 ký tự; gap-fill → từ/cụm; writing → `""`
+7. Part 7: options **Paragraph A** … **Paragraph D**; answer `a`–`d`
+8. explanation: tiếng Việt ngắn — **KHÔNG** dấu `"` ASCII bọc từ EN trong JSON
+9. passageTitle = tiêu đề nội dung, KHÔNG "PART N — QUESTIONS" (trừ khi PDF ghi vậy cho Part 4)
+10. exam.json = **1 object JSON** — không append test khác
+11. ZIP ≤ 40MB, UTF-8, không __MACOSX, không thư mục con
 
 ## Lỗi thường gặp
 
 | Lỗi | Đúng |
 |-----|------|
 | Hai JSON dính `}{` | Chỉ 1 object; JSON.parse trước khi xuất |
-| Part 1 dùng gap-fill | Part 1 = multiple-choice + 4 options |
-| Part 6 dùng gap-fill | Part 6 = matching-features + câu A–G |
-| Part 6 thiếu câu trong passage | Thêm label A–G sau block "Sentences" |
-| Part 7 options A–G | Chỉ A–D (4 đoạn) |
-| Part 3 answer = stem | answer = từ biến đổi: `producer` |
-| Part 4 answer gồm KEY word | answer = cụm gap thí sinh điền |
-| `"answer": "b (rather)"` | `"answer": "b"` |
+| `durationMinutes: 75` | **80** phút |
+| Chỉ 7 part, thiếu Writing | Thêm Part 8–9 JSON hoặc 7 part + ảnh |
+| Part 1 dùng gap-fill | Part 1 = multiple-choice + 4 từ/gap |
+| Part 6 dùng gap-fill | Part 6 = matching-features + A–G |
+| Part 6 thiếu câu passage | Thêm label A–G sau "Sentences" |
+| Part 7 options `A`/`B`/`C`/`D` | label = **Paragraph A** … **Paragraph D** |
+| Part 7 answer = `Paragraph A` | answer = `"a"` |
+| Part 7 label = `Paragraph A` | label = `"A"` — app thêm chữ Paragraph |
+| Part 9 tách 3 ảnh | **1 ảnh** `part9-page.jpg` |
+| Part 8 dùng `part6-page.jpg` | `part8-page.jpg` |
+| Part 3 answer = stem | answer = từ biến đổi |
+| Part 4 answer gồm KEY | answer = cụm gap |
 | Gộp nhiều đoạn 1 block | 1 đoạn PDF = 1 block passage[] |
+
+---
+
+## Answer Key — Test 1 mẫu (D251/01)
+
+Dùng để đối chiếu sau khi pack — **không** chép nhầm sang test khác.
+
+| Part | Đáp án |
+|------|--------|
+| 1 | 1B 2C 3B 4D 5C 6A 7D 8B |
+| 2 | 9where 10so 11myself 12in 13which 14out 15from 16any |
+| 3 | 17producer 18illness 19effective 20scientists 21addition 22pressure 23disadvantage 24spicy |
+| 4 | 25a good idea to go 26talented that he 27if she knew what 28spent a long time 29is said to be 30not call off |
+| 5 | 31C 32D 33C 34A 35D 36A |
+| 6 | 37D 38G 39F 40A 41E 42C |
+| 7 | 43A 44D 45B 46D 47B 48A 49C 50B 51C 52D |
+| 8–9 | Writing — không có key |
 
 ---
 
 ## Việc làm
 
 1. Xác định Book {B} + Test {T} từ thư mục / tên PDF
-2. Đọc PDF (bỏ Writing) → 7 parts · 52 câu
-3. Part 1–4: Use of English — copy passage + câu hỏi đúng type
-4. Part 5: reading passage phân đoạn + 6 MC
-5. Part 6: gapped text + 7 câu A–G
-6. Part 7: 4 đoạn A–D + 10 matching
-7. Answer Key → answer + explanation
-8. **JSON.parse(exam.json) PASS** → validate schema + Part 1 MC + Part 6 A–G + Part 7 A–D
-9. Xuất fce-reading-test{N}.zip
-10. Bảng tóm tắt: Part | Câu | Type | Số block passage | Đáp án
+2. Đọc PDF → map **9 parts** (hoặc 7 part + ảnh Writing)
+3. Part 1–4: Use of English — passage + câu đúng type
+4. Part 5: reading phân đoạn + 6 MC
+5. Part 6: gapped text + 7 câu A–G trong passage
+6. Part 7: intro + 4 đoạn label A–D + 10 câu (options Paragraph A–D)
+7. Part 8: `part8-page.jpg` hoặc text essay
+8. Part 9: **1 ảnh** `part9-page.jpg`
+9. Answer Key Parts 1–7 → answer + explanation
+10. **JSON.parse(exam.json) PASS** — validate checklist §5
+11. Xuất fce-reading-test{N}.zip
+12. Bảng tóm tắt: Part | Câu | Type | Số block passage | Ảnh | Đáp án
 
-Bundle mẫu: Tainguyen/fce-reading-test1.zip
+**Bundle tham chiếu:**
+- Catalog builtin (7 part Reading): `packages/catalog/data/reading-fce-b2-test1.json`
+- ZIP mẫu: `Tainguyen/fce-reading-test1.zip`
+- UI: `Giaodien/Taicautruc/Reading_Writing_FCE_B2/`
 
 Bắt đầu xử lý file đính kèm.

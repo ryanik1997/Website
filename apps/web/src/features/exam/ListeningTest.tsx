@@ -3,6 +3,7 @@ import { Loader2 } from 'lucide-react'
 import { useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import ListeningIeltsTest from './ListeningIeltsTest'
+import ListeningFceTest from './ListeningFceTest'
 import ListeningKetTest from './ListeningKetTest'
 import ListeningPetTest from './ListeningPetTest'
 import { isKetStyleListening, isPetStyleListening } from './listeningExamData'
@@ -49,6 +50,10 @@ export default function ListeningTest() {
 
   if (isPetStyleListening(exam.examType)) {
     return shell(<ListeningPetTest exam={exam} />)
+  }
+
+  if (exam.examType === 'fce' || exam.examType === 'cae' || exam.examType === 'cpe') {
+    return shell(<ListeningFceTest exam={exam} />)
   }
 
   return shell(<ListeningIeltsTest exam={exam} />)

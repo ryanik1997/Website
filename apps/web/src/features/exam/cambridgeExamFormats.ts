@@ -59,11 +59,12 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     slug: 'b2',
     exam: 'FCE',
     reading: {
-      label: 'Reading and Use of English',
-      durationMinutes: 75,
-      parts: 7,
-      questions: 52,
+      label: 'Reading & Writing (Parts 1–9)',
+      durationMinutes: 80,
+      parts: 9,
+      questions: 54,
       weightPercent: 40,
+      note: 'Reading Parts 1–7 + Writing Parts 8–9 trong cùng đề (80 phút).',
     },
     listening: {
       label: 'Listening',
@@ -77,11 +78,12 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     slug: 'c1',
     exam: 'CAE',
     reading: {
-      label: 'Reading and Use of English',
-      durationMinutes: 90,
-      parts: 8,
-      questions: 56,
+      label: 'Reading & Writing (Parts 1–10)',
+      durationMinutes: 120,
+      parts: 10,
+      questions: 58,
       weightPercent: 40,
+      note: 'Reading Parts 1–8 + Writing Parts 9–10 trong cùng đề (120 phút khi có Part 9–10).',
     },
     listening: {
       label: 'Listening',

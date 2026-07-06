@@ -10,9 +10,52 @@ import {
   listeningPartFromMc,
 } from './cambridgeSampleBuilders'
 import { PET_LISTENING_DURATION_MINUTES } from './listeningPetPartLayout'
-import type { ListeningExam, ListeningPart } from './listeningExamData'
+import type { ListeningExam, ListeningPart, ListeningQuestion, ListeningQuestionOption } from './listeningExamData'
 
 type McTuple = [string, [string, string, string], 'A' | 'B' | 'C', string]
+
+function listeningMcOptions(
+  examType: string,
+  partNum: number,
+  num: number,
+  prompt: string,
+  labels: string[],
+  answer: string,
+  explanation: string,
+): ListeningQuestion {
+  const ids = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+  return {
+    id: `${examType}-l-p${partNum}-q${num}`,
+    number: num,
+    type: 'multiple-choice',
+    prompt,
+    options: labels.map((label, i) => ({ id: ids[i] ?? `O${i + 1}`, label })),
+    answer,
+    explanation,
+    ttsText: prompt,
+  }
+}
+
+function listeningMatching(
+  examType: string,
+  partNum: number,
+  num: number,
+  prompt: string,
+  options: ListeningQuestionOption[],
+  answer: string,
+  explanation: string,
+): ListeningQuestion {
+  return {
+    id: `${examType}-l-p${partNum}-q${num}`,
+    number: num,
+    type: 'matching',
+    prompt,
+    options,
+    answer,
+    explanation,
+    ttsText: prompt,
+  }
+}
 
 function buildA2Listening(): ListeningExam {
   const examId = 'ket-listening-sample-01'
@@ -205,10 +248,94 @@ function multiPartListening(
   }
 }
 
+function buildCpeListening(): ListeningExam {
+  const examId = 'cpe-listening-sample-01'
+  const taskOneOptions: ListeningQuestionOption[] = [
+    { id: 'A', label: "a friend's recommendation" },
+    { id: 'B', label: "the company's good reputation" },
+    { id: 'C', label: 'the convenience of the location' },
+    { id: 'D', label: 'the chance to relate theory to practice' },
+    { id: 'E', label: 'the opportunity to work outdoors' },
+    { id: 'F', label: 'the international make-up of the company' },
+    { id: 'G', label: 'the chance to travel' },
+    { id: 'H', label: 'the opportunity to work with an expert' },
+  ]
+  const taskTwoOptions: ListeningQuestionOption[] = [
+    { id: 'A', label: 'being given a lot of responsibility' },
+    { id: 'B', label: 'making a future career decision' },
+    { id: 'C', label: 'making life-long friends' },
+    { id: 'D', label: 'attending high-level meetings' },
+    { id: 'E', label: 'using cutting-edge technology' },
+    { id: 'F', label: 'making useful contacts' },
+    { id: 'G', label: 'being offered a permanent job' },
+    { id: 'H', label: 'winning an award' },
+  ]
+
+  const parts: ListeningPart[] = [
+    listeningPartFromMc(examId, 'cpe', 1, 1, [
+      ['You hear a consultant in communication talking about business meetings.\n\nWhat is the consultant doing when he mentions mobile phones at meetings?', ['criticising the overuse of technology', "explaining how they can boost a person's image", 'warning against making them visible'], 'C', 'He warns that visible phones send the wrong signal.'],
+      ['What advice does he give about talking at meetings?', ['Comment on all points made.', 'Avoid answering questions impulsively.', 'Offer strong closing contributions.'], 'B', 'He advises pausing before answering.'],
+      ['You hear two colleagues discussing a training course.\n\nWhat do they agree about the course?', ['It was more practical than expected.', 'It should have been shorter.', 'It was aimed at the wrong audience.'], 'A', 'Both speakers found the course useful in practical terms.'],
+      ['What does the woman imply about the trainer?', ['He encouraged too much discussion.', 'He adapted well to the group.', 'He lacked specialist knowledge.'], 'B', 'She says the trainer responded to the group effectively.'],
+      ['You hear a writer talking about reviews.\n\nHow does she feel about negative reviews?', ['They can sometimes be valuable.', 'They rarely affect sales.', 'They are usually badly written.'], 'A', 'She says criticism can occasionally improve her work.'],
+      ['What does she say about reading online comments?', ['She avoids them completely.', 'She reads them selectively.', 'She replies to factual errors.'], 'B', 'She checks comments only when they are likely to be useful.'],
+    ], 'You will hear three different extracts. For each question, choose the correct answer. There are two questions for each extract.', 'Part 1. You will hear three different extracts.'),
+    listeningPartFromGaps(examId, 'cpe', 2, 7, [
+      ['The journalist comments that the ... made up the majority of the expedition team.', 'scientists', 'Scientists formed the largest group.'],
+      ['To provide for the team, ... were grown in the jungle six months in advance.', 'vegetables', 'Food was prepared by growing vegetables early.'],
+      ['An advance party, led by an expert on ..., went into the volcano crater before the rest of the team.', 'ropes', 'A specialist led the first group into the crater.'],
+      ['The teeth of a ... found in the crater were unusual.', 'rat', 'The animal teeth were remarkable.'],
+      ['Inside the volcano, butterflies the size of a ... were observed by the team.', 'plate', 'The butterflies were exceptionally large.'],
+      ['A new species of caterpillar may be given a name based on the ... of a well-known politician.', 'hair', 'The caterpillar resembled the politician.'],
+      ["Naturalist Steve Backshall's search for new species was concentrated around the ... inside the crater.", 'lake', 'The search centred on the crater lake.'],
+      ["By using what's known as a ... the team was able to discover one of the world's largest rats.", 'camera trap', 'The rat was recorded with a camera trap.'],
+      ['As part of the expedition, some members of the team tried to make a map of the ... on another island.', 'caves', 'They mapped caves on another island.'],
+    ], 'You will hear a journalist reporting on a scientific expedition to a volcano in Papua New Guinea. For each question, write the correct answer in the gap. Write a word or short phrase.', 'Part 2. Scientific expedition report.'),
+    {
+      id: `${examId}-part-3`,
+      partNumber: 3,
+      rangeLabel: 'Questions 16–20',
+      instruction: 'You will hear part of a discussion between two language experts, George Steadman and Angela Conti, who are talking about how advances in communication are affecting English usage. For each question, choose the correct answer.',
+      ttsText: 'Part 3. You will hear a discussion between two language experts.',
+      questions: [
+        listeningMcOptions('cpe', 3, 16, 'What point is made about the effect of the internet on language?', ['It is making the standard written form of language obsolete.', 'It will radically alter the way grammar rules are followed.', 'It may have less serious consequences than feared.', 'It will bring about more changes than TV and radio have.'], 'C', 'The speaker suggests the impact may be less dramatic than expected.'),
+        listeningMcOptions('cpe', 3, 17, 'When discussing the main criticism of text messaging, George reveals', ['his concern that there is insufficient research.', 'his understanding of the annoyance some people feel.', 'his certainty that the criticism is totally unfounded.', 'his doubt as to how widespread the criticism is.'], 'B', 'George accepts why some people are irritated by it.'),
+        listeningMcOptions('cpe', 3, 18, 'What view is stated about abbreviations in texting?', ['They are mainly to be found in commercial messages.', 'Some are beginning to enter official documents.', 'Adults are just as much to blame for them as teenagers.', 'They are not as novel as many people imagine.'], 'D', 'The experts note older forms of abbreviation.'),
+        listeningMcOptions('cpe', 3, 19, 'When discussing the new genre of text-poetry, both researchers agree that', ['it is unlikely to have lasting artistic value.', 'it shows how constraints can stimulate creativity.', 'it should be judged by traditional literary standards.', 'it has been exaggerated by the media.'], 'B', 'Both link the form to creative limits.'),
+        listeningMcOptions('cpe', 3, 20, 'Angela and George both conclude that language change', ['should be monitored by schools.', 'is best understood through historical comparison.', 'is happening faster than ever before.', 'will reduce the importance of standard English.'], 'B', 'They compare current changes with earlier patterns.'),
+      ],
+    },
+    {
+      id: `${examId}-part-4`,
+      partNumber: 4,
+      rangeLabel: 'Questions 21–30',
+      instruction: 'You will hear five short extracts in which students talk about doing an internship, professional work experience in a company. For Task 1, choose from the list what reason each speaker gives for choosing the internship. For Task 2, choose from the list what unexpected experience each speaker had during their internship. For each question, choose the correct answer. Complete both tasks.',
+      ttsText: 'Part 4. You will hear five students talking about doing an internship.',
+      matchingDualTask: true,
+      taskOneInstruction: 'choose from the list what reason each speaker gives for choosing the internship.',
+      taskTwoInstruction: 'choose from the list what unexpected experience each speaker had during their internship.',
+      questions: [
+        ...Array.from({ length: 5 }, (_, i) => listeningMatching('cpe', 4, 21 + i, `Speaker ${i + 1}`, taskOneOptions, ['D', 'B', 'A', 'H', 'F'][i], 'Task 1 matching answer.')),
+        ...Array.from({ length: 5 }, (_, i) => listeningMatching('cpe', 4, 26 + i, `Speaker ${i + 1}`, taskTwoOptions, ['A', 'D', 'F', 'B', 'G'][i], 'Task 2 matching answer.')),
+      ],
+    },
+  ]
+
+  return {
+    id: examId,
+    title: 'C2 CPE Sample Test — Listening',
+    durationMinutes: 40,
+    bandHint: cambridgeListeningBandHint('c2', countListeningQuestions(parts)),
+    examType: 'cpe',
+    examMode: 'practice',
+    parts,
+  }
+}
+
 export const CAMBRIDGE_LISTENING_SAMPLES: ListeningExam[] = [
   buildA2Listening(),
   buildPetListening(),
   multiPartListening('b2', 'fce', 'fce-listening-sample-01', 'B2 FCE Sample Test — Listening'),
   multiPartListening('c1', 'cae', 'cae-listening-sample-01', 'C1 CAE Sample Test — Listening'),
-  multiPartListening('c2', 'cpe', 'cpe-listening-sample-01', 'C2 CPE Sample Test — Listening'),
+  buildCpeListening(),
 ]

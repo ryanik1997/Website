@@ -12,9 +12,9 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-05 — **Listening IELTS Cam 9–20 HOÀN THÀNH** (48/48 validate PASS, fix True.jpg hàng loạt); Cambridge A2–C2 Library Archives UI; → session tiếp: pack/import ZIP + **Reading IELTS** hoặc **Cambridge Reading**
-- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** catalog v21; local: `pnpm dev:web` + hard refresh sau `pnpm build:catalog`
-- **Dev:** `pnpm dev` → hard refresh sau rebuild catalog
+- **Session:** 2026-07-06 — **Cambridge Reading & Writing shells HOÀN THÀNH** (KET 7 / PET 8 / FCE 9 / **CAE 10** parts); CAE UI theo `Giaodien/Taicautruc/Reading_Writing_CAE_C1`; Writing Q57→Part 9, Q58→Part 10 (mỗi part 1 JPG)
+- **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** RW shells mới; local: `pnpm dev` + hard refresh sau sửa catalog
+- **Dev:** `pnpm dev` → `/app/exam/reading/catalog-reading-cae-c1-test1` để so CAE RW 10 part
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -25,7 +25,7 @@
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
-| Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` |
+| Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
 | Listening | IELTS Cam 9–20 | `IELTS/Listening IELTS_Test*_Cam*` (48 đề) | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` — auto `build-catalog.mjs` |
 
@@ -363,6 +363,7 @@ pnpm --filter server typecheck
 - [ ] Nếu user đã import ZIP Cam20 cũ vào Dexie → xóa đề cũ hoặc re-import `Listening IELTS_Test1_Cam20.zip` mới
 - [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
 - [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
+- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder (chưa ảnh Q58 riêng); xem mục Cambridge RW cuối file
 
 ---
 
@@ -937,7 +938,8 @@ pnpm deploy:prod      # db:push → build → vercel deploy --prod
 
 ### Luyện thi — CAE C1 Reading Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
 - [x] Nguồn: `Tainguyen/cae-Reading-test1/` (PDF `Test_1_Reading_CAE_C1.pdf` + `answer keys.pdf`) → `scripts/build-cae-reading-test1.py`
-- [x] `exam.json` — 8 parts · **56 câu** · 90 phút (Part 1–4 Use of English, Part 5–8 Reading)
+- [x] `exam.json` ban đầu — 8 parts · **56 câu** · 90 phút (Part 1–4 Use of English, Part 5–8 Reading)
+- [x] **Cập nhật 2026-07-06:** → **10 parts · 58 mục · 120 phút** (P9 Q57 + P10 Q58 Writing) — xem mục **CAE C1 Reading & Writing** cuối file
 - [x] Catalog builtin `catalog-reading-cae-c1-test1` + `build-catalog.mjs` + `builtinExams.ts`
 - [x] `cambridgeReadingImportTemplates.ts` — C1 Part 6: 37–40 cross-text, Part 7: 41–46 gapped text, Part 8: 47–56 multiple matching
 - [x] `pnpm pack:reading:cae` → `Tainguyen/cae-Reading-test1.zip` (exam.json only — không ảnh)
@@ -1755,66 +1757,213 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 
 ---
 
+## FCE B2 Reading & Writing — shell 9 part + import ảnh (2026-07-06)
+
+- [x] `apps/web/src/features/exam/fceRw/` — UI shell 9 part (P1–P7 Reading + P8 essay + P9 story) giống Giaodien `Reading_Writing_FCE_B2`
+- [x] `fceWritingImportUtils.ts` — Part 8 = `part8-page.jpg`; Part 9 = **1 ảnh** `part9-page.jpg` (như PET Part 8); merge cập nhật passage khi part đã có trong JSON
+- [x] `cambridgeReadingImportTemplates.ts` — B2 template 9 parts (54 câu), hint Part 8–9 ảnh JPG
+- [x] `ReadingTest.tsx` route B2 → `ReadingFceRwTest`; `ImportReadingManualModal` hint Part 8–9
+- [x] `cambridgeExamFormats.ts` + `readingExamDuration.ts` — 80 phút, 9 parts
+- [x] Catalog `reading-fce-b2-test1.json` — metadata Reading & Writing 80 phút (7 parts builtin; Part 8–9 qua import ảnh)
+- [x] Part 7 UI + catalog: **Paragraph A** … **Paragraph D** (passage heading + options)
+- [x] `HDSD/Prompt-FCE-B2-Reading-Universal.txt` — cập nhật 9 part RW, Part 7 Paragraph, Part 8–9 ảnh 1 file/part
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+**Import ảnh FCE (sau JSON 7 hoặc 9 part):**
+
+| File | Mục đích |
+|------|----------|
+| `part8-page.jpg` | Đề Writing Part 8 (essay) |
+| `part9-page.jpg` | **1 ảnh** truyện Part 9 (3 khung trong 1 file) |
+
+---
+
+## CAE C1 Reading & Writing — shell 10 part + import ảnh (2026-07-06)
+
+- [x] `apps/web/src/features/exam/caeRw/` — UI shell 10 part (P1–P8 Reading + P9–P10 Writing) giống Giaodien `Reading_Writing_CAE_C1`
+- [x] `CaeRwPartContent.tsx` — P6 Reviewer A–D; P7 gapped text kéo thả; P8 Consultant A–E; P9 Q57 + P10 Q58 (220–260 từ, mỗi part 1 ảnh)
+- [x] `caeWritingImportUtils.ts` — Part 9 = `part9-page.jpg` (Q57); Part 10 = `part10-page.jpg` (Q58)
+- [x] `cambridgeReadingImportTemplates.ts` — C1 template 10 parts (58 mục), hint Reviewer/Consultant/Part 9–10
+- [x] `ReadingTest.tsx` route C1 → `ReadingCaeRwTest`; `ImportReadingManualModal` merge Part 9–10
+- [x] `examData.ts` — `isCaeReadingWritingExam()`; `cambridgeExamFormats.ts` + `readingExamDuration.ts` — 90 phút (8 part) / 120 phút (có Part 9–10)
+- [x] Catalog `reading-cae-c1-test1.json` + `Tainguyen/cae-Reading-test1/exam.json` — 10 parts; P6/P8 options Reviewer/Consultant; Part 9–10 Writing
+- [x] Media: `part9-page.jpg`, `part10-page.jpg` trong `Tainguyen/` + `apps/web/public/catalog/reading/cae-c1-test1/`
+- [x] `build-catalog.mjs` — giữ `minWords` cho writing-task
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] `HDSD/Prompt-CAE-C1-Reading-Universal.txt` — 10 part RW, Reviewer/Consultant, Part 9–10 JPG
+- [ ] `part10-page.jpg` builtin — hiện **placeholder** (copy `Part9.jpg`); cần ảnh riêng Q58 khi có screenshot
+
+**Cấu trúc 10 parts (58 mục):**
+
+| Part | Câu | UI |
+|------|-----|-----|
+| 1–5 | 1–36 | MC cloze, open cloze, keyword list, transformation, reading MC |
+| 6 | 37–40 | Cross-text: **Reviewer A**…**D** trái, radio phải |
+| 7 | 41–46 | Gapped text: gap trái + bank A–G kéo thả phải |
+| 8 | 47–56 | Multiple matching: **Consultant A**…**E** |
+| 9 | 57 | Writing task 1 — split pane, 220–260 từ |
+| 10 | 58 | Writing task 2 — split pane, 220–260 từ |
+
+**Import ảnh CAE (sau JSON 8 hoặc 10 part):**
+
+| File | Mục đích |
+|------|----------|
+| `part9-page.jpg` | Đề Writing Part 9 (Q57) |
+| `part10-page.jpg` | Đề Writing Part 10 (Q58) |
+
+**Screenshot ref:** `Giaodien/Taicautruc/Reading_Writing_CAE_C1/Part1.jpg` … `Part7.jpg`, `Part9.jpg`
+
+---
+
+## Lỗi còn tồn tại — Cambridge RW (cập nhật 2026-07-06)
+
+- [ ] **CAE Part 10 ảnh** — `part10-page.jpg` chưa có screenshot riêng Q58 (đang dùng copy Part9)
+- [ ] **`pnpm build:catalog`** — cần đủ folder `Tainguyen/ket-reading-test1` … (một số chỉ có `.zip`); CAE đã có folder + ảnh P9/P10
+- [ ] **CPE C2 Reading** — chưa có RW shell (vẫn UI Reading cũ)
+- [x] **Prompt HDSD CAE** — `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
+- [x] TypeScript `pnpm --filter web exec tsc --noEmit` — pass (CAE RW)
+
+---
+
 ## Next session start prompt
 ```
 Đọc session_summary.md ngay.
 
-## Đã xong (2026-07-06)
-- KET A2 Cam 1 Test 1: exam.json 7 parts + ZIP `ket-reading-test1.zip` + AI chấm Writing Part 6–7 trên màn kết quả
-- PET B1 RW: shell 8 part + import ảnh; Part 8 = 1 file `part8-page.jpg` (không 3 ảnh như KET)
+## Đã xong (2026-07-06) — Cambridge Reading & Writing shells
+- KET A2: 7 parts RW + AI chấm Writing P6–7 (`ket-reading-test1.zip`)
+- PET B1: 8 parts RW; Part 8 = 1 ảnh `part8-page.jpg`
+- FCE B2: 9 parts RW; Part 8 `part8-page.jpg` + Part 9 `part9-page.jpg`; Part 7 Paragraph A–D
+- CAE C1: **10 parts RW**; P6 Reviewer / P8 Consultant; Part 9 `part9-page.jpg` (Q57) + Part 10 `part10-page.jpg` (Q58)
+  → `apps/web/src/features/exam/caeRw/` · catalog `reading-cae-c1-test1` · 120 phút
 
 ## Đã xong (2026-07-05)
-- Listening IELTS Cam 9–20: JSON + validate 48/48 PASS — user xác nhận dự án Listening xong
-- Cam20 T4 P1 (Advice on family visit) + P4 (Chembe Bird Sanctuary) — ZIP repack PASS
-- Cambridge A2–C2: Library Archives UI giống GiaodienListeningIELTS.jpg — bìa KET/PET/FCE/CAE/CPE
-  → /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
+- Listening IELTS Cam 9–20: validate 48/48 PASS
+- Cambridge Library Archives UI → /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
 
 ## Ưu tiên session mới (chọn theo user)
 
-### A — Đóng Listening (ship)
-1. Batch pack ZIP 48 đề (PowerShell, repo root):
-   Get-ChildItem "Tainguyen\IELTS" -Directory | ForEach-Object {
-     pnpm ielts:bundle "IELTS/$($_.Name)"
-   }
-2. Pilot import 3 đề UI — so HTML trong folder đề:
-   - Listening IELTS_Test1_Cam11 (P4 lecture)
-   - Listening IELTS_Test3_Cam10 (P4 Leaders/Conclusion)
-   - Listening IELTS_Test4_Cam20 (P1 form + P4 mới fix)
-3. Import còn lại → Luyện thi → IELTS → Import thủ công Listening
-4. `pnpm build:catalog` + deploy khi OK
+### A — Verify + ship Cambridge RW
+1. Hard refresh → so từng level với Giaodien `Reading_Writing_*`:
+   - CAE: footer 10 part, P6/P8 labels, P9/P10 split pane + ảnh
+2. Thay `part10-page.jpg` bằng screenshot Q58 thật (nếu có)
+3. ~~Viết `HDSD/Prompt-CAE-C1-Reading-Universal.txt`~~ (đã xong)
+4. `pnpm build:catalog` (khi đủ Tainguyen folders) + deploy
 
-### B — Reading IELTS (dự án mới — khó hơn Cambridge)
-- UI shell + Import Wizard (r1/r2/r3) đã có; chưa có Tainguyen/IELTS Reading
-- Pilot: Cam 15 Test 1 Passage 1 + pipeline `ielts:reading:merge|validate|pack` (chưa có — cần build)
-- Thiếu UI: matching headings, YNNG; mở rộng template Wizard + HDSD
+### B — IELTS Listening import (48 ZIP)
+- Batch `pnpm ielts:bundle` → Import thủ công Listening
+- Pilot: Cam11 T1, Cam10 T3, Cam20 T4
 
-### C — Cambridge Reading A2–C2 (dễ hơn IELTS)
-- Import dễ: 1 exam.json/ZIP, prompt `HDSD/Prompt-Reading-Cambridge.txt`
-- Đã có: ket/pet/fce/cae test1 catalog + Library Archives UI
-- Làm thêm đề: đặt tên `KET A2 Reading — Test N` để nhóm Book đúng
-- Verify PET Part 2/4 không lặp cột (a8/a9) sau re-import
+### C — Reading IELTS
+- Wizard r1/r2/r3 có; chưa Tainguyen Reading
+- Thiếu UI: matching headings, YNNG
 
-### D — Cambridge UI polish
-- Hard refresh → so `/app/exam/track/cambridge/a2` với GiaodienListeningIELTS.jpg
-- Đề mẫu "Sample" → Book 1; catalog `Test 1` → card CAMBRIDGE KET 1
+### D — CPE C2 / CAE Listening UI polish
+- CPE: RW shell chưa có
+- CAE Listening: recipe cuối `session_summary.md` (FCE shell + Part 4 dual match)
 
 ## Lệnh thường dùng
 pnpm dev
-pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
-pnpm ielts:validate "IELTS/Listening IELTS_Test4_Cam20"
-pnpm gen:ielts-html
 pnpm --filter web exec tsc --noEmit
 pnpm build:catalog
+pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 
-## Re-import nếu Dexie cũ (ZIP mới gần đây)
-- Listening IELTS_Test4_Cam20.zip (P1+P4)
-- Listening IELTS_Test4_Cam19.zip, Test1_Cam20, Test3_Cam20 (map.jpg)
+## Test nhanh CAE RW
+/app/exam/reading/catalog-reading-cae-c1-test1
 ```
 
 ### Verify (session tiếp)
-- [ ] `pnpm --filter web exec tsc --noEmit` pass
-- [ ] Cambridge Library Archives: KET/PET card + search + drill-down Test
-- [ ] Batch ZIP: mỗi folder Listening có file `.zip` tương ứng
-- [ ] Pilot 3 Listening ZIP: UI khớp HTML / True.jpg
-- [ ] (Nếu B) Pilot 1 passage Reading IELTS import + làm bài
-- [ ] (Nếu C) Import `pet-reading-test1.zip` — Part 2/4 không lặp list
+- [x] `pnpm --filter web exec tsc --noEmit` pass (CAE RW)
+- [ ] CAE RW UI: 10 part footer, P9/P10 ảnh + textarea, Reviewer/Consultant labels
+- [ ] Thay `part10-page.jpg` ảnh thật Q58
+- [x] Prompt `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
+- [ ] `pnpm build:catalog` full (khi Tainguyen folders đủ)
+- [ ] Deploy production RW shells
+---
+
+## FCE B2 Listening — Cambridge screenshot shell + Part 2 local image import (2026-07-06)
+
+- [x] Screenshot source: `Giaodien/Taicautruc/Listening_FCE_B2/Part1.jpg` ... `Part4.jpg`.
+- [x] `ListeningTest.tsx` routes `exam.examType === 'fce'` to `ListeningFceTest`.
+- [x] `ListeningFceTest.tsx` — Cambridge shell reused from KET/PET: top Cambridge header, fixed footer 4 parts, qnav, prev/next floating buttons, submit modal, localStorage draft, shared audio continues across parts.
+- [x] `ListeningFceMcPartView.tsx` — Part 1 shows only active MC question like screenshot; Part 4 shows all MC questions in one scrolling page. Options are full-width pale rows with radio circle.
+- [x] `ListeningFceGapFillPartView.tsx` — Part 2 gap-fill layout for Spectacled Bears, title + optional part image, inline numbered gaps.
+- [x] Part 2 has a small local image picker: user can click `Import` and choose an image from PC; preview replaces existing part image for current browser session only. It is not persisted to `exam.json`/Dexie.
+- [x] `ListeningFceMatchingPartView.tsx` — Part 3 speaker matching: speakers + drop slots left, answer bank right, supports click-to-pick and drag/drop, one-use options.
+- [x] `listeningTest.css` — scoped `.listening-fce-*` CSS, based on Cambridge screenshot spacing/colors. Does not intentionally alter KET/PET/IELTS.
+- [ ] No test/build run for this change per user request.
+
+### Recipe for next model: CAE C1 Listening UI
+
+- Start from FCE implementation, not `ListeningIeltsTest`.
+- Create CAE-specific shell/view files rather than overloading IELTS:
+  - `ListeningCaeTest.tsx`
+  - `ListeningCaeMcPartView.tsx` for CAE Part 1/3 MC
+  - `ListeningCaeGapFillPartView.tsx` for CAE Part 2
+  - reuse/adapt `ListeningDualLetterMatchingPartView` or make `ListeningCaeDualMatchingPartView.tsx` for Part 4 dual task
+- Route in `ListeningTest.tsx`: `if (exam.examType === 'cae') return shell(<ListeningCaeTest exam={exam} />)`.
+- Use screenshots from the corresponding CAE folder if present under `Giaodien/Taicautruc/Listening_CAE_C1`; if absent, use FCE shell proportions and CAE data shape in `Tainguyen/cae-Listening-test1/exam.json`.
+- CAE known data shape:
+  - Part 1: MC, 3 extracts / 6 questions.
+  - Part 2: gap-fill, `passageTitle` TRIP TO SOUTH AFRICA.
+  - Part 3: MC A/B/C/D.
+  - Part 4: dual matching, 10 questions split Task One 21-25 + Task Two 26-30, already detected by `isDualLetterMatchingPart()` / `dualMatchingTaskGroups()`.
+- Keep audio behavior same as FCE/PET: use `resolveListeningAudioSource(exam, currentPart)`, `playKey = exam-${exam.id}`, do not stop audio when changing parts.
+- Keep all CAE CSS scoped as `.listening-cae-*`.
+- If user asks for Part 2 image import in CAE too, copy the small local image picker pattern from `ListeningFceGapFillPartView.tsx`.
+
+---
+
+## Listening CAE C1 + CPE C2 restructure from screenshots (2026-07-06)
+
+- User requested screenshot-based restructure from:
+  - `Giaodien/Taicautruc/Listening_CAE_C1/Part1.jpg` ... `Part4.jpg`
+  - `Giaodien/Taicautruc/Listening_CPE_C2/Part1.jpg` ... `Part4.jpg`
+- Note: user typed "Reading Writing CPE C2" once, but the folder and screenshots are Listening CPE C2; implementation followed the screenshots.
+
+### CAE C1 Listening
+
+- [x] `ListeningTest.tsx` now routes `exam.examType === 'cae'` into `ListeningFceTest` instead of falling through to IELTS.
+- [x] `ListeningFceTest.tsx` now adds class `listening-cae-cambridge` for CAE and dispatches parts by data shape:
+  - all `gap-fill` questions -> `ListeningFceGapFillPartView`
+  - `isDualLetterMatchingPart(currentPart)` -> `ListeningDualLetterMatchingPartView`
+  - `isGroupedLetterMatchingPart(currentPart)` -> `ListeningFceMatchingPartView`
+  - otherwise MC -> `ListeningFceMcPartView`
+- [x] CAE Part 3 is shown as all MC questions in one scrollable page.
+- [x] CAE Part 4 dual matching uses `ListeningDualLetterMatchingPartView`.
+- [x] Fixed CAE Part 4 answer-bank wrapping bug:
+  - bank rows now use `display: flex`
+  - answer text uses `white-space: nowrap` on desktop
+  - task layout is vertical task-by-task like screenshot
+  - mobile/medium widths allow wrapping under `1100px`
+- [x] CSS is scoped through `.listening-cae-cambridge`.
+
+### CPE C2 Listening
+
+- [x] `ListeningTest.tsx` now routes `exam.examType === 'cpe'` into `ListeningFceTest`.
+- [x] `ListeningFceTest.tsx` now adds `listening-cpe-cambridge` and reuses CAE-style Cambridge shell via `listening-cae-cambridge`.
+- [x] CPE Part 3 MC displays all questions in one scrollable page, same as CAE.
+- [x] `cambridgeListeningSamples.ts` now has `buildCpeListening()` replacing the previous generic `multiPartListening('c2', 'cpe', ...)` sample.
+- [x] CPE sample shape now matches screenshots:
+  - Part 1: Questions 1-6, MC, three extracts/two questions each.
+  - Part 2: Questions 7-15, gap-fill scientific expedition.
+  - Part 3: Questions 16-20, MC with 4 options.
+  - Part 4: Questions 21-30, dual matching internships, Task 1 + Task 2.
+- [x] Added local helpers in `cambridgeListeningSamples.ts`:
+  - `listeningMcOptions()` for 4-option CPE MC
+  - `listeningMatching()` for Part 4 matching questions
+
+### Files touched in this sequence
+
+- `apps/web/src/features/exam/ListeningTest.tsx`
+- `apps/web/src/features/exam/ListeningFceTest.tsx`
+- `apps/web/src/features/exam/ListeningFceMcPartView.tsx`
+- `apps/web/src/features/exam/ListeningDualLetterMatchingPartView.tsx`
+- `apps/web/src/features/exam/listeningTest.css`
+- `apps/web/src/features/exam/cambridgeListeningSamples.ts`
+- `session_summary.md`
+
+### Verification status
+
+- [ ] No test run.
+- [ ] No build run.
+- Reason: user explicitly asked not to run test/build for the earlier screenshot restructure work.

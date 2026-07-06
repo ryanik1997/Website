@@ -149,16 +149,20 @@ function transformReading(payload, bundle) {
 
     const questionGroups = (partJson.questionGroups ?? []).map((groupJson, groupIndex) => {
       const groupId = `${partId}-g${groupIndex}`
-      const questions = (groupJson.questions ?? []).map(qJson => ({
-        id: `${partId}-q${qJson.number}`,
-        number: qJson.number,
-        type: qJson.type,
-        prompt: qJson.prompt,
-        options: qJson.options ?? [],
-        answer: qJson.answer,
-        explanation: qJson.explanation ?? '',
-        answerConfidence: 'key',
-      }))
+      const questions = (groupJson.questions ?? []).map(qJson => {
+        const question = {
+          id: `${partId}-q${qJson.number}`,
+          number: qJson.number,
+          type: qJson.type,
+          prompt: qJson.prompt,
+          options: qJson.options ?? [],
+          answer: qJson.answer,
+          explanation: qJson.explanation ?? '',
+          answerConfidence: 'key',
+        }
+        if (typeof qJson.minWords === 'number') question.minWords = qJson.minWords
+        return question
+      })
 
       return {
         id: groupId,

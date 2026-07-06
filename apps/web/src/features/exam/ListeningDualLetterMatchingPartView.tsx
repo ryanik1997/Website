@@ -1,4 +1,5 @@
-import { useCallback, useState, type ReactNode } from 'react'
+import { useCallback, useState, type MouseEvent, type ReactNode } from 'react'
+import { Bookmark } from 'lucide-react'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import ExamHighlightZone from './ExamHighlightZone'
 import ExamHighlightableLines from './ExamHighlightableLines'
@@ -65,6 +66,10 @@ function TaskColumn({
   const highlights = useExamHighlights()
   const options = questions[0]?.options ?? []
 
+  const optionById = useCallback((optionId: string) => {
+    return options.find(option => option.id === optionId) ?? null
+  }, [options])
+
   const usedByQuestion = useCallback((optionId: string) => {
     return questions.find(q => answers[q.id] === optionId)?.id ?? null
   }, [answers, questions])
@@ -79,24 +84,7 @@ function TaskColumn({
     onSelectQuestion(questionId)
   }, [onAnswer, onPickOption, onSelectQuestion, usedByQuestion])
 
-  const handleDrop = useCallback((questionId: string, optionId: string) => {
-    if (!optionId) return
-    assignOption(questionId, optionId)
-  }, [assignOption])
-
-  const handleOptionClick = useCallback((optionId: string) => {
-    onPickOption(pickedOptionId === optionId ? null : optionId)
-  }, [onPickOption, pickedOptionId])
-
-  const handleSlotClick = useCallback((questionId: string) => {
-    if (pickedOptionId) {
-      assignOption(questionId, pickedOptionId)
-      return
-    }
-    onSelectQuestion(questionId)
-  }, [assignOption, onSelectQuestion, pickedOptionId])
-
-  const clearSlot = useCallback((questionId: string, e: React.MouseEvent) => {
+  const clearSlot = useCallback((questionId: string, e: MouseEvent) => {
     e.stopPropagation()
     onAnswer(questionId, '')
   }, [onAnswer])
@@ -112,6 +100,78 @@ function TaskColumn({
         />
       )}
       <div className="listening-dual-match__task-body">
+        <div className="listening-letter-match__speakers">
+          {questions.map(question => {
+            const isActive = activeQuestionId === question.id
+            const answerId = answers[question.id] ?? ''
+            const selectedOption = answerId ? optionById(answerId) : null
+            return (
+              <div
+                key={question.id}
+                className={`listening-letter-match__speaker-row${isActive ? ' is-active' : ''}`}
+                onClick={() => onSelectQuestion(question.id)}
+              >
+                <ReadingHighlightableText
+                  blockId={`${question.id}-speaker`}
+                  text={question.prompt}
+                  highlights={highlights}
+                  className="listening-letter-match__speaker-label"
+                  as="span"
+                />
+                <button
+                  type="button"
+                  className={`listening-letter-match__slot${selectedOption ? ' is-filled' : ''}`}
+                  aria-label={`Answer for question ${question.number}`}
+                  data-highlight-skip
+                  onClick={e => {
+                    e.stopPropagation()
+                    if (pickedOptionId) {
+                      assignOption(question.id, pickedOptionId)
+                      return
+                    }
+                    onSelectQuestion(question.id)
+                  }}
+                  onDragOver={e => e.preventDefault()}
+                  onDrop={e => {
+                    e.preventDefault()
+                    const optionId = e.dataTransfer.getData('text/plain')
+                    if (optionId) assignOption(question.id, optionId)
+                  }}
+                >
+                  {selectedOption ? (
+                    <>
+                      <ReadingHighlightableText
+                        blockId={`${question.id}-answer-${selectedOption.id}`}
+                        text={selectedOption.label}
+                        highlights={highlights}
+                        className="listening-letter-match__slot-label"
+                        as="span"
+                      />
+                      <span
+                        className="listening-letter-match__slot-clear"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Clear answer"
+                        onClick={e => clearSlot(question.id, e)}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            clearSlot(question.id, e as unknown as MouseEvent)
+                          }
+                        }}
+                      >
+                        x
+                      </span>
+                    </>
+                  ) : (
+                    <span className="listening-letter-match__slot-number">{question.number}</span>
+                  )}
+                </button>
+              </div>
+            )
+          })}
+        </div>
+
         <div className="listening-dual-match__bank">
           {options.map(option => {
             const isUsed = Boolean(usedByQuestion(option.id))
@@ -128,7 +188,7 @@ function TaskColumn({
                 }}
                 onClick={() => {
                   if (isUsed) return
-                  handleOptionClick(option.id)
+                  onPickOption(isPicked ? null : option.id)
                 }}
                 role="button"
                 tabIndex={isUsed ? -1 : 0}
@@ -137,11 +197,10 @@ function TaskColumn({
                   if (isUsed) return
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    handleOptionClick(option.id)
+                    onPickOption(isPicked ? null : option.id)
                   }
                 }}
               >
-                <span className="listening-letter-match__bank-letter">{option.id}</span>
                 <ReadingHighlightableText
                   blockId={`${partId}-task-${taskKey}-opt-${option.id}`}
                   text={option.label}
@@ -149,60 +208,6 @@ function TaskColumn({
                   className="listening-letter-match__bank-label"
                   as="span"
                 />
-              </div>
-            )
-          })}
-        </div>
-        <div className="listening-letter-match__speakers">
-          {questions.map(question => {
-            const isActive = activeQuestionId === question.id
-            const answerId = answers[question.id] ?? ''
-            return (
-              <div
-                key={question.id}
-                className={`listening-letter-match__speaker-row${isActive ? ' is-active' : ''}`}
-              >
-                <ReadingHighlightableText
-                  blockId={`${question.id}-speaker`}
-                  text={question.prompt}
-                  highlights={highlights}
-                  className="listening-letter-match__speaker-label"
-                  as="span"
-                />
-                <button
-                  type="button"
-                  className={`listening-letter-match__slot${answerId ? ' is-filled' : ''}`}
-                  aria-label={`Ô đáp án câu ${question.number} — ${question.prompt}`}
-                  data-highlight-skip
-                  onClick={() => handleSlotClick(question.id)}
-                  onDragOver={e => e.preventDefault()}
-                  onDrop={e => {
-                    e.preventDefault()
-                    handleDrop(question.id, e.dataTransfer.getData('text/plain'))
-                  }}
-                >
-                  {answerId ? (
-                    <>
-                      <span className="listening-letter-match__slot-letter">{answerId}</span>
-                      <span
-                        className="listening-letter-match__slot-clear"
-                        role="button"
-                        tabIndex={0}
-                        aria-label="Xóa đáp án"
-                        onClick={e => clearSlot(question.id, e)}
-                        onKeyDown={e => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault()
-                            clearSlot(question.id, e as unknown as React.MouseEvent)
-                          }
-                        }}
-                      >
-                        ×
-                      </span>
-                    </>
-                  ) : null}
-                </button>
-                <span className="listening-letter-match__qnum">{question.number}</span>
               </div>
             )
           })}
@@ -233,39 +238,33 @@ export default function ListeningDualLetterMatchingPartView({
 
   return (
     <>
-      <ExamHighlightZone className="listening-exam-prompt-pane listening-dual-match__prompt">
-        <p className="listening-exam-prompt-pane__part">
-          Part {part.partNumber} · {part.rangeLabel}
-        </p>
-        {part.instruction && (
-          <ExamHighlightableLines
-            blockIdPrefix={`${part.id}-instruction`}
-            text={part.instruction}
-            lineClassName="listening-letter-match__instruction"
-          />
-        )}
-        <p className="listening-dual-match__note">
-          While you listen you must complete both tasks.
-        </p>
-        <ListeningExamAudioBar {...audioBar} />
-      </ExamHighlightZone>
-
-      {resizer}
-
-      <ExamHighlightZone className="listening-exam-answer-pane listening-dual-match__answers">
-        <header className="listening-exam-answer-pane__head">
-          <h3 className="listening-exam-answer-pane__title">Thả chữ cái vào ô trống</h3>
-          {pickedOptionId && pickedTask && (
-            <p className="listening-letter-match__pick-hint">
-              Đã chọn {pickedOptionId} (Task {pickedTask === 'one' ? 'One' : 'Two'}) — bấm vào ô trống bên cạnh Speaker
-            </p>
+      <ExamHighlightZone className="listening-ket-cambridge__stage listening-fce listening-dual-match">
+        <div className="listening-ket-cambridge__instruction-card listening-fce__instruction-card">
+          <strong>{part.rangeLabel}</strong>
+          {part.instruction && (
+            <ExamHighlightableLines
+              blockIdPrefix={`${part.id}-instruction`}
+              text={part.instruction}
+              lineClassName="listening-fce__instruction-line"
+            />
           )}
-        </header>
+        </div>
+
+        <div className="listening-fce__bookmark" aria-hidden="true">
+          <Bookmark size={22} />
+        </div>
+
+        {pickedOptionId && pickedTask && (
+          <p className="listening-letter-match__pick-hint">
+            Selected {pickedOptionId} in Task {pickedTask === 'one' ? '1' : '2'}.
+          </p>
+        )}
+
         <div className="listening-dual-match__grid">
           <TaskColumn
             partId={part.id}
             taskKey="one"
-            title="TASK ONE"
+            title="Task 1"
             instruction={part.taskOneInstruction}
             questions={taskOne}
             answers={answers}
@@ -278,7 +277,7 @@ export default function ListeningDualLetterMatchingPartView({
           <TaskColumn
             partId={part.id}
             taskKey="two"
-            title="TASK TWO"
+            title="Task 2"
             instruction={part.taskTwoInstruction}
             questions={taskTwo}
             answers={answers}
@@ -289,7 +288,12 @@ export default function ListeningDualLetterMatchingPartView({
             onSelectQuestion={onSelectQuestion}
           />
         </div>
+
+        <div className="listening-ket-cambridge__audio listening-fce__audio">
+          <ListeningExamAudioBar {...audioBar} />
+        </div>
       </ExamHighlightZone>
+      {resizer}
     </>
   )
 }
