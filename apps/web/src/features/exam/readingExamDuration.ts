@@ -18,6 +18,12 @@ export const CAE_READING_DURATION_MINUTES = 90
 /** Reading & Writing CAE C1 (9 parts gồm Writing) — 120 phút */
 export const CAE_READING_WRITING_DURATION_MINUTES = 120
 
+/** Reading & Writing CPE C2 (7 parts Reading) — 90 phút */
+export const CPE_READING_DURATION_MINUTES = 90
+
+/** Reading & Writing CPE C2 (9 parts gồm Writing) — 120 phút */
+export const CPE_READING_WRITING_DURATION_MINUTES = 120
+
 export function isKetReadingWritingPaper(exam: ReadingExam): boolean {
   return exam.cambridgeLevel === 'a2'
     && exam.parts.some(p => p.partNumber >= 6)
@@ -35,8 +41,16 @@ export function isCaeReadingWritingPaper(exam: ReadingExam): boolean {
   return exam.cambridgeLevel === 'c1'
 }
 
+export function isCpeReadingWritingPaper(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'c2'
+}
+
 export function hasCaeWritingPart(exam: ReadingExam): boolean {
   return exam.parts.some(p => p.partNumber === 9 || p.partNumber === 10)
+}
+
+export function hasCpeWritingPart(exam: ReadingExam): boolean {
+  return exam.parts.some(p => p.partNumber === 8 || p.partNumber === 9)
 }
 
 export function readingExamDurationMinutes(exam: ReadingExam): number {
@@ -47,6 +61,11 @@ export function readingExamDurationMinutes(exam: ReadingExam): number {
     return hasCaeWritingPart(exam)
       ? CAE_READING_WRITING_DURATION_MINUTES
       : CAE_READING_DURATION_MINUTES
+  }
+  if (isCpeReadingWritingPaper(exam)) {
+    return hasCpeWritingPart(exam)
+      ? CPE_READING_WRITING_DURATION_MINUTES
+      : CPE_READING_DURATION_MINUTES
   }
   if (exam.cambridgeLevel === 'a2') return KET_READING_DURATION_MINUTES
   return exam.durationMinutes

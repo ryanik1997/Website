@@ -97,11 +97,12 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     slug: 'c2',
     exam: 'CPE',
     reading: {
-      label: 'Reading and Use of English',
-      durationMinutes: 90,
-      parts: 7,
+      label: 'Reading & Writing (Parts 1–9)',
+      durationMinutes: 120,
+      parts: 9,
       questions: 53,
       weightPercent: 40,
+      note: 'Reading Parts 1–7 + Writing Parts 8–9 trong cùng đề (120 phút khi có Part 8–9).',
     },
     listening: {
       label: 'Listening',

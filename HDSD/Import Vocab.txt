@@ -1,0 +1,100 @@
+Import từ vựng — Ryan English
+
+Vào đâu?
+
+/app/vocab → chọn bộ (deck) → Nhập từ vựng (icon Upload trên thanh công cụ)
+
+Hoặc: Từ vựng → mở bộ → menu ⋮ → Nhập từ vựng
+
+───
+
+Hỗ trợ gì?
+
+• Từ đơn: abandon, sustainable, hypothesis
+• Cụm từ: get off the train, look after, on the other hand
+• Cụm động từ: run away, take off, give up
+
+Một thẻ = một mục phrase (dù 1 từ hay nhiều từ).
+
+───
+
+Định dạng file
+
+┌──────────┬──────────┬─────────────────────────────────────────┐
+│ Định dạng│ Khuyến nghị │ Ghi chú                                │
+├──────────┼──────────┼─────────────────────────────────────────┤
+│ .csv     │ Có       │ Nhanh, chỉnh Excel/Google Sheets       │
+│ .json    │ Tuỳ chọn │ version 1, có metadata deck (tùy chọn)   │
+└──────────┴──────────┴─────────────────────────────────────────┘
+
+Cột CSV bắt buộc:
+• phrase — từ hoặc cụm tiếng Anh
+• meaning — nghĩa tiếng Việt
+
+Cột tuỳ chọn:
+• example — câu ví dụ
+• ipaUS — phiên âm
+• pos — loại từ (noun, verb, phrasal verb…)
+
+───
+
+Bước import
+
+1. Tạo hoặc chọn bộ đúng chủ đề (IELTS Môi trường, TOEIC Văn phòng…)
+2. Bấm Nhập từ vựng
+3. Kéo thả file .csv / .json hoặc Chọn file
+4. (Tuỳ chọn) Tải file mẫu .csv — có sẵn good, look, run away
+5. Xem preview 5 dòng đầu → Import N từ vào deck
+6. Học ngay: Lặp lại / Trắc nghiệm / Nghe & Gõ
+
+───
+
+Thêm thủ công
+
+Thêm từ mới → ô Từ / Cụm từ → gõ cả cụm get off the train
+
+───
+
+Xuất ngược
+
+Menu bộ → Xuất CSV hoặc Xuất JSON (backup / chỉnh sửa / chia sẻ)
+
+───
+
+Prompt AI tạo file import (Claude / ChatGPT)
+
+• Mọi chủ đề: HDSD/Prompt-Vocab-Universal.txt
+• Danh sách bộ preset: HDSD/Prompt-Vocab-Chu-De.txt
+
+Ví dụ đính kèm:
+1. Prompt-Vocab-Universal.txt
+2. Yêu cầu: "IELTS — Công nghệ, 100 từ, có cụm phrasal verb"
+3. Nhận file .csv → import vào bộ Công nghệ
+
+───
+
+Lỗi thường gặp
+
+┌────────────────────────────┬────────────────────────────────────┐
+│ Lỗi                        │ Cách sửa                           │
+├────────────────────────────┼────────────────────────────────────┤
+│ CSV thiếu cột phrase       │ Đổi header word → phrase           │
+├────────────────────────────┼────────────────────────────────────┤
+│ Không tìm thấy từ hợp lệ   │ Kiểm tra phrase + meaning không trống│
+├────────────────────────────┼────────────────────────────────────┤
+│ Tiếng Việt lỗi font        │ Lưu CSV UTF-8                      │
+├────────────────────────────┼────────────────────────────────────┤
+│ Cụm bị tách nhiều cột      │ Bọc "get off the train" trong dấu "│
+├────────────────────────────┼────────────────────────────────────┤
+│ Import JSON sai version    │ "version": 1 trong file JSON       │
+└────────────────────────────┴────────────────────────────────────┘
+
+───
+
+Chủ đề preset trong app (6 nhóm)
+
+IELTS · Oxford · TOEIC · Học thuật · SAT · TOEFL
+
+Mỗi nhóm 8 bộ — chi tiết tên bộ: HDSD/Prompt-Vocab-Chu-De.txt
+
+Code: apps/web/src/features/vocab/importExport.ts

@@ -50,6 +50,13 @@ import {
   mergeCaeWritingImagesIntoPayload,
   CAE_WRITING_IMAGE_HINT,
 } from './caeWritingImportUtils'
+import {
+  findCpePart8ImageFile,
+  findCpePart9ImageFile,
+  isCpeWritingImageFile,
+  mergeCpeWritingImagesIntoPayload,
+  CPE_WRITING_IMAGE_HINT,
+} from './cpeWritingImportUtils'
 import PetPart2PhotoImportSlots from './petRw/PetPart2PhotoImportSlots'
 
 interface Props {
@@ -91,7 +98,8 @@ export default function ImportReadingManualModal({
   const isPetB1 = cambridgeLevel === 'b1'
   const isFceB2 = cambridgeLevel === 'b2'
   const isCaeC1 = cambridgeLevel === 'c1'
-  const hasRwImageMerge = isKetA2 || isPetB1 || isFceB2 || isCaeC1
+  const isCpeC2 = cambridgeLevel === 'c2'
+  const hasRwImageMerge = isKetA2 || isPetB1 || isFceB2 || isCaeC1 || isCpeC2
   const hasPetPart2 = Boolean(
     isPetB1 && payload?.parts.some(p => p.partNumber === 2),
   )
@@ -121,7 +129,9 @@ export default function ImportReadingManualModal({
           ? mergeFceWritingImagesIntoPayload(parsed, files)
           : isCaeC1
             ? mergeCaeWritingImagesIntoPayload(parsed, files)
-            : { payload: parsed, merged: false, notes: [] as string[], extraMediaFiles: [] as File[] }
+            : isCpeC2
+              ? mergeCpeWritingImagesIntoPayload(parsed, files)
+              : { payload: parsed, merged: false, notes: [] as string[], extraMediaFiles: [] as File[] }
 
     setJsonFile(json)
     setSourceLabel(label)
@@ -133,7 +143,7 @@ export default function ImportReadingManualModal({
       ...merged.notes.filter(n => n.includes('chưa') || n.includes('cần')),
     ])
     setStep('preview')
-  }, [isCaeC1, isFceB2, isKetA2, isPetB1])
+  }, [isCaeC1, isCpeC2, isFceB2, isKetA2, isPetB1])
 
   const processJson = useCallback(async (file: File) => {
     setError(null)
@@ -173,16 +183,18 @@ export default function ImportReadingManualModal({
 
   const addWritingImageFiles = useCallback((files: FileList | File[]) => {
     const list = Array.from(files).filter(f => (
-      isKetWritingImageFile(f) || isPetWritingImageFile(f) || isFceWritingImageFile(f) || isCaeWritingImageFile(f)
+      isKetWritingImageFile(f) || isPetWritingImageFile(f) || isFceWritingImageFile(f) || isCaeWritingImageFile(f) || isCpeWritingImageFile(f)
     ))
     if (!list.length) {
       setError(isFceB2
         ? 'Chọn JPG/PNG: part8-page.jpg + part9-page.jpg'
         : isCaeC1
           ? 'Chọn JPG/PNG: part9-page.jpg + part10-page.jpg'
-          : isPetB1
-            ? 'Chọn JPG/PNG: part7-page.jpg, part8-page.jpg; tuỳ chọn part2-page.jpg, part4-page.jpg'
-            : 'Chọn file JPG/PNG: part6-page.jpg và/hoặc part7-p1…p3.jpg')
+          : isCpeC2
+            ? 'Chọn JPG/PNG: part8-page.jpg + part9-page.jpg'
+            : isPetB1
+              ? 'Chọn JPG/PNG: part7-page.jpg, part8-page.jpg; tuỳ chọn part2-page.jpg, part4-page.jpg'
+              : 'Chọn file JPG/PNG: part6-page.jpg và/hoặc part7-p1…p3.jpg')
       return
     }
     const totalSize = list.reduce((s, f) => s + f.size, mediaFiles.reduce((s, f) => s + f.size, 0))
@@ -198,7 +210,7 @@ export default function ImportReadingManualModal({
     if (payload) {
       finalizePayload(payload, all, sourceLabel ?? jsonFile?.name ?? 'import', jsonFile)
     }
-  }, [finalizePayload, isCaeC1, isFceB2, isPetB1, jsonFile, mediaFiles, payload, sourceLabel])
+  }, [finalizePayload, isCaeC1, isCpeC2, isFceB2, isPetB1, jsonFile, mediaFiles, payload, sourceLabel])
 
   const processZip = useCallback(async (file: File) => {
     setError(null)
@@ -256,6 +268,8 @@ export default function ImportReadingManualModal({
   const fcePart9Image = isFceB2 ? findFcePart9ImageFile(mediaFiles) : null
   const caePart9Image = isCaeC1 ? findCaePart9ImageFile(mediaFiles) : null
   const caePart10Image = isCaeC1 ? findCaePart10ImageFile(mediaFiles) : null
+  const cpePart8Image = isCpeC2 ? findCpePart8ImageFile(mediaFiles) : null
+  const cpePart9Image = isCpeC2 ? findCpePart9ImageFile(mediaFiles) : null
 
   return (
     <div
@@ -321,6 +335,12 @@ export default function ImportReadingManualModal({
                     <li>
                       <strong>CAE Part 9–10:</strong> <code>part9-page.jpg</code> (Q57) +{' '}
                       <code>part10-page.jpg</code> (Q58).
+                    </li>
+                  )}
+                  {isCpeC2 && (
+                    <li>
+                      <strong>CPE Part 8–9:</strong> <code>part8-page.jpg</code> (Q1 essay) +{' '}
+                      <code>part9-page.jpg</code> (Q2–4 choice).
                     </li>
                   )}
                 </ol>
@@ -436,9 +456,11 @@ export default function ImportReadingManualModal({
                       ? 'Part 8–9 bằng ảnh JPG'
                       : isCaeC1
                         ? 'Part 9–10 bằng ảnh JPG'
-                        : isPetB1
-                          ? 'Part 2/4/7–8 bằng ảnh JPG'
-                          : 'Part 6–7 bằng ảnh JPG'}
+                        : isCpeC2
+                          ? 'Part 8–9 bằng ảnh JPG'
+                          : isPetB1
+                            ? 'Part 2/4/7–8 bằng ảnh JPG'
+                            : 'Part 6–7 bằng ảnh JPG'}
                   </p>
                   <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {isFceB2
@@ -455,7 +477,14 @@ export default function ImportReadingManualModal({
                             caePart10Image ? `P10: ${caePart10Image.name}` : 'P10: chưa có',
                           ].join(' · ')
                           : CAE_WRITING_IMAGE_HINT)
-                        : isPetB1
+                        : isCpeC2
+                          ? (cpePart8Image || cpePart9Image
+                            ? [
+                              cpePart8Image ? `P8: ${cpePart8Image.name}` : 'P8: chưa có',
+                              cpePart9Image ? `P9: ${cpePart9Image.name}` : 'P9: chưa có',
+                            ].join(' · ')
+                            : CPE_WRITING_IMAGE_HINT)
+                          : isPetB1
                           ? (petPart7Image || petPart8Image
                             ? [
                               petPart7Image?.name,
@@ -474,9 +503,11 @@ export default function ImportReadingManualModal({
                       ? 'Chọn sau JSON/ZIP — app ghép Part 8–9 (7-part JSON + ảnh Writing).'
                       : isCaeC1
                         ? 'Chọn sau JSON/ZIP — app ghép Part 9–10 (8-part JSON + ảnh Writing).'
-                        : isPetB1
-                          ? 'Chọn sau JSON/ZIP — app ghép Part 7–8 và ảnh Part 2/4 tuỳ chọn.'
-                          : 'Chọn sau JSON/ZIP hoặc gộp trong cùng ZIP — app tự thêm Part 6–7.'}
+                        : isCpeC2
+                          ? 'Chọn sau JSON/ZIP — app ghép Part 8–9 (7-part JSON + ảnh Writing).'
+                          : isPetB1
+                            ? 'Chọn sau JSON/ZIP — app ghép Part 7–8 và ảnh Part 2/4 tuỳ chọn.'
+                            : 'Chọn sau JSON/ZIP hoặc gộp trong cùng ZIP — app tự thêm Part 6–7.'}
                   </p>
                   <input
                     ref={writingImageInputRef}
@@ -611,7 +642,7 @@ export default function ImportReadingManualModal({
               type="button"
               disabled={saving || qCount === 0}
               className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold"
-              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+              style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }}
               onClick={() => void handleSave()}
             >
               <Check size={16} />

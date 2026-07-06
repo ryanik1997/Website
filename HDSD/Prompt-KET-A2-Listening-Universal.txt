@@ -1,0 +1,215 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Listening** KET A2 (Cambridge) vào web app "Ryan English".
+
+## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
+
+Mỗi lần chỉ đính kèm file của **1 test**:
+1. Test_{N}_Listening_KET_A2.pdf — đề Listening (Parts 1–5)
+2. answer-key.pdf — đáp án Listening
+3. listening.mp3 — file audio cả bài (~20–25 MB)
+
+→ Đọc **Book** từ thư mục: `KET A2_Cam 1` → Book 1
+→ Xuất ZIP: `ket-listening-test{N}.zip`
+
+Tham chiếu UI: `Giaodien/` (KET Listening layout)
+
+---
+
+## Deliverable
+
+```
+exam.json
+listening.mp3
+q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
+```
+
+```json
+{
+  "version": 1,
+  "title": "KET A2 Listening — Book {B} — Test {T}",
+  "durationMinutes": 25,
+  "bandHint": "A2 Key Listening · 5 parts · 25 câu",
+  "examType": "ket",
+  "examMode": "practice",
+  "parts": [ /* 5 parts, 25 câu */ ]
+}
+```
+
+**Chỉ 1 object JSON** — không append test khác sau `}`.
+
+---
+
+## App UI — ListeningKetTest
+
+- Header Cambridge + **Exit** (quay Library)
+- Footer **5 tab Part** · timer **25 phút**
+- Audio **không dừng** khi chuyển Part
+- Route: `/app/exam/listening/{examId}`
+
+| Part | Câu | Type | Media |
+|------|-----|------|-------|
+| 1 | 1–5 | picture-mc | q1.jpg … q5.jpg |
+| 2 | 6–10 | gap-fill | listening.mp3 |
+| 3 | 11–15 | multiple-choice | listening.mp3 |
+| 4 | 16–20 | multiple-choice | listening.mp3 |
+| 5 | 21–25 | matching A–H | listening.mp3 |
+
+---
+
+## ⚠ SCHEMA + JSON (chi tiết chung: HDSD/Prompt-Listening-Cambridge.txt)
+
+- `questions[]` trực tiếp trong `parts[]` — **không** `questionGroups`
+- `audioFile` trên **mỗi part** (cùng tên `listening.mp3`)
+- `examType`: `"ket"`
+- JSON.parse PASS; không `"` ASCII trần trong chuỗi
+
+---
+
+## Part 1 (Q1–5) — Picture multiple choice
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–5",
+  "instruction": "For each question, choose the correct answer.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "picture-mc",
+      "prompt": "Where will Claire meet Alex?",
+      "imageFile": "q1.jpg",
+      "options": [
+        { "id": "A", "label": "Picture A" },
+        { "id": "B", "label": "Picture B" },
+        { "id": "C", "label": "Picture C" }
+      ],
+      "answer": "A",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}
+```
+
+- **Ảnh composite:** crop 1 khung/câu gồm 3 tranh A, B, C → `q1.jpg` … `q5.jpg`
+- Không có ảnh → bỏ `imageFile`, giữ options (app hiện nút A/B/C)
+- Legacy: `q1-a.jpg`, `q1-b.jpg`, `q1-c.jpg` trên từng option
+
+---
+
+## Part 2 (Q6–10) — Gap-fill form
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 6–10",
+  "instruction": "You will hear a teacher…\n\nJobs for students…",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 6,
+      "type": "gap-fill",
+      "prompt": "Dates of jobs: 15th June – 20th …",
+      "answer": "August",
+      "wordLimit": 3,
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- ONE word / number / date mỗi gap
+- Copy ngữ cảnh form vào `instruction` part
+
+---
+
+## Part 3–4 (Q11–20) — Multiple choice
+
+```json
+{
+  "number": 11,
+  "type": "multiple-choice",
+  "prompt": "Who has already decided to go with Robert?",
+  "options": [
+    { "id": "A", "label": "family members" },
+    { "id": "B", "label": "colleagues" },
+    { "id": "C", "label": "tennis partners" }
+  ],
+  "answer": "B",
+  "explanation": "…"
+}
+```
+
+---
+
+## Part 5 (Q21–25) — Matching A–H
+
+```json
+{
+  "number": 21,
+  "type": "matching",
+  "prompt": "Barbara will bring",
+  "options": [
+    { "id": "A", "label": "bread" },
+    { "id": "B", "label": "cake" },
+    { "id": "C", "label": "cheese" },
+    { "id": "D", "label": "chicken" },
+    { "id": "E", "label": "fish" },
+    { "id": "F", "label": "fruit" },
+    { "id": "G", "label": "ice cream" },
+    { "id": "H", "label": "salad" }
+  ],
+  "answer": "F",
+  "explanation": "…"
+}
+```
+
+- Ghi danh sách món A–H trong `instruction` part
+- `prompt` = tên người + hành động (vd. "Barbara will bring")
+
+---
+
+## Tự kiểm tra TRƯỚC KHI xuất ZIP
+
+1. JSON.parse PASS · 1 object JSON
+2. **5 parts · 25 câu** Q1–25 liên tục
+3. Part 1: type `picture-mc` — không gap-fill
+4. `audioFile` mỗi part = tên MP3 trong ZIP
+5. Part 5: 8 options A–H mỗi câu
+6. `durationMinutes`: **25**
+
+## Lỗi thường gặp
+
+| Lỗi | Đúng |
+|-----|------|
+| Dùng `questionGroups` (Reading schema) | `questions[]` trong part |
+| Thiếu audioFile | Gắn `listening.mp3` mỗi part |
+| Part 1 gap-fill | Part 1 = `picture-mc` |
+| 3 ảnh riêng bắt buộc | 1 ảnh composite qN.jpg OK |
+| answer `"(August)"` | `"August"` |
+
+---
+
+## Answer Key — Test 1 mẫu
+
+| Part | Đáp án |
+|------|--------|
+| 1 | 1A 2C 3C 4A 5A |
+| 2 | 6August 7(19) 8drive 965 10photograph |
+| 3 | 11B 12A 13C 14B 15B |
+| 4 | 16A 17B 18C 19B 20A |
+| 5 | 21F 22C 23A 24D 25H |
+
+---
+
+## Việc làm
+
+1. Book + Test từ thư mục/PDF
+2. Map 5 parts · 25 câu
+3. Crop q1.jpg … q5.jpg (Part 1)
+4. Answer key → answer + explanation
+5. JSON.parse PASS → ZIP
+6. Bảng tóm tắt Part | Câu | Type | Media | Đáp án
+
+**Bundle:** `Tainguyen/ket-listening-test1/` · `catalog-listening-ket-a2-test1`
+
+Bắt đầu xử lý file đính kèm.

@@ -11,6 +11,7 @@
   --text-muted:    #6e6e73;
   --border-color:  #e5e5ea;
   --color-primary: #6366f1;
+  --color-on-primary: #ffffff;
   --color-accent:  #8b5cf6;
   --exam-highlight-bg: #fff3a3;
   --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
@@ -25,6 +26,7 @@
   --text-muted:    #8888a0;
   --border-color:  #2a2a3a;
   --color-primary: #818cf8;
+  --color-on-primary: #ffffff;
   --color-accent:  #a78bfa;
   --exam-highlight-bg: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
   --exam-highlight-selection: color-mix(in srgb, var(--color-primary) 28%, transparent);
@@ -39,6 +41,7 @@
   --text-muted:    #7f849c;
   --border-color:  #313244;
   --color-primary: #89b4fa;
+  --color-on-primary: #ffffff;
   --color-accent:  #cba6f7;
   --exam-highlight-bg: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
   --exam-highlight-selection: color-mix(in srgb, var(--color-primary) 28%, transparent);

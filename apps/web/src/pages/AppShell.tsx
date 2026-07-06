@@ -89,7 +89,7 @@ function AppShellInner() {
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
         <div className="px-4 py-4 border-b" style={{ borderColor: 'var(--border-color)' }}>
-          <div className={`flex items-center ${sidebarCollapsed ? 'justify-center relative' : 'gap-2.5'}`}>
+          <div className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}>
             <div
               className="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black shrink-0"
               style={{
@@ -109,18 +109,6 @@ function AppShellInner() {
                 </p>
               </div>
             )}
-            <button
-              type="button"
-              aria-label={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
-              title={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
-              onClick={() => setSidebarCollapsed(value => !value)}
-              className={`h-8 w-8 rounded-lg border flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)] ${
-                sidebarCollapsed ? 'absolute -right-2 top-1/2 -translate-y-1/2 bg-[var(--bg-card)]' : ''
-              }`}
-              style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
-            >
-              {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
-            </button>
           </div>
         </div>
 
@@ -223,6 +211,19 @@ function AppShellInner() {
                 Đăng xuất
               </span>
             )}
+          </button>
+        </div>
+
+        <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
+          <button
+            type="button"
+            aria-label={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
+            title={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
+            onClick={() => setSidebarCollapsed(value => !value)}
+            className="h-8 w-full rounded-lg border flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)]"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
+          >
+            {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
           </button>
         </div>
       </aside>

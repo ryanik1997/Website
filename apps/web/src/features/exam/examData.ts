@@ -753,11 +753,16 @@ export function isCaeReadingWritingExam(exam: ReadingExam): boolean {
   return exam.cambridgeLevel === 'c1'
 }
 
+export function isCpeReadingWritingExam(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'c2'
+}
+
 export function isCambridgeReadingWritingExam(exam: ReadingExam): boolean {
   return isKetReadingWritingExam(exam)
     || isPetReadingWritingExam(exam)
     || isFceReadingWritingExam(exam)
     || isCaeReadingWritingExam(exam)
+    || isCpeReadingWritingExam(exam)
 }
 
 export function isWritingTaskQuestion(question: ReadingQuestion): boolean {

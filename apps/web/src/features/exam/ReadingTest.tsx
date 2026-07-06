@@ -32,8 +32,10 @@ import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
 import ReadingPetRwTest from './petRw/ReadingPetRwTest'
 import ReadingFceRwTest from './fceRw/ReadingFceRwTest'
 import ReadingCaeRwTest from './caeRw/ReadingCaeRwTest'
+import ReadingCpeRwTest from './cpeRw/ReadingCpeRwTest'
 import {
   isCaeReadingWritingExam,
+  isCpeReadingWritingExam,
   isFceReadingWritingExam,
   isKetReadingWritingExam,
   isPetReadingWritingExam,
@@ -58,6 +60,7 @@ export default function ReadingTest() {
   const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
   const useFceRwShell = exam ? isFceReadingWritingExam(exam) : false
   const useCaeRwShell = exam ? isCaeReadingWritingExam(exam) : false
+  const useCpeRwShell = exam ? isCpeReadingWritingExam(exam) : false
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
@@ -131,7 +134,7 @@ export default function ReadingTest() {
   }, [])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell) return
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setAnswers({})
@@ -167,17 +170,17 @@ export default function ReadingTest() {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
     }
-  }, [exam, storageKey, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [exam, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || !currentPart) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || !currentPart) return
     if (!partQuestions.some(q => q.id === activeQuestionId)) {
       setActiveQuestionId(partQuestions[0]?.id ?? null)
     }
   }, [activeQuestionId, currentPart, exam, partIndex, partQuestions])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell) return
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       timeLeft,
@@ -186,10 +189,10 @@ export default function ReadingTest() {
       activeQuestionId,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || submitted) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || submitted) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
@@ -200,7 +203,7 @@ export default function ReadingTest() {
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [exam, submitted, timeLeft, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [exam, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   const resetPaneScroll = useCallback(() => {
     const body = bodyRef.current
@@ -357,6 +360,10 @@ export default function ReadingTest() {
 
   if (exam && useCaeRwShell) {
     return <ReadingCaeRwTest />
+  }
+
+  if (exam && useCpeRwShell) {
+    return <ReadingCpeRwTest />
   }
 
   if (exam === undefined) {

@@ -613,7 +613,10 @@ export function cambridgeImportGuideNote(level?: CambridgeLevelSlug): string {
   if (level === 'c1') {
     return `${fmt?.exam ?? 'CAE'}: 10 parts · ${qCount} câu. Part 1–8 copy text; Part 9–10 ảnh JPG (part9-page.jpg Q57, part10-page.jpg Q58).`
   }
-  return `${fmt?.exam ?? level.toUpperCase()}: ${parts.length} parts · ${qCount} câu Reading. ${imageNote}; Part 2+ bắt buộc text.`
+  if (level === 'c2') {
+    return `${fmt?.exam ?? 'CPE'}: 9 parts · 53 mục. Part 1–7 copy text; Part 8–9 ảnh JPG (part8-page.jpg Q1, part9-page.jpg Q2–4) — không text passage.`
+  }
+  return `${fmt?.exam ?? 'Cambridge'}: ${parts.length} parts · ${qCount} câu Reading. ${imageNote}; Part 2+ bắt buộc text.`
 }
 
 export function cambridgeImportGuideLines(level: CambridgeLevelSlug): string[] {

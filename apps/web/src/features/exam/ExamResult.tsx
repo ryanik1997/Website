@@ -191,7 +191,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                   type="button"
                   onClick={onRetry}
                   className="rounded-full px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5"
-                  style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                  style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }}
                 >
                   Làm lại
                 </button>

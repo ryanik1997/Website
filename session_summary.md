@@ -12,9 +12,9 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-06 — **Cambridge Reading & Writing shells HOÀN THÀNH** (KET 7 / PET 8 / FCE 9 / **CAE 10** parts); CAE UI theo `Giaodien/Taicautruc/Reading_Writing_CAE_C1`; Writing Q57→Part 9, Q58→Part 10 (mỗi part 1 JPG)
+- **Session:** 2026-07-06 — **Cambridge RW shells đủ 5 level** (KET 7 / PET 8 / FCE 9 / CAE 10 / **CPE 9** parts); HDSD Listening/Vocab Universal A2–C2; fix theme Cambridge library; nút **Exit** Listening FCE/CAE/CPE
 - **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** RW shells mới; local: `pnpm dev` + hard refresh sau sửa catalog
-- **Dev:** `pnpm dev` → `/app/exam/reading/catalog-reading-cae-c1-test1` để so CAE RW 10 part
+- **Dev:** `pnpm dev` → `/app/exam/reading/catalog-reading-cpe-c2-test1` để so CPE RW 9 part
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -26,6 +26,7 @@
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
+| Reading | C2 CPE | `cpe-Reading-test1` | **Builtin** `catalog-reading-cpe-c2-test1` — **9 parts RW** (P1–7 Reading + P8–9 Writing, 120 phút) |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
 | Listening | IELTS Cam 9–20 | `IELTS/Listening IELTS_Test*_Cam*` (48 đề) | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` — auto `build-catalog.mjs` |
 
@@ -1815,12 +1816,57 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 
 ---
 
+## CPE C2 Reading & Writing — shell 9 part + import ảnh (2026-07-06)
+
+- [x] `apps/web/src/features/exam/cpeRw/` — UI shell 9 part (P1–P7 Reading + P8 essay + P9 choice) giống Giaodien `Reading_Writing_CPE_C2`
+- [x] `cpeWritingImportUtils.ts` — Part 8 = `part8-page.jpg` (essay 240–280); Part 9 = `part9-page.jpg` (Q2–Q4 choice 280–320)
+- [x] `cambridgeReadingImportTemplates.ts` — C2 template 9 parts; Part 4 single-gap transform; Part 6 bank A–H từ passage
+- [x] `ReadingTest.tsx` route C2 → `ReadingCpeRwTest`; `ImportReadingManualModal` merge Part 8–9
+- [x] Catalog `reading-cpe-c2-test1.json` + `Tainguyen/cpe-Reading-test1/` — 120 phút
+- [x] `HDSD/Prompt-CPE-C2-Reading-Universal.txt` — 9 part RW, rules Part 4/6/8–9, answer key Test 1; cập nhật `Import De Thi.txt`, `Prompt-Reading-Cambridge.txt`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+**Import ảnh CPE (sau JSON):**
+
+| File | Mục đích |
+|------|----------|
+| `part8-page.jpg` | Đề Writing Part 8 (essay) |
+| `part9-page.jpg` | Đề Writing Part 9 (choice Q2–Q4) |
+
+**Test nhanh:** `/app/exam/reading/catalog-reading-cpe-c2-test1`
+
+---
+
+## Việc đã hoàn thành (session 2026-07-06 — HDSD + UX polish)
+
+### HDSD prompts
+- [x] **Listening Universal A2–C2** — `HDSD/Prompt-Listening-Cambridge.txt` (index) + 5 file `Prompt-{KET-A2|PET-B1|FCE-B2|CAE-C1|CPE-C2}-Listening-Universal.txt`
+- [x] **Vocab import** — `HDSD/Prompt-Vocab-Universal.txt` (CSV/JSON, cột `phrase` hỗ trợ cụm từ) + `Prompt-Vocab-Chu-De.txt` (6 nhóm IELTS/Oxford/TOEIC/…) + `Import Vocab.txt`
+
+### UX exam
+- [x] **Nút Exit** Listening FCE/CAE/CPE — `ListeningFceTest.tsx` header (`listening-ket-cambridge__exit`), `navigate(listeningExamBackPath(exam))` về track Cambridge tương ứng
+- [x] **Fix theme Cambridge A2–C2 library** — token `--color-on-primary: #ffffff` (light/mid/dark) trong `globals.css`; thay `color: var(--bg-primary)` → `var(--color-on-primary)` trên nút primary trong `examHub.css` + modal `ImportReadingManualModal`, `ImportListeningModal`, `ExamResult`
+
+**Nguyên nhân lỗi theme:** `--bg-primary` = trắng (light) / đen (dark) — dùng làm màu chữ trên nền `--color-primary` khiến dark theme mất contrast.
+
+**Test theme:** `/app/exam/track/cambridge/a2` → đổi theme Sáng/Tối trong sidebar — nút CTA, pill "TẤT CẢ", "Làm bài" phải giữ chữ trắng.
+
+### Vocab (đã có sẵn trong app)
+- Import cụm từ qua cột `phrase` — `features/vocab/importExport.ts`, `ImportModal.tsx`
+
+---
+
 ## Lỗi còn tồn tại — Cambridge RW (cập nhật 2026-07-06)
 
 - [ ] **CAE Part 10 ảnh** — `part10-page.jpg` chưa có screenshot riêng Q58 (đang dùng copy Part9)
-- [ ] **`pnpm build:catalog`** — cần đủ folder `Tainguyen/ket-reading-test1` … (một số chỉ có `.zip`); CAE đã có folder + ảnh P9/P10
-- [ ] **CPE C2 Reading** — chưa có RW shell (vẫn UI Reading cũ)
+- [ ] **`pnpm build:catalog`** — cần đủ folder `Tainguyen/ket-reading-test1` … (một số chỉ có `.zip`); CAE/CPE đã có folder + ảnh
+- [ ] **Theme debt app-wide** — một số trang khác vẫn dùng `color: var(--bg-primary)` trên nút primary (Settings, Vocab, Listening library…); Cambridge library đã fix
+- [x] **CPE C2 Reading** — RW shell 9 parts (`cpeRw/`) + catalog `reading-cpe-c2-test1`
 - [x] **Prompt HDSD CAE** — `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
+- [x] **Prompt HDSD CPE** — `HDSD/Prompt-CPE-C2-Reading-Universal.txt` (9 parts RW, Part 4/6/8–9 rules, answer key Test 1)
+- [x] **Prompt HDSD Listening Universal A2–C2** — `HDSD/Prompt-Listening-Cambridge.txt` + 5 file `Prompt-*-Listening-Universal.txt` (KET/PET/FCE/CAE/CPE)
+- [x] **Prompt HDSD Vocab import** — `HDSD/Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (từ đơn + cụm từ, 6 nhóm chủ đề)
+- [x] **Fix theme Cambridge A2–C2 library** — token `--color-on-primary` trong `globals.css`; nút CTA/filter pill trong `examHub.css` + modal import exam dùng màu chữ cố định thay `var(--bg-primary)` (tránh chữ đen trên nền tím khi dark theme)
 - [x] TypeScript `pnpm --filter web exec tsc --noEmit` — pass (CAE RW)
 
 ---
@@ -1829,25 +1875,29 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 ```
 Đọc session_summary.md ngay.
 
-## Đã xong (2026-07-06) — Cambridge Reading & Writing shells
-- KET A2: 7 parts RW + AI chấm Writing P6–7 (`ket-reading-test1.zip`)
+## Đã xong (2026-07-06) — Cambridge Reading & Writing shells (5 level)
+- KET A2: 7 parts RW + AI chấm Writing P6–7
 - PET B1: 8 parts RW; Part 8 = 1 ảnh `part8-page.jpg`
-- FCE B2: 9 parts RW; Part 8 `part8-page.jpg` + Part 9 `part9-page.jpg`; Part 7 Paragraph A–D
-- CAE C1: **10 parts RW**; P6 Reviewer / P8 Consultant; Part 9 `part9-page.jpg` (Q57) + Part 10 `part10-page.jpg` (Q58)
-  → `apps/web/src/features/exam/caeRw/` · catalog `reading-cae-c1-test1` · 120 phút
+- FCE B2: 9 parts RW; Part 8/9 JPG; Part 7 Paragraph A–D
+- CAE C1: 10 parts RW; P6 Reviewer / P8 Consultant; P9/P10 Writing JPG → `caeRw/` · `catalog-reading-cae-c1-test1`
+- CPE C2: 9 parts RW; P4 transform 1 gap; P6 bank A–H; P8 essay + P9 choice → `cpeRw/` · `catalog-reading-cpe-c2-test1`
+
+## Đã xong (2026-07-06) — HDSD + UX
+- Listening Universal A2–C2: `HDSD/Prompt-Listening-Cambridge.txt` + 5 file level-specific
+- Vocab import: `Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (cụm từ qua `phrase`)
+- Exit Listening FCE/CAE/CPE: `ListeningFceTest.tsx`
+- Fix theme Cambridge library: `--color-on-primary` · `examHub.css` · modal import exam
 
 ## Đã xong (2026-07-05)
 - Listening IELTS Cam 9–20: validate 48/48 PASS
-- Cambridge Library Archives UI → /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
+- Cambridge Library Archives → /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
 
 ## Ưu tiên session mới (chọn theo user)
 
 ### A — Verify + ship Cambridge RW
-1. Hard refresh → so từng level với Giaodien `Reading_Writing_*`:
-   - CAE: footer 10 part, P6/P8 labels, P9/P10 split pane + ảnh
-2. Thay `part10-page.jpg` bằng screenshot Q58 thật (nếu có)
-3. ~~Viết `HDSD/Prompt-CAE-C1-Reading-Universal.txt`~~ (đã xong)
-4. `pnpm build:catalog` (khi đủ Tainguyen folders) + deploy
+1. Hard refresh → so từng level với Giaodien `Reading_Writing_*`
+2. Thay `part10-page.jpg` CAE bằng screenshot Q58 thật (nếu có)
+3. `pnpm build:catalog` (khi đủ Tainguyen folders) + deploy
 
 ### B — IELTS Listening import (48 ZIP)
 - Batch `pnpm ielts:bundle` → Import thủ công Listening
@@ -1857,9 +1907,13 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 - Wizard r1/r2/r3 có; chưa Tainguyen Reading
 - Thiếu UI: matching headings, YNNG
 
-### D — CPE C2 / CAE Listening UI polish
-- CPE: RW shell chưa có
-- CAE Listening: recipe cuối `session_summary.md` (FCE shell + Part 4 dual match)
+### D — Theme debt app-wide
+- Cambridge library đã fix `--color-on-primary`
+- Còn Settings, Vocab, Listening library… dùng `color: var(--bg-primary)` trên nút primary
+
+### E — Cambridge Listening UI
+- FCE/CAE/CPE Listening dùng `ListeningFceTest` shell (screenshot-based)
+- Recipe CAE: cuối `session_summary.md`
 
 ## Lệnh thường dùng
 pnpm dev
@@ -1867,15 +1921,19 @@ pnpm --filter web exec tsc --noEmit
 pnpm build:catalog
 pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 
-## Test nhanh CAE RW
+## Test nhanh
+/app/exam/track/cambridge/a2          — library + đổi theme
 /app/exam/reading/catalog-reading-cae-c1-test1
+/app/exam/reading/catalog-reading-cpe-c2-test1
 ```
 
 ### Verify (session tiếp)
-- [x] `pnpm --filter web exec tsc --noEmit` pass (CAE RW)
+- [x] `pnpm --filter web exec tsc --noEmit` pass
+- [x] Prompt HDSD Reading CAE + CPE Universal
+- [x] Prompt HDSD Listening Universal A2–C2 + Vocab import
+- [x] Fix theme Cambridge A2–C2 library (`--color-on-primary`)
 - [ ] CAE RW UI: 10 part footer, P9/P10 ảnh + textarea, Reviewer/Consultant labels
 - [ ] Thay `part10-page.jpg` ảnh thật Q58
-- [x] Prompt `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
 - [ ] `pnpm build:catalog` full (khi Tainguyen folders đủ)
 - [ ] Deploy production RW shells
 ---
