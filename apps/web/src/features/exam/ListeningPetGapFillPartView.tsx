@@ -45,111 +45,97 @@ export default function ListeningPetGapFillPartView({
   resizer,
 }: Props) {
   const highlights = useExamHighlights()
+  const [leadInstruction = '', ...restInstruction] = (part.instruction ?? '').split(/\n+/)
+  const bodyInstruction = restInstruction.join('\n').trim()
 
   return (
     <>
-      <ExamHighlightZone className="listening-exam-prompt-pane listening-pet-gapfill__prompt">
-        <p className="listening-exam-prompt-pane__part">
-          Part {part.partNumber} · {part.rangeLabel}
-        </p>
-        {part.instruction && (
+      <ExamHighlightZone className="listening-ket-cambridge__stage listening-pet-gapfill">
+        <div className="listening-ket-cambridge__instruction-card">
+          <strong>{part.rangeLabel}</strong>
+          {part.audioIntro ? (
+            <ReadingHighlightableText
+              blockId={`${part.id}-intro`}
+              text={part.audioIntro}
+              highlights={highlights}
+              as="span"
+            />
+          ) : leadInstruction ? (
+            <span>{leadInstruction}</span>
+          ) : null}
+          {leadInstruction && part.audioIntro && <span>{leadInstruction}</span>}
+        </div>
+
+        {bodyInstruction && (
           <ExamHighlightableLines
             blockIdPrefix={`${part.id}-instruction`}
-            text={part.instruction}
+            text={bodyInstruction}
             lineClassName="listening-pet-gapfill__instruction"
           />
         )}
-        {part.audioIntro && (
-          <ReadingHighlightableText
-            blockId={`${part.id}-intro`}
-            text={part.audioIntro}
-            highlights={highlights}
-            className="listening-pet-gapfill__intro"
-            as="p"
-          />
-        )}
-        <ListeningExamAudioBar {...audioBar} />
-      </ExamHighlightZone>
 
-      {resizer}
-
-      <ExamHighlightZone className="listening-exam-answer-pane listening-pet-gapfill__answers">
         {part.passageTitle && (
           <ReadingHighlightableText
             blockId={`${part.id}-title`}
             text={part.passageTitle}
             highlights={highlights}
             className="listening-pet-gapfill__passage-title"
-            as="h3"
+            as="h2"
           />
         )}
-        <div className="listening-pet-gapfill__box">
+
+        <div className="listening-pet-gapfill__fields">
           {questions.map(question => {
             const isActive = activeQuestionId === question.id
-            const wordLimit = question.wordLimit ?? 2
-            const hasInline = Boolean(question.gapLead || question.gapTrail)
+            const lead = question.gapLead || question.prompt
+            const trail = question.gapTrail ?? ''
             return (
               <div
                 key={question.id}
-                className={`listening-pet-gapfill__row${isActive ? ' is-active' : ''}`}
+                className={`listening-pet-gapfill__field${isActive ? ' is-active' : ''}`}
               >
-                {hasInline ? (
-                  <label className="listening-pet-gapfill__sentence" htmlFor={`pet-gap-${question.id}`}>
-                    <span className="listening-pet-gapfill__num">({question.number})</span>
-                    {question.gapLead && (
-                      <ReadingHighlightableText
-                        blockId={`${question.id}-lead`}
-                        text={`${question.gapLead} `}
-                        highlights={highlights}
-                        as="span"
-                      />
-                    )}
-                    <input
-                      id={`pet-gap-${question.id}`}
-                      type="text"
-                      className="listening-pet-gapfill__input"
-                      value={answers[question.id] ?? ''}
-                      placeholder={`${wordLimit} từ`}
-                      data-highlight-skip
-                      onChange={e => onAnswer(question.id, e.target.value)}
-                      onFocus={() => onSelectQuestion(question.id)}
-                    />
-                    {question.gapTrail && (
-                      <ReadingHighlightableText
-                        blockId={`${question.id}-trail`}
-                        text={` ${question.gapTrail}`}
-                        highlights={highlights}
-                        as="span"
-                      />
-                    )}
-                  </label>
-                ) : (
-                  <label className="listening-pet-gapfill__field" htmlFor={`pet-gap-${question.id}`}>
-                    <span className="listening-pet-gapfill__num">{question.number}</span>
+                <label
+                  className="listening-pet-gapfill__label"
+                  htmlFor={`pet-gap-${question.id}`}
+                  onClick={() => onSelectQuestion(question.id)}
+                >
+                  <ReadingHighlightableText
+                    blockId={`${question.id}-lead`}
+                    text={lead}
+                    highlights={highlights}
+                    className="listening-pet-gapfill__prompt-text"
+                    as="span"
+                  />
+                  <input
+                    id={`pet-gap-${question.id}`}
+                    type="text"
+                    className="listening-pet-gapfill__input"
+                    value={answers[question.id] ?? ''}
+                    placeholder={`${question.number}`}
+                    data-highlight-skip
+                    onFocus={() => onSelectQuestion(question.id)}
+                    onChange={e => onAnswer(question.id, e.target.value)}
+                  />
+                  {trail && (
                     <ReadingHighlightableText
-                      blockId={`${question.id}-prompt`}
-                      text={question.prompt}
+                      blockId={`${question.id}-trail`}
+                      text={trail}
                       highlights={highlights}
-                      className="listening-pet-gapfill__prompt"
+                      className="listening-pet-gapfill__trail"
                       as="span"
                     />
-                    <input
-                      id={`pet-gap-${question.id}`}
-                      type="text"
-                      className="listening-pet-gapfill__input"
-                      value={answers[question.id] ?? ''}
-                      placeholder={`Tối đa ${wordLimit} từ`}
-                      data-highlight-skip
-                      onChange={e => onAnswer(question.id, e.target.value)}
-                      onFocus={() => onSelectQuestion(question.id)}
-                    />
-                  </label>
-                )}
+                  )}
+                </label>
               </div>
             )
           })}
         </div>
+
+        <div className="listening-ket-cambridge__audio">
+          <ListeningExamAudioBar {...audioBar} />
+        </div>
       </ExamHighlightZone>
+      {resizer}
     </>
   )
 }

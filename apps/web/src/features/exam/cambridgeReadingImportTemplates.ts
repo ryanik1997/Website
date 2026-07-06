@@ -78,7 +78,23 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
       to: 30,
       title: 'Email / open cloze',
       groupType: 'gap-fill',
-      instruction: 'Write ONE word for each gap.',
+      instruction: 'For each question, write the correct answer. Write one word for each gap.',
+    },
+    {
+      partNumber: 6,
+      from: 31,
+      to: 31,
+      title: 'Writing — short message',
+      groupType: 'sentence-completion',
+      instruction: 'Write 25 words or more.',
+    },
+    {
+      partNumber: 7,
+      from: 32,
+      to: 32,
+      title: 'Writing — picture story',
+      groupType: 'sentence-completion',
+      instruction: 'Write 35 words or more.',
     },
   ],
   b1: [
@@ -105,6 +121,22 @@ const LEVEL_PARTS: Record<CambridgeLevelSlug, PartMeta[]> = {
       wordChoiceMc: true,
     },
     { partNumber: 6, from: 27, to: 32, title: 'Open cloze', groupType: 'gap-fill' },
+    {
+      partNumber: 7,
+      from: 33,
+      to: 33,
+      title: 'Writing — extended message',
+      groupType: 'sentence-completion',
+      instruction: 'Write 100 words or more.',
+    },
+    {
+      partNumber: 8,
+      from: 34,
+      to: 34,
+      title: 'Writing — picture story',
+      groupType: 'sentence-completion',
+      instruction: 'Write 100 words or more.',
+    },
   ],
   b2: [
     { partNumber: 1, from: 1, to: 8, title: 'Multiple-choice cloze', groupType: 'multiple-choice', optionCount: 4 },
@@ -178,9 +210,34 @@ function gapQuestion(n: number) {
   }
 }
 
-function sampleQuestions(meta: PartMeta) {
+function writingQuestion(n: number, minWords: number, prompt: string) {
+  return {
+    number: n,
+    type: 'writing-task' as const,
+    prompt,
+    options: [],
+    answer: '',
+    explanation: 'Writing — chấm thủ công / AI sau.',
+    minWords,
+  }
+}
+
+function sampleQuestions(meta: PartMeta, level: CambridgeLevelSlug) {
   const nums: number[] = []
   for (let n = meta.from; n <= meta.to; n += 1) nums.push(n)
+
+  if (level === 'a2' && meta.partNumber === 6) {
+    return [writingQuestion(31, 25, 'Write your email in the box on the right.')]
+  }
+  if (level === 'a2' && meta.partNumber === 7) {
+    return [writingQuestion(32, 35, 'Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.')]
+  }
+  if (level === 'b1' && meta.partNumber === 7) {
+    return [writingQuestion(33, 100, 'Write your answer in the box on the right.')]
+  }
+  if (level === 'b1' && meta.partNumber === 8) {
+    return [writingQuestion(34, 100, 'Look at the picture. Write the story shown in the picture. Write 100 words or more.')]
+  }
 
   if (meta.groupType === 'gap-fill' || meta.groupType === 'summary-completion') {
     return nums.map(gapQuestion)
@@ -220,9 +277,35 @@ function passageBlocks(meta: PartMeta, level: CambridgeLevelSlug): ReadingImport
   }
 
   if (level === 'a2' && meta.partNumber === 5) {
-    return [{
-      text: 'Example: 0 are\n\nFrom: …\nTo: …\n\nCopy email đầy đủ — giữ (25), (26)… trong text.',
-    }]
+    return [
+      { label: 'From', text: '…' },
+      { label: 'To', text: '…' },
+      { text: 'How (0) are you? … (25) ........ … — đoạn 1 thân email.' },
+      { text: 'Đoạn 2 thân email — (28) ........ … (30) ........ …' },
+      { text: 'Write soon!' },
+    ]
+  }
+
+  if (level === 'a2' && meta.partNumber === 6) {
+    return [
+      { imageFile: 'part6-page.jpg' },
+    ]
+  }
+
+  if (level === 'a2' && meta.partNumber === 7) {
+    return [
+      { imageFile: 'part7-p1.jpg' },
+      { imageFile: 'part7-p2.jpg' },
+      { imageFile: 'part7-p3.jpg' },
+    ]
+  }
+
+  if (level === 'b1' && meta.partNumber === 7) {
+    return [{ imageFile: 'part7-page.jpg' }]
+  }
+
+  if (level === 'b1' && meta.partNumber === 8) {
+    return [{ imageFile: 'part8-page.jpg' }]
   }
 
   if (meta.partNumber === 1 && level !== 'a2' && level !== 'b1') {
@@ -238,12 +321,14 @@ function passageBlocks(meta: PartMeta, level: CambridgeLevelSlug): ReadingImport
 }
 
 function buildPart(meta: PartMeta, level: CambridgeLevelSlug): ReadingImportPayload['parts'][0] {
-  const range = `Questions ${meta.from}–${meta.to}`
+  const range = meta.from === meta.to
+    ? `Question ${meta.from}`
+    : `Questions ${meta.from}–${meta.to}`
   const group: ReadingImportPayload['parts'][0]['questionGroups'][0] = {
     range,
     type: meta.groupType,
     instruction: meta.instruction ?? DEFAULT_INSTRUCTIONS[meta.groupType],
-    questions: sampleQuestions(meta),
+    questions: sampleQuestions(meta, level),
   }
 
   if (meta.groupType === 'summary-completion' && level === 'b1' && meta.partNumber === 5) {
@@ -282,8 +367,27 @@ export function cambridgeReadingPartGuides(level: CambridgeLevelSlug): Cambridge
   const parts = LEVEL_PARTS[level] ?? []
   return parts.map(meta => {
     const range = `Q${meta.from}–${meta.to}`
-    let passageHint = 'Copy nguyên văn passage[].text từ PDF — cần text để Highlight.'
+    let passageHint = 'Copy nguyên văn passage[].text từ PDF — PDF có bao nhiêu đoạn thì bấy nhiêu block (không gộp \\n\\n). Cần text để Highlight.'
     let questionHint = `${meta.groupType}; answer từ answer key.`
+
+    if (meta.title.toLowerCase().includes('reading comprehension')) {
+      passageHint = 'passageTitle + passageSubtitle (tiêu đề/subtitle trong khung PDF); thân bài: mỗi đoạn = 1 block text.'
+    }
+    if (level === 'a2' && meta.partNumber === 5) {
+      passageHint = '1 email: label From/To + từng đoạn + Write soon! · 2 email (Test 1): 1 block/email (25–27 rồi 28–30).'
+    }
+    if (level === 'a2' && meta.partNumber === 6) {
+      passageHint = 'Ảnh JPG part6-page.jpg (screenshot đề) HOẶC copy text đề email vào passage[].text.'
+    }
+    if (level === 'a2' && meta.partNumber === 7) {
+      passageHint = '3 ảnh part7-p1.jpg … part7-p3.jpg (bắt buộc đủ 3 khi import bằng ảnh).'
+    }
+    if (level === 'b1' && meta.partNumber === 7) {
+      passageHint = 'Ảnh part7-page.jpg (screenshot đề) HOẶC copy text đề vào passage[].text.'
+    }
+    if (level === 'b1' && meta.partNumber === 8) {
+      passageHint = '1 ảnh part8-page.jpg (truyện tranh 3 khung trong 1 file) — KHÔNG tách part8-p1…p3 như KET.'
+    }
 
     if (meta.imagePerQuestion) {
       passageHint = '6 ảnh part1-q1.jpg … part1-q6.jpg (mỗi câu 1 sign). Có thể thay bằng 1 ảnh part1-page.jpg.'
@@ -298,6 +402,9 @@ export function cambridgeReadingPartGuides(level: CambridgeLevelSlug): Cambridge
     }
     if (meta.groupType === 'matching-features') {
       questionHint = 'matching-features: options thường là A–E; khai báo features[] nếu có.'
+    }
+    if (level === 'a2' && meta.partNumber === 5) {
+      questionHint = 'gap-fill ONE WORD; answer key có 2 từ → answer: "từ1/từ2" (app chấp nhận cả hai).'
     }
 
     return {
@@ -340,6 +447,12 @@ export function cambridgeImportGuideNote(level?: CambridgeLevelSlug): string {
   const imageNote = level === 'a2' || level === 'b1'
     ? 'Part 1: ảnh signs OK'
     : 'Part 1: copy text (cloze)'
+  if (level === 'a2') {
+    return `${fmt?.exam ?? 'KET'}: 7 parts · ${qCount} câu. Part 1 + Part 6–7 có thể dùng ảnh JPG; Part 2–5 copy text.`
+  }
+  if (level === 'b1') {
+    return `${fmt?.exam ?? 'PET'}: 8 parts · ${qCount} câu. Part 1 + Part 7–8 ảnh JPG (Part 8 = 1 ảnh); Part 2–6 copy text.`
+  }
   return `${fmt?.exam ?? level.toUpperCase()}: ${parts.length} parts · ${qCount} câu Reading. ${imageNote}; Part 2+ bắt buộc text.`
 }
 

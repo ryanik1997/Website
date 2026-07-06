@@ -1727,9 +1727,41 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 
 ---
 
+## KET A2 Reading & Writing — Cam 1 Test 1 + AI chấm Writing (2026-07-06)
+
+- [x] `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/Test 1/exam.json` — 7 parts (Q1–32), `durationMinutes: 60`, Part 6 email + Part 7 story
+- [x] ZIP: `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/ket-reading-test1.zip` (exam.json + part1-q1…q6 + part7-p1…p3)
+- [x] AI chấm Part 6–7: `ketRw/ketWritingGrade.ts` + `KetWritingGradePanel.tsx` — nút "Chấm điểm AI" trên `ExamResult` (Cambridge 0–5, Part 7 vision nếu OpenAI/Gemini)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+---
+
+## PET B1 Reading & Writing — shell 8 part + import ảnh (2026-07-06)
+
+- [x] `apps/web/src/features/exam/petRw/` — UI shell 8 part (P1 signs … P6 cloze, P7–P8 writing) giống Giaodien `Reading_Writing_PET_B1`
+- [x] `petWritingImportUtils.ts` — merge ảnh Part 2/4/7/8; **Part 8 chỉ 1 ảnh** `part8-page.jpg` (không tách p1…p3 như KET Part 7)
+- [x] `cambridgeReadingImportTemplates.ts` — B1 template 8 parts (34 câu), hint Part 8 = 1 ảnh
+- [x] `ReadingTest.tsx` route B1 → `ReadingPetRwTest`; `ImportReadingManualModal` hint Part 8 (1 ảnh)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] `HDSD/Prompt-PET-B1-Reading-Universal.txt` — cập nhật 8 part RW; Part 8 = 1 ảnh `part8-page.jpg`
+
+**Import ảnh PET (tuỳ chọn sau JSON):**
+
+| File | Mục đích |
+|------|----------|
+| `part7-page.jpg` | Đề Writing Part 7 |
+| `part8-page.jpg` | **1 ảnh** truyện Part 8 (3 khung trong 1 file) |
+| `part2-page.jpg`, `part2-q6…q10.jpg`, `part4-page.jpg` | Layout/ảnh Part 2/4 |
+
+---
+
 ## Next session start prompt
 ```
 Đọc session_summary.md ngay.
+
+## Đã xong (2026-07-06)
+- KET A2 Cam 1 Test 1: exam.json 7 parts + ZIP `ket-reading-test1.zip` + AI chấm Writing Part 6–7 trên màn kết quả
+- PET B1 RW: shell 8 part + import ảnh; Part 8 = 1 file `part8-page.jpg` (không 3 ảnh như KET)
 
 ## Đã xong (2026-07-05)
 - Listening IELTS Cam 9–20: JSON + validate 48/48 PASS — user xác nhận dự án Listening xong

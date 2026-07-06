@@ -1,15 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import ExamHeaderBack from './ExamHeaderBack'
-import ExamPartFooter from './ExamPartFooter'
 import { listeningExamBackPath } from './examNavigation'
-import ExamTimerControls from './ExamTimerControls'
 import ListeningSubmittedScreen from './ListeningSubmittedScreen'
 import ListeningPetGapFillPartView from './ListeningPetGapFillPartView'
 import ListeningPetMcPartView from './ListeningPetMcPartView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
-import ListeningSplitResizer from './ListeningSplitResizer'
 import {
   isPetExtractPart,
   isPetGroupedGapFillPart,
@@ -32,6 +28,7 @@ import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
+import { Bell, Check, ChevronLeft, ChevronRight, Edit3, Menu, Wifi } from 'lucide-react'
 
 const STORAGE_PREFIX = 'exam-listening-draft:'
 
@@ -45,13 +42,7 @@ export default function ListeningPetTest({ exam }: Props) {
   const fullMockId = searchParams.get('fullMock')
   const allQuestions = useMemo(() => getListeningExamQuestions(exam), [exam])
   const bodyRef = useRef<HTMLDivElement>(null)
-  const {
-    splitPct,
-    isResizing,
-    onResizerPointerDown,
-    onResizerPointerMove,
-    onResizerPointerUp,
-  } = useListeningSplitPane()
+  const { isResizing } = useListeningSplitPane()
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [unsure, setUnsure] = useState<Record<string, boolean>>({})
@@ -240,8 +231,11 @@ export default function ListeningPetTest({ exam }: Props) {
     () => allQuestions.filter(q => Boolean(answers[q.id])).length,
     [allQuestions, answers],
   )
+  const activeQuestionIndex = activeQuestionId
+    ? allQuestions.findIndex(q => q.id === activeQuestionId)
+    : -1
 
-  // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
+  // Keep hooks before the submitted branch (Rules of Hooks).
   if (submitted) {
     return (
       <ListeningSubmittedScreen
@@ -256,17 +250,42 @@ export default function ListeningPetTest({ exam }: Props) {
   }
 
   return (
-    <div className={`listening-exam-shell${isResizing ? ' is-resizing' : ''}`}>
-      <header className="listening-exam-header">
-        <ExamHeaderBack onClick={() => navigate(listeningExamBackPath(exam))} />
-        <h1 className="listening-exam-header__title">{exam.title}</h1>
-        <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
+    <div className={`listening-exam-shell listening-ket-cambridge listening-pet-cambridge${isResizing ? ' is-resizing' : ''}`}>
+      <header className="listening-ket-cambridge__header">
+        <button
+          type="button"
+          className="listening-ket-cambridge__brand"
+          onClick={() => navigate(listeningExamBackPath(exam))}
+          aria-label="Back to exam list"
+        >
+          <span className="listening-ket-cambridge__crest">C</span>
+          <span>
+            <strong>CAMBRIDGE</strong>
+            <em>English</em>
+          </span>
+        </button>
+        <div className="listening-ket-cambridge__candidate">
+          <strong>Candidate ID</strong>
+          <span>Audio is playing</span>
+        </div>
+        <div className="listening-ket-cambridge__tools" aria-label="Exam tools">
+          <Wifi size={19} />
+          <Bell size={19} />
+          <Menu size={22} />
+          <Edit3 size={19} />
+          <button
+            type="button"
+            className="listening-ket-cambridge__exit"
+            onClick={() => navigate(listeningExamBackPath(exam))}
+          >
+            Exit
+          </button>
+        </div>
       </header>
 
       <div
         ref={bodyRef}
-        className="listening-exam-body"
-        style={{ '--le-split-pct': `${splitPct}%` } as CSSProperties}
+        className="listening-exam-body listening-ket-cambridge__body"
       >
         {currentPart && (
           <ReadingHighlightToolbar
@@ -278,15 +297,7 @@ export default function ListeningPetTest({ exam }: Props) {
         )}
         <ExamHighlightProvider highlights={highlights}>
         {currentPart && (isPartLayout || (isPicturePart && currentQuestion)) && (() => {
-          const resizer = (
-            <ListeningSplitResizer
-              bodyRef={bodyRef}
-              isResizing={isResizing}
-              onPointerDown={onResizerPointerDown}
-              onPointerMove={onResizerPointerMove}
-              onPointerUp={onResizerPointerUp}
-            />
-          )
+          const resizer = null
           const audioBarProps = {
             source: audioSource,
             playing,
@@ -311,7 +322,7 @@ export default function ListeningPetTest({ exam }: Props) {
                 answers={answers}
                 activeQuestionId={activeQuestionId}
                 audioBar={audioBarProps}
-                resizer={resizer}
+                resizer={null}
                 onAnswer={(questionId, value) => setAnswers(prev => ({ ...prev, [questionId]: value }))}
                 onSelectQuestion={handleSelectQuestion}
               />
@@ -327,7 +338,7 @@ export default function ListeningPetTest({ exam }: Props) {
                 activeQuestionId={activeQuestionId}
                 audioBar={audioBarProps}
                 showContext={isExtractPart}
-                resizer={resizer}
+                resizer={null}
                 onAnswer={(questionId, value) => setAnswers(prev => ({ ...prev, [questionId]: value }))}
                 onSelectQuestion={handleSelectQuestion}
               />
@@ -337,14 +348,18 @@ export default function ListeningPetTest({ exam }: Props) {
           if (!currentQuestion) return null
 
           return (
-            <>
+            <div className="listening-ket-cambridge__stage">
+              <div className="listening-ket-cambridge__instruction-card">
+                <strong>{currentPart.rangeLabel}</strong>
+                {currentPart.instruction && <span>{currentPart.instruction}</span>}
+              </div>
+              <div className="listening-ket-cambridge__question">
               <ListeningQuestionPromptPanel
                 question={currentQuestion}
-                partInstruction={currentPart.instruction}
-                partLabel={`Part ${currentPart.partNumber} · ${currentPart.rangeLabel}`}
+                partInstruction=""
+                partLabel=""
                 audioBar={audioBarProps}
               />
-              {resizer}
               <ListeningQuestionAnswerPanel
                 question={currentQuestion}
                 answer={answers[currentQuestion.id] ?? ''}
@@ -352,29 +367,77 @@ export default function ListeningPetTest({ exam }: Props) {
                 onAnswer={value => setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }))}
                 onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
               />
-            </>
+              </div>
+              {resizer}
+            </div>
           )
         })()}
         </ExamHighlightProvider>
+        <div className="listening-ket-cambridge__side-mark" aria-hidden="true">^</div>
+        <div className="listening-ket-cambridge__float-nav">
+          <button
+            type="button"
+            className="listening-ket-cambridge__arrow listening-ket-cambridge__arrow--back"
+            disabled={activeQuestionIndex <= 0}
+            onClick={() => goAdjacentQuestion(-1)}
+            aria-label="Previous question"
+          >
+            <ChevronLeft size={30} />
+          </button>
+          <button
+            type="button"
+            className="listening-ket-cambridge__arrow listening-ket-cambridge__arrow--next"
+            disabled={activeQuestionIndex >= allQuestions.length - 1}
+            onClick={() => goAdjacentQuestion(1)}
+            aria-label="Next question"
+          >
+            <ChevronRight size={30} />
+          </button>
+        </div>
       </div>
 
-      <ExamPartFooter
-        parts={exam.parts}
-        getPartQuestions={index => {
-          const part = exam.parts[index]
-          return part ? getPartQuestions(part) : []
-        }}
-        partIndex={partIndex}
-        activeQuestionId={activeQuestionId}
-        answers={answers}
-        allQuestions={allQuestions}
-        answeredInPart={answeredInPart}
-        onGoToPart={goToPart}
-        onSelectQuestion={handleSelectQuestion}
-        onAdjacentQuestion={goAdjacentQuestion}
-        onSubmit={() => setConfirmSubmit(true)}
-        submitLabel="Submit"
-      />
+      <footer className="listening-ket-cambridge__footer">
+        <div className="listening-ket-cambridge__footer-parts">
+          {exam.parts.map((part, index) => {
+            const questions = getPartQuestions(part)
+            const answered = answeredInPart(index)
+            const isCurrent = index === partIndex
+            return (
+              <div
+                key={part.id}
+                className={`listening-ket-cambridge__footer-part${isCurrent ? ' is-current' : ''}`}
+              >
+                <button type="button" onClick={() => goToPart(index)}>
+                  <strong>Part {part.partNumber}</strong>
+                  {!isCurrent && <span>{answered} of {questions.length}</span>}
+                </button>
+                {isCurrent && (
+                  <div className="listening-ket-cambridge__qnav">
+                    {questions.map(question => (
+                      <button
+                        key={question.id}
+                        type="button"
+                        className={`${activeQuestionId === question.id ? ' is-current' : ''}${answers[question.id] ? ' is-answered' : ''}`}
+                        onClick={() => handleSelectQuestion(question.id)}
+                      >
+                        {question.number}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+        <button
+          type="button"
+          className="listening-ket-cambridge__submit"
+          onClick={() => setConfirmSubmit(true)}
+          aria-label="Submit test"
+        >
+          <Check size={24} />
+        </button>
+      </footer>
 
       {confirmSubmit && (
         <div
@@ -387,13 +450,13 @@ export default function ListeningPetTest({ exam }: Props) {
             style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
             onClick={e => e.stopPropagation()}
           >
-            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>Nộp bài Listening?</h3>
+            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>Submit Listening?</h3>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-              Bạn đã trả lời {answeredCount}/{allQuestions.length} câu.
+              You have answered {answeredCount}/{allQuestions.length} questions.
             </p>
             <div className="mt-4 flex justify-end gap-2">
               <button type="button" className="listening-exam-btn listening-exam-btn--ghost" onClick={() => setConfirmSubmit(false)}>
-                Tiếp tục làm
+                Continue
               </button>
               <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => { setConfirmSubmit(false); setSubmitted(true) }}>
                 Submit
@@ -405,3 +468,4 @@ export default function ListeningPetTest({ exam }: Props) {
     </div>
   )
 }
+

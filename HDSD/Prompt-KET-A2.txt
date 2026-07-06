@@ -1,6 +1,8 @@
 Bạn là trợ lý tạo ZIP bundle import đề Reading KET A2 vào web app "Ryan English".
 
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-KET-A2-Reading-Universal.txt (chỉ đổi file đính kèm)
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
 
 ## Tài liệu đính kèm
 1. Test_1_Reading_KET_A2.pdf — đề Reading (Parts 1–5; bỏ Writing Part 6–7 nếu có)
@@ -17,7 +19,7 @@ part1-q1.jpg … part1-q6.jpg
 ```json
 {
   "version": 1,
-  "title": "KET A2 Reading — Test 1",
+  "title": "KET A2 Reading — Book 1 — Test 1",
   "durationMinutes": 60,
   "bandHint": "A2 Key Reading",
   "examTrack": "cambridge",
@@ -109,9 +111,43 @@ part1-q1.jpg … part1-q6.jpg
 
 ---
 
-## Part 3 (Q14–18) — Reading comprehension
+## Part 3 (Q14–18) — Reading comprehension ⚠ layout khung đen PDF
 
-- `passage[]`: copy toàn bộ bài đọc (có thể nhiều block `{ "text": "…" }`).
+PDF Part 3 có **khung đen** chứa: tiêu đề bold → subtitle italic → 5 đoạn thân bài.
+App hiển thị giống khi tách đúng field:
+
+| PDF (trong khung) | JSON |
+|-------------------|------|
+| Tiêu đề bold (vd "My life as a tour guide") | `passageTitle` |
+| Dòng italic phụ (vd "Kerri Benson talks…") | `passageSubtitle` |
+| Mỗi đoạn thân bài | `passage[]` — **1 block / 1 đoạn** |
+
+**SAI:**
+- `passageTitle` = "Part 3 — Reading comprehension" hoặc "PART 3 — QUESTIONS 14–18"
+- Gộp title + subtitle + body vào 1 `text` với `\n\n`
+- Đặt title/subtitle vào `passage[]`
+
+**ĐÚNG:**
+```json
+"partNumber": 3,
+"rangeLabel": "Questions 14–18",
+"passageTitle": "My life as a tour guide",
+"passageSubtitle": "Kerri Benson talks about the job she loves.",
+"passage": [
+  { "text": "Đoạn 1 — copy nguyên văn…" },
+  { "text": "Đoạn 2 — copy nguyên văn…" },
+  { "text": "Đoạn 3…" },
+  { "text": "Đoạn 4…" },
+  { "text": "Đoạn 5…" }
+],
+"questionGroups": [{
+  "range": "Questions 14–18",
+  "instruction": "For each question, choose the correct answer.",
+  "type": "multiple-choice",
+  "questions": [ /* 5 câu 14–18, MC A/B/C */ ]
+}]
+```
+
 - 5 câu MC, mỗi câu 3 options A/B/C (copy nguyên văn từ PDF).
 
 ---
@@ -161,30 +197,34 @@ App hiển thị gap ở cột trái; học sinh chọn từ ở cột phải.
 
 ## Part 5 (Q25–30) — Email open cloze
 
+Layout PDF: From/To (header) → các đoạn thân email → "Write soon!"
+
+**1 email** (vd Erin → Lara):
 ```json
+"passageTitle": "From Erin to Lara",
 "passage": [
-  { "text": "From: Sylvia\nTo: Felix\n\nI'm so glad we (0) are doing… (25) ........ you think…" },
-  { "text": "From: Felix\nTo: Sylvia\n\n…" }
-],
-"questionGroups": [{
-  "range": "Questions 25–30",
-  "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
-  "type": "gap-fill",
-  "questions": [
-    {
-      "number": 25,
-      "type": "gap-fill",
-      "prompt": "Gap (25)",
-      "answer": "do",
-      "explanation": "Do you think…?"
-    }
-  ]
-}]
+  { "label": "From", "text": "Erin" },
+  { "label": "To", "text": "Lara" },
+  { "text": "How (0) are you? … (25) ........ …" },
+  { "text": "It's taken me… (28) ........ … (30) ........ …" },
+  { "text": "Write soon!" }
+]
 ```
 
-- Giữ dòng Example trong passage: `(0) are` — **không** tạo câu hỏi số 0.
-- Gap trong passage: `(25) ........` … `(30) ........` (8 chấm).
-- `answer`: một từ tiếng Anh, chữ thường.
+**2 email** (vd Test 1 Sylvia ↔ Felix) — answer key có 2 phần, gaps 25–27 + 28–30:
+```json
+"passage": [
+  { "text": "From: Sylvia\nTo: Felix\n\n…(25)…(26)…(27)…" },
+  { "text": "From: Felix\nTo: Sylvia\n\n…(28)…(29)…(30)…" }
+]
+```
+
+**Đáp án kép** (answer key ghi 2 từ chấp nhận): `"answer": "a/one"` hoặc `"would/will"` — app chấp nhận cả hai khi chấm.
+
+- **Phân đoạn:** mỗi đoạn thân email = 1 block — KHÔNG gộp `\n\n` (app không tách đoạn trong 1 block).
+- Giữ Example `(0) are` — **không** tạo câu hỏi số 0.
+- Gaps: `(25) ........` … `(30) ........` (8 chấm).
+- `answer`: một từ (hoặc `từ1/từ2` nếu key có 2 đáp án), chữ thường.
 
 ---
 
@@ -194,10 +234,11 @@ App hiển thị gap ở cột trái; học sinh chọn từ ở cột phải.
 2. Chỉ dùng nội dung PDF đề + Answer Key — **không bịa**.
 3. `passageTitle` mô tả nội dung: `"Part 1 — Signs and messages"`, `"Part 4 — The coldest place to live"` — không chỉ `"PART 4 — QUESTIONS …"`.
 4. Part 2–5: `passage[].text` **bắt buộc** (Highlight khi làm bài).
-5. `answer`: MC → `a`/`b`/`c`; gap-fill → một từ tiếng Anh thường.
-6. `explanation`: giải thích ngắn tiếng Việt (tuỳ chọn nhưng nên có).
-7. Mỗi câu có `type` khớp `questionGroups[].type`.
-8. Thiếu đáp án → `answer: ""` + `explanation: "⚠ Cần điền từ answer key"`.
+5. **Phân đoạn theo PDF:** PDF có bao nhiêu đoạn → `passage[]` có bấy nhiêu block. **KHÔNG** gộp nhiều đoạn vào 1 `text` với `\n\n`. Part 3: title/subtitle → `passageTitle` + `passageSubtitle`; thân bài mỗi đoạn = 1 block.
+6. `answer`: MC → `a`/`b`/`c`; gap-fill → một từ tiếng Anh thường.
+7. `explanation`: giải thích ngắn tiếng Việt (tuỳ chọn nhưng nên có).
+8. Mỗi câu có `type` khớp `questionGroups[].type`.
+9. Thiếu đáp án → `answer: ""` + `explanation: "⚠ Cần điền từ answer key"`.
 
 ## Lỗi thường gặp — tránh
 
@@ -207,6 +248,7 @@ App hiển thị gap ở cột trái; học sinh chọn từ ở cột phải.
 | Part 2 dùng `matching-features` | Part 2 = MC, options là tên người |
 | Part 1 gắn đáp án vào passage | Chỉ ảnh; MC ở `questions[]` |
 | Passage Part 2+ để trống | Copy text từ PDF |
+| Gộp nhiều đoạn PDF vào 1 block `\n\n` | Mỗi đoạn PDF = 1 block `passage[]` |
 | ZIP có thư mục con | `exam.json` + ảnh cùng cấp |
 | Nhầm Writing Part 6–7 vào Reading | Chỉ Parts 1–5 Reading |
 

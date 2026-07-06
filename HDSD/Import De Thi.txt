@@ -45,19 +45,19 @@ A2 KET — 5 parts · 30 câu
 ⚠ Part 4 A2: đề gốc chọn từ (MC), không tự gõ gap-fill.
 
 A2 KET — bundle mẫu: ket-reading-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-KET-A2.txt
+Prompt AI: HDSD/Prompt-KET-A2-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
 
 B1 PET — 6 parts · 32 câu
 Part 1: 5 ảnh signs · Part 2: passage label A–H (8 market) · Part 3: reading MC A–D
 · Part 4: gapped text + passage câu A–H · Part 5: MC cloze · Part 6: open cloze
 
 Bundle mẫu: pet-reading-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-PET-B1.txt
+Prompt AI: HDSD/Prompt-PET-B1-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
 
 B2 FCE — 7 parts · 52 câu
 Part 1–4 Use of English · Part 5–7 Reading
 Bundle mẫu: fce-reading-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-FCE-B2.txt
+Prompt AI: HDSD/Prompt-FCE-B2-Reading-Universal.txt (§ JSON HỢP LỆ — tránh JSON.parse fail)
 
 C1 CAE — 8 parts · 56 câu · 90 phút
 ┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
@@ -104,7 +104,7 @@ Prompt AI tạo ZIP (Claude / ChatGPT)
 • KET A2 Listening: HDSD/Prompt-KET-A2-Listening.txt
 • PET B1 Reading: HDSD/Prompt-PET-B1.txt
 • PET B1 Listening: HDSD/Prompt-PET-B1-Listening.txt
-• FCE B2 Reading: HDSD/Prompt-FCE-B2.txt
+• FCE B2 Reading: HDSD/Prompt-FCE-B2-Reading-Universal.txt
 • FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening.txt
 • CAE C1 Reading: HDSD/Prompt-CAE-C1-Reading.txt
 • CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening.txt
@@ -209,7 +209,10 @@ Bước 3 — Upload ZIP hoặc JSON + file → Lưu & làm bài
 Mẹo
 
 1. Đáp án từ answer key cuối PDF — điền thủ công, không cần AI
-2. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
+2. title đề: `KET A2 Reading — Book {B} — Test {T}` — Book từ KET A2_Cam {B}; gom đúng card CAMBRIDGE KET {B}
+3. passageTitle nên mô tả ("Part 4 — The coldest place to live"), không chỉ "PART 4 — QUESTIONS …"
+4. Phân đoạn: PDF có bao nhiêu đoạn → passage[] có bấy nhiêu block { "text": "..." } — không gộp \n\n
+5. Part 5 KET: 1 email (label From/To) hoặc 2 email (1 block/email); đáp án kép → answer: "a/one"
 3. Bundle mẫu KET Test 1 Reading: Tainguyen/ket-reading-test1.zip — Prompt-KET-A2.txt
 4. Bundle mẫu KET Test 1 Listening: Tainguyen/ket-listening-test1.zip — Prompt-KET-A2-Listening.txt
 5. Bundle mẫu PET Test 1 Listening: Tainguyen/pet-listening-test1.zip — Prompt-PET-B1-Listening.txt

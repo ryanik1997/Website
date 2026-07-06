@@ -19,7 +19,7 @@ export const EXAM_TRACKS: ExamTrack[] = [
   {
     id: 'cambridge',
     title: 'Cambridge A2–C2',
-    subtitle: 'KET · PET · FCE · CAE · CPE',
+    subtitle: 'Reading · Listening · Writing',
     description: 'Luyện thi theo từng cấp độ CEFR: Reading + Listening. Import thủ công JSON + ảnh/MP3 cho mỗi level.',
     skills: ['reading', 'listening'],
   },

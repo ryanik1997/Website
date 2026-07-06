@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import { X, Upload, Loader2, FileJson, AlertCircle, Check, BookOpen, Download, Archive } from 'lucide-react'
+import { X, Upload, Loader2, FileJson, AlertCircle, Check, BookOpen, Download, Archive, ImageIcon } from 'lucide-react'
 import { examRepo } from '@ryan/db'
 import { examRecordFromReading } from './examLoader'
 import { extractReadingZip } from './importReadingZip'
@@ -12,6 +12,7 @@ import {
   READING_IMPORT_MAX_MEDIA_BYTES,
   readingImportTemplate,
   parseReadingImportJson,
+  petPart2PersonImageFilename,
   validateReadingManualImport,
   type ReadingImportPayload,
 } from './importReadingManualUtils'
@@ -21,6 +22,21 @@ import {
   cambridgeImportGuideNote,
 } from './cambridgeReadingImportTemplates'
 import type { ReadingExamTrack } from './examData'
+import {
+  findKetPart6ImageFile,
+  findKetPart7ImageFiles,
+  isKetWritingImageFile,
+  KET_WRITING_IMAGE_HINT,
+  mergeKetWritingImagesIntoPayload,
+} from './ketWritingImportUtils'
+import {
+  findPetPart7ImageFile,
+  findPetPart8ImageFile,
+  isPetWritingImageFile,
+  mergePetWritingImagesIntoPayload,
+  PET_WRITING_IMAGE_HINT,
+} from './petWritingImportUtils'
+import PetPart2PhotoImportSlots from './petRw/PetPart2PhotoImportSlots'
 
 interface Props {
   onClose: () => void
@@ -45,6 +61,7 @@ export default function ImportReadingManualModal({
   const jsonInputRef = useRef<HTMLInputElement>(null)
   const mediaInputRef = useRef<HTMLInputElement>(null)
   const zipInputRef = useRef<HTMLInputElement>(null)
+  const writingImageInputRef = useRef<HTMLInputElement>(null)
 
   const [step, setStep] = useState<Step>('upload')
   const [jsonFile, setJsonFile] = useState<File | null>(null)
@@ -54,6 +71,49 @@ export default function ImportReadingManualModal({
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [sourceLabel, setSourceLabel] = useState<string | null>(null)
+  const [writingMergeNotes, setWritingMergeNotes] = useState<string[]>([])
+
+  const isKetA2 = cambridgeLevel === 'a2'
+  const isPetB1 = cambridgeLevel === 'b1'
+  const hasRwImageMerge = isKetA2 || isPetB1
+  const hasPetPart2 = Boolean(
+    isPetB1 && payload?.parts.some(p => p.partNumber === 2),
+  )
+
+  const assignPart2PersonPhoto = useCallback((questionNumber: number, file: File) => {
+    const name = petPart2PersonImageFilename(questionNumber)
+    const renamed = new File([file], name, { type: file.type || 'image/jpeg' })
+    setMediaFiles(prev => {
+      const map = new Map(prev.map(f => [f.name.toLowerCase(), f]))
+      map.set(name.toLowerCase(), renamed)
+      return Array.from(map.values())
+    })
+    setError(null)
+  }, [])
+
+  const finalizePayload = useCallback((
+    parsed: ReadingImportPayload,
+    files: File[],
+    label: string,
+    json: File | null,
+  ) => {
+    const merged = isKetA2
+      ? mergeKetWritingImagesIntoPayload(parsed, files)
+      : isPetB1
+        ? mergePetWritingImagesIntoPayload(parsed, files)
+        : { payload: parsed, merged: false, notes: [] as string[], extraMediaFiles: [] as File[] }
+
+    setJsonFile(json)
+    setSourceLabel(label)
+    setMediaFiles(files)
+    setPayload(merged.payload)
+    setWritingMergeNotes(merged.notes.filter(n => !n.startsWith('Part') || n.includes('ảnh')))
+    setWarnings([
+      ...validateReadingManualImport(merged.payload),
+      ...merged.notes.filter(n => n.includes('chưa') || n.includes('cần')),
+    ])
+    setStep('preview')
+  }, [isKetA2, isPetB1])
 
   const processJson = useCallback(async (file: File) => {
     setError(null)
@@ -64,15 +124,11 @@ export default function ImportReadingManualModal({
     try {
       const text = await file.text()
       const parsed = parseReadingImportJson(text)
-      setJsonFile(file)
-      setSourceLabel(file.name)
-      setPayload(parsed)
-      setWarnings(validateReadingManualImport(parsed))
-      setStep('preview')
+      finalizePayload(parsed, mediaFiles, file.name, file)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không đọc được JSON.')
     }
-  }, [])
+  }, [finalizePayload, mediaFiles])
 
   const addMediaFiles = useCallback((files: FileList | File[]) => {
     const list = Array.from(files).filter(isReadingMediaFile)
@@ -87,22 +143,53 @@ export default function ImportReadingManualModal({
       return Array.from(map.values())
     })
     setError(null)
-  }, [mediaFiles])
+    if (payload && hasRwImageMerge) {
+      const all = Array.from(new Map(
+        [...mediaFiles, ...list].map(f => [f.name.toLowerCase(), f]),
+      ).values())
+      finalizePayload(payload, all, sourceLabel ?? jsonFile?.name ?? 'import', jsonFile)
+    }
+  }, [finalizePayload, hasRwImageMerge, jsonFile, mediaFiles, payload, sourceLabel])
+
+  const addWritingImageFiles = useCallback((files: FileList | File[]) => {
+    const list = Array.from(files).filter(f => (
+      isKetWritingImageFile(f) || isPetWritingImageFile(f)
+    ))
+    if (!list.length) {
+      setError(isPetB1
+        ? 'Chọn JPG/PNG: part7-page.jpg, part8-page.jpg; tuỳ chọn part2-page.jpg, part4-page.jpg'
+        : 'Chọn file JPG/PNG: part6-page.jpg và/hoặc part7-p1…p3.jpg')
+      return
+    }
+    const totalSize = list.reduce((s, f) => s + f.size, mediaFiles.reduce((s, f) => s + f.size, 0))
+    if (totalSize > READING_IMPORT_MAX_MEDIA_BYTES) {
+      setError(`Ảnh quá lớn (tối đa ${formatBytes(READING_IMPORT_MAX_MEDIA_BYTES)}).`)
+      return
+    }
+    const merged = new Map(mediaFiles.map(f => [f.name.toLowerCase(), f]))
+    for (const f of list) merged.set(f.name.toLowerCase(), f)
+    const all = Array.from(merged.values())
+    setMediaFiles(all)
+    setError(null)
+    if (payload) {
+      finalizePayload(payload, all, sourceLabel ?? jsonFile?.name ?? 'import', jsonFile)
+    }
+  }, [finalizePayload, jsonFile, mediaFiles, payload, sourceLabel])
 
   const processZip = useCallback(async (file: File) => {
     setError(null)
     try {
       const bundle = await extractReadingZip(file)
-      setJsonFile(bundle.jsonFile)
-      setSourceLabel(bundle.zipName)
-      setPayload(bundle.payload)
-      setMediaFiles(bundle.mediaFiles)
-      setWarnings(validateReadingManualImport(bundle.payload))
-      setStep('preview')
+      finalizePayload(
+        bundle.payload,
+        bundle.mediaFiles,
+        bundle.zipName,
+        bundle.jsonFile,
+      )
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không giải nén được ZIP.')
     }
-  }, [])
+  }, [finalizePayload])
 
   async function handleSave() {
     if (!payload) return
@@ -137,6 +224,10 @@ export default function ImportReadingManualModal({
 
   const qCount = payload ? countReadingImportQuestions(payload) : 0
   const imageCount = mediaFiles.length
+  const ketPart6Image = isKetA2 ? findKetPart6ImageFile(mediaFiles) : null
+  const ketPart7Images = isKetA2 ? findKetPart7ImageFiles(mediaFiles) : []
+  const petPart7Image = isPetB1 ? findPetPart7ImageFile(mediaFiles) : null
+  const petPart8Image = isPetB1 ? findPetPart8ImageFile(mediaFiles) : null
 
   return (
     <div
@@ -178,6 +269,20 @@ export default function ImportReadingManualModal({
                   <li><strong>Part còn lại (A2–C2):</strong> copy text từ PDF vào <code>passage[].text</code> — cần text để <strong>Highlight</strong>.</li>
                   <li>Điền câu hỏi + đáp án vào <code>questionGroups</code>.</li>
                   <li>Upload JSON (+ ảnh Part 1 nếu có) hoặc ZIP → Preview → <strong>Lưu & làm bài</strong>.</li>
+                  {isKetA2 && (
+                    <li>
+                      <strong>KET Part 6–7:</strong> upload ảnh JPG —{' '}
+                      <code>part6-page.jpg</code> (đề email) + <code>part7-p1…p3.jpg</code> (3 ảnh truyện).
+                      App tự ghép vào đề 5-part.
+                    </li>
+                  )}
+                  {isPetB1 && (
+                    <li>
+                      <strong>PET Part 2/4/7–8:</strong> tuỳ chọn <code>part2-page.jpg</code>,{' '}
+                      <code>part2-q6…q10.jpg</code>, <code>part4-page.jpg</code>,{' '}
+                      <code>part7-page.jpg</code>, <code>part8-page.jpg</code> (1 ảnh).
+                    </li>
+                  )}
                 </ol>
                 <p className="text-xs pt-1">
                   {cambridgeImportGuideNote(cambridgeLevel)}
@@ -262,7 +367,7 @@ export default function ImportReadingManualModal({
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
                   {mediaFiles.length > 0
                     ? `${mediaFiles.length} ảnh · ${formatBytes(mediaFiles.reduce((s, f) => s + f.size, 0))}`
-                    : 'part1-p0.jpg, part1-p1.webp…'}
+                    : 'part1-q1.jpg, part1-page.jpg…'}
                 </p>
                 <input
                   ref={mediaInputRef}
@@ -275,6 +380,59 @@ export default function ImportReadingManualModal({
                   }}
                 />
               </div>
+
+              {hasRwImageMerge && (
+                <div
+                  className="rounded-xl border border-dashed p-5 text-center cursor-pointer"
+                  style={{
+                    borderColor: 'color-mix(in srgb, var(--color-primary) 35%, var(--border-color))',
+                    background: 'color-mix(in srgb, var(--color-primary) 6%, transparent)',
+                  }}
+                  onClick={() => writingImageInputRef.current?.click()}
+                >
+                  <ImageIcon size={22} className="mx-auto mb-2" style={{ color: 'var(--color-primary)' }} />
+                  <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                    {isPetB1 ? 'Part 2/4/7–8 bằng ảnh JPG' : 'Part 6–7 bằng ảnh JPG'}
+                  </p>
+                  <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                    {isPetB1
+                      ? (petPart7Image || petPart8Image
+                        ? [
+                          petPart7Image?.name,
+                          petPart8Image?.name,
+                        ].filter(Boolean).join(', ')
+                        : PET_WRITING_IMAGE_HINT)
+                      : (ketPart6Image || ketPart7Images.length > 0
+                        ? [
+                          ketPart6Image ? `P6: ${ketPart6Image.name}` : 'P6: chưa có',
+                          `P7: ${ketPart7Images.length}/3 ảnh`,
+                        ].join(' · ')
+                        : KET_WRITING_IMAGE_HINT)}
+                  </p>
+                  <p className="text-[11px] mt-2" style={{ color: 'var(--text-muted)' }}>
+                    {isPetB1
+                      ? 'Chọn sau JSON/ZIP — app ghép Part 7–8 và ảnh Part 2/4 tuỳ chọn.'
+                      : 'Chọn sau JSON/ZIP hoặc gộp trong cùng ZIP — app tự thêm Part 6–7.'}
+                  </p>
+                  <input
+                    ref={writingImageInputRef}
+                    type="file"
+                    accept=".jpg,.jpeg,.png,.webp,image/*"
+                    multiple
+                    className="hidden"
+                    onChange={e => {
+                      if (e.target.files) addWritingImageFiles(e.target.files)
+                    }}
+                  />
+                </div>
+              )}
+
+              {hasPetPart2 && (
+                <PetPart2PhotoImportSlots
+                  mediaFiles={mediaFiles}
+                  onAssignPhoto={assignPart2PersonPhoto}
+                />
+              )}
 
               {error && (
                 <p className="flex items-start gap-2 text-sm" style={{ color: 'var(--color-accent)' }}>
@@ -296,6 +454,27 @@ export default function ImportReadingManualModal({
                 </p>
               </div>
 
+              {hasPetPart2 && (
+                <PetPart2PhotoImportSlots
+                  mediaFiles={mediaFiles}
+                  onAssignPhoto={assignPart2PersonPhoto}
+                />
+              )}
+
+              {writingMergeNotes.length > 0 && (
+                <div
+                  className="rounded-xl border p-3 text-xs space-y-1"
+                  style={{
+                    borderColor: 'color-mix(in srgb, var(--color-primary) 30%, var(--border-color))',
+                    color: 'var(--text-muted)',
+                  }}
+                >
+                  {writingMergeNotes.map(n => (
+                    <p key={n} style={{ color: 'var(--color-primary)' }}>✓ {n}</p>
+                  ))}
+                </div>
+              )}
+
               {warnings.length > 0 && (
                 <div
                   className="rounded-xl border p-3 text-xs space-y-1"
@@ -315,6 +494,7 @@ export default function ImportReadingManualModal({
                   const passageBlocks = part.passage?.length ?? 0
                   const partQuestions = part.questionGroups.reduce((s, g) => s + g.questions.length, 0)
                   const imageRefs = (part.passage ?? []).filter(b => b.imageFile).length
+                  const isWritingPart = part.partNumber >= 6
                   return (
                     <div
                       key={part.partNumber}
@@ -325,8 +505,9 @@ export default function ImportReadingManualModal({
                         Part {part.partNumber}
                       </span>
                       <span style={{ color: 'var(--text-muted)' }}>
-                        {' '}— {part.passageTitle} · {partQuestions} câu · {passageBlocks} khối văn bản
-                        {imageRefs > 0 ? ` · ${imageRefs} ảnh trong JSON` : ''}
+                        {' '}— {part.passageTitle} · {partQuestions} câu
+                        {isWritingPart && imageRefs > 0 ? ' · import ảnh' : ` · ${passageBlocks} khối`}
+                        {imageRefs > 0 ? ` · ${imageRefs} ảnh` : ''}
                       </span>
                     </div>
                   )

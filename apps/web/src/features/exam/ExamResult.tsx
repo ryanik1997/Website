@@ -1,9 +1,13 @@
 import {
   formatReadingAnswer,
   getExamQuestions,
+  getScorableExamQuestions,
+  isCambridgeReadingWritingExam,
   isReadingAnswerCorrect,
+  isWritingTaskQuestion,
   type ReadingExam,
 } from './examData'
+import KetWritingGradePanel from './ketRw/KetWritingGradePanel'
 import './readingTest.css'
 
 interface Props {
@@ -14,9 +18,13 @@ interface Props {
 }
 
 export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
-  const questions = getExamQuestions(exam)
-  const correctCount = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
-  const scoreText = `${correctCount}/${questions.length}`
+  const allQuestions = getExamQuestions(exam)
+  const scorable = getScorableExamQuestions(exam)
+  const correctCount = scorable.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
+  const hasWriting = allQuestions.some(isWritingTaskQuestion)
+  const scoreText = scorable.length < allQuestions.length
+    ? `${correctCount}/${scorable.length} (Reading)`
+    : `${correctCount}/${scorable.length}`
 
   return (
     <div className="flex h-full min-h-0 flex-col overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
@@ -34,7 +42,9 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 {exam.title}
               </h1>
               <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                Đã nộp bài Reading. Xem đáp án, giải thích và làm lại nếu cần.
+                {hasWriting && isCambridgeReadingWritingExam(exam)
+                  ? 'Đã nộp bài Reading & Writing. Reading chấm tự động; Part 6–7 chấm bằng AI.'
+                  : 'Đã nộp bài Reading. Xem đáp án, giải thích và làm lại nếu cần.'}
               </p>
             </div>
 
@@ -75,7 +85,8 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 <div className="flex flex-col gap-4">
                   {part.questionGroups.flatMap(group => group.questions).map(question => {
                     const userAnswer = answers[question.id] ?? ''
-                    const isCorrect = isReadingAnswerCorrect(question, userAnswer)
+                    const isWriting = isWritingTaskQuestion(question)
+                    const isCorrect = isWriting ? null : isReadingAnswerCorrect(question, userAnswer)
 
                     return (
                       <article
@@ -83,15 +94,18 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                         className="rounded-2xl border p-4"
                         style={{
                           background: 'var(--bg-primary)',
-                          borderColor: isCorrect
-                            ? 'color-mix(in srgb, #22c55e 42%, var(--border-color))'
-                            : 'color-mix(in srgb, #ef4444 32%, var(--border-color))',
+                          borderColor: isWriting
+                            ? 'var(--border-color)'
+                            : isCorrect
+                              ? 'color-mix(in srgb, #22c55e 42%, var(--border-color))'
+                              : 'color-mix(in srgb, #ef4444 32%, var(--border-color))',
                         }}
                       >
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
                             Câu {question.number}
                           </span>
+                          {!isWriting && (
                           <span
                             className="rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em]"
                             style={{
@@ -103,6 +117,10 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                           >
                             {isCorrect ? 'Đúng' : 'Sai'}
                           </span>
+                          )}
+                          {isWriting && (
+                            <span className="reading-test-inferred-badge">Writing — chấm AI</span>
+                          )}
                           {question.answerConfidence === 'inferred' && (
                             <span className="reading-test-inferred-badge">Đáp án AI đoán</span>
                           )}
@@ -119,17 +137,27 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                               {formatReadingAnswer(question, userAnswer)}
                             </span>
                           </div>
+                          {!isWriting && (
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Đáp án đúng: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
                               {formatReadingAnswer(question, question.answer)}
                             </span>
                           </div>
+                          )}
                         </div>
 
-                        <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                          {question.explanation}
-                        </p>
+                        {isWriting && isCambridgeReadingWritingExam(exam) ? (
+                          <KetWritingGradePanel
+                            part={part}
+                            question={question}
+                            userAnswer={userAnswer}
+                          />
+                        ) : (
+                          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                            {question.explanation}
+                          </p>
+                        )}
                       </article>
                     )
                   })}

@@ -27,6 +27,7 @@ const VALID_QUESTION_TYPES: ReadingQuestionType[] = [
   'gap-fill',
   'summary-completion',
   'sentence-completion',
+  'writing-task',
 ]
 
 const VALID_GROUP_TYPES: ReadingQuestionGroup['type'][] = [
@@ -52,6 +53,7 @@ export interface ReadingImportQuestionJson {
   options?: Array<{ id: string; label: string }>
   answer: string
   explanation?: string
+  minWords?: number
 }
 
 export interface ReadingImportQuestionGroupJson {
@@ -105,6 +107,34 @@ export function readingExamMediaKey(examId: string, suffix: string): string {
   return `reading-exam:${examId}:${suffix}`
 }
 
+/** PET Part 2 — ảnh từng người Q6–10: part2-q6.jpg … part2-q10.jpg */
+export function petPart2PersonImageFilename(questionNumber: number): string {
+  return `part2-q${questionNumber}.jpg`
+}
+
+async function storePetPart2PersonImages(
+  examId: string,
+  partJson: ReadingImportPartJson,
+  mediaMap: Map<string, File>,
+): Promise<void> {
+  if (partJson.partNumber !== 2) return
+  const nums = new Set(
+    partJson.questionGroups.flatMap(g => g.questions.map(q => q.number)),
+  )
+  for (let n = 6; n <= 10; n += 1) {
+    if (!nums.has(n)) continue
+    const aliases = [
+      petPart2PersonImageFilename(n),
+      `part2-q${n}.jpeg`,
+      `part2-person${n}.jpg`,
+    ]
+    const imgFile = aliases.map(name => resolveMediaFile(mediaMap, name)).find(Boolean)
+    if (!imgFile) continue
+    const imageKey = readingExamMediaKey(examId, petPart2PersonImageFilename(n))
+    await audioRepo.put(imageKey, imgFile)
+  }
+}
+
 function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJson {
   const partNumber = Number(raw.partNumber) || 1
   const rawTitle = String(raw.passageTitle ?? raw.title ?? `Part ${partNumber}`).trim()
@@ -137,6 +167,7 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
         options: Array.isArray(item.options) ? item.options as ReadingImportQuestionJson['options'] : undefined,
         answer: String(item.answer ?? '').trim(),
         explanation: typeof item.explanation === 'string' ? item.explanation : undefined,
+        minWords: typeof item.minWords === 'number' ? item.minWords : undefined,
       }
     })
 
@@ -230,7 +261,7 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
     }
 
     const hasPassageContent = (part.passage ?? []).some(
-      block => block.text?.trim() || block.imageFile?.trim(),
+      block => Boolean(block.text?.trim()) || Boolean(block.imageFile?.trim()),
     )
     if (!hasPassageContent) {
       warnings.push(`Part ${part.partNumber}: passage trống — thêm text hoặc imageFile.`)
@@ -265,11 +296,15 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
       for (const q of group.questions) {
         totalQuestions += 1
         if (!q.prompt?.trim()) warnings.push(`Câu ${q.number}: thiếu prompt.`)
-        if (!q.answer?.trim()) warnings.push(`Câu ${q.number}: thiếu answer.`)
+        if (q.type !== 'writing-task' && !q.answer?.trim()) warnings.push(`Câu ${q.number}: thiếu answer.`)
         if (!VALID_QUESTION_TYPES.includes(q.type)) {
           warnings.push(`Câu ${q.number}: type "${q.type}" không hợp lệ.`)
         }
-        if ((q.type === 'multiple-choice' || q.type === 'matching-paragraph' || q.type === 'matching-features')
+        if (q.type === 'writing-task') {
+          if (!q.minWords || q.minWords < 1) {
+            warnings.push(`Câu ${q.number}: writing-task cần minWords (vd 25 hoặc 35).`)
+          }
+        } else if ((q.type === 'multiple-choice' || q.type === 'matching-paragraph' || q.type === 'matching-features')
           && (!q.options || q.options.length < 2)) {
           warnings.push(`Câu ${q.number}: thiếu options.`)
         }
@@ -360,6 +395,7 @@ export async function buildReadingExamFromImport(
         answer: qJson.answer,
         explanation: qJson.explanation ?? '',
         answerConfidence: 'key',
+        ...(qJson.minWords ? { minWords: qJson.minWords } : {}),
       }))
 
       return {
@@ -374,6 +410,8 @@ export async function buildReadingExamFromImport(
         questions,
       }
     })
+
+    await storePetPart2PersonImages(examId, partJson, mediaMap)
 
     parts.push({
       id: partId,

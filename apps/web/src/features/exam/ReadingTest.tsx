@@ -28,6 +28,9 @@ import { clearReadingDraft } from './examCompletion'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
 import { readingExamDurationMinutes } from './readingExamDuration'
 import { initialExamTimerSeconds } from './examTimer'
+import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
+import ReadingPetRwTest from './petRw/ReadingPetRwTest'
+import { isKetReadingWritingExam, isPetReadingWritingExam } from './examData'
 import './readingTest.css'
 
 const STORAGE_PREFIX = 'exam-reading-draft:'
@@ -44,6 +47,8 @@ export default function ReadingTest() {
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
   )
+  const useKetRwShell = exam ? isKetReadingWritingExam(exam) : false
+  const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
@@ -117,7 +122,7 @@ export default function ReadingTest() {
   }, [])
 
   useEffect(() => {
-    if (!exam) return
+    if (!exam || useKetRwShell) return
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setAnswers({})
@@ -153,17 +158,17 @@ export default function ReadingTest() {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
     }
-  }, [exam, storageKey])
+  }, [exam, storageKey, useKetRwShell])
 
   useEffect(() => {
-    if (!exam || !currentPart) return
+    if (!exam || useKetRwShell || !currentPart) return
     if (!partQuestions.some(q => q.id === activeQuestionId)) {
       setActiveQuestionId(partQuestions[0]?.id ?? null)
     }
   }, [activeQuestionId, currentPart, exam, partIndex, partQuestions])
 
   useEffect(() => {
-    if (!exam) return
+    if (!exam || useKetRwShell) return
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       timeLeft,
@@ -172,10 +177,10 @@ export default function ReadingTest() {
       activeQuestionId,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft])
+  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useKetRwShell])
 
   useEffect(() => {
-    if (!exam || submitted) return
+    if (!exam || useKetRwShell || submitted) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
@@ -186,7 +191,7 @@ export default function ReadingTest() {
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [exam, submitted, timeLeft])
+  }, [exam, submitted, timeLeft, useKetRwShell])
 
   const resetPaneScroll = useCallback(() => {
     const body = bodyRef.current
@@ -328,6 +333,14 @@ export default function ReadingTest() {
       patchFullMockSession({ stage: 'reading', reading: undefined })
     }
   }, [exam, fullMockId])
+
+  if (exam && useKetRwShell) {
+    return <ReadingKetRwTest />
+  }
+
+  if (exam && usePetRwShell) {
+    return <ReadingPetRwTest />
+  }
 
   if (exam === undefined) {
     return (

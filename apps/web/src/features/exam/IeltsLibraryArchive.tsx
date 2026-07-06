@@ -172,7 +172,11 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
     return filtered.books.find(b => b.book === selectedBookNum) ?? null
   }, [filtered.books, selectedBookNum])
 
-  const skillLabel = skill === 'listening' ? 'Listening' : 'Reading'
+  const skillLabel = skill === 'listening'
+    ? 'Listening'
+    : archiveMode === 'cambridge'
+      ? 'Reading · Writing'
+      : 'Reading'
   const searchPlaceholder = archiveMode === 'ielts'
     ? (skill === 'listening' ? 'Tìm bài nghe (VD: Cam 20)...' : 'Tìm bài đọc (VD: Cam 20)...')
     : (skill === 'listening'

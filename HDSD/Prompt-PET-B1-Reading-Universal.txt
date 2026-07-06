@@ -1,0 +1,641 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** PET B1 (Cambridge) vào web app "Ryan English".
+
+## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
+
+Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
+1. Test_{N}_Reading_PET_B1.pdf — đề Reading & Writing (Parts 1–8)
+2. Answer Key.pdf — đáp án Reading (Writing Part 7–8 không có key)
+3. part1-q1.jpg … part1-q5.jpg — 5 ảnh signs Part 1
+4. part7-page.jpg — screenshot trang đề Part 7 (Writing) — **tuỳ chọn ảnh thay text**
+5. part8-page.jpg — **1 ảnh** truyện Part 8 (3 khung trong 1 file) — **bắt buộc khi pack Writing**
+
+→ Đọc **Book** từ thư mục: `PET B1_Cam 1` → Book 1, `PET B1_Cam 2` → Book 2
+→ Đọc **Test** từ tên PDF / thư mục: `Test_3_Reading` hoặc `Test 3` → Test 3
+→ Xuất ZIP: pet-reading-test{N}.zip (tên file ZIP tuỳ ý; quan trọng là `title` trong exam.json)
+
+Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
+
+---
+
+## Deliverable
+
+ZIP pet-reading-test{N}.zip — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+part1-q1.jpg … part1-q5.jpg
+part7-page.jpg          ← Part 7 (ảnh đề Writing) HOẶC text trong JSON
+part8-page.jpg          ← Part 8 — CHỈ 1 ảnh (3 khung truyện trong 1 file)
+```
+
+**Tuỳ chọn** (layout / ảnh người — app ghép khi import):
+```
+part2-page.jpg          ← screenshot layout Part 2
+part2-q6.jpg … part2-q10.jpg   ← ảnh từng người (câu 6–10)
+part4-page.jpg          ← screenshot layout Part 4
+```
+
+```json
+{
+  "version": 1,
+  "title": "PET B1 Reading — Book {B} — Test {T}",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading & Writing",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [ /* 8 parts — Q1–34 */ ]
+}
+```
+
+**Chỉ 1 object JSON trong exam.json** — KHÔNG append đề test khác sau dấu `}`.
+
+---
+
+## ⚠ Title — gom đúng quyển trong Library
+
+**Bắt buộc** ghi `Book` trong title (app ưu tiên Book hơn công thức Test÷4):
+
+| Thư mục nguồn | title |
+|---------------|-------|
+| PET B1_Cam 1 / Test 1 | `"PET B1 Reading — Book 1 — Test 1"` |
+| PET B1_Cam 1 / Test 4 | `"PET B1 Reading — Book 1 — Test 4"` |
+| PET B1_Cam 2 / Test 1 | `"PET B1 Reading — Book 2 — Test 1"` |
+| PET B1_Cam 2 / Test 3 | `"PET B1 Reading — Book 2 — Test 3"` |
+
+- Card Library: **CAMBRIDGE PET 1** (Book 1) · **CAMBRIDGE PET 2** (Book 2)
+- **SAI:** `"PET B1 Reading — Test 6"` → app tự gom vào Book 2 (ceil(6/4))
+- **ĐÚNG:** `"PET B1 Reading — Book 1 — Test 6"` → vẫn nằm Book 1 nếu bạn cố ý
+
+---
+
+## ⚠ SCHEMA BẮT BUỘC — app từ chối nếu sai
+
+KHÔNG dùng: part, title (trong part), questions (ngoài questionGroups), id, question, options {label,text}.
+
+Mỗi part PHẢI có:
+- partNumber, rangeLabel, passageTitle
+- passage[] — mảng object (KHÔNG string)
+- questionGroups[] — MẢNG; mọi câu hỏi nằm TRONG questionGroups[].questions
+
+Mỗi câu PHẢI có:
+- number (KHÔNG id), type, prompt (KHÔNG question)
+- options: [{ "id": "A", "label": "..." }] khi cần (MC / matching-features)
+- answer, explanation
+
+---
+
+## ⚠ JSON HỢP LỆ — BẮT BUỘC (app từ chối nếu JSON.parse fail)
+
+`exam.json` phải là **JSON chuẩn RFC 8259** — app gọi `JSON.parse()` ngay khi import.
+**Một lỗi cú pháp → toàn bộ đề không import được** (không có cảnh báo từng câu).
+
+### 1. Dấu ngoặc kép `"` trong chuỗi — LỖI PHỔ BIẾN NHẤT
+
+Mọi giá trị text (`prompt`, `label`, `text`, `explanation`…) là chuỗi JSON.
+**Bên trong chuỗi KHÔNG được có dấu `"` ASCII trần** — phải escape `\"` hoặc **bỏ hẳn / thay bằng từ khác**.
+
+| SAI — JSON hỏng, import fail | ĐÚNG |
+|------------------------------|------|
+| `"explanation": "... từ "climate" trong đoạn ..."` | `"explanation": "... từ climate trong đoạn ..."` |
+| `"features": [{ "name": "A. Beckfield Market" }]` | `"name": "Beckfield Market"` (không prefix chữ cái) |
+| `"answer": "f (Purford)"` | `"answer": "f"` |
+
+**Quy tắc explanation (tiếng Việt):**
+- KHÔNG bọc từ tiếng Anh bằng `"..."` — ghi thẳng hoặc dùng nháy đơn `'climate'`
+- Nếu bắt buộc nhấn mạnh → dùng **dấu nháy đơn** `'...'` (an toàn trong JSON)
+
+### 2. Trường `answer` — chỉ giá trị chấm được, KHÔNG ghi chú
+
+| Loại câu | `answer` ĐÚNG | SAI |
+|----------|---------------|-----|
+| multiple-choice Part 1, 3 | `"a"` / `"b"` / `"c"` — chữ thường, 1 ký tự | `"A"`, `"c (best)"` |
+| multiple-choice Part 3 | `"a"` / `"b"` / `"c"` / `"d"` | `"D - option text"` |
+| multiple-choice Part 5 (cloze) | `"a"` / `"b"` / `"c"` / `"d"` | `"climate (C)"` |
+| matching-features Part 2, 4 | `"a"` … `"h"` — chữ thường, 1 ký tự | `"H - Frome Place"` |
+| gap-fill Part 6 | **một từ** tiếng Anh: `"every"`, `"if"` | `"every/each"`, `"if (when)"` |
+| gap-fill đáp án kép (key có 2 từ) | `"every/each"`, `"a|the"` — chỉ `/` hoặc `\|` | `"every or each"` |
+| writing-task Part 7–8 | `""` (chuỗi rỗng) | `"N/A"`, bỏ trường answer |
+
+Giải thích / ghi chú → để trong `explanation`, **không** nhét vào `answer`.
+
+### 3. Các lỗi JSON khác — KHÔNG được phép
+
+- **Hai JSON dính liền** — xuất Test 4 xong append Test 3: `}{` giữa 2 object
+- Trailing comma, comment `//`, smart quotes `"` `"`
+- Single quotes bọc key/value: `'answer': 'a'`
+- Xuống dòng trong chuỗi → dùng `\n` nếu cần
+
+### 4. Tên file ảnh trong `imageFile` — khớp file ZIP
+
+| SAI | ĐÚNG |
+|-----|------|
+| `"imageFile": "part2-q1.jpg"` (Part 1) | `"imageFile": "part1-q1.jpg"` |
+| Thiếu `part1-q2.jpg` … `part1-q5.jpg` | Đủ 5 file `part1-q1.jpg` … `part1-q5.jpg` |
+| Part 8: `part8-p1.jpg` … `part8-p3.jpg` (3 file) | Part 8: **1 file** `part8-page.jpg` |
+| Part 7: `part7-p1.jpg` (tên KET) | Part 7: `part7-page.jpg` |
+
+### 5. Tự kiểm tra TRƯỚC KHI xuất ZIP (bắt buộc)
+
+1. **JSON.parse** toàn bộ `exam.json` — nếu fail thì sửa, không giao file
+2. File chỉ có **1** object JSON (không có `}{` thừa)
+3. Đếm: **8 parts · 34 mục** (Q1–32 Reading + Q33–34 Writing)
+4. Part 2 & 4: đủ 8 mục A–H trong passage + features
+5. Part 5: 6 câu × 4 options, type `multiple-choice` (KHÔNG gap-fill)
+6. Part 6: 6 câu gap-fill ONE WORD
+7. Part 7–8: type `writing-task`, `minWords: 100`, `answer: ""`
+8. Part 8: passage[] có **đúng 1** block `imageFile` — không 3 ảnh như KET Part 7
+9. `imageFile` trong JSON = tên file thật trong ZIP
+
+---
+
+## 8 parts (34 mục) — giống nhau mọi test PET B1
+
+| Part | Câu | questionGroups.type | Options | Passage |
+|------|-----|---------------------|---------|---------|
+| 1 | 1–5 | multiple-choice | A/B/C | 5 ảnh part1-q1…q5 |
+| 2 | 6–10 | matching-features | A–H | 8 market label A–H (+ ảnh tuỳ chọn) |
+| 3 | 11–15 | multiple-choice | A/B/C/D | đọc hiểu — phân đoạn |
+| 4 | 16–20 | matching-features | A–H | gapped text + câu A–H (+ ảnh tuỳ chọn) |
+| 5 | 21–26 | multiple-choice | A/B/C/D | MC cloze — KHÔNG gap-fill |
+| 6 | 27–32 | gap-fill | — | open cloze ONE WORD |
+| 7 | 33 | writing-task | — | **ảnh** part7-page.jpg HOẶC text đề — minWords 100 |
+| 8 | 34 | writing-task | — | **1 ảnh** part8-page.jpg (bắt buộc) — minWords 100 |
+
+---
+
+## ⚠ Import Part 2/4/7–8 bằng ảnh JPG (app Ryan English)
+
+Dùng khi đề cũ chỉ có **6 part** (Reading) hoặc không muốn gõ text Part 7.
+
+### Trong ZIP / Import thủ công
+
+| File | Part | Ghi chú |
+|------|------|---------|
+| `part2-page.jpg` | Part 2 | Screenshot layout (tuỳ chọn). Alias: `part2.jpg` |
+| `part2-q6.jpg` … `part2-q10.jpg` | Part 2 | Ảnh từng người câu 6–10 (tuỳ chọn) |
+| `part4-page.jpg` | Part 4 | Screenshot layout gapped text (tuỳ chọn) |
+| `part7-page.jpg` | Part 7 | Screenshot trang đề Writing Q33. Alias: `part7.jpg` |
+| `part8-page.jpg` | Part 8 | **1 ảnh** — 3 khung truyện trong 1 file. Alias: `part8.jpg` |
+
+**⚠ Part 8 ≠ KET Part 7:**
+- KET A2 Part 7: **3 file** `part7-p1.jpg`, `part7-p2.jpg`, `part7-p3.jpg`
+- PET B1 Part 8: **1 file** `part8-page.jpg` — KHÔNG tách `part8-p1…p3`
+
+**App tự ghép** khi:
+- ZIP có `exam.json` **6 part** + ảnh Part 7–8, hoặc
+- Import JSON 6 part → bấm **「Part 2/4/7–8 bằng ảnh JPG」** → chọn ảnh
+
+Kết quả: thêm Part 7–8, `durationMinutes: 45`, `bandHint: "B1 Preliminary Reading & Writing"`.
+
+### Khi pack bằng AI
+
+- **Ưu tiên ảnh Part 7:** chụp/cắt từ PDF → `part7-page.jpg` + JSON `imageFile` (không cần gõ bullet đề).
+- **Part 8:** cắt **cả khung truyện 3 ô** thành **1 ảnh** → `part8-page.jpg`.
+- Có thể xuất ZIP **6 part JSON + ảnh Writing** — app ghép Part 7–8 lúc import.
+
+---
+
+## Part 1 (Q1–5) — Signs
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–5",
+  "passageTitle": "Signs and messages",
+  "passage": [
+    { "imageFile": "part1-q1.jpg" },
+    { "imageFile": "part1-q2.jpg" },
+    { "imageFile": "part1-q3.jpg" },
+    { "imageFile": "part1-q4.jpg" },
+    { "imageFile": "part1-q5.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 1–5",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "multiple-choice",
+    "questions": [
+      {
+        "number": 1,
+        "type": "multiple-choice",
+        "prompt": "[copy câu hỏi từ PDF]",
+        "options": [
+          { "id": "A", "label": "..." },
+          { "id": "B", "label": "..." },
+          { "id": "C", "label": "..." }
+        ],
+        "answer": "a",
+        "explanation": "[tiếng Việt ngắn]"
+      }
+    ]
+  }]
+}
+```
+
+- Ảnh cột trái; MC A/B/C cột phải — **không** gắn options vào passage.
+
+---
+
+## Part 2 (Q6–10) — Matching markets A–H ⚠
+
+App hiển thị (giống đề giấy / Giaodien Part2.jpg):
+- **Cột trái:** 5 người (ảnh `part2-q6…q10` nếu có) + mô tả từng người + ô kéo thả đáp án
+- **Cột phải:** danh sách market A–H — mỗi mục có **tiêu đề** `A Beckfield Market` (chữ đậm) và **đoạn mô tả** bên dưới
+
+Ví dụ hiển thị cột phải (app tách từ JSON):
+
+| Tiêu đề (đậm) | Đoạn mô tả (bên dưới) |
+|---------------|------------------------|
+| **A** Beckfield Market | This market's world-famous for second-hand camera equipment and books on photography. As well as an amazing range of cameras, we have old pictures of local places of interest for you to buy, and of course the stall owners are happy to give you advice for free! Don't miss our hot soup stall in cold weather. |
+| **B** Rosewell Hill | Our market's in an amazing building that's hundreds of years old. Visitors find our late-night opening hours convenient, and there are always performers entertaining the crowds. We've recently opened more stalls specializing in pictures both from well-known artists and also those beginning their careers. |
+| … | … |
+| **H** Frome Place | Stalls open during normal daytime shopping hours so, depending on the weather, there's plenty to entertain you the whole day. Try our sandwich bar if you're hungry, and look for an old copy of something by a favourite author. We also have gifts from all over the world. |
+
+**Tuỳ chọn:** ảnh `part2-page.jpg` thay cột phải (kéo thả chỉ hiện chữ A–H gọn).
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 6–10",
+  "passageTitle": "[tiêu đề bài, vd City markets]",
+  "passage": [
+    { "text": "The people below all want to visit a city market. Decide which market would be the most suitable for the people below." },
+    { "label": "A", "text": "Beckfield Market — This market's world-famous for second-hand camera equipment…" },
+    { "label": "B", "text": "Rosewell Hill — Our market's in an amazing building…" },
+    { "label": "C", "text": "Camberwall Market — There's lots to see…" },
+    { "label": "D", "text": "Cobbledown Road — A small market…" },
+    { "label": "E", "text": "Oldford Lane — Situated in the historic city centre…" },
+    { "label": "F", "text": "Purford Market — Close to museums and art galleries…" },
+    { "label": "G", "text": "Teddingley Market — Situated under historic city walls…" },
+    { "label": "H", "text": "Frome Place — Stalls open during normal daytime shopping hours…" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 6–10",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "matching-features",
+    "features": [
+      { "id": "a", "name": "Beckfield Market" },
+      { "id": "b", "name": "Rosewell Hill" },
+      { "id": "c", "name": "Camberwall Market" },
+      { "id": "d", "name": "Cobbledown Road" },
+      { "id": "e", "name": "Oldford Lane" },
+      { "id": "f", "name": "Purford Market" },
+      { "id": "g", "name": "Teddingley Market" },
+      { "id": "h", "name": "Frome Place" }
+    ],
+    "questions": [
+      {
+        "number": 6,
+        "type": "matching-features",
+        "prompt": "[mô tả người từ PDF]",
+        "options": [
+          { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+          { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+          { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+          { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+        ],
+        "answer": "f",
+        "explanation": "[tiếng Việt ngắn]"
+      }
+    ]
+  }]
+}
+```
+
+Quy tắc Part 2:
+- `passage[].label` = **một chữ** A–H (không ghi `A Beckfield Market` vào label)
+- `passage[].text` = `Tên market — mô tả đầy đủ` — dấu `—` (em-dash) tách **tiêu đề** và **đoạn mô tả**; app hiển thị tiêu đề đậm + đoạn bên dưới
+- `features[]` = **chỉ tên ngắn** (Beckfield Market, Rosewell Hill…) — dùng khi thiếu passage text; KHÔNG copy full paragraph vào features
+- Đủ **8 market** A–H — không bỏ C/D/E/F
+- Copy **nguyên văn** đoạn mô tả từ PDF — không rút gọn sau dấu `—`
+- **Ảnh người Q6–10:** `part2-q6.jpg` … `part2-q10.jpg` — ô 2×3.5 cm bên cạnh mỗi câu; import ZIP hoặc bấm từng ô trong app
+- **Tuỳ chọn layout:** `{ "imageFile": "part2-page.jpg" }` **đầu** passage[] + file ZIP
+
+---
+
+## Part 3 (Q11–15) — Reading comprehension
+
+PDF có khung: tiêu đề bold → subtitle italic (nếu có) → các đoạn thân bài.
+
+| PDF (trong khung) | JSON |
+|-------------------|------|
+| Tiêu đề bold | passageTitle |
+| Dòng italic | passageSubtitle |
+| Mỗi đoạn thân bài | passage[] — **1 block / đoạn** |
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 11–15",
+  "passageTitle": "[tiêu đề bold]",
+  "passageSubtitle": "[dòng italic, nếu có]",
+  "passage": [
+    { "text": "[đoạn 1]" },
+    { "text": "[đoạn 2]" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 11–15",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "multiple-choice",
+    "questions": [ /* 5 câu 11–15, mỗi câu 4 options A–D */ ]
+  }]
+}
+```
+
+---
+
+## Part 4 (Q16–20) — Gapped text + câu A–H ⚠
+
+App hiển thị:
+- **Cột trái:** bài có gap `(16) ........` + block "Sentences" + câu A–H — hoặc ảnh `part4-page.jpg`
+- **Cột phải:** Gap 16–20 + kéo thả A–H
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 16–20",
+  "passageTitle": "[tiêu đề bài, vd A new life]",
+  "passage": [
+    { "text": "[đoạn 1 có (16) ........]" },
+    { "text": "[đoạn 2 có (17)…(18)…]" },
+    { "text": "Sentences" },
+    { "label": "A", "text": "That's why I knew it was a terrible plan." },
+    { "label": "B", "text": "I had trained in icy water in the UK so the crystal clear warm water felt amazing." },
+    { "label": "C", "text": "They always ask lots of questions." },
+    { "label": "D", "text": "I work far harder than I used to." },
+    { "label": "E", "text": "I began joking to friends about sending in an application." },
+    { "label": "F", "text": "Afterwards, some people were surprised by my decision but I wasn't too worried." },
+    { "label": "G", "text": "I decided I needed a break." },
+    { "label": "H", "text": "I needed to explain that first." }
+  ],
+  "questionGroups": [{
+    "range": "Questions 16–20",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "matching-features",
+    "features": [
+      { "id": "a", "name": "That's why I knew it was a terrible plan." },
+      { "id": "b", "name": "I had trained in icy water in the UK…" }
+    ],
+    "questions": [
+      {
+        "number": 16,
+        "type": "matching-features",
+        "prompt": "Gap (16)",
+        "options": [
+          { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+          { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+          { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+          { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+        ],
+        "answer": "g",
+        "explanation": "[tiếng Việt ngắn]"
+      }
+    ]
+  }]
+}
+```
+
+Quy tắc Part 4:
+- `features[].name` = **chỉ nội dung câu** — không prefix `"A."` hay `"A —"`
+- Đủ **8 câu** A–H trong passage (3 câu thừa không dùng cho gap)
+- Giữ `(16) ........` … `(20) ........` (8 chấm) trong passage
+- Thân bài: **mỗi đoạn PDF = 1 block** — KHÔNG gộp `\n\n`
+- **Tuỳ chọn ảnh:** thay toàn bộ passage bằng `[{ "imageFile": "part4-page.jpg" }]` + file trong ZIP
+
+---
+
+## Part 5 (Q21–26) — Multiple-choice cloze ⚠
+
+Đề gốc PET Part 5: mỗi gap chọn **1 trong 4 từ** A/B/C/D — **KHÔNG gap-fill** tự gõ.
+
+```json
+{
+  "partNumber": 5,
+  "rangeLabel": "Questions 21–26",
+  "passageTitle": "[tiêu đề bài, vd The Coconut Tree]",
+  "passage": [
+    { "text": "[đoạn có (21) ........ … (26) ........]" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 21–26",
+    "instruction": "For each question, choose the correct answer.",
+    "type": "multiple-choice",
+    "questions": [
+      {
+        "number": 21,
+        "type": "multiple-choice",
+        "prompt": "Gap (21)",
+        "options": [
+          { "id": "A", "label": "temperature" },
+          { "id": "B", "label": "condition" },
+          { "id": "C", "label": "climate" },
+          { "id": "D", "label": "weather" }
+        ],
+        "answer": "c",
+        "explanation": "[tiếng Việt ngắn]"
+      }
+    ]
+  }]
+}
+```
+
+---
+
+## Part 6 (Q27–32) — Open cloze (ONE WORD)
+
+```json
+{
+  "partNumber": 6,
+  "rangeLabel": "Questions 27–32",
+  "passageTitle": "[tiêu đề bài]",
+  "passage": [
+    { "text": "[đoạn có (27) ........ … (32) ........]" }
+  ],
+  "questionGroups": [{
+    "range": "Questions 27–32",
+    "instruction": "Write ONE word for each gap.",
+    "type": "gap-fill",
+    "questions": [
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Gap (27)",
+        "options": [],
+        "answer": "every",
+        "explanation": "every time = mỗi lần."
+      }
+    ]
+  }]
+}
+```
+
+### Đáp án kép (answer key có 2 từ chấp nhận)
+
+```json
+{
+  "number": 27,
+  "type": "gap-fill",
+  "prompt": "Gap (27)",
+  "answer": "every/each",
+  "explanation": "every hoặc each (theo answer key)."
+}
+```
+
+- Giữ Example `(0) are` nếu PDF có — KHÔNG tạo câu hỏi số 0
+- Gaps: `(27) ........` … `(32) ........` (8 chấm)
+
+---
+
+## Part 7 (Q33) — Writing extended message ⚠
+
+App hiển thị: **cột trái** đề (ảnh hoặc text) · **cột phải** textarea viết bài.
+
+### Cách A — Ảnh (khuyến nghị nếu có screenshot PDF)
+
+```json
+{
+  "partNumber": 7,
+  "rangeLabel": "Question 33",
+  "passageTitle": "Writing Part 7",
+  "passage": [
+    { "imageFile": "part7-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 33",
+    "instruction": "Write 100 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 33,
+      "type": "writing-task",
+      "prompt": "Write your answer in the box on the right.",
+      "options": [],
+      "answer": "",
+      "minWords": 100,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+ZIP: `part7-page.jpg`
+
+### Cách B — Text (copy từ PDF)
+
+```json
+{
+  "partNumber": 7,
+  "rangeLabel": "Question 33",
+  "passageTitle": "Writing Part 7",
+  "passage": [
+    { "text": "[copy nguyên đề Part 7 từ PDF — gồm bullet / hướng dẫn viết]" }
+  ],
+  "questionGroups": [{
+    "range": "Question 33",
+    "instruction": "Write 100 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 33,
+      "type": "writing-task",
+      "prompt": "Write your answer in the box on the right.",
+      "options": [],
+      "answer": "",
+      "minWords": 100,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+- `answer` để `""` — Reading chấm tự động; Writing chấm AI sau Submit
+- Bắt buộc `minWords`: 100
+- Có thể dùng **Cách A (ảnh)** hoặc **Cách B (text)** — không gộp cả hai trừ khi PDF có thêm ghi chú
+
+---
+
+## Part 8 (Q34) — Writing picture story ⚠
+
+**CHỈ 1 ẢNH** — đề PET có 3 khung truyện trong **một** screenshot/comic strip.
+
+```json
+{
+  "partNumber": 8,
+  "rangeLabel": "Question 34",
+  "passageTitle": "Writing Part 8",
+  "passage": [
+    { "imageFile": "part8-page.jpg" }
+  ],
+  "questionGroups": [{
+    "range": "Question 34",
+    "instruction": "Write 100 words or more.",
+    "type": "sentence-completion",
+    "questions": [{
+      "number": 34,
+      "type": "writing-task",
+      "prompt": "Look at the picture. Write the story shown in the picture. Write 100 words or more.",
+      "options": [],
+      "answer": "",
+      "minWords": 100,
+      "explanation": "Writing — chấm bằng AI."
+    }]
+  }]
+}
+```
+
+- ZIP **bắt buộc** có `part8-page.jpg` (alias: `part8.jpg`, `part8-prompt.jpg`)
+- `passage[]` chỉ **1** block `imageFile` — KHÔNG dùng `part8-p1.jpg` … `part8-p3.jpg` (đó là quy ước KET, không phải PET)
+- `minWords`: 100
+- App hiển thị: ảnh truyện + textarea viết story phía dưới
+
+---
+
+## Quy tắc bắt buộc (mọi test)
+
+1. Đủ **Q1–34** (Reading 1–32 + Writing 33–34), không nhảy số
+2. Chỉ dùng PDF + Answer Key — không bịa
+3. **Phân đoạn theo PDF:** PDF có bao nhiêu đoạn → passage[] có bấy nhiêu block. KHÔNG gộp `\n\n`
+4. Part 2–6: passage[].text bắt buộc (Highlight) — trừ khi Part 2/4 dùng ảnh layout
+5. Part 7: `part7-page.jpg` HOẶC passage[].text · Part 8: **1 ảnh** `part8-page.jpg`
+6. answer: matching → `a`–`h`; MC → `a`–`d` (hoặc `a`–`c` Part 1); gap-fill → một từ; kép → `every/each`; writing → `""`
+7. explanation: tiếng Việt ngắn — **KHÔNG** dấu `"` ASCII bọc từ trong chuỗi JSON
+8. passageTitle = tiêu đề nội dung bài, KHÔNG "PART N — QUESTIONS"
+9. exam.json = **đúng 1 object JSON** — không append test khác
+10. ZIP ≤ 40MB, UTF-8, không __MACOSX, không thư mục con
+
+## Lỗi thường gặp
+
+| Lỗi | Đúng |
+|-----|------|
+| Hai JSON dính `}{` trong 1 file | Chỉ 1 object; JSON.parse trước khi xuất |
+| `"explanation": "... từ "climate" ..."` | Bỏ nháy kép / dùng `'climate'` |
+| `"answer": "f (Purford)"` | `"answer": "f"` |
+| Part 2: features copy full text market | features = tên ngắn; full text sau dấu `—` trong passage |
+| Part 2: chỉ hiện tên market, không có đoạn mô tả | `text` phải có `Tên — đoạn đầy đủ` (em-dash), không chỉ tên |
+| Part 2: thiếu market C–F | Đủ 8 block label A–H |
+| Part 4: câu A–H chỉ trong features | Thêm passage label A–H sau "Sentences" |
+| Part 5: dùng gap-fill | Part 5 = multiple-choice + 4 options/gap |
+| Part 1: gắn đáp án vào passage | Chỉ ảnh; MC ở questions[] |
+| Ảnh `part2-q*.jpg` cho Part 1 | `part1-q1.jpg` … `part1-q5.jpg` |
+| Bỏ Writing Part 7–8 | Pack đủ 8 part hoặc 6 part + ảnh Part 7–8 |
+| Part 8 tách 3 ảnh `part8-p1…p3` | **1 ảnh** `part8-page.jpg` (3 khung trong 1 file) |
+| Part 7 dùng tên `part7-p1.jpg` (KET) | PET Part 7: `part7-page.jpg` |
+| Part 7–8 thiếu sau import 6-part | Thêm `part7-page.jpg` + `part8-page.jpg` vào ZIP hoặc import ảnh trong app |
+| Part 8 `passage` có 3 block imageFile | Chỉ **1** block `{ "imageFile": "part8-page.jpg" }` |
+
+---
+
+## Việc làm
+
+1. Xác định Book {B} + Test {T} từ thư mục / tên PDF
+2. Đọc PDF → **8 parts** (Reading 1–6 + Writing 7–8) · hoặc 6 part Reading + ảnh Writing
+3. Part 1: export 5 ảnh signs
+4. Part 2: 8 market passage + features tên ngắn (+ ảnh layout/người tuỳ chọn)
+5. Part 4: gapped text + 8 câu passage A–H (+ ảnh layout tuỳ chọn)
+6. Part 7: `part7-page.jpg` HOẶC copy text đề
+7. Part 8: cắt **1 ảnh** `part8-page.jpg` (3 khung truyện)
+8. Answer Key → answer + explanation (Reading only)
+9. **JSON.parse(exam.json) PASS** → validate schema + Part 2/4 đủ A–H + Part 5 MC + Part 6 gap-fill + Part 7–8 writing-task
+10. Xuất pet-reading-test{N}.zip — gồm ảnh Part 7–8 (và Part 2/4 tuỳ chọn)
+11. Bảng tóm tắt: Part | Câu | Type | Số block passage | Ảnh (nếu có) | Đáp án
+
+Bundle mẫu 6 part (Reading): `Tainguyen/pet-reading-test1.zip`
+Bundle mẫu 8 part: thêm Part 7–8 + `part7-page.jpg` + `part8-page.jpg`
+
+Bắt đầu xử lý file đính kèm.

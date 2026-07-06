@@ -92,7 +92,7 @@ PART5_INSTRUCTION = (
 
 EXAM = {
     "version": 1,
-    "title": "KET A2 Listening — Test 1",
+    "title": "KET A2 Listening — Book 1 — Test 1",
     "durationMinutes": 35,
     "bandHint": "A2 Key Listening · 5 parts · 25 câu",
     "examType": "ket",
