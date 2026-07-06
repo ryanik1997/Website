@@ -132,9 +132,22 @@ Chi tiết + ví dụ ZIP: **HDSD/Prompt-FCE-B2-Reading-Universal.txt**
 Chi tiết + ví dụ ZIP + đáp án Test 1: **HDSD/Prompt-CAE-C1-Reading.txt**
 Bundle mẫu: `Tainguyen/cae-Reading-test1/` · Builtin: `catalog-reading-cae-c1-test1`
 
-### C2 — CPE (7 parts · 53 câu)
+### C2 — CPE (9 parts RW · 53 mục)
 
-Giống B2/C1; Part 7 multiple matching Q43–53.
+| Part | Câu | Type |
+|------|-----|------|
+| 1 | 1–8 | multiple-choice (cloze A–D) |
+| 2 | 9–16 | gap-fill (open cloze) |
+| 3 | 17–24 | gap-fill (word formation) |
+| 4 | 25–30 | gap-fill (key word transformation, 3–8 từ gồm KEY) |
+| 5 | 31–36 | multiple-choice (reading A–D) |
+| 6 | 37–43 | matching-features (gapped text + paragraphs A–H) |
+| 7 | 44–53 | matching-features (sections A–E) |
+| 8 | Q1 | writing-task (essay 240–280 từ, part8-page.jpg) |
+| 9 | Q2–4 | writing-task (choice 280–320 từ, part9-page.jpg) |
+
+Chi tiết + ví dụ ZIP + đáp án Test 1: **HDSD/Prompt-CPE-C2-Reading-Universal.txt**
+Bundle mẫu: `Tainguyen/cpe-Reading-test1/` · Builtin: `catalog-reading-cpe-c2-test1`
 
 ---
 

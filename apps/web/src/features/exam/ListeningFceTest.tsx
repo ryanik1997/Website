@@ -232,6 +232,13 @@ export default function ListeningFceTest({ exam }: Props) {
           <Bell size={19} />
           <Menu size={22} />
           <Edit3 size={19} />
+          <button
+            type="button"
+            className="listening-ket-cambridge__exit"
+            onClick={() => navigate(listeningExamBackPath(exam))}
+          >
+            Exit
+          </button>
         </div>
       </header>
 

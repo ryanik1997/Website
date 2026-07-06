@@ -1,0 +1,166 @@
+# Chủ đề từ vựng preset — Ryan English
+
+Dùng kèm **HDSD/Prompt-Vocab-Universal.txt** khi nhờ AI tạo file import.
+
+Mỗi chủ đề = 1 **bộ (deck)** trong app. User tạo/chọn deck trùng tên → import CSV.
+
+---
+
+## Nhóm IELTS (8 bộ)
+
+| Bộ | Mô tả | Gợi ý nội dung | Số từ |
+|----|-------|----------------|-------|
+| Môi trường | Khí hậu, tài nguyên, bền vững | climate change, carbon footprint, renewable energy, run out of | ~100 |
+| Công nghệ | AI, số hóa, an ninh mạng | artificial intelligence, breakthrough, go offline, data breach | ~100 |
+| Xã hội & Văn hóa | Cộng đồng, bản sắc, xã hội | cultural diversity, social inequality, integrate into | ~100 |
+| Lịch sử & Khảo cổ học | Di sản, khảo cổ, văn minh | archaeological site, ancient civilization, date back to | ~100 |
+| Kinh tế & Kinh doanh | Thị trường, tài chính, thương mại | supply and demand, economic growth, go bankrupt | ~100 |
+| Sức khỏe & Y tế | Y học, dịch tễ, lối sống | immune system, chronic disease, cut down on | ~100 |
+| Giáo dục & Tâm lý học | Học tập, nhận thức, hành vi | cognitive development, peer pressure, fall behind | ~100 |
+| Đô thị & Kiến trúc | Quy hoạch, đô thị hóa | urban sprawl, high-rise building, pedestrian zone | ~100 |
+
+**Prompt bổ sung khi pack IELTS:**
+```
+Chủ đề: IELTS — [TÊN BỘ]. Level B2–C1. Trộn ~70% từ học thuật đơn + ~30% collocation/cụm (phrasal verb, academic phrase). Mỗi từ có example 1 câu có thể dùng trong Writing Task 2 hoặc Speaking Part 3. Xuất CSV UTF-8.
+```
+
+---
+
+## Nhóm Oxford (8 bộ) — Đời sống / giao tiếp
+
+| Bộ | Gợi ý nội dung |
+|----|----------------|
+| Đời sống hằng ngày | get up, household chores, hang out with, grocery shopping |
+| Du lịch & Văn hóa | check in, local customs, off the beaten track, travel insurance |
+| Công việc & Sự nghiệp | apply for a job, work overtime, get promoted, deadline |
+| Học đường | hand in homework, sit an exam, fall asleep in class |
+| Ẩm thực & Sức khỏe | balanced diet, food allergy, work out, stay in shape |
+| Thiên nhiên | wildlife, heavy shower, go hiking, endangered species |
+| Nghệ thuật & Giải trí | live performance, binge-watch, pick up a hobby |
+| Khoa học phổ thông | conduct an experiment, solar panel, breakthrough |
+
+**Prompt bổ sung:**
+```
+Chủ đề: Oxford — [TÊN BỘ]. Level A2–B2, giao tiếp đời thường. Ưu tiên cụm dùng hàng ngày (phrasal verb, collocation). Example = câu hội thoại ngắn. ~100–120 mục. CSV.
+```
+
+---
+
+## Nhóm TOEIC (8 bộ) — Business English
+
+| Bộ | Gợi ý nội dung |
+|----|----------------|
+| Văn phòng & Họp | schedule a meeting, minutes of the meeting, follow up on |
+| Công tác & Du lịch | business trip, layover, expense report, book a flight |
+| Tài chính & Ngân hàng | interest rate, wire transfer, break even, accounts payable |
+| Marketing & Bán hàng | target audience, launch a campaign, close a deal |
+| Nhân sự | job opening, performance review, severance pay |
+| Sản xuất & Logistics | assembly line, lead time, out of stock, warehouse |
+| Hợp đồng & Pháp lý | binding agreement, breach of contract, terms and conditions |
+| CNTT doanh nghiệp | roll out an update, downtime, cloud storage |
+
+**Prompt bổ sung:**
+```
+Chủ đề: TOEIC — [TÊN BỘ]. Level B1–B2 business. Cụm văn phòng + thuật ngữ chuyên ngành. Example = câu email / họp. ~120–150 mục. CSV.
+```
+
+---
+
+## Nhóm Học thuật (8 bộ)
+
+| Bộ | Gợi ý nội dung |
+|----|----------------|
+| Phương pháp nghiên cứu | hypothesis, sample size, peer-reviewed, carry out research |
+| Viết học thuật | thesis statement, cite a source, paraphrase, literature review |
+| Thống kê & Dữ liệu | correlation, standard deviation, statistically significant |
+| Triết học | ethical dilemma, rational argument, draw a conclusion |
+| Xã hội học | social norm, demographic, qualitative study |
+| Sinh học | ecosystem, genetic mutation, natural selection |
+| Vật lý | kinetic energy, electromagnetic, particle accelerator |
+| Kinh tế học | inflation, fiscal policy, market equilibrium |
+
+**Prompt bổ sung:**
+```
+Chủ đề: Học thuật — [TÊN BỘ]. Level C1. Thuật ngữ academic word list + collocation học thuật. Example = câu trích journal style. ~100 mục. CSV.
+```
+
+---
+
+## Nhóm SAT (8 bộ)
+
+| Bộ | Gợi ý nội dung |
+|----|----------------|
+| Đọc hiểu SAT | ambiguous, corroborate, infer from, in light of |
+| Toán SAT | quadratic equation, proportion, perpendicular |
+| Khoa học SAT | photosynthesis, catalyst, control group |
+| Lịch sử & Chính trị | ratify, amendment, civil rights |
+| Văn học | metaphor, narrative voice, foreshadowing |
+| Ngữ pháp nền | subordinate clause, dangling modifier, parallel structure |
+| Lập luận | premise, counterargument, logical fallacy |
+| Chuẩn bị đại học | tuition fee, financial aid, extracurricular activity |
+
+**Prompt bổ sung:**
+```
+Chủ đề: SAT — [TÊN BỘ]. Từ vựng SAT/high school advanced. Nhiều tính từ/động từ trừu tượng + cụm academic. ~100–200 mục. CSV.
+```
+
+---
+
+## Nhóm TOEFL (8 bộ)
+
+| Bộ | Gợi ý nội dung |
+|----|----------------|
+| Đời sống campus | dormitory, register for classes, dining hall |
+| Bài giảng & Ghi chú | take notes, office hours, prerequisite course |
+| Khoa học TOEFL | lab experiment, hypothesis testing, field study |
+| Khoa học xã hội | survey data, behavioral pattern, case study |
+| Kỹ năng tích hợp | summarize the lecture, compare and contrast |
+| Ngữ cảnh nghe | announcement, listen for main idea |
+| Chủ đề Speaking | in my opinion, for instance, agree or disagree |
+| Chủ đề Writing | support your argument, on balance, to sum up |
+
+**Prompt bổ sung:**
+```
+Chủ đề: TOEFL — [TÊN BỘ]. Level B2–C1 campus/academic. Example phù hợp Listening/Speaking/Writing TOEFL. ~120 mục. CSV.
+```
+
+---
+
+## Bộ tùy chỉnh (không preset)
+
+User tự **Tạo bộ mới** trong app → đặt tên tuỳ ý (vd. "Cambridge B2 — Unit 5", "Travel phrases").
+
+**Prompt:**
+```
+Chủ đề: [USER MÔ TẢ]. Level [A2/B1/B2/C1]. Từ nguồn: [PDF/ảnh/list]. Trộn từ đơn + cụm từ. Xuất CSV theo Prompt-Vocab-Universal.txt.
+```
+
+---
+
+## Ví dụ gọi AI (copy-paste)
+
+```
+Đính kèm: HDSD/Prompt-Vocab-Universal.txt
+
+Tạo file CSV import từ vựng:
+- Chủ đề: IELTS — Môi trường
+- Số lượng: 100 mục
+- Trộn: 70 từ đơn học thuật + 30 cụm (phrasal verb + collocation)
+- Mỗi dòng: phrase, meaning, example, pos (bỏ ipaUS nếu không chắc)
+- Có ít nhất: get rid of, run out of, climate change, carbon emissions, renewable energy
+
+Xuất nội dung CSV đầy đủ (không placeholder).
+```
+
+---
+
+## File đặt tên gợi ý
+
+| Chủ đề | Tên file |
+|--------|----------|
+| IELTS Môi trường | `ielts-moi-truong.csv` |
+| TOEIC Văn phòng | `toeic-van-phong-hop.csv` |
+| Oxford Du lịch | `oxford-du-lich-van-hoa.csv` |
+| Tùy chỉnh Unit 5 | `cambridge-b2-unit5.csv` |
+
+**Code preset decks:** `apps/web/src/features/vocab/vocabSeedDecks.ts`

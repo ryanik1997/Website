@@ -82,8 +82,12 @@ Builtin: catalog-reading-cae-c1-test1 — 10 parts RW (pnpm build:catalog)
 UI: ReadingCaeRwTest · P6 Reviewer A–D · P8 Consultant A–E · P9–10 Writing (part9/10-page.jpg)
 Ảnh Writing: part9-page.jpg (Q57) + part10-page.jpg (Q58) — mỗi part 1 ảnh
 
-C2 CPE — 7 parts · 53 câu
-Giống FCE/CAE; Part 7 multiple matching Q43–53
+C2 CPE — bundle mẫu: cpe-Reading-test1/ (Tainguyen/)
+Prompt AI: HDSD/Prompt-CPE-C2-Reading-Universal.txt (§ JSON HỢP LỆ)
+Pack ZIP: exam.json + part8-page.jpg + part9-page.jpg
+Builtin: catalog-reading-cpe-c2-test1 — 9 parts RW (pnpm build:catalog)
+UI: ReadingCpeRwTest · P4 transform 1 câu/lần · P6 gapped A–H · P7 sections A–E · P8–9 Writing (ảnh only)
+Ảnh Writing: part8-page.jpg (Q1 essay) + part9-page.jpg (Q2–4 choice) — mỗi part 1 ảnh, không text passage
 
 Mỗi câu hỏi:
 • prompt — copy từ đề
@@ -103,17 +107,20 @@ App cảnh báo nếu Part sai type (vd A2 Part 4 dùng gap-fill thay vì MC).
 Prompt AI tạo ZIP (Claude / ChatGPT)
 
 • KET A2 Reading: HDSD/Prompt-KET-A2.txt
-• KET A2 Listening: HDSD/Prompt-KET-A2-Listening.txt
+• KET A2 Listening: HDSD/Prompt-KET-A2-Listening-Universal.txt
 • PET B1 Reading: HDSD/Prompt-PET-B1.txt
-• PET B1 Listening: HDSD/Prompt-PET-B1-Listening.txt
+• PET B1 Listening: HDSD/Prompt-PET-B1-Listening-Universal.txt
 • FCE B2 Reading: HDSD/Prompt-FCE-B2-Reading-Universal.txt
-• FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening.txt
+• FCE B2 Listening: HDSD/Prompt-FCE-B2-Listening-Universal.txt
 • CAE C1 Reading: HDSD/Prompt-CAE-C1-Reading-Universal.txt
-• CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening.txt
+• CPE C2 Reading: HDSD/Prompt-CPE-C2-Reading-Universal.txt
+• CAE C1 Listening: HDSD/Prompt-CAE-C1-Listening-Universal.txt
+• CPE C2 Listening: HDSD/Prompt-CPE-C2-Listening-Universal.txt
 • IELTS Listening Cam 9 + 20: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
 • IELTS Listening import: HDSD/Import Listening IELTS.txt
 • JSON mẫu Part 1: templates/ielts-listening-p1-form.json (a3) · p1-table (a2) · p1-mixed-a4 · p1-mixed-a5
-• Mọi level A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+• Mọi level Reading A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+• Mọi level Listening A2–C2: HDSD/Prompt-Listening-Cambridge.txt
 
 Đính kèm: PDF đề + Answer Key + ảnh Part 1 (nếu có).
 
@@ -135,7 +142,7 @@ A2 KET — 5 parts · 25 câu
 └──────┴────────┴───────────────────┴─────────────────────────────┘
 
 A2 KET — bundle mẫu: ket-listening-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-KET-A2-Listening.txt
+Prompt AI: HDSD/Prompt-KET-A2-Listening-Universal.txt
 
 B1 PET — 4 parts · 25 câu
 ┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
@@ -148,7 +155,7 @@ B1 PET — 4 parts · 25 câu
 └──────┴────────┴───────────────────┴─────────────────────────────────────┘
 
 B1 PET — bundle mẫu: pet-listening-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-PET-B1-Listening.txt
+Prompt AI: HDSD/Prompt-PET-B1-Listening-Universal.txt
 Đóng gói: pnpm pack:listening:pet
 
 B2 FCE — 4 parts · 30 câu · 40 phút
@@ -162,7 +169,7 @@ B2 FCE — 4 parts · 30 câu · 40 phút
 └──────┴────────┴───────────────────┴─────────────────────────────────────┘
 
 B2 FCE — bundle mẫu: fce-Listening-test1.zip (Tainguyen/)
-Prompt AI: HDSD/Prompt-FCE-B2-Listening.txt
+Prompt AI: HDSD/Prompt-FCE-B2-Listening-Universal.txt
 Đóng gói: pnpm pack:listening:fce
 Builtin: catalog-listening-fce-b2-test1 (pnpm build:catalog)
 
@@ -177,9 +184,22 @@ C1 CAE — 4 parts · 30 câu · 40 phút
 └──────┴────────┴───────────────────┴─────────────────────────────────────┘
 
 C1 CAE — bundle mẫu: cae-Listening-test1/ (Tainguyen/)
-Prompt AI: HDSD/Prompt-CAE-C1-Listening.txt
+Prompt AI: HDSD/Prompt-CAE-C1-Listening-Universal.txt
 Đóng gói: pnpm pack:listening:cae
 Builtin: catalog-listening-cae-c1-test1 (pnpm build:catalog)
+
+C2 CPE — 4 parts · 30 câu · 40 phút
+┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
+│ Part │ Câu    │ Type              │ Media / JSON đặc biệt               │
+├──────┼────────┼───────────────────┼─────────────────────────────────────┤
+│ 1    │ 1–6    │ multiple-choice   │ 3 extracts A/B/C                    │
+│ 2    │ 7–15   │ gap-fill          │ passageTitle — 9 câu (khác CAE)     │
+│ 3    │ 16–20  │ multiple-choice   │ phỏng vấn dài A/B/C/D               │
+│ 4    │ 21–30  │ matching dual     │ Task One + Task Two                 │
+└──────┴────────┴───────────────────┴─────────────────────────────────────┘
+
+C2 CPE — Prompt AI: HDSD/Prompt-CPE-C2-Listening-Universal.txt
+UI: ListeningFceTest · listening-cpe-cambridge · screenshot Listening_CPE_C2/
 
 IELTS — 4 parts · 40 câu · 30 phút
 ┌──────┬────────┬───────────────────┬─────────────────────────────────────┐
@@ -220,3 +240,15 @@ Mẹo
 5. Bundle mẫu PET Test 1 Listening: Tainguyen/pet-listening-test1.zip — Prompt-PET-B1-Listening.txt
 6. Bundle mẫu FCE Test 1 Listening: Tainguyen/fce-Listening-test1.zip — Prompt-FCE-B2-Listening.txt
 7. Đề import có nút xóa (thùng rác) trong danh sách Reading / Listening
+
+───
+
+Từ vựng — import CSV/JSON (từ đơn + cụm từ)
+
+Vào: /app/vocab → chọn bộ → Nhập từ vựng
+
+• Universal: HDSD/Prompt-Vocab-Universal.txt
+• Chủ đề preset (IELTS/Oxford/TOEIC…): HDSD/Prompt-Vocab-Chu-De.txt
+• Hướng dẫn ngắn: HDSD/Import Vocab.txt
+
+Cột bắt buộc CSV: phrase, meaning — cụm OK (vd. get off the train)

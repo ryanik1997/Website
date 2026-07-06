@@ -145,7 +145,7 @@
   border: none;
   border-radius: 999px;
   background: var(--color-primary);
-  color: var(--bg-primary);
+  color: var(--color-on-primary);
   font-size: 0.82rem;
   font-weight: 800;
   cursor: pointer;
@@ -398,7 +398,7 @@
   padding: 0.42rem 1rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--color-primary) 92%, #000);
-  color: var(--bg-primary);
+  color: var(--color-on-primary);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -620,7 +620,7 @@
   border: none;
   border-radius: 999px;
   background: color-mix(in srgb, var(--color-primary) 92%, #000);
-  color: var(--bg-primary);
+  color: var(--color-on-primary);
   font-size: 0.74rem;
   font-weight: 800;
   cursor: pointer;

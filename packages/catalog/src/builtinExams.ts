@@ -2,6 +2,7 @@ import ketReading from '../data/reading-ket-a2-test1.json'
 import petReading from '../data/reading-pet-b1-test1.json'
 import fceReading from '../data/reading-fce-b2-test1.json'
 import caeReading from '../data/reading-cae-c1-test1.json'
+import cpeReading from '../data/reading-cpe-c2-test1.json'
 import ketListening from '../data/listening-ket-a2-test1.json'
 import petListening from '../data/listening-pet-b1-test1.json'
 import fceListening from '../data/listening-fce-b2-test1.json'
@@ -25,6 +26,7 @@ export const CATALOG_READING_EXAMS = [
   stripCatalogMeta(petReading),
   stripCatalogMeta(fceReading),
   stripCatalogMeta(caeReading),
+  stripCatalogMeta(cpeReading),
 ]
 
 /** Đề Listening ship cùng app — media tại /public/catalog/listening/ */

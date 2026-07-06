@@ -587,7 +587,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                 type="button"
                 disabled={saving || qCount === 0 || missingRequiredMedia.length > 0}
                 className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold"
-                style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+                style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }}
                 onClick={() => void handleSave()}
               >
                 <Check size={16} />

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, type CSSProperties } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
 import { useAuth } from '../../features/auth/AuthContext'
@@ -7,7 +7,7 @@ import PaymentModal from '../../components/PaymentModal'
 import {
   User, LogIn, UserPlus, ChevronDown, ArrowRight,
   BookOpen, PenLine, Headphones, GitBranch, BookMarked, WifiOff,
-  Check, Mail, MessageCircle, Sparkles,
+  Check, Mail, MessageCircle, Sparkles, GraduationCap,
 } from 'lucide-react'
 
 const FEATURES = [
@@ -34,6 +34,12 @@ const FEATURES = [
     title: 'MindMap AI',
     desc: 'Sơ đồ tư duy radial layout. AI mở rộng nhánh ý tưởng — học chủ đề sâu hơn.',
     accent: '#22c55e',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Luyện thi Cambridge',
+    desc: 'Cambridge 20-9 đầy đủ & Essential Words for the IELTS. Giao diện thi giống 100%.',
+    accent: '#ef4444',
   },
   {
     icon: BookMarked,
@@ -263,6 +269,136 @@ function SunAnimationStyles() {
       .sun-eye-r { transform-origin: 235px 215px; animation: blink 4s ease-in-out infinite 0.05s; }
       .sun-smile { transform-origin: 200px 255px; animation: smile-wiggle 4s ease-in-out infinite; }
       .sun-bubble { animation: bubble-pop 0.6s cubic-bezier(.34,1.56,.64,1) both; }
+
+      @keyframes star-twinkle {
+        0%, 100% { opacity: 0.9; transform: scale(1); }
+        50%      { opacity: 0.28; transform: scale(0.7); }
+      }
+      @keyframes zzz-float {
+        0%   { transform: translate(0, 0) scale(0.85); opacity: 0; }
+        18%  { opacity: 1; }
+        70%  { opacity: 0.9; }
+        100% { transform: translate(-22px, -46px) scale(1.12); opacity: 0; }
+      }
+      @keyframes sleep-breathe {
+        0%, 100% { transform: scaleY(1); }
+        50%      { transform: scaleY(0.86); }
+      }
+      @keyframes moon-eye-flutter {
+        0%, 92%, 100% { transform: scaleY(1); }
+        95%           { transform: scaleY(0.55); }
+      }
+
+      .moon-star  { animation: star-twinkle 2.6s ease-in-out infinite; }
+      .moon-zzz-1 { animation: zzz-float 3.4s ease-in-out infinite; }
+      .moon-zzz-2 { animation: zzz-float 3.4s ease-in-out 0.75s infinite; }
+      .moon-zzz-3 { animation: zzz-float 3.4s ease-in-out 1.5s infinite; }
+      .moon-smile { transform-origin: 200px 268px; animation: sleep-breathe 3.8s ease-in-out infinite; }
+      .moon-eye-l { transform-origin: 165px 218px; animation: moon-eye-flutter 5s ease-in-out infinite; }
+      .moon-eye-r { transform-origin: 235px 218px; animation: moon-eye-flutter 5s ease-in-out infinite 0.08s; }
+
+      /* ─ 3D Orbit — feature cards (5 stops) ─ */
+      @keyframes orbit-spin {
+        0%,   14%  { transform: rotateY(0deg); }
+        20%,  34%  { transform: rotateY(-72deg); }
+        40%,  54%  { transform: rotateY(-144deg); }
+        60%,  74%  { transform: rotateY(-216deg); }
+        80%,  94%  { transform: rotateY(-288deg); }
+        100%       { transform: rotateY(-360deg); }
+      }
+      @keyframes card-spotlight {
+        0%,  14% {
+          opacity: 1;
+          transform: scale(1.08);
+          filter: brightness(1.08);
+          box-shadow:
+            0 18px 56px color-mix(in srgb, var(--accent, #6366f1) 65%, transparent),
+            0 6px 18px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent) inset;
+        }
+        20%, 94% {
+          opacity: 0.88;
+          transform: scale(0.96);
+          filter: brightness(0.94);
+          box-shadow:
+            0 12px 36px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
+            0 4px 12px color-mix(in srgb, var(--accent, #6366f1) 26%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 30%, transparent) inset;
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.08);
+          filter: brightness(1.08);
+          box-shadow:
+            0 18px 56px color-mix(in srgb, var(--accent, #6366f1) 65%, transparent),
+            0 6px 18px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent) inset;
+        }
+      }
+      @keyframes orbit-enter {
+        0%   { opacity: 0; transform: translateY(24px) scale(0.94); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      .feature-orbit-viewport {
+        position: relative;
+        width: 100%;
+        max-width: 485px;
+        aspect-ratio: 2.1 / 1;
+        margin-top: -21px;
+        perspective: 1210px;
+        perspective-origin: 50% 50%;
+        animation: orbit-enter 900ms cubic-bezier(.22,.61,.2,1) 300ms both;
+      }
+      .feature-orbit-tilt {
+        position: absolute;
+        inset: 0;
+        transform: rotateX(-9deg);
+        transform-style: preserve-3d;
+      }
+      .feature-orbit-spin {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+        animation: orbit-spin 17.5s cubic-bezier(.72,.02,.28,1) infinite;
+        will-change: transform;
+      }
+      .feature-orbit-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 229px;
+        height: 146px;
+        margin: -73px 0 0 -114px;
+        transform: rotateY(calc(var(--i) * 72deg)) translateZ(178px);
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+      .feature-orbit-card-inner {
+        width: 100%;
+        height: 100%;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+        border: 1px solid color-mix(in srgb, var(--border-color) 88%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform-origin: center;
+        animation: card-spotlight 17.5s cubic-bezier(.4,.05,.2,1) infinite;
+        animation-delay: calc(var(--i) * 3.5s - 17.5s);
+        will-change: opacity, transform, filter, box-shadow;
+      }
+      .feature-orbit-viewport:hover .feature-orbit-spin,
+      .feature-orbit-viewport:hover .feature-orbit-card-inner {
+        animation-play-state: paused;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .feature-orbit-spin,
+        .feature-orbit-card-inner { animation: none; }
+        .feature-orbit-card-inner { opacity: 1; transform: scale(1); }
+      }
     `}</style>
   )
 }
@@ -386,10 +522,30 @@ function GuestMenu() {
   )
 }
 
+/* ── Theme detection ─────────────────────────────────────── */
+function useThemeMode() {
+  const readTheme = () => {
+    if (typeof document === 'undefined') return 'light'
+    return document.documentElement.getAttribute('data-theme') ?? 'light'
+  }
+  const [theme, setTheme] = useState<string>(readTheme)
+  useEffect(() => {
+    const el = document.documentElement
+    const sync = () => setTheme(el.getAttribute('data-theme') ?? 'light')
+    sync()
+    const observer = new MutationObserver(sync)
+    observer.observe(el, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
+  return theme
+}
+
 /* ── Hero ────────────────────────────────────────────────── */
 function Hero() {
   const { signInWithGoogle } = useAuth()
   const heroRef = useRef<HTMLElement>(null)
+  const theme = useThemeMode()
+  const isNight = theme === 'dark' || theme === 'mid'
 
   useEffect(() => {
     const hero = heroRef.current
@@ -423,7 +579,7 @@ function Hero() {
     }
   }, [])
 
-  const featuredProofs = FEATURES.slice(0, 4)
+  const featuredProofs = FEATURES.slice(0, 5)
 
   function scrollToPricing() {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
@@ -447,7 +603,7 @@ function Hero() {
           Hệ thống học từ vựng SRS, luyện viết IELTS với AI chấm điểm,
           nghe dictation — tất cả trong một nền tảng.
         </p>
-        <div className="mb-10 flex flex-wrap items-center gap-3">
+        <div className="mb-4 flex flex-wrap items-center gap-3">
           <button
             onClick={signInWithGoogle}
             className="flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
@@ -467,7 +623,8 @@ function Hero() {
             Xem gói học
           </button>
         </div>
-        <div className="grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+        {/* Mobile / tablet fallback: grid tĩnh */}
+        <div className="grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 md:hidden">
           {featuredProofs.map(({ icon: Icon, title, desc, accent }) => (
             <div
               key={title}
@@ -494,28 +651,86 @@ function Hero() {
             </div>
           ))}
         </div>
+
+        {/* Desktop: 3D Orbit auto-pause spotlight */}
+        <div className="hidden md:block max-w-2xl">
+          <FeatureOrbit items={featuredProofs} />
+        </div>
       </div>
 
       <div className="relative hidden flex-1 items-center justify-center overflow-visible md:flex md:min-h-[720px]">
         <div className="sun-hero-enter absolute inset-0 pointer-events-none">
           <div
             className="sun-halo-a sun-parallax-halo absolute right-[6%] top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full"
-            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFF3A3 36%, transparent) 0%, color-mix(in srgb, #FFD36A 14%, transparent) 34%, transparent 72%)' }}
+            style={{
+              background: isNight
+                ? 'radial-gradient(circle, color-mix(in srgb, #CFDCFF 30%, transparent) 0%, color-mix(in srgb, #8CA0D8 12%, transparent) 34%, transparent 72%)'
+                : 'radial-gradient(circle, color-mix(in srgb, #FFF3A3 36%, transparent) 0%, color-mix(in srgb, #FFD36A 14%, transparent) 34%, transparent 72%)',
+            }}
           />
           <div
             className="sun-halo-b sun-parallax-halo absolute right-[-10%] top-[44%] h-[760px] w-[760px] -translate-y-1/2 rounded-full"
-            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFE28A 18%, transparent) 0%, color-mix(in srgb, #FFDA5A 8%, transparent) 42%, transparent 78%)' }}
+            style={{
+              background: isNight
+                ? 'radial-gradient(circle, color-mix(in srgb, #B9C8F0 16%, transparent) 0%, color-mix(in srgb, #7C8DC8 8%, transparent) 42%, transparent 78%)'
+                : 'radial-gradient(circle, color-mix(in srgb, #FFE28A 18%, transparent) 0%, color-mix(in srgb, #FFDA5A 8%, transparent) 42%, transparent 78%)',
+            }}
           />
           <div
             className="sun-parallax-halo absolute right-[-4%] top-1/2 h-[640px] w-[640px] -translate-y-1/2 rounded-full"
-            style={{ background: 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 24%, transparent) 0%, color-mix(in srgb, #FFD36A 12%, transparent) 38%, transparent 74%)' }}
+            style={{
+              background: isNight
+                ? 'radial-gradient(circle, color-mix(in srgb, #A9BCEA 22%, transparent) 0%, color-mix(in srgb, #8395C6 10%, transparent) 38%, transparent 74%)'
+                : 'radial-gradient(circle, color-mix(in srgb, #FFDA5A 24%, transparent) 0%, color-mix(in srgb, #FFD36A 12%, transparent) 38%, transparent 74%)',
+            }}
           />
         </div>
         <div className="sun-hero-enter relative z-10">
-          <SunIllustration />
+          {isNight ? <MoonIllustration /> : <SunIllustration />}
         </div>
       </div>
     </section>
+  )
+}
+
+/* ── 3D Feature Orbit ────────────────────────────────────── */
+type FeatureItem = typeof FEATURES[number]
+
+function FeatureOrbit({ items }: { items: FeatureItem[] }) {
+  return (
+    <div className="feature-orbit-viewport" aria-hidden>
+      <div className="feature-orbit-tilt">
+        <div className="feature-orbit-spin">
+          {items.map(({ icon: Icon, title, desc, accent }, i) => (
+            <div
+              key={title}
+              className="feature-orbit-card"
+              style={{ ['--i' as string]: i, ['--accent' as string]: accent } as CSSProperties}
+            >
+              <div className="feature-orbit-card-inner">
+                <div className="mb-1.5 flex items-center gap-2">
+                  <div
+                    className="flex h-9 w-9 items-center justify-center rounded-lg"
+                    style={{ background: `color-mix(in srgb, ${accent} 20%, transparent)` }}
+                  >
+                    <Icon size={16} style={{ color: accent }} />
+                  </div>
+                  <h3
+                    className="text-xs font-bold uppercase tracking-[0.12em]"
+                    style={{ color: 'var(--text-primary)' }}
+                  >
+                    {title}
+                  </h3>
+                </div>
+                <p className="text-xs leading-snug" style={{ color: 'var(--text-muted)' }}>
+                  {desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -801,6 +1016,130 @@ function SunIllustration() {
           <text x="246" y="102" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">tập trung, còn hệ thống và</text>
           <text x="246" y="118" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
           <text x="246" y="134" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê!</text>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+/* ── Sleeping Moon (dark/mid theme) ──────────────────────── */
+function MoonIllustration() {
+  const STARS = 14
+  const STAR_POS = Array.from({ length: STARS }).map((_, i) => {
+    const angle = (i * 360 / STARS) * Math.PI / 180
+    const radius = i % 3 === 0 ? 205 : i % 3 === 1 ? 224 : 192
+    return {
+      cx: 200 + radius * Math.cos(angle),
+      cy: 235 + radius * Math.sin(angle),
+      r: i % 2 === 0 ? 5 : 3.4,
+      warm: i % 2 === 0,
+      delay: (i * 0.18).toFixed(2),
+    }
+  })
+
+  return (
+    <svg
+      viewBox="-40 -30 500 500"
+      className="sun-parallax-main w-[188%] max-w-[52rem] overflow-visible drop-shadow-xl"
+      fill="none"
+    >
+      <defs>
+        <radialGradient id="moonBody" cx="42%" cy="38%" r="68%">
+          <stop offset="0%"   stopColor="#FFF7DC" />
+          <stop offset="55%"  stopColor="#E8D9AC" />
+          <stop offset="100%" stopColor="#B0A079" />
+        </radialGradient>
+        <radialGradient id="moonGlowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stopColor="#DDE6FF" stopOpacity="0.58" />
+          <stop offset="52%"  stopColor="#A6B4E0" stopOpacity="0.26" />
+          <stop offset="100%" stopColor="#8090C0" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="moonShade" cx="78%" cy="48%" r="72%">
+          <stop offset="0%"   stopColor="#000" stopOpacity="0" />
+          <stop offset="55%"  stopColor="#000" stopOpacity="0" />
+          <stop offset="85%"  stopColor="#000" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#000" stopOpacity="0.36" />
+        </radialGradient>
+        <filter id="moonBlur" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox">
+          <feGaussianBlur stdDeviation="9" result="blur" />
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      {/* Ambient moon glow */}
+      <circle className="sun-wrap" cx="200" cy="235" r="190" fill="url(#moonGlowGrad)" />
+
+      <g className="sun-wrap">
+        {/* Twinkling stars orbiting slowly (reuses sun-spin) */}
+        <g className="sun-rays" filter="url(#moonBlur)">
+          {STAR_POS.map((s, i) => (
+            <g
+              key={i}
+              className="moon-star"
+              style={{ transformOrigin: `${s.cx}px ${s.cy}px`, animationDelay: `${s.delay}s` }}
+            >
+              <path
+                d={`M ${s.cx} ${s.cy - s.r * 2.2} L ${s.cx + s.r * 0.55} ${s.cy - s.r * 0.55} L ${s.cx + s.r * 2.2} ${s.cy} L ${s.cx + s.r * 0.55} ${s.cy + s.r * 0.55} L ${s.cx} ${s.cy + s.r * 2.2} L ${s.cx - s.r * 0.55} ${s.cy + s.r * 0.55} L ${s.cx - s.r * 2.2} ${s.cy} L ${s.cx - s.r * 0.55} ${s.cy - s.r * 0.55} Z`}
+                fill={s.warm ? '#FFF3C0' : '#E6ECFF'}
+                opacity="0.92"
+              />
+              <circle cx={s.cx} cy={s.cy} r={s.r * 0.35} fill="#FFFFFF" opacity="0.85" />
+            </g>
+          ))}
+        </g>
+
+        {/* Moon body */}
+        <circle className="sun-body" cx="200" cy="235" r="145" fill="url(#moonBody)" />
+        {/* Crescent phase shadow (subtle) */}
+        <circle className="sun-body" cx="200" cy="235" r="145" fill="url(#moonShade)" />
+
+        {/* Highlight */}
+        <ellipse cx="168" cy="175" rx="30" ry="18"
+          fill="white" opacity="0.32" transform="rotate(-30 168 175)" />
+
+        {/* Craters for lunar texture */}
+        <circle cx="150" cy="292" r="11" fill="#000" opacity="0.07" />
+        <circle cx="115" cy="238" r="7"  fill="#000" opacity="0.06" />
+        <circle cx="244" cy="308" r="6"  fill="#000" opacity="0.06" />
+        <circle cx="272" cy="205" r="5"  fill="#000" opacity="0.05" />
+
+        {/* Closed sleepy eyes */}
+        <path className="moon-eye-l"
+          d="M 150 220 Q 165 208 180 220"
+          stroke="#1a1a1a" strokeWidth="7" strokeLinecap="round" fill="none" />
+        <path className="moon-eye-r"
+          d="M 220 220 Q 235 208 250 220"
+          stroke="#1a1a1a" strokeWidth="7" strokeLinecap="round" fill="none" />
+        {/* Eyelash hint */}
+        <path d="M 148 224 L 143 229" stroke="#1a1a1a" strokeWidth="3" strokeLinecap="round" />
+        <path d="M 252 224 L 257 229" stroke="#1a1a1a" strokeWidth="3" strokeLinecap="round" />
+
+        {/* Gentle peaceful smile */}
+        <path className="moon-smile"
+          d="M 178 268 Q 200 282 222 268"
+          stroke="#1a1a1a" strokeWidth="7" strokeLinecap="round" fill="none" />
+
+        {/* Night-time blush */}
+        <ellipse cx="138" cy="252" rx="16" ry="10" fill="#8CA0D8" opacity="0.32" />
+        <ellipse cx="262" cy="252" rx="16" ry="10" fill="#8CA0D8" opacity="0.32" />
+
+        {/* Floating Zzz (three staggered letters rising up-left) */}
+        <g fontFamily="Inter,sans-serif" fontWeight="700">
+          <text className="moon-zzz-1" x="140" y="88"  fontSize="26" fill="#FFF6D0" opacity="0.9">z</text>
+          <text className="moon-zzz-2" x="108" y="52"  fontSize="34" fill="#FFF6D0" opacity="0.85">z</text>
+          <text className="moon-zzz-3" x="70"  y="12"  fontSize="44" fill="#FFF6D0" opacity="0.8">Z</text>
+        </g>
+
+        {/* Speech bubble — sleeping message */}
+        <g className="sun-bubble sun-bubble-layer sun-bubble-enter">
+          <rect x="228" y="58" width="168" height="98" rx="18"
+            fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5"
+            filter="url(#moonBlur)" />
+          <polygon points="242,156 260,156 248,174" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1" />
+          <text x="246" y="86"  fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Đêm khuya cứ ngủ ngon giấc,</text>
+          <text x="246" y="102" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">còn hệ thống học tập và</text>
+          <text x="246" y="118" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
+          <text x="246" y="134" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê nhé!</text>
         </g>
       </g>
     </svg>

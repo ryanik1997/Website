@@ -50,6 +50,14 @@ const STATIC_BUNDLES = [
     examTrack: 'cambridge',
   },
   {
+    kind: 'reading',
+    slug: 'cpe-c2-test1',
+    examId: 'catalog-reading-cpe-c2-test1',
+    sourceDir: 'cpe-Reading-test1',
+    cambridgeLevel: 'c2',
+    examTrack: 'cambridge',
+  },
+  {
     kind: 'listening',
     slug: 'ket-a2-test1',
     examId: 'catalog-listening-ket-a2-test1',
