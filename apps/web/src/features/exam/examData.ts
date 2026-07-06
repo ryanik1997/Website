@@ -745,8 +745,19 @@ export function isPetReadingWritingExam(exam: ReadingExam): boolean {
   return exam.cambridgeLevel === 'b1'
 }
 
+export function isFceReadingWritingExam(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'b2'
+}
+
+export function isCaeReadingWritingExam(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'c1'
+}
+
 export function isCambridgeReadingWritingExam(exam: ReadingExam): boolean {
-  return isKetReadingWritingExam(exam) || isPetReadingWritingExam(exam)
+  return isKetReadingWritingExam(exam)
+    || isPetReadingWritingExam(exam)
+    || isFceReadingWritingExam(exam)
+    || isCaeReadingWritingExam(exam)
 }
 
 export function isWritingTaskQuestion(question: ReadingQuestion): boolean {
@@ -805,7 +816,9 @@ export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: st
 
 export function formatReadingAnswer(question: ReadingQuestion, answerId: string): string {
   if (!answerId) return 'Chưa trả lời'
-  const fromOption = question.options.find(o => o.id === answerId)
+  const fromOption = question.options.find(
+    o => o.id.toLowerCase() === answerId.toLowerCase(),
+  )
   if (fromOption) return fromOption.label
   if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
     if (/[/|]/.test(answerId)) {

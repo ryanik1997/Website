@@ -1,47 +1,54 @@
-Bạn là trợ lý tạo ZIP bundle import đề Reading CAE C1 vào web app "Ryan English".
+Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** CAE C1 vào web app "Ryan English".
 
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-CAE-C1-Reading-Universal.txt (chỉ đổi file đính kèm)
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
 → Listening CAE C1: HDSD/Prompt-CAE-C1-Listening.txt
 → FCE B2 Reading (Part 1–5 tương tự): HDSD/Prompt-FCE-B2-Reading-Universal.txt
 
 ## Tài liệu đính kèm
-1. Test_1_Reading_CAE_C1.pdf — Reading and Use of English (Parts 1–8)
-2. answer keys.pdf — đáp án Sample Paper 1
-3. Không có ảnh — CAE C1 dùng text passage toàn bộ
+1. Test_1_Reading_CAE_C1.pdf — Reading & Writing (Parts 1–10)
+2. answer keys.pdf — đáp án Reading Parts 1–8 (Writing không có key)
+3. part9-page.jpg + part10-page.jpg — ảnh Writing Part 9 (Q57) + Part 10 (Q58)
+4. Parts 1–8: copy text passage — không dùng ảnh
 
 ## Deliverable
-ZIP: `cae-Reading-test1.zip` — file CÙNG CẤP, không thư mục con:
+ZIP: `cae-Reading-test1.zip` — file CÙNG CẤP:
 ```
 exam.json
+part9-page.jpg
+part10-page.jpg
 ```
 
 ```json
 {
   "version": 1,
   "title": "CAE C1 Reading — Test 1",
-  "durationMinutes": 90,
-  "bandHint": "C1 Advanced Reading & Use of English",
+  "durationMinutes": 120,
+  "bandHint": "C1 Advanced Reading & Writing",
   "examTrack": "cambridge",
   "cambridgeLevel": "c1",
-  "parts": [ /* 8 parts, 56 câu */ ]
+  "parts": [ /* 10 parts, 58 mục */ ]
 }
 ```
 
-## Cấu trúc 8 parts (56 câu)
+## Cấu trúc 10 parts (58 mục)
 
-| Part | Câu | Type | Nội dung | Ghi chú UI app |
-|------|-----|------|----------|----------------|
+| Part | Câu | Type | Nội dung | Ghi chú |
+|------|-----|------|----------|---------|
 | 1 | 1–8 | multiple-choice | MC cloze — 4 từ A–D/gap | Use of English |
-| 2 | 9–16 | gap-fill | Open cloze — ONE WORD | placeholder ONE WORD |
-| 3 | 17–24 | gap-fill | Word formation (stem → từ) | stem trong prompt |
+| 2 | 9–16 | gap-fill | Open cloze — ONE WORD | Use of English |
+| 3 | 17–24 | gap-fill | Word formation (stem → từ) | Keyword List phải |
 | 4 | 25–30 | gap-fill | Key word transformation (3–6 từ) | placeholder **3–6 words** |
-| 5 | 31–36 | multiple-choice | Reading comprehension A–D | passage đầy đủ trái |
-| 6 | 37–40 | matching-features | Cross-text — 4 reviews A–D | reviews ở passage trái |
-| 7 | 41–46 | matching-features | Gapped text + paragraphs A–G | gap + paragraphs cuối passage |
-| 8 | 47–56 | matching-features | Multiple matching — 5 consultants A–E | consultants ở passage trái |
+| 5 | 31–36 | multiple-choice | Reading comprehension A–D | split pane |
+| 6 | 37–40 | matching-features | Cross-text — **Reviewer A–D** | options label Reviewer A–D |
+| 7 | 41–46 | matching-features | Gapped text + paragraphs A–G | kéo thả bank phải |
+| 8 | 47–56 | matching-features | Multiple matching — **Consultant A–E** | options label Consultant A–E |
+| 9 | 57 | writing-task | Writing task 1 | **1 ảnh** part9-page.jpg — minWords 220 |
+| 10 | 58 | writing-task | Writing task 2 | **1 ảnh** part10-page.jpg — minWords 220 |
 
-App render: `ReadingTest` (Cambridge track C1). Timer **90 phút**.
-Part 6–8: app **không lặp** danh sách A–D/E/G bên phải khi passage trái đã có `label`.
+App render: `ReadingCaeRwTest` (Cambridge C1). Timer **120 phút** (90 phút nếu chỉ 8 part Reading).
+Chi tiết JSON mẫu từng part → **Prompt-CAE-C1-Reading-Universal.txt**.
 
 ---
 
@@ -151,10 +158,10 @@ Part 6–8: app **không lặp** danh sách A–D/E/G bên phải khi passage tr
     "instruction": "For questions 37–40, choose from the reviews (A–D). The reviews may be chosen more than once.",
     "type": "matching-features",
     "features": [
-      { "id": "a", "name": "Review A" },
-      { "id": "b", "name": "Review B" },
-      { "id": "c", "name": "Review C" },
-      { "id": "d", "name": "Review D" }
+      { "id": "a", "name": "Reviewer A" },
+      { "id": "b", "name": "Reviewer B" },
+      { "id": "c", "name": "Reviewer C" },
+      { "id": "d", "name": "Reviewer D" }
     ],
     "questions": [
       {
@@ -162,10 +169,10 @@ Part 6–8: app **không lặp** danh sách A–D/E/G bên phải khi passage tr
         "type": "matching-features",
         "prompt": "has a different opinion from the others on the confidence with which de Botton discusses architecture?",
         "options": [
-          { "id": "A", "label": "A" },
-          { "id": "B", "label": "B" },
-          { "id": "C", "label": "C" },
-          { "id": "D", "label": "D" }
+          { "id": "A", "label": "Reviewer A" },
+          { "id": "B", "label": "Reviewer B" },
+          { "id": "C", "label": "Reviewer C" },
+          { "id": "D", "label": "Reviewer D" }
         ],
         "answer": "b",
         "explanation": "Reviewer B — needed help from earlier authors."
@@ -246,11 +253,11 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
       "type": "matching-features",
       "prompt": "Keep your final objective in mind when you are planning to change jobs.",
       "options": [
-        { "id": "A", "label": "A" },
-        { "id": "B", "label": "B" },
-        { "id": "C", "label": "C" },
-        { "id": "D", "label": "D" },
-        { "id": "E", "label": "E" }
+        { "id": "A", "label": "Consultant A" },
+        { "id": "B", "label": "Consultant B" },
+        { "id": "C", "label": "Consultant C" },
+        { "id": "D", "label": "Consultant D" },
+        { "id": "E", "label": "Consultant E" }
       ],
       "answer": "d"
     }
@@ -259,13 +266,27 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
 ```
 
 - Copy toàn bộ 5 consultants vào `passage` với `label` A–E.
+- `options[].label` = **Consultant A** … **Consultant E**.
 - Mỗi consultant có thể là đáp án nhiều câu.
+
+---
+
+## Part 9–10 — Writing (Q57, Q58)
+
+Mỗi câu = **1 part riêng** + **1 ảnh JPG**:
+
+| Part | Câu | File ảnh |
+|------|-----|----------|
+| 9 | 57 | `part9-page.jpg` |
+| 10 | 58 | `part10-page.jpg` |
+
+Chi tiết JSON → Universal prompt § Part 9 / Part 10.
 
 ---
 
 ## Quy tắc bắt buộc
 
-1. Đủ **56 câu** (Q1–56), đánh số liên tục.
+1. Đủ **58 mục** (Q1–58), đánh số liên tục.
 2. `cambridgeLevel`: `"c1"`, `examTrack`: `"cambridge"`.
 3. `passageTitle` mô tả nội dung từng part (vd "Part 6 — The Architecture of Happiness").
 4. Mọi part: `passage[].text` bắt buộc (Highlight khi làm bài).
@@ -279,10 +300,13 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
 |-----|-----------|
 | Part 1 dùng gap-fill | Part 1 = multiple-choice + 4 options A–D |
 | Part 4 answer 1 từ | Part 4 = cụm 3–6 từ; instruction có "three and six words" |
+| Part 6 options `A`/`B`/`C`/`D` | label = **Reviewer A** … **Reviewer D** |
 | Part 6 chỉ có features[], không có passage reviews | Copy 4 reviews vào passage với label A–D |
 | Part 7 thiếu paragraphs A–G trong passage | Thêm label A–G sau phần gapped text |
+| Part 8 options `A`/`B`/… | label = **Consultant A** … **Consultant E** |
 | Part 8 options A–G | Chỉ A–E (5 consultants) |
-| Part 6–8 đánh số sai | C1: Part 6 = 37–40, Part 7 = 41–46, Part 8 = 47–56 |
+| Gộp Q57+Q58 vào Part 9 | Part 9 = Q57, Part 10 = Q58 |
+| Part 6–10 đánh số sai | P6=37–40, P7=41–46, P8=47–56, P9=57, P10=58 |
 
 ---
 
@@ -298,6 +322,7 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
 | 6 | 37–40 | B,C,A,B |
 | 7 | 41–46 | G,D,A,F,C,E |
 | 8 | 47–56 | D,E,C,A,D,B,C,A,B,E |
+| 9–10 | Writing | không có key |
 
 ---
 
@@ -320,7 +345,7 @@ pnpm build:catalog
 pnpm pack:reading:cae
 ```
 
-→ `Tainguyen/cae-Reading-test1.zip` (chỉ exam.json)
+→ `Tainguyen/cae-Reading-test1.zip` (exam.json + part9-page.jpg + part10-page.jpg)
 → Luyện thi → Cambridge → C1 → **Import thủ công Reading**
 
 Bắt đầu xử lý file đính kèm.
