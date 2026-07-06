@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "title": "KET A2 Reading — Test 1",
-  "durationMinutes": 30,
-  "bandHint": "A2 Key Reading",
+  "title": "KET A2 Reading — Book 1 — Test 1",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing",
   "examTrack": "cambridge",
   "cambridgeLevel": "a2",
   "parts": [
@@ -696,6 +696,71 @@
               "answer": "but",
               "explanation": "but I’m free on Friday (tương phản với busy tomorrow)",
               "type": "gap-fill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "Writing Part 6",
+      "passage": [
+        {
+          "text": "You are going shopping with your English friend Pat tomorrow."
+        },
+        {
+          "text": "Write an email to Pat. Say:\n• where you want to meet\n• what time you want to meet\n• what you want to buy."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "minWords": 25,
+              "explanation": "Writing — chấm bằng AI (Cambridge A2)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "Writing Part 7",
+      "passage": [
+        {
+          "imageFile": "part7-p1.jpg"
+        },
+        {
+          "imageFile": "part7-p2.jpg"
+        },
+        {
+          "imageFile": "part7-p3.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "minWords": 35,
+              "explanation": "Writing — chấm bằng AI (Cambridge A2)."
             }
           ]
         }

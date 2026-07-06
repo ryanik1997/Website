@@ -1,6 +1,8 @@
 Bạn là trợ lý tạo ZIP bundle import đề Reading FCE B2 vào web app "Ryan English".
 
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-FCE-B2-Reading-Universal.txt (chỉ đổi file đính kèm)
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
 → Listening FCE B2 (4 parts · 30 câu): HDSD/Prompt-FCE-B2-Listening.txt
 
 ## Tài liệu đính kèm
@@ -187,6 +189,7 @@ Giống PET B1 Part 4:
 1. Đủ **52 câu** (Q1–52).
 2. `passageTitle` mô tả nội dung từng part.
 3. Mọi part: `passage[].text` bắt buộc (Highlight).
+4. **Phân đoạn theo PDF:** mỗi đoạn văn PDF = 1 block `passage[]` — không gộp `\n\n`. Chi tiết: HDSD/Prompt-Reading-Cambridge.txt
 4. `answer`: MC/matching → chữ thường; gap-fill → từ/cụm từ tiếng Anh.
 5. `explanation`: tiếng Việt ngắn.
 

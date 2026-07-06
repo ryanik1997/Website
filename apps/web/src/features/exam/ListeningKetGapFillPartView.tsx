@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import ExamHighlightZone from './ExamHighlightZone'
 import ExamHighlightableLines from './ExamHighlightableLines'
-import { injectKetGapFillQuestionMarkers } from './examCompletion'
 import type { ExamAudioSource } from './useExamQuestionAudio'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
 
@@ -33,6 +32,14 @@ interface Props {
   resizer: ReactNode
 }
 
+function splitGapPrompt(prompt: string): { lead: string; trail: string } {
+  const [lead = prompt, ...trail] = prompt.split(/(?:\.\.\.|…|â€¦)/)
+  return {
+    lead: lead.trim(),
+    trail: trail.join(' ').trim(),
+  }
+}
+
 export default function ListeningKetGapFillPartView({
   part,
   questions,
@@ -43,36 +50,36 @@ export default function ListeningKetGapFillPartView({
   onSelectQuestion,
   resizer,
 }: Props) {
-  const markedInstruction = part.instruction
-    ? injectKetGapFillQuestionMarkers(part.instruction, questions)
-    : ''
+  const [leadInstruction = '', ...restInstruction] = (part.instruction ?? '').split(/\n+/)
+  const questionPromptKeys = new Set(
+    questions.map(question => question.prompt.trim().toLowerCase()),
+  )
+  const bodyInstruction = restInstruction
+    .map(line => line.trim())
+    .filter(line => line && !questionPromptKeys.has(line.toLowerCase()))
+    .join('\n')
+    .trim()
 
   return (
     <>
-      <ExamHighlightZone className="listening-exam-prompt-pane listening-ket-gapfill__prompt">
-        <p className="listening-exam-prompt-pane__part">
-          Part {part.partNumber} · {part.rangeLabel}
-        </p>
-        {markedInstruction && (
+      <ExamHighlightZone className="listening-ket-cambridge__stage listening-ket-gapfill__prompt">
+        <div className="listening-ket-cambridge__instruction-card">
+          <strong>{part.rangeLabel}</strong>
+          {leadInstruction && <span>{leadInstruction}</span>}
+        </div>
+
+        {bodyInstruction && (
           <ExamHighlightableLines
             blockIdPrefix={`${part.id}-instruction`}
-            text={markedInstruction}
+            text={bodyInstruction}
             lineClassName="listening-ket-gapfill__instruction"
           />
         )}
-        <ListeningExamAudioBar {...audioBar} />
-      </ExamHighlightZone>
 
-      {resizer}
-
-      <ExamHighlightZone className="listening-exam-answer-pane listening-ket-gapfill__answers">
-        <header className="listening-exam-answer-pane__head">
-          <h3 className="listening-exam-answer-pane__title">Điền vào chỗ trống</h3>
-        </header>
         <div className="listening-ket-gapfill__fields">
           {questions.map(question => {
             const isActive = activeQuestionId === question.id
-            const wordLimit = question.wordLimit ?? 3
+            const { lead, trail } = splitGapPrompt(question.prompt)
             return (
               <div
                 key={question.id}
@@ -83,23 +90,29 @@ export default function ListeningKetGapFillPartView({
                   htmlFor={`ket-gap-${question.id}`}
                   onClick={() => onSelectQuestion(question.id)}
                 >
-                  <span className="listening-ket-gapfill__num">{question.number}</span>
+                  <span className="listening-ket-gapfill__prompt-text">{lead}</span>
                   <input
                     id={`ket-gap-${question.id}`}
                     type="text"
                     className="listening-ket-gapfill__input"
                     value={answers[question.id] ?? ''}
-                    placeholder={wordLimit ? `Tối đa ${wordLimit} từ` : 'Nhập đáp án'}
+                    placeholder={`${question.number}`}
                     data-highlight-skip
                     onFocus={() => onSelectQuestion(question.id)}
                     onChange={e => onAnswer(question.id, e.target.value)}
                   />
+                  {trail && <span className="listening-ket-gapfill__trail">{trail}</span>}
                 </label>
               </div>
             )
           })}
         </div>
+
+        <div className="listening-ket-cambridge__audio">
+          <ListeningExamAudioBar {...audioBar} />
+        </div>
       </ExamHighlightZone>
+      {resizer}
     </>
   )
 }

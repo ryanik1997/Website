@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import ExamResult from './ExamResult'
 import FullMockStageResult from './FullMockStageResult'
 import { readingExamBackPath } from './examNavigation'
-import { getExamQuestions, isReadingAnswerCorrect, type ReadingExam } from './examData'
+import { getScorableExamQuestions, isReadingAnswerCorrect, type ReadingExam } from './examData'
 import { getFullMockTest } from './fullMockData'
 import {
   appendFullMockQuery,
@@ -28,7 +28,7 @@ export default function ReadingSubmittedScreen({
   const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
 
   if (fullMock) {
-    const questions = getExamQuestions(exam)
+    const questions = getScorableExamQuestions(exam)
     const correct = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
     return (
       <FullMockStageResult

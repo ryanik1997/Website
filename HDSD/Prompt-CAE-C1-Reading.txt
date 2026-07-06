@@ -2,7 +2,7 @@ Bạn là trợ lý tạo ZIP bundle import đề Reading CAE C1 vào web app "R
 
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
 → Listening CAE C1: HDSD/Prompt-CAE-C1-Listening.txt
-→ FCE B2 Reading (Part 1–5 tương tự): HDSD/Prompt-FCE-B2.txt
+→ FCE B2 Reading (Part 1–5 tương tự): HDSD/Prompt-FCE-B2-Reading-Universal.txt
 
 ## Tài liệu đính kèm
 1. Test_1_Reading_CAE_C1.pdf — Reading and Use of English (Parts 1–8)
@@ -269,6 +269,7 @@ Giống FCE Part 7 nhưng **5 consultants A–E** (10 câu):
 2. `cambridgeLevel`: `"c1"`, `examTrack`: `"cambridge"`.
 3. `passageTitle` mô tả nội dung từng part (vd "Part 6 — The Architecture of Happiness").
 4. Mọi part: `passage[].text` bắt buộc (Highlight khi làm bài).
+5. **Phân đoạn theo PDF:** mỗi đoạn văn PDF = 1 block `passage[]` — không gộp `\n\n`. Chi tiết: HDSD/Prompt-Reading-Cambridge.txt
 5. `answer`: MC/matching → chữ thường; gap-fill → từ/cụm từ tiếng Anh.
 6. `explanation`: tiếng Việt ngắn; Part 4 ghi biến thể đáp án hợp lệ.
 

@@ -1,6 +1,8 @@
 Bạn là trợ lý tạo ZIP bundle import đề Reading PET B1 vào web app "Ryan English".
 
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-PET-B1-Reading-Universal.txt (chỉ đổi file đính kèm)
 → Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
 
 ## Tài liệu đính kèm
 1. Test_1_Reading_PET_B1.pdf — đề Reading (Parts 1–6; bỏ Writing nếu có)
@@ -251,6 +253,7 @@ Quy tắc Part 4:
 2. Chỉ dùng PDF đề + Answer Key — **không bịa**.
 3. `passageTitle` mô tả: `"Part 2 — City markets"`, `"Part 4 — A new life"`…
 4. Part 2–6: `passage[].text` **bắt buộc** (Highlight).
+5. **Phân đoạn theo PDF:** mỗi đoạn văn PDF = 1 block `passage[]` — không gộp `\n\n`. Chi tiết: HDSD/Prompt-Reading-Cambridge.txt
 5. `answer`: matching → `a`–`h`; MC → `a`–`d`; gap-fill → một từ.
 6. `explanation`: giải thích ngắn tiếng Việt.
 7. Thiếu đáp án → `answer: ""` + `explanation: "⚠ Cần điền từ answer key"`.
@@ -297,9 +300,9 @@ Bắt đầu xử lý file đính kèm.
 
 Cách dùng
 
-Đính kèm cho Claude/ChatGPT (Reading):
-1. HDSD/Prompt-PET-B1.txt
-2. PDF đề Reading + Answer Key
+Đính kèm cho Claude/ChatGPT/DeepSeek (Reading):
+1. HDSD/Prompt-PET-B1-Reading-Universal.txt
+2. PDF đề Reading + Answer Key (1 test)
 3. Ảnh part1-q1.jpg … part1-q5.jpg
 
 Listening PET B1 (4 parts · 25 câu): dùng **HDSD/Prompt-PET-B1-Listening.txt**

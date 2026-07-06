@@ -21,12 +21,12 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     slug: 'a2',
     exam: 'KET',
     reading: {
-      label: 'Reading (Parts 1–5)',
-      durationMinutes: 30,
-      parts: 5,
+      label: 'Reading & Writing (Parts 1–7)',
+      durationMinutes: 60,
+      parts: 7,
       questions: 32,
       weightPercent: 50,
-      note: 'Chỉ phần Reading (30 phút). Writing Parts 6–7 ở module Viết.',
+      note: 'Reading Parts 1–5 + Writing Parts 6–7 trong cùng đề (60 phút).',
     },
     listening: {
       label: 'Listening',
@@ -41,10 +41,10 @@ export const CAMBRIDGE_EXAM_FORMATS: CambridgeLevelFormat[] = [
     slug: 'b1',
     exam: 'PET',
     reading: {
-      label: 'Reading',
+      label: 'Reading & Writing',
       durationMinutes: 45,
-      parts: 6,
-      questions: 32,
+      parts: 8,
+      questions: 34,
       weightPercent: 25,
     },
     listening: {

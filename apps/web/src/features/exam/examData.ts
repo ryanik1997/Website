@@ -11,6 +11,7 @@ export type ReadingQuestionType =
   | 'gap-fill'
   | 'summary-completion'
   | 'sentence-completion'
+  | 'writing-task'
 
 export type AnswerConfidence = 'key' | 'inferred'
 
@@ -36,6 +37,8 @@ export interface ReadingQuestion {
   answer: string
   explanation: string
   answerConfidence?: AnswerConfidence
+  /** KET Writing Part 6–7: số từ tối thiểu (25 / 35) */
+  minWords?: number
 }
 
 export interface ReadingPassageBlock {
@@ -734,6 +737,33 @@ export function getExamQuestions(exam: ReadingExam): ReadingQuestion[] {
   return exam.parts.flatMap(getPartQuestions)
 }
 
+export function isKetReadingWritingExam(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'a2'
+}
+
+export function isPetReadingWritingExam(exam: ReadingExam): boolean {
+  return exam.cambridgeLevel === 'b1'
+}
+
+export function isCambridgeReadingWritingExam(exam: ReadingExam): boolean {
+  return isKetReadingWritingExam(exam) || isPetReadingWritingExam(exam)
+}
+
+export function isWritingTaskQuestion(question: ReadingQuestion): boolean {
+  return question.type === 'writing-task'
+}
+
+/** Câu Reading có chấm điểm tự động (bỏ Writing Part 6–7). */
+export function getScorableExamQuestions(exam: ReadingExam): ReadingQuestion[] {
+  return getExamQuestions(exam).filter(q => !isWritingTaskQuestion(q))
+}
+
+export function countWords(text: string): number {
+  const trimmed = text.trim()
+  if (!trimmed) return 0
+  return trimmed.split(/\s+/).length
+}
+
 export function getReadingExam(examId: string) {
   return READING_EXAMS.find(exam => exam.id === examId) ?? null
 }
@@ -742,17 +772,34 @@ function normalizeReadingAnswer(value: string): string {
   return value.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, ' ')
 }
 
+function readingGapAnswerVariants(answer: string): string[] {
+  const raw = answer.trim()
+  if (/[/|]/.test(raw)) {
+    return raw.split(/[/|]/).map(s => normalizeReadingAnswer(s)).filter(Boolean)
+  }
+  return [normalizeReadingAnswer(raw)]
+}
+
+function readingGapAnswersMatch(expected: string, given: string): boolean {
+  if (given === expected) return true
+  return given.split(/\s+/).length === 1 && expected.split(/\s+/).length === 1
+    && (given.includes(expected) || expected.includes(given))
+}
+
 export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: string): boolean {
+  if (isWritingTaskQuestion(question)) return false
   if (!userAnswer.trim()) return false
-  const expected = normalizeReadingAnswer(question.answer)
   const given = normalizeReadingAnswer(userAnswer)
 
   if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
-    if (given === expected) return true
-    return given.split(/\s+/).length === 1 && expected.split(/\s+/).length === 1
-      && (given === expected || given.includes(expected) || expected.includes(given))
+    const variants = readingGapAnswerVariants(question.answer)
+    return variants.some(expected => readingGapAnswersMatch(expected, given))
   }
 
+  const expected = normalizeReadingAnswer(question.answer)
+  if (/[/|]/.test(question.answer.trim())) {
+    return readingGapAnswerVariants(question.answer).includes(given)
+  }
   return given === expected
 }
 
@@ -760,5 +807,11 @@ export function formatReadingAnswer(question: ReadingQuestion, answerId: string)
   if (!answerId) return 'Chưa trả lời'
   const fromOption = question.options.find(o => o.id === answerId)
   if (fromOption) return fromOption.label
+  if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
+    if (/[/|]/.test(answerId)) {
+      return answerId.split(/[/|]/).map(s => s.trim()).filter(Boolean).join(' hoặc ')
+    }
+    return answerId
+  }
   return answerId.toUpperCase()
 }

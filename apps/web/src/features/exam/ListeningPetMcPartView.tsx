@@ -47,108 +47,102 @@ export default function ListeningPetMcPartView({
   resizer,
 }: Props) {
   const highlights = useExamHighlights()
-  const activeQuestion = questions.find(q => q.id === activeQuestionId) ?? questions[0] ?? null
+  const [leadInstruction = '', ...restInstruction] = (part.instruction ?? '').split(/\n+/)
+  const bodyInstruction = restInstruction.join('\n').trim()
 
   return (
     <>
-      <ExamHighlightZone className="listening-exam-prompt-pane listening-pet-mc__prompt">
-        <p className="listening-exam-prompt-pane__part">
-          Part {part.partNumber} · {part.rangeLabel}
-        </p>
-        {part.instruction && (
+      <ExamHighlightZone className={`listening-ket-cambridge__stage listening-pet-mc listening-pet-mc--part-${part.partNumber}`}>
+        <div className="listening-ket-cambridge__instruction-card">
+          <strong>{part.rangeLabel}</strong>
+          {part.audioIntro ? (
+            <ReadingHighlightableText
+              blockId={`${part.id}-intro`}
+              text={part.audioIntro}
+              highlights={highlights}
+              as="span"
+            />
+          ) : leadInstruction ? (
+            <span>{leadInstruction}</span>
+          ) : null}
+        </div>
+
+        {bodyInstruction && (
           <ExamHighlightableLines
             blockIdPrefix={`${part.id}-instruction`}
-            text={part.instruction}
+            text={bodyInstruction}
             lineClassName="listening-pet-mc__instruction"
           />
         )}
-        {part.audioIntro && (
-          <ReadingHighlightableText
-            blockId={`${part.id}-intro`}
-            text={part.audioIntro}
-            highlights={highlights}
-            className="listening-pet-mc__intro"
-            as="p"
-          />
-        )}
-        <ListeningExamAudioBar {...audioBar} />
+
         <div className="listening-pet-mc__question-list">
           {questions.map(question => {
             const isActive = activeQuestionId === question.id
+            const selectedAnswer = answers[question.id] ?? ''
             return (
-              <div
+              <section
                 key={question.id}
-                role="button"
-                tabIndex={0}
                 className={`listening-pet-mc__question${isActive ? ' is-active' : ''}`}
                 onClick={() => onSelectQuestion(question.id)}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    onSelectQuestion(question.id)
-                  }
-                }}
               >
-                <span className="listening-pet-mc__num">{question.number}</span>
-                <div className="listening-pet-mc__text">
-                  {showContext && question.context && (
+                <h2 className="listening-pet-mc__heading">
+                  <span className="listening-pet-mc__num">{question.number}</span>
+                  <span className="listening-pet-mc__heading-text">
+                    {showContext && question.context && (
+                      <ReadingHighlightableText
+                        blockId={`${question.id}-context`}
+                        text={question.context}
+                        highlights={highlights}
+                        className="listening-pet-mc__context"
+                        as="span"
+                      />
+                    )}
                     <ReadingHighlightableText
-                      blockId={`${question.id}-context`}
-                      text={question.context}
+                      blockId={`${question.id}-prompt`}
+                      text={question.prompt}
                       highlights={highlights}
-                      className="listening-pet-mc__context"
-                      as="p"
+                      className="listening-pet-mc__prompt"
+                      as="span"
                     />
-                  )}
-                  <ReadingHighlightableText
-                    blockId={`${question.id}-prompt`}
-                    text={question.prompt}
-                    highlights={highlights}
-                    className="listening-pet-mc__prompt"
-                    as="p"
-                  />
+                  </span>
+                </h2>
+
+                <div className="listening-pet-mc__options">
+                  {question.options.map(option => {
+                    const selected = selectedAnswer === option.id
+                    return (
+                      <label
+                        key={option.id}
+                        className={`listening-pet-mc__option${selected ? ' is-selected' : ''}`}
+                      >
+                        <input
+                          type="radio"
+                          name={question.id}
+                          checked={selected}
+                          data-highlight-skip
+                          onFocus={() => onSelectQuestion(question.id)}
+                          onChange={() => onAnswer(question.id, option.id)}
+                        />
+                        <ReadingHighlightableText
+                          blockId={`${question.id}-opt-${option.id}`}
+                          text={option.label}
+                          highlights={highlights}
+                          as="span"
+                        />
+                      </label>
+                    )
+                  })}
                 </div>
-              </div>
+              </section>
             )
           })}
         </div>
-      </ExamHighlightZone>
 
+        <div className="listening-ket-cambridge__audio">
+          <ListeningExamAudioBar {...audioBar} />
+        </div>
+      </ExamHighlightZone>
       {resizer}
-
-      <ExamHighlightZone className="listening-exam-answer-pane listening-pet-mc__answers">
-        <h3 className="listening-exam-answer-pane__title">Chọn đáp án</h3>
-        {activeQuestion && (
-          <div className="listening-ielts-mc__options">
-            {activeQuestion.options.map(option => {
-              const selected = answers[activeQuestion.id] === option.id
-              return (
-                <div
-                  key={option.id}
-                  role="button"
-                  tabIndex={0}
-                  className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}`}
-                  onClick={() => onAnswer(activeQuestion.id, option.id)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      onAnswer(activeQuestion.id, option.id)
-                    }
-                  }}
-                >
-                  <span className="listening-ielts-mc__letter">{option.id}</span>
-                  <ReadingHighlightableText
-                    blockId={`${activeQuestion.id}-opt-${option.id}`}
-                    text={option.label}
-                    highlights={highlights}
-                    as="span"
-                  />
-                </div>
-              )
-            })}
-          </div>
-        )}
-      </ExamHighlightZone>
     </>
   )
 }

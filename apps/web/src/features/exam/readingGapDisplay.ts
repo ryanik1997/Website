@@ -33,7 +33,7 @@ export function shouldFormatPassageGaps(
   partNumber: number,
 ): boolean {
   if (cambridgeLevel === 'a2' && (partNumber === 4 || partNumber === 5)) return true
-  if (cambridgeLevel === 'b1' && (partNumber === 4 || partNumber === 5 || partNumber === 6)) return true
+  if (cambridgeLevel === 'b1' && (partNumber === 5 || partNumber === 6)) return true
   return false
 }
 

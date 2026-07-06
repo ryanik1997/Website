@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Book 1 — Test 2",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        { "imageFile": "part1-q1.jpg" },
+        { "imageFile": "part1-q2.jpg" },
+        { "imageFile": "part1-q3.jpg" },
+        { "imageFile": "part1-q4.jpg" },
+        { "imageFile": "part1-q5.jpg" }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What does the notice at the train station say?",
+              "options": [
+                { "id": "A", "label": "Passengers must use a different form of transport today." },
+                { "id": "B", "label": "Trains will run as normal from Platform 3." },
+                { "id": "C", "label": "Engineering works have been cancelled." }
+              ],
+              "answer": "a",
+              "explanation": "Hành khách phải dùng xe buýt thay thế vì tàu không dừng tại sân ga 3."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What does the sports centre notice say?",
+              "options": [
+                { "id": "A", "label": "You can use the machines for as long as you like." },
+                { "id": "B", "label": "You should clean the equipment after using it." },
+                { "id": "C", "label": "All visitors must book the machines in advance." }
+              ],
+              "answer": "b",
+              "explanation": "Yêu cầu lau sạch thiết bị sau khi dùng."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What is Mark asking Sarah to do?",
+              "options": [
+                { "id": "A", "label": "He wants Sarah to cancel the meeting." },
+                { "id": "B", "label": "He is asking Sarah to wait and order a drink for him." },
+                { "id": "C", "label": "He has already arrived at the cafe." }
+              ],
+              "answer": "b",
+              "explanation": "Mark nhờ Sarah gọi hot chocolate và đợi anh ấy."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What does the notice about the Spanish conversation group say?",
+              "options": [
+                { "id": "A", "label": "You need to register before attending the group." },
+                { "id": "B", "label": "The group is only for advanced speakers." },
+                { "id": "C", "label": "People with no Spanish experience can attend." }
+              ],
+              "answer": "c",
+              "explanation": "Chào đón mọi trình độ, kể cả người mới bắt đầu, và không cần đăng ký trước."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What does the museum sign say?",
+              "options": [
+                { "id": "A", "label": "You are not allowed to take photos." },
+                { "id": "B", "label": "You can use flash if the artwork is protected." },
+                { "id": "C", "label": "Visitors must not get too close to the paintings." }
+              ],
+              "answer": "c",
+              "explanation": "Khách được khuyến nghị giữ khoảng cách với tranh và không chạm vào khung."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Shopping centres",
+      "passage": [
+        { "text": "The people below all want to visit a shopping centre. Decide which centre would be the most suitable for the people below." },
+        { "label": "A", "text": "Greenhill Mall — This recently renovated modern centre offers shoppers over 200 different stores, from low-cost fashion chains to well-known sports brands. It also boasts a large food court on the ground floor and an eight-screen cinema on the top floor. Opening hours are 10 am to 10 pm every day of the week." },
+        { "label": "B", "text": "Riverside Walk — Located beside the river, this attractive open-air centre is a paradise for those who enjoy browsing. It is filled with independent bookshops selling rare editions, antique furniture stores, and craft stalls where local artists sell their work. Several cafes offer outdoor seating, providing a peaceful escape from the noisy city traffic." },
+        { "label": "C", "text": "The Arcade — Housed in a beautiful historic building in the very heart of the city, this indoor market is famous among collectors. You can spend hours searching for rare coins, vintage stamps, classic toys, and old vinyl records. However, be aware that all stalls close promptly at 5 pm, and there are no options for a hot meal inside." },
+        { "label": "D", "text": "City Plaza — Known for its practical approach, this large indoor complex contains a giant supermarket, a well-stocked DIY store, and various electronics shops offering the latest gadgets. It tends to be very busy, but the huge car park provides free parking for the first two hours, which is extremely convenient for drivers." },
+        { "label": "E", "text": "Park View — Set in beautiful landscaped gardens, this small but luxurious shopping village focuses on high-quality fashion. It features exclusive designer clothing, expensive jewellery, and private art galleries. While prices are significantly higher than elsewhere, the elegant atmosphere makes it a relaxing place to spend an afternoon." },
+        { "label": "F", "text": "Market Square — This traditional outdoor market only takes place on Saturdays. Local farmers arrive early to sell fresh seasonal fruit, vegetables, aromatic bread, and delicious homemade cakes. Additionally, local bands often perform live music in the centre of the square, creating a lively and festive atmosphere for visitors." },
+        { "label": "G", "text": "The Hub — A large, modern indoor entertainment complex rather than a traditional mall. It features a ten-pin bowling alley, a large soft play area specifically designed for young children, and numerous fast-food restaurants. It remains open until midnight, making it an ideal destination for families looking for evening activities." },
+        { "label": "H", "text": "Eastgate Centre — This medium-sized shopping mall offers a good selection of moderately priced clothing stores, a large bookshop, and a cozy coffee shop. It is noticeably less crowded than the larger City Plaza and includes a small, safe playground to keep children entertained while their parents browse the shops." }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "matching-features",
+          "features": [
+            { "id": "a", "name": "Greenhill Mall" },
+            { "id": "b", "name": "Riverside Walk" },
+            { "id": "c", "name": "The Arcade" },
+            { "id": "d", "name": "City Plaza" },
+            { "id": "e", "name": "Park View" },
+            { "id": "f", "name": "Market Square" },
+            { "id": "g", "name": "The Hub" },
+            { "id": "h", "name": "Eastgate Centre" }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Carlos wants to buy cheap clothes and also watch a film. He prefers a place that's open late and has many choices.",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "a",
+              "explanation": "Greenhill có nhiều cửa hàng, rạp phim và mở đến 10h tối."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Emma is looking for a unique gift for her friend, such as an old book or a handmade craft. She wants to sit outside and enjoy a quiet afternoon.",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "b",
+              "explanation": "Riverside Walk có sách cũ, đồ thủ công và quán cà phê ngoài trời."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Daniel needs to buy a new computer and do some grocery shopping. He is driving and wants free parking.",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "d",
+              "explanation": "City Plaza có siêu thị, cửa hàng điện tử và đỗ xe miễn phí 2 giờ đầu."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Fatima wants to take her two young children somewhere fun. She'd like to have lunch and stay until the evening.",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "g",
+              "explanation": "The Hub có khu vui chơi, đồ ăn nhanh và mở đến nửa đêm."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Oliver wants to buy some fresh produce and listen to local musicians. He doesn't mind that it's only open on one day of the week.",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "f",
+              "explanation": "Market Square bán sản phẩm tươi và có nhạc sống, chỉ mở thứ Bảy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Guitarist Ben Tanner",
+      "passageSubtitle": "A musician talks about his passion",
+      "passage": [
+        { "text": "I started playing guitar when I was just twelve years old. My older brother had an old acoustic guitar that he never used, gathering dust in the corner of his room, so I decided to borrow it without asking. At first, I simply enjoyed making random noise, but soon I discovered that by carefully listening to my favourite CDs, I could slowly work out the chords and melodies. I spent hours practising in my room, often playing the same line over and over until my fingers hurt. Luckily, my parents never complained about the noise; in fact, they were just relieved that I was not spending my entire day in front of the television." },
+        { "text": "By the age of sixteen, I had formed a band with a few friends from school, which we named 'The Lost Keys'. We played mostly rock and pop covers at local youth clubs and school celebrations. Although the payment was small – just enough to buy new guitar strings – the experience was incredibly valuable. However, I soon realised that simply copying songs by ear had its limits. If I truly wanted to improve as a musician, I would need to understand music theory properly. So, I started taking private lessons with a professional guitarist who lived in the next town." },
+        { "text": "After finishing secondary school, I made the decision to apply for a music degree at university. I was extremely nervous because I felt like an imposter; I was convinced that the other applicants were far more talented than me. Nevertheless, my professors encouraged me to keep going. I dedicated myself to practising for up to eight hours a day. Gradually, I learned to read complex sheet music, compose my own original pieces, and even master classical guitar techniques. That period completely transformed my style and gave me the confidence to express myself through my instrument." },
+        { "text": "These days, I work as a full-time musician, which involves giving concerts across the country, teaching enthusiastic students at a summer school, and occasionally recording in professional studios. While I still have a deep love for rock music, I have also developed a great appreciation for jazz and classical genres. Without doubt, the most rewarding part of my career is performing live in front of an audience. Seeing people smile, tap their feet, or dance along to my music reminds me that every single hour of practice was absolutely worth it." }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Ben started playing the guitar because",
+              "options": [
+                { "id": "A", "label": "his brother gave him a new guitar." },
+                { "id": "B", "label": "he found an unused guitar at home." },
+                { "id": "C", "label": "his parents wanted him to play music." },
+                { "id": "D", "label": "he wanted to earn money." }
+              ],
+              "answer": "b",
+              "explanation": "Anh mượn cây đàn cũ không dùng của anh trai."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What did Ben do at the age of sixteen?",
+              "options": [
+                { "id": "A", "label": "He formed a band and played at events." },
+                { "id": "B", "label": "He stopped playing guitar." },
+                { "id": "C", "label": "He started teaching music." },
+                { "id": "D", "label": "He went to university." }
+              ],
+              "answer": "a",
+              "explanation": "Anh chơi trong ban nhạc ở các sự kiện địa phương."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Why did Ben take lessons with a professional guitarist?",
+              "options": [
+                { "id": "A", "label": "To prepare for a concert." },
+                { "id": "B", "label": "To learn music theory." },
+                { "id": "C", "label": "To meet other musicians." },
+                { "id": "D", "label": "To earn more money." }
+              ],
+              "answer": "b",
+              "explanation": "Anh nhận ra cần học lý thuyết âm nhạc để tiến bộ hơn."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "How did Ben feel when he started university?",
+              "options": [
+                { "id": "A", "label": "He felt confident about his skills." },
+                { "id": "B", "label": "He was worried he wasn't good enough." },
+                { "id": "C", "label": "He thought it was too easy." },
+                { "id": "D", "label": "He didn't like the teachers." }
+              ],
+              "answer": "b",
+              "explanation": "Anh lo lắng vì nghĩ mình không đủ giỏi so với sinh viên khác."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What does Ben enjoy most about his job now?",
+              "options": [
+                { "id": "A", "label": "Teaching students." },
+                { "id": "B", "label": "Recording in studios." },
+                { "id": "C", "label": "Performing in front of audiences." },
+                { "id": "D", "label": "Playing classical music." }
+              ],
+              "answer": "c",
+              "explanation": "Điều tuyệt nhất là chia sẻ âm nhạc với khán giả."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Moving to a new city",
+      "passage": [
+        { "text": "When I graduated from university with my degree in design, I decided to take a big risk and move to London to pursue a career. I had only visited the capital once before, and living there seemed both exciting and terrifying. (16) ........" },
+        { "text": "I spent weeks searching for suitable accommodation on various websites. I looked at over twenty flats, but most of them were either far too expensive for my budget or located an hour away from the city centre by train. (17) ........ I finally found a small but cozy studio apartment in a friendly neighbourhood, and I signed the contract immediately." },
+        { "text": "The first few weeks were incredibly challenging. I did not know a single person in the city, and I frequently got lost on the complicated underground system. (18) ........ However, I decided to join a local gym and also signed up for a book club at the nearby library, which turned out to be a fantastic way to meet people who shared my interests." },
+        { "text": "After a couple of months, I gradually began to feel more at home. I discovered several lovely independent cafes and beautiful parks where I could relax on weekends. I even mastered the underground map, so I could travel anywhere without needing to check my phone for directions. (19) ........ Furthermore, I managed to secure a position as a junior graphic designer at a small agency, which was precisely the kind of job I had dreamed of." },
+        { "text": "When I look back now, I am extremely glad that I took that initial risk. Moving to London has completely changed my perspective on life and has offered me opportunities I never expected. (20) ........ I always tell my friends that if they have the chance, they should definitely try living in a new city at least once in their lives." },
+        { "text": "Sentences" },
+        { "label": "A", "text": "I had to get used to the noise and the busy streets." },
+        { "label": "B", "text": "I felt lonely at first." },
+        { "label": "C", "text": "I knew it would be a great adventure." },
+        { "label": "D", "text": "I never imagined I would stay so long." },
+        { "label": "E", "text": "Then I saw an ad for a room in a shared flat, but it was too small." },
+        { "label": "F", "text": "I started to enjoy exploring the city." },
+        { "label": "G", "text": "My parents were worried about me." },
+        { "label": "H", "text": "Now I can't imagine living anywhere else." }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "matching-features",
+          "features": [
+            { "id": "a", "name": "I had to get used to the noise and the busy streets." },
+            { "id": "b", "name": "I felt lonely at first." },
+            { "id": "c", "name": "I knew it would be a great adventure." },
+            { "id": "d", "name": "I never imagined I would stay so long." },
+            { "id": "e", "name": "Then I saw an ad for a room in a shared flat, but it was too small." },
+            { "id": "f", "name": "I started to enjoy exploring the city." },
+            { "id": "g", "name": "My parents were worried about me." },
+            { "id": "h", "name": "Now I can't imagine living anywhere else." }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "Gap (16)",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "c",
+              "explanation": "Biết đó sẽ là một cuộc phiêu lưu tuyệt vời – phù hợp với quyết định lớn."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "Gap (17)",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "e",
+              "explanation": "Nói về việc tìm kiếm căn hộ, thấy một quảng cáo nhưng quá nhỏ."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "Gap (18)",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "b",
+              "explanation": "Cảm thấy cô đơn lúc đầu, sau đó tham gia các câu lạc bộ để kết bạn."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "Gap (19)",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "f",
+              "explanation": "Bắt đầu thích khám phá thành phố – sau khi đã quen và tìm việc."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "Gap (20)",
+              "options": [
+                { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+                { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+                { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+                { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+              ],
+              "answer": "h",
+              "explanation": "Bây giờ không thể tưởng tượng sống ở nơi khác – kết luận tích cực."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "The Bamboo Plant",
+      "passage": [
+        { "text": "Bamboo is widely considered to be one of the fastest-growing plants on the entire planet. It is (21) ........ in many parts of Southeast Asia and China, where it has played a vital role in daily life for thousands of years. It is used for constructing houses, creating furniture, producing paper, and even making textiles for clothing. In ideal conditions, bamboo can grow up to 91 centimetres in a single day, (22) ........ it an incredibly renewable and sustainable resource for the future." },
+        { "text": "There are currently over 1,000 known species of bamboo. While some varieties are relatively small and thrive in cold, mountainous regions, (23) ........ others are truly enormous and flourish in the hot, humid conditions of tropical rainforests. Despite being remarkably strong and durable, bamboo is surprisingly (24) ........ enough to be harvested and cut easily using only simple, basic hand tools." },
+        { "text": "In many Asian countries, bamboo is regularly (25) ........ to produce a wide range of everyday items, including furniture, writing paper, and traditional musical instruments. In addition, the young, tender shoots of the bamboo plant are a highly popular (26) ........ in many classic Asian dishes, adding a unique texture and flavour." }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                { "id": "A", "label": "common" },
+                { "id": "B", "label": "rare" },
+                { "id": "C", "label": "strange" },
+                { "id": "D", "label": "unknown" }
+              ],
+              "answer": "a",
+              "explanation": "Phổ biến ở Đông Nam Á và Trung Quốc."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                { "id": "A", "label": "making" },
+                { "id": "B", "label": "makes" },
+                { "id": "C", "label": "make" },
+                { "id": "D", "label": "made" }
+              ],
+              "answer": "b",
+              "explanation": "makes it a renewable resource – động từ số ít."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                { "id": "A", "label": "while" },
+                { "id": "B", "label": "so" },
+                { "id": "C", "label": "because" },
+                { "id": "D", "label": "although" }
+              ],
+              "answer": "a",
+              "explanation": "while = trong khi, thể hiện sự tương phản giữa các loài."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                { "id": "A", "label": "light" },
+                { "id": "B", "label": "heavy" },
+                { "id": "C", "label": "hard" },
+                { "id": "D", "label": "thick" }
+              ],
+              "answer": "a",
+              "explanation": "Nhẹ đến mức có thể cắt bằng dụng cụ đơn giản."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap (25)",
+              "options": [
+                { "id": "A", "label": "used" },
+                { "id": "B", "label": "use" },
+                { "id": "C", "label": "using" },
+                { "id": "D", "label": "useful" }
+              ],
+              "answer": "a",
+              "explanation": "được sử dụng thường xuyên để sản xuất đồ dùng."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap (26)",
+              "options": [
+                { "id": "A", "label": "food" },
+                { "id": "B", "label": "dish" },
+                { "id": "C", "label": "ingredient" },
+                { "id": "D", "label": "meal" }
+              ],
+              "answer": "c",
+              "explanation": "thành phần phổ biến trong các món ăn Á."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "The City Library",
+      "passage": [
+        { "text": "The City Library is (27) ........ of the busiest and most popular public buildings in the whole town. It is conveniently situated near the main square and is open every single day (28) ........ Sunday, so you can visit almost any time. Members can borrow up to ten books (29) ........ a time and are allowed to keep them for a maximum period of three weeks." },
+        { "text": "If you wish to use the internet or the public computers, it is necessary to book a time slot (30) ........ advance because they are in high demand during the afternoons. The library also offers a dedicated quiet study area on the first floor (31) ........ students and researchers can concentrate on their work without any noise or interruption." },
+        { "text": "In addition to books and computers, the library organises many free community activities, including reading clubs and storytelling sessions (32) ........ young children, which are held every Saturday morning in the children's section." }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "instruction": "Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "one",
+              "explanation": "one of the busiest = một trong những nơi đông đúc nhất."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "except",
+              "explanation": "open every day except Sunday = mở mỗi ngày trừ Chủ nhật."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "at",
+              "explanation": "at a time = cùng một lúc."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "in",
+              "explanation": "in advance = trước."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap (31)",
+              "options": [],
+              "answer": "where",
+              "explanation": "where students can work = nơi sinh viên có thể học."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap (32)",
+              "options": [],
+              "answer": "for",
+              "explanation": "for children = dành cho trẻ em."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
