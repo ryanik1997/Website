@@ -4,6 +4,7 @@ import { listeningExamRepo } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import { getListeningExam, LISTENING_EXAMS } from './listeningExamData'
 import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
+import { getPublishedListeningExam, listPublishedListeningExams } from './listeningExamPublish'
 import { normalizeListeningExamForDisplay } from './listeningImportNormalize'
 
 function recordToExam(record: ListeningExamRecord): ListeningExam {
@@ -38,6 +39,17 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
     return exam
   }
 
+  try {
+    const published = await getPublishedListeningExam(examId)
+    if (published) {
+      let exam = normalizeListeningExamForDisplay(published)
+      exam = mergeCatalogListeningMedia(exam)
+      return exam
+    }
+  } catch (err) {
+    console.warn('Không tải được đề Listening published:', err)
+  }
+
   if (!builtin) return null
   return mergeCatalogListeningMedia(builtin)
 }
@@ -45,8 +57,18 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
 export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const imported = (await listeningExamRepo.list()).map(recordToExam)
   const builtinIds = new Set(LISTENING_EXAMS.map(e => e.id))
-  const localOnly = imported.filter(e => !builtinIds.has(e.id))
-  return [...LISTENING_EXAMS, ...localOnly]
+
+  let published: ListeningExam[] = []
+  try {
+    published = await listPublishedListeningExams()
+  } catch (err) {
+    console.warn('Không tải danh sách đề Listening published:', err)
+  }
+
+  const publishedIds = new Set(published.map(e => e.id))
+  const publishedOnly = published.filter(e => !builtinIds.has(e.id))
+  const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
+  return [...LISTENING_EXAMS, ...publishedOnly, ...localOnly]
 }
 
 export function examRecordFromListening(

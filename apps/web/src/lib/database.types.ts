@@ -147,6 +147,97 @@ export interface Database {
         }
         Relationships: []
       }
+      listening_exam_published: {
+        Row: {
+          id: string
+          title: string
+          duration_minutes: number
+          band_hint: string | null
+          exam_type: string
+          exam_mode: string
+          parts: Record<string, unknown>[]
+          source: string
+          source_filename: string | null
+          published_by: string | null
+          published_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          title: string
+          duration_minutes: number
+          band_hint?: string | null
+          exam_type: string
+          exam_mode?: string
+          parts: Record<string, unknown>[]
+          source?: string
+          source_filename?: string | null
+          published_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          duration_minutes?: number
+          band_hint?: string | null
+          exam_type?: string
+          exam_mode?: string
+          parts?: Record<string, unknown>[]
+          source?: string
+          source_filename?: string | null
+          published_by?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      admin_published_modules: {
+        Row: {
+          module: string
+          payload: Record<string, unknown>
+          item_count: number
+          published_by: string | null
+          updated_at: string
+        }
+        Insert: {
+          module: string
+          payload?: Record<string, unknown>
+          item_count?: number
+          published_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          module?: string
+          payload?: Record<string, unknown>
+          item_count?: number
+          published_by?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      admin_publish_meta: {
+        Row: {
+          id: string
+          version: number
+          modules: string[]
+          published_by: string | null
+          published_at: string
+        }
+        Insert: {
+          id?: string
+          version?: number
+          modules?: string[]
+          published_by?: string | null
+          published_at?: string
+        }
+        Update: {
+          id?: string
+          version?: number
+          modules?: string[]
+          published_by?: string | null
+          published_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: Record<string, never>

@@ -1,0 +1,39 @@
+---
+pid: 28484
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm deploy:prod"
+started_at: 2026-07-07T13:45:49.526Z
+running_for_ms: 3775014  
+---
+
+> ryan-english@ deploy:prod D:\App-English-Ryan\Website
+> node scripts/db-push.mjs && vercel deploy --prod --yes
+
+→ Supabase db push (apply) — project ntcagvtkwxwsmlxlumfo
+Finished supabase link.
+Connecting to remote database...
+Remote database is up to date.
+✓ Migrations đã push — mọi user dùng schema mới.
+A new version of Supabase CLI is available: v2.109.1 (currently installed v2.108.0)
+We recommend updating regularly for new features and bug fixes: https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli
+Vercel CLI 54.18.5 (Node.js 22.20.0)
+Retrieving project…
+Deploying ryanenglish/ryanenglishv2
+Uploading [--------------------] (0.0B/37.5KB)
+Uploading [=======-------------] (13.9KB/37.5KB)
+Uploading [===========---------] (21.1KB/37.5KB)
+Uploading [====================] (37.5KB/37.5KB)
+https://ryanenglishv2-hnmgm9y6x-ryanenglish.vercel.app  Inspect         https://vercel.com/ryanenglish/ryanenglishv2/Cnk5VCrdutgPxLQGauw8svWx2v6Y
+  Production      https://ryanenglishv2-hnmgm9y6x-ryanenglish.vercel.app
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Retrieving list of deployment files...
+Downloading 2540 deployment files...
+  Production      https://ryanenglishv2-hnmgm9y6x-ryanenglish.vercel.app
+Completing…
+▲ Aliased         https://ryanenglishv2.vercel.app
+
+✓ Ready in 7m
+> Tip: Run `npx plugins add vercel/vercel-plugin` to enhance your agent experience
