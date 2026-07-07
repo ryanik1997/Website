@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 14,
+  "test": 4,
+  "title": "IELTS Reading — Cambridge 14 Test 4",
+  "bandHint": "IELTS Academic · Cambridge 14 · Test 4 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "r1-TBD",
+      "file": "exam_passage1.json",
+      "note": "Q1–13 · TFNG/MC/Headings/Gap"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2-TBD",
+      "file": "exam_passage2.json",
+      "note": "Q14–26 · Match paragraph/MC/YNNG"
+    },
+    {
+      "partNumber": 3,
+      "template": "r3-TBD",
+      "file": "exam_passage3.json",
+      "note": "Q27–40 · TFNG/YNNG/MC"
+    }
+  ]
+}

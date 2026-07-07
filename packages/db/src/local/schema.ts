@@ -5,6 +5,8 @@ export interface Deck {
   id: string; groupId: string; name: string
   book?: string; unit?: string
   color?: string; icon?: string
+  /** 'preset' = do app tạo sẵn (không cho xóa), 'user' = user tự tạo (xóa được). Undefined = legacy — coi như preset nếu nằm trong group hệ thống. */
+  origin?: 'preset' | 'user'
   createdAt: number; updatedAt: number
 }
 export interface Card       { id: string; deckId: string; phrase: string; meaning: string; example?: string; ipaUS?: string; ipaUK?: string; pos?: string; createdAt: number; updatedAt: number }

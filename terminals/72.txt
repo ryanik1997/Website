@@ -1,0 +1,79 @@
+---
+pid: 47868
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; node scripts/batch-ielts-reading-bundle.mjs; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-07T03:16:03.015Z
+running_for_ms: 37390003 
+---
+
+── Reading IELTS_Test1_Cam10 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading" "IELTS_Test1_Cam10"
+
+ ELIFECYCLE  Command failed with exit code 1.
+D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:32
+if (!(0,__vite_ssr_import_0__.existsSync)(dir)) throw new Error(`Không tìm thấy: ${dir}`);
+                                                      ^
+
+Error: Không tìm thấy: D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading
+    at resolveBundleDir (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:30:31)
+    at main (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:138:21)
+    at D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:166:1
+    at ViteNodeRunner.runModule (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:368:4)
+    at ViteNodeRunner.directRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:348:3)
+    at ViteNodeRunner.cachedRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:181:11)
+    at ViteNodeRunner.executeFile (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:156:10)
+    at CAC.run (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/cli.mjs:92:28)
+
+Node.js v22.20.0
+
+── Reading IELTS_Test3_Cam11 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading" "IELTS_Test3_Cam11"
+
+D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:32
+if (!(0,__vite_ssr_import_0__.existsSync)(dir)) throw new Error(`Không tìm thấy: ${dir}`);
+                                                      ^
+
+Error: Không tìm thấy: D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading
+    at resolveBundleDir (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:30:31)
+    at main (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:138:21)
+    at D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:166:1
+    at ViteNodeRunner.runModule (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:368:4)
+    at ViteNodeRunner.directRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:348:3)
+    at ViteNodeRunner.cachedRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:181:11)
+    at ViteNodeRunner.executeFile (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:156:10)
+    at CAC.run (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/cli.mjs:92:28)
+ ELIFECYCLE  Command failed with exit code 1.
+
+Node.js v22.20.0
+
+── Reading IELTS_Test4_Cam10 ──
+
+> ryan-english@ ielts:reading:bundle D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-reading-bundle.ts all "IELTS/Reading" "IELTS_Test4_Cam10"
+
+D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:32
+if (!(0,__vite_ssr_import_0__.existsSync)(dir)) throw new Error(`Không tìm thấy: ${dir}`);
+                                                      ^
+
+Error: Không tìm thấy: D:\App-English-Ryan\Website\Tainguyen\IELTS\Reading
+    at resolveBundleDir (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:30:31)
+    at main (D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:138:21)
+    at D:\App-English-Ryan\Website\scripts\ielts-reading-bundle.ts:166:1
+    at ViteNodeRunner.runModule (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:368:4)
+    at ViteNodeRunner.directRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:348:3)
+    at ViteNodeRunner.cachedRequest (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:181:11)
+    at ViteNodeRunner.executeFile (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/client.mjs:156:10)
+    at CAC.run (file:///C:/Users/ADMIN/AppData/Local/npm-cache/_npx/f2342a4b64a2bc92/node_modules/vite-node/dist/cli.mjs:92:28)
+ ELIFECYCLE  Command failed with exit code 1.
+
+Node.js v22.20.0
+
+📊 Reading bundle batch
+   Folders: 48
+   Sẵn sàng (3 passages): 3
+   Bundled OK: 0
+   Failed: 3

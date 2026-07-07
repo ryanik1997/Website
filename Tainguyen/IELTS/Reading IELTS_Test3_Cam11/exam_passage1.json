@@ -1,0 +1,292 @@
+{
+  "partNumber": 1,
+  "rangeLabel": "Read the text and answer questions 1–13.",
+  "passageTitle": "Urban green spaces",
+  "passage": [
+    {
+      "label": "A",
+      "text": "City planners once treated parks as decorative extras. Today many municipalities rank green space as essential infrastructure that improves air quality and reduces flooding."
+    },
+    {
+      "label": "B",
+      "text": "Researchers comparing neighbourhoods found that residents living within a ten-minute walk of a park reported lower stress levels, though the study could not prove causation."
+    },
+    {
+      "label": "C",
+      "text": "Some councils resist large park projects because maintenance budgets are already strained. Critics argue that planting trees along streets delivers similar benefits at lower cost."
+    },
+    {
+      "label": "D",
+      "text": "Volunteer groups have restored abandoned lots into community gardens. These projects depend on local fundraising and rarely receive national grants."
+    },
+    {
+      "label": "E",
+      "text": "Architects increasingly design buildings with rooftop gardens. Supporters claim these spaces should be mandatory on new commercial developments."
+    },
+    {
+      "label": "F",
+      "text": "Historical records show that Victorian cities invested heavily in public parks to improve public health. Modern campaigns often cite this precedent."
+    },
+    {
+      "label": "G",
+      "text": "International surveys suggest that cities with generous green coverage attract skilled workers, but the relationship between greenery and economic growth remains debated."
+    }
+  ],
+  "questionGroups": [
+    {
+      "range": "Questions 1–7",
+      "instruction": "Reading Passage 1 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.",
+      "note": "There are more headings than paragraphs, so you will not use all of them.",
+      "type": "matching-headings",
+      "headings": [
+        {
+          "id": "i",
+          "label": "Financial obstacles to large-scale park projects"
+        },
+        {
+          "id": "ii",
+          "label": "A shift in how cities value open space"
+        },
+        {
+          "id": "iii",
+          "label": "Evidence linking proximity to parks with wellbeing"
+        },
+        {
+          "id": "iv",
+          "label": "Grassroots efforts to reclaim unused land"
+        },
+        {
+          "id": "v",
+          "label": "Debate over whether rooftop gardens should be compulsory"
+        },
+        {
+          "id": "vi",
+          "label": "Lessons drawn from nineteenth-century urban planning"
+        },
+        {
+          "id": "vii",
+          "label": "Uncertainty about economic effects of urban greenery"
+        },
+        {
+          "id": "viii",
+          "label": "Why street trees are cheaper than formal parks"
+        }
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "type": "matching-headings",
+          "prompt": "Paragraph A",
+          "options": [],
+          "answer": "ii",
+          "explanation": "Paragraph A describes a shift from decorative parks to essential infrastructure."
+        },
+        {
+          "number": 2,
+          "type": "matching-headings",
+          "prompt": "Paragraph B",
+          "options": [],
+          "answer": "iii",
+          "explanation": "Paragraph B reports lower stress near parks."
+        },
+        {
+          "number": 3,
+          "type": "matching-headings",
+          "prompt": "Paragraph C",
+          "options": [],
+          "answer": "i",
+          "explanation": "Paragraph C discusses maintenance budgets and resistance to large projects."
+        },
+        {
+          "number": 4,
+          "type": "matching-headings",
+          "prompt": "Paragraph D",
+          "options": [],
+          "answer": "iv",
+          "explanation": "Volunteers restore lots into community gardens."
+        },
+        {
+          "number": 5,
+          "type": "matching-headings",
+          "prompt": "Paragraph E",
+          "options": [],
+          "answer": "v",
+          "explanation": "Supporters want rooftop gardens mandatory on new buildings."
+        },
+        {
+          "number": 6,
+          "type": "matching-headings",
+          "prompt": "Paragraph F",
+          "options": [],
+          "answer": "vi",
+          "explanation": "Victorian investment in parks is cited as a precedent."
+        },
+        {
+          "number": 7,
+          "type": "matching-headings",
+          "prompt": "Paragraph G",
+          "options": [],
+          "answer": "vii",
+          "explanation": "Economic benefits of greenery remain debated."
+        }
+      ]
+    },
+    {
+      "range": "Questions 8–13",
+      "instruction": "Choose the correct letter, A, B, C or D.",
+      "type": "multiple-choice",
+      "questions": [
+        {
+          "number": 8,
+          "type": "multiple-choice",
+          "prompt": "When do female kākāpō usually lay eggs?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Throughout the year"
+            },
+            {
+              "id": "b",
+              "label": "Only in winter"
+            },
+            {
+              "id": "c",
+              "label": "In summer and autumn when food is plentiful"
+            },
+            {
+              "id": "d",
+              "label": "Only after government intervention"
+            }
+          ],
+          "answer": "c",
+          "explanation": "Females lay eggs in summer and autumn when food is plentiful."
+        },
+        {
+          "number": 9,
+          "type": "multiple-choice",
+          "prompt": "What happened to kākāpō numbers before conservation efforts intensified?",
+          "options": [
+            {
+              "id": "a",
+              "label": "They increased on mainland farms"
+            },
+            {
+              "id": "b",
+              "label": "They remained stable for centuries"
+            },
+            {
+              "id": "c",
+              "label": "They were exported to other countries"
+            },
+            {
+              "id": "d",
+              "label": "They declined severely and neared extinction"
+            }
+          ],
+          "answer": "d",
+          "explanation": "By the late twentieth century the species was on the brink of extinction."
+        },
+        {
+          "number": 10,
+          "type": "multiple-choice",
+          "prompt": "The 1894 government action was aimed at",
+          "options": [
+            {
+              "id": "a",
+              "label": "saving the kākāpō"
+            },
+            {
+              "id": "b",
+              "label": "introducing new predators"
+            },
+            {
+              "id": "c",
+              "label": "relocating all parrots to Australia"
+            },
+            {
+              "id": "d",
+              "label": "banning nocturnal hunting"
+            }
+          ],
+          "answer": "a",
+          "explanation": "The government launched its first attempt to save the kākāpō in 1894."
+        },
+        {
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Kākāpō diet consists entirely of",
+          "options": [
+            {
+              "id": "a",
+              "label": "insects and small mammals"
+            },
+            {
+              "id": "b",
+              "label": "plant material"
+            },
+            {
+              "id": "c",
+              "label": "fish and shellfish"
+            },
+            {
+              "id": "d",
+              "label": "food provided by conservation staff only"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Their diet is completely vegetarian."
+        },
+        {
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "Which factor made early European settlement especially damaging?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Widespread habitat loss"
+            },
+            {
+              "id": "b",
+              "label": "A ban on forest climbing"
+            },
+            {
+              "id": "c",
+              "label": "Reduced rainfall"
+            },
+            {
+              "id": "d",
+              "label": "Competition from other parrots"
+            }
+          ],
+          "answer": "a",
+          "explanation": "European colonisation caused widespread habitat loss."
+        },
+        {
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "The writer suggests that today the kākāpō",
+          "options": [
+            {
+              "id": "a",
+              "label": "no longer needs human support"
+            },
+            {
+              "id": "b",
+              "label": "is still among the most endangered birds"
+            },
+            {
+              "id": "c",
+              "label": "has recovered fully in the wild"
+            },
+            {
+              "id": "d",
+              "label": "lives only in European zoos"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Intensive management continues and it remains one of the most endangered birds."
+        }
+      ]
+    }
+  ]
+}

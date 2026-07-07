@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 9,
+  "test": 3,
+  "title": "IELTS Reading — Cambridge 9 Test 3",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 3 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "ynng-summary-mc",
+      "file": "exam_passage1.json",
+      "note": "YNNG + summary + MC"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2g",
+      "file": "exam_passage2.json",
+      "note": "Match + choose FIVE + diagram"
+    },
+    {
+      "partNumber": 3,
+      "template": "match-gap-tfng",
+      "file": "exam_passage3.json",
+      "note": "Match + notes + TFNG"
+    }
+  ]
+}

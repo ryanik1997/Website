@@ -17,6 +17,7 @@ import {
   readingPassageFeatureAnchorId,
   readingPassageRefAnchorId,
 } from './readingPassageAnchor'
+import ReadingPartTopImage from './ReadingPartTopImage'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface ReadingPassagePanelProps {
@@ -25,6 +26,13 @@ interface ReadingPassagePanelProps {
   cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
   activeQuestionId?: string | null
   onSelectQuestion?: (questionId: string) => void
+  /** Ảnh diagram đầu / cuối passage — user chọn từ máy (IELTS). */
+  partTopImageUrl?: string
+  onPartTopImagePick?: (file: File) => void
+  onPartTopImageClear?: () => void
+  partBottomImageUrl?: string
+  onPartBottomImagePick?: (file: File) => void
+  onPartBottomImageClear?: () => void
 }
 
 /** A2/B1 Part 1 — chỉ ảnh/sign ở cột trái; đáp án ở cột phải. */
@@ -227,6 +235,12 @@ export default function ReadingPassagePanel({
   cambridgeLevel,
   activeQuestionId,
   onSelectQuestion,
+  partTopImageUrl,
+  onPartTopImagePick,
+  onPartTopImageClear,
+  partBottomImageUrl,
+  onPartBottomImagePick,
+  onPartBottomImageClear,
 }: ReadingPassagePanelProps) {
   const isSignsPart1 = (cambridgeLevel === 'a2' || cambridgeLevel === 'b1') && part.partNumber === 1
   const isB1MatchingRef = cambridgeLevel === 'b1' && (part.partNumber === 2 || part.partNumber === 4)
@@ -255,6 +269,15 @@ export default function ReadingPassagePanel({
       <h2 className="reading-test-passage-title">{part.passageTitle}</h2>
       {part.passageSubtitle && (
         <p className="reading-test-passage-subtitle">{part.passageSubtitle}</p>
+      )}
+
+      {(partTopImageUrl || onPartTopImagePick) && (
+        <ReadingPartTopImage
+          partNumber={part.partNumber}
+          imageUrl={partTopImageUrl}
+          onPick={onPartTopImagePick}
+          onClear={onPartTopImageClear}
+        />
       )}
 
       {isSignsPart1 ? (
@@ -347,6 +370,16 @@ export default function ReadingPassagePanel({
             ))}
           </div>
         </div>
+      )}
+
+      {(partBottomImageUrl || onPartBottomImagePick) && (
+        <ReadingPartTopImage
+          partNumber={part.partNumber}
+          placement="bottom"
+          imageUrl={partBottomImageUrl}
+          onPick={onPartBottomImagePick}
+          onClear={onPartBottomImageClear}
+        />
       )}
     </article>
   )

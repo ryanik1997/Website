@@ -1,9 +1,11 @@
 import { useCallback, useState } from 'react'
 import type { ReadingQuestion } from '../examData'
+import RwHighlightText from '../rwHighlight/RwHighlightText'
 import type { PetRwBankOption } from './petRwPassageUtils'
 import PetRwPersonPhotoSlot from './PetRwPersonPhotoSlot'
 
 interface Props {
+  partId: string
   slots: ReadingQuestion[]
   bank: PetRwBankOption[]
   answers: Record<string, string>
@@ -20,6 +22,7 @@ interface Props {
 }
 
 export default function PetRwDragMatch({
+  partId,
   slots,
   bank,
   answers,
@@ -59,6 +62,7 @@ export default function PetRwDragMatch({
           <div
             key={option.id}
             className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+            data-highlight-skip
             draggable={!isUsed}
             onDragStart={e => {
               if (isUsed) return
@@ -78,10 +82,20 @@ export default function PetRwDragMatch({
                   {showBankLetters && (
                     <span className="pet-rw-drag__bank-letter">{option.id}</span>
                   )}
-                  <span className="pet-rw-drag__bank-title">{option.title}</span>
+                  <span className="pet-rw-drag__bank-title">
+                    <RwHighlightText
+                      blockId={`${partId}-bank-${option.id}-title`}
+                      text={option.title}
+                    />
+                  </span>
                 </p>
                 {option.body && (
-                  <p className="pet-rw-drag__bank-text">{option.body}</p>
+                  <p className="pet-rw-drag__bank-text">
+                    <RwHighlightText
+                      blockId={`${partId}-bank-${option.id}-body`}
+                      text={option.body}
+                    />
+                  </p>
                 )}
               </>
             ) : (
@@ -89,7 +103,12 @@ export default function PetRwDragMatch({
                 {showBankLetters && (
                   <span className="pet-rw-drag__bank-letter">{option.id}</span>
                 )}
-                <p className="pet-rw-drag__bank-text">{option.label}</p>
+                <p className="pet-rw-drag__bank-text">
+                  <RwHighlightText
+                    blockId={`${partId}-bank-${option.id}`}
+                    text={option.label}
+                  />
+                </p>
               </>
             )}
           </div>
@@ -123,12 +142,16 @@ export default function PetRwDragMatch({
               />
               <p className="pet-rw-person__prompt">
                 <span className="pet-rw-person__num">{question.number}</span>
-                {question.prompt}
+                <RwHighlightText
+                  blockId={`${partId}-q-${question.id}-prompt`}
+                  text={question.prompt}
+                />
               </p>
             </div>
             <button
               type="button"
               className={`pet-rw-drag__slot${answerId ? ' is-filled' : ''}`}
+              data-highlight-skip
               onClick={() => {
                 if (pickedId) {
                   assignOption(question.id, pickedId)

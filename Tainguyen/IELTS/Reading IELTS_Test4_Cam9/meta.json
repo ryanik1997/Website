@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 9,
+  "test": 4,
+  "title": "IELTS Reading — Cambridge 9 Test 4",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 4 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "r1g",
+      "file": "exam_passage1.json",
+      "note": "TFNG + gap notes"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2h",
+      "file": "exam_passage2.json",
+      "note": "Match para + researchers + summary"
+    },
+    {
+      "partNumber": 3,
+      "template": "headings-mc-tfng",
+      "file": "exam_passage3.json",
+      "note": "Headings + MC + TFNG"
+    }
+  ]
+}

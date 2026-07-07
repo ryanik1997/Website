@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 9,
+  "test": 2,
+  "title": "IELTS Reading — Cambridge 9 Test 2",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 2 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "match-gap-mc",
+      "file": "exam_passage1.json",
+      "note": "Q1–6 match + Q7–10 gap + Q11–12 TWO + MC"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2t",
+      "file": "exam_passage2.json",
+      "note": "Q14–17 match + Q18–21 people + TFNG"
+    },
+    {
+      "partNumber": 3,
+      "template": "mc-ynng-endings",
+      "file": "exam_passage3.json",
+      "note": "MC + YNNG + sentence endings"
+    }
+  ]
+}

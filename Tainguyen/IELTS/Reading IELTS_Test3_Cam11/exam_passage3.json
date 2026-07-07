@@ -1,0 +1,361 @@
+{
+  "partNumber": 3,
+  "rangeLabel": "Read the text and answer questions 27–40.",
+  "passageTitle": "The science of sleep and memory",
+  "passage": [
+    {
+      "text": "Sleep has long been linked to memory, but only in recent decades have researchers begun to understand the mechanisms involved. Studies show that different stages of sleep support different kinds of learning, from factual recall to motor skills."
+    },
+    {
+      "text": "During slow-wave sleep, the brain appears to replay experiences from the day, strengthening neural connections that matter and weakening those that do not. This process may explain why students who sleep after revision often perform better in tests."
+    },
+    {
+      "text": "REM sleep, by contrast, is associated with more creative forms of problem solving. Volunteers woken during REM sleep sometimes solve puzzles more quickly after returning to sleep, suggesting that unusual associations are formed during this stage."
+    },
+    {
+      "text": "Not all findings are conclusive. Some experiments use small sample sizes, and laboratory sleep differs from sleep at home. Even so, schools and workplaces are increasingly aware that cutting sleep reduces productivity and long-term retention."
+    }
+  ],
+  "questionGroups": [
+    {
+      "range": "Questions 27–32",
+      "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE or NOT GIVEN.",
+      "type": "tfng",
+      "questions": [
+        {
+          "number": 27,
+          "type": "true-false-not-given",
+          "prompt": "Scientists have fully explained how sleep affects memory.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "false",
+          "explanation": "The passage says researchers have only recently begun to understand mechanisms."
+        },
+        {
+          "number": 28,
+          "type": "true-false-not-given",
+          "prompt": "Slow-wave sleep may strengthen useful neural connections.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "true",
+          "explanation": "Slow-wave sleep strengthens important connections and weakens others."
+        },
+        {
+          "number": 29,
+          "type": "true-false-not-given",
+          "prompt": "REM sleep is mainly responsible for factual recall.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "false",
+          "explanation": "Factual recall is linked to slow-wave sleep; REM supports creative problem solving."
+        },
+        {
+          "number": 30,
+          "type": "true-false-not-given",
+          "prompt": "All sleep researchers agree on the value of laboratory experiments.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "not-given",
+          "explanation": "Limitations are noted but no universal agreement is described."
+        },
+        {
+          "number": 31,
+          "type": "true-false-not-given",
+          "prompt": "Sleeping after revision can improve test performance.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "true",
+          "explanation": "Students who sleep after revision often perform better."
+        },
+        {
+          "number": 32,
+          "type": "true-false-not-given",
+          "prompt": "Workplaces now completely ban overtime to protect sleep.",
+          "options": [
+            {
+              "id": "true",
+              "label": "TRUE"
+            },
+            {
+              "id": "false",
+              "label": "FALSE"
+            },
+            {
+              "id": "not-given",
+              "label": "NOT GIVEN"
+            }
+          ],
+          "answer": "false",
+          "explanation": "Workplaces are increasingly aware of sleep loss, but no ban is mentioned."
+        }
+      ]
+    },
+    {
+      "range": "Questions 33–40",
+      "instruction": "Choose the correct letter, A, B, C or D.",
+      "type": "multiple-choice",
+      "questions": [
+        {
+          "number": 33,
+          "type": "multiple-choice",
+          "prompt": "The main purpose of the first paragraph is to",
+          "options": [
+            {
+              "id": "a",
+              "label": "reject earlier theories about sleep"
+            },
+            {
+              "id": "b",
+              "label": "introduce the link between sleep and memory"
+            },
+            {
+              "id": "c",
+              "label": "compare human sleep with animal sleep"
+            },
+            {
+              "id": "d",
+              "label": "describe laboratory recording methods"
+            }
+          ],
+          "answer": "b",
+          "explanation": "The opening paragraph introduces the sleep–memory connection."
+        },
+        {
+          "number": 34,
+          "type": "multiple-choice",
+          "prompt": "During slow-wave sleep the brain",
+          "options": [
+            {
+              "id": "a",
+              "label": "stops processing daytime experiences"
+            },
+            {
+              "id": "b",
+              "label": "replays and reorganises experiences"
+            },
+            {
+              "id": "c",
+              "label": "forms only creative associations"
+            },
+            {
+              "id": "d",
+              "label": "becomes less active than during REM sleep"
+            }
+          ],
+          "answer": "b",
+          "explanation": "The brain replays experiences and adjusts connections."
+        },
+        {
+          "number": 35,
+          "type": "multiple-choice",
+          "prompt": "Volunteers woken during REM sleep",
+          "options": [
+            {
+              "id": "a",
+              "label": "may solve puzzles faster after sleeping again"
+            },
+            {
+              "id": "b",
+              "label": "lose all memory of the puzzle"
+            },
+            {
+              "id": "c",
+              "label": "cannot return to sleep in the laboratory"
+            },
+            {
+              "id": "d",
+              "label": "perform worse than those woken in slow-wave sleep"
+            }
+          ],
+          "answer": "a",
+          "explanation": "They sometimes solve puzzles more quickly after returning to sleep."
+        },
+        {
+          "number": 36,
+          "type": "multiple-choice",
+          "prompt": "A limitation mentioned in the text is that",
+          "options": [
+            {
+              "id": "a",
+              "label": "sleep research is illegal in schools"
+            },
+            {
+              "id": "b",
+              "label": "some studies use small samples"
+            },
+            {
+              "id": "c",
+              "label": "REM sleep cannot be measured"
+            },
+            {
+              "id": "d",
+              "label": "memory is unrelated to neural connections"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Some experiments use small sample sizes."
+        },
+        {
+          "number": 37,
+          "type": "multiple-choice",
+          "prompt": "Laboratory sleep differs from home sleep because",
+          "options": [
+            {
+              "id": "a",
+              "label": "the environment is unnatural"
+            },
+            {
+              "id": "b",
+              "label": "volunteers sleep for longer periods"
+            },
+            {
+              "id": "c",
+              "label": "only children take part"
+            },
+            {
+              "id": "d",
+              "label": "REM sleep does not occur"
+            }
+          ],
+          "answer": "a",
+          "explanation": "Laboratory sleep differs from sleep at home."
+        },
+        {
+          "number": 38,
+          "type": "multiple-choice",
+          "prompt": "The writer suggests that reducing sleep can",
+          "options": [
+            {
+              "id": "a",
+              "label": "increase long-term retention"
+            },
+            {
+              "id": "b",
+              "label": "improve creative thinking at work"
+            },
+            {
+              "id": "c",
+              "label": "lower productivity"
+            },
+            {
+              "id": "d",
+              "label": "have no effect on learning"
+            }
+          ],
+          "answer": "c",
+          "explanation": "Cutting sleep reduces productivity and retention."
+        },
+        {
+          "number": 39,
+          "type": "multiple-choice",
+          "prompt": "Different stages of sleep are important because they",
+          "options": [
+            {
+              "id": "a",
+              "label": "support different kinds of learning"
+            },
+            {
+              "id": "b",
+              "label": "replace the need for daytime practice"
+            },
+            {
+              "id": "c",
+              "label": "occur in the same order every night"
+            },
+            {
+              "id": "d",
+              "label": "are identical in all age groups"
+            }
+          ],
+          "answer": "a",
+          "explanation": "Different stages support factual recall and motor skills among other types."
+        },
+        {
+          "number": 40,
+          "type": "multiple-choice",
+          "prompt": "The overall tone of the passage is",
+          "options": [
+            {
+              "id": "a",
+              "label": "cautiously informative"
+            },
+            {
+              "id": "b",
+              "label": "strongly dismissive"
+            },
+            {
+              "id": "c",
+              "label": "humorous and informal"
+            },
+            {
+              "id": "d",
+              "label": "entirely speculative"
+            }
+          ],
+          "answer": "a",
+          "explanation": "The writer presents evidence while noting limitations."
+        }
+      ]
+    }
+  ]
+}

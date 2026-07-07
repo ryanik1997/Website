@@ -12,6 +12,12 @@ const TFNG: ReadingQuestionOption[] = [
   { id: 'not-given', label: 'NOT GIVEN' },
 ]
 
+const YNNG: ReadingQuestionOption[] = [
+  { id: 'yes', label: 'YES' },
+  { id: 'no', label: 'NO' },
+  { id: 'not-given', label: 'NOT GIVEN' },
+]
+
 export function mcOpts(labels: string[]): ReadingQuestionOption[] {
   const ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const
   return labels.map((label, i) => ({ id: ids[i] ?? `o${i}`, label }))
@@ -36,6 +42,34 @@ export function readingTfng(
   explanation: string,
 ): ReadingQuestion {
   return { id, number: num, type: 'true-false-not-given', prompt, options: TFNG, answer, explanation }
+}
+
+export function readingYnng(
+  num: number,
+  id: string,
+  prompt: string,
+  answer: string,
+  explanation: string,
+): ReadingQuestion {
+  return { id, number: num, type: 'yes-no-not-given', prompt, options: YNNG, answer, explanation }
+}
+
+export function readingMatchingHeading(
+  num: number,
+  id: string,
+  prompt: string,
+  answer: string,
+  explanation: string,
+): ReadingQuestion {
+  return {
+    id,
+    number: num,
+    type: 'matching-headings',
+    prompt,
+    options: [],
+    answer: answer.toLowerCase(),
+    explanation,
+  }
 }
 
 export function readingGap(

@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════════════════
+Import Reading IELTS — Cam 9–20 (48 đề)
+═══════════════════════════════════════════════════════════════
+
+Đường import chính: ZIP (giống Listening) — không dùng Wizard hàng loạt.
+
+── CẤU TRÚC FOLDER ──
+
+Tainguyen/IELTS/Reading IELTS_Test{N}_Cam{X}/
+  meta.json
+  answer-key.txt          (paste đáp án 1–40)
+  exam_passage1.json      Passage 1 · Q1–13
+  exam_passage2.json      Passage 2 · Q14–26
+  exam_passage3.json      Passage 3 · Q27–40
+  *.jpg                   Ảnh diagram (tuỳ chọn)
+  exam.json               (tự sinh)
+  Reading IELTS_Test{N}_Cam{X}.zip
+
+── SCAFFOLD 48 FOLDER ──
+
+  pnpm ielts:reading:scaffold
+
+── TẠO JSON (ChatGPT / Claude / Agent) ──
+
+  1. Dán OCR text từng Passage + Answer Key
+  2. Dùng prompt: HDSD/Prompt-IELTS-Reading-Cam9-Cam20.txt
+  3. Lưu exam_passage1.json … exam_passage3.json
+  4. Sửa template trong meta.json (r1, r2-headings, r3-ynng…)
+
+── LỆNH PIPELINE ──
+
+  pnpm ielts:reading:validate "IELTS/Reading IELTS_Test1_Cam10"
+  pnpm ielts:reading:merge   "IELTS/Reading IELTS_Test1_Cam10"
+  pnpm ielts:reading:pack    "IELTS/Reading IELTS_Test1_Cam10"
+  pnpm ielts:reading:bundle  "IELTS/Reading IELTS_Test1_Cam10"   ← merge + validate + pack
+
+  pnpm ielts:reading:bundle:all          ← bundle mọi folder đủ 3 passages
+  pnpm ielts:reading:bundle:all --dry-run
+
+── PILOT CÓ SẴN ──
+
+  pnpm ielts:reading:export-pilots
+  pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test1_Cam10"   — 40 câu mock
+  pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test3_Cam11"   — Matching Headings P1
+  pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test4_Cam10"   — YNNG P2
+
+── IMPORT TRONG APP ──
+
+  Luyện thi → IELTS → Import thủ công Reading → chọn .zip
+
+── GROUP TYPES HỖ TRỢ ──
+
+  tfng, ynng, matching-headings, matching-paragraph, matching-features,
+  multiple-choice, gap-fill, summary-completion, sentence-completion
+
+── DEV PASSAGE LẺ ──
+
+  pnpm ielts:reading:validate "IELTS/..." --partial
+  pnpm ielts:reading:merge   "IELTS/..." --partial

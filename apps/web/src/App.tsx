@@ -40,9 +40,11 @@ const AdminPage      = lazy(() => import('./features/admin/AdminPage'))
 
 export default function App() {
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {})
-    }
+    if (!('serviceWorker' in navigator)) return
+    navigator.serviceWorker
+      .register('/sw.js', { scope: '/' })
+      .then(reg => { void reg.update() })
+      .catch(() => {})
   }, [])
 
   return (

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 10,
+  "test": 2,
+  "title": "IELTS Reading — Cambridge 10 Test 2",
+  "bandHint": "IELTS Academic · Cambridge 10 · Test 2 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "r1-headings-tfng",
+      "file": "exam_passage1.json",
+      "note": "Q1–7 headings + Q8–13 TFNG"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2h",
+      "file": "exam_passage2.json",
+      "note": "Q14–17 match para + Q18–22 people + Q23–26 gap"
+    },
+    {
+      "partNumber": 3,
+      "template": "r3-summary-mc-ynng",
+      "file": "exam_passage3.json",
+      "note": "Q27–31 summary + Q32–35 MC + Q36–40 YNNG"
+    }
+  ]
+}

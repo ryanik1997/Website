@@ -83,10 +83,11 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  {part.questionGroups.flatMap(group => group.questions).map(question => {
+                  {part.questionGroups.flatMap(group => group.questions.map(question => ({ group, question }))).map(({ group, question }) => {
                     const userAnswer = answers[question.id] ?? ''
                     const isWriting = isWritingTaskQuestion(question)
                     const isCorrect = isWriting ? null : isReadingAnswerCorrect(question, userAnswer)
+                    const answerContext = group.type === 'matching-headings' ? { headings: group.headings } : undefined
 
                     return (
                       <article
@@ -134,14 +135,14 @@ export default function ExamResult({ exam, answers, onRetry, onBack }: Props) {
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Bạn chọn: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {formatReadingAnswer(question, userAnswer)}
+                              {formatReadingAnswer(question, userAnswer, answerContext)}
                             </span>
                           </div>
                           {!isWriting && (
                           <div className="rounded-xl border px-3 py-2 text-sm" style={{ borderColor: 'var(--border-color)' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Đáp án đúng: </span>
                             <span style={{ color: 'var(--text-primary)' }}>
-                              {formatReadingAnswer(question, question.answer)}
+                              {formatReadingAnswer(question, question.answer, answerContext)}
                             </span>
                           </div>
                           )}

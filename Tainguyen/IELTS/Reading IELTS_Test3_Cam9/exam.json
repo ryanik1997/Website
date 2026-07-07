@@ -1,0 +1,900 @@
+{
+  "version": 1,
+  "title": "IELTS Reading — Cambridge 9 Test 3",
+  "durationMinutes": 60,
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 3 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Read the text and answer questions 1–13.",
+      "passageTitle": "Attitudes to language",
+      "passage": [
+        {
+          "text": "Attitudes to language It is not easy to be systematic and objective about language study. Popular linguistic debate regularly deteriorates into invective and polemic. Language belongs to everyone, so most people feel they have a right to hold an opinion about it. And when opinions differ, emotions can run high. Arguments can start as easily over minor points of usage as over major policies of linguistic education. Language, moreover, is a very public behaviour., so it is easy for different usages to be noted and criticised. No part of society or social behaviour is exempt: linguistic factors influence howwe judge personality, intelligence, social status, educational standards, job aptitude, and many other areas of identity and social survival. As a result, it is easy to hurt, and to be hurt, when language use is unfeelingly attacked. In its most general sense, prescriptivism is the view that one variety of language has an inherently higher value than others, and that this ought to be imposed on the whole of the speech community. The view is propounded especially in relation to grammar and vocabulary, and frequently with reference to pronunciation. The variety which is favoured, in this account, is usually a version of the 'standard' written language, especially as encountered in literature, or in the formal spoken language which most closely reflects this style. Adherents to this variety are said to speak or write 'correctly'; deviations from it are said to be 'incorrect: All the main languages have been studied prescriptively, especially in the 18th century approach to the writing of grammars and dictionaries. The aims of these early grammarians were threefold: (a) they wanted to codify the principles of their languages, to show that there was a system beneath the apparent chaos of usage, (b) they wanted a means of settling disputes over usage, and ( c) they wanted to point out what they felt to be common errors, in order to 'improve' the language. The authoritarian nature of the approach is best characterised by its reliance on 'rules' of grammar. Some usages are 'prescribed; to be learnt and followed accurately; others are 'proscribed; to be avoided. In this early period, there were no half-measures: usage was either right or wrong, and it was the task of the grammarian not simply to record alternatives, but to pronounce judgement upon them. These attitudes are still with us, and they motivate a widespread concern that linguistic standards should be maintained. Nevertheless, there is an alternative point of view that is concerned less with standards than with the facts of linguistic usage. This approach is summarised in the statement that it is the task of the grammarian to describe, not prescribe"
+        },
+        {
+          "text": "Test3 - to record the facts of linguistic diversity, and not to attempt the impossible tasks of evaluating language variation or halting language change. In the second half of the 18th century, we already find advocates of this view, such as Joseph Priestley, whose Rudiments of English Grammar (1761) insists that 'the custom of speaking is the original and only just standard of any language: Linguistic issues, it is argued, cannot be solved by logic and legislation. And this view has become the tenet of the modem linguistic approach to grammatical analysis. In our own time, the opposition between 'descriptivists' and 'prescriptivists' has often become extreme, with both sides painting unreal pictures of the other. Descriptive grammarians have been presented as people who do not care about standards, because of the way they see all forms of usage as equally valid. Prescriptive grammarians have been presented as blind adherents to a historical tradition. The opposition has even been presented in quasi-political terms - of radical liberalism vs elitist conservatism."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–8",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Write YES, NO or NOT GIVEN.",
+          "type": "ynng",
+          "questions": [
+            {
+              "number": 1,
+              "type": "yes-no-not-given",
+              "prompt": "There are understandable reasons why arguments occur about language.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "yes",
+              "explanation": "Language belongs to everyone."
+            },
+            {
+              "number": 2,
+              "type": "yes-no-not-given",
+              "prompt": "People feel more strongly about language education than about small differences in language usage.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "no",
+              "explanation": "Arguments over minor points too."
+            },
+            {
+              "number": 3,
+              "type": "yes-no-not-given",
+              "prompt": "Our assessment of a person's intelligence is affected by the way he or she uses language.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "yes",
+              "explanation": "Linguistic factors influence judgment."
+            },
+            {
+              "number": 4,
+              "type": "yes-no-not-given",
+              "prompt": "Prescriptive grammar books cost a lot of money to buy in the 18th century.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "Not mentioned."
+            },
+            {
+              "number": 5,
+              "type": "yes-no-not-given",
+              "prompt": "Prescriptivism still exists today.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "yes",
+              "explanation": "These attitudes are still with us."
+            },
+            {
+              "number": 6,
+              "type": "yes-no-not-given",
+              "prompt": "According to descriptivists, it is pointless to try to stop language change.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "yes",
+              "explanation": "Halt language change = impossible."
+            },
+            {
+              "number": 7,
+              "type": "yes-no-not-given",
+              "prompt": "Descriptivism only appeared after the 18th century.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "no",
+              "explanation": "Advocates in second half of 18th century."
+            },
+            {
+              "number": 8,
+              "type": "yes-no-not-given",
+              "prompt": "Both descriptivists and prescriptivists have been misrepresented.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "yes",
+              "explanation": "Both sides paint unreal pictures."
+            }
+          ]
+        },
+        {
+          "range": "Questions 9–12",
+          "instruction": "Complete the summary using the list of words, A–I, below.",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "descriptivists"
+            },
+            {
+              "id": "b",
+              "label": "language experts"
+            },
+            {
+              "id": "c",
+              "label": "popular speech"
+            },
+            {
+              "id": "d",
+              "label": "formal language"
+            },
+            {
+              "id": "e",
+              "label": "evaluation"
+            },
+            {
+              "id": "f",
+              "label": "rules"
+            },
+            {
+              "id": "g",
+              "label": "modern linguists"
+            },
+            {
+              "id": "h",
+              "label": "prescriptivists"
+            },
+            {
+              "id": "i",
+              "label": "change"
+            }
+          ],
+          "questions": [
+            {
+              "number": 9,
+              "type": "summary-completion",
+              "prompt": "According to ___, there is only one correct form of language.",
+              "options": [],
+              "answer": "h",
+              "explanation": "Prescriptivists."
+            },
+            {
+              "number": 10,
+              "type": "summary-completion",
+              "prompt": "Linguists who take this approach place great importance on grammatical ___.",
+              "options": [],
+              "answer": "f",
+              "explanation": "Rules."
+            },
+            {
+              "number": 11,
+              "type": "summary-completion",
+              "prompt": "Conversely, the view of ___, such as Joseph Priestley, is that grammar should be based on…",
+              "options": [],
+              "answer": "a",
+              "explanation": "Descriptivists."
+            },
+            {
+              "number": 12,
+              "type": "summary-completion",
+              "prompt": "…grammar should be based on ___.",
+              "options": [],
+              "answer": "c",
+              "explanation": "Custom of speaking / popular speech."
+            }
+          ]
+        },
+        {
+          "range": "Question 13",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What is the writer's purpose in Reading Passage 1?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "to argue in favour of a particular approach to writing dictionaries and grammar books"
+                },
+                {
+                  "id": "b",
+                  "label": "to present a historical account of differing views of language"
+                },
+                {
+                  "id": "c",
+                  "label": "to describe the differences between spoken and written language"
+                },
+                {
+                  "id": "d",
+                  "label": "to show how a certain view of language has been discredited"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Historical account of views."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Read the text and answer questions 14–26.",
+      "passageTitle": "Tidal power",
+      "passage": [
+        {
+          "text": "Tidal Power Undersea turbines which produce electricity from the tides are set to become an important source of renewable energy for Britain. It is still too early to predict the extent of the impact they may have, but all the signs are that they will play a significant role in the future"
+        },
+        {
+          "label": "A",
+          "text": "Operating on the same principle as wind turbines, the power in sea turbines comes from tidal currents which turn blades similar to ships' propellers, but, unlike wind, the tides are predictable and the power input is constant. The technology raises the prospect of Britain becoming self-sufficient in renewable energy and drastically reducing its carbon dioxide emissions. If tide, wind and wave power are all developed, Britain would be able to close gas, coal and nuclear power plants and export renewable power to other parts of Europe. Unlike wind power, which Britain originally developed and then abandoned for 20 years allowing the Dutch to make it a major industry, undersea turbines could become a big export earner to island nations such as Japan and New Zealand."
+        },
+        {
+          "label": "B",
+          "text": "Tidal sites have already been identified that will produce one sixth or more of the UK's power - and at prices competitive with modern gas turbines and undercutting those of the already ailing nuclear industry. One site alone, the Pentland Firth, between Orkney and mainland Scotland, could produce 10% of the country's electricity with banks of turbines under the sea, and another at Alderney in the Channel Islands three times the 1 , 200 megawatts of Britain's largest and newest nuclear plant, Sizewell B, in Suffolk. Other sites identified include the Bristol Channel and the west coast of Scotland, particularly the channel between Campbeltown and Northern Ireland."
+        },
+        {
+          "label": "C",
+          "text": "Work on designs for the new turbine blades and sites are well advanced at the University of Southampton's sustainable energy research group. The first station is expected to be installed off Lynmouth in Devon shortly to test the technology in a venture jointly funded by the department of Trade and Industry and the European Union. AbuBakr Bahaj, in charge of the Southampton research, said: The prospects for energy from tidal currents are far better t han from wind because the flows of water are predictable and constant. The technology for dealing with the hostile saline environment under the sea has been developed in the North Sea oil industry and much 67 facebook.com/IELTSVN - Improve your IEL TS score Test3 is already known about turbine blade design, because of wind power and ship propellers. There are a few technical difficulties, but I believe in the next five to ten years we will be installing commercial marine turbine farms.' Southampton has been awarded £215,000 over three years to develop the turbines and is working with Marine Current Turbines, a subsidiary of IT power, on the Lynmouth project. EU research has now identified 106 potential sites for tidal power, 800/o round the coasts of Britain. The best sites are between islands or around heavily indented coasts where there are strong tidal currents."
+        },
+        {
+          "label": "D",
+          "text": "A marine turbine blade needs to be only one third of the size of a wind generator to produce three times as much power. The blades will be about 20 metres in diameter, so around 30 metres of water is required. Unlike wind power, there are unlikely to be environmental objections. Fish and other creatures are thought unlikely to be at risk from the relatively slow-turning blades. Each turbine will be mounted on a tower which will connect to the national power supply grid via underwater cables. The towers will stick out of the water and be lit, to warn shipping, and also be designed to be lifted out of the water for maintenance and to clean seaweed from the blades."
+        },
+        {
+          "label": "E",
+          "text": "ll\" Bahaj has done most work on the Alderney site, where there are powerful currents. The single undersea turbine farm would produce far more power than needed for the Channel Islands and most would be fed into the French Grid and be re-imported into Britain via the cable under the Channel."
+        },
+        {
+          "label": "F",
+          "text": "One technical difficulty is cavitation, where low pressure behind a turning blade causes air bubbles. These can cause vibration and damage the blades of the turbines. Dr Bahaj said: We have to test a number of blade types to avoid this happening or at least make sure it does not damage the turbines or reduce performance. Another slight concern is submerged debris floating into the blades. So far we do not know how much of a problem it might 68 be. We will have to make the turbines robust because the sea is a hostile environment, but all the signs that we can do it are good.' Reading"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 14–17",
+          "instruction": "Reading Passage 2 has six paragraphs, A–F. Which paragraph contains the following information?",
+          "note": "NB You may use any letter more than once.",
+          "type": "matching-paragraph",
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "questions": [
+            {
+              "number": 14,
+              "type": "matching-paragraph",
+              "prompt": "the location of the first test site",
+              "options": [],
+              "answer": "c",
+              "explanation": "Lynmouth in Devon."
+            },
+            {
+              "number": 15,
+              "type": "matching-paragraph",
+              "prompt": "the way of bringing the power produced on one site back into Britain",
+              "options": [],
+              "answer": "e",
+              "explanation": "Re-imported via Channel cable."
+            },
+            {
+              "number": 16,
+              "type": "matching-paragraph",
+              "prompt": "a reference to a previous attempt by Britain to find an alternative source of energy",
+              "options": [],
+              "answer": "a",
+              "explanation": "Wind power abandoned 20 years."
+            },
+            {
+              "number": 17,
+              "type": "matching-paragraph",
+              "prompt": "mention of the possibility of applying technology from another industry",
+              "options": [],
+              "answer": "c",
+              "explanation": "North Sea oil industry."
+            }
+          ]
+        },
+        {
+          "range": "Questions 18–22",
+          "instruction": "Which FIVE of the following claims about tidal power are made by the writer? Choose FIVE letters, A–J.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "Claim made by the writer (1 of 5)",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "A It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "b",
+                  "label": "B It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "c",
+                  "label": "C Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "d",
+                  "label": "D It would cut down on air pollution."
+                },
+                {
+                  "id": "e",
+                  "label": "E It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "f",
+                  "label": "F It could be a means of increasing national income."
+                },
+                {
+                  "id": "g",
+                  "label": "G It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "h",
+                  "label": "H It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "i",
+                  "label": "I It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "j",
+                  "label": "J It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
+              "answer": "a",
+              "explanation": "More reliable than wind."
+            },
+            {
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Claim made by the writer (2 of 5)",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "A It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "b",
+                  "label": "B It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "c",
+                  "label": "C Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "d",
+                  "label": "D It would cut down on air pollution."
+                },
+                {
+                  "id": "e",
+                  "label": "E It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "f",
+                  "label": "F It could be a means of increasing national income."
+                },
+                {
+                  "id": "g",
+                  "label": "G It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "h",
+                  "label": "H It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "i",
+                  "label": "I It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "j",
+                  "label": "J It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
+              "answer": "d",
+              "explanation": "Reduce CO2 emissions."
+            },
+            {
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Claim made by the writer (3 of 5)",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "A It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "b",
+                  "label": "B It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "c",
+                  "label": "C Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "d",
+                  "label": "D It would cut down on air pollution."
+                },
+                {
+                  "id": "e",
+                  "label": "E It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "f",
+                  "label": "F It could be a means of increasing national income."
+                },
+                {
+                  "id": "g",
+                  "label": "G It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "h",
+                  "label": "H It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "i",
+                  "label": "I It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "j",
+                  "label": "J It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
+              "answer": "e",
+              "explanation": "Close gas/coal/nuclear plants."
+            },
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Claim made by the writer (4 of 5)",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "A It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "b",
+                  "label": "B It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "c",
+                  "label": "C Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "d",
+                  "label": "D It would cut down on air pollution."
+                },
+                {
+                  "id": "e",
+                  "label": "E It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "f",
+                  "label": "F It could be a means of increasing national income."
+                },
+                {
+                  "id": "g",
+                  "label": "G It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "h",
+                  "label": "H It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "i",
+                  "label": "I It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "j",
+                  "label": "J It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
+              "answer": "f",
+              "explanation": "Export earner."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Claim made by the writer (5 of 5)",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "A It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "b",
+                  "label": "B It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "c",
+                  "label": "C Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "d",
+                  "label": "D It would cut down on air pollution."
+                },
+                {
+                  "id": "e",
+                  "label": "E It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "f",
+                  "label": "F It could be a means of increasing national income."
+                },
+                {
+                  "id": "g",
+                  "label": "G It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "h",
+                  "label": "H It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "i",
+                  "label": "I It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "j",
+                  "label": "J It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
+              "answer": "j",
+              "explanation": "Best at indented coasts."
+            }
+          ]
+        },
+        {
+          "range": "Questions 23–26",
+          "instruction": "Label the diagram below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 23,
+              "type": "gap-fill",
+              "prompt": "Whole tower can be raised for ___ and the extraction of seaweed from the blades.",
+              "options": [],
+              "answer": "maintenance",
+              "explanation": "Lifted for maintenance."
+            },
+            {
+              "number": 24,
+              "type": "gap-fill",
+              "prompt": "Sea life not in danger due to the fact that blades are comparatively ___.",
+              "options": [],
+              "answer": "slow-turning",
+              "explanation": "Relatively slow-turning blades."
+            },
+            {
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Air bubbles result from the ___ behind blades.",
+              "options": [],
+              "answer": "low pressure",
+              "explanation": "Low pressure causes bubbles."
+            },
+            {
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "This is known as ___.",
+              "options": [],
+              "answer": "cavitation",
+              "explanation": "Technical term cavitation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Read the text and answer questions 27–40.",
+      "passageTitle": "Information theory — the big data",
+      "passage": [
+        {
+          "text": "Infonnation theory lies at the heart of everything - from DVD players and the genetic code of DNA to the physics of the universe at its most fundamental. It has been central to the development of the science of communication, which enables data to be sent electronically and has therefore had a major impact on our lives"
+        },
+        {
+          "label": "A",
+          "text": "In April 2002 an event took place which demonstrated one of the many applications of information theory. The space probe, Voyager I, launched in 1977, had sent back spectacular images of Jupiter and Saturn and then soared out of the Solar System on a one-way mission to the stars. After 25 years of exposure to the freezing temperatures of deep space, the probe was beginning to show its age. Sensors and circuits were on the brink of failing and NASA experts realised that they had to do something or lose contact with their probe forever. The solution was to get a message to Voyager I to instruct it to use spares to change the failing parts. With the probe 12 billion kilometres from Earth, this was not an easy task. By means of a radio dish belonging to NASA's Deep Space Network, the message was sent out into the depths of space. Even travelling at the speed of light, it took over 11 hours to reach its target, far beyond the orbit of Pluto. Yet, incredibly, the little probe managed to hear the faint call from its home planet, and successfully made the switchover."
+        },
+        {
+          "label": "B",
+          "text": "It was the longest-distance repair job in history, and a triumph for the NASA engineers. But it also highlighted the astonishing power of the techniques developed by American communications engineer Claude Shannon, who had died just a year earlier. Born in 1916 in Petoskey, Michigan, Shannon showed an early talent for maths and for building gadgets, and made breakthroughs in the foundations of computer technology when still a student. While at Bell Laboratories, Shannon developed information theory, but shunned the resulting acclaim. In the 1940s, he single-handedly created an entire science of communication which has since inveigled its way into a host of applications, from DVDs to satellite communications to bar codes - any area, in short, where data has to be conveyed rapidly yet accurately. 71 Test3"
+        },
+        {
+          "label": "C",
+          "text": "This all seems light years away from the down-to-earth uses Shannon originally had for his work, which began when he was a 22-year-old graduate engineering student at the prestigious Massachusetts Institute of Technology in 1939. He set out with an apparently simple aim: to pin down the precise meaning of the concept of 'information'. The most basic form of information, Shannon argued, is whether something is true or false - which can be captured in the binary unit, or 'bit', of the form 1 or 0. Having identified this fundamental unit, Shannon set about defining otherwise vague ideas about information and how to transmit it from place to place. In the process he discovered something surprising: it is always possible to guarantee information will get through random interference - 'noise' - intact."
+        },
+        {
+          "label": "D",
+          "text": "Noise usually means unwanted sounds which interfere with genuine information. Information theory generalises this idea via theorems that capture the effects of noise with mathematical precision. In particular, Shannon showed that noise sets a limit on the rate at which information can pass along communication channels while remaining error-free. This rate depends on the relative strengths of the signal and noise travelling down the communication channel, and on its capacity (its 'bandwidth'). The resulting limit, given in units of bits per second, is the absolute maximum rate of error-free communication given signal strength and noise level. The trick, Shannon showed, is to find ways of packaging up - 'coding' - information to cope with the ravages of noise, while staying within the information-carrying capacity - 'bandwidth' - of the communication system being used."
+        },
+        {
+          "label": "E",
+          "text": "Over the years scientists have devised many such coding methods, and they have proved crucial in many technological feats. The Voyager spacecraft transmitted data using codes which added one extra bit for every single bit of information; the result was an error rate of just one bit in 10,000 - and stunningly clear pictures of the planets. Other codes have become part of everyday life - such as the Universal Product Code, or bar code, which uses a simple error-detecting system that ensures supermarket check-out lasers can read the price even on, say, a crumpled bag of crisps. As recently as 1993, engineers made a major breakthrough by discovering so-called turbo codes - which come very close to Shannon's ultimate limit for the maximum rate that data can be transmitted reliably, and now play a key role in the mobile videophone revolution."
+        },
+        {
+          "label": "F",
+          "text": "Shannon also laid the foundations of more efficient ways of storing information, by stripping out superfluous ('redundant') bits from data which contributed little real information. As mobile phone text messages like 'I CN C U' show, it is often possible to leave out a lot of data without losing much meaning. As with error correction, however, there's a limit beyond which messages become too ambiguous. Shannon showed how to calculate this limit, opening the way to the design of compression methods that cram maximum information into the minimum space. 72"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "instruction": "Reading Passage 3 has six paragraphs, A–F. Which paragraph contains the following information?",
+          "note": "NB You may use any letter more than once.",
+          "type": "matching-paragraph",
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "questions": [
+            {
+              "number": 27,
+              "type": "matching-paragraph",
+              "prompt": "an explanation of the factors affecting the transmission of information",
+              "options": [],
+              "answer": "d",
+              "explanation": "Noise limits rate."
+            },
+            {
+              "number": 28,
+              "type": "matching-paragraph",
+              "prompt": "an example of how unnecessary information can be omitted",
+              "options": [],
+              "answer": "f",
+              "explanation": "Strip redundant bits."
+            },
+            {
+              "number": 29,
+              "type": "matching-paragraph",
+              "prompt": "a reference to Shannon's attitude to fame",
+              "options": [],
+              "answer": "b",
+              "explanation": "Shunned acclaim."
+            },
+            {
+              "number": 30,
+              "type": "matching-paragraph",
+              "prompt": "details of a machine capable of interpreting incomplete information",
+              "options": [],
+              "answer": "e",
+              "explanation": "Bar code scanners."
+            },
+            {
+              "number": 31,
+              "type": "matching-paragraph",
+              "prompt": "a detailed account of an incident involving information theory",
+              "options": [],
+              "answer": "a",
+              "explanation": "Voyager I repair."
+            },
+            {
+              "number": 32,
+              "type": "matching-paragraph",
+              "prompt": "a reference to what Shannon initially intended to achieve in his research",
+              "options": [],
+              "answer": "c",
+              "explanation": "Pin down meaning of information."
+            }
+          ]
+        },
+        {
+          "range": "Questions 33–37",
+          "instruction": "Complete the notes below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 33,
+              "type": "gap-fill",
+              "prompt": "The probe transmitted pictures of both ___ and ___.",
+              "options": [],
+              "answer": "jupiter|saturn",
+              "explanation": "Jupiter and Saturn images."
+            },
+            {
+              "number": 34,
+              "type": "gap-fill",
+              "prompt": "The probe then left the ___.",
+              "options": [],
+              "answer": "solar system",
+              "explanation": "Soared out of the Solar System."
+            },
+            {
+              "number": 35,
+              "type": "gap-fill",
+              "prompt": "Scientists feared that both the ___ and ___ were about to stop working.",
+              "options": [],
+              "answer": "sensors|circuits",
+              "explanation": "Sensors and circuits failing."
+            },
+            {
+              "number": 36,
+              "type": "gap-fill",
+              "prompt": "The only hope was to tell the probe to replace them with ___.",
+              "options": [],
+              "answer": "spares",
+              "explanation": "Use spares."
+            },
+            {
+              "number": 37,
+              "type": "gap-fill",
+              "prompt": "A ___ was used to transmit the message at the speed of light.",
+              "options": [],
+              "answer": "radio dish",
+              "explanation": "NASA Deep Space Network dish."
+            }
+          ]
+        },
+        {
+          "range": "Questions 38–40",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE or NOT GIVEN.",
+          "type": "tfng",
+          "questions": [
+            {
+              "number": 38,
+              "type": "true-false-not-given",
+              "prompt": "The concept of describing something as true or false was the starting point for Shannon in his attempts to send messages over distances.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Binary bit true/false."
+            },
+            {
+              "number": 39,
+              "type": "true-false-not-given",
+              "prompt": "The amount of information that can be sent in a given time period is determined with reference to the signal strength and noise level.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Rate depends on signal vs noise."
+            },
+            {
+              "number": 40,
+              "type": "true-false-not-given",
+              "prompt": "Products have now been developed which can convey more information than Shannon had anticipated as possible.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Turbo codes approach but do not exceed limit."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

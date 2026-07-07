@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions } from '../examData'
+import RwHighlightText from '../rwHighlight/RwHighlightText'
+import RwInstruction from '../rwHighlight/RwInstruction'
+import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import { ensureGapDots, questionByNumber, splitKetGapText } from './ketRwGapUtils'
 import KetRwSplitPane from './KetRwSplitPane'
@@ -18,43 +21,6 @@ function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl
   const src = useBlobMediaUrl(imageKey, imageUrl)
   if (!src) return null
   return <img src={src} alt={alt} />
-}
-
-function McRadioQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
-      </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{opt.label}</span>
-          </label>
-        ))}
-      </div>
-    </div>
-  )
 }
 
 function InlineMcGap({
@@ -78,6 +44,7 @@ function InlineMcGap({
       <button
         type="button"
         className={`ket-rw-gap-mc__btn${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={onToggle}
       >
         <span>{number}</span>
@@ -118,6 +85,7 @@ function InlineGapText({
         type="text"
         className="ket-rw-gap-input"
         aria-label={`Gap ${number}`}
+        data-highlight-skip
         value={value}
         onChange={e => onChange(e.target.value)}
         autoComplete="off"
@@ -128,6 +96,8 @@ function InlineGapText({
 }
 
 function renderGapPassage(
+  partId: string,
+  passageKey: string,
   text: string,
   questions: ReadingQuestion[],
   answers: Record<string, string>,
@@ -145,7 +115,13 @@ function renderGapPassage(
     <p className="ket-rw-inline-passage">
       {segments.map((seg, i) => {
         if (seg.kind === 'text') {
-          return <span key={`t-${i}`}>{seg.value}</span>
+          return (
+            <RwHighlightText
+              key={`t-${i}`}
+              blockId={`${partId}-${passageKey}-seg-${i}`}
+              text={seg.value}
+            />
+          )
         }
         const q = questionByNumber(questions, seg.number)
         if (!q) return <span key={`g-${i}`}>({seg.number})</span>
@@ -193,6 +169,7 @@ export default function KetRwPartContent({
   onAnswer,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
+  const partId = part.id
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
 
@@ -221,28 +198,35 @@ export default function KetRwPartContent({
       const hdr = block.label.trim().replace(/:$/, '')
       return (
         <p key={`hdr-${idx}`} className="ket-rw-email-header">
-          <strong>{hdr}:</strong> {block.text}
+          <strong>{hdr}:</strong>{' '}
+          <RwHighlightText blockId={`${partId}-hdr-${idx}`} text={block.text} />
         </p>
       )
     }
     if (part.partNumber === 4) {
       return (
         <div key={`p4-${idx}`}>
-          {renderGapPassage(block.text, questions, answers, 'mc', openGap, setOpenGap, onAnswer, onSelectQuestion)}
+          {renderGapPassage(partId, `p4-${idx}`, block.text, questions, answers, 'mc', openGap, setOpenGap, onAnswer, onSelectQuestion)}
         </div>
       )
     }
     if (part.partNumber === 5) {
       return (
         <div key={`p5-${idx}`}>
-          {renderGapPassage(block.text, questions, answers, 'input', openGap, setOpenGap, onAnswer, onSelectQuestion)}
+          {renderGapPassage(partId, `p5-${idx}`, block.text, questions, answers, 'input', openGap, setOpenGap, onAnswer, onSelectQuestion)}
         </div>
       )
     }
     return (
       <p key={`txt-${idx}`} className="ket-rw-paragraph">
-        {block.label && <span className="ket-rw-paragraph__label">{block.label}</span>}
-        {block.text}
+        {block.label && (
+          <RwHighlightText
+            blockId={`${partId}-lbl-${idx}`}
+            text={block.label}
+            className="ket-rw-paragraph__label"
+          />
+        )}
+        <RwHighlightText blockId={`${partId}-txt-${idx}`} text={block.text} />
       </p>
     )
   })
@@ -252,14 +236,13 @@ export default function KetRwPartContent({
     const signBlock = part.passage[imgIndex]
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
             {signBlock?.text && !signBlock.imageKey && !signBlock.imageUrl && (
-              <div className="ket-rw-sign-box">{signBlock.text}</div>
+              <div className="ket-rw-sign-box">
+                <RwHighlightText blockId={`${partId}-sign`} text={signBlock.text} />
+              </div>
             )}
             {(signBlock?.imageKey || signBlock?.imageUrl) && (
               <div className="ket-rw-sign-box">
@@ -270,7 +253,8 @@ export default function KetRwPartContent({
                 />
               </div>
             )}
-            <McRadioQuestion
+            <RwMcRadioQuestion
+              partId={partId}
               question={activeQuestion}
               answers={answers}
               onSelectQuestion={onSelectQuestion}
@@ -287,10 +271,7 @@ export default function KetRwPartContent({
     const text = wq ? answers[wq.id] ?? '' : ''
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <div className="ket-rw-writing-prompt">
@@ -299,13 +280,18 @@ export default function KetRwPartContent({
               <div className="ket-rw-writing-prompt__body">
                 {renderPassageBlocks()}
               </div>
-              {wq && <p>{wq.prompt}</p>}
+              {wq && (
+                <p>
+                  <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
+                </p>
+              )}
             </div>
           )}
           right={wq ? (
             <>
               <textarea
                 className="ket-rw-writing-area"
+                data-highlight-skip
                 value={text}
                 onChange={e => onAnswer(wq.id, e.target.value)}
                 onFocus={() => onSelectQuestion(wq.id)}
@@ -325,14 +311,15 @@ export default function KetRwPartContent({
     const text = wq ? answers[wq.id] ?? '' : ''
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
             <h3 className="ket-rw-passage-title">Question {wq?.number ?? 32}</h3>
-            {wq && <p className="ket-rw-q-prompt">{wq.prompt}</p>}
+            {wq && (
+              <p className="ket-rw-q-prompt">
+                <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
+              </p>
+            )}
             <div className="ket-rw-pictures">
               {part.passage.map((block, idx) => (
                 <PassageImage
@@ -347,6 +334,7 @@ export default function KetRwPartContent({
               <>
                 <textarea
                   className="ket-rw-writing-area"
+                  data-highlight-skip
                   value={text}
                   onChange={e => onAnswer(wq.id, e.target.value)}
                   onFocus={() => onSelectQuestion(wq.id)}
@@ -365,23 +353,25 @@ export default function KetRwPartContent({
   if (layout === 'split') {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {part.passageSubtitle && (
-                <p className="ket-rw-passage-subtitle">{part.passageSubtitle}</p>
+                <p className="ket-rw-passage-subtitle">
+                  <RwHighlightText blockId={`${partId}-subtitle`} text={part.passageSubtitle} />
+                </p>
               )}
               {renderPassageBlocks()}
             </>
           )}
           right={questions.map(q => (
-            <McRadioQuestion
+            <RwMcRadioQuestion
               key={q.id}
+              partId={partId}
               question={q}
               answers={answers}
               onSelectQuestion={onSelectQuestion}
@@ -395,15 +385,14 @@ export default function KetRwPartContent({
 
   return (
     <>
-      <div className="ket-rw-instruction">
-        <p className="ket-rw-instruction__range">{instructionRange}</p>
-        <p className="ket-rw-instruction__text">{instructionText}</p>
-      </div>
+      <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
       <div className="ket-rw-body is-single">
         <div className="ket-rw-pane-full">
           {part.partNumber === 4 && (
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {renderPassageBlocks()}
             </>
           )}
@@ -415,12 +404,20 @@ export default function KetRwPartContent({
                     <header className="ket-rw-email__header">
                       {email.from && (
                         <p className="ket-rw-email__meta">
-                          <strong>From:</strong> {email.from}
+                          <strong>From:</strong>{' '}
+                          <RwHighlightText
+                            blockId={`${partId}-email-${emailIdx}-from`}
+                            text={email.from}
+                          />
                         </p>
                       )}
                       {email.to && (
                         <p className="ket-rw-email__meta">
-                          <strong>To:</strong> {email.to}
+                          <strong>To:</strong>{' '}
+                          <RwHighlightText
+                            blockId={`${partId}-email-${emailIdx}-to`}
+                            text={email.to}
+                          />
                         </p>
                       )}
                     </header>
@@ -429,6 +426,8 @@ export default function KetRwPartContent({
                     {email.paragraphs.map((para, paraIdx) => (
                       <div key={`para-${emailIdx}-${paraIdx}`} className="ket-rw-email__paragraph">
                         {renderGapPassage(
+                          partId,
+                          `email-${emailIdx}-para-${paraIdx}`,
                           para,
                           questions,
                           answers,

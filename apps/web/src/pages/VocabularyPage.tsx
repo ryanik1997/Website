@@ -9,7 +9,7 @@ import { seedPresetDecks } from '../features/vocab/vocabSeedDecks'
 
 export default function VocabularyPage() {
   const { activeDeckId, setActiveDeck, studyMode } = useVocabStore()
-  const [showCreate, setShowCreate] = useState(false)
+  const [createState, setCreateState] = useState<{ open: boolean; groupId?: string }>({ open: false })
 
   useEffect(() => {
     void seedPresetDecks()
@@ -30,7 +30,7 @@ export default function VocabularyPage() {
             </div>
             <button
               type="button"
-              onClick={() => setShowCreate(true)}
+              onClick={() => setCreateState({ open: true })}
               className="shrink-0 px-4 py-2 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
             >
@@ -40,11 +40,16 @@ export default function VocabularyPage() {
 
           <DeckGrid
             onSelectDeck={id => setActiveDeck(id)}
-            onCreateDeck={() => setShowCreate(true)}
+            onCreateDeck={groupId => setCreateState({ open: true, groupId })}
           />
         </div>
 
-        {showCreate && <DeckEditorModal onClose={() => setShowCreate(false)} />}
+        {createState.open && (
+          <DeckEditorModal
+            defaultGroupId={createState.groupId}
+            onClose={() => setCreateState({ open: false })}
+          />
+        )}
         {studyMode && <StudySession />}
       </div>
     )

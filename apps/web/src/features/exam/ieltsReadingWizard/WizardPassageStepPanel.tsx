@@ -1,4 +1,4 @@
-import { Loader2 } from 'lucide-react'
+import { Loader2, ZoomIn } from 'lucide-react'
 import type { IeltsReadingPassageNumber, IeltsReadingWizardTemplateKind } from './ieltsReadingWizardConfig'
 import { rangeLabelForPassage } from './ieltsReadingWizardConfig'
 import { templateOptionsForPassage } from './ieltsReadingTemplateCatalog'
@@ -12,6 +12,7 @@ interface Props {
   error: string | null
   onTemplateChange: (kind: IeltsReadingWizardTemplateKind) => void
   onExamTextChange: (text: string) => void
+  onOpenLightbox: (src: string, label: string) => void
 }
 
 export default function WizardPassageStepPanel({
@@ -23,6 +24,7 @@ export default function WizardPassageStepPanel({
   error,
   onTemplateChange,
   onExamTextChange,
+  onOpenLightbox,
 }: Props) {
   const options = templateOptionsForPassage(passageNumber)
   const selected = options.find(o => o.kind === templateKind)
@@ -31,7 +33,7 @@ export default function WizardPassageStepPanel({
   return (
     <div className="flex flex-col gap-4">
       <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-        Passage {passageNumber} ({rangeLabel}): chọn dạng câu hỏi, dán text đề + đoạn văn, bấm{' '}
+        Passage {passageNumber} ({rangeLabel}): chọn dạng theo hình, dán text đề + đoạn văn, bấm{' '}
         <strong>Tạo JSON</strong>.
       </p>
 
@@ -41,7 +43,7 @@ export default function WizardPassageStepPanel({
             key={option.kind}
             role="button"
             tabIndex={0}
-            className={`ielts-wizard-template-card ielts-wizard-template-card--text${templateKind === option.kind ? ' is-selected' : ''}`}
+            className={`ielts-wizard-template-card${templateKind === option.kind ? ' is-selected' : ''}`}
             onClick={() => onTemplateChange(option.kind)}
             onKeyDown={e => {
               if (e.key === 'Enter' || e.key === ' ') {
@@ -50,7 +52,21 @@ export default function WizardPassageStepPanel({
               }
             }}
           >
-            <span className="ielts-wizard-template-card__code-badge">{option.code}</span>
+            <div className="ielts-wizard-template-card__thumb">
+              <img src={option.previewUrl} alt={option.label} loading="lazy" />
+              <button
+                type="button"
+                className="ielts-wizard-template-card__expand"
+                title="Xem ảnh lớn"
+                aria-label={`Xem ảnh lớn ${option.label}`}
+                onClick={e => {
+                  e.stopPropagation()
+                  onOpenLightbox(option.previewUrl, `${option.code} — ${option.label}`)
+                }}
+              >
+                <ZoomIn size={14} />
+              </button>
+            </div>
             <span className="ielts-wizard-template-card__code">{option.code}</span>
             <span className="ielts-wizard-template-card__label">{option.label}</span>
           </div>

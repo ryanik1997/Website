@@ -125,9 +125,32 @@ async function seedGroup(group: SeedGroupDef): Promise<void> {
       book: d.description,
       color: d.color,
       icon: d.icon,
+      origin: 'preset',
       createdAt: now,
       updatedAt: now,
     })
+  }
+}
+
+/**
+ * Gắn origin cho deck cũ trong DB đã tồn tại trước khi có field origin:
+ * bất kỳ deck nào nằm trong PRESET_GROUP_IDS và trùng tên với SEED_GROUPS →
+ * đánh dấu `preset` để không cho phép xóa.
+ */
+async function repairPresetOrigin(): Promise<void> {
+  const namesByGroup = new Map<string, Set<string>>(
+    SEED_GROUPS.map(g => [g.id, new Set(g.decks.map(d => d.name))]),
+  )
+  const legacy = await db.decks
+    .filter(d => d.origin === undefined && namesByGroup.has(d.groupId))
+    .toArray()
+  for (const d of legacy) {
+    const seedNames = namesByGroup.get(d.groupId)
+    if (seedNames?.has(d.name)) {
+      await db.decks.update(d.id, { origin: 'preset' })
+    } else {
+      await db.decks.update(d.id, { origin: 'user' })
+    }
   }
 }
 
@@ -136,6 +159,7 @@ export async function seedPresetDecks(): Promise<void> {
   for (const group of SEED_GROUPS) {
     await seedGroup(group)
   }
+  await repairPresetOrigin()
 }
 
 /** @deprecated Dùng seedPresetDecks */

@@ -11,10 +11,11 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ReadingSubmittedScreen from './ReadingSubmittedScreen'
 import { patchFullMockSession } from './fullMockSession'
 import ReadingFontPanel from './ReadingFontPanel'
+import { ExamHighlightProvider } from './examHighlightContext'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import ReadingPassagePanel from './ReadingPassagePanel'
 import ReadingQuestionPanel from './ReadingQuestionPanel'
-import type { ReadingHighlight } from './readingHighlightUtils'
+import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
 import {
   ensureReadingFontsLoaded,
   getFontFamilyCss,
@@ -23,6 +24,15 @@ import {
 } from './readingFontSettings'
 import { getExamQuestions, getPartQuestions } from './examData'
 import { resolveReadingExam } from './examLoader'
+import { useIsAdmin } from '../auth/useIsAdmin'
+import { resolveExamMediaUrl } from './examMediaUrl'
+import {
+  deleteReadingExamCloudImage,
+  mergeReadingCloudImages,
+  persistReadingPlacementImage,
+  uploadReadingExamCloudImage,
+} from './readingExamCloudImages'
+import { useReadingExamCloudImages } from './useReadingExamCloudImages'
 import { scrollReadingToQuestion } from './readingScrollUtils'
 import { clearReadingDraft } from './examCompletion'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
@@ -76,29 +86,100 @@ export default function ReadingTest() {
   const [fontPanelOpen, setFontPanelOpen] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [highlightsByPart, setHighlightsByPart] = useState<Record<string, ReadingHighlight[]>>({})
-
+  const [notesByPart, setNotesByPart] = useState<Record<string, TextNote[]>>({})
+  const [imageError, setImageError] = useState<string | null>(null)
+  const isAdmin = useIsAdmin()
   const shellRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
 
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
-  const currentPart = exam?.parts[partIndex] ?? null
+
+  const useIeltsReadingShell = Boolean(
+    exam && !useKetRwShell && !usePetRwShell && !useFceRwShell && !useCaeRwShell && !useCpeRwShell,
+  )
+  const { images: cloudImages, error: cloudImagesError, refresh: refreshCloudImages } = useReadingExamCloudImages(
+    useIeltsReadingShell ? examId : undefined,
+  )
+  const displayExam = useMemo(() => {
+    if (!exam) return null
+    if (!useIeltsReadingShell) return exam
+    return mergeReadingCloudImages(exam, cloudImages)
+  }, [exam, cloudImages, useIeltsReadingShell])
+
+  const currentPart = displayExam?.parts[partIndex] ?? exam?.parts[partIndex] ?? null
   const partQuestions = useMemo(
     () => (currentPart ? getPartQuestions(currentPart) : []),
     [currentPart],
   )
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
+  const partNotes = currentPart ? (notesByPart[currentPart.id] ?? []) : []
 
   const handlePartHighlightsChange = useCallback((highlights: ReadingHighlight[]) => {
     if (!currentPart) return
     setHighlightsByPart(prev => ({ ...prev, [currentPart.id]: highlights }))
   }, [currentPart])
 
+  const handlePartNotesChange = useCallback((notes: TextNote[]) => {
+    if (!currentPart) return
+    setNotesByPart(prev => ({ ...prev, [currentPart.id]: notes }))
+  }, [currentPart])
+
   useEffect(() => {
     ensureReadingFontsLoaded()
   }, [])
+
+  const handlePartTopImagePick = useCallback(async (partNumber: number, file: File) => {
+    if (!examId || isAdmin !== true) return
+    setImageError(null)
+    try {
+      const uploaded = await uploadReadingExamCloudImage(examId, partNumber, 'top', file)
+      await persistReadingPlacementImage(examId, partNumber, 'top', uploaded.publicUrl)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không lưu được ảnh đầu passage.')
+    }
+  }, [examId, isAdmin, refreshCloudImages])
+
+  const handlePartTopImageClear = useCallback(async (partNumber: number) => {
+    if (isAdmin !== true || !examId) return
+    setImageError(null)
+    try {
+      const target = cloudImages.find(img => img.partNumber === partNumber && img.slot === 'top')
+      if (target) await deleteReadingExamCloudImage(target)
+      await persistReadingPlacementImage(examId, partNumber, 'top', undefined)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không xóa được ảnh.')
+    }
+  }, [cloudImages, examId, isAdmin, refreshCloudImages])
+
+  const handlePartBottomImagePick = useCallback(async (partNumber: number, file: File) => {
+    if (!examId || isAdmin !== true) return
+    setImageError(null)
+    try {
+      const uploaded = await uploadReadingExamCloudImage(examId, partNumber, 'bottom', file)
+      await persistReadingPlacementImage(examId, partNumber, 'bottom', uploaded.publicUrl)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không lưu được ảnh cuối passage.')
+    }
+  }, [examId, isAdmin, refreshCloudImages])
+
+  const handlePartBottomImageClear = useCallback(async (partNumber: number) => {
+    if (isAdmin !== true || !examId) return
+    setImageError(null)
+    try {
+      const target = cloudImages.find(img => img.partNumber === partNumber && img.slot === 'bottom')
+      if (target) await deleteReadingExamCloudImage(target)
+      await persistReadingPlacementImage(examId, partNumber, 'bottom', undefined)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không xóa được ảnh.')
+    }
+  }, [cloudImages, examId, isAdmin, refreshCloudImages])
 
   useEffect(() => {
     function syncFullscreen() {
@@ -142,6 +223,7 @@ export default function ReadingTest() {
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
+      setNotesByPart({})
       return
     }
 
@@ -152,6 +234,8 @@ export default function ReadingTest() {
         submitted?: boolean
         partIndex?: number
         activeQuestionId?: string | null
+        highlightsByPart?: Record<string, ReadingHighlight[]>
+        notesByPart?: Record<string, TextNote[]>
       }
       setAnswers(saved.answers ?? {})
       setTimeLeft(
@@ -162,13 +246,15 @@ export default function ReadingTest() {
       setSubmitted(Boolean(saved.submitted))
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
-      setHighlightsByPart({})
+      setHighlightsByPart(saved.highlightsByPart ?? {})
+      setNotesByPart(saved.notesByPart ?? {})
     } catch {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
+      setNotesByPart({})
     }
   }, [exam, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
@@ -187,9 +273,11 @@ export default function ReadingTest() {
       submitted,
       partIndex,
       activeQuestionId,
+      highlightsByPart,
+      notesByPart,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [activeQuestionId, answers, exam, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
     if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || submitted) return
@@ -460,16 +548,31 @@ export default function ReadingTest() {
         </div>
       </header>
 
+      {(imageError || (isAdmin === true && cloudImagesError)) && (
+        <p
+          className="mx-4 mt-2 rounded-lg border px-3 py-2 text-xs"
+          style={{
+            borderColor: 'color-mix(in srgb, var(--color-accent) 40%, var(--border-color))',
+            color: 'var(--color-accent)',
+          }}
+        >
+          {imageError ?? cloudImagesError}
+        </p>
+      )}
+
       <div ref={bodyRef} className="reading-test-body">
         {currentPart && (
           <ReadingHighlightToolbar
             rootRef={bodyRef}
             highlights={partHighlights}
             onHighlightsChange={handlePartHighlightsChange}
+            notes={partNotes}
+            onNotesChange={handlePartNotesChange}
             resetKey={currentPart.id}
           />
         )}
 
+        <ExamHighlightProvider highlights={partHighlights} notes={partNotes}>
         {currentPart && (
           <ReadingPassagePanel
             part={currentPart}
@@ -477,6 +580,24 @@ export default function ReadingTest() {
             cambridgeLevel={exam.cambridgeLevel}
             activeQuestionId={activeQuestionId}
             onSelectQuestion={handleSelectQuestion}
+            partTopImageUrl={useIeltsReadingShell
+              ? resolveExamMediaUrl(currentPart.topImageUrl)
+              : undefined}
+            onPartTopImagePick={useIeltsReadingShell && isAdmin === true
+              ? file => { void handlePartTopImagePick(currentPart.partNumber, file) }
+              : undefined}
+            onPartTopImageClear={useIeltsReadingShell && isAdmin === true
+              ? () => { void handlePartTopImageClear(currentPart.partNumber) }
+              : undefined}
+            partBottomImageUrl={useIeltsReadingShell
+              ? resolveExamMediaUrl(currentPart.bottomImageUrl)
+              : undefined}
+            onPartBottomImagePick={useIeltsReadingShell && isAdmin === true
+              ? file => { void handlePartBottomImagePick(currentPart.partNumber, file) }
+              : undefined}
+            onPartBottomImageClear={useIeltsReadingShell && isAdmin === true
+              ? () => { void handlePartBottomImageClear(currentPart.partNumber) }
+              : undefined}
           />
         )}
 
@@ -506,6 +627,7 @@ export default function ReadingTest() {
             onAnswer={handleAnswer}
           />
         )}
+        </ExamHighlightProvider>
       </div>
 
       <ExamPartFooter

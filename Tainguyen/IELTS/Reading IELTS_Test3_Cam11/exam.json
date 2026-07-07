@@ -1,0 +1,901 @@
+{
+  "version": 1,
+  "title": "IELTS Reading — Cambridge 11 Test 3",
+  "durationMinutes": 60,
+  "bandHint": "IELTS Academic · Cambridge 11 · Test 3 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Read the text and answer questions 1–13.",
+      "passageTitle": "Urban green spaces",
+      "passage": [
+        {
+          "label": "A",
+          "text": "City planners once treated parks as decorative extras. Today many municipalities rank green space as essential infrastructure that improves air quality and reduces flooding."
+        },
+        {
+          "label": "B",
+          "text": "Researchers comparing neighbourhoods found that residents living within a ten-minute walk of a park reported lower stress levels, though the study could not prove causation."
+        },
+        {
+          "label": "C",
+          "text": "Some councils resist large park projects because maintenance budgets are already strained. Critics argue that planting trees along streets delivers similar benefits at lower cost."
+        },
+        {
+          "label": "D",
+          "text": "Volunteer groups have restored abandoned lots into community gardens. These projects depend on local fundraising and rarely receive national grants."
+        },
+        {
+          "label": "E",
+          "text": "Architects increasingly design buildings with rooftop gardens. Supporters claim these spaces should be mandatory on new commercial developments."
+        },
+        {
+          "label": "F",
+          "text": "Historical records show that Victorian cities invested heavily in public parks to improve public health. Modern campaigns often cite this precedent."
+        },
+        {
+          "label": "G",
+          "text": "International surveys suggest that cities with generous green coverage attract skilled workers, but the relationship between greenery and economic growth remains debated."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–7",
+          "instruction": "Reading Passage 1 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.",
+          "note": "There are more headings than paragraphs, so you will not use all of them.",
+          "type": "matching-headings",
+          "headings": [
+            {
+              "id": "i",
+              "label": "Financial obstacles to large-scale park projects"
+            },
+            {
+              "id": "ii",
+              "label": "A shift in how cities value open space"
+            },
+            {
+              "id": "iii",
+              "label": "Evidence linking proximity to parks with wellbeing"
+            },
+            {
+              "id": "iv",
+              "label": "Grassroots efforts to reclaim unused land"
+            },
+            {
+              "id": "v",
+              "label": "Debate over whether rooftop gardens should be compulsory"
+            },
+            {
+              "id": "vi",
+              "label": "Lessons drawn from nineteenth-century urban planning"
+            },
+            {
+              "id": "vii",
+              "label": "Uncertainty about economic effects of urban greenery"
+            },
+            {
+              "id": "viii",
+              "label": "Why street trees are cheaper than formal parks"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "type": "matching-headings",
+              "prompt": "Paragraph A",
+              "options": [],
+              "answer": "ii",
+              "explanation": "Paragraph A describes a shift from decorative parks to essential infrastructure."
+            },
+            {
+              "number": 2,
+              "type": "matching-headings",
+              "prompt": "Paragraph B",
+              "options": [],
+              "answer": "iii",
+              "explanation": "Paragraph B reports lower stress near parks."
+            },
+            {
+              "number": 3,
+              "type": "matching-headings",
+              "prompt": "Paragraph C",
+              "options": [],
+              "answer": "i",
+              "explanation": "Paragraph C discusses maintenance budgets and resistance to large projects."
+            },
+            {
+              "number": 4,
+              "type": "matching-headings",
+              "prompt": "Paragraph D",
+              "options": [],
+              "answer": "iv",
+              "explanation": "Volunteers restore lots into community gardens."
+            },
+            {
+              "number": 5,
+              "type": "matching-headings",
+              "prompt": "Paragraph E",
+              "options": [],
+              "answer": "v",
+              "explanation": "Supporters want rooftop gardens mandatory on new buildings."
+            },
+            {
+              "number": 6,
+              "type": "matching-headings",
+              "prompt": "Paragraph F",
+              "options": [],
+              "answer": "vi",
+              "explanation": "Victorian investment in parks is cited as a precedent."
+            },
+            {
+              "number": 7,
+              "type": "matching-headings",
+              "prompt": "Paragraph G",
+              "options": [],
+              "answer": "vii",
+              "explanation": "Economic benefits of greenery remain debated."
+            }
+          ]
+        },
+        {
+          "range": "Questions 8–13",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "When do female kākāpō usually lay eggs?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Throughout the year"
+                },
+                {
+                  "id": "b",
+                  "label": "Only in winter"
+                },
+                {
+                  "id": "c",
+                  "label": "In summer and autumn when food is plentiful"
+                },
+                {
+                  "id": "d",
+                  "label": "Only after government intervention"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Females lay eggs in summer and autumn when food is plentiful."
+            },
+            {
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "What happened to kākāpō numbers before conservation efforts intensified?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "They increased on mainland farms"
+                },
+                {
+                  "id": "b",
+                  "label": "They remained stable for centuries"
+                },
+                {
+                  "id": "c",
+                  "label": "They were exported to other countries"
+                },
+                {
+                  "id": "d",
+                  "label": "They declined severely and neared extinction"
+                }
+              ],
+              "answer": "d",
+              "explanation": "By the late twentieth century the species was on the brink of extinction."
+            },
+            {
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "The 1894 government action was aimed at",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "saving the kākāpō"
+                },
+                {
+                  "id": "b",
+                  "label": "introducing new predators"
+                },
+                {
+                  "id": "c",
+                  "label": "relocating all parrots to Australia"
+                },
+                {
+                  "id": "d",
+                  "label": "banning nocturnal hunting"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The government launched its first attempt to save the kākāpō in 1894."
+            },
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Kākāpō diet consists entirely of",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "insects and small mammals"
+                },
+                {
+                  "id": "b",
+                  "label": "plant material"
+                },
+                {
+                  "id": "c",
+                  "label": "fish and shellfish"
+                },
+                {
+                  "id": "d",
+                  "label": "food provided by conservation staff only"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Their diet is completely vegetarian."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Which factor made early European settlement especially damaging?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Widespread habitat loss"
+                },
+                {
+                  "id": "b",
+                  "label": "A ban on forest climbing"
+                },
+                {
+                  "id": "c",
+                  "label": "Reduced rainfall"
+                },
+                {
+                  "id": "d",
+                  "label": "Competition from other parrots"
+                }
+              ],
+              "answer": "a",
+              "explanation": "European colonisation caused widespread habitat loss."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "The writer suggests that today the kākāpō",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "no longer needs human support"
+                },
+                {
+                  "id": "b",
+                  "label": "is still among the most endangered birds"
+                },
+                {
+                  "id": "c",
+                  "label": "has recovered fully in the wild"
+                },
+                {
+                  "id": "d",
+                  "label": "lives only in European zoos"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Intensive management continues and it remains one of the most endangered birds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Read the text and answer questions 14–26.",
+      "passageTitle": "Reintroducing elms to Britain",
+      "passageSubtitle": "Mark Rowe investigates attempts to reintroduce elms to Britain",
+      "passage": [
+        {
+          "label": "A",
+          "text": "Around 25 million elms died in Britain in the 1960s and 1970s from Dutch elm disease. The loss of 90% of Britain's elms changed the landscape. Today, conservationists hope to reintroduce elms in central and southern England. Matt Elliot of the Woodland Trust says disease-resistant strains offer real hope."
+        },
+        {
+          "label": "B",
+          "text": "Dutch elm disease is caused by a fungus that blocks the tree's vascular system. The first epidemic arrived in the 1920s. A far more destructive epidemic followed in the 1970s after infected elm logs were imported from Canada. Bark beetles spread the fungus between trees."
+        },
+        {
+          "label": "C",
+          "text": "Elms can still be found in southern England, though mainly as small hedgerow trees. When the trunk reaches 10–15 cm in diameter, the tree becomes vulnerable to beetles carrying the disease. Larger surviving elms are now extremely rare."
+        },
+        {
+          "label": "D",
+          "text": "One valley in Scotland has remained largely free of the disease because of its isolation and climate. Researchers study these locations to understand how some areas escape infection while neighbouring regions do not."
+        },
+        {
+          "label": "E",
+          "text": "Some landowners disagree about whether reintroducing elms is worthwhile. Critics argue that resources should focus on native species already under threat. Supporters believe elm avenues are part of Britain's cultural heritage and worth restoring."
+        },
+        {
+          "label": "F",
+          "text": "Scientists working with surviving mature elms face practical difficulties because so few large specimens remain. Collecting genetic material from scattered trees slows breeding programmes designed to produce resistant varieties."
+        },
+        {
+          "label": "G",
+          "text": "New planting schemes combine resistant cultivars with careful monitoring. Young trees are inspected regularly so that infection can be detected before it spreads. The aim is not only to restore elm numbers but to learn how to manage future outbreaks."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 14–18",
+          "instruction": "Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information?",
+          "note": "NB You may use any letter more than once.",
+          "type": "matching-paragraph",
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "questions": [
+            {
+              "number": 14,
+              "type": "matching-paragraph",
+              "prompt": "reference to the research problems that arise from there being only a few surviving large elms",
+              "options": [],
+              "answer": "f",
+              "explanation": "Paragraph F discusses difficulties because few large specimens remain."
+            },
+            {
+              "number": 15,
+              "type": "matching-paragraph",
+              "prompt": "details of a difference of opinion about the value of reintroducing elms to Britain",
+              "options": [],
+              "answer": "e",
+              "explanation": "Paragraph E describes disagreement among landowners."
+            },
+            {
+              "number": 16,
+              "type": "matching-paragraph",
+              "prompt": "reference to how Dutch elm disease was brought to Britain",
+              "options": [],
+              "answer": "b",
+              "explanation": "Paragraph B mentions infected logs imported from Canada."
+            },
+            {
+              "number": 17,
+              "type": "matching-paragraph",
+              "prompt": "a description of the conditions that have enabled a location in Britain to escape Dutch elm disease",
+              "options": [],
+              "answer": "d",
+              "explanation": "Paragraph D describes a Scottish valley that remained disease-free."
+            },
+            {
+              "number": 18,
+              "type": "matching-paragraph",
+              "prompt": "reference to the stage at which young elms become vulnerable to Dutch elm disease",
+              "options": [],
+              "answer": "c",
+              "explanation": "Paragraph C states vulnerability when trunks reach 10–15 cm."
+            }
+          ]
+        },
+        {
+          "range": "Questions 19–23",
+          "instruction": "Look at the following statements and the list of people below. Match each statement with the correct person, A–C.",
+          "note": "NB You may use any letter more than once.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Matt Elliot"
+            },
+            {
+              "id": "b",
+              "name": "Mark Rowe"
+            },
+            {
+              "id": "c",
+              "name": "A Scottish researcher"
+            }
+          ],
+          "questions": [
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "expresses optimism about disease-resistant strains",
+              "options": [],
+              "answer": "a",
+              "explanation": "Matt Elliot says disease-resistant strains offer real hope."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "reports on attempts to restore a traditional tree to the landscape",
+              "options": [],
+              "answer": "b",
+              "explanation": "Mark Rowe investigates reintroduction attempts."
+            },
+            {
+              "number": 21,
+              "type": "matching-features",
+              "prompt": "studies an area that has largely avoided infection",
+              "options": [],
+              "answer": "c",
+              "explanation": "Researchers study the Scottish valley mentioned in paragraph D."
+            },
+            {
+              "number": 22,
+              "type": "matching-features",
+              "prompt": "represents an organisation focused on woodland conservation",
+              "options": [],
+              "answer": "a",
+              "explanation": "Matt Elliot works for the Woodland Trust."
+            },
+            {
+              "number": 23,
+              "type": "matching-features",
+              "prompt": "describes how bark beetles spread infection",
+              "options": [],
+              "answer": "b",
+              "explanation": "The article by Mark Rowe explains beetle transmission in paragraph B."
+            }
+          ]
+        },
+        {
+          "range": "Questions 24–26",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "What proportion of Britain's elms was lost in the twentieth century?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "About half"
+                },
+                {
+                  "id": "b",
+                  "label": "About 70%"
+                },
+                {
+                  "id": "c",
+                  "label": "About 90%"
+                },
+                {
+                  "id": "d",
+                  "label": "Almost all mature trees in Scotland"
+                }
+              ],
+              "answer": "c",
+              "explanation": "The passage states the loss of 90% of Britain's elms."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Young elms become vulnerable when their trunks reach",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "10–15 cm in diameter"
+                },
+                {
+                  "id": "b",
+                  "label": "25–30 cm in diameter"
+                },
+                {
+                  "id": "c",
+                  "label": "one metre in height only"
+                },
+                {
+                  "id": "d",
+                  "label": "the same size as hedgerow oaks"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Paragraph C gives the 10–15 cm figure."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Modern planting schemes aim to",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "replace all other native species"
+                },
+                {
+                  "id": "b",
+                  "label": "avoid monitoring young trees"
+                },
+                {
+                  "id": "c",
+                  "label": "combine resistant trees with careful monitoring"
+                },
+                {
+                  "id": "d",
+                  "label": "remove beetles from imported logs only"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Paragraph G describes resistant cultivars with regular inspection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Read the text and answer questions 27–40.",
+      "passageTitle": "The science of sleep and memory",
+      "passage": [
+        {
+          "text": "Sleep has long been linked to memory, but only in recent decades have researchers begun to understand the mechanisms involved. Studies show that different stages of sleep support different kinds of learning, from factual recall to motor skills."
+        },
+        {
+          "text": "During slow-wave sleep, the brain appears to replay experiences from the day, strengthening neural connections that matter and weakening those that do not. This process may explain why students who sleep after revision often perform better in tests."
+        },
+        {
+          "text": "REM sleep, by contrast, is associated with more creative forms of problem solving. Volunteers woken during REM sleep sometimes solve puzzles more quickly after returning to sleep, suggesting that unusual associations are formed during this stage."
+        },
+        {
+          "text": "Not all findings are conclusive. Some experiments use small sample sizes, and laboratory sleep differs from sleep at home. Even so, schools and workplaces are increasingly aware that cutting sleep reduces productivity and long-term retention."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE or NOT GIVEN.",
+          "type": "tfng",
+          "questions": [
+            {
+              "number": 27,
+              "type": "true-false-not-given",
+              "prompt": "Scientists have fully explained how sleep affects memory.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "The passage says researchers have only recently begun to understand mechanisms."
+            },
+            {
+              "number": 28,
+              "type": "true-false-not-given",
+              "prompt": "Slow-wave sleep may strengthen useful neural connections.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Slow-wave sleep strengthens important connections and weakens others."
+            },
+            {
+              "number": 29,
+              "type": "true-false-not-given",
+              "prompt": "REM sleep is mainly responsible for factual recall.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Factual recall is linked to slow-wave sleep; REM supports creative problem solving."
+            },
+            {
+              "number": 30,
+              "type": "true-false-not-given",
+              "prompt": "All sleep researchers agree on the value of laboratory experiments.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "Limitations are noted but no universal agreement is described."
+            },
+            {
+              "number": 31,
+              "type": "true-false-not-given",
+              "prompt": "Sleeping after revision can improve test performance.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Students who sleep after revision often perform better."
+            },
+            {
+              "number": 32,
+              "type": "true-false-not-given",
+              "prompt": "Workplaces now completely ban overtime to protect sleep.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Workplaces are increasingly aware of sleep loss, but no ban is mentioned."
+            }
+          ]
+        },
+        {
+          "range": "Questions 33–40",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 33,
+              "type": "multiple-choice",
+              "prompt": "The main purpose of the first paragraph is to",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "reject earlier theories about sleep"
+                },
+                {
+                  "id": "b",
+                  "label": "introduce the link between sleep and memory"
+                },
+                {
+                  "id": "c",
+                  "label": "compare human sleep with animal sleep"
+                },
+                {
+                  "id": "d",
+                  "label": "describe laboratory recording methods"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The opening paragraph introduces the sleep–memory connection."
+            },
+            {
+              "number": 34,
+              "type": "multiple-choice",
+              "prompt": "During slow-wave sleep the brain",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "stops processing daytime experiences"
+                },
+                {
+                  "id": "b",
+                  "label": "replays and reorganises experiences"
+                },
+                {
+                  "id": "c",
+                  "label": "forms only creative associations"
+                },
+                {
+                  "id": "d",
+                  "label": "becomes less active than during REM sleep"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The brain replays experiences and adjusts connections."
+            },
+            {
+              "number": 35,
+              "type": "multiple-choice",
+              "prompt": "Volunteers woken during REM sleep",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "may solve puzzles faster after sleeping again"
+                },
+                {
+                  "id": "b",
+                  "label": "lose all memory of the puzzle"
+                },
+                {
+                  "id": "c",
+                  "label": "cannot return to sleep in the laboratory"
+                },
+                {
+                  "id": "d",
+                  "label": "perform worse than those woken in slow-wave sleep"
+                }
+              ],
+              "answer": "a",
+              "explanation": "They sometimes solve puzzles more quickly after returning to sleep."
+            },
+            {
+              "number": 36,
+              "type": "multiple-choice",
+              "prompt": "A limitation mentioned in the text is that",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "sleep research is illegal in schools"
+                },
+                {
+                  "id": "b",
+                  "label": "some studies use small samples"
+                },
+                {
+                  "id": "c",
+                  "label": "REM sleep cannot be measured"
+                },
+                {
+                  "id": "d",
+                  "label": "memory is unrelated to neural connections"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Some experiments use small sample sizes."
+            },
+            {
+              "number": 37,
+              "type": "multiple-choice",
+              "prompt": "Laboratory sleep differs from home sleep because",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "the environment is unnatural"
+                },
+                {
+                  "id": "b",
+                  "label": "volunteers sleep for longer periods"
+                },
+                {
+                  "id": "c",
+                  "label": "only children take part"
+                },
+                {
+                  "id": "d",
+                  "label": "REM sleep does not occur"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Laboratory sleep differs from sleep at home."
+            },
+            {
+              "number": 38,
+              "type": "multiple-choice",
+              "prompt": "The writer suggests that reducing sleep can",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "increase long-term retention"
+                },
+                {
+                  "id": "b",
+                  "label": "improve creative thinking at work"
+                },
+                {
+                  "id": "c",
+                  "label": "lower productivity"
+                },
+                {
+                  "id": "d",
+                  "label": "have no effect on learning"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Cutting sleep reduces productivity and retention."
+            },
+            {
+              "number": 39,
+              "type": "multiple-choice",
+              "prompt": "Different stages of sleep are important because they",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "support different kinds of learning"
+                },
+                {
+                  "id": "b",
+                  "label": "replace the need for daytime practice"
+                },
+                {
+                  "id": "c",
+                  "label": "occur in the same order every night"
+                },
+                {
+                  "id": "d",
+                  "label": "are identical in all age groups"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Different stages support factual recall and motor skills among other types."
+            },
+            {
+              "number": 40,
+              "type": "multiple-choice",
+              "prompt": "The overall tone of the passage is",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "cautiously informative"
+                },
+                {
+                  "id": "b",
+                  "label": "strongly dismissive"
+                },
+                {
+                  "id": "c",
+                  "label": "humorous and informal"
+                },
+                {
+                  "id": "d",
+                  "label": "entirely speculative"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The writer presents evidence while noting limitations."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

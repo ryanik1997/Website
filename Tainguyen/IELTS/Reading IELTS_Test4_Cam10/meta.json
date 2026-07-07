@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 10,
+  "test": 4,
+  "title": "IELTS Reading — Cambridge 10 Test 4",
+  "bandHint": "IELTS Academic · Cambridge 10 · Test 4 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "r1n",
+      "file": "exam_passage1.json",
+      "note": "Q1–6 notes (notePassage) + Q7–13 TFNG"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2-gap-match",
+      "file": "exam_passage2.json",
+      "note": "Q14–18 summary (note) + Q19–22 people + Q23–26 match para"
+    },
+    {
+      "partNumber": 3,
+      "template": "r3-mc-endings-ynng",
+      "file": "exam_passage3.json",
+      "note": "Q27–31 MC + Q32–36 endings + Q37–40 YNNG"
+    }
+  ]
+}

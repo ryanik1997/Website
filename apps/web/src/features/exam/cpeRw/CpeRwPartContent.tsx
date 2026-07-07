@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions } from '../examData'
+import RwHighlightText from '../rwHighlight/RwHighlightText'
+import RwInstruction from '../rwHighlight/RwInstruction'
+import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
 import CaeRwPartContent from '../caeRw/CaeRwPartContent'
@@ -34,50 +38,30 @@ function formatSectionLabel(label: string): string {
   return trimmed
 }
 
-function SectionBlock({ label, text }: { label?: string; text: string }) {
+function SectionBlock({
+  partId,
+  blockKey,
+  label,
+  text,
+}: {
+  partId: string
+  blockKey: string
+  label?: string
+  text: string
+}) {
   return (
     <div className="cpe-rw-section-block">
       {label && (
-        <p className="cpe-rw-section-block__heading">{formatSectionLabel(label)}</p>
+        <p className="cpe-rw-section-block__heading">
+          <RwHighlightText
+            blockId={`${partId}-${blockKey}-label`}
+            text={formatSectionLabel(label)}
+          />
+        </p>
       )}
-      <p className="ket-rw-paragraph">{text}</p>
-    </div>
-  )
-}
-
-function SectionMcQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
+      <p className="ket-rw-paragraph">
+        <RwHighlightText blockId={`${partId}-${blockKey}-text`} text={text} />
       </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{formatSectionLabel(opt.label)}</span>
-          </label>
-        ))}
-      </div>
     </div>
   )
 }
@@ -100,6 +84,7 @@ function InlineGapText({
         type="text"
         className="ket-rw-gap-input"
         aria-label={`Gap ${number}`}
+        data-highlight-skip
         value={value}
         onChange={e => onChange(e.target.value)}
         onFocus={onFocus}
@@ -133,6 +118,7 @@ function InlineGapDrop({
       <button
         type="button"
         className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={() => {
           if (pickedId) {
             onAssign(question.id, pickedId)
@@ -159,12 +145,16 @@ function InlineGapDrop({
 }
 
 function TransformGapSentence({
+  partId,
+  questionId,
   number,
   sentence2,
   value,
   onChange,
   onFocus,
 }: {
+  partId: string
+  questionId: string
   number: number
   sentence2: string
   value: string
@@ -176,7 +166,7 @@ function TransformGapSentence({
   if (parts.length < 2) {
     return (
       <p className="cae-rw-transform__target">
-        {sentence2}
+        <RwHighlightText blockId={`${partId}-q-${questionId}-s2`} text={sentence2} />
         {' '}
         <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
       </p>
@@ -186,7 +176,7 @@ function TransformGapSentence({
     <p className="cae-rw-transform__target">
       {parts.map((seg, i) => (
         <span key={`seg-${i}`}>
-          {seg}
+          <RwHighlightText blockId={`${partId}-q-${questionId}-s2-${i}`} text={seg} />
           {i < parts.length - 1 && (
             <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
           )}
@@ -232,6 +222,7 @@ function usesCaeShell(partNumber: number): boolean {
 export default function CpeRwPartContent(props: Props) {
   const { part, answers, activeQuestionId, onSelectQuestion, onAnswer } = props
   const questions = useMemo(() => getPartQuestions(part), [part])
+  const partId = part.id
   const group = part.questionGroups[0]
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
 
@@ -253,6 +244,7 @@ export default function CpeRwPartContent(props: Props) {
   }
 
   const renderPassageGapDrops = (
+    passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
     bank: Array<{ id: string; label: string }>,
@@ -263,7 +255,7 @@ export default function CpeRwPartContent(props: Props) {
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
@@ -291,16 +283,21 @@ export default function CpeRwPartContent(props: Props) {
 
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full cpe-rw-transform-single">
             <article className="cae-rw-transform is-active" id={`reading-q-${activeQ.id}`}>
-              <p className="cae-rw-transform__source">{sentence1}</p>
-              {stem && <p className="cae-rw-transform__stem">{stem}</p>}
+              <p className="cae-rw-transform__source">
+                <RwHighlightText blockId={`${partId}-q-${activeQ.id}-s1`} text={sentence1} />
+              </p>
+              {stem && (
+                <p className="cae-rw-transform__stem">
+                  <RwHighlightText blockId={`${partId}-q-${activeQ.id}-stem`} text={stem} />
+                </p>
+              )}
               <TransformGapSentence
+                partId={partId}
+                questionId={activeQ.id}
                 number={activeQ.number}
                 sentence2={sentence2}
                 value={value}
@@ -319,17 +316,16 @@ export default function CpeRwPartContent(props: Props) {
     const bodyBlocks = cpePart6BodyBlocks(part)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {bodyBlocks.map((block, idx) => (
                 <div key={`p6-${idx}`} className="ket-rw-paragraph">
-                  {renderPassageGapDrops(block.text ?? '', questions, bank)}
+                  {renderPassageGapDrops(`p6-${idx}`, block.text ?? '', questions, bank)}
                 </div>
               ))}
             </>
@@ -345,6 +341,7 @@ export default function CpeRwPartContent(props: Props) {
                   <div
                     key={option.id}
                     className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+                    data-highlight-skip
                     draggable={!isUsed}
                     onDragStart={e => {
                       if (isUsed) return
@@ -358,7 +355,12 @@ export default function CpeRwPartContent(props: Props) {
                     tabIndex={isUsed ? -1 : 0}
                   >
                     <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                    <p className="pet-rw-drag__bank-text">{option.label}</p>
+                    <p className="pet-rw-drag__bank-text">
+                      <RwHighlightText
+                        blockId={`${partId}-bank-${option.id}`}
+                        text={option.label}
+                      />
+                    </p>
                   </div>
                 )
               })}
@@ -372,20 +374,23 @@ export default function CpeRwPartContent(props: Props) {
   if (part.partNumber === 7) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getIntroPassageBlocks(part).map((block, idx) => (
-                <p key={`p7-intro-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+                <p key={`p7-intro-${idx}`} className="ket-rw-paragraph">
+                  <RwHighlightText blockId={`${partId}-p7-intro-${idx}`} text={block.text ?? ''} />
+                </p>
               ))}
               {getSectionPassageBlocks(part).map((block, idx) => (
                 <SectionBlock
                   key={`p7-${idx}`}
+                  partId={partId}
+                  blockKey={`p7-${idx}`}
                   label={block.label}
                   text={block.text ?? ''}
                 />
@@ -396,12 +401,14 @@ export default function CpeRwPartContent(props: Props) {
             <>
               <h3 className="cpe-rw-panel-title">In which section are the following mentioned?</h3>
               {questions.map(q => (
-                <SectionMcQuestion
+                <RwMcRadioQuestion
                   key={q.id}
+                  partId={partId}
                   question={q}
                   answers={answers}
                   onSelectQuestion={onSelectQuestion}
                   onAnswer={onAnswer}
+                  formatOptionLabel={formatSectionLabel}
                 />
               ))}
             </>
@@ -418,10 +425,7 @@ export default function CpeRwPartContent(props: Props) {
 
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <div className="ket-rw-writing-prompt cpe-rw-writing-image-only">
@@ -451,6 +455,7 @@ export default function CpeRwPartContent(props: Props) {
               </p>
               <textarea
                 className="ket-rw-writing-area"
+                data-highlight-skip
                 value={text}
                 onChange={e => onAnswer(wq.id, e.target.value)}
                 onFocus={() => onSelectQuestion(wq.id)}
@@ -472,10 +477,7 @@ export default function CpeRwPartContent(props: Props) {
 
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <div className="ket-rw-writing-prompt cpe-rw-writing-image-only">
@@ -505,6 +507,7 @@ export default function CpeRwPartContent(props: Props) {
               </p>
               <textarea
                 className="ket-rw-writing-area"
+                data-highlight-skip
                 value={activeText}
                 onChange={e => onAnswer(activeQ.id, e.target.value)}
                 onFocus={() => onSelectQuestion(activeQ.id)}

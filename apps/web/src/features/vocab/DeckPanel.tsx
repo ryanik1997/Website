@@ -49,6 +49,10 @@ export default function DeckPanel() {
               active={deck.id === activeDeckId}
               onSelect={() => setActiveDeck(deck.id)}
               onDelete={async () => {
+                if (deck.origin === 'preset') {
+                  alert('Bộ thẻ mặc định của app không thể xóa.')
+                  return
+                }
                 if (!confirm(`Xóa bộ thẻ "${deck.name}"? Tất cả từ sẽ bị xóa.`)) return
                 await deckRepo.delete(deck.id)
                 if (activeDeckId === deck.id) setActiveDeck(null)
@@ -73,6 +77,7 @@ function DeckItem({
     () => db.srs.where('deckId').equals(deck.id).and(s => s.dueAt <= Date.now()).count(),
     [deck.id],
   ) ?? 0
+  const canDelete = deck.origin !== 'preset'
 
   return (
     <div
@@ -103,14 +108,16 @@ function DeckItem({
           )}
         </div>
       </button>
-      <button
-        onClick={e => { e.stopPropagation(); onDelete() }}
-        className="mr-1 p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#ef444422]"
-        style={{ color: 'var(--text-muted)' }}
-        title="Xóa bộ thẻ"
-      >
-        <Trash2 size={12} />
-      </button>
+      {canDelete && (
+        <button
+          onClick={e => { e.stopPropagation(); onDelete() }}
+          className="mr-1 p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#ef444422]"
+          style={{ color: 'var(--text-muted)' }}
+          title="Xóa bộ thẻ"
+        >
+          <Trash2 size={12} />
+        </button>
+      )}
     </div>
   )
 }

@@ -1,0 +1,239 @@
+{
+  "partNumber": 2,
+  "rangeLabel": "Read the text and answer questions 14–26.",
+  "passageTitle": "Reintroducing elms to Britain",
+  "passageSubtitle": "Mark Rowe investigates attempts to reintroduce elms to Britain",
+  "passage": [
+    {
+      "label": "A",
+      "text": "Around 25 million elms died in Britain in the 1960s and 1970s from Dutch elm disease. The loss of 90% of Britain's elms changed the landscape. Today, conservationists hope to reintroduce elms in central and southern England. Matt Elliot of the Woodland Trust says disease-resistant strains offer real hope."
+    },
+    {
+      "label": "B",
+      "text": "Dutch elm disease is caused by a fungus that blocks the tree's vascular system. The first epidemic arrived in the 1920s. A far more destructive epidemic followed in the 1970s after infected elm logs were imported from Canada. Bark beetles spread the fungus between trees."
+    },
+    {
+      "label": "C",
+      "text": "Elms can still be found in southern England, though mainly as small hedgerow trees. When the trunk reaches 10–15 cm in diameter, the tree becomes vulnerable to beetles carrying the disease. Larger surviving elms are now extremely rare."
+    },
+    {
+      "label": "D",
+      "text": "One valley in Scotland has remained largely free of the disease because of its isolation and climate. Researchers study these locations to understand how some areas escape infection while neighbouring regions do not."
+    },
+    {
+      "label": "E",
+      "text": "Some landowners disagree about whether reintroducing elms is worthwhile. Critics argue that resources should focus on native species already under threat. Supporters believe elm avenues are part of Britain's cultural heritage and worth restoring."
+    },
+    {
+      "label": "F",
+      "text": "Scientists working with surviving mature elms face practical difficulties because so few large specimens remain. Collecting genetic material from scattered trees slows breeding programmes designed to produce resistant varieties."
+    },
+    {
+      "label": "G",
+      "text": "New planting schemes combine resistant cultivars with careful monitoring. Young trees are inspected regularly so that infection can be detected before it spreads. The aim is not only to restore elm numbers but to learn how to manage future outbreaks."
+    }
+  ],
+  "questionGroups": [
+    {
+      "range": "Questions 14–18",
+      "instruction": "Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information?",
+      "note": "NB You may use any letter more than once.",
+      "type": "matching-paragraph",
+      "paragraphLetters": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "questions": [
+        {
+          "number": 14,
+          "type": "matching-paragraph",
+          "prompt": "reference to the research problems that arise from there being only a few surviving large elms",
+          "options": [],
+          "answer": "f",
+          "explanation": "Paragraph F discusses difficulties because few large specimens remain."
+        },
+        {
+          "number": 15,
+          "type": "matching-paragraph",
+          "prompt": "details of a difference of opinion about the value of reintroducing elms to Britain",
+          "options": [],
+          "answer": "e",
+          "explanation": "Paragraph E describes disagreement among landowners."
+        },
+        {
+          "number": 16,
+          "type": "matching-paragraph",
+          "prompt": "reference to how Dutch elm disease was brought to Britain",
+          "options": [],
+          "answer": "b",
+          "explanation": "Paragraph B mentions infected logs imported from Canada."
+        },
+        {
+          "number": 17,
+          "type": "matching-paragraph",
+          "prompt": "a description of the conditions that have enabled a location in Britain to escape Dutch elm disease",
+          "options": [],
+          "answer": "d",
+          "explanation": "Paragraph D describes a Scottish valley that remained disease-free."
+        },
+        {
+          "number": 18,
+          "type": "matching-paragraph",
+          "prompt": "reference to the stage at which young elms become vulnerable to Dutch elm disease",
+          "options": [],
+          "answer": "c",
+          "explanation": "Paragraph C states vulnerability when trunks reach 10–15 cm."
+        }
+      ]
+    },
+    {
+      "range": "Questions 19–23",
+      "instruction": "Look at the following statements and the list of people below. Match each statement with the correct person, A–C.",
+      "note": "NB You may use any letter more than once.",
+      "type": "matching-features",
+      "features": [
+        {
+          "id": "a",
+          "name": "Matt Elliot"
+        },
+        {
+          "id": "b",
+          "name": "Mark Rowe"
+        },
+        {
+          "id": "c",
+          "name": "A Scottish researcher"
+        }
+      ],
+      "questions": [
+        {
+          "number": 19,
+          "type": "matching-features",
+          "prompt": "expresses optimism about disease-resistant strains",
+          "options": [],
+          "answer": "a",
+          "explanation": "Matt Elliot says disease-resistant strains offer real hope."
+        },
+        {
+          "number": 20,
+          "type": "matching-features",
+          "prompt": "reports on attempts to restore a traditional tree to the landscape",
+          "options": [],
+          "answer": "b",
+          "explanation": "Mark Rowe investigates reintroduction attempts."
+        },
+        {
+          "number": 21,
+          "type": "matching-features",
+          "prompt": "studies an area that has largely avoided infection",
+          "options": [],
+          "answer": "c",
+          "explanation": "Researchers study the Scottish valley mentioned in paragraph D."
+        },
+        {
+          "number": 22,
+          "type": "matching-features",
+          "prompt": "represents an organisation focused on woodland conservation",
+          "options": [],
+          "answer": "a",
+          "explanation": "Matt Elliot works for the Woodland Trust."
+        },
+        {
+          "number": 23,
+          "type": "matching-features",
+          "prompt": "describes how bark beetles spread infection",
+          "options": [],
+          "answer": "b",
+          "explanation": "The article by Mark Rowe explains beetle transmission in paragraph B."
+        }
+      ]
+    },
+    {
+      "range": "Questions 24–26",
+      "instruction": "Choose the correct letter, A, B, C or D.",
+      "type": "multiple-choice",
+      "questions": [
+        {
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "What proportion of Britain's elms was lost in the twentieth century?",
+          "options": [
+            {
+              "id": "a",
+              "label": "About half"
+            },
+            {
+              "id": "b",
+              "label": "About 70%"
+            },
+            {
+              "id": "c",
+              "label": "About 90%"
+            },
+            {
+              "id": "d",
+              "label": "Almost all mature trees in Scotland"
+            }
+          ],
+          "answer": "c",
+          "explanation": "The passage states the loss of 90% of Britain's elms."
+        },
+        {
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "Young elms become vulnerable when their trunks reach",
+          "options": [
+            {
+              "id": "a",
+              "label": "10–15 cm in diameter"
+            },
+            {
+              "id": "b",
+              "label": "25–30 cm in diameter"
+            },
+            {
+              "id": "c",
+              "label": "one metre in height only"
+            },
+            {
+              "id": "d",
+              "label": "the same size as hedgerow oaks"
+            }
+          ],
+          "answer": "a",
+          "explanation": "Paragraph C gives the 10–15 cm figure."
+        },
+        {
+          "number": 26,
+          "type": "multiple-choice",
+          "prompt": "Modern planting schemes aim to",
+          "options": [
+            {
+              "id": "a",
+              "label": "replace all other native species"
+            },
+            {
+              "id": "b",
+              "label": "avoid monitoring young trees"
+            },
+            {
+              "id": "c",
+              "label": "combine resistant trees with careful monitoring"
+            },
+            {
+              "id": "d",
+              "label": "remove beetles from imported logs only"
+            }
+          ],
+          "answer": "c",
+          "explanation": "Paragraph G describes resistant cultivars with regular inspection."
+        }
+      ]
+    }
+  ]
+}

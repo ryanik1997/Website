@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cambridge": 9,
+  "test": 1,
+  "title": "IELTS Reading — Cambridge 9 Test 1",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 1 · 3 passages · 40 câu",
+  "examTrack": "ielts",
+  "durationMinutes": 60,
+  "passages": [
+    {
+      "partNumber": 1,
+      "template": "r1g",
+      "file": "exam_passage1.json",
+      "note": "Q1–7 TFNG + Q8–13 gap"
+    },
+    {
+      "partNumber": 2,
+      "template": "r2h",
+      "file": "exam_passage2.json",
+      "note": "Q14–17 headings + Q18–20 gap + Q21–26 YNNG"
+    },
+    {
+      "partNumber": 3,
+      "template": "r3f",
+      "file": "exam_passage3.json",
+      "note": "Q27–30 gap + Q31–33 TFNG + Q34–39 flow + Q40 MC"
+    }
+  ]
+}

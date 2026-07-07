@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Pencil, Plus } from 'lucide-react'
-import { db } from '@ryan/db'
+import { Pencil, Plus, Trash2 } from 'lucide-react'
+import { db, deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabSeedDecks'
 
@@ -24,7 +24,7 @@ function isPresetGroup(id: string): id is PresetGroupId {
 
 interface Props {
   onSelectDeck: (id: string) => void
-  onCreateDeck: () => void
+  onCreateDeck: (defaultGroupId?: string) => void
 }
 
 export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
@@ -35,30 +35,43 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
     () => decks.filter(d => isPresetGroup(d.groupId)),
     [decks],
   )
-  const userDecks = useMemo(() => decks.filter(d => d.groupId === 'default'), [decks])
-  const personalDeck = userDecks[0] ?? null
+  const userDefaultDecks = useMemo(() => decks.filter(d => d.groupId === 'default'), [decks])
+  const personalDeck = userDefaultDecks[0] ?? null
 
   const counts = useMemo(() => {
     const byGroup = Object.fromEntries(
       PRESET_GROUP_IDS.map(id => [id, decks.filter(d => d.groupId === id).length]),
     ) as Record<PresetGroupId, number>
     return {
-      all: presetDecks.length + userDecks.length,
+      all: presetDecks.length + userDefaultDecks.length,
       ...byGroup,
-      default: userDecks.length,
+      default: userDefaultDecks.length,
     } satisfies Record<FilterId, number>
-  }, [decks, presetDecks.length, userDecks.length])
+  }, [decks, presetDecks.length, userDefaultDecks.length])
 
   const filteredDecks = useMemo(() => {
     if (filter === 'default') {
-      return userDecks.filter(d => d.id !== personalDeck?.id)
+      return userDefaultDecks.filter(d => d.id !== personalDeck?.id)
     }
     if (filter === 'all') return presetDecks
     if (isPresetGroup(filter)) {
       return decks.filter(d => d.groupId === filter)
     }
     return presetDecks
-  }, [filter, decks, presetDecks, userDecks, personalDeck?.id])
+  }, [filter, decks, presetDecks, userDefaultDecks, personalDeck?.id])
+
+  const createDefaultGroup = filter !== 'all' ? filter : undefined
+
+  async function handleDeleteDeck(deck: Deck) {
+    if (deck.origin === 'preset') return
+    if (!confirm(`Xóa bộ thẻ "${deck.name}"? Tất cả từ trong bộ này sẽ bị xóa.`)) return
+    try {
+      await deckRepo.delete(deck.id)
+    } catch (err) {
+      console.error(err)
+      alert('Không thể xóa bộ thẻ này.')
+    }
+  }
 
   return (
     <div>
@@ -87,12 +100,17 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <PersonalDeckCard
           deck={personalDeck}
-          onSelect={() => personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck()}
-          onCreate={onCreateDeck}
+          onSelect={() => personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck('default')}
+          onCreate={() => onCreateDeck(createDefaultGroup)}
         />
 
         {filteredDecks.map(deck => (
-          <DeckCard key={deck.id} deck={deck} onSelect={() => onSelectDeck(deck.id)} />
+          <DeckCard
+            key={deck.id}
+            deck={deck}
+            onSelect={() => onSelectDeck(deck.id)}
+            onDelete={() => handleDeleteDeck(deck)}
+          />
         ))}
       </div>
     </div>
@@ -105,7 +123,15 @@ function deckGroupLabel(groupId: string): string {
   return groupId
 }
 
-function DeckCard({ deck, onSelect }: { deck: Deck; onSelect: () => void }) {
+function DeckCard({
+  deck,
+  onSelect,
+  onDelete,
+}: {
+  deck: Deck
+  onSelect: () => void
+  onDelete: () => void
+}) {
   const cardCount = useLiveQuery(() => db.cards.where('deckId').equals(deck.id).count(), [deck.id]) ?? 0
   const masteredCount = useLiveQuery(
     () => db.srs.where('deckId').equals(deck.id).and(s => s.reps >= 3).count(),
@@ -113,50 +139,68 @@ function DeckCard({ deck, onSelect }: { deck: Deck; onSelect: () => void }) {
   ) ?? 0
   const pct = cardCount > 0 ? Math.round((masteredCount / cardCount) * 100) : 0
   const color = deck.color ?? 'var(--color-primary)'
+  const canDelete = deck.origin !== 'preset'
 
   return (
-    <button
-      type="button"
-      onClick={onSelect}
-      className="relative rounded-2xl p-5 text-left overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg active:translate-y-0 w-full"
+    <div
+      className="group relative rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg"
       style={{ background: color, minHeight: '160px' }}
     >
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '16px 16px',
-        }}
-      />
+      <button
+        type="button"
+        onClick={onSelect}
+        className="relative w-full h-full text-left p-5 active:translate-y-0"
+      >
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '16px 16px',
+          }}
+        />
 
-      {deck.icon && (
-        <div className="absolute top-4 right-4 text-2xl opacity-80">
-          {deck.icon}
-        </div>
-      )}
-
-      <div className="relative z-10">
-        <p className="text-xs font-semibold text-white/70 mb-2 uppercase tracking-wide">
-          {deckGroupLabel(deck.groupId)} · {cardCount} từ
-        </p>
-        <h3 className="text-lg font-bold text-white mb-1 leading-snug">
-          {deck.name}
-        </h3>
-        {deck.book && (
-          <p className="text-xs text-white/70 mb-3 line-clamp-2">{deck.book}</p>
+        {deck.icon && (
+          <div className="absolute top-4 right-4 text-2xl opacity-80">
+            {deck.icon}
+          </div>
         )}
 
-        <div className="flex items-center gap-2">
-          <div className="flex-1 h-1 rounded-full bg-white/30">
-            <div
-              className="h-full rounded-full bg-white transition-all"
-              style={{ width: `${pct}%` }}
-            />
+        <div className="relative z-10">
+          <p className="text-xs font-semibold text-white/70 mb-2 uppercase tracking-wide">
+            {deckGroupLabel(deck.groupId)} · {cardCount} từ
+            {deck.origin === 'user' && <span className="ml-1.5 opacity-80">· Của tôi</span>}
+          </p>
+          <h3 className="text-lg font-bold text-white mb-1 leading-snug">
+            {deck.name}
+          </h3>
+          {deck.book && (
+            <p className="text-xs text-white/70 mb-3 line-clamp-2">{deck.book}</p>
+          )}
+
+          <div className="flex items-center gap-2">
+            <div className="flex-1 h-1 rounded-full bg-white/30">
+              <div
+                className="h-full rounded-full bg-white transition-all"
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            <span className="text-[11px] font-semibold text-white/80">{pct}% thuộc</span>
           </div>
-          <span className="text-[11px] font-semibold text-white/80">{pct}% thuộc</span>
         </div>
-      </div>
-    </button>
+      </button>
+
+      {canDelete && (
+        <button
+          type="button"
+          onClick={e => { e.stopPropagation(); onDelete() }}
+          className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-black/25 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/40 text-white"
+          title="Xóa bộ thẻ"
+          aria-label="Xóa bộ thẻ"
+        >
+          <Trash2 size={14} />
+        </button>
+      )}
+    </div>
   )
 }
 
