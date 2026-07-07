@@ -6,6 +6,7 @@
  * Run: node scripts/build-catalog.mjs
  */
 import { existsSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -333,6 +334,34 @@ function transformListening(payload, bundle, sourceDir) {
   }
 }
 
+/** Tainguyen bundles may ship as .zip only on CI — extract before read. */
+async function ensureSourceDir(sourceDir, sourceName) {
+  const examJsonPath = path.join(sourceDir, 'exam.json')
+  if (existsSync(examJsonPath)) return
+
+  const zipPath = path.join(TAINGUYEN, `${sourceName}.zip`)
+  if (!existsSync(zipPath)) {
+    throw new Error(`Missing source: ${examJsonPath} (no ${zipPath})`)
+  }
+
+  await fs.mkdir(sourceDir, { recursive: true })
+  if (process.platform === 'win32') {
+    const result = spawnSync(
+      'powershell',
+      ['-NoProfile', '-Command', `Expand-Archive -LiteralPath '${zipPath}' -DestinationPath '${sourceDir}' -Force`],
+      { stdio: 'inherit' },
+    )
+    if (result.status !== 0) throw new Error(`Expand-Archive failed for ${zipPath}`)
+  } else {
+    const result = spawnSync('unzip', ['-o', zipPath, '-d', sourceDir], { stdio: 'inherit' })
+    if (result.status !== 0) throw new Error(`unzip failed for ${zipPath}`)
+  }
+
+  if (!existsSync(examJsonPath)) {
+    throw new Error(`After extracting ${zipPath}, still missing ${examJsonPath}`)
+  }
+}
+
 async function copyMediaFiles(sourceDir, destDir) {
   await fs.mkdir(destDir, { recursive: true })
   const entries = await fs.readdir(sourceDir, { withFileTypes: true })
@@ -365,6 +394,7 @@ async function main() {
 
   for (const bundle of BUNDLES) {
     const sourceDir = path.join(TAINGUYEN, bundle.sourceDir)
+    await ensureSourceDir(sourceDir, bundle.sourceDir)
     const examJsonPath = path.join(sourceDir, 'exam.json')
     const destDir = path.join(PUBLIC_CATALOG, bundle.kind, bundle.slug)
 

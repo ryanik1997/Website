@@ -24,7 +24,9 @@ import {
   type ListeningImportPartJson,
   type ListeningImportPayload,
 } from '../importListeningUtils'
+import { useIsAdmin } from '../../auth/useIsAdmin'
 import { examRecordFromListening } from '../listeningExamLoader'
+import { publishListeningExamToCloud } from '../listeningExamPublish'
 import {
   buildFullExamPayload,
   generateIeltsListeningPart,
@@ -138,6 +140,7 @@ function isListeningImageFile(file: File): boolean {
 }
 
 export default function IeltsListeningImportWizard({ onClose, onCreated }: Props) {
+  const isAdmin = useIsAdmin()
   const audioInputRef = useRef<HTMLInputElement>(null)
   const mediaInputRef = useRef<HTMLInputElement>(null)
   const docxInputRef = useRef<HTMLInputElement>(null)
@@ -385,6 +388,9 @@ export default function IeltsListeningImportWizard({ onClose, onCreated }: Props
       const exam = await buildListeningExamFromImport(next, mediaFiles)
       const label = `wizard-cam${cambridge}-test${test}`
       await listeningExamRepo.create(examRecordFromListening(exam, 'import', label))
+      if (isAdmin === true) {
+        await publishListeningExamToCloud(exam, { source: 'import', sourceFilename: label })
+      }
       clearIeltsListeningWizardDraft()
       onCreated?.(exam.id)
       onClose()

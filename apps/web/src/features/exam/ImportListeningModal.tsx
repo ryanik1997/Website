@@ -17,7 +17,9 @@ import {
   type ListeningImportPayload,
 } from './importListeningUtils'
 import { extractListeningZip } from './importListeningZip'
+import { useIsAdmin } from '../auth/useIsAdmin'
 import { examRecordFromListening } from './listeningExamLoader'
+import { publishListeningExamToCloud } from './listeningExamPublish'
 import type { ListeningExamType } from './listeningExamData'
 import {
   buildIeltsListeningImportTemplate,
@@ -55,6 +57,7 @@ function formatBytes(n: number): string {
 }
 
 export default function ImportListeningModal({ onClose, onCreated, defaultExamType = 'ket' }: Props) {
+  const isAdmin = useIsAdmin()
   const jsonInputRef = useRef<HTMLInputElement>(null)
   const mediaInputRef = useRef<HTMLInputElement>(null)
   const zipInputRef = useRef<HTMLInputElement>(null)
@@ -131,6 +134,12 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     try {
       const exam = await buildListeningExamFromImport(payload, mediaFiles)
       await listeningExamRepo.create(examRecordFromListening(exam, 'import', sourceLabel ?? jsonFile?.name))
+      if (isAdmin === true) {
+        await publishListeningExamToCloud(exam, {
+          source: 'import',
+          sourceFilename: sourceLabel ?? jsonFile?.name,
+        })
+      }
       onCreated?.(exam.id)
       onClose()
     } catch (err) {

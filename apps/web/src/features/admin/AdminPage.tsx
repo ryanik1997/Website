@@ -4,6 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { Shield, Search, X, Check, RefreshCw, ChevronDown } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { db } from '@ryan/db'
+import AdminPublishExamsPanel from './AdminPublishExamsPanel'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -31,7 +32,7 @@ interface PaymentRequest {
   activated_at: string | null
 }
 
-type AdminTab = 'users' | 'requests'
+type AdminTab = 'users' | 'requests' | 'exams'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -383,6 +384,7 @@ export default function AdminPage() {
           {([
             { id: 'users' as const, label: 'Danh sách user' },
             { id: 'requests' as const, label: 'Yêu cầu kích hoạt', badge: pendingCount },
+            { id: 'exams' as const, label: 'Publish nội dung' },
           ]).map(t => (
             <button
               key={t.id}
@@ -447,7 +449,9 @@ export default function AdminPage() {
 
       {/* Table */}
       <div className="flex-1 overflow-y-auto">
-        {tab === 'requests' ? (
+        {tab === 'exams' ? (
+          <AdminPublishExamsPanel />
+        ) : tab === 'requests' ? (
           requestsLoading ? (
             <div className="flex items-center justify-center py-16">
               <RefreshCw size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
