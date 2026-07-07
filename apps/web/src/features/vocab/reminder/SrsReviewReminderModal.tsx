@@ -5,7 +5,6 @@ import { X } from 'lucide-react'
 import { db } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { useVocabStore } from '../vocabStore'
-import AnimatedReviewBird from './AnimatedReviewBird'
 import './srsReminder.css'
 
 interface Props {
@@ -56,65 +55,94 @@ export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onC
 
   return (
     <div className="srs-reminder-backdrop" onClick={handleClose}>
-      <div className="srs-reminder-modal" onClick={e => e.stopPropagation()}>
-        <button type="button" className="srs-reminder-close" onClick={handleClose} aria-label="Đóng">
-          <X size={16} />
+      <div
+        className="srs-reminder-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="srsReminderTitle"
+        onClick={e => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="srs-reminder-close"
+          onClick={handleClose}
+          aria-label="Đóng"
+        >
+          <X size={18} />
         </button>
 
-        {step === 'remind' ? (
-          <>
-            <h2 className="srs-reminder-title">Đến giờ ôn tập!</h2>
-            <div className="srs-reminder-bird-wrap">
-              <AnimatedReviewBird />
-            </div>
-            <p className="srs-reminder-msg">
-              Bạn có {dueCount} từ vựng cần được ôn lại
-            </p>
-            <p className="srs-reminder-sub">
-              Bạn có thể chọn deck muốn ôn trước, không cần ôn tất cả cùng lúc.
-            </p>
-            <button
-              type="button"
-              className="srs-reminder-cta"
-              onClick={() => setStep('pick')}
-            >
-              <span className="srs-reminder-cta-dots">⋯</span>
-              Chọn deck ôn tập ({dueCount})
-            </button>
-          </>
-        ) : (
-          <>
-            <h2 className="srs-reminder-title">Chọn bộ thẻ</h2>
-            <p className="srs-reminder-pick-title">Bộ thẻ có từ cần ôn</p>
-            <div className="srs-reminder-deck-list">
-              {decksWithDue.length === 0 ? (
-                <p className="srs-reminder-sub" style={{ marginBottom: 0 }}>Đang tải…</p>
-              ) : (
-                decksWithDue.map(({ deck, due }) => (
-                  <button
-                    key={deck.id}
-                    type="button"
-                    className="srs-reminder-deck-btn"
-                    onClick={() => startDeckReview(deck.id)}
-                  >
-                    <div>
-                      <div className="srs-reminder-deck-name">{deck.name}</div>
-                      {(deck.book || deck.unit) && (
-                        <div className="srs-reminder-deck-sub">
-                          {[deck.book, deck.unit].filter(Boolean).join(' · ')}
-                        </div>
-                      )}
-                    </div>
-                    <span className="srs-reminder-deck-badge">{due} từ</span>
-                  </button>
-                ))
-              )}
-            </div>
-            <button type="button" className="srs-reminder-back" onClick={() => setStep('remind')}>
-              ← Quay lại
-            </button>
-          </>
-        )}
+        <div className="srs-reminder-scroll">
+          {step === 'remind' ? (
+            <>
+              <h2 id="srsReminderTitle" className="srs-reminder-title">
+                Đến giờ ôn tập!
+              </h2>
+              <div className="srs-reminder-mascot" aria-hidden="true">
+                <span className="srs-reminder-mascot-bird">
+                  <span className="srs-reminder-mascot-bird-inner">🐦</span>
+                </span>
+              </div>
+              <p className="srs-reminder-count">
+                Bạn có {dueCount} từ vựng cần được ôn lại
+              </p>
+              <p className="srs-reminder-desc">
+                Bạn có thể chọn deck muốn ôn trước, không cần ôn tất cả cùng lúc.
+              </p>
+              <button
+                type="button"
+                className="srs-reminder-action"
+                onClick={() => setStep('pick')}
+              >
+                <span className="srs-reminder-action-icon" aria-hidden="true">
+                  ☰
+                </span>
+                Chọn deck ôn tập ({dueCount})
+              </button>
+            </>
+          ) : (
+            <>
+              <h2 id="srsReminderTitle" className="srs-reminder-title">
+                Chọn deck muốn ôn
+              </h2>
+              <p className="srs-reminder-count">
+                Có {decksWithDue.length} deck đang có từ đến hạn
+              </p>
+              <div className="srs-reminder-deck-list">
+                {decksWithDue.length === 0 ? (
+                  <p className="srs-reminder-desc" style={{ marginBottom: 0 }}>
+                    Đang tải…
+                  </p>
+                ) : (
+                  decksWithDue.map(({ deck, due }) => (
+                    <button
+                      key={deck.id}
+                      type="button"
+                      className="srs-reminder-deck-item"
+                      onClick={() => startDeckReview(deck.id)}
+                    >
+                      <div>
+                        <span className="srs-reminder-deck-title">{deck.name}</span>
+                        {(deck.book || deck.unit) && (
+                          <span className="srs-reminder-deck-sub">
+                            {[deck.book, deck.unit].filter(Boolean).join(' · ')}
+                          </span>
+                        )}
+                      </div>
+                      <span className="srs-reminder-deck-count">{due}</span>
+                    </button>
+                  ))
+                )}
+              </div>
+              <button
+                type="button"
+                className="srs-reminder-back"
+                onClick={() => setStep('remind')}
+              >
+                ← Quay lại
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   )

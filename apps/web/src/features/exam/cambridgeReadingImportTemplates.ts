@@ -206,7 +206,9 @@ const DEFAULT_INSTRUCTIONS: Record<GroupType, string> = {
   'summary-completion': 'Choose the correct word from the box for each gap.',
   'matching-features': 'For each question, choose the correct answer.',
   'matching-paragraph': 'Which paragraph contains the following information?',
+  'matching-headings': 'Choose the correct heading for each paragraph.',
   'tfng': 'Do the statements agree with the information in the passage?',
+  'ynng': 'Do the statements agree with the views of the writer?',
   'sentence-completion': 'Complete the sentences using NO MORE THAN TWO WORDS from the passage.',
 }
 

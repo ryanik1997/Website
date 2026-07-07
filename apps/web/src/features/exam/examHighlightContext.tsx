@@ -1,22 +1,36 @@
 import { createContext, useContext, type ReactNode } from 'react'
-import type { ReadingHighlight } from './readingHighlightUtils'
+import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
 
-const ExamHighlightContext = createContext<ReadingHighlight[]>([])
+interface ExamAnnotationContextValue {
+  highlights: ReadingHighlight[]
+  notes: TextNote[]
+}
+
+const ExamAnnotationContext = createContext<ExamAnnotationContextValue>({
+  highlights: [],
+  notes: [],
+})
 
 export function ExamHighlightProvider({
   highlights,
+  notes = [],
   children,
 }: {
   highlights: ReadingHighlight[]
+  notes?: TextNote[]
   children: ReactNode
 }) {
   return (
-    <ExamHighlightContext.Provider value={highlights}>
+    <ExamAnnotationContext.Provider value={{ highlights, notes }}>
       {children}
-    </ExamHighlightContext.Provider>
+    </ExamAnnotationContext.Provider>
   )
 }
 
 export function useExamHighlights(): ReadingHighlight[] {
-  return useContext(ExamHighlightContext)
+  return useContext(ExamAnnotationContext).highlights
+}
+
+export function useExamNotes(): TextNote[] {
+  return useContext(ExamAnnotationContext).notes
 }

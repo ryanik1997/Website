@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions } from '../examData'
+import RwHighlightText from '../rwHighlight/RwHighlightText'
+import RwInstruction from '../rwHighlight/RwInstruction'
+import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
 import { ensureGapDots, questionByNumber, splitKetGapText } from '../ketRw/ketRwGapUtils'
@@ -36,10 +40,14 @@ function formatCaeConsultantLabel(label: string): string {
 }
 
 function CaeLabeledBlock({
+  partId,
+  blockKey,
   label,
   text,
   formatLabel,
 }: {
+  partId: string
+  blockKey: string
   label?: string
   text: string
   formatLabel: (s: string) => string
@@ -47,85 +55,16 @@ function CaeLabeledBlock({
   return (
     <div className="cae-rw-labeled-block">
       {label && (
-        <p className="cae-rw-labeled-block__heading">{formatLabel(label)}</p>
+        <p className="cae-rw-labeled-block__heading">
+          <RwHighlightText
+            blockId={`${partId}-${blockKey}-label`}
+            text={formatLabel(label)}
+          />
+        </p>
       )}
-      <p className="ket-rw-paragraph">{text}</p>
-    </div>
-  )
-}
-
-function CaeLabeledMcQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-  formatLabel,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-  formatLabel: (s: string) => string
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
+      <p className="ket-rw-paragraph">
+        <RwHighlightText blockId={`${partId}-${blockKey}-text`} text={text} />
       </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{formatLabel(opt.label)}</span>
-          </label>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function McRadioQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
-      </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{opt.label}</span>
-          </label>
-        ))}
-      </div>
     </div>
   )
 }
@@ -153,6 +92,7 @@ function InlineMcGap({
       <button
         type="button"
         className={`ket-rw-gap-mc__btn${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={onToggle}
       >
         <span>{number}</span>
@@ -166,6 +106,7 @@ function InlineMcGap({
               type="button"
               role="option"
               className={`ket-rw-gap-mc__option${value === opt.id ? ' is-selected' : ''}`}
+              data-highlight-skip
               onClick={() => onSelect(opt.id)}
             >
               {opt.label}
@@ -195,6 +136,7 @@ function InlineGapText({
         type="text"
         className="ket-rw-gap-input"
         aria-label={`Gap ${number}`}
+        data-highlight-skip
         value={value}
         onChange={e => onChange(e.target.value)}
         onFocus={onFocus}
@@ -228,6 +170,7 @@ function InlineGapDrop({
       <button
         type="button"
         className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={() => {
           if (pickedId) {
             onAssign(question.id, pickedId)
@@ -279,12 +222,16 @@ export function parseTransformationPrompt(prompt: string): {
 }
 
 function TransformationGapSentence({
+  partId,
+  questionId,
   number,
   sentence2,
   value,
   onChange,
   onFocus,
 }: {
+  partId: string
+  questionId: string
   number: number
   sentence2: string
   value: string
@@ -295,7 +242,7 @@ function TransformationGapSentence({
   if (parts.length < 2) {
     return (
       <p className="cae-rw-transform__target">
-        {sentence2}
+        <RwHighlightText blockId={`${partId}-q-${questionId}-s2`} text={sentence2} />
         {' '}
         <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
       </p>
@@ -305,7 +252,7 @@ function TransformationGapSentence({
     <p className="cae-rw-transform__target">
       {parts.map((seg, i) => (
         <span key={`seg-${i}`}>
-          {seg}
+          <RwHighlightText blockId={`${partId}-q-${questionId}-s2-${i}`} text={seg} />
           {i < parts.length - 1 && (
             <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
           )}
@@ -338,6 +285,7 @@ export default function CaeRwPartContent({
   onAnswer,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
+  const partId = part.id
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
@@ -345,14 +293,18 @@ export default function CaeRwPartContent({
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
 
-  const renderMcGapPassage = (text: string, gapQuestions: ReadingQuestion[]) => {
+  const renderMcGapPassage = (
+    passageKey: string,
+    text: string,
+    gapQuestions: ReadingQuestion[],
+  ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
     const segments = splitKetGapText(prepared)
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           const ans = answers[q.id] ?? ''
@@ -378,14 +330,18 @@ export default function CaeRwPartContent({
     )
   }
 
-  const renderOpenGapPassage = (text: string, gapQuestions: ReadingQuestion[]) => {
+  const renderOpenGapPassage = (
+    passageKey: string,
+    text: string,
+    gapQuestions: ReadingQuestion[],
+  ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
     const segments = splitKetGapText(prepared)
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
@@ -418,6 +374,7 @@ export default function CaeRwPartContent({
   }
 
   const renderPassageGapDrops = (
+    passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
     bank: Array<{ id: string; label: string }>,
@@ -428,7 +385,7 @@ export default function CaeRwPartContent({
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
@@ -452,16 +409,15 @@ export default function CaeRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+            <h2 className="ket-rw-passage-title">
+              <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+            </h2>
             {bodyBlocks.map((block, idx) => (
               <div key={`p1-${idx}`} className="ket-rw-paragraph">
-                {renderMcGapPassage(block.text ?? '', questions)}
+                {renderMcGapPassage(`p1-${idx}`, block.text ?? '', questions)}
               </div>
             ))}
           </div>
@@ -474,16 +430,15 @@ export default function CaeRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+            <h2 className="ket-rw-passage-title">
+              <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+            </h2>
             {bodyBlocks.map((block, idx) => (
               <div key={`p2-${idx}`} className="ket-rw-paragraph">
-                {renderOpenGapPassage(block.text ?? '', questions)}
+                {renderOpenGapPassage(`p2-${idx}`, block.text ?? '', questions)}
               </div>
             ))}
           </div>
@@ -497,17 +452,16 @@ export default function CaeRwPartContent({
     const activeQ = questions.find(q => q.id === activeQuestionId) ?? questions[0]
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {bodyBlocks.map((block, idx) => (
                 <div key={`p3-${idx}`} className="ket-rw-paragraph">
-                  {renderOpenGapPassage(block.text ?? '', questions)}
+                  {renderOpenGapPassage(`p3-${idx}`, block.text ?? '', questions)}
                 </div>
               ))}
             </>
@@ -524,10 +478,16 @@ export default function CaeRwPartContent({
                       <button
                         type="button"
                         className={`cae-rw-keyword-list__item${isActive ? ' is-active' : ''}${answers[q.id]?.trim() ? ' is-filled' : ''}`}
+                        data-highlight-skip
                         onClick={() => onSelectQuestion(q.id)}
                       >
                         <span className="cae-rw-keyword-list__num">{q.number}</span>
-                        <span className="cae-rw-keyword-list__stem">{stem}</span>
+                        <span className="cae-rw-keyword-list__stem">
+                          <RwHighlightText
+                            blockId={`${partId}-q-${q.id}-stem`}
+                            text={stem}
+                          />
+                        </span>
                       </button>
                     </li>
                   )
@@ -543,14 +503,13 @@ export default function CaeRwPartContent({
   if (part.partNumber === 4) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full cae-rw-transform-list">
             {part.passage.filter(b => b.text?.trim()).map((block, idx) => (
-              <p key={`p4-intro-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+              <p key={`p4-intro-${idx}`} className="ket-rw-paragraph">
+                <RwHighlightText blockId={`${partId}-p4-intro-${idx}`} text={block.text ?? ''} />
+              </p>
             ))}
             {questions.map(q => {
               const { sentence1, stem, sentence2 } = parseTransformationPrompt(q.prompt)
@@ -562,9 +521,17 @@ export default function CaeRwPartContent({
                   id={`reading-q-${q.id}`}
                   className={`cae-rw-transform${isActive ? ' is-active' : ''}`}
                 >
-                  <p className="cae-rw-transform__source">{sentence1}</p>
-                  {stem && <p className="cae-rw-transform__stem">{stem}</p>}
+                  <p className="cae-rw-transform__source">
+                    <RwHighlightText blockId={`${partId}-q-${q.id}-s1`} text={sentence1} />
+                  </p>
+                  {stem && (
+                    <p className="cae-rw-transform__stem">
+                      <RwHighlightText blockId={`${partId}-q-${q.id}-stem`} text={stem} />
+                    </p>
+                  )}
                   <TransformationGapSentence
+                    partId={partId}
+                    questionId={q.id}
                     number={q.number}
                     sentence2={sentence2}
                     value={value}
@@ -583,22 +550,24 @@ export default function CaeRwPartContent({
   if (part.partNumber === 5) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getBodyTextBlocks(part.passage).map((block, idx) => (
-                <p key={`p5-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+                <p key={`p5-${idx}`} className="ket-rw-paragraph">
+                  <RwHighlightText blockId={`${partId}-p5-${idx}`} text={block.text ?? ''} />
+                </p>
               ))}
             </>
           )}
           right={questions.map(q => (
-            <McRadioQuestion
+            <RwMcRadioQuestion
               key={q.id}
+              partId={partId}
               question={q}
               answers={answers}
               onSelectQuestion={onSelectQuestion}
@@ -613,17 +582,18 @@ export default function CaeRwPartContent({
   if (part.partNumber === 6) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getCaeLabeledPassageBlocks(part).map((block, idx) => (
                 <CaeLabeledBlock
                   key={`p6-${idx}`}
+                  partId={partId}
+                  blockKey={`p6-${idx}`}
                   label={block.label}
                   text={block.text ?? ''}
                   formatLabel={formatCaeReviewerLabel}
@@ -635,13 +605,14 @@ export default function CaeRwPartContent({
             <>
               <h3 className="cae-rw-panel-title">Which reviewer</h3>
               {questions.map(q => (
-                <CaeLabeledMcQuestion
+                <RwMcRadioQuestion
                   key={q.id}
+                  partId={partId}
                   question={q}
                   answers={answers}
                   onSelectQuestion={onSelectQuestion}
                   onAnswer={onAnswer}
-                  formatLabel={formatCaeReviewerLabel}
+                  formatOptionLabel={formatCaeReviewerLabel}
                 />
               ))}
             </>
@@ -656,17 +627,16 @@ export default function CaeRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {bodyBlocks.map((block, idx) => (
                 <div key={`p7-${idx}`} className="ket-rw-paragraph">
-                  {renderPassageGapDrops(block.text ?? '', questions, bank)}
+                  {renderPassageGapDrops(`p7-${idx}`, block.text ?? '', questions, bank)}
                 </div>
               ))}
             </>
@@ -682,6 +652,7 @@ export default function CaeRwPartContent({
                   <div
                     key={option.id}
                     className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+                    data-highlight-skip
                     draggable={!isUsed}
                     onDragStart={e => {
                       if (isUsed) return
@@ -695,7 +666,12 @@ export default function CaeRwPartContent({
                     tabIndex={isUsed ? -1 : 0}
                   >
                     <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                    <p className="pet-rw-drag__bank-text">{option.label}</p>
+                    <p className="pet-rw-drag__bank-text">
+                      <RwHighlightText
+                        blockId={`${partId}-bank-${option.id}`}
+                        text={option.label}
+                      />
+                    </p>
                   </div>
                 )
               })}
@@ -709,17 +685,18 @@ export default function CaeRwPartContent({
   if (part.partNumber === 8) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getCaeLabeledPassageBlocks(part).map((block, idx) => (
                 <CaeLabeledBlock
                   key={`p8-${idx}`}
+                  partId={partId}
+                  blockKey={`p8-${idx}`}
                   label={block.label}
                   text={block.text ?? ''}
                   formatLabel={formatCaeConsultantLabel}
@@ -731,13 +708,14 @@ export default function CaeRwPartContent({
             <>
               <h3 className="cae-rw-panel-title">Which consultant makes the following statements?</h3>
               {questions.map(q => (
-                <CaeLabeledMcQuestion
+                <RwMcRadioQuestion
                   key={q.id}
+                  partId={partId}
                   question={q}
                   answers={answers}
                   onSelectQuestion={onSelectQuestion}
                   onAnswer={onAnswer}
-                  formatLabel={formatCaeConsultantLabel}
+                  formatOptionLabel={formatCaeConsultantLabel}
                 />
               ))}
             </>
@@ -753,10 +731,7 @@ export default function CaeRwPartContent({
     const taskLabel = part.partNumber === 9 ? 'Question 1' : 'Question 2'
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <div className="ket-rw-writing-prompt">
@@ -772,10 +747,19 @@ export default function CaeRwPartContent({
                   />
                 ))}
                 {part.passage.filter(b => b.text?.trim()).map((block, idx) => (
-                  <p key={`p${part.partNumber}t-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+                  <p key={`p${part.partNumber}t-${idx}`} className="ket-rw-paragraph">
+                    <RwHighlightText
+                      blockId={`${partId}-p${part.partNumber}t-${idx}`}
+                      text={block.text ?? ''}
+                    />
+                  </p>
                 ))}
               </div>
-              {wq && <p>{wq.prompt}</p>}
+              {wq && (
+                <p>
+                  <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
+                </p>
+              )}
             </div>
           )}
           right={wq ? (
@@ -783,6 +767,7 @@ export default function CaeRwPartContent({
               <h3 className="cae-rw-panel-title">{taskLabel}</h3>
               <textarea
                 className="ket-rw-writing-area"
+                data-highlight-skip
                 value={text}
                 onChange={e => onAnswer(wq.id, e.target.value)}
                 onFocus={() => onSelectQuestion(wq.id)}

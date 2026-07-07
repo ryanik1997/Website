@@ -4,10 +4,11 @@ import type { Deck } from '../schema'
 const uid = () => crypto.randomUUID()
 const now = () => Date.now()
 
-async function ensureDefaultGroup() {
-  const exists = await db.groups.get('default')
+async function ensureGroup(groupId: string) {
+  const exists = await db.groups.get(groupId)
   if (!exists) {
-    await db.groups.add({ id: 'default', name: 'Mặc định', order: 0, createdAt: now() })
+    const name = groupId === 'default' ? 'Mặc định' : groupId
+    await db.groups.add({ id: groupId, name, order: 0, createdAt: now() })
   }
 }
 
@@ -15,21 +16,30 @@ export const deckRepo = {
   all: () => db.decks.orderBy('updatedAt').reverse().toArray(),
   get: (id: string) => db.decks.get(id),
 
-  async create(name: string, opts?: { book?: string; unit?: string }): Promise<Deck> {
-    await ensureDefaultGroup()
+  async create(
+    name: string,
+    opts?: { book?: string; unit?: string; groupId?: string },
+  ): Promise<Deck> {
+    const groupId = opts?.groupId?.trim() || 'default'
+    await ensureGroup(groupId)
     const d: Deck = {
-      id: uid(), groupId: 'default', name,
+      id: uid(), groupId, name,
       book: opts?.book, unit: opts?.unit,
+      origin: 'user',
       createdAt: now(), updatedAt: now(),
     }
     await db.decks.add(d)
     return d
   },
 
-  update: (id: string, patch: Partial<Pick<Deck, 'name' | 'book' | 'unit'>>) =>
+  update: (id: string, patch: Partial<Pick<Deck, 'name' | 'book' | 'unit' | 'groupId'>>) =>
     db.decks.update(id, { ...patch, updatedAt: now() }),
 
   async delete(id: string): Promise<void> {
+    const deck = await db.decks.get(id)
+    if (deck && deck.origin === 'preset') {
+      throw new Error('preset-deck-not-deletable')
+    }
     const cardIds = (await db.cards.where('deckId').equals(id).primaryKeys()) as string[]
     await db.srs.bulkDelete(cardIds)
     await db.reviewLog.where('cardId').anyOf(cardIds).delete()

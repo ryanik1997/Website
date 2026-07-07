@@ -22,6 +22,7 @@ import {
   cambridgeImportGuideNote,
 } from './cambridgeReadingImportTemplates'
 import type { ReadingExamTrack } from './examData'
+import { publishReadingExamToCloud } from './readingExamPublish'
 import {
   findKetPart6ImageFile,
   findKetPart7ImageFiles,
@@ -58,6 +59,7 @@ import {
   CPE_WRITING_IMAGE_HINT,
 } from './cpeWritingImportUtils'
 import PetPart2PhotoImportSlots from './petRw/PetPart2PhotoImportSlots'
+import { useIsAdmin } from '../auth/useIsAdmin'
 
 interface Props {
   onClose: () => void
@@ -92,6 +94,9 @@ export default function ImportReadingManualModal({
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [sourceLabel, setSourceLabel] = useState<string | null>(null)
+  const isAdmin = useIsAdmin()
+  const isIeltsTrack = examTrack === 'ielts'
+  const canImportIeltsImages = !isIeltsTrack || isAdmin === true
   const [writingMergeNotes, setWritingMergeNotes] = useState<string[]>([])
 
   const isKetA2 = cambridgeLevel === 'a2'
@@ -233,10 +238,18 @@ export default function ImportReadingManualModal({
     setStep('saving')
     setError(null)
     try {
-      const exam = await buildReadingExamFromImport(payload, mediaFiles)
+      const exam = await buildReadingExamFromImport(payload, mediaFiles, undefined, {
+        mediaStorage: isIeltsTrack && isAdmin === true ? 'cloud' : 'local',
+      })
       if (!exam.examTrack && examTrack) exam.examTrack = examTrack
       if (!exam.cambridgeLevel && cambridgeLevel) exam.cambridgeLevel = cambridgeLevel
       await examRepo.create(examRecordFromReading(exam, 'manual', sourceLabel ?? jsonFile?.name))
+      if (isIeltsTrack && isAdmin === true) {
+        await publishReadingExamToCloud(exam, {
+          source: 'manual',
+          sourceFilename: sourceLabel ?? jsonFile?.name,
+        })
+      }
       onCreated?.(exam.id)
       onClose()
     } catch (err) {
@@ -415,31 +428,33 @@ export default function ImportReadingManualModal({
                 />
               </div>
 
-              <div
-                className="rounded-xl border border-dashed p-5 text-center cursor-pointer"
-                style={{ borderColor: 'var(--border-color)' }}
-                onClick={() => mediaInputRef.current?.click()}
-              >
-                <Upload size={22} className="mx-auto mb-2" style={{ color: 'var(--color-accent)' }} />
-                <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-                  Thêm ảnh đoạn văn (tuỳ chọn)
-                </p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                  {mediaFiles.length > 0
-                    ? `${mediaFiles.length} ảnh · ${formatBytes(mediaFiles.reduce((s, f) => s + f.size, 0))}`
-                    : 'part1-q1.jpg, part1-page.jpg…'}
-                </p>
-                <input
-                  ref={mediaInputRef}
-                  type="file"
-                  accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
-                  multiple
-                  className="hidden"
-                  onChange={e => {
-                    if (e.target.files) addMediaFiles(e.target.files)
-                  }}
-                />
-              </div>
+              {canImportIeltsImages && (
+                <div
+                  className="rounded-xl border border-dashed p-5 text-center cursor-pointer"
+                  style={{ borderColor: 'var(--border-color)' }}
+                  onClick={() => mediaInputRef.current?.click()}
+                >
+                  <Upload size={22} className="mx-auto mb-2" style={{ color: 'var(--color-accent)' }} />
+                  <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+                    {isIeltsTrack ? 'Thêm ảnh (Admin · lưu cloud)' : 'Thêm ảnh đoạn văn (tuỳ chọn)'}
+                  </p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                    {mediaFiles.length > 0
+                      ? `${mediaFiles.length} ảnh · ${formatBytes(mediaFiles.reduce((s, f) => s + f.size, 0))}`
+                      : 'part1-q1.jpg, part1-page.jpg…'}
+                  </p>
+                  <input
+                    ref={mediaInputRef}
+                    type="file"
+                    accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
+                    multiple
+                    className="hidden"
+                    onChange={e => {
+                      if (e.target.files) addMediaFiles(e.target.files)
+                    }}
+                  />
+                </div>
+              )}
 
               {hasRwImageMerge && (
                 <div

@@ -12,7 +12,8 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-06 — **Cambridge RW shells đủ 5 level** (KET 7 / PET 8 / FCE 9 / CAE 10 / **CPE 9** parts); HDSD Listening/Vocab Universal A2–C2; fix theme Cambridge library; nút **Exit** Listening FCE/CAE/CPE
+- **Session:** 2026-07-07 — **Reading cloud (ảnh + publish đề)** + Wizard 18 template + Note cạnh Tô sáng + **SW cache catalog MP3**
+- **Tạm hoãn:** Publish lại đề đã import (ảnh/nội dung) cho mọi User — **sau khi import hết đề**
 - **Production:** https://ryanenglishv2.vercel.app — **chưa deploy** RW shells mới; local: `pnpm dev` + hard refresh sau sửa catalog
 - **Dev:** `pnpm dev` → `/app/exam/reading/catalog-reading-cpe-c2-test1` để so CPE RW 9 part
 
@@ -387,7 +388,7 @@ pnpm --filter server typecheck
 - Deep link tab: `/app/settings?tab=ai` hoặc `?tab=account` (HashRouter)
 
 ### SRS Push Reminder (local SW) — HOÀN THÀNH (session 2026-06-30)
-- [x] `public/sw.js` — push + notificationclick → `/#/app/vocab`
+- [x] `public/sw.js` — push + notificationclick → `/app/vocab`; **+ cache-first catalog audio** (2026-07-07)
 - [x] `features/notifications/useNotifications.ts` — local schedule, Dexie due count, localStorage
 - [x] `SettingsPage` tab Giao diện — section "Nhắc nhở ôn từ hàng ngày"
 - [x] `App.tsx` — đăng ký SW on load; `AppShell` — `useNotifications()` interval
@@ -1457,9 +1458,9 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 | **Import Wizard → Import DOCX** (AI) | **Không** (dễ lỗi ngắt dòng / phantom P4) |
 
 ### IELTS Reading Import Wizard (paste + AI, 2026-07-04)
-- **Flow giống Listening Wizard:** Setup (title, Cam/Test, Answer Key 1–40) → Passage 1–3 (chọn template r1/r2/r3, paste Word, AI JSON) → Preview → Lưu Dexie.
+- **Flow giống Listening Wizard:** Setup (title, Cam/Test, Answer Key 1–40) → Passage 1–3 (chọn template, paste Word, AI JSON) → Preview → Lưu Dexie.
 - **Files mới:** `ieltsReadingWizard/IeltsReadingImportWizard.tsx`, `WizardPassageStepPanel.tsx`.
-- **Core đã có:** config, templates, AI prompt/normalize/generate, persist (`ielts-reading-import-wizard-draft`).
+- **Core đã có:** config, templates (18 layout), AI prompt/normalize/generate, persist (`ielts-reading-import-wizard-draft`).
 - **ExamTrackPage:** nút **Import Wizard Reading** trên track IELTS + badge "Có nháp".
 - **CSS:** reuse `ieltsListeningWizard.css` + `.ielts-wizard-template-card--text` cho template không ảnh.
 - **Save:** `buildReadingExamFromImport` + `examRecordFromReading(exam, 'manual', wizard-camX-testY)`.
@@ -1904,8 +1905,12 @@ Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 - Pilot: Cam11 T1, Cam10 T3, Cam20 T4
 
 ### C — Reading IELTS
-- Wizard r1/r2/r3 có; chưa Tainguyen Reading
-- Thiếu UI: matching headings, YNNG
+- [x] Pipeline bundle: `pnpm ielts:reading:{scaffold|export-pilots|validate|merge|pack|bundle|bundle:all}`
+- [x] Scaffold 48 folder `Reading IELTS_Test{N}_Cam{X}` + HDSD/Prompt
+- [x] 3 pilot ZIP (Cam10 T1, Cam11 T3 headings, Cam10 T4 YNNG)
+- [ ] 45 đề còn lại — cần OCR text → AI → exam_passage1–3.json
+- [x] Wizard template mở rộng (18 layout P1–P3) — Việc 3
+- [ ] Table/Note layout renderer (nếu đề có bảng trong câu hỏi)
 
 ### D — Theme debt app-wide
 - Cambridge library đã fix `--color-on-primary`
@@ -1936,6 +1941,81 @@ pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 - [ ] Thay `part10-page.jpg` ảnh thật Q58
 - [ ] `pnpm build:catalog` full (khi Tainguyen folders đủ)
 - [ ] Deploy production RW shells
+---
+
+## IELTS Reading — YNNG + Matching Headings renderer (2026-07-07)
+
+- [x] Types: `yes-no-not-given`, `matching-headings` (question); `ynng`, `matching-headings` (group); `headings[]`
+- [x] `ReadingQuestionPanel` — `YnngGroup`, `MatchingHeadingsGroup` (+ `TriStateGroup` TFNG/YNNG)
+- [x] `importReadingManualUtils` — validate + build; auto YNNG options khi import
+- [x] `ExamResult` — format đáp án heading (`i. label…`)
+- [x] Demo builtin `ielts-reading-types-demo` — Part 1 headings, Part 2 YNNG
+- [x] `pnpm --filter web exec tsc --noEmit` pass
+
+**Test:** `/app/exam/reading/ielts-reading-types-demo`
+
+---
+
+## IELTS Reading Wizard — template mở rộng (Việc 3, 2026-07-07) — HOÀN THÀNH 18 template
+
+- [x] **18 template** per-passage picker (6 mỗi Passage) — cover layout Cam 9–20
+- [x] **P1 (6):** `r1` TFNG+MC · `r1g` TFNG+Gap · `r1h` Headings+MC · `r1s` Sentence+MC · `r1hg` Headings+Gap · `r1m` Gap+MC
+- [x] **P2 (6):** `r2` Match+MC · `r2y` YNNG+Match · `r2h` Headings+Gap+YNNG · `r2t` TFNG+Match · `r2g` Gap+Match · `r2s` Summary+YNNG+MC
+- [x] **P3 (6):** `r3` TFNG+MC · `r3f` Gap+TFNG+Flow · `r3y` YNNG+MC · `r3gy` Gap+YNNG+MC · `r3sy` Summary+YNNG+MC · `r3gt` Gap+TFNG+MC
+- [x] `ieltsReadingPartTemplates.ts` — builder + SAMPLE JSON cho 18 template
+- [x] `ieltsReadingAiPrompt.ts` — `passageExtraRules()` chi tiết theo template
+- [x] `ieltsReadingWizardEdit.ts` — `TEMPLATE_SIGNATURES` map gap/sentence-completion → template mới
+- [x] `ieltsReadingWizardPersist.ts` — fallback template kind không hợp lệ
+- [x] **Ảnh preview layout** — 18 SVG schematic + lightbox zoom (giống Listening Wizard)
+- [x] `public/ielts-wizard/reading/p{1,2,3}/*.svg` + `scripts/generate-ielts-reading-wizard-previews.mjs`
+- [x] `pnpm --filter web exec tsc --noEmit` pass
+
+**Import Cam9 T1 qua Wizard:** P1 → `r1g`, P2 → `r2h`, P3 → `r3f`
+
+**Workflow 45 đề còn lại:** OCR PDF → Wizard (chọn template đúng layout) → AI JSON → Lưu Dexie → `pnpm ielts:reading:bundle:all` → Import ZIP
+
+**Test:** `/app/exam/track/ielts` → Import Wizard Reading → chọn template từng Passage (6 option/passage)
+
+---
+
+## IELTS Reading Wizard — sửa đề đã import (2026-07-07)
+
+- [x] Nút **bút chì** trên Library Archives (đề IELTS import 3 passages)
+- [x] `ieltsReadingWizardEdit.ts` — nạp đề Dexie → wizard draft, suy template, tái tạo answer key
+- [x] Chế độ sửa: Preview → **Sửa passages** → chỉ tạo lại passage cần fix → **Cập nhật đề** (`examRepo.update`)
+- [x] Giữ `imageKey` ảnh passage cũ khi cập nhật (`mergePassageImageKeys`)
+- [x] `pnpm --filter web exec tsc --noEmit` pass
+
+**Workflow sửa P1:** Library → Test → bút chì → Sửa passages → Passage 1 → Tạo JSON → Cập nhật đề
+
+---
+
+## IELTS Reading — bundle pipeline + 48 scaffold (2026-07-07)
+
+- [x] `ieltsReadingBundle.ts` + `scripts/ielts-reading-bundle.ts` (merge/validate/pack/bundle)
+- [x] `scaffold-ielts-reading-folders.mjs` — 48 folder + meta.json + answer-key.txt
+- [x] `export-ielts-reading-pilots.ts` — 3 pilot đủ 40 câu
+- [x] `batch-ielts-reading-bundle.mjs` — bundle hàng loạt khi đủ 3 passages
+- [x] HDSD: `Import Reading IELTS.txt`, `Prompt-IELTS-Reading-Cam9-Cam20.txt`
+- [x] Pilot ZIP: `Reading IELTS_Test1_Cam10`, `Test3_Cam11`, `Test4_Cam10`
+- [x] **Cam9 Test 1** — `scripts/build-ielts-reading-cam9-test1.py` → 3 passages · 40 câu · ZIP sẵn (`Reading IELTS_Test1_Cam9.zip`)
+- [x] **Cam9 Tests 2–4** — `scripts/build-ielts-reading-cam9-tests-234.py` + `scripts/ielts_reading_cam9_lib.py` (parser plain text PDF/DOCX)
+  - T2: Hearing/classroom noise · Venus in Transit · Neuroscientist/iconoclast
+  - T3: Attitudes to language · Tidal power · Information theory/Voyager
+  - T4: Marie Curie · Children's identity · Development of Museums
+  - ZIP: `Reading IELTS_Test2_Cam9.zip`, `Test3_Cam9.zip`, `Test4_Cam9.zip` — **40 câu mỗi test, không cảnh báo**
+  - Lệnh gộp: `pnpm ielts:reading:build-cam9` (T1 + T2–4)
+- [x] **Cam10 Tests 1–4** — `scripts/build-ielts-reading-cam10.py` + plain text từ PDF
+  - T1: Stepwells · EU Transport · Psychology of innovation
+  - T2: Tea/Industrial Revolution · Gifted children · Museums of fine art
+  - T3: Tourism · Autumn leaves · Beyond the blue horizon
+  - T4: Megafires · Second nature · Evolution backwards
+  - ZIP: `Reading IELTS_Test1_Cam10.zip` … `Test4_Cam10.zip` — **40 câu/test, không cảnh báo**
+  - Lệnh: `pnpm ielts:reading:build-cam10`
+- [ ] Cam11/12 Test 1 + 37 đề còn lại
+
+**Lệnh:** `pnpm ielts:reading:build-cam10` → `pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test{N}_Cam10"`
+
 ---
 
 ## FCE B2 Listening — Cambridge screenshot shell + Part 2 local image import (2026-07-06)
@@ -2025,3 +2105,184 @@ pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 - [ ] No test run.
 - [ ] No build run.
 - Reason: user explicitly asked not to run test/build for the earlier screenshot restructure work.
+
+---
+
+## Reading IELTS — Ảnh cloud Admin-only (session 2026-07-07) — HOÀN THÀNH
+
+- [x] Migration `009_reading_exam_images.sql` — bucket `reading-exam-media` (public read) + bảng `reading_exam_images` + RLS (mọi user đọc, chỉ Admin insert/update/delete)
+- [x] `readingExamCloudImages.ts` — upload/list/delete/merge ảnh theo `examId` + slot (`top`/`bottom`/`passage`/`group`)
+- [x] `useReadingExamCloudImages.ts` + `useIsAdmin.ts` — hook load ảnh + flag admin từ Dexie settings
+- [x] `ReadingTest.tsx` — merge cloud images khi render; upload/xóa chỉ khi `isAdmin`
+- [x] `ReadingPassagePanel.tsx` / `ReadingPartTopImage.tsx` — user chỉ xem ảnh, không thấy slot upload
+- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` — Admin import ảnh → `mediaStorage: 'cloud'`; user thường không upload
+- [x] `importReadingManualUtils.ts` — `mediaStorage: 'local' | 'cloud'`
+- [x] `database.types.ts` — `reading_exam_images` + `profiles.is_admin` + `Relationships: []`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Hành vi
+- Admin thêm ảnh (trong đề hoặc Import Wizard) → lưu Supabase Storage + metadata → **mọi user thấy**
+- Ảnh tồn tại mãi cho đến khi Admin xóa
+- User thường: không có nút upload/xóa ảnh
+
+### Deploy migration — ĐÃ CHẠY (2026-07-07)
+- `pnpm db:push` → `009_reading_exam_images.sql` applied trên Supabase
+
+### Fix ảnh không hiện (2026-07-07)
+- Nguyên nhân chính: migration 009 chưa push → bucket/bảng không tồn tại, upload thất bại im lặng
+- `isAdmin === true` (tránh `undefined` → lưu local Dexie thay vì cloud)
+- Hỗ trợ tên file `part1-top.jpg`, `part1-bottom.jpg`, `part1-group-0.jpg`
+- `topImageUrl`/`bottomImageUrl` trên `ReadingPart` + persist Dexie overlay cho đề builtin
+- Hiện lỗi upload/load ảnh cho Admin trên màn Reading
+
+### User không thấy dữ liệu Admin đã thêm — chẩn đoán (2026-07-07)
+
+**Hai lớp dữ liệu tách biệt:**
+
+| Lớp | Admin lưu | User thấy khi nào |
+|-----|-----------|-------------------|
+| **Ảnh** | Supabase `reading_exam_images` + Storage `reading-exam-media` | Mở **đúng `examId`** + có nội dung đề |
+| **Nội dung đề** (passage, câu hỏi) | Trước đây chỉ **Dexie local** (IndexedDB trình duyệt Admin) | **Không** — mỗi máy/tài khoản riêng |
+
+**Ví dụ thực tế:** ảnh cloud cho `reading-manual-1783427421159` đã có trên Supabase, nhưng bản đề JSON chưa publish → User không mở được đề / không thấy ảnh.
+
+**Các case khác:**
+- Ảnh lưu `imageKey` local (Dexie) khi `isAdmin` chưa load → chỉ Admin cùng máy thấy
+- Đề import `reading-manual-*` không sync cloud (chỉ catalog builtin ship cùng deploy)
+- Đề **builtin** `catalog-reading-...`: chỉ cần ảnh cloud theo `examId` — không cần publish nội dung đề
+
+### Publish đề Reading lên Supabase — CODE XONG, CHƯA ROLLOUT HẾT ĐỀ (2026-07-07)
+
+- [x] Migration `010_reading_exam_published.sql` — bảng `reading_exam_published` + RLS (mọi user đọc, Admin ghi) — **đã `pnpm db:push`**
+- [x] `readingExamPublish.ts` — `publishReadingExamToCloud`, `getPublishedReadingExam`, `listPublishedReadingExams`
+- [x] `examLoader.ts` — `resolveReadingExam` / `listAllReadingExams` ưu tiên: Dexie local → **published Supabase** → builtin catalog
+- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` — Admin **Lưu** → auto publish (khi `isAdmin === true`)
+- [x] `database.types.ts` — `reading_exam_published`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Việc tạm hoãn — xử lý SAU KHI IMPORT HẾT ĐỀ
+
+User yêu cầu ghi nhận, **không làm ngay**:
+
+1. **Re-publish / Lưu lại** các đề `reading-manual-*` đã import **trước** khi có `reading_exam_published` (Wizard → Sửa → Lưu, hoặc import lại)
+2. **Batch ảnh** — gắn ảnh + publish khi import xong toàn bộ Cam 9–20 (hoặc `pnpm ielts:reading:bundle:all` → catalog)
+3. **Verify cross-user** — Admin publish → đăng nhập User (máy/thiết bị khác) → thấy đề + ảnh
+4. *(Tuỳ chọn)* Script one-shot publish từ Dexie Admin → Supabase cho đề cũ
+
+**Workflow đề xuất sau batch import:**
+```
+Import hết đề (Wizard/build script)
+  → Admin Lưu từng đề (hoặc script publish) — ảnh cloud + exam JSON lên Supabase
+  → pnpm build:catalog (đề builtin) HOẶC rely reading_exam_published (đề manual)
+  → pnpm deploy:prod
+  → User hard refresh → thấy đề + ảnh
+```
+
+---
+
+## Service Worker — cache catalog audio offline (session 2026-07-07) — HOÀN THÀNH
+
+Giảm bandwidth Vercel khi user nghe lại MP3 Listening: lần đầu tải từ network, lần sau lấy từ Cache Storage.
+
+- [x] `apps/web/public/sw.js` — cache-first cho `GET /catalog/**/*.{mp3,m4a,wav,ogg,webm}`; giữ push notifications; `skipWaiting` + `clients.claim`; xóa cache cũ khi version đổi; dev fallback version `dev` khi placeholder chưa inject
+- [x] `apps/web/vite.config.ts` — plugin `injectSwCatalogCacheVersion`: thay `__CATALOG_CACHE_VERSION__` bằng `package.json` version lúc `closeBundle`
+- [x] `apps/web/src/App.tsx` — `register('/sw.js')` + `reg.update()` on load
+- [x] `pnpm --filter web build` — pass; `dist/sw.js` có `ryan-catalog-0.2.0`
+
+### Cách hoạt động
+1. User mở app → SW đăng ký scope `/`
+2. Phát Listening MP3 từ `/catalog/.../listening.mp3` → SW fetch network → lưu `ryan-catalog-{version}`
+3. Lần sau (cùng tab hoặc session mới): DevTools Network hiện `(from ServiceWorker)` — **không tốn Vercel transfer**
+4. Mỗi release bump `apps/web/package.json` version → cache name mới → user tải MP3 mới nếu file đổi
+
+### Verify thủ công (production / preview)
+- DevTools → Application → Cache Storage → `ryan-catalog-*`
+- Network: play MP3 2 lần → request thứ 2 `Size` = `(ServiceWorker)`
+
+### Chưa làm (tuỳ chọn)
+- Cache cross-origin Supabase `reading-exam-media` URLs
+
+---
+
+## Luyện thi — Note cạnh Tô sáng (session 2026-07-07) — HOÀN THÀNH
+
+- [x] `readingHighlightUtils.ts` — `TextNote`, `segmentsFromAnnotations`, `upsertNotesForRanges`, `removeNotesInRanges`, `findNotesOverlappingRanges`
+- [x] `examHighlightContext.tsx` — context `{ highlights, notes }`, hook `useExamNotes()`
+- [x] `usePartHighlights.ts` — `notes`, `handleNotesChange`, `notesByPart`, `setAnnotationsByPart`
+- [x] `ReadingHighlightToolbar.tsx` — nút **Note** + panel textarea (Lưu / Xóa / Đóng)
+- [x] `ReadingHighlightableText.tsx` — gạch chân wavy + tooltip `title` cho đoạn có note
+- [x] `readingTest.css` — `.reading-test-note`, styles panel note trên toolbar
+- [x] **Reading IELTS shell** — `ReadingTest.tsx`: `notesByPart` persist draft `exam-reading-draft:{examId}`
+- [x] **Listening** — `ListeningKetTest`, `ListeningPetTest`, `ListeningFceTest` (FCE/CAE/CPE), `ListeningIeltsTest`: notes persist draft `exam-listening-draft:{examId}`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### UX
+1. Bôi đen text trong vùng `data-exam-highlight-zone`
+2. Toolbar: **Tô sáng** | **Note** | Bỏ tô sáng | Sao chép
+3. **Note** → textarea → **Lưu note** (gắn `blockId` + offset)
+4. Text có note: gạch chân wavy; hover xem tooltip
+
+### Cambridge RW A2–C2 (bổ sung 2026-07-07)
+- [x] `rwHighlight/` — `RwExamMain`, `RwHighlightText`, `RwInstruction`, `RwMcRadioQuestion`, `rwGapTextSegment`
+- [x] 5 shell `*RwTest.tsx` — toolbar Tô sáng + Note, persist `highlightsByPart`/`notesByPart` trong draft
+- [x] `KetRwPartContent`, `PetRwPartContent`, `FceRwPartContent`, `CaeRwPartContent`, `CpeRwPartContent`, `PetRwDragMatch` — text highlightable qua `ReadingHighlightableText`
+- [x] `readingKetRw.css` — styles highlight/note trong `.ket-rw-main`
+
+---
+
+## Next session start prompt (cập nhật 2026-07-07)
+```
+Đọc session_summary.md ngay.
+
+## Đã xong (2026-07-07) — Reading cloud: ảnh + publish đề
+- Migration 009 (`reading_exam_images`) + 010 (`reading_exam_published`) — đã push Supabase
+- Ảnh: Admin upload → cloud; User chỉ xem
+- Publish đề: Admin Lưu import → `reading_exam_published`; `examLoader` load cho mọi user
+- **TẠM HOÃN:** re-publish đề/ảnh đã import trước đó — **sau khi import hết đề** (xem mục "Việc tạm hoãn" trong session summary)
+
+## Đã xong (2026-07-07) — Wizard Reading IELTS 18 template
+- 6 template/passage (P1–P3) cover layout Cam 9–20
+- 18 SVG preview + builders + AI prompt rules + edit signatures
+- Test: /app/exam/track/ielts → Import Wizard Reading → 6 option mỗi passage
+
+## Đã xong (2026-07-07) — Reading P1 template r1n (Notes + TFNG)
+- Template `p1-r1-notes-tfng` (`r1n`) — preview JPG `Question1_6.jpg` (Wildfires Q1–6)
+- `notePassage` + `notesTitle` + `ReadingNotePassageBox.tsx` render notes inline
+- Builder `ieltsReadingP1NotesTfngPart()` + Cam10 T4 `exam_passage1.json` rebuilt + bundle ZIP
+
+## Đã xong (2026-07-07) — Reading P2 template r2g (Summary + Match)
+- Template `p2-r2-gap-match` (`r2g`) — preview JPG `Teamplate_Part2_1.jpg` (Cam10 T4 Second nature)
+- Summary Q14–18: `note` inline `14________` … `18________` + `SummaryGapFillNote` UI
+- Builder `ieltsReadingP2GapMatchPart()` + Cam10 T4 `exam_passage2.json` rebuilt + bundle ZIP
+
+## Đã xong (2026-07-07) — Reading P3 template r3tb (Match + Table + Features)
+- Template `p3-r3-match-table-features` (`r3tb`) — preview JPG `Teamplate_Part3_1.jpg` (Cam11 T1 geo-engineering)
+- Match đoạn Q27–29 + table Q30–36 (`noteTable` Procedure|Aim) + match người Q37–40
+- Builder `ieltsReadingP3MatchTableFeaturesPart()` + `CAM11_T1_GEO_ENGINEERING_TABLE`
+
+## Đã xong (2026-07-07) — Note cạnh Tô sáng (Luyện thi)
+- Reading IELTS + Listening KET/PET/FCE/CAE/CPE/IELTS + Cambridge RW A2–C2
+
+## Đã xong (2026-07-07) — SW cache catalog MP3
+- `public/sw.js` cache-first `/catalog/**/*.mp3` (và m4a/wav/ogg/webm)
+- Version cache = `web/package.json` version (hiện `0.2.0`); dev = `ryan-catalog-dev`
+- User nghe lại không tốn Vercel bandwidth (sau lần tải đầu)
+
+## Ưu tiên session mới (chọn theo user)
+### A — Batch 48 đề Reading IELTS (đang làm trước)
+1. **Cam9 + Cam10 hoàn chỉnh (T1–T4)** — `pnpm ielts:reading:build-cam9` / `build-cam10` + bundle
+2. Tiếp: Cam11–20 (cùng pipeline build script)
+3. `pnpm ielts:reading:bundle:all` → `pnpm build:catalog` → deploy
+
+### A2 — SAU KHI IMPORT HẾT ĐỀ (user tạm hoãn)
+- Re-publish / Lưu lại đề `reading-manual-*` cũ lên `reading_exam_published`
+- Gắn ảnh cloud (`partN-top.jpg`, …) + verify User khác thiết bị thấy đề + ảnh
+- Builtin `catalog-reading-*`: chỉ cần ảnh trong `reading_exam_images` (không cần publish JSON)
+
+### B — Verify Wizard + Note
+- Chọn template mới (r1s, r3gy, r2t…) → AI JSON → Preview → Lưu
+- Note persist sau F5 trên Reading IELTS
+
+### C — Deploy production
+- pnpm build:catalog + pnpm deploy:prod
+```

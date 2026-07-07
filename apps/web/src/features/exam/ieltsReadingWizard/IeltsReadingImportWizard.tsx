@@ -15,6 +15,7 @@ import { examRepo } from '@ryan/db'
 import { AI_PROVIDERS } from '@ryan/core'
 import { useAiSettings } from '../../settings/useAiSettings'
 import { examRecordFromReading } from '../examLoader'
+import type { ReadingExam } from '../examData'
 import {
   buildReadingExamFromImport,
   countReadingImportQuestions,
@@ -29,7 +30,13 @@ import {
 } from './ieltsReadingAiGenerate'
 import type { IeltsReadingPassageNumber } from './ieltsReadingWizardConfig'
 import { IELTS_READING_PASSAGE_NUMBERS } from './ieltsReadingWizardConfig'
+import WizardImageLightbox from '../ieltsListeningWizard/WizardImageLightbox'
 import WizardPassageStepPanel from './WizardPassageStepPanel'
+import {
+  isIeltsReadingWizardEditable,
+  mergePassageImageKeys,
+  wizardEditStateFromExam,
+} from './ieltsReadingWizardEdit'
 import {
   clearIeltsReadingWizardDraft,
   countReadingWizardDraftPassages,
@@ -42,10 +49,15 @@ import {
   type ReadingWizardPersistStep,
 } from './ieltsReadingWizardPersist'
 import '../ieltsListeningWizard/ieltsListeningWizard.css'
+import { useIsAdmin } from '../../auth/useIsAdmin'
+import { publishReadingExamToCloud } from '../readingExamPublish'
 
 interface Props {
   onClose: () => void
   onCreated?: (examId: string) => void
+  /** Mở Wizard ở chế độ sửa đề đã import — cập nhật qua examRepo.update */
+  editExam?: ReadingExam | null
+  editSourceFilename?: string
 }
 
 type WizardStep = 'setup' | 'passage' | 'preview' | 'saving'
@@ -63,7 +75,27 @@ interface WizardUiState {
   extraMediaNames: string[]
 }
 
-function createInitialWizardState(): WizardUiState & { restored: boolean; savedAt: number | null } {
+function createInitialWizardState(
+  editExam?: ReadingExam | null,
+  editSourceFilename?: string,
+): WizardUiState & { restored: boolean; savedAt: number | null; isEditMode: boolean } {
+  if (editExam && isIeltsReadingWizardEditable(editExam)) {
+    const edit = wizardEditStateFromExam(editExam, editSourceFilename)
+    return {
+      step: 'preview',
+      activePassage: edit.activePassage,
+      title: edit.title,
+      cambridge: edit.cambridge,
+      test: edit.test,
+      answerKey: edit.answerKey,
+      drafts: edit.drafts,
+      extraMediaNames: [],
+      restored: false,
+      savedAt: null,
+      isEditMode: true,
+    }
+  }
+
   const persisted = loadIeltsReadingWizardDraft()
   if (!persisted) {
     return {
@@ -77,6 +109,7 @@ function createInitialWizardState(): WizardUiState & { restored: boolean; savedA
       extraMediaNames: [],
       restored: false,
       savedAt: null,
+      isEditMode: false,
     }
   }
 
@@ -91,6 +124,7 @@ function createInitialWizardState(): WizardUiState & { restored: boolean; savedA
     extraMediaNames: persisted.extraMediaNames ?? [],
     restored: true,
     savedAt: persisted.savedAt,
+    isEditMode: false,
   }
 }
 
@@ -123,10 +157,17 @@ function downloadReadingJson(payload: ReadingImportPayload, filename: string): v
   URL.revokeObjectURL(url)
 }
 
-export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) {
+export default function IeltsReadingImportWizard({
+  onClose,
+  onCreated,
+  editExam = null,
+  editSourceFilename,
+}: Props) {
   const mediaInputRef = useRef<HTMLInputElement>(null)
   const ai = useAiSettings()
-  const initial = useRef(createInitialWizardState()).current
+  const isAdmin = useIsAdmin()
+  const initial = useRef(createInitialWizardState(editExam, editSourceFilename)).current
+  const isEditMode = initial.isEditMode && editExam != null
 
   const [step, setStep] = useState<WizardStep>(initial.step)
   const [activePassage, setActivePassage] = useState<IeltsReadingPassageNumber>(initial.activePassage)
@@ -147,12 +188,24 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
       test: Number(initial.test) || undefined,
     })
   })
-  const [warnings, setWarnings] = useState<string[]>([])
+  const [warnings, setWarnings] = useState<string[]>(() => {
+    if (initial.step !== 'preview') return []
+    const parts = IELTS_READING_PASSAGE_NUMBERS
+      .map(n => initial.drafts[n].part)
+      .filter(Boolean) as ReadingImportPartJson[]
+    if (!parts.length) return []
+    return validateReadingManualImport(buildFullReadingPayload(parts, {
+      title: initial.title,
+      cambridge: Number(initial.cambridge) || undefined,
+      test: Number(initial.test) || undefined,
+    }))
+  })
   const [showRawJson, setShowRawJson] = useState(false)
   const [rawJsonPassage, setRawJsonPassage] = useState<IeltsReadingPassageNumber | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [generating, setGenerating] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [lightbox, setLightbox] = useState<{ src: string; label: string } | null>(null)
   const [draftSavedAt, setDraftSavedAt] = useState<number | null>(initial.savedAt)
   const [restoredDraft, setRestoredDraft] = useState(initial.restored)
 
@@ -165,7 +218,7 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
   const persistStep: ReadingWizardPersistStep = step === 'saving' ? 'preview' : step
 
   useEffect(() => {
-    if (step === 'saving') return
+    if (isEditMode || step === 'saving') return
     const timer = window.setTimeout(() => {
       saveIeltsReadingWizardDraft(toPersistedDraft({
         step,
@@ -193,13 +246,42 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
     extraMedia,
     extraMediaNames,
     persistStep,
+    isEditMode,
   ])
+
+  function applyEditBaseline() {
+    if (!editExam) return
+    const edit = wizardEditStateFromExam(editExam, editSourceFilename)
+    setStep('preview')
+    setActivePassage(edit.activePassage)
+    setTitle(edit.title)
+    setCambridge(edit.cambridge)
+    setTest(edit.test)
+    setAnswerKey(edit.answerKey)
+    setDrafts(edit.drafts)
+    setExtraMedia([])
+    setExtraMediaNames([])
+    setPayload(buildFullReadingPayload(
+      IELTS_READING_PASSAGE_NUMBERS.map(n => edit.drafts[n].part).filter(Boolean) as ReadingImportPartJson[],
+      { title: edit.title, cambridge: Number(edit.cambridge) || undefined, test: Number(edit.test) || undefined },
+    ))
+    setWarnings([])
+    setError(null)
+    setShowRawJson(false)
+    setRawJsonPassage(null)
+  }
 
   function updateDraft(passageNumber: IeltsReadingPassageNumber, patch: Partial<PassageDraft>) {
     setDrafts(prev => ({ ...prev, [passageNumber]: { ...prev[passageNumber], ...patch } }))
   }
 
   function handleClearDraft() {
+    if (isEditMode && editExam) {
+      if (!window.confirm('Khôi phục đề về bản đã lưu trong thư viện? Mọi thay đổi chưa cập nhật sẽ mất.')) return
+      applyEditBaseline()
+      return
+    }
+
     if (!window.confirm('Xóa nháp Wizard Reading? Không thể hoàn tác.')) return
     clearIeltsReadingWizardDraft()
     setStep('setup')
@@ -285,14 +367,43 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
     setStep('saving')
     setError(null)
     try {
-      const exam = await buildReadingExamFromImport(next, extraMedia)
       const label = `wizard-cam${cambridge}-test${test}`
-      await examRepo.create(examRecordFromReading(exam, 'manual', label))
-      clearIeltsReadingWizardDraft()
-      onCreated?.(exam.id)
+
+      const mediaStorage = isAdmin === true ? 'cloud' as const : 'local' as const
+
+      if (isEditMode && editExam) {
+        const built = await buildReadingExamFromImport(next, extraMedia, editExam.id, { mediaStorage })
+        const parts = mergePassageImageKeys(editExam.parts, built.parts)
+        const examToSave: ReadingExam = {
+          ...editExam,
+          title: built.title,
+          durationMinutes: built.durationMinutes,
+          bandHint: built.bandHint,
+          parts,
+        }
+        await examRepo.update(editExam.id, {
+          title: built.title,
+          durationMinutes: built.durationMinutes,
+          bandHint: built.bandHint,
+          parts: parts as unknown[],
+        })
+        if (isAdmin === true) {
+          await publishReadingExamToCloud(examToSave, { source: 'manual', sourceFilename: label })
+        }
+        onCreated?.(editExam.id)
+      } else {
+        const exam = await buildReadingExamFromImport(next, extraMedia, undefined, { mediaStorage })
+        await examRepo.create(examRecordFromReading(exam, 'manual', label))
+        if (isAdmin === true) {
+          await publishReadingExamToCloud(exam, { source: 'manual', sourceFilename: label })
+        }
+        clearIeltsReadingWizardDraft()
+        onCreated?.(exam.id)
+      }
+
       onClose()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Lưu đề thất bại.')
+      setError(err instanceof Error ? err.message : isEditMode ? 'Cập nhật đề thất bại.' : 'Lưu đề thất bại.')
       setStep('preview')
     } finally {
       setSaving(false)
@@ -337,29 +448,37 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
             <Sparkles size={18} style={{ color: 'var(--color-primary)' }} />
             <div>
               <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
-                IELTS Reading Import Wizard
+                {isEditMode ? 'Sửa đề Reading (Wizard)' : 'IELTS Reading Import Wizard'}
               </h2>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                3 passages · ~40 câu · AI trong app
-                {draftSavedAt ? ` · Nháp ${formatReadingWizardDraftSavedAt(draftSavedAt)}` : ''}
+                {isEditMode
+                  ? `Cập nhật đề đã import · chỉ tạo lại passage cần sửa`
+                  : '3 passages · ~40 câu · AI trong app'}
+                {!isEditMode && draftSavedAt ? ` · Nháp ${formatReadingWizardDraftSavedAt(draftSavedAt)}` : ''}
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            {draftSavedAt && (
+            {!isEditMode && draftSavedAt && (
               <span className="ielts-wizard-draft-badge" title="Tự lưu trên máy — đóng Wizard vẫn giữ">
                 <Check size={12} />
                 Đã lưu nháp
               </span>
             )}
-            {(draftSavedAt || passagesDoneCount > 0) && (
+            {isEditMode && (
+              <span className="ielts-wizard-draft-badge" title="Thay đổi chỉ áp dụng sau khi bấm Cập nhật đề">
+                <Check size={12} />
+                Chế độ sửa
+              </span>
+            )}
+            {((!isEditMode && (draftSavedAt || passagesDoneCount > 0)) || isEditMode) && (
               <button
                 type="button"
                 className="text-xs font-medium rounded-lg px-2 py-1"
                 style={{ color: 'var(--text-muted)' }}
                 onClick={handleClearDraft}
               >
-                Xóa nháp
+                {isEditMode ? 'Khôi phục' : 'Xóa nháp'}
               </button>
             )}
             <button type="button" onClick={onClose} className="p-1 rounded-lg hover:opacity-80">
@@ -498,12 +617,19 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
                 error={error}
                 onTemplateChange={kind => updateDraft(activePassage, { templateKind: kind })}
                 onExamTextChange={text => updateDraft(activePassage, { examText: text })}
+                onOpenLightbox={(src, label) => setLightbox({ src, label })}
               />
             </>
           )}
 
           {step === 'preview' && payload && (
             <div className="flex flex-col gap-4">
+              {isEditMode && (
+                <p className="text-sm leading-relaxed rounded-xl border px-3 py-2" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
+                  Bấm <strong>Sửa passages</strong> → chọn Passage cần sửa → dán text mới → <strong>Tạo JSON</strong>.
+                  Passage khác giữ nguyên cho đến khi bạn tạo lại.
+                </p>
+              )}
               <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border-color)' }}>
                 <h3 className="font-bold" style={{ color: 'var(--text-primary)' }}>{payload.title}</h3>
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
@@ -584,32 +710,41 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
                   <Download size={14} />
                   Tải exam.json
                 </button>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
-                  style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
-                  onClick={() => mediaInputRef.current?.click()}
-                >
-                  <Upload size={14} />
-                  Thêm ảnh đoạn văn
-                </button>
-                <input
-                  ref={mediaInputRef}
-                  type="file"
-                  accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
-                  multiple
-                  className="hidden"
-                  onChange={e => {
-                    const files = Array.from(e.target.files ?? []).filter(isReadingMediaFile)
-                    setExtraMedia(prev => {
-                      const map = new Map(prev.map(f => [f.name.toLowerCase(), f]))
-                      for (const f of files) map.set(f.name.toLowerCase(), f)
-                      const next = Array.from(map.values())
-                      setExtraMediaNames(next.map(f => f.name))
-                      return next
-                    })
-                  }}
-                />
+                {isAdmin && (
+                  <>
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold"
+                      style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                      onClick={() => mediaInputRef.current?.click()}
+                    >
+                      <Upload size={14} />
+                      Thêm ảnh (lưu cloud)
+                    </button>
+                    <p className="w-full text-[11px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                      Đặt tên file: <code>part1-top.jpg</code> (đầu passage), <code>part1-bottom.jpg</code> (cuối),
+                      {' '}<code>part1-p0.jpg</code> (ảnh trong passage), <code>part1-group-0.jpg</code> (ảnh nhóm câu),
+                      hoặc trùng <code>imageFile</code> trong JSON.
+                    </p>
+                    <input
+                      ref={mediaInputRef}
+                      type="file"
+                      accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
+                      multiple
+                      className="hidden"
+                      onChange={e => {
+                        const files = Array.from(e.target.files ?? []).filter(isReadingMediaFile)
+                        setExtraMedia(prev => {
+                          const map = new Map(prev.map(f => [f.name.toLowerCase(), f]))
+                          for (const f of files) map.set(f.name.toLowerCase(), f)
+                          const next = Array.from(map.values())
+                          setExtraMediaNames(next.map(f => f.name))
+                          return next
+                        })
+                      }}
+                    />
+                  </>
+                )}
               </div>
 
               {error && (
@@ -621,7 +756,9 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
           {step === 'saving' && (
             <div className="flex flex-col items-center gap-3 py-10">
               <Loader2 size={28} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
-              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Đang lưu đề đủ 3 passages…</p>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                {isEditMode ? 'Đang cập nhật đề…' : 'Đang lưu đề đủ 3 passages…'}
+              </p>
             </div>
           )}
         </div>
@@ -716,12 +853,20 @@ export default function IeltsReadingImportWizard({ onClose, onCreated }: Props) 
                 title={!allPassagesDone ? 'Cần đủ 3 passages' : undefined}
               >
                 <Check size={16} />
-                Lưu đề (~40 câu)
+                {isEditMode ? 'Cập nhật đề' : 'Lưu đề (~40 câu)'}
               </button>
             )}
           </div>
         </div>
       </div>
+
+      {lightbox && (
+        <WizardImageLightbox
+          src={lightbox.src}
+          label={lightbox.label}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   )
 }

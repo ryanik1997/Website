@@ -10,8 +10,10 @@ export interface ParsedReadingQuestion {
   number: number
   type:
     | 'true-false-not-given'
+    | 'yes-no-not-given'
     | 'multiple-choice'
     | 'matching-paragraph'
+    | 'matching-headings'
     | 'matching-features'
     | 'gap-fill'
     | 'summary-completion'
@@ -29,13 +31,16 @@ export interface ParsedReadingQuestionGroup {
   note?: string
   type:
     | 'tfng'
+    | 'ynng'
     | 'matching-paragraph'
+    | 'matching-headings'
     | 'matching-features'
     | 'multiple-choice'
     | 'gap-fill'
     | 'summary-completion'
     | 'sentence-completion'
   paragraphLetters?: string[]
+  headings?: Array<{ id: string; label: string }>
   features?: Array<{ id: string; name: string }>
   wordBank?: Array<{ id: string; label: string }>
   questions: ParsedReadingQuestion[]

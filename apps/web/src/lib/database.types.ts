@@ -12,11 +12,13 @@ export interface Database {
           avatar_url: string | null
           plan: 'free' | 'trial' | 'basic' | 'pro' | 'lifetime'
           plan_expires_at: string | null
+          is_admin: boolean
           created_at: string
           updated_at: string
         }
         Insert: Omit<Database['public']['Tables']['profiles']['Row'], 'created_at' | 'updated_at'>
         Update: Partial<Database['public']['Tables']['profiles']['Insert']>
+        Relationships: []
       }
       decks: {
         Row: {
@@ -26,6 +28,7 @@ export interface Database {
         }
         Insert: Omit<Database['public']['Tables']['decks']['Row'], 'created_at' | 'updated_at'>
         Update: Partial<Database['public']['Tables']['decks']['Insert']>
+        Relationships: []
       }
       cards: {
         Row: {
@@ -36,6 +39,7 @@ export interface Database {
         }
         Insert: Omit<Database['public']['Tables']['cards']['Row'], 'created_at' | 'updated_at'>
         Update: Partial<Database['public']['Tables']['cards']['Insert']>
+        Relationships: []
       }
       srs: {
         Row: {
@@ -47,6 +51,7 @@ export interface Database {
         }
         Insert: Omit<Database['public']['Tables']['srs']['Row'], 'updated_at'>
         Update: Partial<Database['public']['Tables']['srs']['Insert']>
+        Relationships: []
       }
       writing_docs: {
         Row: {
@@ -56,6 +61,7 @@ export interface Database {
         }
         Insert: Omit<Database['public']['Tables']['writing_docs']['Row'], 'created_at' | 'updated_at'>
         Update: Partial<Database['public']['Tables']['writing_docs']['Insert']>
+        Relationships: []
       }
       ai_usage: {
         Row: {
@@ -64,6 +70,82 @@ export interface Database {
         }
         Insert: Omit<Database['public']['Tables']['ai_usage']['Row'], 'id'>
         Update: Partial<Database['public']['Tables']['ai_usage']['Insert']>
+        Relationships: []
+      }
+      reading_exam_images: {
+        Row: {
+          id: string
+          exam_id: string
+          part_number: number
+          slot: string
+          item_index: number | null
+          storage_path: string
+          public_url: string
+          created_by: string | null
+          created_at: string
+        }
+        Insert: {
+          exam_id: string
+          part_number: number
+          slot: string
+          item_index?: number | null
+          storage_path: string
+          public_url: string
+          created_by?: string | null
+        }
+        Update: {
+          exam_id?: string
+          part_number?: number
+          slot?: string
+          item_index?: number | null
+          storage_path?: string
+          public_url?: string
+          created_by?: string | null
+        }
+        Relationships: []
+      }
+      reading_exam_published: {
+        Row: {
+          id: string
+          title: string
+          duration_minutes: number
+          band_hint: string | null
+          parts: Record<string, unknown>[]
+          exam_track: string | null
+          cambridge_level: string | null
+          source: string
+          source_filename: string | null
+          published_by: string | null
+          published_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          title: string
+          duration_minutes: number
+          band_hint?: string | null
+          parts: Record<string, unknown>[]
+          exam_track?: string | null
+          cambridge_level?: string | null
+          source?: string
+          source_filename?: string | null
+          published_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          duration_minutes?: number
+          band_hint?: string | null
+          parts?: Record<string, unknown>[]
+          exam_track?: string | null
+          cambridge_level?: string | null
+          source?: string
+          source_filename?: string | null
+          published_by?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
     }
     Views: Record<string, never>

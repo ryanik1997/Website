@@ -33,6 +33,7 @@ import {
 import { useExamImportsOnlyFilter } from './useExamImportsOnlyFilter'
 import { hasIeltsListeningWizardDraft } from './ieltsListeningWizard/ieltsListeningWizardPersist'
 import { hasIeltsReadingWizardDraft } from './ieltsReadingWizard/ieltsReadingWizardPersist'
+import { isIeltsReadingWizardEditable } from './ieltsReadingWizard/ieltsReadingWizardEdit'
 import IeltsLibraryArchive from './IeltsLibraryArchive'
 import './examHub.css'
 
@@ -66,6 +67,10 @@ export default function ExamTrackPage() {
   const [showImportWord, setShowImportWord] = useState(false)
   const [wizardHasDraft, setWizardHasDraft] = useState(hasIeltsListeningWizardDraft)
   const [readingWizardHasDraft, setReadingWizardHasDraft] = useState(hasIeltsReadingWizardDraft)
+  const [readingWizardEdit, setReadingWizardEdit] = useState<{
+    exam: ReadingExam
+    sourceFilename?: string
+  } | null>(null)
   const { importsOnly, toggleImportsOnly } = useExamImportsOnlyFilter()
 
   const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
@@ -164,6 +169,14 @@ export default function ExamTrackPage() {
   const importedReading = readingList.filter(e => isImportedReadingExamId(e.id))
   const importedListening = listeningList.filter(e => e.id.startsWith('listening-import-'))
 
+  async function openReadingWizardEdit(examId: string) {
+    const exam = readingList.find(e => e.id === examId)
+    if (!exam || !isIeltsReadingWizardEditable(exam)) return
+    const record = await examRepo.get(examId)
+    setReadingWizardEdit({ exam, sourceFilename: record?.sourceFilename })
+    setShowReadingWizard(true)
+  }
+
   async function deleteReading(exam: ReadingExam) {
     if (!confirm(`Xóa đề "${exam.title}"?`)) return
     await examRepo.delete(exam.id)
@@ -220,7 +233,10 @@ export default function ExamTrackPage() {
               <button
                 type="button"
                 className="exam-hub-cta exam-hub-cta--ghost"
-                onClick={() => setShowReadingWizard(true)}
+                onClick={() => {
+                  setReadingWizardEdit(null)
+                  setShowReadingWizard(true)
+                }}
               >
                 <Sparkles size={14} />
                 Import Wizard Reading
@@ -282,6 +298,7 @@ export default function ExamTrackPage() {
                   : exam.bandHint || `${exam.parts.length} part · ${qCount} câu`,
                 done: Boolean(completion),
                 canDelete: isImportedReadingExamId(exam.id),
+                canEdit: isImportedReadingExamId(exam.id) && isIeltsReadingWizardEditable(exam),
               }
             }}
             onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
@@ -289,6 +306,7 @@ export default function ExamTrackPage() {
               clearReadingDraft(id)
               navigate(`/app/exam/reading/${id}`)
             }}
+            onEditExam={id => void openReadingWizardEdit(id)}
             onDeleteExam={id => {
               const target = readingList.find(e => e.id === id)
               if (target) void deleteReading(target)
@@ -384,12 +402,16 @@ export default function ExamTrackPage() {
       {showReadingWizard && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <IeltsReadingImportWizard
+            editExam={readingWizardEdit?.exam ?? null}
+            editSourceFilename={readingWizardEdit?.sourceFilename}
             onClose={() => {
               setShowReadingWizard(false)
+              setReadingWizardEdit(null)
               setReadingWizardHasDraft(hasIeltsReadingWizardDraft())
             }}
             onCreated={id => {
               setShowReadingWizard(false)
+              setReadingWizardEdit(null)
               setReadingWizardHasDraft(false)
               navigate(`/app/exam/reading/${id}`)
             }}

@@ -12,6 +12,9 @@ import { clearReadingDraft } from '../examCompletion'
 import { notifyExamDraftRevision } from '../useExamDraftRevision'
 import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
+import RwExamMain from '../rwHighlight/RwExamMain'
+import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
+import { usePartHighlights } from '../usePartHighlights'
 import KetRwFooter from './KetRwFooter'
 import KetRwPartContent from './KetRwPartContent'
 import './readingKetRw.css'
@@ -44,6 +47,16 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
   const currentPart = exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+  const {
+    highlights,
+    notes,
+    highlightsByPart,
+    notesByPart,
+    handleHighlightsChange,
+    handleNotesChange,
+    setAnnotationsByPart,
+    clearAllHighlights,
+  } = usePartHighlights(currentPart?.id)
 
   useEffect(() => {
     if (!exam) return
@@ -62,7 +75,7 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         submitted?: boolean
         partIndex?: number
         activeQuestionId?: string | null
-      }
+      } & RwDraftAnnotationFields
       setAnswers(saved.answers ?? {})
       setTimeLeft(
         typeof saved.timeLeft === 'number'
@@ -72,13 +85,14 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
       setSubmitted(Boolean(saved.submitted))
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
     } catch {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
-  }, [exam, storageKey])
+  }, [exam, setAnnotationsByPart, storageKey])
 
   useEffect(() => {
     if (!exam || !currentPart) return
@@ -90,15 +104,17 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
 
   useEffect(() => {
     if (!exam) return
-    window.localStorage.setItem(storageKey, JSON.stringify({
-      answers,
-      timeLeft,
-      submitted,
-      partIndex,
-      activeQuestionId,
-    }))
+    window.localStorage.setItem(storageKey, JSON.stringify(
+      rwDraftWithAnnotations({
+        answers,
+        timeLeft,
+        submitted,
+        partIndex,
+        activeQuestionId,
+      }, highlightsByPart, notesByPart),
+    ))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, partIndex, storageKey, submitted, timeLeft])
+  }, [activeQuestionId, answers, exam, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft])
 
   useEffect(() => {
     if (!exam || submitted) return
@@ -160,13 +176,14 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   const handleRetry = useCallback(() => {
     if (!exam) return
     clearReadingDraft(exam.id)
+    clearAllHighlights()
     setAnswers({})
     setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
     setPartIndex(0)
     setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     setSubmitted(false)
     if (fullMockId) patchFullMockSession({ stage: 'reading', reading: undefined })
-  }, [exam, fullMockId])
+  }, [clearAllHighlights, exam, fullMockId])
 
   if (exam === undefined) {
     return (
@@ -225,7 +242,13 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         </div>
       </header>
 
-      <main className="ket-rw-main">
+      <RwExamMain
+        partId={currentPart?.id}
+        highlights={highlights}
+        notes={notes}
+        onHighlightsChange={handleHighlightsChange}
+        onNotesChange={handleNotesChange}
+      >
         {currentPart && (
           <KetRwPartContent
             part={currentPart}
@@ -235,7 +258,7 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
             onAnswer={handleAnswer}
           />
         )}
-      </main>
+      </RwExamMain>
 
       <KetRwFooter
         exam={exam}

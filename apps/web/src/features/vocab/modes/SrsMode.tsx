@@ -271,6 +271,22 @@ export default function SrsMode({
                 <div className="vs-card-body" style={{ userSelect: 'text' }}>
                   <p className="vs-card-lang">Tiếng Việt</p>
                   <h1 className="vs-card-meaning">{card.meaning}</h1>
+                  {(card.ipaUS || card.ipaUK) && (
+                    <div className="vs-card-ipa">
+                      {card.ipaUS && <span className="vs-card-ipa-item"><span className="vs-card-ipa-label">US</span>/{card.ipaUS}/</span>}
+                      {card.ipaUK && <span className="vs-card-ipa-item"><span className="vs-card-ipa-label">UK</span>/{card.ipaUK}/</span>}
+                      <button
+                        type="button"
+                        className="vs-btn-audio vs-btn-audio--sm"
+                        onClick={e => { e.stopPropagation(); speakPhrase(card.phrase) }}
+                        aria-label="Phát âm"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
+                          <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                   {card.example && (
                     <div className="vs-card-example">
                       <p>{card.example}</p>

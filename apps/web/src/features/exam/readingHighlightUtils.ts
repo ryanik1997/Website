@@ -11,6 +11,20 @@ export interface ReadingHighlight {
   end: number
 }
 
+export interface TextNote {
+  id: string
+  blockId: string
+  start: number
+  end: number
+  text: string
+}
+
+export interface TextAnnotationSegment {
+  text: string
+  highlighted: boolean
+  note?: string
+}
+
 export interface HighlightRange {
   blockId: string
   start: number
@@ -19,6 +33,10 @@ export interface HighlightRange {
 
 export function newHighlightId(): string {
   return `hl-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
+}
+
+export function newNoteId(): string {
+  return `note-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
 }
 
 export function mergeRanges(ranges: { start: number; end: number }[]): { start: number; end: number }[] {
@@ -35,6 +53,60 @@ export function mergeRanges(ranges: { start: number; end: number }[]): { start: 
     }
   }
   return merged
+}
+
+function collectBlockBreakpoints(
+  textLength: number,
+  blockId: string,
+  highlights: ReadingHighlight[],
+  notes: TextNote[],
+): number[] {
+  const points = new Set<number>([0, textLength])
+  for (const h of highlights) {
+    if (h.blockId !== blockId || h.start >= h.end) continue
+    points.add(Math.max(0, h.start))
+    points.add(Math.min(textLength, h.end))
+  }
+  for (const n of notes) {
+    if (n.blockId !== blockId || n.start >= n.end) continue
+    points.add(Math.max(0, n.start))
+    points.add(Math.min(textLength, n.end))
+  }
+  return [...points].sort((a, b) => a - b)
+}
+
+export function segmentsFromAnnotations(
+  text: string,
+  highlights: ReadingHighlight[],
+  notes: TextNote[],
+  blockId: string,
+): TextAnnotationSegment[] {
+  const len = text.length
+  if (len === 0) return [{ text: '', highlighted: false }]
+
+  const sorted = collectBlockBreakpoints(len, blockId, highlights, notes)
+  const segments: TextAnnotationSegment[] = []
+
+  for (let i = 0; i < sorted.length - 1; i++) {
+    const start = sorted[i]
+    const end = sorted[i + 1]
+    if (start >= end) continue
+
+    const highlighted = highlights.some(h =>
+      h.blockId === blockId && h.start < end && h.end > start,
+    )
+    const overlappingNote = notes.find(n =>
+      n.blockId === blockId && n.start < end && n.end > start && n.text.trim(),
+    )
+
+    segments.push({
+      text: text.slice(start, end),
+      highlighted,
+      note: overlappingNote?.text,
+    })
+  }
+
+  return segments.length > 0 ? segments : [{ text, highlighted: false }]
 }
 
 export function segmentsFromHighlights(
@@ -299,14 +371,76 @@ export function selectionOverlapsHighlight(
   root: HTMLElement,
   highlights: ReadingHighlight[],
 ): boolean {
-  const ranges = selectionToHighlightRanges(selection, root)
-  if (!ranges) return false
+  return selectionOverlapsRanges(selection, root, highlights.map(h => ({
+    blockId: h.blockId,
+    start: h.start,
+    end: h.end,
+  })))
+}
 
-  return ranges.some(range =>
-    highlights.some(h =>
-      h.blockId === range.blockId
-      && h.start < range.end
-      && h.end > range.start,
+export function selectionOverlapsRanges(
+  selection: Selection,
+  root: HTMLElement,
+  ranges: HighlightRange[],
+): boolean {
+  const selected = selectionToHighlightRanges(selection, root)
+  if (!selected) return false
+
+  return selected.some(range =>
+    ranges.some(r =>
+      r.blockId === range.blockId
+      && r.start < range.end
+      && r.end > range.start,
+    ),
+  )
+}
+
+export function findNotesOverlappingRanges(
+  notes: TextNote[],
+  ranges: HighlightRange[],
+): TextNote[] {
+  return notes.filter(note =>
+    ranges.some(range =>
+      note.blockId === range.blockId
+      && note.start < range.end
+      && note.end > range.start,
+    ),
+  )
+}
+
+export function upsertNotesForRanges(
+  existing: TextNote[],
+  ranges: HighlightRange[],
+  text: string,
+): TextNote[] {
+  const trimmed = text.trim()
+  const withoutOverlap = removeNotesInRanges(existing, ranges)
+
+  if (!trimmed) return withoutOverlap
+
+  const next = [...withoutOverlap]
+  for (const range of ranges) {
+    if (range.start >= range.end) continue
+    next.push({
+      id: newNoteId(),
+      blockId: range.blockId,
+      start: range.start,
+      end: range.end,
+      text: trimmed,
+    })
+  }
+  return next.sort((a, b) => a.blockId.localeCompare(b.blockId) || a.start - b.start)
+}
+
+export function removeNotesInRanges(
+  existing: TextNote[],
+  removeRanges: HighlightRange[],
+): TextNote[] {
+  return existing.filter(note =>
+    !removeRanges.some(range =>
+      note.blockId === range.blockId
+      && note.start < range.end
+      && note.end > range.start,
     ),
   )
 }

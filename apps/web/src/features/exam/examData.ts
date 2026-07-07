@@ -5,8 +5,10 @@ export type ExamSkill = 'reading' | 'listening' | 'writing'
 
 export type ReadingQuestionType =
   | 'true-false-not-given'
+  | 'yes-no-not-given'
   | 'multiple-choice'
   | 'matching-paragraph'
+  | 'matching-headings'
   | 'matching-features'
   | 'gap-fill'
   | 'summary-completion'
@@ -49,20 +51,65 @@ export interface ReadingPassageBlock {
   imageUrl?: string
 }
 
+export type ReadingNoteTableCellBlockType = 'static' | 'gap' | 'break'
+
+/** Một ô trong bảng table-completion (Reading IELTS). */
+export interface ReadingNoteTableCellBlock {
+  type: ReadingNoteTableCellBlockType
+  text?: string
+  number?: number
+}
+
+export interface ReadingNoteTableRow {
+  cells: ReadingNoteTableCellBlock[][]
+}
+
+export interface ReadingNoteTable {
+  headers: string[]
+  rows: ReadingNoteTableRow[]
+  title?: string
+  instruction?: string
+  gapNumbers?: number[]
+}
+
+export type ReadingNotePassageBlockType = 'static' | 'section' | 'gap' | 'example'
+
+/** Note-completion Reading — form/notes với gap inline (Q1–6). */
+export interface ReadingNotePassageBlock {
+  type: ReadingNotePassageBlockType
+  text?: string
+  number?: number
+}
+
 export interface ReadingQuestionGroup {
   id: string
   range: string
   instruction: string
   note?: string
+  /** Ảnh bảng / diagram gắn nhóm câu (table completion, v.v.) */
+  imageKey?: string
+  imageUrl?: string
+  /** Tên file gốc trong ZIP import — giữ cho wizard export */
+  imageFile?: string
+  /** Bảng n cột × n dòng — table completion (ưu tiên hơn imageFile) */
+  noteTable?: ReadingNoteTable
+  /** Notes completion — bullets + gap inline (ưu tiên hơn prompt list) */
+  notePassage?: ReadingNotePassageBlock[]
+  /** Tiêu đề topic trong khung notes (vd. Wildfires) */
+  notesTitle?: string
   type:
     | 'tfng'
+    | 'ynng'
     | 'matching-paragraph'
+    | 'matching-headings'
     | 'matching-features'
     | 'multiple-choice'
     | 'gap-fill'
     | 'summary-completion'
     | 'sentence-completion'
   paragraphLetters?: string[]
+  /** Matching headings — list i, ii, iii… (có thể nhiều hơn số đoạn) */
+  headings?: { id: string; label: string }[]
   features?: { id: string; name: string }[]
   wordBank?: ReadingQuestionOption[]
   questions: ReadingQuestion[]
@@ -76,6 +123,10 @@ export interface ReadingPart {
   passageSubtitle?: string
   passage: ReadingPassageBlock[]
   questionGroups: ReadingQuestionGroup[]
+  /** Ảnh diagram đầu passage (Admin import / cloud). */
+  topImageUrl?: string
+  /** Ảnh diagram cuối passage (Admin import / cloud). */
+  bottomImageUrl?: string
 }
 
 export type ReadingExamTrack = 'ielts' | 'cambridge'
@@ -110,6 +161,12 @@ export const EXAM_LIBRARY: ExamLibraryItem[] = [
 const TFNG_OPTIONS: ReadingQuestionOption[] = [
   { id: 'true', label: 'TRUE' },
   { id: 'false', label: 'FALSE' },
+  { id: 'not-given', label: 'NOT GIVEN' },
+]
+
+export const YNNG_OPTIONS: ReadingQuestionOption[] = [
+  { id: 'yes', label: 'YES' },
+  { id: 'no', label: 'NO' },
   { id: 'not-given', label: 'NOT GIVEN' },
 ]
 
@@ -725,6 +782,212 @@ export const READING_EXAMS: ReadingExam[] = [
       },
     ],
   },
+  {
+    id: 'ielts-reading-types-demo',
+    title: 'IELTS Reading — YNNG & Matching Headings (demo)',
+    durationMinutes: 60,
+    bandHint: 'IELTS Academic · demo 2 dạng mới',
+    examTrack: 'ielts',
+    parts: [
+      {
+        id: 'demo-part-1',
+        partNumber: 1,
+        rangeLabel: 'Read the text and answer questions 1–7.',
+        passageTitle: 'Urban green spaces',
+        passage: [
+          {
+            label: 'A',
+            text: 'City planners once treated parks as decorative extras. Today many municipalities rank green space as essential infrastructure that improves air quality and reduces flooding.',
+          },
+          {
+            label: 'B',
+            text: 'Researchers comparing neighbourhoods found that residents living within a ten-minute walk of a park reported lower stress levels, though the study could not prove causation.',
+          },
+          {
+            label: 'C',
+            text: 'Some councils resist large park projects because maintenance budgets are already strained. Critics argue that planting trees along streets delivers similar benefits at lower cost.',
+          },
+          {
+            label: 'D',
+            text: 'Volunteer groups have restored abandoned lots into community gardens. These projects depend on local fundraising and rarely receive national grants.',
+          },
+          {
+            label: 'E',
+            text: 'Architects increasingly design buildings with rooftop gardens. Supporters claim these spaces should be mandatory on new commercial developments.',
+          },
+          {
+            label: 'F',
+            text: 'Historical records show that Victorian cities invested heavily in public parks to improve public health. Modern campaigns often cite this precedent.',
+          },
+          {
+            label: 'G',
+            text: 'International surveys suggest that cities with generous green coverage attract skilled workers, but the relationship between greenery and economic growth remains debated.',
+          },
+        ],
+        questionGroups: [
+          {
+            id: 'demo-p1-g1',
+            range: 'Questions 1–7',
+            type: 'matching-headings',
+            instruction:
+              'Reading Passage 1 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.',
+            note: 'There are more headings than paragraphs, so you will not use all of them.',
+            headings: [
+              { id: 'i', label: 'Financial obstacles to large-scale park projects' },
+              { id: 'ii', label: 'A shift in how cities value open space' },
+              { id: 'iii', label: 'Evidence linking proximity to parks with wellbeing' },
+              { id: 'iv', label: 'Grassroots efforts to reclaim unused land' },
+              { id: 'v', label: 'Debate over whether rooftop gardens should be compulsory' },
+              { id: 'vi', label: 'Lessons drawn from nineteenth-century urban planning' },
+              { id: 'vii', label: 'Uncertainty about economic effects of urban greenery' },
+              { id: 'viii', label: 'Why street trees are cheaper than formal parks' },
+            ],
+            questions: [
+              {
+                id: 'demo-q1',
+                number: 1,
+                type: 'matching-headings',
+                prompt: 'Paragraph A',
+                options: [],
+                answer: 'ii',
+                explanation: 'Paragraph A describes a shift from decorative parks to essential infrastructure.',
+              },
+              {
+                id: 'demo-q2',
+                number: 2,
+                type: 'matching-headings',
+                prompt: 'Paragraph B',
+                options: [],
+                answer: 'iii',
+                explanation: 'Paragraph B reports lower stress near parks.',
+              },
+              {
+                id: 'demo-q3',
+                number: 3,
+                type: 'matching-headings',
+                prompt: 'Paragraph C',
+                options: [],
+                answer: 'i',
+                explanation: 'Paragraph C discusses maintenance budgets and resistance to large projects.',
+              },
+              {
+                id: 'demo-q4',
+                number: 4,
+                type: 'matching-headings',
+                prompt: 'Paragraph D',
+                options: [],
+                answer: 'iv',
+                explanation: 'Volunteers restore lots into community gardens.',
+              },
+              {
+                id: 'demo-q5',
+                number: 5,
+                type: 'matching-headings',
+                prompt: 'Paragraph E',
+                options: [],
+                answer: 'v',
+                explanation: 'Supporters want rooftop gardens mandatory on new buildings.',
+              },
+              {
+                id: 'demo-q6',
+                number: 6,
+                type: 'matching-headings',
+                prompt: 'Paragraph F',
+                options: [],
+                answer: 'vi',
+                explanation: 'Victorian investment in parks is cited as a precedent.',
+              },
+              {
+                id: 'demo-q7',
+                number: 7,
+                type: 'matching-headings',
+                prompt: 'Paragraph G',
+                options: [],
+                answer: 'vii',
+                explanation: 'Economic benefits of greenery remain debated.',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'demo-part-2',
+        partNumber: 2,
+        rangeLabel: 'Read the text and answer questions 8–12.',
+        passageTitle: 'Remote work and team culture',
+        passage: [
+          {
+            text: 'When offices closed during the pandemic, many managers assumed productivity would collapse. In fact, numerous teams maintained output, though collaboration patterns changed dramatically.',
+          },
+          {
+            text: 'Dr Helena Marsh argues that remote work exposes weak communication habits that were previously hidden by informal chats. She believes companies should invest in structured check-ins rather than simply monitoring hours online.',
+          },
+          {
+            text: 'Not everyone agrees. Consultant James Ortiz maintains that creative brainstorming still requires shared physical space. He predicts hybrid models will dominate, but only if firms redesign offices for collaboration rather than individual desks.',
+          },
+          {
+            text: 'The passage does not discuss whether remote workers earn higher salaries than office-based staff.',
+          },
+        ],
+        questionGroups: [
+          {
+            id: 'demo-p2-g1',
+            range: 'Questions 8–12',
+            type: 'ynng',
+            instruction:
+              'Do the following statements agree with the views of the writer in Reading Passage 2? Write YES, NO or NOT GIVEN.',
+            questions: [
+              {
+                id: 'demo-q8',
+                number: 8,
+                type: 'yes-no-not-given',
+                prompt: 'The writer believes remote work inevitably reduces productivity.',
+                options: YNNG_OPTIONS,
+                answer: 'no',
+                explanation: 'The writer notes many teams maintained output when working remotely.',
+              },
+              {
+                id: 'demo-q9',
+                number: 9,
+                type: 'yes-no-not-given',
+                prompt: 'Dr Marsh thinks structured check-ins are preferable to tracking online hours.',
+                options: YNNG_OPTIONS,
+                answer: 'yes',
+                explanation: 'Marsh advocates structured check-ins over monitoring hours.',
+              },
+              {
+                id: 'demo-q10',
+                number: 10,
+                type: 'yes-no-not-given',
+                prompt: 'James Ortiz expects most companies to return to full-time office work.',
+                options: YNNG_OPTIONS,
+                answer: 'no',
+                explanation: 'Ortiz predicts hybrid models will dominate.',
+              },
+              {
+                id: 'demo-q11',
+                number: 11,
+                type: 'yes-no-not-given',
+                prompt: 'The writer claims remote employees are paid more than office workers.',
+                options: YNNG_OPTIONS,
+                answer: 'not-given',
+                explanation: 'The passage explicitly says salaries are not discussed.',
+              },
+              {
+                id: 'demo-q12',
+                number: 12,
+                type: 'yes-no-not-given',
+                prompt: 'Ortiz believes offices should be redesigned to support collaboration.',
+                options: YNNG_OPTIONS,
+                answer: 'yes',
+                explanation: 'Ortiz says firms should redesign offices for collaboration.',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...CAMBRIDGE_READING_SAMPLES,
   ...(CATALOG_READING_EXAMS as ReadingExam[]),
 ]
@@ -819,12 +1082,20 @@ export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: st
   return given === expected
 }
 
-export function formatReadingAnswer(question: ReadingQuestion, answerId: string): string {
+export function formatReadingAnswer(
+  question: ReadingQuestion,
+  answerId: string,
+  context?: { headings?: { id: string; label: string }[] },
+): string {
   if (!answerId) return 'Chưa trả lời'
   const fromOption = question.options.find(
     o => o.id.toLowerCase() === answerId.toLowerCase(),
   )
   if (fromOption) return fromOption.label
+  if (question.type === 'matching-headings' && context?.headings?.length) {
+    const heading = context.headings.find(h => h.id.toLowerCase() === answerId.toLowerCase())
+    if (heading) return `${heading.id}. ${heading.label}`
+  }
   if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
     if (/[/|]/.test(answerId)) {
       return answerId.split(/[/|]/).map(s => s.trim()).filter(Boolean).join(' hoặc ')

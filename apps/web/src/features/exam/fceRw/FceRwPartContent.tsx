@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions } from '../examData'
+import RwHighlightText from '../rwHighlight/RwHighlightText'
+import RwInstruction from '../rwHighlight/RwInstruction'
+import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
 import { ensureGapDots, questionByNumber, splitKetGapText } from '../ketRw/ketRwGapUtils'
@@ -28,87 +32,30 @@ function formatFceParagraphLabel(label: string): string {
   return trimmed
 }
 
-function FcePart7ParagraphBlock({ label, text }: { label?: string; text: string }) {
+function FcePart7ParagraphBlock({
+  partId,
+  blockKey,
+  label,
+  text,
+}: {
+  partId: string
+  blockKey: string
+  label?: string
+  text: string
+}) {
   return (
     <div className="fce-rw-paragraph-block">
       {label && (
-        <p className="fce-rw-paragraph-heading">{formatFceParagraphLabel(label)}</p>
+        <p className="fce-rw-paragraph-heading">
+          <RwHighlightText
+            blockId={`${partId}-${blockKey}-label`}
+            text={formatFceParagraphLabel(label)}
+          />
+        </p>
       )}
-      <p className="ket-rw-paragraph">{text}</p>
-    </div>
-  )
-}
-
-function FcePart7McQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
+      <p className="ket-rw-paragraph">
+        <RwHighlightText blockId={`${partId}-${blockKey}-text`} text={text} />
       </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{formatFceParagraphLabel(opt.label)}</span>
-          </label>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function McRadioQuestion({
-  question,
-  answers,
-  onSelectQuestion,
-  onAnswer,
-}: {
-  question: ReadingQuestion
-  answers: Record<string, string>
-  onSelectQuestion: (id: string) => void
-  onAnswer: (id: string, value: string) => void
-}) {
-  return (
-    <div className="ket-rw-question" id={`reading-q-${question.id}`}>
-      <p className="ket-rw-q-prompt">
-        <span className="ket-rw-q-num">{question.number}</span>
-        {question.prompt}
-      </p>
-      <div className="ket-rw-radio-list">
-        {question.options.map(opt => (
-          <label key={opt.id} className="ket-rw-radio">
-            <input
-              type="radio"
-              name={question.id}
-              checked={answers[question.id] === opt.id}
-              onChange={() => {
-                onSelectQuestion(question.id)
-                onAnswer(question.id, opt.id)
-              }}
-            />
-            <span>{opt.label}</span>
-          </label>
-        ))}
-      </div>
     </div>
   )
 }
@@ -136,6 +83,7 @@ function InlineMcGap({
       <button
         type="button"
         className={`ket-rw-gap-mc__btn${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={onToggle}
       >
         <span>{number}</span>
@@ -149,6 +97,7 @@ function InlineMcGap({
               type="button"
               role="option"
               className={`ket-rw-gap-mc__option${value === opt.id ? ' is-selected' : ''}`}
+              data-highlight-skip
               onClick={() => onSelect(opt.id)}
             >
               {opt.label}
@@ -178,6 +127,7 @@ function InlineGapText({
         type="text"
         className="ket-rw-gap-input"
         aria-label={`Gap ${number}`}
+        data-highlight-skip
         value={value}
         onChange={e => onChange(e.target.value)}
         onFocus={onFocus}
@@ -211,6 +161,7 @@ function InlineGapDrop({
       <button
         type="button"
         className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        data-highlight-skip
         onClick={() => {
           if (pickedId) {
             onAssign(question.id, pickedId)
@@ -262,12 +213,16 @@ export function parseTransformationPrompt(prompt: string): {
 }
 
 function TransformationGapSentence({
+  partId,
+  questionId,
   number,
   sentence2,
   value,
   onChange,
   onFocus,
 }: {
+  partId: string
+  questionId: string
   number: number
   sentence2: string
   value: string
@@ -278,7 +233,7 @@ function TransformationGapSentence({
   if (parts.length < 2) {
     return (
       <p className="fce-rw-transform__target">
-        {sentence2}
+        <RwHighlightText blockId={`${partId}-q-${questionId}-s2`} text={sentence2} />
         {' '}
         <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
       </p>
@@ -288,7 +243,7 @@ function TransformationGapSentence({
     <p className="fce-rw-transform__target">
       {parts.map((seg, i) => (
         <span key={`seg-${i}`}>
-          {seg}
+          <RwHighlightText blockId={`${partId}-q-${questionId}-s2-${i}`} text={seg} />
           {i < parts.length - 1 && (
             <InlineGapText number={number} value={value} onChange={onChange} onFocus={onFocus} />
           )}
@@ -321,6 +276,7 @@ export default function FceRwPartContent({
   onAnswer,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
+  const partId = part.id
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
@@ -328,14 +284,18 @@ export default function FceRwPartContent({
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
 
-  const renderMcGapPassage = (text: string, gapQuestions: ReadingQuestion[]) => {
+  const renderMcGapPassage = (
+    passageKey: string,
+    text: string,
+    gapQuestions: ReadingQuestion[],
+  ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
     const segments = splitKetGapText(prepared)
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           const ans = answers[q.id] ?? ''
@@ -361,14 +321,18 @@ export default function FceRwPartContent({
     )
   }
 
-  const renderOpenGapPassage = (text: string, gapQuestions: ReadingQuestion[]) => {
+  const renderOpenGapPassage = (
+    passageKey: string,
+    text: string,
+    gapQuestions: ReadingQuestion[],
+  ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
     const segments = splitKetGapText(prepared)
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
@@ -401,6 +365,7 @@ export default function FceRwPartContent({
   }
 
   const renderPassageGapDrops = (
+    passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
     bank: Array<{ id: string; label: string }>,
@@ -411,7 +376,7 @@ export default function FceRwPartContent({
     return (
       <p className="ket-rw-inline-passage">
         {segments.map((seg, i) => {
-          if (seg.kind === 'text') return <span key={`t-${i}`}>{seg.value}</span>
+          if (seg.kind === 'text') return rwGapTextSegment(partId, passageKey, i, seg.value)
           const q = questionByNumber(gapQuestions, seg.number)
           if (!q) return <span key={`g-${i}`}>({seg.number})</span>
           return (
@@ -435,16 +400,15 @@ export default function FceRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+            <h2 className="ket-rw-passage-title">
+              <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+            </h2>
             {bodyBlocks.map((block, idx) => (
               <div key={`p1-${idx}`} className="ket-rw-paragraph">
-                {renderMcGapPassage(block.text ?? '', questions)}
+                {renderMcGapPassage(`p1-${idx}`, block.text ?? '', questions)}
               </div>
             ))}
           </div>
@@ -457,16 +421,15 @@ export default function FceRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+            <h2 className="ket-rw-passage-title">
+              <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+            </h2>
             {bodyBlocks.map((block, idx) => (
               <div key={`p2-${idx}`} className="ket-rw-paragraph">
-                {renderOpenGapPassage(block.text ?? '', questions)}
+                {renderOpenGapPassage(`p2-${idx}`, block.text ?? '', questions)}
               </div>
             ))}
           </div>
@@ -480,17 +443,16 @@ export default function FceRwPartContent({
     const activeQ = questions.find(q => q.id === activeQuestionId) ?? questions[0]
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {bodyBlocks.map((block, idx) => (
                 <div key={`p3-${idx}`} className="ket-rw-paragraph">
-                  {renderOpenGapPassage(block.text ?? '', questions)}
+                  {renderOpenGapPassage(`p3-${idx}`, block.text ?? '', questions)}
                 </div>
               ))}
             </>
@@ -507,10 +469,16 @@ export default function FceRwPartContent({
                       <button
                         type="button"
                         className={`fce-rw-keyword-list__item${isActive ? ' is-active' : ''}${answers[q.id]?.trim() ? ' is-filled' : ''}`}
+                        data-highlight-skip
                         onClick={() => onSelectQuestion(q.id)}
                       >
                         <span className="fce-rw-keyword-list__num">{q.number}</span>
-                        <span className="fce-rw-keyword-list__stem">{stem}</span>
+                        <span className="fce-rw-keyword-list__stem">
+                          <RwHighlightText
+                            blockId={`${partId}-q-${q.id}-stem`}
+                            text={stem}
+                          />
+                        </span>
                       </button>
                     </li>
                   )
@@ -526,14 +494,13 @@ export default function FceRwPartContent({
   if (part.partNumber === 4) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full fce-rw-transform-list">
             {part.passage.filter(b => b.text?.trim()).map((block, idx) => (
-              <p key={`p4-intro-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+              <p key={`p4-intro-${idx}`} className="ket-rw-paragraph">
+                <RwHighlightText blockId={`${partId}-p4-intro-${idx}`} text={block.text ?? ''} />
+              </p>
             ))}
             {questions.map(q => {
               const { sentence1, stem, sentence2 } = parseTransformationPrompt(q.prompt)
@@ -545,9 +512,17 @@ export default function FceRwPartContent({
                   id={`reading-q-${q.id}`}
                   className={`fce-rw-transform${isActive ? ' is-active' : ''}`}
                 >
-                  <p className="fce-rw-transform__source">{sentence1}</p>
-                  {stem && <p className="fce-rw-transform__stem">{stem}</p>}
+                  <p className="fce-rw-transform__source">
+                    <RwHighlightText blockId={`${partId}-q-${q.id}-s1`} text={sentence1} />
+                  </p>
+                  {stem && (
+                    <p className="fce-rw-transform__stem">
+                      <RwHighlightText blockId={`${partId}-q-${q.id}-stem`} text={stem} />
+                    </p>
+                  )}
                   <TransformationGapSentence
+                    partId={partId}
+                    questionId={q.id}
                     number={q.number}
                     sentence2={sentence2}
                     value={value}
@@ -566,22 +541,24 @@ export default function FceRwPartContent({
   if (part.partNumber === 5) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getBodyTextBlocks(part.passage).map((block, idx) => (
-                <p key={`p5-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+                <p key={`p5-${idx}`} className="ket-rw-paragraph">
+                  <RwHighlightText blockId={`${partId}-p5-${idx}`} text={block.text ?? ''} />
+                </p>
               ))}
             </>
           )}
           right={questions.map(q => (
-            <McRadioQuestion
+            <RwMcRadioQuestion
               key={q.id}
+              partId={partId}
               question={q}
               answers={answers}
               onSelectQuestion={onSelectQuestion}
@@ -598,17 +575,16 @@ export default function FceRwPartContent({
     const bodyBlocks = getBodyTextBlocks(part.passage)
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {bodyBlocks.map((block, idx) => (
                 <div key={`p6-${idx}`} className="ket-rw-paragraph">
-                  {renderPassageGapDrops(block.text ?? '', questions, bank)}
+                  {renderPassageGapDrops(`p6-${idx}`, block.text ?? '', questions, bank)}
                 </div>
               ))}
             </>
@@ -624,6 +600,7 @@ export default function FceRwPartContent({
                   <div
                     key={option.id}
                     className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+                    data-highlight-skip
                     draggable={!isUsed}
                     onDragStart={e => {
                       if (isUsed) return
@@ -637,7 +614,12 @@ export default function FceRwPartContent({
                     tabIndex={isUsed ? -1 : 0}
                   >
                     <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                    <p className="pet-rw-drag__bank-text">{option.label}</p>
+                    <p className="pet-rw-drag__bank-text">
+                      <RwHighlightText
+                        blockId={`${partId}-bank-${option.id}`}
+                        text={option.label}
+                      />
+                    </p>
                   </div>
                 )
               })}
@@ -651,17 +633,18 @@ export default function FceRwPartContent({
   if (part.partNumber === 7) {
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <>
-              <h2 className="ket-rw-passage-title">{part.passageTitle}</h2>
+              <h2 className="ket-rw-passage-title">
+                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              </h2>
               {getFcePart7PassageBlocks(part).map((block, idx) => (
                 <FcePart7ParagraphBlock
                   key={`p7-${idx}`}
+                  partId={partId}
+                  blockKey={`p7-${idx}`}
                   label={block.label}
                   text={block.text ?? ''}
                 />
@@ -669,12 +652,14 @@ export default function FceRwPartContent({
             </>
           )}
           right={questions.map(q => (
-            <FcePart7McQuestion
+            <RwMcRadioQuestion
               key={q.id}
+              partId={partId}
               question={q}
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              formatOptionLabel={formatFceParagraphLabel}
             />
           ))}
         />
@@ -687,10 +672,7 @@ export default function FceRwPartContent({
     const text = wq ? answers[wq.id] ?? '' : ''
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
           left={(
             <div className="ket-rw-writing-prompt">
@@ -706,16 +688,23 @@ export default function FceRwPartContent({
                   />
                 ))}
                 {part.passage.filter(b => b.text?.trim()).map((block, idx) => (
-                  <p key={`p8t-${idx}`} className="ket-rw-paragraph">{block.text}</p>
+                  <p key={`p8t-${idx}`} className="ket-rw-paragraph">
+                    <RwHighlightText blockId={`${partId}-p8t-${idx}`} text={block.text ?? ''} />
+                  </p>
                 ))}
               </div>
-              {wq && <p>{wq.prompt}</p>}
+              {wq && (
+                <p>
+                  <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
+                </p>
+              )}
             </div>
           )}
           right={wq ? (
             <>
               <textarea
                 className="ket-rw-writing-area"
+                data-highlight-skip
                 value={text}
                 onChange={e => onAnswer(wq.id, e.target.value)}
                 onFocus={() => onSelectQuestion(wq.id)}
@@ -735,14 +724,15 @@ export default function FceRwPartContent({
     const text = wq ? answers[wq.id] ?? '' : ''
     return (
       <>
-        <div className="ket-rw-instruction">
-          <p className="ket-rw-instruction__range">{instructionRange}</p>
-          <p className="ket-rw-instruction__text">{instructionText}</p>
-        </div>
+        <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
             <h3 className="ket-rw-passage-title">Question {wq?.number ?? 54}</h3>
-            {wq && <p className="ket-rw-q-prompt">{wq.prompt}</p>}
+            {wq && (
+              <p className="ket-rw-q-prompt">
+                <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
+              </p>
+            )}
             <div className="ket-rw-pictures">
               {part.passage.map((block, idx) => (
                 <PassageImage
@@ -757,6 +747,7 @@ export default function FceRwPartContent({
               <>
                 <textarea
                   className="ket-rw-writing-area"
+                  data-highlight-skip
                   value={text}
                   onChange={e => onAnswer(wq.id, e.target.value)}
                   onFocus={() => onSelectQuestion(wq.id)}

@@ -29,6 +29,7 @@ export function parsedPartToReadingPart(parsed: ParsedReadingPart, partId: strin
       note: group.note,
       type: group.type,
       paragraphLetters: group.paragraphLetters,
+      headings: group.headings,
       features: group.features,
       wordBank: group.wordBank,
       questions: group.questions.map(question => ({

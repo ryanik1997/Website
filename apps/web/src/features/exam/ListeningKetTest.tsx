@@ -57,7 +57,16 @@ export default function ListeningKetTest({ exam }: Props) {
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
   const currentPart = exam.parts[partIndex] ?? null
-  const { highlights, handleHighlightsChange, clearAllHighlights } = usePartHighlights(currentPart?.id)
+  const {
+    highlights,
+    notes,
+    highlightsByPart,
+    notesByPart,
+    handleHighlightsChange,
+    handleNotesChange,
+    setAnnotationsByPart,
+    clearAllHighlights,
+  } = usePartHighlights(currentPart?.id)
   const partQuestions = useMemo(
     () => (currentPart ? getPartQuestions(currentPart) : []),
     [currentPart],
@@ -117,6 +126,8 @@ export default function ListeningKetTest({ exam }: Props) {
         activeQuestionId?: string | null
         questionIndex?: number
         submitted?: boolean
+        highlightsByPart?: Record<string, import('./readingHighlightUtils').ReadingHighlight[]>
+        notesByPart?: Record<string, import('./readingHighlightUtils').TextNote[]>
       }
       setAnswers(saved.answers ?? {})
       setUnsure(saved.unsure ?? {})
@@ -144,10 +155,11 @@ export default function ListeningKetTest({ exam }: Props) {
         setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
         setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       }
+      setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
     } catch {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
-  }, [allQuestions, exam, storageKey])
+  }, [allQuestions, exam, setAnnotationsByPart, storageKey])
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, JSON.stringify({
@@ -157,9 +169,11 @@ export default function ListeningKetTest({ exam }: Props) {
       partIndex,
       activeQuestionId,
       submitted,
+      highlightsByPart,
+      notesByPart,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, partIndex, storageKey, submitted, timeLeft, unsure])
+  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure])
 
   useEffect(() => {
     if (submitted) return
@@ -295,10 +309,12 @@ export default function ListeningKetTest({ exam }: Props) {
             rootRef={bodyRef}
             highlights={highlights}
             onHighlightsChange={handleHighlightsChange}
+            notes={notes}
+            onNotesChange={handleNotesChange}
             resetKey={currentPart.id}
           />
         )}
-        <ExamHighlightProvider highlights={highlights}>
+        <ExamHighlightProvider highlights={highlights} notes={notes}>
         {currentPart && (isPartLayout || currentQuestion) && (() => {
           const resizer = isPartLayout ? null : (
             <ListeningSplitResizer

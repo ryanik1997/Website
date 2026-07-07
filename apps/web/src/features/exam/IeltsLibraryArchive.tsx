@@ -5,6 +5,7 @@ import {
   ChevronRight,
   Headphones,
   LayoutGrid,
+  Pencil,
   RotateCcw,
   Search,
   Trash2,
@@ -31,6 +32,7 @@ export interface IeltsLibraryExamRow {
   done?: boolean
   completionLabel?: string
   canDelete?: boolean
+  canEdit?: boolean
 }
 
 interface Props<T extends { id: string; title: string }> {
@@ -39,6 +41,7 @@ interface Props<T extends { id: string; title: string }> {
   buildRow: (exam: T) => IeltsLibraryExamRow
   onOpenExam: (id: string) => void
   onRetryExam?: (id: string) => void
+  onEditExam?: (id: string) => void
   onDeleteExam?: (id: string) => void
   /** IELTS: nhóm theo Cambridge 9–20. Cambridge CEFR: nhóm theo Book/Test. */
   archiveMode?: LibraryArchiveMode
@@ -80,11 +83,13 @@ function TestRows({
   rows,
   onOpenExam,
   onRetryExam,
+  onEditExam,
   onDeleteExam,
 }: {
   rows: IeltsLibraryExamRow[]
   onOpenExam: (id: string) => void
   onRetryExam?: (id: string) => void
+  onEditExam?: (id: string) => void
   onDeleteExam?: (id: string) => void
 }) {
   return (
@@ -110,6 +115,16 @@ function TestRows({
                 <RotateCcw size={15} />
               </button>
             )}
+            {row.canEdit && onEditExam && (
+              <button
+                type="button"
+                className="ielts-library-test-row__icon-btn"
+                title="Sửa bằng Wizard"
+                onClick={() => onEditExam(row.id)}
+              >
+                <Pencil size={15} />
+              </button>
+            )}
             {row.canDelete && onDeleteExam && (
               <button
                 type="button"
@@ -133,6 +148,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
   buildRow,
   onOpenExam,
   onRetryExam,
+  onEditExam,
   onDeleteExam,
   archiveMode = 'ielts',
   brandLabel = 'IELTS',
@@ -226,6 +242,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
           rows={rows}
           onOpenExam={onOpenExam}
           onRetryExam={onRetryExam}
+          onEditExam={onEditExam}
           onDeleteExam={onDeleteExam}
         />
 
@@ -236,6 +253,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
               rows={filtered.ungrouped.map(buildRow)}
               onOpenExam={onOpenExam}
               onRetryExam={onRetryExam}
+              onEditExam={onEditExam}
               onDeleteExam={onDeleteExam}
             />
           </div>
@@ -299,6 +317,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
             rows={filtered.ungrouped.map(buildRow)}
             onOpenExam={onOpenExam}
             onRetryExam={onRetryExam}
+            onEditExam={onEditExam}
             onDeleteExam={onDeleteExam}
           />
         </div>

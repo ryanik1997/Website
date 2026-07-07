@@ -783,3 +783,37 @@
     max-width: 100%;
   }
 }
+
+/* Highlight + Note (shared Cambridge RW A2–C2) */
+.ket-rw-highlight-zone {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ket-rw-main [data-exam-highlight-zone] [data-highlight-block] {
+  user-select: text;
+}
+
+.ket-rw-main [data-exam-highlight-zone] ::selection {
+  background: var(--exam-highlight-selection);
+}
+
+.ket-rw-main .reading-test-highlight {
+  background: var(--exam-highlight-bg);
+  color: inherit;
+  border-radius: 0.15rem;
+  padding: 0.05rem 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ket-rw-main .reading-test-note {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 70%, var(--text-primary));
+  text-underline-offset: 0.15em;
+  cursor: help;
+}
