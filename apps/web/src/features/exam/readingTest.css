@@ -581,6 +581,10 @@ mark.reading-test-note {
   text-align: left;
 }
 
+.reading-test-table td[rowspan] {
+  vertical-align: middle;
+}
+
 .reading-test-table th {
   font-weight: 700;
   background: color-mix(in srgb, var(--bg-secondary) 70%, var(--bg-card));

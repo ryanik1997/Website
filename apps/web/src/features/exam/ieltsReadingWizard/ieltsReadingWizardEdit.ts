@@ -87,6 +87,8 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'multiple-choice|tfng|summary-completion': 'p2-r2-mc-tfng-endings',
     'tfng|gap-fill': 'p2-r2-tfng-diagram',
     'matching-headings|tfng|sentence-completion': 'p2-r2-headings-tfng-sentence',
+    'multiple-choice|summary-completion|ynng': 'p2-r2-mc-summary-ynng',
+    'matching-headings|matching-features|gap-fill': 'p2-r2-headings-match-summary',
   },
   3: {
     'tfng|multiple-choice': 'p3-r3-tfng-mc',
@@ -119,8 +121,14 @@ export function inferTemplateKindFromPart(
     if (tableGroup) return 'p1-r1-tfng-gap-table'
   }
   if (passageNumber === 1 && sig === 'gap-fill|tfng') {
+    const tableGroup = part.questionGroups.find(g => g.noteTable?.headers?.length)
+    if (tableGroup) return 'p1-r1-table-tfng'
     const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
-    if (notesGroup) return 'p1-r1-notes-tfng'
+    if (notesGroup) {
+      const gapCount = notesGroup.questions?.length ?? 0
+      if (gapCount >= 8) return 'p1-r1-notes-tfng-8'
+      return 'p1-r1-notes-tfng'
+    }
   }
   if (passageNumber === 1 && sig === 'matching-headings|gap-fill') {
     const notesGroup = part.questionGroups.find(g => g.notePassage?.length)

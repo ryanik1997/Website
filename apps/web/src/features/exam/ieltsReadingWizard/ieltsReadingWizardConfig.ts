@@ -13,6 +13,8 @@ export type IeltsReadingP1TemplateKind =
   | 'p1-r1-tfng-match-summary'
   | 'p1-r1-match-choose-two'
   | 'p1-r1-headings-notes'
+  | 'p1-r1-notes-tfng-8'
+  | 'p1-r1-table-tfng'
 
 export type IeltsReadingP2TemplateKind =
   | 'p2-r2-match-mc'
@@ -26,6 +28,8 @@ export type IeltsReadingP2TemplateKind =
   | 'p2-r2-mc-tfng-endings'
   | 'p2-r2-tfng-diagram'
   | 'p2-r2-headings-tfng-sentence'
+  | 'p2-r2-mc-summary-ynng'
+  | 'p2-r2-headings-match-summary'
 
 export type IeltsReadingP3TemplateKind =
   | 'p3-r3-tfng-mc'

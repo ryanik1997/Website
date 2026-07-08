@@ -50,6 +50,9 @@ export function friendlySyncError(message: string): string {
   if (m.includes('failed to fetch') || m.includes('network')) {
     return 'Không kết nối được Supabase — kiểm tra mạng hoặc cấu hình VITE_SUPABASE_URL.'
   }
+  if (m.includes('invalid input syntax for type uuid') && m.includes('preset:')) {
+    return 'Bộ từ preset (IELTS, Oxford, …) không đồng bộ cloud — chỉ deck do bạn tạo được sync. Hãy refresh trang và thử lại.'
+  }
   return message
 }
 

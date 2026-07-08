@@ -2286,9 +2286,38 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 
 ---
 
-## Next session start prompt (cập nhật 2026-07-08)
+## Next session start prompt (cập nhật 2026-07-09)
 ```
 Đọc session_summary.md ngay.
+
+## Context nhanh (session 2026-07-08 — tiếp mai)
+- **r1tt** (`p1-r1-table-tfng`): bảng có merge ô — `rowSpan` / `colSpan` / `skip` trong `noteTable`
+- SAMPLE: `R1TT_MERGE_TABLE_SAMPLE` (Cam13 T4 Coconut palm, `Teamplate_Part1_7.jpg`) — Q1–8 table + Q9–13 TFNG
+- Files chính: `examData.ts`, `readingNoteTableUtils.ts`, `ReadingNoteTable.tsx`, `ieltsReadingAiPrompt.ts`, `ieltsReadingPartTemplates.ts`
+- `tsc --noEmit` pass — **chưa verify E2E** wizard AI + UI render bảng merge trên browser
+
+## Ưu tiên mai (2026-07-09)
+### 1 — Verify r1tt bảng merge (P1)
+1. `pnpm --filter web dev` → Import Wizard Reading P1 → chọn **r1tt (Table + TFNG)**
+2. Dán đề Cam13 T4 Coconut palm (hoặc đề bảng 3 cột có gộp ô) + answer key → Generate
+3. Kiểm tra: `noteTable.title`, header 3 cột, ô "fruits" `rowSpan:5`, hàng con `{ skip:true }`, gap 1–8 đúng vị trí
+4. Lưu đề → mở Reading test → bảng hiển thị merge đúng (không lệch cột, ô fruits căn giữa dọc)
+5. Thử thêm đề 2 cột không merge (NZ website) — AI vẫn ra bảng phẳng OK
+
+### 2 — Template Reading còn thiếu / JPG trong `Tainguyen/IELTS/Template/`
+- `Teamplate_Part1_5.jpg` … `Part1_7` đã có builder; kiểm tra P2/P3 JPG chưa gắn template
+- User có thể gửi ảnh mới → gắn vào template hiện có (không tạo code mới nếu layout trùng signature)
+
+### 3 — Admin publish + batch đề (nếu user cần rollout)
+- Admin → Publish nội dung; batch Reading IELTS Cam9–20
+
+## Lỗi / chưa test (2026-07-08)
+- [ ] **r1tt merge ô** — code xong, chưa test wizard AI + UI browser với đề thật
+- [ ] **r1tt SAMPLE passage** — `ieltsReadingP1TableTfngPart()` vẫn passage NZ A–G (AI thay khi generate; có thể đổi passage mẫu Coconut nếu gây nhiễu)
+- [ ] Listening Ô CHỮ mobile iOS — chờ user xác nhận production
+- [ ] IELTS Cam20 Listening UI — chờ user so sánh giao diện
+
+---
 
 ## Đã xong (2026-07-07) — Admin Publish nội dung (toàn app)
 - Migration 012 — `admin_published_modules` + `admin_publish_meta`
@@ -2404,6 +2433,27 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - **Fix phụ:** `ExamTrackPage.tsx` — chuyển redirect `ket` xuống sau tất cả hooks (tránh Rules of Hooks khi đổi route)
 - Verify: `pnpm --filter web exec tsc --noEmit` + `vite build` pass; dev server restart → hard refresh Ctrl+Shift+R
 
+## Đã xong (2026-07-08) — Reading P2 template r2hms (Headings + Match + Summary)
+- Template `p2-r2-headings-match-summary` (`r2hms`) — preview JPG `Teamplate_Part2_9.jpg` (Cam13 T1 Boredom)
+- Matching headings Q14–19 (A–F, i–viii) + match ideas Q20–23 (A–E) + summary ONE WORD Q24–26
+- Builder `ieltsReadingP2HeadingsMatchSummaryPart()` + `CAM13_T1_BOREDOM_SUMMARY_NOTE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_9.jpg`
+
+## Đã xong (2026-07-08) — Reading P1 template r1tt (Table + TFNG, merge ô)
+- Template `p1-r1-table-tfng` (`r1tt`) — preview JPG `Teamplate_Part1_7.jpg` (Cam13 T4 Coconut palm)
+- Table completion Q1–8 (`noteTable` 3 cột, `rowSpan`/`colSpan`/`skip`) + TFNG Q9–13
+- `R1TT_MERGE_TABLE_SAMPLE` — bảng mẫu "fruits" gộp 5 hàng; vẫn hỗ trợ bảng 2 cột không merge (`CAM13_T1_NZ_WEBSITE_TABLE`)
+- `examData.ts` + `readingNoteTableUtils.ts` + `ReadingNoteTable.tsx` — render merge cột/hàng
+- AI prompt: quy tắc merge khi copy Word/PDF dạng bảng IELTS
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_7.jpg`
+- Wizard edit: `gap-fill|tfng` + `noteTable` → `r1tt` (khác `r1n`/`r1n8` notePassage)
+
+## Đã xong (2026-07-08) — Fix sync cloud: preset deck ID không phải UUID
+- Lỗi: `decks upsert: invalid input syntax for type uuid: "preset:academic:kinh-te-hoc"`
+- Nguyên nhân: `syncLocalToCloud` đẩy cả bộ preset (`preset:group:slug`) lên Supabase — cột `decks.id` là UUID
+- Fix: `packages/db/src/cloud/presetDeck.ts` — `isPresetDeck()`; sync bỏ qua deck/card/SRS preset
+- Chỉ deck `origin: user` (UUID) được đồng bộ cloud; preset lấy từ seed local + Admin publish
+
 ## Đã xong (2026-07-08) — Vocab preset decks bị double
 - Root cause: `seedPresetDecks` dùng UUID ngẫu nhiên + React StrictMode/sync Admin publish tạo bản trùng cùng group+tên
 - Fix: `stablePresetDeckId()` + `put` idempotent + `dedupePresetDecks()` gộp thẻ/SRS về 1 bộ
@@ -2414,6 +2464,19 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - Matching headings Q14–20 (A–G) + TFNG Q21–24 + sentence completion ONE WORD Q25–26
 - Builder `ieltsReadingP2HeadingsTfngSentencePart()` + `CAM12_T8_LOST_CITY_HEADINGS`
 - Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg`
+
+## Đã xong (2026-07-08) — Reading P2 template r2ms (MC + Summary + YNNG)
+- Template `p2-r2-mc-summary-ynng` (`r2ms`) — preview JPG `Teamplate_Part2_8.jpg` (Cam12 T8 Bring back the big cats)
+- Multiple choice Q14–18 + summary word bank A–F Q19–22 + YNNG Q23–26
+- Builder `ieltsReadingP2McSummaryYnngPart()` + `CAM12_T8_LYNX_SUMMARY_NOTE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_8.jpg`
+
+## Đã xong (2026-07-08) — Reading P1 template r1n8 (Notes 8 + TFNG)
+- Template `p1-r1-notes-tfng-8` (`r1n8`) — preview JPG `Teamplate_Part1_5.jpg` (Cam12 T8 The history of glass)
+- Note completion Q1–8 (`notePassage`, ONE WORD) + TFNG Q9–13
+- Builder `ieltsReadingP1NotesTfng8Part()` + `CAM12_T8_GLASS_NOTE_PASSAGE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_5.jpg`
+- Wizard edit: `gap-fill|tfng` + `notePassage` + ≥8 gaps → `r1n8` (khác `r1n` 6 gaps)
 
 ## Đã xong (2026-07-08) — Reading P1 template r1hn (Headings + Notes)
 - Template `p1-r1-headings-notes` (`r1hn`) — preview JPG `Teamplate_Part1_4.jpg` (Cam12 T5 Flying tortoises)
@@ -2433,6 +2496,11 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - Summary TWO WORDS Q27–31 (`note` inline) + MC A–D Q32–36 + sentence endings Q37–40
 - Builder `ieltsReadingP3SummaryMcEndingsPart()` — đã xóa nhầm template Listening `p3-c8`
 - Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg`
+
+## Đã xong (2026-07-08) — Fix Reading Part 3 trắng trang (Cam13 T1 / r3ty)
+- **Nguyên nhân 1:** AI ghi `type: "table-completion"` → crash `question.options.map` trong `MultipleChoiceGroup`.
+- **Nguyên nhân 2 (console):** `features[]` từ AI dùng `label` thay `name` → `splitReferenceText(feature.name)` crash; `ReadingHighlightableText` nhận `text` undefined.
+- **Fix:** `readingExamSanitize.ts` — group type, `features`/`headings`/`wordBank` (map `label`→`name`); load Dexie + published; phòng thủ `splitReferenceText`, `segmentsFromAnnotations`, `ReadingHighlightableText`.
 
 ## Đã xong (2026-07-08) — Fix Reading Wizard noteTable không hiện (r3ty / mọi bảng n×n)
 - `readingNoteTableUtils.ts` — normalize bảng n cột × n dòng, validate gap ↔ questions
@@ -2463,13 +2531,17 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - https://ryanenglishv2.vercel.app — migrations 009–012, SW, Listening publish, Admin publish
 
 ## Ưu tiên session mới (chọn theo user)
-### 0 — Verify IELTS track sau fix màn trắng
+### 1 — Verify r1tt bảng merge (ưu tiên mai)
+1. Wizard Reading P1 → template **r1tt** → dán Coconut palm / bảng 3 cột có merge
+2. Verify AI output `rowSpan`/`skip` + UI `ReadingNoteTable.tsx` render đúng
+3. Regression: bảng 2 cột không merge (NZ website) vẫn OK
+
+### 0 — Verify IELTS track (đã pass build 2026-07-08)
 1. `pnpm --filter web dev` → http://localhost:5173/app/exam/track/ielts
 2. **Đăng nhập Google** trước — chưa login sẽ redirect về landing (không phải màn trắng)
 3. Hard refresh Ctrl+Shift+R — phải thấy Library Archives Reading + Listening
-4. Nếu vẫn trắng: DevTools Console → lỗi import `listeningNotePassage` / `ExamTrackPage`
 
-**Verify 2026-07-08 (agent):** `tsc --noEmit` pass; `vite build` pass (`ExamTrackPage` + `listeningNotePassage` bundle OK); dev server restart; dynamic import chain OK trong browser; Playwright `scripts/check-ielts-track.mjs` — không có console/page error (redirect landing khi chưa auth).
+**Verify 2026-07-08 (agent):** `tsc --noEmit` pass; `vite build` pass; Playwright `scripts/check-ielts-track.mjs` — không có console/page error.
 
 ### A — Admin rollout nội dung cho user
 1. Máy Admin đã import → /app/admin → **Publish nội dung** → Publish tất cả
@@ -2484,4 +2556,6 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - Upload MP3/ảnh Listening custom lên Supabase (KET/PET không khớp catalog)
 - Cache SW cho `reading-exam-media`
 - Wizard Reading template mới + verify Note F5
+- `noteTable` merge: mở rộng `colSpan` nếu gặp đề gộp ngang (hiện mới test rowSpan dọc)
+- Đổi passage SAMPLE `ieltsReadingP1TableTfngPart()` sang Coconut palm (bỏ NZ A–G) nếu AI bị nhiễu schema
 ```

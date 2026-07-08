@@ -1,8 +1,10 @@
 import ReadingHighlightableText from './ReadingHighlightableText'
-import type { ReadingNoteTable, ReadingNoteTableCellBlock, ReadingQuestion } from './examData'
+import type { ReadingNoteTable, ReadingNoteTableCell, ReadingNoteTableCellBlock, ReadingQuestion } from './examData'
+import { parseReadingNoteTableCell } from './readingNoteTableUtils'
 import type { ReadingHighlight } from './readingHighlightUtils'
 
-function groupTableCellLines(cell: ReadingNoteTableCellBlock[]): ReadingNoteTableCellBlock[][] {
+function groupTableCellLines(cell: ReadingNoteTableCell | undefined): ReadingNoteTableCellBlock[][] {
+  const blocks = cell != null ? parseReadingNoteTableCell(cell).blocks : []
   const lines: ReadingNoteTableCellBlock[][] = []
   let current: ReadingNoteTableCellBlock[] = []
 
@@ -12,7 +14,7 @@ function groupTableCellLines(cell: ReadingNoteTableCellBlock[]): ReadingNoteTabl
     current = []
   }
 
-  for (const block of cell) {
+  for (const block of blocks) {
     if (block.type === 'break') {
       flush()
       continue
@@ -110,8 +112,16 @@ export default function ReadingNoteTableView({
           <tbody>
             {table.rows.map((row, rowIndex) => (
               <tr key={`${groupId}-row-${rowIndex}`}>
-                {row.cells.map((cell, cellIndex) => (
-                  <td key={`${groupId}-cell-${rowIndex}-${cellIndex}`}>
+                {(row.cells ?? []).map((cell, cellIndex) => {
+                  const parsed = parseReadingNoteTableCell(cell)
+                  if (parsed.skip) return null
+
+                  return (
+                  <td
+                    key={`${groupId}-cell-${rowIndex}-${cellIndex}`}
+                    rowSpan={parsed.rowSpan}
+                    colSpan={parsed.colSpan}
+                  >
                     <div className="reading-test-table__cell">
                       {groupTableCellLines(cell).map((line, lineIndex) => (
                         <div
@@ -159,7 +169,8 @@ export default function ReadingNoteTableView({
                       ))}
                     </div>
                   </td>
-                ))}
+                  )
+                })}
               </tr>
             ))}
           </tbody>

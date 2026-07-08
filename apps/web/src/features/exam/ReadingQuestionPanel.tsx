@@ -68,7 +68,7 @@ function TriStateGroup({
               as="p"
             />
             <div className="reading-test-tfng-options">
-              {question.options.map(option => (
+              {(question.options ?? []).map(option => (
                 <label key={option.id} className="reading-test-radio">
                   <input
                     type="radio"
@@ -147,7 +147,7 @@ function MultipleChoiceGroup({
             />
           </p>
           <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
-            {question.options.map(option => {
+            {(question.options ?? []).map(option => {
               const selected = answers[question.id] === option.id
               return (
                 <button
@@ -406,7 +406,7 @@ function gapFillPlaceholder(group: ReadingQuestionGroup): string {
   if (hint.includes('three and six') || hint.includes('3 and 6') || hint.includes('3–6')) {
     return '3–6 words'
   }
-  const multiWordAnswer = group.questions.some(q => q.answer.trim().includes(' '))
+  const multiWordAnswer = group.questions.some(q => (q.answer ?? '').trim().includes(' '))
   if (multiWordAnswer && hint.includes('transformation')) return '3–6 words'
   return 'ONE WORD'
 }
@@ -922,7 +922,7 @@ function MatchingFeaturesGroup({
               {' '}
               <ReadingHighlightableText
                 blockId={`${group.id}-feature-${feature.id}`}
-                text={feature.name}
+                text={feature.name ?? ''}
                 highlights={highlights}
                 as="span"
               />
@@ -999,6 +999,21 @@ export default function ReadingQuestionPanel({
   return (
     <div className="reading-test-questions" data-reading-highlight-zone>
       {groups.map(group => {
+        const hasNoteTable = Boolean(group.noteTable?.headers?.length && group.noteTable.rows?.length)
+        if (hasNoteTable && group.type !== 'gap-fill' && group.type !== 'sentence-completion') {
+          return (
+            <GapFillGroup
+              key={group.id}
+              group={{ ...group, type: 'gap-fill' }}
+              answers={answers}
+              highlights={highlights}
+              activeQuestionId={activeQuestionId}
+              onSelectQuestion={onSelectQuestion}
+              onAnswer={onAnswer}
+            />
+          )
+        }
+
         switch (group.type) {
           case 'tfng':
             return (

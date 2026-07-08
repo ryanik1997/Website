@@ -1,5 +1,6 @@
 import type {
   ReadingNoteTable,
+  ReadingNoteTableCell,
   ReadingNoteTableCellBlock,
   ReadingNoteTableRow,
 } from './examData'
@@ -24,12 +25,67 @@ function asCellBlocks(raw: unknown): ReadingNoteTableCellBlock[] {
   return blocks
 }
 
-function normalizeCellMatrix(raw: unknown, columnCount: number): ReadingNoteTableCellBlock[][] {
+export interface ParsedReadingNoteTableCell {
+  skip: boolean
+  rowSpan?: number
+  colSpan?: number
+  blocks: ReadingNoteTableCellBlock[]
+}
+
+export function parseReadingNoteTableCell(raw: ReadingNoteTableCell | unknown): ParsedReadingNoteTableCell {
+  if (Array.isArray(raw)) {
+    return { skip: false, blocks: asCellBlocks(raw) }
+  }
+  if (!raw || typeof raw !== 'object') {
+    return { skip: false, blocks: [] }
+  }
+
+  const obj = raw as Record<string, unknown>
+  if (obj.skip === true) {
+    return { skip: true, blocks: [] }
+  }
+
+  const blocks = asCellBlocks(obj.blocks ?? obj.content)
+  const rowSpan = typeof obj.rowSpan === 'number' && obj.rowSpan > 1 ? obj.rowSpan : undefined
+  const colSpan = typeof obj.colSpan === 'number' && obj.colSpan > 1 ? obj.colSpan : undefined
+
+  return { skip: false, rowSpan, colSpan, blocks }
+}
+
+function normalizeCell(raw: unknown): ReadingNoteTableCell {
+  if (Array.isArray(raw)) {
+    return asCellBlocks(raw)
+  }
+  if (!raw || typeof raw !== 'object') {
+    return []
+  }
+
+  const obj = raw as Record<string, unknown>
+  if (obj.skip === true) {
+    return { skip: true }
+  }
+
+  const blocks = asCellBlocks(obj.blocks ?? obj.content)
+  const rowSpan = typeof obj.rowSpan === 'number' && obj.rowSpan > 1 ? obj.rowSpan : undefined
+  const colSpan = typeof obj.colSpan === 'number' && obj.colSpan > 1 ? obj.colSpan : undefined
+
+  if (rowSpan || colSpan) {
+    return {
+      ...(rowSpan ? { rowSpan } : {}),
+      ...(colSpan ? { colSpan } : {}),
+      blocks,
+    }
+  }
+
+  return blocks
+}
+
+function normalizeCellMatrix(raw: unknown, columnCount: number): ReadingNoteTableCell[] {
   if (!Array.isArray(raw)) {
     return Array.from({ length: columnCount }, () => [])
   }
 
-  const cells = raw.map(cell => asCellBlocks(cell))
+  const cells = raw.map(cell => normalizeCell(cell))
   while (cells.length < columnCount) {
     cells.push([])
   }
@@ -42,7 +98,9 @@ export function gapNumbersInReadingNoteTable(table: ReadingNoteTable | undefined
   const numbers: number[] = []
   for (const row of table.rows) {
     for (const cell of row.cells) {
-      for (const block of cell) {
+      const { skip, blocks } = parseReadingNoteTableCell(cell)
+      if (skip) continue
+      for (const block of blocks) {
         if (block.type === 'gap' && typeof block.number === 'number') {
           numbers.push(block.number)
         }
@@ -182,9 +240,12 @@ export function mergeTemplateNoteTables(
       : undefined
 
     if (normalized?.headers?.length && normalized.rows?.length) {
+      const tableType = group.type === 'summary-completion' || group.type === 'gap-fill'
+        ? group.type === 'summary-completion' ? 'gap-fill' as const : group.type
+        : 'gap-fill' as const
       return {
         ...group,
-        type: group.type === 'summary-completion' ? 'gap-fill' as const : group.type,
+        type: tableType,
         noteTable: normalized,
       }
     }

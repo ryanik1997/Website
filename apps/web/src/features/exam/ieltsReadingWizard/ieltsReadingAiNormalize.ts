@@ -79,6 +79,7 @@ export function validateAiReadingPartShape(
 
 const TABLE_TEMPLATE_KINDS = new Set<IeltsReadingWizardTemplateKind>([
   'p1-r1-tfng-gap-table',
+  'p1-r1-table-tfng',
   'p3-r3-match-table-features',
   'p3-r3-table-ynng-match',
 ])

@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { db, type Deck, type Card, type Srs, type WritingDoc, type MindMap } from '../local/schema'
+import { isPresetDeck } from './presetDeck'
 
 type CloudDeck = {
   id: string; group_name: string | null; name: string
@@ -87,13 +88,19 @@ async function upsertWritingDocs(
  * Chiến lược: upsert — server dùng updated_at để resolve conflict.
  */
 export async function syncLocalToCloud(supabase: SupabaseClient, userId: string) {
-  const [decks, cards, srsList, writingDocs, mindmaps] = await Promise.all([
+  const [allDecks, allCards, allSrs, writingDocs, mindmaps] = await Promise.all([
     db.decks.toArray(),
     db.cards.toArray(),
     db.srs.toArray(),
     db.writingDocs.toArray(),
     db.mindmaps.toArray(),
   ])
+
+  const decks = allDecks.filter(d => !isPresetDeck(d))
+  const presetDeckIds = new Set(allDecks.filter(isPresetDeck).map(d => d.id))
+  const cards = allCards.filter(c => !presetDeckIds.has(c.deckId))
+  const syncableCardIds = new Set(cards.map(c => c.id))
+  const srsList = allSrs.filter(s => syncableCardIds.has(s.cardId))
 
   if (decks.length) {
     const { error } = await supabase.from('decks').upsert(

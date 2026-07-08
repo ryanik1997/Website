@@ -27,7 +27,7 @@ export default function ReadingHighlightableText({
 }: ReadingHighlightableTextProps) {
   const contextNotes = useExamNotes()
   const notes = notesProp ?? contextNotes
-  const segments = segmentsFromAnnotations(text, highlights, notes, blockId)
+  const segments = segmentsFromAnnotations(text ?? '', highlights, notes, blockId)
 
   return (
     <Tag className={className} data-highlight-block data-block-id={blockId}>
