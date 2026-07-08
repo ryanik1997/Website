@@ -92,7 +92,8 @@ export default function WeakWordsMode({
                           title="Nghe phát âm"
                         >
                           <span className="vs-word-main">{card.phrase}</span>
-                          {card.ipaUS && <span className="vs-word-ipa">[{card.ipaUS}]</span>}
+                          {card.ipaUS && <span className="vs-word-ipa">US [{card.ipaUS}]</span>}
+                          {card.ipaUK && <span className="vs-word-ipa">UK [{card.ipaUK}]</span>}
                         </button>
                       </td>
                       <td>{card.meaning}</td>

@@ -214,8 +214,11 @@ export default function CardPanel() {
                         <p className="font-medium" style={{ color: 'var(--text-primary)' }}>{card.phrase}</p>
                         <PosBadge phrase={card.phrase} pos={card.pos} />
                       </div>
-                      {card.ipaUS && (
-                        <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>[{card.ipaUS}]</p>
+                      {(card.ipaUS || card.ipaUK) && (
+                        <p className="text-xs mt-0.5 flex flex-wrap gap-x-2" style={{ color: 'var(--text-muted)' }}>
+                          {card.ipaUS && <span><b className="font-semibold">US</b> [{card.ipaUS}]</span>}
+                          {card.ipaUK && <span><b className="font-semibold">UK</b> [{card.ipaUK}]</span>}
+                        </p>
                       )}
                       <div className="sm:hidden mt-1.5">
                         <StatusBadge srs={srsByCard.get(card.id)} />

@@ -1,0 +1,67 @@
+---
+pid: 20872
+cwd: "D:\App-English-Ryan\Website"
+command: "$port5173 = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if ($port5173) { foreach ($p in $port5173) { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue } }; Set-Location D:\\App-English-Ryan\\Website; pnpm --filter web dev"
+started_at: 2026-07-08T10:44:30.371Z
+running_for_ms: 6475010  
+---
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+
+
+  VITE v5.4.21  ready in 294 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+5:50:41 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:50:41 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:50:41 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:50:55 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:58:27 PM [vite] hmr update /src/styles/globals.css, /src/features/vocab/modes/WeakWordsMode.tsx, /src/features/vocab/modes/ListenTypeMode.tsx, /src/features/vocab/modes/SrsMode.tsx
+5:59:33 PM [vite] hmr update /src/features/vocab/modes/SrsMode.tsx, /src/styles/globals.css
+5:59:44 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:59:44 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ImportReadingManualModal.tsx, /src/features/exam/petRw/PetPart2PhotoImportSlots.tsx, /src/features/exam/petRw/ReadingPetRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx, /src/features/exam/petRw/PetRwPartContent.tsx, /src/features/exam/fceRw/FceRwPartContent.tsx, /src/features/exam/caeRw/CaeRwPartContent.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:59:44 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:59:44 PM [vite] hmr invalidate /src/features/exam/fceRw/FceRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:59:44 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/fceRw/ReadingFceRwTest.tsx
+5:59:44 PM [vite] hmr invalidate /src/features/exam/caeRw/CaeRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:59:44 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/caeRw/ReadingCaeRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx
+5:59:49 PM [vite] hmr update /src/features/vocab/modes/SrsMode.tsx, /src/styles/globals.css
+5:59:55 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:59:55 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ImportReadingManualModal.tsx, /src/features/exam/petRw/PetPart2PhotoImportSlots.tsx, /src/features/exam/petRw/ReadingPetRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx, /src/features/exam/petRw/PetRwPartContent.tsx, /src/features/exam/fceRw/FceRwPartContent.tsx, /src/features/exam/caeRw/CaeRwPartContent.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:59:55 PM [vite] hmr invalidate /src/features/exam/fceRw/FceRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:59:55 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/fceRw/ReadingFceRwTest.tsx
+5:59:55 PM [vite] hmr invalidate /src/features/exam/caeRw/CaeRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:59:55 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/caeRw/ReadingCaeRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx
+6:00:08 PM [vite] hmr update /src/features/vocab/modes/SrsMode.tsx, /src/styles/globals.css
+6:00:19 PM [vite] hmr update /src/features/vocab/modes/SrsMode.tsx, /src/styles/globals.css
+6:00:21 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:00:21 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ImportReadingManualModal.tsx, /src/features/exam/petRw/PetPart2PhotoImportSlots.tsx, /src/features/exam/petRw/ReadingPetRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx, /src/features/exam/petRw/PetRwPartContent.tsx, /src/features/exam/fceRw/FceRwPartContent.tsx, /src/features/exam/caeRw/CaeRwPartContent.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:00:21 PM [vite] page reload src/features/exam/readingNoteTable.ts
+6:00:22 PM [vite] hmr invalidate /src/features/exam/fceRw/FceRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:00:22 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/fceRw/ReadingFceRwTest.tsx
+6:00:22 PM [vite] hmr invalidate /src/features/exam/caeRw/CaeRwPartContent.tsx Could not Fast Refresh ("parseTransformationPrompt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:00:22 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/caeRw/ReadingCaeRwTest.tsx, /src/features/exam/cpeRw/CpeRwPartContent.tsx
+6:00:42 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:00:45 PM [vite] hmr update /src/features/vocab/modes/SrsMode.tsx, /src/styles/globals.css
+6:19:40 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ImportListeningModal.tsx, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:19:50 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsListeningWizard/WizardPartStepPanel.tsx, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:19:50 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:19:50 PM [vite] hmr update /src/features/exam/ImportListeningModal.tsx, /src/styles/globals.css
+6:25:59 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsListeningWizard/WizardPartStepPanel.tsx, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:25:59 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ImportListeningModal.tsx, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:25:59 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsListeningWizard/IeltsListeningImportWizard.tsx
+6:25:59 PM [vite] hmr update /src/features/exam/ImportListeningModal.tsx, /src/styles/globals.css
+6:26:24 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+6:26:24 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:26:24 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+6:26:24 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:26:24 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:26:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ExamTrackPage.tsx, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+6:41:31 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx

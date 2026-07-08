@@ -1,18 +1,28 @@
 import { speak, stop, mapRateToSpeed } from '../../listening/tts'
 
 export type SpeakHandlers = { onStart?: () => void; onEnd?: () => void; onError?: () => void }
+export type SpeakVariant = 'us' | 'uk'
 
-/** Phát âm US English qua Kokoro local; fallback Web Speech nếu server chưa chạy. */
-export async function speakPhrase(text: string, rate = 0.85, handlers?: SpeakHandlers): Promise<void> {
+/** Phát âm US/UK English qua Kokoro local; fallback Web Speech nếu server chưa chạy. */
+export async function speakPhrase(
+  text: string,
+  rate = 0.85,
+  handlers?: SpeakHandlers,
+  variant: SpeakVariant = 'us',
+): Promise<void> {
   if (!text.trim()) return
   stopSpeaking()
   handlers?.onStart?.()
   try {
-    await speak(text, {
-      speed: mapRateToSpeed(rate),
-      lang: 'a',
-      onFallbackStart: () => handlers?.onStart?.(),
-    })
+    await speak(
+      text,
+      {
+        speed: mapRateToSpeed(rate),
+        lang: variant === 'uk' ? 'b' : 'a',
+        onFallbackStart: () => handlers?.onStart?.(),
+      },
+      variant === 'uk' ? 'en-GB' : 'en-US',
+    )
     handlers?.onEnd?.()
   } catch {
     handlers?.onError?.()

@@ -2286,7 +2286,7 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 
 ---
 
-## Next session start prompt (cập nhật 2026-07-07)
+## Next session start prompt (cập nhật 2026-07-08)
 ```
 Đọc session_summary.md ngay.
 
@@ -2324,6 +2324,133 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - Match đoạn Q27–29 + table Q30–36 (`noteTable` Procedure|Aim) + match người Q37–40
 - Builder `ieltsReadingP3MatchTableFeaturesPart()` + `CAM11_T1_GEO_ENGINEERING_TABLE`
 
+## Đã xong (2026-07-08) — Reading P1 template r1ts (TFNG + Match + Summary)
+- Template `p1-r1-tfng-match-summary` (`r1ts`) — preview JPG `Teamplate_Part1_2.jpg` (Cam11 T4 Research using twins)
+- TFNG Q1–4 + matching features Q5–9 (Galton/Bouchard/Reed) + summary word bank A–F Q10–13 (`note` inline)
+- Builder `ieltsReadingP1TfngMatchSummaryPart()` + `CAM11_T4_EPIGENETIC_SUMMARY_NOTE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_2.jpg`
+
+## Đã xong (2026-07-08) — Reading P2 template r2te (TFNG + Endings + Summary)
+- Template `p2-r2-tfng-endings-summary` (`r2te`) — preview JPG `Teamplate_Part2_4.jpg` (Cam11 T3 Great Migrations)
+- TFNG Q14–18 + matching sentence endings A–G Q19–22 + summary ONE WORD Q23–26 (`note` inline)
+- Builder `ieltsReadingP2TfngEndingsSummaryPart()` + `CAM11_T3_MIGRATION_ENDINGS_BANK` + `CAM11_T3_PRONGHORN_SUMMARY_NOTE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_4.jpg`
+
+## Đã xong (2026-07-08) — Reading P2 template r2fs (MC + TFNG + Endings)
+- Template `p2-r2-mc-tfng-endings` (`r2fs`) — preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
+- Multiple choice Q14–18 + TFNG Q19–23 + matching sentence endings A–E Q24–26
+- Builder `ieltsReadingP2McTfngEndingsPart()`
+
+## Đã xong (2026-07-08) — Reading P3 template r3hy (Headings + Summary + YNNG)
+- Template `p3-r3-headings-summary-ynng` (`r3hy`) — preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
+- Matching headings Q27–32 (A–F) + summary word bank A–G Q33–36 + YNNG Q37–40
+- Builder `ieltsReadingP3HeadingsSummaryYnngPart()`
+
+## Đã xong (2026-07-08) — Fix Reading Wizard `TEMPLATE_BUILDERS[kind] is not a function`
+- `resolveReadingTemplateKind()` — fallback kind hợp lệ từ catalog/default khi localStorage hoặc kind lỗi
+- `assertAllTemplateBuildersRegistered()` — dev-time check catalog ↔ builders
+- `ieltsReadingWizardPersist` + `ieltsReadingAiGenerate` dùng resolve trước khi gọi builder
+
+## Đã xong (2026-07-08) — Reading P3 template r3ag (Headings + Gap + YNNG)
+- Template `p3-r3-headings-gap-ynng` (`r3ag`) — preview JPG `Teamplate_Part3_5.jpg` (Cam12 T5 What's the Purpose of Gaining Knowledge)
+- Matching headings Q27–32 (A–F) + summary TWO WORDS Q33–36 (`note` inline) + YNNG Q37–40
+- Builder `ieltsReadingP3HeadingsGapYnngPart()` + `CAM12_T5_KNOWLEDGE_HEADINGS` + `CAM12_T5_ARSON_SUMMARY_NOTE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_5.jpg`
+
+## Đã xong (2026-07-08) — Fix preview Part2_6 → r2fs (MC + TFNG + Endings)
+- `Teamplate_Part2_6.jpg` = Film Sound (trùng Part2_5) — preview `r2fs`, không còn gán nhầm Falkirk
+- `Teamplate_Part2_2.jpg` = Falkirk diagram — preview `r2fw`
+
+## Đã xong (2026-07-08) — Reading P2 template r2fw (TFNG + Diagram)
+- Template `p2-r2-tfng-diagram` (`r2fw`) — preview JPG `Teamplate_Part2_2.jpg` (Cam11 T1 The Falkirk Wheel)
+- TFNG Q14–19 + diagram labeling ONE WORD Q20–26 (`imageFile: falkirk-wheel-diagram.jpg`)
+- Builder `ieltsReadingP2TfngDiagramPart()`
+
+## Đã xong (2026-07-08) — Reading P2 template r2fs (MC + TFNG + Endings)
+- Template `p2-r2-mc-tfng-endings` (`r2fs`) — preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
+- Multiple choice Q14–18 + TFNG Q19–23 + matching sentence endings A–E Q24–26
+- Builder `ieltsReadingP2McTfngEndingsPart()` + `CAM11_T4_FILM_SOUND_ENDINGS_BANK`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_6.jpg`
+
+## Đã xong (2026-07-08) — Reading P3 template r3hy (Headings + Summary + YNNG)
+- Template `p3-r3-headings-summary-ynng` (`r3hy`) — preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
+- Matching headings Q27–32 (A–F) + summary word bank A–G Q33–36 + YNNG Q37–40 (views of writer)
+- Builder `ieltsReadingP3HeadingsSummaryYnngPart()` + `CAM11_T4_LANGUAGE_HEADINGS` + `CAM11_T4_LANGUAGE_WORD_BANK`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_4.jpg`
+
+## Đã xong (2026-07-08) — Reading P3 template r3ps (Match đoạn + Sentence)
+- Template `p3-r3-match-paragraph-sentence` (`r3ps`) — preview JPG `Teamplate_Part3_3.jpg` (Cam11 T3 Mathematical Reasoning)
+- Matching paragraph Q27–34 (A–G) + sentence completion ONE WORD Q35–40
+- Builder `ieltsReadingP3MatchParagraphSentencePart()`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_3.jpg`
+
+## Đã xong (2026-07-08) — Reading IELTS: bỏ auto chạy theo câu
+- `ReadingTest.tsx` — bỏ `useEffect` auto-scroll passage + câu hỏi khi đổi `activeQuestionId`
+- `ReadingQuestionPanel.tsx` — bỏ auto chuyển câu tiếp theo sau khi điền paragraph/heading/word bank/feature
+
+## Đã xong (2026-07-08) — Reading P3 template r3my (MC + Summary + YNNG)
+- Template `p3-r3-mc-summary-ynng` (`r3my`) — preview JPG `Teamplate_Part3_2.jpg` (Cam11 T2 Art and the Brain)
+- Multiple choice Q27–30 + summary word bank A–H Q31–33 (`note` inline) + YNNG Q34–39 (claims of writer)
+- Builder `ieltsReadingP3McSummaryYnngPart()` + `CAM11_T2_ART_BRAIN_SUMMARY_NOTE` + `CAM11_T2_ART_BRAIN_WORD_BANK`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_2.jpg`
+
+## Đã xong (2026-07-08) — Reading P2 template r2hm (Headings + Summary + MC)
+- Template `p2-r2-headings-summary-mc` (`r2hm`) — preview JPG `Teamplate_Part2_3.jpg` (Cam11 T4 Easter Island)
+- Matching headings Q14–20 + summary ONE WORD Q21–24 (`note` inline) + Choose TWO Q25–26
+- Builder `ieltsReadingP2HeadingsSummaryMcPart()` + `CAM11_T4_DIAMOND_SUMMARY_NOTE`
+
+## Đã xong (2026-07-08) — Fix màn trắng `/app/exam/track/ielts`
+- **Root cause:** `listeningNotePassage.ts` lỗi cú pháp (duplicate `question`, string chưa đóng) → Vite không transform được → lazy import `ExamTrackPage` fail (chuỗi: `ieltsListeningWizardPersist` → `importListeningUtils` → `listeningNotePassage`)
+- **Fix phụ:** `ExamTrackPage.tsx` — chuyển redirect `ket` xuống sau tất cả hooks (tránh Rules of Hooks khi đổi route)
+- Verify: `pnpm --filter web exec tsc --noEmit` + `vite build` pass; dev server restart → hard refresh Ctrl+Shift+R
+
+## Đã xong (2026-07-08) — Vocab preset decks bị double
+- Root cause: `seedPresetDecks` dùng UUID ngẫu nhiên + React StrictMode/sync Admin publish tạo bản trùng cùng group+tên
+- Fix: `stablePresetDeckId()` + `put` idempotent + `dedupePresetDecks()` gộp thẻ/SRS về 1 bộ
+- `mergeVocab` remap ID preset trước `bulkPut`; gọi dedupe sau sync
+
+## Đã xong (2026-07-08) — Reading P2 template r2hl (Headings + TFNG + Sentence)
+- Template `p2-r2-headings-tfng-sentence` (`r2hl`) — preview JPG `Teamplate_Part2_7.jpg` (Cam12 T8 The Lost City)
+- Matching headings Q14–20 (A–G) + TFNG Q21–24 + sentence completion ONE WORD Q25–26
+- Builder `ieltsReadingP2HeadingsTfngSentencePart()` + `CAM12_T8_LOST_CITY_HEADINGS`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg`
+
+## Đã xong (2026-07-08) — Reading P1 template r1hn (Headings + Notes)
+- Template `p1-r1-headings-notes` (`r1hn`) — preview JPG `Teamplate_Part1_4.jpg` (Cam12 T5 Flying tortoises)
+- Matching headings Q1–7 (A–G, i–viii) + note completion Q8–13 (`notePassage`, ONE WORD)
+- Builder `ieltsReadingP1HeadingsNotesPart()` + `CAM12_T5_TORTOISE_DECLINE_NOTE_PASSAGE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_4.jpg`
+- Wizard edit: `matching-headings|gap-fill` + `notePassage` → `r1hn` (khác `r1hg` sentence gap)
+
+## Đã xong (2026-07-08) — Reading P1 template r1ct (Match + Choose TWO)
+- Template `p1-r1-match-choose-two` (`r1ct`) — preview JPG `Teamplate_Part1_3.jpg` (Cam12 T6 Agriculture risks)
+- Match paragraph Q1–3 (A–I) + matching-features Q4–9 (người A–G) + Choose TWO Q10–13
+- Builder `ieltsReadingP1MatchChooseTwoPart()` + `CAM12_T6_AGRICULTURE_PEOPLE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_3.jpg`
+
+## Đã xong (2026-07-08) — Reading P3 template r3se (Summary + MC + Endings)
+- Template `p3-r3-summary-mc-endings` (`r3se`) — preview `Teamplate_Part3_7.jpg` (Cam12 T3 Montreal Study)
+- Summary TWO WORDS Q27–31 (`note` inline) + MC A–D Q32–36 + sentence endings Q37–40
+- Builder `ieltsReadingP3SummaryMcEndingsPart()` — đã xóa nhầm template Listening `p3-c8`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg`
+
+## Đã xong (2026-07-08) — Fix Reading Wizard noteTable không hiện (r3ty / mọi bảng n×n)
+- `readingNoteTableUtils.ts` — normalize bảng n cột × n dòng, validate gap ↔ questions
+- Wizard AI: `mergeTemplateNoteTables` gắn `noteTable` từ template khi AI thiếu bảng
+- Import JSON: chuẩn hóa `noteTable` trong `normalizeImportPart` + cảnh báo thiếu bảng
+
+## Đã xong (2026-07-08) — Reading P3 template r3ty (Table + YNNG + Match)
+- Template `p3-r3-table-ynng-match` (`r3ty`) — preview JPG `Teamplate_Part3_6.jpg` (Cam12 T2 The Benefits of Being Bilingual)
+- Table Q27–31 (`noteTable` Test|Findings) + YNNG Q32–36 (claims of writer) + match đoạn Q37–40 (A–G)
+- Builder `ieltsReadingP3TableYnngMatchPart()` + `CAM12_T2_BILINGUAL_TABLE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_6.jpg`
+
+## Đã xong (2026-07-08) — Reading P1 template r1f (TFNG + Match + Notes)
+- Template `p1-r1-tfng-match-notes` (`r1f`) — preview JPG `Teamplate_Part1_1.jpg` (Cam11 T2 Mary Rose)
+- TFNG Q1–4 + matching-features Q5–8 (mốc thời gian A–G) + note completion Q9–13 (`notePassage`)
+- Builder `ieltsReadingP1TfngMatchNotesPart()` + `CAM11_T2_MARY_ROSE_NOTE_PASSAGE`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_1.jpg`
+
 ## Đã xong (2026-07-07) — Note cạnh Tô sáng (Luyện thi)
 - Reading IELTS + Listening KET/PET/FCE/CAE/CPE/IELTS + Cambridge RW A2–C2
 
@@ -2336,6 +2463,14 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - https://ryanenglishv2.vercel.app — migrations 009–012, SW, Listening publish, Admin publish
 
 ## Ưu tiên session mới (chọn theo user)
+### 0 — Verify IELTS track sau fix màn trắng
+1. `pnpm --filter web dev` → http://localhost:5173/app/exam/track/ielts
+2. **Đăng nhập Google** trước — chưa login sẽ redirect về landing (không phải màn trắng)
+3. Hard refresh Ctrl+Shift+R — phải thấy Library Archives Reading + Listening
+4. Nếu vẫn trắng: DevTools Console → lỗi import `listeningNotePassage` / `ExamTrackPage`
+
+**Verify 2026-07-08 (agent):** `tsc --noEmit` pass; `vite build` pass (`ExamTrackPage` + `listeningNotePassage` bundle OK); dev server restart; dynamic import chain OK trong browser; Playwright `scripts/check-ielts-track.mjs` — không có console/page error (redirect landing khi chưa auth).
+
 ### A — Admin rollout nội dung cho user
 1. Máy Admin đã import → /app/admin → **Publish nội dung** → Publish tất cả
 2. User khác đăng nhập → hard refresh → verify từng module (vocab, đề, nghe, viết…)

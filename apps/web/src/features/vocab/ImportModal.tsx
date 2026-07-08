@@ -54,7 +54,7 @@ export default function ImportModal({ deckId, deckName, onClose }: Props) {
           meaning: row.meaning,
           example: row.example,
           ipaUS: row.ipaUS,
-          ipaUK: undefined,
+          ipaUK: row.ipaUK,
           pos: row.pos,
         })
         count++

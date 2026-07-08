@@ -1,5 +1,5 @@
 import type { ReadingImportPartJson } from '../importReadingManualUtils'
-import { isKnownReadingTemplateKind } from './ieltsReadingTemplateCatalog'
+import { resolveReadingTemplateKind } from './ieltsReadingTemplateCatalog'
 import {
   IELTS_READING_DEFAULT_TEMPLATES,
   IELTS_READING_PASSAGE_NUMBERS,
@@ -66,9 +66,7 @@ function normalizeDrafts(
     if (!entry || typeof entry !== 'object') continue
     const d = entry as Partial<PersistedPassageDraft>
     const rawKind = typeof d.templateKind === 'string' ? d.templateKind : base[passageNumber].templateKind
-    const templateKind = isKnownReadingTemplateKind(passageNumber, rawKind)
-      ? rawKind
-      : IELTS_READING_DEFAULT_TEMPLATES[passageNumber]
+    const templateKind = resolveReadingTemplateKind(passageNumber, rawKind)
 
     base[passageNumber] = {
       templateKind,

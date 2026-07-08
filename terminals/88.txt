@@ -1,0 +1,111 @@
+---
+pid: 43180
+cwd: "D:\App-English-Ryan\Website"
+command: "powershell -File C:\\Users\\ADMIN\\mcps\\start-pxpipe.ps1 2>&1"
+started_at: 2026-07-08T09:58:39.619Z
+running_for_ms: 2685006  
+---
+[pxpipe] Stopping PID 14432 on port 47821...
+[pxpipe] ANTHROPIC_UPSTREAM=https://cc.freemodel.dev  (Claude Code)
+[pxpipe] OPENAI_UPSTREAM=https://api.freemodel.dev  (Codex)
+[pxpipe] PXPIPE_MODELS=claude-fable-5,gpt-5.5,gpt-5.6
+[pxpipe] Dashboard: http://127.0.0.1:47821/
+[pxpipe] Claude: ANTHROPIC_BASE_URL=http://127.0.0.1:47821
+[pxpipe] Codex:  model_provider=pxpipe in ~/.codex/config.toml
+
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream → https://cc.freemodel.dev
+[pxpipe] openai upstream → https://api.freemodel.dev
+[pxpipe] tracking events → C:\Users\ADMIN\.pxpipe\events.jsonl
+[pxpipe] dashboard → http://127.0.0.1:47821/
+[2026-07-08T10:01:27.519Z] HEAD / → 403 (264ms) 
+[2026-07-08T10:01:35.489Z] POST /v1/messages → 200 (5036ms) unsupported_model tokens=0+1 cache_read=0
+[2026-07-08T10:02:12.409Z] POST /v1/messages → 200 (3555ms) unsupported_model tokens=496+29 cache_read=0
+[2026-07-08T10:02:14.778Z] POST /v1/messages → 200 (5922ms) unsupported_model tokens=6+202 cache_read=0
+[2026-07-08T10:02:24.966Z] POST /v1/messages → 200 (5109ms) unsupported_model tokens=1+120 cache_read=0
+[2026-07-08T10:02:34.198Z] POST /v1/messages → 200 (6872ms) unsupported_model tokens=1+93 cache_read=63501
+[2026-07-08T10:02:41.316Z] POST /v1/messages → 200 (7020ms) unsupported_model tokens=1+84 cache_read=63667
+[2026-07-08T10:02:43.605Z] POST /v1/messages/count_tokens → 404 (2270ms) 
+powershell : [pxpipe 404] upstream body: {"error":{"message":"Invalid URL (POST 
+/v1/messages/count_tokens)","type":"invalid_request_error","param":"","code":""}}
+At line:1 char:1
++ powershell -File C:\Users\ADMIN\mcps\start-pxpipe.ps1 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([pxpipe 404] up...:"","code":""}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[2026-07-08T10:02:59.070Z] POST /v1/messages → 200 (15439ms) unsupported_model tokens=1+167 cache_read=63972
+[2026-07-08T10:03:08.254Z] POST /v1/messages → 200 (5534ms) unsupported_model tokens=1+92 cache_read=0
+[2026-07-08T10:03:17.396Z] POST /v1/messages → 200 (9103ms) unsupported_model tokens=1+223 cache_read=114377
+[2026-07-08T10:03:23.539Z] POST /v1/messages → 200 (6100ms) unsupported_model tokens=1+100 cache_read=121515
+[2026-07-08T10:03:31.076Z] POST /v1/messages → 200 (7501ms) unsupported_model tokens=1+97 cache_read=124574
+[2026-07-08T10:03:40.076Z] POST /v1/messages → 200 (8964ms) unsupported_model tokens=1+99 cache_read=129906
+[2026-07-08T10:03:51.904Z] POST /v1/messages → 200 (11788ms) unsupported_model tokens=1+103 cache_read=133885
+[2026-07-08T10:04:06.342Z] POST /v1/messages → 200 (14405ms) unsupported_model tokens=1+368 cache_read=134612
+[2026-07-08T10:04:19.489Z] POST /v1/messages → 200 (13092ms) unsupported_model tokens=1+94 cache_read=140704
+[2026-07-08T10:04:21.654Z] POST /v1/messages → 403 (2116ms) compressed 156656ch → 10img/874999B (rem+1 tr+3)
+[pxpipe 403] upstream body: {"type":"error","error":{"type":"forbidden","message":"This service is restricted to the 
+official Claude Code client."}}
+[2026-07-08T10:05:20.208Z] POST /v1/messages → 403 (2120ms) compressed 156656ch → 10img/874999B (rem+1 tr+3)
+[pxpipe 403] upstream body: {"type":"error","error":{"type":"forbidden","message":"This service is restricted to the 
+official Claude Code client."}}
+[2026-07-08T10:05:45.218Z] POST /v1/messages → 200 (10841ms) unsupported_model tokens=6+169 cache_read=144935
+[2026-07-08T10:05:51.031Z] POST /v1/messages → 200 (5773ms) unsupported_model tokens=1+103 cache_read=149273
+[2026-07-08T10:05:52.533Z] POST /v1/messages → 403 (1462ms) compressed 156656ch → 10img/874999B (rem+1 tr+3)
+[pxpipe 403] upstream body: {"type":"error","error":{"type":"forbidden","message":"This service is restricted to the 
+official Claude Code client."}}
+[2026-07-08T10:10:18.455Z] POST /v1/messages → 200 (13089ms) unsupported_model tokens=6+175 cache_read=151177
+[2026-07-08T10:10:29.135Z] POST /v1/messages → 200 (10633ms) unsupported_model tokens=1+100 cache_read=157781
+[2026-07-08T10:10:41.791Z] POST /v1/messages → 200 (12624ms) unsupported_model tokens=1+572 cache_read=160931
+[2026-07-08T10:10:54.131Z] POST /v1/messages → 200 (12305ms) unsupported_model tokens=1+174 cache_read=161822
+[2026-07-08T10:11:04.155Z] POST /v1/messages → 200 (9997ms) unsupported_model tokens=1+180 cache_read=162162
+[2026-07-08T10:11:12.655Z] POST /v1/messages → 200 (8467ms) unsupported_model tokens=1+183 cache_read=162376
+[2026-07-08T10:11:22.047Z] POST /v1/messages → 200 (9356ms) unsupported_model tokens=1+175 cache_read=162602
+[2026-07-08T10:11:27.481Z] POST /v1/messages → 200 (5407ms) unsupported_model tokens=1+93 cache_read=162832
+[2026-07-08T10:11:40.385Z] POST /v1/messages → 200 (12865ms) unsupported_model tokens=1+250 cache_read=163050
+[2026-07-08T10:14:32.667Z] POST /v1/messages → 200 (10288ms) unsupported_model tokens=1+400 cache_read=163163
+[2026-07-08T10:15:08.531Z] POST /v1/messages → 200 (10486ms) unsupported_model tokens=1+441 cache_read=163515
+[2026-07-08T10:17:48.281Z] POST /v1/messages → 200 (12232ms) unsupported_model tokens=1+251 cache_read=163993
+[2026-07-08T10:18:11.788Z] POST /v1/messages → 200 (10407ms) unsupported_model tokens=1+617 cache_read=164512
+[2026-07-08T10:18:58.866Z] POST /v1/messages → 200 (11852ms) unsupported_model tokens=1+91 cache_read=164841
+[2026-07-08T10:19:07.871Z] POST /v1/messages → 200 (8976ms) unsupported_model tokens=1+93 cache_read=165536
+[2026-07-08T10:19:18.890Z] POST /v1/messages → 200 (10988ms) unsupported_model tokens=1+410 cache_read=165647
+[2026-07-08T10:22:29.512Z] POST /v1/messages → 200 (8769ms) unsupported_model tokens=1+91 cache_read=165760
+[2026-07-08T10:22:36.659Z] POST /v1/messages → 200 (7095ms) unsupported_model tokens=1+93 cache_read=166270
+[2026-07-08T10:23:00.299Z] POST /v1/messages → 200 (23590ms) unsupported_model tokens=1+710 cache_read=166381
+[2026-07-08T10:23:17.395Z] POST /v1/messages → 200 (10665ms) unsupported_model tokens=1+327 cache_read=166494
+[2026-07-08T10:23:33.706Z] POST /v1/messages → 200 (10507ms) unsupported_model tokens=1+419 cache_read=167277
+[2026-07-08T10:23:52.042Z] POST /v1/messages → 200 (12026ms) unsupported_model tokens=1+479 cache_read=167677
+[2026-07-08T10:24:12.648Z] POST /v1/messages → 200 (14938ms) unsupported_model tokens=1+380 cache_read=168169
+[2026-07-08T10:24:23.261Z] POST /v1/messages → 200 (7671ms) unsupported_model tokens=1+91 cache_read=168721
+[2026-07-08T10:24:30.475Z] POST /v1/messages → 200 (7159ms) unsupported_model tokens=1+93 cache_read=169177
+[2026-07-08T10:24:39.292Z] POST /v1/messages → 200 (8780ms) unsupported_model tokens=1+401 cache_read=169288
+[2026-07-08T10:24:51.723Z] POST /v1/messages → 200 (7688ms) unsupported_model tokens=1+294 cache_read=169401
+[2026-07-08T10:25:04.751Z] POST /v1/messages → 200 (10810ms) unsupported_model tokens=1+428 cache_read=169883
+[2026-07-08T10:25:11.645Z] POST /v1/messages → 200 (5677ms) unsupported_model tokens=1+91 cache_read=170258
+[2026-07-08T10:25:21.679Z] POST /v1/messages → 200 (9979ms) unsupported_model tokens=1+93 cache_read=170765
+[2026-07-08T10:25:34.715Z] POST /v1/messages → 200 (12985ms) unsupported_model tokens=1+368 cache_read=170876
+[2026-07-08T10:25:54.290Z] POST /v1/messages → 200 (9583ms) unsupported_model tokens=1+91 cache_read=170989
+[2026-07-08T10:26:10.333Z] POST /v1/messages → 200 (16000ms) unsupported_model tokens=1+169 cache_read=171439
+[2026-07-08T10:26:36.238Z] POST /v1/messages → 200 (13314ms) unsupported_model tokens=1+492 cache_read=171550
+[2026-07-08T10:29:47.990Z] POST /v1/messages → 200 (11723ms) unsupported_model tokens=100+124 cache_read=171724
+[2026-07-08T10:38:38.754Z] POST /v1/messages → 402 (2076ms) unsupported_model
+[pxpipe 402] upstream body: {"error":"Usage limit reached, will reset on today at 10:02 PM (UTC+8)"}
+[2026-07-08T10:41:02.331Z] POST /v1/messages → 401 (828ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:03.253Z] POST /v1/messages → 401 (295ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:04.741Z] POST /v1/messages → 401 (307ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:07.576Z] POST /v1/messages → 401 (302ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:12.227Z] POST /v1/messages → 401 (597ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:22.417Z] POST /v1/messages → 401 (483ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:41:42.569Z] POST /v1/messages → 401 (569ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:42:22.165Z] POST /v1/messages → 401 (849ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}
+[2026-07-08T10:42:58.075Z] POST /v1/messages → 401 (805ms) unsupported_model
+[pxpipe 401] upstream body: {"error":"Unauthorized - Invalid token"}

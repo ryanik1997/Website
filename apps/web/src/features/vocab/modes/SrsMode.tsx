@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, type MouseEvent } from 'react'
 import { Headphones, RefreshCw, Check, FlipHorizontal2, Sparkles } from 'lucide-react'
 import { nextSrs } from '@ryan/core'
 import { db } from '@ryan/db'
@@ -131,6 +131,12 @@ export default function SrsMode({
     setFlipped(f => !f)
   }, [queue, idx])
 
+  const onCardClick = useCallback((e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (target.closest('button, a, input, textarea, select')) return
+    doFlip()
+  }, [doFlip])
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
@@ -223,8 +229,8 @@ export default function SrsMode({
         <div className="vs-wrap">
           <div
             className="vs-flip-scene"
-            onClick={() => !flipped && doFlip()}
-            style={{ cursor: flipped ? 'default' : 'pointer' }}
+            onClick={onCardClick}
+            style={{ cursor: 'pointer' }}
           >
             <div className={`vs-flip-inner${flipped ? ' is-flipped' : ''}`} key={card.id}>
               <div className="vs-flip-face vs-flip-face-front">
@@ -273,18 +279,42 @@ export default function SrsMode({
                   <h1 className="vs-card-meaning">{card.meaning}</h1>
                   {(card.ipaUS || card.ipaUK) && (
                     <div className="vs-card-ipa">
-                      {card.ipaUS && <span className="vs-card-ipa-item"><span className="vs-card-ipa-label">US</span>/{card.ipaUS}/</span>}
-                      {card.ipaUK && <span className="vs-card-ipa-item"><span className="vs-card-ipa-label">UK</span>/{card.ipaUK}/</span>}
-                      <button
-                        type="button"
-                        className="vs-btn-audio vs-btn-audio--sm"
-                        onClick={e => { e.stopPropagation(); speakPhrase(card.phrase) }}
-                        aria-label="Phát âm"
-                      >
-                        <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
-                          <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
-                      </button>
+                      {card.ipaUS && (
+                        <span className="vs-card-ipa-item">
+                          <span className="vs-card-ipa-label">US</span>/{card.ipaUS}/
+                          <button
+                            type="button"
+                            className="vs-btn-audio vs-btn-audio--sm"
+                            onClick={e => { e.stopPropagation(); void speakPhrase(card.phrase, 0.85, undefined, 'us') }}
+                            aria-label="Phát âm US"
+                            title="Phát âm US"
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={14} height={14}>
+                              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+                              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                            </svg>
+                          </button>
+                        </span>
+                      )}
+                      {card.ipaUK && (
+                        <span className="vs-card-ipa-item">
+                          <span className="vs-card-ipa-label">UK</span>/{card.ipaUK}/
+                          <button
+                            type="button"
+                            className="vs-btn-audio vs-btn-audio--sm"
+                            onClick={e => { e.stopPropagation(); void speakPhrase(card.phrase, 0.85, undefined, 'uk') }}
+                            aria-label="Phát âm UK"
+                            title="Phát âm UK"
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={14} height={14}>
+                              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+                              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                            </svg>
+                          </button>
+                        </span>
+                      )}
                     </div>
                   )}
                   {card.example && (

@@ -101,9 +101,18 @@ const PLANS: Array<{
   },
 ]
 
-const CONTACTS = [
-  { icon: Mail, label: 'Email hỗ trợ', href: supportMailto(), text: SUPPORT_EMAIL },
-  { icon: MessageCircle, label: 'Nâng cấp gói', href: supportMailto('Nâng cấp gói Study with Genius'), text: 'Liên hệ nâng cấp' },
+type ContactAction =
+  | { kind: 'link'; href: string }
+  | { kind: 'modal'; modal: 'upgrade-qr' }
+
+const CONTACTS: Array<{
+  icon: typeof Mail
+  label: string
+  text: string
+  action: ContactAction
+}> = [
+  { icon: Mail, label: 'Email hỗ trợ', text: SUPPORT_EMAIL, action: { kind: 'link', href: supportMailto() } },
+  { icon: MessageCircle, label: 'Nâng cấp gói', text: 'Liên hệ nâng cấp', action: { kind: 'modal', modal: 'upgrade-qr' } },
 ]
 
 const PAY_PLAN_DATA: Record<'pro' | 'lifetime', { name: string; price: string }> = {
@@ -310,30 +319,44 @@ function SunAnimationStyles() {
         0%,  14% {
           opacity: 1;
           transform: scale(1.08);
-          filter: brightness(1.08);
+          filter: brightness(1.06) saturate(1.08);
           box-shadow:
-            0 18px 56px color-mix(in srgb, var(--accent, #6366f1) 65%, transparent),
-            0 6px 18px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
-            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent) inset;
+            0 26px 70px -8px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent),
+            0 12px 28px -6px color-mix(in srgb, var(--accent, #6366f1) 40%, transparent),
+            0 2px 8px color-mix(in srgb, var(--accent, #6366f1) 22%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 45%, transparent) inset,
+            0 1px 0 color-mix(in srgb, #ffffff 30%, transparent) inset;
         }
         20%, 94% {
-          opacity: 0.88;
+          opacity: 0.9;
           transform: scale(0.96);
-          filter: brightness(0.94);
+          filter: brightness(0.95) saturate(0.94);
           box-shadow:
-            0 12px 36px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
-            0 4px 12px color-mix(in srgb, var(--accent, #6366f1) 26%, transparent),
-            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 30%, transparent) inset;
+            0 14px 34px -10px color-mix(in srgb, var(--accent, #6366f1) 28%, transparent),
+            0 4px 12px -4px color-mix(in srgb, var(--accent, #6366f1) 18%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 22%, transparent) inset;
         }
         100% {
           opacity: 1;
           transform: scale(1.08);
-          filter: brightness(1.08);
+          filter: brightness(1.06) saturate(1.08);
           box-shadow:
-            0 18px 56px color-mix(in srgb, var(--accent, #6366f1) 65%, transparent),
-            0 6px 18px color-mix(in srgb, var(--accent, #6366f1) 42%, transparent),
-            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent) inset;
+            0 26px 70px -8px color-mix(in srgb, var(--accent, #6366f1) 55%, transparent),
+            0 12px 28px -6px color-mix(in srgb, var(--accent, #6366f1) 40%, transparent),
+            0 2px 8px color-mix(in srgb, var(--accent, #6366f1) 22%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--accent, #6366f1) 45%, transparent) inset,
+            0 1px 0 color-mix(in srgb, #ffffff 30%, transparent) inset;
         }
+      }
+      @keyframes card-halo {
+        0%, 14%   { opacity: 1; transform: scale(1.15); }
+        20%, 94%  { opacity: 0; transform: scale(0.85); }
+        100%      { opacity: 1; transform: scale(1.15); }
+      }
+      @keyframes card-sheen {
+        0%, 14%  { opacity: 0.9; background-position: 0% 0%; }
+        20%, 94% { opacity: 0; background-position: 100% 100%; }
+        100%     { opacity: 0.9; background-position: 0% 0%; }
       }
       @keyframes orbit-enter {
         0%   { opacity: 0; transform: translateY(24px) scale(0.94); }
@@ -374,30 +397,89 @@ function SunAnimationStyles() {
         transform-style: preserve-3d;
         will-change: transform;
       }
+      .feature-orbit-card-halo {
+        position: absolute;
+        inset: -18px;
+        border-radius: 28px;
+        background:
+          radial-gradient(
+            60% 55% at 50% 50%,
+            color-mix(in srgb, var(--accent, #6366f1) 55%, transparent) 0%,
+            color-mix(in srgb, var(--accent, #6366f1) 22%, transparent) 45%,
+            transparent 78%
+          );
+        filter: blur(18px);
+        opacity: 0;
+        z-index: 0;
+        pointer-events: none;
+        animation: card-halo 17.5s cubic-bezier(.4,.05,.2,1) infinite;
+        animation-delay: calc(var(--i) * 3.5s - 17.5s);
+        will-change: opacity, transform;
+      }
       .feature-orbit-card-inner {
+        position: relative;
         width: 100%;
         height: 100%;
         padding: 14px 16px;
         border-radius: 18px;
-        background: color-mix(in srgb, var(--bg-card) 92%, transparent);
-        border: 1px solid color-mix(in srgb, var(--border-color) 88%, transparent);
+        background:
+          linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent, #6366f1) 14%, var(--bg-card)) 0%,
+            color-mix(in srgb, var(--bg-card) 96%, transparent) 55%,
+            color-mix(in srgb, var(--accent, #6366f1) 8%, var(--bg-card)) 100%
+          );
+        border: 1px solid color-mix(in srgb, var(--accent, #6366f1) 35%, var(--border-color));
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         transform-origin: center;
+        overflow: hidden;
+        z-index: 1;
         animation: card-spotlight 17.5s cubic-bezier(.4,.05,.2,1) infinite;
         animation-delay: calc(var(--i) * 3.5s - 17.5s);
         will-change: opacity, transform, filter, box-shadow;
       }
+      .feature-orbit-card-inner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          radial-gradient(
+            120% 90% at 15% -10%,
+            color-mix(in srgb, #ffffff 22%, transparent) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            115deg,
+            transparent 20%,
+            color-mix(in srgb, var(--accent, #6366f1) 18%, transparent) 45%,
+            transparent 70%
+          );
+        background-size: 200% 200%;
+        pointer-events: none;
+        animation: card-sheen 17.5s cubic-bezier(.4,.05,.2,1) infinite;
+        animation-delay: calc(var(--i) * 3.5s - 17.5s);
+        will-change: opacity, background-position;
+      }
+      .feature-orbit-card-inner > * {
+        position: relative;
+        z-index: 1;
+      }
       .feature-orbit-viewport:hover .feature-orbit-spin,
-      .feature-orbit-viewport:hover .feature-orbit-card-inner {
+      .feature-orbit-viewport:hover .feature-orbit-card-inner,
+      .feature-orbit-viewport:hover .feature-orbit-card-halo,
+      .feature-orbit-viewport:hover .feature-orbit-card-inner::before {
         animation-play-state: paused;
       }
       @media (prefers-reduced-motion: reduce) {
         .feature-orbit-spin,
-        .feature-orbit-card-inner { animation: none; }
+        .feature-orbit-card-inner,
+        .feature-orbit-card-halo { animation: none; }
         .feature-orbit-card-inner { opacity: 1; transform: scale(1); }
+        .feature-orbit-card-halo { opacity: 0.6; }
       }
     `}</style>
   )
@@ -707,6 +789,7 @@ function FeatureOrbit({ items }: { items: FeatureItem[] }) {
               className="feature-orbit-card"
               style={{ ['--i' as string]: i, ['--accent' as string]: accent } as CSSProperties}
             >
+              <div className="feature-orbit-card-halo" aria-hidden />
               <div className="feature-orbit-card-inner">
                 <div className="mb-1.5 flex items-center gap-2">
                   <div
@@ -890,7 +973,9 @@ function PricingSection({ onOpenPayment }: { onOpenPayment: (planId: PlanId) => 
 
 /* ── Footer ──────────────────────────────────────────────── */
 function Footer() {
+  const [upgradeQrOpen, setUpgradeQrOpen] = useState(false)
   return (
+    <>
     <footer
       className="px-6 md:px-16 lg:px-24 py-10 border-t"
       style={{ borderColor: 'var(--border-color)', background: 'var(--bg-secondary)' }}
@@ -909,20 +994,37 @@ function Footer() {
 
           {/* Contact links */}
           <div className="flex flex-col sm:flex-row gap-4">
-            {CONTACTS.map(({ icon: Icon, label, href, text }) => (
-              <a
-                key={label}
-                href={href}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl border transition-opacity hover:opacity-80"
-                style={{ borderColor: 'var(--border-color)', background: 'var(--bg-card)' }}
-              >
-                <Icon size={16} style={{ color: 'var(--color-primary)' }} />
-                <div>
-                  <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>{label}</p>
-                  <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>{text}</p>
-                </div>
-              </a>
-            ))}
+            {CONTACTS.map(({ icon: Icon, label, text, action }) => {
+              const content = (
+                <>
+                  <Icon size={16} style={{ color: 'var(--color-primary)' }} />
+                  <div>
+                    <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>{label}</p>
+                    <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>{text}</p>
+                  </div>
+                </>
+              )
+              const commonClass = 'flex items-center gap-3 px-4 py-3 rounded-xl border transition-opacity hover:opacity-80 text-left'
+              const commonStyle = { borderColor: 'var(--border-color)', background: 'var(--bg-card)' }
+              if (action.kind === 'link') {
+                return (
+                  <a key={label} href={action.href} className={commonClass} style={commonStyle}>
+                    {content}
+                  </a>
+                )
+              }
+              return (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setUpgradeQrOpen(true)}
+                  className={commonClass}
+                  style={commonStyle}
+                >
+                  {content}
+                </button>
+              )
+            })}
           </div>
         </div>
 
@@ -938,6 +1040,95 @@ function Footer() {
         </div>
       </div>
     </footer>
+    <UpgradeQrModal open={upgradeQrOpen} onClose={() => setUpgradeQrOpen(false)} />
+    </>
+  )
+}
+
+/* ── Upgrade QR Zalo Modal ───────────────────────────────── */
+function UpgradeQrModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [open, onClose])
+
+  if (!open) return null
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="upgrade-qr-title"
+      className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+      style={{ background: 'color-mix(in srgb, #000 65%, transparent)', backdropFilter: 'blur(6px)' }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-md rounded-2xl border p-6 shadow-2xl"
+        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Đóng"
+          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full border transition-opacity hover:opacity-80"
+          style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
+        >
+          ×
+        </button>
+
+        <div className="mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: 'var(--color-primary)' }}>
+            Liên hệ Zalo
+          </p>
+          <h3 id="upgrade-qr-title" className="mt-1 text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
+            Nâng cấp gói học
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            Quét mã QR bên dưới bằng ứng dụng Zalo để nhắn admin. Nhận báo giá và kích hoạt gói trong vòng vài phút.
+          </p>
+        </div>
+
+        <div
+          className="flex items-center justify-center rounded-xl border p-3"
+          style={{ background: 'var(--bg-primary)', borderColor: 'var(--border-color)' }}
+        >
+          <img
+            src="/images/qr-zalo.jpg"
+            alt="QR Zalo — Liên hệ nâng cấp gói"
+            className="h-64 w-64 rounded-lg object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+          <a
+            href={supportMailto('Nâng cấp gói Study with Genius')}
+            className="flex-1 rounded-full border px-4 py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-80"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+          >
+            Gửi email
+          </a>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex-1 rounded-full px-4 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            style={{ background: 'var(--color-primary)' }}
+          >
+            Đã hiểu
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -1132,14 +1323,14 @@ function MoonIllustration() {
 
         {/* Speech bubble — sleeping message */}
         <g className="sun-bubble sun-bubble-layer sun-bubble-enter">
-          <rect x="228" y="58" width="168" height="98" rx="18"
+          <rect x="216" y="48" width="196" height="126" rx="22"
             fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5"
             filter="url(#moonBlur)" />
-          <polygon points="242,156 260,156 248,174" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1" />
-          <text x="246" y="86"  fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Đêm khuya cứ ngủ ngon giấc,</text>
-          <text x="246" y="102" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">còn hệ thống học tập và</text>
-          <text x="246" y="118" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
-          <text x="246" y="134" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê nhé!</text>
+          <polygon points="232,174 252,174 240,194" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1" />
+          <text x="234" y="80"  fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Đêm khuya cứ ngủ ngon giấc,</text>
+          <text x="234" y="100" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">còn hệ thống học tập và</text>
+          <text x="234" y="120" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
+          <text x="234" y="140" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê nhé!</text>
         </g>
       </g>
     </svg>

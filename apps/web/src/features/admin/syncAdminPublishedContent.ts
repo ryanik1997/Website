@@ -10,7 +10,14 @@ import type {
   WritingDoc,
 } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
+import {
+  dedupePresetDecks,
+  PRESET_GROUP_IDS,
+  stablePresetDeckId,
+} from '../vocab/vocabSeedDecks'
 import { ADMIN_PUBLISH_VERSION_KEY } from './adminContentPublish'
+
+const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 
 export interface AdminContentSyncResult {
   updated: boolean
@@ -25,18 +32,37 @@ interface VocabPayload {
   cards?: Card[]
 }
 
+function remapPresetDeckId(deck: Deck): string {
+  if (!PRESET_GROUP_SET.has(deck.groupId)) return deck.id
+  return stablePresetDeckId(deck.groupId, deck.name)
+}
+
 async function mergeVocab(payload: VocabPayload): Promise<void> {
   if (payload.groups?.length) {
     await db.groups.bulkPut(payload.groups)
   }
-  if (payload.decks?.length) {
-    await db.decks.bulkPut(
-      payload.decks.map(d => ({ ...d, origin: 'preset' as const })),
+
+  const deckIdRemap = new Map<string, string>()
+  const decks = payload.decks?.map(d => {
+    const id = remapPresetDeckId(d)
+    if (id !== d.id) deckIdRemap.set(d.id, id)
+    return { ...d, id, origin: 'preset' as const }
+  })
+
+  if (decks?.length) {
+    await db.decks.bulkPut(decks)
+  }
+
+  if (payload.cards?.length) {
+    await db.cards.bulkPut(
+      payload.cards.map(c => ({
+        ...c,
+        deckId: deckIdRemap.get(c.deckId) ?? c.deckId,
+      })),
     )
   }
-  if (payload.cards?.length) {
-    await db.cards.bulkPut(payload.cards)
-  }
+
+  await dedupePresetDecks()
 }
 
 async function mergeLessons(lessons: Lesson[]): Promise<void> {

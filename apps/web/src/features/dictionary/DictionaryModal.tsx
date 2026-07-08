@@ -360,6 +360,7 @@ export default function DictionaryModal() {
           meaning={result.definitions[0]?.meaning ?? ''}
           example={result.definitions[0]?.example}
           ipaUS={result.ipaUS}
+          ipaUK={result.ipaUK}
           pos={result.pos}
           onClose={() => setShowSave(false)}
         />

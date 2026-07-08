@@ -6,15 +6,16 @@ export type ImportCardRow = {
   meaning: string
   example?: string
   ipaUS?: string
+  ipaUK?: string
   pos?: string
 }
 
-const CSV_HEADER = ['phrase', 'meaning', 'example', 'ipaUS', 'pos'] as const
+const CSV_HEADER = ['phrase', 'meaning', 'example', 'ipaUS', 'ipaUK', 'pos'] as const
 
-export const CSV_TEMPLATE = `phrase,meaning,example,ipaUS,pos
-good,tốt; hay; giỏi,She is a very good student.,/gʊd/,adjective
-look,nhìn; ngó,Please look at the picture.,/lʊk/,verb
-run away,bỏ trốn,He ran away from home.,/rʌn əˈweɪ/,phrasal verb`
+export const CSV_TEMPLATE = `phrase,meaning,example,ipaUS,ipaUK,pos
+good,tốt; hay; giỏi,She is a very good student.,/ɡʊd/,/ɡʊd/,adjective
+look,nhìn; ngó,Please look at the picture.,/lʊk/,/lʊk/,verb
+run away,bỏ trốn,He ran away from home.,/rʌn əˈweɪ/,/rʌn əˈweɪ/,phrasal verb`
 
 function enrichImportRow(row: ImportCardRow): ImportCardRow {
   return {
@@ -131,6 +132,7 @@ function rowToImportCard(fields: string[], colIndex: Record<string, number>): Im
     meaning,
     example: get('example'),
     ipaUS: get('ipaus') ?? get('ipaUS'),
+    ipaUK: get('ipauk') ?? get('ipaUK'),
     pos: get('pos'),
   }
 }
@@ -142,6 +144,7 @@ export function exportDeckAsCSV(cards: Card[], deckName: string): void {
     escapeCSVField(card.meaning),
     escapeCSVField(card.example ?? ''),
     escapeCSVField(card.ipaUS ?? ''),
+    escapeCSVField(card.ipaUK ?? ''),
     escapeCSVField(card.pos ?? ''),
   ].join(','))
 
@@ -216,6 +219,7 @@ function normalizeImportRow(raw: unknown): ImportCardRow | null {
     meaning,
     example: typeof o.example === 'string' ? o.example.trim() || undefined : undefined,
     ipaUS: typeof o.ipaUS === 'string' ? o.ipaUS.trim() || undefined : undefined,
+    ipaUK: typeof o.ipaUK === 'string' ? o.ipaUK.trim() || undefined : undefined,
     pos: typeof o.pos === 'string' ? o.pos.trim() || undefined : undefined,
   }
 }
