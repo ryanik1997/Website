@@ -6,7 +6,13 @@ import {
 } from '../importReadingManualUtils'
 import { sliceAnswerKeyForPassage } from './ieltsReadingAnswerKey'
 import { buildIeltsReadingPassageAiMessages } from './ieltsReadingAiPrompt'
-import { normalizeAiReadingPart, validateAiReadingPartShape } from './ieltsReadingAiNormalize'
+import {
+  applyReadingTemplateTableStructure,
+  normalizeAiReadingPart,
+  validateAiReadingPartAgainstTemplate,
+  validateAiReadingPartShape,
+} from './ieltsReadingAiNormalize'
+import { getIeltsReadingWizardTemplatePart, resolveReadingTemplateKind } from './ieltsReadingPartTemplates'
 import {
   assertTemplateMatchesPassage,
   type IeltsReadingPassageNumber,
@@ -82,8 +88,11 @@ async function callAndParse(
   const result = await callAI(messages, apiKey, provider, undefined, { jsonMode: true })
   const rawJson = result.content.trim()
   const parsed = extractJsonObject(rawJson)
-  const part = normalizeAiReadingPart(extractPartFromAi(parsed))
+  const templatePart = getIeltsReadingWizardTemplatePart(passageNumber, templateKind)
+  let part = normalizeAiReadingPart(extractPartFromAi(parsed))
+  part = applyReadingTemplateTableStructure(part, templatePart)
   validateAiReadingPartShape(part, passageNumber)
+  validateAiReadingPartAgainstTemplate(part, passageNumber, templateKind)
   return { part, rawJson }
 }
 
@@ -106,7 +115,8 @@ export async function generateIeltsReadingPassage(options: {
     title = `IELTS Reading — Passage ${passageNumber}`,
   } = options
 
-  assertTemplateMatchesPassage(passageNumber, templateKind)
+  const resolvedKind = resolveReadingTemplateKind(passageNumber, templateKind)
+  assertTemplateMatchesPassage(passageNumber, resolvedKind)
 
   if (!examText.trim()) {
     throw new Error(`Chưa dán text Passage ${passageNumber}.`)
@@ -122,12 +132,12 @@ export async function generateIeltsReadingPassage(options: {
 
   try {
     ;({ part, rawJson } = await callAndParse(
-      passageNumber, templateKind, examText, keySlice, apiKey, provider,
+      passageNumber, resolvedKind, examText, keySlice, apiKey, provider,
     ))
   } catch (firstError) {
     const hint = firstError instanceof Error ? firstError.message : 'JSON không hợp lệ'
     ;({ part, rawJson } = await callAndParse(
-      passageNumber, templateKind, examText, keySlice, apiKey, provider, hint,
+      passageNumber, resolvedKind, examText, keySlice, apiKey, provider, hint,
     ))
   }
 

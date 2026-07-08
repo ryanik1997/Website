@@ -68,6 +68,9 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'matching-headings|gap-fill': 'p1-r1-headings-gap',
     'matching-headings|sentence-completion': 'p1-r1-headings-gap',
     'gap-fill|multiple-choice': 'p1-r1-gap-mc',
+    'tfng|matching-features|gap-fill': 'p1-r1-tfng-match-notes',
+    'tfng|matching-features|summary-completion': 'p1-r1-tfng-match-summary',
+    'matching-paragraph|matching-features|multiple-choice': 'p1-r1-match-choose-two',
   },
   2: {
     'matching-paragraph|matching-features|multiple-choice': 'p2-r2-match-mc',
@@ -78,7 +81,12 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'gap-fill|matching-paragraph|multiple-choice': 'p2-r2-gap-match',
     'sentence-completion|matching-paragraph|multiple-choice': 'p2-r2-gap-match',
     'gap-fill|matching-features|matching-paragraph': 'p2-r2-gap-match',
+    'matching-headings|gap-fill|multiple-choice': 'p2-r2-headings-summary-mc',
     'summary-completion|ynng|multiple-choice': 'p2-r2-summary-ynng-mc',
+    'tfng|summary-completion|gap-fill': 'p2-r2-tfng-endings-summary',
+    'multiple-choice|tfng|summary-completion': 'p2-r2-mc-tfng-endings',
+    'tfng|gap-fill': 'p2-r2-tfng-diagram',
+    'matching-headings|tfng|sentence-completion': 'p2-r2-headings-tfng-sentence',
   },
   3: {
     'tfng|multiple-choice': 'p3-r3-tfng-mc',
@@ -92,6 +100,12 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'gap-fill|tfng|multiple-choice': 'p3-r3-gap-tfng-mc',
     'sentence-completion|tfng|multiple-choice': 'p3-r3-gap-tfng-mc',
     'matching-paragraph|gap-fill|matching-features': 'p3-r3-match-table-features',
+    'multiple-choice|summary-completion|ynng': 'p3-r3-mc-summary-ynng',
+    'matching-paragraph|sentence-completion': 'p3-r3-match-paragraph-sentence',
+    'matching-headings|summary-completion|ynng': 'p3-r3-headings-summary-ynng',
+    'matching-headings|gap-fill|ynng': 'p3-r3-headings-gap-ynng',
+    'gap-fill|ynng|matching-paragraph': 'p3-r3-table-ynng-match',
+    'gap-fill|multiple-choice|summary-completion': 'p3-r3-summary-mc-endings',
   },
 }
 
@@ -108,9 +122,17 @@ export function inferTemplateKindFromPart(
     const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
     if (notesGroup) return 'p1-r1-notes-tfng'
   }
+  if (passageNumber === 1 && sig === 'matching-headings|gap-fill') {
+    const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
+    if (notesGroup) return 'p1-r1-headings-notes'
+  }
   if (passageNumber === 3 && sig === 'matching-paragraph|gap-fill|matching-features') {
     const tableGroup = part.questionGroups.find(g => g.noteTable?.headers?.length)
     if (tableGroup) return 'p3-r3-match-table-features'
+  }
+  if (passageNumber === 3 && sig === 'gap-fill|ynng|matching-paragraph') {
+    const tableGroup = part.questionGroups.find(g => g.noteTable?.headers?.length)
+    if (tableGroup) return 'p3-r3-table-ynng-match'
   }
   return TEMPLATE_SIGNATURES[passageNumber][sig]
     ?? IELTS_READING_DEFAULT_TEMPLATES[passageNumber]

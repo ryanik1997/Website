@@ -33,7 +33,6 @@ import {
   uploadReadingExamCloudImage,
 } from './readingExamCloudImages'
 import { useReadingExamCloudImages } from './useReadingExamCloudImages'
-import { scrollReadingToQuestion } from './readingScrollUtils'
 import { clearReadingDraft } from './examCompletion'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
 import { readingExamDurationMinutes } from './readingExamDuration'
@@ -300,17 +299,6 @@ export default function ReadingTest() {
     body.querySelector<HTMLElement>('.reading-test-questions')?.scrollTo({ top: 0, behavior: 'auto' })
   }, [])
 
-  const scrollToQuestion = useCallback((questionId: string) => {
-    window.requestAnimationFrame(() => {
-      scrollReadingToQuestion(
-        bodyRef.current,
-        questionId,
-        currentPart ?? undefined,
-        exam?.cambridgeLevel,
-      )
-    })
-  }, [currentPart, exam?.cambridgeLevel])
-
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
   }, [])
@@ -319,11 +307,6 @@ export default function ReadingTest() {
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
   }, [])
-
-  useEffect(() => {
-    if (submitted || !activeQuestionId) return
-    scrollToQuestion(activeQuestionId)
-  }, [activeQuestionId, partIndex, scrollToQuestion, submitted])
 
   const answeredInPart = useCallback((index: number) => {
     if (!exam) return 0

@@ -8,11 +8,12 @@ interface Props {
   meaning: string
   example?: string
   ipaUS?: string
+  ipaUK?: string
   pos?: string
   onClose: () => void
 }
 
-export default function SaveToDeckModal({ word, meaning, example, ipaUS, pos, onClose }: Props) {
+export default function SaveToDeckModal({ word, meaning, example, ipaUS, ipaUK, pos, onClose }: Props) {
   const decks = useLiveQuery(() => db.decks.orderBy('updatedAt').reverse().toArray(), [])
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -30,7 +31,7 @@ export default function SaveToDeckModal({ word, meaning, example, ipaUS, pos, on
       meaning,
       example,
       ipaUS,
-      ipaUK: undefined,
+      ipaUK,
       pos,
     })
     setSaving(false)

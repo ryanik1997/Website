@@ -1,4 +1,4 @@
-import { db } from '@ryan/db'
+import { db, type Deck } from '@ryan/db'
 
 export interface SeedDeckDef {
   name: string
@@ -102,31 +102,116 @@ export const SEED_GROUPS: SeedGroupDef[] = [
   { id: 'toefl', name: 'TOEFL', order: 6, decks: TOEFL_DECKS },
 ]
 
-async function seedGroup(group: SeedGroupDef): Promise<void> {
-  const existing = await db.decks.where('groupId').equals(group.id).count()
-  if (existing > 0) return
+const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 
-  const groupExists = await db.groups.get(group.id)
-  if (!groupExists) {
-    await db.groups.put({
-      id: group.id,
-      name: group.name,
-      order: group.order,
-      createdAt: Date.now(),
-    })
+/** ID cố định cho bộ preset — tránh duplicate khi seed/sync chạy song song. */
+export function stablePresetDeckId(groupId: string, deckName: string): string {
+  const slug = deckName
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+  return `preset:${groupId}:${slug || 'deck'}`
+}
+
+function seedDeckNamesByGroup(): Map<string, Set<string>> {
+  return new Map(SEED_GROUPS.map(g => [g.id, new Set(g.decks.map(d => d.name))]))
+}
+
+async function migrateDeckCards(fromDeckId: string, toDeckId: string): Promise<void> {
+  if (fromDeckId === toDeckId) return
+  const cards = await db.cards.where('deckId').equals(fromDeckId).toArray()
+  if (!cards.length) return
+  const ts = Date.now()
+  await db.transaction('rw', db.cards, db.srs, async () => {
+    for (const card of cards) {
+      await db.cards.update(card.id, { deckId: toDeckId, updatedAt: ts })
+      const srs = await db.srs.get(card.id)
+      if (srs) await db.srs.put({ ...srs, deckId: toDeckId })
+    }
+  })
+}
+
+async function removeDeckRecord(deckId: string): Promise<void> {
+  const cardIds = (await db.cards.where('deckId').equals(deckId).primaryKeys()) as string[]
+  await db.srs.bulkDelete(cardIds)
+  if (cardIds.length) await db.reviewLog.where('cardId').anyOf(cardIds).delete()
+  await db.cards.where('deckId').equals(deckId).delete()
+  await db.decks.delete(deckId)
+}
+
+/** Gộp bộ preset trùng (groupId + tên) — giữ bản có nhiều thẻ nhất, chuẩn hoá ID. */
+export async function dedupePresetDecks(): Promise<number> {
+  const seedNames = seedDeckNamesByGroup()
+  const candidates = await db.decks
+    .filter(d => PRESET_GROUP_SET.has(d.groupId) && d.origin !== 'user')
+    .toArray()
+
+  const buckets = new Map<string, Deck[]>()
+  for (const deck of candidates) {
+    if (!seedNames.get(deck.groupId)?.has(deck.name)) continue
+    const key = `${deck.groupId}::${deck.name}`
+    const list = buckets.get(key) ?? []
+    list.push(deck)
+    buckets.set(key, list)
   }
+
+  let removed = 0
+  for (const [, dupes] of buckets) {
+    if (!dupes.length) continue
+    const stableId = stablePresetDeckId(dupes[0]!.groupId, dupes[0]!.name)
+
+    const ranked = await Promise.all(
+      dupes.map(async deck => ({
+        deck,
+        cards: await db.cards.where('deckId').equals(deck.id).count(),
+      })),
+    )
+    ranked.sort((a, b) => b.cards - a.cards || a.deck.createdAt - b.deck.createdAt)
+    const best = ranked[0]!.deck
+
+    await db.decks.put({
+      ...best,
+      id: stableId,
+      origin: 'preset',
+      updatedAt: Date.now(),
+    })
+
+    for (const { deck } of ranked) {
+      if (deck.id === stableId) continue
+      await migrateDeckCards(deck.id, stableId)
+      await removeDeckRecord(deck.id)
+      removed++
+    }
+  }
+
+  return removed
+}
+
+async function seedGroup(group: SeedGroupDef): Promise<void> {
+  const existingGroup = await db.groups.get(group.id)
+  await db.groups.put({
+    id: group.id,
+    name: group.name,
+    order: group.order,
+    createdAt: existingGroup?.createdAt ?? Date.now(),
+  })
 
   const now = Date.now()
   for (const d of group.decks) {
-    await db.decks.add({
-      id: crypto.randomUUID(),
+    const id = stablePresetDeckId(group.id, d.name)
+    const existing = await db.decks.get(id)
+    await db.decks.put({
+      id,
       groupId: group.id,
       name: d.name,
       book: d.description,
       color: d.color,
       icon: d.icon,
       origin: 'preset',
-      createdAt: now,
+      createdAt: existing?.createdAt ?? now,
       updatedAt: now,
     })
   }
@@ -154,12 +239,22 @@ async function repairPresetOrigin(): Promise<void> {
   }
 }
 
-/** Seed tất cả bộ preset (IELTS, Oxford, TOEIC, …) — mỗi group chỉ seed 1 lần. */
+let seedTask: Promise<void> | null = null
+
+/** Seed tất cả bộ preset (IELTS, Oxford, TOEIC, …) — idempotent, không tạo bản trùng. */
 export async function seedPresetDecks(): Promise<void> {
-  for (const group of SEED_GROUPS) {
-    await seedGroup(group)
+  if (!seedTask) {
+    seedTask = (async () => {
+      for (const group of SEED_GROUPS) {
+        await seedGroup(group)
+      }
+      await repairPresetOrigin()
+      await dedupePresetDecks()
+    })().finally(() => {
+      seedTask = null
+    })
   }
-  await repairPresetOrigin()
+  await seedTask
 }
 
 /** @deprecated Dùng seedPresetDecks */

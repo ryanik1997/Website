@@ -1,9 +1,10 @@
-import type {
-  IeltsReadingPassageNumber,
-  IeltsReadingP1TemplateKind,
-  IeltsReadingP2TemplateKind,
-  IeltsReadingP3TemplateKind,
-  IeltsReadingWizardTemplateKind,
+import {
+  IELTS_READING_DEFAULT_TEMPLATES,
+  type IeltsReadingPassageNumber,
+  type IeltsReadingP1TemplateKind,
+  type IeltsReadingP2TemplateKind,
+  type IeltsReadingP3TemplateKind,
+  type IeltsReadingWizardTemplateKind,
 } from './ieltsReadingWizardConfig'
 
 export interface IeltsReadingTemplateOption {
@@ -71,6 +72,34 @@ export const IELTS_P1_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     description: 'Gap-fill/sentence completion + MC (không TFNG) — Cam12–14 P1.',
     previewUrl: '/ielts-wizard/reading/p1/r1m.svg',
   },
+  {
+    kind: 'p1-r1-tfng-match-notes',
+    code: 'r1f',
+    label: 'TFNG + Match + Notes',
+    description: 'TFNG Q1–4 + matching features Q5–8 + note completion Q9–13 — Cam11 Test 2 P1 (Mary Rose).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_1.jpg',
+  },
+  {
+    kind: 'p1-r1-tfng-match-summary',
+    code: 'r1ts',
+    label: 'TFNG + Match + Summary',
+    description: 'TFNG Q1–4 + matching features Q5–9 + summary word bank A–F Q10–13 — Cam11 Test 4 P1 (Research using twins).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_2.jpg',
+  },
+  {
+    kind: 'p1-r1-match-choose-two',
+    code: 'r1ct',
+    label: 'Match + Choose TWO',
+    description: 'Match paragraph Q1–3 + match people Q4–9 + Choose TWO Q10–13 — Cam12 Test 6 P1 (Agriculture risks).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_3.jpg',
+  },
+  {
+    kind: 'p1-r1-headings-notes',
+    code: 'r1hn',
+    label: 'Headings + Notes',
+    description: 'Matching headings Q1–7 (A–G) + note completion Q8–13 (notePassage) — Cam12 Test 5 P1 (Flying tortoises).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_4.jpg',
+  },
 ]
 
 export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
@@ -110,11 +139,46 @@ export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_1.jpg',
   },
   {
+    kind: 'p2-r2-headings-summary-mc',
+    code: 'r2hm',
+    label: 'Headings + Summary + MC',
+    description: 'Matching headings Q14–20 + summary ONE WORD Q21–24 + Choose TWO Q25–26 — Cam11 Test 4 P2.',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_3.jpg',
+  },
+  {
     kind: 'p2-r2-summary-ynng-mc',
     code: 'r2s',
     label: 'Summary + YNNG',
     description: 'Summary (word bank) + YNNG + MC — Cam15–19 P2.',
     previewUrl: '/ielts-wizard/reading/p2/r2s.svg',
+  },
+  {
+    kind: 'p2-r2-tfng-endings-summary',
+    code: 'r2te',
+    label: 'TFNG + Endings + Summary',
+    description: 'TFNG Q14–18 + matching sentence endings A–G Q19–22 + summary ONE WORD Q23–26 — Cam11 Test 3 P2 (Great Migrations).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_4.jpg',
+  },
+  {
+    kind: 'p2-r2-mc-tfng-endings',
+    code: 'r2fs',
+    label: 'MC + TFNG + Endings',
+    description: 'Multiple choice Q14–18 + TFNG Q19–23 + matching sentence endings A–E Q24–26 — Cam11 Test 4 P2 (An Introduction to Film Sound).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_6.jpg',
+  },
+  {
+    kind: 'p2-r2-tfng-diagram',
+    code: 'r2fw',
+    label: 'TFNG + Diagram',
+    description: 'TFNG Q14–19 + diagram labeling ONE WORD Q20–26 — Cam11 Test 1 P2 (The Falkirk Wheel).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_2.jpg',
+  },
+  {
+    kind: 'p2-r2-headings-tfng-sentence',
+    code: 'r2hl',
+    label: 'Headings + TFNG + Sentence',
+    description: 'Matching headings Q14–20 + TFNG Q21–24 + sentence completion ONE WORD Q25–26 — Cam12 Test 8 P2 (The Lost City).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg',
   },
 ]
 
@@ -175,6 +239,48 @@ export const IELTS_P3_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     description: 'Match đoạn Q27–29 + table Q30–36 (noteTable) + match người Q37–40 — Cam11 Test 1 P3.',
     previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_1.jpg',
   },
+  {
+    kind: 'p3-r3-mc-summary-ynng',
+    code: 'r3my',
+    label: 'MC + Summary + YNNG',
+    description: 'Multiple choice Q27–30 + summary word bank Q31–33 + YNNG Q34–39 — Cam11 Test 2 P3 (Art and the Brain).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_2.jpg',
+  },
+  {
+    kind: 'p3-r3-match-paragraph-sentence',
+    code: 'r3ps',
+    label: 'Match đoạn + Sentence',
+    description: 'Matching paragraph Q27–34 (A–G) + sentence completion ONE WORD Q35–40 — Cam11 Test 3 P3 (Mathematical Reasoning).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_3.jpg',
+  },
+  {
+    kind: 'p3-r3-headings-summary-ynng',
+    code: 'r3hy',
+    label: 'Headings + Summary + YNNG',
+    description: 'Matching headings Q27–32 (A–F) + summary word bank Q33–36 + YNNG Q37–40 — Cam11 Test 4 P3 (This Marvellous Invention).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_4.jpg',
+  },
+  {
+    kind: 'p3-r3-headings-gap-ynng',
+    code: 'r3ag',
+    label: 'Headings + Gap + YNNG',
+    description: 'Matching headings Q27–32 (A–F) + summary TWO WORDS Q33–36 + YNNG Q37–40 — Cam12 Test 5 P3 (What\'s the Purpose of Gaining Knowledge).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_5.jpg',
+  },
+  {
+    kind: 'p3-r3-table-ynng-match',
+    code: 'r3ty',
+    label: 'Table + YNNG + Match',
+    description: 'Table completion Q27–31 (Test|Findings) + YNNG Q32–36 + match đoạn Q37–40 (A–G) — Cam12 Test 2 P3 (The Benefits of Being Bilingual).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_6.jpg',
+  },
+  {
+    kind: 'p3-r3-summary-mc-endings',
+    code: 'r3se',
+    label: 'Summary + MC + Endings',
+    description: 'Summary TWO WORDS Q27–31 + MC A–D Q32–36 + sentence endings Q37–40 — Cam12 Test 3 P3 (The Montreal Study / Music and the emotions).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg',
+  },
 ]
 
 const OPTIONS_BY_PASSAGE: Record<IeltsReadingPassageNumber, IeltsReadingTemplateOption[]> = {
@@ -199,6 +305,17 @@ export function isKnownReadingTemplateKind(
   kind: string,
 ): kind is IeltsReadingWizardTemplateKind {
   return templateOptionsForPassage(passageNumber).some(o => o.kind === kind)
+}
+
+/** Nhẹ — dùng khi load ExamTrackPage / persist nháp; không kéo ieltsReadingPartTemplates. */
+export function resolveReadingTemplateKind(
+  passageNumber: IeltsReadingPassageNumber,
+  kind: string,
+): IeltsReadingWizardTemplateKind {
+  if (isKnownReadingTemplateKind(passageNumber, kind)) {
+    return kind
+  }
+  return IELTS_READING_DEFAULT_TEMPLATES[passageNumber]
 }
 
 export type { IeltsReadingP1TemplateKind, IeltsReadingP2TemplateKind, IeltsReadingP3TemplateKind }

@@ -9,6 +9,10 @@ export type IeltsReadingP1TemplateKind =
   | 'p1-r1-gap-mc'
   | 'p1-r1-tfng-gap-table'
   | 'p1-r1-notes-tfng'
+  | 'p1-r1-tfng-match-notes'
+  | 'p1-r1-tfng-match-summary'
+  | 'p1-r1-match-choose-two'
+  | 'p1-r1-headings-notes'
 
 export type IeltsReadingP2TemplateKind =
   | 'p2-r2-match-mc'
@@ -16,7 +20,12 @@ export type IeltsReadingP2TemplateKind =
   | 'p2-r2-headings-ynng'
   | 'p2-r2-tfng-match'
   | 'p2-r2-gap-match'
+  | 'p2-r2-headings-summary-mc'
   | 'p2-r2-summary-ynng-mc'
+  | 'p2-r2-tfng-endings-summary'
+  | 'p2-r2-mc-tfng-endings'
+  | 'p2-r2-tfng-diagram'
+  | 'p2-r2-headings-tfng-sentence'
 
 export type IeltsReadingP3TemplateKind =
   | 'p3-r3-tfng-mc'
@@ -27,6 +36,12 @@ export type IeltsReadingP3TemplateKind =
   | 'p3-r3-summary-mc-ynng'
   | 'p3-r3-gap-tfng-mc'
   | 'p3-r3-match-table-features'
+  | 'p3-r3-mc-summary-ynng'
+  | 'p3-r3-match-paragraph-sentence'
+  | 'p3-r3-headings-summary-ynng'
+  | 'p3-r3-headings-gap-ynng'
+  | 'p3-r3-table-ynng-match'
+  | 'p3-r3-summary-mc-endings'
 
 export type IeltsReadingWizardTemplateKind =
   | IeltsReadingP1TemplateKind

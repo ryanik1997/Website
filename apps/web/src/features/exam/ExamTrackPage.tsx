@@ -51,22 +51,13 @@ export default function ExamTrackPage() {
   const navigate = useNavigate()
   const { trackId, level: levelParam } = useParams<{ trackId: string; level?: string }>()
 
-  if (trackId === 'ket') {
-    return <Navigate to="/app/exam/track/cambridge/a2" replace />
-  }
-
-  const track = trackId ? getExamTrack(trackId) : null
-  const cambridgeLevel = levelParam && isCambridgeLevelSlug(levelParam)
-    ? getCambridgeExamLevel(levelParam)
-    : null
-
   const [showImportManual, setShowImportManual] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
   const [showIeltsWizard, setShowIeltsWizard] = useState(false)
   const [showReadingWizard, setShowReadingWizard] = useState(false)
   const [showImportWord, setShowImportWord] = useState(false)
-  const [wizardHasDraft, setWizardHasDraft] = useState(hasIeltsListeningWizardDraft)
-  const [readingWizardHasDraft, setReadingWizardHasDraft] = useState(hasIeltsReadingWizardDraft)
+  const [wizardHasDraft, setWizardHasDraft] = useState(() => hasIeltsListeningWizardDraft())
+  const [readingWizardHasDraft, setReadingWizardHasDraft] = useState(() => hasIeltsReadingWizardDraft())
   const [readingWizardEdit, setReadingWizardEdit] = useState<{
     exam: ReadingExam
     sourceFilename?: string
@@ -76,6 +67,15 @@ export default function ExamTrackPage() {
   const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
   const listeningExams = useLiveQuery(() => listAllListeningExams(), []) ?? []
   useExamDraftRevision()
+
+  if (trackId === 'ket') {
+    return <Navigate to="/app/exam/track/cambridge/a2" replace />
+  }
+
+  const track = trackId ? getExamTrack(trackId) : null
+  const cambridgeLevel = levelParam && isCambridgeLevelSlug(levelParam)
+    ? getCambridgeExamLevel(levelParam)
+    : null
 
   if (!track) {
     return (

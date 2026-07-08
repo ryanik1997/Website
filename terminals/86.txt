@@ -1,0 +1,15 @@
+---
+pid: 51636
+cwd: "D:\App-English-Ryan\Website"
+command: "Get-NetTCPConnection -LocalPort 47821 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Start-Sleep -Seconds 1; $env:OPENAI_UPSTREAM='https://api.freemodel.dev'; $env:PXPIPE_MODELS='gpt-5.5,gpt-5.6'; $env:PORT='47821'; cd C:\\Users\\ADMIN\\mcps\\pxpipe-main\\pxpipe-main; node bin\\cli.js"
+started_at: 2026-07-08T09:54:17.141Z
+running_for_ms: 2960008  
+---
+[pxpipe] listening on http://127.0.0.1:47821
+[pxpipe] anthropic upstream → https://api.anthropic.com
+[pxpipe] openai upstream → https://api.freemodel.dev
+[pxpipe] tracking events → C:\Users\ADMIN\.pxpipe\events.jsonl
+[pxpipe] dashboard → http://127.0.0.1:47821/
+[2026-07-08T09:54:22.383Z] HEAD /v1 → 404 (388ms) 
+[2026-07-08T09:54:22.840Z] GET /v1/models → 401 (454ms) 
+[pxpipe 401] upstream body: {"type":"error","error":{"type":"authentication_error","message":"x-api-key header is required"},"request_id":"req_011CcpPT9Zd7jNgWy6NYhLYd"}

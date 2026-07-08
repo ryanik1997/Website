@@ -1,0 +1,12 @@
+---
+pid: 46348
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website\\apps\\web; npx vite build 2>&1 | Select-Object -Last 5"
+started_at: 2026-07-08T10:46:02.706Z
+running_for_ms: 6370009  
+---
+dist/assets/ReadingTest-CTwNxJqz.js                    144.86 kB │ gzip:  28.84 kB
+dist/assets/IeltsReadingImportWizard-CfoU2ooF.js       178.26 kB │ gzip:  56.99 kB
+dist/assets/listeningNotePassage-By58RYTi.js           231.75 kB │ gzip:  64.35 kB
+dist/assets/index-BvtY6UUf.js                          400.10 kB │ gzip: 116.44 kB
+✓ built in 15.59s

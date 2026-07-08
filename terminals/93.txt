@@ -1,0 +1,67 @@
+---
+pid: 36748
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\\apps\\web\"; npx vite build 2>&1 | Select-Object -Last 60"
+started_at: 2026-07-08T10:42:13.840Z
+running_for_ms: 70002    
+---
+dist/assets/WritingIeltsGenrePage-Df0iMW1Q.js            2.00 kB │ gzip:   0.94 kB
+dist/assets/WritingCambridgeGenrePage-CzEvFylz.js        2.00 kB │ gzip:   0.94 kB
+dist/assets/TranslationGenrePage-6oRCiM52.js             2.02 kB │ gzip:   0.93 kB
+dist/assets/readingExamPublish-0gamjXuR.js               2.21 kB │ gzip:   0.85 kB
+dist/assets/FullMockSummary-uU6dVBxF.js                  2.34 kB │ gzip:   0.90 kB
+dist/assets/listeningUtils-CmRLN_3s.js                   2.35 kB │ gzip:   1.08 kB
+dist/assets/provider-BKToNop1.js                         2.39 kB │ gzip:   1.33 kB
+dist/assets/FullMockIntro-Bo7-hvni.js                    2.43 kB │ gzip:   1.17 kB
+dist/assets/WritingLibraryPage-DmkW18nC.js               3.36 kB │ gzip:   0.89 kB
+dist/assets/WritingCambridgePracticePage-BwCArW3k.js     3.44 kB │ gzip:   1.74 kB
+dist/assets/WizardImageLightbox-BQy5vqTk.js              3.45 kB │ gzip:   1.29 kB
+dist/assets/WritingIeltsPracticePage-DUY5iqC8.js         3.46 kB │ gzip:   1.74 kB
+dist/assets/SentenceStructurePracticePage-ZbtwLV8n.js    3.77 kB │ gzip:   1.53 kB
+dist/assets/ieltsCatalog-Bw8yV-Sm.js                     3.80 kB │ gzip:   1.76 kB
+dist/assets/StudyFireworks-kQ9ytTsn.js                   3.81 kB │ gzip:   1.87 kB
+dist/assets/petRwPassageUtils-DFRTogFd.js                3.96 kB │ gzip:   1.90 kB
+dist/assets/AiSettingsPanel-Dgh_FkJD.js                  5.26 kB │ gzip:   1.94 kB
+dist/assets/ListeningLayout-Cxjg6eqq.js                  5.51 kB │ gzip:   2.68 kB
+dist/assets/cambridgeCatalog-C4oDWI9U.js                 5.55 kB │ gzip:   2.32 kB
+dist/assets/adminContentPublish-CMxx2WtE.js              5.57 kB │ gzip:   2.18 kB
+dist/assets/WritingMockTest-DS2SQf0L.js                  5.93 kB │ gzip:   2.13 kB
+dist/assets/writingPrompt-BMsZXsVX.js                    6.04 kB │ gzip:   2.39 kB
+dist/assets/ListeningTtsStatusBadge-DBu05RbK.js          6.42 kB │ gzip:   2.36 kB
+dist/assets/translationCatalog-By_qcq8X.js               6.73 kB │ gzip:   2.72 kB
+dist/assets/tts-C-5ybu4V.js                              7.21 kB │ gzip:   2.74 kB
+dist/assets/SentenceStructureListPage-D-8RV_R4.js        7.43 kB │ gzip:   2.74 kB
+dist/assets/browser-DYkhEV9j.js                          7.80 kB │ gzip:   3.80 kB
+dist/assets/vocabSeedDecks-C8AjNU-7.js                   8.45 kB │ gzip:   3.86 kB
+dist/assets/ImportListeningWordModal-BYRH7miR.js         9.00 kB │ gzip:   3.08 kB
+dist/assets/useNotifications-Brl4-rQ1.js                 9.02 kB │ gzip:   3.61 kB
+dist/assets/WritingDashboardPage-D_bz-rlC.js            11.39 kB │ gzip:   3.57 kB
+dist/assets/listeningImportNormalize-BJ7CX7uy.js        12.86 kB │ gzip:   4.03 kB
+dist/assets/ieltsListeningDocxImport-imD5sTVc.js        16.16 kB │ gzip:   6.10 kB
+dist/assets/HomePage-CkA0zxU0.js                        17.01 kB │ gzip:   5.76 kB
+dist/assets/usePartHighlights-TCplx8r-.js               17.32 kB │ gzip:   5.87 kB
+dist/assets/ImportListeningModal-CO2ZiIfF.js            17.74 kB │ gzip:   5.25 kB
+dist/assets/AdminPage-xwtGPJkg.js                       20.70 kB │ gzip:   6.20 kB
+dist/assets/MindmapPage-BYCt0GJW.js                     25.35 kB │ gzip:   9.25 kB
+dist/assets/importListeningUtils-CRF0Ln4Z.js            30.13 kB │ gzip:   8.41 kB
+dist/assets/importReadingManualUtils-BP3qGd6q.js        30.52 kB │ gzip:   9.27 kB
+dist/assets/ImportReadingManualModal-DP9K2xF8.js        32.63 kB │ gzip:   8.59 kB
+dist/assets/SettingsPage-CEVQ8XiK.js                    33.13 kB │ gzip:   9.08 kB
+dist/assets/AppShell-CmTdjRKR.js                        35.45 kB │ gzip:  10.96 kB
+dist/assets/TranslationPracticePage-CNegbjgD.js         38.14 kB │ gzip:  11.69 kB
+dist/assets/IeltsListeningImportWizard-B2U3v_2X.js      38.71 kB │ gzip:  13.19 kB
+dist/assets/ListeningLibraryPage-DJMj70QH.js            41.04 kB │ gzip:   9.73 kB
+dist/assets/WritingEditor-L0TAcr5t.js                   41.78 kB │ gzip:  11.81 kB
+dist/assets/ExamTrackPage-fhkhxLF7.js                   41.97 kB │ gzip:  11.92 kB
+dist/assets/ListeningLessonPage-CBY547JU.js             44.04 kB │ gzip:  13.63 kB
+dist/assets/LandingPage-Cux9hzJz.js                     47.24 kB │ gzip:  12.12 kB
+dist/assets/ieltsListeningP4Templates-BMsPbIxq.js       50.62 kB │ gzip:  14.05 kB
+dist/assets/examCompletion-jv1fgfR2.js                  72.57 kB │ gzip:  24.97 kB
+dist/assets/VocabularyPage-9NO00ekK.js                  86.51 kB │ gzip:  22.87 kB
+dist/assets/ListeningTest-Co5kceQh.js                   99.94 kB │ gzip:  22.99 kB
+dist/assets/schema-DBhFz2Fj.js                         102.18 kB │ gzip:  32.88 kB
+dist/assets/ReadingTest-CTwNxJqz.js                    144.86 kB │ gzip:  28.84 kB
+dist/assets/IeltsReadingImportWizard-CfoU2ooF.js       178.26 kB │ gzip:  56.99 kB
+dist/assets/listeningNotePassage-By58RYTi.js           231.75 kB │ gzip:  64.35 kB
+dist/assets/index-BvtY6UUf.js                          400.10 kB │ gzip: 116.44 kB
+✓ built in 15.51s

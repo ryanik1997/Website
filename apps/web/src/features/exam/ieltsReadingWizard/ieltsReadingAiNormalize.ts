@@ -1,7 +1,13 @@
 import type { ReadingImportPartJson } from '../importReadingManualUtils'
 import {
+  gapNumbersInReadingNoteTable,
+  mergeTemplateNoteTables,
+  normalizeReadingImportNoteTables,
+} from '../readingNoteTableUtils'
+import {
   IELTS_READING_PASSAGE_RANGES,
   type IeltsReadingPassageNumber,
+  type IeltsReadingWizardTemplateKind,
 } from './ieltsReadingWizardConfig'
 
 export function normalizeAiReadingPart(part: ReadingImportPartJson): ReadingImportPartJson {
@@ -19,7 +25,20 @@ export function normalizeAiReadingPart(part: ReadingImportPartJson): ReadingImpo
     }))
   }
 
+  next.questionGroups = normalizeReadingImportNoteTables(next.questionGroups)
+
   return next
+}
+
+export function applyReadingTemplateTableStructure(
+  part: ReadingImportPartJson,
+  templatePart: ReadingImportPartJson,
+): ReadingImportPartJson {
+  const merged = mergeTemplateNoteTables(part, templatePart)
+  return {
+    ...part,
+    questionGroups: normalizeReadingImportNoteTables(merged.questionGroups),
+  }
 }
 
 export function validateAiReadingPartShape(
@@ -55,5 +74,50 @@ export function validateAiReadingPartShape(
     if (/placeholder/i.test(q.prompt)) {
       throw new Error(`Câu ${q.number}: prompt placeholder.`)
     }
+  }
+}
+
+const TABLE_TEMPLATE_KINDS = new Set<IeltsReadingWizardTemplateKind>([
+  'p1-r1-tfng-gap-table',
+  'p3-r3-match-table-features',
+  'p3-r3-table-ynng-match',
+])
+
+export function validateAiReadingPartAgainstTemplate(
+  part: ReadingImportPartJson,
+  passageNumber: IeltsReadingPassageNumber,
+  templateKind: IeltsReadingWizardTemplateKind,
+): void {
+  if (!TABLE_TEMPLATE_KINDS.has(templateKind)) return
+
+  const errors: string[] = []
+  const tableGroups = part.questionGroups.filter(g => {
+    const gaps = g.questions.filter(q => q.type === 'gap-fill').map(q => q.number)
+    return gaps.length > 0
+  })
+
+  for (const group of tableGroups) {
+    const gapNums = group.questions.filter(q => q.type === 'gap-fill').map(q => q.number)
+    if (!group.noteTable?.headers?.length || !group.noteTable.rows?.length) {
+      errors.push(`${group.range}: thiếu noteTable (cần bảng ${gapNums.length} gap).`)
+      continue
+    }
+    const tableGaps = gapNumbersInReadingNoteTable(group.noteTable)
+    for (const n of gapNums) {
+      if (!tableGaps.includes(n)) {
+        errors.push(`${group.range}: noteTable thiếu gap ${n}.`)
+      }
+    }
+  }
+
+  if (passageNumber === 3 && templateKind === 'p3-r3-table-ynng-match') {
+    const sig = part.questionGroups.map(g => g.type).join('|')
+    if (sig !== 'gap-fill|ynng|matching-paragraph') {
+      errors.push(`Layout P3 r3ty cần gap-fill|ynng|matching-paragraph (nhận ${sig}).`)
+    }
+  }
+
+  if (errors.length) {
+    throw new Error(errors.join(' '))
   }
 }

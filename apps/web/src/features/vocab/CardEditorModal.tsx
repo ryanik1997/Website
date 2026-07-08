@@ -10,7 +10,7 @@ interface Props {
   onClose: () => void
 }
 
-type FormData = { phrase: string; meaning: string; example: string; ipaUS: string; pos: string }
+type FormData = { phrase: string; meaning: string; example: string; ipaUS: string; ipaUK: string; pos: string }
 
 const INPUT_CLS = 'w-full px-3 py-2 rounded-lg text-sm border outline-none'
 const INPUT_STYLE = { background: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }
@@ -22,6 +22,7 @@ export default function CardEditorModal({ deckId, card, onClose }: Props) {
     meaning: card?.meaning ?? '',
     example: card?.example ?? '',
     ipaUS: card?.ipaUS ?? '',
+    ipaUK: card?.ipaUK ?? '',
     pos: card?.pos ?? '',
   })
   const [saving, setSaving] = useState(false)
@@ -42,7 +43,7 @@ export default function CardEditorModal({ deckId, card, onClose }: Props) {
       meaning: form.meaning.trim(),
       example: form.example.trim() || undefined,
       ipaUS: form.ipaUS.trim() || undefined,
-      ipaUK: undefined as string | undefined,
+      ipaUK: form.ipaUK.trim() || undefined,
       pos: resolvePos(form.phrase.trim(), form.pos.trim() || undefined),
     }
     if (card) {
@@ -54,7 +55,7 @@ export default function CardEditorModal({ deckId, card, onClose }: Props) {
     if (andClose) {
       onClose()
     } else {
-      setForm({ phrase: '', meaning: '', example: '', ipaUS: '', pos: '' })
+      setForm({ phrase: '', meaning: '', example: '', ipaUS: '', ipaUK: '', pos: '' })
       setTimeout(() => (document.getElementById(`${id}-phrase`) as HTMLInputElement)?.focus(), 50)
     }
   }
@@ -126,15 +127,27 @@ export default function CardEditorModal({ deckId, card, onClose }: Props) {
               style={INPUT_STYLE}
             />
           </div>
-          <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Phát âm IPA (US)</label>
-            <input
-              value={form.ipaUS}
-              onChange={set('ipaUS')}
-              placeholder="/əˈbændən/"
-              className={INPUT_CLS}
-              style={INPUT_STYLE}
-            />
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Phát âm IPA (US)</label>
+              <input
+                value={form.ipaUS}
+                onChange={set('ipaUS')}
+                placeholder="/əˈbændən/"
+                className={INPUT_CLS}
+                style={INPUT_STYLE}
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Phát âm IPA (UK)</label>
+              <input
+                value={form.ipaUK}
+                onChange={set('ipaUK')}
+                placeholder="/əˈbændən/"
+                className={INPUT_CLS}
+                style={INPUT_STYLE}
+              />
+            </div>
           </div>
         </div>
 

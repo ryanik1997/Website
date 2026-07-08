@@ -264,9 +264,6 @@ function MatchingParagraphGroup({
             onClick={() => {
               if (!activeQuestion) return
               onAnswer(activeQuestion.id, letter.toLowerCase())
-              const idx = group.questions.findIndex(q => q.id === activeQuestion.id)
-              const next = group.questions[idx + 1]
-              if (next) onSelectQuestion(next.id)
             }}
           >
             Paragraph {letter}
@@ -388,9 +385,6 @@ function MatchingHeadingsGroup({
             onClick={() => {
               if (!activeQuestion) return
               onAnswer(activeQuestion.id, heading.id.toLowerCase())
-              const idx = group.questions.findIndex(q => q.id === activeQuestion.id)
-              const next = group.questions[idx + 1]
-              if (next) onSelectQuestion(next.id)
             }}
           >
             {heading.id}
@@ -863,9 +857,6 @@ function SummaryCompletionGroup({
             onClick={() => {
               if (!activeQuestion) return
               onAnswer(activeQuestion.id, word.id)
-              const idx = group.questions.findIndex(q => q.id === activeQuestion.id)
-              const next = group.questions[idx + 1]
-              if (next) onSelectQuestion(next.id)
             }}
           >
             {word.id.toUpperCase()}
@@ -985,9 +976,6 @@ function MatchingFeaturesGroup({
             onClick={() => {
               if (!activeQuestion) return
               onAnswer(activeQuestion.id, feature.id)
-              const idx = group.questions.findIndex(q => q.id === activeQuestion.id)
-              const next = group.questions[idx + 1]
-              if (next) onSelectQuestion(next.id)
             }}
           >
             {feature.id.toUpperCase()}

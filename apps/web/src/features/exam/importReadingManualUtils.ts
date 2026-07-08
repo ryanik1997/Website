@@ -17,6 +17,11 @@ import {
   cambridgeReadingImportTemplate,
   cambridgeReadingPartGuides,
 } from './cambridgeReadingImportTemplates'
+import {
+  normalizeReadingImportNoteTables,
+  normalizeReadingNoteTable,
+  validateReadingNoteTable,
+} from './readingNoteTableUtils'
 
 export const READING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const READING_IMPORT_MAX_MEDIA_BYTES = 40 * 1024 * 1024
@@ -207,7 +212,7 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
         : partInstructions || 'Choose the correct answer.',
       note: typeof g.note === 'string' ? g.note : undefined,
       imageFile: typeof g.imageFile === 'string' && g.imageFile.trim() ? g.imageFile.trim() : undefined,
-      noteTable: g.noteTable as ReadingImportQuestionGroupJson['noteTable'],
+      noteTable: normalizeReadingNoteTable(g.noteTable as ReadingImportQuestionGroupJson['noteTable']),
       notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
       notesTitle: typeof g.notesTitle === 'string' ? g.notesTitle.trim() : undefined,
       type: groupType,
@@ -225,7 +230,7 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
     passageTitle,
     passageSubtitle: typeof raw.passageSubtitle === 'string' ? raw.passageSubtitle : undefined,
     passage: Array.isArray(raw.passage) ? raw.passage as ReadingImportPassageBlockJson[] : [],
-    questionGroups,
+    questionGroups: normalizeReadingImportNoteTables(questionGroups),
   }
 }
 
@@ -321,6 +326,27 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
     for (const group of part.questionGroups) {
       if (!VALID_GROUP_TYPES.includes(group.type)) {
         warnings.push(`Part ${part.partNumber} — ${group.range}: type "${group.type}" không hợp lệ.`)
+      }
+      if (group.noteTable?.headers?.length) {
+        const gapNums = group.questions
+          .filter(q => q.type === 'gap-fill')
+          .map(q => q.number)
+        warnings.push(
+          ...validateReadingNoteTable(
+            group.noteTable,
+            gapNums,
+            `Part ${part.partNumber} — ${group.range}`,
+          ),
+        )
+      } else if (
+        group.type === 'gap-fill'
+        && group.questions.some(q => q.type === 'gap-fill' && /^gap\s*\(/i.test(q.prompt))
+        && !group.notePassage?.length
+        && !group.note?.includes('________')
+      ) {
+        warnings.push(
+          `Part ${part.partNumber} — ${group.range}: gap-fill cần noteTable (bảng n cột) hoặc note/notePassage inline.`,
+        )
       }
       if (group.type === 'matching-headings') {
         if (!group.headings?.length) {
