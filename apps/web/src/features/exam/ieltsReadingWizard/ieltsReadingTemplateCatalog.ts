@@ -100,6 +100,20 @@ export const IELTS_P1_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     description: 'Matching headings Q1–7 (A–G) + note completion Q8–13 (notePassage) — Cam12 Test 5 P1 (Flying tortoises).',
     previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_4.jpg',
   },
+  {
+    kind: 'p1-r1-notes-tfng-8',
+    code: 'r1n8',
+    label: 'Notes (8) + TFNG',
+    description: 'Note completion Q1–8 (notePassage, ONE WORD) + TFNG Q9–13 — Cam12 Test 8 P1 (The history of glass).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_5.jpg',
+  },
+  {
+    kind: 'p1-r1-table-tfng',
+    code: 'r1tt',
+    label: 'Table + TFNG',
+    description: 'Table completion Q1–8 (noteTable 3 cột, merge ô) + TFNG Q9–13 — Cam13 T4 P1 (Coconut palm); hỗ trợ bảng 2 cột không merge.',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_7.jpg',
+  },
 ]
 
 export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
@@ -179,6 +193,20 @@ export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     label: 'Headings + TFNG + Sentence',
     description: 'Matching headings Q14–20 + TFNG Q21–24 + sentence completion ONE WORD Q25–26 — Cam12 Test 8 P2 (The Lost City).',
     previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg',
+  },
+  {
+    kind: 'p2-r2-mc-summary-ynng',
+    code: 'r2ms',
+    label: 'MC + Summary + YNNG',
+    description: 'Multiple choice Q14–18 + summary word bank A–F Q19–22 + YNNG Q23–26 — Cam12 Test 8 P2 (Bring back the big cats).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_8.jpg',
+  },
+  {
+    kind: 'p2-r2-headings-match-summary',
+    code: 'r2hms',
+    label: 'Headings + Match + Summary',
+    description: 'Matching headings Q14–19 (A–F) + match ideas Q20–23 + summary ONE WORD Q24–26 — Cam13 Test 1 P2 (Boredom).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_9.jpg',
   },
 ]
 

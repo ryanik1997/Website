@@ -3,9 +3,10 @@ import { examRepo } from '@ryan/db'
 import type { ReadingExam, ReadingPart } from './examData'
 import { READING_EXAMS } from './examData'
 import { getPublishedReadingExam, listPublishedReadingExams } from './readingExamPublish'
+import { sanitizeReadingExam } from './readingExamSanitize'
 
 function recordToExam(record: ReadingExamRecord): ReadingExam {
-  return {
+  return sanitizeReadingExam({
     id: record.id,
     title: record.title,
     durationMinutes: record.durationMinutes,
@@ -13,7 +14,7 @@ function recordToExam(record: ReadingExamRecord): ReadingExam {
     parts: record.parts as ReadingPart[],
     examTrack: record.examTrack,
     cambridgeLevel: record.cambridgeLevel,
-  }
+  })
 }
 
 export function getBuiltinReadingExam(examId: string): ReadingExam | null {
@@ -26,7 +27,7 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
 
   try {
     const published = await getPublishedReadingExam(examId)
-    if (published) return published
+    if (published) return sanitizeReadingExam(published)
   } catch (err) {
     console.warn('Không tải được đề Reading published:', err)
   }
@@ -46,7 +47,7 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
   }
 
   const publishedIds = new Set(published.map(e => e.id))
-  const publishedOnly = published.filter(e => !builtinIds.has(e.id))
+  const publishedOnly = published.map(sanitizeReadingExam).filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   return [...READING_EXAMS, ...publishedOnly, ...localOnly]
 }

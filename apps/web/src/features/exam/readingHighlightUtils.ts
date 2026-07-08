@@ -76,12 +76,13 @@ function collectBlockBreakpoints(
 }
 
 export function segmentsFromAnnotations(
-  text: string,
+  text: string | undefined,
   highlights: ReadingHighlight[],
   notes: TextNote[],
   blockId: string,
 ): TextAnnotationSegment[] {
-  const len = text.length
+  const safeText = text ?? ''
+  const len = safeText.length
   if (len === 0) return [{ text: '', highlighted: false }]
 
   const sorted = collectBlockBreakpoints(len, blockId, highlights, notes)
@@ -100,13 +101,13 @@ export function segmentsFromAnnotations(
     )
 
     segments.push({
-      text: text.slice(start, end),
+      text: safeText.slice(start, end),
       highlighted,
       note: overlappingNote?.text,
     })
   }
 
-  return segments.length > 0 ? segments : [{ text, highlighted: false }]
+  return segments.length > 0 ? segments : [{ text: safeText, highlighted: false }]
 }
 
 export function segmentsFromHighlights(

@@ -333,7 +333,7 @@ export default function ReadingPassagePanel({
           <ul className="reading-ket-features__list reading-ket-ref-list">
             {features.map((feature, index) => {
               const letter = referenceLetter(feature.id, index)
-              const { title, body } = splitReferenceText(feature.name, part.partNumber === 2)
+              const { title, body } = splitReferenceText(feature.name ?? '', part.partNumber === 2)
               const anchorId = readingPassageFeatureAnchorId(part.id, feature.id)
               return (
                 <li

@@ -46,3 +46,19 @@ pnpm deploy:prod                      # db:push + build + vercel deploy --prod
 3. **Không hardcode màu** (`#fff`, `#000`) — dùng biến
 4. **Bump version** trong package.json khi release
 5. **Cập nhật session_summary.md** sau mỗi session
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues (`ryanik1997/Website`) via `gh` CLI. External PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Canonical five-role vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) — no aliases. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context — `CONTEXT.md` + `docs/adr/` at repo root (created lazily by `/domain-modeling` when needed). See `docs/agents/domain.md`.

@@ -17,6 +17,7 @@ import {
   cambridgeReadingImportTemplate,
   cambridgeReadingPartGuides,
 } from './cambridgeReadingImportTemplates'
+import { normalizeReadingGroupType, sanitizeReadingExam } from './readingExamSanitize'
 import {
   normalizeReadingImportNoteTables,
   normalizeReadingNoteTable,
@@ -179,19 +180,28 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
 
   const questionGroups: ReadingImportQuestionGroupJson[] = rawGroups.map(group => {
     const g = group as Record<string, unknown>
-    const groupType = (g.type as ReadingImportQuestionGroupJson['type']) ?? 'multiple-choice'
+    const noteTable = normalizeReadingNoteTable(g.noteTable as ReadingImportQuestionGroupJson['noteTable'])
+    const preliminaryType = normalizeReadingGroupType(
+      typeof g.type === 'string' ? g.type : undefined,
+      {
+        noteTable: noteTable ?? undefined,
+        notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
+        note: typeof g.note === 'string' ? g.note : undefined,
+        questions: [],
+      },
+    )
     const questionsRaw = Array.isArray(g.questions) ? g.questions : []
     const questions: ReadingImportQuestionJson[] = questionsRaw.map(q => {
       const item = q as Record<string, unknown>
       const number = Number(item.number) || 0
       const qType = (item.type as ReadingImportQuestionJson['type'])
-        ?? (groupType === 'gap-fill' || groupType === 'summary-completion' ? 'gap-fill'
-          : groupType === 'ynng' ? 'yes-no-not-given'
-            : groupType === 'matching-headings' ? 'matching-headings'
+        ?? (preliminaryType === 'gap-fill' || preliminaryType === 'summary-completion' ? 'gap-fill'
+          : preliminaryType === 'ynng' ? 'yes-no-not-given'
+            : preliminaryType === 'matching-headings' ? 'matching-headings'
               : 'multiple-choice')
       const prompt = typeof item.prompt === 'string' ? item.prompt.trim() : ''
       let options = Array.isArray(item.options) ? item.options as ReadingImportQuestionJson['options'] : undefined
-      if (groupType === 'ynng' && qType === 'yes-no-not-given' && (!options || options.length < 3)) {
+      if (preliminaryType === 'ynng' && qType === 'yes-no-not-given' && (!options || options.length < 3)) {
         options = [...YNNG_IMPORT_OPTIONS]
       }
       return {
@@ -205,6 +215,16 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
       }
     })
 
+    const groupType = normalizeReadingGroupType(
+      typeof g.type === 'string' ? g.type : undefined,
+      {
+        noteTable: noteTable ?? undefined,
+        notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
+        note: typeof g.note === 'string' ? g.note : undefined,
+        questions,
+      },
+    )
+
     return {
       range: typeof g.range === 'string' && g.range.trim() ? g.range.trim() : rangeLabel,
       instruction: typeof g.instruction === 'string' && g.instruction.trim()
@@ -212,7 +232,7 @@ function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJso
         : partInstructions || 'Choose the correct answer.',
       note: typeof g.note === 'string' ? g.note : undefined,
       imageFile: typeof g.imageFile === 'string' && g.imageFile.trim() ? g.imageFile.trim() : undefined,
-      noteTable: normalizeReadingNoteTable(g.noteTable as ReadingImportQuestionGroupJson['noteTable']),
+      noteTable,
       notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
       notesTitle: typeof g.notesTitle === 'string' ? g.notesTitle.trim() : undefined,
       type: groupType,
@@ -576,7 +596,7 @@ export async function buildReadingExamFromImport(
   const bandHint = defaultBandHint(payload)
     + (partCount > 0 ? ` — ${partCount} part${partCount === 1 ? '' : 's'}` : '')
 
-  return {
+  return sanitizeReadingExam({
     id: examId,
     title: payload.title,
     durationMinutes: payload.durationMinutes,
@@ -584,7 +604,7 @@ export async function buildReadingExamFromImport(
     parts,
     examTrack: payload.examTrack,
     cambridgeLevel: payload.cambridgeLevel,
-  }
+  })
 }
 
 export function readingImportTemplate(

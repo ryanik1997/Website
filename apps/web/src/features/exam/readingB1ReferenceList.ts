@@ -13,8 +13,8 @@ export function isMarketLikeBlock(text: string): boolean {
   return /^.+\s*[—–-]\s+\S/.test(text.trim())
 }
 
-export function splitReferenceText(text: string, withTitle: boolean): { title?: string; body: string } {
-  const trimmed = text.trim()
+export function splitReferenceText(text: string | undefined, withTitle: boolean): { title?: string; body: string } {
+  const trimmed = (text ?? '').trim()
   if (!withTitle) return { body: trimmed }
   const match = trimmed.match(/^(.+?)\s*[—–-]\s+([\s\S]+)$/)
   if (match) return { title: match[1].trim(), body: match[2].trim() }
@@ -86,7 +86,7 @@ export function buildB1ReferenceBlocks(
     const letter = referenceLetter(feature.id, index)
     const slot = slotIndexForLetter(letter, count)
     if (slot < 0 || slots[slot]) continue
-    slots[slot] = { label: letter, text: feature.name }
+    slots[slot] = { label: letter, text: feature.name ?? '' }
   }
 
   return slots.filter((b): b is ReadingPassageBlock => b !== null)

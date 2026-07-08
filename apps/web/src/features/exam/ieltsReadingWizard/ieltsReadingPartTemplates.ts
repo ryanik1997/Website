@@ -282,6 +282,94 @@ export const CAM10_T4_WILDFIRES_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
   { type: 'static', text: ' in vulnerable places' },
 ]
 
+/** Cam12 T8 — notes Glass Q1–8 */
+export const CAM12_T8_GLASS_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'static', text: '• Early humans used a material called ' },
+  { type: 'gap', number: 1 },
+  { type: 'static', text: ' to make the sharp points of their ' },
+  { type: 'gap', number: 2 },
+  { type: 'static', text: '• 4000 BC: ' },
+  { type: 'gap', number: 3 },
+  { type: 'static', text: ' made of stone were covered in a coating of man-made glass.' },
+  { type: 'static', text: '• First century BC: glass was coloured because of the ' },
+  { type: 'gap', number: 4 },
+  { type: 'static', text: ' in the material.' },
+  { type: 'static', text: '• Until 476 AD: Only the ' },
+  { type: 'gap', number: 5 },
+  { type: 'static', text: ' knew how to make glass.' },
+  { type: 'static', text: '• From 10th century: Venetians became famous for making bottles out of glass.' },
+  { type: 'static', text: '• 17th century: George Ravenscroft developed a process using ' },
+  { type: 'gap', number: 6 },
+  { type: 'static', text: ' to avoid the occurrence of ' },
+  { type: 'gap', number: 7 },
+  { type: 'static', text: ' in blown glass.' },
+  { type: 'static', text: '• Mid-19th century: British glass production developed after changes to laws concerning ' },
+  { type: 'gap', number: 8 },
+]
+
+/** Cam12 T8 — notes Q1–8 (notePassage) + TFNG Q9–13 */
+export function ieltsReadingP1NotesTfng8Part(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'The history of glass',
+    passage: [
+      {
+        text: 'From our earliest origins, man has been making use of glass. Historians have discovered that a type of natural glass - obsidian - formed in places such as the mouth of a volcano as a result of the intense heat of an eruption melting sand - was first used as tips for spears. Archaeologists have even found evidence of man-made glass which dates back to 4000 BC; this took the form of glazes used for coating stone beads. It was not until 1500 BC, however, that the first hollow glass container was made by covering a sand core with a layer of molten glass.',
+      },
+      {
+        text: 'Glass blowing became the most common way to make glass containers from the first century BC. The glass made during this time was highly coloured due to the impurities of the raw material. In the first century AD, methods of creating colourless glass were developed, which was then tinted by the addition of colouring materials. The secret of glass making was taken across Europe by the Romans during this century. However, they guarded the skills and technology required to make glass very closely, and it was not until their empire collapsed in 476 AD that glass-making knowledge became widespread throughout Europe and the Middle East. From the 10th century onwards, the Venetians gained a reputation for technical skill and artistic ability in the making of glass bottles, and many of the city\'s craftsmen left Italy to set up glassworks throughout Europe.',
+      },
+      {
+        text: 'A major milestone in the history of glass occurred with the invention of lead crystal glass by the English glass manufacturer George Ravenscroft (1632 - 1683). He attempted to counter the effect of clouding that sometimes occurred in blown glass by introducing lead to the raw materials used in the process. The new glass he created was softer and easier to decorate, and had a higher refractive index, adding to its brilliance and beauty, and it proved invaluable to the optical industry. It is thanks to Ravenscroft\'s invention that optical lenses, astronomical telescopes, microscopes and the like became possible.',
+      },
+      {
+        text: 'In Britain, the modern glass industry only really started to develop after the repeal of the Excise Act in 1845. Before that time, heavy taxes had been placed on the amount of glass melted in a glasshouse, and were levied continuously from 1745 to 1845. Joseph Paxton\'s Crystal Palace at London\'s Great Exhibition of 1851 marked the beginning of glass as a material used in the building industry. This revolutionary new building encouraged the use of glass in public, domestic and horticultural architecture. Glass manufacturing techniques also improved with the advancement of science and the development of better technology.',
+      },
+      {
+        text: 'From 1887 onwards, glass making developed from traditional mouth-blowing to a semi-automatic process, after factory-owner HM Ashley introduced a machine capable of producing 200 bottles per hour in Castleford, Yorkshire, England - more than three times quicker than any previous production method. Then in 1907, the first fully automated machine was developed in the USA by Michael Owens - founder of the Owens Bottle Machine Company (later the major manufacturers Owens-Illinois) - and installed in its factory. Owens\' invention could produce an impressive 2,500 bottles per hour. Other developments followed rapidly, but it was not until the First World War when Britain became cut off from essential glass suppliers, that glass became part of the scientific sector. Previous to this, glass had been seen as a craft rather than a precise science.',
+      },
+      {
+        text: 'Today, glass making is big business. It has become a modern, hi-tech industry operating in a fiercely competitive global market where quality, design and service levels are critical to maintaining market share. Modern glass plants are capable of making millions of glass containers a day in many different colours, with green, brown and clear remaining the most popular. Few of us can imagine modern life without glass. It features in almost every aspect of our lives - in our homes, our cars and whenever we sit down to eat or drink. Glass packaging is used for many products, many beverages are sold in glass, as are numerous foodstuffs, as well as medicines and cosmetics.',
+      },
+      {
+        text: 'Glass is an ideal material for recycling, and with growing consumer concern for green issues, glass bottles and jars are becoming ever more popular. Glass recycling is good news for the environment. It saves used glass containers being sent to landfill. As less energy is needed to melt recycled glass than to melt down raw materials, this also saves fuel and production costs. Recycling also reduces the need for raw materials to be quarried, thus saving precious resources.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–8',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'The History of Glass',
+        notePassage: CAM12_T8_GLASS_NOTE_PASSAGE,
+        questions: gapQuestions(1, [
+          { prompt: 'Gap (1)', answer: 'obsidian', explanation: 'Natural glass obsidian dùng làm đầu nhọn giáo.' },
+          { prompt: 'Gap (2)', answer: 'spears', explanation: 'Obsidian làm tips for spears.' },
+          { prompt: 'Gap (3)', answer: 'beads', explanation: 'Glazes phủ stone beads từ 4000 BC.' },
+          { prompt: 'Gap (4)', answer: 'impurities', explanation: 'Kính màu do tạp chất nguyên liệu thô.' },
+          { prompt: 'Gap (5)', answer: 'Romans', explanation: 'Chỉ người La Mã giữ bí mật cho đến 476 AD.' },
+          { prompt: 'Gap (6)', answer: 'lead', explanation: 'Ravenscroft thêm lead vào nguyên liệu.' },
+          { prompt: 'Gap (7)', answer: 'clouding', explanation: 'Lead chống hiện tượng clouding.' },
+          { prompt: 'Gap (8)', answer: 'taxes', explanation: 'Bãi bỏ thuế Excise Act 1845.' },
+        ]),
+      },
+      {
+        range: 'Questions 9–13',
+        instruction: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE or NOT GIVEN.',
+        type: 'tfng',
+        questions: [
+          { number: 9, type: 'true-false-not-given', prompt: 'In 1887, HM Ashley had the fastest bottle-producing machine that existed at the time.', options: TFNG_OPTIONS, answer: 'true', explanation: '200 chai/giờ — nhanh hơn 3 lần mọi phương pháp trước.' },
+          { number: 10, type: 'true-false-not-given', prompt: 'Michael Owens was hired by a large US company to design a fully-automated bottle manufacturing machine for them.', options: TFNG_OPTIONS, answer: 'false', explanation: 'Owens tự sáng lập Owens Bottle Machine Company.' },
+          { number: 11, type: 'true-false-not-given', prompt: 'Nowadays, most glass is produced by large international manufacturers.', options: TFNG_OPTIONS, answer: 'not-given', explanation: 'Passage nói ngành cạnh tranh toàn cầu — không nói ai sản xuất phần lớn.' },
+          { number: 12, type: 'true-false-not-given', prompt: 'Concern for the environment is leading to an increased demand for glass containers.', options: TFNG_OPTIONS, answer: 'true', explanation: 'Growing consumer concern for green issues — chai lọ kính phổ biến hơn.' },
+          { number: 13, type: 'true-false-not-given', prompt: 'It is more expensive to produce recycled glass than to manufacture new glass.', options: TFNG_OPTIONS, answer: 'false', explanation: 'Ít năng lượng hơn — tiết kiệm chi phí sản xuất.' },
+        ],
+      },
+    ],
+  }
+}
+
 /** Cam10 T4 — notes Q1–6 (notePassage) + TFNG Q7–13 */
 export function ieltsReadingP1NotesTfngPart(): ReadingImportPartJson {
   const base = MOCK.parts[0]
@@ -318,6 +406,260 @@ export function ieltsReadingP1NotesTfngPart(): ReadingImportPartJson {
           { number: 11, type: 'true-false-not-given', prompt: 'More firefighters have been hired to improve fire-fighting capacity.', options: TFNG_OPTIONS, answer: 'not-given', explanation: 'Tăng ngân sách — không nói tuyển thêm lính cứu hỏa.' },
           { number: 12, type: 'true-false-not-given', prompt: 'Citizens and government groups disapprove of the efforts of different states and agencies working together.', options: TFNG_OPTIONS, answer: 'false', explanation: 'Phối hợp liên bang hiệu quả hơn trước.' },
           { number: 13, type: 'true-false-not-given', prompt: 'Randy Jacobs believes that loss of life from fires will continue at the same levels, despite changes made.', options: TFNG_OPTIONS, answer: 'false', explanation: 'Ông tin sẽ không còn mất mạng như trước.' },
+        ],
+      },
+    ],
+  }
+}
+
+/** Cam13 T1 — bảng NZ website Q1–7 (2 cột × 5 hàng, không merge) */
+export const CAM13_T1_NZ_WEBSITE_TABLE: ReadingNoteTable = {
+  headers: ['Section of website', 'Comments'],
+  gapNumbers: [1, 2, 3, 4, 5, 6, 7],
+  rows: [
+    {
+      cells: [
+        [{ type: 'static', text: 'Database of tourism services' }],
+        [
+          { type: 'static', text: '• easy for tourism-related businesses to get on the list' },
+          { type: 'break' },
+          { type: 'static', text: '• allowed businesses to ' },
+          { type: 'gap', number: 1 },
+          { type: 'static', text: ' information regularly' },
+          { type: 'break' },
+          { type: 'static', text: '• provided a country-wide evaluation of businesses, including their impact on the ' },
+          { type: 'gap', number: 2 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Special features on local topics' }],
+        [
+          { type: 'static', text: '• e.g. an interview with a former sports ' },
+          { type: 'gap', number: 3 },
+          { type: 'static', text: ', and an interactive tour of various locations used in ' },
+          { type: 'gap', number: 4 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Information on driving routes' }],
+        [
+          { type: 'static', text: '• varied depending on the ' },
+          { type: 'gap', number: 5 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Travel Planner' }],
+        [
+          { type: 'static', text: '• included a map showing selected places, details of public transport and local ' },
+          { type: 'gap', number: 6 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: "'Your Words'" }],
+        [
+          { type: 'static', text: '• travelers could send a link to their ' },
+          { type: 'gap', number: 7 },
+        ],
+      ],
+    },
+  ],
+}
+
+/** Cam13 T4 — bảng Coconut palm Q1–8 (3 cột, merge dọc "fruits") — mẫu r1tt */
+export const R1TT_MERGE_TABLE_SAMPLE: ReadingNoteTable = {
+  title: 'THE COCONUT PALM',
+  headers: ['Part', 'Description', 'Uses'],
+  gapNumbers: [1, 2, 3, 4, 5, 6, 7, 8],
+  rows: [
+    {
+      cells: [
+        [{ type: 'static', text: 'trunk' }],
+        [{ type: 'static', text: 'up to 30 metres' }],
+        [
+          { type: 'static', text: 'timber for houses and the making of ' },
+          { type: 'gap', number: 1 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'trunk' }],
+        [{ type: 'static', text: 'up to 6 metres long' }],
+        [{ type: 'static', text: 'to make brushes' }],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'flowers' }],
+        [{ type: 'static', text: 'at the top of the trunk' }],
+        [
+          { type: 'static', text: 'stems provide sap, used as a drink or a source of ' },
+          { type: 'gap', number: 2 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { rowSpan: 5, blocks: [{ type: 'static', text: 'fruits' }] },
+        [{ type: 'static', text: 'Outer layers' }],
+        [],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: 'middle layer (coir fibres)' }],
+        [
+          { type: 'static', text: 'used for ' },
+          { type: 'gap', number: 3 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: 'Inner layer (shell)' }],
+        [
+          { type: 'static', text: 'a source of ' },
+          { type: 'gap', number: 4 },
+          { type: 'static', text: ' (when halved) for ' },
+          { type: 'gap', number: 5 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: 'coconut water' }],
+        [
+          { type: 'static', text: 'a drink a source of ' },
+          { type: 'gap', number: 6 },
+          { type: 'static', text: ' for other plants' },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: 'coconut flesh' }],
+        [
+          { type: 'static', text: 'oil and milk for cooking and ' },
+          { type: 'gap', number: 7 },
+          { type: 'static', text: ' glycerine (an ingredient in ' },
+          { type: 'gap', number: 8 },
+          { type: 'static', text: ' )' },
+        ],
+      ],
+    },
+  ],
+}
+
+/** r1tt — table Q1–8 (có merge) + TFNG Q9–13; SAMPLE schema cho wizard AI */
+export function ieltsReadingP1TableTfngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'The coconut palm',
+    passage: [
+      {
+        label: 'A',
+        text: 'New Zealand is a small country of four million inhabitants, a long-haul flight from all the major tourist-generating markets of the world. Tourism currently makes up 9% of the country\'s gross domestic product and is the country\'s largest export sector. Unlike other export sectors, which make products and then sell them overseas, tourism brings its customers to New Zealand. The product is the country itself – the people, the places, and the experiences. In 1999, Tourism New Zealand launched a campaign to communicate a new brand position to the world. The campaign focused on New Zealand\'s scenic beauty, exhilarating outdoor activities and authentic Maori culture, and it made New Zealand one of the strongest national brands in the world.',
+      },
+      {
+        label: 'B',
+        text: 'A key feature of the campaign was the website www.newzealand.com, which provided potential visitors to New Zealand with a single gateway to everything the destination had to offer. The heart of the website was a database of tourism services operators, both those based in New Zealand and those based abroad which offered tourism service to the country. Any tourism-related business could be listed by filling in a simple form. This meant that even the smallest bed and breakfast address or specialist activity provider could gain a web presence with access to an audience of long-haul visitors. In addition, because participating businesses were able to update the details they gave on a regular basis, the information provided remained accurate. And to maintain and improve standards, Tourism New Zealand organised a scheme whereby organisations appearing on the website underwent an independent evaluation against a set of agreed national standards of quality. As part of this, the effect of each business on the environment was considered.',
+      },
+      {
+        label: 'C',
+        text: 'To communicate the New Zealand experience, the site also carried features relating to famous people and places. One of the most popular was an interview with former New Zealand All Blacks rugby captain Tana Umaga. Another feature that attracted a lot of attention was an interactive journey through a number of the locations chosen for blockbuster films which had made use of New Zealand\'s stunning scenery as a backdrop. As the site developed, additional features were added to help independent travelers devise their own customised itineraries. To make it easier to plan motoring holidays, the site catalogued the most popular driving routes in the country, highlighting different routes according to the season and indicating distances and times.',
+      },
+      {
+        label: 'D',
+        text: 'Later, a Travel Planner feature was added, which allowed visitors to click and \'bookmark\' places or attractions they were interested in, and then view the results on a map. The Travel Planner offered suggested routes and public transport options between the chosen locations. There were also links to accommodation in the area. By registering with the website, users could save their Travel Plan and return to it later, or print it out to take on the visit. The website also had a \'Your Words\' section where anyone could submit a blog of their New Zealand travels for possible inclusion on the website.',
+      },
+      {
+        label: 'E',
+        text: 'The Tourism New Zealand website won two Webby awards for online achievement and innovation. More importantly perhaps, the growth of tourism to New Zealand was impressive. Overall tourism expenditure increased by an average of 6.9% per year between 1999 and 2004. From Britain, visits to New Zealand grew at an average annual rate of 13% between 2002 and 2006, compared to a rate of 4% overall for British visits abroad.',
+      },
+      {
+        label: 'F',
+        text: 'The website was set up to allow both individuals and travel organizations to create itineraries and travel packages to suit their own needs and interests. On the website, visitors can search for activities not solely by geographical location, but also by the particular nature of the activity. This is important as research shows that activities are the key driver of visitor satisfaction, contributing 74% to visitor satisfaction, while transport and accommodation account for the remaining 26%. The more activities that visitors undertake, the more satisfied they will be. It has also been found that visitors enjoy cultural activities most when they are interactive, such as visiting a marae (meeting ground) to learn about traditional Maori life. Many long-haul travelers enjoy such learning experiences, which provide them with stories to take home to their friends and family. In addition, it appears that visitors to New Zealand don\'t want to be \'one of the crowd\' and find activities that involve only a few people more special and meaningful.',
+      },
+      {
+        label: 'G',
+        text: 'It could be argued that New Zealand is not a typical destination. New Zealand is a small country with a visitor economy composed mainly of small businesses. It is generally perceived as a safe English-speaking country with reliable transport infrastructure. Because of the long-haul flight, most visitors stay for longer (average 20 days) and want to see as much of the country as possible on what is often seen as a once-in-a-lifetime visit. However, the underlying lessons apply anywhere – the effectiveness of a strong brand, a strategy based on unique experiences and a comprehensive and user-friendly website.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–8',
+        instruction: 'Complete the table below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        noteTable: R1TT_MERGE_TABLE_SAMPLE,
+        questions: gapQuestions(1, [
+          { prompt: 'Gap (1)', answer: 'ropes', explanation: 'Timber for houses and making of ropes.' },
+          { prompt: 'Gap (2)', answer: 'sugar', explanation: 'Sap used as drink or source of sugar.' },
+          { prompt: 'Gap (3)', answer: 'ropes', explanation: 'Coir fibres used for ropes.' },
+          { prompt: 'Gap (4)', answer: 'charcoal', explanation: 'Shell as source of charcoal.' },
+          { prompt: 'Gap (5)', answer: 'bowls', explanation: 'Halved shell used for bowls.' },
+          { prompt: 'Gap (6)', answer: 'fertiliser', explanation: 'Coconut water as fertiliser for plants.' },
+          { prompt: 'Gap (7)', answer: 'cosmetics', explanation: 'Oil and milk for cooking and cosmetics.' },
+          { prompt: 'Gap (8)', answer: 'soap', explanation: 'Glycerine ingredient in soap.' },
+        ]),
+      },
+      {
+        range: 'Questions 9–13',
+        instruction: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE or NOT GIVEN.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 9,
+            type: 'true-false-not-given',
+            prompt: 'Coconut seeds need shade in order to germinate.',
+            options: TFNG_OPTIONS,
+            answer: 'false',
+            explanation: 'Hạt dừa nảy mầm tốt ở nơi nắng — không cần bóng râm.',
+          },
+          {
+            number: 10,
+            type: 'true-false-not-given',
+            prompt: 'Coconuts were probably transported to Asia from America in the 16th century.',
+            options: TFNG_OPTIONS,
+            answer: 'not-given',
+            explanation: 'Passage không nói vận chuyển dừa sang châu Á thế kỷ 16.',
+          },
+          {
+            number: 11,
+            type: 'true-false-not-given',
+            prompt: 'Coconuts found on the west coast of America were a different type from those found on the east coast.',
+            options: TFNG_OPTIONS,
+            answer: 'not-given',
+            explanation: 'Không so sánh loại dừa hai bờ Mỹ.',
+          },
+          {
+            number: 12,
+            type: 'true-false-not-given',
+            prompt: 'All the coconuts found in Asia are cultivated varieties.',
+            options: TFNG_OPTIONS,
+            answer: 'false',
+            explanation: 'Có giống hoang dã ở châu Á — không phải tất cả đều trồng.',
+          },
+          {
+            number: 13,
+            type: 'true-false-not-given',
+            prompt: 'Coconuts are cultivated in different ways in America and the Pacific.',
+            options: TFNG_OPTIONS,
+            answer: 'true',
+            explanation: 'Cách trồng dừa khác nhau giữa Mỹ và Thái Bình Dương.',
+          },
         ],
       },
     ],
@@ -1449,6 +1791,287 @@ export function ieltsReadingP2HeadingsTfngSentencePart(): ReadingImportPartJson 
             answer: 'farmer',
             explanation: 'Nông dân Melchor Arteaga kể về ruins.',
           },
+        ]),
+      },
+    ],
+  }
+}
+
+const CAM12_T8_LYNX_WORD_BANK = [
+  { id: 'a', label: 'trees' },
+  { id: 'b', label: 'endangered species' },
+  { id: 'c', label: 'hillsides' },
+  { id: 'd', label: 'wild animals' },
+  { id: 'e', label: 'humans' },
+  { id: 'f', label: 'farm animals' },
+]
+
+const CAM12_T8_LYNX_SUMMARY_NOTE = [
+  'Reintroducing the lynx to Britain',
+  '',
+  'There would be many advantages to reintroducing the lynx to Britain. While there is no evidence that the lynx has ever put 19________ in danger, it would reduce the numbers of certain 20________ whose populations have increased enormously in recent decades. It would present only a minimal threat to 21________, provided these were kept away from lynx habitats. Furthermore, the reintroduction programme would also link efficiently with initiatives to return native 22________ to certain areas of the country.',
+].join('\n')
+
+/** Cam12 T8 — MC Q14–18 + summary word bank Q19–22 + YNNG Q23–26 */
+export function ieltsReadingP2McSummaryYnngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Bring back the big cats',
+    passageSubtitle: 'It\'s time to start returning vanished native animals to Britain, says John Vesty',
+    passage: [
+      {
+        text: 'There is a poem, written around 598 AD, which describes hunting a mystery animal called a llewyn. But what was it? Nothing seemed to fit, until 2006, when an animal bone, dating from around the same period, was found in the Kinsey Cave in northern England. Until this discovery, the lynx - a large spotted cat with tasselled ears - was presumed to have died out in Britain at least 6,000 years ago, before the inhabitants of these islands took up farming. But the 2006 find, together with three others in Yorkshire and Scotland, is compelling evidence that the lynx and the mysterious llewyn were in fact one and the same animal. If this is so, it would bring forward the tassel-eared cat\'s estimated extinction date by roughly 5,000 years.',
+      },
+      {
+        text: 'However, this is not quite the last glimpse of the animal in British culture. A 9th-century stone cross from the Isle of Eigg shows, alongside the deer, boar and aurochs pursued by a mounted hunter, a speckled cat with tasselled ears. Were it not for the animal\'s backside having worn away with time, we could have been certain, as the lynx\'s stubby tail is unmistakable. But even without this key feature, it\'s hard to see what else the creature could have been. The lynx is now becoming the totemic animal of a movement that is transforming British environmentalism: rewilding.',
+      },
+      {
+        text: 'Rewilding means the mass restoration of damaged ecosystems. It involves letting trees return to places that have been denuded, allowing parts of the seabed to recover from trawling and dredging, permitting rivers to flow freely again. Above all, it means bringing back missing species. One of the most striking findings of modern ecology is that ecosystems without large predators behave in completely different ways from those that retain them. Some of them drive dynamic processes that resonate through the whole food chain, creating niches for hundreds of species that might otherwise struggle to survive. The killers turn out to be bringers of life.',
+      },
+      {
+        text: 'Such findings present a big challenge to British conservation, which has often selected arbitrary assemblages of plants and animals and sought, at great effort and expense, to prevent them from changing. It has tried to preserve the living world as if it were a jar of pickles, letting nothing in and nothing out, keeping nature in a state of arrested development. But ecosystems are not merely collections of species; they are also the dynamic and ever-shifting relationships between them. And this dynamism often depends on large predators.',
+      },
+      {
+        text: 'At sea the potential is even greater: by protecting large areas from commercial fishing, we could once more see what 18th-century literature describes: vast shoals of fish being chased by fin and sperm whales, within sight of the English shore. This policy would also greatly boost catches in the surrounding seas; the fishing industry\'s insistence on scouring every inch of seabed, leaving no breeding reserves, could not be more damaging to its own interests.',
+      },
+      {
+        text: 'Rewilding is a rare example of an environmental movement in which campaigners articulate what they are for rather than only what they are against. One of the reasons why the enthusiasm for rewilding is spreading so quickly in Britain is that it helps to create a more inspiring vision than the green movement\'s usual promise of "Follow us and the world will be slightly less awful than it would otherwise have been."',
+      },
+      {
+        text: 'The lynx presents no threat to human beings: there is no known instance of one preying on people. It is a specialist predator of roe deer, a species that has exploded in Britain in recent decades, holding back, by intensive browsing, attempts to re-establish forests. It will also winkle out sika deer: an exotic species that is almost impossible for human beings to control, as it hides in impenetrable plantations of young trees. The attempt to reintroduce this predator marries well with the aim of bringing forests back to parts of our bare and barren uplands. The lynx requires deep cover, and as such presents little risk to sheep and other livestock, which are supposed, as a condition of farm subsidies, to be kept out of the woods.',
+      },
+      {
+        text: 'On a recent trip to the Cairngorm Mountains, I heard several conservationists suggest that the lynx could be reintroduced there within 20 years. If trees return to the bare hills elsewhere in Britain, the big cats could soon follow. There is nothing extraordinary about these proposals, seen from the perspective of anywhere else in Europe. The lynx has now been reintroduced to the Pyrenees, the Alps, the Jura in eastern France and the Harz mountains in Germany, and has re-established itself in many more places. The European population has tripled since 1970 to roughly 10,000. As with wolves, bears, beavers, boar, bison, moose and many other species, the lynx has been able to spread as farming has left the hills and people discover that it is more lucrative to protect charismatic wildlife than to hunt it, as tourists will pay for the chance to see it. Large-scale rewilding is happening almost everywhere - except Britain.',
+      },
+      {
+        text: 'Here, attitudes are just beginning to change. Conservationists are starting to accept that the old preservation-jar model is failing, even on its own terms. Already, projects such as Trees for Life in the Highlands provide a hint of what might be coming. An organisation is being set up that will seek to catalyse the rewilding of land and sea across Britain, its aim being to reintroduce that rarest of species to British ecosystems: hope.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–18',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 14,
+            type: 'multiple-choice',
+            prompt: 'What did the 2006 discovery of the animal bone reveal about the lynx?',
+            options: [
+              { id: 'a', label: 'Its physical appearance was very distinctive.' },
+              { id: 'b', label: 'Its extinction was linked to the spread of farming.' },
+              { id: 'c', label: 'It vanished from Britain several thousand years ago.' },
+              { id: 'd', label: 'It survived in Britain longer than was previously thought.' },
+            ],
+            answer: 'd',
+            explanation: '2006 find đẩy ngày tuyệt chủng lùi khoảng 5.000 năm — sống lâu hơn nghĩ.',
+          },
+          {
+            number: 15,
+            type: 'multiple-choice',
+            prompt: 'What point does the writer make about large predators in the third paragraph?',
+            options: [
+              { id: 'a', label: 'Their presence can increase biodiversity.' },
+              { id: 'b', label: 'They may cause damage to local ecosystems.' },
+              { id: 'c', label: 'Their behaviour can alter according to the environment.' },
+              { id: 'd', label: 'They should be reintroduced only to areas where they were native.' },
+            ],
+            answer: 'a',
+            explanation: 'Large predators tạo niches cho hàng trăm loài — tăng đa dạng sinh học.',
+          },
+          {
+            number: 16,
+            type: 'multiple-choice',
+            prompt: 'What does the writer suggest about British conservation in the fourth paragraph?',
+            options: [
+              { id: 'a', label: 'It has failed to achieve its aims.' },
+              { id: 'b', label: 'It is beginning to change direction.' },
+              { id: 'c', label: 'It has taken a misguided approach.' },
+              { id: 'd', label: 'It has focused on the most widespread species.' },
+            ],
+            answer: 'c',
+            explanation: 'Giữ thiên nhiên như jar of pickles — cách tiếp cận sai lầm.',
+          },
+          {
+            number: 17,
+            type: 'multiple-choice',
+            prompt: 'Protecting large areas of the sea from commercial fishing would result in',
+            options: [
+              { id: 'a', label: 'practical benefits for the fishing industry.' },
+              { id: 'b', label: 'some short-term losses to the fishing industry.' },
+              { id: 'c', label: 'widespread opposition from the fishing industry.' },
+              { id: 'd', label: 'certain changes to techniques within the fishing industry.' },
+            ],
+            answer: 'a',
+            explanation: 'Policy would greatly boost catches in surrounding seas.',
+          },
+          {
+            number: 18,
+            type: 'multiple-choice',
+            prompt: 'According to the author, what distinguishes rewilding from other environmental campaigns?',
+            options: [
+              { id: 'a', label: 'Its objective is more achievable.' },
+              { id: 'b', label: 'Its supporters are more articulate.' },
+              { id: 'c', label: 'Its positive message is more appealing.' },
+              { id: 'd', label: 'It is based on sounder scientific principles.' },
+            ],
+            answer: 'c',
+            explanation: 'Rewilding tạo tầm nhìn truyền cảm hơn — thông điệp tích cực.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 19–22',
+        instruction: 'Complete the summary using the list of phrases, A–F, below.',
+        type: 'summary-completion',
+        note: CAM12_T8_LYNX_SUMMARY_NOTE,
+        wordBank: CAM12_T8_LYNX_WORD_BANK,
+        questions: [
+          { number: 19, type: 'summary-completion', prompt: 'Gap (19)', options: [], answer: 'e', explanation: 'Không có bằng chứng lynx từng đe dọa humans.' },
+          { number: 20, type: 'summary-completion', prompt: 'Gap (20)', options: [], answer: 'd', explanation: 'Giảm số lượng wild animals (roe deer, sika deer).' },
+          { number: 21, type: 'summary-completion', prompt: 'Gap (21)', options: [], answer: 'f', explanation: 'Ít rủi ro với farm animals nếu giữ khỏi habitat lynx.' },
+          { number: 22, type: 'summary-completion', prompt: 'Gap (22)', options: [], answer: 'a', explanation: 'Liên kết với initiatives trồng lại trees.' },
+        ],
+      },
+      {
+        range: 'Questions 23–26',
+        instruction: 'Do the following statements agree with the claims of the writer in Reading Passage 2? Write YES, NO or NOT GIVEN.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 23,
+            type: 'yes-no-not-given',
+            prompt: 'Britain could become the first European country to reintroduce the lynx.',
+            options: YNNG_OPTIONS,
+            answer: 'no',
+            explanation: 'Lynx đã tái thả ở nhiều nước châu Âu — Britain không phải đầu tiên.',
+          },
+          {
+            number: 24,
+            type: 'yes-no-not-given',
+            prompt: 'The large growth in the European lynx population since 1970 has exceeded conservationists\' expectations.',
+            options: YNNG_OPTIONS,
+            answer: 'not-given',
+            explanation: 'Population tripled — không nói vượt kỳ vọng nhà bảo tồn.',
+          },
+          {
+            number: 25,
+            type: 'yes-no-not-given',
+            prompt: 'Changes in agricultural practices have extended the habitat of the lynx in Europe.',
+            options: YNNG_OPTIONS,
+            answer: 'yes',
+            explanation: 'Lynx spread as farming has left the hills.',
+          },
+          {
+            number: 26,
+            type: 'yes-no-not-given',
+            prompt: 'It has become apparent that species reintroduction has commercial advantages.',
+            options: YNNG_OPTIONS,
+            answer: 'yes',
+            explanation: 'More lucrative to protect wildlife — tourists pay to see it.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM13_T1_BOREDOM_HEADINGS = [
+  { id: 'i', label: 'The productive outcomes that may result from boredom' },
+  { id: 'ii', label: 'What teachers can do to prevent boredom' },
+  { id: 'iii', label: 'A new explanation and a new cure for boredom' },
+  { id: 'iv', label: 'Problems with a scientific approach to boredom' },
+  { id: 'v', label: 'A potential danger arising from boredom' },
+  { id: 'vi', label: 'Creating a system of classification for feelings of boredom' },
+  { id: 'vii', label: 'Age groups most affected by boredom' },
+  { id: 'viii', label: 'Identifying those most affected by boredom' },
+]
+
+const CAM13_T1_BOREDOM_IDEAS = [
+  { id: 'a', name: 'The way we live today may encourage boredom.' },
+  { id: 'b', name: 'One sort of boredom is worse than all the others.' },
+  { id: 'c', name: 'Levels of boredom may fall in the future.' },
+  { id: 'd', name: 'Trying to cope with boredom can increase its negative effects.' },
+  { id: 'e', name: 'Boredom may encourage us to avoid an unpleasant experience.' },
+]
+
+const CAM13_T1_BOREDOM_SUMMARY_NOTE = [
+  'Responses to boredom',
+  '',
+  'For John Eastwood, the central feature of boredom is that people cannot 24________ due to a failure in what he calls the \'attention system\'; and as a result they become frustrated and irritable. His team suggests that those for whom 25________ is an important aim in life may have problems in coping with boredom, whereas those who have the characteristic of 26________ can generally cope with it.',
+].join('\n')
+
+/** Cam13 T1 — headings Q14–19 + match ideas Q20–23 + summary Q24–26 */
+export function ieltsReadingP2HeadingsMatchSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Why being bored is stimulating – and useful, too',
+    passageSubtitle: 'This most common of emotions is turning out to be more interesting than we thought',
+    passage: [
+      {
+        label: 'A',
+        text: 'We all know how it feels – it\'s impossible to keep your mind on anything, time stretches out, and all the things you could do seem equally unlikely to make you feel better. But defining boredom so that it can be studied in the lab has proved difficult. For a start, it can include a lot of other mental states, such as frustration, apathy, depression and indifference. There isn\'t even agreement over whether boredom is always a low-energy, flat kind of emotion or whether feeling agitated and restless counts as boredom, too. In his book, Boredom: A Lively History, Peter Toohey at the University of Calgary, Canada, compares it to disgust – an emotion that motivates us to stay away from certain situations. \'If disgust protects humans from infection, boredom may protect them from "infectious" social situations,\' he suggests.',
+      },
+      {
+        label: 'B',
+        text: 'By asking people about their experiences of boredom, Thomas Goetz and his team at the University of Konstanz in Germany have recently identified five distinct types: indifferent, calibrating, searching, reactant and apathetic. These can be plotted on two axes – one running left to right, which measures low to high arousal, and the other from top to bottom, which measures how positive or negative the feeling is. Intriguingly, Goetz has found that while people experience all kinds of boredom, they tend to specialise in one. Of the five types, the most damaging is \'reactant\' boredom with its explosive combination of high arousal and negative emotion. The most useful is what Goetz calls \'indifferent\' boredom: someone isn\'t engaged in anything satisfying but still feels relaxed and calm. However, it remains to be seen whether there are any character traits that predict the kind of boredom each of us might be prone to.',
+      },
+      {
+        label: 'C',
+        text: 'Psychologist Sandi Mann at the University of Central Lancashire, UK, goes further. \'All emotions are there for a reason, including boredom,\' she says. Mann has found that being bored makes us more creative. \'We\'re all afraid of being bored but in actual fact it can lead to all kinds of amazing things,\' she says. In experiments published last year, Mann found that people who had been made to feel bored by copying numbers out of the phone book for 15 minutes came up with more creative ideas about how to use a polystyrene cup than a control group. Mann concluded that a passive, boring activity is best for creativity because it allows the mind to wander. In fact, she goes so far as to suggest that we should seek out more boredom in our lives.',
+      },
+      {
+        label: 'D',
+        text: 'Psychologist John Eastwood at York University in Toronto, Canada, isn\'t convinced. \'If you are in a state of mind-wandering you are not bored,\' he says. \'In my view, by definition boredom is an undesirable state\'. That doesn\'t necessarily mean that it isn\'t adaptive, he adds. \'Pain is adaptive – if we didn\'t have physical pain, bad things would happen to us. Does that mean that we should actively cause pain? No. But even if boredom has evolved to help us survive, it can still be toxic if allowed to fester. For Eastwood, the central feature of boredom is a failure to put our \'attention system\' into gear. This causes an inability to focus on anything, which makes time seem to go painfully slowly. What\'s more, your efforts to improve the situation can end up making you feel worse. \'People try to connect with the world and if they are not successful there\'s that frustration and irritability,\' he says. Perhaps most worryingly, says Eastwood, repeatedly failing to engage attention can lead to a state where we don\'t know what to do any more, and no longer care.',
+      },
+      {
+        label: 'E',
+        text: 'Eastwood\'s team is now trying to explore why the attention system fails. It\'s early days but they think that at least some of it comes down to personality. Boredom proneness has been linked with a variety of traits. People who are motivated by pleasure seem to suffer particularly badly. Other personality traits, such as curiosity, are associated with a high boredom threshold. More evidence that boredom has detrimental effects comes from studies of people who are more or less prone to boredom. It seems those who bore easily face poorer prospects in education, their career and even life in general. But of course, boredom itself cannot kill – it\'s the things we do to deal with it that may put us in danger. What can we do to alleviate it before it comes to that? Goetz\'s group has one suggestion. Working with teenagers, they found that those who \'approach\' a boring situation – in other words, see that it\'s boring and get stuck in anyway – report less boredom than those who try to avoid it by using snacks, TV or social media for distraction.',
+      },
+      {
+        label: 'F',
+        text: 'Psychologist Francoise Wemelsfelder speculates that our over-connected lifestyles might even be a new source of boredom. \'In modern human society there is a lot of overstimulation but still a lot of problems finding meaning,\' she says. So instead of seeking yet more mental stimulation, perhaps we should leave our phones alone, and use boredom to motivate us to engage with the world in a more meaningful way.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–19',
+        instruction: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+        note: 'There are more headings than paragraphs, so you will not use all of them.',
+        type: 'matching-headings',
+        headings: CAM13_T1_BOREDOM_HEADINGS,
+        questions: [
+          { number: 14, type: 'matching-headings', prompt: 'Paragraph A', options: [], answer: 'iv', explanation: 'Khó định nghĩa/nghiên cứu boredom trong lab — vấn đề khoa học.' },
+          { number: 15, type: 'matching-headings', prompt: 'Paragraph B', options: [], answer: 'vi', explanation: 'Goetz phân loại 5 kiểu boredom.' },
+          { number: 16, type: 'matching-headings', prompt: 'Paragraph C', options: [], answer: 'i', explanation: 'Mann — boredom kích thích sáng tạo.' },
+          { number: 17, type: 'matching-headings', prompt: 'Paragraph D', options: [], answer: 'v', explanation: 'Eastwood — boredom độc hại nếu kéo dài.' },
+          { number: 18, type: 'matching-headings', prompt: 'Paragraph E', options: [], answer: 'viii', explanation: 'Ai dễ chán — pleasure-motivated vs curious.' },
+          { number: 19, type: 'matching-headings', prompt: 'Paragraph F', options: [], answer: 'iii', explanation: 'Wemelsfelder — lifestyle over-connected + cách xử lý mới.' },
+        ],
+      },
+      {
+        range: 'Questions 20–23',
+        instruction: 'Match each statement with the correct option, A–E. Write the correct letter in boxes 20–23 on your answer sheet.',
+        type: 'matching-features',
+        features: CAM13_T1_BOREDOM_IDEAS,
+        questions: [
+          { number: 20, type: 'matching-features', prompt: 'Peter Toohey', options: [], answer: 'e', explanation: 'Boredom như disgust — tránh tình huống xã hội khó chịu.' },
+          { number: 21, type: 'matching-features', prompt: 'Thomas Goetz', options: [], answer: 'b', explanation: 'Reactant boredom nguy hiểm nhất.' },
+          { number: 22, type: 'matching-features', prompt: 'John Eastwood', options: [], answer: 'd', explanation: 'Cố cải thiện boredom có thể làm tệ hơn.' },
+          { number: 23, type: 'matching-features', prompt: 'Francoise Wemelsfelder', options: [], answer: 'a', explanation: 'Lối sống over-connected gây boredom.' },
+        ],
+      },
+      {
+        range: 'Questions 24–26',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM13_T1_BOREDOM_SUMMARY_NOTE,
+        questions: gapQuestions(24, [
+          { prompt: 'Gap (24)', answer: 'focus', explanation: 'Inability to focus — attention system failure.' },
+          { prompt: 'Gap (25)', answer: 'pleasure', explanation: 'Motivated by pleasure — dễ chán hơn.' },
+          { prompt: 'Gap (26)', answer: 'curiosity', explanation: 'Curiosity — high boredom threshold.' },
         ]),
       },
     ],
@@ -3129,6 +3752,8 @@ const TEMPLATE_BUILDERS: Record<IeltsReadingWizardTemplateKind, () => ReadingImp
   'p1-r1-tfng-gap': ieltsReadingP1TfngGapPart,
   'p1-r1-tfng-gap-table': ieltsReadingP1TfngGapTablePart,
   'p1-r1-notes-tfng': ieltsReadingP1NotesTfngPart,
+  'p1-r1-notes-tfng-8': ieltsReadingP1NotesTfng8Part,
+  'p1-r1-table-tfng': ieltsReadingP1TableTfngPart,
   'p1-r1-tfng-match-notes': ieltsReadingP1TfngMatchNotesPart,
   'p1-r1-tfng-match-summary': ieltsReadingP1TfngMatchSummaryPart,
   'p1-r1-match-choose-two': ieltsReadingP1MatchChooseTwoPart,
@@ -3148,6 +3773,8 @@ const TEMPLATE_BUILDERS: Record<IeltsReadingWizardTemplateKind, () => ReadingImp
   'p2-r2-mc-tfng-endings': ieltsReadingP2McTfngEndingsPart,
   'p2-r2-tfng-diagram': ieltsReadingP2TfngDiagramPart,
   'p2-r2-headings-tfng-sentence': ieltsReadingP2HeadingsTfngSentencePart,
+  'p2-r2-mc-summary-ynng': ieltsReadingP2McSummaryYnngPart,
+  'p2-r2-headings-match-summary': ieltsReadingP2HeadingsMatchSummaryPart,
   'p3-r3-tfng-mc': ieltsReadingP3R3Part,
   'p3-r3-gap-tfng-flow-mc': ieltsReadingP3GapTfngFlowMcPart,
   'p3-r3-ynng-mc': ieltsReadingP3YnngMcPart,

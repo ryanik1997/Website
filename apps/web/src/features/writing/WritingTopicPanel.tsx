@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react'
-import { ImagePlus, Lightbulb, Trash2, RefreshCw, ChevronRight, Loader2, Pencil } from 'lucide-react'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { ImagePlus, Lightbulb, Trash2, RefreshCw, ChevronRight, Loader2, Pencil, ZoomIn, ZoomOut, X } from 'lucide-react'
 import type { WritingDoc } from '@ryan/db'
 import { readWritingImage } from './writingImage'
 import WritingGuidePanel from './WritingGuidePanel'
@@ -21,10 +21,7 @@ function splitPrompt(prompt: string): { title: string; body: string } {
   const trimmed = prompt.trim()
   if (!trimmed) return { title: 'Chưa có đề bài', body: '' }
   const lines = trimmed.split(/\n+/)
-  if (lines.length === 1) {
-    const t = trimmed.length > 72 ? `${trimmed.slice(0, 69)}…` : trimmed
-    return { title: t, body: trimmed }
-  }
+  if (lines.length === 1) return { title: trimmed, body: '' }
   return { title: lines[0], body: lines.slice(1).join('\n').trim() }
 }
 
@@ -58,6 +55,21 @@ export default function WritingTopicPanel({
   const inputRef = useRef<HTMLInputElement>(null)
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState('')
+  const [lightbox, setLightbox] = useState(false)
+  const [zoom, setZoom] = useState(1)
+
+  const closeLightbox = useCallback(() => { setLightbox(false); setZoom(1) }, [])
+
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === '+' || e.key === '=') setZoom(z => Math.min(z + 0.25, 4))
+      if (e.key === '-') setZoom(z => Math.max(z - 0.25, 0.25))
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox, closeLightbox])
   const { title, body } = splitPrompt(doc.prompt)
   const badge = TYPE_BADGE[doc.type] ?? doc.type
   const taskTag =
@@ -87,7 +99,12 @@ export default function WritingTopicPanel({
       <div className="writing-image-zone">
         {doc.promptImage ? (
           <>
-            <img src={doc.promptImage} alt="Ảnh đề bài" />
+            <img
+              src={doc.promptImage}
+              alt="Ảnh đề bài"
+              style={{ cursor: 'zoom-in' }}
+              onClick={() => setLightbox(true)}
+            />
             <div className="writing-image-actions">
               <button
                 type="button"
@@ -214,6 +231,45 @@ export default function WritingTopicPanel({
         onClose={onCloseGuide}
         onRegenerate={onRegenerateGuide}
       />
+
+      {lightbox && doc.promptImage && (
+        <div className="wr-lightbox-overlay" onClick={closeLightbox}>
+          <div className="wr-lightbox-toolbar" onClick={e => e.stopPropagation()}>
+            <button
+              type="button"
+              className="wr-lightbox-btn"
+              title="Thu nhỏ (-)"
+              onClick={() => setZoom(z => Math.max(z - 0.25, 0.25))}
+            >
+              <ZoomOut size={18} />
+            </button>
+            <span className="wr-lightbox-zoom">{Math.round(zoom * 100)}%</span>
+            <button
+              type="button"
+              className="wr-lightbox-btn"
+              title="Phóng to (+)"
+              onClick={() => setZoom(z => Math.min(z + 0.25, 4))}
+            >
+              <ZoomIn size={18} />
+            </button>
+            <button
+              type="button"
+              className="wr-lightbox-btn"
+              title="Đóng (Esc)"
+              onClick={closeLightbox}
+            >
+              <X size={18} />
+            </button>
+          </div>
+          <div className="wr-lightbox-scroll" onClick={e => e.stopPropagation()}>
+            <img
+              src={doc.promptImage}
+              alt="Ảnh đề bài"
+              style={{ transform: `scale(${zoom})`, transformOrigin: 'top center', transition: 'transform 0.15s' }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

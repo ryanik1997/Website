@@ -60,8 +60,18 @@ export interface ReadingNoteTableCellBlock {
   number?: number
 }
 
+/** Ô bảng có merge — skip = ô bị gộp bởi rowSpan/colSpan ở hàng/cột khác. */
+export interface ReadingNoteTableCellMeta {
+  skip?: boolean
+  rowSpan?: number
+  colSpan?: number
+  blocks?: ReadingNoteTableCellBlock[]
+}
+
+export type ReadingNoteTableCell = ReadingNoteTableCellBlock[] | ReadingNoteTableCellMeta
+
 export interface ReadingNoteTableRow {
-  cells: ReadingNoteTableCellBlock[][]
+  cells: ReadingNoteTableCell[]
 }
 
 export interface ReadingNoteTable {
