@@ -54,6 +54,25 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
   return mergeCatalogListeningMedia(builtin)
 }
 
+function safeListExam(exam: ListeningExam): ListeningExam {
+  try {
+    return normalizeListeningExamForDisplay({
+      ...exam,
+      examType: exam.examType ?? 'ielts',
+      examMode: exam.examMode ?? 'practice',
+      parts: Array.isArray(exam.parts) ? exam.parts : [],
+    })
+  } catch (err) {
+    console.warn('[listAllListeningExams] normalize failed', exam.id, err)
+    return {
+      ...exam,
+      examType: exam.examType ?? 'ielts',
+      examMode: exam.examMode ?? 'practice',
+      parts: Array.isArray(exam.parts) ? exam.parts : [],
+    }
+  }
+}
+
 export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const imported = (await listeningExamRepo.list()).map(recordToExam)
   const builtinIds = new Set(LISTENING_EXAMS.map(e => e.id))
@@ -68,7 +87,7 @@ export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const publishedIds = new Set(published.map(e => e.id))
   const publishedOnly = published.filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
-  return [...LISTENING_EXAMS, ...publishedOnly, ...localOnly]
+  return [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam)
 }
 
 export function examRecordFromListening(

@@ -110,7 +110,10 @@ export function gapNumbersInReadingNoteTable(table: ReadingNoteTable | undefined
   return numbers
 }
 
-/** Chuẩn hóa bảng n cột × n dòng — pad ô thiếu, sync gapNumbers. */
+/**
+ * Chuẩn hóa bảng **n cột × m dòng** (n = headers.length, m = rows.length).
+ * Mọi hàng được pad/cắt về đúng n ô — luôn áp dụng lưới đều.
+ */
 export function normalizeReadingNoteTable(
   raw: ReadingNoteTable | Record<string, unknown> | undefined,
 ): ReadingNoteTable | undefined {
@@ -125,11 +128,21 @@ export function normalizeReadingNoteTable(
   const columnCount = headers.length
   const rawRows = Array.isArray(obj.rows) ? obj.rows : []
   const rows: ReadingNoteTableRow[] = rawRows.map(row => {
+    if (!row || typeof row !== 'object') {
+      return { cells: normalizeCellMatrix([], columnCount) }
+    }
     const r = row as Record<string, unknown>
     return { cells: normalizeCellMatrix(r.cells, columnCount) }
   })
 
   if (!rows.length) return undefined
+
+  // Đảm bảo sau pad: mọi hàng đúng n cột
+  for (const row of rows) {
+    if (row.cells.length !== columnCount) {
+      row.cells = normalizeCellMatrix(row.cells, columnCount)
+    }
+  }
 
   const gapNumbers = gapNumbersInReadingNoteTable({ headers, rows })
   const title = typeof obj.title === 'string' && obj.title.trim() ? obj.title.trim() : undefined
@@ -146,6 +159,16 @@ export function normalizeReadingNoteTable(
   }
 }
 
+/** Số cột n (headers) — dùng validate / AI. */
+export function readingNoteTableColumnCount(table: ReadingNoteTable | undefined): number {
+  return table?.headers?.length ?? 0
+}
+
+/** Số dòng data m (không tính header). */
+export function readingNoteTableRowCount(table: ReadingNoteTable | undefined): number {
+  return table?.rows?.length ?? 0
+}
+
 export function validateReadingNoteTable(
   table: ReadingNoteTable | undefined,
   gapQuestionNumbers: number[],
@@ -157,17 +180,22 @@ export function validateReadingNoteTable(
   const warnings: string[] = []
   const gapSet = new Set(gapQuestionNumbers)
   const tableGapNumbers = gapNumbersInReadingNoteTable(table)
+  const n = table.headers?.length ?? 0
+  const m = table.rows.length
 
-  if (!table.headers?.length) {
-    warnings.push(`${partLabel}: noteTable thiếu headers.`)
+  if (!n) {
+    warnings.push(`${partLabel}: noteTable thiếu headers (cần n cột).`)
   }
 
-  for (const row of table.rows) {
-    if (row.cells.length !== table.headers.length) {
-      warnings.push(
-        `${partLabel}: noteTable hàng có ${row.cells.length} ô — cần ${table.headers.length} cột.`,
-      )
-      break
+  if (n > 0 && m > 0) {
+    for (let i = 0; i < m; i += 1) {
+      const cellCount = table.rows[i]?.cells?.length ?? 0
+      if (cellCount !== n) {
+        warnings.push(
+          `${partLabel}: noteTable hàng ${i + 1}/${m} có ${cellCount} ô — lưới n×m yêu cầu ${n} cột.`,
+        )
+        break
+      }
     }
   }
 

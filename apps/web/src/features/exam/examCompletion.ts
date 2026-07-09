@@ -40,29 +40,51 @@ function parseDraft<T>(raw: string | null): T | null {
 }
 
 export function readReadingDraftCompletion(exam: ReadingExam): ExamDraftCompletion | null {
-  const draft = parseDraft<ReadingDraftPayload>(
-    window.localStorage.getItem(`${READING_DRAFT_PREFIX}${exam.id}`),
-  )
-  if (!draft?.submitted) return null
+  try {
+    const draft = parseDraft<ReadingDraftPayload>(
+      window.localStorage.getItem(`${READING_DRAFT_PREFIX}${exam.id}`),
+    )
+    if (!draft?.submitted) return null
 
-  const questions = getExamQuestions(exam)
-  const answers = draft.answers ?? {}
-  const correct = questions.filter(q => isReadingAnswerCorrect(q, answers[q.id] ?? '')).length
+    const questions = getExamQuestions(exam)
+    const answers = draft.answers ?? {}
+    const correct = questions.filter(q => {
+      try {
+        return isReadingAnswerCorrect(q, answers[q.id] ?? '')
+      } catch {
+        return false
+      }
+    }).length
 
-  return { submitted: true, correct, total: questions.length }
+    return { submitted: true, correct, total: questions.length }
+  } catch (err) {
+    console.warn('[readReadingDraftCompletion]', exam.id, err)
+    return null
+  }
 }
 
 export function readListeningDraftCompletion(exam: ListeningExam): ExamDraftCompletion | null {
-  const draft = parseDraft<ListeningDraftPayload>(
-    window.localStorage.getItem(`${LISTENING_DRAFT_PREFIX}${exam.id}`),
-  )
-  if (!draft?.submitted) return null
+  try {
+    const draft = parseDraft<ListeningDraftPayload>(
+      window.localStorage.getItem(`${LISTENING_DRAFT_PREFIX}${exam.id}`),
+    )
+    if (!draft?.submitted) return null
 
-  const questions = getListeningExamQuestions(exam)
-  const answers = draft.answers ?? {}
-  const correct = questions.filter(q => isListeningAnswerCorrect(q, answers[q.id] ?? '')).length
+    const questions = getListeningExamQuestions(exam)
+    const answers = draft.answers ?? {}
+    const correct = questions.filter(q => {
+      try {
+        return isListeningAnswerCorrect(q, answers[q.id] ?? '')
+      } catch {
+        return false
+      }
+    }).length
 
-  return { submitted: true, correct, total: questions.length }
+    return { submitted: true, correct, total: questions.length }
+  } catch (err) {
+    console.warn('[readListeningDraftCompletion]', exam.id, err)
+    return null
+  }
 }
 
 export function clearReadingDraft(examId: string): void {

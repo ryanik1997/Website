@@ -82,7 +82,7 @@ export interface ReadingNoteTable {
   gapNumbers?: number[]
 }
 
-export type ReadingNotePassageBlockType = 'static' | 'section' | 'gap' | 'example'
+export type ReadingNotePassageBlockType = 'static' | 'section' | 'gap' | 'example' | 'break'
 
 /** Note-completion Reading — form/notes với gap inline (Q1–6). */
 export interface ReadingNotePassageBlock {
@@ -101,7 +101,7 @@ export interface ReadingQuestionGroup {
   imageUrl?: string
   /** Tên file gốc trong ZIP import — giữ cho wizard export */
   imageFile?: string
-  /** Bảng n cột × n dòng — table completion (ưu tiên hơn imageFile) */
+  /** Bảng n cột × m dòng (headers.length × rows.length) — table completion (ưu tiên hơn imageFile) */
   noteTable?: ReadingNoteTable
   /** Notes completion — bullets + gap inline (ưu tiên hơn prompt list) */
   notePassage?: ReadingNotePassageBlock[]
@@ -1003,7 +1003,8 @@ export const READING_EXAMS: ReadingExam[] = [
 ]
 
 export function getPartQuestions(part: ReadingPart): ReadingQuestion[] {
-  return part.questionGroups.flatMap(group => group.questions)
+  if (!part?.questionGroups?.length) return []
+  return part.questionGroups.flatMap(group => group.questions ?? [])
 }
 
 export function getExamQuestions(exam: ReadingExam): ReadingQuestion[] {
@@ -1079,15 +1080,16 @@ export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: st
   if (isWritingTaskQuestion(question)) return false
   if (!userAnswer.trim()) return false
   const given = normalizeReadingAnswer(userAnswer)
+  const answer = typeof question.answer === 'string' ? question.answer : ''
 
   if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
-    const variants = readingGapAnswerVariants(question.answer)
+    const variants = readingGapAnswerVariants(answer)
     return variants.some(expected => readingGapAnswersMatch(expected, given))
   }
 
-  const expected = normalizeReadingAnswer(question.answer)
-  if (/[/|]/.test(question.answer.trim())) {
-    return readingGapAnswerVariants(question.answer).includes(given)
+  const expected = normalizeReadingAnswer(answer)
+  if (/[/|]/.test(answer.trim())) {
+    return readingGapAnswerVariants(answer).includes(given)
   }
   return given === expected
 }
