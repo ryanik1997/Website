@@ -3,8 +3,10 @@ import type {
   ReadingPart,
   ReadingQuestion,
   ReadingQuestionGroup,
+  ReadingQuestionOption,
 } from './examData'
 import { normalizeReadingNoteTable } from './readingNoteTableUtils'
+import { normalizeReadingChooseTwoGroup } from './readingChooseTwoUtils'
 
 const YNNG_OPTIONS = [
   { id: 'yes', label: 'YES' },
@@ -86,21 +88,108 @@ export function normalizeReadingGroupType(
   return inferGroupType(group)
 }
 
+/** Map id/label AI → yes|no|not-given hoặc true|false|not-given */
+function normalizeTriStateId(
+  raw: string,
+  mode: 'ynng' | 'tfng',
+): 'yes' | 'no' | 'true' | 'false' | 'not-given' | null {
+  const s = raw.trim().toLowerCase().replace(/[_–—]/g, ' ').replace(/\s+/g, ' ')
+  if (!s) return null
+  if (/^not[\s-]?given$|^ng$|^c$/.test(s) || s.includes('not given') || s.includes('impossible to say')) {
+    return 'not-given'
+  }
+  if (mode === 'ynng') {
+    if (/^yes$|^y$|^a$/.test(s) || s.startsWith('yes if') || s.startsWith('yes,')) return 'yes'
+    if (/^no$|^n$|^b$/.test(s) || s.startsWith('no if') || s.startsWith('no,')) return 'no'
+  } else {
+    if (/^true$|^t$|^a$/.test(s) || s.startsWith('true if') || s.startsWith('true,')) return 'true'
+    if (/^false$|^f$|^b$/.test(s) || s.startsWith('false if') || s.startsWith('false,')) return 'false'
+  }
+  return null
+}
+
+/**
+ * YNNG/TFNG: luôn đúng 3 option ngắn (YES/NO/NG hoặc TRUE/FALSE/NG).
+ * AI hay trả 6 option (double) hoặc label dài trùng instruction → UI "double Yes No Not Given".
+ */
+export function canonicalizeTriStateOptions(
+  mode: 'ynng' | 'tfng',
+  rawOptions: ReadingQuestion['options'] | undefined,
+): ReadingQuestionOption[] {
+  const canonical = mode === 'ynng' ? YNNG_OPTIONS : TFNG_OPTIONS
+  if (!Array.isArray(rawOptions) || rawOptions.length === 0) {
+    return canonical.map(o => ({ ...o }))
+  }
+
+  // Dedupe theo id chuẩn; bỏ option lạ / trùng
+  const seen = new Set<string>()
+  for (const opt of rawOptions) {
+    const idHit = normalizeTriStateId(String(opt?.id ?? ''), mode)
+    const labelHit = normalizeTriStateId(String(opt?.label ?? ''), mode)
+    const hit = idHit ?? labelHit
+    if (hit) seen.add(hit)
+  }
+
+  // Đủ 3 (hoặc gần đủ) → luôn trả canonical ngắn, không giữ label dài AI
+  if (seen.size >= 2 || rawOptions.length >= 3) {
+    return canonical.map(o => ({ ...o }))
+  }
+
+  return canonical.map(o => ({ ...o }))
+}
+
+/** Gỡ khối YES/NO/NOT GIVEN (hoặc TRUE/FALSE) AI dán vào cuối prompt từng câu */
+function stripTriStateLegendFromPrompt(prompt: string): string {
+  let text = prompt.replace(/\r\n/g, '\n').trim()
+  // Cắt từ dòng YES/TRUE if … đến hết (legend Cambridge lặp lại)
+  text = text.replace(
+    /\n+\s*(YES|TRUE)\s+if[\s\S]*$/i,
+    '',
+  )
+  // Cắt các dòng chỉ là YES / NO / NOT GIVEN / TRUE / FALSE lặp lại
+  const lines = text.split('\n')
+  const kept = lines.filter(line => {
+    const t = line.trim()
+    if (!t) return true
+    if (/^(YES|NO|TRUE|FALSE|NOT\s*GIVEN)(\s*if\b.*)?$/i.test(t)) return false
+    if (/^[○●•\-*]\s*(YES|NO|TRUE|FALSE|NOT\s*GIVEN)\b/i.test(t)) return false
+    return true
+  })
+  return kept.join('\n').trim() || prompt.trim()
+}
+
 function sanitizeQuestion(group: ReadingQuestionGroup, q: ReadingQuestion): ReadingQuestion {
   const answer = typeof q.answer === 'string' ? q.answer : ''
   let options = Array.isArray(q.options) ? q.options : []
+  let prompt = typeof q.prompt === 'string' ? q.prompt : `Question ${q.number}`
 
-  if (group.type === 'ynng' && options.length < 3) {
-    options = [...YNNG_OPTIONS]
+  if (group.type === 'ynng' || q.type === 'yes-no-not-given') {
+    options = canonicalizeTriStateOptions('ynng', options)
+    prompt = stripTriStateLegendFromPrompt(prompt)
+  } else if (group.type === 'tfng' || q.type === 'true-false-not-given') {
+    options = canonicalizeTriStateOptions('tfng', options)
+    prompt = stripTriStateLegendFromPrompt(prompt)
   }
-  if (group.type === 'tfng' && options.length < 3) {
-    options = [...TFNG_OPTIONS]
+
+  // Map answer về id chuẩn
+  let nextAnswer = answer
+  if (group.type === 'ynng' || q.type === 'yes-no-not-given') {
+    const mapped = normalizeTriStateId(answer, 'ynng')
+    if (mapped) nextAnswer = mapped
+  } else if (group.type === 'tfng' || q.type === 'true-false-not-given') {
+    const mapped = normalizeTriStateId(answer, 'tfng')
+    if (mapped) nextAnswer = mapped
   }
 
   return {
     ...q,
-    prompt: typeof q.prompt === 'string' ? q.prompt : `Question ${q.number}`,
-    answer,
+    type: group.type === 'ynng'
+      ? 'yes-no-not-given'
+      : group.type === 'tfng'
+        ? 'true-false-not-given'
+        : q.type,
+    prompt,
+    answer: nextAnswer,
     explanation: typeof q.explanation === 'string' ? q.explanation : '',
     options,
   }
@@ -158,25 +247,115 @@ function sanitizeWordBank(
   })
 }
 
+/** Options có vẻ chỉ YES/NO/NG hoặc TRUE/FALSE/NG (≤3), không phải MC A–D. */
+function optionsLookTriStateOnly(opts: ReadingQuestion['options'] | undefined): boolean {
+  if (!Array.isArray(opts) || opts.length === 0) return false
+  if (opts.length > 3) return false
+  return opts.every(o => {
+    const id = String(o?.id ?? '').toLowerCase()
+    const lab = String(o?.label ?? '').toLowerCase()
+    return Boolean(
+      normalizeTriStateId(id, 'ynng')
+      || normalizeTriStateId(lab, 'ynng')
+      || normalizeTriStateId(id, 'tfng')
+      || normalizeTriStateId(lab, 'tfng'),
+    )
+  })
+}
+
+/**
+ * AI/import hay gán group.type = multiple-choice trong khi câu là YNNG
+ * (Cam19 T1 P3 Q37–40) → UI MC hiện A YES / B NO + instruction YES if… = double.
+ */
+function coerceTriStateGroupType(
+  preliminary: ReadingQuestionGroup['type'],
+  group: ReadingQuestionGroup,
+): ReadingQuestionGroup['type'] {
+  const qs = group.questions ?? []
+  if (!qs.length) return preliminary
+  const instr = typeof group.instruction === 'string' ? group.instruction : ''
+
+  const ynngInstr = /claims of the writer|views of the writer/i.test(instr)
+    && /yes if|not given/i.test(instr)
+  const tfngInstr = /true if the statement|FALSE if the statement/i.test(instr)
+    || (/true if/i.test(instr) && /false if/i.test(instr) && /not given/i.test(instr)
+      && !/yes if/i.test(instr))
+
+  const allYnngQ = qs.every(q =>
+    q.type === 'yes-no-not-given'
+    || optionsLookTriStateOnly(q.options)
+    || /^(yes|no|not[\s-]?given)$/i.test(String(q.answer ?? '')),
+  )
+  const allTfngQ = qs.every(q =>
+    q.type === 'true-false-not-given'
+    || optionsLookTriStateOnly(q.options)
+    || /^(true|false|not[\s-]?given)$/i.test(String(q.answer ?? '')),
+  )
+  // Có option MC thật (label dài không phải YES/NO) → không ép
+  const hasRealMcOpts = qs.some(q => {
+    const opts = q.options ?? []
+    if (opts.length >= 4) return true
+    return opts.some(o => {
+      const lab = String(o.label ?? '').trim()
+      if (lab.length < 12) return false
+      return !normalizeTriStateId(lab, 'ynng') && !normalizeTriStateId(lab, 'tfng')
+        && !/^(yes|no|true|false|not given)/i.test(lab)
+    })
+  })
+  if (hasRealMcOpts) return preliminary
+
+  if (ynngInstr || (allYnngQ && (preliminary === 'multiple-choice' || preliminary === 'ynng'
+    || qs.every(q => q.type === 'yes-no-not-given')))) {
+    if (!tfngInstr) return 'ynng'
+  }
+  if (tfngInstr || (allTfngQ && (preliminary === 'multiple-choice' || preliminary === 'tfng'
+    || qs.every(q => q.type === 'true-false-not-given')))) {
+    if (!ynngInstr) return 'tfng'
+  }
+  return preliminary
+}
+
 function sanitizeGroup(group: ReadingQuestionGroup): ReadingQuestionGroup {
-  const type = normalizeReadingGroupType(group.type, group)
-  const noteTable = group.noteTable
+  // Choose TWO: AI hay bỏ options câu 2 → share bank A–E trước khi detect type
+  const preChooseTwo = normalizeReadingChooseTwoGroup(group)
+  const preliminary = normalizeReadingGroupType(preChooseTwo.type, preChooseTwo)
+  const type = coerceTriStateGroupType(preliminary, preChooseTwo)
+  let noteTable = group.noteTable
     ? normalizeReadingNoteTable(group.noteTable) ?? group.noteTable
     : undefined
 
+  // TFNG / YNNG / matching / MC / summary / notes — không giữ noteTable nhiễm
+  const instr = typeof preChooseTwo.instruction === 'string' ? preChooseTwo.instruction : ''
+  const banTable = type === 'tfng' || type === 'ynng'
+    || type === 'matching-headings' || type === 'matching-paragraph' || type === 'matching-features'
+    || type === 'multiple-choice'
+    || /complete the summary|summary below|complete the notes|notes below|complete the sentences/i.test(instr)
+    || Boolean(preChooseTwo.notePassage?.length)
+    || (Boolean(preChooseTwo.note && /\d{1,2}_{2,}/.test(preChooseTwo.note))
+      && !/complete the table|table below/i.test(instr))
+
+  if (banTable) noteTable = undefined
+
   const next: ReadingQuestionGroup = {
-    ...group,
+    ...preChooseTwo,
     type,
-    range: typeof group.range === 'string' ? group.range : 'Questions',
-    instruction: typeof group.instruction === 'string' ? group.instruction : 'Choose the correct answer.',
-    ...(noteTable ? { noteTable } : {}),
-    features: sanitizeFeatureList(group.features),
-    headings: sanitizeHeadings(group.headings),
-    wordBank: sanitizeWordBank(group.wordBank),
-    paragraphLetters: Array.isArray(group.paragraphLetters)
-      ? group.paragraphLetters.map(l => String(l ?? '').trim()).filter(Boolean)
-      : group.paragraphLetters,
-    questions: (group.questions ?? []).map(q => sanitizeQuestion({ ...group, type }, q)),
+    range: typeof preChooseTwo.range === 'string' ? preChooseTwo.range : 'Questions',
+    instruction: typeof preChooseTwo.instruction === 'string' ? preChooseTwo.instruction : 'Choose the correct answer.',
+    ...(noteTable ? { noteTable } : { noteTable: undefined }),
+    features: sanitizeFeatureList(preChooseTwo.features),
+    headings: sanitizeHeadings(preChooseTwo.headings),
+    // TFNG/YNNG không dùng wordBank (tránh UI lạ / bank dính từ group trước)
+    wordBank: type === 'tfng' || type === 'ynng' ? undefined : sanitizeWordBank(preChooseTwo.wordBank),
+    paragraphLetters: Array.isArray(preChooseTwo.paragraphLetters)
+      ? preChooseTwo.paragraphLetters.map(l => String(l ?? '').trim()).filter(Boolean)
+      : preChooseTwo.paragraphLetters,
+    questions: (preChooseTwo.questions ?? []).map(q => sanitizeQuestion({ ...preChooseTwo, type }, q)),
+  }
+
+  // Xóa hẳn field nếu undefined (tránh JSON còn noteTable: null)
+  if (!noteTable) {
+    const { noteTable: _drop, ...rest } = next
+    return rest as ReadingQuestionGroup
   }
 
   return next

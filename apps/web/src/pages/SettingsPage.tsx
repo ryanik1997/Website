@@ -41,12 +41,13 @@ const FEATURE_LABELS: Partial<Record<Feature, string>> = {
   export: 'Xuất dữ liệu',
   writing_ai: 'AI chấm Writing',
   mindmap_ai: 'AI MindMap',
+  dictionary_ai: 'AI Từ điển',
   ai_router: 'AI Router',
   all: 'Tất cả tính năng',
 }
 
 const ALL_FEATURES: Feature[] = [
-  'vocab_basic', 'vocab_srs', 'writing_ai', 'mindmap_ai', 'backup', 'export', 'review_reminder',
+  'vocab_basic', 'vocab_srs', 'writing_ai', 'mindmap_ai', 'dictionary_ai', 'backup', 'export', 'review_reminder',
 ]
 
 const CONTACTS = [
@@ -624,7 +625,11 @@ function AccountTab({
 
 function CloudSyncSection() {
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
+  const { signOut } = useAuth()
   const syncing = syncState === 'syncing'
+  const sessionBroken = Boolean(
+    error && /phiên đăng nhập|hết hạn|đăng xuất/i.test(error),
+  )
 
   return (
     <section
@@ -644,6 +649,7 @@ function CloudSyncSection() {
           </p>
           <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
             Lần cuối: {formatSyncTime(lastSyncAt)}
+            {syncState === 'done' && !error ? ' · OK' : ''}
           </p>
           {syncState === 'error' && error && (
             <p className="text-xs mt-2 leading-relaxed" style={{ color: 'var(--color-accent)' }}>
@@ -653,22 +659,38 @@ function CloudSyncSection() {
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={triggerSync}
-        disabled={syncing}
-        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold disabled:opacity-60 transition-opacity"
-        style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-      >
-        {syncing ? (
-          <>
-            <LoaderCircle size={15} className="animate-spin" />
-            Đang đồng bộ…
-          </>
-        ) : (
-          'Đồng bộ ngay'
+      <div className="flex flex-col gap-2">
+        <button
+          type="button"
+          onClick={triggerSync}
+          disabled={syncing}
+          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold disabled:opacity-60 transition-opacity"
+          style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary, #fff)' }}
+        >
+          {syncing ? (
+            <>
+              <LoaderCircle size={15} className="animate-spin" />
+              Đang đồng bộ…
+            </>
+          ) : (
+            'Đồng bộ ngay'
+          )}
+        </button>
+        {sessionBroken && (
+          <button
+            type="button"
+            onClick={() => void signOut()}
+            className="w-full py-2.5 rounded-xl text-sm font-semibold border"
+            style={{
+              borderColor: 'var(--border-color)',
+              color: 'var(--text-primary)',
+              background: 'var(--bg-card)',
+            }}
+          >
+            Đăng xuất & đăng nhập lại
+          </button>
         )}
-      </button>
+      </div>
 
       <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
         Đồng bộ từ vựng, bài viết và mindmap lên Supabase.

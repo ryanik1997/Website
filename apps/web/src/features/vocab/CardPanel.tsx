@@ -20,6 +20,7 @@ const STUDY_BTNS = [
   { mode: 'review' as const, label: 'Ôn tập' },
   { mode: 'weak'   as const, label: 'Từ yếu' },
   { mode: 'stats'  as const, label: 'Thống kê' },
+  { mode: 'notebook' as const, label: 'Sổ ghi chú' },
 ]
 
 export default function CardPanel() {

@@ -146,7 +146,9 @@ function clampSpeed(speed: number): number {
 }
 
 export function mapRateToSpeed(rate: number): number {
+  if (rate <= 0.55) return 0.5
   if (rate <= 0.65) return 0.6
+  if (rate <= 0.8) return 0.75
   if (rate >= 0.9) return 1
   return clampSpeed(rate)
 }

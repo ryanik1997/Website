@@ -1,9 +1,12 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
-import { ImagePlus, Lightbulb, Trash2, RefreshCw, ChevronRight, Loader2, Pencil, ZoomIn, ZoomOut, X } from 'lucide-react'
+import {
+  ImagePlus, Lightbulb, Trash2, RefreshCw, ChevronRight, Loader2, Pencil,
+  ZoomIn, ZoomOut, X, ScanText,
+} from 'lucide-react'
 import type { WritingDoc } from '@ryan/db'
 import { readWritingImage } from './writingImage'
 import WritingGuidePanel from './WritingGuidePanel'
-import type { WritingGuide } from '@ryan/core'
+import type { ChartDescribeResult, WritingGuide } from '@ryan/core'
 
 const TYPE_BADGE: Record<string, string> = {
   ielts_task2: 'Opinion Essay',
@@ -37,6 +40,10 @@ interface Props {
   onCloseGuide: () => void
   onRegenerateGuide: () => void
   onEditPrompt: () => void
+  onDescribeChart?: () => void
+  chartDescribeLoading?: boolean
+  chartDescribeError?: string | null
+  chartDescribe?: ChartDescribeResult | null
 }
 
 export default function WritingTopicPanel({
@@ -51,6 +58,10 @@ export default function WritingTopicPanel({
   onCloseGuide,
   onRegenerateGuide,
   onEditPrompt,
+  onDescribeChart,
+  chartDescribeLoading = false,
+  chartDescribeError = null,
+  chartDescribe = null,
 }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [busy, setBusy] = useState(false)
@@ -156,6 +167,62 @@ export default function WritingTopicPanel({
 
       {err && (
         <p className="text-xs" style={{ color: 'var(--wr-danger)', margin: 0 }}>{err}</p>
+      )}
+
+      {doc.promptImage && onDescribeChart && (doc.type === 'ielts_task1' || doc.type === 'master') && (
+        <div className="wr-chart-ocr">
+          <button
+            type="button"
+            className="writing-guide-btn"
+            style={{ marginBottom: 0 }}
+            disabled={chartDescribeLoading}
+            onClick={onDescribeChart}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              {chartDescribeLoading
+                ? <Loader2 size={18} className="animate-spin" style={{ color: 'var(--wr-primary)' }} />
+                : <ScanText size={18} style={{ color: 'var(--wr-primary)' }} />}
+              <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>
+                {chartDescribeLoading ? 'AI đang OCR / mô tả biểu đồ…' : 'OCR & mô tả biểu đồ (Task 1)'}
+              </span>
+            </span>
+            <ChevronRight size={16} style={{ color: 'var(--wr-muted)' }} />
+          </button>
+          {chartDescribeError && (
+            <p className="text-xs" style={{ color: 'var(--wr-danger)', margin: '0.35rem 0 0' }}>
+              {chartDescribeError}
+            </p>
+          )}
+          {chartDescribe && !chartDescribeLoading && (
+            <div className="wr-chart-ocr-body">
+              {chartDescribe.chartType && (
+                <p className="wr-chart-ocr-type">Loại: {chartDescribe.chartType}</p>
+              )}
+              {chartDescribe.descriptionVi && (
+                <p>{chartDescribe.descriptionVi}</p>
+              )}
+              {chartDescribe.keyFigures?.length > 0 && (
+                <ul>
+                  {chartDescribe.keyFigures.map((f, i) => (
+                    <li key={i}>{f}</li>
+                  ))}
+                </ul>
+              )}
+              {chartDescribe.trends?.length > 0 && (
+                <ul>
+                  {chartDescribe.trends.map((t, i) => (
+                    <li key={i}>{t}</li>
+                  ))}
+                </ul>
+              )}
+              {chartDescribe.suggestedPromptEn && (
+                <p className="wr-chart-ocr-prompt">
+                  <strong>Đề gợi ý:</strong> {chartDescribe.suggestedPromptEn}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       )}
 
       <div>

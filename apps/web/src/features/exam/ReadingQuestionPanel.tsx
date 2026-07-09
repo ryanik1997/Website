@@ -1,14 +1,28 @@
-import type { ReadingQuestionGroup } from './examData'
+import { useMemo, type CSSProperties } from 'react'
+import {
+  formatReadingAnswer,
+  isReadingAnswerCorrect,
+  isWritingTaskQuestion,
+  type ReadingQuestion,
+  type ReadingQuestionGroup,
+} from './examData'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import ReadingNotePassageBox from './ReadingNotePassageBox'
 import ReadingNoteTableView from './ReadingNoteTable'
 import type { ReadingHighlight } from './readingHighlightUtils'
 import {
   isReadingChooseTwoGroup,
+  normalizeReadingChooseTwoGroup,
   normalizeReadingChooseTwoPrompt,
   splitReadingMcGroupForChooseTwo,
   toggleReadingChooseTwoOption,
 } from './readingChooseTwoUtils'
+import {
+  EXAM_REVIEW_COLORS,
+  examReviewStatus,
+  readingQuestionReviewStatus,
+  type ExamReviewStatus,
+} from './examReviewUtils'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface Props {
@@ -20,6 +34,92 @@ interface Props {
   partNumber?: number
   onSelectQuestion: (questionId: string) => void
   onAnswer: (questionId: string, value: string) => void
+  /** Sau nộp bài: khóa sửa + hiện đúng/sai */
+  reviewMode?: boolean
+  /** Map id → correct|wrong|skipped (từ parent) */
+  reviewStatusMap?: Record<string, ExamReviewStatus>
+}
+
+function ReviewQuestionBanner({
+  question,
+  answer,
+  group,
+  status: statusProp,
+}: {
+  question: ReadingQuestion | null
+  answer: string
+  group?: ReadingQuestionGroup
+  status?: ExamReviewStatus | null
+}) {
+  if (!question || isWritingTaskQuestion(question)) return null
+  const status = statusProp ?? readingQuestionReviewStatus(question, answer)
+  const ctx = group?.type === 'matching-headings' ? { headings: group.headings } : undefined
+  const keyLabel = formatReadingAnswer(question, question.answer, ctx)
+  const yourLabel = formatReadingAnswer(question, answer, ctx)
+  const c = EXAM_REVIEW_COLORS[status]
+  return (
+    <div
+      className={`reading-review-banner is-${status}`}
+      role="status"
+      style={{
+        borderColor: c.border,
+        background: `color-mix(in srgb, ${c.bg} 18%, var(--bg-card))`,
+      }}
+    >
+      <span
+        className="reading-review-banner__tag"
+        style={{ background: c.bg, color: c.fg }}
+      >
+        {status === 'correct' ? 'Đúng' : status === 'wrong' ? 'Sai' : 'Bỏ qua'}
+      </span>
+      <span className="reading-review-banner__q">Câu {question.number}</span>
+      <span className="reading-review-banner__you">Bạn: {yourLabel}</span>
+      {status !== 'correct' && (
+        <span className="reading-review-banner__key" style={{ color: c.border, fontWeight: 700 }}>
+          Đáp án: {keyLabel}
+        </span>
+      )}
+    </div>
+  )
+}
+
+function reviewItemBorder(status: ExamReviewStatus | null | undefined): CSSProperties | undefined {
+  if (!status) return undefined
+  return {
+    borderLeft: `4px solid ${EXAM_REVIEW_COLORS[status].bg}`,
+    paddingLeft: '0.55rem',
+    marginBottom: '0.35rem',
+  }
+}
+
+const UI_YNNG_OPTIONS = [
+  { id: 'yes', label: 'YES' },
+  { id: 'no', label: 'NO' },
+  { id: 'not-given', label: 'NOT GIVEN' },
+] as const
+
+const UI_TFNG_OPTIONS = [
+  { id: 'true', label: 'TRUE' },
+  { id: 'false', label: 'FALSE' },
+  { id: 'not-given', label: 'NOT GIVEN' },
+] as const
+
+/** Luôn 3 radio ngắn — chặn double YES/NO/NG từ JSON lỗi */
+function triStateOptionsForGroup(group: ReadingQuestionGroup) {
+  const isYnng = group.type === 'ynng'
+    || group.questions.some(q => q.type === 'yes-no-not-given')
+  return isYnng ? UI_YNNG_OPTIONS : UI_TFNG_OPTIONS
+}
+
+function isTriStateKeyOption(
+  option: { id: string; label: string },
+  answer: string,
+): boolean {
+  const a = String(answer ?? '').toLowerCase().trim()
+  const id = option.id.toLowerCase().trim()
+  const label = option.label.toLowerCase().trim()
+  const aNorm = a.replace(/\s+/g, '-')
+  return id === a || id === aNorm || label === a || label.replace(/\s+/g, '-') === aNorm
 }
 
 function TriStateGroup({
@@ -29,9 +129,15 @@ function TriStateGroup({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: {
   group: ReadingQuestionGroup
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 } & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+  const options = triStateOptionsForGroup(group)
+
   return (
     <section className="reading-test-group">
       <ReadingHighlightableText
@@ -57,56 +163,86 @@ function TriStateGroup({
           as="p"
         />
       )}
-      {group.questions.map(question => (
-        <div
-          key={question.id}
-          id={`reading-q-${question.id}`}
-          className="reading-test-tfng-item"
-          onFocus={() => onSelectQuestion(question.id)}
-        >
-          <span className="reading-test-tfng-num" data-highlight-skip>{question.number}</span>
-          <div>
-            <ReadingHighlightableText
-              blockId={`${question.id}-prompt`}
-              text={question.prompt}
-              highlights={highlights}
-              className="reading-test-tfng-prompt"
-              as="p"
-            />
-            <div className="reading-test-tfng-options">
-              {(question.options ?? []).map(option => (
-                <label key={option.id} className="reading-test-radio">
-                  <input
-                    type="radio"
-                    name={question.id}
-                    checked={answers[question.id] === option.id}
-                    onChange={() => onAnswer(question.id, option.id)}
-                    onFocus={() => onSelectQuestion(question.id)}
-                  />
-                  <ReadingHighlightableText
-                    blockId={`${question.id}-opt-${option.id}`}
-                    text={option.label}
-                    highlights={highlights}
-                    as="span"
-                  />
-                </label>
-              ))}
+      {group.questions.map(question => {
+        const ans = (answers[question.id] ?? '').toLowerCase().trim()
+        const status = reviewMode
+          ? (reviewStatusMap?.[question.id]
+            ?? examReviewStatus(answers[question.id], a => isReadingAnswerCorrect(question, a)))
+          : null
+        return (
+          <div
+            key={question.id}
+            id={`reading-q-${question.id}`}
+            className={`reading-test-tfng-item${status ? ` is-review-${status}` : ''}${activeQuestionId === question.id ? ' is-active' : ''}`}
+            style={reviewItemBorder(status)}
+            onFocus={() => onSelectQuestion(question.id)}
+            onClick={() => onSelectQuestion(question.id)}
+          >
+            <span className="reading-test-tfng-num" data-highlight-skip>{question.number}</span>
+            <div>
+              <ReadingHighlightableText
+                blockId={`${question.id}-prompt`}
+                text={question.prompt}
+                highlights={highlights}
+                className="reading-test-tfng-prompt"
+                as="p"
+              />
+              <div className="reading-test-tfng-options">
+                {options.map(option => {
+                  const selected = ans === option.id || ans === option.label.toLowerCase()
+                    || ans.replace(/\s+/g, '-') === option.id
+                  const isKey = reviewMode && isTriStateKeyOption(option, question.answer)
+                  const optStyle: CSSProperties | undefined = reviewMode
+                    ? isKey
+                      ? { outline: `2px solid ${EXAM_REVIEW_COLORS.correct.bg}`, background: 'color-mix(in srgb, #22c55e 16%, var(--bg-card))', borderRadius: 8, padding: '0.15rem 0.35rem' }
+                      : selected && status === 'wrong'
+                        ? { outline: `2px solid ${EXAM_REVIEW_COLORS.wrong.bg}`, background: 'color-mix(in srgb, #ef4444 12%, var(--bg-card))', borderRadius: 8, padding: '0.15rem 0.35rem' }
+                        : undefined
+                    : undefined
+                  return (
+                    <label
+                      key={option.id}
+                      className={`reading-test-radio${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}${selected && status === 'wrong' ? ' is-review-bad' : ''}${selected && status === 'correct' ? ' is-review-ok' : ''}`}
+                      style={optStyle}
+                    >
+                      <input
+                        type="radio"
+                        name={question.id}
+                        checked={selected}
+                        disabled={reviewMode}
+                        onChange={() => onAnswer(question.id, option.id)}
+                        onFocus={() => onSelectQuestion(question.id)}
+                      />
+                      <ReadingHighlightableText
+                        blockId={`${question.id}-opt-${option.id}`}
+                        text={option.label}
+                        highlights={highlights}
+                        as="span"
+                      />
+                    </label>
+                  )
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </section>
   )
 }
 
 function TfngGroup(props: {
   group: ReadingQuestionGroup
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 } & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   return <TriStateGroup {...props} />
 }
 
 function YnngGroup(props: {
   group: ReadingQuestionGroup
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 } & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   return <TriStateGroup {...props} />
 }
@@ -237,15 +373,21 @@ function MultipleChoiceGroup({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: {
   group: ReadingQuestionGroup
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 } & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'partNumber' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const compactLetters = cambridgeLevel === 'a2' && partNumber === 2
+  // Share options câu 2 nếu AI bỏ bank (r2msc Q24/Q26)
+  const groupForChooseTwo = normalizeReadingChooseTwoGroup(group)
 
-  if (isReadingChooseTwoGroup(group)) {
+  if (isReadingChooseTwoGroup(groupForChooseTwo)) {
     return (
       <ChooseTwoGroup
-        group={group}
+        group={groupForChooseTwo}
         answers={answers}
         highlights={highlights}
         activeQuestionId={activeQuestionId}
@@ -270,6 +412,8 @@ function MultipleChoiceGroup({
             activeQuestionId={activeQuestionId}
             onSelectQuestion={onSelectQuestion}
             onAnswer={onAnswer}
+            reviewMode={reviewMode}
+            reviewStatusMap={reviewStatusMap}
           />
         ))}
       </>
@@ -292,48 +436,71 @@ function MultipleChoiceGroup({
         className="reading-test-group__instruction"
         as="p"
       />
-      {group.questions.map(question => (
-        <div key={question.id} id={`reading-q-${question.id}`} className="reading-test-mc-item">
-          <p className="reading-test-tfng-prompt">
-            <span className="reading-test-tfng-num" data-highlight-skip style={{ display: 'inline', marginRight: '0.35rem' }}>
-              {question.number}
-            </span>
-            <ReadingHighlightableText
-              blockId={`${question.id}-prompt`}
-              text={question.prompt}
-              highlights={highlights}
-              as="span"
-            />
-          </p>
-          <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
-            {(question.options ?? []).map(option => {
-              const selected = (answers[question.id] ?? '').toLowerCase() === option.id.toLowerCase()
-              return (
-                <button
-                  key={option.id}
-                  type="button"
-                  className={`reading-test-mc-option${selected ? ' is-selected' : ''}${compactLetters ? ' is-letter-only' : ''}`}
-                  onClick={() => {
-                    onSelectQuestion(question.id)
-                    onAnswer(question.id, option.id)
-                  }}
-                >
-                  <span className="reading-test-mc-letter" data-highlight-skip>{option.id.toUpperCase()}</span>
-                  {!compactLetters && (
-                    <ReadingHighlightableText
-                      blockId={`${question.id}-opt-${option.id}`}
-                      text={option.label}
-                      highlights={highlights}
-                      className="reading-test-mc-label"
-                      as="span"
-                    />
-                  )}
-                </button>
-              )
-            })}
+      {group.questions.map(question => {
+        const status = reviewMode
+          ? (reviewStatusMap?.[question.id]
+            ?? examReviewStatus(answers[question.id], a => isReadingAnswerCorrect(question, a)))
+          : null
+        return (
+          <div
+            key={question.id}
+            id={`reading-q-${question.id}`}
+            className={`reading-test-mc-item${status ? ` is-review-${status}` : ''}`}
+            style={reviewItemBorder(status)}
+            onClick={() => onSelectQuestion(question.id)}
+          >
+            <p className="reading-test-tfng-prompt">
+              <span className="reading-test-tfng-num" data-highlight-skip style={{ display: 'inline', marginRight: '0.35rem' }}>
+                {question.number}
+              </span>
+              <ReadingHighlightableText
+                blockId={`${question.id}-prompt`}
+                text={question.prompt}
+                highlights={highlights}
+                as="span"
+              />
+            </p>
+            <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
+              {(question.options ?? []).map(option => {
+                const selected = (answers[question.id] ?? '').toLowerCase() === option.id.toLowerCase()
+                const isKey = reviewMode && option.id.toLowerCase() === String(question.answer).toLowerCase().trim()
+                const optStyle: CSSProperties | undefined = reviewMode
+                  ? isKey
+                    ? { outline: `2px solid ${EXAM_REVIEW_COLORS.correct.bg}`, background: 'color-mix(in srgb, #22c55e 16%, var(--bg-card))' }
+                    : selected && status === 'wrong'
+                      ? { outline: `2px solid ${EXAM_REVIEW_COLORS.wrong.bg}`, background: 'color-mix(in srgb, #ef4444 12%, var(--bg-card))' }
+                      : undefined
+                  : undefined
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    disabled={reviewMode}
+                    style={optStyle}
+                    className={`reading-test-mc-option${selected ? ' is-selected' : ''}${compactLetters ? ' is-letter-only' : ''}${isKey ? ' is-review-key' : ''}${selected && status === 'wrong' ? ' is-review-bad' : ''}${selected && status === 'correct' ? ' is-review-ok' : ''}`}
+                    onClick={() => {
+                      if (reviewMode) return
+                      onSelectQuestion(question.id)
+                      onAnswer(question.id, option.id)
+                    }}
+                  >
+                    <span className="reading-test-mc-letter" data-highlight-skip>{option.id.toUpperCase()}</span>
+                    {!compactLetters && (
+                      <ReadingHighlightableText
+                        blockId={`${question.id}-opt-${option.id}`}
+                        text={option.label}
+                        highlights={highlights}
+                        className="reading-test-mc-label"
+                        as="span"
+                      />
+                    )}
+                  </button>
+                )
+              })}
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </section>
   )
 }
@@ -345,8 +512,12 @@ function MatchingParagraphGroup({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: {
   group: ReadingQuestionGroup
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 } & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const letters = group.paragraphLetters ?? []
   const activeInGroup = group.questions.some(q => q.id === activeQuestionId)
@@ -381,13 +552,18 @@ function MatchingParagraphGroup({
       {group.questions.map(question => {
         const answered = answers[question.id]
         const isActive = activeQuestionId === question.id
+        const status = reviewMode
+          ? (reviewStatusMap?.[question.id]
+            ?? examReviewStatus(answers[question.id], a => isReadingAnswerCorrect(question, a)))
+          : null
         return (
           <div
             key={question.id}
             id={`reading-q-${question.id}`}
             role="button"
             tabIndex={0}
-            className={`reading-test-match-row${isActive ? ' is-active' : ''}${answered ? ' is-answered' : ''}`}
+            className={`reading-test-match-row${isActive ? ' is-active' : ''}${answered ? ' is-answered' : ''}${status ? ` is-review-${status}` : ''}`}
+            style={reviewItemBorder(status)}
             onClick={() => onSelectQuestion(question.id)}
             onKeyDown={e => {
               if (e.key === 'Enter' || e.key === ' ') {
@@ -404,33 +580,58 @@ function MatchingParagraphGroup({
               className="reading-test-match-prompt"
               as="span"
             />
-            <span className="reading-test-match-answer" data-highlight-skip>
-              {answered ? answered.toUpperCase() : ''}
+            <span
+              className="reading-test-match-answer"
+              data-highlight-skip
+              style={status ? { color: EXAM_REVIEW_COLORS[status].bg, fontWeight: 800 } : undefined}
+            >
+              {answered ? answered.toUpperCase() : (reviewMode ? '—' : '')}
+              {reviewMode && status === 'wrong' && question.answer
+                ? ` → ${String(question.answer).toUpperCase()}`
+                : ''}
             </span>
           </div>
         )
       })}
 
       <div className="reading-test-para-pills">
-        {letters.map(letter => (
-          <button
-            key={letter}
-            type="button"
-            className={`reading-test-para-pill${
-              activeQuestion && answers[activeQuestion.id] === letter.toLowerCase() ? ' is-selected' : ''
-            }`}
-            disabled={!activeInGroup}
-            onClick={() => {
-              if (!activeQuestion) return
-              onAnswer(activeQuestion.id, letter.toLowerCase())
-            }}
-          >
-            Paragraph {letter}
-          </button>
-        ))}
+        {letters.map(letter => {
+          const lid = letter.toLowerCase()
+          const selected = Boolean(activeQuestion && (answers[activeQuestion.id] ?? '').toLowerCase() === lid)
+          const isKey = Boolean(
+            reviewMode && activeQuestion && String(activeQuestion.answer).toLowerCase() === lid,
+          )
+          const aStatus = activeQuestion && reviewMode
+            ? (reviewStatusMap?.[activeQuestion.id] ?? null)
+            : null
+          const pillStyle: CSSProperties | undefined = reviewMode
+            ? isKey
+              ? { outline: `2px solid ${EXAM_REVIEW_COLORS.correct.bg}`, background: 'color-mix(in srgb, #22c55e 18%, var(--bg-card))' }
+              : selected && aStatus === 'wrong'
+                ? { outline: `2px solid ${EXAM_REVIEW_COLORS.wrong.bg}`, background: 'color-mix(in srgb, #ef4444 12%, var(--bg-card))' }
+                : undefined
+            : undefined
+          return (
+            <button
+              key={letter}
+              type="button"
+              style={pillStyle}
+              className={`reading-test-para-pill${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
+              disabled={!activeInGroup || reviewMode}
+              onClick={() => {
+                if (reviewMode || !activeQuestion) return
+                onAnswer(activeQuestion.id, lid)
+              }}
+            >
+              Paragraph {letter}
+            </button>
+          )
+        })}
       </div>
       <p className="reading-test-group__instruction" style={{ marginTop: '0.65rem', marginBottom: 0 }}>
-        Chọn một câu hỏi, sau đó bấm Paragraph tương ứng.
+        {reviewMode
+          ? 'Xem lại: viền xanh = đáp án đúng; đỏ = bạn chọn sai.'
+          : 'Chọn một câu hỏi, sau đó bấm Paragraph tương ứng.'}
       </p>
     </section>
   )
@@ -675,8 +876,19 @@ function GapFillGroup({
 } & Pick<Props, 'answers' | 'highlights' | 'onSelectQuestion' | 'onAnswer'>) {
   const placeholder = gapFillPlaceholder(group)
   const hasNotePassage = Boolean(group.notePassage?.length)
-  const hasNoteTable = Boolean(group.noteTable?.headers?.length && group.noteTable.rows?.length)
+  const isSummaryOrNotesInstr = /complete the summary|summary below|complete the notes|notes below|complete the sentences/i
+    .test(group.instruction ?? '')
+  const isTableInstr = /complete the table|table below/i.test(group.instruction ?? '')
   const inlineSummary = summaryNoteHasInlineGaps(group.note)
+  // Chỉ render noteTable khi instruction table
+  const hasNoteTable = Boolean(
+    group.noteTable?.headers?.length
+    && group.noteTable.rows?.length
+    && isTableInstr
+    && !isSummaryOrNotesInstr
+    && !hasNotePassage
+    && !inlineSummary,
+  )
   const hasGroupImage = !hasNoteTable && !hasNotePassage && !inlineSummary && Boolean(group.imageKey || group.imageUrl)
   const questionsByNumber = new Map(group.questions.map(q => [q.number, q]))
   return (
@@ -994,7 +1206,7 @@ function SummaryCompletionGroup({
 
       {bank.length > 0 && (
         <div className="reading-test-word-bank">
-          <p className="reading-test-word-bank__title">Word bank</p>
+          <p className="reading-test-word-bank__title">LIST OF OPTIONS</p>
           {bank.map(word => (
             <p key={word.id} className="reading-test-word-bank__item">
               <strong data-highlight-skip>{word.id.toUpperCase()}</strong>
@@ -1197,124 +1409,218 @@ export default function ReadingQuestionPanel({
   partNumber,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
+  const lockedAnswer = useMemo(() => {
+    if (!reviewMode) return onAnswer
+    return (_id: string, _value: string) => undefined
+  }, [onAnswer, reviewMode])
+
+  const activeMeta = useMemo(() => {
+    if (!activeQuestionId) return { question: null as ReadingQuestion | null, group: undefined as ReadingQuestionGroup | undefined }
+    for (const g of groups) {
+      const q = g.questions.find(x => x.id === activeQuestionId)
+      if (q) return { question: q, group: g }
+    }
+    return { question: null, group: undefined }
+  }, [activeQuestionId, groups])
+
+  const activeStatus = activeQuestionId && reviewMode
+    ? (reviewStatusMap?.[activeQuestionId]
+      ?? (activeMeta.question
+        ? readingQuestionReviewStatus(activeMeta.question, answers[activeQuestionId])
+        : null))
+    : null
+
   return (
-    <div className="reading-test-questions" data-reading-highlight-zone>
+    <div className={`reading-test-questions${reviewMode ? ' is-review' : ''}`} data-reading-highlight-zone>
+      {reviewMode && (
+        <ReviewQuestionBanner
+          question={activeMeta.question}
+          answer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
+          group={activeMeta.group}
+          status={activeStatus}
+        />
+      )}
       {groups.map(group => {
-        const hasNoteTable = Boolean(group.noteTable?.headers?.length && group.noteTable.rows?.length)
+        // noteTable CHỈ khi instruction table (Complete the table…) — không TFNG/summary/notes/sentence
+        const isTableInstr = /complete the table|table below/i.test(group.instruction ?? '')
+        const isSummaryOrNotes = /complete the summary|summary below|complete the notes|notes below|complete the sentences/i
+          .test(group.instruction ?? '')
+        const hasSummaryNote = Boolean(group.note && /\d{1,2}_{2,}/.test(group.note))
+        const hasNotePassage = Boolean(group.notePassage?.length)
+        const hasNoteTable = Boolean(
+          group.noteTable?.headers?.length
+          && group.noteTable.rows?.length
+          && isTableInstr
+          && !isSummaryOrNotes
+          && !hasNotePassage
+          && !hasSummaryNote
+          && group.type !== 'tfng'
+          && group.type !== 'ynng',
+        )
+        // Gỡ noteTable khỏi props khi không phải table slot (chống render nhiễm)
+        const groupClean = hasNoteTable ? group : { ...group, noteTable: undefined }
+
         if (hasNoteTable && group.type !== 'gap-fill' && group.type !== 'sentence-completion') {
           return (
             <GapFillGroup
               key={group.id}
-              group={{ ...group, type: 'gap-fill' }}
+              group={{ ...groupClean, type: 'gap-fill' }}
               answers={answers}
               highlights={highlights}
               activeQuestionId={activeQuestionId}
               onSelectQuestion={onSelectQuestion}
-              onAnswer={onAnswer}
+              onAnswer={lockedAnswer}
             />
           )
         }
 
-        switch (group.type) {
+        // Cam19+ : group.type = multiple-choice nhưng câu yes-no-not-given + option YES/NO
+        // → không render MC (A YES / B NO) chồng instruction → double
+        const qs = groupClean.questions ?? []
+        const allYnngQs = qs.length > 0 && qs.every(q =>
+          q.type === 'yes-no-not-given'
+          || ((q.options?.length ?? 0) > 0 && (q.options?.length ?? 0) <= 3
+            && (q.options ?? []).every(o => /^(yes|no|not[\s-]?given)$/i.test(String(o.id))
+              || /^(yes|no|not given)/i.test(String(o.label)))),
+        )
+        const allTfngQs = qs.length > 0 && qs.every(q =>
+          q.type === 'true-false-not-given'
+          || ((q.options?.length ?? 0) > 0 && (q.options?.length ?? 0) <= 3
+            && (q.options ?? []).every(o => /^(true|false|not[\s-]?given)$/i.test(String(o.id))
+              || /^(true|false|not given)/i.test(String(o.label)))),
+        )
+        const ynngInstr = /claims of the writer|views of the writer/i.test(groupClean.instruction ?? '')
+          && /not given/i.test(groupClean.instruction ?? '')
+        const effectiveType = (groupClean.type === 'multiple-choice' && allYnngQs) || (ynngInstr && allYnngQs)
+          ? 'ynng' as const
+          : (groupClean.type === 'multiple-choice' && allTfngQs)
+            ? 'tfng' as const
+            : groupClean.type
+
+        switch (effectiveType) {
           case 'tfng':
             return (
               <TfngGroup
                 key={group.id}
-                group={group}
+                group={{ ...groupClean, type: 'tfng' }}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
+                reviewMode={reviewMode}
+                reviewStatusMap={reviewStatusMap}
               />
             )
           case 'ynng':
             return (
               <YnngGroup
                 key={group.id}
-                group={group}
+                group={{ ...groupClean, type: 'ynng' }}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
+                reviewMode={reviewMode}
+                reviewStatusMap={reviewStatusMap}
               />
             )
           case 'matching-headings':
             return (
               <MatchingHeadingsGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
               />
             )
           case 'matching-paragraph':
             return (
               <MatchingParagraphGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
+                reviewMode={reviewMode}
+                reviewStatusMap={reviewStatusMap}
               />
             )
           case 'matching-features':
             return (
               <MatchingFeaturesGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 cambridgeLevel={cambridgeLevel}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
               />
             )
           case 'gap-fill':
           case 'sentence-completion':
+            // r3ysm/r3my: nếu vẫn còn wordBank (AI type sai gap-fill) → LIST OF OPTIONS
+            if ((groupClean.wordBank?.length ?? 0) > 0) {
+              return (
+                <SummaryCompletionGroup
+                  key={group.id}
+                  group={{ ...groupClean, type: 'summary-completion' }}
+                  answers={answers}
+                  highlights={highlights}
+                  activeQuestionId={activeQuestionId}
+                  onSelectQuestion={onSelectQuestion}
+                  onAnswer={lockedAnswer}
+                />
+              )
+            }
             return (
               <GapFillGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
               />
             )
           case 'summary-completion':
             return (
               <SummaryCompletionGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
               />
             )
           default:
             return (
               <MultipleChoiceGroup
                 key={group.id}
-                group={group}
+                group={groupClean}
                 answers={answers}
                 highlights={highlights}
                 cambridgeLevel={cambridgeLevel}
                 partNumber={partNumber}
                 activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
-                onAnswer={onAnswer}
+                onAnswer={lockedAnswer}
+                reviewMode={reviewMode}
+                reviewStatusMap={reviewStatusMap}
               />
             )
         }

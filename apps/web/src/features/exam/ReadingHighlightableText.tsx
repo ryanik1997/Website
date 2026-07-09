@@ -34,7 +34,9 @@ export default function ReadingHighlightableText({
       {children}
       {segments.map((segment, segIndex) => {
         const classNames = [
-          segment.highlighted ? 'reading-test-highlight' : '',
+          segment.highlighted
+            ? (segment.evidence ? 'reading-test-highlight reading-test-highlight--evidence' : 'reading-test-highlight')
+            : '',
           segment.note ? 'reading-test-note' : '',
         ].filter(Boolean).join(' ')
 
@@ -44,7 +46,8 @@ export default function ReadingHighlightableText({
             <Wrapper
               key={`${blockId}-seg-${segIndex}`}
               className={classNames || undefined}
-              title={segment.note}
+              title={segment.note ?? (segment.evidence ? 'Đoạn AI chỉ (đáp án / thông tin đúng)' : undefined)}
+              data-ai-evidence={segment.evidence ? '1' : undefined}
             >
               {segment.text}
             </Wrapper>

@@ -61,6 +61,16 @@
   margin-bottom: 1.25rem;
 }
 
+.wd-stats--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+  .wd-stats--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .wd-stat {
   padding: 1rem 1.1rem;
   border-radius: 1rem;
@@ -164,6 +174,82 @@
   font-size: 0.55rem;
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+.wd-trend-val {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Lịch chấm 30 ngày */
+.wd-cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.wd-cal-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+}
+
+.wd-cal-swatch--0 { background: var(--bg-secondary); }
+.wd-cal-swatch--1 { background: color-mix(in srgb, var(--color-primary) 28%, var(--bg-secondary)); }
+.wd-cal-swatch--2 { background: color-mix(in srgb, var(--color-primary) 55%, var(--bg-secondary)); }
+.wd-cal-swatch--3 { background: color-mix(in srgb, var(--color-primary) 82%, var(--bg-secondary)); }
+
+.wd-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 4px;
+}
+
+@media (max-width: 640px) {
+  .wd-cal-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.wd-cal-cell {
+  aspect-ratio: 1;
+  min-height: 2.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 2px;
+}
+
+.wd-cal-cell--0 { background: var(--bg-secondary); opacity: 0.7; }
+.wd-cal-cell--1 { background: color-mix(in srgb, var(--color-primary) 22%, var(--bg-card)); }
+.wd-cal-cell--2 { background: color-mix(in srgb, var(--color-primary) 45%, var(--bg-card)); }
+.wd-cal-cell--3 {
+  background: color-mix(in srgb, var(--color-primary) 70%, var(--bg-card));
+  border-color: color-mix(in srgb, var(--color-primary) 40%, var(--border-color));
+}
+
+.wd-cal-day {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.wd-cal-band {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 .wd-criterion {

@@ -320,6 +320,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ss-actions-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
 }
 
 .ss-flip-btn {
@@ -346,13 +355,122 @@
   font-size: 0.85rem;
   font-weight: 700;
   background: var(--color-primary);
-  color: var(--bg-primary);
+  color: var(--color-on-primary, #fff);
   cursor: pointer;
 }
 
 .ss-check-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+.ss-check-btn--ghost {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.ss-check-btn--ai {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    color-mix(in srgb, var(--color-accent) 70%, var(--color-primary))
+  );
+  color: #fff;
+}
+
+.ss-ai-grade {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+
+.ss-ai-grade.is-pass {
+  border-color: color-mix(in srgb, #22c55e 40%, var(--border-color));
+  background: color-mix(in srgb, #22c55e 8%, var(--bg-card));
+}
+
+.ss-ai-grade.is-fail {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--border-color));
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--bg-card));
+}
+
+.ss-ai-grade__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.85rem;
+  margin-bottom: 0.65rem;
+}
+
+.ss-ai-grade__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.ss-ai-grade__score {
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.ss-ai-grade__score small {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-left: 0.1rem;
+}
+
+.ss-ai-grade__score.is-ok {
+  color: #16a34a;
+}
+
+.ss-ai-grade__pass {
+  margin-left: auto;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+}
+
+.ss-ai-grade__pass.is-ok {
+  background: color-mix(in srgb, #22c55e 16%, transparent);
+  color: #15803d;
+}
+
+.ss-ai-grade__sentence {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.ss-ai-grade__feedback {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.ss-ai-grade__tip,
+.ss-ai-grade__improved {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
 }
 
 .ss-result {

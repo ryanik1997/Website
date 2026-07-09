@@ -1,6 +1,7 @@
 import { ExternalLink, Eye, EyeOff, Info, Loader2, CheckCircle2, XCircle } from 'lucide-react'
 import { AI_PROVIDERS } from '@ryan/core'
 import { useAiSettings } from './useAiSettings'
+import AiUsageDashboard from './AiUsageDashboard'
 
 const INPUT_STYLE = {
   background: 'var(--bg-secondary)',
@@ -20,7 +21,6 @@ export default function AiSettingsPanel({ showUsage = true, onSave }: Props) {
     showKey, setShowKey,
     loading, saving, save,
     testing, testResult, testConnection,
-    todayUsage,
   } = useAiSettings()
 
   const cfg = AI_PROVIDERS.find(p => p.id === provider)!
@@ -148,18 +148,8 @@ export default function AiSettingsPanel({ showUsage = true, onSave }: Props) {
         )}
       </section>
 
-      {/* Usage */}
-      {showUsage && (
-        <section
-          className="flex items-center justify-between px-4 py-3 rounded-xl text-sm"
-          style={{ background: 'var(--bg-secondary)' }}
-        >
-          <span style={{ color: 'var(--text-muted)' }}>AI chấm Writing hôm nay</span>
-          <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-            {todayUsage} lần
-          </span>
-        </section>
-      )}
+      {/* Usage dashboard theo từng phần */}
+      {showUsage && <AiUsageDashboard />}
     </div>
   )
 }

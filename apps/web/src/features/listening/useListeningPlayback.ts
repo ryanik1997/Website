@@ -64,7 +64,8 @@ export function useListeningPlayback() {
     cancelProgress()
     stop()
 
-    const speechRate = rate === 1 ? 0.85 : 0.6
+    // rate UI: 1 | 0.75 | 0.5 → speech rate cho WebSpeech / Kokoro
+    const speechRate = rate <= 0.55 ? 0.55 : rate <= 0.8 ? 0.7 : 0.85
     const kokoroSpeed = mapRateToSpeed(speechRate)
     const estimatedTotal = estimateSpeechDurationSec(text, speechRate)
 
@@ -137,7 +138,12 @@ export function useListeningPlayback() {
   }, [playing, buffering])
 
   const toggleSpeed = useCallback(() => {
-    setSpeed(s => (s === 1 ? 0.75 : 1))
+    // Cycle: 1 → 0.75 → 0.5 → 1 (nghe chậm)
+    setSpeed(s => (s === 1 ? 0.75 : s === 0.75 ? 0.5 : 1))
+  }, [])
+
+  const setPlaybackSpeed = useCallback((rate: number) => {
+    setSpeed(rate === 0.5 || rate === 0.75 || rate === 1 ? rate : 1)
   }, [])
 
   const stopPlayback = useCallback(() => {
@@ -148,6 +154,29 @@ export function useListeningPlayback() {
     useRealAudioRef.current = false
   }, [cancelProgress])
 
+  /** Thời lượng ước tính / thực (giây) — dùng time-align transcript */
+  const getDurationSec = useCallback((): number => {
+    const audio = getActiveAudio()
+    if (audio?.duration && Number.isFinite(audio.duration) && audio.duration > 0) {
+      return audio.duration
+    }
+    return durationRef.current
+  }, [])
+
+  const getCurrentTimeSec = useCallback((): number => {
+    const audio = getActiveAudio()
+    if (audio && Number.isFinite(audio.currentTime)) return audio.currentTime
+    if (!progressActiveRef.current || durationRef.current <= 0) return 0
+    return Math.min(durationRef.current, (performance.now() - startRef.current) / 1000)
+  }, [])
+
+  const seekToTimeSec = useCallback((sec: number) => {
+    const total = getDurationSec()
+    if (total <= 0) return
+    const pct = (Math.max(0, Math.min(total, sec)) / total) * 100
+    seekToPct(pct)
+  }, [getDurationSec, seekToPct])
+
   return {
     playing,
     buffering,
@@ -155,8 +184,12 @@ export function useListeningPlayback() {
     timeLabel,
     speed,
     toggleSpeed,
+    setPlaybackSpeed,
     playTts,
     seekToPct,
+    seekToTimeSec,
+    getDurationSec,
+    getCurrentTimeSec,
     stopPlayback,
   }
 }

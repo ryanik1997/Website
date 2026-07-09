@@ -668,6 +668,110 @@ export const CAM_NUTMEG_HISTORY_TABLE: ReadingNoteTable = {
   ],
 }
 
+/**
+ * Cam17 T4 P1 — Rocha “Bats to the rescue” table Q7–13
+ * (Teamplate_Part1_10 / engnovate full wording)
+ */
+export const CAM_ROCHA_BAT_TABLE: ReadingNoteTable = {
+  title: 'The study carried out by Rocha\'s team',
+  headers: ['Section', 'Details'],
+  gapNumbers: [7, 8, 9, 10, 11, 12, 13],
+  rows: [
+    {
+      cells: [
+        [{ type: 'static', text: 'Aim' }],
+        [{ type: 'static', text: '• to investigate the feeding habits of bats in farmland near the Ranomafana National Park' }],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Method' }],
+        [
+          { type: 'static', text: '• ultrasonic recording to identify favourite feeding spots' },
+          { type: 'break' },
+          { type: 'static', text: '• DNA analysis of bat ' },
+          { type: 'gap', number: 7 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { rowSpan: 8, blocks: [{ type: 'static', text: 'Findings' }] },
+        [{ type: 'static', text: 'the bats' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: '– were most active in rice fields located on hills' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– ate pests of rice, ' },
+          { type: 'gap', number: 8 },
+          { type: 'static', text: ', sugarcane, nuts and fruit' },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– prevent the spread of disease by eating ' },
+          { type: 'gap', number: 9 },
+          { type: 'static', text: ' and blackflies' },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: '• local attitudes to bats are mixed:' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– they provide food rich in ' },
+          { type: 'gap', number: 10 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– the buildings where they roost become ' },
+          { type: 'gap', number: 11 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– they play an important role in local ' },
+          { type: 'gap', number: 12 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Recommendation' }],
+        [
+          { type: 'static', text: '• farmers should provide special ' },
+          { type: 'gap', number: 13 },
+          { type: 'static', text: ' to support the bat population' },
+        ],
+      ],
+    },
+  ],
+}
+
 /** Huarango — notes Q1–5 */
 export const CAM_HUARANGO_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
   { type: 'static', text: '• Its roots can extend as far as 80 metres into the soil' },
@@ -889,6 +993,598 @@ export function ieltsReadingP1NotesTfngTablePart(): ReadingImportPartJson {
           { prompt: 'Gap (11)', answer: 'Run', explanation: 'island of Run from the British.' },
           { prompt: 'Gap (12)', answer: 'Mauritius', explanation: 'secretly taken to Mauritius.' },
           { prompt: 'Gap (13)', answer: 'tsunami', explanation: 'destroyed by a tsunami.' },
+        ]),
+      },
+    ],
+  }
+}
+
+/** Aeroponic urban farming — table Q4–7 (4 cột) — Teamplate_Part1_11.jpg */
+export const CAM_AEROPONIC_FARMING_TABLE: ReadingNoteTable = {
+  title: 'Intensive farming versus aeroponic urban farming',
+  // Cột 1 header trống trên đề giấy — normalize PHẢI giữ '' (không filter bỏ)
+  headers: ['', 'Growth', 'Selection', 'Sale'],
+  gapNumbers: [4, 5, 6, 7],
+  rows: [
+    {
+      cells: [
+        [{ type: 'static', text: 'Intensive farming' }],
+        [
+          { type: 'static', text: '• wide range of ' },
+          { type: 'gap', number: 4 },
+          { type: 'static', text: ' used' },
+          { type: 'break' },
+          { type: 'static', text: '• techniques pollute air' },
+        ],
+        [
+          { type: 'static', text: '• quality not good' },
+          { type: 'break' },
+          { type: 'static', text: '• varieties of fruit and vegetables chosen that can survive long ' },
+          { type: 'gap', number: 5 },
+        ],
+        [
+          { type: 'static', text: '• ' },
+          { type: 'gap', number: 6 },
+          { type: 'static', text: ' receive very little of overall income' },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: 'Aeroponic urban farming' }],
+        [
+          { type: 'static', text: '• no soil used' },
+          { type: 'break' },
+          { type: 'static', text: '• nutrients added to water, which is recycled' },
+        ],
+        [
+          { type: 'static', text: '• produce chosen because of its ' },
+          { type: 'gap', number: 7 },
+        ],
+        [],
+      ],
+    },
+  ],
+}
+
+const CAM_WOOD_BUILDINGS_SUMMARY_NOTE = [
+  'Making buildings with wood',
+  '',
+  'Wood is a traditional building material, but current environmental concerns are encouraging 5________ to use wood in modern construction projects. Using wood, however, has its challenges. For example, as 6________ in the atmosphere enters wood, it increases in size. In addition, wood is prone to pests and the risk of fire is greater. However, wood can be turned into a better construction material if it is treated and combined with other materials. In one process, 7________ of solid wood are glued together to create building blocks. These blocks are lighter than concrete and steel but equal them in strength. Experts say that wooden buildings are an improvement on those made of concrete and steel in terms of the 8________ with which they can be constructed and how much noise is generated by the process.',
+].join('\n')
+
+const CAM_WOOD_BUILDINGS_FEATURES = [
+  { id: 'a', name: 'Chris Cheeseman' },
+  { id: 'b', name: 'Markus Mannstrom' },
+  { id: 'c', name: 'Anna Surgenor' },
+  { id: 'd', name: 'Felix Preston and Johanna Lehne' },
+]
+
+const CAM_GREEN_ROOFS_SUMMARY_NOTE = [
+  'Advantages of green roofs',
+  '',
+  'City rooftops covered with greenery have many advantages. These include lessening the likelihood that floods will occur, reducing how much money is spent on 6________ and creating environments that are suitable for wildlife. In many cases, they can also be used for producing 7________.',
+  '',
+  'There are also social benefits of green roofs. For example, the medical profession recommends 8________ as an activity to help people cope with mental health issues. Studies have also shown that the availability of green spaces can prevent physical problems such as 9________.',
+].join('\n')
+
+const CAM_GREEN_ROOFS_CHOOSE_TWO_OPTS = [
+  { id: 'a', label: 'a longer growing season for edible produce' },
+  { id: 'b', label: 'more economical use of water' },
+  { id: 'c', label: 'greater water-storage capacity' },
+  { id: 'd', label: 'ability to cultivate more plant types' },
+  { id: 'e', label: 'a large surface area for growing plants' },
+]
+
+/**
+ * r1ms2 — Match đoạn Q1–5 + Summary Q6–9 + Choose TWO Q10–11 (+ MC Q12–13)
+ * Preview: Teamplate_Part1_13.jpg (Green roofs)
+ */
+export function ieltsReadingP1MatchSummaryChooseTwoPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'Green roofs',
+    passageSubtitle: 'Growing cities upwards with rooftop greenery',
+    passage: [
+      {
+        label: 'A',
+        text: 'Before a green roof can be installed, several challenges must be overcome: structural load limits, waterproofing, drainage design, and access for maintenance. Planners also need to check local building codes and insurance requirements.',
+      },
+      {
+        label: 'B',
+        text: 'In Stuttgart, green roofs have been promoted for many years as part of city policy. Officials point to a long record of projects that cool urban heat islands and absorb rainfall.',
+      },
+      {
+        label: 'C',
+        text: 'Existing green roofs in the city serve as a model for new developments. Newer buildings used for green roofs can offer a longer growing season for edible produce, more economical use of water, and greater water-storage capacity than older flat roofs. They also allow a wider range of plant types and a large surface area for growing plants.',
+      },
+      {
+        label: 'D',
+        text: 'Green roofs work in combination with other initiatives such as permeable pavements, street trees and rain gardens. Together these measures form a network of green infrastructure rather than isolated showpieces.',
+      },
+      {
+        label: 'E',
+        text: 'For many developers the most persuasive argument is financial: lower cooling costs, longer roof life and reduced storm-water fees. City rooftops covered with greenery can lessen flood risk, cut money spent on energy, create wildlife habitat and produce food. Doctors often recommend gardening for mental health, and green spaces can help prevent obesity and other physical problems.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–5',
+        instruction: 'Reading Passage 1 has sections A–E. Which section contains the following information? Write the correct letter, A–E, in boxes 1–5 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E'],
+        questions: [
+          {
+            number: 1,
+            type: 'matching-paragraph',
+            prompt: 'Mention of several challenges to be overcome before a green roof can be installed',
+            options: [],
+            answer: 'a',
+            explanation: 'Section A — challenges before installation.',
+          },
+          {
+            number: 2,
+            type: 'matching-paragraph',
+            prompt: 'a city where green roofs have been promoted for many years',
+            options: [],
+            answer: 'b',
+            explanation: 'Section B — Stuttgart promoted for many years.',
+          },
+          {
+            number: 3,
+            type: 'matching-paragraph',
+            prompt: 'existing green roofs as a model',
+            options: [],
+            answer: 'c',
+            explanation: 'Section C — existing green roofs as a model.',
+          },
+          {
+            number: 4,
+            type: 'matching-paragraph',
+            prompt: 'work in combination with other initiatives',
+            options: [],
+            answer: 'd',
+            explanation: 'Section D — combination with other initiatives.',
+          },
+          {
+            number: 5,
+            type: 'matching-paragraph',
+            prompt: 'financial benefits as a persuasive argument',
+            options: [],
+            answer: 'e',
+            explanation: 'Section E — most persuasive argument is financial.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 6–9',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_GREEN_ROOFS_SUMMARY_NOTE,
+        questions: gapQuestions(6, [
+          { prompt: 'Gap (6)', answer: 'energy', explanation: 'money spent on energy (cooling/heating).' },
+          { prompt: 'Gap (7)', answer: 'food', explanation: 'used for producing food.' },
+          { prompt: 'Gap (8)', answer: 'gardening', explanation: 'recommends gardening as an activity.' },
+          { prompt: 'Gap (9)', answer: 'obesity', explanation: 'physical problems such as obesity.' },
+        ]),
+      },
+      {
+        range: 'Questions 10–11',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 10,
+            type: 'multiple-choice',
+            prompt: 'Which TWO advantages of using newer buildings for green roofs are mentioned in Paragraph C of the passage? (first answer)',
+            options: CAM_GREEN_ROOFS_CHOOSE_TWO_OPTS,
+            answer: 'a',
+            explanation: 'A — longer growing season for edible produce (SAMPLE pair; adjust to key).',
+          },
+          {
+            number: 11,
+            type: 'multiple-choice',
+            prompt: 'Which TWO advantages of using newer buildings for green roofs are mentioned in Paragraph C of the passage? (second answer)',
+            options: CAM_GREEN_ROOFS_CHOOSE_TWO_OPTS,
+            answer: 'c',
+            explanation: 'C — greater water-storage capacity (SAMPLE pair).',
+          },
+        ],
+      },
+      {
+        range: 'Questions 12–13',
+        instruction: 'Choose the correct letter, A, B, C or D.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 12,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, green roofs can help cities by',
+            options: [
+              { id: 'a', label: 'removing the need for waterproofing.' },
+              { id: 'b', label: 'reducing flood risk and energy costs.' },
+              { id: 'c', label: 'replacing all street trees.' },
+              { id: 'd', label: 'increasing storm-water fees.' },
+            ],
+            answer: 'b',
+            explanation: 'B — lessen flood risk and cut money spent on energy.',
+          },
+          {
+            number: 13,
+            type: 'multiple-choice',
+            prompt: 'What do medical professionals recommend in relation to green roofs?',
+            options: [
+              { id: 'a', label: 'Avoiding all outdoor activity.' },
+              { id: 'b', label: 'Gardening to help with mental health.' },
+              { id: 'c', label: 'Building only underground farms.' },
+              { id: 'd', label: 'Using concrete roofs only.' },
+            ],
+            answer: 'b',
+            explanation: 'B — gardening recommended for mental health.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r1msf — Match đoạn Q1–4 + Summary ONE WORD Q5–8 + Features Q9–13
+ * Preview: Teamplate_Part1_12.jpg (Making buildings with wood)
+ */
+export function ieltsReadingP1MatchSummaryFeaturesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'Making buildings with wood',
+    passageSubtitle: 'Why architects are looking again at timber high-rises',
+    passage: [
+      {
+        label: 'A',
+        text: 'Industrial processes such as steel-making and power generation create by-products that can become raw materials for concrete. Understanding those processes helps explain the supply chain behind conventional construction.',
+      },
+      {
+        label: 'B',
+        text: 'High-rise wooden buildings can already be found in several cities in Europe, North America and elsewhere, showing that multi-storey timber construction is no longer only experimental.',
+      },
+      {
+        label: 'C',
+        text: 'The raw materials of concrete — sand, gravel and cement components — are widely available in most regions, which has long favoured concrete over less ubiquitous materials.',
+      },
+      {
+        label: 'D',
+        text: 'Some specialists believe more high-rise wooden buildings must be completed before wood is widely regarded as a fully viable mainstream construction material for tall structures.',
+      },
+      {
+        label: 'E',
+        text: 'Environmental concerns are encouraging architects to use wood in modern projects. Moisture in the atmosphere can make wood expand; pests and fire remain risks. Engineered blocks made by gluing layers of solid wood can match concrete and steel in strength while remaining lighter.',
+      },
+      {
+        label: 'F',
+        text: 'Chris Cheeseman notes that the environmental advantage of some cement alternatives may not be as great as initially assumed. Markus Mannstrom argues it would be hard to create a construction alternative to concrete that offers so many comparable benefits.',
+      },
+      {
+        label: 'G',
+        text: 'Anna Surgenor points out that worries about the environment have led to increased interest in wood as a construction material. Felix Preston and Johanna Lehne link expense to the negative response to the development of new cements, and stress that environmental damage from concrete is tied to production at very large scale.',
+      },
+      {
+        label: 'H',
+        text: 'Experts also compare build speed and noise: wooden buildings can be an improvement on concrete and steel in terms of the speed with which they can be constructed and how much noise the process generates.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–4',
+        instruction: 'Reading Passage 1 has sections A–H. Which section contains the following information? Write the correct letter, A–H, in boxes 1–4 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        questions: [
+          {
+            number: 1,
+            type: 'matching-paragraph',
+            prompt: 'An explanation of the industrial processes that create potential raw materials for concrete',
+            options: [],
+            answer: 'a',
+            explanation: 'Section A — industrial processes and raw materials for concrete.',
+          },
+          {
+            number: 2,
+            type: 'matching-paragraph',
+            prompt: 'A reference to the various locations where high-rise wooden buildings can be found',
+            options: [],
+            answer: 'b',
+            explanation: 'Section B — locations of high-rise wooden buildings.',
+          },
+          {
+            number: 3,
+            type: 'matching-paragraph',
+            prompt: 'An indication of how widely available the raw materials of concrete are',
+            options: [],
+            answer: 'c',
+            explanation: 'Section C — raw materials widely available.',
+          },
+          {
+            number: 4,
+            type: 'matching-paragraph',
+            prompt: 'The belief that more high-rise wooden buildings are needed before wood can be regarded as a viable construction material',
+            options: [],
+            answer: 'd',
+            explanation: 'Section D — more buildings needed before wood is regarded as viable.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 5–8',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_WOOD_BUILDINGS_SUMMARY_NOTE,
+        questions: gapQuestions(5, [
+          { prompt: 'Gap (5)', answer: 'architects', explanation: 'encouraging architects to use wood.' },
+          { prompt: 'Gap (6)', answer: 'moisture', explanation: 'as moisture in the atmosphere enters wood.' },
+          { prompt: 'Gap (7)', answer: 'layers', explanation: 'layers of solid wood are glued together.' },
+          { prompt: 'Gap (8)', answer: 'speed', explanation: 'in terms of the speed with which they can be constructed.' },
+        ]),
+      },
+      {
+        range: 'Questions 9–13',
+        instruction: 'Match each statement with the correct option, A–D. Write the correct letter in boxes 9–13 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_WOOD_BUILDINGS_FEATURES,
+        questions: [
+          {
+            number: 9,
+            type: 'matching-features',
+            prompt: 'The environmental advantage of cement alternatives may not be as great as initially assumed.',
+            options: [],
+            answer: 'a',
+            explanation: 'Chris Cheeseman.',
+          },
+          {
+            number: 10,
+            type: 'matching-features',
+            prompt: 'It would be hard to create a construction alternative to concrete that offers so many comparable benefits.',
+            options: [],
+            answer: 'b',
+            explanation: 'Markus Mannstrom.',
+          },
+          {
+            number: 11,
+            type: 'matching-features',
+            prompt: 'Worries about the environment have led to increased interest in wood as a construction material.',
+            options: [],
+            answer: 'c',
+            explanation: 'Anna Surgenor.',
+          },
+          {
+            number: 12,
+            type: 'matching-features',
+            prompt: 'Expense has been a factor in the negative response to the development of new cements.',
+            options: [],
+            answer: 'd',
+            explanation: 'Felix Preston and Johanna Lehne.',
+          },
+          {
+            number: 13,
+            type: 'matching-features',
+            prompt: 'The environmental damage caused by concrete is due to it being produced in large quantities.',
+            options: [],
+            answer: 'd',
+            explanation: 'Felix Preston and Johanna Lehne — production at large scale.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r1st — Sentence Q1–3 + Table Q4–7 + TFNG Q8–13
+ * Preview: Teamplate_Part1_11.jpg (Aeroponic / intensive farming)
+ */
+export function ieltsReadingP1SentenceTableTfngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'Crop-growing skyscrapers',
+    passageSubtitle: 'Aeroponic urban farms and intensive agriculture',
+    passage: [
+      {
+        text: 'Vertical tubes are used to grow strawberries, tomatoes and herbs without soil. Nutrients are added to water that is recycled in closed systems. Developers say there will eventually be a daily harvest of as much as 20 tonnes in weight of fruit and vegetables. It may be possible that the farm\'s produce will account for as much as 10% of the city\'s food overall.',
+      },
+      {
+        text: 'Intensive farming uses a wide range of chemicals and techniques that pollute the air. Quality is often not good, and varieties are chosen that can survive long journeys. Farmers receive very little of overall income. By contrast, aeroponic urban farming uses no soil; produce is chosen because of its freshness.',
+      },
+      {
+        text: 'Urban farming can take place above or below ground in multi-storey buildings. Some projects already supply restaurants in the same city block. Whether the model can scale city-wide remains under study.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–3',
+        instruction: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer.',
+        type: 'sentence-completion',
+        questions: sentenceQuestions(1, [
+          {
+            prompt: 'Vertical tubes are used to grow strawberries, ___ and herbs.',
+            answer: 'tomatoes',
+            explanation: 'strawberries, tomatoes and herbs.',
+          },
+          {
+            prompt: 'There will eventually be a daily harvest of as much as ___ in weight of fruit and vegetables.',
+            answer: '20 tonnes',
+            explanation: 'daily harvest of as much as 20 tonnes.',
+          },
+          {
+            prompt: 'It may be possible that the farm\'s produce will account for as much as 10% of the city\'s ___ overall.',
+            answer: 'food',
+            explanation: '10% of the city\'s food overall.',
+          },
+        ]),
+      },
+      {
+        range: 'Questions 4–7',
+        instruction: 'Complete the table below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer.',
+        type: 'gap-fill',
+        noteTable: CAM_AEROPONIC_FARMING_TABLE,
+        questions: gapQuestions(4, [
+          { prompt: 'Gap (4)', answer: 'chemicals', explanation: 'wide range of chemicals used.' },
+          { prompt: 'Gap (5)', answer: 'journeys', explanation: 'survive long journeys.' },
+          { prompt: 'Gap (6)', answer: 'farmers', explanation: 'farmers receive very little of overall income.' },
+          { prompt: 'Gap (7)', answer: 'freshness', explanation: 'chosen because of its freshness.' },
+        ]),
+      },
+      {
+        range: 'Questions 8–13',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 8–13 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 8,
+            type: 'true-false-not-given',
+            prompt: 'Urban farming can take place above or below ground.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Passage says above or below ground.',
+          },
+          {
+            number: 9,
+            type: 'true-false-not-given',
+            prompt: 'Aeroponic systems always use soil mixed with water.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'No soil used.',
+          },
+          {
+            number: 10,
+            type: 'true-false-not-given',
+            prompt: 'Intensive farming techniques can pollute the air.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'techniques pollute air.',
+          },
+          {
+            number: 11,
+            type: 'true-false-not-given',
+            prompt: 'Most city residents already buy aeroponic produce weekly.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No information on how often residents buy.',
+          },
+          {
+            number: 12,
+            type: 'true-false-not-given',
+            prompt: 'Farmers keep most of the income from intensive farming sales.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Farmers receive very little of overall income.',
+          },
+          {
+            number: 13,
+            type: 'true-false-not-given',
+            prompt: 'Some urban farms already supply restaurants nearby.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'projects already supply restaurants in the same city block.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r1tb — TFNG Q1–6 + table Q7–13 (noteTable n cột × m dòng, merge ô)
+ * Preview: Teamplate_Part1_10.jpg (Rocha bat study)
+ */
+export function ieltsReadingP1TfngTablePart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'Bats in Madagascar',
+    passageSubtitle: 'How bats help farmers and ecosystems',
+    passage: [
+      {
+        text: 'Madagascar is home to many species of bat. In farmland near Ranomafana National Park, researchers led by Rocha studied how bats feed on crop pests. The team used ultrasonic recording to find where bats hunted most often, and DNA analysis of bat droppings to identify what they ate.',
+      },
+      {
+        text: 'The bats were most active in rice fields on hills. They consumed pests of rice, maize, sugarcane, nuts and fruit. By eating mosquitoes and blackflies, they also helped limit the spread of disease. Local people had mixed views: bat meat was valued as food rich in protein, but roosting sites could leave buildings damaged. Bats nonetheless played an important role in local agriculture.',
+      },
+      {
+        text: 'Rocha\'s team recommended that farmers provide special shelters to support bat populations and reduce reliance on chemical pesticides.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–6',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 1–6 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 1,
+            type: 'true-false-not-given',
+            prompt: 'Many Madagascan forests are being destroyed by attacks from insects.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'Passage nói farmland và bats — không nói rừng bị phá hoại bởi côn trùng.',
+          },
+          {
+            number: 2,
+            type: 'true-false-not-given',
+            prompt: 'Rocha\'s team used ultrasound to locate where bats fed.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Ultrasonic recording to find where bats hunted.',
+          },
+          {
+            number: 3,
+            type: 'true-false-not-given',
+            prompt: 'The bats studied fed only on rice pests.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Họ ăn nhiều loại sâu bệnh: rice, maize, sugarcane, nuts, fruit.',
+          },
+          {
+            number: 4,
+            type: 'true-false-not-given',
+            prompt: 'Bats were most frequently recorded in rice fields on hills.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Most active in rice fields on hills.',
+          },
+          {
+            number: 5,
+            type: 'true-false-not-given',
+            prompt: 'All local people welcomed bats roosting in their buildings.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Mixed views — roosting could damage buildings.',
+          },
+          {
+            number: 6,
+            type: 'true-false-not-given',
+            prompt: 'The researchers suggested farmers build structures for bats.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Recommended special shelters for bat populations.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 7–13',
+        instruction: 'Complete the table below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        noteTable: CAM_ROCHA_BAT_TABLE,
+        questions: gapQuestions(7, [
+          { prompt: 'Gap (7)', answer: 'droppings', explanation: 'DNA analysis of bat droppings.' },
+          { prompt: 'Gap (8)', answer: 'coffee', explanation: 'pests of rice, coffee, sugarcane… (black twig borer / coffee).' },
+          { prompt: 'Gap (9)', answer: 'mosquitoes', explanation: 'eating mosquitoes and blackflies.' },
+          { prompt: 'Gap (10)', answer: 'protein', explanation: 'food rich in protein.' },
+          { prompt: 'Gap (11)', answer: 'unclean', explanation: 'buildings where they roost become unclean.' },
+          { prompt: 'Gap (12)', answer: 'culture', explanation: 'important role in local culture.' },
+          { prompt: 'Gap (13)', answer: 'houses', explanation: 'install bat houses.' },
         ]),
       },
     ],
@@ -2941,7 +3637,7 @@ export function ieltsReadingP3SummaryMcYnngPart(): ReadingImportPartJson {
   }
 }
 
-/** Summary (word bank) + YNNG + MC */
+/** Summary (word bank) + YNNG + MC — generic SAMPLE (sleep) */
 export function ieltsReadingP3SummaryYnngMcPart(): ReadingImportPartJson {
   const base = MOCK.parts[2]
   const ynngGroup = DEMO.parts[1].questionGroups[0]
@@ -2974,6 +3670,710 @@ export function ieltsReadingP3SummaryYnngMcPart(): ReadingImportPartJson {
       },
       renumberGroup(ynngGroup, 'Questions 32–36', 32, 5),
       renumberGroup(mcGroup, 'Questions 37–40', 37, 4),
+    ],
+  }
+}
+
+const CAM19_T2_GIFTED_WORD_BANK = [
+  { id: 'a', label: 'appeal' },
+  { id: 'b', label: 'determined' },
+  { id: 'c', label: 'intrigued' },
+  { id: 'd', label: 'single' },
+  { id: 'e', label: 'achievement' },
+  { id: 'f', label: 'devoted' },
+  { id: 'g', label: 'involved' },
+  { id: 'h', label: 'unique' },
+  { id: 'i', label: 'innovative' },
+  { id: 'j', label: 'satisfaction' },
+  { id: 'k', label: 'intent' },
+]
+
+const CAM19_T2_GIFTED_SUMMARY_NOTE = [
+  'Maryam Mirzakhani',
+  '',
+  'Maryam Mirzakhani is regarded as 27________ in the field of mathematics because she was the only female holder of the prestigious Fields Medal – a record that she retained at the time of her death. However, maths held little 28________ for her as a child and in fact her performance was below average until she was 29________ by a difficult puzzle that one of her siblings showed her. Later, as a professional mathematician, she had an inquiring mind and proved herself to be 30________ when things did not go smoothly. She said she got the greatest 31________ from making ground-breaking discoveries and in fact she was responsible for some extremely 32________ mathematical studies.',
+].join('\n')
+
+/**
+ * r3sb — Summary bank A–K Q27–32 + YNNG Q33–37 + MC Q38–40
+ * Preview: Teamplate_Part3_15.jpg (gifted child / Mirzakhani — Cam19 T2 P3)
+ */
+export function ieltsReadingP3SummaryBankYnngMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'An inquiry into the existence of the gifted child',
+    passageSubtitle: 'Is exceptional ability innate, or can it be developed?',
+    passage: [
+      {
+        text: 'Let us start by looking at a modern \'genius\', Maryam Mirzakhani, who died at the early age of 40. She is regarded as unique in the field of mathematics because she was the only female holder of the prestigious Fields Medal – a record she retained at the time of her death. However, maths held little appeal for her as a child and her performance was below average until she was intrigued by a difficult puzzle that one of her siblings showed her. Later, as a professional mathematician, she had an inquiring mind and proved herself to be determined when things did not go smoothly. She said she got the greatest satisfaction from making ground-breaking discoveries and was responsible for some extremely innovative mathematical studies.',
+      },
+      {
+        text: 'Many people who later win prestigious intellectual prizes only reached an average standard when young. The writer notes that early performance is not always a reliable guide to later achievement. Giftedness research has also examined how attitudes and habits of mind support high performance over time.',
+      },
+      {
+        text: 'Joan Freeman and others have studied how schools label children. Eyre believes most individuals can equal gifted standards if taught the right attitudes – curiosity, persistence and hard work – developing a spirit of inquiry towards their studies. After research since 1980 on diverse achievements, Ericsson did not think unique innate talents were at the heart of outstanding performance; deliberate practice mattered more.',
+      },
+      {
+        text: 'Interviews with children from difficult circumstances have found strong evidence of an adult in their lives who valued and supported education and recognised the benefits of learning. Character and persistence, rather than raw speed of thought alone, also appear in reflections attributed to Einstein about what makes a great scientist.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–32',
+        instruction: 'Complete the summary using the list of phrases, A–K, below.',
+        type: 'summary-completion',
+        note: CAM19_T2_GIFTED_SUMMARY_NOTE,
+        wordBank: CAM19_T2_GIFTED_WORD_BANK,
+        questions: [
+          { number: 27, type: 'summary-completion', prompt: 'Gap (27)', options: [], answer: 'h', explanation: 'unique' },
+          { number: 28, type: 'summary-completion', prompt: 'Gap (28)', options: [], answer: 'a', explanation: 'appeal' },
+          { number: 29, type: 'summary-completion', prompt: 'Gap (29)', options: [], answer: 'c', explanation: 'intrigued' },
+          { number: 30, type: 'summary-completion', prompt: 'Gap (30)', options: [], answer: 'b', explanation: 'determined' },
+          { number: 31, type: 'summary-completion', prompt: 'Gap (31)', options: [], answer: 'j', explanation: 'satisfaction' },
+          { number: 32, type: 'summary-completion', prompt: 'Gap (32)', options: [], answer: 'i', explanation: 'innovative' },
+        ],
+      },
+      {
+        range: 'Questions 33–37',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 33–37 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 33,
+            type: 'yes-no-not-given',
+            prompt: 'Many people who ended up winning prestigious intellectual prizes only reached an average standard when young.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer notes early average standard among later prize-winners.',
+          },
+          {
+            number: 34,
+            type: 'yes-no-not-given',
+            prompt: 'Maryam Mirzakhani\'s Fields Medal was later awarded to another woman during her lifetime.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'She retained the record at death — no claim about another award during her life.',
+          },
+          {
+            number: 35,
+            type: 'yes-no-not-given',
+            prompt: 'Ericsson\'s research suggested deliberate practice matters more than unique innate talent alone.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Ericsson did not put unique innate talents at the heart of performance.',
+          },
+          {
+            number: 36,
+            type: 'yes-no-not-given',
+            prompt: 'Joan Freeman argues that every school should abolish all forms of assessment.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No such claim in SAMPLE passage.',
+          },
+          {
+            number: 37,
+            type: 'yes-no-not-given',
+            prompt: 'Einstein believed that sheer speed of dealing with problems is what makes a great scientist.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'He emphasised character / staying with problems longer, not mere speed.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 38–40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 38,
+            type: 'multiple-choice',
+            prompt: 'What does Eyre believe is needed for children to equal \'gifted\' standards?',
+            options: [
+              { id: 'a', label: 'strict discipline from the teaching staff' },
+              { id: 'b', label: 'assistance from their peers in the classroom' },
+              { id: 'c', label: 'the development of a spirit of inquiry towards their studies' },
+              { id: 'd', label: 'the determination to surpass everyone else\'s achievements' },
+            ],
+            answer: 'c',
+            explanation: 'C — curiosity, persistence, hard work / spirit of inquiry.',
+          },
+          {
+            number: 39,
+            type: 'multiple-choice',
+            prompt: 'What does the writer report about Ericsson\'s view of outstanding performance?',
+            options: [
+              { id: 'a', label: 'Very gifted students do not need to train memory skills.' },
+              { id: 'b', label: 'Being born with a special gift is not the key factor.' },
+              { id: 'c', label: 'Exercise is essential to raise performance.' },
+              { id: 'd', label: '10,000 hours of practice will always produce a genius.' },
+            ],
+            answer: 'b',
+            explanation: 'B — unique innate talents not at the heart of performance.',
+          },
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'What evidence was found in interviews with children from difficult circumstances?',
+            options: [
+              { id: 'a', label: 'regular nutritious meals at home' },
+              { id: 'b', label: 'loving support from more than one parent' },
+              { id: 'c', label: 'well-funded facilities for study' },
+              { id: 'd', label: 'an adult who recognised the benefits of learning' },
+            ],
+            answer: 'd',
+            explanation: 'D — adult who valued and supported education.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM19_T3_SPEECH_ENDINGS_BANK = [
+  { id: 'a', label: 'but there are concerns about this.' },
+  { id: 'b', label: 'as systems do not need to conform to standard practices.' },
+  { id: 'c', label: 'but they are far from perfect.' },
+  { id: 'd', label: 'despite the noise issues.' },
+  { id: 'e', label: 'because translation is immediate.' },
+  { id: 'f', label: 'and have an awareness of good manners.' },
+]
+
+const CAM19_T4_UNSELFISH_SUMMARY_NOTE = [
+  'Contemporary hunter-gatherer societies',
+  '',
+  'Bruce Knauft\'s research shows that contemporary hunter-gatherer societies tend to exhibit a high level of 31________ in all areas of life. In these cultures, distributing resources fairly among all members is a moral obligation. These societies also employ strategies to prevent differences in 32________ occurring: for example, the !Kung follow a custom whereby the credit for one person\'s success at 33________ is given to another member of the group. Individuals who behave in a 34________ manner are punished by being excluded from the group, and women have a considerable amount of 35________ in choices regarding work and marriage.',
+].join('\n')
+
+/**
+ * r3mgy — MC Q27–30 + Summary ONE WORD Q31–35 + YNNG Q36–40
+ * Preview: Teamplate_Part3_17.jpg (The Unselfish Gene / hunter-gatherers — Cam19 T4 P3)
+ */
+export function ieltsReadingP3McSummaryGapYnngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'The Unselfish Gene',
+    passageSubtitle: 'Is human nature inherently selfish, or cooperative?',
+    passage: [
+      {
+        text: 'A common claim is that humans are naturally selfish and competitive. In the first paragraph the writer is mainly describing a commonly held belief about people\'s behaviour rather than proving that greed is inevitable. Opposing views about human nature are often simplified in popular debate.',
+      },
+      {
+        text: 'As the anthropologist Bruce Knauft has remarked, hunter-gatherers are characterised by extreme political and sexual egalitarianism. Knauft has observed that individuals in such groups don\'t accumulate property or possessions and have an ethical obligation to share everything. They also have methods of preserving egalitarianism by ensuring that disparities of status don\'t arise.',
+      },
+      {
+        text: 'The !Kung people of southern Africa, for example, swap arrows before going hunting and when an animal is killed, the acclaim does not go to the person who fired the arrow, but to the person the arrow belongs to. And if a person becomes too domineering, the other members of the group ostracise them, exiling the offender from society. Typically in such groups, men do not dictate what women do. Women in hunter-gatherer groups worldwide often benefit from a high level of autonomy, being able to select their own marriage partners, decide what work they do and work whenever they choose to.',
+      },
+      {
+        text: 'Some anthropologists have debated when the number of societies such as the !Kung began to decline. The writer argues that certain accounts of that timing are mistaken. Cooperative norms appear deep in human history, though selfish behaviour can still emerge under particular social and economic conditions.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–30',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 27,
+            type: 'multiple-choice',
+            prompt: 'What is the writer doing in the first paragraph?',
+            options: [
+              { id: 'a', label: 'setting out two opposing views about human nature' },
+              { id: 'b', label: 'justifying his opinion about our tendency to be greedy' },
+              { id: 'c', label: 'describing a commonly held belief about people\'s behaviour' },
+              { id: 'd', label: 'explaining why he thinks that humans act in a selfish manner' },
+            ],
+            answer: 'c',
+            explanation: 'C — describing a commonly held belief about people\'s behaviour.',
+          },
+          {
+            number: 28,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, Knauft\'s observations of hunter-gatherers emphasise',
+            options: [
+              { id: 'a', label: 'how property is inherited through male lines.' },
+              { id: 'b', label: 'an ethical duty to share and limit status differences.' },
+              { id: 'c', label: 'the absence of any moral rules about food.' },
+              { id: 'd', label: 'competition for leadership among young men.' },
+            ],
+            answer: 'b',
+            explanation: 'B — obligation to share; strategies against status disparities.',
+          },
+          {
+            number: 29,
+            type: 'multiple-choice',
+            prompt: 'The !Kung custom of swapping arrows is presented as a way to',
+            options: [
+              { id: 'a', label: 'increase the number of animals killed.' },
+              { id: 'b', label: 'stop credit concentrating on a single hunter.' },
+              { id: 'c', label: 'train children to make better weapons.' },
+              { id: 'd', label: 'identify the owner of each animal\'s meat.' },
+            ],
+            answer: 'b',
+            explanation: 'B — acclaim goes to the arrow owner, not the shooter.',
+          },
+          {
+            number: 30,
+            type: 'multiple-choice',
+            prompt: 'What does the writer say about women in many hunter-gatherer groups?',
+            options: [
+              { id: 'a', label: 'They rarely choose their marriage partners.' },
+              { id: 'b', label: 'They often have substantial autonomy over work and marriage.' },
+              { id: 'c', label: 'They must leave the group if a marriage ends.' },
+              { id: 'd', label: 'They control all hunting decisions.' },
+            ],
+            answer: 'b',
+            explanation: 'B — high level of autonomy in work and marriage choices.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 31–35',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM19_T4_UNSELFISH_SUMMARY_NOTE,
+        questions: [
+          { number: 31, type: 'gap-fill', prompt: 'Gap (31)', options: [], answer: 'egalitarianism', explanation: 'high level of egalitarianism.' },
+          { number: 32, type: 'gap-fill', prompt: 'Gap (32)', options: [], answer: 'status', explanation: 'differences in status.' },
+          { number: 33, type: 'gap-fill', prompt: 'Gap (33)', options: [], answer: 'hunting', explanation: 'success at hunting (credit goes to arrow owner).' },
+          { number: 34, type: 'gap-fill', prompt: 'Gap (34)', options: [], answer: 'domineering', explanation: 'behave in a domineering manner.' },
+          { number: 35, type: 'gap-fill', prompt: 'Gap (35)', options: [], answer: 'autonomy', explanation: 'considerable amount of autonomy.' },
+        ],
+      },
+      {
+        range: 'Questions 36–40',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 36–40 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 36,
+            type: 'yes-no-not-given',
+            prompt: 'Some anthropologists are mistaken about the point when the number of societies such as the !Kung began to decline.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer argues certain accounts of that timing are mistaken.',
+          },
+          {
+            number: 37,
+            type: 'yes-no-not-given',
+            prompt: 'Hunter-gatherer groups never punish members who become too dominant.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Domineering individuals may be ostracised / excluded.',
+          },
+          {
+            number: 38,
+            type: 'yes-no-not-given',
+            prompt: 'Knauft claims that hunter-gatherers accumulate large private stores of goods.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'They don\'t accumulate property or possessions.',
+          },
+          {
+            number: 39,
+            type: 'yes-no-not-given',
+            prompt: 'The writer gives the exact global population of !Kung people today.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No exact population figure.',
+          },
+          {
+            number: 40,
+            type: 'yes-no-not-given',
+            prompt: 'Cooperative norms appear to have deep roots in human history.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer notes cooperative norms deep in human history.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_ROBOTS_FEATURES = [
+  { id: 'a', name: 'Martin Rees' },
+  { id: 'b', name: 'Daniel Wolpert' },
+  { id: 'c', name: 'Kathleen Richardson' },
+]
+
+const CAM_ROBOTS_ENDINGS_BANK = [
+  { id: 'a', label: 'robots to explore outer space.' },
+  { id: 'b', label: 'advances made in machine intelligence so far.' },
+  { id: 'c', label: 'changes made to other planets for our own benefit.' },
+  { id: 'd', label: 'the harm already done by artificial intelligence.' },
+]
+
+/**
+ * r3fem — Features A–C Q27–33 + sentence endings A–D Q34–36 + MC Q37–40
+ * Preview: Teamplate_Part3_19.jpg (robots — Rees / Wolpert / Richardson)
+ */
+export function ieltsReadingP3FeaturesEndingsMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'What robots can — and cannot — do',
+    passageSubtitle: 'Three experts on intelligence, risk and the ethics of machines',
+    passage: [
+      {
+        text: 'Astronomer Martin Rees has long argued that for our own safety, humans will need to restrict the abilities of robots before they become too powerful. He also suggests that robots are probably of more help to us on Earth than in space, where human presence still carries symbolic and scientific value. Rees is fond of noting that the ideas in high-quality science fiction may prove to be just as accurate as those found in the work of mediocre scientists. On ethics, he and Kathleen Richardson express similar caution about changes made to other planets for our own benefit — terraforming, for example, raises moral questions if life already exists there. Rees and neuroscientist Daniel Wolpert share a sober view of the extent of advances made in machine intelligence so far: impressive demos, they say, should not be mistaken for human-like understanding.',
+      },
+      {
+        text: 'Daniel Wolpert is more relaxed about danger. In his view, the risk of robots harming us is less serious than humans believe it to be; engineering limits and human control still dominate real systems. He also stresses that it will take many decades for robot intelligence to be as imaginative as human intelligence. Wolpert disagrees with Richardson on the question of the harm already done by artificial intelligence: he sees today\'s systems as tools with limited agency, not moral patients that have already been wronged at scale.',
+      },
+      {
+        text: 'Anthropologist Kathleen Richardson focuses on how we treat machines as social beings. She argues that we may have to start considering whether we are treating robots fairly, especially as they enter care homes and classrooms. There are those who look forward to robots developing greater intelligence — and Richardson includes herself among people curious about that future — yet she also analyses fear of machines. That fear, she says, is the result of our inclination to attribute human characteristics to non-human entities (anthropomorphism), not merely a rational response to engineering risk.',
+      },
+      {
+        text: 'Together the three voices map a debate rather than a consensus: safety limits, technical patience, and ethical care for how humans project minds onto metal. The writer presents their views side by side so readers can compare risk, ethics and imagination without reducing robots to either utopia or catastrophe.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–33',
+        instruction: 'Match each statement with the correct option, A–C. Write the correct letter in boxes 27–33 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_ROBOTS_FEATURES,
+        questions: [
+          {
+            number: 27,
+            type: 'matching-features',
+            prompt: 'For our own safety, humans will need to restrict the abilities of robots.',
+            options: [],
+            answer: 'a',
+            explanation: 'A Martin Rees — restrict abilities for safety.',
+          },
+          {
+            number: 28,
+            type: 'matching-features',
+            prompt: 'The risk of robots harming us is less serious than humans believe it to be.',
+            options: [],
+            answer: 'b',
+            explanation: 'B Daniel Wolpert — risk less serious than believed.',
+          },
+          {
+            number: 29,
+            type: 'matching-features',
+            prompt: 'It will take many decades for robot intelligence to be as imaginative as human intelligence.',
+            options: [],
+            answer: 'b',
+            explanation: 'B Wolpert — many decades for imaginative intelligence.',
+          },
+          {
+            number: 30,
+            type: 'matching-features',
+            prompt: 'We may have to start considering whether we are treating robots fairly.',
+            options: [],
+            answer: 'c',
+            explanation: 'C Kathleen Richardson — treating robots fairly.',
+          },
+          {
+            number: 31,
+            type: 'matching-features',
+            prompt: 'Robots are probably of more help to us on Earth than in space.',
+            options: [],
+            answer: 'a',
+            explanation: 'A Rees — more help on Earth than in space.',
+          },
+          {
+            number: 32,
+            type: 'matching-features',
+            prompt: 'The ideas in high-quality science fiction may prove to be just as accurate as those found in the work of mediocre scientists.',
+            options: [],
+            answer: 'a',
+            explanation: 'A Rees — science fiction vs mediocre scientists.',
+          },
+          {
+            number: 33,
+            type: 'matching-features',
+            prompt: 'There are those who look forward to robots developing greater intelligence.',
+            options: [],
+            answer: 'c',
+            explanation: 'C Richardson — includes herself among those curious about greater robot intelligence.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 34–36',
+        instruction: 'Complete each sentence with the correct ending, A–D, below. Write the correct letter in boxes 34–36 on your answer sheet.',
+        type: 'summary-completion',
+        wordBank: CAM_ROBOTS_ENDINGS_BANK,
+        questions: [
+          {
+            number: 34,
+            type: 'summary-completion',
+            prompt: 'Richardson and Rees express similar views regarding the ethical aspect of',
+            options: [],
+            answer: 'c',
+            explanation: 'C — changes made to other planets for our own benefit.',
+          },
+          {
+            number: 35,
+            type: 'summary-completion',
+            prompt: 'Rees and Wolpert share an opinion about the extent of',
+            options: [],
+            answer: 'b',
+            explanation: 'B — advances made in machine intelligence so far.',
+          },
+          {
+            number: 36,
+            type: 'summary-completion',
+            prompt: 'Wolpert disagrees with Richardson on the question of',
+            options: [],
+            answer: 'd',
+            explanation: 'D — the harm already done by artificial intelligence.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 37–40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 37,
+            type: 'multiple-choice',
+            prompt: 'What point does Richardson make about fear of machines?',
+            options: [
+              { id: 'a', label: 'It has grown alongside the development of ever more advanced robots.' },
+              { id: 'b', label: 'It is the result of our inclination to attribute human characteristics to non-human entities.' },
+              { id: 'c', label: 'It has its origins in basic misunderstandings about how inanimate objects function.' },
+              { id: 'd', label: 'It demonstrates a key difference between human intelligence and machine intelligence.' },
+            ],
+            answer: 'b',
+            explanation: 'B — anthropomorphism: attributing human characteristics to non-human entities.',
+          },
+          {
+            number: 38,
+            type: 'multiple-choice',
+            prompt: 'According to Rees, science fiction is mentioned in order to',
+            options: [
+              { id: 'a', label: 'dismiss all popular culture as unreliable.' },
+              { id: 'b', label: 'suggest that good speculative ideas can rival weak scientific work.' },
+              { id: 'c', label: 'prove that robots already write novels.' },
+              { id: 'd', label: 'argue that only astronomers should design robots.' },
+            ],
+            answer: 'b',
+            explanation: 'B — high-quality SF may match mediocre scientists\' accuracy.',
+          },
+          {
+            number: 39,
+            type: 'multiple-choice',
+            prompt: 'What does Wolpert believe about the danger posed by robots?',
+            options: [
+              { id: 'a', label: 'It is overstated compared with what many people fear.' },
+              { id: 'b', label: 'It will make human workers obsolete within five years.' },
+              { id: 'c', label: 'It only exists in science-fiction films.' },
+              { id: 'd', label: 'It is greater in care homes than in factories.' },
+            ],
+            answer: 'a',
+            explanation: 'A — risk less serious than humans believe.',
+          },
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'Overall, the passage mainly',
+            options: [
+              { id: 'a', label: 'recommends banning all robot research immediately.' },
+              { id: 'b', label: 'presents contrasting expert views on robots, risk and ethics.' },
+              { id: 'c', label: 'describes how to build a robot from recycled parts.' },
+              { id: 'd', label: 'argues that only Martin Rees is correct.' },
+            ],
+            answer: 'b',
+            explanation: 'B — three expert voices mapped as a debate.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r3mey — MC Q27–30 + Sentence endings A–F Q31–34 + YNNG Q35–40
+ * Preview: Teamplate_Part3_16.jpg (artificial speech translation — Cam19 T3 P3)
+ */
+export function ieltsReadingP3McEndingsYnngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Is the era of artificial speech translation upon us?',
+    passageSubtitle: 'How close is seamless machine interpretation?',
+    passage: [
+      {
+        text: 'Imagine two people trying to talk over a poor phone line in a noisy café, far from any shared language. Aspects of the conversation are challenging for both speakers: noise, distance, and imperfect connection make understanding difficult even before translation begins.',
+      },
+      {
+        text: 'At Karlsruhe Institute of Technology, electronic translators used in lectures are assisted by the repeated content of lectures, which gives systems more predictable input than free conversation. Systems are improving quickly, yet accuracy still varies by domain and language pair.',
+      },
+      {
+        text: 'Writers often invoke The Hitchhiker\'s Guide to the Galaxy when discussing instantaneous translation gadgets. The fantasy device highlights public expectations that software will one day remove language barriers entirely, even if real tools remain imperfect.',
+      },
+      {
+        text: 'Sharing earpieces for live interpretation is something people may get used to doing in meetings and classrooms. Speech translation methods are developing fast in Japan, but there are concerns about this. TV interviews that use translation voiceover methods are successful despite the noise issues. Future translation systems should address people appropriately and have an awareness of good manners. Users may be able to maintain their local customs as systems do not need to conform to standard practices.',
+      },
+      {
+        text: 'Professors and professionals are unlikely to outsource all language awareness to software. Language translation systems will not simply be dismissed as toys: many expect them to prove useful in academic and professional settings, though the overall value to family life is still open to question. Automated translation could help after migration when children and grandparents lack a shared language, rather than only making life more difficult. Visual aspects of dubbing and lip-sync remain awkward. Software will never fully replace the social value of sharing a language, even if practical needs diminish.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–30',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 27,
+            type: 'multiple-choice',
+            prompt: 'What does the reader learn about the conversation in the first paragraph?',
+            options: [
+              { id: 'a', label: 'The speakers are communicating in different languages.' },
+              { id: 'b', label: 'Neither of the speakers is familiar with their environment.' },
+              { id: 'c', label: 'The topic of the conversation is difficult for both speakers.' },
+              { id: 'd', label: 'Aspects of the conversation are challenging for both speakers.' },
+            ],
+            answer: 'd',
+            explanation: 'D — noise, distance, and connection challenges for both speakers.',
+          },
+          {
+            number: 28,
+            type: 'multiple-choice',
+            prompt: 'What assists the electronic translator during lectures at Karlsruhe Institute of Technology?',
+            options: [
+              { id: 'a', label: 'the repeated content of lectures' },
+              { id: 'b', label: 'the students\' reading skills' },
+              { id: 'c', label: 'the languages used' },
+              { id: 'd', label: 'the lecturers\' technical ability' },
+            ],
+            answer: 'a',
+            explanation: 'A — repeated content of lectures.',
+          },
+          {
+            number: 29,
+            type: 'multiple-choice',
+            prompt: 'When referring to The Hitchhiker\'s Guide to the Galaxy, the writer suggests that',
+            options: [
+              { id: 'a', label: 'science fiction predicted exact modern devices.' },
+              { id: 'b', label: 'public expectations of instant translation are shaped by fantasy gadgets.' },
+              { id: 'c', label: 'translation software already matches the novel\'s accuracy.' },
+              { id: 'd', label: 'readers should avoid science-fiction analogies.' },
+            ],
+            answer: 'b',
+            explanation: 'B — fantasy device highlights public expectations.',
+          },
+          {
+            number: 30,
+            type: 'multiple-choice',
+            prompt: 'What does the writer say about sharing earpieces?',
+            options: [
+              { id: 'a', label: 'It will remain socially unacceptable.' },
+              { id: 'b', label: 'It is something people will get used to doing.' },
+              { id: 'c', label: 'It only works for one language pair.' },
+              { id: 'd', label: 'It requires no technical support.' },
+            ],
+            answer: 'b',
+            explanation: 'B — people may get used to sharing earpieces.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 31–34',
+        instruction: 'Complete each sentence with the correct ending, A–F, below. Write the correct letter in boxes 31–34 on your answer sheet.',
+        type: 'summary-completion',
+        wordBank: CAM19_T3_SPEECH_ENDINGS_BANK,
+        questions: [
+          {
+            number: 31,
+            type: 'summary-completion',
+            prompt: 'Speech translation methods are developing fast in Japan',
+            options: [],
+            answer: 'a',
+            explanation: 'A — but there are concerns about this.',
+          },
+          {
+            number: 32,
+            type: 'summary-completion',
+            prompt: 'TV interviews that use translation voiceover methods are successful',
+            options: [],
+            answer: 'd',
+            explanation: 'D — despite the noise issues.',
+          },
+          {
+            number: 33,
+            type: 'summary-completion',
+            prompt: 'Future translation systems should address people appropriately',
+            options: [],
+            answer: 'f',
+            explanation: 'F — and have an awareness of good manners.',
+          },
+          {
+            number: 34,
+            type: 'summary-completion',
+            prompt: 'Users may be able to maintain their local customs',
+            options: [],
+            answer: 'b',
+            explanation: 'B — as systems do not need to conform to standard practices.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 35–40',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 35–40 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 35,
+            type: 'yes-no-not-given',
+            prompt: 'Language translation systems will be seen as very useful throughout the academic and professional worlds.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer expects usefulness in academic and professional settings.',
+          },
+          {
+            number: 36,
+            type: 'yes-no-not-given',
+            prompt: 'The overall value of automated translation to family life is yet to be shown.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Value to family life is open to question.',
+          },
+          {
+            number: 37,
+            type: 'yes-no-not-given',
+            prompt: 'Automated translation could make life more difficult for immigrant families.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Could overcome barriers between generations after migration.',
+          },
+          {
+            number: 38,
+            type: 'yes-no-not-given',
+            prompt: 'Visual aspects of language translation are being considered by scientists.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'Lip-sync awkwardness noted; not framed as active research claim.',
+          },
+          {
+            number: 39,
+            type: 'yes-no-not-given',
+            prompt: 'International scientists have found English easier to translate into other languages than Latin.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No such comparison of ease of translation.',
+          },
+          {
+            number: 40,
+            type: 'yes-no-not-given',
+            prompt: 'As far as language is concerned, there is a difference between people\'s social and practical needs.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Practical need for a common language may diminish while social value persists.',
+          },
+        ],
+      },
     ],
   }
 }
@@ -3168,184 +4568,157 @@ export function ieltsReadingP3GapTfngMcPart(): ReadingImportPartJson {
   }
 }
 
-const CAM11_T2_ART_BRAIN_WORD_BANK = [
-  { id: 'a', label: 'interpretation' },
-  { id: 'b', label: 'complexity' },
-  { id: 'c', label: 'emotions' },
-  { id: 'd', label: 'movements' },
-  { id: 'e', label: 'skill' },
-  { id: 'f', label: 'layout' },
-  { id: 'g', label: 'concern' },
-  { id: 'h', label: 'images' },
+const CAM19_T1_MISINFO_WORD_BANK = [
+  { id: 'a', label: 'constant conflict' },
+  { id: 'b', label: 'additional evidence' },
+  { id: 'c', label: 'different locations' },
+  { id: 'd', label: 'experimental subjects' },
+  { id: 'e', label: 'short period' },
+  { id: 'f', label: 'extreme distrust' },
+  { id: 'g', label: 'mental operation' },
+  { id: 'h', label: 'frequent exposure' },
+  { id: 'i', label: 'dubious reason' },
+  { id: 'j', label: 'different ideas' },
 ]
 
-const CAM11_T2_ART_BRAIN_SUMMARY_NOTE = [
-  'Art and the Brain',
+const CAM19_T1_MISINFO_SUMMARY_NOTE = [
+  'What happens when people encounter misinformation?',
   '',
-  'The discipline of neuroaesthetics aims to bring scientific objectivity to the study of art. '
-  + 'Neurological studies of the brain, for example, demonstrate the impact which Impressionist paintings '
-  + 'have on our 31________. Alex Forsythe of the University of Liverpool believes many artists give their '
-  + 'works the precise degree of 32________ which most appeals to the viewer\'s brain. She also observes '
-  + 'that pleasing works of art often contain certain repeated 33________ which occur frequently in the natural world.',
+  'Although people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza\'s theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.',
 ].join('\n')
 
-/** Cam11 T2 — MC Q27–30 + summary word bank Q31–33 + YNNG Q34–39 */
+/**
+ * r3my — MC Q27–30 + Summary bank A–J Q31–36 + YNNG Q37–40
+ * SAMPLE: Cam19 Test 1 P3 (The persistence and peril of misinformation)
+ * ⚠️ Thứ tự: MC → summary bank → YNNG (khác r3ysm: YNNG → summary → MC)
+ */
 export function ieltsReadingP3McSummaryYnngPart(): ReadingImportPartJson {
   return {
     partNumber: 3,
-    rangeLabel: 'Read the text and answer questions 27–39.',
-    passageTitle: 'Neuroaesthetics',
-    passageSubtitle: 'An emerging discipline that aims to bring scientific objectivity to the study of art',
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'The persistence and peril of misinformation',
+    passageSubtitle: 'Brian Southwell looks at how human brains verify information and discusses some of the challenges of battling widespread falsehoods.',
     passage: [
-      {
-        text: 'An emerging discipline called neuroaesthetics is seeking to bring scientific objectivity to the study of art. Neurological studies of the brain, for example, demonstrate the impact which Impressionist paintings have on our feelings. The blurred imagery of Impressionist paintings seems to stimulate the brain\'s amygdala, which plays a crucial role in our emotional responses.',
-      },
-      {
-        text: 'Could the same approach also shed light on abstract twentieth-century pieces? We certainly do have an inclination to follow the crowd. When asked to make simple perceptual decisions such as matching a shape to its rotated image, people often choose a definitively wrong answer if they see others doing the same.',
-      },
-      {
-        text: 'Angelina Hawley-Dolan, of Boston College, asked volunteers to view pairs of paintings — either by famous abstract artists or by animals or children. They were told which was which only half the time. Volunteers generally preferred the work of renowned artists, even when they believed it was by an animal or a child. It seems that viewers can sense the artists\' vision in paintings, even if they can\'t explain why.',
-      },
-      {
-        text: 'Robert Pepperell, an artist based at Cardiff University, creates ambiguous works that are hard to interpret. Eye-tracking studies confirm that the longer someone looks at one of his pieces, the more rewarding they find the moment of recognition. It would seem that the brain sees these images as puzzles, and the harder it is to decipher the meaning, the more rewarding is the moment of recognition.',
-      },
-      {
-        text: 'And what about artists such as Mondrian, whose paintings consist exclusively of horizontal and vertical lines encasing blocks of colour? Eye-tracking studies confirm that his works are meticulously composed, and that simply rotating a piece radically changes the way we view it.',
-      },
-      {
-        text: 'In another experiment, Alex Forsythe of the University of Liverpool analysed the visual intricacy of different pieces of art. Her results suggest that many artists use a key level of detail to please the brain. What\'s more, appealing pieces, both abstract and representational, show signs of "fractals" — repeated motifs recurring at different scales. Fractals are common throughout nature, for example in the shapes of mountain peaks or branches of trees.',
-      },
-      {
-        text: 'It is also intriguing that the brain appears to process movement when we see a handwritten letter, as if we are replaying the writer\'s moment of creation. This has led some to wonder whether Pollock\'s works feel so dynamic because the brain reconstructs the energetic actions the artist used as he painted. This may be down to our brain\'s "mirror neurons", which are known to mimic others\' actions. The hypothesis will need to be thoroughly tested before it can be confirmed.',
-      },
-      {
-        text: 'While the fashion of the time might shape what is currently popular, works that are best adapted to our visual system may be the most likely to linger once the trends of previous generations have been forgotten. It would, however, be foolish to reduce art appreciation to a set of scientific laws. We shouldn\'t underestimate the importance of the style of a particular artist, their place in history and the artistic environment of their time.',
-      },
+      { text: 'Misinformation - both deliberately promoted and accidentally shared - is perhaps an inevitable part of the world in which we live, but it is not a new problem. People likely have lied to one another for roughly as long as verbal communication has existed. Deceiving others can offer an apparent opportunity to gain strategic advantage, to motivate others to action, or even to protect interpersonal bonds. Moreover, people inadvertently have been sharing inaccurate information with one another for thousands of years.' },
+      { text: 'However, we currently live in an era in which technology enables information to reach large audiences distributed across the globe, and thus the potential for immediate and widespread effects from misinformation now looms larger than in the past. Yet the means to correct misinformation might, over time, be found in those same patterns of mass communication and of the facilitated spread of information.' },
+      { text: 'The main worry regarding misinformation is its potential to unduly influence attitudes and behavior, leading people to think and act differently than they would if they were correctly informed, as suggested by the research teams of Stephan Lewandowsky of the University of Bristol and Elizabeth Marsh of Duke University, among others. In other words, we worry that misinformation might lead people to hold misperceptions (or false beliefs) and that these misperceptions, especially when they occur among large groups of people, may have detrimental, downstream consequences for health, social harmony, and the political climate.' },
+      { text: 'At least three observations related to misinformation in the contemporary mass-media environment warrant the attention of researchers, policy makers, and really everyone who watches television, listens to the radio, or reads information online. First of all, people who encounter misinformation tend to believe it, at least initially. Secondly, electronic and print media often do not block many types of misinformation before it appears in content available to large audiences. Thirdly, countering misinformation once it has enjoyed wide exposure can be a resource-intensive effort.' },
+      { text: 'Knowing what happens when people initially encounter misinformation holds tremendous importance for estimating the potential for subsequent problems. Although it is fairly routine for individuals to come across information that is false, the question of exactly how - and when - we mentally label information as true or false has garnered philosophical debate. The dilemma is neatly summarized by a contrast between how the 17th-century philosophers Rene Descartes and Baruch Spinoza described human information engagement, with conflicting predictions that only recently have been empirically tested in robust ways. Descartes argued that a person only accepts or rejects information after considering its truth or falsehood; Spinoza argued that people accept all encountered information (or misinformation) by default and then subsequently verify or reject it through a separate cognitive process. In recent decades, empirical evidence from the research teams of Erik Asp of the University of Chicago and Daniel Gilbert at Harvard University, among others, has supported Spinoza\'s account: people appear to encode all new information as if it were true, even if only momentarily, and later tag the information as being either true or false, a pattern that seems consistent with the observation that mental resources for skepticism physically reside in a different part of the brain than the resources used in perceiving and encoding.' },
+      { text: 'What about our second observation that misinformation often can appear in electronic or print media without being preemptively blocked? In support of this, one might consider the nature of regulatory structures in the United States: regulatory agencies here tend to focus on post hoc detection of broadcast information. Organizations such as the Food and Drug Administration (FDA) offer considerable monitoring and notification functions, but these roles typically do not involve preemptive censoring. The FDA oversees direct-to-consumer prescription drug advertising, for example, and has developed mechanisms such as the \'Bad Ad\' program, through which people can report advertising in apparent violation or FDA guidelines on drug risks. Such programs, although laudable and useful, do not keep false advertising off the airwaves. In addition, even misinformation that is successfully corrected can continue to affect attitudes.' },
+      { text: 'This leads us to our third observation: a campaign to correct misinformation, even if rhetorically compelling, requires resources and planning to accomplish necessary reach and frequency. For corrective campaigns to be persuasive, audiences need to be able to comprehend them, which requires either effort to frame messages in ways that are accessible or effort to educate and sensitize audiences to the possibility of misinformation. That some audiences might be unaware of the potential for misinformation also suggests the utility of media literacy efforts as early as elementary school. Even with journalists and scholars pointing to the phenomenon of \'fake news\', people do not distinguish between demonstrably false stories and those based in fact when scanning and processing written information.' },
+      { text: 'We live at a time when widespread misinformation is common. Yet at this time many people also are passionately developing potential solutions and remedies. The journey forward undoubtedly will be a long and arduous one. Future remedies will require not only continued theoretical consideration but also the development and maintenance of consistent monitoring tools - and a recognition among fellow members of society that claims which find prominence in the media that are insufficiently based in scientific consensus and social reality should be countered. Misinformation arises as a result of human fallibility and human information needs. To overcome the worst effects of the phenomenon, we will need coordinated efforts over time, rather than any singular one-time panacea we could hope to offer.' },
     ],
     questionGroups: [
       {
         range: 'Questions 27–30',
-        instruction: 'Choose the correct answer.',
+        instruction: 'Choose the correct letter, A, B, C or D.',
         type: 'multiple-choice',
         questions: [
           {
             number: 27,
             type: 'multiple-choice',
-            prompt: 'In the second paragraph, the writer refers to a shape-matching test in order to illustrate',
+            prompt: 'What point does the writer make about misinformation in the first paragraph?',
             options: [
-              { id: 'a', label: 'the subjective nature of art appreciation.' },
-              { id: 'b', label: 'the reliance of modern art on abstract forms.' },
-              { id: 'c', label: 'our tendency to be influenced by the opinions of others.' },
-              { id: 'd', label: 'a common problem encountered when processing visual data.' },
+              { id: 'a', label: 'Misinformation is a relatively recent phenomenon.' },
+              { id: 'b', label: 'Some people find it easy to identify misinformation.' },
+              { id: 'c', label: 'Misinformation changes as it is passed from one person to another.' },
+              { id: 'd', label: 'There may be a number of reasons for the spread of misinformation.' },
             ],
-            answer: 'c',
-            explanation: 'Shape-matching test — people chọn sai khi thấy người khác chọn giống vậy.',
+            answer: 'd',
+            explanation: 'First paragraph lists several reasons for spreading misinformation: strategic advantage, motivating others, protecting bonds, and inadvertent sharing.',
           },
           {
             number: 28,
             type: 'multiple-choice',
-            prompt: 'Angelina Hawley-Dolan\'s findings indicate that people',
+            prompt: 'What does the writer say about the role of technology?',
             options: [
-              { id: 'a', label: 'mostly favour abstract works of art.' },
-              { id: 'b', label: 'find it easy to distinguish between paintings that are alike.' },
-              { id: 'c', label: 'react negatively to works of art they dislike.' },
-              { id: 'd', label: 'are influenced by the title of a work of art even when they are not told which artist painted it.' },
+              { id: 'a', label: 'It may at some point provide us with a solution to misinformation.' },
+              { id: 'b', label: 'It could fundamentally alter the way in which people regard information.' },
+              { id: 'c', label: 'It has changed the way in which organisations use misinformation.' },
+              { id: 'd', label: 'It has made it easier for people to check whether information is accurate.' },
             ],
-            answer: 'd',
-            explanation: 'Viewers sense the artists\' vision even when told wrong attribution.',
+            answer: 'a',
+            explanation: 'Second paragraph: \'Yet the means to correct misinformation might, over time, be found in those same patterns of mass communication.\'',
           },
           {
             number: 29,
             type: 'multiple-choice',
-            prompt: 'Results of studies involving Robert Pepperell\'s pieces suggest that people',
+            prompt: 'What is the writer doing in the fourth paragraph?',
             options: [
-              { id: 'a', label: 'can appreciate a painting without fully understanding it.' },
-              { id: 'b', label: 'find it satisfying to work out what a painting represents.' },
-              { id: 'c', label: 'dislike paintings that are easy to interpret.' },
-              { id: 'd', label: 'have a better understanding of art than art critics.' },
+              { id: 'a', label: 'comparing the different opinions people have of misinformation' },
+              { id: 'b', label: 'explaining how the effects of misinformation have changed over time' },
+              { id: 'c', label: 'outlining which issues connected with misinformation are significant today' },
+              { id: 'd', label: 'describing the attitude of policy makers towards misinformation in the media' },
             ],
-            answer: 'b',
-            explanation: 'Brain sees images as puzzles — deciphering meaning is rewarding.',
+            answer: 'c',
+            explanation: 'Fourth paragraph lists three observations that warrant attention, i.e., significant issues today.',
           },
           {
             number: 30,
             type: 'multiple-choice',
-            prompt: 'What do the experiments described in the fifth paragraph suggest about the paintings of Mondrian?',
+            prompt: 'What point does the writer make about regulation in the USA?',
             options: [
-              { id: 'a', label: 'They are more carefully put together than they appear.' },
-              { id: 'b', label: 'They can be interpreted in a number of different ways.' },
-              { id: 'c', label: 'They contain more interesting features than most other works of art.' },
-              { id: 'd', label: 'They place more emphasis on colour than on form.' },
+              { id: 'a', label: 'The guidelines issued by the FDA need to be simplified.' },
+              { id: 'b', label: 'Regulation does not affect people\'s opinions of new prescription drugs.' },
+              { id: 'c', label: 'The USA has more regulatory bodies than most other countries.' },
+              { id: 'd', label: 'Regulation fails to prevent misinformation from appearing in the media.' },
             ],
-            answer: 'a',
-            explanation: 'Eye-tracking — works meticulously composed; rotation changes viewing.',
+            answer: 'd',
+            explanation: 'Sixth paragraph: \'Such programs... do not keep false advertising off the airwaves.\'',
           },
         ],
       },
       {
-        range: 'Questions 31–33',
-        instruction: 'Complete the summary using the list of phrases, A–H, below.',
+        range: 'Questions 31–36',
+        instruction: 'Complete the summary using the list of phrases, A–J, below.',
         type: 'summary-completion',
-        note: CAM11_T2_ART_BRAIN_SUMMARY_NOTE,
-        wordBank: CAM11_T2_ART_BRAIN_WORD_BANK,
+        note: CAM19_T1_MISINFO_SUMMARY_NOTE,
+        wordBank: CAM19_T1_MISINFO_WORD_BANK,
         questions: [
-          { number: 31, type: 'summary-completion', prompt: 'Gap (31)', options: [], answer: 'c', explanation: 'Impressionist paintings impact our emotions/feelings.' },
-          { number: 32, type: 'summary-completion', prompt: 'Gap (32)', options: [], answer: 'b', explanation: 'Precise degree of visual intricacy/complexity.' },
-          { number: 33, type: 'summary-completion', prompt: 'Gap (33)', options: [], answer: 'h', explanation: 'Repeated motifs/images common in nature (fractals).' },
+          { number: 31, type: 'summary-completion', prompt: 'Gap (31)', options: [], answer: 'h', explanation: 'frequent exposure' },
+          { number: 32, type: 'summary-completion', prompt: 'Gap (32)', options: [], answer: 'j', explanation: 'different ideas' },
+          { number: 33, type: 'summary-completion', prompt: 'Gap (33)', options: [], answer: 'g', explanation: 'mental operation' },
+          { number: 34, type: 'summary-completion', prompt: 'Gap (34)', options: [], answer: 'b', explanation: 'additional evidence' },
+          { number: 35, type: 'summary-completion', prompt: 'Gap (35)', options: [], answer: 'e', explanation: 'short period' },
+          { number: 36, type: 'summary-completion', prompt: 'Gap (36)', options: [], answer: 'c', explanation: 'different locations' },
         ],
       },
       {
-        range: 'Questions 34–39',
-        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 34–39 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        range: 'Questions 37–40',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 37–40 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
         type: 'ynng',
         questions: [
           {
-            number: 34,
-            type: 'yes-no-not-given',
-            prompt: 'Forsythe\'s findings contradicted previous beliefs on the function of \'fractals\' in art.',
-            options: YNNG_OPTIONS,
-            answer: 'not-given',
-            explanation: 'Passage không so sánh findings với beliefs trước đó.',
-          },
-          {
-            number: 35,
-            type: 'yes-no-not-given',
-            prompt: 'Certain ideas regarding the link between \'mirror neurons\' and art appreciation require further verification.',
-            options: YNNG_OPTIONS,
-            answer: 'yes',
-            explanation: 'Hypothesis about mirror neurons needs thorough testing.',
-          },
-          {
-            number: 36,
-            type: 'yes-no-not-given',
-            prompt: 'People\'s taste in paintings depends entirely on the current artistic trends of the period.',
-            options: YNNG_OPTIONS,
-            answer: 'no',
-            explanation: 'Fashion shapes popularity but adapted works may linger.',
-          },
-          {
             number: 37,
             type: 'yes-no-not-given',
-            prompt: 'Scientists should seek to define the precise rules which govern people\'s reactions to works of art.',
-            options: YNNG_OPTIONS,
-            answer: 'no',
-            explanation: 'Foolish to reduce art appreciation to scientific laws.',
+            prompt: 'Campaigns designed to correct misinformation will fail to achieve their purpose if people are unable to understand them.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Seventh paragraph: \'For corrective campaigns to be persuasive, audiences need to be able to comprehend them.\'',
           },
           {
             number: 38,
             type: 'yes-no-not-given',
-            prompt: 'Art appreciation should always involve taking into consideration the cultural context in which an artist worked.',
-            options: YNNG_OPTIONS,
-            answer: 'yes',
-            explanation: 'Shouldn\'t underestimate artist\'s style, place in history, environment.',
+            prompt: 'Attempts to teach elementary school students about misinformation have been opposed.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'Writer suggests utility of media literacy efforts as early as elementary school, but does not mention opposition.',
           },
           {
             number: 39,
             type: 'yes-no-not-given',
-            prompt: 'It is easier to find meaning in the field of science than in that of art.',
-            options: YNNG_OPTIONS,
+            prompt: 'It may be possible to overcome the problem of misinformation in a relatively short period.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Last paragraph: \'The journey forward undoubtedly will be a long and arduous one.\' and \'coordinated efforts over time, rather than any singular one-time panacea.\'',
+          },
+          {
+            number: 40,
+            type: 'yes-no-not-given',
+            prompt: 'The need to keep up with new information is hugely exaggerated in today\'s world.',
+            options: [...YNNG_OPTIONS],
             answer: 'not-given',
-            explanation: 'Passage không so sánh độ dễ tìm meaning giữa science và art.',
+            explanation: 'No mention of this claim in the passage.',
           },
         ],
       },
@@ -4106,6 +5479,309 @@ const CAM14_T1_BIKE_SUMMARY_NOTE = [
   'However, the scheme was not a great success: almost as quickly as Provo left the bikes around the city, the 26________ took them away. '
   + 'According to Schimmelpennink, the scheme was intended to be symbolic. The idea was to get people thinking about the issues.',
 ].join('\n')
+
+const CAM_R2MS2_SUMMARY_NOTE = [
+  'Community gardens in cities',
+  '',
+  'Many cities now support community gardens because they improve local 17________ and give residents fresh food. Plots are often allocated by 18________ so that waiting lists stay fair. Volunteers usually organise weekly 19________ to maintain paths and tools. Some projects also run short 20________ for school groups about plants and soil. When harvests are large, surplus produce may be donated to a local 21________. Researchers report that gardeners often feel a stronger sense of 22________ with their neighbourhood.',
+].join('\n')
+
+const CAM_R2MS2_CHOOSE_TWO_GARDEN = [
+  { id: 'a', label: 'reduced noise from traffic' },
+  { id: 'b', label: 'stronger social ties among neighbours' },
+  { id: 'c', label: 'lower rents for nearby apartments' },
+  { id: 'd', label: 'better access to fresh vegetables' },
+  { id: 'e', label: 'free public transport for members' },
+]
+
+const CAM_R2MS2_CHOOSE_TWO_CHALLENGES = [
+  { id: 'a', label: 'limited water supply in dry months' },
+  { id: 'b', label: 'disputes over plot boundaries' },
+  { id: 'c', label: 'theft of tools and produce' },
+  { id: 'd', label: 'rules that ban all children' },
+  { id: 'e', label: 'pressure from developers for the land' },
+]
+
+/**
+ * r2ms2 — Match đoạn Q14–16 + Summary ONE WORD Q17–22 + Choose TWO Q23–24 + Choose TWO Q25–26
+ */
+export function ieltsReadingP2MatchSummaryChooseTwoPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Community gardens in cities',
+    passageSubtitle: 'How shared growing spaces reshape urban life',
+    passage: [
+      {
+        label: 'A',
+        text: 'Community gardens have expanded in many cities as a response to dense housing and limited private outdoor space. Advocates argue that shared plots improve local diets and give residents fresh food. When harvests are large, surplus produce may be donated to a local charity.',
+      },
+      {
+        label: 'B',
+        text: 'Allocation systems matter. Plots are often allocated by lottery so that waiting lists stay fair. Some sites keep a shortlist for newcomers, while long-term gardeners mentor first-time growers.',
+      },
+      {
+        label: 'C',
+        text: 'Volunteers usually organise weekly workdays to maintain paths and tools. Some projects also run short workshops for school groups about plants and soil. Researchers report that gardeners often feel a stronger sense of belonging with their neighbourhood.',
+      },
+      {
+        label: 'D',
+        text: 'Benefits go beyond food. Stronger social ties among neighbours and better access to fresh vegetables are frequently mentioned. Challenges include limited water supply in dry months, theft of tools and produce, and pressure from developers for the land.',
+      },
+      {
+        label: 'E',
+        text: 'City councils sometimes protect gardens through temporary leases. Campaigns for permanent status argue that green space improves wellbeing even for people who only walk past the site.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–16',
+        instruction: 'Reading Passage 2 has sections A–E. Which section contains the following information? Write the correct letter, A–E, in boxes 14–16 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'how new gardeners may get a plot fairly',
+            options: [],
+            answer: 'b',
+            explanation: 'B — allocated by lottery.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'mention of donating surplus food',
+            options: [],
+            answer: 'a',
+            explanation: 'A — surplus donated to a local charity.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'examples of problems gardens may face',
+            options: [],
+            answer: 'd',
+            explanation: 'D — water, theft, developers.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 17–22',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_R2MS2_SUMMARY_NOTE,
+        questions: gapQuestions(17, [
+          { prompt: 'Gap (17)', answer: 'diets', explanation: 'improve local diets.' },
+          { prompt: 'Gap (18)', answer: 'lottery', explanation: 'allocated by lottery.' },
+          { prompt: 'Gap (19)', answer: 'workdays', explanation: 'weekly workdays.' },
+          { prompt: 'Gap (20)', answer: 'workshops', explanation: 'short workshops for school groups.' },
+          { prompt: 'Gap (21)', answer: 'charity', explanation: 'donated to a local charity.' },
+          { prompt: 'Gap (22)', answer: 'belonging', explanation: 'stronger sense of belonging.' },
+        ]),
+      },
+      {
+        range: 'Questions 23–24',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 23,
+            type: 'multiple-choice',
+            prompt: 'Which TWO benefits of community gardens are mentioned in the passage? (first answer)',
+            options: [...CAM_R2MS2_CHOOSE_TWO_GARDEN],
+            answer: 'b',
+            explanation: 'B — stronger social ties among neighbours.',
+          },
+          {
+            number: 24,
+            type: 'multiple-choice',
+            prompt: 'Which TWO benefits of community gardens are mentioned in the passage? (second answer)',
+            options: [...CAM_R2MS2_CHOOSE_TWO_GARDEN],
+            answer: 'd',
+            explanation: 'D — better access to fresh vegetables.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 25–26',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 25,
+            type: 'multiple-choice',
+            prompt: 'Which TWO challenges facing community gardens are mentioned in the passage? (first answer)',
+            options: [...CAM_R2MS2_CHOOSE_TWO_CHALLENGES],
+            answer: 'a',
+            explanation: 'A — limited water supply in dry months.',
+          },
+          {
+            number: 26,
+            type: 'multiple-choice',
+            prompt: 'Which TWO challenges facing community gardens are mentioned in the passage? (second answer)',
+            options: [...CAM_R2MS2_CHOOSE_TWO_CHALLENGES],
+            answer: 'e',
+            explanation: 'E — pressure from developers for the land.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_CORAL_REEFS_HEADINGS = [
+  { id: 'i', label: 'Tried and tested solutions' },
+  { id: 'ii', label: 'Cooperation beneath the waves' },
+  { id: 'iii', label: 'Working to lessen the problems' },
+  { id: 'iv', label: 'Disagreement about the accuracy of a certain phrase' },
+  { id: 'v', label: 'Two clear educational goals' },
+  { id: 'vi', label: 'Promoting hope' },
+  { id: 'vii', label: 'A warning of further trouble ahead' },
+]
+
+const CAM_CORAL_DAMAGE_CHOOSE_TWO = [
+  { id: 'a', label: 'a rising number of extreme storms' },
+  { id: 'b', label: 'the removal of too many fish from the sea' },
+  { id: 'c', label: 'the contamination of the sea from waste' },
+  { id: 'd', label: 'increased disease among marine species' },
+  { id: 'e', label: 'alterations in the usual flow of water in the seas' },
+]
+
+const CAM_CORAL_ZOO_CHOOSE_TWO = [
+  { id: 'a', label: 'They are hoping to expand the numbers of different corals being bred in laboratories' },
+  { id: 'b', label: 'They want to identify corals that can cope well with the changed sea conditions.' },
+  { id: 'c', label: 'They are looking at ways of creating artificial reefs that corals could grow on.' },
+  { id: 'd', label: 'They are trying out methods that would speed up reproduction in some corals.' },
+  { id: 'e', label: 'They are investigating materials that might protect reefs from higher temperatures.' },
+]
+
+export const CAM_CORAL_REEFS_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'static', text: '• Corals have a number of ' },
+  { type: 'gap', number: 24 },
+  { type: 'static', text: ' which they use to collect their food.' },
+  { type: 'static', text: '• Algae gain ' },
+  { type: 'gap', number: 25 },
+  { type: 'static', text: ' from being inside the coral.' },
+  { type: 'static', text: '• Increases in the warmth of the sea water can remove the ' },
+  { type: 'gap', number: 26 },
+  { type: 'static', text: ' from corals.' },
+]
+
+/**
+ * r2h2n — Headings Q14–19 + Choose TWO Q20–21 + Choose TWO Q22–23 + Notes Q24–26
+ * Preview: Teamplate_Part2_20.jpg (coral reefs / London Zoo researchers)
+ */
+export function ieltsReadingP2HeadingsChooseTwoNotesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Saving coral reefs',
+    passageSubtitle: 'Science, education and hope for threatened reefs',
+    passage: [
+      {
+        label: 'A',
+        text: 'Coral reefs are often described as the rainforests of the sea, but some scientists dispute how accurate that phrase is: reefs and forests differ in scale, species counts and the way energy moves through food webs. The disagreement about the accuracy of a certain phrase has not stopped the public from using it, yet researchers prefer more precise comparisons when writing for journals.',
+      },
+      {
+        label: 'B',
+        text: 'Beneath the waves, corals and algae form a striking partnership. Corals have a number of tentacles which they use to collect their food. Tiny algae living inside coral tissue gain protection from being inside the coral, while the coral benefits from sugars the algae produce. This cooperation beneath the waves is central to reef life, but increases in the warmth of the sea water can remove the algae from corals, leaving pale, stressed colonies.',
+      },
+      {
+        label: 'C',
+        text: 'Human pressure multiplies natural stress. The removal of too many fish from the sea weakens reef ecosystems, and alterations in the usual flow of water in the seas — from coastal engineering or climate-driven currents — can starve corals of nutrients or bury them in sediment. Pollution and overfishing interact with warming in complex ways.',
+      },
+      {
+        label: 'D',
+        text: 'Aquariums and universities are working to lessen the problems. At London Zoo, researchers want to identify corals that can cope well with the changed sea conditions. They are also trying out methods that would speed up reproduction in some corals so that resilient strains can be raised more quickly. Other teams elsewhere study artificial structures, but the London Zoo focus remains on breeding and selection under controlled conditions.',
+      },
+      {
+        label: 'E',
+        text: 'Public programmes often pursue two clear educational goals: teaching visitors how reefs work, and showing practical steps people can take to reduce damage. Exhibits link everyday choices — sunscreen, seafood, plastic waste — to distant ecosystems.',
+      },
+      {
+        label: 'F',
+        text: 'Campaigns emphasise promoting hope rather than only listing disasters. Successful small-scale restorations and community patrols are presented as tried and tested solutions that communities can adapt. At the same time, models offer a warning of further trouble ahead if ocean temperatures keep rising without deeper cuts in emissions.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–19',
+        instruction: 'Reading Passage 2 has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below. Write the correct number, i–vii, in boxes 14–19 on your answer sheet.',
+        note: 'There are more headings than paragraphs, so you will not use all of them.',
+        type: 'matching-headings',
+        headings: CAM_CORAL_REEFS_HEADINGS,
+        questions: [
+          { number: 14, type: 'matching-headings', prompt: 'Paragraph A', options: [], answer: 'iv', explanation: 'Disagreement about the accuracy of a certain phrase (rainforests of the sea).' },
+          { number: 15, type: 'matching-headings', prompt: 'Paragraph B', options: [], answer: 'ii', explanation: 'Cooperation beneath the waves (coral–algae partnership).' },
+          { number: 16, type: 'matching-headings', prompt: 'Paragraph C', options: [], answer: 'vii', explanation: 'Warning of further trouble / human pressure and warming.' },
+          { number: 17, type: 'matching-headings', prompt: 'Paragraph D', options: [], answer: 'iii', explanation: 'Working to lessen the problems (London Zoo research).' },
+          { number: 18, type: 'matching-headings', prompt: 'Paragraph E', options: [], answer: 'v', explanation: 'Two clear educational goals.' },
+          { number: 19, type: 'matching-headings', prompt: 'Paragraph F', options: [], answer: 'vi', explanation: 'Promoting hope (also tried solutions / warning ahead appear).' },
+        ],
+      },
+      {
+        range: 'Questions 20–21',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 20,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of these causes of damage to coral reefs are mentioned by the writer of the text? (first answer)',
+            options: [...CAM_CORAL_DAMAGE_CHOOSE_TWO],
+            answer: 'b',
+            explanation: 'B — removal of too many fish from the sea.',
+          },
+          {
+            number: 21,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of these causes of damage to coral reefs are mentioned by the writer of the text? (second answer)',
+            options: [...CAM_CORAL_DAMAGE_CHOOSE_TWO],
+            answer: 'e',
+            explanation: 'E — alterations in the usual flow of water in the seas.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 22–23',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 22,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are true of the researchers at London Zoo? (first answer)',
+            options: [...CAM_CORAL_ZOO_CHOOSE_TWO],
+            answer: 'b',
+            explanation: 'B — identify corals that cope with changed sea conditions.',
+          },
+          {
+            number: 23,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are true of the researchers at London Zoo? (second answer)',
+            options: [...CAM_CORAL_ZOO_CHOOSE_TWO],
+            answer: 'd',
+            explanation: 'D — methods to speed up reproduction in some corals.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 24–26',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'Coral reefs',
+        notePassage: CAM_CORAL_REEFS_NOTE_PASSAGE,
+        questions: gapQuestions(24, [
+          { prompt: 'Gap (24)', answer: 'tentacles', explanation: 'number of tentacles which they use to collect their food.' },
+          { prompt: 'Gap (25)', answer: 'protection', explanation: 'algae gain protection from being inside the coral.' },
+          { prompt: 'Gap (26)', answer: 'algae', explanation: 'warmth can remove the algae from corals.' },
+        ]),
+      },
+    ],
+  }
+}
 
 /** Cam14 T1 — match paragraph Q14–18 + 2× Choose TWO Q19–22 + summary ONE WORD Q23–26 */
 export function ieltsReadingP2MatchChooseTwoSummaryPart(): ReadingImportPartJson {
@@ -5101,6 +6777,676 @@ const CAM_AI_ATTITUDES_HEADINGS = [
   { id: 'viii', label: 'A surprisingly successful AI application' },
 ]
 
+const CAM_SPACE_DEBRIS_SUMMARY_NOTE = [
+  'The Inter-Agency Space Debris Coordination Committee',
+  '',
+  'The committee gives advice on how the 32________ of space can be achieved. The committee advises that when satellites are no longer active, any unused 33________ or pressurised material that could cause 34________ should be removed.',
+  '',
+  'Although operators of large satellite constellations accept that they have obligations as stewards of space, Holger Krag points out that the operators that become 35________ are unlikely to prioritise removing their satellites from space.',
+].join('\n')
+
+const CAM_SPACE_DEBRIS_FEATURES = [
+  { id: 'a', name: 'Carolin Frueh' },
+  { id: 'b', name: 'Holger Krag' },
+  { id: 'c', name: 'Marlon Sorge' },
+  { id: 'd', name: 'Moriba Jah' },
+]
+
+/**
+ * r3ms — Match đoạn Q27–31 + Summary ONE WORD Q32–35 + Features Q36–40
+ * Preview: Teamplate_Part3_13.jpg (Space debris / Frueh, Krag…)
+ */
+export function ieltsReadingP3MatchSummaryFeaturesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'The problem of space debris',
+    passageSubtitle: 'Tracking junk in orbit and who should clean it up',
+    passage: [
+      {
+        label: 'A',
+        text: 'Space agencies and private operators now track thousands of objects in Earth orbit. Cooperation between nations aims to minimise the risk of collisions, including shared catalogues of debris and agreed avoidance procedures when two objects are predicted to pass close together.',
+      },
+      {
+        label: 'B',
+        text: 'Carolin Frueh explains that each mission begins with a set of aims: what the satellite must measure, how long it should operate, and how it will be disposed of. Those aims shape design choices from the first sketch of the spacecraft.',
+      },
+      {
+        label: 'C',
+        text: 'In 2009, a major collision occurred in space when an active communications satellite hit a defunct Russian craft, creating a cloud of fragments that still threaten other missions years later. The event became a standard reference when discussing cascade risks in low Earth orbit.',
+      },
+      {
+        label: 'D',
+        text: 'Engineers sometimes compare tracking objects in space with running an efficient transportation system: knowing exact positions allows safer routes, just as traffic control reduces accidents on busy roads. Without reliable tracking, operators cannot plan manoeuvres in time.',
+      },
+      {
+        label: 'E',
+        text: 'Researchers have proposed schemes to classify space junk by size, origin and hazard level so that limited resources can focus on the most dangerous fragments. Classification efforts are still incomplete because many small pieces cannot yet be catalogued accurately.',
+      },
+      {
+        label: 'F',
+        text: 'The Inter-Agency Space Debris Coordination Committee issues guidelines on the sustainable use of space. It advises that unused fuel or pressurised material that could cause explosions should be removed when satellites retire. Holger Krag notes that operators who become bankrupt rarely prioritise de-orbiting. Marlon Sorge has argued that recommendations about satellites are often ignored in practice. Moriba Jah warns of conflicting data on where some satellites actually are, and of the risk that damage already done in orbit may not be reversible.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–31',
+        instruction: 'Reading Passage 3 has sections A–F. Which section contains the following information? Write the correct letter, A–F, in boxes 27–31 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F'],
+        questions: [
+          {
+            number: 27,
+            type: 'matching-paragraph',
+            prompt: 'A reference to the cooperation that takes place to try and minimise risk',
+            options: [],
+            answer: 'a',
+            explanation: 'Section A — cooperation to minimise risk of collisions.',
+          },
+          {
+            number: 28,
+            type: 'matching-paragraph',
+            prompt: 'An explanation of a person\'s aims',
+            options: [],
+            answer: 'b',
+            explanation: 'Section B — Frueh on mission aims.',
+          },
+          {
+            number: 29,
+            type: 'matching-paragraph',
+            prompt: 'A description of a major collision that occurred in space',
+            options: [],
+            answer: 'c',
+            explanation: 'Section C — 2009 collision.',
+          },
+          {
+            number: 30,
+            type: 'matching-paragraph',
+            prompt: 'A comparison between tracking objects in space and the efficiency of a transportation system',
+            options: [],
+            answer: 'd',
+            explanation: 'Section D — comparison with transportation system.',
+          },
+          {
+            number: 31,
+            type: 'matching-paragraph',
+            prompt: 'A reference to efforts to classify space junk',
+            options: [],
+            answer: 'e',
+            explanation: 'Section E — classify space junk.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 32–35',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_SPACE_DEBRIS_SUMMARY_NOTE,
+        questions: gapQuestions(32, [
+          { prompt: 'Gap (32)', answer: 'sustainable', explanation: 'sustainable use of space (or wording on the paper).' },
+          { prompt: 'Gap (33)', answer: 'fuel', explanation: 'unused fuel or pressurised material.' },
+          { prompt: 'Gap (34)', answer: 'explosions', explanation: 'could cause explosions.' },
+          { prompt: 'Gap (35)', answer: 'bankrupt', explanation: 'operators that become bankrupt.' },
+        ]),
+      },
+      {
+        range: 'Questions 36–40',
+        instruction: 'Match each statement with the correct option, A–D. Write the correct letter in boxes 36–40 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_SPACE_DEBRIS_FEATURES,
+        questions: [
+          {
+            number: 36,
+            type: 'matching-features',
+            prompt: 'Knowing the exact location of space junk would help prevent any possible danger.',
+            options: [],
+            answer: 'a',
+            explanation: 'Frueh / tracking location (adjust to key if needed).',
+          },
+          {
+            number: 37,
+            type: 'matching-features',
+            prompt: 'Space should be available to everyone and should be preserved for the future.',
+            options: [],
+            answer: 'b',
+            explanation: 'Krag / stewards of space.',
+          },
+          {
+            number: 38,
+            type: 'matching-features',
+            prompt: 'A recommendation regarding satellites is widely ignored.',
+            options: [],
+            answer: 'c',
+            explanation: 'Sorge — recommendations ignored.',
+          },
+          {
+            number: 39,
+            type: 'matching-features',
+            prompt: 'There is conflicting information about where some satellites are in space.',
+            options: [],
+            answer: 'd',
+            explanation: 'Jah — conflicting information on locations.',
+          },
+          {
+            number: 40,
+            type: 'matching-features',
+            prompt: 'There is a risk we will not be able to undo the damage that occurs in space.',
+            options: [],
+            answer: 'd',
+            explanation: 'Jah — damage may not be reversible.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_GUARD_DOGS_FEATURES = [
+  { id: 'a', name: 'Dan Macon' },
+  { id: 'b', name: 'Silvia Ribeiro' },
+  { id: 'c', name: 'Linda van Bommel' },
+  { id: 'd', name: 'Julie Young' },
+  { id: 'e', name: 'Bethany Smith' },
+]
+
+const CAM_GUARD_DOGS_SUMMARY_NOTE = [
+  'Unintended ecological effects of using guard dogs',
+  '',
+  'In Namibia, livestock guard dogs have been used to protect domestic animals from attacks by cheetahs. This has led to a rise in the deaths of other predators, particularly 37________.',
+  '',
+  'In addition, it has been suggested that the dogs could have 38________ which may affect other species, and that they may reduce the amount of 39________ available to certain wild animals.',
+  '',
+  'On the other hand, these dogs may help birds by protecting their nests. These might otherwise be threatened by predators such as 40________.',
+].join('\n')
+
+/**
+ * r3mfs — Match đoạn Q27–31 + Features A–E Q32–36 + Summary ONE WORD Q37–40
+ * Preview: Teamplate_Part3_20.jpg (livestock guard dogs)
+ * Khác r3ms: features giữa, summary cuối (r3ms = summary giữa, features cuối)
+ */
+export function ieltsReadingP3MatchFeaturesSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Livestock guard dogs',
+    passageSubtitle: 'How working dogs protect herds — and reshape wild ecosystems',
+    passage: [
+      {
+        label: 'A',
+        text: 'Across ranching regions, livestock guard dogs live with sheep and goats from an early age so that they treat the flock as their pack. Skills are not taught like house-dog tricks; instead the animals gain their skills through continuous contact with livestock and gradual exposure to open range conditions.',
+      },
+      {
+        label: 'B',
+        text: 'When a predator approaches, the dogs bark, patrol and place themselves between the threat and the herd. This description of how the methods used by livestock guard dogs help to keep predators away is central to explaining why many farmers adopt the practice without lethal control.',
+      },
+      {
+        label: 'C',
+        text: 'In one documented case, cheetahs that had been killing calves were no longer shot after guard dogs arrived: an example of how one predator has been protected by the introduction of livestock guard dogs, because conflict dropped and farmers stopped retaliatory hunting.',
+      },
+      {
+        label: 'D',
+        text: 'Several academics argue that the approach works. Claims by different academics that the use of livestock guard dogs is a successful way of protecting farmers\' herds appear in reviews of ranch trials in Europe, North America and southern Africa, citing lower livestock losses and fewer poison campaigns.',
+      },
+      {
+        label: 'E',
+        text: 'Dan Macon notes that the use of guard dogs may save the lives of both livestock and wild animals by reducing the need for traps and guns. Julie Young warns that claims of a change in behaviour from those using livestock guard dogs may not be totally accurate — self-reports can overstate success. Silvia Ribeiro argues there may be negative results if the use of livestock guard dogs is not sufficiently widespread, leaving pockets of conflict. Linda van Bommel says livestock guard dogs are the best way of protecting farm animals, as long as the dogs are appropriately handled. Bethany Smith stresses that teaching a livestock guard dog how to do its work needs a different focus from teaching a house guard dog.',
+      },
+      {
+        label: 'F',
+        text: 'Researchers also track unintended ecological effects. In Namibia, livestock guard dogs have been used to protect domestic animals from attacks by cheetahs. This has led to a rise in the deaths of other predators, particularly jackals. In addition, it has been suggested that the dogs could have diseases which may affect other species, and that they may reduce the amount of food available to certain wild animals. On the other hand, these dogs may help birds by protecting their nests. These might otherwise be threatened by predators such as foxes.',
+      },
+      {
+        label: 'G',
+        text: 'Looking ahead, an optimistic suggestion about the possible positive developments in the use of livestock guard dogs is that wider training networks and shared breeding lines could spread best practice, cut wildlife killings further, and make ranching compatible with large-carnivore recovery in more landscapes.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–31',
+        instruction: 'Reading Passage 3 has sections A–G. Which section contains the following information? Write the correct letter, A–G, in boxes 27–31 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        questions: [
+          {
+            number: 27,
+            type: 'matching-paragraph',
+            prompt: 'an example of how one predator has been protected by the introduction of livestock guard dogs',
+            options: [],
+            answer: 'c',
+            explanation: 'C — cheetahs protected when farmers stop shooting.',
+          },
+          {
+            number: 28,
+            type: 'matching-paragraph',
+            prompt: 'an optimistic suggestion about the possible positive developments in the use of livestock guard dogs',
+            options: [],
+            answer: 'g',
+            explanation: 'G — optimistic future developments.',
+          },
+          {
+            number: 29,
+            type: 'matching-paragraph',
+            prompt: 'a description of how the methods used by livestock guard dogs help to keep predators away',
+            options: [],
+            answer: 'b',
+            explanation: 'B — bark, patrol, place themselves between threat and herd.',
+          },
+          {
+            number: 30,
+            type: 'matching-paragraph',
+            prompt: 'claims by different academics that the use of livestock guard dogs is a successful way of protecting farmers\' herds',
+            options: [],
+            answer: 'd',
+            explanation: 'D — academics claim successful protection of herds.',
+          },
+          {
+            number: 31,
+            type: 'matching-paragraph',
+            prompt: 'a reference to how livestock guard dogs gain their skills',
+            options: [],
+            answer: 'a',
+            explanation: 'A — gain skills through contact with livestock.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 32–36',
+        instruction: 'Match each statement with the correct option, A–E. Write the correct letter in boxes 32–36 on your answer sheet.',
+        type: 'matching-features',
+        features: CAM_GUARD_DOGS_FEATURES,
+        questions: [
+          {
+            number: 32,
+            type: 'matching-features',
+            prompt: 'The use of guard dogs may save the lives of both livestock and wild animals.',
+            options: [],
+            answer: 'a',
+            explanation: 'A Dan Macon.',
+          },
+          {
+            number: 33,
+            type: 'matching-features',
+            prompt: 'Claims of a change in behaviour from those using livestock guard dogs may not be totally accurate.',
+            options: [],
+            answer: 'd',
+            explanation: 'D Julie Young.',
+          },
+          {
+            number: 34,
+            type: 'matching-features',
+            prompt: 'There may be negative results if the use of livestock guard dogs is not sufficiently widespread.',
+            options: [],
+            answer: 'b',
+            explanation: 'B Silvia Ribeiro.',
+          },
+          {
+            number: 35,
+            type: 'matching-features',
+            prompt: 'Livestock guard dogs are the best way of protecting farm animals, as long as the dogs are appropriately handled.',
+            options: [],
+            answer: 'c',
+            explanation: 'C Linda van Bommel.',
+          },
+          {
+            number: 36,
+            type: 'matching-features',
+            prompt: 'Teaching a livestock guard dog how to do its work needs a different focus from teaching a house guard dog.',
+            options: [],
+            answer: 'e',
+            explanation: 'E Bethany Smith.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 37–40',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_GUARD_DOGS_SUMMARY_NOTE,
+        questions: gapQuestions(37, [
+          { prompt: 'Gap (37)', answer: 'jackals', explanation: 'rise in deaths of other predators, particularly jackals.' },
+          { prompt: 'Gap (38)', answer: 'diseases', explanation: 'dogs could have diseases which may affect other species.' },
+          { prompt: 'Gap (39)', answer: 'food', explanation: 'reduce the amount of food available.' },
+          { prompt: 'Gap (40)', answer: 'foxes', explanation: 'threatened by predators such as foxes.' },
+        ]),
+      },
+    ],
+  }
+}
+
+const CAM_WEGENER_WORD_BANK = [
+  { id: 'a', label: 'modest fame' },
+  { id: 'b', label: 'vast range' },
+  { id: 'c', label: 'record-breaking achievement' },
+  { id: 'd', label: 'research methods' },
+  { id: 'e', label: 'select group' },
+  { id: 'f', label: 'professional interests' },
+  { id: 'g', label: 'scientific debate' },
+  { id: 'h', label: 'hazardous exploration' },
+  { id: 'i', label: 'biographer\'s perspective' },
+  { id: 'j', label: 'narrow investigation' },
+]
+
+const CAM_WEGENER_SUMMARY_NOTE = [
+  'Wegener\'s life and work:',
+  '',
+  'One of the remarkable things about Wegener from a 31________ is that although he proposed a theory of continental drift, he was not a geologist. His 32________ were limited to atmospheric physics. However, at the time he proposed his theory of continental drift in 1912, he was already a person of 33________. Six years previously, there had been his 34________ of 52 hours in a hot-air balloon, followed by his well-publicised but 35________ of Greenland\'s coast. With the publication of his textbook on thermodynamics, he had also come to the attention of a 36________ of German scientists.',
+].join('\n')
+
+/**
+ * r3ysm — YNNG Q27–30 + Summary bank Q31–36 + MC Q37–40
+ * Preview: Teamplate_Part3_14.jpg (Wegener / continental drift)
+ */
+export function ieltsReadingP3YnngSummaryMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Alfred Wegener',
+    passageSubtitle: 'The man behind continental drift',
+    passage: [
+      {
+        text: 'From a biographer\'s perspective, one remarkable point about Alfred Wegener is that although he proposed continental drift, he was not a geologist. His professional interests were limited to atmospheric physics. Yet when he published the theory in 1912 he already had modest fame: six years earlier he had set a record-breaking achievement of 52 hours in a hot-air balloon, followed by hazardous exploration of Greenland\'s coast. His textbook on thermodynamics brought him to the attention of a select group of German scientists.',
+      },
+      {
+        text: 'The writer notes that it is not clear that Wegener\'s ideas were widely disputed while he was alive in the way later textbooks sometimes suggest; the controversy grew more intense after his death. His methods mixed field observation with physics in ways that unsettled some contemporaries.',
+      },
+      {
+        text: 'Mott T. Greene, writing in a later paragraph, focuses on what aspects of Wegener\'s life interested him most as a biographer: the breadth of careers Wegener pursued and the motives that drove him between exploration, meteorology and theory-building.',
+      },
+      {
+        text: 'Modern plate tectonics eventually vindicated the core of continental drift, though the mechanisms Wegener proposed were incomplete. The case remains a classic example of how scientific debate can lag behind bold hypotheses.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–30',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 27–30 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 27,
+            type: 'yes-no-not-given',
+            prompt: 'Wegener\'s ideas were widely disputed while he was alive.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Writer says it is not clear they were widely disputed while he was alive.',
+          },
+          {
+            number: 28,
+            type: 'yes-no-not-given',
+            prompt: 'Wegener was trained primarily as a geologist.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'He was not a geologist; interests in atmospheric physics.',
+          },
+          {
+            number: 29,
+            type: 'yes-no-not-given',
+            prompt: 'The writer gives the exact number of scientists who attended every Wegener lecture.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No such attendance figures.',
+          },
+          {
+            number: 30,
+            type: 'yes-no-not-given',
+            prompt: 'Modern plate tectonics supports the core idea of continental drift.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Plate tectonics vindicated the core of continental drift.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 31–36',
+        instruction: 'Complete the summary using the list of phrases, A–J, below.',
+        type: 'summary-completion',
+        note: CAM_WEGENER_SUMMARY_NOTE,
+        wordBank: CAM_WEGENER_WORD_BANK,
+        questions: [
+          { number: 31, type: 'summary-completion', prompt: 'Gap (31)', options: [], answer: 'i', explanation: 'biographer\'s perspective' },
+          { number: 32, type: 'summary-completion', prompt: 'Gap (32)', options: [], answer: 'f', explanation: 'professional interests' },
+          { number: 33, type: 'summary-completion', prompt: 'Gap (33)', options: [], answer: 'a', explanation: 'modest fame' },
+          { number: 34, type: 'summary-completion', prompt: 'Gap (34)', options: [], answer: 'c', explanation: 'record-breaking achievement' },
+          { number: 35, type: 'summary-completion', prompt: 'Gap (35)', options: [], answer: 'h', explanation: 'hazardous exploration' },
+          { number: 36, type: 'summary-completion', prompt: 'Gap (36)', options: [], answer: 'e', explanation: 'select group' },
+        ],
+      },
+      {
+        range: 'Questions 37–40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 37,
+            type: 'multiple-choice',
+            prompt: 'What is Mott T. Greene doing in the fifth paragraph?',
+            options: [
+              { id: 'a', label: 'describing what motivated him to write the book' },
+              { id: 'b', label: 'explaining why it is desirable to read the whole book' },
+              { id: 'c', label: 'suggesting why Wegener pursued so many different careers' },
+              { id: 'd', label: 'indicating what aspects of Wegener\'s life interested him most' },
+            ],
+            answer: 'd',
+            explanation: 'D — what aspects of Wegener\'s life interested him most.',
+          },
+          {
+            number: 38,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, Wegener\'s 1912 theory was notable because',
+            options: [
+              { id: 'a', label: 'he was already well known outside science.' },
+              { id: 'b', label: 'he had never travelled to Greenland.' },
+              { id: 'c', label: 'he rejected all physics.' },
+              { id: 'd', label: 'he was a full-time geologist.' },
+            ],
+            answer: 'a',
+            explanation: 'A — already a person of modest fame.',
+          },
+          {
+            number: 39,
+            type: 'multiple-choice',
+            prompt: 'The writer mentions the hot-air balloon flight in order to',
+            options: [
+              { id: 'a', label: 'show Wegener\'s interest only in tourism.' },
+              { id: 'b', label: 'illustrate a record-breaking achievement before 1912.' },
+              { id: 'c', label: 'prove continental drift experimentally.' },
+              { id: 'd', label: 'deny that he wrote a thermodynamics textbook.' },
+            ],
+            answer: 'b',
+            explanation: 'B — record-breaking balloon flight six years previously.',
+          },
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'Overall, the passage presents continental drift as',
+            options: [
+              { id: 'a', label: 'a hypothesis later supported in its core by plate tectonics.' },
+              { id: 'b', label: 'a theory never discussed after 1912.' },
+              { id: 'c', label: 'an idea invented by Mott T. Greene.' },
+              { id: 'd', label: 'irrelevant to modern science.' },
+            ],
+            answer: 'a',
+            explanation: 'A — plate tectonics vindicated the core idea.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/** r3ysb — ABS baseball (Teamplate_Part3_18.jpg) */
+const R3YSB_ABS_WORD_BANK = [
+  { id: 'a', label: 'pitch boundary' },
+  { id: 'b', label: 'numerous disputes' },
+  { id: 'c', label: 'team tactics' },
+  { id: 'd', label: 'subjective assessment' },
+  { id: 'e', label: 'widespread approval' },
+  { id: 'f', label: 'former roles' },
+  { id: 'g', label: 'total silence' },
+  { id: 'h', label: 'perceived area' },
+]
+
+const R3YSB_ABS_SUMMARY_NOTE = [
+  'Calls by the umpire',
+  '',
+  'Even after ABS was developed, MLB still wanted human umpires to shout out decisions as they had in their 33________. The umpire\'s job had, at one time, required a 34________ about whether a ball was a strike. A ball is considered a strike when the batter does not hit it and it crosses through a 35________ extending approximately from the batter\'s knee to his chest.',
+  '',
+  'In the past, 36________ over strike calls were not uncommon, but today everyone accepts the complete ban on pushing or shoving the umpire. One difference, however, is that during the first game DeJesus used ABS, strike calls were met with 37________.',
+].join('\n')
+
+/**
+ * r3ysb — YNNG Q27–32 + Summary bank A–H Q33–37 + MC Q38–40
+ * Preview: Teamplate_Part3_18.jpg (ABS / Automated Ball-Strike System)
+ * Khác r3ysm: 6 YNNG + 5 bank gaps + 3 MC (r3ysm = 4 + 6 + 4)
+ */
+export function ieltsReadingP3YnngSummaryBankMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'The Automated Ball-Strike System',
+    passageSubtitle: 'Technology and human judgement in professional baseball',
+    passage: [
+      {
+        text: 'Major League Baseball has experimented with the Automated Ball-Strike System (ABS), which uses cameras and algorithms to call balls and strikes. When DeJesus first used ABS, he did not share decision-making about strikes with the system; ABS determined the call and the human umpire announced it. In earlier decades, fans and players often entertained themselves by arguing about umpires\' decisions, treating dispute as part of the spectacle of the game.',
+      },
+      {
+        text: 'Umpires themselves are divided. DeJesus has spoken positively about the accuracy ABS can bring, whereas Porter has been more sceptical. Porter has said that relying on ABS diminished his enjoyment of being an umpire, because the craft of judging the zone felt central to the role. The writer notes that umpires\' decisions on plays at the bases are generally more reliable than those on strikes, where the zone is harder to judge by eye alone.',
+      },
+      {
+        text: 'Part of the difficulty is that the size and shape of the strike zone can vary from one game to another when humans alone are calling pitches, depending on stance, height and how each umpire perceives the edges of the zone. Even after ABS was developed, MLB still wanted human umpires to shout out decisions as they had in their former roles. The umpire\'s job had, at one time, required a subjective assessment about whether a ball was a strike. A ball is considered a strike when the batter does not hit it and it crosses through a pitch boundary extending approximately from the batter\'s knee to his chest.',
+      },
+      {
+        text: 'In the past, numerous disputes over strike calls were not uncommon, but today everyone accepts the complete ban on pushing or shoving the umpire. One difference, however, is that during the first game DeJesus used ABS, strike calls were met with total silence — the familiar roar of argument simply did not arise.',
+      },
+      {
+        text: 'In the fifth paragraph the writer suggests that ABS may reduce some of the appeal of the game: the drama of human error and protest is part of what many spectators enjoy. That does not mean ABS is bound to make key decisions that are wrong, nor that human umpires will disappear overnight, nor that rule books must be rewritten immediately.',
+      },
+      {
+        text: 'In the sixth paragraph the writer suggests there is little will to bring about fundamental change in the sport. Baseball\'s culture is conservative; technological tools may be trialled, but wholesale redesign of traditions meets resistance. Progress on ABS continues in limited trials, yet the broader debate about technology in baseball remains unsettled.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–32',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 27–32 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 27,
+            type: 'yes-no-not-given',
+            prompt: 'When DeJesus first used ABS, he shared decision-making about strikes with it.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'ABS determined the call; he did not share decision-making with the system.',
+          },
+          {
+            number: 28,
+            type: 'yes-no-not-given',
+            prompt: 'In the past, people used to entertain themselves by arguing about umpires\' decisions.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Fans and players entertained themselves by arguing about umpires\' decisions.',
+          },
+          {
+            number: 29,
+            type: 'yes-no-not-given',
+            prompt: 'DeJesus and Porter have different attitudes towards ABS.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'DeJesus positive; Porter more sceptical.',
+          },
+          {
+            number: 30,
+            type: 'yes-no-not-given',
+            prompt: 'ABS diminished Porter\'s enjoyment of being an umpire.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Porter said ABS diminished his enjoyment of being an umpire.',
+          },
+          {
+            number: 31,
+            type: 'yes-no-not-given',
+            prompt: 'Umpires\' decisions on plays at the bases are more reliable than those on strikes.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer notes base decisions are more reliable than strike calls.',
+          },
+          {
+            number: 32,
+            type: 'yes-no-not-given',
+            prompt: 'The size and shape of the strike zone can vary from one game to another.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Human-called zone can vary game to game.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 33–37',
+        instruction: 'Complete the summary using the list of phrases, A–H, below.',
+        type: 'summary-completion',
+        note: R3YSB_ABS_SUMMARY_NOTE,
+        wordBank: R3YSB_ABS_WORD_BANK,
+        questions: [
+          { number: 33, type: 'summary-completion', prompt: 'Gap (33)', options: [], answer: 'f', explanation: 'former roles' },
+          { number: 34, type: 'summary-completion', prompt: 'Gap (34)', options: [], answer: 'd', explanation: 'subjective assessment' },
+          { number: 35, type: 'summary-completion', prompt: 'Gap (35)', options: [], answer: 'a', explanation: 'pitch boundary' },
+          { number: 36, type: 'summary-completion', prompt: 'Gap (36)', options: [], answer: 'b', explanation: 'numerous disputes' },
+          { number: 37, type: 'summary-completion', prompt: 'Gap (37)', options: [], answer: 'g', explanation: 'total silence' },
+        ],
+      },
+      {
+        range: 'Questions 38–40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 38,
+            type: 'multiple-choice',
+            prompt: 'What does the writer suggest about ABS in the fifth paragraph?',
+            options: [
+              { id: 'a', label: 'It is bound to make key decisions that are wrong.' },
+              { id: 'b', label: 'It may reduce some of the appeal of the game.' },
+              { id: 'c', label: 'It will lead to the disappearance of human umpires.' },
+              { id: 'd', label: 'It may increase calls for the rules of baseball to be changed.' },
+            ],
+            answer: 'b',
+            explanation: 'B — may reduce some of the appeal of the game.',
+          },
+          {
+            number: 39,
+            type: 'multiple-choice',
+            prompt: 'In the sixth paragraph, what does the writer suggest about baseball?',
+            options: [
+              { id: 'a', label: 'Its rules should be consistent with those of other sports.' },
+              { id: 'b', label: 'Technological innovation has made the rules harder to enforce.' },
+              { id: 'c', label: 'Progress is being made on improvements to ABS.' },
+              { id: 'd', label: 'There is little will to bring about change in the sport.' },
+            ],
+            answer: 'd',
+            explanation: 'D — little will to bring about fundamental change.',
+          },
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'What would be a suitable title for this text?',
+            options: [
+              { id: 'a', label: 'A debate about the use of technology in baseball' },
+              { id: 'b', label: 'An analysis of the strengths and weaknesses of ABS' },
+              { id: 'c', label: 'An account of one baseball player\'s research into ABS' },
+              { id: 'd', label: 'A recommendation that other sports should adopt ABS' },
+            ],
+            answer: 'a',
+            explanation: 'A — debate about technology in baseball (ABS vs human judgement).',
+          },
+        ],
+      },
+    ],
+  }
+}
+
 /** r3hmy — Headings Q27–32 + MC Q33–35 + YNNG Q36–40 (AI attitudes) */
 export function ieltsReadingP3HeadingsMcYnngPart(): ReadingImportPartJson {
   return {
@@ -5273,6 +7619,1326 @@ export const CAM_SILBO_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
   { type: 'static', text: ' to help preserve it' },
 ]
 
+const CAM_FOREST_CUT_FEATURES = [
+  { id: 'a', name: 'a TSI cut' },
+  { id: 'b', name: 'a Salvage cut' },
+  { id: 'c', name: 'a Shelterwood cut' },
+]
+
+const CAM_AI_HEALTH_WORD_BANK = [
+  { id: 'a', label: 'medical practitioners' },
+  { id: 'b', label: 'specialised tasks' },
+  { id: 'c', label: 'available resources' },
+  { id: 'd', label: 'reduced illness' },
+  { id: 'e', label: 'professional authority' },
+  { id: 'f', label: 'technology experts' },
+]
+
+const CAM_AI_HEALTH_SUMMARY_NOTE = [
+  'Using AI in the UK health system',
+  '',
+  'AI currently has a limited role in the way 24________ are allocated in the health service. The positive aspect of AI having a bigger role is that it would be more efficient and lead to patient benefits. However, such a change would result, for example, in certain 25________ not having their current level of 26________. It is therefore important that AI goals are appropriate so that discriminatory practices could be avoided.',
+].join('\n')
+
+/** Headings i–viii (7 đoạn A–G → dư 1 heading) — Teamplate_Part2_15 */
+const CAM_STEAM_CAR_HEADINGS = [
+  { id: 'i', label: 'A period in cold conditions before the technology is assessed' },
+  { id: 'ii', label: 'A comparison of the cost of two types of vehicle' },
+  { id: 'iii', label: 'How the steam car first became popular' },
+  { id: 'iv', label: 'Reasons why steam cars disappeared from mass use' },
+  { id: 'v', label: 'Technical strengths of a later steam design' },
+  { id: 'vi', label: 'Environmental rules that modern steam cars can meet' },
+  { id: 'vii', label: 'A company that failed after changing its models often' },
+  { id: 'viii', label: 'Why some enthusiasts still drive historic steam cars' },
+]
+
+/** Summary Q24–26 — cùng format r2hm (tiêu đề + đoạn liền + 24________) */
+const CAM_MODEL_E_SUMMARY_NOTE = [
+  'The Model E',
+  '',
+  'The Model E was road-tested in 1924 by the Automobile Club of America. They found it easy to drive, despite its weight, and it impressed the spectators. A later version of the Model E raised its 24________, while keeping its emissions extremely low. '
+  + 'The steam car was too expensive for many people and its design was constantly being altered. Under 25________ cars were produced before the company went out of business. However, even today, there are Model Es on the road in the US. They are straightforward to maintain, and they satisfy California\'s 26________ emissions laws. Perhaps today\'s technology and materials would help us revive the steam car.',
+].join('\n')
+
+const CAM_GROWTH_MINDSET_FEATURES = [
+  { id: 'a', name: 'Alfred Binet' },
+  { id: 'b', name: 'Carol Dweck' },
+  { id: 'c', name: 'Andrew Gelman' },
+  { id: 'd', name: 'Timothy Bates' },
+  { id: 'e', name: 'David Yeager and Gregory Walton' },
+]
+
+const CAM_ATHLETES_STRESS_CHOOSE_TWO_RADUCANU = [
+  { id: 'a', label: 'the stage at which she dropped out of the tournament' },
+  { id: 'b', label: 'symptoms of her performance stress at the tournament' },
+  { id: 'c', label: 'measures she took to control her stress levels' },
+  { id: 'd', label: 'aspects of the Wimbledon tournament which increased her stress levels' },
+  { id: 'e', label: 'reactions to her posts on social media' },
+]
+
+const CAM_ATHLETES_STRESS_CHOOSE_TWO_ANXIETY = [
+  { id: 'a', label: 'how severe it may be depends on a person\'s demands and resources' },
+  { id: 'b', label: 'how long it takes for its effects to become apparent' },
+  { id: 'c', label: 'which of its symptoms are the most common' },
+  { id: 'd', label: 'which types of athletes are most likely to suffer from it' },
+  { id: 'e', label: 'what can happen if athletes experience it too often' },
+]
+
+/**
+ * r2msc — Match đoạn Q14–18 + Sentence Q19–22 + 2× Choose TWO Q23–26
+ * Preview: Teamplate_Part2_17.jpg (Athletes and stress / Cam19 T2 P2)
+ */
+export function ieltsReadingP2MatchSentenceChooseTwoPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Athletes and stress',
+    passageSubtitle: 'How performance pressure affects mind and body',
+    passage: [
+      {
+        label: 'A',
+        text: 'It isn\'t easy being a professional athlete. Not only are the physical demands greater than most people could handle, athletes also face intense psychological pressure during competition. This is something that British tennis player Emma Raducanu wrote about on social media following her withdrawal from the 2021 Wimbledon tournament. Though the young player had been doing well in the tournament, she began having difficulty regulating her breathing and heart rate during a match, which she later attributed to \'the accumulation of the excitement and the buzz\'.',
+      },
+      {
+        label: 'B',
+        text: 'For athletes, some level of performance stress is almost unavoidable. But there are many different factors that dictate just how people\'s minds and bodies respond to stressful events. Typically, stress is the result of an exchange between two factors: demands and resources. An athlete may feel stressed about an event if they feel the demands on them are greater than they can handle. These demands include the high level of physical and mental effort required to succeed, and also the athlete\'s concerns about the difficulty of the event, their chance of succeeding, and any potential dangers such as injury. Resources, on the other hand, are a person\'s ability to cope with these demands. These include factors such as the competitor\'s degree of confidence, how much they believe they can control the situation\'s outcome, and whether they\'re looking forward to the event or not.',
+      },
+      {
+        label: 'C',
+        text: 'Each new demand or change in circumstances affects whether a person responds positively or negatively to stress. Typically, the more resources a person feels they have in handling the situation, the more positive their stress response. This positive stress response is called a challenge state. But should the person feel there are too many demands placed on them, the more likely they are to experience a negative stress response — known as a threat state. Research shows that the challenge states lead to good performance, while threat states lead to poorer performance. So, in Emma Raducanu\'s case, a much larger audience, higher expectations and facing a more skilful opponent, may all have led her to feel there were greater demands being placed on her at Wimbledon — but she didn\'t have the resources to tackle them. This led to her experiencing a threat response.',
+      },
+      {
+        label: 'D',
+        text: 'Our challenge and threat responses essentially influence how our body responds to stressful situations, as both affect the production of adrenaline and cortisol — also known as \'stress hormones\'. During a challenge state, adrenaline increases the amount of blood pumped from the heart and expands the blood vessels, which allows more energy to be delivered to the muscles and brain. This increase of blood and decrease of pressure in the blood vessels has been consistently related to superior sport performance in everything from cricket batting, to golf putting and football penalty taking. But during a threat state, cortisol inhibits the positive effect of adrenaline, resulting in tighter blood vessels, higher blood pressure, slower psychological responses, and a faster heart rate. In short, a threat state makes people more anxious — they make worse decisions and perform more poorly. In tennis players, cortisol has been associated with more unsuccessful serves and greater anxiety.',
+      },
+      {
+        label: 'E',
+        text: 'That said, anxiety is also a common experience for athletes when they\'re under pressure. Anxiety can increase heart rate and perspiration, cause heart palpitations, muscle tremors and shortness of breath, as well as headaches, nausea, stomach pain, weakness and a desire to escape in more extreme cases. Anxiety can also reduce concentration and self-control and cause overthinking. The intensity with which a person experiences anxiety depends on the demands and resources they have. Anxiety may also manifest itself in the form of excitement or nervousness depending on the stress response. Negative stress responses can be damaging to both physical and mental health — and repeated episodes of anxiety coupled with negative responses can increase risk of heart disease and depression.',
+      },
+      {
+        label: 'F',
+        text: 'But there are many ways athletes can ensure they respond positively under pressure. Positive stress responses can be promoted through the language that they and others — such as coaches or parents — use. Psychologists can also help athletes change how they see their physiological responses — such as helping them see a higher heart rate as excitement, rather than nerves. Developing psychological skills, such as visualisation, can also help decrease physiological responses to threat. Visualisation may involve the athlete recreating a mental picture of a time when they performed well, or picturing themselves doing well in the future. This can help create a feeling of control over the stressful event. Recreating competitive pressure during training can also help athletes learn how to deal with stress. An example of this might be scoring athletes against their peers to create a sense of competition. This would increase the demands which players experience compared to a normal training session, while still allowing them to practise coping with stress.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–18',
+        instruction: 'Reading Passage 2 has six paragraphs, A–F. Which paragraph contains the following information? Write the correct letter, A–F, in boxes 14–18 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'reference to two chemical compounds which impact on performance',
+            options: [],
+            answer: 'd',
+            explanation: 'D — adrenaline and cortisol (stress hormones) and performance.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'examples of strategies for minimising the effects of stress',
+            options: [],
+            answer: 'f',
+            explanation: 'F — language, psychologists, visualisation, recreating pressure.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'how a sportsperson accounted for their own experience of stress',
+            options: [],
+            answer: 'a',
+            explanation: 'A — Emma Raducanu attributed symptoms to excitement and the buzz.',
+          },
+          {
+            number: 17,
+            type: 'matching-paragraph',
+            prompt: 'study results indicating links between stress responses and performance',
+            options: [],
+            answer: 'c',
+            explanation: 'C — research shows challenge vs threat states and performance.',
+          },
+          {
+            number: 18,
+            type: 'matching-paragraph',
+            prompt: 'mention of people who can influence how athletes perceive their stress responses',
+            options: [],
+            answer: 'f',
+            explanation: 'F — coaches, parents, psychologists influence perception.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 19–22',
+        instruction: 'Complete the sentences below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'sentence-completion',
+        questions: sentenceQuestions(19, [
+          {
+            prompt: 'Performance stress involves many demands on the athlete, for example, coping with the possible risk of ______.',
+            answer: 'injury',
+            explanation: 'demands … potential dangers such as injury.',
+          },
+          {
+            prompt: 'Cortisol can cause tennis players to produce fewer good ______.',
+            answer: 'serves',
+            explanation: 'more unsuccessful serves.',
+          },
+          {
+            prompt: 'Psychologists can help athletes to view their physiological responses as the effect of a positive feeling such as ______.',
+            answer: 'excitement',
+            explanation: 'see a higher heart rate as excitement, rather than nerves.',
+          },
+          {
+            prompt: '______ is an example of a psychological technique which can reduce an athlete\'s stress responses.',
+            answer: 'visualisation|visualization',
+            explanation: 'psychological skills such as visualisation.',
+          },
+        ]),
+      },
+      {
+        range: 'Questions 23–24',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 23,
+            type: 'multiple-choice',
+            prompt: 'Which TWO facts about Emma Raducanu\'s withdrawal from the Wimbledon tournament are mentioned in the text? (first answer)',
+            options: [...CAM_ATHLETES_STRESS_CHOOSE_TWO_RADUCANU],
+            answer: 'b',
+            explanation: 'B — symptoms: difficulty regulating breathing and heart rate.',
+          },
+          {
+            number: 24,
+            type: 'multiple-choice',
+            prompt: 'Which TWO facts about Emma Raducanu\'s withdrawal from the Wimbledon tournament are mentioned in the text? (second answer)',
+            options: [...CAM_ATHLETES_STRESS_CHOOSE_TWO_RADUCANU],
+            answer: 'd',
+            explanation: 'D — larger audience, higher expectations, more skilful opponent.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 25–26',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 25,
+            type: 'multiple-choice',
+            prompt: 'Which TWO facts about anxiety are mentioned in Paragraph E of the text? (first answer)',
+            options: [...CAM_ATHLETES_STRESS_CHOOSE_TWO_ANXIETY],
+            answer: 'a',
+            explanation: 'A — intensity depends on demands and resources.',
+          },
+          {
+            number: 26,
+            type: 'multiple-choice',
+            prompt: 'Which TWO facts about anxiety are mentioned in Paragraph E of the text? (second answer)',
+            options: [...CAM_ATHLETES_STRESS_CHOOSE_TWO_ANXIETY],
+            answer: 'e',
+            explanation: 'E — repeated episodes increase risk of heart disease and depression.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r2mfy — MC Q14–16 + Features Q17–22 + YNNG Q23–26
+ * Preview: Teamplate_Part2_16.jpg (Growth mindset)
+ */
+export function ieltsReadingP2McFeaturesYnngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'The growth mindset',
+    passageSubtitle: 'How ideas about intelligence have changed',
+    passage: [
+      {
+        text: 'Ideas about the nature of intelligence began to shift when thinkers moved away from the view that ability is fixed at birth. Early debates asked whether intellectual ability is an unchangeable feature of each individual, a position associated with older testing traditions.',
+      },
+      {
+        text: 'Alfred Binet developed early intelligence tests and was careful not to claim that scores captured a fixed trait for life. Carol Dweck later popularised the growth mindset: the belief that ability can develop through effort. She has argued that the idea has sometimes been incorrectly interpreted as mere cheerleading, and that the growth mindset is not simply about boosting students\' morale.',
+      },
+      {
+        text: 'Andrew Gelman has questioned whether the methodology behind some growth mindset studies was strict enough. Timothy Bates has reported research suggesting little effect on academic achievement in certain replications. David Yeager and Gregory Walton have explored how growth-mindset messages might be delivered, including whether the idea should be promoted without students being fully aware of the intervention.',
+      },
+      {
+        text: 'The writer notes that claims about mindsets must be weighed carefully. While some results are promising, it is not always clear how far findings generalise across schools and age groups.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–16',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 14,
+            type: 'multiple-choice',
+            prompt: 'What can we learn from the first paragraph?',
+            options: [
+              { id: 'a', label: 'where the notion of innate intelligence first began' },
+              { id: 'b', label: 'when ideas about the nature of intelligence began to shift' },
+              { id: 'c', label: 'how scientists have responded to changing views of intelligence' },
+              { id: 'd', label: 'why thinkers turned away from the idea of intelligence being fixed' },
+            ],
+            answer: 'b',
+            explanation: 'B — when ideas about the nature of intelligence began to shift (SAMPLE).',
+          },
+          {
+            number: 15,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, early debates about intelligence often focused on whether ability is',
+            options: [
+              { id: 'a', label: 'unrelated to testing.' },
+              { id: 'b', label: 'fixed for each individual.' },
+              { id: 'c', label: 'only measured by schools.' },
+              { id: 'd', label: 'identical across cultures.' },
+            ],
+            answer: 'b',
+            explanation: 'B — unchangeable / fixed feature of each individual.',
+          },
+          {
+            number: 16,
+            type: 'multiple-choice',
+            prompt: 'The writer suggests that claims about the growth mindset',
+            options: [
+              { id: 'a', label: 'need careful evaluation.' },
+              { id: 'b', label: 'have been fully proven worldwide.' },
+              { id: 'c', label: 'should replace all exams.' },
+              { id: 'd', label: 'apply only to adults.' },
+            ],
+            answer: 'a',
+            explanation: 'A — claims must be weighed carefully.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 17–22',
+        instruction: 'Match each statement with the correct option, A–E. Write the correct letter in boxes 17–22 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_GROWTH_MINDSET_FEATURES,
+        questions: [
+          {
+            number: 17,
+            type: 'matching-features',
+            prompt: 'The methodology behind the growth mindset studies was not strict enough.',
+            options: [],
+            answer: 'c',
+            explanation: 'Andrew Gelman — methodology not strict enough.',
+          },
+          {
+            number: 18,
+            type: 'matching-features',
+            prompt: 'The idea of the growth mindset has been incorrectly interpreted.',
+            options: [],
+            answer: 'b',
+            explanation: 'Carol Dweck — incorrectly interpreted.',
+          },
+          {
+            number: 19,
+            type: 'matching-features',
+            prompt: 'Intellectual ability is an unchangeable feature of each individual.',
+            options: [],
+            answer: 'a',
+            explanation: 'Associated with older testing traditions / Binet context (SAMPLE).',
+          },
+          {
+            number: 20,
+            type: 'matching-features',
+            prompt: 'The growth mindset should be promoted without students being aware of it.',
+            options: [],
+            answer: 'e',
+            explanation: 'Yeager and Walton — without students being aware.',
+          },
+          {
+            number: 21,
+            type: 'matching-features',
+            prompt: 'The growth mindset is not simply about boosting students\' morale.',
+            options: [],
+            answer: 'b',
+            explanation: 'Carol Dweck — not simply about morale.',
+          },
+          {
+            number: 22,
+            type: 'matching-features',
+            prompt: 'Research shows that the growth mindset has no effect on academic achievement.',
+            options: [],
+            answer: 'd',
+            explanation: 'Timothy Bates — little/no effect on achievement.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 23–26',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 23–26 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 23,
+            type: 'yes-no-not-given',
+            prompt: 'Ideas about intelligence have remained completely unchanged for centuries.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Writer says ideas began to shift.',
+          },
+          {
+            number: 24,
+            type: 'yes-no-not-given',
+            prompt: 'Some findings about mindsets should be generalised carefully across schools.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer notes it is not always clear how far findings generalise.',
+          },
+          {
+            number: 25,
+            type: 'yes-no-not-given',
+            prompt: 'The writer provides exact national test scores for every growth-mindset trial.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No exact national scores given.',
+          },
+          {
+            number: 26,
+            type: 'yes-no-not-given',
+            prompt: 'All researchers agree that growth mindset always improves grades.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Passage presents criticism and mixed evidence.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r2hmc — Headings Q14–20 + MC Q21–23 + Summary Q24–26
+ * Cùng pattern r2hm (headings + summary note đầy đủ + MC), thứ tự: headings → MC → summary
+ * Preview: Teamplate_Part2_15.jpg (Steam car / Model E)
+ */
+export function ieltsReadingP2HeadingsMcSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'The steam car',
+    passageSubtitle: 'From early popularity to the Model E',
+    passage: [
+      {
+        label: 'A',
+        text: 'Before any new steam technology is assessed in detail, engines may sit idle for long periods in cold conditions. Starting and warming procedures matter as much as peak performance on the road, and early test reports often began with how long it took to build boiler pressure.',
+      },
+      {
+        label: 'B',
+        text: 'Early steam cars enjoyed a brief period of success at the turn of the twentieth century. Their success was short-lived as petrol cars improved in reliability and range, even though some drivers found steamers pleasant to handle once warm and relatively quiet on open roads.',
+      },
+      {
+        label: 'C',
+        text: 'Compared with petrol models of the same era, steam cars were often more expensive to buy and run. Fuel and maintenance costs limited their market beyond enthusiasts, and manufacturers struggled to match the falling prices of mass-produced petrol vehicles.',
+      },
+      {
+        label: 'D',
+        text: 'Mass-market steam cars disappeared for several reasons: long warm-up times, the need for a reliable water supply, and the rapid progress of the internal combustion engine. By the 1920s few companies still offered steamers as everyday transport.',
+      },
+      {
+        label: 'E',
+        text: 'Later designs such as the Model E raised top speed while keeping emissions extremely low. Testers from the Automobile Club of America in 1924 found the car easy to drive despite its weight, and spectators were impressed by its smooth performance on the road.',
+      },
+      {
+        label: 'F',
+        text: 'One company altered its design constantly and produced under 600 cars before going out of business. Even so, some Model Es remain on US roads today. They are straightforward to maintain and can meet California\'s strict emissions laws, which few historic vehicles can claim.',
+      },
+      {
+        label: 'G',
+        text: 'Enthusiasts still maintain historic steam cars because they demonstrate that clean steam propulsion once competed seriously with petrol. Some owners argue that modern materials and controls could help revive the steam car for specialist uses.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–20',
+        instruction: 'Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below. Write the correct number, i–viii, in boxes 14–20 on your answer sheet.',
+        note: 'There are more headings than paragraphs, so you will not use all of them.',
+        type: 'matching-headings',
+        headings: CAM_STEAM_CAR_HEADINGS,
+        questions: [
+          { number: 14, type: 'matching-headings', prompt: 'Paragraph A', options: [], answer: 'i', explanation: 'Cold conditions before the technology is assessed.' },
+          { number: 15, type: 'matching-headings', prompt: 'Paragraph B', options: [], answer: 'iii', explanation: 'How the steam car first became popular / short-lived success.' },
+          { number: 16, type: 'matching-headings', prompt: 'Paragraph C', options: [], answer: 'ii', explanation: 'Comparison of the cost of two types of vehicle.' },
+          { number: 17, type: 'matching-headings', prompt: 'Paragraph D', options: [], answer: 'iv', explanation: 'Reasons why steam cars disappeared from mass use.' },
+          { number: 18, type: 'matching-headings', prompt: 'Paragraph E', options: [], answer: 'v', explanation: 'Technical strengths of a later steam design (Model E).' },
+          { number: 19, type: 'matching-headings', prompt: 'Paragraph F', options: [], answer: 'vii', explanation: 'Company failed after changing models; under 600 cars.' },
+          { number: 20, type: 'matching-headings', prompt: 'Paragraph G', options: [], answer: 'viii', explanation: 'Enthusiasts still drive / maintain historic steam cars.' },
+        ],
+      },
+      {
+        range: 'Questions 21–23',
+        instruction: 'Choose the correct letter, A, B, C or D.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 21,
+            type: 'multiple-choice',
+            prompt: 'What point does the writer make about the steam car in Paragraph B?',
+            options: [
+              { id: 'a', label: 'Its success was short-lived.' },
+              { id: 'b', label: 'Not enough cars were made.' },
+              { id: 'c', label: 'Car companies found them hard to sell.' },
+              { id: 'd', label: 'People found them hard to drive.' },
+            ],
+            answer: 'a',
+            explanation: 'A — success was short-lived as petrol cars improved.',
+          },
+          {
+            number: 22,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, a major problem for early steam cars was',
+            options: [
+              { id: 'a', label: 'that they could never meet emissions laws.' },
+              { id: 'b', label: 'long warm-up times and competition from petrol cars.' },
+              { id: 'c', label: 'that no clubs ever tested them.' },
+              { id: 'd', label: 'that they weighed less than petrol cars.' },
+            ],
+            answer: 'b',
+            explanation: 'B — warm-up times and progress of internal combustion engines.',
+          },
+          {
+            number: 23,
+            type: 'multiple-choice',
+            prompt: 'What is said about the later Model E?',
+            options: [
+              { id: 'a', label: 'It raised speed while keeping emissions low.' },
+              { id: 'b', label: 'It was never road-tested in the US.' },
+              { id: 'c', label: 'It used more fuel than early steamers.' },
+              { id: 'd', label: 'It could not impress spectators in 1924.' },
+            ],
+            answer: 'a',
+            explanation: 'A — raised top speed while keeping emissions extremely low.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 24–26',
+        instruction: 'Complete the summary below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_MODEL_E_SUMMARY_NOTE,
+        questions: gapQuestions(24, [
+          { prompt: 'Gap (24)', answer: 'speed', explanation: 'raised its speed, while keeping emissions low.' },
+          { prompt: 'Gap (25)', answer: '600', explanation: 'Under 600 cars were produced.' },
+          { prompt: 'Gap (26)', answer: 'strict', explanation: 'California\'s strict emissions laws.' },
+        ]),
+      },
+    ],
+  }
+}
+
+/**
+ * r2mys — MC Q14–19 + YNNG Q20–23 + Summary word bank Q24–26
+ * Preview: Teamplate_Part2_14.jpg (AI / UK health system)
+ */
+export function ieltsReadingP2McYnngSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Artificial intelligence and society',
+    passageSubtitle: 'Progress, morals and the UK health service',
+    passage: [
+      {
+        text: 'It is difficult to predict how quickly AI will progress. Chess machines show how specialised systems can outperform humans, but experts still disagree on which specialised tasks AI will master next, and whether the future will place real limits on its capabilities.',
+      },
+      {
+        text: 'Some writers worry that machines with the ability to make moral decisions may prevent us from promoting the interests of our communities if algorithms optimise for goals that conflict with social values. Others argue AI can free professionals for more human work.',
+      },
+      {
+        text: 'In the UK health system, AI currently has a limited role in the way available resources are allocated. A bigger role could be more efficient and lead to patient benefits. However, such a change might mean certain medical practitioners would not keep their current level of professional authority. It is therefore important that AI goals are appropriate so that discriminatory practices could be avoided.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–19',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 14,
+            type: 'multiple-choice',
+            prompt: 'What point does the writer make about AI in the first paragraph?',
+            options: [
+              { id: 'a', label: 'It is difficult to predict how quickly AI will progress.' },
+              { id: 'b', label: 'Much can be learned about the use of AI in chess machines.' },
+              { id: 'c', label: 'The future is unlikely to see limitations on the capabilities of AI.' },
+              { id: 'd', label: 'Experts disagree on which specialised tasks AI will be able to perform.' },
+            ],
+            answer: 'a',
+            explanation: 'A — difficult to predict how quickly AI will progress (SAMPLE; adjust to key).',
+          },
+          {
+            number: 15,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, specialised AI systems such as chess machines',
+            options: [
+              { id: 'a', label: 'prove AI has no limits.' },
+              { id: 'b', label: 'show narrow systems can outperform humans at set tasks.' },
+              { id: 'c', label: 'are mainly used in the health service today.' },
+              { id: 'd', label: 'replace the need for professional authority.' },
+            ],
+            answer: 'b',
+            explanation: 'B — specialised systems can outperform humans.',
+          },
+          {
+            number: 16,
+            type: 'multiple-choice',
+            prompt: 'What does the writer say about experts\' views of AI tasks?',
+            options: [
+              { id: 'a', label: 'They all agree AI will replace doctors soon.' },
+              { id: 'b', label: 'They disagree on which specialised tasks AI will master next.' },
+              { id: 'c', label: 'They believe chess is the best model for health AI.' },
+              { id: 'd', label: 'They deny any risk of discriminatory practices.' },
+            ],
+            answer: 'b',
+            explanation: 'B — experts disagree on specialised tasks.',
+          },
+          {
+            number: 17,
+            type: 'multiple-choice',
+            prompt: 'A concern about AI making moral decisions is that it may',
+            options: [
+              { id: 'a', label: 'always promote community interests.' },
+              { id: 'b', label: 'conflict with social values and community interests.' },
+              { id: 'c', label: 'eliminate the need for available resources.' },
+              { id: 'd', label: 'remove all specialised tasks from hospitals.' },
+            ],
+            answer: 'b',
+            explanation: 'B — optimise for goals that conflict with social values.',
+          },
+          {
+            number: 18,
+            type: 'multiple-choice',
+            prompt: 'In the UK health system today, AI\'s role is described as',
+            options: [
+              { id: 'a', label: 'dominant in every hospital department.' },
+              { id: 'b', label: 'limited in how resources are allocated.' },
+              { id: 'c', label: 'banned by professional bodies.' },
+              { id: 'd', label: 'identical to chess machine design.' },
+            ],
+            answer: 'b',
+            explanation: 'B — limited role in how resources are allocated.',
+          },
+          {
+            number: 19,
+            type: 'multiple-choice',
+            prompt: 'Why does the writer say AI goals must be appropriate?',
+            options: [
+              { id: 'a', label: 'To avoid discriminatory practices.' },
+              { id: 'b', label: 'To increase illness rates.' },
+              { id: 'c', label: 'To stop all technology experts working in health.' },
+              { id: 'd', label: 'To remove patient benefits.' },
+            ],
+            answer: 'a',
+            explanation: 'A — so that discriminatory practices could be avoided.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 20–23',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 20–23 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 20,
+            type: 'yes-no-not-given',
+            prompt: 'Machines with the ability to make moral decisions may prevent us from promoting the interests of our communities.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Writer raises this worry about moral AI vs community interests.',
+          },
+          {
+            number: 21,
+            type: 'yes-no-not-given',
+            prompt: 'AI in healthcare will always reduce the need for human doctors completely.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Passage discusses limited role and authority, not total replacement as a claim of the writer.',
+          },
+          {
+            number: 22,
+            type: 'yes-no-not-given',
+            prompt: 'A bigger role for AI could lead to patient benefits through greater efficiency.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Positive aspect: more efficient and lead to patient benefits.',
+          },
+          {
+            number: 23,
+            type: 'yes-no-not-given',
+            prompt: 'The writer provides exact figures for AI spending in every UK hospital.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not-given',
+            explanation: 'No spending figures given.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 24–26',
+        instruction: 'Complete the summary using the list of phrases, A–F, below.',
+        type: 'summary-completion',
+        note: CAM_AI_HEALTH_SUMMARY_NOTE,
+        wordBank: CAM_AI_HEALTH_WORD_BANK,
+        questions: [
+          {
+            number: 24,
+            type: 'summary-completion',
+            prompt: 'Gap (24)',
+            options: [],
+            answer: 'c',
+            explanation: 'available resources are allocated.',
+          },
+          {
+            number: 25,
+            type: 'summary-completion',
+            prompt: 'Gap (25)',
+            options: [],
+            answer: 'a',
+            explanation: 'certain medical practitioners…',
+          },
+          {
+            number: 26,
+            type: 'summary-completion',
+            prompt: 'Gap (26)',
+            options: [],
+            answer: 'e',
+            explanation: 'current level of professional authority.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_WETLANDS_FEATURES = [
+  { id: 'a', name: 'Matthew McCartney' },
+  { id: 'b', name: 'Pieter van Eijk' },
+  { id: 'c', name: 'Marcel Silvius' },
+  { id: 'd', name: 'Dave Tickner' },
+]
+
+const CAM_DEEP_SEA_FEATURES = [
+  { id: 'a', name: 'Professor Mat Upton' },
+  { id: 'b', name: 'Julie Hunter, Julian Aguon and Pradeep Singh' },
+  { id: 'c', name: 'Dr Jon Copley' },
+  { id: 'd', name: 'Mike Johnston' },
+  { id: 'e', name: 'Verena Tunnicliffe' },
+]
+
+const CAM_DEEP_SEA_SUMMARY_NOTE = [
+  'Mining the sea floor',
+  '',
+  'Mining corporations believe that the mineral resources lying under the sea may be superior to those found in the earth. They also say that these can be removed without producing much 24________. The extraction is often done by adapting the 25________ that has already been used to work on land. The method of excavation involves removing the seawater from the slurry that is brought up to ships and returning it to the seabed. However, concerned groups strongly believe that 26________ is necessary due to the possible number of unidentified consequences.',
+].join('\n')
+
+/**
+ * r2mfu — Match đoạn Q14–17 + Features Q18–23 + Summary ONE WORD Q24–26
+ * Preview: Teamplate_Part2_19.jpg (Deep-sea mining — Cam19 T4 P2)
+ */
+export function ieltsReadingP2MatchFeaturesSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Deep-sea mining',
+    passageSubtitle: 'Bacteria from the ocean floor can beat superbugs — but habitats are at risk',
+    passage: [
+      {
+        label: 'A',
+        text: 'When Professor Mat Upton found that a microbe from a deep-sea sponge was killing pathogenic bugs in his laboratory, he realised it could be a breakthrough against antibiotic-resistant superbugs. Upton sees the deep ocean as a source of new medicines and worries that potential will be lost in the rush for equally rich metal and mineral resources. He argues there are more worthwhile things to extract from the sea than minerals.',
+      },
+      {
+        label: 'B',
+        text: 'The oceans cover roughly seventy per cent of the Earth\'s surface and are relatively unexplored. How hydrothermal vent habitats form — places where minerals and organisms co-exist — remains an active scientific question.',
+      },
+      {
+        label: 'C',
+        text: 'Demand for one raw material used in the transport industry has risen rapidly, encouraging interest in seabed deposits of metals needed for batteries and electronics.',
+      },
+      {
+        label: 'D',
+        text: 'Julie Hunter, Julian Aguon and Pradeep Singh have argued that the negative effects of undersea exploration on local areas and their inhabitants are being ignored. Countries of the world have yet to agree fully on rules for exploration of the seabed.',
+      },
+      {
+        label: 'E',
+        text: 'Mike Johnston of Nautilus has said it makes sense to explore untapped ocean potential in a sustainable way instead of depleting land resources. He suggests a move away from heavily mined land reserves is a good idea. Mining corporations believe mineral resources under the sea may be superior to those on land and can be removed without producing much waste. Extraction often adapts technology already used on land. Seawater is removed from slurry brought up to ships and returned to the seabed. Concerned groups strongly believe that caution is necessary due to unidentified consequences.',
+      },
+      {
+        label: 'F',
+        text: 'Dr Jon Copley notes that more is known about outer space than about what lies beneath the oceans. Verena Tunnicliffe argues that mining will be the greatest assault on deep-sea ecosystems ever inflicted by humans. She says active vents must be off-limits for mining to protect knowledge and biotechnology spin-offs, and that strict controls must be in place elsewhere — one marine life habitat where experts agree mining should not take place.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–17',
+        instruction: 'Reading Passage 2 has sections A–F. Which section contains the following information? Write the correct letter, A–F, in boxes 14–17 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'reference to the rapidly increasing need for one raw material in the transport industry',
+            options: [],
+            answer: 'c',
+            explanation: 'C — demand for one raw material in transport has risen rapidly.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'a rough estimate of the area of the Earth covered by the oceans',
+            options: [],
+            answer: 'b',
+            explanation: 'B — oceans cover roughly seventy per cent of the Earth.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'how a particular underwater habitat, where minerals and organisms co-exist, is formed',
+            options: [],
+            answer: 'b',
+            explanation: 'B — hydrothermal vent habitats where minerals and organisms co-exist.',
+          },
+          {
+            number: 17,
+            type: 'matching-paragraph',
+            prompt: 'reference to the fact that the countries of the world have yet to agree on rules for the exploration of the seabed',
+            options: [],
+            answer: 'd',
+            explanation: 'D — countries have yet to agree on rules for seabed exploration.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 18–23',
+        instruction: 'Match each statement with the correct option, A–E. Write the correct letter in boxes 18–23 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_DEEP_SEA_FEATURES,
+        questions: [
+          {
+            number: 18,
+            type: 'matching-features',
+            prompt: 'A move away from the exploration of heavily mined reserves on land is a good idea.',
+            options: [],
+            answer: 'd',
+            explanation: 'D — Mike Johnston.',
+          },
+          {
+            number: 19,
+            type: 'matching-features',
+            prompt: 'The negative effects of undersea exploration on local areas and their inhabitants are being ignored.',
+            options: [],
+            answer: 'b',
+            explanation: 'B — Hunter, Aguon and Singh.',
+          },
+          {
+            number: 20,
+            type: 'matching-features',
+            prompt: 'There are more worthwhile things to extract from the sea than minerals.',
+            options: [],
+            answer: 'a',
+            explanation: 'A — Professor Mat Upton.',
+          },
+          {
+            number: 21,
+            type: 'matching-features',
+            prompt: 'No other form of human exploration will have such a destructive impact on marine life as deep-sea mining.',
+            options: [],
+            answer: 'e',
+            explanation: 'E — Verena Tunnicliffe (greatest assault).',
+          },
+          {
+            number: 22,
+            type: 'matching-features',
+            prompt: 'More is known about outer space than about what lies beneath the oceans.',
+            options: [],
+            answer: 'c',
+            explanation: 'C — Dr Jon Copley.',
+          },
+          {
+            number: 23,
+            type: 'matching-features',
+            prompt: 'There is one marine life habitat where experts agree mining should not take place.',
+            options: [],
+            answer: 'e',
+            explanation: 'E — Tunnicliffe: active vents must be off-limits.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 24–26',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_DEEP_SEA_SUMMARY_NOTE,
+        questions: [
+          { number: 24, type: 'gap-fill', prompt: 'Gap (24)', options: [], answer: 'waste', explanation: 'without producing much waste.' },
+          { number: 25, type: 'gap-fill', prompt: 'Gap (25)', options: [], answer: 'technology', explanation: 'adapting the technology used on land.' },
+          { number: 26, type: 'gap-fill', prompt: 'Gap (26)', options: [], answer: 'caution', explanation: 'caution is necessary due to unidentified consequences.' },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r2msf — Match đoạn Q14–17 + Sentence Q18–22 + Features Q23–26
+ * Preview: Teamplate_Part2_18.jpg (Wetlands / peatlands — Cam19 T3 P2)
+ */
+export function ieltsReadingP2MatchSentenceFeaturesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'The global importance of wetlands',
+    passageSubtitle: 'Why peatlands and other wetlands matter for climate and communities',
+    passage: [
+      {
+        label: 'A',
+        text: 'Wetlands are areas where water covers the soil, or is present either at or near the surface of the soil, for all or part of the year. These are complex ecosystems, rich in unique plant and animal life. But according to the World Wide Fund for Nature, half of the world\'s wetlands have disappeared since 1900 – converted or destroyed for commercial development, drainage schemes and the extraction of minerals and peat. Many of those that remain have been damaged by agricultural pesticides and fertilisers, industrial pollutants, and construction works.',
+      },
+      {
+        label: 'B',
+        text: 'Throughout history, humans have gathered around wetlands, and their fertile ecosystems have played an important part in human development. Consequently, they are of considerable religious, historical and archaeological value to many communities around the world. \'Wetlands directly support the livelihoods and well-being of millions of people,\' says Dr Matthew McCartney, principal researcher and hydrologist at the International Water Management Institute (IWMI). \'In many developing countries, large numbers of people are dependent on wetland agriculture for their livelihoods.\'',
+      },
+      {
+        label: 'C',
+        text: 'They also serve a crucial environmental purpose. \'Wetlands are one of the key tools in mitigating climate change across the planet,\' says Pieter van Eijk, head of Climate Adaptation at Wetlands International (WI), pointing to their use as buffers that protect coastal areas from sea-level rise and extreme weather events such as hurricanes and flooding. Wetland coastal forests provide food and water, as well as shelter from storms. \'It can be as simple as planting a few trees per hectare to create shade and substantially change a microclimate,\' he says. \'Implementing climate change projects isn\'t so much about money.\'',
+      },
+      {
+        label: 'D',
+        text: 'The world\'s wetlands are, unfortunately, rich sources for in-demand commodities, such as palm oil and pulpwood. Peatlands – wetlands with a waterlogged organic soil layer – are particularly targeted. When peatlands are drained for cultivation, they become net carbon emitters instead of active carbon stores, and, according to Marcel Silvius, head of Climate-smart Land-use at WI, this practice causes six per cent of all global carbon emissions. The clearance of peatlands for planting also increases the risk of forest fires. \'We\'re seeing huge peatland forests with extremely high biodiversity value being lost for a few decades of oil palm revenues,\' says Silvius.',
+      },
+      {
+        label: 'E',
+        text: 'The damage starts when logging companies arrive to clear the trees. They dig ditches to enter the peat swamps by boat and then float the logs out the same way. These canals are then used to drain water out of the peatlands to allow for planting. Once the water has drained away, bacteria and fungi break down the carbon in the peat. Meanwhile, the remainder of the solid matter starts to move downwards, in a process known as subsidence. Peat comprises 90 per cent water, so this is one of the most alarming consequences of peatland clearances. Clearing peatland forests to make way for oil palm plantations destroys the biodiversity of the local environment. In the tropics, peat subsides at about four centimetres a year, so large landscapes may become flooded as the peat drops below water level.',
+      },
+      {
+        label: 'F',
+        text: 'And while these industries affect wetlands in ways that can easily be documented, Dr Dave Tickner of the WWFN believes that more subtle impacts can be even more devastating. Sediment run-off and fertilisers can be pretty invisible. Tickner does not blame anyone for deliberate damage: he has never met anybody who wanted to damage a wetland — effects often simply come from people trying to make a living.',
+      },
+      {
+        label: 'G',
+        text: 'Silvius also acknowledges the need to provide an income for local people. McCartney stresses that for sustainability it is essential that local people are involved in wetland planning and decision making. Awareness of the importance of wetlands is growing, though degradation continues.',
+      },
+      {
+        label: 'H',
+        text: 'The fortunes of wetlands would be improved, Silvius suggests, if more governments recognised their long-term value. Different governments have different attitudes: some countries place a high priority on restoring wetlands, while others still deny the issue.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–17',
+        instruction: 'Reading Passage 2 has sections A–H. Which section contains the following information? Write the correct letter, A–H, in boxes 14–17 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'reference to the need to ensure that inhabitants of wetland regions continue to benefit from them',
+            options: [],
+            answer: 'g',
+            explanation: 'G — people only protect wetlands if they value and profit from them.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'the proportion of wetlands which have already been lost',
+            options: [],
+            answer: 'a',
+            explanation: 'A — half of the world\'s wetlands have disappeared.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'reference to the idea that people are beginning to appreciate the value of wetlands',
+            options: [],
+            answer: 'h',
+            explanation: 'H — awareness of the importance of wetlands is growing.',
+          },
+          {
+            number: 17,
+            type: 'matching-paragraph',
+            prompt: 'mention of the cultural significance of wetlands',
+            options: [],
+            answer: 'b',
+            explanation: 'B — religious, historical and archaeological value.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 18–22',
+        instruction: 'Complete the sentences below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'sentence-completion',
+        questions: sentenceQuestions(18, [
+          {
+            prompt: 'Peatlands which have been drained begin to release ______ instead of storing it.',
+            answer: 'carbon',
+            explanation: 'release carbon instead of storing it.',
+          },
+          {
+            prompt: 'Once peatland areas have been cleared, ______ are more likely to occur.',
+            answer: 'fires',
+            explanation: 'fires are more likely to occur.',
+          },
+          {
+            prompt: 'Clearing peatland forests to make way for oil palm plantations destroys the ______ of the local environment.',
+            answer: 'biodiversity',
+            explanation: 'destroys the biodiversity of the local environment.',
+          },
+          {
+            prompt: 'Water is drained out of peatlands through the ______ which are created by logging companies.',
+            answer: 'canals',
+            explanation: 'through the canals created by logging companies.',
+          },
+          {
+            prompt: 'Draining peatlands leads to ______: a serious problem which can eventually result in coastal flooding and land loss.',
+            answer: 'subsidence',
+            explanation: 'leads to subsidence.',
+          },
+        ]),
+      },
+      {
+        range: 'Questions 23–26',
+        instruction: 'Match each statement with the correct option, A–D. Write the correct letter in boxes 23–26 on your answer sheet.',
+        type: 'matching-features',
+        features: CAM_WETLANDS_FEATURES,
+        questions: [
+          {
+            number: 23,
+            type: 'matching-features',
+            prompt: 'Communities living in wetland regions must be included in discussions about the future of these areas.',
+            options: [],
+            answer: 'a',
+            explanation: 'A — Matthew McCartney (local people in wetland planning).',
+          },
+          {
+            number: 24,
+            type: 'matching-features',
+            prompt: 'Official policies towards wetlands vary from one nation to the next.',
+            options: [],
+            answer: 'c',
+            explanation: 'C — Marcel Silvius (different governments have different attitudes).',
+          },
+          {
+            number: 25,
+            type: 'matching-features',
+            prompt: 'People cause harm to wetlands without having any intention to do so.',
+            options: [],
+            answer: 'd',
+            explanation: 'D — Dave Tickner (never met anyone who wanted to damage a wetland).',
+          },
+          {
+            number: 26,
+            type: 'matching-features',
+            prompt: 'Initiatives to reverse environmental damage need not be complex.',
+            options: [],
+            answer: 'b',
+            explanation: 'B — Pieter van Eijk (can be as simple as planting trees; not so much about money).',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r2mfs — Match đoạn Q14–18 + Features Q19–21 + Sentence Q22–26
+ * Preview: Teamplate_Part2_13.jpg (Forest management / TSI, Salvage, Shelterwood)
+ */
+export function ieltsReadingP2MatchFeaturesSentencePart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Forest management',
+    passageSubtitle: 'Timber harvesting methods and the value of dead wood',
+    passage: [
+      {
+        label: 'A',
+        text: 'When people manage a forest only for financial reward, biodiversity and soil quality can decline. Over-harvesting for short-term profit leaves fewer habitats and can degrade the long-term health of the woodland.',
+      },
+      {
+        label: 'B',
+        text: 'A tree\'s worth is not only the timber volume in its trunk. Age, species, form, and location all contribute to its commercial and ecological value.',
+      },
+      {
+        label: 'C',
+        text: 'Some researchers have explored whether wood fibre could help produce liquid fuels for vehicles, though such uses remain experimental beside traditional solid timber markets.',
+      },
+      {
+        label: 'D',
+        text: 'Insects such as bark beetles and wood-boring beetles attack living and dying trees, sometimes causing large stands to die and creating urgent salvage needs.',
+      },
+      {
+        label: 'E',
+        text: 'Trees that yield only low-grade or low-use wood are sometimes called "weed trees" by foresters, even though they may still matter for wildlife.',
+      },
+      {
+        label: 'F',
+        text: 'A Salvage cut removes trees that are diseased, damaged, or already dead so that pests do not spread and some timber value is recovered. A TSI cut (timber stand improvement) can spread income across a number of years by thinning and improving the stand over time. A Shelterwood cut aims to create a forest whose trees are close in age by removing most canopy trees in stages while leaving seed trees.',
+      },
+      {
+        label: 'G',
+        text: 'Some dead wood is removed to avoid the possibility of fire. Leaves and twigs from the tops of cut trees can help improve soil quality if left on site. Some damaged trees should be left, as their cavities provide habitats for a range of creatures. Small trees such as saplings are a source of food for animals and insects. Any trees that are rare should be left to grow, as they add to the variety of species in the forest.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–18',
+        instruction: 'Reading Passage 2 has sections A–G. Which section contains the following information? Write the correct letter, A–G, in boxes 14–18 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'Bad outcomes for a forest when people focus only on its financial reward',
+            options: [],
+            answer: 'a',
+            explanation: 'Section A — focus only on financial reward harms the forest.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'Reference to the aspects of any tree that contribute to its worth',
+            options: [],
+            answer: 'b',
+            explanation: 'Section B — aspects that contribute to worth.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'Mention of the potential use of wood to help run vehicles',
+            options: [],
+            answer: 'c',
+            explanation: 'Section C — wood fibre / fuels for vehicles.',
+          },
+          {
+            number: 17,
+            type: 'matching-paragraph',
+            prompt: 'Examples of insects that attack trees',
+            options: [],
+            answer: 'd',
+            explanation: 'Section D — bark beetles and wood-boring beetles.',
+          },
+          {
+            number: 18,
+            type: 'matching-paragraph',
+            prompt: 'An alternative name for trees that produce low-use wood',
+            options: [],
+            answer: 'e',
+            explanation: 'Section E — "weed trees".',
+          },
+        ],
+      },
+      {
+        range: 'Questions 19–21',
+        instruction: 'Match each statement with the correct option, A–C. Write the correct letter in boxes 19–21 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_FOREST_CUT_FEATURES,
+        questions: [
+          {
+            number: 19,
+            type: 'matching-features',
+            prompt: 'To remove trees that are diseased',
+            options: [],
+            answer: 'b',
+            explanation: 'Salvage cut — remove diseased/damaged trees.',
+          },
+          {
+            number: 20,
+            type: 'matching-features',
+            prompt: 'To generate income across a number of years',
+            options: [],
+            answer: 'a',
+            explanation: 'TSI cut — income across a number of years.',
+          },
+          {
+            number: 21,
+            type: 'matching-features',
+            prompt: 'To create a forest whose trees are close in age',
+            options: [],
+            answer: 'c',
+            explanation: 'Shelterwood cut — trees close in age.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 22–26',
+        instruction: 'Complete the sentences below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'sentence-completion',
+        questions: sentenceQuestions(22, [
+          {
+            prompt: 'Some dead wood is removed to avoid the possibility of ___.',
+            answer: 'fire',
+            explanation: 'avoid the possibility of fire.',
+          },
+          {
+            prompt: 'The ___ from the tops of cut trees can help improve soil quality.',
+            answer: 'leaves',
+            explanation: 'Leaves (and twigs) from the tops…',
+          },
+          {
+            prompt: 'Some damaged trees should be left, as their ___ provide habitats for a range of creatures.',
+            answer: 'cavities',
+            explanation: 'their cavities provide habitats.',
+          },
+          {
+            prompt: 'Some trees that are small, such as ___, are a source of food for animals and insects.',
+            answer: 'saplings',
+            explanation: 'small trees such as saplings.',
+          },
+          {
+            prompt: 'Any trees that are ___ should be left to grow, as they add to the variety of species in the forest.',
+            answer: 'rare',
+            explanation: 'trees that are rare should be left.',
+          },
+        ]),
+      },
+    ],
+  }
+}
+
+/** Notes Q8–13 — tennis racket (Teamplate_Part1_14.jpg) */
+const CAM_TENNIS_RACKET_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'static', text: '• Mike and Bob Bryan made changes to the types of ' },
+  { type: 'gap', number: 8 },
+  { type: 'static', text: ' used on their racket frames.' },
+  { type: 'static', text: '• Players were not allowed to use the spaghetti-strung racket because of the amount of ' },
+  { type: 'gap', number: 9 },
+  { type: 'static', text: ' it created.' },
+  { type: 'static', text: '• Changes to rackets can be regarded as being as important as players\' diets or the ' },
+  { type: 'gap', number: 10 },
+  { type: 'static', text: ' they do.' },
+  { type: 'static', text: '• All rackets used to have natural strings made from the ' },
+  { type: 'gap', number: 11 },
+  { type: 'static', text: ' of animals.' },
+  { type: 'static', text: '• Pete Sampras had metal ' },
+  { type: 'gap', number: 12 },
+  { type: 'static', text: ' put into the frames of his rackets.' },
+  { type: 'static', text: '• Goncalo Oliveira changed the ' },
+  { type: 'gap', number: 13 },
+  { type: 'static', text: ' on his racket handles.' },
+]
+
+/**
+ * r1tn — TFNG Q1–7 + Notes Q8–13 (notePassage, ONE WORD)
+ * Preview: Teamplate_Part1_14.jpg (tennis racket evolution)
+ */
+export function ieltsReadingP1TfngNotesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'The development of the tennis racket',
+    passageSubtitle: 'How materials and design changed the modern game',
+    passage: [
+      {
+        text: 'Few people expected Andy Murray to become the world\'s top tennis player for years before 2016; his rise still surprised many commentators who had long focused on other British hopefuls. Off court, equipment makers continued to experiment. Mike and Bob Bryan, famous doubles specialists, worked with manufacturers on the types of materials used on their racket frames, seeking a stiffer feel without adding weight.',
+      },
+      {
+        text: 'Earlier controversies had already shaped the rules. The so-called spaghetti-strung racket was banned because of the amount of spin it created, which officials judged unfair. Coaches still debate whether changes to rackets matter as much as players\' diets or the training they do; many argue the three factors must be considered together.',
+      },
+      {
+        text: 'Historically all rackets used natural strings made from the gut of animals. Later generations mixed gut with synthetic fibres. Pete Sampras, known for a classic wooden-era feel even on graphite frames, had metal weights put into the frames of his rackets to fine-tune balance. More recently, Goncalo Oliveira changed the grip on his racket handles to improve comfort during long matches on hard courts.',
+      },
+      {
+        text: 'Manufacturers now market frames that claim to enlarge the sweet spot and reduce vibration. Whether amateurs notice the same gains as professionals remains an open question, but elite players rarely share identical setups even when they endorse the same brand.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–7',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 1,
+            type: 'true-false-not-given',
+            prompt: 'People had expected Andy Murray to become the world\'s top tennis player for at least five years before 2016.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Few people expected him to become top for years before 2016.',
+          },
+          {
+            number: 2,
+            type: 'true-false-not-given',
+            prompt: 'Mike and Bob Bryan only played singles tennis at the highest level.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Described as doubles specialists.',
+          },
+          {
+            number: 3,
+            type: 'true-false-not-given',
+            prompt: 'The spaghetti-strung racket was banned because of the spin it created.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Banned because of the amount of spin it created.',
+          },
+          {
+            number: 4,
+            type: 'true-false-not-given',
+            prompt: 'Coaches agree that racket changes are more important than diet and training.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Many argue the three factors must be considered together — not that rackets dominate.',
+          },
+          {
+            number: 5,
+            type: 'true-false-not-given',
+            prompt: 'Natural strings for early rackets came from animal gut.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Natural strings made from the gut of animals.',
+          },
+          {
+            number: 6,
+            type: 'true-false-not-given',
+            prompt: 'Pete Sampras never used graphite racket frames.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'He used graphite frames with metal weights added.',
+          },
+          {
+            number: 7,
+            type: 'true-false-not-given',
+            prompt: 'Every professional who endorses a brand uses exactly the same racket setup.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Elite players rarely share identical setups even with the same brand.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 8–13',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'The tennis racket and how it has changed',
+        notePassage: CAM_TENNIS_RACKET_NOTE_PASSAGE,
+        questions: gapQuestions(8, [
+          { prompt: 'Gap (8)', answer: 'materials', explanation: 'types of materials used on their racket frames.' },
+          { prompt: 'Gap (9)', answer: 'spin', explanation: 'amount of spin it created.' },
+          { prompt: 'Gap (10)', answer: 'training', explanation: 'diets or the training they do.' },
+          { prompt: 'Gap (11)', answer: 'gut', explanation: 'strings made from the gut of animals.' },
+          { prompt: 'Gap (12)', answer: 'weights', explanation: 'metal weights put into the frames.' },
+          { prompt: 'Gap (13)', answer: 'grip', explanation: 'changed the grip on his racket handles.' },
+        ]),
+      },
+    ],
+  }
+}
+
 /** r2tn — TFNG Q14–19 + Notes Q20–26 (notePassage, section headings) — Silbo Gomero */
 export function ieltsReadingP2TfngNotesPart(): ReadingImportPartJson {
   return {
@@ -5381,6 +9047,11 @@ function getTemplateBuilders(): Record<IeltsReadingWizardTemplateKind, () => Rea
     'p1-r1-table-tfng': ieltsReadingP1TableTfngPart,
     'p1-r1-notes-tfng-table': ieltsReadingP1NotesTfngTablePart,
     'p1-r1-notes-table-tfng': ieltsReadingP1NotesTableTfngPart,
+    'p1-r1-tfng-table': ieltsReadingP1TfngTablePart,
+    'p1-r1-sentence-table-tfng': ieltsReadingP1SentenceTableTfngPart,
+    'p1-r1-match-summary-features': ieltsReadingP1MatchSummaryFeaturesPart,
+    'p1-r1-match-summary-choose-two': ieltsReadingP1MatchSummaryChooseTwoPart,
+    'p1-r1-tfng-notes': ieltsReadingP1TfngNotesPart,
     'p1-r1-tfng-match-notes': ieltsReadingP1TfngMatchNotesPart,
     'p1-r1-tfng-match-summary': ieltsReadingP1TfngMatchSummaryPart,
     'p1-r1-match-choose-two': ieltsReadingP1MatchChooseTwoPart,
@@ -5406,6 +9077,15 @@ function getTemplateBuilders(): Record<IeltsReadingWizardTemplateKind, () => Rea
     'p2-r2-match-choose-two-summary': ieltsReadingP2MatchChooseTwoSummaryPart,
     'p2-r2-match-tfng-choose-two': ieltsReadingP2MatchTfngChooseTwoPart,
     'p2-r2-tfng-notes': ieltsReadingP2TfngNotesPart,
+    'p2-r2-match-features-sentence': ieltsReadingP2MatchFeaturesSentencePart,
+    'p2-r2-mc-ynng-summary': ieltsReadingP2McYnngSummaryPart,
+    'p2-r2-headings-mc-summary': ieltsReadingP2HeadingsMcSummaryPart,
+    'p2-r2-mc-features-ynng': ieltsReadingP2McFeaturesYnngPart,
+    'p2-r2-match-sentence-choose-two': ieltsReadingP2MatchSentenceChooseTwoPart,
+    'p2-r2-match-sentence-features': ieltsReadingP2MatchSentenceFeaturesPart,
+    'p2-r2-match-features-summary': ieltsReadingP2MatchFeaturesSummaryPart,
+    'p2-r2-match-summary-choose-two': ieltsReadingP2MatchSummaryChooseTwoPart,
+    'p2-r2-headings-choose-two-notes': ieltsReadingP2HeadingsChooseTwoNotesPart,
     'p3-r3-tfng-mc': ieltsReadingP3R3Part,
     'p3-r3-gap-tfng-flow-mc': ieltsReadingP3GapTfngFlowMcPart,
     'p3-r3-ynng-mc': ieltsReadingP3YnngMcPart,
@@ -5424,8 +9104,17 @@ function getTemplateBuilders(): Record<IeltsReadingWizardTemplateKind, () => Rea
     'p3-r3-features-ynng-summary': ieltsReadingP3FeaturesYnngSummaryPart,
     'p3-r3-tfng-notes-mc': ieltsReadingP3TfngNotesMcPart,
     'p3-r3-endings-summary-mc': ieltsReadingP3EndingsSummaryMcPart,
+    'p3-r3-match-summary-features': ieltsReadingP3MatchSummaryFeaturesPart,
+    'p3-r3-match-features-summary': ieltsReadingP3MatchFeaturesSummaryPart,
+    'p3-r3-ynng-summary-mc': ieltsReadingP3YnngSummaryMcPart,
+    'p3-r3-ynng-summary-bank-mc': ieltsReadingP3YnngSummaryBankMcPart,
+    'p3-r3-summary-bank-ynng-mc': ieltsReadingP3SummaryBankYnngMcPart,
+    'p3-r3-mc-endings-ynng': ieltsReadingP3McEndingsYnngPart,
+    'p3-r3-mc-summary-gap-ynng': ieltsReadingP3McSummaryGapYnngPart,
+    'p3-r3-features-endings-mc': ieltsReadingP3FeaturesEndingsMcPart,
   }
 }
+
 
 function assertAllTemplateBuildersRegistered(): void {
   try {

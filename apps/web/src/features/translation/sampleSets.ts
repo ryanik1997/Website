@@ -1,12 +1,13 @@
 import type { TranslationSet } from '@ryan/db'
 import { defaultSentence } from './types'
 
-type SamplePack = Pick<TranslationSet, 'title' | 'category' | 'genre' | 'sentences'>
+type SamplePack = Pick<TranslationSet, 'title' | 'category' | 'genre' | 'cefr' | 'sentences'>
 
 const IELTS_TASK2: SamplePack = {
   title: 'IELTS Task 2 — Giáo dục',
   category: 'collocation',
   genre: 'topic_education',
+  cefr: 'B2',
   sentences: [
     defaultSentence({
       vi: 'Nhiều người cho rằng công nghệ đã làm thay đổi cách con người giao tiếp.',
@@ -75,6 +76,7 @@ const IELTS_TASK1: SamplePack = {
   title: 'Band 6.5 — Môi trường',
   category: 'paragraph_65',
   genre: 'topic_environment',
+  cefr: 'B1',
   sentences: [
     defaultSentence({
       vi: 'Biểu đồ cho thấy sự tăng đáng kể trong giai đoạn từ 2010 đến 2020.',
@@ -131,6 +133,7 @@ const DAILY: SamplePack = {
   title: 'Collocation — Du lịch',
   category: 'collocation',
   genre: 'topic_travel',
+  cefr: 'A2',
   sentences: [
     defaultSentence({
       vi: 'Bạn có rảnh tối nay không? Mình muốn mời bạn đi ăn.',

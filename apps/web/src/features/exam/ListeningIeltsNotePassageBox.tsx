@@ -13,6 +13,11 @@ import {
   prepareNotePassageBlocks,
 } from './listeningNotePassage'
 
+import { Check } from 'lucide-react'
+import { EXAM_REVIEW_COLORS, type ExamReviewStatus } from './examReviewUtils'
+import { examReviewStatus } from './examReviewUtils'
+import { isListeningAnswerCorrect } from './listeningExamData'
+
 interface Props {
   partId: string
   blocks: ListeningNotePassageBlock[]
@@ -23,6 +28,8 @@ interface Props {
   onSelectQuestion: (questionId: string) => void
   passageTitle?: string
   layout?: 'list' | 'form' | 'lecture'
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function GapInlineCompact({
@@ -33,6 +40,8 @@ function GapInlineCompact({
   onSelect,
   suppressLead = false,
   suppressTrail = false,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   question: ListeningQuestion
   answer: string
@@ -41,18 +50,23 @@ function GapInlineCompact({
   onSelect: () => void
   suppressLead?: boolean
   suppressTrail?: boolean
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
 }) {
   const wordLimit = question.wordLimit ?? 3
   const showLead = Boolean(question.gapLead) && !suppressLead
   const showTrail = Boolean(question.gapTrail) && !suppressTrail
   const hasInline = showLead || showTrail
   const highlights = useExamHighlights()
+  const showKey = reviewMode && reviewStatus !== 'correct' && question.answer
+  const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
 
   if (hasInline) {
     return (
       <label
         className={`listening-ielts-notes__inline-gap${isActive ? ' is-active' : ''}`}
         htmlFor={`ielts-gap-${question.id}`}
+        style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
       >
         {showLead && question.gapLead && (
           <ReadingHighlightableText
@@ -74,6 +88,7 @@ function GapInlineCompact({
             placeholder=""
             aria-label={`Question ${question.number}`}
             data-highlight-skip
+            readOnly={reviewMode}
             onChange={e => onAnswer(e.target.value)}
             onFocus={onSelect}
           />
@@ -86,6 +101,12 @@ function GapInlineCompact({
             as="span"
           />
         )}
+        {showKey && (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginLeft: 6, fontWeight: 800, color: EXAM_REVIEW_COLORS.correct.bg, fontSize: '0.8rem' }}>
+            <Check size={13} strokeWidth={3} />
+            {question.answer}
+          </span>
+        )}
       </label>
     )
   }
@@ -94,6 +115,7 @@ function GapInlineCompact({
     <span
       className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}
       id={`listening-q-${question.id}`}
+      style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
     >
       <span className="listening-ielts-notes__gap-num" aria-hidden>
         {question.number}
@@ -106,9 +128,16 @@ function GapInlineCompact({
         placeholder=""
         aria-label={`Question ${question.number}`}
         data-highlight-skip
+        readOnly={reviewMode}
         onChange={e => onAnswer(e.target.value)}
         onFocus={onSelect}
       />
+      {showKey && (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginLeft: 6, fontWeight: 800, color: EXAM_REVIEW_COLORS.correct.bg, fontSize: '0.8rem' }}>
+          <Check size={13} strokeWidth={3} />
+          {question.answer}
+        </span>
+      )}
     </span>
   )
 }
@@ -131,6 +160,8 @@ export default function ListeningIeltsNotePassageBox({
   onSelectQuestion,
   passageTitle,
   layout = 'list',
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const highlights = useExamHighlights()
   const isForm = layout === 'form'
@@ -225,16 +256,23 @@ export default function ListeningIeltsNotePassageBox({
                 ? gapBlockIndices.get(block.number) ?? -1
                 : -1
 
+              const ans = answers[question.id] ?? ''
+              const st = reviewMode
+                ? (reviewStatusMap?.[question.id]
+                  ?? examReviewStatus(ans, a => isListeningAnswerCorrect(question, a)))
+                : null
               return (
                 <GapInlineCompact
                   key={question.id}
                   question={question}
-                  answer={answers[question.id] ?? ''}
+                  answer={ans}
                   isActive={activeQuestionId === question.id}
                   onAnswer={v => onAnswer(question.id, v)}
                   onSelect={() => onSelectQuestion(question.id)}
                   suppressLead={gapLeadRenderedInPassage(preparedBlocks, gapIndex, question.gapLead)}
                   suppressTrail={gapTrailRenderedInPassage(preparedBlocks, gapIndex, question.gapTrail)}
+                  reviewMode={reviewMode}
+                  reviewStatus={st}
                 />
               )
             })}

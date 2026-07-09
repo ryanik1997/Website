@@ -35,8 +35,14 @@ import { hasIeltsListeningWizardDraft } from './ieltsListeningWizard/ieltsListen
 import { hasIeltsReadingWizardDraft } from './ieltsReadingWizard/ieltsReadingWizardPersist'
 import { isIeltsReadingWizardEditable } from './ieltsReadingWizard/ieltsReadingWizardEdit'
 import ExamTrackErrorBoundary from './ExamTrackErrorBoundary'
+import ExamSkillPicker, { type ExamSkillPick } from './ExamSkillPicker'
 import IeltsLibraryArchive from './IeltsLibraryArchive'
+import { useIsAdmin } from '../auth/useIsAdmin'
 import './examHub.css'
+
+function isExamSkillParam(v: string | undefined): v is ExamSkillPick {
+  return v === 'reading' || v === 'listening'
+}
 
 function safeDraftFlag(read: () => boolean): boolean {
   try {
@@ -144,7 +150,10 @@ export default function ExamTrackPage() {
 
 function ExamTrackPageInner() {
   const navigate = useNavigate()
-  const { trackId, level: levelParam } = useParams<{ trackId: string; level?: string }>()
+  const { trackId, arg2, arg3 } = useParams<{ trackId: string; arg2?: string; arg3?: string }>()
+  /** Import / Wizard / Ẩn đề mẫu — chỉ Admin (user thường chỉ luyện đề đã publish). */
+  const isAdmin = useIsAdmin()
+  const canImport = isAdmin === true
 
   const [showImportManual, setShowImportManual] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
@@ -168,9 +177,11 @@ function ExamTrackPageInner() {
   }
 
   const track = trackId ? getExamTrack(trackId) : null
-  const cambridgeLevel = levelParam && isCambridgeLevelSlug(levelParam)
-    ? getCambridgeExamLevel(levelParam)
-    : null
+  const cambridgeLevelSlug = track?.id === 'cambridge' && arg2 && isCambridgeLevelSlug(arg2) ? arg2 : null
+  const cambridgeLevel = cambridgeLevelSlug ? getCambridgeExamLevel(cambridgeLevelSlug) : null
+  const activeSkill: ExamSkillPick | null = track?.id === 'ielts'
+    ? (isExamSkillParam(arg2) ? arg2 : null)
+    : (isExamSkillParam(arg3) ? arg3 : null)
 
   if (!track) {
     return (
@@ -180,7 +191,11 @@ function ExamTrackPageInner() {
     )
   }
 
-  if (track.id === 'cambridge' && levelParam && !cambridgeLevel) {
+  if (track.id === 'ielts' && arg2 && !isExamSkillParam(arg2)) {
+    return <Navigate to="/app/exam/track/ielts" replace />
+  }
+
+  if (track.id === 'cambridge' && arg2 && !cambridgeLevel) {
     return (
       <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Không tìm thấy cấp độ Cambridge.</p>
@@ -188,7 +203,11 @@ function ExamTrackPageInner() {
     )
   }
 
-  if (track.id === 'cambridge' && !levelParam) {
+  if (track.id === 'cambridge' && cambridgeLevel && arg3 && !isExamSkillParam(arg3)) {
+    return <Navigate to={`/app/exam/track/cambridge/${cambridgeLevel.slug}`} replace />
+  }
+
+  if (track.id === 'cambridge' && !arg2) {
     return (
       <div className="exam-hub-page">
         <div className="exam-hub-page__inner">
@@ -252,8 +271,10 @@ function ExamTrackPageInner() {
       ? filterListeningByTypes(listeningExams, cambridgeLevel.listeningExamTypes)
       : []
 
-  const readingList = filterReadingExamsForDisplay(readingListAll, importsOnly)
-  const listeningList = filterListeningExamsForDisplay(listeningListAll, importsOnly)
+  // User thường luôn xem full catalog (không ẩn đề mẫu / filter import)
+  const effectiveImportsOnly = canImport && importsOnly
+  const readingList = filterReadingExamsForDisplay(readingListAll, effectiveImportsOnly)
+  const listeningList = filterListeningExamsForDisplay(listeningListAll, effectiveImportsOnly)
   const hiddenReadingCount = readingListAll.length - readingList.length
   const hiddenListeningCount = listeningListAll.length - listeningList.length
 
@@ -265,6 +286,7 @@ function ExamTrackPageInner() {
   const importedListening = listeningList.filter(e => e.id.startsWith('listening-import-'))
 
   async function openReadingWizardEdit(examId: string) {
+    if (!canImport) return
     const exam = readingList.find(e => e.id === examId)
     if (!exam || !isIeltsReadingWizardEditable(exam)) return
     const record = await examRepo.get(examId)
@@ -273,155 +295,220 @@ function ExamTrackPageInner() {
   }
 
   async function deleteReading(exam: ReadingExam) {
+    if (!canImport) return
     if (!confirm(`Xóa đề "${exam.title}"?`)) return
     await examRepo.delete(exam.id)
   }
 
   async function deleteListening(exam: ListeningExam) {
+    if (!canImport) return
     if (!confirm(`Xóa đề "${exam.title}"?`)) return
     await listeningExamRepo.delete(exam.id)
   }
 
-  const backPath = track.id === 'cambridge' && cambridgeLevel
+  const skillBasePath = track.id === 'ielts'
+    ? '/app/exam/track/ielts'
+    : cambridgeLevel
+      ? `/app/exam/track/cambridge/${cambridgeLevel.slug}`
+      : '/app/exam/track/cambridge'
+
+  const skillPickerBackPath = track.id === 'cambridge' && cambridgeLevel
     ? '/app/exam/track/cambridge'
     : '/app/exam'
+
+  const skillPickerBackLabel = track.id === 'cambridge' && cambridgeLevel
+    ? 'Cambridge A2–C2'
+    : 'Luyện thi'
+
+  const brandTitle = track.id === 'cambridge' && cambridgeLevel
+    ? `${cambridgeLevel.exam} · ${cambridgeLevel.cefr}`
+    : track.title
 
   const isIeltsTrack = track.id === 'ielts'
   const useLibraryArchiveLayout = isIeltsTrack || Boolean(cambridgeLevel)
   const libraryBrandLabel = cambridgeLevel?.exam ?? 'IELTS'
   const libraryArchiveMode = isIeltsTrack ? 'ielts' as const : 'cambridge' as const
 
+  // Chưa chọn skill → Page1 (Listening / Reading)
+  if (useLibraryArchiveLayout && !activeSkill) {
+    const skills = activeTrack.skills.filter(
+      (s): s is ExamSkillPick => s === 'reading' || s === 'listening',
+    )
+    return (
+      <>
+        <ExamSkillPicker
+          brandTitle={brandTitle}
+          backLabel={skillPickerBackLabel}
+          onBack={() => navigate(skillPickerBackPath)}
+          listeningCount={listeningList.length}
+          readingCount={readingList.length}
+          skills={skills}
+          onPick={skill => navigate(`${skillBasePath}/${skill}`)}
+        />
+        {canImport && showImportListening && (
+          <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
+            <ImportListeningModal
+              defaultExamType={defaultListeningType}
+              onClose={() => setShowImportListening(false)}
+              onCreated={id => {
+                setShowImportListening(false)
+                navigate(`/app/exam/listening/${id}`)
+              }}
+            />
+          </Suspense>
+        )}
+      </>
+    )
+  }
+
+  const showReadingArchive = activeSkill === 'reading' && activeTrack.skills.includes('reading')
+  const showListeningArchive = activeSkill === 'listening' && activeTrack.skills.includes('listening')
+
   return (
     <div className={`exam-hub-page${useLibraryArchiveLayout ? ' exam-hub-page--ielts' : ''}`}>
       <div className="exam-hub-page__inner">
-        <button type="button" className="exam-hub-back" onClick={() => navigate(backPath)}>
+        <button type="button" className="exam-hub-back" onClick={() => navigate(skillBasePath)}>
           <ArrowLeft size={14} />
-          {track.id === 'cambridge' && cambridgeLevel ? 'Cambridge A2–C2' : 'Luyện thi'}
+          {brandTitle}
         </button>
 
         <section className="exam-full-mock-hero">
-          <p className="exam-hub-kicker">
-            {track.id === 'cambridge' && cambridgeLevel
-              ? `${cambridgeLevel.exam} · ${cambridgeLevel.cefr}`
-              : track.title}
+          <p className="exam-hub-kicker">{brandTitle}</p>
+          <h1 className="exam-hub-title">
+            {activeSkill === 'listening' ? 'Listening' : 'Reading'}
+          </h1>
+          <p className="exam-hub-desc">
+            {activeSkill === 'listening'
+              ? 'Chọn sách / đề Listening trong Library Archives.'
+              : 'Chọn sách / đề Reading trong Library Archives.'}
           </p>
-          <h1 className="exam-hub-title">{activeTrack.subtitle}</h1>
-          <p className="exam-hub-desc">{activeTrack.description}</p>
 
-          <div className="exam-hub-actions">
-            <button
-              type="button"
-              className={`exam-hub-cta exam-hub-cta--ghost${importsOnly ? ' is-active' : ''}`}
-              onClick={toggleImportsOnly}
-              title={importsOnly ? 'Hiện lại đề mẫu và đề builtin của hệ thống' : 'Ẩn đề mẫu hệ thống — chỉ hiện đề bạn đã import'}
-            >
-              {importsOnly ? <Eye size={14} /> : <EyeOff size={14} />}
-              {importsOnly ? 'Hiện đề mẫu hệ thống' : 'Chỉ đề import'}
-            </button>
-            {activeTrack.skills.includes('reading') && (
-              <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportManual(true)}>
-                <FileJson size={14} />
-                Import thủ công Reading
-              </button>
-            )}
-            {track.id === 'ielts' && activeTrack.skills.includes('reading') && (
-              <button
-                type="button"
-                className="exam-hub-cta exam-hub-cta--ghost"
-                onClick={() => {
-                  setReadingWizardEdit(null)
-                  setShowReadingWizard(true)
-                }}
-              >
-                <Sparkles size={14} />
-                Import Wizard Reading
-                {readingWizardHasDraft && <span className="exam-hub-cta__badge">Có nháp</span>}
-              </button>
-            )}
-            {activeTrack.skills.includes('listening') && (
-              <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportListening(true)}>
-                <Headphones size={14} />
-                Import thủ công Listening
-              </button>
-            )}
-            {track.id === 'ielts' && activeTrack.skills.includes('listening') && (
-              <button
-                type="button"
-                className="exam-hub-cta exam-hub-cta--ghost"
-                onClick={() => setShowImportWord(true)}
-              >
-                <FileText size={14} />
-                Import Word
-              </button>
-            )}
-            {track.id === 'ielts' && activeTrack.skills.includes('listening') && (
-              <button
-                type="button"
-                className="exam-hub-cta exam-hub-cta--ghost"
-                onClick={() => setShowIeltsWizard(true)}
-              >
-                <Sparkles size={14} />
-                Import Wizard
-                {wizardHasDraft && <span className="exam-hub-cta__badge">Có nháp</span>}
-              </button>
-            )}
-          </div>
-          {importsOnly && (hiddenReadingCount > 0 || hiddenListeningCount > 0) && (
-            <p className="exam-hub-filter-note">
-              Đang ẩn {hiddenReadingCount > 0 ? `${hiddenReadingCount} Reading` : ''}
-              {hiddenReadingCount > 0 && hiddenListeningCount > 0 ? ' · ' : ''}
-              {hiddenListeningCount > 0 ? `${hiddenListeningCount} Listening` : ''} đề mẫu/builtin hệ thống.
-            </p>
+          {canImport && (
+            <>
+              <div className="exam-hub-actions">
+                <button
+                  type="button"
+                  className={`exam-hub-cta exam-hub-cta--ghost${effectiveImportsOnly ? ' is-active' : ''}`}
+                  onClick={toggleImportsOnly}
+                  title={effectiveImportsOnly ? 'Hiện lại đề mẫu và đề builtin của hệ thống' : 'Ẩn đề mẫu hệ thống — chỉ hiện đề bạn đã import'}
+                >
+                  {effectiveImportsOnly ? <Eye size={14} /> : <EyeOff size={14} />}
+                  {effectiveImportsOnly ? 'Hiện đề mẫu hệ thống' : 'Chỉ đề import'}
+                </button>
+                {showReadingArchive && (
+                  <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportManual(true)}>
+                    <FileJson size={14} />
+                    Import thủ công Reading
+                  </button>
+                )}
+                {track.id === 'ielts' && showReadingArchive && (
+                  <button
+                    type="button"
+                    className="exam-hub-cta exam-hub-cta--ghost"
+                    onClick={() => {
+                      setReadingWizardEdit(null)
+                      setShowReadingWizard(true)
+                    }}
+                  >
+                    <Sparkles size={14} />
+                    Import Wizard Reading
+                    {readingWizardHasDraft && <span className="exam-hub-cta__badge">Có nháp</span>}
+                  </button>
+                )}
+                {showListeningArchive && (
+                  <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowImportListening(true)}>
+                    <Headphones size={14} />
+                    Import thủ công Listening
+                  </button>
+                )}
+                {track.id === 'ielts' && showListeningArchive && (
+                  <button
+                    type="button"
+                    className="exam-hub-cta exam-hub-cta--ghost"
+                    onClick={() => setShowImportWord(true)}
+                  >
+                    <FileText size={14} />
+                    Import Word
+                  </button>
+                )}
+                {track.id === 'ielts' && showListeningArchive && (
+                  <button
+                    type="button"
+                    className="exam-hub-cta exam-hub-cta--ghost"
+                    onClick={() => setShowIeltsWizard(true)}
+                  >
+                    <Sparkles size={14} />
+                    Import Wizard
+                    {wizardHasDraft && <span className="exam-hub-cta__badge">Có nháp</span>}
+                  </button>
+                )}
+              </div>
+              {effectiveImportsOnly && (hiddenReadingCount > 0 || hiddenListeningCount > 0) && (
+                <p className="exam-hub-filter-note">
+                  Đang ẩn {hiddenReadingCount > 0 ? `${hiddenReadingCount} Reading` : ''}
+                  {hiddenReadingCount > 0 && hiddenListeningCount > 0 ? ' · ' : ''}
+                  {hiddenListeningCount > 0 ? `${hiddenListeningCount} Listening` : ''} đề mẫu/builtin hệ thống.
+                </p>
+              )}
+            </>
           )}
         </section>
 
-        {activeTrack.skills.includes('reading') && useLibraryArchiveLayout && (
+        {showReadingArchive && (
           <IeltsLibraryArchive
             skill="reading"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
             exams={readingList}
-            buildRow={safeReadingRow}
+            buildRow={exam => {
+              const row = safeReadingRow(exam)
+              if (!canImport) return { ...row, canDelete: false, canEdit: false }
+              return row
+            }}
             onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
             onRetryExam={id => {
               clearReadingDraft(id)
               navigate(`/app/exam/reading/${id}`)
             }}
-            onEditExam={id => void openReadingWizardEdit(id)}
-            onDeleteExam={id => {
+            onEditExam={canImport ? id => void openReadingWizardEdit(id) : undefined}
+            onDeleteExam={canImport ? id => {
               const target = readingList.find(e => e.id === id)
               if (target) void deleteReading(target)
-            }}
+            } : undefined}
           />
         )}
 
-        {activeTrack.skills.includes('listening') && useLibraryArchiveLayout && (
+        {showListeningArchive && (
           <IeltsLibraryArchive
             skill="listening"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
             exams={listeningList}
-            buildRow={safeListeningRow}
+            buildRow={exam => {
+              const row = safeListeningRow(exam)
+              if (!canImport) return { ...row, canDelete: false }
+              return row
+            }}
             onOpenExam={id => navigate(`/app/exam/listening/${id}`)}
             onRetryExam={id => {
               clearListeningDraft(id)
               navigate(`/app/exam/listening/${id}`)
             }}
-            onDeleteExam={id => {
+            onDeleteExam={canImport ? id => {
               const target = listeningList.find(e => e.id === id)
               if (target) void deleteListening(target)
-            }}
+            } : undefined}
           />
         )}
 
-        {(importedReading.length > 0 || importedListening.length > 0) && (
+        {canImport && (importedReading.length > 0 || importedListening.length > 0) && (
           <p className="exam-hub-desc" style={{ marginTop: '1rem' }}>
             Đề import: {importedReading.length} Reading, {importedListening.length} Listening
           </p>
         )}
       </div>
 
-      {showImportListening && (
+      {canImport && showImportListening && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <ImportListeningModal
             defaultExamType={defaultListeningType}
@@ -434,7 +521,7 @@ function ExamTrackPageInner() {
         </Suspense>
       )}
 
-      {showImportWord && (
+      {canImport && showImportWord && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <ImportListeningWordModal
             onClose={() => setShowImportWord(false)}
@@ -446,7 +533,7 @@ function ExamTrackPageInner() {
         </Suspense>
       )}
 
-      {showIeltsWizard && (
+      {canImport && showIeltsWizard && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <IeltsListeningImportWizard
             onClose={() => {
@@ -462,7 +549,7 @@ function ExamTrackPageInner() {
         </Suspense>
       )}
 
-      {showReadingWizard && (
+      {canImport && showReadingWizard && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <IeltsReadingImportWizard
             editExam={readingWizardEdit?.exam ?? null}
@@ -482,7 +569,7 @@ function ExamTrackPageInner() {
         </Suspense>
       )}
 
-      {showImportManual && (
+      {canImport && showImportManual && (
         <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
           <ImportReadingManualModal
             examTrack={track.id === 'ielts' ? 'ielts' : 'cambridge'}

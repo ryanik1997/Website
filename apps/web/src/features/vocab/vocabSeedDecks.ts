@@ -208,6 +208,7 @@ async function seedGroup(group: SeedGroupDef): Promise<void> {
       groupId: group.id,
       name: d.name,
       book: d.description,
+      description: d.description,
       color: d.color,
       icon: d.icon,
       origin: 'preset',

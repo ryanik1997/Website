@@ -14,6 +14,10 @@ import ListeningSplitResizer from './ListeningSplitResizer'
 import { isDualLetterMatchingPart, isGroupedLetterMatchingPart } from './listeningMultiPartLayout'
 import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
+import { buildListeningReviewStatusMap, type ExamReviewStatus } from './examReviewUtils'
+import ListeningReviewActiveBar from './ListeningReviewActiveBar'
+import ExamReviewAiPanel from './ExamReviewAiPanel'
+import { useExamReviewAi } from './useExamReviewAi'
 import {
   hasExamAudioFile,
   resolveListeningAudioSource,
@@ -27,6 +31,7 @@ import { clearListeningDraft } from './examCompletion'
 import { ExamHighlightProvider } from './examHighlightContext'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { useExamDraftGate } from './useExamDraftGate'
 import { usePartHighlights } from './usePartHighlights'
 import { initialExamTimerSeconds } from './examTimer'
 
@@ -48,6 +53,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
   const bodyRef = useRef<HTMLDivElement>(null)
   const {
@@ -59,6 +65,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
   } = useListeningSplitPane()
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
+  const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const currentPart = exam.parts[partIndex] ?? null
   const {
     highlights,
@@ -107,6 +114,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      markHydrated()
       return
     }
     try {
@@ -130,13 +138,17 @@ export default function ListeningIeltsTest({ exam }: Props) {
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setSubmitted(Boolean(saved.submitted))
+      setReviewMode(false)
       setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
     } catch {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
-  }, [exam, setAnnotationsByPart, storageKey])
+    markHydrated()
+  }, [exam, setAnnotationsByPart, storageKey, markHydrated])
 
   useEffect(() => {
+    if (!isHydrated) return
+    try {
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       unsure,
@@ -148,17 +160,21 @@ export default function ListeningIeltsTest({ exam }: Props) {
       notesByPart,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure])
+    } catch {
+      /* quota */
+    }
+  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
 
   useEffect(() => {
-    if (submitted) return
+    if (submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
+      setReviewMode(false)
       return
     }
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
-  }, [submitted, timeLeft])
+  }, [reviewMode, submitted, timeLeft])
 
   useEffect(() => {
     if (!currentPart) return
@@ -175,9 +191,10 @@ export default function ListeningIeltsTest({ exam }: Props) {
   }, [exam.parts])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
+    if (reviewMode) return
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
-  }, [])
+  }, [reviewMode])
 
   const answeredInPart = useCallback((index: number) => {
     return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
@@ -235,18 +252,39 @@ export default function ListeningIeltsTest({ exam }: Props) {
     setPartIndex(0)
     setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     setSubmitted(false)
+    setReviewMode(false)
     if (fullMockId) {
       patchFullMockSession({ stage: 'listening', listening: undefined })
     }
   }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
+
+  const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
+    if (!reviewMode) return {}
+    return buildListeningReviewStatusMap(exam, answers)
+  }, [answers, exam, reviewMode])
+
+  const getQuestionReviewStatus = useCallback((questionId: string): ExamReviewStatus | null => {
+    if (!reviewMode) return null
+    return reviewStatusMap[questionId] ?? null
+  }, [reviewMode, reviewStatusMap])
 
   const answeredCount = useMemo(
     () => allQuestions.filter(q => Boolean(answers[q.id])).length,
     [allQuestions, answers],
   )
 
+  const { aiText: reviewAiText, hideAi: hideReviewAi } = useExamReviewAi(
+    exam.id,
+    'listening',
+    reviewMode,
+  )
+  const reviewActiveQuestionNumber = useMemo(() => {
+    if (!reviewMode || !activeQuestionId) return null
+    return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
+  }, [activeQuestionId, allQuestions, reviewMode])
+
   // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
-  if (submitted) {
+  if (submitted && !reviewMode) {
     return (
       <ListeningSubmittedScreen
         exam={exam}
@@ -255,17 +293,57 @@ export default function ListeningIeltsTest({ exam }: Props) {
         allQuestions={allQuestions}
         fullMockId={fullMockId}
         onRetry={handleRetry}
+        onReviewWithPaper={() => {
+          setReviewMode(true)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }}
       />
     )
   }
 
   return (
-    <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}`}>
+    <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
       <header className="listening-exam-header">
-        <ExamHeaderBack onClick={() => navigate(listeningExamBackPath(exam))} />
-        <h1 className="listening-exam-header__title">{exam.title}</h1>
-        <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
+        <ExamHeaderBack
+          onClick={() => {
+            if (reviewMode) {
+              setReviewMode(false)
+              return
+            }
+            navigate(listeningExamBackPath(exam))
+          }}
+        />
+        <h1 className="listening-exam-header__title">
+          {reviewMode ? 'Xem lại · ' : ''}{exam.title}
+        </h1>
+        {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
+        {reviewMode && (
+          <button
+            type="button"
+            className="listening-exam-btn listening-exam-btn--primary"
+            onClick={() => setReviewMode(false)}
+          >
+            Về báo cáo
+          </button>
+        )}
       </header>
+
+      {reviewMode && (
+        <ListeningReviewActiveBar
+          question={allQuestions.find(q => q.id === activeQuestionId) ?? null}
+          userAnswer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
+          status={activeQuestionId ? (reviewStatusMap[activeQuestionId] ?? null) : null}
+        />
+      )}
+
+      {reviewMode && reviewAiText && (
+        <ExamReviewAiPanel
+          aiText={reviewAiText}
+          activeQuestionNumber={reviewActiveQuestionNumber}
+          onClose={hideReviewAi}
+        />
+      )}
 
       <div
         ref={bodyRef}
@@ -349,6 +427,8 @@ export default function ListeningIeltsTest({ exam }: Props) {
               examMode={exam.examMode}
               onAnswer={handleAnswer}
               onSelectQuestion={handleSelectQuestion}
+              reviewMode={reviewMode}
+              reviewStatusMap={reviewStatusMap}
             />
           )
         })()}
@@ -369,11 +449,19 @@ export default function ListeningIeltsTest({ exam }: Props) {
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
         onAdjacentQuestion={goAdjacentQuestion}
-        onSubmit={() => setConfirmSubmit(true)}
-        submitLabel="Submit"
+        onSubmit={() => {
+          if (reviewMode) {
+            setReviewMode(false)
+            return
+          }
+          setConfirmSubmit(true)
+        }}
+        submitLabel={reviewMode ? 'Về báo cáo' : 'Submit'}
+        reviewMode={reviewMode}
+        getQuestionReviewStatus={getQuestionReviewStatus}
       />
 
-      {confirmSubmit && (
+      {confirmSubmit && !reviewMode && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{ background: 'color-mix(in srgb, var(--bg-primary) 35%, transparent)' }}
@@ -392,7 +480,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
               <button type="button" className="listening-exam-btn listening-exam-btn--ghost" onClick={() => setConfirmSubmit(false)}>
                 Tiếp tục làm
               </button>
-              <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => { setConfirmSubmit(false); setSubmitted(true) }}>
+              <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => { setConfirmSubmit(false); setSubmitted(true); setReviewMode(false) }}>
                 Submit
               </button>
             </div>

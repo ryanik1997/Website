@@ -6,6 +6,7 @@ import type { Card, Deck, Srs } from '@ryan/db'
 import { useDictStore } from '../../dictionary/dictStore'
 import { speakPhrase } from '../study/speakPhrase'
 import StudyDoneActions from '../study/StudyDoneActions'
+import SaveToNotebookButton from '../study/SaveToNotebookButton'
 import { useVocabStore } from '../vocabStore'
 import { isWeakWord } from '../study/weakWords'
 import { shuffle } from '../study/studyUtils'
@@ -331,6 +332,7 @@ export default function SrsMode({
           </div>
 
           <div className="vs-control-row">
+            <SaveToNotebookButton card={card} deckId={deckId} />
             <button type="button" className="vs-btn-secondary" style={{ background: 'linear-gradient(135deg,#3b82f6,#6366f1)', color: '#fff', border: 'none' }} onClick={() => openDict(card.phrase)}>
               <Sparkles size={15} />
               Hỏi AI

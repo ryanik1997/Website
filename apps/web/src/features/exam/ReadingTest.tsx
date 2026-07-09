@@ -1,28 +1,28 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
-  Bell, Loader2, Maximize2, Menu, Minimize2, Type, Wifi,
+  Bell, Loader2, Maximize2, Minimize2, Wifi,
 } from 'lucide-react'
 import ExamHeaderBack from './ExamHeaderBack'
 import ExamPartFooter from './ExamPartFooter'
 import ExamTimerControls from './ExamTimerControls'
+import ExamFontControls from './ExamFontControls'
 import { readingExamBackPath } from './examNavigation'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ReadingSubmittedScreen from './ReadingSubmittedScreen'
 import { patchFullMockSession } from './fullMockSession'
-import ReadingFontPanel from './ReadingFontPanel'
 import { ExamHighlightProvider } from './examHighlightContext'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import ReadingPassagePanel from './ReadingPassagePanel'
 import ReadingQuestionPanel from './ReadingQuestionPanel'
 import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
-import {
-  ensureReadingFontsLoaded,
-  getFontFamilyCss,
-  loadFontFamilyId,
-  loadFontSize,
-} from './readingFontSettings'
+import { useReadingFontSettings } from './useReadingFontSettings'
 import { getExamQuestions, getPartQuestions } from './examData'
+import { buildReadingReviewStatusMap, type ExamReviewStatus } from './examReviewUtils'
+import ExamReviewAiPanel from './ExamReviewAiPanel'
+import { useExamReviewAi } from './useExamReviewAi'
+import { useReviewEvidenceHighlights } from './useReviewEvidenceHighlights'
+import { buildReadingPassageHighlightBlocks } from './buildReadingPassageHighlightBlocks'
 import { resolveReadingExam } from './examLoader'
 import { useIsAdmin } from '../auth/useIsAdmin'
 import { resolveExamMediaUrl } from './examMediaUrl'
@@ -35,6 +35,7 @@ import {
 import { useReadingExamCloudImages } from './useReadingExamCloudImages'
 import { clearReadingDraft } from './examCompletion'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { useExamDraftGate } from './useExamDraftGate'
 import { readingExamDurationMinutes } from './readingExamDuration'
 import { initialExamTimerSeconds } from './examTimer'
 import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
@@ -77,12 +78,20 @@ export default function ReadingTest() {
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  /** Sau nộp: xem lại passage + câu (đúng/sai) */
+  const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
   const [splitPct, setSplitPct] = useState(50)
   const [isResizing, setIsResizing] = useState(false)
-  const [fontSize, setFontSize] = useState(loadFontSize)
-  const [fontFamilyId, setFontFamilyId] = useState(loadFontFamilyId)
-  const [fontPanelOpen, setFontPanelOpen] = useState(false)
+  const {
+    fontSize,
+    setFontSize,
+    fontFamilyId,
+    setFontFamilyId,
+    fontPanelOpen,
+    setFontPanelOpen,
+    fontStyle,
+  } = useReadingFontSettings()
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [highlightsByPart, setHighlightsByPart] = useState<Record<string, ReadingHighlight[]>>({})
   const [notesByPart, setNotesByPart] = useState<Record<string, TextNote[]>>({})
@@ -113,22 +122,21 @@ export default function ReadingTest() {
     [currentPart],
   )
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+  const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
   const partNotes = currentPart ? (notesByPart[currentPart.id] ?? []) : []
 
   const handlePartHighlightsChange = useCallback((highlights: ReadingHighlight[]) => {
     if (!currentPart) return
-    setHighlightsByPart(prev => ({ ...prev, [currentPart.id]: highlights }))
+    // Không persist tô cam AI (kind=evidence)
+    const userOnly = highlights.filter(h => h.kind !== 'evidence')
+    setHighlightsByPart(prev => ({ ...prev, [currentPart.id]: userOnly }))
   }, [currentPart])
 
   const handlePartNotesChange = useCallback((notes: TextNote[]) => {
     if (!currentPart) return
     setNotesByPart(prev => ({ ...prev, [currentPart.id]: notes }))
   }, [currentPart])
-
-  useEffect(() => {
-    ensureReadingFontsLoaded()
-  }, [])
 
   const handlePartTopImagePick = useCallback(async (partNumber: number, file: File) => {
     if (!examId || isAdmin !== true) return
@@ -223,6 +231,7 @@ export default function ReadingTest() {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart({})
       setNotesByPart({})
+      markHydrated()
       return
     }
 
@@ -243,6 +252,7 @@ export default function ReadingTest() {
           : initialExamTimerSeconds(readingExamDurationMinutes(exam)),
       )
       setSubmitted(Boolean(saved.submitted))
+      setReviewMode(false)
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setHighlightsByPart(saved.highlightsByPart ?? {})
@@ -255,7 +265,8 @@ export default function ReadingTest() {
       setHighlightsByPart({})
       setNotesByPart({})
     }
-  }, [exam, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+    markHydrated()
+  }, [exam, markHydrated, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
     if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || !currentPart) return
@@ -266,22 +277,28 @@ export default function ReadingTest() {
 
   useEffect(() => {
     if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell) return
-    window.localStorage.setItem(storageKey, JSON.stringify({
-      answers,
-      timeLeft,
-      submitted,
-      partIndex,
-      activeQuestionId,
-      highlightsByPart,
-      notesByPart,
-    }))
-    notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+    if (!isHydrated) return
+    try {
+      window.localStorage.setItem(storageKey, JSON.stringify({
+        answers,
+        timeLeft,
+        submitted,
+        partIndex,
+        activeQuestionId,
+        highlightsByPart,
+        notesByPart,
+      }))
+      notifyExamDraftRevision()
+    } catch {
+      /* quota */
+    }
+  }, [activeQuestionId, answers, exam, highlightsByPart, isHydrated, notesByPart, partIndex, storageKey, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
-    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || submitted) return
+    if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
+      setReviewMode(false)
       return
     }
 
@@ -290,7 +307,7 @@ export default function ReadingTest() {
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [exam, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [exam, reviewMode, submitted, timeLeft, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   const resetPaneScroll = useCallback(() => {
     const body = bodyRef.current
@@ -304,9 +321,10 @@ export default function ReadingTest() {
   }, [])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
+    if (reviewMode) return
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
-  }, [])
+  }, [reviewMode])
 
   const answeredInPart = useCallback((index: number) => {
     if (!exam) return 0
@@ -412,10 +430,44 @@ export default function ReadingTest() {
     setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     setHighlightsByPart({})
     setSubmitted(false)
+    setReviewMode(false)
     if (fullMockId) {
       patchFullMockSession({ stage: 'reading', reading: undefined })
     }
   }, [exam, fullMockId])
+
+  const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
+    if (!exam || !reviewMode) return {}
+    return buildReadingReviewStatusMap(exam, answers)
+  }, [answers, exam, reviewMode])
+
+  const getQuestionReviewStatus = useCallback((questionId: string): ExamReviewStatus | null => {
+    if (!reviewMode) return null
+    return reviewStatusMap[questionId] ?? null
+  }, [reviewMode, reviewStatusMap])
+
+  const { aiText: reviewAiText, hideAi: hideReviewAi, evidences: reviewAiEvidences } = useExamReviewAi(
+    exam?.id,
+    'reading',
+    reviewMode,
+  )
+  const reviewActiveQuestionNumber = useMemo(() => {
+    if (!reviewMode || !activeQuestionId) return null
+    return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
+  }, [activeQuestionId, allQuestions, reviewMode])
+
+  const passageBlocks = useMemo(
+    () => buildReadingPassageHighlightBlocks(currentPart, exam?.cambridgeLevel),
+    [currentPart, exam?.cambridgeLevel],
+  )
+  const displayHighlights = useReviewEvidenceHighlights(
+    reviewMode,
+    reviewAiEvidences,
+    reviewActiveQuestionNumber,
+    passageBlocks,
+    partHighlights,
+    bodyRef,
+  )
 
   if (exam && useKetRwShell) {
     return <ReadingKetRwTest />
@@ -456,13 +508,18 @@ export default function ReadingTest() {
   }
 
   // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
-  if (submitted) {
+  if (submitted && !reviewMode) {
     return (
       <ReadingSubmittedScreen
         exam={exam}
         answers={answers}
         fullMockId={fullMockId}
         onRetry={handleRetry}
+        onReviewWithPaper={() => {
+          setReviewMode(true)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }}
       />
     )
   }
@@ -470,45 +527,55 @@ export default function ReadingTest() {
   return (
     <div
       ref={shellRef}
-      className={`reading-test-shell${isResizing ? ' is-resizing' : ''}${isFullscreen ? ' is-fullscreen' : ''}`}
+      className={`reading-test-shell${isResizing ? ' is-resizing' : ''}${isFullscreen ? ' is-fullscreen' : ''}${reviewMode ? ' is-review' : ''}`}
       style={{
         '--rt-split-pct': `${splitPct}%`,
-        '--rt-font-size': `${fontSize}px`,
-        '--rt-font-family': getFontFamilyCss(fontFamilyId),
+        ...fontStyle,
       } as CSSProperties}
     >
       <header className="reading-test-header">
-        <ExamHeaderBack onClick={() => navigate(readingExamBackPath(exam))} />
+        <ExamHeaderBack
+          onClick={() => {
+            if (reviewMode) {
+              setReviewMode(false)
+              return
+            }
+            navigate(readingExamBackPath(exam))
+          }}
+        />
         <div className="reading-test-header__lead">
-          <p className="reading-test-header__title">{currentPart?.passageTitle ?? exam.title}</p>
+          <p className="reading-test-header__title">
+            {reviewMode ? 'Xem lại đề · ' : ''}
+            {currentPart?.passageTitle ?? exam.title}
+          </p>
         </div>
 
         <div className="reading-test-header__actions">
-          <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
-          <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
-            Submit Test
-          </button>
-          <div className="reading-test-header__font-wrap">
+          {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
+          {reviewMode ? (
             <button
               type="button"
-              data-reading-font-trigger
-              className={`reading-test-icon-btn${fontPanelOpen ? ' is-active' : ''}`}
-              title="Cỡ chữ & kiểu chữ"
-              aria-label="Cỡ chữ & kiểu chữ"
-              aria-expanded={fontPanelOpen}
-              onClick={() => setFontPanelOpen(open => !open)}
+              className="reading-test-submit"
+              onClick={() => setReviewMode(false)}
             >
-              <Type size={15} />
+              Về báo cáo
             </button>
-            <ReadingFontPanel
-              open={fontPanelOpen}
-              fontSize={fontSize}
-              fontFamilyId={fontFamilyId}
-              onClose={() => setFontPanelOpen(false)}
-              onFontSizeChange={setFontSize}
-              onFontFamilyChange={setFontFamilyId}
-            />
-          </div>
+          ) : (
+            <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
+              Submit Test
+            </button>
+          )}
+          <ExamFontControls
+            open={fontPanelOpen}
+            fontSize={fontSize}
+            fontFamilyId={fontFamilyId}
+            onToggle={() => setFontPanelOpen(open => !open)}
+            onClose={() => setFontPanelOpen(false)}
+            onFontSizeChange={setFontSize}
+            onFontFamilyChange={setFontFamilyId}
+            buttonClassName="reading-test-icon-btn"
+            wrapClassName="reading-test-header__font-wrap"
+          />
           <button
             type="button"
             className={`reading-test-icon-btn${isFullscreen ? ' is-active' : ''}`}
@@ -525,11 +592,16 @@ export default function ReadingTest() {
           <button type="button" className="reading-test-icon-btn" title="Thông báo" aria-label="Thông báo">
             <Bell size={15} />
           </button>
-          <button type="button" className="reading-test-icon-btn" title="Menu" aria-label="Menu">
-            <Menu size={15} />
-          </button>
         </div>
       </header>
+
+      {reviewMode && reviewAiText && (
+        <ExamReviewAiPanel
+          aiText={reviewAiText}
+          activeQuestionNumber={reviewActiveQuestionNumber}
+          onClose={hideReviewAi}
+        />
+      )}
 
       {(imageError || (isAdmin === true && cloudImagesError)) && (
         <p
@@ -555,11 +627,11 @@ export default function ReadingTest() {
           />
         )}
 
-        <ExamHighlightProvider highlights={partHighlights} notes={partNotes}>
+        <ExamHighlightProvider highlights={displayHighlights} notes={partNotes}>
         {currentPart && (
           <ReadingPassagePanel
             part={currentPart}
-            highlights={partHighlights}
+            highlights={displayHighlights}
             cambridgeLevel={exam.cambridgeLevel}
             activeQuestionId={activeQuestionId}
             onSelectQuestion={handleSelectQuestion}
@@ -603,11 +675,13 @@ export default function ReadingTest() {
             groups={currentPart.questionGroups}
             answers={answers}
             activeQuestionId={activeQuestionId}
-            highlights={partHighlights}
+            highlights={displayHighlights}
             cambridgeLevel={exam.cambridgeLevel}
             partNumber={currentPart.partNumber}
             onSelectQuestion={handleSelectQuestion}
             onAnswer={handleAnswer}
+            reviewMode={reviewMode}
+            reviewStatusMap={reviewMode ? reviewStatusMap : undefined}
           />
         )}
         </ExamHighlightProvider>
@@ -627,10 +701,19 @@ export default function ReadingTest() {
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
         onAdjacentQuestion={goAdjacentQuestion}
-        onSubmit={() => setConfirmSubmit(true)}
+        onSubmit={() => {
+          if (reviewMode) {
+            setReviewMode(false)
+            return
+          }
+          setConfirmSubmit(true)
+        }}
+        submitLabel={reviewMode ? 'Về báo cáo' : 'Submit Test'}
+        reviewMode={reviewMode}
+        getQuestionReviewStatus={getQuestionReviewStatus}
       />
 
-      {confirmSubmit && (
+      {confirmSubmit && !reviewMode && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{ background: 'color-mix(in srgb, var(--bg-primary) 35%, transparent)' }}
@@ -662,6 +745,7 @@ export default function ReadingTest() {
                 onClick={() => {
                   setConfirmSubmit(false)
                   setSubmitted(true)
+                  setReviewMode(false)
                 }}
               >
                 Submit Test

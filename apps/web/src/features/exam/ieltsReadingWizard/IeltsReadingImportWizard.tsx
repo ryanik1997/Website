@@ -28,6 +28,8 @@ import {
   buildFullReadingPayload,
   generateIeltsReadingPassage,
 } from './ieltsReadingAiGenerate'
+import { applyReadingTemplateTableStructure, normalizeAiReadingPart } from './ieltsReadingAiNormalize'
+import { getIeltsReadingWizardTemplatePart } from './ieltsReadingPartTemplates'
 import type { IeltsReadingPassageNumber } from './ieltsReadingWizardConfig'
 import { IELTS_READING_PASSAGE_NUMBERS } from './ieltsReadingWizardConfig'
 import WizardImageLightbox from '../ieltsListeningWizard/WizardImageLightbox'
@@ -301,7 +303,19 @@ export default function IeltsReadingImportWizard({
   }
 
   function rebuildPayloadFromDrafts(): ReadingImportPayload | null {
-    const parts = IELTS_READING_PASSAGE_NUMBERS.map(n => drafts[n].part).filter(Boolean) as ReadingImportPartJson[]
+    // Re-apply structure theo templateKind từng passage (chỉ table/notes template mới ép noteTable)
+    const parts = IELTS_READING_PASSAGE_NUMBERS.map(n => {
+      const draft = drafts[n]
+      if (!draft.part) return null
+      try {
+        const tpl = getIeltsReadingWizardTemplatePart(n, draft.templateKind)
+        const normalized = normalizeAiReadingPart(draft.part)
+        // applyReadingTemplateTableStructure tự no-op table nếu SAMPLE không có noteTable
+        return applyReadingTemplateTableStructure(normalized, tpl)
+      } catch {
+        return draft.part
+      }
+    }).filter(Boolean) as ReadingImportPartJson[]
     if (!parts.length) return null
     return buildFullReadingPayload(parts, {
       title,

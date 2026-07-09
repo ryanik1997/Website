@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useLiveQuery } from 'dexie-react-hooks'
 import { Minus, Plus, SkipForward } from 'lucide-react'
 import { db, lessonRepo } from '@ryan/db'
-import { nextSrs } from '@ryan/core'
+import { nextSrs, type Plan } from '@ryan/core'
 import {
   accuracy,
   compareWords,
@@ -16,6 +17,8 @@ import ListeningAudioBar from './ListeningAudioBar'
 import WordDiffPanel from './WordDiffPanel'
 import { getClozeEligibleCount, splitWords } from './practiceUtils'
 import { useStudyAnswerFeedback } from '../vocab/study/useStudyAnswerFeedback'
+import { listeningPracticeMaxPlays, playsLeftLabel } from './listeningPlayLimits'
+import { splitIntoListenChunks } from './wordTimings'
 
 type PracticeMode = 'boxes' | 'type' | 'cloze'
 type Phase = 'listen' | 'result'
@@ -71,6 +74,14 @@ export default function ListeningPracticeTab({
   const hasAutoAdvancedRef = useRef(false)
 
   const { burstId, onCorrect, clearFireworks } = useStudyAnswerFeedback()
+  const plan = useLiveQuery(
+    () => db.settings.get('plan').then(s => (s?.value as Plan) ?? 'free'),
+    [],
+  ) ?? 'free'
+  const maxPlays = listeningPracticeMaxPlays(plan)
+  const [playCounts, setPlayCounts] = useState<Record<string, number>>({})
+  const [chunkIdx, setChunkIdx] = useState(0)
+  const [hint, setHint] = useState<string | null>(null)
 
   const {
     playing,
@@ -79,10 +90,16 @@ export default function ListeningPracticeTab({
     timeLabel,
     speed,
     toggleSpeed,
+    setPlaybackSpeed,
     playTts,
     seekToPct,
     stopPlayback,
   } = useListeningPlayback()
+
+  const usedPlays = playCounts[sentence.id] ?? 0
+  const playBlocked = maxPlays != null && usedPlays >= maxPlays
+  const playsLabel = playsLeftLabel(usedPlays, maxPlays)
+  const chunks = useMemo(() => splitIntoListenChunks(sentence.text), [sentence.text])
 
   const clozeMax = useMemo(
     () => getClozeEligibleCount(splitWords(sentence.text)),
@@ -117,6 +134,8 @@ export default function ListeningPracticeTab({
     setBlankCanCheck(false)
     setComparison([])
     setPct(0)
+    setChunkIdx(0)
+    setHint(null)
     clearAutoAdvance()
     stopRef.current()
   }, [sentence.id, sentenceIndex, clearAutoAdvance])
@@ -233,8 +252,34 @@ export default function ListeningPracticeTab({
     clearAutoAdvance,
   ])
 
+  function recordPlay() {
+    setPlayCounts(prev => ({ ...prev, [sentence.id]: (prev[sentence.id] ?? 0) + 1 }))
+  }
+
   function playAudio() {
+    if (playBlocked) {
+      setHint('Hết lượt nghe câu này. Thử 0.5x / chunk lần sau, hoặc nâng Pro không giới hạn.')
+      return
+    }
+    recordPlay()
+    setHint(null)
+    if (maxPlays != null && usedPlays + 1 >= maxPlays - 1) {
+      setHint('Gần hết lượt — nên nghe chậm (0.5x) hoặc «Nghe chunk».')
+    }
     void playTts(sentence.text, speed)
+  }
+
+  function playChunk() {
+    if (playBlocked) {
+      setHint('Hết lượt nghe câu này.')
+      return
+    }
+    if (!chunks.length) return
+    recordPlay()
+    const i = chunkIdx % chunks.length
+    setChunkIdx(i + 1)
+    setHint(`Chunk ${i + 1}/${chunks.length} · bấm lại để chunk tiếp`)
+    void playTts(chunks[i], speed === 1 ? 0.75 : speed)
   }
 
   function incClozeCount() {
@@ -298,11 +343,28 @@ export default function ListeningPracticeTab({
           progressPct={progressPct}
           timeLabel={timeLabel}
           speed={speed}
+          playsLeftLabel={playsLabel}
+          playBlocked={playBlocked}
           onIndexChange={onIndexChange}
           onPlay={playAudio}
           onSeek={seekToPct}
           onToggleSpeed={toggleSpeed}
+          onSetSpeed={setPlaybackSpeed}
+          onPlayChunk={playChunk}
         />
+      )}
+
+      {hint && (
+        <p
+          className="mb-4 text-xs leading-relaxed rounded-lg px-3 py-2"
+          style={{
+            background: 'color-mix(in srgb, var(--color-primary) 10%, var(--bg-secondary))',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border-color)',
+          }}
+        >
+          {hint}
+        </p>
       )}
 
       {showInputBlock && (

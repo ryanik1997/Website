@@ -347,7 +347,10 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
       if (!VALID_GROUP_TYPES.includes(group.type)) {
         warnings.push(`Part ${part.partNumber} — ${group.range}: type "${group.type}" không hợp lệ.`)
       }
-      if (group.noteTable?.headers?.length) {
+      // Summary / notes — không cảnh báo thiếu noteTable
+      const isSummaryOrNotes = /complete the summary|summary below|complete the notes|notes below|complete the sentences/i
+        .test(group.instruction ?? '')
+      if (group.noteTable?.headers?.length && !isSummaryOrNotes) {
         const gapNums = group.questions
           .filter(q => q.type === 'gap-fill')
           .map(q => q.number)
@@ -363,9 +366,10 @@ export function validateReadingManualImport(payload: ReadingImportPayload): stri
         && group.questions.some(q => q.type === 'gap-fill' && /^gap\s*\(/i.test(q.prompt))
         && !group.notePassage?.length
         && !group.note?.includes('________')
+        && /complete the table|table below/i.test(group.instruction ?? '')
       ) {
         warnings.push(
-          `Part ${part.partNumber} — ${group.range}: gap-fill cần noteTable (bảng n cột) hoặc note/notePassage inline.`,
+          `Part ${part.partNumber} — ${group.range}: table-completion cần noteTable (bảng n cột).`,
         )
       }
       if (group.type === 'matching-headings') {

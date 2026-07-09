@@ -1,15 +1,23 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Bell, Loader2, Menu, Wifi } from 'lucide-react'
+import { Bell, Loader2, Wifi } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
+import ExamFontControls from '../ExamFontControls'
+import { useReadingFontSettings } from '../useReadingFontSettings'
 import ReadingSubmittedScreen from '../ReadingSubmittedScreen'
 import { patchFullMockSession } from '../fullMockSession'
 import { readingExamBackPath } from '../examNavigation'
 import { getExamQuestions, getPartQuestions, isCpeReadingWritingExam, type ReadingExam } from '../examData'
+import { buildReadingReviewStatusMap, type ExamReviewStatus } from '../examReviewUtils'
+import ExamReviewAiPanel from '../ExamReviewAiPanel'
+import { useExamReviewAi } from '../useExamReviewAi'
+import { useReviewEvidenceHighlights } from '../useReviewEvidenceHighlights'
+import { buildCambridgeRwEvidenceBlocks } from '../buildCambridgeRwEvidenceBlocks'
 import { resolveReadingExam } from '../examLoader'
 import { clearReadingDraft } from '../examCompletion'
 import { notifyExamDraftRevision } from '../useExamDraftRevision'
+import { useExamDraftGate } from '../useExamDraftGate'
 import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
 import KetRwFooter from '../ketRw/KetRwFooter'
@@ -39,11 +47,22 @@ export default function ReadingCpeRwTest() {
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
+  const {
+    fontSize,
+    setFontSize,
+    fontFamilyId,
+    setFontFamilyId,
+    fontPanelOpen,
+    setFontPanelOpen,
+    fontStyle,
+  } = useReadingFontSettings()
 
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
   const currentPart = exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+  const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const {
     highlights,
     notes,
@@ -63,6 +82,7 @@ export default function ReadingCpeRwTest() {
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      markHydrated()
       return
     }
     try {
@@ -80,6 +100,7 @@ export default function ReadingCpeRwTest() {
           : initialExamTimerSeconds(readingExamDurationMinutes(exam)),
       )
       setSubmitted(Boolean(saved.submitted))
+      setReviewMode(false)
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
       setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
       setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
@@ -89,7 +110,8 @@ export default function ReadingCpeRwTest() {
       setPartIndex(0)
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
-  }, [exam, setAnnotationsByPart, storageKey])
+    markHydrated()
+  }, [exam, setAnnotationsByPart, storageKey, markHydrated])
 
   useEffect(() => {
     if (!exam || !currentPart) return
@@ -101,6 +123,8 @@ export default function ReadingCpeRwTest() {
 
   useEffect(() => {
     if (!exam) return
+    if (!isHydrated) return
+    try {
     window.localStorage.setItem(storageKey, JSON.stringify(
       rwDraftWithAnnotations({
         answers,
@@ -111,26 +135,30 @@ export default function ReadingCpeRwTest() {
       }, highlightsByPart, notesByPart),
     ))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, exam, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft])
+    } catch {
+      /* quota */
+    }
+  }, [activeQuestionId, answers, exam, highlightsByPart, isHydrated, notesByPart, partIndex, storageKey, submitted, timeLeft])
 
   useEffect(() => {
-    if (!exam || submitted) return
+    if (!exam || submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
     }
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
-  }, [exam, submitted, timeLeft])
+  }, [exam, reviewMode, submitted, timeLeft])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
   }, [])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
+    if (reviewMode) return
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
-  }, [])
+  }, [reviewMode])
 
   const goToPart = useCallback((index: number) => {
     if (!exam || index < 0 || index >= exam.parts.length) return
@@ -168,6 +196,7 @@ export default function ReadingCpeRwTest() {
   const handleSubmit = useCallback(() => {
     setConfirmSubmit(false)
     setSubmitted(true)
+    setReviewMode(false)
   }, [])
 
   const handleRetry = useCallback(() => {
@@ -179,10 +208,43 @@ export default function ReadingCpeRwTest() {
     setPartIndex(0)
     setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     setSubmitted(false)
+    setReviewMode(false)
     if (fullMockId) patchFullMockSession({ stage: 'reading', reading: undefined })
   }, [clearAllHighlights, exam, fullMockId])
 
-  if (exam === undefined) {
+  const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
+    if (!exam || !reviewMode) return {}
+    return buildReadingReviewStatusMap(exam, answers)
+  }, [answers, exam, reviewMode])
+
+  const getQuestionReviewStatus = useCallback((questionId: string): ExamReviewStatus | null => {
+    if (!reviewMode) return null
+    return reviewStatusMap[questionId] ?? null
+  }, [reviewMode, reviewStatusMap])
+
+  const { aiText: reviewAiText, hideAi: hideReviewAi, evidences: reviewAiEvidences } = useExamReviewAi(
+    exam?.id,
+    'reading',
+    reviewMode,
+  )
+  const reviewActiveQuestionNumber = useMemo(() => {
+    if (!reviewMode || !activeQuestionId) return null
+    return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
+  }, [activeQuestionId, allQuestions, reviewMode])
+
+  const evidenceBlocks = useMemo(
+    () => buildCambridgeRwEvidenceBlocks(currentPart),
+    [currentPart],
+  )
+  const displayHighlights = useReviewEvidenceHighlights(
+    reviewMode,
+    reviewAiEvidences,
+    reviewActiveQuestionNumber,
+    evidenceBlocks,
+    highlights,
+  )
+
+    if (exam === undefined) {
     return (
       <div className="flex h-full items-center justify-center">
         <Loader2 size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
@@ -198,19 +260,37 @@ export default function ReadingCpeRwTest() {
     )
   }
 
-  if (submitted) {
+  if (submitted && !reviewMode) {
     return (
       <ReadingSubmittedScreen
         exam={exam}
         answers={answers}
         fullMockId={fullMockId}
         onRetry={handleRetry}
+        onReviewWithPaper={() => {
+          setReviewMode(true)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }}
       />
     )
   }
 
   return (
-    <div className="ket-rw-shell cpe-rw-shell">
+    <div className={`ket-rw-shell cpe-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
+      {reviewMode && (
+        <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
+          <span>Chế độ xem lại đề — đáp án đã khóa</span>
+          <button type="button" className="rounded-full px-3 py-1.5 text-xs font-bold" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }} onClick={() => setReviewMode(false)}>Về báo cáo</button>
+        </div>
+      )}
+      {reviewMode && reviewAiText && (
+        <ExamReviewAiPanel
+          aiText={reviewAiText}
+          activeQuestionNumber={reviewActiveQuestionNumber}
+          onClose={hideReviewAi}
+        />
+      )}
       <header className="ket-rw-header">
         <div className="ket-rw-header__brand">
           <span className="ket-rw-header__shield" aria-hidden>CE</span>
@@ -218,16 +298,22 @@ export default function ReadingCpeRwTest() {
         </div>
         <span className="ket-rw-header__candidate">Candidate ID</span>
         <div className="ket-rw-header__actions">
-          <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} />
+          {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
           <button type="button" className="ket-rw-icon-btn" aria-label="Connection">
             <Wifi size={16} />
           </button>
           <button type="button" className="ket-rw-icon-btn" aria-label="Notifications">
             <Bell size={16} />
           </button>
-          <button type="button" className="ket-rw-icon-btn" aria-label="Menu">
-            <Menu size={16} />
-          </button>
+          <ExamFontControls
+            open={fontPanelOpen}
+            fontSize={fontSize}
+            fontFamilyId={fontFamilyId}
+            onToggle={() => setFontPanelOpen(v => !v)}
+            onClose={() => setFontPanelOpen(false)}
+            onFontSizeChange={setFontSize}
+            onFontFamilyChange={setFontFamilyId}
+          />
           <button
             type="button"
             className="ket-rw-submit"
@@ -241,9 +327,9 @@ export default function ReadingCpeRwTest() {
 
       <RwExamMain
         partId={currentPart?.id}
-        highlights={highlights}
+        highlights={displayHighlights}
         notes={notes}
-        onHighlightsChange={handleHighlightsChange}
+        onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
         onNotesChange={handleNotesChange}
       >
         {currentPart && (
@@ -254,6 +340,8 @@ export default function ReadingCpeRwTest() {
             activeQuestionId={activeQuestionId}
             onSelectQuestion={handleSelectQuestion}
             onAnswer={handleAnswer}
+            reviewMode={reviewMode}
+            reviewStatusMap={reviewStatusMap}
           />
         )}
       </RwExamMain>
@@ -267,7 +355,10 @@ export default function ReadingCpeRwTest() {
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
         onAdjacentQuestion={goAdjacentQuestion}
-        onExit={handleExit}
+        onExit={reviewMode ? () => setReviewMode(false) : handleExit}
+        reviewMode={reviewMode}
+        getQuestionReviewStatus={getQuestionReviewStatus}
+        exitLabel={reviewMode ? 'Về báo cáo' : undefined}
       />
 
       {confirmSubmit && (

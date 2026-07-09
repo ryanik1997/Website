@@ -39,6 +39,10 @@ function groupTableCellLines(cell: ListeningNoteTableCellBlock[]): ListeningNote
   return lines.length ? lines : [[]]
 }
 
+import { Check } from 'lucide-react'
+import { EXAM_REVIEW_COLORS, examReviewStatus, type ExamReviewStatus } from './examReviewUtils'
+import { isListeningAnswerCorrect } from './listeningExamData'
+
 interface Props {
   partId: string
   table: ListeningNoteTable
@@ -51,6 +55,8 @@ interface Props {
   suppressInstruction?: boolean
   /** Khi section header đã hiện cùng title — tránh lặp (vd. a15 Manham). */
   suppressTitle?: boolean
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function TableGapInput({
@@ -59,15 +65,24 @@ function TableGapInput({
   isActive,
   onAnswer,
   onSelect,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   question: ListeningQuestion
   answer: string
   isActive: boolean
   onAnswer: (v: string) => void
   onSelect: () => void
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
 }) {
+  const showKey = reviewMode && reviewStatus !== 'correct' && question.answer
+  const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
   return (
-    <span className={`listening-ielts-notes__table-gap${isActive ? ' is-active' : ''}`}>
+    <span
+      className={`listening-ielts-notes__table-gap${isActive ? ' is-active' : ''}`}
+      style={border ? { outline: `2px solid ${border}`, borderRadius: 4, padding: 1 } : undefined}
+    >
       <span className="listening-ielts-notes__num">{question.number}</span>
       <input
         id={`ielts-gap-${question.id}`}
@@ -77,9 +92,16 @@ function TableGapInput({
         placeholder=""
         aria-label={`Question ${question.number}`}
         data-highlight-skip
+        readOnly={reviewMode}
         onChange={e => onAnswer(e.target.value)}
         onFocus={onSelect}
       />
+      {showKey && (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, marginLeft: 4, fontWeight: 800, color: EXAM_REVIEW_COLORS.correct.bg, fontSize: '0.75rem', whiteSpace: 'nowrap' }}>
+          <Check size={12} strokeWidth={3} />
+          {question.answer}
+        </span>
+      )}
     </span>
   )
 }
@@ -94,6 +116,8 @@ export default function ListeningIeltsNoteTable({
   onSelectQuestion,
   suppressInstruction = false,
   suppressTitle = false,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const highlights = useExamHighlights()
 
@@ -170,6 +194,11 @@ export default function ListeningIeltsNoteTable({
                                 isActive={activeQuestionId === question.id}
                                 onAnswer={v => onAnswer(question.id, v)}
                                 onSelect={() => onSelectQuestion(question.id)}
+                                reviewMode={reviewMode}
+                                reviewStatus={reviewMode
+                                  ? (reviewStatusMap?.[question.id]
+                                    ?? examReviewStatus(answers[question.id] ?? '', a => isListeningAnswerCorrect(question, a)))
+                                  : null}
                               />
                             </span>
                           )

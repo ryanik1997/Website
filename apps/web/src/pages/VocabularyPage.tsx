@@ -6,13 +6,15 @@ import CardPanel from '../features/vocab/CardPanel'
 import StudySession from '../features/vocab/StudySession'
 import DeckEditorModal from '../features/vocab/DeckEditorModal'
 import { seedPresetDecks } from '../features/vocab/vocabSeedDecks'
+import { seedExamVocabDecks } from '../features/vocab/examVocabDecks'
 
 export default function VocabularyPage() {
-  const { activeDeckId, setActiveDeck, studyMode } = useVocabStore()
+  const { activeDeckId, setActiveDeck, studyMode, startStudy } = useVocabStore()
   const [createState, setCreateState] = useState<{ open: boolean; groupId?: string }>({ open: false })
 
   useEffect(() => {
     void seedPresetDecks()
+    void seedExamVocabDecks()
   }, [])
 
   if (activeDeckId === null) {
@@ -28,14 +30,28 @@ export default function VocabularyPage() {
                 Chọn bộ từ để bắt đầu học
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setCreateState({ open: true })}
-              className="shrink-0 px-4 py-2 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
-              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-            >
-              + Tạo bộ thẻ
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={() => startStudy('notebook')}
+                className="px-4 py-2 rounded-xl text-sm font-semibold border transition-opacity hover:opacity-90"
+                style={{
+                  borderColor: 'var(--color-primary)',
+                  color: 'var(--color-primary)',
+                  background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)',
+                }}
+              >
+                Sổ ghi chú
+              </button>
+              <button
+                type="button"
+                onClick={() => setCreateState({ open: true })}
+                className="px-4 py-2 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
+                style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+              >
+                + Tạo bộ thẻ
+              </button>
+            </div>
           </div>
 
           <DeckGrid

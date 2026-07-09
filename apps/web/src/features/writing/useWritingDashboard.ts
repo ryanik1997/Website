@@ -18,16 +18,36 @@ export interface BandPoint {
   at: number
   band: number
   label: string
+  /** Số lần chấm trong ngày (trend theo ngày) */
+  count?: number
+}
+
+export interface CalendarDay {
+  dateKey: string
+  label: string
+  /** 0 = không chấm; >0 = điểm TB trong ngày */
+  avgBand: number
+  count: number
+  /** weekday 0=CN … 6=T7 (local) */
+  weekday: number
 }
 
 export interface WritingDashboardData {
   totalGradings: number
+  /** Lần chấm trong 30 ngày */
+  gradingsLast30: number
   totalDocs: number
   avgBand: number
+  avgBandLast30: number
   criteriaAvgs: CriteriaAvg[]
   weakest: CriteriaAvg | null
   strongest: CriteriaAvg | null
+  /** Xu hướng theo từng lần chấm (gần đây) */
   bandTrend: BandPoint[]
+  /** Điểm TB mỗi ngày trong 30 ngày (có gap = 0) */
+  dailyTrend30: BandPoint[]
+  /** Lưới lịch 30 ngày */
+  calendar30: CalendarDay[]
   commonErrors: RankedInsight[]
   strengths: RankedInsight[]
   errorBankItems: { title: string; count: number }[]
@@ -103,6 +123,26 @@ function getCriterionBand(score: WritingScore, key: string): number {
   return 0
 }
 
+function dayKey(ts: number): string {
+  const d = new Date(ts)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
+function buildLast30DayKeys(): string[] {
+  const keys: string[] = []
+  const d = new Date()
+  d.setHours(12, 0, 0, 0)
+  for (let i = 29; i >= 0; i--) {
+    const x = new Date(d)
+    x.setDate(d.getDate() - i)
+    keys.push(dayKey(x.getTime()))
+  }
+  return keys
+}
+
 export function useWritingDashboard(): WritingDashboardData | undefined {
   return useLiveQuery(async (): Promise<WritingDashboardData> => {
     const [history, docs, errorBankRaw] = await Promise.all([
@@ -112,18 +152,79 @@ export function useWritingDashboard(): WritingDashboardData | undefined {
     ])
     const errorBank = [...errorBankRaw].sort((a, b) => b.count - a.count)
 
-    const scores = history.map(h => parseScore(h.score)).filter((s): s is WritingScore => s !== null)
+    const emptyCalendar = (): CalendarDay[] => {
+      return buildLast30DayKeys().map(dateKey => {
+        const [y, m, day] = dateKey.split('-').map(Number)
+        const dt = new Date(y, m - 1, day, 12)
+        return {
+          dateKey,
+          label: `${String(day).padStart(2, '0')}/${String(m).padStart(2, '0')}`,
+          avgBand: 0,
+          count: 0,
+          weekday: dt.getDay(),
+        }
+      })
+    }
+
+    const paired = history
+      .map(h => ({ h, score: parseScore(h.score) }))
+      .filter((x): x is { h: typeof history[0]; score: WritingScore } => x.score !== null)
+
+    const scores = paired.map(p => p.score)
     const totalGradings = scores.length
+
+    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000
+    const last30 = paired.filter(p => p.h.at >= cutoff)
+    const scores30 = last30.map(p => p.score)
+    const gradingsLast30 = scores30.length
+
+    const dayKeys = buildLast30DayKeys()
+    const byDay = new Map<string, number[]>()
+    for (const p of last30) {
+      const k = dayKey(p.h.at)
+      const arr = byDay.get(k) ?? []
+      arr.push(overallFromScore(p.score))
+      byDay.set(k, arr)
+    }
+
+    const calendar30: CalendarDay[] = dayKeys.map(dateKey => {
+      const bands = byDay.get(dateKey) ?? []
+      const [y, m, day] = dateKey.split('-').map(Number)
+      const dt = new Date(y, m - 1, day, 12)
+      const avg = bands.length
+        ? Math.round((bands.reduce((a, b) => a + b, 0) / bands.length) * 10) / 10
+        : 0
+      return {
+        dateKey,
+        label: `${String(day).padStart(2, '0')}/${String(m).padStart(2, '0')}`,
+        avgBand: avg,
+        count: bands.length,
+        weekday: dt.getDay(),
+      }
+    })
+
+    const dailyTrend30: BandPoint[] = calendar30
+      .filter(d => d.count > 0)
+      .map(d => ({
+        at: new Date(d.dateKey + 'T12:00:00').getTime(),
+        band: d.avgBand,
+        label: d.label,
+        count: d.count,
+      }))
 
     if (totalGradings === 0) {
       return {
         totalGradings: 0,
+        gradingsLast30: 0,
         totalDocs: docs,
         avgBand: 0,
+        avgBandLast30: 0,
         criteriaAvgs: IELTS_CRITERIA.map(c => ({ ...c })),
         weakest: null,
         strongest: null,
         bandTrend: [],
+        dailyTrend30: [],
+        calendar30: emptyCalendar(),
         commonErrors: [],
         strengths: [],
         errorBankItems: errorBank.map(e => ({ title: e.title, count: e.count })),
@@ -133,6 +234,11 @@ export function useWritingDashboard(): WritingDashboardData | undefined {
     const avgBand = Math.round(
       (scores.reduce((a, s) => a + overallFromScore(s), 0) / totalGradings) * 10,
     ) / 10
+    const avgBandLast30 = gradingsLast30
+      ? Math.round(
+        (scores30.reduce((a, s) => a + overallFromScore(s), 0) / gradingsLast30) * 10,
+      ) / 10
+      : 0
 
     const criteriaAvgs = criteriaForScores(scores).map(c => {
       const sum = scores.reduce((a, s) => a + getCriterionBand(s, c.key), 0)
@@ -147,7 +253,7 @@ export function useWritingDashboard(): WritingDashboardData | undefined {
     const allStrengths = scores.flatMap(s => s.strengths ?? [])
 
     const bandTrend: BandPoint[] = history
-      .slice(0, 12)
+      .slice(0, 16)
       .reverse()
       .map(h => {
         const s = parseScore(h.score)
@@ -161,12 +267,16 @@ export function useWritingDashboard(): WritingDashboardData | undefined {
 
     return {
       totalGradings,
+      gradingsLast30,
       totalDocs: docs,
       avgBand,
+      avgBandLast30,
       criteriaAvgs,
       weakest,
       strongest,
       bandTrend,
+      dailyTrend30,
+      calendar30,
       commonErrors: rankItems(allImprovements),
       strengths: rankItems(allStrengths),
       errorBankItems: errorBank.map(e => ({ title: e.title, count: e.count })),

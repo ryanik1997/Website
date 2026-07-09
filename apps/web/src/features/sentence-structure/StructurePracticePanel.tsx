@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Check, RefreshCw } from 'lucide-react'
-import { sentenceStructureRepo } from '@ryan/db'
+import { Check, Loader2, RefreshCw, Sparkles } from 'lucide-react'
+import { canUse, type AIProvider, type Plan } from '@ryan/core'
+import { sentenceStructureRepo, writingRepo } from '@ryan/db'
+import AiSettingsModal from '../writing/AiSettingsModal'
 import {
   fillTemplate,
   parseTemplate,
   phrasesMatch,
 } from './types'
+import {
+  gradeStructureWithAi,
+  type StructureAiGradeResult,
+} from './structureAiGrade'
 
 interface Props {
   structureId: string
@@ -25,6 +31,11 @@ export default function StructurePracticePanel({ structureId }: Props) {
   const [matchA, setMatchA] = useState(false)
   const [matchB, setMatchB] = useState(false)
 
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState<string | null>(null)
+  const [aiGrade, setAiGrade] = useState<StructureAiGradeResult | null>(null)
+  const [showAiSettings, setShowAiSettings] = useState(false)
+
   useEffect(() => {
     setInputA('')
     setInputB('')
@@ -32,13 +43,21 @@ export default function StructurePracticePanel({ structureId }: Props) {
     setMatchB(false)
     setFlipped(false)
     setChecked(false)
+    setAiGrade(null)
+    setAiError(null)
+    setAiLoading(false)
   }, [structureId])
 
   if (!item) return null
 
-  const displayA = flipped || checked ? (flipped ? item.exampleA : inputA) : inputA
-  const displayB = flipped || checked ? (flipped ? item.exampleB : inputB) : inputB
+  const displayA = flipped || checked || aiGrade ? (flipped ? item.exampleA : inputA) : inputA
+  const displayB = flipped || checked || aiGrade ? (flipped ? item.exampleB : inputB) : inputB
   const parts = parseTemplate(item.template)
+
+  function clearAi() {
+    setAiGrade(null)
+    setAiError(null)
+  }
 
   function handleCheck() {
     if (!inputA.trim() || !inputB.trim()) return
@@ -48,6 +67,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
     setMatchB(okB)
     setChecked(true)
     setFlipped(false)
+    clearAi()
   }
 
   function handleFlip() {
@@ -55,6 +75,45 @@ export default function StructurePracticePanel({ structureId }: Props) {
     setChecked(false)
     setMatchA(false)
     setMatchB(false)
+    clearAi()
+  }
+
+  async function handleAiGrade() {
+    if (!inputA.trim() || !inputB.trim() || aiLoading) return
+
+    const provider = ((await writingRepo.getSetting('ai_provider')) as AIProvider) ?? 'openai'
+    const apiKey = String((await writingRepo.getSetting(`ai_key_${provider}`)) ?? '').trim()
+    if (!apiKey) {
+      setShowAiSettings(true)
+      return
+    }
+
+    const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
+    if (!canUse(plan, 'writing_ai')) {
+      setAiError('Chấm AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
+      return
+    }
+
+    setAiLoading(true)
+    setAiError(null)
+    setAiGrade(null)
+    setChecked(false)
+    setFlipped(false)
+    try {
+      const { result, tokens } = await gradeStructureWithAi(
+        item!,
+        inputA,
+        inputB,
+        apiKey,
+        provider,
+      )
+      setAiGrade(result)
+      await writingRepo.recordUsage('structure_ai', tokens)
+    } catch (e) {
+      setAiError(e instanceof Error ? e.message.slice(0, 220) : 'Không chấm được. Thử lại.')
+    } finally {
+      setAiLoading(false)
+    }
   }
 
   const built = fillTemplate(
@@ -62,6 +121,8 @@ export default function StructurePracticePanel({ structureId }: Props) {
     flipped ? item.exampleA : inputA,
     flipped ? item.exampleB : inputB,
   )
+
+  const showSlotsFilled = flipped || checked || Boolean(aiGrade)
 
   return (
     <div className="ss-main ss-main--solo">
@@ -79,7 +140,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
               return <span key={i}>{part.value}</span>
             }
             const val = part.key === 'A' ? displayA : displayB
-            const showVal = (flipped || checked) && val.trim()
+            const showVal = showSlotsFilled && val.trim()
             return (
               <span
                 key={i}
@@ -102,7 +163,11 @@ export default function StructurePracticePanel({ structureId }: Props) {
               <input
                 type="text"
                 value={inputA}
-                onChange={e => { setInputA(e.target.value); setChecked(false) }}
+                onChange={e => {
+                  setInputA(e.target.value)
+                  setChecked(false)
+                  clearAi()
+                }}
                 placeholder="Nhập câu / cụm từ tiếng Anh cho ô A..."
                 onKeyDown={e => e.key === 'Enter' && handleCheck()}
               />
@@ -112,7 +177,11 @@ export default function StructurePracticePanel({ structureId }: Props) {
               <input
                 type="text"
                 value={inputB}
-                onChange={e => { setInputB(e.target.value); setChecked(false) }}
+                onChange={e => {
+                  setInputB(e.target.value)
+                  setChecked(false)
+                  clearAi()
+                }}
                 placeholder="Nhập câu / cụm từ tiếng Anh cho ô B..."
                 onKeyDown={e => e.key === 'Enter' && handleCheck()}
               />
@@ -124,29 +193,89 @@ export default function StructurePracticePanel({ structureId }: Props) {
               <RefreshCw size={15} />
               Lật thẻ
             </button>
-            <button
-              type="button"
-              className="ss-check-btn"
-              disabled={!inputA.trim() || !inputB.trim()}
-              onClick={handleCheck}
-            >
-              <Check size={16} />
-              Kiểm tra
-            </button>
+            <div className="ss-actions-right">
+              <button
+                type="button"
+                className="ss-check-btn ss-check-btn--ghost"
+                disabled={!inputA.trim() || !inputB.trim()}
+                onClick={handleCheck}
+                title="So khớp đúng mẫu A/B"
+              >
+                <Check size={16} />
+                Kiểm tra mẫu
+              </button>
+              <button
+                type="button"
+                className="ss-check-btn ss-check-btn--ai"
+                disabled={!inputA.trim() || !inputB.trim() || aiLoading}
+                onClick={() => void handleAiGrade()}
+                title="AI chấm theo cấu trúc (chấp nhận paraphrase)"
+              >
+                {aiLoading ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
+                {aiLoading ? 'Đang chấm…' : 'AI chấm điểm'}
+              </button>
+            </div>
           </div>
 
           {checked && (
             <div className={`ss-result${matchA && matchB ? ' ss-result--ok' : ' ss-result--hint'}`}>
               <p style={{ margin: '0 0 0.35rem', fontWeight: 700 }}>
-                {matchA && matchB ? '✓ Xuất sắc!' : 'Câu của bạn:'}
+                {matchA && matchB ? '✓ Khớp đúng mẫu!' : 'So với mẫu:'}
               </p>
               <p style={{ margin: 0, fontStyle: 'italic' }}>&ldquo;{built}&rdquo;</p>
               {!(matchA && matchB) && (
                 <p style={{ margin: '0.5rem 0 0', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                   Gợi ý: A = &ldquo;{item.exampleA}&rdquo; · B = &ldquo;{item.exampleB}&rdquo;
                   {!matchA && !matchB ? '' : !matchA ? ' (ô A chưa khớp)' : ' (ô B chưa khớp)'}
+                  {' · '}Dùng <strong>AI chấm điểm</strong> nếu bạn viết paraphrase khác mẫu.
                 </p>
               )}
+            </div>
+          )}
+
+          {aiError && (
+            <div className="ss-result ss-result--hint">
+              <p style={{ margin: 0, color: 'var(--color-accent)', fontWeight: 600 }}>{aiError}</p>
+            </div>
+          )}
+
+          {aiGrade && (
+            <div className={`ss-ai-grade${aiGrade.pass ? ' is-pass' : ' is-fail'}`}>
+              <div className="ss-ai-grade__head">
+                <span className="ss-ai-grade__badge">
+                  <Sparkles size={14} />
+                  AI chấm điểm
+                </span>
+                <span className={`ss-ai-grade__score${aiGrade.pass ? ' is-ok' : ''}`}>
+                  {aiGrade.score.toFixed(aiGrade.score % 1 === 0 ? 0 : 1)}
+                  <small>/10</small>
+                </span>
+                <span className={`ss-ai-grade__pass${aiGrade.pass ? ' is-ok' : ''}`}>
+                  {aiGrade.pass ? 'Đạt' : 'Chưa đạt'}
+                </span>
+              </div>
+              <p className="ss-ai-grade__sentence">&ldquo;{built}&rdquo;</p>
+              <p className="ss-ai-grade__feedback">{aiGrade.feedbackVi}</p>
+              {aiGrade.suggestion && (
+                <p className="ss-ai-grade__tip">
+                  <strong>Gợi ý:</strong> {aiGrade.suggestion}
+                </p>
+              )}
+              {aiGrade.improvedSentence && (
+                <p className="ss-ai-grade__improved">
+                  <strong>Câu gợi ý:</strong> {aiGrade.improvedSentence}
+                </p>
+              )}
+              <button
+                type="button"
+                className="ss-flip-btn"
+                style={{ marginTop: '0.65rem' }}
+                disabled={aiLoading}
+                onClick={() => void handleAiGrade()}
+              >
+                <RefreshCw size={14} />
+                Chấm lại
+              </button>
             </div>
           )}
         </>
@@ -160,6 +289,8 @@ export default function StructurePracticePanel({ structureId }: Props) {
           </button>
         </div>
       )}
+
+      {showAiSettings && <AiSettingsModal onClose={() => setShowAiSettings(false)} />}
     </div>
   )
 }

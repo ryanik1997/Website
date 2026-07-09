@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { HelpCircle, RotateCcw } from 'lucide-react'
+import { nextSrs } from '@ryan/core'
 import { db } from '@ryan/db'
 import type { Card } from '@ryan/db'
 import StudyDoneActions from '../study/StudyDoneActions'
@@ -65,7 +66,15 @@ export default function QuizMode({ deckId, onDone }: { deckId: string; onDone: (
     } else {
       onWrong()
     }
-    db.reviewLog.add({ cardId: questions[idx].card.id, rating: ok ? 3 : 1, mode: 'quiz', at: Date.now() })
+    const cardId = questions[idx].card.id
+    void (async () => {
+      const srs = await db.srs.get(cardId)
+      if (srs) {
+        const next = nextSrs(srs, ok ? 3 : 1)
+        await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId })
+      }
+      await db.reviewLog.add({ cardId, rating: ok ? 3 : 1, mode: 'quiz', at: Date.now() })
+    })()
   }, [selected, questions, idx, onCorrect, onWrong])
 
   useEffect(() => {

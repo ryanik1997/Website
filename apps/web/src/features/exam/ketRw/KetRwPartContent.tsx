@@ -1,6 +1,11 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
-import { countWords, getPartQuestions } from '../examData'
+import { countWords, getPartQuestions, isReadingAnswerCorrect } from '../examData'
+import {
+  EXAM_REVIEW_COLORS,
+  examReviewStatus,
+  type ExamReviewStatus,
+} from '../examReviewUtils'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
@@ -15,6 +20,8 @@ interface Props {
   activeQuestionId: string | null
   onSelectQuestion: (id: string) => void
   onAnswer: (id: string, value: string) => void
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl?: string; alt: string }) {
@@ -30,6 +37,8 @@ function InlineMcGap({
   open,
   onToggle,
   onSelect,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   number: number
   question?: ReadingQuestion
@@ -37,20 +46,35 @@ function InlineMcGap({
   open: boolean
   onToggle: () => void
   onSelect: (optionId: string) => void
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
 }) {
   const selectedLabel = question?.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label
+  const keyLabel = question?.options.find(o => o.id.toLowerCase() === String(question.answer).toLowerCase())?.label
+  const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
   return (
-    <span className="ket-rw-gap-mc">
+    <span
+      className="ket-rw-gap-mc"
+      style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
+    >
       <button
         type="button"
         className={`ket-rw-gap-mc__btn${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
         data-highlight-skip
-        onClick={onToggle}
+        onClick={() => {
+          if (reviewMode) return
+          onToggle()
+        }}
       >
         <span>{number}</span>
         {selectedLabel && <span className="ket-rw-gap-mc__value">{selectedLabel}</span>}
+        {reviewMode && reviewStatus === 'wrong' && keyLabel && (
+          <span className="ket-rw-gap-mc__value" style={{ color: EXAM_REVIEW_COLORS.correct.bg }}>
+            → {keyLabel}
+          </span>
+        )}
       </button>
-      {open && question && (
+      {open && question && !reviewMode && (
         <div className="ket-rw-gap-mc__menu" role="listbox">
           {question.options.map(opt => (
             <button
@@ -73,13 +97,23 @@ function InlineGapText({
   number,
   value,
   onChange,
+  reviewMode = false,
+  reviewStatus = null,
+  correctAnswer,
 }: {
   number: number
   value: string
   onChange: (v: string) => void
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
+  correctAnswer?: string
 }) {
+  const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
   return (
-    <span className="ket-rw-gap-text">
+    <span
+      className="ket-rw-gap-text"
+      style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
+    >
       <span className="ket-rw-gap-text__num">{number}</span>
       <input
         type="text"
@@ -87,10 +121,16 @@ function InlineGapText({
         aria-label={`Gap ${number}`}
         data-highlight-skip
         value={value}
+        readOnly={reviewMode}
         onChange={e => onChange(e.target.value)}
         autoComplete="off"
         spellCheck={false}
       />
+      {reviewMode && reviewStatus === 'wrong' && correctAnswer && (
+        <span style={{ marginLeft: 4, fontSize: '0.75rem', fontWeight: 700, color: EXAM_REVIEW_COLORS.correct.bg }}>
+          → {correctAnswer}
+        </span>
+      )}
     </span>
   )
 }
@@ -106,6 +146,8 @@ function renderGapPassage(
   setOpenGap: (n: number | null) => void,
   onAnswer: (id: string, value: string) => void,
   onSelectQuestion: (id: string) => void,
+  reviewMode = false,
+  reviewStatusMap?: Record<string, ExamReviewStatus>,
 ) {
   const gapNums = questions.map(q => q.number)
   const prepared = ensureGapDots(text, gapNums)
@@ -126,6 +168,10 @@ function renderGapPassage(
         const q = questionByNumber(questions, seg.number)
         if (!q) return <span key={`g-${i}`}>({seg.number})</span>
         const ans = answers[q.id] ?? ''
+        const st = reviewMode
+          ? (reviewStatusMap?.[q.id]
+            ?? examReviewStatus(ans, a => isReadingAnswerCorrect(q, a)))
+          : null
         if (mode === 'mc') {
           return (
             <InlineMcGap
@@ -134,6 +180,8 @@ function renderGapPassage(
               question={q}
               value={ans}
               open={openGap === seg.number}
+              reviewMode={reviewMode}
+              reviewStatus={st}
               onToggle={() => {
                 onSelectQuestion(q.id)
                 setOpenGap(openGap === seg.number ? null : seg.number)
@@ -150,6 +198,9 @@ function renderGapPassage(
             key={`g-${seg.number}`}
             number={seg.number}
             value={ans}
+            reviewMode={reviewMode}
+            reviewStatus={st}
+            correctAnswer={q.answer}
             onChange={v => {
               onSelectQuestion(q.id)
               onAnswer(q.id, v)
@@ -167,6 +218,8 @@ export default function KetRwPartContent({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
   const partId = part.id
@@ -206,14 +259,14 @@ export default function KetRwPartContent({
     if (part.partNumber === 4) {
       return (
         <div key={`p4-${idx}`}>
-          {renderGapPassage(partId, `p4-${idx}`, block.text, questions, answers, 'mc', openGap, setOpenGap, onAnswer, onSelectQuestion)}
+          {renderGapPassage(partId, `p4-${idx}`, block.text, questions, answers, 'mc', openGap, setOpenGap, onAnswer, onSelectQuestion, reviewMode, reviewStatusMap)}
         </div>
       )
     }
     if (part.partNumber === 5) {
       return (
         <div key={`p5-${idx}`}>
-          {renderGapPassage(partId, `p5-${idx}`, block.text, questions, answers, 'input', openGap, setOpenGap, onAnswer, onSelectQuestion)}
+          {renderGapPassage(partId, `p5-${idx}`, block.text, questions, answers, 'input', openGap, setOpenGap, onAnswer, onSelectQuestion, reviewMode, reviewStatusMap)}
         </div>
       )
     }
@@ -259,6 +312,8 @@ export default function KetRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[activeQuestion.id]}
             />
           </div>
         </div>
@@ -376,6 +431,8 @@ export default function KetRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[q.id]}
             />
           ))}
         />
@@ -436,6 +493,8 @@ export default function KetRwPartContent({
                           setOpenGap,
                           onAnswer,
                           onSelectQuestion,
+                          reviewMode,
+                          reviewStatusMap,
                         )}
                       </div>
                     ))}

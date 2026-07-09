@@ -86,7 +86,7 @@ export default function App() {
           </Route>
           <Route path="exam">
             <Route index element={<ExamHome />} />
-            <Route path="track/:trackId/:level?" element={<ExamTrackPage />} />
+            <Route path="track/:trackId/:arg2?/:arg3?" element={<ExamTrackPage />} />
             <Route path="full/:mockId" element={<FullMockIntro />} />
             <Route path="full/:mockId/summary" element={<FullMockSummary />} />
             <Route path="reading/:examId" element={<ReadingTest />} />

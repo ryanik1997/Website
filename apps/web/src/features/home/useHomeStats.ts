@@ -11,9 +11,15 @@ function dateKey(date = new Date()): string {
   return `${year}-${month}-${day}`
 }
 
+/** Real study only — not check-in attendance */
+const STUDY_MODES = new Set([
+  'srs', 'quiz', 'type', 'listen', 'speak', 'translation',
+])
+
 function calcStreak(logs: ReviewLog[]): number {
-  if (!logs.length) return 0
-  const days = new Set(logs.map(l => dateKey(new Date(l.at))))
+  const studyLogs = logs.filter(l => STUDY_MODES.has(l.mode))
+  if (!studyLogs.length) return 0
+  const days = new Set(studyLogs.map(l => dateKey(new Date(l.at))))
   let streak = 0
   const cursor = new Date()
   cursor.setHours(0, 0, 0, 0)
@@ -23,6 +29,7 @@ function calcStreak(logs: ReviewLog[]): number {
       streak++
       cursor.setDate(cursor.getDate() - 1)
     } else if (i === 0) {
+      // allow "not yet studied today" — continue from yesterday
       cursor.setDate(cursor.getDate() - 1)
     } else {
       break

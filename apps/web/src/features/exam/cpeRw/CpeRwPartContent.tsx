@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
+import type { ExamReviewStatus } from '../examReviewUtils'
 import { countWords, getPartQuestions } from '../examData'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
@@ -23,6 +24,8 @@ interface Props {
   activeQuestionId: string | null
   onSelectQuestion: (id: string) => void
   onAnswer: (id: string, value: string) => void
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl?: string; alt: string }) {
@@ -220,7 +223,15 @@ function usesCaeShell(partNumber: number): boolean {
 }
 
 export default function CpeRwPartContent(props: Props) {
-  const { part, answers, activeQuestionId, onSelectQuestion, onAnswer } = props
+  const {
+    part,
+    answers,
+    activeQuestionId,
+    onSelectQuestion,
+    onAnswer,
+    reviewMode = false,
+    reviewStatusMap,
+  } = props
   const questions = useMemo(() => getPartQuestions(part), [part])
   const partId = part.id
   const group = part.questionGroups[0]
@@ -408,6 +419,8 @@ export default function CpeRwPartContent(props: Props) {
                   answers={answers}
                   onSelectQuestion={onSelectQuestion}
                   onAnswer={onAnswer}
+                  reviewMode={reviewMode}
+                  reviewStatus={reviewStatusMap?.[q.id]}
                   formatOptionLabel={formatSectionLabel}
                 />
               ))}

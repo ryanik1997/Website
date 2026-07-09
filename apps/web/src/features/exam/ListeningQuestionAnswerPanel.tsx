@@ -9,6 +9,15 @@ import {
 } from './listeningPictureMc'
 import { listeningAnswerAnchorId } from './listeningScrollUtils'
 import type { ListeningQuestion } from './listeningExamData'
+import type { ExamReviewStatus } from './examReviewUtils'
+import { examReviewStatus } from './examReviewUtils'
+import { isListeningAnswerCorrect } from './listeningExamData'
+import {
+  isListeningKeyOption,
+  ListeningGapCorrectHint,
+  ListeningOptionReviewMark,
+  listeningOptionReviewStyle,
+} from './listeningReviewUi'
 
 interface Props {
   question: ListeningQuestion
@@ -16,6 +25,8 @@ interface Props {
   unsure: boolean
   onAnswer: (value: string) => void
   onUnsureChange: (value: boolean) => void
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
 }
 
 export default function ListeningQuestionAnswerPanel({
@@ -24,6 +35,8 @@ export default function ListeningQuestionAnswerPanel({
   unsure,
   onAnswer,
   onUnsureChange,
+  reviewMode = false,
+  reviewStatus = null,
 }: Props) {
   const highlights = useExamHighlights()
   const isPictureMc = question.type === 'picture-mc'
@@ -31,40 +44,69 @@ export default function ListeningQuestionAnswerPanel({
   const isMatching = question.type === 'matching'
   const isMc = !isGapFill && !isMatching && !isPictureMc
   const wordLimit = question.wordLimit ?? (isGapFill ? 3 : undefined)
+  const status = reviewMode
+    ? (reviewStatus
+      ?? examReviewStatus(answer, a => isListeningAnswerCorrect(question, a)))
+    : null
 
   return (
-    <ExamHighlightZone className="listening-exam-answer-pane" id={listeningAnswerAnchorId(question.id)}>
+    <ExamHighlightZone className={`listening-exam-answer-pane${reviewMode ? ' is-review' : ''}`} id={listeningAnswerAnchorId(question.id)}>
       <header className="listening-exam-answer-pane__head">
-        <h3 className="listening-exam-answer-pane__title">Đáp án</h3>
-        <label className="listening-exam-card__unsure">
-          <input
-            type="checkbox"
-            checked={unsure}
-            data-highlight-skip
-            onChange={e => onUnsureChange(e.target.checked)}
-          />
-          Chưa chắc chắn
-        </label>
+        <h3 className="listening-exam-answer-pane__title">
+          {reviewMode ? 'Đáp án · Xem lại' : 'Đáp án'}
+        </h3>
+        {!reviewMode && (
+          <label className="listening-exam-card__unsure">
+            <input
+              type="checkbox"
+              checked={unsure}
+              data-highlight-skip
+              onChange={e => onUnsureChange(e.target.checked)}
+            />
+            Chưa chắc chắn
+          </label>
+        )}
+        {reviewMode && status && (
+          <span
+            className={`listening-review-tag is-${status}`}
+            style={{ fontWeight: 800, fontSize: '0.8rem' }}
+          >
+            {status === 'correct' ? 'Đúng' : status === 'wrong' ? 'Sai' : 'Bỏ qua'}
+          </span>
+        )}
       </header>
 
       {isPictureMc && usesCompositePictureBoard(question) && (
         <ListeningPictureChoiceRow
           options={question.options}
           answer={answer}
-          onAnswer={onAnswer}
+          onAnswer={v => { if (!reviewMode) onAnswer(v) }}
         />
       )}
 
       {isPictureMc && usesSplitPictureOptions(question) && (
         <div className="listening-exam-card__pictures">
-          {question.options.map(option => (
-            <ListeningPictureOption
-              key={option.id}
-              option={option}
-              selected={answer === option.id}
-              onSelect={() => onAnswer(option.id)}
-            />
-          ))}
+          {question.options.map(option => {
+            const selected = answer === option.id
+            const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+            return (
+              <div key={option.id} style={{ position: 'relative' }}>
+                <ListeningPictureOption
+                  option={option}
+                  selected={selected}
+                  onSelect={() => { if (!reviewMode) onAnswer(option.id) }}
+                />
+                {reviewMode && (
+                  <div style={{ position: 'absolute', top: 6, right: 6 }}>
+                    <ListeningOptionReviewMark
+                      isKey={isKey}
+                      selectedWrong={Boolean(selected && status === 'wrong')}
+                    />
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       )}
 
@@ -72,7 +114,7 @@ export default function ListeningQuestionAnswerPanel({
         <ListeningPictureChoiceRow
           options={question.options}
           answer={answer}
-          onAnswer={onAnswer}
+          onAnswer={v => { if (!reviewMode) onAnswer(v) }}
           showLabels
         />
       )}
@@ -85,11 +127,17 @@ export default function ListeningQuestionAnswerPanel({
           <input
             id={`answer-${question.id}`}
             type="text"
-            className="listening-ielts-gap__input listening-exam-answer-pane__input"
+            className="listening-exam-answer-pane__input listening-ielts-gap__input"
             value={answer}
             placeholder={wordLimit ? `Tối đa ${wordLimit} từ` : 'Nhập đáp án'}
             data-highlight-skip
+            readOnly={reviewMode}
             onChange={e => onAnswer(e.target.value)}
+          />
+          <ListeningGapCorrectHint
+            reviewMode={reviewMode}
+            status={status}
+            correctAnswer={question.answer}
           />
         </div>
       )}
@@ -99,15 +147,19 @@ export default function ListeningQuestionAnswerPanel({
           <p className="listening-exam-answer-pane__field-label">Chọn A–H</p>
           <div className="listening-ielts-match__pills">
             {question.options.map(option => {
-              const selected = answer === option.id
+              const selected = answer.toUpperCase() === option.id.toUpperCase()
+              const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+              const selectedWrong = Boolean(reviewMode && selected && status === 'wrong')
               return (
                 <div
                   key={option.id}
                   role="button"
-                  tabIndex={0}
-                  className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}`}
-                  onClick={() => onAnswer(option.id)}
+                  tabIndex={reviewMode ? -1 : 0}
+                  style={listeningOptionReviewStyle(reviewMode, selected, isKey, status)}
+                  className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
+                  onClick={() => { if (!reviewMode) onAnswer(option.id) }}
                   onKeyDown={e => {
+                    if (reviewMode) return
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
                       onAnswer(option.id)
@@ -121,6 +173,7 @@ export default function ListeningQuestionAnswerPanel({
                     highlights={highlights}
                     as="span"
                   />
+                  <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
                 </div>
               )
             })}
@@ -131,18 +184,22 @@ export default function ListeningQuestionAnswerPanel({
       {isMc && (
         <div className="listening-exam-card__options">
           {question.options.map(option => {
-            const selected = answer === option.id
+            const selected = answer.toUpperCase() === option.id.toUpperCase()
+            const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+            const selectedWrong = Boolean(reviewMode && selected && status === 'wrong')
             return (
               <label
                 key={option.id}
-                className={`listening-exam-option${selected ? ' is-selected' : ''}`}
+                style={listeningOptionReviewStyle(reviewMode, selected, isKey, status)}
+                className={`listening-exam-option${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
               >
                 <input
                   type="radio"
                   name={question.id}
                   checked={selected}
+                  disabled={reviewMode}
                   data-highlight-skip
-                  onChange={() => onAnswer(option.id)}
+                  onChange={() => { if (!reviewMode) onAnswer(option.id) }}
                 />
                 <span className="listening-exam-option__letter" data-highlight-skip>{option.id}</span>
                 <ReadingHighlightableText
@@ -152,6 +209,7 @@ export default function ListeningQuestionAnswerPanel({
                   className="listening-exam-option__label"
                   as="span"
                 />
+                <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
               </label>
             )
           })}

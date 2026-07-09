@@ -720,3 +720,200 @@
   color: var(--wr-muted);
   font-style: italic;
 }
+
+/* ── Rewrite side-by-side ─────────────────────────────────────────────────── */
+
+.wr-rewrite-panel {
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, var(--border-color));
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-secondary));
+  padding: 0.85rem;
+}
+
+.wr-rewrite-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.wr-rewrite-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.wr-rewrite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.wr-rewrite-tab {
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.55rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.wr-rewrite-tab.is-active {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, var(--border-color));
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card));
+}
+
+.wr-rewrite-hint,
+.wr-rewrite-error,
+.wr-rewrite-summary {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.wr-rewrite-error {
+  color: var(--color-accent);
+}
+
+.wr-rewrite-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.wr-rewrite-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.wr-rewrite-cols--single {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 720px) {
+  .wr-rewrite-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wr-rewrite-col {
+  min-width: 0;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.wr-rewrite-col--v2 {
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
+}
+
+.wr-rewrite-col-label {
+  padding: 0.4rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.wr-rewrite-text {
+  margin: 0;
+  padding: 0.65rem;
+  max-height: 16rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+.wr-rewrite-col-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem 0.65rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.wr-rewrite-list {
+  margin-top: 0.65rem;
+}
+
+.wr-rewrite-list-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.wr-rewrite-list ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* ── Chart OCR ────────────────────────────────────────────────────────────── */
+
+.wr-chart-ocr {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wr-chart-ocr-body {
+  padding: 0.75rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.wr-chart-ocr-body p {
+  margin: 0 0 0.5rem;
+}
+
+.wr-chart-ocr-body ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+}
+
+.wr-chart-ocr-type {
+  font-weight: 700;
+  color: var(--color-primary) !important;
+}
+
+.wr-chart-ocr-prompt {
+  margin-top: 0.35rem !important;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+  color: var(--text-muted) !important;
+}

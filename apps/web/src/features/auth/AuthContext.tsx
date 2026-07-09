@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback, useRef, ReactNode } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
+import { clearLocalUserData, ensureLocalUserIsolation } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
 import { hasOAuthCallbackInUrl, recoverOAuthSession } from './recoverOAuthSession'
 
@@ -31,6 +32,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [authError, setAuthError] = useState<string | null>(null)
   const recoveringRef = useRef(false)
 
+  const isolateForUser = useCallback(async (userId: string | undefined) => {
+    if (!userId) return
+    try {
+      await ensureLocalUserIsolation(userId)
+    } catch (err) {
+      console.error('[auth] ensureLocalUserIsolation failed', err)
+    }
+  }, [])
+
   const bootstrap = useCallback(async () => {
     recoveringRef.current = true
     setLoading(true)
@@ -43,18 +53,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     const { data: { session: s } } = await supabase.auth.getSession()
+    if (s?.user?.id) {
+      await isolateForUser(s.user.id)
+    }
     setSession(s)
     recoveringRef.current = false
     setLoading(false)
-  }, [])
+  }, [isolateForUser])
 
   useEffect(() => {
     bootstrap()
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, s) => {
-      setSession(s)
-      if (!recoveringRef.current) setLoading(false)
-      if (event === 'SIGNED_IN') setAuthError(null)
+      void (async () => {
+        if (event === 'SIGNED_IN' && s?.user?.id) {
+          await isolateForUser(s.user.id)
+          setAuthError(null)
+        }
+        if (event === 'SIGNED_OUT') {
+          try {
+            await clearLocalUserData()
+          } catch (err) {
+            console.error('[auth] clearLocalUserData on SIGNED_OUT failed', err)
+          }
+        }
+        setSession(s)
+        if (!recoveringRef.current) setLoading(false)
+      })()
     })
 
     const onHashChange = () => {
@@ -66,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       subscription.unsubscribe()
       window.removeEventListener('hashchange', onHashChange)
     }
-  }, [bootstrap])
+  }, [bootstrap, isolateForUser])
 
   const signInWithGoogle = async () => {
     setAuthError(null)
@@ -82,6 +107,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const signOut = async () => {
+    try {
+      await clearLocalUserData()
+    } catch (err) {
+      console.error('[auth] clearLocalUserData on signOut failed', err)
+    }
     await supabase.auth.signOut()
     window.location.replace(`${window.location.origin}/`)
   }

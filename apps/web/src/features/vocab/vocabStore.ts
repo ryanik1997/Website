@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 
-export type StudyMode = 'srs' | 'quiz' | 'type' | 'listen' | 'weak' | 'review' | 'stats'
+export type StudyMode =
+  | 'srs' | 'quiz' | 'type' | 'listen' | 'speak'
+  | 'weak' | 'review' | 'stats' | 'notebook'
 export type StudyFilter = 'all' | 'weak'
 
 interface VocabState {

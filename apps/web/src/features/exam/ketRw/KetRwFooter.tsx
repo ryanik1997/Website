@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ReadingExam } from '../examData'
 import { getPartQuestions } from '../examData'
+import { examReviewPillStyle, type ExamReviewStatus } from '../examReviewUtils'
 
 interface Props {
   exam: ReadingExam
@@ -12,6 +13,10 @@ interface Props {
   onSelectQuestion: (id: string) => void
   onAdjacentQuestion: (delta: number) => void
   onExit: () => void
+  reviewMode?: boolean
+  getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
+  /** Review: nút về báo cáo thay Exit (optional label) */
+  exitLabel?: string
 }
 
 export default function KetRwFooter({
@@ -24,6 +29,9 @@ export default function KetRwFooter({
   onSelectQuestion,
   onAdjacentQuestion,
   onExit,
+  reviewMode = false,
+  getQuestionReviewStatus,
+  exitLabel,
 }: Props) {
   const activeIndex = activeQuestionId
     ? allQuestions.findIndex(q => q.id === activeQuestionId)
@@ -35,7 +43,7 @@ export default function KetRwFooter({
   }
 
   return (
-    <footer className="ket-rw-footer">
+    <footer className={`ket-rw-footer${reviewMode ? ' is-review' : ''}`}>
       <div className="ket-rw-footer__parts">
         {exam.parts.map((part, index) => {
           const questions = getPartQuestions(part)
@@ -63,11 +71,22 @@ export default function KetRwFooter({
                   {questions.map(q => {
                     const isActive = activeQuestionId === q.id
                     const isAnswered = Boolean(answers[q.id]?.trim())
+                    const rev = reviewMode ? (getQuestionReviewStatus?.(q.id) ?? null) : null
+                    const revClass = rev === 'correct'
+                      ? ' is-review-ok'
+                      : rev === 'wrong'
+                        ? ' is-review-bad'
+                        : rev === 'skipped'
+                          ? ' is-review-skip'
+                          : ''
                     return (
                       <button
                         key={q.id}
                         type="button"
-                        className={`ket-rw-q-pill${isActive ? ' is-current' : ''}${isAnswered ? ' is-answered' : ''}`}
+                        className={`ket-rw-q-pill${isActive ? ' is-current' : ''}${!rev && isAnswered ? ' is-answered' : ''}${revClass}`}
+                        style={examReviewPillStyle(rev, isActive)}
+                        data-review={rev ?? undefined}
+                        title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}
                         onClick={() => onSelectQuestion(q.id)}
                       >
                         {q.number}
@@ -86,7 +105,7 @@ export default function KetRwFooter({
           className="ket-rw-exit-btn"
           onClick={onExit}
         >
-          Exit
+          {exitLabel ?? (reviewMode ? 'Về báo cáo' : 'Exit')}
         </button>
         <button
           type="button"

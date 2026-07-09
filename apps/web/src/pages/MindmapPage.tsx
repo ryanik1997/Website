@@ -32,6 +32,7 @@ export default function MindmapPage() {
           key={activeMapId}
           root={map.nodes as MindNode}
           layout={(map.layout as MindmapLayout) ?? 'round'}
+          mapName={map.name}
           onSave={async (tree) => {
             await mindmapRepo.saveTree(activeMapId, tree)
           }}

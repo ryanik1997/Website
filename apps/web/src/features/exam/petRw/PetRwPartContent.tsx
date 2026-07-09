@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
+import type { ExamReviewStatus } from '../examReviewUtils'
 import { countWords, getPartQuestions } from '../examData'
 import { readingExamMediaKey } from '../importReadingManualUtils'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
@@ -24,6 +25,8 @@ interface Props {
   activeQuestionId: string | null
   onSelectQuestion: (id: string) => void
   onAnswer: (id: string, value: string) => void
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
   allowPersonPhotoUpload?: boolean
   onPersonPhotoUpload?: (questionNumber: number, file: File) => void
   personPhotoPreviewUrl?: (questionNumber: number) => string | undefined
@@ -165,6 +168,8 @@ export default function PetRwPartContent({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
   allowPersonPhotoUpload = false,
   onPersonPhotoUpload,
   personPhotoPreviewUrl,
@@ -309,6 +314,8 @@ export default function PetRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[activeQuestion.id]}
             />
           </div>
         </div>
@@ -401,6 +408,8 @@ export default function PetRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[q.id]}
             />
           ))}
         />

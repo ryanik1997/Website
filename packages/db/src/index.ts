@@ -1,9 +1,10 @@
 export { db } from './local/schema'
 export type {
   Group, Deck, Card, Srs, ReviewLog, DictEntry,
-  Lesson, TranslationSet, TranslationSentence, TranslationGenre,
+  Lesson, TranslationSet, TranslationSentence, TranslationGenre, CefrLevel,
   AudioBlob, WritingDoc, WritingGenre, CambridgeGenre, WritingHistory,
   ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord, ListeningExamRecord,
+  NotebookEntry,
 } from './local/schema'
 export { deckRepo } from './local/repositories/deckRepo'
 export { cardRepo } from './local/repositories/cardRepo'
@@ -18,4 +19,14 @@ export { audioRepo } from './local/repositories/audioRepo'
 export { sentenceStructureRepo } from './local/repositories/sentenceStructureRepo'
 export { examRepo } from './local/repositories/examRepo'
 export { listeningExamRepo } from './local/repositories/listeningExamRepo'
+export { notebookRepo, phraseKeyOf } from './local/repositories/notebookRepo'
+export type { NotebookSaveInput } from './local/repositories/notebookRepo'
 export { syncLocalToCloud, syncCloudToLocal, isLocalEmpty } from './cloud/sync'
+export {
+  clearLocalUserData,
+  clearUserScopedLocalStorage,
+  ensureLocalUserIsolation,
+  getLocalUserOwnerId,
+  setLocalUserOwnerId,
+  LOCAL_OWNER_KEY,
+} from './local/clearLocalUserData'

@@ -35,12 +35,53 @@
   color: var(--exam-timer-color, var(--color-primary));
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+  border: none;
+  background: transparent;
+  padding: 0.2rem 0.35rem;
+  border-radius: 0.35rem;
+  cursor: default;
+  font-family: inherit;
+}
+
+.exam-timer-controls__display.is-editable {
+  cursor: pointer;
+}
+
+.exam-timer-controls__display.is-editable:hover {
+  background: color-mix(in srgb, var(--exam-timer-color, var(--color-primary)) 12%, transparent);
 }
 
 .exam-timer-controls__display.is-urgent {
   color: var(--color-accent);
 }
 
+.exam-timer-controls__edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--exam-timer-color, var(--color-primary));
+}
+
+.exam-timer-controls__input {
+  width: 4.5rem;
+  border: 1px solid color-mix(in srgb, var(--exam-timer-color, var(--color-primary)) 45%, var(--border-color));
+  border-radius: 0.35rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  padding: 0.2rem 0.4rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.exam-timer-controls__input:focus {
+  border-color: var(--exam-timer-color, var(--color-primary));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--exam-timer-color, var(--color-primary)) 22%, transparent);
+}
+
+.exam-timer-controls__nudge,
 .exam-timer-controls__reset {
   display: inline-flex;
   align-items: center;
@@ -55,6 +96,7 @@
   transition: color 0.15s, border-color 0.15s;
 }
 
+.exam-timer-controls__nudge:hover,
 .exam-timer-controls__reset:hover {
   color: var(--text-primary);
   border-color: color-mix(in srgb, var(--text-muted) 40%, var(--border-color));

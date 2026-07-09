@@ -11,6 +11,7 @@ export interface ReadingFontOption {
   family: string
 }
 
+/** 10 font tùy chọn cho đề Reading / Listening exam */
 export const READING_FONT_OPTIONS: ReadingFontOption[] = [
   { id: 'default', label: 'Mặc định', family: 'inherit' },
   { id: 'lora', label: 'Lora', family: '"Lora", Georgia, serif' },
@@ -19,10 +20,25 @@ export const READING_FONT_OPTIONS: ReadingFontOption[] = [
   { id: 'eb-garamond', label: 'EB Garamond', family: '"EB Garamond", Georgia, serif' },
   { id: 'newsreader', label: 'Newsreader', family: '"Newsreader", Georgia, serif' },
   { id: 'spectral', label: 'Spectral', family: '"Spectral", Georgia, serif' },
+  { id: 'source-serif', label: 'Source Serif', family: '"Source Serif 4", Georgia, serif' },
+  { id: 'literata', label: 'Literata', family: '"Literata", Georgia, serif' },
+  { id: 'libre-baskerville', label: 'Libre Baskerville', family: '"Libre Baskerville", Georgia, serif' },
 ]
 
 const GOOGLE_FONTS_URL =
-  'https://fonts.googleapis.com/css2?family=EB+Garamond&family=Fraunces:opsz,wght@9..144,400&family=Lora&family=Merriweather&family=Newsreader&family=Spectral&display=swap'
+  'https://fonts.googleapis.com/css2?' +
+  [
+    'family=EB+Garamond:ital,wght@0,400;0,600;1,400',
+    'family=Fraunces:opsz,wght@9..144,400;9..144,600',
+    'family=Libre+Baskerville:ital,wght@0,400;0,700;1,400',
+    'family=Literata:opsz,wght@7..72,400;7..72,600',
+    'family=Lora:ital,wght@0,400;0,600;1,400',
+    'family=Merriweather:opsz,wght@18..144,400;18..144,700',
+    'family=Newsreader:opsz,wght@6..72,400;6..72,600',
+    'family=Source+Serif+4:opsz,wght@8..60,400;8..60,600',
+    'family=Spectral:wght@400;600',
+  ].join('&') +
+  '&display=swap'
 
 let fontsLinkInjected = false
 
@@ -31,6 +47,10 @@ export function ensureReadingFontsLoaded() {
   const existing = document.getElementById('reading-exam-fonts')
   if (existing) {
     fontsLinkInjected = true
+    // Cập nhật href nếu thêm font mới
+    if (existing instanceof HTMLLinkElement && existing.href !== GOOGLE_FONTS_URL) {
+      existing.href = GOOGLE_FONTS_URL
+    }
     return
   }
   const link = document.createElement('link')
@@ -52,7 +72,8 @@ export function loadFontSize(): number {
 }
 
 export function loadFontFamilyId(): string {
-  return window.localStorage.getItem(FONT_FAMILY_STORAGE_KEY) ?? 'default'
+  const id = window.localStorage.getItem(FONT_FAMILY_STORAGE_KEY) ?? 'default'
+  return READING_FONT_OPTIONS.some(o => o.id === id) ? id : 'default'
 }
 
 export function getFontFamilyCss(familyId: string): string {
