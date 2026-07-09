@@ -4,6 +4,7 @@ import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { db, deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabSeedDecks'
+import './deckCards.css'
 
 const FILTERS = [
   { id: 'all', label: 'Tất cả' },
@@ -86,7 +87,7 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
               className="px-4 py-1.5 rounded-full text-sm font-medium transition-colors"
               style={{
                 background: active ? 'var(--color-primary)' : 'var(--bg-card)',
-                color: active ? 'var(--bg-primary)' : 'var(--text-muted)',
+                color: active ? 'var(--color-on-primary, #fff)' : 'var(--text-muted)',
                 border: active ? 'none' : '1px solid var(--border-color)',
               }}
             >
@@ -97,10 +98,10 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
         })}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="vocab-deck-grid">
         <PersonalDeckCard
           deck={personalDeck}
-          onSelect={() => personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck('default')}
+          onSelect={() => (personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck('default'))}
           onCreate={() => onCreateDeck(createDefaultGroup)}
         />
 
@@ -123,6 +124,18 @@ function deckGroupLabel(groupId: string): string {
   return groupId
 }
 
+function DeckCardLayers() {
+  return (
+    <>
+      <div className="vocab-deck-card__surface" aria-hidden />
+      <div className="vocab-deck-card__orb vocab-deck-card__orb--a" aria-hidden />
+      <div className="vocab-deck-card__orb vocab-deck-card__orb--b" aria-hidden />
+      <div className="vocab-deck-card__sheen" aria-hidden />
+      <div className="vocab-deck-card__grain" aria-hidden />
+    </>
+  )
+}
+
 function DeckCard({
   deck,
   onSelect,
@@ -138,62 +151,44 @@ function DeckCard({
     [deck.id],
   ) ?? 0
   const pct = cardCount > 0 ? Math.round((masteredCount / cardCount) * 100) : 0
-  const color = deck.color ?? 'var(--color-primary)'
+  const color = deck.color ?? '#6366f1'
   const canDelete = deck.origin !== 'preset'
+  const blurb = (deck.description ?? deck.book ?? '').trim()
+  const icon = deck.icon?.trim() || (deck.origin === 'user' ? '📚' : '📖')
 
   return (
     <div
-      className="group relative rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg"
-      style={{ background: color, minHeight: '160px' }}
+      className="vocab-deck-card group"
+      style={{ ['--deck-accent' as string]: color }}
     >
-      <button
-        type="button"
-        onClick={onSelect}
-        className="relative w-full h-full text-left p-5 active:translate-y-0"
-      >
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '16px 16px',
-          }}
-        />
-
-        {deck.icon && (
-          <div className="absolute top-4 right-4 text-2xl opacity-80">
-            {deck.icon}
-          </div>
-        )}
-
-        <div className="relative z-10">
-          <p className="text-xs font-semibold text-white/70 mb-2 uppercase tracking-wide">
+      <DeckCardLayers />
+      <button type="button" onClick={onSelect} className="vocab-deck-card__hit">
+        <span className="vocab-deck-card__icon" aria-hidden>
+          {icon}
+        </span>
+        <div className="vocab-deck-card__body">
+          <p className="vocab-deck-card__meta">
             {deckGroupLabel(deck.groupId)} · {cardCount} từ
-            {deck.origin === 'user' && <span className="ml-1.5 opacity-80">· Của tôi</span>}
+            {deck.origin === 'user' ? ' · Của tôi' : ''}
           </p>
-          <h3 className="text-lg font-bold text-white mb-1 leading-snug">
-            {deck.name}
-          </h3>
-          {deck.book && (
-            <p className="text-xs text-white/70 mb-3 line-clamp-2">{deck.book}</p>
-          )}
-
-          <div className="flex items-center gap-2">
-            <div className="flex-1 h-1 rounded-full bg-white/30">
-              <div
-                className="h-full rounded-full bg-white transition-all"
-                style={{ width: `${pct}%` }}
-              />
+          <h3 className="vocab-deck-card__title">{deck.name}</h3>
+          {blurb ? <p className="vocab-deck-card__desc">{blurb}</p> : null}
+          <div className="vocab-deck-card__progress">
+            <div className="vocab-deck-card__track" aria-hidden>
+              <div className="vocab-deck-card__fill" style={{ width: `${pct}%` }} />
             </div>
-            <span className="text-[11px] font-semibold text-white/80">{pct}% thuộc</span>
+            <span className="vocab-deck-card__pct">{pct}% thuộc</span>
           </div>
         </div>
       </button>
-
       {canDelete && (
         <button
           type="button"
-          onClick={e => { e.stopPropagation(); onDelete() }}
-          className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-black/25 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/40 text-white"
+          onClick={e => {
+            e.stopPropagation()
+            onDelete()
+          }}
+          className="vocab-deck-card__delete"
           title="Xóa bộ thẻ"
           aria-label="Xóa bộ thẻ"
         >
@@ -224,67 +219,36 @@ function PersonalDeckCard({
   const pct = cardCount > 0 ? Math.round((masteredCount / cardCount) * 100) : 0
 
   return (
-    <div
-      className="relative rounded-2xl p-5 text-left overflow-hidden w-full flex flex-col"
-      style={{
-        background: 'var(--bg-card)',
-        border: '2px dashed var(--border-color)',
-        minHeight: '160px',
-      }}
-    >
-      <div className="absolute top-4 right-4 opacity-60" style={{ color: 'var(--text-muted)' }}>
-        <Pencil size={20} />
-      </div>
-
-      <div className="relative z-10 flex flex-col flex-1">
-        <p className="text-xs font-semibold mb-2 uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-          Của bản thân · {cardCount} từ
-        </p>
-        <h3 className="text-lg font-bold mb-1 leading-snug" style={{ color: 'var(--text-primary)' }}>
-          Bộ từ của bản thân
-        </h3>
-        <p className="text-xs mb-3 line-clamp-2" style={{ color: 'var(--text-muted)' }}>
-          Tự thêm và ôn tập từ vựng của riêng bạn.
-        </p>
-
-        {deck && cardCount > 0 && (
-          <div className="flex items-center gap-2 mb-3">
-            <div className="flex-1 h-1 rounded-full" style={{ background: 'var(--bg-secondary)' }}>
-              <div
-                className="h-full rounded-full transition-all"
-                style={{ width: `${pct}%`, background: 'var(--color-primary)' }}
-              />
+    <div className="vocab-deck-card vocab-deck-card--personal">
+      <div className="vocab-deck-card__hit" style={{ cursor: 'default' }}>
+        <span className="vocab-deck-card__icon" aria-hidden>
+          <Pencil size={18} strokeWidth={2} />
+        </span>
+        <div className="vocab-deck-card__body">
+          <p className="vocab-deck-card__meta">Của bản thân · {cardCount} từ</p>
+          <h3 className="vocab-deck-card__title">Bộ từ của bản thân</h3>
+          <p className="vocab-deck-card__desc">
+            Tự thêm và ôn tập từ vựng của riêng bạn.
+          </p>
+          {deck && cardCount > 0 && (
+            <div className="vocab-deck-card__progress">
+              <div className="vocab-deck-card__track" aria-hidden>
+                <div className="vocab-deck-card__fill" style={{ width: `${pct}%` }} />
+              </div>
+              <span className="vocab-deck-card__pct">{pct}% thuộc</span>
             </div>
-            <span className="text-[11px] font-semibold" style={{ color: 'var(--text-muted)' }}>
-              {pct}% thuộc
-            </span>
-          </div>
-        )}
-
-        <div className="mt-auto flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={onCreate}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-opacity hover:opacity-90"
-            style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-          >
-            <Plus size={14} />
-            Thêm từ của bạn
-          </button>
-          {deck && (
-            <button
-              type="button"
-              onClick={onSelect}
-              className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium transition-colors hover:opacity-80"
-              style={{
-                background: 'var(--bg-secondary)',
-                color: 'var(--text-primary)',
-                border: '1px solid var(--border-color)',
-              }}
-            >
-              Mở bộ thẻ
-            </button>
           )}
+          <div className="vocab-deck-card__actions">
+            <button type="button" className="vocab-deck-card__btn vocab-deck-card__btn--primary" onClick={onCreate}>
+              <Plus size={14} />
+              Thêm từ của bạn
+            </button>
+            {deck && (
+              <button type="button" className="vocab-deck-card__btn vocab-deck-card__btn--ghost" onClick={onSelect}>
+                Mở bộ thẻ
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

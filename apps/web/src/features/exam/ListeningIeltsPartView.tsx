@@ -29,6 +29,14 @@ import {
   noteTableForGapSegment,
 } from './listeningNotePassage'
 import type { ListeningFlowChartStep, ListeningPart, ListeningQuestion } from './listeningExamData'
+import {
+  isListeningKeyOption,
+  ListeningGapCorrectHint,
+  ListeningOptionReviewMark,
+  listeningOptionReviewStyle,
+} from './listeningReviewUi'
+import { examReviewStatus, type ExamReviewStatus } from './examReviewUtils'
+import { isListeningAnswerCorrect } from './listeningExamData'
 
 interface AudioBarProps {
   source: ExamAudioSource
@@ -55,6 +63,8 @@ interface Props {
   examMode: 'practice' | 'exam'
   onAnswer: (questionId: string, value: string) => void
   onSelectQuestion: (questionId: string) => void
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, import('./examReviewUtils').ExamReviewStatus>
 }
 
 type Segment =
@@ -208,12 +218,16 @@ function GapRow({
   isActive,
   onAnswer,
   onSelect,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   question: ListeningQuestion
   answer: string
   isActive: boolean
   onAnswer: (v: string) => void
   onSelect: () => void
+  reviewMode?: boolean
+  reviewStatus?: ExamReviewStatus | null
 }) {
   const highlights = useExamHighlights()
   const wordLimit = question.wordLimit ?? 3
@@ -267,6 +281,7 @@ function GapRow({
             value={answer}
             placeholder={`${wordLimit} từ`}
             data-highlight-skip
+            readOnly={reviewMode}
             onChange={e => onAnswer(e.target.value)}
             onFocus={onSelect}
           />
@@ -296,11 +311,17 @@ function GapRow({
             value={answer}
             placeholder={`Tối đa ${wordLimit} từ`}
             data-highlight-skip
+            readOnly={reviewMode}
             onChange={e => onAnswer(e.target.value)}
             onFocus={onSelect}
           />
         </label>
       )}
+      <ListeningGapCorrectHint
+        reviewMode={reviewMode}
+        status={reviewStatus}
+        correctAnswer={question.answer}
+      />
       {question.noteAfter && (
         <ExamHighlightableLines
           blockIdPrefix={`${question.id}-after`}
@@ -320,6 +341,8 @@ function McBlock({
   onSelect,
   showSectionHeader = false,
   sectionHeaderMeta,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   question: ListeningQuestion
   answer: string
@@ -328,6 +351,8 @@ function McBlock({
   onSelect: () => void
   showSectionHeader?: boolean
   sectionHeaderMeta?: ReturnType<typeof sectionMetaFromQuestions>
+  reviewMode?: boolean
+  reviewStatus?: import('./examReviewUtils').ExamReviewStatus | null
 }) {
   const highlights = useExamHighlights()
 
@@ -354,19 +379,24 @@ function McBlock({
       </p>
       <div className="listening-ielts-mc__options">
         {question.options.map(option => {
-          const selected = answer === option.id
+          const selected = answer.toUpperCase() === option.id.toUpperCase()
+          const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+          const selectedWrong = Boolean(reviewMode && selected && reviewStatus === 'wrong')
           return (
             <div
               key={option.id}
               role="button"
-              tabIndex={0}
-              className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}`}
+              tabIndex={reviewMode ? -1 : 0}
+              style={listeningOptionReviewStyle(reviewMode, selected, isKey, reviewStatus)}
+              className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
               onClick={e => {
                 e.stopPropagation()
+                if (reviewMode) return
                 onSelect()
                 onAnswer(option.id)
               }}
               onKeyDown={e => {
+                if (reviewMode) return
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault()
                   onSelect()
@@ -381,6 +411,7 @@ function McBlock({
                 highlights={highlights}
                 as="span"
               />
+              <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
             </div>
           )
         })}
@@ -398,6 +429,8 @@ export default function ListeningIeltsPartView({
   examMode,
   onAnswer,
   onSelectQuestion,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const highlights = useExamHighlights()
   const segments = buildSegments(questions, part)
@@ -549,6 +582,8 @@ export default function ListeningIeltsPartView({
                   onSelectQuestion={onSelectQuestion}
                   suppressInstruction={sectionShowsInstruction}
                   suppressTitle={suppressTableTitle}
+                  reviewMode={reviewMode}
+                  reviewStatusMap={reviewStatusMap}
                 />
               ) : passageBlocks ? (
                 <ListeningIeltsNotePassageBox
@@ -561,6 +596,8 @@ export default function ListeningIeltsPartView({
                   onSelectQuestion={onSelectQuestion}
                   passageTitle={noteBoxTitle}
                   layout={part.notePassageLayout === 'form' ? 'form' : 'lecture'}
+                  reviewMode={reviewMode}
+                  reviewStatusMap={reviewStatusMap}
                 />
               ) : (
                 <>
@@ -572,16 +609,25 @@ export default function ListeningIeltsPartView({
                     />
                   )}
                   <div className="listening-ielts-notes__box">
-                    {segment.questions.map(question => (
-                      <GapRow
-                        key={question.id}
-                        question={question}
-                        answer={answers[question.id] ?? ''}
-                        isActive={activeQuestionId === question.id}
-                        onAnswer={v => onAnswer(question.id, v)}
-                        onSelect={() => onSelectQuestion(question.id)}
-                      />
-                    ))}
+                    {segment.questions.map(question => {
+                      const ans = answers[question.id] ?? ''
+                      const status = reviewMode
+                        ? (reviewStatusMap?.[question.id]
+                          ?? examReviewStatus(ans, a => isListeningAnswerCorrect(question, a)))
+                        : null
+                      return (
+                        <GapRow
+                          key={question.id}
+                          question={question}
+                          answer={ans}
+                          isActive={activeQuestionId === question.id}
+                          onAnswer={v => onAnswer(question.id, v)}
+                          onSelect={() => onSelectQuestion(question.id)}
+                          reviewMode={reviewMode}
+                          reviewStatus={status}
+                        />
+                      )
+                    })}
                   </div>
                 </>
               )}
@@ -613,6 +659,8 @@ export default function ListeningIeltsPartView({
               activeQuestionId={activeQuestionId}
               onAnswer={onAnswer}
               onSelectQuestion={onSelectQuestion}
+              reviewMode={reviewMode}
+              reviewStatusMap={reviewStatusMap}
             />
           )
         }
@@ -682,20 +730,29 @@ export default function ListeningIeltsPartView({
 
         return (
           <section key={`mc-${index}`} className="listening-ielts-mc-group">
-            {segment.questions.map((question, qIndex) => (
-              <McBlock
-                key={question.id}
-                question={question}
-                answer={answers[question.id] ?? ''}
-                isActive={activeQuestionId === question.id}
-                onAnswer={v => onAnswer(question.id, v)}
-                onSelect={() => onSelectQuestion(question.id)}
-                showSectionHeader={qIndex === 0 && Boolean(
-                  mcHeaderMeta.range || mcHeaderMeta.instruction || mcHeaderMeta.title,
-                )}
-                sectionHeaderMeta={mcHeaderMeta}
-              />
-            ))}
+            {segment.questions.map((question, qIndex) => {
+              const ans = answers[question.id] ?? ''
+              const status = reviewMode
+                ? (reviewStatusMap?.[question.id]
+                  ?? examReviewStatus(ans, a => isListeningAnswerCorrect(question, a)))
+                : null
+              return (
+                <McBlock
+                  key={question.id}
+                  question={question}
+                  answer={ans}
+                  isActive={activeQuestionId === question.id}
+                  onAnswer={v => onAnswer(question.id, v)}
+                  onSelect={() => onSelectQuestion(question.id)}
+                  showSectionHeader={qIndex === 0 && Boolean(
+                    mcHeaderMeta.range || mcHeaderMeta.instruction || mcHeaderMeta.title,
+                  )}
+                  sectionHeaderMeta={mcHeaderMeta}
+                  reviewMode={reviewMode}
+                  reviewStatus={status}
+                />
+              )
+            })}
           </section>
         )
       })}

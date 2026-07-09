@@ -3,6 +3,9 @@ import { Check, Pencil, X } from 'lucide-react'
 import CopyButton from '../../components/CopyButton'
 import { lessonRepo } from '@ryan/db'
 import type { LessonSentence } from './types'
+import { estimateWordTimings, wordIndexAtTime } from './wordTimings'
+import { estimateSpeechDurationSec } from './practiceUtils'
+import { speak, stop, getActiveAudio } from './tts'
 
 interface Props {
   lessonId: string
@@ -10,11 +13,18 @@ interface Props {
   onSentencesChange?: () => void
 }
 
+function wordsOf(text: string): string[] {
+  return text.trim().split(/\s+/).filter(Boolean)
+}
+
 export default function ListeningTranscriptTab({ lessonId, sentences, onSentencesChange }: Props) {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [draftText, setDraftText] = useState('')
   const [draftVi, setDraftVi] = useState('')
   const [saving, setSaving] = useState(false)
+  const [activeSentenceId, setActiveSentenceId] = useState<string | null>(null)
+  const [activeWordIdx, setActiveWordIdx] = useState(-1)
+  const [playingId, setPlayingId] = useState<string | null>(null)
 
   function startEdit(s: LessonSentence) {
     setEditingId(s.id)
@@ -39,19 +49,81 @@ export default function ListeningTranscriptTab({ lessonId, sentences, onSentence
     onSentencesChange?.()
   }
 
+  async function playSentenceFromWord(s: LessonSentence, wordIndex: number) {
+    stop()
+    setActiveSentenceId(s.id)
+    setActiveWordIdx(wordIndex)
+    setPlayingId(s.id)
+
+    const durationEst = estimateSpeechDurationSec(s.text, 0.85)
+    const timings = estimateWordTimings(s.text, durationEst)
+
+    try {
+      await speak(s.text, {
+        speed: 0.85,
+        onPlaybackStart: (audio) => {
+          const dur = audio.duration && Number.isFinite(audio.duration) ? audio.duration : durationEst
+          const aligned = estimateWordTimings(s.text, dur)
+          const t0 = aligned[wordIndex]?.start ?? 0
+          const trySeek = () => {
+            if (audio.duration && Number.isFinite(audio.duration)) {
+              audio.currentTime = Math.min(audio.duration * 0.98, t0)
+            }
+          }
+          if (audio.readyState >= 1) trySeek()
+          else audio.addEventListener('loadedmetadata', trySeek, { once: true })
+
+          const onTime = () => {
+            setActiveWordIdx(wordIndexAtTime(aligned, audio.currentTime))
+          }
+          audio.addEventListener('timeupdate', onTime)
+          audio.addEventListener('ended', () => {
+            audio.removeEventListener('timeupdate', onTime)
+            setPlayingId(null)
+            setActiveWordIdx(-1)
+          }, { once: true })
+        },
+        onFallbackStart: () => {
+          const start = performance.now()
+          const tick = () => {
+            if (getActiveAudio()) return
+            const elapsed = (performance.now() - start) / 1000
+            const t0 = timings[wordIndex]?.start ?? 0
+            setActiveWordIdx(wordIndexAtTime(timings, elapsed + t0))
+            if (elapsed + t0 < durationEst) {
+              requestAnimationFrame(tick)
+            } else {
+              setPlayingId(null)
+              setActiveWordIdx(-1)
+            }
+          }
+          requestAnimationFrame(tick)
+        },
+      })
+    } finally {
+      setPlayingId(prev => (prev === s.id ? null : prev))
+    }
+  }
+
   return (
     <div className="flex flex-col gap-3">
+      <p className="text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
+        Bấm từng từ để nhảy (time-align ước lượng) · nghe từ vị trí đó
+      </p>
       {sentences.map((s, i) => {
         const isEditing = editingId === s.id
+        const words = wordsOf(s.text)
+        const isActive = activeSentenceId === s.id
+
         return (
           <div
             key={s.id}
             className="rounded-xl p-4 transition-shadow"
             style={{
               background: 'var(--bg-card)',
-              border: `1px solid ${isEditing ? 'var(--color-primary)' : 'var(--border-color)'}`,
+              border: `1px solid ${isEditing || isActive ? 'var(--color-primary)' : 'var(--border-color)'}`,
               boxShadow: isEditing ? '0 4px 20px color-mix(in srgb, var(--color-primary) 12%, transparent)' : undefined,
-              borderLeft: isEditing ? '4px solid var(--color-primary)' : undefined,
+              borderLeft: isEditing || isActive ? '4px solid var(--color-primary)' : undefined,
             }}
           >
             <div className="flex gap-3">
@@ -109,37 +181,55 @@ export default function ListeningTranscriptTab({ lessonId, sentences, onSentence
                     </div>
                   </>
                 ) : (
-                  <div className="group">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1 min-w-0 select-text">
-                        <p className="text-sm sm:text-base font-medium leading-relaxed" style={{ color: 'var(--text-primary)' }}>
-                          {s.text}
-                        </p>
-                        {s.vi ? (
-                          <p className="text-sm mt-1.5 leading-relaxed" style={{ color: 'var(--text-muted)' }}>{s.vi}</p>
-                        ) : (
-                          <p className="text-xs mt-1.5 italic" style={{ color: 'var(--text-muted)' }}>
-                            Chưa có bản dịch — bấm biểu tượng bút để thêm
-                          </p>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-0.5 shrink-0 opacity-70 group-hover:opacity-100">
-                        <CopyButton
-                          text={s.vi ? `${s.text}\n${s.vi}` : s.text}
-                          title="Copy câu"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => startEdit(s)}
-                          title="Sửa câu"
-                          className="inline-flex items-center justify-center p-1.5 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
-                          style={{ color: 'var(--text-muted)' }}
-                        >
-                          <Pencil size={14} />
-                        </button>
-                      </div>
+                  <>
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: 'var(--text-primary)', userSelect: 'text' }}
+                    >
+                      {words.map((w, wi) => {
+                        const active = isActive && activeWordIdx === wi
+                        return (
+                          <button
+                            key={`${s.id}-${wi}`}
+                            type="button"
+                            onClick={() => void playSentenceFromWord(s, wi)}
+                            className="inline rounded px-0.5 mx-px hover:underline"
+                            style={{
+                              background: active
+                                ? 'color-mix(in srgb, var(--color-primary) 28%, transparent)'
+                                : 'transparent',
+                              color: active ? 'var(--color-primary)' : 'inherit',
+                              fontWeight: active ? 700 : 400,
+                              cursor: 'pointer',
+                            }}
+                            title="Nghe từ đây"
+                          >
+                            {w}{wi < words.length - 1 ? ' ' : ''}
+                          </button>
+                        )
+                      })}
+                      {playingId === s.id && (
+                        <span className="ml-2 text-[10px] font-bold" style={{ color: 'var(--color-primary)' }}>
+                          ▶
+                        </span>
+                      )}
+                    </p>
+                    {s.vi && (
+                      <p className="text-xs mt-1.5" style={{ color: 'var(--text-muted)' }}>{s.vi}</p>
+                    )}
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        type="button"
+                        onClick={() => startEdit(s)}
+                        className="inline-flex items-center gap-1 text-xs font-medium"
+                        style={{ color: 'var(--text-muted)' }}
+                      >
+                        <Pencil size={12} />
+                        Sửa
+                      </button>
+                      <CopyButton text={s.text} />
                     </div>
-                  </div>
+                  </>
                 )}
               </div>
             </div>

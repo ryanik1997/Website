@@ -1,0 +1,398 @@
+/* Vocab deck cards — layered surface (not flat solid + dots) */
+
+.vocab-deck-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .vocab-deck-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .vocab-deck-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.vocab-deck-card {
+  --deck-accent: #6366f1;
+  --deck-accent-deep: color-mix(in srgb, var(--deck-accent) 72%, #0f172a);
+  --deck-accent-soft: color-mix(in srgb, var(--deck-accent) 55%, #ffffff);
+  --deck-glow: color-mix(in srgb, var(--deck-accent) 45%, transparent);
+  position: relative;
+  min-height: 11.5rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 22%, transparent) inset,
+    0 12px 28px color-mix(in srgb, var(--deck-accent) 22%, transparent),
+    0 4px 12px color-mix(in srgb, #0f172a 12%, transparent);
+}
+
+.vocab-deck-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 28%, transparent) inset,
+    0 18px 40px color-mix(in srgb, var(--deck-accent) 32%, transparent),
+    0 8px 18px color-mix(in srgb, #0f172a 16%, transparent);
+}
+
+.vocab-deck-card:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+/* Layered background */
+.vocab-deck-card__surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, #fff 28%, transparent) 0%, transparent 52%),
+    radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, #fff 14%, transparent) 0%, transparent 45%),
+    radial-gradient(90% 80% at 85% 100%, color-mix(in srgb, #0f172a 28%, transparent) 0%, transparent 55%),
+    linear-gradient(
+      145deg,
+      var(--deck-accent-soft) 0%,
+      var(--deck-accent) 42%,
+      var(--deck-accent-deep) 100%
+    );
+}
+
+.vocab-deck-card__orb {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.vocab-deck-card__orb--a {
+  width: 9rem;
+  height: 9rem;
+  top: -2.5rem;
+  right: -1.5rem;
+  background: radial-gradient(circle, color-mix(in srgb, #fff 35%, transparent) 0%, transparent 70%);
+  opacity: 0.85;
+}
+
+.vocab-deck-card__orb--b {
+  width: 7.5rem;
+  height: 7.5rem;
+  bottom: -3rem;
+  left: -2rem;
+  background: radial-gradient(circle, color-mix(in srgb, #0f172a 40%, transparent) 0%, transparent 72%);
+  opacity: 0.55;
+}
+
+.vocab-deck-card__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    color-mix(in srgb, #fff 10%, transparent) 38%,
+    transparent 58%
+  );
+  opacity: 0.7;
+}
+
+.vocab-deck-card__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: soft-light;
+}
+
+.vocab-deck-card__hit {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  min-height: 11.5rem;
+  padding: 1.2rem 1.25rem 1.15rem;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.vocab-deck-card__hit:focus-visible {
+  outline: 2px solid color-mix(in srgb, #fff 70%, transparent);
+  outline-offset: -3px;
+  border-radius: 1.25rem;
+}
+
+.vocab-deck-card__icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.65rem;
+  height: 2.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.85rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  background: color-mix(in srgb, #fff 16%, transparent);
+  border: 1px solid color-mix(in srgb, #fff 28%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 35%, transparent),
+    0 6px 14px color-mix(in srgb, #0f172a 12%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.vocab-deck-card__body {
+  position: relative;
+  z-index: 2;
+  padding-right: 3.1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 9rem;
+}
+
+.vocab-deck-card__meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #fff 78%, transparent);
+}
+
+.vocab-deck-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 1px 2px color-mix(in srgb, #0f172a 22%, transparent);
+}
+
+.vocab-deck-card__desc {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, #fff 82%, transparent);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vocab-deck-card__progress {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.vocab-deck-card__track {
+  flex: 1;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, #0f172a 22%, transparent);
+  border: 1px solid color-mix(in srgb, #fff 12%, transparent);
+  overflow: hidden;
+}
+
+.vocab-deck-card__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, #fff 88%, transparent),
+    #fff
+  );
+  box-shadow: 0 0 10px color-mix(in srgb, #fff 35%, transparent);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vocab-deck-card__pct {
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, #fff 88%, transparent);
+  white-space: nowrap;
+}
+
+.vocab-deck-card__delete {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.7rem;
+  z-index: 5;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.55rem;
+  color: #fff;
+  background: color-mix(in srgb, #0f172a 35%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.vocab-deck-card:hover .vocab-deck-card__delete,
+.vocab-deck-card:focus-within .vocab-deck-card__delete {
+  opacity: 1;
+}
+
+.vocab-deck-card__delete:hover {
+  background: color-mix(in srgb, #0f172a 55%, transparent);
+}
+
+/* Personal / empty-style card */
+.vocab-deck-card--personal {
+  --deck-accent: var(--color-primary);
+  min-height: 11.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-color);
+  background:
+    radial-gradient(90% 70% at 100% 0%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 55%),
+    radial-gradient(70% 60% at 0% 100%, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent 50%),
+    var(--bg-card);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--bg-primary) 40%, transparent) inset,
+    0 10px 28px color-mix(in srgb, var(--text-primary) 6%, transparent);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.15s ease;
+}
+
+.vocab-deck-card--personal:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--bg-primary) 40%, transparent) inset,
+    0 16px 36px color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+.vocab-deck-card--personal .vocab-deck-card__icon {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--color-primary) 22%, var(--border-color));
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.vocab-deck-card--personal .vocab-deck-card__meta {
+  color: var(--text-muted);
+}
+
+.vocab-deck-card--personal .vocab-deck-card__title {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.vocab-deck-card--personal .vocab-deck-card__desc {
+  color: var(--text-muted);
+}
+
+.vocab-deck-card--personal .vocab-deck-card__track {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.vocab-deck-card--personal .vocab-deck-card__fill {
+  background: var(--color-primary);
+  box-shadow: none;
+}
+
+.vocab-deck-card--personal .vocab-deck-card__pct {
+  color: var(--text-muted);
+}
+
+.vocab-deck-card__actions {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.vocab-deck-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+
+.vocab-deck-card__btn:active {
+  transform: scale(0.98);
+}
+
+.vocab-deck-card__btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary, #fff);
+}
+
+.vocab-deck-card__btn--primary:hover {
+  opacity: 0.92;
+}
+
+.vocab-deck-card__btn--ghost {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.vocab-deck-card__btn--ghost:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 30%, var(--border-color));
+}
+
+/* Editor live preview reuses same surface classes */
+.vocab-deck-card--preview {
+  min-height: 7.5rem;
+  margin-bottom: 1.25rem;
+  pointer-events: none;
+}
+
+.vocab-deck-card--preview .vocab-deck-card__hit {
+  min-height: 7.5rem;
+  padding: 1rem 1.1rem;
+}
+
+.vocab-deck-card--preview .vocab-deck-card__body {
+  min-height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vocab-deck-card,
+  .vocab-deck-card--personal {
+    transition: none;
+  }
+
+  .vocab-deck-card:hover,
+  .vocab-deck-card--personal:hover {
+    transform: none;
+  }
+}

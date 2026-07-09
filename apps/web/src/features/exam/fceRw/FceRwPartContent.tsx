@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { ReadingPart, ReadingQuestion } from '../examData'
+import type { ExamReviewStatus } from '../examReviewUtils'
 import { countWords, getPartQuestions } from '../examData'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
@@ -17,6 +18,8 @@ interface Props {
   activeQuestionId: string | null
   onSelectQuestion: (id: string) => void
   onAnswer: (id: string, value: string) => void
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl?: string; alt: string }) {
@@ -274,6 +277,8 @@ export default function FceRwPartContent({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
   const partId = part.id
@@ -563,6 +568,8 @@ export default function FceRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[q.id]}
             />
           ))}
         />
@@ -659,6 +666,8 @@ export default function FceRwPartContent({
               answers={answers}
               onSelectQuestion={onSelectQuestion}
               onAnswer={onAnswer}
+              reviewMode={reviewMode}
+              reviewStatus={reviewStatusMap?.[q.id]}
               formatOptionLabel={formatFceParagraphLabel}
             />
           ))}

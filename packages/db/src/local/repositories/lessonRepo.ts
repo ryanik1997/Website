@@ -5,7 +5,7 @@ const uid = () => crypto.randomUUID()
 const now = () => Date.now()
 
 type CreateLessonInput = Pick<Lesson, 'category' | 'title' | 'sentences'> &
-  Partial<Pick<Lesson, 'book' | 'bookNum' | 'test' | 'part' | 'topic' | 'source'>>
+  Partial<Pick<Lesson, 'book' | 'bookNum' | 'test' | 'part' | 'topic' | 'source' | 'sourceExamId' | 'sourceExamPartId' | 'linkedAudioKey' | 'linkedAudioUrl'>>
 
 function newSentence(text: string) {
   return {
@@ -35,7 +35,7 @@ export const lessonRepo = {
     return lesson
   },
 
-  update: (id: string, patch: Partial<Pick<Lesson, 'title' | 'sentences' | 'book' | 'bookNum' | 'test' | 'part' | 'topic' | 'source'>>) =>
+  update: (id: string, patch: Partial<Pick<Lesson, 'title' | 'sentences' | 'book' | 'bookNum' | 'test' | 'part' | 'topic' | 'source' | 'sourceExamId' | 'sourceExamPartId' | 'linkedAudioKey' | 'linkedAudioUrl'>>) =>
     db.lessons.update(id, patch),
 
   async appendSentences(id: string, texts: string[]): Promise<Lesson | undefined> {

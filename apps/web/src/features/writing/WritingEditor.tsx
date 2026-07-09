@@ -9,8 +9,10 @@ import type { WritingDoc } from '@ryan/db'
 import {
   callAI, type AIProvider,
   buildWritingGradePrompt, buildWritingGuidePrompt, attachGuideImage,
+  attachImagesToUserMessage, buildWritingRewritePrompt, buildChartDescribePrompt,
   providerSupportsVision, canUse, type Plan, type WritingScore, type WritingGuide,
-  type CambridgeScore,
+  type CambridgeScore, type WritingRewrite, type ChartDescribeResult,
+  isCambridgeScore, isIELTSScore,
 } from '@ryan/core'
 import { getWritingUiConfig } from './writingUiConfig'
 import { useWritingStore } from './writingStore'
@@ -60,6 +62,12 @@ export default function WritingEditor({
   const [savedFlash, setSavedFlash] = useState(false)
   const [guideOpen, setGuideOpen] = useState(false)
   const [showEditPrompt, setShowEditPrompt] = useState(false)
+  const [rewrite, setRewrite] = useState<WritingRewrite | null>(null)
+  const [rewriteLoading, setRewriteLoading] = useState(false)
+  const [rewriteError, setRewriteError] = useState<string | null>(null)
+  const [chartDescribeLoading, setChartDescribeLoading] = useState(false)
+  const [chartDescribeError, setChartDescribeError] = useState<string | null>(null)
+  const [chartDescribe, setChartDescribe] = useState<ChartDescribeResult | null>(null)
 
   const activeGuide = guideDocId === activeDocId ? guide : null
 
@@ -67,6 +75,10 @@ export default function WritingEditor({
 
   useEffect(() => {
     if (doc) setText(doc.text ?? '')
+    setRewrite(null)
+    setRewriteError(null)
+    setChartDescribe(null)
+    setChartDescribeError(null)
   }, [doc?.id])
 
   useEffect(() => {
@@ -123,7 +135,7 @@ export default function WritingEditor({
       return
     }
 
-    const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'pro'
+    const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
     if (!canUse(plan, 'writing_ai')) {
       setGuideError('Tính năng AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
       setGuideOpen(true)
@@ -169,41 +181,59 @@ export default function WritingEditor({
     }
   }
 
-  async function grade() {
-    if (!doc || !text.trim() || isGrading) return
-
+  async function ensureAiReady(): Promise<{ provider: AIProvider; apiKey: string; plan: Plan } | null> {
     const provider = ((await writingRepo.getSetting('ai_provider')) as AIProvider) ?? 'openai'
     const apiKey = ((await writingRepo.getSetting(`ai_key_${provider}`)) as string) ?? ''
     if (!apiKey) {
       setShowAiSettings(true)
-      return
+      return null
     }
-
-    const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'pro'
+    const plan = ((await writingRepo.getSetting('plan')) as Plan) ?? 'free'
     if (!canUse(plan, 'writing_ai')) {
-      setError('Tính năng chấm điểm AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
-      return
+      setError('Tính năng AI chỉ dành cho gói TRIAL, PRO hoặc LIFETIME.')
+      return null
     }
-
     const limit = RATE_LIMITS[plan]
     if (limit !== Infinity) {
       const used = await writingRepo.getTodayUsage('writing_ai')
       if (used >= limit) {
-        setError(`Đã đạt giới hạn ${limit} lần/ngày (gói ${plan.toUpperCase()}).`)
-        return
+        setError(`Đã đạt giới hạn ${limit} lần AI/ngày (gói ${plan.toUpperCase()}).`)
+        return null
       }
     }
+    return { provider, apiKey, plan }
+  }
+
+  async function grade() {
+    if (!doc || !text.trim() || isGrading) return
+
+    const ready = await ensureAiReady()
+    if (!ready) return
+    const { provider, apiKey } = ready
 
     const cached = await writingRepo.getCachedScore(text)
     if (cached) {
       setScore(cached.score as WritingScore)
+      setShowFeedback(true)
       return
     }
 
     setGrading(true)
     setShowFeedback(true)
     try {
-      const messages = buildWritingGradePrompt(doc.type, doc.prompt, text)
+      let messages = buildWritingGradePrompt(doc.type, doc.prompt, text)
+      // Task 1 + vision: gửi ảnh biểu đồ để chấm Task Achievement chính xác hơn
+      if (
+        doc.promptImage
+        && providerSupportsVision(provider)
+        && (doc.type === 'ielts_task1' || doc.type === 'master')
+      ) {
+        messages = attachImagesToUserMessage(
+          messages,
+          [doc.promptImage],
+          'Attached image is the Task 1 chart/graph/map. Score whether the report accurately covers key features.',
+        )
+      }
 
       const result = await callAI(messages, apiKey, provider)
       const parsed = JSON.parse(result.content) as WritingScore
@@ -216,11 +246,102 @@ export default function WritingEditor({
       await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
 
       setScore(scoreData)
+      setRewrite(null)
     } catch (e) {
       const msg = e instanceof Error ? e.message : 'Lỗi không xác định'
       setError(msg.slice(0, 150))
     } finally {
       setGrading(false)
+    }
+  }
+
+  async function requestRewrite() {
+    if (!doc || !text.trim() || rewriteLoading) return
+    const ready = await ensureAiReady()
+    if (!ready) return
+    const { provider, apiKey } = ready
+
+    setRewriteLoading(true)
+    setRewriteError(null)
+    setShowFeedback(true)
+    try {
+      const hints: string[] = []
+      if (score) {
+        if (isIELTSScore(score)) {
+          hints.push(
+            `Overall band ${score.overallBand}`,
+            `Task Achievement: ${score.taskAchievement?.feedback ?? ''}`,
+            `Coherence: ${score.coherenceCohesion?.feedback ?? ''}`,
+            `Lexical: ${score.lexicalResource?.feedback ?? ''}`,
+            `Grammar: ${score.grammaticalRange?.feedback ?? ''}`,
+            ...(score.improvements ?? []),
+          )
+        } else if (isCambridgeScore(score)) {
+          hints.push(
+            `Overall ${score.overallScore}`,
+            score.content?.feedback ?? '',
+            score.communicativeAchievement?.feedback ?? '',
+            score.organisation?.feedback ?? '',
+            score.language?.feedback ?? '',
+            ...(score.improvements ?? []),
+          )
+        }
+      }
+      const messages = buildWritingRewritePrompt(
+        doc.type,
+        doc.prompt,
+        text,
+        hints.filter(Boolean).join('\n'),
+      )
+      const result = await callAI(messages, apiKey, provider)
+      const data = JSON.parse(result.content) as WritingRewrite
+      if (!data.rewrittenText?.trim()) throw new Error('AI không trả bài rewrite.')
+      setRewrite(data)
+      await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
+    } catch (e) {
+      setRewriteError(e instanceof Error ? e.message.slice(0, 200) : 'Lỗi rewrite.')
+    } finally {
+      setRewriteLoading(false)
+    }
+  }
+
+  function applyRewrite(v2: string) {
+    setText(v2)
+    clearScore()
+    setRewrite(null)
+    if (activeDocId) void writingRepo.updateDoc(activeDocId, { text: v2 })
+  }
+
+  async function describeChart() {
+    if (!doc?.promptImage || chartDescribeLoading) return
+    const ready = await ensureAiReady()
+    if (!ready) return
+    const { provider, apiKey } = ready
+
+    if (!providerSupportsVision(provider)) {
+      setChartDescribeError('Provider hiện tại không hỗ trợ vision. Dùng OpenAI hoặc Gemini để OCR/mô tả biểu đồ.')
+      return
+    }
+
+    setChartDescribeLoading(true)
+    setChartDescribeError(null)
+    try {
+      let messages = buildChartDescribePrompt(doc.prompt)
+      messages = attachGuideImage(messages, doc.promptImage)
+      const result = await callAI(messages, apiKey, provider)
+      const data = JSON.parse(result.content) as ChartDescribeResult
+      if (!data.descriptionVi?.trim() && !data.suggestedPromptEn?.trim()) {
+        throw new Error('AI không trả mô tả biểu đồ.')
+      }
+      setChartDescribe(data)
+      if (data.suggestedPromptEn?.trim() && (!doc.prompt.trim() || doc.prompt.trim().length < 40)) {
+        await writingRepo.updateDoc(doc.id, { prompt: data.suggestedPromptEn.trim() })
+      }
+      await writingRepo.recordUsage('writing_ai', result.inputTokens + result.outputTokens)
+    } catch (e) {
+      setChartDescribeError(e instanceof Error ? e.message.slice(0, 200) : 'Lỗi mô tả biểu đồ.')
+    } finally {
+      setChartDescribeLoading(false)
     }
   }
 
@@ -320,6 +441,10 @@ export default function WritingEditor({
           onCloseGuide={() => setGuideOpen(false)}
           onRegenerateGuide={() => void requestGuide()}
           onEditPrompt={() => setShowEditPrompt(true)}
+          onDescribeChart={() => void describeChart()}
+          chartDescribeLoading={chartDescribeLoading}
+          chartDescribeError={chartDescribeError}
+          chartDescribe={chartDescribe}
         />
 
         <div className="flex flex-col gap-4 min-w-0">
@@ -437,6 +562,12 @@ export default function WritingEditor({
                   docType={doc.type}
                   isGrading={isGrading}
                   onGrade={grade}
+                  essayText={text}
+                  rewrite={rewrite}
+                  rewriteLoading={rewriteLoading}
+                  rewriteError={rewriteError}
+                  onRequestRewrite={() => void requestRewrite()}
+                  onApplyRewrite={applyRewrite}
                 />
               </div>
             )}

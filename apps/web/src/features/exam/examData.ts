@@ -41,6 +41,8 @@ export interface ReadingQuestion {
   answerConfidence?: AnswerConfidence
   /** KET Writing Part 6–7: số từ tối thiểu (25 / 35) */
   minWords?: number
+  /** Bài mẫu Writing (nếu có trong import/catalog) */
+  modelAnswer?: string
 }
 
 export interface ReadingPassageBlock {

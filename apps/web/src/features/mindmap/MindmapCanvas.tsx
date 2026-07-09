@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
-import { Sparkles, Plus, Pencil, Trash2, ChevronDown, ChevronRight, X, Check, ZoomIn, ZoomOut, Maximize2, Hand } from 'lucide-react'
+import { Sparkles, Plus, Pencil, Trash2, ChevronDown, ChevronRight, X, Check, ZoomIn, ZoomOut, Maximize2, Hand, Download, Image, FileText } from 'lucide-react'
+import { downloadMindmapPng, downloadMindmapSvg, printMindmapPdf } from './exportMindmap'
 import { db } from '@ryan/db'
 import { callAI, type AIProvider, buildMindmapExpandPrompt, canUse, type Plan } from '@ryan/core'
 import {
@@ -48,6 +49,8 @@ function clampZoom(z: number) {
 interface Props {
   root: MindNode
   layout: MindmapLayout
+  /** Tên file khi export */
+  mapName?: string
   onSave: (tree: MindNode) => Promise<void>
   onLayoutChange: (layout: MindmapLayout) => Promise<void>
 }
@@ -59,7 +62,7 @@ const NODE_FONT: Record<number, string> = {
   3: '0.74rem',
 }
 
-export default function MindmapCanvas({ root, layout: initialLayout, onSave, onLayoutChange }: Props) {
+export default function MindmapCanvas({ root, layout: initialLayout, mapName = 'mindmap', onSave, onLayoutChange }: Props) {
   const [tree, setTree]         = useState<MindNode>(root)
   const [selectedId, setSel]    = useState<string | null>(null)
   const [editingId, setEditing] = useState<string | null>(null)
@@ -68,6 +71,7 @@ export default function MindmapCanvas({ root, layout: initialLayout, onSave, onL
   const [addText, setAddText]   = useState('')
   const [expandingId, setExpanding] = useState<string | null>(null)
   const [gateMsg, setGateMsg]   = useState('')
+  const [exportBusy, setExportBusy] = useState(false)
   const [zoom, setZoom]         = useState(1)
   const [pan, setPan]           = useState({ x: 0, y: 0 })
   const [isPanning, setPanning] = useState(false)
@@ -297,7 +301,7 @@ export default function MindmapCanvas({ root, layout: initialLayout, onSave, onL
   // ── AI Expand ──
   const aiExpand = useCallback(async (nodeId: string) => {
     setGateMsg('')
-    const plan = ((await db.settings.get('plan'))?.value as Plan) ?? 'pro'
+    const plan = ((await db.settings.get('plan'))?.value as Plan) ?? 'free'
     if (!canUse(plan, 'mindmap_ai')) {
       setGateMsg('Tính năng AI Expand chỉ dành cho TRIAL / PRO / LIFETIME.')
       return
@@ -328,14 +332,11 @@ export default function MindmapCanvas({ root, layout: initialLayout, onSave, onL
       if (newChildren.length === 0) return
       await save(appendChildren(tree, nodeId, newChildren))
 
-      // Record usage
-      const today = new Date().toISOString().slice(0, 10)
-      const existing = await db.aiUsage.get([today, 'mindmap_ai'])
-      if (existing) {
-        await db.aiUsage.put({ day: today, feature: 'mindmap_ai', count: existing.count + 1, tokens: existing.tokens + result.inputTokens + result.outputTokens })
-      } else {
-        await db.aiUsage.put({ day: today, feature: 'mindmap_ai', count: 1, tokens: result.inputTokens + result.outputTokens })
-      }
+      const { writingRepo } = await import('@ryan/db')
+      await writingRepo.recordUsage(
+        'mindmap_ai',
+        (result.inputTokens ?? 0) + (result.outputTokens ?? 0),
+      )
     } catch (e) {
       setGateMsg(e instanceof Error ? e.message.slice(0, 100) : 'Lỗi AI.')
     } finally {
@@ -396,7 +397,7 @@ export default function MindmapCanvas({ root, layout: initialLayout, onSave, onL
         ))}
       </div>
 
-      {/* Zoom controls */}
+      {/* Zoom + export */}
       <div
         className="absolute top-3 right-3 z-30 flex flex-col gap-1 rounded-xl border p-1 shadow-md"
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
@@ -429,6 +430,38 @@ export default function MindmapCanvas({ root, layout: initialLayout, onSave, onL
           style={{ color: 'var(--text-primary)' }}
         >
           <Maximize2 size={16} />
+        </button>
+        <div className="h-px my-0.5" style={{ background: 'var(--border-color)' }} />
+        <button
+          type="button"
+          title="Xuất PNG"
+          disabled={exportBusy}
+          onClick={() => {
+            setExportBusy(true)
+            void downloadMindmapPng(tree, layoutMode, mapName).finally(() => setExportBusy(false))
+          }}
+          className="p-2 rounded-lg transition-colors hover:bg-[var(--bg-secondary)] disabled:opacity-50"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          <Image size={16} />
+        </button>
+        <button
+          type="button"
+          title="Xuất SVG"
+          onClick={() => downloadMindmapSvg(tree, layoutMode, mapName)}
+          className="p-2 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          <Download size={16} />
+        </button>
+        <button
+          type="button"
+          title="In / Lưu PDF"
+          onClick={() => printMindmapPdf(tree, layoutMode, mapName)}
+          className="p-2 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          <FileText size={16} />
         </button>
       </div>
 

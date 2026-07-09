@@ -13,6 +13,7 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'you should give up',
     exampleNoteVi: 'Chỉ vì bạn thất bại một lần không có nghĩa là bạn nên bỏ cuộc.',
     starred: true,
+    cefr: 'B2',
   },
   {
     id: 'catalog:ss:the-more',
@@ -24,6 +25,7 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'you improve',
     exampleNoteVi: 'Bạn càng luyện tập nhiều, bạn càng tiến bộ.',
     starred: true,
+    cefr: 'B1',
   },
   {
     id: 'catalog:ss:so-that',
@@ -35,6 +37,7 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'finish my homework',
     exampleNoteVi: 'Tôi dậy sớm để có thể hoàn thành bài tập.',
     starred: false,
+    cefr: 'A2',
   },
   {
     id: 'catalog:ss:although',
@@ -46,6 +49,7 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'we still went out',
     exampleNoteVi: 'Mặc dù trời mưa, chúng tôi vẫn đi ra ngoài.',
     starred: false,
+    cefr: 'B1',
   },
   {
     id: 'catalog:ss:if-will',
@@ -57,6 +61,7 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'you will succeed',
     exampleNoteVi: 'Nếu bạn học chăm, bạn sẽ đạt kết quả tốt.',
     starred: false,
+    cefr: 'A2',
   },
   {
     id: 'catalog:ss:not-only',
@@ -68,5 +73,6 @@ export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
     exampleB: 'it is effective',
     exampleNoteVi: 'Không những rẻ mà còn hiệu quả.',
     starred: false,
+    cefr: 'B2',
   },
 ]

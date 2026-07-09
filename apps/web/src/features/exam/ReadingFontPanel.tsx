@@ -8,6 +8,7 @@ import {
   READING_FONT_OPTIONS,
   ensureReadingFontsLoaded,
 } from './readingFontSettings'
+import './readingFontPanel.css'
 
 interface Props {
   open: boolean

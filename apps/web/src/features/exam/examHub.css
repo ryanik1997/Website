@@ -663,3 +663,174 @@
   line-height: 1.55;
   color: var(--text-muted);
 }
+/* -- Skill picker (Page1: Listening / Reading) -- */
+.exam-skill-picker {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--bg-primary);
+}
+
+.exam-skill-picker__inner {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.exam-skill-picker__header {
+  margin-bottom: 1.35rem;
+}
+
+.exam-skill-picker__kicker {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-primary);
+}
+
+.exam-skill-picker__title {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.exam-skill-picker__desc {
+  margin: 0.45rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.exam-skill-picker__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .exam-skill-picker__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.exam-skill-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 22rem;
+  padding: 1.35rem 1.25rem 1.15rem;
+  border: none;
+  border-radius: 1.65rem;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--bg-primary) 35%, transparent);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  color: #fff;
+}
+
+.exam-skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px color-mix(in srgb, #000 22%, transparent);
+}
+
+.exam-skill-card--listening {
+  background: linear-gradient(165deg, #5b7cfa 0%, #3d5af1 48%, #3550d4 100%);
+  color: #eef2ff;
+}
+
+.exam-skill-card--listening .exam-skill-card__mascot {
+  color: #6b82f5;
+}
+
+.exam-skill-card--reading {
+  background: linear-gradient(165deg, #4caf50 0%, #2e9b4a 50%, #228b3a 100%);
+  color: #f1faf2;
+}
+
+.exam-skill-card--reading .exam-skill-card__mascot {
+  color: #66bb6a;
+}
+
+.exam-skill-card__icons {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.exam-skill-card__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.exam-skill-card__decor {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+.exam-skill-card__title {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.exam-skill-card__desc {
+  margin: 0.55rem 0 0;
+  max-width: 18rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+}
+
+.exam-skill-card__mascot {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.75rem;
+  min-height: 8.5rem;
+}
+
+.exam-skill-card__svg {
+  width: min(100%, 12.5rem);
+  height: auto;
+}
+
+.exam-skill-card__badge {
+  align-self: center;
+  margin-top: 0.35rem;
+  padding: 0.4rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #24305e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.exam-skill-card--reading .exam-skill-card__badge {
+  color: #1b5e20;
+}
+
+[data-theme='dark'] .exam-skill-card,
+[data-theme='mid'] .exam-skill-card {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}

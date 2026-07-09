@@ -4,11 +4,15 @@ export function isInExamHighlightZone(el: Element | null | undefined): boolean {
   return Boolean(el?.closest(EXAM_HIGHLIGHT_ZONE_SELECTOR))
 }
 
+export type ReadingHighlightKind = 'user' | 'evidence'
+
 export interface ReadingHighlight {
   id: string
   blockId: string
   start: number
   end: number
+  /** user = tô vàng thủ công; evidence = AI chỉ đoạn đáp án (cam) */
+  kind?: ReadingHighlightKind
 }
 
 export interface TextNote {
@@ -22,6 +26,8 @@ export interface TextNote {
 export interface TextAnnotationSegment {
   text: string
   highlighted: boolean
+  /** true khi đoạn thuộc bằng chứng AI (cam) */
+  evidence?: boolean
   note?: string
 }
 
@@ -93,9 +99,11 @@ export function segmentsFromAnnotations(
     const end = sorted[i + 1]
     if (start >= end) continue
 
-    const highlighted = highlights.some(h =>
+    const overlapping = highlights.filter(h =>
       h.blockId === blockId && h.start < end && h.end > start,
     )
+    const highlighted = overlapping.length > 0
+    const evidence = overlapping.some(h => h.kind === 'evidence')
     const overlappingNote = notes.find(n =>
       n.blockId === blockId && n.start < end && n.end > start && n.text.trim(),
     )
@@ -103,6 +111,7 @@ export function segmentsFromAnnotations(
     segments.push({
       text: safeText.slice(start, end),
       highlighted,
+      evidence: evidence || undefined,
       note: overlappingNote?.text,
     })
   }

@@ -381,11 +381,25 @@
 
 .reading-test-highlight {
   background: var(--exam-highlight-bg);
-  color: inherit;
+  /* Chữ tối trên nền vàng — rõ trên Light / Tối vừa / Tối */
+  color: #1d1d1f;
   border-radius: 0.15rem;
   padding: 0.05rem 0;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+/* AI chỉ đoạn đáp án / thông tin đúng — tô cam */
+.reading-test-highlight--evidence {
+  background: color-mix(in srgb, #ff9800 52%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #e65100 55%, transparent);
+  color: inherit;
+}
+
+[data-theme='dark'] .reading-test-highlight--evidence,
+[data-theme='mid'] .reading-test-highlight--evidence {
+  background: color-mix(in srgb, #ff9800 42%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #ffb74d 50%, transparent);
 }
 
 .reading-test-passage ::selection,
@@ -400,13 +414,14 @@
 .reading-test-note {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 70%, var(--text-primary));
+  text-decoration-color: #ff9800;
   text-underline-offset: 0.15em;
   cursor: help;
 }
 
 mark.reading-test-note {
   text-decoration: underline wavy;
+  text-decoration-color: #ff9800;
 }
 
 .reading-highlight-toolbar {
@@ -1318,6 +1333,25 @@ mark.reading-test-note {
   color: var(--bg-primary);
 }
 
+/* Review: inline style ưu tiên; class chỉ bổ trợ. is-current không được đè màu review. */
+.reading-test-footer.is-review .reading-test-q-pill.is-review-ok,
+.reading-test-footer.is-review .reading-test-q-pill.is-review-bad,
+.reading-test-footer.is-review .reading-test-q-pill.is-review-skip {
+  /* giữ màu review kể cả khi is-current */
+  color: #fff !important;
+}
+
+.reading-test-footer.is-review .reading-test-q-pill.is-review-skip {
+  color: #5a4500 !important;
+}
+
+.reading-test-footer.is-review .reading-test-q-pill.is-current.is-review-ok,
+.reading-test-footer.is-review .reading-test-q-pill.is-current.is-review-bad,
+.reading-test-footer.is-review .reading-test-q-pill.is-current.is-review-skip {
+  /* ring được set bằng inline boxShadow */
+  filter: brightness(1.05);
+}
+
 .reading-test-footer__nav {
   display: flex;
   align-items: center;
@@ -1735,4 +1769,120 @@ mark.reading-test-note {
   .reading-test-questions {
     flex: 1;
   }
+}
+/* -- Review mode (sau n?p b�i � Xem c�ng d? b�i) -- */
+.reading-test-shell.is-review .reading-test-header__title {
+  color: var(--color-primary);
+}
+
+.reading-review-banner {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.reading-review-banner.is-correct {
+  border-color: color-mix(in srgb, #22c55e 50%, var(--border-color));
+  background: color-mix(in srgb, #22c55e 12%, var(--bg-card));
+}
+
+.reading-review-banner.is-wrong {
+  border-color: color-mix(in srgb, #ef4444 45%, var(--border-color));
+  background: color-mix(in srgb, #ef4444 10%, var(--bg-card));
+}
+
+.reading-review-banner.is-skipped {
+  border-color: color-mix(in srgb, #f1c40f 45%, var(--border-color));
+  background: color-mix(in srgb, #f1c40f 12%, var(--bg-card));
+}
+
+.reading-review-banner__tag {
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--text-primary) 10%, transparent);
+}
+
+.reading-review-banner.is-correct .reading-review-banner__tag { background: #22c55e; color: #fff; }
+.reading-review-banner.is-wrong .reading-review-banner__tag { background: #ef4444; color: #fff; }
+.reading-review-banner.is-skipped .reading-review-banner__tag { background: #f1c40f; color: #5a4500; }
+
+.reading-review-banner__key { color: var(--color-primary); }
+
+.reading-test-questions.is-review input:disabled,
+.reading-test-questions.is-review input[readonly],
+.reading-test-questions.is-review .reading-test-mc-option:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.reading-test-mc-option.is-review-key,
+.reading-test-radio.is-review-key {
+  outline: 2px solid #22c55e;
+  outline-offset: 1px;
+  background: color-mix(in srgb, #22c55e 12%, var(--bg-card));
+}
+
+.reading-test-mc-option.is-review-bad,
+.reading-test-radio.is-review-bad {
+  outline: 2px solid #ef4444;
+  outline-offset: 1px;
+  background: color-mix(in srgb, #ef4444 10%, var(--bg-card));
+}
+
+.reading-test-mc-option.is-review-ok,
+.reading-test-radio.is-review-ok {
+  outline: 2px solid #22c55e;
+  outline-offset: 1px;
+}
+
+.reading-test-tfng-item.is-review-correct,
+.reading-test-mc-item.is-review-correct {
+  border-left: 3px solid #22c55e;
+  padding-left: 0.5rem;
+}
+
+.reading-test-tfng-item.is-review-wrong,
+.reading-test-mc-item.is-review-wrong {
+  border-left: 3px solid #ef4444;
+  padding-left: 0.5rem;
+}
+
+.reading-test-tfng-item.is-review-skipped,
+.reading-test-mc-item.is-review-skipped {
+  border-left: 3px solid #f1c40f;
+  padding-left: 0.5rem;
+}
+
+.reading-test-q-pill.is-review-ok {
+  background: color-mix(in srgb, #22c55e 55%, var(--bg-card)) !important;
+  color: #fff !important;
+  border-color: #22c55e !important;
+}
+
+.reading-test-q-pill.is-review-bad {
+  background: color-mix(in srgb, #ef4444 55%, var(--bg-card)) !important;
+  color: #fff !important;
+  border-color: #ef4444 !important;
+}
+
+.reading-test-q-pill.is-review-skip {
+  background: color-mix(in srgb, #f1c40f 65%, var(--bg-card)) !important;
+  color: #5a4500 !important;
+  border-color: #f1c40f !important;
 }

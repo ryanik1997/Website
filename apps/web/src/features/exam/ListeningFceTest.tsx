@@ -12,10 +12,16 @@ import { clearListeningDraft } from './examCompletion'
 import { ExamHighlightProvider } from './examHighlightContext'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { useExamDraftGate } from './useExamDraftGate'
 import { usePartHighlights } from './usePartHighlights'
+import ExamTimerControls from './ExamTimerControls'
 import { initialExamTimerSeconds } from './examTimer'
 import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
+import { buildListeningReviewStatusMap, examReviewPillStyle, type ExamReviewStatus } from './examReviewUtils'
+import ListeningReviewActiveBar from './ListeningReviewActiveBar'
+import ExamReviewAiPanel from './ExamReviewAiPanel'
+import { useExamReviewAi } from './useExamReviewAi'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, resolveListeningAudioSource } from './listeningExamAudio'
@@ -42,9 +48,11 @@ export default function ListeningFceTest({ exam }: Props) {
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
 
   const storageKey = `${STORAGE_PREFIX}${exam.id}`
+  const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const currentPart = exam.parts[partIndex] ?? null
   const {
     highlights,
@@ -94,6 +102,7 @@ export default function ListeningFceTest({ exam }: Props) {
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      markHydrated()
       return
     }
     try {
@@ -121,9 +130,12 @@ export default function ListeningFceTest({ exam }: Props) {
     } catch {
       setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     }
-  }, [exam, setAnnotationsByPart, storageKey])
+    markHydrated()
+  }, [exam, setAnnotationsByPart, storageKey, markHydrated])
 
   useEffect(() => {
+    if (!isHydrated) return
+    try {
     window.localStorage.setItem(storageKey, JSON.stringify({
       answers,
       unsure,
@@ -135,10 +147,13 @@ export default function ListeningFceTest({ exam }: Props) {
       notesByPart,
     }))
     notifyExamDraftRevision()
-  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure])
+    } catch {
+      /* quota */
+    }
+  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
 
   useEffect(() => {
-    if (submitted) return
+    if (submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
@@ -162,9 +177,10 @@ export default function ListeningFceTest({ exam }: Props) {
   }, [exam.parts])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
+    if (reviewMode) return
     setAnswers(prev => ({ ...prev, [questionId]: value }))
     setActiveQuestionId(questionId)
-  }, [])
+  }, [reviewMode])
 
   const answeredInPart = useCallback((index: number) => {
     return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
@@ -185,6 +201,10 @@ export default function ListeningFceTest({ exam }: Props) {
     setActiveQuestionId(next.id)
   }, [activeQuestionId, allQuestions, exam.parts, partIndex])
 
+  const resetTimer = useCallback(() => {
+    setTimeLeft(initialExamTimerSeconds(exam.durationMinutes))
+  }, [exam.durationMinutes])
+
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
     clearAllHighlights()
@@ -196,6 +216,7 @@ export default function ListeningFceTest({ exam }: Props) {
     setPartIndex(0)
     setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
     setSubmitted(false)
+    setReviewMode(false)
     if (fullMockId) {
       patchFullMockSession({ stage: 'listening', listening: undefined })
     }
@@ -209,7 +230,22 @@ export default function ListeningFceTest({ exam }: Props) {
     ? allQuestions.findIndex(q => q.id === activeQuestionId)
     : -1
 
-  if (submitted) {
+  const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
+    if (!reviewMode) return {}
+    return buildListeningReviewStatusMap(exam, answers)
+  }, [answers, exam, reviewMode])
+
+  const { aiText: reviewAiText, hideAi: hideReviewAi } = useExamReviewAi(
+    exam.id,
+    'listening',
+    reviewMode,
+  )
+  const reviewActiveQuestionNumber = useMemo(() => {
+    if (!reviewMode || !activeQuestionId) return null
+    return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
+  }, [activeQuestionId, allQuestions, reviewMode])
+
+  if (submitted && !reviewMode) {
     return (
       <ListeningSubmittedScreen
         exam={exam}
@@ -218,17 +254,45 @@ export default function ListeningFceTest({ exam }: Props) {
         allQuestions={allQuestions}
         fullMockId={fullMockId}
         onRetry={handleRetry}
+        onReviewWithPaper={() => {
+          setReviewMode(true)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }}
       />
     )
   }
 
   return (
-    <div className={`listening-exam-shell listening-ket-cambridge listening-fce-cambridge${exam.examType === 'cae' || exam.examType === 'cpe' ? ' listening-cae-cambridge' : ''}${exam.examType === 'cpe' ? ' listening-cpe-cambridge' : ''}${isResizing ? ' is-resizing' : ''}`}>
+    <div className={`listening-exam-shell listening-ket-cambridge listening-fce-cambridge${exam.examType === 'cae' || exam.examType === 'cpe' ? ' listening-cae-cambridge' : ''}${exam.examType === 'cpe' ? ' listening-cpe-cambridge' : ''}${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+      {reviewMode && (
+        <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
+          <span>Chế độ xem lại đề — pill xanh = đúng · đỏ = sai · vàng = bỏ qua</span>
+          <button type="button" className="rounded-full px-3 py-1.5 text-xs font-bold" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }} onClick={() => setReviewMode(false)}>Về báo cáo</button>
+        </div>
+      )}
+      {reviewMode && (
+        <ListeningReviewActiveBar
+          question={allQuestions.find(q => q.id === activeQuestionId) ?? null}
+          userAnswer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
+          status={activeQuestionId ? (reviewStatusMap[activeQuestionId] ?? null) : null}
+        />
+      )}
+      {reviewMode && reviewAiText && (
+        <ExamReviewAiPanel
+          aiText={reviewAiText}
+          activeQuestionNumber={reviewActiveQuestionNumber}
+          onClose={hideReviewAi}
+        />
+      )}
       <header className="listening-ket-cambridge__header">
         <button
           type="button"
           className="listening-ket-cambridge__brand"
-          onClick={() => navigate(listeningExamBackPath(exam))}
+          onClick={() => {
+            if (reviewMode) { setReviewMode(false); return }
+            navigate(listeningExamBackPath(exam))
+          }}
           aria-label="Back to exam list"
         >
           <span className="listening-ket-cambridge__crest">C</span>
@@ -242,6 +306,9 @@ export default function ListeningFceTest({ exam }: Props) {
           <span>Audio is playing</span>
         </div>
         <div className="listening-ket-cambridge__tools" aria-label="Exam tools">
+          {!reviewMode && (
+            <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
+          )}
           <Wifi size={19} />
           <Bell size={19} />
           <Menu size={22} />
@@ -343,7 +410,9 @@ export default function ListeningFceTest({ exam }: Props) {
                   showAllQuestions={currentPart.partNumber === 4 || ((exam.examType === 'cae' || exam.examType === 'cpe') && currentPart.partNumber === 3)}
                   resizer={null}
                   onAnswer={handleAnswer}
-                onSelectQuestion={setActiveQuestionId}
+                  onSelectQuestion={setActiveQuestionId}
+                  reviewMode={reviewMode}
+                  reviewStatusMap={reviewStatusMap}
               />
             )
           })()}
@@ -388,16 +457,22 @@ export default function ListeningFceTest({ exam }: Props) {
                 </button>
                 {isCurrent && (
                   <div className="listening-ket-cambridge__qnav">
-                    {questions.map(question => (
-                      <button
-                        key={question.id}
-                        type="button"
-                        className={`${activeQuestionId === question.id ? ' is-current' : ''}${answers[question.id] ? ' is-answered' : ''}`}
-                        onClick={() => setActiveQuestionId(question.id)}
-                      >
-                        {question.number}
-                      </button>
-                    ))}
+                    {questions.map(question => {
+                      const isActive = activeQuestionId === question.id
+                      const rev = reviewMode ? (reviewStatusMap[question.id] ?? null) : null
+                      return (
+                        <button
+                          key={question.id}
+                          type="button"
+                          className={`${isActive ? ' is-current' : ''}${!rev && answers[question.id] ? ' is-answered' : ''}`}
+                          style={examReviewPillStyle(rev, isActive)}
+                          title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}
+                          onClick={() => setActiveQuestionId(question.id)}
+                        >
+                          {question.number}
+                        </button>
+                      )
+                    })}
                   </div>
                 )}
               </div>
@@ -407,8 +482,11 @@ export default function ListeningFceTest({ exam }: Props) {
         <button
           type="button"
           className="listening-ket-cambridge__submit"
-          onClick={() => setConfirmSubmit(true)}
-          aria-label="Submit test"
+          onClick={() => {
+            if (reviewMode) { setReviewMode(false); return }
+            setConfirmSubmit(true)
+          }}
+          aria-label={reviewMode ? 'Back to report' : 'Submit test'}
         >
           <Check size={24} />
         </button>

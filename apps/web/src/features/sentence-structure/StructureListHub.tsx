@@ -1,32 +1,68 @@
-import { useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ChevronLeft, ChevronRight, Search, Star } from 'lucide-react'
+import { dedupeLegacySentenceStructures } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
 import { categoryMeta } from './types'
+import { CEFR_LEVELS, CEFR_LABELS, parseCefr, cefrBadgeStyle, type CefrLevel } from '../../lib/cefr'
 
 const PAGE_SIZE = 24
 
+function structureDedupeKey(s: Pick<SentenceStructure, 'title' | 'template'>): string {
+  return `${s.title.trim().toLowerCase()}|${s.template.trim().toLowerCase()}`
+}
+
+/** Ưu tiên catalog id khi list còn sót bản trùng (UI an toàn). */
+function uniqueStructures(items: SentenceStructure[]): SentenceStructure[] {
+  const map = new Map<string, SentenceStructure>()
+  for (const item of items) {
+    const key = structureDedupeKey(item)
+    const prev = map.get(key)
+    if (!prev) {
+      map.set(key, item)
+      continue
+    }
+    const preferNew =
+      (item.id.startsWith('catalog:') && !prev.id.startsWith('catalog:'))
+      || (!item.id.startsWith('catalog:') && !prev.id.startsWith('catalog:') && item.updatedAt >= prev.updatedAt)
+      || (item.id.startsWith('catalog:') && prev.id.startsWith('catalog:') && item.updatedAt >= prev.updatedAt)
+    if (preferNew) map.set(key, item)
+  }
+  return [...map.values()].sort((a, b) => b.updatedAt - a.updatedAt)
+}
+
 export default function StructureListHub() {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(0)
+  const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
+
+  useEffect(() => {
+    void dedupeLegacySentenceStructures()
+  }, [])
 
   const items = useLiveQuery(() => sentenceStructureRepo.all(), [])
 
   const filtered = useMemo(() => {
     if (!items) return items
+    let unique = uniqueStructures(items)
+    if (cefrFilter) {
+      unique = unique.filter(s => s.cefr === cefrFilter)
+    }
     const q = query.trim().toLowerCase()
-    if (!q) return items
-    return items.filter(s =>
+    if (!q) return unique
+    return unique.filter(s =>
       s.title.toLowerCase().includes(q)
       || s.template.toLowerCase().includes(q)
       || s.category.toLowerCase().includes(q)
       || s.description.toLowerCase().includes(q)
-      || s.exampleNoteVi.toLowerCase().includes(q),
+      || s.exampleNoteVi.toLowerCase().includes(q)
+      || (s.cefr?.toLowerCase().includes(q) ?? false),
     )
-  }, [items, query])
+  }, [items, query, cefrFilter])
 
   const total = filtered?.length ?? 0
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
@@ -51,9 +87,55 @@ export default function StructureListHub() {
             aria-label="Tìm cấu trúc câu"
           />
         </div>
+        <div className="flex flex-wrap gap-1.5 px-1 pb-1">
+          <button
+            type="button"
+            className="px-2.5 py-1 rounded-full text-[11px] font-bold border"
+            style={{
+              borderColor: !cefrFilter ? 'var(--color-primary)' : 'var(--border-color)',
+              color: !cefrFilter ? 'var(--color-primary)' : 'var(--text-muted)',
+              background: !cefrFilter
+                ? 'color-mix(in srgb, var(--color-primary) 12%, transparent)'
+                : 'transparent',
+            }}
+            onClick={() => {
+              const next = new URLSearchParams(searchParams)
+              next.delete('cefr')
+              setSearchParams(next, { replace: true })
+              setPage(0)
+            }}
+          >
+            Tất cả CEFR
+          </button>
+          {CEFR_LEVELS.map(level => {
+            const active = cefrFilter === level
+            const st = cefrBadgeStyle(level)
+            return (
+              <button
+                key={level}
+                type="button"
+                className="px-2.5 py-1 rounded-full text-[11px] font-bold border"
+                style={{
+                  borderColor: active ? st.color : 'var(--border-color)',
+                  color: active ? st.color : 'var(--text-muted)',
+                  background: active ? st.bg : 'transparent',
+                }}
+                title={CEFR_LABELS[level]}
+                onClick={() => {
+                  const next = new URLSearchParams(searchParams)
+                  next.set('cefr', level)
+                  setSearchParams(next, { replace: true })
+                  setPage(0)
+                }}
+              >
+                {level}
+              </button>
+            )
+          })}
+        </div>
         <p className="ss-hub-count">
           {total.toLocaleString('vi-VN')} cấu trúc
-          {query.trim() ? ' (đã lọc)' : ''}
+          {(query.trim() || cefrFilter) ? ' (đã lọc)' : ''}
         </p>
       </div>
 
@@ -109,14 +191,21 @@ function StructureRow({
   onOpen: () => void
 }) {
   const cat = categoryMeta(item.category)
+  const cefr = item.cefr as CefrLevel | undefined
+  const badge = cefr ? cefrBadgeStyle(cefr) : null
 
   return (
     <div className="ss-hub-row" role="listitem">
       <button type="button" className="ss-hub-row-main" onClick={onOpen}>
         <div className="ss-hub-row-top">
           <h2 className="ss-hub-row-title">{item.title}</h2>
-          {item.starred && (
-            <Star size={14} className="ss-hub-row-starred" fill="currentColor" aria-hidden />
+          {cefr && badge && (
+            <span
+              className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
+              style={{ background: badge.bg, color: badge.color }}
+            >
+              {cefr}
+            </span>
           )}
         </div>
         <p className="ss-hub-row-template">{item.template}</p>

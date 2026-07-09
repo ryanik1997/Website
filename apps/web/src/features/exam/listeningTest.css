@@ -2717,13 +2717,31 @@
   background: var(--exam-highlight-selection);
 }
 
+.listening-exam-body .reading-test-highlight--evidence {
+  background: color-mix(in srgb, #ff9800 52%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #e65100 55%, transparent);
+}
+
 .listening-exam-body .reading-test-highlight {
   background: var(--exam-highlight-bg);
-  color: inherit;
+  color: #1d1d1f;
   border-radius: 0.15rem;
   padding: 0.05rem 0;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+.listening-exam-body .reading-test-note {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #ff9800;
+  text-underline-offset: 0.15em;
+  cursor: help;
+}
+
+.listening-exam-body mark.reading-test-note {
+  text-decoration: underline wavy;
+  text-decoration-color: #ff9800;
 }
 
 /* FCE/CAE Part 2 — tiêu đề + ảnh minh họa (một ảnh cho cả Part) */
@@ -4188,4 +4206,45 @@
   .listening-cae-cambridge .listening-fce-mc__list {
     max-width: 100%;
   }
+}
+
+/* Review mode listening */
+.listening-exam-shell.is-review .listening-exam-header__title {
+  color: var(--color-primary);
+}
+
+.listening-review-tag {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.listening-review-tag.is-correct { color: #22c55e; }
+.listening-review-tag.is-wrong { color: #ef4444; }
+.listening-review-tag.is-skipped { color: #b8860b; }
+
+.listening-split-answer-row.is-review-ok {
+  border-left: 3px solid #22c55e;
+  padding-left: 0.4rem;
+}
+
+.listening-split-answer-row.is-review-bad {
+  border-left: 3px solid #ef4444;
+  padding-left: 0.4rem;
+}
+
+.listening-split-answer-row.is-review-skip {
+  border-left: 3px solid #f1c40f;
+  padding-left: 0.4rem;
+}
+
+.listening-ielts-mc__opt.is-review-key,
+.listening-ielts-match__pill.is-review-key {
+  outline: 2px solid #22c55e;
+  background: color-mix(in srgb, #22c55e 12%, var(--bg-card));
+}
+
+.listening-ielts-mc__opt.is-review-bad,
+.listening-ielts-match__pill.is-review-bad {
+  outline: 2px solid #ef4444;
 }

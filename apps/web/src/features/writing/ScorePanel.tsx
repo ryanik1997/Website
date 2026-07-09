@@ -2,9 +2,10 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { Sparkles, TrendingUp, AlertCircle } from 'lucide-react'
 import { db } from '@ryan/db'
 import type { WritingDoc } from '@ryan/db'
-import type { CambridgeScore, IELTSScore, WritingScore } from '@ryan/core'
+import type { CambridgeScore, IELTSScore, WritingRewrite, WritingScore } from '@ryan/core'
 import { isCambridgeScore, isIELTSScore } from '@ryan/core'
 import { getWritingUiConfig } from './writingUiConfig'
+import RewriteComparePanel from './RewriteComparePanel'
 
 function ieltsBandColor(band: number): string {
   if (band >= 7) return '#22c55e'
@@ -74,9 +75,28 @@ interface Props {
   docType: WritingDoc['type']
   isGrading: boolean
   onGrade: () => void
+  /** Bài gốc để so sánh rewrite */
+  essayText?: string
+  rewrite?: WritingRewrite | null
+  rewriteLoading?: boolean
+  rewriteError?: string | null
+  onRequestRewrite?: () => void
+  onApplyRewrite?: (text: string) => void
 }
 
-export default function ScorePanel({ score, docId, docType, isGrading, onGrade }: Props) {
+export default function ScorePanel({
+  score,
+  docId,
+  docType,
+  isGrading,
+  onGrade,
+  essayText = '',
+  rewrite = null,
+  rewriteLoading = false,
+  rewriteError = null,
+  onRequestRewrite,
+  onApplyRewrite,
+}: Props) {
   const ui = getWritingUiConfig(docType)
   const framework = ui.track
 
@@ -242,6 +262,19 @@ export default function ScorePanel({ score, docId, docType, isGrading, onGrade }
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {onRequestRewrite && onApplyRewrite && essayText.trim() && (
+        <div className="mb-5">
+          <RewriteComparePanel
+            original={essayText}
+            rewrite={rewrite}
+            loading={rewriteLoading}
+            error={rewriteError}
+            onRequestRewrite={onRequestRewrite}
+            onApplyRewrite={onApplyRewrite}
+          />
         </div>
       )}
 

@@ -28,8 +28,9 @@
   --color-primary: #818cf8;
   --color-on-primary: #ffffff;
   --color-accent:  #a78bfa;
-  --exam-highlight-bg: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
-  --exam-highlight-selection: color-mix(in srgb, var(--color-primary) 28%, transparent);
+  /* Tô sáng / bôi chọn: luôn vàng (giống Light) — IELTS + Cambridge */
+  --exam-highlight-bg: #fff3a3;
+  --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
 }
 
 /* ── Theme tokens — Mid ── */
@@ -43,8 +44,9 @@
   --color-primary: #89b4fa;
   --color-on-primary: #ffffff;
   --color-accent:  #cba6f7;
-  --exam-highlight-bg: color-mix(in srgb, var(--color-accent) 35%, var(--bg-secondary));
-  --exam-highlight-selection: color-mix(in srgb, var(--color-primary) 28%, transparent);
+  /* Tô sáng / bôi chọn: luôn vàng (giống Light) — IELTS + Cambridge */
+  --exam-highlight-bg: #fff3a3;
+  --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
 }
 
 html,

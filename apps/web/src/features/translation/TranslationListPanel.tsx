@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Plus, Languages, Trash2, Pencil, Search } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { db, translationRepo } from '@ryan/db'
 import type { TranslationSet } from '@ryan/db'
 import { useTranslationStore } from './translationStore'
@@ -9,6 +10,7 @@ import { setMatchesTrackGenre, type TranslationGenre, type TranslationTrack } fr
 import NewSetModal from './NewSetModal'
 import PanelHeader from '../../components/PanelHeader'
 import PanelEmpty from '../../components/PanelEmpty'
+import { CEFR_LEVELS, parseCefr, cefrBadgeStyle, type CefrLevel } from '../../lib/cefr'
 
 export default function TranslationListPanel({
   filterTrack,
@@ -34,8 +36,10 @@ export default function TranslationListPanel({
   const { activeSetId, setActiveSetId } = useTranslationStore()
   const [showCreate, setShowCreate] = useState(false)
   const [query, setQuery] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
 
-  const filterKey = `${filterTrack?.slug ?? 'all'}:${filterGenre ?? ''}:${filterSet ? '1' : '0'}`
+  const filterKey = `${filterTrack?.slug ?? 'all'}:${filterGenre ?? ''}:${filterSet ? '1' : '0'}:${cefrFilter ?? ''}`
   const sets = useLiveQuery(async () => {
     const all = await db.translationSets.orderBy('createdAt').reverse().toArray()
     let list = all
@@ -44,6 +48,7 @@ export default function TranslationListPanel({
     else if (filterTrack && filterGenre) {
       list = list.filter(s => setMatchesTrackGenre(s, filterTrack, filterGenre))
     }
+    if (cefrFilter) list = list.filter(s => s.cefr === cefrFilter)
     return list
   }, [filterKey])
 
@@ -99,6 +104,47 @@ export default function TranslationListPanel({
         </div>
       )}
 
+      <div className="px-3 pb-2 flex flex-wrap gap-1">
+        <button
+          type="button"
+          className="px-2 py-0.5 rounded-full text-[10px] font-bold border"
+          style={{
+            borderColor: !cefrFilter ? 'var(--color-primary)' : 'var(--border-color)',
+            color: !cefrFilter ? 'var(--color-primary)' : 'var(--text-muted)',
+          }}
+          onClick={() => {
+            const next = new URLSearchParams(searchParams)
+            next.delete('cefr')
+            setSearchParams(next, { replace: true })
+          }}
+        >
+          CEFR
+        </button>
+        {CEFR_LEVELS.map(level => {
+          const active = cefrFilter === level
+          const st = cefrBadgeStyle(level)
+          return (
+            <button
+              key={level}
+              type="button"
+              className="px-2 py-0.5 rounded-full text-[10px] font-bold border"
+              style={{
+                borderColor: active ? st.color : 'var(--border-color)',
+                color: active ? st.color : 'var(--text-muted)',
+                background: active ? st.bg : 'transparent',
+              }}
+              onClick={() => {
+                const next = new URLSearchParams(searchParams)
+                next.set('cefr', level)
+                setSearchParams(next, { replace: true })
+              }}
+            >
+              {level}
+            </button>
+          )
+        })}
+      </div>
+
       <div className="flex-1 overflow-y-auto px-2 py-2">
         {!visibleSets?.length ? (
           <PanelEmpty
@@ -148,6 +194,8 @@ function SetItem({
   const due = countDue(set.sentences)
   const [renaming, setRenaming] = useState(false)
   const [draftTitle, setDraftTitle] = useState(set.title)
+  const cefr = set.cefr as CefrLevel | undefined
+  const badge = cefr ? cefrBadgeStyle(cefr) : null
 
   useEffect(() => {
     if (!renaming) setDraftTitle(set.title)
@@ -225,6 +273,14 @@ function SetItem({
             >
               {CATEGORY_LABELS[set.category]}
             </span>
+            {cefr && badge && (
+              <span
+                className="text-[10px] px-1.5 py-0.5 rounded-full font-bold"
+                style={{ background: badge.bg, color: badge.color }}
+              >
+                {cefr}
+              </span>
+            )}
             <span className="text-xs" style={{ color: active ? 'var(--color-primary)' : 'var(--text-muted)' }}>
               {set.sentences.length} câu
             </span>

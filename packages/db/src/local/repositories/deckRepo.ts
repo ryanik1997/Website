@@ -18,13 +18,23 @@ export const deckRepo = {
 
   async create(
     name: string,
-    opts?: { book?: string; unit?: string; groupId?: string },
+    opts?: {
+      book?: string
+      unit?: string
+      groupId?: string
+      description?: string
+      color?: string
+      icon?: string
+    },
   ): Promise<Deck> {
     const groupId = opts?.groupId?.trim() || 'default'
     await ensureGroup(groupId)
     const d: Deck = {
       id: uid(), groupId, name,
       book: opts?.book, unit: opts?.unit,
+      description: opts?.description?.trim() || undefined,
+      color: opts?.color,
+      icon: opts?.icon,
       origin: 'user',
       createdAt: now(), updatedAt: now(),
     }
@@ -32,8 +42,10 @@ export const deckRepo = {
     return d
   },
 
-  update: (id: string, patch: Partial<Pick<Deck, 'name' | 'book' | 'unit' | 'groupId'>>) =>
-    db.decks.update(id, { ...patch, updatedAt: now() }),
+  update: (
+    id: string,
+    patch: Partial<Pick<Deck, 'name' | 'book' | 'unit' | 'groupId' | 'description' | 'color' | 'icon'>>,
+  ) => db.decks.update(id, { ...patch, updatedAt: now() }),
 
   async delete(id: string): Promise<void> {
     const deck = await db.decks.get(id)

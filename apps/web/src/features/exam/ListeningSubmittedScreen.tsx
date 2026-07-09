@@ -18,6 +18,7 @@ interface Props {
   allQuestions: ListeningQuestion[]
   fullMockId: string | null
   onRetry: () => void
+  onReviewWithPaper?: () => void
 }
 
 /** Màn hình sau Submit — tách riêng để parent test shell không early-return trước hooks. */
@@ -28,6 +29,7 @@ export default function ListeningSubmittedScreen({
   allQuestions,
   fullMockId,
   onRetry,
+  onReviewWithPaper,
 }: Props) {
   const navigate = useNavigate()
   const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
@@ -70,6 +72,7 @@ export default function ListeningSubmittedScreen({
       unsure={unsure}
       onRetry={onRetry}
       onBack={() => navigate(listeningExamBackPath(exam))}
+      onReviewWithPaper={onReviewWithPaper ?? (() => undefined)}
     />
   )
 }

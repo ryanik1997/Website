@@ -9,6 +9,12 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
 import {
+  isListeningKeyOption,
+  ListeningGapCorrectHint,
+  ListeningOptionReviewMark,
+  listeningOptionReviewStyle,
+} from './listeningReviewUi'
+import {
   usesCompositePictureBoard,
   usesSplitPictureOptions,
 } from './listeningPictureMc'
@@ -55,12 +61,16 @@ function AnswerRow({
   isActive,
   onAnswer,
   onSelect,
+  reviewMode = false,
+  reviewStatus = null,
 }: {
   question: ListeningQuestion
   answer: string
   isActive: boolean
   onAnswer: (v: string) => void
   onSelect: () => void
+  reviewMode?: boolean
+  reviewStatus?: 'correct' | 'wrong' | 'skipped' | null
 }) {
   const highlights = useExamHighlights()
   const isPictureMc = question.type === 'picture-mc'
@@ -68,42 +78,67 @@ function AnswerRow({
   const isMatching = question.type === 'matching'
   const isMc = !isGapFill && !isMatching && !isPictureMc
   const wordLimit = question.wordLimit ?? (isGapFill ? 2 : undefined)
+  const revClass = reviewStatus === 'correct'
+    ? ' is-review-ok'
+    : reviewStatus === 'wrong'
+      ? ' is-review-bad'
+      : reviewStatus === 'skipped'
+        ? ' is-review-skip'
+        : ''
 
   return (
     <div
       id={`listening-a-${question.id}`}
-      className={`listening-split-answer-row${isActive ? ' is-active' : ''}`}
+      className={`listening-split-answer-row${isActive ? ' is-active' : ''}${revClass}`}
       onFocus={onSelect}
     >
       <span className="listening-split-answer-row__num">{question.number}</span>
       <div className="listening-split-answer-row__body">
+        {reviewMode && reviewStatus && (
+          <p className={`listening-review-tag is-${reviewStatus}`}>
+            {reviewStatus === 'correct' ? 'Đúng' : reviewStatus === 'wrong' ? 'Sai' : 'Bỏ qua'}
+          </p>
+        )}
         {isGapFill && (
-          <input
-            type="text"
-            className="listening-ielts-gap__input"
-            value={answer}
-            placeholder={`Tối đa ${wordLimit} từ`}
-            data-highlight-skip
-            onChange={e => onAnswer(e.target.value)}
-            onFocus={onSelect}
-          />
+          <>
+            <input
+              type="text"
+              className="listening-ielts-gap__input"
+              value={answer}
+              placeholder={`Tối đa ${wordLimit} từ`}
+              data-highlight-skip
+              readOnly={reviewMode}
+              onChange={e => onAnswer(e.target.value)}
+              onFocus={onSelect}
+            />
+            <ListeningGapCorrectHint
+              reviewMode={reviewMode}
+              status={reviewStatus}
+              correctAnswer={question.answer}
+            />
+          </>
         )}
 
         {isMatching && (
           <div className="listening-ielts-match__pills">
             {question.options.map(option => {
-              const selected = answer === option.id
+              const selected = answer.toUpperCase() === option.id.toUpperCase()
+              const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+              const selectedWrong = Boolean(reviewMode && selected && reviewStatus === 'wrong')
               return (
                 <div
                   key={option.id}
                   role="button"
-                  tabIndex={0}
-                  className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}`}
+                  tabIndex={reviewMode ? -1 : 0}
+                  style={listeningOptionReviewStyle(reviewMode, selected, isKey, reviewStatus)}
+                  className={`listening-ielts-match__pill${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}${selectedWrong ? ' is-review-bad' : ''}${selected && reviewStatus === 'correct' ? ' is-review-ok' : ''}`}
                   onClick={() => {
+                    if (reviewMode) return
                     onSelect()
                     onAnswer(option.id)
                   }}
                   onKeyDown={e => {
+                    if (reviewMode) return
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
                       onSelect()
@@ -118,6 +153,7 @@ function AnswerRow({
                     highlights={highlights}
                     as="span"
                   />
+                  <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
                 </div>
               )
             })}
@@ -127,18 +163,23 @@ function AnswerRow({
         {isMc && (
           <div className="listening-ielts-mc__options">
             {question.options.map(option => {
-              const selected = answer === option.id
+              const selected = answer.toUpperCase() === option.id.toUpperCase()
+              const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+              const selectedWrong = Boolean(reviewMode && selected && reviewStatus === 'wrong')
               return (
                 <div
                   key={option.id}
                   role="button"
-                  tabIndex={0}
-                  className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}`}
+                  tabIndex={reviewMode ? -1 : 0}
+                  style={listeningOptionReviewStyle(reviewMode, selected, isKey, reviewStatus)}
+                  className={`listening-ielts-mc__opt${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}${selectedWrong ? ' is-review-bad' : ''}${selected && reviewStatus === 'correct' ? ' is-review-ok' : ''}`}
                   onClick={() => {
+                    if (reviewMode) return
                     onSelect()
                     onAnswer(option.id)
                   }}
                   onKeyDown={e => {
+                    if (reviewMode) return
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
                       onSelect()
@@ -153,6 +194,7 @@ function AnswerRow({
                     highlights={highlights}
                     as="span"
                   />
+                  <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
                 </div>
               )
             })}
@@ -261,21 +303,36 @@ export function ListeningPartAnswerPanel({
   activeQuestionId,
   onSelectQuestion,
   onAnswer,
-}: Props) {
+  reviewMode = false,
+  getQuestionReviewStatus,
+}: Props & {
+  reviewMode?: boolean
+  getQuestionReviewStatus?: (questionId: string) => 'correct' | 'wrong' | 'skipped' | null
+}) {
   return (
-    <ExamHighlightZone className="listening-exam-answer-pane">
-      <h3 className="listening-exam-answer-pane__title">Đáp án</h3>
+    <ExamHighlightZone className={`listening-exam-answer-pane${reviewMode ? ' is-review' : ''}`}>
+      <h3 className="listening-exam-answer-pane__title">
+        {reviewMode ? 'Đáp án · Xem lại' : 'Đáp án'}
+      </h3>
       <div className="listening-split-answer-list">
-        {part.questions.map(question => (
-          <AnswerRow
-            key={question.id}
-            question={question}
-            answer={answers[question.id] ?? ''}
-            isActive={activeQuestionId === question.id}
-            onAnswer={v => onAnswer(question.id, v)}
-            onSelect={() => onSelectQuestion(question.id)}
-          />
-        ))}
+        {part.questions.map(question => {
+          const rev = reviewMode ? (getQuestionReviewStatus?.(question.id) ?? null) : null
+          return (
+            <AnswerRow
+              key={question.id}
+              question={question}
+              answer={answers[question.id] ?? ''}
+              isActive={activeQuestionId === question.id}
+              reviewStatus={rev}
+              reviewMode={reviewMode}
+              onAnswer={v => {
+                if (reviewMode) return
+                onAnswer(question.id, v)
+              }}
+              onSelect={() => onSelectQuestion(question.id)}
+            />
+          )
+        })}
       </div>
     </ExamHighlightZone>
   )

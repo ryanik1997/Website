@@ -256,3 +256,186 @@ export function attachGuideImage(messages: AIMessage[], imageDataUrl: string): A
     }
   })
 }
+
+/** Gắn 1+ ảnh vào message user cuối (text → multimodal). */
+export function attachImagesToUserMessage(
+  messages: AIMessage[],
+  imageDataUrls: string[],
+  extraText?: string,
+): AIMessage[] {
+  if (!imageDataUrls.length) return messages
+  const idx = [...messages].map((m, i) => (m.role === 'user' ? i : -1)).filter(i => i >= 0).pop()
+  if (idx == null || idx < 0) return messages
+
+  const userMsg = messages[idx]
+  const baseText =
+    (typeof userMsg.content === 'string'
+      ? userMsg.content
+      : userMsg.content.filter(p => p.type === 'text').map(p => p.text).join('\n'))
+    + (extraText ? `\n\n${extraText}` : '')
+
+  const content: AIMessage['content'] = [
+    { type: 'text', text: baseText },
+    ...imageDataUrls.map(url => ({
+      type: 'image_url' as const,
+      image_url: { url, detail: 'high' as const },
+    })),
+  ]
+
+  const next = [...messages]
+  next[idx] = { ...userMsg, content }
+  return next
+}
+
+// ── Rewrite version 2 (side-by-side) ─────────────────────────────────────────
+
+export interface WritingRewrite {
+  rewrittenText: string
+  /** Tóm tắt thay đổi chính (tiếng Việt) */
+  changeSummary: string
+  /** Danh sách chỉnh sửa cụ thể */
+  changes: string[]
+  /** Gợi ý học từ bản rewrite */
+  focusNotes: string[]
+}
+
+const REWRITE_SCHEMA = `{
+  "rewrittenText": "<bài viết lại đầy đủ bằng tiếng Anh — giữ ý chính, nâng band/score>",
+  "changeSummary": "<tóm tắt 2-4 câu tiếng Việt về những gì đã sửa>",
+  "changes": ["<thay đổi cụ thể tiếng Việt>", "..."],
+  "focusNotes": ["<điểm học sinh nên học từ bản v2, tiếng Việt>", "..."]
+}`
+
+export function buildWritingRewritePrompt(
+  type: WritingDocType,
+  taskPrompt: string,
+  originalEssay: string,
+  scoreHints?: string,
+): AIMessage[] {
+  const framework = type.startsWith('cambridge_')
+    ? 'Cambridge Writing criteria (Content, Communicative Achievement, Organisation, Language)'
+    : type === 'ielts_task1'
+      ? 'IELTS Writing Task 1 Academic band descriptors'
+      : 'IELTS Writing Task 2 band descriptors'
+
+  const system = `You are an expert English writing coach. Rewrite the student's essay to a stronger version (target +0.5 to +1.5 band / Cambridge mark) while keeping the same ideas and task response.
+Apply ${framework}.
+Write changeSummary, changes, and focusNotes in Vietnamese.
+Write rewrittenText in natural English (full essay, not bullet points).
+Return ONLY this JSON object:
+${REWRITE_SCHEMA}`
+
+  const hint = scoreHints?.trim()
+    ? `\n\nExaminer feedback to address:\n${scoreHints.trim()}`
+    : ''
+
+  return [
+    { role: 'system', content: system },
+    {
+      role: 'user',
+      content: `Task type: ${type}
+Task prompt:
+${taskPrompt || '(none)'}
+
+Student original:
+${originalEssay}
+${hint}
+
+Produce version 2 (improved rewrite).`,
+    },
+  ]
+}
+
+// ── Chart OCR / mô tả biểu đồ Task 1 ─────────────────────────────────────────
+
+export interface ChartDescribeResult {
+  /** Mô tả chi tiết tiếng Việt (OCR + phân tích) */
+  descriptionVi: string
+  /** Prompt đề bài gợi ý tiếng Anh (để điền vào task prompt) */
+  suggestedPromptEn: string
+  chartType: string
+  keyFigures: string[]
+  trends: string[]
+}
+
+const CHART_DESCRIBE_SCHEMA = `{
+  "descriptionVi": "<mô tả đầy đủ biểu đồ/bản đồ/quy trình bằng tiếng Việt: loại, trục, đơn vị, số liệu chính>",
+  "suggestedPromptEn": "<đề IELTS Task 1 kiểu exam bằng tiếng Anh, 2-4 câu, dựa trên ảnh>",
+  "chartType": "<line graph|bar chart|pie chart|table|process|map|mixed|other>",
+  "keyFigures": ["<số liệu / mốc quan trọng tiếng Anh hoặc số>", "..."],
+  "trends": ["<xu hướng chính tiếng Việt>", "..."]
+}`
+
+export function buildChartDescribePrompt(existingPrompt?: string): AIMessage[] {
+  const extra = existingPrompt?.trim()
+    ? `\nExisting text prompt (may be incomplete):\n${existingPrompt.trim()}`
+    : ''
+
+  return [
+    {
+      role: 'system',
+      content: `You are an IELTS Writing Task 1 specialist. Analyse the attached chart/graph/map/process image.
+Extract visible numbers/labels (OCR-style), identify chart type, key figures and trends.
+Write descriptionVi and trends in Vietnamese. suggestedPromptEn in exam-style English.
+Return ONLY this JSON object:
+${CHART_DESCRIBE_SCHEMA}`,
+    },
+    {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          text: `Describe this Task 1 visual for a student preparing to write.${extra}`,
+        },
+        { type: 'image_url', image_url: { url: '__IMAGE__', detail: 'high' } },
+      ],
+    },
+  ]
+}
+
+// ── Model answer (Cambridge RW / practice) ───────────────────────────────────
+
+export interface WritingModelAnswer {
+  modelAnswer: string
+  bandOrLevelNote: string
+  whyGood: string[]
+  usefulPhrases: { phrase: string; meaningVi: string }[]
+}
+
+const MODEL_ANSWER_SCHEMA = `{
+  "modelAnswer": "<bài mẫu đầy đủ tiếng Anh đúng độ dài task>",
+  "bandOrLevelNote": "<ghi chú band IELTS hoặc Cambridge level bằng tiếng Việt>",
+  "whyGood": ["<vì sao bài tốt, tiếng Việt>", "..."],
+  "usefulPhrases": [{ "phrase": "<cụm tiếng Anh>", "meaningVi": "<nghĩa>" }]
+}`
+
+export function buildWritingModelAnswerPrompt(
+  type: WritingDocType,
+  taskPrompt: string,
+  targetNote?: string,
+): AIMessage[] {
+  const target =
+    targetNote
+    || (type === 'ielts_task1' ? 'IELTS band 8.0 Task 1'
+      : type.startsWith('cambridge_') ? `Strong pass at ${type.replace('cambridge_', '').toUpperCase()}`
+        : 'IELTS band 8.0 Task 2')
+
+  return [
+    {
+      role: 'system',
+      content: `You write high-quality model answers for English exams (${type}).
+Target: ${target}.
+Write bandOrLevelNote and whyGood in Vietnamese; modelAnswer and phrases in English.
+Return ONLY this JSON object:
+${MODEL_ANSWER_SCHEMA}`,
+    },
+    {
+      role: 'user',
+      content: `Task type: ${type}
+Task prompt:
+${taskPrompt.trim() || '(see image if attached)'}
+
+Write one complete model answer.`,
+    },
+  ]
+}

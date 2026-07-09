@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
-import { X, Search, Volume2, Plus, Clock, Loader2, AlertCircle } from 'lucide-react'
-import { db, dictRepo } from '@ryan/db'
-import { callAI, type AIProvider, buildDictionaryPrompt, type DictResult } from '@ryan/core'
+import { useLiveQuery } from 'dexie-react-hooks'
+import { X, Search, Volume2, Plus, Clock, Loader2, AlertCircle, Bookmark } from 'lucide-react'
+import { db, dictRepo, writingRepo, notebookRepo } from '@ryan/db'
+import {
+  callAI, type AIProvider, buildDictionaryPrompt, type DictResult,
+  canUse, type Plan,
+} from '@ryan/core'
 import { useDictStore } from './dictStore'
 import SaveToDeckModal from './SaveToDeckModal'
 import CopyButton from '../../components/CopyButton'
+import { lookupOfflineDict, offlineDictSize } from './offlineDictPack'
 
 function formatDictResult(result: DictResult): string {
   const lines = [result.word]
@@ -35,18 +40,27 @@ export default function DictionaryModal() {
   const [result, setResult] = useState<DictResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [sourceHint, setSourceHint] = useState<'cache' | 'offline' | 'ai' | null>(null)
   const [recent, setRecent] = useState<string[]>([])
   const [showSave, setShowSave] = useState(false)
+  const [notebookBusy, setNotebookBusy] = useState(false)
+  const [notebookFlash, setNotebookFlash] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const plan = useLiveQuery(
+    () => db.settings.get('plan').then(s => (s?.value as Plan) ?? 'free'),
+    [],
+  ) ?? 'free'
+  const aiAllowed = canUse(plan, 'dictionary_ai')
 
   useEffect(() => {
     if (!isOpen) return
     setResult(null)
     setError('')
+    setSourceHint(null)
     setQuery(initialQuery)
     loadRecent()
     setTimeout(() => inputRef.current?.focus(), 80)
-    if (initialQuery.trim()) lookup(initialQuery.trim())
+    if (initialQuery.trim()) void lookup(initialQuery.trim())
   }, [isOpen, initialQuery])
 
   async function loadRecent() {
@@ -60,38 +74,65 @@ export default function DictionaryModal() {
     setLoading(true)
     setError('')
     setResult(null)
+    setSourceHint(null)
 
     try {
-      // 1. Cache hit
+      // 1. Cache (đã tra trước)
       const fresh = await dictRepo.isFresh(w)
       if (fresh) {
         const cached = await dictRepo.get(w)
         if (cached) {
           setResult(cached.data as DictResult)
+          setSourceHint('cache')
           setLoading(false)
-          loadRecent()
+          void loadRecent()
           return
         }
       }
 
-      // 2. API key
-      const provider = ((await db.settings.get('ai_provider'))?.value as AIProvider) ?? 'openai'
-      const apiKey = ((await db.settings.get(`ai_key_${provider}`))?.value as string) ?? ''
-      if (!apiKey) {
-        setError('Chưa cài đặt API key. Vào module Viết → ⚙ Cài đặt AI để nhập key.')
+      // 2. Offline pack cơ bản (mọi gói)
+      const offline = lookupOfflineDict(w)
+      if (offline) {
+        setResult(offline)
+        setSourceHint('offline')
+        // cache local để recent list
+        try { await dictRepo.save(w, offline) } catch { /* ignore */ }
+        setLoading(false)
+        void loadRecent()
+        return
+      }
+
+      // 3. AI — chỉ Pro / trial / lifetime
+      if (!aiAllowed) {
+        setError(
+          `Không có trong gói offline (${offlineDictSize()} từ). Nâng Pro để tra AI mọi từ, hoặc thử từ phổ biến (environment, education…).`,
+        )
         setLoading(false)
         return
       }
 
-      // 3. Call AI
+      const provider = ((await db.settings.get('ai_provider'))?.value as AIProvider) ?? 'openai'
+      const apiKey = ((await db.settings.get(`ai_key_${provider}`))?.value as string) ?? ''
+      if (!apiKey) {
+        setError('Gói Pro: cần API key. Vào Cài đặt → AI để nhập key.')
+        setLoading(false)
+        return
+      }
+
       const messages = buildDictionaryPrompt(w)
       const res = await callAI(messages, apiKey, provider)
       const data = JSON.parse(res.content) as DictResult
+      try {
+        await writingRepo.recordUsage(
+          'dictionary_ai',
+          (res.inputTokens ?? 0) + (res.outputTokens ?? 0),
+        )
+      } catch { /* ignore */ }
 
-      // 4. Cache
       await dictRepo.save(w, data)
       setResult(data)
-      loadRecent()
+      setSourceHint('ai')
+      void loadRecent()
     } catch (e) {
       setError(
         e instanceof Error
@@ -213,9 +254,9 @@ export default function DictionaryModal() {
             {!loading && !result && !error && !recent.length && (
               <div className="flex flex-col items-center py-12 text-center px-6">
                 <BookOpenIcon />
-                <p className="font-medium mt-3 mb-1" style={{ color: 'var(--text-primary)' }}>Tra từ điển AI</p>
+                <p className="font-medium mt-3 mb-1" style={{ color: 'var(--text-primary)' }}>Từ điển</p>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Nhập từ hoặc cụm từ tiếng Anh để tra nghĩa.<br />
+                  Gói offline {offlineDictSize()}+ từ cơ bản · AI khi Pro.<br />
                   Chọn từ trên trang rồi nhấn FAB để tra nhanh.
                 </p>
               </div>
@@ -224,6 +265,13 @@ export default function DictionaryModal() {
             {/* Result */}
             {result && !loading && (
               <div className="p-4">
+                {sourceHint && (
+                  <p className="text-[11px] font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
+                    {sourceHint === 'offline' && `Offline pack · ${offlineDictSize()} từ`}
+                    {sourceHint === 'cache' && 'Đã lưu trên máy'}
+                    {sourceHint === 'ai' && 'AI (Pro)'}
+                  </p>
+                )}
                 {/* Word header */}
                 <div className="flex items-start gap-3 mb-4">
                   <div className="flex-1">
@@ -339,15 +387,45 @@ export default function DictionaryModal() {
                   </div>
                 )}
 
-                {/* Add to deck */}
-                <button
-                  onClick={() => setShowSave(true)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium border transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
-                  style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
-                >
-                  <Plus size={14} />
-                  Thêm vào bộ thẻ từ vựng
-                </button>
+                <div className="flex flex-col gap-2">
+                  <button
+                    type="button"
+                    disabled={notebookBusy}
+                    onClick={async () => {
+                      if (!result) return
+                      setNotebookBusy(true)
+                      try {
+                        const { created } = await notebookRepo.save({
+                          phrase: result.word,
+                          meaning: result.definitions[0]?.meaning ?? '',
+                          example: result.definitions[0]?.example,
+                          ipaUS: result.ipaUS,
+                          ipaUK: result.ipaUK,
+                          pos: result.pos,
+                          source: 'dictionary',
+                        })
+                        setNotebookFlash(created ? 'Đã lưu vào sổ ghi chú!' : 'Đã cập nhật sổ ghi chú')
+                        window.setTimeout(() => setNotebookFlash(null), 1800)
+                      } finally {
+                        setNotebookBusy(false)
+                      }
+                    }}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium border transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
+                    style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                  >
+                    <Bookmark size={14} style={{ color: 'var(--color-primary)' }} />
+                    {notebookFlash ?? (notebookBusy ? 'Đang lưu…' : 'Lưu sổ ghi chú')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowSave(true)}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium border transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
+                    style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+                  >
+                    <Plus size={14} />
+                    Thêm vào bộ thẻ từ vựng
+                  </button>
+                </div>
               </div>
             )}
           </div>

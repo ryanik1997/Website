@@ -1,0 +1,109 @@
+/* Font panel — CỠ CHỮ / KIỂU CHỮ (IELTS + Cambridge) */
+.reading-font-panel {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  z-index: 40;
+  width: min(17.5rem, calc(100vw - 1.5rem));
+  padding: 0.85rem 0.75rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--bg-primary) 18%, transparent);
+  color: var(--text-primary);
+}
+
+.reading-font-panel__section-label {
+  margin: 0 0 0.55rem;
+  padding: 0 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.reading-font-panel__size-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.reading-font-panel__size-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.reading-font-panel__size-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--rt-submit, var(--color-primary)) 35%, var(--border-color));
+}
+
+.reading-font-panel__size-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.reading-font-panel__size-value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.reading-font-panel__font-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 16rem;
+  overflow-y: auto;
+  border-top: 1px solid color-mix(in srgb, var(--border-color) 80%, transparent);
+}
+
+.reading-font-panel__font-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.7rem 0.55rem;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.reading-font-panel__font-item:hover {
+  background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+}
+
+.reading-font-panel__font-item.is-selected {
+  background: var(--rt-submit, var(--color-primary));
+  color: #fff;
+}
+
+.reading-font-panel__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ket-rw-icon-btn.is-active {
+  color: var(--color-primary);
+  border-color: color-mix(in srgb, var(--color-primary) 40%, var(--border-color));
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card));
+}

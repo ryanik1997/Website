@@ -10,6 +10,13 @@ function scorePct(value: number, max: number): number {
   return Math.min(100, Math.round((value / max) * 100))
 }
 
+function scoreMaxHint(data: { criteriaAvgs: { key: string }[] }): number {
+  const isCam = data.criteriaAvgs.some(c =>
+    ['content', 'communicativeAchievement', 'organisation', 'language'].includes(c.key),
+  )
+  return isCam ? 5 : 9
+}
+
 export default function WritingDashboardPage() {
   const data = useWritingDashboard()
 
@@ -110,7 +117,8 @@ export default function WritingDashboardPage() {
     )
   }
 
-  const maxTrend = Math.max(1, ...data.bandTrend.map(p => p.band))
+  const trendSource = data.dailyTrend30.length > 0 ? data.dailyTrend30 : data.bandTrend
+  const maxTrend = Math.max(1, ...trendSource.map(p => p.band), scoreMaxHint(data))
   const isCambridge = data.criteriaAvgs.some(c =>
     ['content', 'communicativeAchievement', 'organisation', 'language'].includes(c.key),
   )
@@ -124,7 +132,7 @@ export default function WritingDashboardPage() {
           <div>
             <h1 className="wd-title">Dashboard thống kê</h1>
             <p className="wd-sub">
-              Tổng hợp từ {data.totalGradings} lần chấm AI — lỗi hay sai, điểm mạnh & điểm yếu
+              {data.totalGradings} lần chấm · {data.gradingsLast30} trong 30 ngày — lịch chấm & xu hướng band
             </p>
           </div>
           <Link to="/app/writing" className="wd-back">
@@ -133,14 +141,20 @@ export default function WritingDashboardPage() {
           </Link>
         </div>
 
-        <div className="wd-stats">
+        <div className="wd-stats wd-stats--4">
           <div className="wd-stat">
             <div className="wd-stat-val">{data.avgBand.toFixed(1)}</div>
-            <div className="wd-stat-label">{scoreLabel}</div>
+            <div className="wd-stat-label">{scoreLabel} (all)</div>
           </div>
           <div className="wd-stat">
-            <div className="wd-stat-val">{data.totalGradings}</div>
-            <div className="wd-stat-label">Lần chấm AI</div>
+            <div className="wd-stat-val">
+              {data.avgBandLast30 > 0 ? data.avgBandLast30.toFixed(1) : '—'}
+            </div>
+            <div className="wd-stat-label">TB 30 ngày</div>
+          </div>
+          <div className="wd-stat">
+            <div className="wd-stat-val">{data.gradingsLast30}</div>
+            <div className="wd-stat-label">Chấm (30 ngày)</div>
           </div>
           <div className="wd-stat">
             <div className="wd-stat-val">{data.totalDocs}</div>
@@ -149,22 +163,67 @@ export default function WritingDashboardPage() {
         </div>
 
         <div className="wd-grid">
-          {data.bandTrend.length > 0 && (
+          <section className="wd-panel wd-panel--wide">
+            <div className="wd-panel-head">
+              <BarChart3 size={14} />
+              Lịch chấm 30 ngày
+            </div>
+            <div className="wd-panel-body">
+              <div className="wd-cal-legend">
+                <span>Ít</span>
+                <span className="wd-cal-swatch wd-cal-swatch--0" />
+                <span className="wd-cal-swatch wd-cal-swatch--1" />
+                <span className="wd-cal-swatch wd-cal-swatch--2" />
+                <span className="wd-cal-swatch wd-cal-swatch--3" />
+                <span>Nhiều / band cao</span>
+              </div>
+              <div className="wd-cal-grid">
+                {data.calendar30.map(day => {
+                  const intensity = day.count === 0
+                    ? 0
+                    : Math.min(3, 1 + Math.floor((day.avgBand / scoreMax) * 2.5))
+                  return (
+                    <div
+                      key={day.dateKey}
+                      className={`wd-cal-cell wd-cal-cell--${intensity}`}
+                      title={
+                        day.count
+                          ? `${day.label}: ${day.count} lần · TB ${day.avgBand}`
+                          : `${day.label}: không chấm`
+                      }
+                    >
+                      <span className="wd-cal-day">{day.label.slice(0, 2)}</span>
+                      {day.count > 0 && (
+                        <span className="wd-cal-band">{day.avgBand.toFixed(1)}</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+
+          {trendSource.length > 0 && (
             <section className="wd-panel wd-panel--wide">
               <div className="wd-panel-head">
-                <BarChart3 size={14} />
-                Xu hướng điểm gần đây
+                <TrendingUp size={14} />
+                {data.dailyTrend30.length > 0 ? 'Xu hướng band / ngày (30 ngày)' : 'Xu hướng điểm gần đây'}
               </div>
               <div className="wd-panel-body">
                 <div className="wd-trend">
-                  {data.bandTrend.map((p, i) => (
-                    <div key={`${p.at}-${i}`} className="wd-trend-col" title={`${p.label}: ${p.band}`}>
+                  {trendSource.map((p, i) => (
+                    <div
+                      key={`${p.at}-${i}`}
+                      className="wd-trend-col"
+                      title={`${p.label}: ${p.band}${p.count ? ` (${p.count} lần)` : ''}`}
+                    >
                       <div className="wd-trend-bar-wrap">
                         <div
                           className="wd-trend-bar"
                           style={{ height: `${Math.max(8, (p.band / maxTrend) * 100)}%` }}
                         />
                       </div>
+                      <span className="wd-trend-val">{p.band % 1 === 0 ? p.band.toFixed(0) : p.band.toFixed(1)}</span>
                       <span className="wd-trend-label">{p.label}</span>
                     </div>
                   ))}

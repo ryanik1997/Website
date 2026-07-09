@@ -16,6 +16,5 @@ export {
 } from './builtinExams'
 
 export { CATALOG_SENTENCE_STRUCTURES } from './seeds/sentenceStructures'
-
-export { syncGlobalCatalog } from './syncGlobalCatalog'
+export { dedupeLegacySentenceStructures, syncGlobalCatalog } from './syncGlobalCatalog'
 export type { GlobalCatalogSyncResult } from './syncGlobalCatalog'

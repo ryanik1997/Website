@@ -12,7 +12,7 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-09** — IELTS Reading Wizard: **nhiều template mới P1–P3** + Choose TWO UI + Notes/Table/Sentence line-break + harden ExamTrack (không crash HMR)
+- **Session:** **2026-07-09** — Dictionary offline+Pro AI · MindMap export/templates · CEFR + gợi ý sau exam · Sổ ghi chú v12
 - **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung** (không cần import lại)
 - **Production:** https://ryanenglishv2.vercel.app — **đã deploy** (SW cache, Listening publish, Admin publish v012); migrations 009–012 đã push
 - **Dev:** `pnpm dev` → `/app/exam/track/ielts` → Import Wizard Reading (P1/P2/P3 templates)
@@ -2286,45 +2286,320 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 
 ---
 
-## Next session start prompt (cập nhật 2026-07-09 — cuối session)
+## Đã xong (2026-07-09) — Security + isolation + draft race
+- **C1 profiles:** migration `013_protect_profile_privileges.sql` — trigger chặn self-promote `is_admin`/`plan`
+- **IndexedDB isolation:** `clearLocalUserData` + `ensureLocalUserIsolation` — wipe on logout / đổi user
+- **notify-payment:** chỉ JWT user (reject anon/service key); HTML escape; identity từ claims
+- **Plan default:** `?? 'free'` (writing/mindmap/structure/KET grade)
+- **Exam draft race:** `useExamDraftGate` — hydrate xong mới save (Reading + Listening shells)
+
+### Deploy bắt buộc
+```
+pnpm db:push
+npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
+```
+
+## Đã xong (2026-07-09) — Writing: rewrite V2 + OCR Task1 + dashboard 30d + Cambridge RW AI
+- **Rubric → Version 2 side-by-side:** `buildWritingRewritePrompt` + `RewriteComparePanel` trong ScorePanel (so sánh V1/V2, copy, áp dụng V2)
+- **Task 1 graph OCR:** `buildChartDescribePrompt` + nút “OCR & mô tả biểu đồ” (vision OpenAI/Gemini); chấm Task 1 gắn ảnh khi provider hỗ trợ vision
+- **Dashboard:** lịch chấm 30 ngày + TB 30 ngày + xu hướng band theo ngày (`useWritingDashboard`, `WritingDashboardPage`)
+- **Cambridge RW Writing:** `CambridgeRwWritingGradePanel` A2–C2 (thay KET-only); lưu history `exam-rw:*` cho dashboard; model answer AI + **catalog** (`cambridgeWritingModelCatalog`) trên result + hub Cambridge Writing
+- Core: `attachImagesToUserMessage`, rewrite/chart/model answer types trong `writingPrompt.ts`
+- `pnpm --filter web exec tsc --noEmit` — pass
+
+### Verify Writing
+1. `/app/writing/practice` → Task 1: upload JPG → OCR & mô tả → chấm AI → **Viết lại Version 2**
+2. `/app/writing/dashboard` → lịch 30 ngày + cột trend
+3. Nộp đề Cambridge RW → Part Writing: Chấm AI + Catalog mẫu / Tạo bài mẫu AI
+4. `/app/writing/cambridge` → Model answer catalog
+
+## Next session start prompt (cập nhật 2026-07-09 — Writing pack)
 ```
 Đọc session_summary.md ngay.
 
-## Context nhanh (session 2026-07-09)
-- IELTS Reading Wizard: nhiều template mới P1/P2/P3 + preview JPG Teamplate_Part*_*.jpg
-- Choose TWO Reading: UI multi-select (readingChooseTwoUtils + ChooseTwoGroup)
-- Notes: ép ngắt dòng (section decade 1940s/1950s, type break); Silbo r2tn sections
-- Table: luôn n cột × m dòng (normalize + AI validate)
-- Sentence completion: mỗi câu 1 dòng / note \\n\\n
-- ExamTrack: harden + getTemplateBuilders() factory (không crash HMR)
-- Core files: ieltsReadingPartTemplates.ts, ieltsReadingAiPrompt.ts, ieltsReadingAiNormalize.ts,
-  ieltsReadingTemplateCatalog.ts, ReadingQuestionPanel.tsx, readingNoteTableUtils.ts, listeningNotePassage.ts
+## Context nhanh
+- Writing: rewrite V2 side-by-side, Task1 OCR vision, dashboard 30d calendar
+- Cambridge RW Writing AI + model catalog (A2–C2)
+- ExamResult dùng CambridgeRwWritingGradePanel
 
-### Template mới 2026-07-09 (code → preview)
-P1: r1my (Part1_8), r1nt (Part1_9 Nutmeg), r1ntf (Part1_10 Huarango)
-P2: r2cs (Part2_10 Bike), r2mt (Part2_11 Zoo), r2tn (Part2_12 Silbo)
-P3: r3fy (Part3_8 Play), r3tn (Part3_9 Marine), r3em (Part3_10 Fairy), r3hmy (Part3_11 AI)
-
-### Table templates (noteTable n×m) — P1: r1t, r1tt, r1nt, r1ntf | P2: không | P3: r3tb, r3ty
-
-## Ưu tiên session tới
-### 1 — Verify E2E wizard (user import đề thật)
-1. r1ntf / r1nt notes+table; r2tn Silbo notes sections; r3hmy headings+MC+YNNG
-2. Choose TWO Reading: chọn 2 đáp án 1 list
-3. Cam15 Moore notes: 1930s/1940s/1950s mỗi dòng riêng
-4. r1tt merge bảng (Coconut palm) nếu chưa test browser
-
-### 2 — Hard refresh sau HMR template
-- Ctrl+Shift+R nếu "builder is not defined" / track trắng
-
-### 3 — Admin publish + batch Reading Cam (nếu rollout)
-- Admin → Publish nội dung; `pnpm ielts:reading:bundle:all` khi đủ đề
-
-## Lỗi / chưa test
-- [ ] E2E wizard AI từng template mới với PDF/OCR thật (Cam14–15…)
-- [ ] r1tt merge ô — UI browser với đề thật
-- [ ] Listening Ô CHỮ mobile iOS — chờ user
+### Verify user
+1. Writing practice: grade + rewrite V2
+2. Dashboard 30 ngày
+3. Cambridge RW result: chấm AI + catalog
 ```
+
+## Đã xong (2026-07-09) — Landing WebGL Magic Tome
+- Cài `three` + `@types/three` (apps/web)
+- `MagicTomeCanvas.tsx` — tome leather texture, cover canvas, spine gold, flip pages, ACES lights, particles
+- `DictionaryBookScene` cinematic stage; `HERO_MASCOT_MODE = 'dictionary'`
+- Fix strip “A · ARCANE” mỏng (geometry/camera) → sách dày face-on
+- `tsc --noEmit` pass
+
+---
+
+## Đã xong (2026-07-09) — Skill picker Page1 + Library Archives
+- `/app/exam/track/ielts` → 2 thẻ Listening/Reading (Giaodien Page1)
+- `/ielts/reading|listening` → Library Archives (1 skill)
+- Cambridge: `/cambridge` levels → `/cambridge/a2` skill picker → `/a2/reading|listening` library
+- `ExamSkillPicker.tsx` + route `track/:trackId/:arg2?/:arg3?`
+
+## Đã xong (2026-07-09) — AI chỉ đoạn đáp án + tô cam
+- AI bắt buộc **Đoạn trong đề** (quote nguyên văn từ passage/NGUỒN)
+- Lưu evidences trong sessionStorage; match quote → `ReadingHighlight kind=evidence`
+- Tô **cam** (`.reading-test-highlight--evidence`) + scroll tới đoạn khi đổi câu review
+- Reading IELTS + Cambridge RW; Listening: quote trong panel (source = note/prompt)
+- `examAiEvidence.ts`, `useReviewEvidenceHighlights`, `buildReadingPassageHighlightBlocks`
+
+## Đã xong (2026-07-09) — AI phân tích style + xem cùng đề
+- Panel AI report dùng cùng class/nền/chữ với “Bài giải chi tiết”
+- `examAiAnalysisStorage` + `ExamReviewAiPanel` + `useExamReviewAi`
+- Nút “Xem cùng đề bài” trên panel AI (và action bar) mở review kèm AI
+- Wire panel: ReadingTest, *RwTest (KET–CPE), ListeningIelts/Ket/Pet/Fce
+- `pnpm --filter web exec tsc --noEmit` — pass
+
+## Đã xong (2026-07-09) — Báo cáo kết quả Luyện thi (Reading_IELTS_Result)
+- UI xanh lưới + sun mascot + stats: đúng / bỏ qua / sai / band
+- `ExamPracticeResultReport` + `examBandScore` + CSS
+- Wire `ExamResult` (Reading IELTS/Cambridge) + `ListeningExamResult`
+- Nút: Làm lại · Xem cùng đề bài · Bài giải chi tiết · Thảo luận (disabled)
+
+
+---
+
+## Đã xong (2026-07-09) — Template P3 r3mfs (Match + Features + Summary) ← Part3_20
+- Kind `p3-r3-match-features-summary` · code **r3mfs**
+- Q27–31 matching-paragraph A–G · Q32–36 features A–E (Dan Macon…Bethany Smith) · Q37–40 summary ONE WORD
+- SAMPLE: Livestock guard dogs; preview `Teamplate_Part3_20.jpg`
+- Khác **r3ms** (match → summary → features)
+- Test: `apps/web/scripts/test-r3mfs.mts` PASS
+
+## Đã xong (2026-07-09) — Template P3 r3fem (Features + Endings + MC) ← Part3_19
+- Kind `p3-r3-features-endings-mc` · code **r3fem**
+- Q27–33 matching-features A–C (Martin Rees, Daniel Wolpert, Kathleen Richardson)
+- Q34–36 sentence endings A–D (wordBank LIST OF OPTIONS)
+- Q37–40 MC A–D (Q37 fear of machines khớp JPG)
+- Preview: `Teamplate_Part3_19.jpg` → `public/ielts-wizard/reading/p3/`
+- Test: `apps/web/scripts/test-r3fem.mts` PASS
+
+## Đã xong (2026-07-09) — Template P2 r2h2n (Headings + Choose TWO + Notes) ← Part2_20
+- Kind `p2-r2-headings-choose-two-notes` · code **r2h2n**
+- Q14–19 matching-headings A–F (i–vii) · Q20–21 Choose TWO · Q22–23 Choose TWO · Q24–26 notes ONE WORD (notePassage)
+- SAMPLE: Saving coral reefs (London Zoo / tentacles / algae)
+- Preview: `Teamplate_Part2_20.jpg` → `public/ielts-wizard/reading/p2/`
+- Test: `apps/web/scripts/test-r2h2n.mts` PASS
+
+## Đã xong (2026-07-09) — Template P3 r3ysb (YNNG + Summary bank + MC) ← Part3_18
+- Kind `p3-r3-ynng-summary-bank-mc` · code **r3ysb**
+- Q27–32 YNNG · Q33–37 summary bank A–H (Calls by the umpire) · Q38–40 MC A–D
+- SAMPLE: **The Automated Ball-Strike System** (ABS baseball) — khớp Teamplate_Part3_18.jpg
+- Preview: `Teamplate_Part3_18.jpg` → `public/ielts-wizard/reading/p3/`
+- Test: `apps/web/scripts/test-r3ysb.mts` PASS
+
+## Đã xong (2026-07-09) — Template P2 r2ms2 (Match + Summary + Choose TWO)
+- Kind `p2-r2-match-summary-choose-two` · code **r2ms2**
+- Q14–16 match · Q17–22 summary ONE WORD · Q23–24 + Q25–26 2× Choose TWO A–E
+- SAMPLE: Community gardens; preview tạm Teamplate_Part2_10.jpg
+- Khác **r2cs** (Choose TWO trước summary); **r2msc** (sentence giữa)
+
+## Đã xong (2026-07-09) — Template P2 r2mfu (Match + Features + Summary)
+- Kind `p2-r2-match-features-summary` · code **r2mfu**
+- Q14–17 match A–F · Q18–23 features A–E · Q24–26 summary ONE WORD
+- SAMPLE: Deep-sea mining (Cam19 T4 P2); preview Teamplate_Part2_19.jpg
+- Khác **r2mfs** (features ít + sentence cuối); **r2msf** (sentence giữa)
+
+## Đã xong (2026-07-09) — Template P3 r3mgy (MC + Summary ONE WORD + YNNG)
+- Kind `p3-r3-mc-summary-gap-ynng` · code **r3mgy**
+- Q27–30 MC A–D · Q31–35 summary ONE WORD (note, no bank) · Q36–40 YNNG
+- SAMPLE: The Unselfish Gene / hunter-gatherers (Cam19 T4 P3); preview Teamplate_Part3_17.jpg
+- Khác **r3my** (có wordBank); **r3mey** (endings A–F)
+
+## Đã xong (2026-07-09) — Template P3 r3mey (MC + Endings + YNNG)
+- Kind `p3-r3-mc-endings-ynng` · code **r3mey**
+- Q27–30 MC A–D · Q31–34 sentence endings A–F · Q35–40 YNNG
+- SAMPLE: artificial speech translation (Cam19 T3 P3); preview Teamplate_Part3_16.jpg
+- Khác **r3my** (summary note đoạn, không endings)
+
+## Đã xong (2026-07-09) — Template P2 r2msf (Match + Sentence + Features)
+- Kind `p2-r2-match-sentence-features` · code **r2msf**
+- Q14–17 match A–H · Q18–22 sentence ONE WORD · Q23–26 features A–D
+- SAMPLE: The global importance of wetlands (Cam19 T3 P2); preview Teamplate_Part2_18.jpg
+- Khác **r2mfs** (match → features → sentence)
+
+## Đã xong (2026-07-09) — Template P3 r3sb (Summary bank + YNNG + MC)
+- Kind `p3-r3-summary-bank-ynng-mc` · code **r3sb**
+- Q27–32 summary bank A–K · Q33–37 YNNG · Q38–40 MC A–D
+- SAMPLE: gifted child / Mirzakhani (Cam19 T2 P3); preview Teamplate_Part3_15.jpg
+- Infer: bank ≥10 hoặc 6 gaps + 5 YNNG + 3 MC → r3sb (khác r3sy)
+
+## Đã xong (2026-07-09) — Fix Choose TWO chỉ chọn 1 đáp án (r2msc / Cam19 T2)
+- **Root cause:** AI/import chỉ gắn `options` A–E lên câu 1 (Q23/Q25); Q24/Q26 `options: []` → `isReadingChooseTwoGroup` false → UI MC chọn 1
+- `normalizeReadingChooseTwoGroup`: share options sang câu 2; wire sanitize + ReadingQuestionPanel
+- Cloud Cam19 T2 P2 (`reading-manual-1783587241597`) đã fill options Q24/Q26
+- Test `scripts/test-r2msc-choose-two.mts` PASS
+
+## Đã xong (2026-07-09) — Nhận dạng xáo trộn dạng câu (mọi template)
+- `ieltsReadingGroupRoles.ts`: role Match/TFNG/YNNG/Choose TWO/Summary bank/Notes/Table…
+- `reorderPartGroupsToTemplate`: sắp lại groups về thứ tự SAMPLE (role + dải Q)
+- `alignQuestionGroupsToTemplate` gọi reorder trước hybrid
+- Infer: multiset role + chấm assignment theo số câu (phân biệt r3my/r3ysm khi type order xáo)
+- Test: `scripts/test-shuffle-groups.mts` PASS
+
+## Đã xong (2026-07-09) — Template P2 r2msc (Match + Sentence + Choose TWO)
+- Kind `p2-r2-match-sentence-choose-two` · code **r2msc**
+- Q14–18 match A–F · Q19–22 sentence ONE WORD · Q23–24 + Q25–26 2× Choose TWO A–E
+- SAMPLE: Athletes and stress (Cam19 T2 P2); preview Teamplate_Part2_17.jpg
+- Prompt AI + infer signature
+
+## Đã xong (2026-07-09) — Template r3my cập nhật Cam19 (MC + Summary A–J + YNNG)
+- Kind `p3-r3-mc-summary-ynng` · code **r3my**
+- SAMPLE: *The persistence and peril of misinformation* (Cam19 T1 P3)
+- Q27–30 MC A–D · Q31–36 summary bank A–J · Q37–40 YNNG
+- Prompt AI + infer `multiple-choice|summary-completion|ynng` (+ gap-fill alias)
+- Khác **r3ysm** (YNNG → summary → MC)
+
+## Đã xong (2026-07-09) — Cam19 T1 Reading P3 double YNNG + data fix
+- **Bug:** Q37–40 `group.type=multiple-choice` + câu YNNG → UI MC hiện **A YES / B NO** chồng instruction YES if… (double)
+- **Sanitize + UI:** ép `ynng` khi instruction/options là tri-state; radio luôn 3 option ngắn
+- **Cloud fix** `reading-manual-1783584609723` (Cam 19 Test 1):
+  - Q27–30 → MC A–D (đáp án D/A/C/D)
+  - Q31–36 → summary bank (H/J/G/B/E/C)
+  - Q37–40 → **ynng** (YES / NOT GIVEN / NO / NOT GIVEN)
+- Script: `apps/web/scripts/fix-cam19-t1-p3-via-db.mts`
+
+## Đã xong (2026-07-09) — Template P1 r1tn (TFNG + Notes)
+- Kind `p1-r1-tfng-notes` · code **r1tn**
+- Q1–7 TFNG · Q8–13 notes ONE WORD (`notePassage` bullets) — Teamplate_Part1_14.jpg
+- SAMPLE: tennis racket / materials, spin, training, gut, weights, grip
+- Preview: `public/ielts-wizard/reading/p1/Teamplate_Part1_14.jpg`
+- Infer: `tfng|gap-fill` + notePassage / “Complete the notes” → r1tn (không nhầm r1g)
+- Prompt AI + hybrid notePassage như r1n8/r2tn
+
+## Đã xong (2026-07-09) — Fix r3ysm thiếu LIST OF OPTIONS (Q31–36) — v2 cứng
+- **Root cause:** AI trả số nhóm ≠ SAMPLE (vd. tách MC → 4 groups) → `forceTemplateHybridGroups` early-return → không gắn wordBank
+- `forceTemplateSummaryWordBanks`: match theo **số câu Q31–36** (không phụ thuộc index); luôn ép SAMPLE A–J
+- `finalizeTemplateStructure`: chạy word-bank ép ở **mọi** nhánh `applyReadingTemplateTableStructure`
+- `normalizeAiReadingPart`: extract bank từ alias (`listOfOptions`, options câu đầu…); type → summary-completion khi list of phrases
+- Test `scripts/test-r3ysm-wordbank.mts` PASS (missing + partial + **4-group mismatch**)
+
+## Đã xong (2026-07-09) — Template P3 r3ysm (YNNG + Summary bank + MC)
+- Kind `p3-r3-ynng-summary-mc` · code **r3ysm**
+- Q27–30 YNNG · Q31–36 summary word bank A–J · Q37–40 MC A–D
+- Preview: `Teamplate_Part3_14.jpg` → `public/ielts-wizard/reading/p3/`
+- SAMPLE: Wegener / continental drift
+
+## Đã xong (2026-07-09) — Template P2 r2mfy (MC + Features + YNNG)
+- Kind `p2-r2-mc-features-ynng` · code **r2mfy**
+- Q14–16 MC A–D · Q17–22 matching-features A–E · Q23–26 YNNG (claims of writer)
+- Preview: `Teamplate_Part2_16.jpg` → `public/ielts-wizard/reading/p2/`
+- SAMPLE: Growth mindset (Binet, Dweck, Gelman, Bates, Yeager & Walton)
+
+## Đã xong (2026-07-09) — Template P1 r1ms2 (Match + Summary + Choose TWO)
+- Kind `p1-r1-match-summary-choose-two` · code **r1ms2**
+- Q1–5 match A–E · Q6–9 summary ONE WORD · Q10–11 Choose TWO A–E · Q12–13 MC
+- Preview: `Teamplate_Part1_13.jpg` → `public/ielts-wizard/reading/p1/`
+- SAMPLE: Green roofs
+
+## Đã xong (2026-07-09) — Fix r2hmc thiếu nội dung (chuẩn r2hm)
+- SAMPLE passage dài đủ 7 đoạn; summary note liền (format Diamond r2hm); MC instruction Cam-style
+- `forceTemplateHybridGroups`: merge **headings[]** + summary **note** từ SAMPLE khi AI thiếu
+- Prompt r2hmc: bắt buộc headings đầy đủ + note summary liền 24________…; không noteTable
+- Test: `scripts/test-r2hmc.mts` PASS
+
+## Đã xong (2026-07-09) — Template P2 r2hmc (Headings + MC + Summary)
+- Kind `p2-r2-headings-mc-summary` · code **r2hmc**
+- Q14–20 matching-headings A–G (i–viii) · Q21–23 MC A–D · Q24–26 summary ONE WORD AND/OR A NUMBER (note)
+- Preview: `Teamplate_Part2_15.jpg` → `public/ielts-wizard/reading/p2/`
+- SAMPLE: Steam car / Model E; khác r2hm (thứ tự headings→MC→summary)
+
+## Đã xong (2026-07-09) — Template P1 r1msf (Match + Summary + Features)
+- Kind `p1-r1-match-summary-features` · code **r1msf**
+- Q1–4 matching-paragraph A–H · Q5–8 summary ONE WORD (note) · Q9–13 matching-features A–D
+- Preview: `Teamplate_Part1_12.jpg` → `public/ielts-wizard/reading/p1/`
+- SAMPLE: Making buildings with wood (Cheeseman, Mannstrom, Surgenor, Preston & Lehne)
+- Không noteTable (summary only)
+
+## Đã xong (2026-07-09) — Template P2 r2mys (MC + YNNG + Summary bank)
+- Kind `p2-r2-mc-ynng-summary` · code **r2mys**
+- Q14–19 MC A–D · Q20–23 YNNG · Q24–26 summary word bank A–F (note + 24________)
+- Preview: `Teamplate_Part2_14.jpg` → `public/ielts-wizard/reading/p2/`
+- Khác r2ms: thứ tự MC → YNNG → summary (không MC → summary → YNNG)
+- SAMPLE: AI / UK health system
+
+## Đã xong (2026-07-09) — Template P2 r2mfs (Match + Features + Sentence)
+- Kind `p2-r2-match-features-sentence` · code **r2mfs**
+- Q14–18 matching-paragraph A–G · Q19–21 matching-features A–C (TSI/Salvage/Shelterwood) · Q22–26 sentence ONE WORD
+- Preview: `Teamplate_Part2_13.jpg` → `public/ielts-wizard/reading/p2/`
+- Builder + catalog + AI prompt + infer; SAMPLE Forest management
+
+## Đã xong (2026-07-09) — Fix r1st gap 6 mất (header rỗng)
+- **Bug:** `normalizeReadingNoteTable` `.filter(Boolean)` bỏ header `''` → 4 cột → 3, mất cột Sale + gap 6
+- **Fix:** giữ header rỗng; SAMPLE r1st gaps [4,5,6,7]; test `test-r1st-gap6.mts` PASS
+
+## Đã xong (2026-07-09) — Template P1 r1st (Sentence + Table + TFNG)
+- Kind `p1-r1-sentence-table-tfng` · code **r1st**
+- Q1–3 sentence (TWO WORDS AND/OR A NUMBER) · Q4–7 noteTable 4 cột Intensive vs aeroponic · Q8–13 TFNG
+- Preview: `Teamplate_Part1_11.jpg` → `public/ielts-wizard/reading/p1/`
+- Builder + catalog + AI prompt + TABLE_TEMPLATE_KINDS + infer (khác r1ntf: sentence, không notePassage)
+- SAMPLE: Crop-growing skyscrapers / aeroponic urban farming
+
+## Đã xong (2026-07-09) — noteTable CHỈ đúng slot SAMPLE (TFNG sạch)
+- **Cổng cứng** `enforceNoteTableOnlyOnTemplateSlots`: SAMPLE không table → strip HẾT; chỉ giữ khi index SAMPLE có noteTable
+- UI: render noteTable **chỉ** khi instruction `Complete the table…` (không TFNG/summary/sentence)
+- `sanitizeGroup`: gỡ noteTable khỏi tfng/ynng/match/MC/summary/notes
+- Infer wizard: `tfng|gap-fill` + noteTable chỉ → r1tb nếu instruction table
+- Test: TFNG+sentence strip table; summary strip; r1tb/r1nt OK
+
+## Đã xong (2026-07-09) — Chống nhiễm table vào Summary ONE WORD
+- **Bug:** “Complete the summary below. Choose ONE WORD ONLY…” vẫn dính noteTable (UI bảng)
+- **Fix:** `isReadingSummaryInstruction` / `groupMustNotHaveNoteTable` — gỡ noteTable cho summary/notes/sentence
+- rematerialize: SAMPLE không table → strip hết; có table → chỉ gắn khi instruction **table** (không summary)
+- UI `ReadingQuestionPanel` / `GapFillGroup`: không render noteTable nếu summary/notes
+- Validate/import: không bắt noteTable cho summary
+- Test: summary ONE WORD strip noteTable PASS; r1tb/r1nt OK
+
+## Đã xong (2026-07-09) — Template P3 r3ms (Match + Summary + Features)
+- Kind `p3-r3-match-summary-features` · code **r3ms**
+- Q27–31 matching-paragraph A–F · Q32–35 summary ONE WORD (note) · Q36–40 matching-features A–D
+- Preview: `Teamplate_Part3_13.jpg` → `public/ielts-wizard/reading/p3/`
+- Builder + catalog + AI prompt + infer (khác r3tb: summary note, không noteTable)
+- SAMPLE: Space debris (Frueh / Krag / Sorge / Jah)
+
+## Đã xong (2026-07-09) — Chống nhiễm noteTable sang template khác
+- **Bug:** rematerialize dựng bảng từ mọi “ONE WORD ONLY”; apply structure chạy full pipeline cho mọi template
+- **Fix:** `applyReadingTemplateTableStructure` phân nhánh:
+  - SAMPLE không notes/table → align + strip noteTable
+  - chỉ notes → merge notePassage, không rematerialize table
+  - có table → full pipeline + strip index không có table
+- rematerialize: không build table nếu SAMPLE không có noteTable
+- Test: `test-no-table-infection.mts` (tfng-gap sạch, r1tb/r1nt OK)
+
+## Đã xong (2026-07-09) — Fix r1nt layout DeepSeek (notes|TFNG|table)
+- **Lỗi user:** `câu 7 thiếu trong noteTable`; `cần gap-fill|tfng|gap-fill (nhận gap-fill|gap-fill|gap-fill)`; `thiếu notePassage`
+- **Root cause:** rematerialize gắn noteTable vào nhóm Notes vì “ONE WORD ONLY”; AI trả 3× gap-fill
+- **Fix:** `forceTemplateHybridGroups` ép type + notePassage + TFNG theo index SAMPLE; rematerialize **không** nhầm notes→table; validate skip notes group
+- Test: `scripts/test-r1nt-layout.mts` PASS
+
+## Đã xong (2026-07-09) — Fix r1tb DeepSeek “nửa vời” (lần 6)
+- **Bug:** AI trả 4–6 hàng có chữ → không bị coi list-like → giữ bảng thiếu Aim/Method
+- **Fix:** incomplete nếu rows < 85% SAMPLE; pickBest **mặc định ép SAMPLE** trừ khi AI ≥ 90% số hàng SAMPLE
+- Nuclear trong rematerialize: rows quá ít → mergeTemplateLayoutWithPrompts
+- Test D half-table 6 rows → 11 rows Aim/Method PASS
+
+## Đã xong (2026-07-09) — Fix r1tb thiếu Aim/Method (lần 5) — ép SAMPLE layout
+- mergeTemplateLayoutWithPrompts; pickBest ưu tiên SAMPLE; repair fallback
+- Test: content/listlike/oneword — 11 rows, Aim/Method, PASS
+
+## Đã xong (2026-07-09) — Fix r1tb table có khung nhưng **không nội dung** (lần 3)
+- noteTableIsContentRich, pickBestNoteTable, enrich prompts
+- Test: `scripts/test-r1tb-content.mts` + `test-r1tb-oneword.mts` PASS
+
+## Đã xong (2026-07-09) — Fix r1tb Q7–12 table bị thành one-word (lần 2)
+- rematerialize + remap gap + rawJson normalize + rebuildPayload re-apply
+- Test: `apps/web/scripts/test-r1tb-oneword.mts` PASS
+- tsc pass
+
+## Đã xong (2026-07-09) — Fix r1tb Q7–12 table bị thành one-word (lần 1)
+- Parse ô string; forceTemplate; prompt cấm one-word list (chưa đủ với DeepSeek)
 
 ---
 
@@ -2335,7 +2610,8 @@ P3: r3fy (Part3_8 Play), r3tn (Part3_9 Marine), r3em (Part3_10 Fairy), r3hmy (Pa
 |------|------|---------|--------|---------|
 | r1my | p1-r1-match-ynng-features | P1 | Match đoạn + YNNG + Features | Teamplate_Part1_8.jpg |
 | r1nt | p1-r1-notes-tfng-table | P1 | Notes → TFNG → Table | Teamplate_Part1_9.jpg (Nutmeg) |
-| r1ntf | p1-r1-notes-table-tfng | P1 | Notes → Table → TFNG | Teamplate_Part1_10.jpg (Huarango) |
+| r1ntf | p1-r1-notes-table-tfng | P1 | Notes → Table → TFNG | r1t.svg (Huarango) |
+| r1tb | p1-r1-tfng-table | P1 | TFNG → Table (n×m merge) | Teamplate_Part1_10.jpg (Rocha bats) |
 | r2cs | p2-r2-match-choose-two-summary | P2 | Match + 2× Choose TWO + Summary | Teamplate_Part2_10.jpg |
 | r2mt | p2-r2-match-tfng-choose-two | P2 | Match + TFNG + Choose TWO | Teamplate_Part2_11.jpg |
 | r2tn | p2-r2-tfng-notes | P2 | TFNG + Notes (Silbo) | Teamplate_Part2_12.jpg |
@@ -2405,12 +2681,16 @@ P3: r3fy (Part3_8 Play), r3tn (Part3_9 Marine), r3em (Part3_10 Fairy), r3hmy (Pa
 - r1ntf / r1tt / mọi table-completion: title tách riêng, không nhét vào header
 
 ## Đã xong (2026-07-09) — Reading P1 template r1ntf (Notes + Table + TFNG)
-- Template `p1-r1-notes-table-tfng` (`r1ntf`) — preview `Teamplate_Part1_10.jpg` (Huarango tree)
+- Template `p1-r1-notes-table-tfng` (`r1ntf`) — preview `r1t.svg` (Huarango tree)
 - Notes Q1–5 (`notePassage`) + table Q6–8 (`noteTable` 2 cột) + TFNG Q9–13
 - Khác r1nt (notes→TFNG→table): thứ tự **notes → table → TFNG**
 - Signature `gap-fill|gap-fill|tfng`; validate notePassage nhóm 1 + noteTable nhóm 2
-- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_10.jpg`
-- **Lưu ý:** Ảnh user là Q1–13 → Part 1 (không phải Part 3)
+
+## Đã xong (2026-07-09) — Reading P1 template r1tb (TFNG + Table)
+- Template `p1-r1-tfng-table` (`r1tb`) — preview `Teamplate_Part1_10.jpg` (Rocha bat study)
+- TFNG Q1–6 + table Q7–13 (`noteTable` 2 cột × m dòng, merge Findings + skip)
+- Builder `ieltsReadingP1TfngTablePart()` + `CAM_ROCHA_BAT_TABLE`; infer `tfng|gap-fill` + noteTable
+- Ảnh: `Tainguyen/IELTS/Template/Teamplate_Part1_10.jpg` → `apps/web/public/ielts-wizard/reading/p1/`
 
 ## Đã xong (2026-07-09) — Notes Reading: ép ngắt dòng (1940s/1950s)
 - **Vấn đề:** AI gộp heading thập niên (Cam15 Moore) → UI không xuống dòng
@@ -2703,3 +2983,30 @@ P3: r3fy (Part3_8 Play), r3tn (Part3_9 Marine), r3em (Part3_10 Fairy), r3hmy (Pa
 - r1tt merge ô E2E browser; SAMPLE passage r1tt → Coconut nếu AI nhiễu
 - Listening Ô CHỮ mobile iOS
 ```
+
+## Đã xong (2026-07-09) — Sổ ghi chú từ vựng (chế độ học)
+- Dexie **v12** bảng `notebookEntries` (`NotebookEntry`): phrase/meaning/example/IPA/pos + ghi chú user, chống trùng `phraseKey`
+- `notebookRepo` — save (upsert), updateNote, delete, list
+- Study SRS: nút **Lưu sổ ghi chú** (`SaveToNotebookButton`) cạnh Hỏi AI / Lật thẻ
+- Tab **Sổ ghi chú** trong study mode + nút trên trang Bộ từ vựng (mở không cần chọn deck)
+- Dictionary modal: **Lưu sổ ghi chú** (song song Thêm vào bộ thẻ)
+- UI: tìm kiếm, sửa memo, xóa, phát âm — CSS theme-aware
+- `pnpm --filter web exec tsc --noEmit` — pass
+
+## Next session start prompt (cập nhật 2026-07-09 — sổ ghi chú)
+1. Vocab → Học SRS → bấm **Lưu sổ ghi chú** → tab/nút **Sổ ghi chú** xem danh sách
+2. (Tuỳ chọn) Thêm nút Lưu sổ vào Quiz/Type/Listen; sync cloud notebook nếu cần
+3. Verify E2E template Reading nếu còn pending
+
+## Da xong (2026-07-09) — Dictionary offline+Pro / MindMap export+templates / CEFR+exam suggestions
+- offlineDictPack + dictionary_ai gate
+- exportMindmap PNG/SVG/PDF + IELTS templates
+- cefr field + ExamPracticeSuggestionsPanel
+
+
+## Da xong (2026-07-09) — Listening practice↔exam bridge
+- Lesson link sourceExamId/part + linkedAudio
+- examListeningBridge + Luyen dictation tu ket qua exam
+- Play limit free/basic + slow 0.5/0.75 + Nghe chunk
+- Transcript jump-to-word (uoc luong time-align)
+

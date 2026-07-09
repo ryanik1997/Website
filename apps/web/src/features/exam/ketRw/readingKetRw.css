@@ -18,6 +18,9 @@
   --ket-submit: #2f6fad;
   --ket-submit-hover: #255a8f;
   --ket-submit-text: #ffffff;
+  --rt-font-size: 16px;
+  --rt-font-family: inherit;
+  --rt-submit: var(--ket-submit);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -26,6 +29,14 @@
   background: var(--ket-body-bg);
   color: var(--ket-text);
   font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Nội dung đề theo font user chọn (không áp header/footer chrome) */
+.ket-rw-shell .ket-rw-main,
+.ket-rw-shell .ket-rw-main input,
+.ket-rw-shell .ket-rw-main textarea {
+  font-family: var(--rt-font-family);
+  font-size: var(--rt-font-size);
 }
 
 .ket-rw-submit {
@@ -801,9 +812,14 @@
   background: var(--exam-highlight-selection);
 }
 
+.ket-rw-main .reading-test-highlight--evidence {
+  background: color-mix(in srgb, #ff9800 52%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #e65100 55%, transparent);
+}
+
 .ket-rw-main .reading-test-highlight {
   background: var(--exam-highlight-bg);
-  color: inherit;
+  color: #1d1d1f;
   border-radius: 0.15rem;
   padding: 0.05rem 0;
   box-decoration-break: clone;
@@ -813,7 +829,7 @@
 .ket-rw-main .reading-test-note {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 70%, var(--text-primary));
+  text-decoration-color: #ff9800;
   text-underline-offset: 0.15em;
   cursor: help;
 }

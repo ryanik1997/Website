@@ -1,5 +1,6 @@
 import {
-  RotateCcw, HelpCircle, Briefcase, Headphones, FileWarning, BarChart3, RefreshCw,
+  RotateCcw, HelpCircle, Briefcase, Headphones, FileWarning, BarChart3, RefreshCw, BookMarked,
+  Mic,
 } from 'lucide-react'
 import type { StudyMode } from '../vocabStore'
 
@@ -8,9 +9,11 @@ const MODES: Array<{ id: StudyMode; label: string; icon: typeof RotateCcw; activ
   { id: 'quiz', label: 'Trắc nghiệm', icon: HelpCircle, activeCls: 'active-quiz' },
   { id: 'type', label: 'Đoán nghĩa', icon: Briefcase, activeCls: 'active-type' },
   { id: 'listen', label: 'Nghe & Gõ', icon: Headphones, activeCls: 'active-srs' },
+  { id: 'speak', label: 'Speaking', icon: Mic, activeCls: 'active-quiz' },
   { id: 'weak', label: 'Từ yếu', icon: FileWarning, activeCls: 'active-weak' },
   { id: 'review', label: 'Ôn tập', icon: RefreshCw, activeCls: 'active-review' },
   { id: 'stats', label: 'Thống kê', icon: BarChart3, activeCls: 'active-stats' },
+  { id: 'notebook', label: 'Sổ ghi chú', icon: BookMarked, activeCls: 'active-notebook' },
 ]
 
 interface Props {

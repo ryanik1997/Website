@@ -15,15 +15,79 @@ function optionSignature(options: ReadingQuestion['options'] | undefined): strin
 
 function hasChooseTwoInstruction(text: string | undefined): boolean {
   if (!text) return false
-  return /choose\s+two\b/i.test(text) || /which\s+two\b/i.test(text)
+  return /choose\s+two\b/i.test(text)
+    || /which\s+two\b/i.test(text)
+    || /two\s+(?:correct\s+)?(?:letters|answers|options)\b/i.test(text)
+    || /boxes\s+\d+\s+and\s+\d+/i.test(text)
+}
+
+/**
+ * AI/import hay chỉ gắn options lên câu 1 của cặp Choose TWO (câu 2 options=[]).
+ * Copy options (+ prompt gốc) để UI multi-select hoạt động.
+ */
+export function normalizeReadingChooseTwoGroup(
+  group: ReadingQuestionGroup,
+): ReadingQuestionGroup {
+  const questions = group.questions ?? []
+  if (questions.length !== 2) return group
+  if (!questions.every(q => !q.type || q.type === 'multiple-choice')) return group
+
+  const opts0 = questions[0].options ?? []
+  const opts1 = questions[1].options ?? []
+  const instrHit = hasChooseTwoInstruction(group.instruction)
+    || hasChooseTwoInstruction(group.range)
+    || /which\s+two\b|choose\s+two\b/i.test(questions[0].prompt ?? '')
+
+  // Cặp 2 MC + instruction Choose TWO + chỉ câu đầu có bank A–E
+  const needShare = instrHit
+    && opts0.length >= 3
+    && (opts1.length < 3 || optionSignature(opts0) !== optionSignature(opts1))
+
+  if (!needShare && opts0.length >= 3 && opts1.length >= 3) {
+    // Đã đủ options — chuẩn hoá type
+    return {
+      ...group,
+      type: 'multiple-choice',
+      questions: questions.map(q => ({ ...q, type: 'multiple-choice' as const })),
+    }
+  }
+
+  if (!needShare) return group
+
+  const shared = opts0.map(o => ({ ...o }))
+  const basePrompt = normalizeReadingChooseTwoPrompt(questions[0].prompt || questions[1].prompt || '')
+  return {
+    ...group,
+    type: 'multiple-choice',
+    instruction: group.instruction?.trim()
+      || 'Choose TWO correct answers, A–E.',
+    questions: [
+      {
+        ...questions[0],
+        type: 'multiple-choice',
+        prompt: questions[0].prompt?.trim()
+          || (basePrompt ? `${basePrompt} (first answer)` : questions[0].prompt),
+        options: shared,
+      },
+      {
+        ...questions[1],
+        type: 'multiple-choice',
+        prompt: questions[1].prompt?.trim()
+          || (basePrompt ? `${basePrompt} (second answer)` : questions[1].prompt),
+        options: shared.map(o => ({ ...o })),
+      },
+    ],
+  }
 }
 
 /**
  * Nhận diện nhóm Reading "Choose TWO" (2 câu MC cùng options + cùng prompt gốc).
  * Wizard/import: 2 câu multiple-choice, mỗi câu 1 chữ đáp án.
+ * Lưu ý: AI hay bỏ options ở câu 2 — gọi normalizeReadingChooseTwoGroup trước khi detect/render.
  */
 export function isReadingChooseTwoGroup(group: ReadingQuestionGroup): boolean {
-  const questions = group.questions ?? []
+  const normalized = normalizeReadingChooseTwoGroup(group)
+  const questions = normalized.questions ?? []
   if (questions.length !== 2) return false
   if (!questions.every(q => q.type === 'multiple-choice')) return false
 
@@ -31,9 +95,15 @@ export function isReadingChooseTwoGroup(group: ReadingQuestionGroup): boolean {
   if (opts0.length < 3) return false
 
   const sig = optionSignature(opts0)
-  if (!sig || !questions.every(q => optionSignature(q.options) === sig)) return false
+  // Cho phép câu 2 thiếu options nếu instruction Choose TWO (đã share trong normalize)
+  const optsMatch = questions.every(q => {
+    const o = q.options ?? []
+    if (o.length < 3) return false
+    return optionSignature(o) === sig
+  })
+  if (!sig || !optsMatch) return false
 
-  if (hasChooseTwoInstruction(group.instruction) || hasChooseTwoInstruction(group.range)) {
+  if (hasChooseTwoInstruction(normalized.instruction) || hasChooseTwoInstruction(normalized.range)) {
     return true
   }
 

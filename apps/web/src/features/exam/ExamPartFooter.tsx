@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { examReviewPillStyle, type ExamReviewStatus } from './examReviewUtils'
 import './readingTest.css'
 
 export interface ExamPartFooterPart {
@@ -19,6 +20,9 @@ interface Props {
   onAdjacentQuestion: (delta: number) => void
   onSubmit: () => void
   submitLabel?: string
+  /** Review: tô pill theo đúng/sai/bỏ qua */
+  getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
+  reviewMode?: boolean
 }
 
 export default function ExamPartFooter({
@@ -34,13 +38,15 @@ export default function ExamPartFooter({
   onAdjacentQuestion,
   onSubmit,
   submitLabel = 'Submit Test',
+  getQuestionReviewStatus,
+  reviewMode = false,
 }: Props) {
   const activeIndex = activeQuestionId
     ? allQuestions.findIndex(q => q.id === activeQuestionId)
     : -1
 
   return (
-    <footer className="reading-test-footer">
+    <footer className={`reading-test-footer${reviewMode ? ' is-review' : ''}`}>
       <div className="reading-test-footer__parts">
         {parts.map((part, index) => {
           const questions = getPartQuestions(index)
@@ -66,12 +72,23 @@ export default function ExamPartFooter({
               {isCurrent && questions.map(question => {
                 const isActive = activeQuestionId === question.id
                 const isAnswered = Boolean(answers[question.id])
+                const rev = (reviewMode ? getQuestionReviewStatus?.(question.id) : null) ?? null
+                const revClass = rev === 'correct'
+                  ? ' is-review-ok'
+                  : rev === 'wrong'
+                    ? ' is-review-bad'
+                    : rev === 'skipped'
+                      ? ' is-review-skip'
+                      : ''
                 return (
                   <button
                     key={question.id}
                     type="button"
-                    className={`reading-test-q-pill${isActive ? ' is-current' : ''}${isAnswered ? ' is-answered' : ''}`}
+                    className={`reading-test-q-pill${isActive ? ' is-current' : ''}${!rev && isAnswered ? ' is-answered' : ''}${revClass}`}
+                    style={examReviewPillStyle(rev, isActive)}
                     onClick={() => onSelectQuestion(question.id)}
+                    title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}
+                    data-review={rev ?? undefined}
                   >
                     {question.number}
                   </button>

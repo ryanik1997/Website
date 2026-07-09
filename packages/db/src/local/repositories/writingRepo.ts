@@ -72,12 +72,29 @@ export const writingRepo = {
 
   async recordUsage(feature: string, tokens: number): Promise<void> {
     const today = new Date().toISOString().slice(0, 10)
+    const safeTokens = Math.max(0, Math.floor(tokens) || 0)
     const existing = await db.aiUsage.get([today, feature])
     if (existing) {
-      await db.aiUsage.put({ day: today, feature, count: existing.count + 1, tokens: existing.tokens + tokens })
+      await db.aiUsage.put({
+        day: today,
+        feature,
+        count: existing.count + 1,
+        tokens: existing.tokens + safeTokens,
+      })
     } else {
-      await db.aiUsage.put({ day: today, feature, count: 1, tokens })
+      await db.aiUsage.put({ day: today, feature, count: 1, tokens: safeTokens })
     }
+  },
+
+  /** Mọi bản ghi usage trong N ngày (bao gồm hôm nay). */
+  async listUsageSince(days: number): Promise<Array<{ day: string; feature: string; count: number; tokens: number }>> {
+    const n = Math.max(1, Math.min(90, Math.floor(days)))
+    const start = new Date()
+    start.setHours(0, 0, 0, 0)
+    start.setDate(start.getDate() - (n - 1))
+    const startKey = start.toISOString().slice(0, 10)
+    const rows = await db.aiUsage.toArray()
+    return rows.filter(r => r.day >= startKey)
   },
 
   // Settings key-value store

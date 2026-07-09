@@ -21,6 +21,7 @@ export function useAiSettings() {
       }
       setProvider(p)
       setKeys(k)
+      // Giữ tương thích; dashboard dùng live query aiUsage
       setTodayUsage(await writingRepo.getTodayUsage('writing_ai'))
       setLoading(false)
     }

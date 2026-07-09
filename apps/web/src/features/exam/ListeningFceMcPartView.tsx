@@ -6,6 +6,12 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import type { ExamAudioSource } from './useExamQuestionAudio'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
+import {
+  isListeningKeyOption,
+  ListeningOptionReviewMark,
+  listeningOptionReviewStyle,
+} from './listeningReviewUi'
+import type { ExamReviewStatus } from './examReviewUtils'
 
 interface AudioBarProps {
   source: ExamAudioSource
@@ -33,6 +39,8 @@ interface Props {
   onAnswer: (questionId: string, value: string) => void
   onSelectQuestion: (questionId: string) => void
   resizer: ReactNode
+  reviewMode?: boolean
+  reviewStatusMap?: Record<string, ExamReviewStatus>
 }
 
 function splitFcePrompt(prompt: string): { context?: string; question: string } {
@@ -57,6 +65,8 @@ export default function ListeningFceMcPartView({
   onAnswer,
   onSelectQuestion,
   resizer,
+  reviewMode = false,
+  reviewStatusMap,
 }: Props) {
   const highlights = useExamHighlights()
   const activeQuestion = questions.find(q => q.id === activeQuestionId) ?? questions[0] ?? null
@@ -116,19 +126,24 @@ export default function ListeningFceMcPartView({
 
                 <div className="listening-fce-mc__options">
                   {question.options.map(option => {
-                    const selected = selectedAnswer === option.id
+                    const selected = selectedAnswer.toUpperCase() === option.id.toUpperCase()
+                    const isKey = reviewMode && isListeningKeyOption(option.id, question.answer)
+                    const status = reviewMode ? (reviewStatusMap?.[question.id] ?? null) : null
+                    const selectedWrong = Boolean(selected && status === 'wrong')
                     return (
                       <label
                         key={option.id}
-                        className={`listening-fce-mc__option${selected ? ' is-selected' : ''}`}
+                        style={listeningOptionReviewStyle(reviewMode, selected, isKey, status)}
+                        className={`listening-fce-mc__option${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
                       >
                         <input
                           type="radio"
                           name={question.id}
                           checked={selected}
+                          disabled={reviewMode}
                           data-highlight-skip
                           onFocus={() => onSelectQuestion(question.id)}
-                          onChange={() => onAnswer(question.id, option.id)}
+                          onChange={() => { if (!reviewMode) onAnswer(question.id, option.id) }}
                         />
                         <ReadingHighlightableText
                           blockId={`${question.id}-opt-${option.id}`}
@@ -136,6 +151,7 @@ export default function ListeningFceMcPartView({
                           highlights={highlights}
                           as="span"
                         />
+                        <ListeningOptionReviewMark isKey={isKey} selectedWrong={selectedWrong} />
                       </label>
                     )
                   })}

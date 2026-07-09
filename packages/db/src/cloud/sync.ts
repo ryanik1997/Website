@@ -249,13 +249,23 @@ export async function syncCloudToLocal(supabase: SupabaseClient) {
   }
 }
 
-/** True when local Dexie has no user content (new device). */
+/**
+ * True when local Dexie has no *user* content (new device).
+ * Bỏ qua deck/card preset của app — nếu không, máy mới seed preset sẽ không bao giờ pull cloud.
+ */
 export async function isLocalEmpty(): Promise<boolean> {
-  const [decks, cards, writingDocs, mindmaps] = await Promise.all([
-    db.decks.count(),
-    db.cards.count(),
+  const [allDecks, writingDocs, mindmaps] = await Promise.all([
+    db.decks.toArray(),
     db.writingDocs.count(),
     db.mindmaps.count(),
   ])
-  return decks + cards + writingDocs + mindmaps === 0
+  const userDecks = allDecks.filter(d => !isPresetDeck(d))
+  if (userDecks.length > 0) return false
+  if (writingDocs > 0 || mindmaps > 0) return false
+
+  const presetIds = new Set(allDecks.filter(isPresetDeck).map(d => d.id))
+  const userCardCount = await db.cards
+    .filter(c => !presetIds.has(c.deckId))
+    .count()
+  return userCardCount === 0
 }

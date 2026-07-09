@@ -6,11 +6,12 @@ const corsHeaders = {
 }
 
 interface PaymentBody {
+  planId?: string
+  price?: string
+  /** Ignored for identity — kept optional for older clients */
   userId?: string
   userEmail?: string
   userName?: string
-  planId?: string
-  price?: string
 }
 
 function jsonResponse(body: unknown, status = 200): Response {
@@ -20,12 +21,13 @@ function jsonResponse(body: unknown, status = 200): Response {
   })
 }
 
-function isAuthorized(req: Request): boolean {
-  const auth = req.headers.get('Authorization') ?? ''
-  const anonKey = Deno.env.get('SUPABASE_ANON_KEY') ?? ''
-  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-  const token = auth.replace(/^Bearer\s+/i, '').trim()
-  return !!token && (token === anonKey || token === serviceKey)
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 function buildEmailHtml(opts: {
@@ -36,6 +38,12 @@ function buildEmailHtml(opts: {
   adminLink: string
   requestedAt: string
 }): string {
+  const userName = escapeHtml(opts.userName)
+  const userEmail = escapeHtml(opts.userEmail)
+  const planId = escapeHtml(opts.planId)
+  const price = escapeHtml(opts.price)
+  const requestedAt = escapeHtml(opts.requestedAt)
+  const adminLink = escapeHtml(opts.adminLink)
   return `
 <!DOCTYPE html>
 <html>
@@ -49,13 +57,13 @@ function buildEmailHtml(opts: {
     <div style="padding:28px;color:#1d1d1f;font-size:15px;line-height:1.6;">
       <p style="margin:0 0 16px;">Có người dùng vừa báo đã chuyển tiền:</p>
       <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
-        <tr><td style="padding:8px 0;color:#6e6e73;">Tên</td><td style="padding:8px 0;font-weight:600;">${opts.userName}</td></tr>
-        <tr><td style="padding:8px 0;color:#6e6e73;">Email</td><td style="padding:8px 0;font-weight:600;">${opts.userEmail}</td></tr>
-        <tr><td style="padding:8px 0;color:#6e6e73;">Gói</td><td style="padding:8px 0;font-weight:600;">${opts.planId}</td></tr>
-        <tr><td style="padding:8px 0;color:#6e6e73;">Giá</td><td style="padding:8px 0;font-weight:600;">${opts.price}</td></tr>
-        <tr><td style="padding:8px 0;color:#6e6e73;">Thời gian</td><td style="padding:8px 0;">${opts.requestedAt}</td></tr>
+        <tr><td style="padding:8px 0;color:#6e6e73;">Tên</td><td style="padding:8px 0;font-weight:600;">${userName}</td></tr>
+        <tr><td style="padding:8px 0;color:#6e6e73;">Email</td><td style="padding:8px 0;font-weight:600;">${userEmail}</td></tr>
+        <tr><td style="padding:8px 0;color:#6e6e73;">Gói</td><td style="padding:8px 0;font-weight:600;">${planId}</td></tr>
+        <tr><td style="padding:8px 0;color:#6e6e73;">Giá</td><td style="padding:8px 0;font-weight:600;">${price}</td></tr>
+        <tr><td style="padding:8px 0;color:#6e6e73;">Thời gian</td><td style="padding:8px 0;">${requestedAt}</td></tr>
       </table>
-      <a href="${opts.adminLink}"
+      <a href="${adminLink}"
          style="display:inline-block;padding:14px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:14px;">
         Kích hoạt ngay
       </a>
@@ -74,8 +82,39 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: 'Method not allowed' }, 405)
   }
 
-  if (!isAuthorized(req)) {
+  const authHeader = req.headers.get('Authorization') ?? ''
+  const jwt = authHeader.replace(/^Bearer\s+/i, '').trim()
+  if (!jwt) {
     return jsonResponse({ error: 'Unauthorized' }, 401)
+  }
+
+  // Reject treating public anon key as "auth"
+  const anonKey = Deno.env.get('SUPABASE_ANON_KEY') ?? ''
+  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+  if (jwt === anonKey || jwt === serviceKey) {
+    return jsonResponse({ error: 'Unauthorized — user session required' }, 401)
+  }
+
+  const supabaseUrl = Deno.env.get('SUPABASE_URL') ?? ''
+  const supabaseAnon = anonKey
+  if (!supabaseUrl || !supabaseAnon) {
+    return jsonResponse({ error: 'Server misconfigured' }, 500)
+  }
+
+  // Validate JWT as a real user (not anon/service impersonation via key equality)
+  const userClient = createClient(supabaseUrl, supabaseAnon, {
+    global: { headers: { Authorization: `Bearer ${jwt}` } },
+  })
+  const { data: userData, error: userError } = await userClient.auth.getUser(jwt)
+  if (userError || !userData.user) {
+    return jsonResponse({ error: 'Unauthorized' }, 401)
+  }
+
+  const user = userData.user
+  const userId = user.id
+  const userEmail = user.email ?? ''
+  if (!userEmail) {
+    return jsonResponse({ error: 'User email missing' }, 400)
   }
 
   let body: PaymentBody
@@ -85,17 +124,22 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: 'Invalid JSON body' }, 400)
   }
 
-  const { userId, userEmail, userName, planId, price } = body
-  if (!userId || !userEmail || !planId || !price) {
+  const planId = typeof body.planId === 'string' ? body.planId.trim() : ''
+  const price = typeof body.price === 'string' ? body.price.trim() : ''
+  if (!planId || !price) {
     return jsonResponse({ error: 'Missing required fields' }, 400)
   }
 
-  const supabase = createClient(
-    Deno.env.get('SUPABASE_URL') ?? '',
-    Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
+  // Optional body fields ignored for identity; display name from JWT metadata only
+  const metaName = (user.user_metadata?.full_name as string | undefined)?.trim()
+  const userName = metaName || userEmail
+
+  const admin = createClient(
+    supabaseUrl,
+    serviceKey,
   )
 
-  const { error: insertError } = await supabase.from('payment_requests').insert({
+  const { error: insertError } = await admin.from('payment_requests').insert({
     user_id: userId,
     user_email: userEmail,
     plan_id: planId,
@@ -108,12 +152,12 @@ Deno.serve(async (req) => {
   }
 
   const resendKey = Deno.env.get('RESEND_API_KEY')
-  const adminEmail = Deno.env.get('ADMIN_EMAIL') ?? 'ryanik1997@gmail.com'
+  const adminEmail = Deno.env.get('ADMIN_EMAIL') ?? ''
   const appOrigin = Deno.env.get('APP_ORIGIN') ?? 'https://ryanenglishv2.vercel.app'
   const requestedAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
   const adminLink = `${appOrigin}/app/admin?search=${encodeURIComponent(userEmail)}`
 
-  if (resendKey) {
+  if (resendKey && adminEmail) {
     const emailRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -125,7 +169,7 @@ Deno.serve(async (req) => {
         to: [adminEmail],
         subject: `[Ryan English] Yêu cầu kích hoạt ${planId} — ${userEmail}`,
         html: buildEmailHtml({
-          userName: userName || userEmail,
+          userName,
           userEmail,
           planId,
           price,
@@ -141,7 +185,7 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: 'Failed to send email', detail: errText }, 500)
     }
   } else {
-    console.warn('RESEND_API_KEY not set — payment request saved but email skipped')
+    console.warn('RESEND_API_KEY or ADMIN_EMAIL not set — payment request saved but email skipped')
   }
 
   return jsonResponse({ ok: true })
@@ -149,6 +193,3 @@ Deno.serve(async (req) => {
 
 // Deploy:
 // npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
-// Sau đó vào Supabase Dashboard → Edge Functions → notify-payment → Secrets:
-// Thêm RESEND_API_KEY và ADMIN_EMAIL
-// (Tuỳ chọn) APP_ORIGIN=https://ryanenglishv2.vercel.app

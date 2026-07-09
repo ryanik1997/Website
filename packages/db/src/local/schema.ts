@@ -4,12 +4,35 @@ export interface Group      { id: string; name: string; order: number; createdAt
 export interface Deck {
   id: string; groupId: string; name: string
   book?: string; unit?: string
+  /** Mô tả ngắn hiện dưới tên bộ thẻ (user + preset). Preset cũ có thể lưu trong `book`. */
+  description?: string
   color?: string; icon?: string
   /** 'preset' = do app tạo sẵn (không cho xóa), 'user' = user tự tạo (xóa được). Undefined = legacy — coi như preset nếu nằm trong group hệ thống. */
   origin?: 'preset' | 'user'
   createdAt: number; updatedAt: number
 }
-export interface Card       { id: string; deckId: string; phrase: string; meaning: string; example?: string; ipaUS?: string; ipaUK?: string; pos?: string; createdAt: number; updatedAt: number }
+/** Nguồn thẻ — exam mistakes, Cambridge pack, dictionary, … */
+export type CardSourceKind = 'manual' | 'dictionary' | 'import' | 'exam' | 'listening' | 'notebook'
+
+export interface Card {
+  id: string
+  deckId: string
+  phrase: string
+  meaning: string
+  /** Câu context để ôn cloze / SRS theo ngữ cảnh */
+  example?: string
+  ipaUS?: string
+  ipaUK?: string
+  pos?: string
+  /** Nguồn tạo thẻ */
+  sourceKind?: CardSourceKind
+  /** VD: reading exam id, listening exam id */
+  sourceExamId?: string
+  /** Cam 15 Test 2, IELTS Reading… */
+  sourceLabel?: string
+  createdAt: number
+  updatedAt: number
+}
 export interface Srs        { cardId: string; deckId: string; ease: number; interval: number; reps: number; lapses: number; dueAt: number; lastReviewedAt?: number; state: 'new' | 'learning' | 'review' }
 export interface ReviewLog  { id?: number; cardId: string; rating: number; mode: string; at: number }
 export interface DictEntry  { word: string; data: unknown; fetchedAt: number }
@@ -25,7 +48,13 @@ export interface Lesson {
   test?: number
   part?: number
   topic?: string
-  source?: 'text' | 'whisper' | 'import'
+  source?: 'text' | 'whisper' | 'import' | 'exam'
+  /** Liên kết đề Listening exam (đồng bộ practice ↔ exam) */
+  sourceExamId?: string
+  sourceExamPartId?: string
+  /** Cùng audioKey/audioUrl với part exam (audioRepo / URL) */
+  linkedAudioKey?: string
+  linkedAudioUrl?: string
 }
 
 export interface TranslationSentence {
@@ -51,12 +80,17 @@ export type TranslationCategory =
   | 'ielts_task2' | 'ielts_task1' | 'daily' | 'user'
   | 'grammar_basic' | 'collocation' | 'paragraph_65' | 'paragraph_80' | 'essay_full'
 
+/** CEFR gắn Translation / Sentence structure */
+export type CefrLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
+
 export interface TranslationSet {
   id: string
   title: string
   category: TranslationCategory
   /** Phân loại chủ đề trong từng track */
   genre?: TranslationGenre
+  /** Trình độ CEFR gợi ý (A2–C2) */
+  cefr?: CefrLevel
   sentences: TranslationSentence[]
   createdAt: number
 }
@@ -132,6 +166,29 @@ export interface SentenceStructure {
   exampleB: string
   exampleNoteVi: string
   starred?: boolean
+  /** Trình độ CEFR gợi ý (A2–C2) */
+  cefr?: CefrLevel
+  createdAt: number
+  updatedAt: number
+}
+
+/** Sổ ghi chú từ vựng — lưu từ khi học / tra từ (không gắn SRS) */
+export interface NotebookEntry {
+  id: string
+  /** Chuẩn hóa lowercase để chống trùng */
+  phraseKey: string
+  phrase: string
+  meaning: string
+  example?: string
+  ipaUS?: string
+  ipaUK?: string
+  pos?: string
+  /** Ghi chú tự do của user */
+  note?: string
+  sourceCardId?: string
+  sourceDeckId?: string
+  /** study | dictionary | manual */
+  source?: 'study' | 'dictionary' | 'manual'
   createdAt: number
   updatedAt: number
 }
@@ -155,6 +212,7 @@ export class RyanDB extends Dexie {
   sentenceStructures!: Table<SentenceStructure, string>
   readingExams!:      Table<ReadingExamRecord, string>
   listeningExams!:    Table<ListeningExamRecord, string>
+  notebookEntries!:   Table<NotebookEntry, string>
 
   constructor() {
     super('RyanEnglishDB')
@@ -360,6 +418,28 @@ export class RyanDB extends Dexie {
       sentenceStructures: '&id, category, starred, updatedAt',
       readingExams:    '&id, source, createdAt, updatedAt',
       listeningExams:  '&id, examType, source, createdAt, updatedAt',
+    })
+    // v12: Sổ ghi chú từ vựng (study / dictionary)
+    this.version(12).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
     })
   }
 }
