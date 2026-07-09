@@ -114,6 +114,27 @@ export const IELTS_P1_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     description: 'Table completion Q1–8 (noteTable 3 cột, merge ô) + TFNG Q9–13 — Cam13 T4 P1 (Coconut palm); hỗ trợ bảng 2 cột không merge.',
     previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_7.jpg',
   },
+  {
+    kind: 'p1-r1-match-ynng-features',
+    code: 'r1my',
+    label: 'Match đoạn + YNNG + Features',
+    description: 'Which section Q1–3 (A–J) + YNNG Q4–6 (claims of writer) + matching features A–C Q7–13 — Cam intelligence theories (Hamiltonian/Jeffersonian/Jacksonian).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_8.jpg',
+  },
+  {
+    kind: 'p1-r1-notes-tfng-table',
+    code: 'r1nt',
+    label: 'Notes + TFNG + Table',
+    description: 'Notes ONE WORD Q1–4 (notePassage như r1n8) + TFNG Q5–7 + table Q8–13 (noteTable merge như r1tt) — Cam (Nutmeg).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_9.jpg',
+  },
+  {
+    kind: 'p1-r1-notes-table-tfng',
+    code: 'r1ntf',
+    label: 'Notes + Table + TFNG',
+    description: 'Notes ONE WORD Q1–5 (notePassage) + table TWO WORDS Q6–8 (noteTable) + TFNG Q9–13 — Cam (Huarango tree).',
+    previewUrl: '/ielts-wizard/reading/p1/Teamplate_Part1_10.jpg',
+  },
 ]
 
 export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
@@ -208,6 +229,27 @@ export const IELTS_P2_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     description: 'Matching headings Q14–19 (A–F) + match ideas Q20–23 + summary ONE WORD Q24–26 — Cam13 Test 1 P2 (Boredom).',
     previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_9.jpg',
   },
+  {
+    kind: 'p2-r2-match-choose-two-summary',
+    code: 'r2cs',
+    label: 'Match đoạn + Choose TWO + Summary',
+    description: 'Which section Q14–18 + 2× Choose TWO Q19–22 + summary ONE WORD Q23–26 — Cam14 Test 1 P2 (Bike-sharing).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_10.jpg',
+  },
+  {
+    kind: 'p2-r2-match-tfng-choose-two',
+    code: 'r2mt',
+    label: 'Match đoạn + TFNG + Choose TWO',
+    description: 'Which section Q14–17 (A–G) + TFNG Q18–22 + Choose TWO Q23–24 — Cam (Zoos / animals in captivity).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_11.jpg',
+  },
+  {
+    kind: 'p2-r2-tfng-notes',
+    code: 'r2tn',
+    label: 'TFNG + Notes',
+    description: 'TFNG Q14–19 + notes ONE WORD Q20–26 (notePassage, section headings) — Cam (Silbo Gomero).',
+    previewUrl: '/ielts-wizard/reading/p2/Teamplate_Part2_12.jpg',
+  },
 ]
 
 export const IELTS_P3_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
@@ -296,6 +338,13 @@ export const IELTS_P3_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_5.jpg',
   },
   {
+    kind: 'p3-r3-headings-mc-ynng',
+    code: 'r3hmy',
+    label: 'Headings + MC + YNNG',
+    description: 'Matching headings Q27–32 (A–F, i–viii) + MC A–D Q33–35 + YNNG Q36–40 (claims of writer) — Cam (AI attitudes).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_11.jpg',
+  },
+  {
     kind: 'p3-r3-table-ynng-match',
     code: 'r3ty',
     label: 'Table + YNNG + Match',
@@ -308,6 +357,27 @@ export const IELTS_P3_READING_TEMPLATE_OPTIONS: IeltsReadingTemplateOption[] = [
     label: 'Summary + MC + Endings',
     description: 'Summary TWO WORDS Q27–31 + MC A–D Q32–36 + sentence endings Q37–40 — Cam12 Test 3 P3 (The Montreal Study / Music and the emotions).',
     previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg',
+  },
+  {
+    kind: 'p3-r3-features-ynng-summary',
+    code: 'r3fy',
+    label: 'Features + YNNG + Summary',
+    description: 'Matching features Q27–31 (người A–G) + YNNG Q32–36 (claims of writer) + summary ONE WORD Q37–40 — Cam (Guided play / children\'s play).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_8.jpg',
+  },
+  {
+    kind: 'p3-r3-tfng-notes-mc',
+    code: 'r3tn',
+    label: 'TFNG + Notes + MC',
+    description: 'TFNG Q27–33 + notes ONE WORD Q34–39 (notePassage như r1n8) + MC title Q40 — Cam14 T4 P3 (Marine debris / Rochman).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_9.jpg',
+  },
+  {
+    kind: 'p3-r3-endings-summary-mc',
+    code: 'r3em',
+    label: 'Endings + Summary bank + MC',
+    description: 'Sentence endings A–F Q27–31 + summary word bank A–I Q32–36 + MC A–D Q37–40 — Cam (Fairy tales / Tehrani / Little Red Riding Hood).',
+    previewUrl: '/ielts-wizard/reading/p3/Teamplate_Part3_10.jpg',
   },
 ]
 

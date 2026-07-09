@@ -34,8 +34,95 @@ import { useExamImportsOnlyFilter } from './useExamImportsOnlyFilter'
 import { hasIeltsListeningWizardDraft } from './ieltsListeningWizard/ieltsListeningWizardPersist'
 import { hasIeltsReadingWizardDraft } from './ieltsReadingWizard/ieltsReadingWizardPersist'
 import { isIeltsReadingWizardEditable } from './ieltsReadingWizard/ieltsReadingWizardEdit'
+import ExamTrackErrorBoundary from './ExamTrackErrorBoundary'
 import IeltsLibraryArchive from './IeltsLibraryArchive'
 import './examHub.css'
+
+function safeDraftFlag(read: () => boolean): boolean {
+  try {
+    return read()
+  } catch (err) {
+    console.warn('[ExamTrackPage] draft flag failed', err)
+    return false
+  }
+}
+
+function safeReadingRow(exam: ReadingExam): {
+  id: string
+  title: string
+  meta: string
+  done?: boolean
+  canDelete?: boolean
+  canEdit?: boolean
+} {
+  try {
+    const parts = Array.isArray(exam.parts) ? exam.parts : []
+    const qCount = parts.reduce((s, p) => {
+      try {
+        return s + getPartQuestions(p).length
+      } catch {
+        return s
+      }
+    }, 0)
+    const completion = readReadingDraftCompletion(exam)
+    const parsed = exam.title.match(/Test\s*(\d+)/i)
+    return {
+      id: exam.id,
+      title: parsed ? `Test ${parsed[1]}` : exam.title,
+      meta: completion
+        ? `Đúng ${completion.correct}/${completion.total} câu`
+        : exam.bandHint || `${parts.length} part · ${qCount} câu`,
+      done: Boolean(completion),
+      canDelete: isImportedReadingExamId(exam.id),
+      canEdit: isImportedReadingExamId(exam.id) && isIeltsReadingWizardEditable(exam),
+    }
+  } catch (err) {
+    console.warn('[ExamTrackPage] reading row failed', exam.id, err)
+    return {
+      id: exam.id,
+      title: exam.title || exam.id,
+      meta: 'Không đọc được metadata đề',
+      canDelete: isImportedReadingExamId(exam.id),
+    }
+  }
+}
+
+function safeListeningRow(exam: ListeningExam): {
+  id: string
+  title: string
+  meta: string
+  done?: boolean
+  canDelete?: boolean
+} {
+  try {
+    const qCount = getListeningExamQuestions(exam).length
+    const completion = readListeningDraftCompletion(exam)
+    const parsed = exam.title.match(/Test\s*(\d+)/i)
+    const sourceLabel = exam.id.startsWith('catalog-')
+      ? 'Builtin · '
+      : exam.id.startsWith('listening-import-')
+        ? 'Import · '
+        : ''
+    const typeLabel = (exam.examType ?? 'ielts').toString().toUpperCase()
+    return {
+      id: exam.id,
+      title: parsed ? `Test ${parsed[1]}` : exam.title,
+      meta: completion
+        ? `Đúng ${completion.correct}/${completion.total} câu`
+        : `${sourceLabel}${exam.bandHint || `${typeLabel} · ${qCount} câu · ${exam.examMode ?? 'practice'}`}`,
+      done: Boolean(completion),
+      canDelete: exam.id.startsWith('listening-import-'),
+    }
+  } catch (err) {
+    console.warn('[ExamTrackPage] listening row failed', exam.id, err)
+    return {
+      id: exam.id,
+      title: exam.title || exam.id,
+      meta: 'Không đọc được metadata đề',
+      canDelete: exam.id.startsWith('listening-import-'),
+    }
+  }
+}
 
 const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
 const ImportListeningModal = lazy(() => import('./ImportListeningModal'))
@@ -48,6 +135,14 @@ function filterListeningByTypes(exams: ListeningExam[], types: ListeningExamType
 }
 
 export default function ExamTrackPage() {
+  return (
+    <ExamTrackErrorBoundary label="IELTS / Cambridge track">
+      <ExamTrackPageInner />
+    </ExamTrackErrorBoundary>
+  )
+}
+
+function ExamTrackPageInner() {
   const navigate = useNavigate()
   const { trackId, level: levelParam } = useParams<{ trackId: string; level?: string }>()
 
@@ -56,8 +151,8 @@ export default function ExamTrackPage() {
   const [showIeltsWizard, setShowIeltsWizard] = useState(false)
   const [showReadingWizard, setShowReadingWizard] = useState(false)
   const [showImportWord, setShowImportWord] = useState(false)
-  const [wizardHasDraft, setWizardHasDraft] = useState(() => hasIeltsListeningWizardDraft())
-  const [readingWizardHasDraft, setReadingWizardHasDraft] = useState(() => hasIeltsReadingWizardDraft())
+  const [wizardHasDraft, setWizardHasDraft] = useState(() => safeDraftFlag(hasIeltsListeningWizardDraft))
+  const [readingWizardHasDraft, setReadingWizardHasDraft] = useState(() => safeDraftFlag(hasIeltsReadingWizardDraft))
   const [readingWizardEdit, setReadingWizardEdit] = useState<{
     exam: ReadingExam
     sourceFilename?: string
@@ -286,21 +381,7 @@ export default function ExamTrackPage() {
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
             exams={readingList}
-            buildRow={exam => {
-              const qCount = exam.parts.reduce((s, p) => s + getPartQuestions(p).length, 0)
-              const completion = readReadingDraftCompletion(exam)
-              const parsed = exam.title.match(/Test\s*(\d+)/i)
-              return {
-                id: exam.id,
-                title: parsed ? `Test ${parsed[1]}` : exam.title,
-                meta: completion
-                  ? `Đúng ${completion.correct}/${completion.total} câu`
-                  : exam.bandHint || `${exam.parts.length} part · ${qCount} câu`,
-                done: Boolean(completion),
-                canDelete: isImportedReadingExamId(exam.id),
-                canEdit: isImportedReadingExamId(exam.id) && isIeltsReadingWizardEditable(exam),
-              }
-            }}
+            buildRow={safeReadingRow}
             onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
             onRetryExam={id => {
               clearReadingDraft(id)
@@ -320,25 +401,7 @@ export default function ExamTrackPage() {
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
             exams={listeningList}
-            buildRow={exam => {
-              const qCount = getListeningExamQuestions(exam).length
-              const completion = readListeningDraftCompletion(exam)
-              const parsed = exam.title.match(/Test\s*(\d+)/i)
-              const sourceLabel = exam.id.startsWith('catalog-')
-                ? 'Builtin · '
-                : exam.id.startsWith('listening-import-')
-                  ? 'Import · '
-                  : ''
-              return {
-                id: exam.id,
-                title: parsed ? `Test ${parsed[1]}` : exam.title,
-                meta: completion
-                  ? `Đúng ${completion.correct}/${completion.total} câu`
-                  : `${sourceLabel}${exam.bandHint || `${exam.examType.toUpperCase()} · ${qCount} câu · ${exam.examMode}`}`,
-                done: Boolean(completion),
-                canDelete: exam.id.startsWith('listening-import-'),
-              }
-            }}
+            buildRow={safeListeningRow}
             onOpenExam={id => navigate(`/app/exam/listening/${id}`)}
             onRetryExam={id => {
               clearListeningDraft(id)
@@ -388,7 +451,7 @@ export default function ExamTrackPage() {
           <IeltsListeningImportWizard
             onClose={() => {
               setShowIeltsWizard(false)
-              setWizardHasDraft(hasIeltsListeningWizardDraft())
+              setWizardHasDraft(safeDraftFlag(hasIeltsListeningWizardDraft))
             }}
             onCreated={id => {
               setShowIeltsWizard(false)
@@ -407,7 +470,7 @@ export default function ExamTrackPage() {
             onClose={() => {
               setShowReadingWizard(false)
               setReadingWizardEdit(null)
-              setReadingWizardHasDraft(hasIeltsReadingWizardDraft())
+              setReadingWizardHasDraft(safeDraftFlag(hasIeltsReadingWizardDraft))
             }}
             onCreated={id => {
               setShowReadingWizard(false)

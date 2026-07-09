@@ -816,6 +816,21 @@ export function enrichNotePassageBullets(
   return out
 }
 
+/**
+ * Heading thập niên / kỷ nguyên trên notes IELTS (Cam15 Henry Moore: 1930s / 1940s / 1950s).
+ * Phải là dòng riêng — không gộp với bullet kế.
+ */
+export function isNoteDecadeOrEraHeading(text: string): boolean {
+  const bare = (text ?? '').trim().replace(/^[•●‣▪◦○·*+–−\-►▸]\s*/, '')
+  if (!bare) return false
+  if (/^\d{3,4}s$/i.test(bare)) return true
+  if (/^(early|mid|late)\s*[-–]?\s*\d{3,4}s$/i.test(bare)) return true
+  if (/^\d{1,2}(st|nd|rd|th)\s+century$/i.test(bare)) return true
+  if (/^(early|mid|late)\s+\d{1,2}(st|nd|rd|th)\s+century$/i.test(bare)) return true
+  if (/^(middle ages|renaissance|industrial revolution)$/i.test(bare)) return true
+  return false
+}
+
 /** Tách static/example chứa \\n thành nhiều block — mỗi dòng đề = một block. */
 export function atomizeNotePassageBlocks(
   blocks: ListeningNotePassageBlock[],
@@ -823,7 +838,11 @@ export function atomizeNotePassageBlocks(
   const out: ListeningNotePassageBlock[] = []
 
   for (const block of blocks) {
-    if (block.type !== 'static' && block.type !== 'example') {
+    if (block.type === 'break') {
+      out.push({ type: 'break' })
+      continue
+    }
+    if (block.type !== 'static' && block.type !== 'example' && block.type !== 'section') {
       out.push(block)
       continue
     }
@@ -831,15 +850,26 @@ export function atomizeNotePassageBlocks(
     const text = block.text ?? ''
     const parts = text.split(/\r?\n/)
     if (parts.length <= 1) {
-      out.push(block)
+      const single = text.trim()
+      if (block.type === 'static' && isNoteDecadeOrEraHeading(single)) {
+        out.push({ type: 'section', text: single })
+      } else {
+        out.push(block)
+      }
       continue
     }
 
     for (const part of parts) {
-      if (!part.trim()) continue
+      if (!part.trim()) {
+        // Dòng trống trên đề → ngắt dòng cứng
+        out.push({ type: 'break' })
+        continue
+      }
       const trimmed = part.trim()
       if (block.type === 'example' || trimmed.toLowerCase().startsWith('example')) {
         out.push({ type: 'example', text: part })
+      } else if (isNoteDecadeOrEraHeading(trimmed) || block.type === 'section') {
+        out.push({ type: 'section', text: trimmed })
       } else {
         out.push({ type: 'static', text: part })
       }
@@ -1356,6 +1386,12 @@ function groupNotePassageFormLines(
   while (index < blocks.length) {
     const block = blocks[index]
 
+    if (block.type === 'break') {
+      // Ngắt dòng cứng từ đề / AI — không gộp dòng trước–sau
+      index += 1
+      continue
+    }
+
     if (block.type === 'section' || block.type === 'example') {
       lines.push({ kind: block.type, block })
       index += 1
@@ -1365,6 +1401,13 @@ function groupNotePassageFormLines(
     if (block.type === 'static') {
       const text = (block.text ?? '').trim()
       if (!text) {
+        index += 1
+        continue
+      }
+
+      // 1930s / 1940s / 1950s / "17th century" — dòng heading riêng (Cam15 Moore notes)
+      if (isNoteDecadeOrEraHeading(text)) {
+        lines.push({ kind: 'section', block: { type: 'section', text } })
         index += 1
         continue
       }
@@ -1423,8 +1466,14 @@ function groupNotePassageFormLines(
             }
             continue
           }
+          if (next.type === 'break' || next.type === 'section' || next.type === 'example') {
+            break
+          }
           if (next.type === 'static') {
             const nextText = next.text ?? ''
+            if (isNoteDecadeOrEraHeading(nextText)) {
+              break
+            }
             const lastInLine = current[current.length - 1]
             const misplacedTrailBullet = lastInLine?.type === 'gap'
               && isMisplacedGapTrailBullet(nextText)
@@ -1545,6 +1594,11 @@ export function groupNotePassageIntoLines(
   }
 
   for (const block of blocks) {
+    if (block.type === 'break') {
+      flush()
+      continue
+    }
+
     if (block.type === 'section' || block.type === 'example') {
       flush()
       lines.push({ kind: block.type, block })
@@ -1553,6 +1607,12 @@ export function groupNotePassageIntoLines(
 
     if (block.type === 'static') {
       const text = block.text ?? ''
+
+      if (isNoteDecadeOrEraHeading(text)) {
+        flush()
+        lines.push({ kind: 'section', block: { type: 'section', text: text.trim() } })
+        continue
+      }
 
       if (current.length === 0) {
         current.push(block)

@@ -25,7 +25,7 @@ export type ListeningQuestionType =
   | 'gap-fill'
   | 'matching'
 
-export type ListeningNotePassageBlockType = 'static' | 'section' | 'gap' | 'example'
+export type ListeningNotePassageBlockType = 'static' | 'section' | 'gap' | 'example' | 'break'
 
 /** IELTS note-completion: thứ tự đầy đủ của form (chữ tĩnh + ô trống). */
 export interface ListeningNotePassageBlock {
@@ -189,10 +189,11 @@ export function getListeningExam(examId: string): ListeningExam | null {
 }
 
 export function getPartQuestions(part: ListeningPart): ListeningQuestion[] {
-  return part.questions
+  return Array.isArray(part?.questions) ? part.questions : []
 }
 
 export function getListeningExamQuestions(exam: ListeningExam): ListeningQuestion[] {
+  if (!Array.isArray(exam?.parts)) return []
   return exam.parts.flatMap(getPartQuestions)
 }
 

@@ -3,6 +3,12 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import ReadingNotePassageBox from './ReadingNotePassageBox'
 import ReadingNoteTableView from './ReadingNoteTable'
 import type { ReadingHighlight } from './readingHighlightUtils'
+import {
+  isReadingChooseTwoGroup,
+  normalizeReadingChooseTwoPrompt,
+  splitReadingMcGroupForChooseTwo,
+  toggleReadingChooseTwoOption,
+} from './readingChooseTwoUtils'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface Props {
@@ -105,18 +111,171 @@ function YnngGroup(props: {
   return <TriStateGroup {...props} />
 }
 
+function ChooseTwoGroup({
+  group,
+  answers,
+  highlights,
+  activeQuestionId,
+  onSelectQuestion,
+  onAnswer,
+}: {
+  group: ReadingQuestionGroup
+} & Pick<Props, 'answers' | 'highlights' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
+  const questions = group.questions
+  const options = questions[0]?.options ?? []
+  const selectedIds = new Set(
+    questions.map(q => (answers[q.id] ?? '').toLowerCase()).filter(Boolean),
+  )
+  const isActive = questions.some(q => q.id === activeQuestionId)
+  const start = questions[0]?.number
+  const end = questions[questions.length - 1]?.number
+  const promptBase = normalizeReadingChooseTwoPrompt(questions[0]?.prompt ?? '')
+  const promptText = start != null && end != null
+    ? `${start}–${end} ${promptBase}`
+    : promptBase
+
+  return (
+    <section
+      className={`reading-test-group reading-test-choose-two${isActive ? ' is-active' : ''}`}
+      id={questions[0] ? `reading-q-${questions[0].id}` : undefined}
+    >
+      <ReadingHighlightableText
+        blockId={`${group.id}-range`}
+        text={group.range}
+        highlights={highlights}
+        className="reading-test-group__title"
+        as="h3"
+      />
+      <ReadingHighlightableText
+        blockId={`${group.id}-instruction`}
+        text={group.instruction || 'Choose TWO correct answers.'}
+        highlights={highlights}
+        className="reading-test-group__instruction"
+        as="p"
+      />
+      {group.note && (
+        <ReadingHighlightableText
+          blockId={`${group.id}-note`}
+          text={group.note}
+          highlights={highlights}
+          className="reading-test-group__note"
+          as="p"
+        />
+      )}
+      <p className="reading-test-choose-two__prompt">
+        <ReadingHighlightableText
+          blockId={`${group.id}-prompt`}
+          text={promptText}
+          highlights={highlights}
+          as="span"
+        />
+      </p>
+      <p className="reading-test-choose-two__slots" data-highlight-skip>
+        {questions.map(q => (
+          <span
+            key={q.id}
+            className={`reading-test-choose-two__slot${answers[q.id] ? ' is-filled' : ''}${
+              activeQuestionId === q.id ? ' is-active' : ''
+            }`}
+          >
+            <strong>{q.number}</strong>
+            {' '}
+            {answers[q.id] ? answers[q.id].toUpperCase() : '—'}
+          </span>
+        ))}
+      </p>
+      <ul className="reading-test-choose-two__options">
+        {options.map(option => {
+          const checked = selectedIds.has(option.id.toLowerCase())
+          return (
+            <li key={option.id}>
+              <button
+                type="button"
+                className={`reading-test-choose-two__option${checked ? ' is-selected' : ''}`}
+                aria-pressed={checked}
+                onClick={() => {
+                  toggleReadingChooseTwoOption(
+                    option.id,
+                    questions,
+                    answers,
+                    onAnswer,
+                    onSelectQuestion,
+                  )
+                }}
+              >
+                <span
+                  className={`reading-test-choose-two__checkbox${checked ? ' is-checked' : ''}`}
+                  aria-hidden
+                />
+                <span className="reading-test-choose-two__letter" data-highlight-skip>
+                  {option.id.toUpperCase()}.
+                </span>
+                <ReadingHighlightableText
+                  blockId={`${group.id}-opt-${option.id}`}
+                  text={option.label}
+                  highlights={highlights}
+                  className="reading-test-choose-two__label"
+                  as="span"
+                />
+              </button>
+            </li>
+          )
+        })}
+      </ul>
+      {/* Anchor cho footer nav câu 2 trong cặp */}
+      {questions[1] && <div id={`reading-q-${questions[1].id}`} className="reading-test-choose-two__anchor" />}
+    </section>
+  )
+}
+
 function MultipleChoiceGroup({
   group,
   answers,
   highlights,
   cambridgeLevel,
   partNumber,
+  activeQuestionId,
   onSelectQuestion,
   onAnswer,
 }: {
   group: ReadingQuestionGroup
-} & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'partNumber' | 'onSelectQuestion' | 'onAnswer'>) {
+} & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'partNumber' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
   const compactLetters = cambridgeLevel === 'a2' && partNumber === 2
+
+  if (isReadingChooseTwoGroup(group)) {
+    return (
+      <ChooseTwoGroup
+        group={group}
+        answers={answers}
+        highlights={highlights}
+        activeQuestionId={activeQuestionId}
+        onSelectQuestion={onSelectQuestion}
+        onAnswer={onAnswer}
+      />
+    )
+  }
+
+  const segments = splitReadingMcGroupForChooseTwo(group)
+  if (segments.length > 1) {
+    return (
+      <>
+        {segments.map(seg => (
+          <MultipleChoiceGroup
+            key={seg.id}
+            group={seg}
+            answers={answers}
+            highlights={highlights}
+            cambridgeLevel={cambridgeLevel}
+            partNumber={partNumber}
+            activeQuestionId={activeQuestionId}
+            onSelectQuestion={onSelectQuestion}
+            onAnswer={onAnswer}
+          />
+        ))}
+      </>
+    )
+  }
+
   return (
     <section className="reading-test-group">
       <ReadingHighlightableText
@@ -148,7 +307,7 @@ function MultipleChoiceGroup({
           </p>
           <div className={`reading-test-mc-options${compactLetters ? ' is-compact' : ''}`}>
             {(question.options ?? []).map(option => {
-              const selected = answers[question.id] === option.id
+              const selected = (answers[question.id] ?? '').toLowerCase() === option.id.toLowerCase()
               return (
                 <button
                   key={option.id}
@@ -442,7 +601,8 @@ function SummaryGapFillNote({
   onAnswer: (questionId: string, value: string) => void
 }) {
   const questionByNumber = new Map(group.questions.map(q => [q.number, q]))
-  const paragraphs = note.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
+  // Sentence completion / multi-line notes: mỗi dòng đề = 1 đoạn (single \\n hoặc \\n\\n)
+  const paragraphs = splitSummaryNoteParagraphs(note, group.instruction, group.type)
 
   return (
     <div className="reading-test-summary-passage">
@@ -644,6 +804,48 @@ function summaryNoteHasInlineGaps(note?: string): boolean {
   return Boolean(note && /\d{1,2}_{2,}/.test(note))
 }
 
+/** Complete the sentences / multi-line summary: mỗi dòng đề = 1 đoạn hiển thị. */
+function isSentenceStyleInstruction(instruction?: string, type?: string): boolean {
+  if (type === 'sentence-completion') return true
+  const t = (instruction ?? '').toLowerCase()
+  return /complete the sentences/i.test(t) || /complete each sentence/i.test(t)
+}
+
+function splitSummaryNoteParagraphs(
+  note: string,
+  instruction?: string,
+  type?: string,
+): string[] {
+  const raw = note.replace(/\r\n/g, '\n').trim()
+  if (!raw) return []
+
+  // Ưu tiên \\n\\n
+  let parts = raw.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
+  if (parts.length > 1) return parts
+
+  // Sentence completion hoặc note có nhiều gap trên nhiều dòng: tách theo single \\n
+  const lines = raw.split('\n').map(l => l.trim()).filter(Boolean)
+  if (lines.length > 1) {
+    const gapLines = lines.filter(l => /\d{1,2}_{2,}/.test(l)).length
+    if (
+      isSentenceStyleInstruction(instruction, type)
+      || gapLines >= 2
+      || lines.some(l => isNoteDecadeOrEraHeadingLike(l))
+    ) {
+      return lines
+    }
+  }
+
+  return parts.length ? parts : [raw]
+}
+
+function isNoteDecadeOrEraHeadingLike(text: string): boolean {
+  const bare = text.trim().replace(/^[•●‣▪◦○·*+–−\-►▸]\s*/, '')
+  return /^\d{3,4}s$/i.test(bare)
+    || /^(early|mid|late)\s*\d{3,4}s$/i.test(bare)
+    || /^\d{1,2}(st|nd|rd|th)\s+century$/i.test(bare)
+}
+
 type SummaryNoteSegment =
   | { kind: 'text'; text: string }
   | { kind: 'gap'; number: number }
@@ -683,7 +885,7 @@ function SummaryNoteWithGaps({
   onSelectQuestion: (questionId: string) => void
 }) {
   const questionByNumber = new Map(group.questions.map(q => [q.number, q]))
-  const paragraphs = note.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
+  const paragraphs = splitSummaryNoteParagraphs(note, group.instruction, group.type)
 
   return (
     <div className="reading-test-summary-passage">
@@ -1110,6 +1312,7 @@ export default function ReadingQuestionPanel({
                 highlights={highlights}
                 cambridgeLevel={cambridgeLevel}
                 partNumber={partNumber}
+                activeQuestionId={activeQuestionId}
                 onSelectQuestion={onSelectQuestion}
                 onAnswer={onAnswer}
               />

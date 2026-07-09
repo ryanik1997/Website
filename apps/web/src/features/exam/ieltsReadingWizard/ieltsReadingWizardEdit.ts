@@ -71,6 +71,9 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'tfng|matching-features|gap-fill': 'p1-r1-tfng-match-notes',
     'tfng|matching-features|summary-completion': 'p1-r1-tfng-match-summary',
     'matching-paragraph|matching-features|multiple-choice': 'p1-r1-match-choose-two',
+    'matching-paragraph|ynng|matching-features': 'p1-r1-match-ynng-features',
+    'gap-fill|tfng|gap-fill': 'p1-r1-notes-tfng-table',
+    'gap-fill|gap-fill|tfng': 'p1-r1-notes-table-tfng',
   },
   2: {
     'matching-paragraph|matching-features|multiple-choice': 'p2-r2-match-mc',
@@ -89,6 +92,9 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'matching-headings|tfng|sentence-completion': 'p2-r2-headings-tfng-sentence',
     'multiple-choice|summary-completion|ynng': 'p2-r2-mc-summary-ynng',
     'matching-headings|matching-features|gap-fill': 'p2-r2-headings-match-summary',
+    'matching-paragraph|multiple-choice|multiple-choice|gap-fill': 'p2-r2-match-choose-two-summary',
+    'matching-paragraph|multiple-choice|multiple-choice|sentence-completion': 'p2-r2-match-choose-two-summary',
+    'matching-paragraph|tfng|multiple-choice': 'p2-r2-match-tfng-choose-two',
   },
   3: {
     'tfng|multiple-choice': 'p3-r3-tfng-mc',
@@ -106,8 +112,13 @@ const TEMPLATE_SIGNATURES: Record<IeltsReadingPassageNumber, Record<string, Ielt
     'matching-paragraph|sentence-completion': 'p3-r3-match-paragraph-sentence',
     'matching-headings|summary-completion|ynng': 'p3-r3-headings-summary-ynng',
     'matching-headings|gap-fill|ynng': 'p3-r3-headings-gap-ynng',
+    'matching-headings|multiple-choice|ynng': 'p3-r3-headings-mc-ynng',
     'gap-fill|ynng|matching-paragraph': 'p3-r3-table-ynng-match',
     'gap-fill|multiple-choice|summary-completion': 'p3-r3-summary-mc-endings',
+    'matching-features|ynng|gap-fill': 'p3-r3-features-ynng-summary',
+    'matching-features|ynng|sentence-completion': 'p3-r3-features-ynng-summary',
+    'tfng|gap-fill|multiple-choice': 'p3-r3-tfng-notes-mc',
+    'summary-completion|summary-completion|multiple-choice': 'p3-r3-endings-summary-mc',
   },
 }
 
@@ -134,6 +145,16 @@ export function inferTemplateKindFromPart(
     const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
     if (notesGroup) return 'p1-r1-headings-notes'
   }
+  if (passageNumber === 1 && sig === 'gap-fill|tfng|gap-fill') {
+    const notesFirst = part.questionGroups[0]?.notePassage?.length
+    const tableLast = part.questionGroups.some(g => g.noteTable?.headers?.length)
+    if (notesFirst && tableLast) return 'p1-r1-notes-tfng-table'
+  }
+  if (passageNumber === 1 && sig === 'gap-fill|gap-fill|tfng') {
+    const notesFirst = part.questionGroups[0]?.notePassage?.length
+    const tableMid = part.questionGroups[1]?.noteTable?.headers?.length
+    if (notesFirst && tableMid) return 'p1-r1-notes-table-tfng'
+  }
   if (passageNumber === 3 && sig === 'matching-paragraph|gap-fill|matching-features') {
     const tableGroup = part.questionGroups.find(g => g.noteTable?.headers?.length)
     if (tableGroup) return 'p3-r3-match-table-features'
@@ -141,6 +162,17 @@ export function inferTemplateKindFromPart(
   if (passageNumber === 3 && sig === 'gap-fill|ynng|matching-paragraph') {
     const tableGroup = part.questionGroups.find(g => g.noteTable?.headers?.length)
     if (tableGroup) return 'p3-r3-table-ynng-match'
+  }
+  if (passageNumber === 3 && sig === 'tfng|gap-fill|multiple-choice') {
+    const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
+    if (notesGroup) return 'p3-r3-tfng-notes-mc'
+  }
+  // P2: TFNG + Notes (notePassage) vs TFNG + Diagram (imageFile)
+  if (passageNumber === 2 && sig === 'tfng|gap-fill') {
+    const notesGroup = part.questionGroups.find(g => g.notePassage?.length)
+    if (notesGroup) return 'p2-r2-tfng-notes'
+    const diagramGroup = part.questionGroups.find(g => Boolean(g.imageFile))
+    if (diagramGroup) return 'p2-r2-tfng-diagram'
   }
   return TEMPLATE_SIGNATURES[passageNumber][sig]
     ?? IELTS_READING_DEFAULT_TEMPLATES[passageNumber]

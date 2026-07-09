@@ -29,11 +29,31 @@ questionGroups.type (chọn đúng):
 - matching-features — Match features (features[] + questions)
 - multiple-choice — MC A/B/C/D
 - gap-fill | sentence-completion — điền từ từ passage (prompt có ___ hoặc câu chưa hoàn chỉnh)
+  • "Complete the sentences below. Choose NO MORE THAN TWO WORDS / ONE WORD ONLY…":
+    – MỖI câu trên đề = 1 question riêng; prompt = đúng 1 dòng câu (có ___), KHÔNG gộp 2+ câu vào 1 prompt
+    – Nếu dùng note (summary-style sentences): MỖI câu = 1 dòng; NGẮT DÒNG = "\\n\\n" giữa các câu (hoặc "\\n" sau mỗi 14________)
+    – VÍ DỤ note đúng: "Title\\n\\nSentence one 14________ end.\\n\\nSentence two 15________ end."
+    – SAI: dán tất cả câu thành 1 đoạn không xuống dòng
+    – answer = ONE/TWO WORDS từ passage (lowercase)
 - summary-completion — chọn từ wordBank (flow-chart / summary có bank A–G)
 - summary-completion đoạn văn liền (r3sm): questionGroups[].note = full summary + gap 27________ (8 gạch dưới); prompt = "Gap (27)" — KHÔNG imageFile
 - gap-fill summary đoạn văn liền (r2g): questionGroups[].note = full summary + gap 14________ … 18________; prompt = "Gap (14)" — KHÔNG imageFile
-- table-completion (r1t/r1tt/r3tb/r3ty): questionGroups[].noteTable = { title?, headers[], rows[{ cells[] }] }; mỗi hàng = cells.length === headers.length; ô thường = [ { type:"static", text:"..." }, { type:"gap", number:9 } ]; xuống dòng = { type:"break" }; MERGE: ô gộp dọc = { rowSpan:N, blocks:[...] }; ô gộp ngang = { colSpan:N, blocks:[...] }; ô bị gộp = { skip:true }; title = tiêu đề bảng (vd. THE COCONUT PALM) — KHÔNG gộp vào header row — BẮT BUỘC giữ noteTable từ SAMPLE; KHÔNG imageFile
-- notes-completion (r1n): notePassage[] + notesTitle; block = static|section|gap|example; gap { type:"gap", number:1 }; bullet dùng "•"/"–" trong text static — KHÔNG imageFile
+- table-completion (r1t/r1tt/r1nt/r1ntf/r3tb/r3ty + mọi noteTable): **LUÔN lưới n cột × m dòng**
+  • noteTable = { title?, headers[n], rows[m] } — headers.length = n (≥2); rows.length = m (≥1)
+  • MỌI hàng: cells.length === n (đúng bằng số headers) — pad ô trống [] nếu thiếu; KHÔNG bỏ cột
+  • Ô thường = [ { type:"static", text }, { type:"gap", number } ]; xuống dòng trong ô = { type:"break" }
+  • MERGE (nếu đề gộp ô): rowSpan/colSpan + skip — vẫn đếm đủ n ô logic/hàng (ô skip = { skip:true })
+  • title = tiêu đề bảng (vd. "Traditional uses of the huarango tree") — KHÔNG nhét title vào header/rows
+  • BẮT BUỘC giữ noteTable từ SAMPLE; KHÔNG imageFile
+- notes-completion (r1n/r1n8/r1nt/r3tn + mọi Part 1–3 có notes): notePassage[] + notesTitle
+  • block = static | section | gap | example | break
+  • gap { type:"gap", number:1 }; bullet dùng "•"/"–" trong text static
+  • NGẮT DÒNG BẮT BUỘC theo đề giấy:
+    – Mỗi dòng notes trên đề = block riêng (hoặc { "type":"break" } giữa hai dòng)
+    – Heading thập niên/kỷ nguyên (1930s, 1940s, 1950s, 17th century…) = { "type":"section", "text":"1940s" } — KHÔNG gộp vào bullet trước/sau
+    – Dòng trống trên đề = { "type":"break" }
+    – KHÔNG gộp "1940s" + "• Moore turns…" thành 1 static
+  • KHÔNG imageFile
 `.trim()
 
 function passageExtraRules(
@@ -47,14 +67,16 @@ function passageExtraRules(
     ].join('\n'),
     'p1-r1-notes-tfng': [
       '- Cam10 T4 P1: gap-fill notes Q1–6 + TFNG Q7–13',
-      '- notePassage[]: section (• heading), static (– dòng + chữ), gap { type:"gap", number }',
+      '- notePassage[]: section (heading), static (•/– dòng), gap, break khi đề ngắt dòng',
       '- notesTitle: topic trong khung notes (vd. Wildfires); prompt = "Gap (1)"',
+      '- Heading thập niên (1930s/1940s…) = type section, mỗi decade 1 block riêng',
     ].join('\n'),
     'p1-r1-notes-tfng-8': [
-      '- Cam12 T8 P1: note completion Q1–8 + TFNG Q9–13',
-      '- notePassage[]: bullet (•) + static + gap { type:"gap", number }; notesTitle (vd. The History of Glass)',
-      '- ONE WORD ONLY; prompt = "Gap (1)"; passage không label',
-      '- TFNG sau notes; đủ 13 câu',
+      '- Cam12 T8 / Cam15 Moore: note completion (notePassage) + TFNG',
+      '- notePassage[]: section (1930s/1940s/1950s) + bullet (•) + static + gap; break giữa nhóm decade',
+      '- VÍ DỤ đúng: {type:"section",text:"1940s"}, {type:"static",text:"• Moore turns to drawing because "}, {type:"gap",number:9}',
+      '- SAI: gộp "1940s • Moore…" hoặc gộp 1940s với 1950s trong 1 static',
+      '- ONE WORD ONLY; notesTitle; KHÔNG imageFile',
     ].join('\n'),
     'p1-r1-tfng-gap-table': [
       '- Cam10 T1 P1: TFNG Q1–5 + gap-fill Q6–8 + table completion Q9–13',
@@ -63,14 +85,34 @@ function passageExtraRules(
     ].join('\n'),
     'p1-r1-table-tfng': [
       '- Table completion Q1–8 (hoặc Q1–7) + TFNG sau — Cam13 T4 P1 (Coconut palm) hoặc Cam13 T1 P1 (NZ website)',
-      '- noteTable: 2–3 cột (vd. Part|Description|Uses); title = tiêu đề bảng IN HOA',
-      '- Bảng đơn giản: mỗi ô = [ { type:"static" }, { type:"gap", number } ] — đủ headers.length ô/hàng',
-      '- Bảng có MERGE (copy Word/PDF): nhãn cột 1 gộp nhiều hàng (vd. "fruits" rowSpan 5) → hàng đầu { rowSpan:5, blocks:[{type:"static",text:"fruits"}] }; 4 hàng sau cùng cột = { skip:true }; cột Description/Uses vẫn đủ ô mỗi hàng',
-      '- Ô trống (không gap): [] hoặc blocks rỗng; gap { type:"gap", number }; ONE WORD ONLY; prompt = "Gap (1)"',
-      '- TFNG sau table; passage có thể A–G hoặc đoạn liền; KHÔNG imageFile',
+      '- noteTable **luôn n cột × m dòng**: headers[n] (vd. n=3 Part|Description|Uses); rows[m]; mỗi hàng cells.length === n',
+      '- title = tiêu đề bảng IN HOA — không gộp vào headers',
+      '- Ô = [ static, gap ]; MERGE dọc: { rowSpan:N, blocks } + { skip:true } trên hàng sau — vẫn n ô/hàng',
+      '- ONE WORD ONLY; prompt = "Gap (1)"; TFNG sau table; KHÔNG imageFile',
+    ].join('\n'),
+    'p1-r1-notes-tfng-table': [
+      '- Notes Q1–4 (notePassage như r1n8) + TFNG Q5–7 + table Q8–13 (noteTable merge như r1tt) — vd. Nutmeg',
+      '- NHÓM 1 Notes: type gap-fill; notesTitle; notePassage[] bullet • + static + gap; ngắt dòng = block riêng hoặc break',
+      '  GIỮ ĐỦ text tĩnh notes; prompt "Gap (1)"…; ONE WORD ONLY; KHÔNG note string inline',
+      '- NHÓM 2 TFNG: TRUE/FALSE/NOT GIVEN về facts (KHÔNG YNNG)',
+      '- NHÓM 3 Table: noteTable 2 cột (Period|Events) hoặc timeline; MERGE dọc (vd. "17th century" rowSpan) + skip',
+      '  gap { type:"gap", number:8…13 }; title nếu có; ONE WORD ONLY',
+      '- Thứ tự BẮT BUỘC: notes → TFNG → table; KHÔNG imageFile',
+    ].join('\n'),
+    'p1-r1-notes-table-tfng': [
+      '- Notes Q1–5 (notePassage) + table Q6–8 (noteTable) + TFNG Q9–13 — vd. Huarango tree',
+      '- NHÓM 1 Notes: type gap-fill; notesTitle; notePassage[] bullet • + static + gap; ngắt dòng = block riêng / break',
+      '  ONE WORD ONLY; KHÔNG note string inline',
+      '- NHÓM 2 Table: noteTable **luôn n cột × m dòng** (vd. n=2: Part of tree|Traditional use; m=3 hàng data)',
+      '  title riêng (vd. "Traditional uses of the huarango tree"); headers[n]; mỗi rows[i].cells.length === n',
+      '  gap trong ô; NO MORE THAN TWO WORDS nếu đề ghi vậy; KHÔNG gộp notes vào table',
+      '- NHÓM 3 TFNG: TRUE/FALSE/NOT GIVEN về facts',
+      '- Thứ tự BẮT BUỘC: notes → table → TFNG; KHÔNG imageFile',
     ].join('\n'),
     'p1-r1-tfng-gap': [
       '- Cam9 P1: TFNG Q1–7 + gap-fill/sentence completion Q8–13',
+      '- Sentence completion: type sentence-completion; MỖI câu = 1 question; prompt 1 dòng có ___; KHÔNG gộp nhiều câu 1 prompt',
+      '- Nếu note inline: mỗi câu 1 dòng, "\\n\\n" giữa câu; instruction "Complete the sentences below…"',
       '- Gap: NO MORE THAN TWO WORDS (hoặc đúng giới hạn đề); answer lowercase',
       '- passage không label hoặc đoạn liền',
     ].join('\n'),
@@ -81,11 +123,13 @@ function passageExtraRules(
     ].join('\n'),
     'p1-r1-sentence-mc': [
       '- Sentence completion Q1–8 + MC Q9–13; passage A–G hoặc đoạn liền',
-      '- type sentence-completion; ONE/TWO WORDS từ passage; không TFNG đầu',
+      '- type sentence-completion; MỖI câu = 1 prompt 1 dòng (___); NGẮT DÒNG — không dán nối các câu',
+      '- ONE/TWO WORDS từ passage; không TFNG đầu',
     ].join('\n'),
     'p1-r1-headings-gap': [
       '- Matching headings Q1–7 + gap/sentence completion Q8–13 (không MC)',
-      '- Headings trước; gap sau; đủ 13 câu',
+      '- Headings trước; sentence/gap sau: mỗi câu 1 dòng / 1 question; "\\n\\n" nếu note multi-sentence',
+      '- đủ 13 câu',
     ].join('\n'),
     'p1-r1-headings-notes': [
       '- Cam12 T5 P1: matching-headings Q1–7 (passage A–G) + note completion Q8–13',
@@ -116,6 +160,14 @@ function passageExtraRules(
       '- features[] 7 người A–G; note "NB You may use any letter more than once" nếu đề có',
       '- Choose TWO: 2 nhóm MC (Q10–11 và Q12–13), mỗi nhóm 2 câu multiple-choice cùng prompt/options A–E',
       '- answer mỗi câu = 1 chữ cái (vd. Q10="d", Q11="e"); KHÔNG TFNG; KHÔNG imageFile',
+    ].join('\n'),
+    'p1-r1-match-ynng-features': [
+      '- Match đoạn Q1–3 (A–J) + YNNG Q4–6 + matching-features Q7–13 (list 3 options A–C)',
+      '- Passage PHẢI có label A–J; instruction "Which section contains the following information?"',
+      '- paragraphLetters[] A–J; prompt = statement; answer = chữ cái đoạn (a, b, j…)',
+      '- YNNG: claims of the writer (YES/NO/NOT GIVEN) — KHÔNG phải TFNG facts',
+      '- features[] = 3 nhãn A–C (vd. Hamiltonian / Jeffersonian / Jacksonian); note "NB You may use any letter more than once"',
+      '- prompt features = statement; answer = id chữ cái (a, b, c); KHÔNG imageFile; KHÔNG MC',
     ].join('\n'),
     'p2-r2-match-mc': [
       '- r2: passage PHẢI có label A–G',
@@ -171,11 +223,23 @@ function passageExtraRules(
       '- Nhóm diagram: type gap-fill; imageFile = "falkirk-wheel-diagram.jpg" (hoặc tên ảnh diagram trong bundle)',
       '- prompt = "Gap (20)" … "Gap (26)"; answer = ONE WORD từ passage',
     ].join('\n'),
+    'p2-r2-tfng-notes': [
+      '- TFNG Q14–19 + notes ONE WORD Q20–26 (notePassage) — vd. Silbo Gomero',
+      '- TFNG trước: TRUE/FALSE/NOT GIVEN về facts (KHÔNG YNNG)',
+      '- Notes: type gap-fill; notesTitle (vd. "Silbo Gomero"); BẮT BUỘC notePassage[]',
+      '- NGẮT DÒNG BẮT BUỘC theo đề (KHÔNG gộp dòng):',
+      '  • Mỗi section heading trên đề = { type:"section", text:"How Silbo is produced" } — 1 block riêng',
+      '  • Mỗi bullet = 1 static bắt đầu "• " (+ gap inline nếu có)',
+      '  • Dòng trống giữa section = { type:"break" } (tuỳ chọn)',
+      '  • VÍ DỤ đúng: section "How Silbo is produced" → bullets → section "How Silbo is used" → bullets → section "The future of Silbo"',
+      '  • SAI: gộp "How Silbo is produced" + "How Silbo is used" vào 1 static; gộp nhiều bullet 1 block',
+      '- prompt gap = "Gap (20)" …; ONE WORD ONLY; KHÔNG wordBank; KHÔNG note string; KHÔNG imageFile',
+    ].join('\n'),
     'p2-r2-headings-tfng-sentence': [
       '- Cam12 T8 P2: matching-headings Q14–20 (passage A–G) + TFNG Q21–24 + sentence-completion ONE WORD Q25–26',
       '- headings[] i–viii (dư hơn số đoạn); prompt = "Paragraph A" …; answer = id heading (i, ii, iv…)',
       '- TFNG về facts trong passage (TRUE/FALSE/NOT GIVEN), không phải views of writer',
-      '- Sentence completion: type sentence-completion; ONE WORD ONLY; prompt = câu có ___',
+      '- Sentence completion: type sentence-completion; ONE WORD ONLY; MỖI câu 1 prompt 1 dòng có ___; KHÔNG gộp 2 câu 1 prompt',
       '- KHÔNG MC; KHÔNG imageFile',
     ].join('\n'),
     'p2-r2-mc-summary-ynng': [
@@ -191,6 +255,24 @@ function passageExtraRules(
       '- features[] = list ideas A–E; prompt = tên người (Peter Toohey…); answer = id chữ cái',
       '- Nhóm summary: note inline (tiêu đề "Responses to boredom"), gap = 24________ … 26________',
       '- KHÔNG imageFile; KHÔNG noteTable',
+    ].join('\n'),
+    'p2-r2-match-choose-two-summary': [
+      '- Cam14 T1 P2 (Bike-sharing): matching-paragraph Q14–18 + Choose TWO Q19–20 + Choose TWO Q21–22 + summary ONE WORD Q23–26',
+      '- Passage PHẢI có label A–G; instruction "Which section/paragraph contains the following information?"',
+      '- paragraphLetters[] A–G; prompt = statement (vd. "a description of how people misused…"); answer = chữ cái đoạn',
+      '- note "NB You may use any letter more than once" nếu đề có',
+      '- Hai nhóm Choose TWO riêng: mỗi nhóm type multiple-choice, 2 câu cùng prompt/options A–E',
+      '- answer mỗi câu = 1 chữ cái (vd. Q19="a", Q20="d"); instruction "Choose TWO correct answers, A–E."',
+      '- Nhóm summary: note = đoạn văn liền (tiêu đề "The first urban bike-sharing scheme"), gap = 23________ … 26________',
+      '- prompt gap = "Gap (23)" …; ONE WORD ONLY từ passage; KHÔNG wordBank; KHÔNG imageFile',
+    ].join('\n'),
+    'p2-r2-match-tfng-choose-two': [
+      '- Match đoạn Q14–17 (A–G) + TFNG Q18–22 + Choose TWO Q23–24 (thêm Q25–26 nếu đề có)',
+      '- Passage PHẢI có label A–G; instruction "Which section contains the following information?"',
+      '- paragraphLetters[] A–G; prompt = statement; answer = chữ cái đoạn (a–g)',
+      '- TFNG: TRUE/FALSE/NOT GIVEN về facts trong passage (KHÔNG phải YNNG / views of writer)',
+      '- Choose TWO: type multiple-choice; 2 câu cùng prompt/options A–E; instruction "Choose TWO correct answers, A–E."',
+      '- answer mỗi câu Choose TWO = 1 chữ cái; KHÔNG imageFile',
     ].join('\n'),
     'p3-r3-tfng-mc': [
       '- r3: TFNG + MC; passage dài, ít label',
@@ -239,7 +321,8 @@ function passageExtraRules(
       '- Cam11 T3 P3: matching-paragraph Q27–34 (passage A–G) + sentence-completion Q35–40',
       '- Match đoạn: instruction "Which section contains the following information?"; note NB có thể dùng lại chữ cái',
       '- paragraphLetters[] A–G; prompt = statement text; answer = chữ cái đoạn (a, b…)',
-      '- Sentence completion: "Choose ONE WORD ONLY from the passage"; type sentence-completion; prompt = câu có ___',
+      '- Sentence completion: "Complete the sentences… ONE WORD / NO MORE THAN TWO WORDS"; type sentence-completion',
+      '  MỖI câu = 1 question, prompt 1 dòng có ___; NGẮT DÒNG — không dán nối; nếu note multi-sentence: "\\n\\n" giữa câu',
       '- KHÔNG MC; KHÔNG imageFile',
     ].join('\n'),
     'p3-r3-headings-summary-ynng': [
@@ -254,6 +337,14 @@ function passageExtraRules(
       '- Summary: note = tiêu đề + gap 33________ … 36________ inline; type gap-fill; KHÔNG wordBank',
       '- YNNG: views/claims of the writer; KHÔNG imageFile',
     ].join('\n'),
+    'p3-r3-headings-mc-ynng': [
+      '- Matching headings Q27–32 (passage A–F) + MC Q33–35 + YNNG Q36–40 — vd. AI attitudes',
+      '- Headings: headings[] i–viii (dư hơn số đoạn); prompt "Paragraph A" …; answer = id heading (i, ii…)',
+      '  instruction "Choose the correct heading… Write the correct number, i–viii"',
+      '- MC: type multiple-choice; options A–D; instruction "Choose the correct answer."',
+      '- YNNG: claims of the writer (YES/NO/NOT GIVEN) — KHÔNG phải TFNG facts',
+      '- Thứ tự BẮT BUỘC: headings → MC → YNNG; KHÔNG imageFile',
+    ].join('\n'),
     'p3-r3-table-ynng-match': [
       '- Cam12 T2 P3: table Q27–31 (noteTable 2 cột Test|Findings) + YNNG Q32–36 + matching-paragraph Q37–40 (A–G)',
       '- Table: gap trong ô static text; headers ["Test","Findings"]; prompt = "Gap (27)" …; TWO WORDS ONLY',
@@ -267,6 +358,35 @@ function passageExtraRules(
       '- MC: type multiple-choice; 4 options a–d; instruction "Choose the correct answer."',
       '- Endings: type summary-completion + wordBank[] A–F; prompt = câu chưa hoàn chỉnh; answer = id bank',
       '- KHÔNG imageFile; KHÔNG noteTable',
+    ].join('\n'),
+    'p3-r3-features-ynng-summary': [
+      '- Matching-features Q27–31 (list người A–G) + YNNG Q32–36 + summary ONE WORD Q37–40',
+      '- features[] = tên nhà nghiên cứu A–G (Elkind, Miller & Almon…); note "NB You may use any letter more than once" nếu đề có',
+      '- prompt features = statement; answer = id chữ cái (a, b…)',
+      '- YNNG: claims of the writer (YES/NO/NOT GIVEN) — KHÔNG phải TFNG facts',
+      '- Summary: note = đoạn văn liền (tiêu đề "Guided play"), gap = 37________ … 40________; type gap-fill',
+      '- prompt gap = "Gap (37)" …; ONE WORD ONLY từ passage; KHÔNG wordBank; KHÔNG imageFile',
+    ].join('\n'),
+    'p3-r3-tfng-notes-mc': [
+      '- TFNG Q27–33 + notes completion Q34–39 (notePassage giống r1n8 Glass) + multiple-choice Q40 (best title)',
+      '- TFNG trước: TRUE/FALSE/NOT GIVEN về facts trong passage (KHÔNG phải YNNG); đủ 7 câu Q27–33',
+      '- Notes (BẮT BUỘC notePassage, giống Cam notes layout r1n8):',
+      '  • type gap-fill; notesTitle = tiêu đề notes (vd. "Findings related to marine debris")',
+      '  • notePassage[]: section (heading) + static bullet "• …" / sub "– …" + gap { type:"gap", number: 34…39 }',
+      '  • Ngắt dòng: mỗi heading/bullet = block riêng; decade/era = type section; dòng trống = type break',
+      '  • GIỮ ĐỦ text tĩnh của đề; KHÔNG rút gọn notes thành summary `note` string; KHÔNG wordBank; KHÔNG noteTable',
+      '  • prompt gap = "Gap (34)" … "Gap (39)"; ONE WORD ONLY từ passage',
+      '- MC cuối: 1 câu Q40; options A–D (best title); instruction "Choose the correct answer."',
+      '- KHÔNG imageFile',
+    ].join('\n'),
+    'p3-r3-endings-summary-mc': [
+      '- Sentence endings Q27–31 + summary word bank Q32–36 + MC Q37–40 — vd. Fairy tales / Tehrani',
+      '- NHÓM 1 Endings: type summary-completion; instruction "Complete each sentence with the correct ending, A–F"',
+      '  wordBank[] A–F (cụm kết câu); prompt = nửa câu; answer = id bank (a, b…); KHÔNG note inline',
+      '- NHÓM 2 Summary: type summary-completion; note = đoạn văn liền + tiêu đề (vd. "Phylogenetic analysis of Little Red Riding Hood")',
+      '  gap = 32________ … 36________; wordBank[] A–I (phrases ngắn); prompt = "Gap (32)" …; answer = id bank',
+      '- NHÓM 3 MC: type multiple-choice; options A–D; instruction "Choose the correct answer."',
+      '- Thứ tự BẮT BUỘC: endings → summary bank → MC; KHÔNG imageFile; KHÔNG noteTable',
     ].join('\n'),
   }
 

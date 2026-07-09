@@ -562,6 +562,339 @@ export const R1TT_MERGE_TABLE_SAMPLE: ReadingNoteTable = {
   ],
 }
 
+/** Cam nutmeg — notes Q1–4 (r1n8 style) */
+export const CAM_NUTMEG_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'static', text: '• the leaves of the tree are ' },
+  { type: 'gap', number: 1 },
+  { type: 'static', text: ' in shape' },
+  { type: 'static', text: '• the ' },
+  { type: 'gap', number: 2 },
+  { type: 'static', text: ' surrounds the fruit and breaks open when the fruit is ripe' },
+  { type: 'static', text: '• the ' },
+  { type: 'gap', number: 3 },
+  { type: 'static', text: ' is used to produce the spice nutmeg' },
+  { type: 'static', text: '• the covering known as the aril is used to produce ' },
+  { type: 'gap', number: 4 },
+  { type: 'static', text: '• the tree has yellow flowers and fruit' },
+]
+
+/** Timeline table Q8–13 — 2 cột Period|Events; merge dọc 17th century + Late 18th century (như r1tt) */
+export const CAM_NUTMEG_HISTORY_TABLE: ReadingNoteTable = {
+  headers: ['Period', 'Events'],
+  gapNumbers: [8, 9, 10, 11, 12, 13],
+  rows: [
+    {
+      cells: [
+        [{ type: 'static', text: 'Middle Ages' }],
+        [
+          { type: 'static', text: 'Nutmeg was brought to Europe by the ' },
+          { type: 'gap', number: 8 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'static', text: '16th century' }],
+        [{ type: 'static', text: 'European nations took control of the nutmeg trade' }],
+      ],
+    },
+    // 17th century — 6 dòng (rowSpan 6)
+    {
+      cells: [
+        { rowSpan: 6, blocks: [{ type: 'static', text: '17th century' }] },
+        [
+          { type: 'static', text: 'Demand for nutmeg grew, as it was believed to be effective against the disease known as the ' },
+          { type: 'gap', number: 9 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: 'The Dutch' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: '– took control of the Banda Islands' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [{ type: 'static', text: '– restricted nutmeg production to a few areas' }],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– put ' },
+          { type: 'gap', number: 10 },
+          { type: 'static', text: ' on nutmeg to avoid it being cultivated outside the islands' },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '– finally obtained the island of ' },
+          { type: 'gap', number: 11 },
+          { type: 'static', text: ' from the British' },
+        ],
+      ],
+    },
+    // Late 18th century — 2 dòng (rowSpan 2)
+    {
+      cells: [
+        { rowSpan: 2, blocks: [{ type: 'static', text: 'Late 18th century' }] },
+        [
+          { type: 'static', text: '1770 – nutmeg plants were secretly taken to ' },
+          { type: 'gap', number: 12 },
+        ],
+      ],
+    },
+    {
+      cells: [
+        { skip: true },
+        [
+          { type: 'static', text: '1778 – half the Banda Islands\' nutmeg plantations were destroyed by a ' },
+          { type: 'gap', number: 13 },
+        ],
+      ],
+    },
+  ],
+}
+
+/** Huarango — notes Q1–5 */
+export const CAM_HUARANGO_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'static', text: '• Its roots can extend as far as 80 metres into the soil' },
+  { type: 'static', text: '• Can access ' },
+  { type: 'gap', number: 1 },
+  { type: 'static', text: ' deep below the surface' },
+  { type: 'static', text: '• Was a crucial part of local inhabitants\' ' },
+  { type: 'gap', number: 2 },
+  { type: 'static', text: ' a long time ago' },
+  { type: 'static', text: '• Helped people to survive periods of ' },
+  { type: 'gap', number: 3 },
+  { type: 'static', text: '• Prevents ' },
+  { type: 'gap', number: 4 },
+  { type: 'static', text: ' of the soil' },
+  { type: 'static', text: '• Prevents land from becoming a ' },
+  { type: 'gap', number: 5 },
+]
+
+/** Huarango — table Q6–8 (Part of tree | Traditional use) */
+export const CAM_HUARANGO_USES_TABLE: ReadingNoteTable = {
+  title: 'Traditional uses of the huarango tree',
+  headers: ['Part of tree', 'Traditional use'],
+  gapNumbers: [6, 7, 8],
+  rows: [
+    {
+      cells: [
+        [{ type: 'gap', number: 6 }],
+        [{ type: 'static', text: 'fuel' }],
+      ],
+    },
+    {
+      cells: [
+        [
+          { type: 'static', text: 'leaves and ' },
+          { type: 'gap', number: 7 },
+        ],
+        [{ type: 'static', text: 'Medicine' }],
+      ],
+    },
+    {
+      cells: [
+        [{ type: 'gap', number: 8 }],
+        [{ type: 'static', text: 'construction' }],
+      ],
+    },
+  ],
+}
+
+/**
+ * r1ntf — Notes Q1–5 + Table Q6–8 + TFNG Q9–13
+ * Preview: Teamplate_Part1_10.jpg (Huarango tree)
+ */
+export function ieltsReadingP1NotesTableTfngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'The huarango tree',
+    passageSubtitle: 'A desert tree that supports people and the land',
+    passage: [
+      {
+        text: 'The huarango is a remarkable desert tree. Its roots can extend as far as 80 metres into the soil and can access water deep below the surface. It was a crucial part of local inhabitants\' diet a long time ago and helped people to survive periods of drought. The tree prevents erosion of the soil and prevents land from becoming a desert.',
+      },
+      {
+        text: 'Traditional uses of the huarango are still remembered. Wood provides fuel. Leaves and bark are used for medicine. Timber is used in construction. Local families have told Whaley about some traditional uses of huarango products, and researchers continue to document how the species supports both communities and fragile desert ecosystems.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–5',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'The importance of the huarango tree',
+        notePassage: CAM_HUARANGO_NOTE_PASSAGE,
+        questions: gapQuestions(1, [
+          { prompt: 'Gap (1)', answer: 'water', explanation: 'Can access water deep below the surface.' },
+          { prompt: 'Gap (2)', answer: 'diet', explanation: 'crucial part of local inhabitants\' diet.' },
+          { prompt: 'Gap (3)', answer: 'drought', explanation: 'survive periods of drought.' },
+          { prompt: 'Gap (4)', answer: 'erosion', explanation: 'Prevents erosion of the soil.' },
+          { prompt: 'Gap (5)', answer: 'desert', explanation: 'Prevents land from becoming a desert.' },
+        ]),
+      },
+      {
+        range: 'Questions 6–8',
+        instruction: 'Complete the table below. Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+        type: 'gap-fill',
+        noteTable: CAM_HUARANGO_USES_TABLE,
+        questions: gapQuestions(6, [
+          { prompt: 'Gap (6)', answer: 'wood', explanation: 'Wood … fuel.' },
+          { prompt: 'Gap (7)', answer: 'bark', explanation: 'leaves and bark … medicine.' },
+          { prompt: 'Gap (8)', answer: 'timber', explanation: 'Timber … construction.' },
+        ]),
+      },
+      {
+        range: 'Questions 9–13',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 9–13 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 9,
+            type: 'true-false-not-given',
+            prompt: 'Local families have told Whaley about some traditional uses of huarango products.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Local families have told Whaley about traditional uses.',
+          },
+          {
+            number: 10,
+            type: 'true-false-not-given',
+            prompt: 'The huarango\'s roots never grow deeper than 20 metres.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Roots can extend as far as 80 metres.',
+          },
+          {
+            number: 11,
+            type: 'true-false-not-given',
+            prompt: 'Huarango wood is mainly exported to other countries today.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Passage không nói export gỗ huarango.',
+          },
+          {
+            number: 12,
+            type: 'true-false-not-given',
+            prompt: 'The tree helps stop land turning into desert.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Prevents land from becoming a desert.',
+          },
+          {
+            number: 13,
+            type: 'true-false-not-given',
+            prompt: 'Bark is used only for fuel, not for medicine.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Leaves and bark used for medicine; wood for fuel.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * r1nt — Notes Q1–4 (notePassage như r1n8) + TFNG Q5–7 + Table Q8–13 (noteTable merge như r1tt)
+ * Preview: Teamplate_Part1_9.jpg (Nutmeg)
+ */
+export function ieltsReadingP1NotesTfngTablePart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'The story of nutmeg',
+    passageSubtitle: 'How a tropical spice shaped trade and empire',
+    passage: [
+      {
+        text: 'The nutmeg tree is a tropical evergreen. Its leaves are oval in shape. A husk surrounds the fruit and breaks open when the fruit is ripe. The seed is used to produce the spice nutmeg, while the covering known as the aril is used to produce mace. The tree has yellow flowers and fruit.',
+      },
+      {
+        text: 'In the Middle Ages, most Europeans did not know where nutmeg was grown. The spice was brought to Europe by the Arabs. In the 16th century European nations took control of the nutmeg trade. Demand for nutmeg grew in the 17th century, as it was believed to be effective against the disease known as the plague. The Dutch took control of the Banda Islands, restricted nutmeg production to a few areas, put lime on nutmeg to avoid it being cultivated outside the islands, and finally obtained the island of Run from the British.',
+      },
+      {
+        text: 'In the late 18th century, in 1770, nutmeg plants were secretly taken to Mauritius. In 1778 half the Banda Islands\' nutmeg plantations were destroyed by a tsunami. Over time cultivation spread and the spice became more widely available.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–4',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'The nutmeg tree and fruit',
+        notePassage: CAM_NUTMEG_NOTE_PASSAGE,
+        questions: gapQuestions(1, [
+          { prompt: 'Gap (1)', answer: 'oval', explanation: 'leaves … oval in shape.' },
+          { prompt: 'Gap (2)', answer: 'husk', explanation: 'A husk surrounds the fruit…' },
+          { prompt: 'Gap (3)', answer: 'seed', explanation: 'The seed is used to produce the spice nutmeg.' },
+          { prompt: 'Gap (4)', answer: 'mace', explanation: 'the aril is used to produce mace.' },
+        ]),
+      },
+      {
+        range: 'Questions 5–7',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 5–7 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 5,
+            type: 'true-false-not-given',
+            prompt: 'In the Middle Ages, most Europeans knew where nutmeg was grown.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Most Europeans did not know where nutmeg was grown.',
+          },
+          {
+            number: 6,
+            type: 'true-false-not-given',
+            prompt: 'The Dutch restricted nutmeg production to a few areas in the Banda Islands.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'The Dutch … restricted nutmeg production to a few areas.',
+          },
+          {
+            number: 7,
+            type: 'true-false-not-given',
+            prompt: 'Nutmeg plants were first taken to Mauritius by the British government.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Passage says plants were secretly taken — không nói British government.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 8–13',
+        instruction: 'Complete the table below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        noteTable: CAM_NUTMEG_HISTORY_TABLE,
+        questions: gapQuestions(8, [
+          { prompt: 'Gap (8)', answer: 'Arabs', explanation: 'brought to Europe by the Arabs.' },
+          { prompt: 'Gap (9)', answer: 'plague', explanation: 'disease known as the plague.' },
+          { prompt: 'Gap (10)', answer: 'lime', explanation: 'put lime on nutmeg…' },
+          { prompt: 'Gap (11)', answer: 'Run', explanation: 'island of Run from the British.' },
+          { prompt: 'Gap (12)', answer: 'Mauritius', explanation: 'secretly taken to Mauritius.' },
+          { prompt: 'Gap (13)', answer: 'tsunami', explanation: 'destroyed by a tsunami.' },
+        ]),
+      },
+    ],
+  }
+}
+
 /** r1tt — table Q1–8 (có merge) + TFNG Q9–13; SAMPLE schema cho wizard AI */
 export function ieltsReadingP1TableTfngPart(): ReadingImportPartJson {
   return {
@@ -3747,61 +4080,1381 @@ export function ieltsReadingP3YnngMcPart(): ReadingImportPartJson {
   }
 }
 
-const TEMPLATE_BUILDERS: Record<IeltsReadingWizardTemplateKind, () => ReadingImportPartJson> = {
-  'p1-r1-tfng-mc': ieltsReadingP1R1Part,
-  'p1-r1-tfng-gap': ieltsReadingP1TfngGapPart,
-  'p1-r1-tfng-gap-table': ieltsReadingP1TfngGapTablePart,
-  'p1-r1-notes-tfng': ieltsReadingP1NotesTfngPart,
-  'p1-r1-notes-tfng-8': ieltsReadingP1NotesTfng8Part,
-  'p1-r1-table-tfng': ieltsReadingP1TableTfngPart,
-  'p1-r1-tfng-match-notes': ieltsReadingP1TfngMatchNotesPart,
-  'p1-r1-tfng-match-summary': ieltsReadingP1TfngMatchSummaryPart,
-  'p1-r1-match-choose-two': ieltsReadingP1MatchChooseTwoPart,
-  'p1-r1-headings-notes': ieltsReadingP1HeadingsNotesPart,
-  'p1-r1-headings-mc': ieltsReadingP1HeadingsMcPart,
-  'p1-r1-sentence-mc': ieltsReadingP1SentenceMcPart,
-  'p1-r1-headings-gap': ieltsReadingP1HeadingsGapPart,
-  'p1-r1-gap-mc': ieltsReadingP1GapMcPart,
-  'p2-r2-match-mc': ieltsReadingP2R2Part,
-  'p2-r2-ynng-match': ieltsReadingP2YnngMatchPart,
-  'p2-r2-headings-ynng': ieltsReadingP2HeadingsYnngPart,
-  'p2-r2-tfng-match': ieltsReadingP2TfngMatchPart,
-  'p2-r2-gap-match': ieltsReadingP2GapMatchPart,
-  'p2-r2-headings-summary-mc': ieltsReadingP2HeadingsSummaryMcPart,
-  'p2-r2-summary-ynng-mc': ieltsReadingP2SummaryYnngMcPart,
-  'p2-r2-tfng-endings-summary': ieltsReadingP2TfngEndingsSummaryPart,
-  'p2-r2-mc-tfng-endings': ieltsReadingP2McTfngEndingsPart,
-  'p2-r2-tfng-diagram': ieltsReadingP2TfngDiagramPart,
-  'p2-r2-headings-tfng-sentence': ieltsReadingP2HeadingsTfngSentencePart,
-  'p2-r2-mc-summary-ynng': ieltsReadingP2McSummaryYnngPart,
-  'p2-r2-headings-match-summary': ieltsReadingP2HeadingsMatchSummaryPart,
-  'p3-r3-tfng-mc': ieltsReadingP3R3Part,
-  'p3-r3-gap-tfng-flow-mc': ieltsReadingP3GapTfngFlowMcPart,
-  'p3-r3-ynng-mc': ieltsReadingP3YnngMcPart,
-  'p3-r3-gap-ynng-mc': ieltsReadingP3GapYnngMcPart,
-  'p3-r3-summary-ynng-mc': ieltsReadingP3SummaryYnngMcPart,
-  'p3-r3-summary-mc-ynng': ieltsReadingP3SummaryMcYnngPart,
-  'p3-r3-gap-tfng-mc': ieltsReadingP3GapTfngMcPart,
-  'p3-r3-match-table-features': ieltsReadingP3MatchTableFeaturesPart,
-  'p3-r3-mc-summary-ynng': ieltsReadingP3McSummaryYnngPart,
-  'p3-r3-match-paragraph-sentence': ieltsReadingP3MatchParagraphSentencePart,
-  'p3-r3-headings-summary-ynng': ieltsReadingP3HeadingsSummaryYnngPart,
-  'p3-r3-headings-gap-ynng': ieltsReadingP3HeadingsGapYnngPart,
-  'p3-r3-table-ynng-match': ieltsReadingP3TableYnngMatchPart,
-  'p3-r3-summary-mc-endings': ieltsReadingP3SummaryMcEndingsPart,
-}
+const CAM14_T1_BIKE_AMSTERDAM_OPTS = [
+  { id: 'a', label: 'It was initially opposed by a government department.' },
+  { id: 'b', label: 'It failed when a partner in the scheme withdrew support.' },
+  { id: 'c', label: 'It aimed to be more successful than the Copenhagen scheme.' },
+  { id: 'd', label: 'It was made possible by a change in people\'s attitudes.' },
+  { id: 'e', label: 'It attracted interest from a range of bike designers.' },
+]
 
-function assertAllTemplateBuildersRegistered(): void {
-  for (const passageNumber of IELTS_READING_PASSAGE_NUMBERS) {
-    for (const option of templateOptionsForPassage(passageNumber)) {
-      if (typeof TEMPLATE_BUILDERS[option.kind] !== 'function') {
-        throw new Error(`TEMPLATE_BUILDERS thiếu builder cho "${option.kind}"`)
-      }
-    }
+const CAM14_T1_BIKE_CITY_OPTS = [
+  { id: 'a', label: 'The city has the most successful scheme in the world.' },
+  { id: 'b', label: 'The scheme was copied from the one in Amsterdam.' },
+  { id: 'c', label: 'The scheme has become a tourist attraction.' },
+  { id: 'd', label: 'People can hire bikes more cheaply than in other places.' },
+  { id: 'e', label: 'It has a reputation as a place that welcomes cyclists.' },
+]
+
+const CAM14_T1_BIKE_SUMMARY_NOTE = [
+  'The first urban bike-sharing scheme',
+  '',
+  'The first bike-sharing scheme was the idea of the Dutch group Provo. The people who belonged to this group were 23________. '
+  + 'They were concerned about damage to the environment and about 24________, and believed that the bike-sharing scheme would draw attention to these issues. '
+  + 'As well as painting some bikes white, they handed out 25________ that condemned the use of cars.',
+  '',
+  'However, the scheme was not a great success: almost as quickly as Provo left the bikes around the city, the 26________ took them away. '
+  + 'According to Schimmelpennink, the scheme was intended to be symbolic. The idea was to get people thinking about the issues.',
+].join('\n')
+
+/** Cam14 T1 — match paragraph Q14–18 + 2× Choose TWO Q19–22 + summary ONE WORD Q23–26 */
+export function ieltsReadingP2MatchChooseTwoSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'The growth of bike-sharing schemes around the world',
+    passageSubtitle: 'How Dutch free bikes inspired a global movement',
+    passage: [
+      {
+        label: 'A',
+        text: 'The original idea for an urban bike-sharing scheme dates back to a summer\'s day in Amsterdam in 1965. Provo, the organisation that came up with the idea, was a group of Dutch activists who wanted to change society. They were concerned about damage to the environment and about pollution, and believed that the bike-sharing scheme would draw attention to these issues. As well as painting some bikes white, they handed out leaflets that condemned the use of cars. However, the scheme was not a great success: almost as quickly as Provo left the bikes around the city, the thieves took them away. According to Schimmelpennink, the scheme was intended to be symbolic. The idea was to get people thinking about the issues.',
+      },
+      {
+        label: 'B',
+        text: 'A more ambitious scheme, also involving white bikes, was proposed in the 1970s. Schimmelpennink and colleagues wanted to leave free white bikes at railway stations and other points for people to use for short journeys, then leave for someone else. City authorities turned the plan down. Schimmelpennink had calculated potential savings a bike-sharing scheme would bring in reduced car use and congestion.',
+      },
+      {
+        label: 'C',
+        text: 'In 1999 Amsterdam tried again with a more sophisticated model. The scheme was made possible by a change in people\'s attitudes towards cycling and public space. It was initially opposed by a government department concerned with liability and maintenance costs, but eventually went ahead with electronic locks and membership cards.',
+      },
+      {
+        label: 'D',
+        text: 'Copenhagen launched a coin-operated scheme that became a model for other European cities. Users inserted a deposit which was returned when they locked the bike back. The system reduced casual theft compared with free unlock models.',
+      },
+      {
+        label: 'E',
+        text: 'Not all early schemes worked as intended. In some cities, people misused a bike-sharing scheme by removing seats, selling parts, or taking bikes home as private property. Operators learned that without tracking technology and clear rules, fleets disappeared within weeks.',
+      },
+      {
+        label: 'F',
+        text: 'One designer who developed a distinctive share-bike model found he was unable to profit from their work when cities adopted competing contracts and open specifications. His frames became common street furniture, but royalties never materialised.',
+      },
+      {
+        label: 'G',
+        text: 'Today Amsterdam is still regarded as a place that welcomes cyclists, and visitors hire bikes more cheaply than in many other capitals. Schemes elsewhere have become tourist attractions, while a few cities claim the most successful programme by ridership. The white-bike idea of the 1960s now underpins networks from Paris to Beijing.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–18',
+        instruction: 'Reading Passage 2 has sections A–G. Which section contains the following information? Write the correct letter, A–G, in boxes 14–18 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        questions: [
+          { number: 14, type: 'matching-paragraph', prompt: 'a description of how people misused a bike-sharing scheme', options: [], answer: 'e', explanation: 'Đoạn E — misuse: remove seats, sell parts, take home.' },
+          { number: 15, type: 'matching-paragraph', prompt: 'an explanation of why a proposed bike-sharing scheme was turned down', options: [], answer: 'b', explanation: 'Đoạn B — city authorities turned the plan down.' },
+          { number: 16, type: 'matching-paragraph', prompt: 'a reference to a person being unable to profit from their work', options: [], answer: 'f', explanation: 'Đoạn F — unable to profit / royalties never materialised.' },
+          { number: 17, type: 'matching-paragraph', prompt: 'an explanation of the potential savings a bike-sharing scheme would bring', options: [], answer: 'b', explanation: 'Đoạn B — calculated potential savings.' },
+          { number: 18, type: 'matching-paragraph', prompt: 'a reference to the problems a bike-sharing scheme was intended to solve', options: [], answer: 'a', explanation: 'Đoạn A — environment and pollution; symbolic attention.' },
+        ],
+      },
+      {
+        range: 'Questions 19–20',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 19,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are made in the text about the Amsterdam bike-sharing scheme of 1999? (first answer)',
+            options: CAM14_T1_BIKE_AMSTERDAM_OPTS,
+            answer: 'a',
+            explanation: 'A — initially opposed by a government department.',
+          },
+          {
+            number: 20,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are made in the text about the Amsterdam bike-sharing scheme of 1999? (second answer)',
+            options: CAM14_T1_BIKE_AMSTERDAM_OPTS,
+            answer: 'd',
+            explanation: 'D — made possible by a change in people\'s attitudes.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 21–22',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 21,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are made in the text about Amsterdam today? (first answer)',
+            options: CAM14_T1_BIKE_CITY_OPTS,
+            answer: 'e',
+            explanation: 'E — reputation as a place that welcomes cyclists.',
+          },
+          {
+            number: 22,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following statements are made in the text about Amsterdam today? (second answer)',
+            options: CAM14_T1_BIKE_CITY_OPTS,
+            answer: 'd',
+            explanation: 'D — hire bikes more cheaply than in other places.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 23–26',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM14_T1_BIKE_SUMMARY_NOTE,
+        questions: gapQuestions(23, [
+          { prompt: 'Gap (23)', answer: 'activists', explanation: 'Provo — group of Dutch activists.' },
+          { prompt: 'Gap (24)', answer: 'pollution', explanation: 'Concerned about environment and pollution.' },
+          { prompt: 'Gap (25)', answer: 'leaflets', explanation: 'Handed out leaflets condemning cars.' },
+          { prompt: 'Gap (26)', answer: 'thieves', explanation: 'Thieves took the free bikes away.' },
+        ]),
+      },
+    ],
   }
 }
 
-assertAllTemplateBuildersRegistered()
+const CAM_INTEL_FEATURES = [
+  { id: 'a', name: 'Hamiltonian' },
+  { id: 'b', name: 'Jeffersonian' },
+  { id: 'c', name: 'Jacksonian' },
+]
+
+/** Match paragraph Q1–3 (A–J) + YNNG Q4–6 + matching features A–C Q7–13 */
+export function ieltsReadingP1MatchYnngFeaturesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 1,
+    rangeLabel: 'Read the text and answer questions 1–13.',
+    passageTitle: 'What is intelligence, and who has it?',
+    passageSubtitle: 'How American political traditions shaped ideas about human ability',
+    passage: [
+      {
+        label: 'A',
+        text: 'Psychologists and educators still disagree over how intelligence should be defined. Some emphasise problem-solving speed; others stress social judgement or creativity. The lack of a single definition continues to fuel debate in schools and workplaces.',
+      },
+      {
+        label: 'B',
+        text: 'In everyday life, non-scientists hold informal beliefs about who is "smart". Those assumptions quietly shape how people treat colleagues, hire employees and even talk to children — often without realising the influence of their own theories of intelligence.',
+      },
+      {
+        label: 'C',
+        text: 'Researchers themselves may hold two layers of belief. A scientist\'s published model of intelligence can differ sharply from the private, gut-level theory that guides their reactions in ordinary conversation. Implicit and explicit theories may be very different.',
+      },
+      {
+        label: 'D',
+        text: 'Parents watching a child struggle with language often feel personal disappointment, yet the research literature does not claim that slow early speech must predict lifelong academic failure. Many late talkers catch up when given support.',
+      },
+      {
+        label: 'E',
+        text: 'Three traditions in American political culture have long framed discussions of ability. The Hamiltonian view prizes natural hierarchy and elite leadership; the Jeffersonian ideal stresses equal opportunity; the Jacksonian strand is more sceptical of privilege and credentials.',
+      },
+      {
+        label: 'F',
+        text: 'Hamiltonians tend to believe variation in intelligence begins at birth and that society works best when the more intelligent people occupy positions of power. Selection and sorting are treated as natural and desirable.',
+      },
+      {
+        label: 'G',
+        text: 'Jeffersonians insist it is desirable for the same possibilities to be open to everyone. They accept that people differ, but argue that institutions should not lock anyone out of education or public life at the start.',
+      },
+      {
+        label: 'H',
+        text: 'Jacksonians go further in rejecting privilege: no section of society should have preferential treatment at the expense of another. Rewards should follow genuine achievement rather than birth or connections.',
+      },
+      {
+        label: 'I',
+        text: 'A related Jeffersonian hope is that everyone can develop the same abilities if teaching and effort are sufficient — an optimistic view that sometimes clashes with evidence of early and stable individual differences.',
+      },
+      {
+        label: 'J',
+        text: 'Critics of pure merit talk warn that people of low measured intelligence may face social risks, including less stable employment. Some historical writers even claimed such groups were likely to lead uncontrolled lives — a claim modern researchers treat with caution.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 1–3',
+        instruction: 'Reading Passage 1 has sections A–J. Which section contains the following information? Write the correct letter, A–J, in boxes 1–3 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+        questions: [
+          {
+            number: 1,
+            type: 'matching-paragraph',
+            prompt: 'information about how non-scientists\' assumptions about intelligence influence their behavior towards others',
+            options: [],
+            answer: 'b',
+            explanation: 'Đoạn B — assumptions of non-scientists shape how people treat others.',
+          },
+          {
+            number: 2,
+            type: 'matching-paragraph',
+            prompt: 'a reference to lack of clarity over the definition of intelligence',
+            options: [],
+            answer: 'a',
+            explanation: 'Đoạn A — lack of a single definition of intelligence.',
+          },
+          {
+            number: 3,
+            type: 'matching-paragraph',
+            prompt: 'the point that a researcher\'s implicit and explicit theories may be very different',
+            options: [],
+            answer: 'c',
+            explanation: 'Đoạn C — implicit and explicit theories may be very different.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 4–6',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 4–6 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 4,
+            type: 'yes-no-not-given',
+            prompt: 'Slow language development in children is likely to prove disappointing to their parents.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Đoạn D — parents often feel personal disappointment when a child struggles with language.',
+          },
+          {
+            number: 5,
+            type: 'yes-no-not-given',
+            prompt: 'Late talkers never catch up with their peers.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Đoạn D — many late talkers catch up with support (mâu thuẫn "never").',
+          },
+          {
+            number: 6,
+            type: 'yes-no-not-given',
+            prompt: 'Schools should test every child for intelligence before age five.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Passage không nêu quan điểm writer về bắt buộc test trước 5 tuổi.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 7–13',
+        instruction: 'Match each statement with the correct option, A–C. Write the correct letter in boxes 7–13 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_INTEL_FEATURES,
+        questions: [
+          {
+            number: 7,
+            type: 'matching-features',
+            prompt: 'It is desirable for the same possibilities to be open to everyone.',
+            options: [],
+            answer: 'b',
+            explanation: 'Jeffersonian — equal opportunity / same possibilities.',
+          },
+          {
+            number: 8,
+            type: 'matching-features',
+            prompt: 'No section of society should have preferential treatment at the expense of another.',
+            options: [],
+            answer: 'c',
+            explanation: 'Jacksonian — reject privilege / preferential treatment.',
+          },
+          {
+            number: 9,
+            type: 'matching-features',
+            prompt: 'People should only gain benefits on the basis of what they actually achieve.',
+            options: [],
+            answer: 'c',
+            explanation: 'Jacksonian — rewards follow genuine achievement.',
+          },
+          {
+            number: 10,
+            type: 'matching-features',
+            prompt: 'Variation in intelligence begins at birth.',
+            options: [],
+            answer: 'a',
+            explanation: 'Hamiltonian — variation begins at birth.',
+          },
+          {
+            number: 11,
+            type: 'matching-features',
+            prompt: 'The more intelligent people should be in positions of power.',
+            options: [],
+            answer: 'a',
+            explanation: 'Hamiltonian — intelligent people in positions of power.',
+          },
+          {
+            number: 12,
+            type: 'matching-features',
+            prompt: 'Everyone can develop the same abilities.',
+            options: [],
+            answer: 'b',
+            explanation: 'Jeffersonian — everyone can develop the same abilities.',
+          },
+          {
+            number: 13,
+            type: 'matching-features',
+            prompt: 'People of low intelligence are likely to lead uncontrolled lives.',
+            options: [],
+            answer: 'a',
+            explanation: 'Liên quan truyền thống Hamiltonian / hierarchy (đoạn J cảnh báo claim lịch sử).',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_PLAY_FEATURES = [
+  { id: 'a', name: 'Elkind' },
+  { id: 'b', name: 'Miller & Almon' },
+  { id: 'c', name: 'Rubin et al.' },
+  { id: 'd', name: 'Stuart Brown' },
+  { id: 'e', name: 'Pellegrini' },
+  { id: 'f', name: 'Joan Goodman' },
+  { id: 'g', name: 'Hirsch-Pasek et al.' },
+]
+
+const CAM_GUIDED_PLAY_SUMMARY_NOTE = [
+  'Guided play',
+  '',
+  'In the simplest form of guided play, an adult contributes to the environment in which the child is playing. Alternatively, an adult can play with a child and develop the play, for instance by 37________ the child to investigate different aspects of their game. Adults can help children to learn through play, and may make the activity rather structured, but it should still be based on the child\'s 38________ to play.',
+  '',
+  'Play without the intervention of adults gives children real 39________; with adults, play can be 40________ at particular goals. However, all forms of play should be an opportunity for children to have fun.',
+].join('\n')
+
+/** Features Q27–31 + YNNG Q32–36 + summary ONE WORD Q37–40 (Guided play) */
+export function ieltsReadingP3FeaturesYnngSummaryPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Why play is important for children',
+    passageSubtitle: 'Researchers debate how adults should guide children\'s play',
+    passage: [
+      {
+        text: 'Play has been studied by generations of psychologists and educators. Elkind argued that play can be divided into a number of separate categories, each with its own developmental role. Miller and Almon observed that adults\' intended goals affect how they play with children — a parent who wants to teach counting will steer a game differently from one who simply wants fun. Rubin and colleagues suggested that combining work with play may be the best way for children to learn, blending structure and free exploration.',
+      },
+      {
+        text: 'Stuart Brown emphasised that certain elements of play are more significant than others for emotional health. Pellegrini proposed that activities can be classified on a scale of playfulness, from rigid drills to open-ended improvisation. Joan Goodman examined how commercial toys shape play, while Hirsch-Pasek and co-authors reviewed evidence that guided play supports academic skills without removing joy.',
+      },
+      {
+        text: 'The writer of this passage does not claim that children need toys in order to play. Empty boxes, sticks and open spaces often spark richer invention than expensive gadgets. What matters is opportunity and time, not a catalogue of products.',
+      },
+      {
+        text: 'In the simplest form of guided play, an adult contributes to the environment in which the child is playing — arranging materials, clearing space, or offering props. Alternatively, an adult can play with a child and develop the play, for instance by encouraging the child to investigate different aspects of their game. Adults can help children to learn through play, and may make the activity rather structured, but it should still be based on the child\'s motivation to play.',
+      },
+      {
+        text: 'Play without the intervention of adults gives children real autonomy; with adults, play can be directed at particular goals. However, all forms of play should remain an opportunity for children to have fun. When adults over-control every move, the activity ceases to feel like play at all.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–31',
+        instruction: 'Match each statement with the correct option, A–G. Write the correct letter in boxes 27–31 on your answer sheet.',
+        note: 'NB You may use any letter more than once.',
+        type: 'matching-features',
+        features: CAM_PLAY_FEATURES,
+        questions: [
+          {
+            number: 27,
+            type: 'matching-features',
+            prompt: 'Play can be divided into a number of separate categories.',
+            options: [],
+            answer: 'a',
+            explanation: 'Elkind — separate categories of play.',
+          },
+          {
+            number: 28,
+            type: 'matching-features',
+            prompt: 'Adults\' intended goals affect how they play with children.',
+            options: [],
+            answer: 'b',
+            explanation: 'Miller & Almon — adults\' goals shape play with children.',
+          },
+          {
+            number: 29,
+            type: 'matching-features',
+            prompt: 'Combining work with play may be the best way for children to learn.',
+            options: [],
+            answer: 'c',
+            explanation: 'Rubin et al. — combining work with play.',
+          },
+          {
+            number: 30,
+            type: 'matching-features',
+            prompt: 'Certain elements of play are more significant than others.',
+            options: [],
+            answer: 'd',
+            explanation: 'Stuart Brown — certain elements more significant.',
+          },
+          {
+            number: 31,
+            type: 'matching-features',
+            prompt: 'Activities can be classified on a scale of playfulness.',
+            options: [],
+            answer: 'e',
+            explanation: 'Pellegrini — scale of playfulness.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 32–36',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 32–36 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 32,
+            type: 'yes-no-not-given',
+            prompt: 'Children need toys in order to play.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Writer: children do not need toys to play; empty boxes etc. can spark invention.',
+          },
+          {
+            number: 33,
+            type: 'yes-no-not-given',
+            prompt: 'Guided play should never feel structured.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'Adults may make activity rather structured, but based on child\'s motivation.',
+          },
+          {
+            number: 34,
+            type: 'yes-no-not-given',
+            prompt: 'All forms of play should give children a chance to have fun.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'All forms of play should be an opportunity for children to have fun.',
+          },
+          {
+            number: 35,
+            type: 'yes-no-not-given',
+            prompt: 'Parents spend more money on toys now than twenty years ago.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Không có claim về chi tiêu đồ chơi theo thời gian.',
+          },
+          {
+            number: 36,
+            type: 'yes-no-not-given',
+            prompt: 'When adults control every move, the activity may stop feeling like play.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'When adults over-control, activity ceases to feel like play.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 37–40',
+        instruction: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        note: CAM_GUIDED_PLAY_SUMMARY_NOTE,
+        questions: gapQuestions(37, [
+          { prompt: 'Gap (37)', answer: 'encouraging', explanation: 'by encouraging the child to investigate…' },
+          { prompt: 'Gap (38)', answer: 'motivation', explanation: 'based on the child\'s motivation to play.' },
+          { prompt: 'Gap (39)', answer: 'autonomy', explanation: 'gives children real autonomy.' },
+          { prompt: 'Gap (40)', answer: 'directed', explanation: 'play can be directed at particular goals.' },
+        ]),
+      },
+    ],
+  }
+}
+
+const CAM_ZOO_STAFF_OPTS = [
+  { id: 'a', label: 'Some take part in television documentaries about animals' },
+  { id: 'b', label: 'Some travel to overseas locations to join teams in zoos.' },
+  { id: 'c', label: 'Some get experience with species in the wild before taking up zoo jobs.' },
+  { id: 'd', label: 'Some teach people who are involved with conservation projects.' },
+  { id: 'e', label: 'Some specialise in caring for species which are under threat.' },
+]
+
+/** Match đoạn Q14–17 + TFNG Q18–22 + Choose TWO Q23–24 (+ optional 25–26) */
+export function ieltsReadingP2MatchTfngChooseTwoPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Zoos and the animals that live in them',
+    passageSubtitle: 'Arguments for and against keeping animals in captivity',
+    passage: [
+      {
+        label: 'A',
+        text: 'Extinction can happen with startling speed. Entire animal species may die out within a few decades when habitat is destroyed or hunting pressure is intense. Conservationists often point to this rapid loss as a reason to act before populations collapse beyond recovery.',
+      },
+      {
+        label: 'B',
+        text: 'Studying animals in captivity can be preferable to fieldwork in the wild. Controlled conditions make it easier to measure diet, behaviour and breeding success, and researchers avoid long expeditions that risk disturbing fragile ecosystems.',
+      },
+      {
+        label: 'C',
+        text: 'People who cannot visit zoos still learn about animals through wildlife films and museum collections. These two routes — screen and specimen — give access without the cost or travel of a zoo day out.',
+      },
+      {
+        label: 'D',
+        text: 'Animals in well-run zoos may be healthier than counterparts in the wild. Regular veterinary care, reliable food and protection from predators reduce injuries and disease that cut short lives in nature. An animal is often likely to live longer in a zoo than in the wild.',
+      },
+      {
+        label: 'E',
+        text: 'Zoo staff careers take many forms. Some take part in television documentaries about animals; others travel to overseas locations to join teams in zoos. A number specialise in caring for species which are under threat, while colleagues teach people involved with conservation projects.',
+      },
+      {
+        label: 'F',
+        text: 'Critics argue that even the best enclosures cannot replace natural ranges. Behavioural stereotyping and limited space remain concerns for large carnivores and migratory species.',
+      },
+      {
+        label: 'G',
+        text: 'Modern zoos increasingly fund field programmes and reintroduction schemes. Breeding for release is presented as a bridge between captivity and wild populations, though success rates vary by species.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–17',
+        instruction: 'Reading Passage 2 has sections A–G. Which section contains the following information? Write the correct letter, A–G, in boxes 14–17 on your answer sheet.',
+        type: 'matching-paragraph',
+        paragraphLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        questions: [
+          {
+            number: 14,
+            type: 'matching-paragraph',
+            prompt: 'a reference to how quickly animal species can die out',
+            options: [],
+            answer: 'a',
+            explanation: 'Đoạn A — extinction can happen with startling speed / die out within decades.',
+          },
+          {
+            number: 15,
+            type: 'matching-paragraph',
+            prompt: 'reasons why it is preferable to study animals in captivity rather than in the wild',
+            options: [],
+            answer: 'b',
+            explanation: 'Đoạn B — studying in captivity preferable to fieldwork.',
+          },
+          {
+            number: 16,
+            type: 'matching-paragraph',
+            prompt: 'mention of two ways of learning about animals other than visiting them in zoos',
+            options: [],
+            answer: 'c',
+            explanation: 'Đoạn C — wildlife films and museum collections.',
+          },
+          {
+            number: 17,
+            type: 'matching-paragraph',
+            prompt: 'reasons why animals in zoos may be healthier than those in the wild',
+            options: [],
+            answer: 'd',
+            explanation: 'Đoạn D — veterinary care, food, protection from predators.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 18–22',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 18–22 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 18,
+            type: 'true-false-not-given',
+            prompt: 'An animal is likely to live longer in a zoo than in the wild.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Đoạn D — likely to live longer in a zoo than in the wild.',
+          },
+          {
+            number: 19,
+            type: 'true-false-not-given',
+            prompt: 'All large carnivores in zoos show behavioural stereotyping.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Đoạn F — stereotyping is a concern, not stated for all large carnivores.',
+          },
+          {
+            number: 20,
+            type: 'true-false-not-given',
+            prompt: 'Museum collections are more popular than wildlife films.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Đoạn C nhắc cả hai nhưng không so sánh độ phổ biến.',
+          },
+          {
+            number: 21,
+            type: 'true-false-not-given',
+            prompt: 'Modern zoos sometimes support reintroduction schemes.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Đoạn G — fund field programmes and reintroduction schemes.',
+          },
+          {
+            number: 22,
+            type: 'true-false-not-given',
+            prompt: 'Every zoo staff member works overseas at some point.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Đoạn E — some travel overseas, không phải everyone.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 23–24',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 23,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following are stated about zoo staff in the text? (first answer)',
+            options: CAM_ZOO_STAFF_OPTS,
+            answer: 'a',
+            explanation: 'A — take part in television documentaries.',
+          },
+          {
+            number: 24,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following are stated about zoo staff in the text? (second answer)',
+            options: CAM_ZOO_STAFF_OPTS,
+            answer: 'b',
+            explanation: 'B — travel to overseas locations to join teams in zoos.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 25–26',
+        instruction: 'Choose TWO correct answers, A–E.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 25,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following are stated about zoo staff in the text? (first answer)',
+            options: CAM_ZOO_STAFF_OPTS,
+            answer: 'd',
+            explanation: 'D — teach people involved with conservation projects.',
+          },
+          {
+            number: 26,
+            type: 'multiple-choice',
+            prompt: 'Which TWO of the following are stated about zoo staff in the text? (second answer)',
+            options: CAM_ZOO_STAFF_OPTS,
+            answer: 'e',
+            explanation: 'E — specialise in caring for species under threat.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * Notes Q34–39 — cùng format notePassage như r1n8 (Glass Q1–8):
+ * section heading + bullet (•) / sub-bullet (–) + static + gap inline.
+ * Nội dung bám đề Cam (Findings related to marine debris).
+ */
+export const CAM_MARINE_DEBRIS_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  // --- Findings: biggest threats ---
+  {
+    type: 'section',
+    text: 'Studies of marine debris found the biggest threats were',
+  },
+  { type: 'static', text: '• plastic (not metal or wood)' },
+  { type: 'static', text: '• bits of debris that were ' },
+  { type: 'gap', number: 34 },
+  { type: 'static', text: ' (harmful to animals)' },
+  // --- Little research ---
+  { type: 'static', text: 'There was little research into ' },
+  { type: 'gap', number: 35 },
+  { type: 'static', text: ' e.g. from synthetic fibres.' },
+  // --- Drawbacks ---
+  {
+    type: 'section',
+    text: 'Drawbacks of the studies examined',
+  },
+  { type: 'static', text: '• most of them focused on individual animals, not entire ' },
+  { type: 'gap', number: 36 },
+  { type: 'static', text: '• the ' },
+  { type: 'gap', number: 37 },
+  { type: 'static', text: ' of plastic used in the lab did not always reflect those in the ocean' },
+  { type: 'static', text: '• there was insufficient information on' },
+  { type: 'static', text: '– numbers of animals which could be affected' },
+  { type: 'static', text: '– the impact of a reduction in numbers on the ' },
+  { type: 'gap', number: 38 },
+  { type: 'static', text: ' of that species' },
+  { type: 'static', text: '– the impact on the ecosystem' },
+  // --- Closing (Rochman) ---
+  { type: 'static', text: 'Rochman says more information is needed on the possible impact of future ' },
+  { type: 'gap', number: 39 },
+  { type: 'static', text: ' (e.g. involving oil).' },
+]
+
+const CAM_MARINE_TITLE_OPTS = [
+  { id: 'a', label: 'Assessing the threat of marine debris' },
+  { id: 'b', label: 'Marine debris: who is to blame?' },
+  { id: 'c', label: 'A new solution to the problem of marine debris' },
+  { id: 'd', label: 'Marine debris: the need for international action' },
+]
+
+/** TFNG Q27–33 + notes Q34–39 (notePassage) + MC title Q40 */
+export function ieltsReadingP3TfngNotesMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Marine debris',
+    passageSubtitle: 'What scientific reviews tell us about plastic and other waste in the ocean',
+    passage: [
+      {
+        text: 'Plastic and other human-made materials in the sea have attracted growing attention from scientists and the public. Reviews of the literature show that Rochman and her colleagues were not the first people to research the problem of marine debris, but their systematic approach pulled together evidence that had previously been scattered across journals and disciplines.',
+      },
+      {
+        text: 'Studies of marine debris found that the biggest threats were plastic rather than metal or wood. Bits of debris that were large proved especially harmful to animals that swallowed them or became entangled. There was little research into microplastic, for example from synthetic fibres, compared with larger items such as bottles and nets.',
+      },
+      {
+        text: 'Many of the studies examined had drawbacks. Most of them focused on individual animals, not entire populations. The types of plastic used in the lab did not always reflect those floating in the ocean. There was insufficient information on how many animals could be affected, on the impact of a reduction in numbers on the survival of that species, and on wider effects on the ecosystem.',
+      },
+      {
+        text: 'Rochman says more information is needed on the possible impact of future disasters, for example involving oil, and on how debris interacts with other stressors. She argues that assessing the threat of marine debris requires better data, not only moral urgency — which is why the best title for this passage emphasises assessment rather than blame or a single new solution.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–33',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 27–33 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 27,
+            type: 'true-false-not-given',
+            prompt: 'Rochman and her colleagues were the first people to research the problem of marine debris.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'They were not the first — systematic review of existing research.',
+          },
+          {
+            number: 28,
+            type: 'true-false-not-given',
+            prompt: 'Plastic is identified as a bigger marine-debris threat than metal or wood.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Biggest threats were plastic (not metal or wood).',
+          },
+          {
+            number: 29,
+            type: 'true-false-not-given',
+            prompt: 'Large pieces of debris can be harmful to animals.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Bits of debris that were large — harmful to animals.',
+          },
+          {
+            number: 30,
+            type: 'true-false-not-given',
+            prompt: 'Most studies examined whole populations rather than single animals.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Most focused on individual animals, not entire populations.',
+          },
+          {
+            number: 31,
+            type: 'true-false-not-given',
+            prompt: 'Lab plastics always matched plastics found in the ocean.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Types of plastic in lab did not always reflect those in the ocean.',
+          },
+          {
+            number: 32,
+            type: 'true-false-not-given',
+            prompt: 'Rochman has published more papers on oil spills than on plastic.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Không so sánh số bài về oil vs plastic.',
+          },
+          {
+            number: 33,
+            type: 'true-false-not-given',
+            prompt: 'More data is needed on future disasters such as those involving oil.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Rochman: more information needed on future disasters e.g. oil.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 34–39',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        // Giống r1n8: notesTitle + notePassage (KHÔNG dùng note string inline / summary)
+        notesTitle: 'Findings related to marine debris',
+        notePassage: CAM_MARINE_DEBRIS_NOTE_PASSAGE,
+        questions: gapQuestions(34, [
+          { prompt: 'Gap (34)', answer: 'large', explanation: 'Cam14: bits of debris that were large (harmful to animals).' },
+          { prompt: 'Gap (35)', answer: 'microplastic', explanation: 'Cam14: little research into microplastic e.g. from synthetic fibres.' },
+          { prompt: 'Gap (36)', answer: 'populations', explanation: 'not entire populations.' },
+          { prompt: 'Gap (37)', answer: 'types', explanation: 'the types of plastic used in the lab…' },
+          { prompt: 'Gap (38)', answer: 'survival', explanation: 'impact of a reduction in numbers on the survival of that species.' },
+          { prompt: 'Gap (39)', answer: 'disasters', explanation: 'impact of future disasters (e.g. involving oil).' },
+        ]),
+      },
+      {
+        range: 'Question 40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'What would be the best title for this passage?',
+            options: CAM_MARINE_TITLE_OPTS,
+            answer: 'a',
+            explanation: 'A — Assessing the threat of marine debris (focus of the review).',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_FAIRY_ENDINGS_BANK = [
+  { id: 'a', label: 'may be provided through methods used in biological research.' },
+  { id: 'b', label: 'are the reason for their survival.' },
+  { id: 'c', label: 'show considerable global variation.' },
+  { id: 'd', label: 'contain animals which transform to become humans.' },
+  { id: 'e', label: 'were originally spoken rather than written.' },
+  { id: 'f', label: 'have been developed without factual basis.' },
+]
+
+const CAM_FAIRY_SUMMARY_WORD_BANK = [
+  { id: 'a', label: 'ending' },
+  { id: 'b', label: 'events' },
+  { id: 'c', label: 'warning' },
+  { id: 'd', label: 'links' },
+  { id: 'e', label: 'records' },
+  { id: 'f', label: 'variations' },
+  { id: 'g', label: 'horror' },
+  { id: 'h', label: 'people' },
+  { id: 'i', label: 'plot' },
+]
+
+const CAM_FAIRY_SUMMARY_NOTE = [
+  'Phylogenetic analysis of Little Red Riding Hood',
+  '',
+  'Tehrani used techniques from evolutionary biology to find out if 32________ existed among 58 stories from around the world. '
+  + 'He also wanted to know which aspects of the stories had fewest 33________ as he believed these aspects would be the most important ones. '
+  + 'Contrary to other beliefs, he found that some 34________ that were included in a story tended to change over time, and that the middle of a story seemed no more important than the other parts. '
+  + 'He was also surprised that parts of a story which seemed to provide some sort of 35________ were unimportant. '
+  + 'The aspect that he found most important in a story\'s survival was 36________.',
+].join('\n')
+
+/** Endings Q27–31 + summary word bank Q32–36 + MC Q37–40 (Fairy tales / Tehrani) */
+export function ieltsReadingP3EndingsSummaryMcPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'The science of fairy tales',
+    passageSubtitle: 'Jamie Tehrani and the evolution of stories such as Little Red Riding Hood',
+    passage: [
+      {
+        text: 'Fairy tales have been told for centuries. Details of the plot may be provided through methods used in biological research when scholars compare variants. Tehrani rejects the idea that the useful lessons for life in fairy tales are the reason for their survival. Various theories about the social significance of fairy tales have been developed without factual basis. Insights into the development of fairy tales may be provided through methods used in biological research. All the fairy tales analysed by Tehrani were originally spoken rather than written.',
+      },
+      {
+        text: 'Tehrani used techniques from evolutionary biology to find out if links existed among 58 stories from around the world. He also wanted to know which aspects of the stories had fewest variations as he believed these aspects would be the most important ones. Contrary to other beliefs, he found that some events that were included in a story tended to change over time, and that the middle of a story seemed no more important than the other parts. He was also surprised that parts of a story which seemed to provide some sort of warning were unimportant. The aspect that he found most important in a story\'s survival was plot.',
+      },
+      {
+        text: 'To test his ideas about fairy tales, Jamie Tehrani looked at many different forms of the same basic story, including versions of Little Red Riding Hood from Europe, Asia and Africa. He compared oral and written forms where available, and mapped how narrative elements branched over time much like species on a phylogenetic tree.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–31',
+        instruction: 'Complete each sentence with the correct ending, A–F, below. Write the correct letter in boxes 27–31 on your answer sheet.',
+        type: 'summary-completion',
+        wordBank: CAM_FAIRY_ENDINGS_BANK,
+        questions: [
+          {
+            number: 27,
+            type: 'summary-completion',
+            prompt: 'In fairy tales, details of the plot',
+            options: [],
+            answer: 'c',
+            explanation: 'C — show considerable global variation (or A depending key; sample C).',
+          },
+          {
+            number: 28,
+            type: 'summary-completion',
+            prompt: 'Tehrani rejects the idea that the useful lessons for life in fairy tales',
+            options: [],
+            answer: 'b',
+            explanation: 'B — are the reason for their survival.',
+          },
+          {
+            number: 29,
+            type: 'summary-completion',
+            prompt: 'Various theories about the social significance of fairy tales',
+            options: [],
+            answer: 'f',
+            explanation: 'F — have been developed without factual basis.',
+          },
+          {
+            number: 30,
+            type: 'summary-completion',
+            prompt: 'Insights into the development of fairy tales',
+            options: [],
+            answer: 'a',
+            explanation: 'A — may be provided through methods used in biological research.',
+          },
+          {
+            number: 31,
+            type: 'summary-completion',
+            prompt: 'All the fairy tales analysed by Tehrani',
+            options: [],
+            answer: 'e',
+            explanation: 'E — were originally spoken rather than written.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 32–36',
+        instruction: 'Complete the summary using the list of phrases, A–I, below.',
+        type: 'summary-completion',
+        note: CAM_FAIRY_SUMMARY_NOTE,
+        wordBank: CAM_FAIRY_SUMMARY_WORD_BANK,
+        questions: [
+          { number: 32, type: 'summary-completion', prompt: 'Gap (32)', options: [], answer: 'd', explanation: 'D links — if links existed among 58 stories.' },
+          { number: 33, type: 'summary-completion', prompt: 'Gap (33)', options: [], answer: 'f', explanation: 'F variations — fewest variations.' },
+          { number: 34, type: 'summary-completion', prompt: 'Gap (34)', options: [], answer: 'b', explanation: 'B events — some events … tended to change.' },
+          { number: 35, type: 'summary-completion', prompt: 'Gap (35)', options: [], answer: 'c', explanation: 'C warning — some sort of warning.' },
+          { number: 36, type: 'summary-completion', prompt: 'Gap (36)', options: [], answer: 'i', explanation: 'I plot — most important … was plot.' },
+        ],
+      },
+      {
+        range: 'Questions 37–40',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 37,
+            type: 'multiple-choice',
+            prompt: 'What method did Jamie Tehrani use to test his ideas about fairy tales?',
+            options: [
+              { id: 'a', label: 'He compared oral and written forms of the same stories.' },
+              { id: 'b', label: 'He looked at many different forms of the same basic story.' },
+              { id: 'c', label: 'He looked at unrelated stories from many different countries.' },
+              { id: 'd', label: 'He contrasted the development of fairy tales with that of living creatures.' },
+            ],
+            answer: 'b',
+            explanation: 'B — many different forms of the same basic story (LRRH variants).',
+          },
+          {
+            number: 38,
+            type: 'multiple-choice',
+            prompt: 'What did Tehrani conclude about the middle of a story?',
+            options: [
+              { id: 'a', label: 'It was more stable than the ending.' },
+              { id: 'b', label: 'It seemed no more important than other parts.' },
+              { id: 'c', label: 'It always contained a warning.' },
+              { id: 'd', label: 'It was invented later than the beginning.' },
+            ],
+            answer: 'b',
+            explanation: 'Middle seemed no more important than the other parts.',
+          },
+          {
+            number: 39,
+            type: 'multiple-choice',
+            prompt: 'According to Tehrani, which aspect was most important for a story\'s survival?',
+            options: [
+              { id: 'a', label: 'horror' },
+              { id: 'b', label: 'records' },
+              { id: 'c', label: 'plot' },
+              { id: 'd', label: 'people' },
+            ],
+            answer: 'c',
+            explanation: 'Most important … was plot.',
+          },
+          {
+            number: 40,
+            type: 'multiple-choice',
+            prompt: 'What is the writer\'s main point about theories of fairy tales\' social significance?',
+            options: [
+              { id: 'a', label: 'They are supported by phylogenetic trees.' },
+              { id: 'b', label: 'They have often lacked a factual basis.' },
+              { id: 'c', label: 'They explain why stories contain animals.' },
+              { id: 'd', label: 'They prove lessons for life cause survival.' },
+            ],
+            answer: 'b',
+            explanation: 'Theories … developed without factual basis.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+const CAM_AI_ATTITUDES_HEADINGS = [
+  { id: 'i', label: 'An increasing divergence of attitudes towards AI' },
+  { id: 'ii', label: 'Reasons why we have more faith in human judgement than in AI' },
+  { id: 'iii', label: 'The superiority of AI projections over those made by humans' },
+  { id: 'iv', label: 'The process by which AI can help us make good decisions' },
+  { id: 'v', label: 'The advantages of involving users in AI processes' },
+  { id: 'vi', label: 'Widespread distrust of an AI innovation' },
+  { id: 'vii', label: 'Encouraging openness about how AI functions' },
+  { id: 'viii', label: 'A surprisingly successful AI application' },
+]
+
+/** r3hmy — Headings Q27–32 + MC Q33–35 + YNNG Q36–40 (AI attitudes) */
+export function ieltsReadingP3HeadingsMcYnngPart(): ReadingImportPartJson {
+  return {
+    partNumber: 3,
+    rangeLabel: 'Read the text and answer questions 27–40.',
+    passageTitle: 'Attitudes to artificial intelligence',
+    passageSubtitle: 'How public trust and doubt shape the adoption of AI',
+    passage: [
+      {
+        label: 'A',
+        text: 'Public debate about artificial intelligence has intensified. Many people highlight risks in sci-fi films and automation, framing AI as a problem that society must confront. The writer of Section A is chiefly highlighting the existence of a problem rather than offering a full solution.',
+      },
+      {
+        label: 'B',
+        text: 'Surveys show an increasing divergence of attitudes towards AI: some celebrate breakthroughs while others fear job losses and loss of control. This split has grown wider as systems become more visible in daily life.',
+      },
+      {
+        label: 'C',
+        text: 'People often place more faith in human judgement than in AI, citing opacity, bias in training data, and the difficulty of holding algorithms accountable when mistakes cause harm.',
+      },
+      {
+        label: 'D',
+        text: 'Yet in some domains AI projections outperform human forecasts. Where large data sets exist, models can spot patterns that individuals miss, though experts still stress careful validation.',
+      },
+      {
+        label: 'E',
+        text: 'Involving users in AI processes can improve acceptance. When people understand how recommendations are generated and can correct them, trust rises and systems become more useful in practice.',
+      },
+      {
+        label: 'F',
+        text: 'Despite pockets of success, widespread distrust of some AI innovations remains. Encouraging openness about how AI functions is one response authorities and companies promote to reduce fear without ignoring real risks.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 27–32',
+        instruction: 'Reading Passage 3 has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below. Write the correct number, i–viii, in boxes 27–32 on your answer sheet.',
+        note: 'There are more headings than paragraphs, so you will not use all of them.',
+        type: 'matching-headings',
+        headings: CAM_AI_ATTITUDES_HEADINGS,
+        questions: [
+          { number: 27, type: 'matching-headings', prompt: 'Paragraph A', options: [], answer: 'vi', explanation: 'Widespread distrust / problem framing of AI.' },
+          { number: 28, type: 'matching-headings', prompt: 'Paragraph B', options: [], answer: 'i', explanation: 'Increasing divergence of attitudes.' },
+          { number: 29, type: 'matching-headings', prompt: 'Paragraph C', options: [], answer: 'ii', explanation: 'More faith in human judgement than AI.' },
+          { number: 30, type: 'matching-headings', prompt: 'Paragraph D', options: [], answer: 'iii', explanation: 'AI projections superior in some domains.' },
+          { number: 31, type: 'matching-headings', prompt: 'Paragraph E', options: [], answer: 'v', explanation: 'Advantages of involving users.' },
+          { number: 32, type: 'matching-headings', prompt: 'Paragraph F', options: [], answer: 'vii', explanation: 'Encouraging openness about how AI functions.' },
+        ],
+      },
+      {
+        range: 'Questions 33–35',
+        instruction: 'Choose the correct answer.',
+        type: 'multiple-choice',
+        questions: [
+          {
+            number: 33,
+            type: 'multiple-choice',
+            prompt: 'What is the writer doing in Section A?',
+            options: [
+              { id: 'a', label: 'providing a solution to a concern' },
+              { id: 'b', label: 'justifying an opinion about an issue' },
+              { id: 'c', label: 'highlighting the existence of a problem' },
+              { id: 'd', label: 'explaining the reasons for a phenomenon' },
+            ],
+            answer: 'c',
+            explanation: 'C — highlighting the existence of a problem.',
+          },
+          {
+            number: 34,
+            type: 'multiple-choice',
+            prompt: 'According to the passage, people often trust human judgement more than AI because',
+            options: [
+              { id: 'a', label: 'AI never outperforms human forecasts.' },
+              { id: 'b', label: 'algorithms can be hard to hold accountable.' },
+              { id: 'c', label: 'sci-fi films always show AI positively.' },
+              { id: 'd', label: 'users cannot correct AI recommendations.' },
+            ],
+            answer: 'b',
+            explanation: 'B — difficulty of holding algorithms accountable.',
+          },
+          {
+            number: 35,
+            type: 'multiple-choice',
+            prompt: 'What does the writer say can improve acceptance of AI?',
+            options: [
+              { id: 'a', label: 'hiding how recommendations are generated' },
+              { id: 'b', label: 'involving users in AI processes' },
+              { id: 'c', label: 'banning automation in the workplace' },
+              { id: 'd', label: 'using only human forecasts' },
+            ],
+            answer: 'b',
+            explanation: 'B — involving users improves acceptance.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 36–40',
+        instruction: 'Do the following statements agree with the claims of the writer in the Reading Passage? In boxes 36–40 on your answer sheet, write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+        type: 'ynng',
+        questions: [
+          {
+            number: 36,
+            type: 'yes-no-not-given',
+            prompt: 'Subjective depictions of AI in sci-fi films make people change their opinions about automation.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Passage mentions sci-fi framing risk — không claim films make people change opinions.',
+          },
+          {
+            number: 37,
+            type: 'yes-no-not-given',
+            prompt: 'Attitudes towards AI have become more divided as systems become more visible.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'Increasing divergence … as systems become more visible.',
+          },
+          {
+            number: 38,
+            type: 'yes-no-not-given',
+            prompt: 'AI projections are always less accurate than human forecasts.',
+            options: [...YNNG_OPTIONS],
+            answer: 'no',
+            explanation: 'In some domains AI projections outperform human forecasts.',
+          },
+          {
+            number: 39,
+            type: 'yes-no-not-given',
+            prompt: 'User involvement can increase trust in AI systems.',
+            options: [...YNNG_OPTIONS],
+            answer: 'yes',
+            explanation: 'When people understand and can correct systems, trust rises.',
+          },
+          {
+            number: 40,
+            type: 'yes-no-not-given',
+            prompt: 'Governments have banned all AI innovation due to distrust.',
+            options: [...YNNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Distrust remains; openness promoted — không nói ban all innovation.',
+          },
+        ],
+      },
+    ],
+  }
+}
+
+/** Silbo Gomero — notes Q20–26: 3 section + bullets (ép ngắt dòng) */
+export const CAM_SILBO_NOTE_PASSAGE: ReadingNotePassageBlock[] = [
+  { type: 'section', text: 'How Silbo is produced' },
+  { type: 'static', text: '• high- and low-frequency tones represent different sounds in Spanish ' },
+  { type: 'gap', number: 20 },
+  { type: 'static', text: '• pitch of whistle is controlled using silbador\'s ' },
+  { type: 'gap', number: 21 },
+  { type: 'static', text: '• ' },
+  { type: 'gap', number: 22 },
+  { type: 'static', text: ' is changed with a cupped hand' },
+  { type: 'break' },
+  { type: 'section', text: 'How Silbo is used' },
+  { type: 'static', text: '• has long been used by shepherds and people living in secluded locations' },
+  { type: 'static', text: '• in everyday use for the transmission of brief ' },
+  { type: 'gap', number: 23 },
+  { type: 'static', text: '• can relay essential information quickly, e.g. to inform people about ' },
+  { type: 'gap', number: 24 },
+  { type: 'break' },
+  { type: 'section', text: 'The future of Silbo' },
+  { type: 'static', text: '• future under threat because of new ' },
+  { type: 'gap', number: 25 },
+  { type: 'static', text: '• Canaries\' authorities hoping to receive a UNESCO ' },
+  { type: 'gap', number: 26 },
+  { type: 'static', text: ' to help preserve it' },
+]
+
+/** r2tn — TFNG Q14–19 + Notes Q20–26 (notePassage, section headings) — Silbo Gomero */
+export function ieltsReadingP2TfngNotesPart(): ReadingImportPartJson {
+  return {
+    partNumber: 2,
+    rangeLabel: 'Read the text and answer questions 14–26.',
+    passageTitle: 'Silbo Gomero',
+    passageSubtitle: 'The whistled language of La Gomera in the Canary Islands',
+    passage: [
+      {
+        text: 'La Gomera is one of the Canary Islands, known for its mountainous terrain. Silbo Gomero is a whistled form of Spanish used to communicate across deep valleys. High- and low-frequency tones represent different sounds in Spanish words. The pitch of the whistle is controlled using the silbador\'s fingers, and volume is changed with a cupped hand.',
+      },
+      {
+        text: 'Silbo has long been used by shepherds and people living in secluded locations. In everyday use it serves for the transmission of brief messages and can relay essential information quickly, for example to inform people about danger or emergencies.',
+      },
+      {
+        text: 'The future of Silbo is under threat because of new technology. Canaries\' authorities are hoping to receive a UNESCO designation to help preserve it as part of the islands\' cultural heritage.',
+      },
+    ],
+    questionGroups: [
+      {
+        range: 'Questions 14–19',
+        instruction: 'Do the following statements agree with the information given in the Reading Passage? In boxes 14–19 on your answer sheet, write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+        type: 'tfng',
+        questions: [
+          {
+            number: 14,
+            type: 'true-false-not-given',
+            prompt: 'La Gomera is the most mountainous of all the Canary Islands.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Passage nói mountainous nhưng không so sánh "most" với mọi đảo khác.',
+          },
+          {
+            number: 15,
+            type: 'true-false-not-given',
+            prompt: 'Silbo Gomero is based on Spanish.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Whistled form of Spanish / tones represent Spanish sounds.',
+          },
+          {
+            number: 16,
+            type: 'true-false-not-given',
+            prompt: 'Shepherds were the only people who ever used Silbo.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Used by shepherds and people in secluded locations — not only shepherds.',
+          },
+          {
+            number: 17,
+            type: 'true-false-not-given',
+            prompt: 'Silbo can be used to send short everyday messages.',
+            options: [...TFNG_OPTIONS],
+            answer: 'true',
+            explanation: 'Everyday use for transmission of brief messages.',
+          },
+          {
+            number: 18,
+            type: 'true-false-not-given',
+            prompt: 'Modern technology has made Silbo completely extinct.',
+            options: [...TFNG_OPTIONS],
+            answer: 'false',
+            explanation: 'Future under threat — not completely extinct; UNESCO efforts continue.',
+          },
+          {
+            number: 19,
+            type: 'true-false-not-given',
+            prompt: 'UNESCO has already listed Silbo as World Heritage.',
+            options: [...TFNG_OPTIONS],
+            answer: 'not given',
+            explanation: 'Authorities hoping to receive UNESCO status — chưa khẳng định đã nhận.',
+          },
+        ],
+      },
+      {
+        range: 'Questions 20–26',
+        instruction: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.',
+        type: 'gap-fill',
+        notesTitle: 'Silbo Gomero',
+        notePassage: CAM_SILBO_NOTE_PASSAGE,
+        questions: gapQuestions(20, [
+          { prompt: 'Gap (20)', answer: 'words', explanation: 'tones represent different sounds in Spanish words.' },
+          { prompt: 'Gap (21)', answer: 'fingers', explanation: 'pitch controlled using silbador\'s fingers.' },
+          { prompt: 'Gap (22)', answer: 'volume', explanation: 'volume is changed with a cupped hand.' },
+          { prompt: 'Gap (23)', answer: 'messages', explanation: 'transmission of brief messages.' },
+          { prompt: 'Gap (24)', answer: 'danger', explanation: 'inform people about danger / emergencies.' },
+          { prompt: 'Gap (25)', answer: 'technology', explanation: 'threat because of new technology.' },
+          { prompt: 'Gap (26)', answer: 'designation', explanation: 'UNESCO designation (or listing) to preserve it.' },
+        ]),
+      },
+    ],
+  }
+}
+
+/**
+ * Factory map — resolve TẠI LÚC GỌI (sau khi module fully evaluated).
+ * Tránh HMR partial: catalog có kind mới nhưng binding builder chưa kịp.
+ */
+function getTemplateBuilders(): Record<IeltsReadingWizardTemplateKind, () => ReadingImportPartJson> {
+  return {
+    'p1-r1-tfng-mc': ieltsReadingP1R1Part,
+    'p1-r1-tfng-gap': ieltsReadingP1TfngGapPart,
+    'p1-r1-tfng-gap-table': ieltsReadingP1TfngGapTablePart,
+    'p1-r1-notes-tfng': ieltsReadingP1NotesTfngPart,
+    'p1-r1-notes-tfng-8': ieltsReadingP1NotesTfng8Part,
+    'p1-r1-table-tfng': ieltsReadingP1TableTfngPart,
+    'p1-r1-notes-tfng-table': ieltsReadingP1NotesTfngTablePart,
+    'p1-r1-notes-table-tfng': ieltsReadingP1NotesTableTfngPart,
+    'p1-r1-tfng-match-notes': ieltsReadingP1TfngMatchNotesPart,
+    'p1-r1-tfng-match-summary': ieltsReadingP1TfngMatchSummaryPart,
+    'p1-r1-match-choose-two': ieltsReadingP1MatchChooseTwoPart,
+    'p1-r1-match-ynng-features': ieltsReadingP1MatchYnngFeaturesPart,
+    'p1-r1-headings-notes': ieltsReadingP1HeadingsNotesPart,
+    'p1-r1-headings-mc': ieltsReadingP1HeadingsMcPart,
+    'p1-r1-sentence-mc': ieltsReadingP1SentenceMcPart,
+    'p1-r1-headings-gap': ieltsReadingP1HeadingsGapPart,
+    'p1-r1-gap-mc': ieltsReadingP1GapMcPart,
+    'p2-r2-match-mc': ieltsReadingP2R2Part,
+    'p2-r2-ynng-match': ieltsReadingP2YnngMatchPart,
+    'p2-r2-headings-ynng': ieltsReadingP2HeadingsYnngPart,
+    'p2-r2-tfng-match': ieltsReadingP2TfngMatchPart,
+    'p2-r2-gap-match': ieltsReadingP2GapMatchPart,
+    'p2-r2-headings-summary-mc': ieltsReadingP2HeadingsSummaryMcPart,
+    'p2-r2-summary-ynng-mc': ieltsReadingP2SummaryYnngMcPart,
+    'p2-r2-tfng-endings-summary': ieltsReadingP2TfngEndingsSummaryPart,
+    'p2-r2-mc-tfng-endings': ieltsReadingP2McTfngEndingsPart,
+    'p2-r2-tfng-diagram': ieltsReadingP2TfngDiagramPart,
+    'p2-r2-headings-tfng-sentence': ieltsReadingP2HeadingsTfngSentencePart,
+    'p2-r2-mc-summary-ynng': ieltsReadingP2McSummaryYnngPart,
+    'p2-r2-headings-match-summary': ieltsReadingP2HeadingsMatchSummaryPart,
+    'p2-r2-match-choose-two-summary': ieltsReadingP2MatchChooseTwoSummaryPart,
+    'p2-r2-match-tfng-choose-two': ieltsReadingP2MatchTfngChooseTwoPart,
+    'p2-r2-tfng-notes': ieltsReadingP2TfngNotesPart,
+    'p3-r3-tfng-mc': ieltsReadingP3R3Part,
+    'p3-r3-gap-tfng-flow-mc': ieltsReadingP3GapTfngFlowMcPart,
+    'p3-r3-ynng-mc': ieltsReadingP3YnngMcPart,
+    'p3-r3-gap-ynng-mc': ieltsReadingP3GapYnngMcPart,
+    'p3-r3-summary-ynng-mc': ieltsReadingP3SummaryYnngMcPart,
+    'p3-r3-summary-mc-ynng': ieltsReadingP3SummaryMcYnngPart,
+    'p3-r3-gap-tfng-mc': ieltsReadingP3GapTfngMcPart,
+    'p3-r3-match-table-features': ieltsReadingP3MatchTableFeaturesPart,
+    'p3-r3-mc-summary-ynng': ieltsReadingP3McSummaryYnngPart,
+    'p3-r3-match-paragraph-sentence': ieltsReadingP3MatchParagraphSentencePart,
+    'p3-r3-headings-summary-ynng': ieltsReadingP3HeadingsSummaryYnngPart,
+    'p3-r3-headings-gap-ynng': ieltsReadingP3HeadingsGapYnngPart,
+    'p3-r3-headings-mc-ynng': ieltsReadingP3HeadingsMcYnngPart,
+    'p3-r3-table-ynng-match': ieltsReadingP3TableYnngMatchPart,
+    'p3-r3-summary-mc-endings': ieltsReadingP3SummaryMcEndingsPart,
+    'p3-r3-features-ynng-summary': ieltsReadingP3FeaturesYnngSummaryPart,
+    'p3-r3-tfng-notes-mc': ieltsReadingP3TfngNotesMcPart,
+    'p3-r3-endings-summary-mc': ieltsReadingP3EndingsSummaryMcPart,
+  }
+}
+
+function assertAllTemplateBuildersRegistered(): void {
+  try {
+    const builders = getTemplateBuilders()
+    const missing: string[] = []
+    for (const passageNumber of IELTS_READING_PASSAGE_NUMBERS) {
+      for (const option of templateOptionsForPassage(passageNumber)) {
+        if (typeof builders[option.kind] !== 'function') {
+          missing.push(option.kind)
+        }
+      }
+    }
+    if (missing.length) {
+      console.error(
+        '[ieltsReadingPartTemplates] TEMPLATE_BUILDERS thiếu:',
+        missing.join(', '),
+      )
+    }
+  } catch (err) {
+    console.error('[ieltsReadingPartTemplates] assert builders failed', err)
+  }
+}
+
+// Defer assert — không chặn load module khi HMR partial
+if (typeof queueMicrotask === 'function') {
+  queueMicrotask(assertAllTemplateBuildersRegistered)
+} else {
+  setTimeout(assertAllTemplateBuildersRegistered, 0)
+}
 
 /** Chuẩn hóa kind + xác nhận builder tồn tại (dùng trong Wizard / AI). */
 export function resolveReadingTemplateKind(
@@ -3810,8 +5463,12 @@ export function resolveReadingTemplateKind(
 ): IeltsReadingWizardTemplateKind {
   const resolved = resolveReadingTemplateKindFromCatalog(passageNumber, kind)
   if (isKnownReadingTemplateKind(passageNumber, resolved)) {
-    const builder = TEMPLATE_BUILDERS[resolved]
-    if (typeof builder === 'function') return resolved
+    try {
+      const builders = getTemplateBuilders()
+      if (typeof builders[resolved] === 'function') return resolved
+    } catch {
+      // HMR partial
+    }
   }
   return IELTS_READING_DEFAULT_TEMPLATES[passageNumber]
 }
@@ -3821,10 +5478,11 @@ export function getIeltsReadingWizardTemplatePart(
   kind: IeltsReadingWizardTemplateKind,
 ): ReadingImportPartJson {
   const resolved = resolveReadingTemplateKind(passageNumber, kind)
-  const builder = TEMPLATE_BUILDERS[resolved]
+  const builders = getTemplateBuilders()
+  const builder = builders[resolved]
   if (typeof builder !== 'function') {
     throw new Error(
-      `Reading template builder không tồn tại: "${resolved}" (passage ${passageNumber}, yêu cầu "${kind}").`,
+      `Reading template builder không tồn tại: "${resolved}" (passage ${passageNumber}, yêu cầu "${kind}"). Hard refresh Ctrl+Shift+R.`,
     )
   }
   const part = builder()

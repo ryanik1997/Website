@@ -12,10 +12,10 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** 2026-07-07 — Reading cloud + SW cache MP3 + **Listening publish** + **Admin Publish nội dung (toàn app)** + deploy prod
+- **Session:** **2026-07-09** — IELTS Reading Wizard: **nhiều template mới P1–P3** + Choose TWO UI + Notes/Table/Sentence line-break + harden ExamTrack (không crash HMR)
 - **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung** (không cần import lại)
 - **Production:** https://ryanenglishv2.vercel.app — **đã deploy** (SW cache, Listening publish, Admin publish v012); migrations 009–012 đã push
-- **Dev:** `pnpm dev` → `/app/exam/reading/catalog-reading-cpe-c2-test1` để so CPE RW 9 part
+- **Dev:** `pnpm dev` → `/app/exam/track/ielts` → Import Wizard Reading (P1/P2/P3 templates)
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -2286,36 +2286,77 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 
 ---
 
-## Next session start prompt (cập nhật 2026-07-09)
+## Next session start prompt (cập nhật 2026-07-09 — cuối session)
 ```
 Đọc session_summary.md ngay.
 
-## Context nhanh (session 2026-07-08 — tiếp mai)
-- **r1tt** (`p1-r1-table-tfng`): bảng có merge ô — `rowSpan` / `colSpan` / `skip` trong `noteTable`
-- SAMPLE: `R1TT_MERGE_TABLE_SAMPLE` (Cam13 T4 Coconut palm, `Teamplate_Part1_7.jpg`) — Q1–8 table + Q9–13 TFNG
-- Files chính: `examData.ts`, `readingNoteTableUtils.ts`, `ReadingNoteTable.tsx`, `ieltsReadingAiPrompt.ts`, `ieltsReadingPartTemplates.ts`
-- `tsc --noEmit` pass — **chưa verify E2E** wizard AI + UI render bảng merge trên browser
+## Context nhanh (session 2026-07-09)
+- IELTS Reading Wizard: nhiều template mới P1/P2/P3 + preview JPG Teamplate_Part*_*.jpg
+- Choose TWO Reading: UI multi-select (readingChooseTwoUtils + ChooseTwoGroup)
+- Notes: ép ngắt dòng (section decade 1940s/1950s, type break); Silbo r2tn sections
+- Table: luôn n cột × m dòng (normalize + AI validate)
+- Sentence completion: mỗi câu 1 dòng / note \\n\\n
+- ExamTrack: harden + getTemplateBuilders() factory (không crash HMR)
+- Core files: ieltsReadingPartTemplates.ts, ieltsReadingAiPrompt.ts, ieltsReadingAiNormalize.ts,
+  ieltsReadingTemplateCatalog.ts, ReadingQuestionPanel.tsx, readingNoteTableUtils.ts, listeningNotePassage.ts
 
-## Ưu tiên mai (2026-07-09)
-### 1 — Verify r1tt bảng merge (P1)
-1. `pnpm --filter web dev` → Import Wizard Reading P1 → chọn **r1tt (Table + TFNG)**
-2. Dán đề Cam13 T4 Coconut palm (hoặc đề bảng 3 cột có gộp ô) + answer key → Generate
-3. Kiểm tra: `noteTable.title`, header 3 cột, ô "fruits" `rowSpan:5`, hàng con `{ skip:true }`, gap 1–8 đúng vị trí
-4. Lưu đề → mở Reading test → bảng hiển thị merge đúng (không lệch cột, ô fruits căn giữa dọc)
-5. Thử thêm đề 2 cột không merge (NZ website) — AI vẫn ra bảng phẳng OK
+### Template mới 2026-07-09 (code → preview)
+P1: r1my (Part1_8), r1nt (Part1_9 Nutmeg), r1ntf (Part1_10 Huarango)
+P2: r2cs (Part2_10 Bike), r2mt (Part2_11 Zoo), r2tn (Part2_12 Silbo)
+P3: r3fy (Part3_8 Play), r3tn (Part3_9 Marine), r3em (Part3_10 Fairy), r3hmy (Part3_11 AI)
 
-### 2 — Template Reading còn thiếu / JPG trong `Tainguyen/IELTS/Template/`
-- `Teamplate_Part1_5.jpg` … `Part1_7` đã có builder; kiểm tra P2/P3 JPG chưa gắn template
-- User có thể gửi ảnh mới → gắn vào template hiện có (không tạo code mới nếu layout trùng signature)
+### Table templates (noteTable n×m) — P1: r1t, r1tt, r1nt, r1ntf | P2: không | P3: r3tb, r3ty
 
-### 3 — Admin publish + batch đề (nếu user cần rollout)
-- Admin → Publish nội dung; batch Reading IELTS Cam9–20
+## Ưu tiên session tới
+### 1 — Verify E2E wizard (user import đề thật)
+1. r1ntf / r1nt notes+table; r2tn Silbo notes sections; r3hmy headings+MC+YNNG
+2. Choose TWO Reading: chọn 2 đáp án 1 list
+3. Cam15 Moore notes: 1930s/1940s/1950s mỗi dòng riêng
+4. r1tt merge bảng (Coconut palm) nếu chưa test browser
 
-## Lỗi / chưa test (2026-07-08)
-- [ ] **r1tt merge ô** — code xong, chưa test wizard AI + UI browser với đề thật
-- [ ] **r1tt SAMPLE passage** — `ieltsReadingP1TableTfngPart()` vẫn passage NZ A–G (AI thay khi generate; có thể đổi passage mẫu Coconut nếu gây nhiễu)
-- [ ] Listening Ô CHỮ mobile iOS — chờ user xác nhận production
-- [ ] IELTS Cam20 Listening UI — chờ user so sánh giao diện
+### 2 — Hard refresh sau HMR template
+- Ctrl+Shift+R nếu "builder is not defined" / track trắng
+
+### 3 — Admin publish + batch Reading Cam (nếu rollout)
+- Admin → Publish nội dung; `pnpm ielts:reading:bundle:all` khi đủ đề
+
+## Lỗi / chưa test
+- [ ] E2E wizard AI từng template mới với PDF/OCR thật (Cam14–15…)
+- [ ] r1tt merge ô — UI browser với đề thật
+- [ ] Listening Ô CHỮ mobile iOS — chờ user
+```
+
+---
+
+## Session 2026-07-09 — IELTS Reading Wizard (tóm tắt)
+
+### Template Reading mới
+| Code | Kind | Passage | Layout | Preview |
+|------|------|---------|--------|---------|
+| r1my | p1-r1-match-ynng-features | P1 | Match đoạn + YNNG + Features | Teamplate_Part1_8.jpg |
+| r1nt | p1-r1-notes-tfng-table | P1 | Notes → TFNG → Table | Teamplate_Part1_9.jpg (Nutmeg) |
+| r1ntf | p1-r1-notes-table-tfng | P1 | Notes → Table → TFNG | Teamplate_Part1_10.jpg (Huarango) |
+| r2cs | p2-r2-match-choose-two-summary | P2 | Match + 2× Choose TWO + Summary | Teamplate_Part2_10.jpg |
+| r2mt | p2-r2-match-tfng-choose-two | P2 | Match + TFNG + Choose TWO | Teamplate_Part2_11.jpg |
+| r2tn | p2-r2-tfng-notes | P2 | TFNG + Notes (Silbo) | Teamplate_Part2_12.jpg |
+| r3fy | p3-r3-features-ynng-summary | P3 | Features + YNNG + Summary | Teamplate_Part3_8.jpg |
+| r3tn | p3-r3-tfng-notes-mc | P3 | TFNG + Notes + MC | Teamplate_Part3_9.jpg |
+| r3em | p3-r3-endings-summary-mc | P3 | Endings + Summary bank + MC | Teamplate_Part3_10.jpg |
+| r3hmy | p3-r3-headings-mc-ynng | P3 | Headings + MC + YNNG | Teamplate_Part3_11.jpg |
+
+### Fix / harden UI & AI
+- **Choose TWO Reading:** multi-select checkbox (2 slots) — `readingChooseTwoUtils.ts` + `ChooseTwoGroup`
+- **ExamTrack trắng:** ErrorBoundary, safe rows, `getTemplateBuilders()` factory (không throw HMR)
+- **Notes ngắt dòng:** `break` type, decade section (1940s/1950s), AI + normalize
+- **noteTable n×m:** pad cột, validate hàng; r1nt validate notes vs table riêng
+- **Sentence completion ngắt dòng:** AI + `splitSummaryNoteParagraphs` + normalize note/prompt
+- **r3tn notes** layout r1n8 đầy đủ; answer Cam14 (large/microplastic/…)
+
+### Files chính
+`ieltsReadingPartTemplates.ts`, `ieltsReadingTemplateCatalog.ts`, `ieltsReadingWizardConfig.ts`,
+`ieltsReadingWizardEdit.ts`, `ieltsReadingAiPrompt.ts`, `ieltsReadingAiNormalize.ts`,
+`ReadingQuestionPanel.tsx`, `readingChooseTwoUtils.ts`, `readingNoteTableUtils.ts`,
+`listeningNotePassage.ts`, `ExamTrackPage.tsx`, `ExamTrackErrorBoundary.tsx`
 
 ---
 
@@ -2337,6 +2378,120 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 - 6 template/passage (P1–P3) cover layout Cam 9–20
 - 18 SVG preview + builders + AI prompt rules + edit signatures
 - Test: /app/exam/track/ielts → Import Wizard Reading → 6 option mỗi passage
+
+## Đã xong (2026-07-09) — Reading P3 template r3hmy (Headings + MC + YNNG)
+- Template `p3-r3-headings-mc-ynng` (`r3hmy`) — preview `Teamplate_Part3_11.jpg` (AI attitudes)
+- Matching headings Q27–32 (A–F, i–viii) + MC Q33–35 + YNNG Q36–40 (claims of writer)
+- Builder `ieltsReadingP3HeadingsMcYnngPart()`; signature `matching-headings|multiple-choice|ynng`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_11.jpg`
+
+## Đã xong (2026-07-09) — Sentence completion: ép ngắt dòng P1–3
+- AI: "Complete the sentences… NO MORE THAN TWO WORDS" — mỗi câu 1 prompt 1 dòng; note multi-sentence = `\\n\\n`
+- Normalize: `normalizeAiSentenceOrSummaryNote` + `normalizeAiSentencePrompts`
+- UI: `splitSummaryNoteParagraphs` — single `\\n` cũng tách dòng khi sentence-style / ≥2 gap lines
+- Template liên quan: r1 sentence-mc, tfng-gap, headings-gap; r2 headings-tfng-sentence; r3 match-paragraph-sentence, gap-ynng/tfng-mc…
+
+## Đã xong (2026-07-09) — Reading P2 template r2tn (TFNG + Notes / Silbo)
+- Template `p2-r2-tfng-notes` (`r2tn`) — preview `Teamplate_Part2_12.jpg` (Silbo Gomero)
+- TFNG Q14–19 + notes ONE WORD Q20–26 (`notePassage` + 3 section: How produced / used / future)
+- AI prompt: **ép ngắt dòng** — mỗi section = `{type:section}`, mỗi bullet 1 block, `break` giữa section
+- Infer: `tfng|gap-fill` + notePassage → r2tn (không nhầm r2fw diagram)
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_12.jpg`
+
+## Đã xong (2026-07-09) — noteTable luôn lưới n cột × m dòng
+- AI prompt: **LUÔN** headers[n] + rows[m], mỗi hàng cells.length === n (pad [])
+- `normalizeReadingNoteTable`: pad/cắt mọi hàng về đúng n cột
+- `validateReadingNoteTable` + AI validate: báo lỗi hàng sai số cột
+- r1ntf / r1tt / mọi table-completion: title tách riêng, không nhét vào header
+
+## Đã xong (2026-07-09) — Reading P1 template r1ntf (Notes + Table + TFNG)
+- Template `p1-r1-notes-table-tfng` (`r1ntf`) — preview `Teamplate_Part1_10.jpg` (Huarango tree)
+- Notes Q1–5 (`notePassage`) + table Q6–8 (`noteTable` 2 cột) + TFNG Q9–13
+- Khác r1nt (notes→TFNG→table): thứ tự **notes → table → TFNG**
+- Signature `gap-fill|gap-fill|tfng`; validate notePassage nhóm 1 + noteTable nhóm 2
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_10.jpg`
+- **Lưu ý:** Ảnh user là Q1–13 → Part 1 (không phải Part 3)
+
+## Đã xong (2026-07-09) — Notes Reading: ép ngắt dòng (1940s/1950s)
+- **Vấn đề:** AI gộp heading thập niên (Cam15 Moore) → UI không xuống dòng
+- **Fix render:** `isNoteDecadeOrEraHeading` + type `break`; atomize/group lines tách section
+- **Fix AI:** prompt notes P1–3 bắt buộc section riêng cho 1930s/1940s/1950s + `break`
+- **Normalize:** `normalizeAiNotePassage` convert decade static → section, `\\n` → blocks/break
+- Types: `ReadingNotePassageBlock` + Listening thêm `break`
+
+## Đã xong (2026-07-09) — Reading P3 template r3em (Endings + Summary bank + MC)
+- Template `p3-r3-endings-summary-mc` (`r3em`) — preview `Teamplate_Part3_10.jpg` (Fairy tales / Tehrani)
+- Sentence endings A–F Q27–31 + summary word bank A–I Q32–36 (`note` inline) + MC Q37–40
+- Builder `ieltsReadingP3EndingsSummaryMcPart()`; signature `summary-completion|summary-completion|multiple-choice`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_10.jpg`
+
+## Đã xong (2026-07-09) — Reading P1 template r1nt (Notes + TFNG + Table)
+- Template `p1-r1-notes-tfng-table` (`r1nt`) — preview `Teamplate_Part1_9.jpg` (Nutmeg)
+- Notes Q1–4 (`notePassage` như r1n8) + TFNG Q5–7 + table Q8–13 (`noteTable` merge 17th century như r1tt)
+- Builder `ieltsReadingP1NotesTfngTablePart()` + `CAM_NUTMEG_NOTE_PASSAGE` + `CAM_NUTMEG_HISTORY_TABLE`
+- Signature: `gap-fill|tfng|gap-fill` (notes → TFNG → table); TABLE_TEMPLATE_KINDS includes r1nt
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_9.jpg`
+
+## Đã xong (2026-07-09) — r3tn notes Q34–39 đủ layout r1n8
+- `CAM_MARINE_DEBRIS_NOTE_PASSAGE`: section heading + bullet/sub-bullet + gap (giống Glass r1n8)
+- Đủ text tĩnh: plastic (not metal or wood), insufficient information on + 3 sub-bullets, Rochman closing
+- Answer key Cam14: 34 large, 35 microplastic, 36 populations, 37 types, 38 survival, 39 disasters
+- AI prompt: bắt buộc notePassage đầy đủ, cấm rút gọn thành `note` string
+
+## Đã xong (2026-07-09) — Fix crash TEMPLATE_BUILDERS / track IELTS trắng
+- **Root cause:** `assertAllTemplateBuildersRegistered()` throw khi HMR catalog cập nhật trước builder body → `ReferenceError: ieltsReadingP3TfngNotesMcPart is not defined` → module fail → ExamTrack Lazy crash
+- **Fix:** TEMPLATE_BUILDERS dùng lazy `() => fn()`; assert chỉ `console.error`, **không throw** lúc load module
+- React Router Future Flag / DevTools messages = warning thường, không phải lỗi trang
+
+## Đã xong (2026-07-09) — Reading P3 template r3tn (TFNG + Notes + MC)
+- Template `p3-r3-tfng-notes-mc` (`r3tn`) — preview JPG `Teamplate_Part3_9.jpg` (Marine debris / Rochman)
+- TFNG Q27–33 + notes ONE WORD Q34–39 (`notePassage` + notesTitle) + MC best title Q40
+- Builder `ieltsReadingP3TfngNotesMcPart()` + `CAM_MARINE_DEBRIS_NOTE_PASSAGE`
+- Signature: `tfng|gap-fill|multiple-choice` (+ notePassage)
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_9.jpg`
+
+## Đã xong (2026-07-09) — Reading P2 template r2mt (Match đoạn + TFNG + Choose TWO)
+- Template `p2-r2-match-tfng-choose-two` (`r2mt`) — preview JPG `Teamplate_Part2_11.jpg` (Zoos)
+- Matching paragraph Q14–17 (A–G) + TFNG Q18–22 + Choose TWO Q23–24 (+ Q25–26 mẫu)
+- Builder `ieltsReadingP2MatchTfngChooseTwoPart()`; signature `matching-paragraph|tfng|multiple-choice`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_11.jpg`
+
+## Đã xong (2026-07-09) — Fix Reading IELTS Choose TWO không chọn 2 đáp án
+- **Root cause:** UI Reading render Choose TWO như 2× MC radio (mỗi câu 1 list) → user không multi-select được 2 option như Listening
+- **Fix:** `readingChooseTwoUtils.ts` + `ChooseTwoGroup` (checkbox, 2 slots) trong `ReadingQuestionPanel`
+- Nhận diện: instruction "Choose TWO" / "Which TWO" + 2 câu MC cùng options; gộp AI 4 câu → split cặp
+- CSS: `.reading-test-choose-two*` trong `readingTest.css`
+- Đáp án vẫn 2 question id (mỗi ô 1 chữ) — scoring không đổi
+
+## Đã xong (2026-07-09) — Reading P3 template r3fy (Features + YNNG + Summary)
+- Template `p3-r3-features-ynng-summary` (`r3fy`) — preview JPG `Teamplate_Part3_8.jpg` (Guided play)
+- Matching features Q27–31 (người A–G) + YNNG Q32–36 (claims of writer) + summary ONE WORD Q37–40 (`note` inline)
+- Builder `ieltsReadingP3FeaturesYnngSummaryPart()` + `CAM_GUIDED_PLAY_SUMMARY_NOTE`
+- Signature: `matching-features|ynng|gap-fill`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_8.jpg`
+
+## Đã xong (2026-07-09) — Reading P1 template r1my (Match đoạn + YNNG + Features)
+- Template `p1-r1-match-ynng-features` (`r1my`) — preview JPG `Teamplate_Part1_8.jpg`
+- Matching paragraph Q1–3 (A–J) + YNNG Q4–6 (claims of writer) + matching features A–C Q7–13 (Hamiltonian/Jeffersonian/Jacksonian)
+- Builder `ieltsReadingP1MatchYnngFeaturesPart()`; signature `matching-paragraph|ynng|matching-features`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_8.jpg`
+
+## Đã xong (2026-07-09) — Fix màn trắng `/app/exam/track/ielts` (harden)
+- **Repro sạch:** Playwright + mock auth → track IELTS **render OK** (Library Archives + nút Import)
+- **Root cause có thể:** crash render từ đề Dexie/localStorage lỗi (`examType`/`parts`/`answer` undefined) → React unmount trắng, không ErrorBoundary
+- **Fix:**
+  - `ExamTrackErrorBoundary` bọc track page (hiện message thay vì trắng)
+  - `safeReadingRow` / `safeListeningRow` + `safeDraftFlag`
+  - `listAllListeningExams` normalize + fallback `examType`/`parts`
+  - `getPartQuestions` / `getListeningExamQuestions` / `isReadingAnswerCorrect` / draft completion — defensive
+- User: **Ctrl+Shift+R** hard refresh sau HMR lỗi transform
+
+## Đã xong (2026-07-09) — Reading P2 template r2cs (Match đoạn + Choose TWO + Summary)
+- Template `p2-r2-match-choose-two-summary` (`r2cs`) — preview JPG `Teamplate_Part2_10.jpg` (Cam14 T1 Bike-sharing)
+- Matching paragraph Q14–18 (A–G, which section) + 2× Choose TWO Q19–20 & Q21–22 + summary ONE WORD Q23–26 (`note` inline)
+- Builder `ieltsReadingP2MatchChooseTwoSummaryPart()` + `CAM14_T1_BIKE_SUMMARY_NOTE`
+- Signature: `matching-paragraph|multiple-choice|multiple-choice|gap-fill`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_10.jpg`
 
 ## Đã xong (2026-07-07) — Reading P1 template r1n (Notes + TFNG)
 - Template `p1-r1-notes-tfng` (`r1n`) — preview JPG `Question1_6.jpg` (Wildfires Q1–6)
@@ -2530,32 +2685,21 @@ Thêm/sửa data trên máy Admin (IndexedDB)
 ## Đã xong (2026-07-07) — Deploy production
 - https://ryanenglishv2.vercel.app — migrations 009–012, SW, Listening publish, Admin publish
 
-## Ưu tiên session mới (chọn theo user)
-### 1 — Verify r1tt bảng merge (ưu tiên mai)
-1. Wizard Reading P1 → template **r1tt** → dán Coconut palm / bảng 3 cột có merge
-2. Verify AI output `rowSpan`/`skip` + UI `ReadingNoteTable.tsx` render đúng
-3. Regression: bảng 2 cột không merge (NZ website) vẫn OK
+## Ưu tiên session mới (chọn theo user) — cập nhật 2026-07-09
+### 1 — Verify E2E template Reading mới (ưu tiên)
+1. Wizard P1: **r1ntf** (Huarango notes+table+TFNG), **r1nt** (Nutmeg), **r1my**
+2. Wizard P2: **r2tn** (Silbo notes sections), **r2mt**, **r2cs** — Choose TWO multi-select
+3. Wizard P3: **r3hmy** (headings+MC+YNNG), **r3tn** notes r1n8, **r3em**, **r3fy**
+4. Cam15 Moore: notes **1930s/1940s/1950s** mỗi dòng riêng sau generate
 
-### 0 — Verify IELTS track (đã pass build 2026-07-08)
+### 0 — IELTS track
 1. `pnpm --filter web dev` → http://localhost:5173/app/exam/track/ielts
-2. **Đăng nhập Google** trước — chưa login sẽ redirect về landing (không phải màn trắng)
-3. Hard refresh Ctrl+Shift+R — phải thấy Library Archives Reading + Listening
+2. **Đăng nhập Google** — hard refresh **Ctrl+Shift+R** nếu HMR lỗi builder
 
-**Verify 2026-07-08 (agent):** `tsc --noEmit` pass; `vite build` pass; Playwright `scripts/check-ielts-track.mjs` — không có console/page error.
+### A — Admin publish / batch Reading
+- Admin → Publish nội dung; batch Cam khi đủ 3 passages
 
-### A — Admin rollout nội dung cho user
-1. Máy Admin đã import → /app/admin → **Publish nội dung** → Publish tất cả
-2. User khác đăng nhập → hard refresh → verify từng module (vocab, đề, nghe, viết…)
-3. Gắn ảnh Reading cloud + publish lại nếu thiếu ảnh
-
-### B — Batch 48 đề Reading IELTS
-1. Cam9 + Cam10 (T1–T4) → Cam11–20
-2. `pnpm ielts:reading:bundle:all` → `pnpm build:catalog` → `pnpm deploy:prod`
-
-### C — Tuỳ chọn kỹ thuật
-- Upload MP3/ảnh Listening custom lên Supabase (KET/PET không khớp catalog)
-- Cache SW cho `reading-exam-media`
-- Wizard Reading template mới + verify Note F5
-- `noteTable` merge: mở rộng `colSpan` nếu gặp đề gộp ngang (hiện mới test rowSpan dọc)
-- Đổi passage SAMPLE `ieltsReadingP1TableTfngPart()` sang Coconut palm (bỏ NZ A–G) nếu AI bị nhiễu schema
+### B — Kỹ thuật còn mở
+- r1tt merge ô E2E browser; SAMPLE passage r1tt → Coconut nếu AI nhiễu
+- Listening Ô CHỮ mobile iOS
 ```
