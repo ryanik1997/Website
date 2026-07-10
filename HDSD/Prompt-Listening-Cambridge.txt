@@ -1,5 +1,11 @@
 Bạn là trợ lý tạo ZIP bundle import đề **Listening** Cambridge (A2–C2) vào web app "Ryan English".
 
+## ⚠ CHECKLIST (bắt buộc trước khi xuất ZIP)
+
+**HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt** — tick hết (JSON, parts, gap-fill không double, audio, answer-key.txt).
+
+---
+
 ## Cách dùng — chọn đúng prompt theo level
 
 Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
@@ -18,10 +24,11 @@ Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
 
 **Tài liệu đính kèm chung:**
 1. PDF đề Listening (Parts theo level)
-2. answer-key.pdf — đáp án Listening
-3. listening.mp3 — **một file audio cả bài** (gắn vào mỗi part)
-4. Ảnh Part 1 (KET/PET): `q1.jpg` … — crop 3 tranh A+B+C mỗi câu
-5. Ảnh Part 2 FCE: `q2.jpg` — minh họa cạnh tiêu đề (tuỳ đề)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript nếu có; ưu tiên `.txt`)
+3. **audioscript.txt** (khuyến nghị) — nếu Answer Key PDF là scan/không copy được chữ
+4. listening.mp3 — **một file audio cả bài** (gắn vào mỗi part)
+5. Ảnh Part 1 (KET/PET): `q1.jpg` … — crop 3 tranh A+B+C mỗi câu
+6. Ảnh Part 2 FCE: `q2.jpg` — minh họa cạnh tiêu đề (tuỳ đề)
 
 Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
 
@@ -34,6 +41,9 @@ File CÙNG CẤP, không thư mục con, UTF-8, ≤ 80MB:
 ```
 exam.json
 listening.mp3                    ← bắt buộc
+answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
+answer-key.txt          ← khuyến nghị nếu PDF scan
+audioscript.txt                  ← khuyến nghị nếu PDF scan
 q1.jpg …                         ← KET Part 1 (5 ảnh) / PET Part 1 (7 ảnh)
 q2.jpg                           ← FCE Part 2 (tuỳ đề)
 ```
@@ -87,8 +97,81 @@ Mỗi **câu** PHẢI có:
 
 Type hợp lệ: `picture-mc` | `multiple-choice` | `gap-fill` | `matching`
 
-Tuỳ chọn part: `passageTitle`, `imageFile`, `audioIntro`, `matchingDualTask`, `taskOneInstruction`, `taskTwoInstruction`
-Tuỳ chọn câu: `context`, `gapLead`, `gapTrail`, `imageFile`, `wordLimit`
+Tuỳ chọn part: `passageTitle`, `imageFile`, `audioIntro`, `matchingDualTask`, `taskOneInstruction`, `taskTwoInstruction`, `ttsText`
+Tuỳ chọn câu: `context`, `gapLead`, `gapTrail`, `imageFile`, `wordLimit`, **`ttsText`** (transcript đoạn nghe — xem lại đề)
+
+---
+
+## ⚠ Answer Key + Audioscript + Transcript (Cambridge A2–C2)
+
+> App nhận **`answer-key.pdf`** và **`answer-key.txt`** (ưu tiên `.txt` nếu cả hai có).
+
+App import ZIP nhận các tên (không phân biệt hoa thường):
+
+| File trong ZIP | App làm gì |
+|----------------|------------|
+| `answer-key.pdf / answer-key.txt` / `Answer Key.pdf` | Trích text → bổ sung `answer` nếu JSON thiếu; nếu có block **Audioscript** → gắn `ttsText` từng câu |
+| `audioscript.txt` / `tapescript.txt` / `transcript.txt` | Parse script → `ttsText` theo số câu |
+| (IELTS Listening) | **Không** auto transcript từ PDF — user bật AI khi xem cùng đề |
+
+### PDF Answer Key
+
+- **Có text layer** (bôi đen/copy được chữ) → app trích được.
+- **Scan ảnh** → thêm `audioscript.txt` (UTF-8) vào ZIP; preview import sẽ cảnh báo nếu PDF không có chữ.
+
+### Cấu trúc text (answer-key hoặc audioscript.txt)
+
+**1) Answer key** (phần đầu):
+
+```
+Part 1
+1 A
+2 C
+…
+Part 2
+6 August
+```
+
+**2) Audioscript** (phần sau — marker bắt buộc để app tách transcript):
+
+```
+AUDIOSCRIPT
+Part 1
+1
+Woman: Shall we meet at the cinema this evening?
+Man: Yes, at half past seven.
+2
+Boy: Where is my bag?
+Girl: It's under the table.
+```
+
+Marker nhận diện: `Audioscript` / `Audio script` / `Tapescript` / `Transcript`.
+
+Mỗi câu: dòng chỉ số `1` hoặc `Question 1`, rồi đoạn thoại (không gộp dòng đáp án ngắn `1 A`).
+
+### Tuỳ chọn ghi sẵn trong exam.json
+
+```json
+{
+  "number": 1,
+  "type": "picture-mc",
+  "prompt": "Where will Claire meet Alex?",
+  "answer": "A",
+  "ttsText": "Woman: Shall we meet at the cinema? Man: Yes, at half past seven.",
+  "explanation": "Họ hẹn gặp lúc 7:30."
+}
+```
+
+Import ZIP: nếu JSON **chưa** có `ttsText` và có Audioscript → app **tự gắn**.
+
+### Trong app — 2 nguồn transcript **song song** (Cambridge)
+
+| Nguồn | Cách dùng |
+|-------|-----------|
+| Import (`ttsText` / Audioscript) | Tự hiện khi **Xem lại đề** / báo cáo |
+| **AI** | **Xem Cùng Đề Bài** → nút **Hiện transcript (AI)** hoặc **Bổ sung / làm rõ transcript (AI)** (cần API key) |
+
+UI: KET / PET / FCE·CAE·CPE đều có thanh transcript AI khi review.
 
 ---
 
@@ -192,6 +275,18 @@ Route: `/app/exam/listening/{examId}`
 | 4 | 21–30 | matching dual | `matchingDualTask` (giống CAE) |
 
 Chi tiết từng level → prompt Universal tương ứng (link ở đầu file).
+
+---
+
+## Checklist ZIP (mọi level A2–C2)
+
+1. `exam.json` — JSON.parse PASS · 1 object · `examType` đúng level
+2. `listening.mp3` — 1 file cả bài · `audioFile` trên **mỗi** part
+3. Ảnh Part 1 (KET/PET) / Part 2 FCE nếu đề có
+4. **answer-key.pdf / answer-key.txt** (text layer) **và/hoặc** **audioscript.txt** — để app gắn transcript + bổ sung đáp án
+5. Title có `Book N` + `Test N` — Library Archives gom đúng quyển
+6. Sau import: Preview có thể báo `Transcript (Cambridge): gắn N câu…`
+7. Trong app: Xem lại đề thấy Transcript; có thể bấm AI bổ sung
 
 ---
 

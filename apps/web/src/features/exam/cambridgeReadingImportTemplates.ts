@@ -396,11 +396,7 @@ function passageBlocks(meta: PartMeta, level: CambridgeLevelSlug): ReadingImport
   }
 
   if (level === 'a2' && meta.partNumber === 7) {
-    return [
-      { imageFile: 'part7-p1.jpg' },
-      { imageFile: 'part7-p2.jpg' },
-      { imageFile: 'part7-p3.jpg' },
-    ]
+    return [{ imageFile: 'part7-page.jpg' }]
   }
 
   if (level === 'b1' && meta.partNumber === 7) {
@@ -508,13 +504,13 @@ export function cambridgeReadingPartGuides(level: CambridgeLevelSlug): Cambridge
       passageHint = 'Ảnh JPG part6-page.jpg (screenshot đề) HOẶC copy text đề email vào passage[].text.'
     }
     if (level === 'a2' && meta.partNumber === 7) {
-      passageHint = '3 ảnh part7-p1.jpg … part7-p3.jpg (bắt buộc đủ 3 khi import bằng ảnh).'
+      passageHint = '1 ảnh part7-page.jpg (toàn trang / 3 khung trong 1 file) — KHÔNG tách part7-p1…p3.'
     }
     if (level === 'b1' && meta.partNumber === 7) {
       passageHint = 'Ảnh part7-page.jpg (screenshot đề) HOẶC copy text đề vào passage[].text.'
     }
     if (level === 'b1' && meta.partNumber === 8) {
-      passageHint = '1 ảnh part8-page.jpg (truyện tranh 3 khung trong 1 file) — KHÔNG tách part8-p1…p3 như KET.'
+      passageHint = '1 ảnh part8-page.jpg (truyện tranh 3 khung trong 1 file).'
     }
     if (level === 'b2' && meta.partNumber === 7) {
       passageHint = 'Tiêu đề + intro; mỗi đoạn A–D = { "label": "A", "text": "..." } — UI hiển thị "Paragraph A" phía trên.'

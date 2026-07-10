@@ -27,6 +27,8 @@ interface Props {
   onUnsureChange: (value: boolean) => void
   reviewMode?: boolean
   reviewStatus?: ExamReviewStatus | null
+  /** IELTS AI transcript — ưu tiên hơn question.ttsText */
+  transcriptOverride?: string | null
 }
 
 export default function ListeningQuestionAnswerPanel({
@@ -37,6 +39,7 @@ export default function ListeningQuestionAnswerPanel({
   onUnsureChange,
   reviewMode = false,
   reviewStatus = null,
+  transcriptOverride,
 }: Props) {
   const highlights = useExamHighlights()
   const isPictureMc = question.type === 'picture-mc'
@@ -48,6 +51,7 @@ export default function ListeningQuestionAnswerPanel({
     ? (reviewStatus
       ?? examReviewStatus(answer, a => isListeningAnswerCorrect(question, a)))
     : null
+  const transcript = (transcriptOverride ?? question.ttsText ?? '').trim()
 
   return (
     <ExamHighlightZone className={`listening-exam-answer-pane${reviewMode ? ' is-review' : ''}`} id={listeningAnswerAnchorId(question.id)}>
@@ -75,6 +79,36 @@ export default function ListeningQuestionAnswerPanel({
           </span>
         )}
       </header>
+
+      {reviewMode && transcript && (
+        <div
+          className="listening-review-transcript-block"
+          style={{
+            marginBottom: 12,
+            padding: '0.65rem 0.8rem',
+            borderRadius: 10,
+            border: '1px solid var(--border-color)',
+            background: 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary, #f8fafc))',
+            fontSize: '0.88rem',
+            lineHeight: 1.5,
+            color: 'var(--text-primary)',
+          }}
+        >
+          <p
+            style={{
+              margin: '0 0 0.35rem',
+              fontSize: '0.72rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--color-primary)',
+            }}
+          >
+            Transcript · Câu {question.number}
+          </p>
+          <p style={{ margin: 0 }}>{transcript}</p>
+        </div>
+      )}
 
       {isPictureMc && usesCompositePictureBoard(question) && (
         <ListeningPictureChoiceRow

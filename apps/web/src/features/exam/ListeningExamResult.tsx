@@ -158,7 +158,17 @@ export default function ListeningExamResult({
                   {formatListeningAnswer(question, question.answer)}
                 </p>
               )}
-              <p className="listening-exam-result__explain">{question.explanation}</p>
+              {/* Cambridge A2–C2: transcript từ Audioscript import. IELTS: dùng AI khi xem cùng đề. */}
+              {framework === 'cambridge' && question.ttsText?.trim() && (
+                <p className="listening-exam-result__transcript" style={{ marginTop: 6 }}>
+                  <span className="listening-exam-result__ans-label">Transcript: </span>
+                  {question.ttsText.trim()}
+                </p>
+              )}
+              {question.explanation?.trim()
+                && !(framework === 'cambridge' && question.explanation.trim() === question.ttsText?.trim()) && (
+                <p className="listening-exam-result__explain">{question.explanation}</p>
+              )}
             </div>
           </article>
         )
@@ -200,6 +210,11 @@ export default function ListeningExamResult({
       )}
       <span style={{ fontSize: 12, opacity: 0.85 }}>
         Tạo bài Thư viện nghe (cùng audio key nếu có) · Ô chữ / Cloze / Tự gõ
+      </span>
+      <span style={{ fontSize: 12, opacity: 0.9 }}>
+        {framework === 'ielts'
+          ? <>Transcript: <strong>Xem Cùng Đề Bài</strong> → <strong>Hiện transcript (AI)</strong>.</>
+          : <>Transcript: từ Audioscript import và/hoặc <strong>Xem Cùng Đề Bài</strong> → <strong>Hiện transcript (AI)</strong>.</>}
       </span>
     </div>
   )

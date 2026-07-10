@@ -1,0 +1,68 @@
+Gửi DeepSeek cho KET Listening Test 2
+
+Mỗi lần 1 test. Trong chat DeepSeek đính kèm:
+
+┌───┬────────────────┬───────┬────────────────────┐
+│ # │ File (trong    │ Bắt   │ Ghi chú            │
+│   │ folder của     │ buộc? │                    │
+│   │ bạn)           │       │                    │
+├───┼────────────────┼───────┼────────────────────┤
+│ 1 │ Prompt-KET-A2- │ Có    │ Paste nội dung     │
+│   │ Listening-     │       │ prompt (hoặc       │
+│   │ Universal.txt  │       │ attach)            │
+├───┼────────────────┼───────┼────────────────────┤
+│ 2 │ Test_2_        │ Có    │ Đề Listening Parts │
+│   │ Listening_KET  │       │ 1–5                │
+│   │ _A2.pdf        │       │                    │
+├───┼────────────────┼───────┼────────────────────┤
+│ 3 │ answer-key.txt │ Có    │ Đáp án (ưu tiên .  │
+│   │                │       │ txt)               │
+├───┼────────────────┼───────┼────────────────────┤
+│ 4 │ audioscript    │ Nên   │ Để AI điền ttsText │
+│   │ .txt           │ gửi   │ / đối chiếu; app   │
+│   │                │       │ cũng dùng file này │
+│   │                │       │ khi ZIP            │
+├───┼────────────────┼───────┼────────────────────┤
+│ 5 │ q1.jpg … q5.   │ Nên   │ Part 1 picture-mc  │
+│   │ jpg            │       │ (1 ảnh A+B+C/câu)  │
+│   │                │       │ — gửi để DeepSeek  │
+│   │                │       │ biết tên file      │
+│   │                │       │ trong JSON         │
+└───┴────────────────┴───────┴────────────────────┘
+
+Không gửi DeepSeek
+
+┌────────────────┬────────────────────────────────┐
+│ File           │ Lý do                          │
+├────────────────┼────────────────────────────────┤
+│ listening.mp3  │ Nặng, AI không cần; bạn thêm   │
+│                │ vào ZIP sau                    │
+├────────────────┼────────────────────────────────┤
+│ ZIP cũ / exam. │ Trừ khi nhờ DeepSeek sửa JSON  │
+│ json cũ        │ có sẵn                         │
+├────────────────┼────────────────────────────────┤
+│ Checklist      │ Dùng cho bạn tick sau khi nhận │
+│                │ JSON (không bắt buộc gửi AI)   │
+└────────────────┴────────────────────────────────┘
+
+───
+
+Dòng context dán cùng tin nhắn
+
+Book 1 · Test 2 · examType ket · audioFile listening.mp3
+Cam 1 / KET A2 Listening Test 2
+Xuất exam.json đúng schema Universal + checklist gap-fill Part 2 không double form.
+
+───
+
+DeepSeek trả về → bạn pack ZIP (phẳng)
+
+exam.json          ← từ DeepSeek
+listening.mp3      ← từ folder (không gửi AI)
+answer-key.txt
+audioscript.txt
+q1.jpg … q5.jpg
+
+→ Zip cùng cấp (không bọc folder con) → Import app.
+
+Tóm tắt tối thiểu: prompt + PDF đề + answer-key.txt + audioscript.txt (+ ảnh P1 nếu có). Không gửi MP3.

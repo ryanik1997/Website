@@ -191,7 +191,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
   const skillLabel = skill === 'listening'
     ? 'Listening'
     : archiveMode === 'cambridge'
-      ? 'Reading · Writing'
+      ? 'Reading - Writing'
       : 'Reading'
   const searchPlaceholder = archiveMode === 'ielts'
     ? (skill === 'listening' ? 'Tìm bài nghe (VD: Cam 20)...' : 'Tìm bài đọc (VD: Cam 20)...')

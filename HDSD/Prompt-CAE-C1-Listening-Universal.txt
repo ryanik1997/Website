@@ -1,16 +1,20 @@
 Bạn là trợ lý tạo ZIP bundle import đề **Listening** CAE C1 (Cambridge) vào web app "Ryan English".
 
+
+**Checklist trước ZIP:** HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
 Mỗi lần chỉ đính kèm file của **1 test**:
 1. Test_{N}_Listening_CAE_C1.pdf — đề Listening (Parts 1–4)
-2. answer-key.pdf — đáp án Listening
-3. listening.mp3 — file audio cả bài (~40 phút)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript trong cùng file nếu có; `.txt` khuyến nghị)
+3. audioscript.txt — khuyến nghị nếu PDF scan
+4. listening.mp3 — file audio cả bài (~40 phút)
 
 → Đọc **Book** từ thư mục: `CAE C1_Cam {B}`
 → Xuất ZIP: `cae-Listening-test{N}.zip`
 
 Tham chiếu UI: `Giaodien/Taicautruc/Listening_CAE_C1/Part1.jpg` … `Part4.jpg`, `Giaodien/a10.jpg` (dual-task)
+Schema chung + transcript: **HDSD/Prompt-Listening-Cambridge.txt**
 
 ---
 
@@ -19,6 +23,9 @@ Tham chiếu UI: `Giaodien/Taicautruc/Listening_CAE_C1/Part1.jpg` … `Part4.jpg
 ```
 exam.json
 listening.mp3
+answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
+answer-key.txt          ← khuyến nghị nếu PDF scan
+audioscript.txt      ← nếu PDF scan
 ```
 
 ```json
@@ -41,6 +48,7 @@ listening.mp3
 
 - Header Cambridge + **Exit**
 - Footer **4 tab Part** · timer **40 phút**
+- **Xem lại đề:** Transcript từ Audioscript import **và/hoặc** nút **Hiện transcript (AI)**
 - Part 3: **tất cả** câu MC scroll một trang
 - Part 4: dual-task **dọc** Task One rồi Task Two
 
@@ -54,6 +62,17 @@ listening.mp3
 Schema chung: **HDSD/Prompt-Listening-Cambridge.txt**
 
 ---
+
+
+---
+
+## Answer Key + Audioscript (CAE)
+
+1. Phần đáp án theo Part (map đúng Q1–30).
+2. Phần **AUDIOSCRIPT** sau đáp án — mỗi câu một block số + thoại (marker: Audioscript / Tapescript / Transcript).
+3. Hoặc file riêng `audioscript.txt` cùng cấp ZIP (bắt buộc nếu PDF scan / không text layer).
+4. App import ZIP: tự gắn `ttsText` từng câu → hiện khi **Xem lại đề**; user có thể bấm **AI** để bổ sung/làm rõ (song song).
+5. Tuỳ chọn ghi sẵn `"ttsText"` trong exam.json cho từng câu.
 
 ## Part 1 (Q1–6) — Three extracts + MC
 
@@ -191,10 +210,16 @@ Quy tắc Part 4:
 4. Câu 26–30: options **khác** câu 21–25
 5. `examType`: `"cae"` · `durationMinutes`: **40**
 
+7. Có `answer-key.pdf / answer-key.txt` (text) và/hoặc `audioscript.txt` + marker **AUDIOSCRIPT**
+8. Title đúng Book/Test — Library Archives gom quyển
 ## Lỗi thường gặp
 
 | Lỗi | Đúng |
 |-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
+| Answer Key PDF scan, không transcript | Thêm `audioscript.txt` UTF-8 |
+| Không có block AUDIOSCRIPT | App không auto `ttsText` — dùng AI khi xem lại |
 | Part 4 một bảng A–H cho cả 30 câu | **Hai** bảng: 21–25 và 26–30 |
 | Thiếu matchingDualTask | Bắt buộc `true` + 2 task instruction |
 | Part 3 chỉ 3 options | CAE P3 = **A/B/C/D** |

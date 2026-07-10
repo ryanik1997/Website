@@ -20,8 +20,10 @@ import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
 import { buildListeningReviewStatusMap, examReviewPillStyle, type ExamReviewStatus } from './examReviewUtils'
 import ListeningReviewActiveBar from './ListeningReviewActiveBar'
+import ListeningReviewTranscriptToolbar from './ListeningReviewTranscriptToolbar'
 import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
+import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, resolveListeningAudioSource } from './listeningExamAudio'
@@ -145,6 +147,7 @@ export default function ListeningFceTest({ exam }: Props) {
       submitted,
       highlightsByPart,
       notesByPart,
+      updatedAt: Date.now(),
     }))
     notifyExamDraftRevision()
     } catch {
@@ -245,6 +248,20 @@ export default function ListeningFceTest({ exam }: Props) {
     return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
   }, [activeQuestionId, allQuestions, reviewMode])
 
+  const activeReviewQuestion = useMemo(
+    () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
+    [activeQuestionId, allQuestions],
+  )
+  const {
+    showToolbar: showTranscriptToolbar,
+    loading: transcriptLoading,
+    error: transcriptError,
+    aiCount: transcriptAiCount,
+    importedCount: transcriptImportedCount,
+    transcriptForActive,
+    runAi: runTranscriptAi,
+  } = useListeningReviewTranscript(exam, reviewMode, activeReviewQuestion)
+
   if (submitted && !reviewMode) {
     return (
       <ListeningSubmittedScreen
@@ -271,11 +288,22 @@ export default function ListeningFceTest({ exam }: Props) {
           <button type="button" className="rounded-full px-3 py-1.5 text-xs font-bold" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }} onClick={() => setReviewMode(false)}>Về báo cáo</button>
         </div>
       )}
+      {showTranscriptToolbar && (
+        <ListeningReviewTranscriptToolbar
+          loading={transcriptLoading}
+          error={transcriptError}
+          aiCount={transcriptAiCount}
+          importedCount={transcriptImportedCount}
+          onRunAi={force => void runTranscriptAi(force)}
+          variant="cambridge"
+        />
+      )}
       {reviewMode && (
         <ListeningReviewActiveBar
-          question={allQuestions.find(q => q.id === activeQuestionId) ?? null}
+          question={activeReviewQuestion}
           userAnswer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
           status={activeQuestionId ? (reviewStatusMap[activeQuestionId] ?? null) : null}
+          transcriptOverride={transcriptForActive}
         />
       )}
       {reviewMode && reviewAiText && (

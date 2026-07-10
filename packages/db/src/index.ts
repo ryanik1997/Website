@@ -21,7 +21,15 @@ export { examRepo } from './local/repositories/examRepo'
 export { listeningExamRepo } from './local/repositories/listeningExamRepo'
 export { notebookRepo, phraseKeyOf } from './local/repositories/notebookRepo'
 export type { NotebookSaveInput } from './local/repositories/notebookRepo'
-export { syncLocalToCloud, syncCloudToLocal, isLocalEmpty } from './cloud/sync'
+export {
+  syncLocalToCloud,
+  syncCloudToLocal,
+  syncBidirectional,
+  isLocalEmpty,
+  isCloudUuid,
+} from './cloud/sync'
+export type { SyncStats } from './cloud/sync'
+export { isPresetDeck, deckIdentityKey, normalizeDeckNameKey } from './cloud/presetDeck'
 export {
   clearLocalUserData,
   clearUserScopedLocalStorage,

@@ -1,21 +1,48 @@
 import { useEffect, useState } from 'react'
 import { ChevronLeft } from 'lucide-react'
+import { useLiveQuery } from 'dexie-react-hooks'
+import { db } from '@ryan/db'
 import { useVocabStore } from '../features/vocab/vocabStore'
 import DeckGrid from '../features/vocab/DeckGrid'
 import CardPanel from '../features/vocab/CardPanel'
 import StudySession from '../features/vocab/StudySession'
 import DeckEditorModal from '../features/vocab/DeckEditorModal'
-import { seedPresetDecks } from '../features/vocab/vocabSeedDecks'
+import { repairVocabDuplicates, seedPresetDecks } from '../features/vocab/vocabSeedDecks'
 import { seedExamVocabDecks } from '../features/vocab/examVocabDecks'
 
 export default function VocabularyPage() {
   const { activeDeckId, setActiveDeck, studyMode, startStudy } = useVocabStore()
   const [createState, setCreateState] = useState<{ open: boolean; groupId?: string }>({ open: false })
+  const [repairBusy, setRepairBusy] = useState(false)
+  const [repairMsg, setRepairMsg] = useState<string | null>(null)
+  // Force DeckGrid remount after repair
+  const [gridKey, setGridKey] = useState(0)
+  const deckCount = useLiveQuery(() => db.decks.count(), [])
 
   useEffect(() => {
-    void seedPresetDecks()
-    void seedExamVocabDecks()
+    // seedPresetDecks: idempotent + dedupe deck/card (fix double "Công nghệ", …)
+    void seedPresetDecks().catch(err => console.warn('[vocab] seedPresetDecks failed', err))
+    void seedExamVocabDecks().catch(err => console.warn('[vocab] seedExamVocabDecks failed', err))
   }, [])
+
+  async function handleRepairDuplicates() {
+    if (repairBusy) return
+    setRepairBusy(true)
+    setRepairMsg(null)
+    try {
+      const { decksRemoved } = await repairVocabDuplicates()
+      setGridKey(k => k + 1)
+      setRepairMsg(
+        decksRemoved > 0
+          ? `Đã gộp ${decksRemoved} bộ trùng + dọn thẻ trùng phrase.`
+          : 'Đã dọn thẻ trùng phrase (không còn bộ ghost).',
+      )
+    } catch (e) {
+      setRepairMsg(e instanceof Error ? e.message : 'Dọn thất bại')
+    } finally {
+      setRepairBusy(false)
+    }
+  }
 
   if (activeDeckId === null) {
     return (
@@ -28,9 +55,29 @@ export default function VocabularyPage() {
               </h1>
               <p className="text-sm mt-0.5" style={{ color: 'var(--text-muted)' }}>
                 Chọn bộ từ để bắt đầu học
+                {typeof deckCount === 'number' ? ` · ${deckCount} bộ` : ''}
               </p>
+              {repairMsg && (
+                <p className="text-xs mt-1 font-medium" style={{ color: 'var(--color-primary)' }}>
+                  {repairMsg}
+                </p>
+              )}
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
+              <button
+                type="button"
+                disabled={repairBusy}
+                onClick={() => void handleRepairDuplicates()}
+                className="px-3 py-2 rounded-xl text-xs font-semibold border transition-opacity hover:opacity-90 disabled:opacity-50"
+                style={{
+                  borderColor: 'var(--border-color)',
+                  color: 'var(--text-secondary)',
+                  background: 'var(--bg-card)',
+                }}
+                title="Gộp bộ preset trùng + thẻ cùng phrase trong một bộ"
+              >
+                {repairBusy ? 'Đang dọn…' : 'Dọn thẻ trùng'}
+              </button>
               <button
                 type="button"
                 onClick={() => startStudy('notebook')}
@@ -55,6 +102,7 @@ export default function VocabularyPage() {
           </div>
 
           <DeckGrid
+            key={gridKey}
             onSelectDeck={id => setActiveDeck(id)}
             onCreateDeck={groupId => setCreateState({ open: true, groupId })}
           />

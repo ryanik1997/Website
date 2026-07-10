@@ -11,6 +11,8 @@ interface Props {
   question: ListeningQuestion | null
   userAnswer: string
   status: ExamReviewStatus | null
+  /** Ưu tiên hơn question.ttsText (vd. IELTS AI transcript) */
+  transcriptOverride?: string | null
 }
 
 /**
@@ -21,6 +23,7 @@ export default function ListeningReviewActiveBar({
   question,
   userAnswer,
   status,
+  transcriptOverride,
 }: Props) {
   if (!question || !status) return null
 
@@ -29,6 +32,7 @@ export default function ListeningReviewActiveBar({
   const c = EXAM_REVIEW_COLORS[status]
   const isMcLike = (question.options?.length ?? 0) > 0
     && (question.type === 'multiple-choice' || question.type === 'matching' || question.type === 'picture-mc')
+  const transcript = (transcriptOverride ?? question.ttsText ?? '').trim()
 
   return (
     <div
@@ -133,6 +137,39 @@ export default function ListeningReviewActiveBar({
               </span>
             )
           })}
+        </div>
+      )}
+
+      {transcript && (
+        <div
+          className="listening-review-transcript"
+          style={{
+            width: '100%',
+            marginTop: 6,
+            padding: '0.55rem 0.75rem',
+            borderRadius: 10,
+            border: '1px solid var(--border-color)',
+            background: 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary, #f8fafc))',
+            fontSize: '0.84rem',
+            fontWeight: 500,
+            lineHeight: 1.45,
+            color: 'var(--text-primary)',
+          }}
+        >
+          <span
+            style={{
+              display: 'block',
+              fontSize: '0.7rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--color-primary)',
+              marginBottom: 4,
+            }}
+          >
+            Transcript
+          </span>
+          {transcript}
         </div>
       )}
     </div>

@@ -17,6 +17,13 @@ export interface ExamAudioPlayOptions {
   onPlayCounted?: () => void
 }
 
+/** Blob Dexie đôi khi mất type → trình duyệt không decode MP3. */
+async function blobAsAudio(blob: Blob, fallbackMime = 'audio/mpeg'): Promise<Blob> {
+  if (blob.type && blob.type.startsWith('audio/')) return blob
+  const buf = await blob.arrayBuffer()
+  return new Blob([buf], { type: fallbackMime })
+}
+
 export function useExamQuestionAudio() {
   const [playing, setPlaying] = useState(false)
   const [buffering, setBuffering] = useState(false)
@@ -36,19 +43,25 @@ export function useExamQuestionAudio() {
     }
   }, [])
 
-  const cleanupAudio = useCallback(() => {
+  /** Dừng element + TTS; chỉ revoke blob URL cũ nếu khác `keepSrc`. */
+  const stopCurrentAudio = useCallback((keepSrc?: string) => {
     cancelProgress()
     if (audioRef.current) {
       audioRef.current.pause()
-      audioRef.current.src = ''
+      audioRef.current.removeAttribute('src')
+      audioRef.current.load()
       audioRef.current = null
     }
-    if (objectUrlRef.current) {
+    stopTts()
+    if (objectUrlRef.current && objectUrlRef.current !== keepSrc) {
       URL.revokeObjectURL(objectUrlRef.current)
       objectUrlRef.current = null
     }
-    stopTts()
   }, [cancelProgress])
+
+  const cleanupAudio = useCallback(() => {
+    stopCurrentAudio()
+  }, [stopCurrentAudio])
 
   useEffect(() => () => cleanupAudio(), [cleanupAudio])
 
@@ -72,7 +85,13 @@ export function useExamQuestionAudio() {
   }, [cancelProgress])
 
   const playHtmlAudio = useCallback(async (src: string, rate: number) => {
-    cleanupAudio()
+    // QUAN TRỌNG: không revoke `src` nếu đó là blob URL sắp phát
+    // (bug cũ: play() gán objectUrlRef rồi cleanupAudio() revoke ngay → MP3 import fail)
+    stopCurrentAudio(src)
+    if (src.startsWith('blob:')) {
+      objectUrlRef.current = src
+    }
+
     setBuffering(true)
     setPlaying(true)
     setProgressPct(0)
@@ -96,7 +115,12 @@ export function useExamQuestionAudio() {
       const onError = () => {
         cleanupListeners()
         const code = audio.error?.code
-        reject(new Error(`Không tải được audio (${src}${code != null ? `, code ${code}` : ''})`))
+        const msg = audio.error?.message
+        reject(
+          new Error(
+            `Không tải được audio${code != null ? ` (code ${code})` : ''}${msg ? `: ${msg}` : ''}`,
+          ),
+        )
       }
       audio.addEventListener('loadedmetadata', onReady)
       audio.addEventListener('canplay', onReady)
@@ -117,10 +141,10 @@ export function useExamQuestionAudio() {
     }
 
     await audio.play()
-  }, [cancelProgress, cleanupAudio, startProgressLoop])
+  }, [cancelProgress, startProgressLoop, stopCurrentAudio])
 
   const playTtsFallback = useCallback(async (text: string, rate: number) => {
-    cleanupAudio()
+    stopCurrentAudio()
     const speechRate = rate === 1 ? 0.85 : 0.6
     const kokoroSpeed = mapRateToSpeed(speechRate)
 
@@ -146,7 +170,7 @@ export function useExamQuestionAudio() {
       setBuffering(false)
       setPlaying(false)
     }
-  }, [cancelProgress, cleanupAudio, startProgressLoop])
+  }, [cancelProgress, startProgressLoop, stopCurrentAudio])
 
   const play = useCallback(async (
     source: ExamAudioSource,
@@ -159,14 +183,19 @@ export function useExamQuestionAudio() {
 
     const staticUrl = resolveExamMediaUrl(source.audioUrl)
     const htmlSources: string[] = []
+    /** Blob URL tạo trong lượt play này — revoke nếu fail (trừ khi đã gắn objectUrlRef khi play OK) */
+    const ownedBlobs: string[] = []
 
     if (source.audioKey) {
       try {
         const record = await audioRepo.get(source.audioKey)
         if (record?.blob && record.blob.size > 0) {
-          const blobUrl = URL.createObjectURL(record.blob)
-          objectUrlRef.current = blobUrl
+          const typed = await blobAsAudio(record.blob)
+          const blobUrl = URL.createObjectURL(typed)
+          ownedBlobs.push(blobUrl)
           htmlSources.push(blobUrl)
+        } else if (source.audioKey) {
+          console.warn('[exam audio] blob missing or empty for key', source.audioKey, record?.blob?.size)
         }
       } catch (blobError) {
         console.warn('Exam audio blob unavailable, trying URL fallback', source.audioKey, blobError)
@@ -180,11 +209,23 @@ export function useExamQuestionAudio() {
       for (const src of htmlSources) {
         try {
           await playHtmlAudio(src, rate)
+          // Play OK — blob URL đang dùng nằm trong objectUrlRef; đừng revoke
           options.onPlayCounted?.()
           return
         } catch (attemptError) {
           console.warn('Exam audio source failed, trying next', src, attemptError)
-          cleanupAudio()
+          // Revoke blob failed attempt nếu không còn giữ
+          if (src.startsWith('blob:') && objectUrlRef.current !== src) {
+            URL.revokeObjectURL(src)
+          }
+          stopCurrentAudio()
+        }
+      }
+
+      // Dọn blob URLs chưa dùng / fail
+      for (const b of ownedBlobs) {
+        if (objectUrlRef.current !== b) {
+          try { URL.revokeObjectURL(b) } catch { /* ignore */ }
         }
       }
 
@@ -197,34 +238,43 @@ export function useExamQuestionAudio() {
 
       if (htmlSources.length === 0) {
         setTimeLabel('— / —')
-        setPlayError('Không tìm thấy file audio. Kiểm tra MP3 trong ZIP import hoặc dùng đề builtin.')
+        setPlayError(
+          source.audioKey
+            ? `Không tìm thấy blob audio (key: ${source.audioKey}). Import lại ZIP kèm MP3.`
+            : 'Không tìm thấy file audio. Kiểm tra MP3 trong ZIP import hoặc dùng đề builtin.',
+        )
         return
       }
 
-      cleanupAudio()
+      stopCurrentAudio()
       setPlaying(false)
       setBuffering(false)
       setPlayError('Không phát được audio. Thử import lại ZIP kèm MP3 hoặc dùng đề builtin catalog.')
     } catch (error) {
       console.warn('Exam audio playback failed', error)
+      for (const b of ownedBlobs) {
+        if (objectUrlRef.current !== b) {
+          try { URL.revokeObjectURL(b) } catch { /* ignore */ }
+        }
+      }
       const ttsText = source.ttsText?.trim()
       if (ttsText) {
         await playTtsFallback(ttsText, rate)
         options.onPlayCounted?.()
       } else {
-        cleanupAudio()
+        stopCurrentAudio()
         setPlaying(false)
         setBuffering(false)
         setPlayError('Không phát được audio. Thử import lại ZIP kèm MP3 hoặc dùng đề builtin catalog.')
       }
     }
-  }, [cleanupAudio, playHtmlAudio, playTtsFallback, speed])
+  }, [playHtmlAudio, playTtsFallback, speed, stopCurrentAudio])
 
   const stopPlayback = useCallback(() => {
-    cleanupAudio()
+    stopCurrentAudio()
     setPlaying(false)
     setBuffering(false)
-  }, [cleanupAudio])
+  }, [stopCurrentAudio])
 
   const seekToPct = useCallback((pct: number, allowSeek = true) => {
     if (!allowSeek) return

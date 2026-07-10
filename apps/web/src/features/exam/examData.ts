@@ -1000,6 +1000,7 @@ export const READING_EXAMS: ReadingExam[] = [
       },
     ],
   },
+  // Sample stub + catalog; listAllReadingExams ẩn sample khi đã có catalog cùng level
   ...CAMBRIDGE_READING_SAMPLES,
   ...(CATALOG_READING_EXAMS as ReadingExam[]),
 ]

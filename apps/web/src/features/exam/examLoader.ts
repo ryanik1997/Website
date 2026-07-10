@@ -2,6 +2,7 @@ import type { ReadingExamRecord } from '@ryan/db'
 import { examRepo } from '@ryan/db'
 import type { ReadingExam, ReadingPart } from './examData'
 import { READING_EXAMS } from './examData'
+import { dedupeExamsForLibraryDisplay } from './examListFilter'
 import { getPublishedReadingExam, listPublishedReadingExams } from './readingExamPublish'
 import { sanitizeReadingExam } from './readingExamSanitize'
 
@@ -49,7 +50,8 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
   const publishedIds = new Set(published.map(e => e.id))
   const publishedOnly = published.map(sanitizeReadingExam).filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
-  return [...READING_EXAMS, ...publishedOnly, ...localOnly]
+  // Dedupe sample/catalog/local cùng Test (vd. double "Test 1 · A2 Key Reading — 5 parts")
+  return dedupeExamsForLibraryDisplay([...READING_EXAMS, ...publishedOnly, ...localOnly])
 }
 
 export function examRecordFromReading(exam: ReadingExam, source: 'pdf' | 'manual', sourceFilename?: string) {

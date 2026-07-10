@@ -13,6 +13,8 @@ interface Props {
   onPick: (skill: ExamSkillPick) => void
   /** Ẩn skill không có trong level (hiếm) */
   skills?: ExamSkillPick[]
+  /** Cambridge RW paper: "Reading - Writing"; IELTS mặc định "Reading" */
+  readingTitle?: string
 }
 
 function formatCount(n: number): string {
@@ -30,6 +32,7 @@ export default function ExamSkillPicker({
   readingCount,
   onPick,
   skills = ['listening', 'reading'],
+  readingTitle = 'Reading',
 }: Props) {
   const showListening = skills.includes('listening')
   const showReading = skills.includes('reading')
@@ -97,7 +100,7 @@ export default function ExamSkillPicker({
                 </span>
                 <span className="exam-skill-card__decor exam-skill-card__decor--sun">✦</span>
               </div>
-              <h2 className="exam-skill-card__title">Reading</h2>
+              <h2 className="exam-skill-card__title">{readingTitle}</h2>
               <p className="exam-skill-card__desc">
                 Đọc hiểu đa dạng chủ đề với 100+ bài đọc chọn lọc, nâng cao vốn từ và tư duy.
               </p>

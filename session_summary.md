@@ -12,7 +12,8 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-09** — Dictionary offline+Pro AI · MindMap export/templates · CEFR + gợi ý sau exam · Sổ ghi chú v12
+- **Session:** **2026-07-10** — Cambridge skill picker: nhãn **Reading - Writing** (A2–C2); IELTS giữ Reading
+- **Session trước:** **2026-07-09** — Dictionary offline+Pro AI · MindMap export/templates · CEFR + gợi ý sau exam · Sổ ghi chú v12
 - **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung** (không cần import lại)
 - **Production:** https://ryanenglishv2.vercel.app — **đã deploy** (SW cache, Listening publish, Admin publish v012); migrations 009–012 đã push
 - **Dev:** `pnpm dev` → `/app/exam/track/ielts` → Import Wizard Reading (P1/P2/P3 templates)
@@ -2993,10 +2994,46 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - UI: tìm kiếm, sửa memo, xóa, phát âm — CSS theme-aware
 - `pnpm --filter web exec tsc --noEmit` — pass
 
-## Next session start prompt (cập nhật 2026-07-09 — sổ ghi chú)
-1. Vocab → Học SRS → bấm **Lưu sổ ghi chú** → tab/nút **Sổ ghi chú** xem danh sách
-2. (Tuỳ chọn) Thêm nút Lưu sổ vào Quiz/Type/Listen; sync cloud notebook nếu cần
-3. Verify E2E template Reading nếu còn pending
+## Next session start prompt (cập nhật 2026-07-10 — offline dict Part1)
+1. Từ điển FAB → tra `abandon`, `environment`, `look forward to` (offline, không cần Pro)
+2. (Tuỳ chọn) Part2.json → `pnpm build:dict:part1` mở rộng; seed deck vocab từ JSON
+3. Test sync LWW + exam progress nếu chưa verify
+
+## Đã xong (2026-07-10) — Offline dictionary Part 1 (300 từ)
+- Sửa/hoàn thiện `Tainguyen/TuDien/Part1.json` (file cũ truncated ~105 từ) → **300 cards** A2–C2
+- Copy bundle: `apps/web/src/features/dictionary/data/offlinePart1.json`
+- `offlineDictPack.ts` load Part1 + ~60 cụm phrase writing
+- Script: `pnpm build:dict:part1` (`scripts/build-dict-part1.mjs`)
+- DictionaryModal: hiển thị số mục offline thật
+- `tsc` pass
+
+## Next session start prompt (cập nhật 2026-07-10 — Supabase sync thật)
+1. `pnpm db:push` — áp migration **014_exam_progress_sync.sql** trên Supabase
+2. Test offline→online: sửa deck/SRS offline → online → sync; mở máy 2 pull LWW
+3. Reading/Listening: làm dở / nộp bài → Đồng bộ → thiết bị khác thấy draft
+4. Electron: export Vocabulary v2 / legacy backup → Settings → Nhập backup → Đồng bộ đám mây
+5. (Tuỳ chọn) notebook cloud sync; verify E2E Reading template
+
+## Đã xong (2026-07-10) — Supabase sync kích hoạt thật
+### Conflict resolution offline→online
+- `packages/db/src/cloud/sync.ts` — **`syncBidirectional`** (LWW theo `updated_at` / SRS `lastReviewedAt`)
+- `useSyncManager` luôn gọi bidirectional (không còn push-only khi local có data)
+- Preset deck vẫn bỏ qua sync cloud
+
+### Reading/Listening exam progress sync
+- Migration **`014_exam_progress_sync.sql`** — bảng `exam_progress` (user_id, skill, exam_id, payload jsonb)
+- `examProgressSync.ts` — merge localStorage drafts ↔ cloud (LWW `updatedAt`)
+- Draft saves stamp `updatedAt` (Reading IELTS, Cambridge RW shells, Listening KET/PET/IELTS/FCE)
+
+### Electron → Web migration
+- `electronMigrate.ts` — Vocabulary export v2 + legacy `flashcardCustomDecks_v6` / SRS
+- Non-UUID id → stable UUID remap (sync Supabase được)
+- `importBackup` auto-detect Electron/legacy nếu không phải Web backup v1–3
+- Settings: mô tả hỗ trợ Electron + sync hai chiều
+
+### Verify
+- `pnpm exec tsc --noEmit` (apps/web) — pass
+- **Cần `pnpm db:push`** trước khi exam progress sync hoạt động đầy đủ
 
 ## Da xong (2026-07-09) — Dictionary offline+Pro / MindMap export+templates / CEFR+exam suggestions
 - offlineDictPack + dictionary_ai gate
@@ -3010,3 +3047,55 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - Play limit free/basic + slow 0.5/0.75 + Nghe chunk
 - Transcript jump-to-word (uoc luong time-align)
 
+## Đã xong (2026-07-10) — Vocab double card (phrase trùng)
+- **Root cause:** gộp deck preset (`dedupePresetDecks` / admin publish) chuyển thẻ theo id khác nhau → cùng phrase trong 1 deck; import CSV luôn `add` (không unique)
+- **Fix:**
+  - `cardRepo.dedupeByPhrase` / `dedupeAllDecks` — gộp theo phrase (case-insensitive), giữ SRS tốt nhất, merge field thiếu, chuyển reviewLog
+  - Gọi sau migrate deck, `dedupePresetDecks`, `seedPresetDecks`, `mergeVocab` (admin publish)
+  - `ImportModal` dùng `cardRepo.addUnique` + `sourceKind: 'import'`
+- Verify: `pnpm --filter web exec tsc --noEmit` — pass
+
+## Đã xong (2026-07-10) — Double bộ thẻ "Công nghệ" (và preset khác)
+- **Root cause:** `dedupePresetDecks` chỉ gộp khi `name` khớp exact + `origin !== 'user'` → bản UUID / tên lệch unicode / origin user vẫn hiện cạnh `preset:ielts:cong-nghe`
+- **Fix:** bucket theo **stable slug** (`preset:group:slug`), gộp mọi deck trong group preset khớp seed (kể cả origin user); chuẩn hoá tên seed; phrase key NFD + collapse space
+- Mở lại `/app/vocab` → seed chạy dedupe → chỉ còn 1 "Công nghệ"
+
+## Đã xong (2026-07-10) — Listening ZIP: Answer Key + Audioscript → transcript khi xem lại
+- ZIP có thể chứa `answer-key.pdf` / `audioscript.txt` / `tapescript.txt` (trước đây bị skip)
+- `listeningAudioscriptParse.ts` — tách Audioscript, map số câu → `ttsText`
+- `importListeningZip` trích PDF text + gắn transcript/đáp án vào payload
+- UI xem lại: `ListeningReviewActiveBar`, `ListeningQuestionAnswerPanel`, `ListeningExamResult` hiện **Transcript** từng câu
+- **Lưu ý:** PDF scan (không text layer) → cần `audioscript.txt` hoặc PDF có chữ; preview import hiện warning
+
+## Đã xong (2026-07-10) — KET A2 Part 7 import: 1 ảnh `part7-page.jpg`
+- **Trước:** `part7-p1.jpg` … `part7-p3.jpg` (bắt buộc 3 file)
+- **Sau:** **1 file** `part7-page.jpg` (alias `part7.jpg`) — giống PET Part 8 / FCE Part 9
+- Code: `ketWritingImportUtils`, `cambridgeReadingImportTemplates`, `ImportReadingManualModal`
+- HDSD: `Prompt-KET-A2-Reading-Universal.txt` (+ bảng so sánh FCE/CAE/PET)
+
+## Đã xong (2026-07-10) — Library: 3× Test 1 → chỉ giữ 7-part
+- **UI (Error1.jpg):** Test 1 ×2 meta `5 parts` (catalog/stub) + Test 1 `7 parts` (đúng) + T2–T4
+- **Rule:** cùng Book+Test → `preferLibraryExam`: **nhiều part hơn** > nhãn Writing > rank nguồn
+- Sample vẫn ẩn khi có catalog; **không** ưu tiên catalog 5-part hơn import 7-part
+- Hard refresh KET A2 Reading → 1 dòng Test 1 (7 parts) + Test 2–4
+
+## Đã xong (2026-07-10) — Admin Publish vocab không còn double
+- **Nguyên nhân hệ thống:** publish đẩy card/deck UUID random → re-publish / user pull `bulkPut` id mới → double
+- **Fix phòng ngừa (cả 2 phía):**
+  - `vocabPublishNormalize.ts` — deck → `preset:group:slug`, card → `pcard:{deckId}:{hash(phrase)}`, gộp trùng trong payload
+  - `collectVocab` (Admin publish) luôn normalize trước khi upsert
+  - `mergeVocab` (user pull) normalize lại payload (kể cả bản publish cũ UUID) + `ensureSrs` + dedupe legacy
+  - `stablePresetCardId` / `phraseKeyForCard` trong `vocabSeedDecks.ts`
+- **Sau này:** Admin Publish vocab idempotent — cùng từ = cùng id, không nhân đôi
+- Verify: `tsc --noEmit` pass
+- **Next admin:** Publish lại 1 lần vocab để cloud payload dùng id ổn định (khuyến nghị)
+
+
+## Da xong (2026-07-10) — Listening transcript Cambridge vs IELTS
+- Cambridge A2-C2: ZIP answer-key/audioscript -> auto ttsText khi xem lai
+- IELTS: khong auto tu PDF; Xem cung de bai -> nut Hien transcript (AI)
+- Files: listeningAudioscriptParse, importListeningZip, listeningIeltsTranscriptAi, examListeningTranscriptStorage, ListeningIeltsTest
+
+## Da xong (2026-07-10) — Cap nhat Prompt Universal Listening A2-C2
+- Prompt-Listening-Cambridge.txt: Answer Key + Audioscript + 2 nguon transcript (import + AI)
+- KET/PET/FCE/CAE/CPE Universal: ZIP answer-key/audioscript.txt, checklist, loi thuong gap, viec lam

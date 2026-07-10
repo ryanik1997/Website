@@ -179,6 +179,7 @@ function normalizeListeningAnswer(value: string): string {
 }
 
 export const LISTENING_EXAMS: ListeningExam[] = [
+  // Sample + catalog; listAllListeningExams ẩn sample khi đã có catalog cùng examType
   ...CAMBRIDGE_LISTENING_SAMPLES,
   ...IELTS_LISTENING_SAMPLES,
   ...(CATALOG_LISTENING_EXAMS as ListeningExam[]),

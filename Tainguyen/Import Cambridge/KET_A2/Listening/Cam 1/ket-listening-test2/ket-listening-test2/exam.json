@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "title": "KET A2 Listening — Book 1 — Test 2",
+  "durationMinutes": 25,
+  "bandHint": "A2 Key Listening · 5 parts · 25 câu",
+  "examType": "ket",
+  "examMode": "practice",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 1,
+          "type": "picture-mc",
+          "prompt": "What temperature will the woman use to cook the cake?",
+          "imageFile": "q1.jpg",
+          "options": [
+            { "id": "A", "label": "140°C" },
+            { "id": "B", "label": "160°C" },
+            { "id": "C", "label": "180°C" }
+          ],
+          "answer": "B",
+          "explanation": "Người phụ nữ đề nghị 160°C vì 180°C quá nóng, và người đàn ông đồng ý."
+        },
+        {
+          "number": 2,
+          "type": "picture-mc",
+          "prompt": "What did Clara hurt when she played tennis?",
+          "imageFile": "q2.jpg",
+          "options": [
+            { "id": "A", "label": "Her leg" },
+            { "id": "B", "label": "Her foot" },
+            { "id": "C", "label": "Her arm" }
+          ],
+          "answer": "A",
+          "explanation": "Clara nói cô ấy đập chân (leg) bằng vợt tennis."
+        },
+        {
+          "number": 3,
+          "type": "picture-mc",
+          "prompt": "Which photo did the man take?",
+          "imageFile": "q3.jpg",
+          "options": [
+            { "id": "A", "label": "The boat" },
+            { "id": "B", "label": "The flowers" },
+            { "id": "C", "label": "The birds" }
+          ],
+          "answer": "B",
+          "explanation": "Người đàn ông nói 'Just the one of the flowers' (Chỉ bức ảnh hoa là của tôi)."
+        },
+        {
+          "number": 4,
+          "type": "picture-mc",
+          "prompt": "Which was the woman's favourite present?",
+          "imageFile": "q4.jpg",
+          "options": [
+            { "id": "A", "label": "A bag" },
+            { "id": "B", "label": "A book" },
+            { "id": "C", "label": "A jumper" }
+          ],
+          "answer": "A",
+          "explanation": "Người phụ nữ nói cái túi từ chị gái cô ấy có kích thước hoàn hảo, đúng thứ cô ấy muốn."
+        },
+        {
+          "number": 5,
+          "type": "picture-mc",
+          "prompt": "What did Tom lose?",
+          "imageFile": "q5.jpg",
+          "options": [
+            { "id": "A", "label": "His wallet" },
+            { "id": "B", "label": "His jacket" },
+            { "id": "C", "label": "His mobile" }
+          ],
+          "answer": "C",
+          "explanation": "Tom nói 'I can't find my mobile' (Tôi không tìm thấy điện thoại của mình)."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "instruction": "You will hear a phone message about going to play a hockey match.\n\nName of other team: Tigers",
+      "passageTitle": "Hockey match",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "Day:",
+          "answer": "Friday",
+          "wordLimit": 1,
+          "explanation": "Tom nói 'we're playing later in the week, on Friday'."
+        },
+        {
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "Name of village:",
+          "answer": "Ledbury",
+          "wordLimit": 1,
+          "explanation": "Tom đánh vần 'L-E-D-B-U-R-Y'."
+        },
+        {
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "Travel to village by:",
+          "answer": "car",
+          "wordLimit": 1,
+          "explanation": "Tom nói 'you will need a car' vì không có xe buýt."
+        },
+        {
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "Take:",
+          "answer": "drinks",
+          "wordLimit": 1,
+          "explanation": "Tom nói 'can you pick up some drinks for the match?'"
+        },
+        {
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "Time match begins:",
+          "answer": "8.45 / 20.45",
+          "wordLimit": 1,
+          "explanation": "Tom nói 'start playing at eight forty-five'."
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Why didn't Peter go to the restaurant with Sue?",
+          "options": [
+            { "id": "A", "label": "He had to do some work." },
+            { "id": "B", "label": "He was too ill." },
+            { "id": "C", "label": "He forgot to go." }
+          ],
+          "answer": "A",
+          "explanation": "Peter nói 'I forgot I needed to finish some work' (Tôi quên rằng tôi cần hoàn thành một số công việc)."
+        },
+        {
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "How long has the restaurant been open?",
+          "options": [
+            { "id": "A", "label": "One year" },
+            { "id": "B", "label": "Two years" },
+            { "id": "C", "label": "Five years" }
+          ],
+          "answer": "C",
+          "explanation": "Sue nói 'it's been open for five years already'."
+        },
+        {
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "What did Sue and her friends eat at the restaurant?",
+          "options": [
+            { "id": "A", "label": "Steak" },
+            { "id": "B", "label": "Pizza" },
+            { "id": "C", "label": "Pasta" }
+          ],
+          "answer": "B",
+          "explanation": "Sue nói 'we all chose pizza, which was delicious'."
+        },
+        {
+          "number": 14,
+          "type": "multiple-choice",
+          "prompt": "What nationality is the chef at the restaurant?",
+          "options": [
+            { "id": "A", "label": "American" },
+            { "id": "B", "label": "Spanish" },
+            { "id": "C", "label": "Italian" }
+          ],
+          "answer": "A",
+          "explanation": "Sue nói 'he's from the USA' (Mỹ)."
+        },
+        {
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "What does Peter say about his plans to go to the restaurant?",
+          "options": [
+            { "id": "A", "label": "It doesn't matter which day he goes." },
+            { "id": "B", "label": "He's afraid the restaurant will be too crowded." },
+            { "id": "C", "label": "He'd like Sue's advice about the dishes." }
+          ],
+          "answer": "C",
+          "explanation": "Peter nói 'I need you to tell me the best things on the menu' (Tôi cần bạn nói cho tôi những món ngon nhất)."
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "instruction": "For each question, choose the correct answer.",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "You will hear a man and a woman talking about going shopping. What will they buy?",
+          "options": [
+            { "id": "A", "label": "Something to eat" },
+            { "id": "B", "label": "Something to wear" },
+            { "id": "C", "label": "Something to read" }
+          ],
+          "answer": "C",
+          "explanation": "Cả hai đều muốn đến hiệu sách: người đàn ông muốn mua sách, người phụ nữ muốn mua tạp chí tài chính."
+        },
+        {
+          "number": 17,
+          "type": "multiple-choice",
+          "prompt": "You will hear a woman leaving a message for a friend. Why is the woman phoning her friend?",
+          "options": [
+            { "id": "A", "label": "To change their plans" },
+            { "id": "B", "label": "To ask to borrow something" },
+            { "id": "C", "label": "To invite her for a meal" }
+          ],
+          "answer": "A",
+          "explanation": "Người phụ nữ gọi để thông báo xe bị hỏng, không thể đến gặp bạn và sẽ gặp lại lần khác."
+        },
+        {
+          "number": 18,
+          "type": "multiple-choice",
+          "prompt": "You will hear a man telling his sister about meeting someone yesterday. Who did he see in town?",
+          "options": [
+            { "id": "A", "label": "A colleague" },
+            { "id": "B", "label": "A neighbour" },
+            { "id": "C", "label": "An old school friend" }
+          ],
+          "answer": "C",
+          "explanation": "Người đàn ông nói 'the one who was in my class when I was a kid' (người học cùng lớp hồi nhỏ)."
+        },
+        {
+          "number": 19,
+          "type": "multiple-choice",
+          "prompt": "You will hear two friends making plans for the day. Where do they decide to go?",
+          "options": [
+            { "id": "A", "label": "To the forest" },
+            { "id": "B", "label": "To the river" },
+            { "id": "C", "label": "To the beach" }
+          ],
+          "answer": "C",
+          "explanation": "Người đàn ông gợi ý 'How about the seaside?' và người phụ nữ đồng ý."
+        },
+        {
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "You will hear a city tour guide giving a talk. Why is the museum closed now?",
+          "options": [
+            { "id": "A", "label": "A special guest is visiting it." },
+            { "id": "B", "label": "Today is a national holiday." },
+            { "id": "C", "label": "They are painting it." }
+          ],
+          "answer": "A",
+          "explanation": "Hướng dẫn viên nói 'an important visitor's arriving today – the Queen' và bà đang tham quan bảo tàng."
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–25",
+      "instruction": "For each question, choose the correct answer.\n\nYou will hear Susan talking to a friend about the sports she does. Which sport does she do with each person now?\n\nOptions:\nA: Golf\nB: Volleyball\nC: Fishing\nD: Badminton\nE: Skateboarding\nF: Swimming\nG: Football\nH: Tennis",
+      "audioFile": "listening.mp3",
+      "questions": [
+        {
+          "number": 21,
+          "type": "matching",
+          "prompt": "Elias (cousin):",
+          "options": [
+            { "id": "A", "label": "Golf" },
+            { "id": "B", "label": "Volleyball" },
+            { "id": "C", "label": "Fishing" },
+            { "id": "D", "label": "Badminton" },
+            { "id": "E", "label": "Skateboarding" },
+            { "id": "F", "label": "Swimming" },
+            { "id": "G", "label": "Football" },
+            { "id": "H", "label": "Tennis" }
+          ],
+          "answer": "B",
+          "explanation": "Susan nói 'now we play volleyball together' với Elias."
+        },
+        {
+          "number": 22,
+          "type": "matching",
+          "prompt": "Daniel (neighbour):",
+          "options": [
+            { "id": "A", "label": "Golf" },
+            { "id": "B", "label": "Volleyball" },
+            { "id": "C", "label": "Fishing" },
+            { "id": "D", "label": "Badminton" },
+            { "id": "E", "label": "Skateboarding" },
+            { "id": "F", "label": "Swimming" },
+            { "id": "G", "label": "Football" },
+            { "id": "H", "label": "Tennis" }
+          ],
+          "answer": "C",
+          "explanation": "Susan nói 'Daniel hurt his arm ... so we go fishing together instead'."
+        },
+        {
+          "number": 23,
+          "type": "matching",
+          "prompt": "Amira (friend):",
+          "options": [
+            { "id": "A", "label": "Golf" },
+            { "id": "B", "label": "Volleyball" },
+            { "id": "C", "label": "Fishing" },
+            { "id": "D", "label": "Badminton" },
+            { "id": "E", "label": "Skateboarding" },
+            { "id": "F", "label": "Swimming" },
+            { "id": "G", "label": "Football" },
+            { "id": "H", "label": "Tennis" }
+          ],
+          "answer": "F",
+          "explanation": "Susan nói 'we've started going to the pool every week' với Amira."
+        },
+        {
+          "number": 24,
+          "type": "matching",
+          "prompt": "Kelly (friend):",
+          "options": [
+            { "id": "A", "label": "Golf" },
+            { "id": "B", "label": "Volleyball" },
+            { "id": "C", "label": "Fishing" },
+            { "id": "D", "label": "Badminton" },
+            { "id": "E", "label": "Skateboarding" },
+            { "id": "F", "label": "Swimming" },
+            { "id": "G", "label": "Football" },
+            { "id": "H", "label": "Tennis" }
+          ],
+          "answer": "E",
+          "explanation": "Susan nói 'we go skateboarding in the park together' với Kelly."
+        },
+        {
+          "number": 25,
+          "type": "matching",
+          "prompt": "Valerie (friend):",
+          "options": [
+            { "id": "A", "label": "Golf" },
+            { "id": "B", "label": "Volleyball" },
+            { "id": "C", "label": "Fishing" },
+            { "id": "D", "label": "Badminton" },
+            { "id": "E", "label": "Skateboarding" },
+            { "id": "F", "label": "Swimming" },
+            { "id": "G", "label": "Football" },
+            { "id": "H", "label": "Tennis" }
+          ],
+          "answer": "D",
+          "explanation": "Susan nói 'we're having lessons' và 'badminton rackets' với Valerie."
+        }
+      ]
+    }
+  ]
+}

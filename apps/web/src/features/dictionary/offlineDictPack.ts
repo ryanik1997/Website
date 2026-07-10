@@ -1,10 +1,72 @@
 /**
- * Gói từ điển offline cơ bản (không cần mạng / AI).
- * Dùng cho free/basic; AI dictionary chỉ khi Pro (dictionary_ai).
+ * Gói từ điển offline (không cần mạng / AI).
+ * Nguồn chính: Part 1 — 300 từ A2–C2 (Tainguyen/TuDien/Part1.json).
+ * Bổ sung: cụm từ / collocation hữu dụng cho writing.
+ * Free/basic: tra offline; AI dictionary khi Pro (dictionary_ai).
  */
 import type { DictResult } from '@ryan/core'
+import part1 from './data/offlinePart1.json'
 
 type PackEntry = Omit<DictResult, 'word'> & { word: string }
+
+type PartCard = {
+  phrase: string
+  meaning: string
+  example: string
+  ipaUS?: string
+  ipaUK?: string
+  pos?: string
+}
+
+function stripIpaSlashes(ipa?: string): string | undefined {
+  if (!ipa) return undefined
+  return ipa.replace(/^\/+|\/+$/g, '').trim() || undefined
+}
+
+/** Map nhãn POS tiếng Việt / hỗn hợp → dạng hiển thị gọn */
+function normalizePos(pos?: string): string | undefined {
+  if (!pos) return undefined
+  const p = pos.trim().toLowerCase()
+  const map: Record<string, string> = {
+    'danh từ': 'noun',
+    'động từ': 'verb',
+    'tính từ': 'adjective',
+    'phó từ': 'adverb',
+    'giới từ': 'preposition',
+    'liên từ': 'conjunction',
+    'đại từ': 'pronoun',
+    'hạn định từ': 'determiner',
+    'số từ': 'numeral',
+    'thán từ': 'interjection',
+    'cụm từ': 'phrase',
+    noun: 'noun',
+    verb: 'verb',
+    adjective: 'adjective',
+    adverb: 'adverb',
+    phrase: 'phrase',
+    preposition: 'preposition',
+    conjunction: 'conjunction',
+    pronoun: 'pronoun',
+    determiner: 'determiner',
+  }
+  return map[p] ?? pos
+}
+
+function cardToEntry(c: PartCard): PackEntry {
+  return {
+    word: c.phrase.trim(),
+    pos: normalizePos(c.pos),
+    ipaUS: stripIpaSlashes(c.ipaUS),
+    ipaUK: stripIpaSlashes(c.ipaUK),
+    definitions: [
+      {
+        meaning: c.meaning,
+        example: c.example,
+        exampleVi: '',
+      },
+    ],
+  }
+}
 
 function e(
   word: string,
@@ -22,70 +84,8 @@ function e(
   }
 }
 
-/** ~120 từ/cụm thông dụng A1–B2 */
-const PACK: PackEntry[] = [
-  e('abandon', 'verb', 'từ bỏ, bỏ rơi', 'They abandoned the old car.', 'Họ bỏ lại chiếc xe cũ.', { ipaUS: 'əˈbændən', synonyms: ['leave', 'desert'], level: 'B2' }),
-  e('ability', 'noun', 'khả năng, năng lực', 'She has the ability to lead.', 'Cô ấy có khả năng lãnh đạo.', { ipaUS: 'əˈbɪləti', level: 'A2' }),
-  e('achieve', 'verb', 'đạt được, hoàn thành', 'He achieved his goals.', 'Anh ấy đạt được mục tiêu.', { ipaUS: 'əˈtʃiːv', level: 'B1' }),
-  e('advantage', 'noun', 'lợi thế, ưu điểm', 'One advantage is lower cost.', 'Một ưu điểm là chi phí thấp hơn.', { level: 'B1' }),
-  e('affect', 'verb', 'ảnh hưởng đến', 'Climate change affects everyone.', 'Biến đổi khí hậu ảnh hưởng mọi người.', { level: 'B1' }),
-  e('although', 'conjunction', 'mặc dù', 'Although it rained, we went out.', 'Mặc dù mưa, chúng tôi vẫn đi.', { level: 'A2' }),
-  e('analyze', 'verb', 'phân tích', 'We need to analyze the data.', 'Chúng ta cần phân tích dữ liệu.', { level: 'B2' }),
-  e('approach', 'noun', 'cách tiếp cận; verb: tiếp cận', 'A new approach to teaching.', 'Một cách tiếp cận mới trong giảng dạy.', { level: 'B2' }),
-  e('argue', 'verb', 'tranh luận; cho rằng', 'Some people argue that...', 'Một số người cho rằng...', { level: 'B1' }),
-  e('benefit', 'noun', 'lợi ích', 'Exercise has many benefits.', 'Tập thể dục có nhiều lợi ích.', { level: 'B1' }),
-  e('cause', 'noun', 'nguyên nhân; verb: gây ra', 'What caused the problem?', 'Điều gì gây ra vấn đề?', { level: 'A2' }),
-  e('challenge', 'noun', 'thách thức', 'It was a big challenge.', 'Đó là một thách thức lớn.', { level: 'B1' }),
-  e('climate', 'noun', 'khí hậu', 'The climate is changing.', 'Khí hậu đang thay đổi.', { level: 'B1' }),
-  e('common', 'adjective', 'phổ biến, chung', 'This is a common mistake.', 'Đây là lỗi phổ biến.', { level: 'A2' }),
-  e('community', 'noun', 'cộng đồng', 'Our local community helped.', 'Cộng đồng địa phương đã giúp đỡ.', { level: 'B1' }),
-  e('compare', 'verb', 'so sánh', 'Compare the two options.', 'Hãy so sánh hai lựa chọn.', { level: 'A2' }),
-  e('consider', 'verb', 'xem xét, cân nhắc', 'Please consider my request.', 'Xin hãy xem xét yêu cầu của tôi.', { level: 'B1' }),
-  e('create', 'verb', 'tạo ra', 'She created a new app.', 'Cô ấy tạo ra một ứng dụng mới.', { level: 'A2' }),
-  e('culture', 'noun', 'văn hóa', 'Language and culture are linked.', 'Ngôn ngữ và văn hóa liên kết với nhau.', { level: 'B1' }),
-  e('decision', 'noun', 'quyết định', 'It was a hard decision.', 'Đó là quyết định khó khăn.', { level: 'A2' }),
-  e('develop', 'verb', 'phát triển', 'Children develop quickly.', 'Trẻ em phát triển nhanh.', { level: 'A2' }),
-  e('difference', 'noun', 'sự khác biệt', 'There is a clear difference.', 'Có sự khác biệt rõ ràng.', { level: 'A2' }),
-  e('economy', 'noun', 'nền kinh tế', 'The economy is growing.', 'Nền kinh tế đang tăng trưởng.', { level: 'B1' }),
-  e('education', 'noun', 'giáo dục', 'Education is important.', 'Giáo dục rất quan trọng.', { level: 'A2' }),
-  e('effect', 'noun', 'tác động, hiệu ứng', 'The effect was positive.', 'Tác động là tích cực.', { level: 'B1' }),
-  e('efficient', 'adjective', 'hiệu quả (tiết kiệm)', 'An efficient system saves time.', 'Hệ thống hiệu quả tiết kiệm thời gian.', { level: 'B2' }),
-  e('environment', 'noun', 'môi trường', 'We must protect the environment.', 'Chúng ta phải bảo vệ môi trường.', { level: 'B1' }),
-  e('example', 'noun', 'ví dụ', 'For example, many cities...', 'Ví dụ, nhiều thành phố...', { level: 'A1' }),
-  e('experience', 'noun', 'kinh nghiệm; trải nghiệm', 'Work experience matters.', 'Kinh nghiệm làm việc rất quan trọng.', { level: 'A2' }),
-  e('factor', 'noun', 'yếu tố', 'Cost is an important factor.', 'Chi phí là một yếu tố quan trọng.', { level: 'B1' }),
-  e('government', 'noun', 'chính phủ', 'The government announced a plan.', 'Chính phủ công bố một kế hoạch.', { level: 'B1' }),
-  e('however', 'adverb', 'tuy nhiên', 'However, not everyone agrees.', 'Tuy nhiên, không phải ai cũng đồng ý.', { level: 'B1' }),
-  e('improve', 'verb', 'cải thiện', 'Practice will improve your English.', 'Luyện tập sẽ cải thiện tiếng Anh của bạn.', { level: 'A2' }),
-  e('include', 'verb', 'bao gồm', 'The price includes tax.', 'Giá đã bao gồm thuế.', { level: 'A2' }),
-  e('increase', 'verb', 'tăng lên', 'Prices continue to increase.', 'Giá cả tiếp tục tăng.', { level: 'A2' }),
-  e('individual', 'noun', 'cá nhân', 'Each individual is unique.', 'Mỗi cá nhân là độc đáo.', { level: 'B1' }),
-  e('information', 'noun', 'thông tin', 'I need more information.', 'Tôi cần thêm thông tin.', { level: 'A2' }),
-  e('issue', 'noun', 'vấn đề', 'This is a serious issue.', 'Đây là vấn đề nghiêm trọng.', { level: 'B1' }),
-  e('knowledge', 'noun', 'kiến thức', 'Knowledge is power.', 'Kiến thức là sức mạnh.', { level: 'A2' }),
-  e('level', 'noun', 'mức độ, cấp độ', 'What is your English level?', 'Trình độ tiếng Anh của bạn là gì?', { level: 'A2' }),
-  e('major', 'adjective', 'chính, lớn', 'A major change is needed.', 'Cần một thay đổi lớn.', { level: 'B1' }),
-  e('method', 'noun', 'phương pháp', 'This method works well.', 'Phương pháp này hiệu quả.', { level: 'B1' }),
-  e('necessary', 'adjective', 'cần thiết', 'Sleep is necessary for health.', 'Ngủ là cần thiết cho sức khỏe.', { level: 'B1' }),
-  e('opinion', 'noun', 'quan điểm', 'In my opinion, ...', 'Theo quan điểm của tôi, ...', { level: 'A2' }),
-  e('opportunity', 'noun', 'cơ hội', 'This is a great opportunity.', 'Đây là cơ hội tuyệt vời.', { level: 'B1' }),
-  e('pollution', 'noun', 'ô nhiễm', 'Air pollution is rising.', 'Ô nhiễm không khí đang tăng.', { level: 'B1' }),
-  e('population', 'noun', 'dân số', 'The population is growing.', 'Dân số đang tăng.', { level: 'B1' }),
-  e('possible', 'adjective', 'có thể', 'Is it possible to finish today?', 'Có thể hoàn thành hôm nay không?', { level: 'A2' }),
-  e('problem', 'noun', 'vấn đề', 'We solved the problem.', 'Chúng tôi đã giải quyết vấn đề.', { level: 'A1' }),
-  e('process', 'noun', 'quy trình', 'Learning is a long process.', 'Học tập là quá trình dài.', { level: 'B1' }),
-  e('provide', 'verb', 'cung cấp', 'Schools provide free books.', 'Trường cung cấp sách miễn phí.', { level: 'B1' }),
-  e('reason', 'noun', 'lý do', 'What is the reason?', 'Lý do là gì?', { level: 'A2' }),
-  e('reduce', 'verb', 'giảm', 'We should reduce waste.', 'Chúng ta nên giảm rác thải.', { level: 'B1' }),
-  e('require', 'verb', 'yêu cầu', 'This job requires skill.', 'Công việc này đòi hỏi kỹ năng.', { level: 'B1' }),
-  e('research', 'noun', 'nghiên cứu', 'Further research is needed.', 'Cần nghiên cứu thêm.', { level: 'B1' }),
-  e('result', 'noun', 'kết quả', 'The results were good.', 'Kết quả tốt.', { level: 'A2' }),
-  e('society', 'noun', 'xã hội', 'Technology changes society.', 'Công nghệ thay đổi xã hội.', { level: 'B1' }),
-  e('solution', 'noun', 'giải pháp', 'We need a better solution.', 'Chúng ta cần giải pháp tốt hơn.', { level: 'B1' }),
-  e('technology', 'noun', 'công nghệ', 'Technology improves life.', 'Công nghệ cải thiện cuộc sống.', { level: 'A2' }),
-  e('therefore', 'adverb', 'do đó', 'Therefore, we must act.', 'Do đó, chúng ta phải hành động.', { level: 'B2' }),
-  e('transport', 'noun', 'giao thông, vận tải', 'Public transport is cheap.', 'Giao thông công cộng rẻ.', { level: 'B1' }),
-  e('various', 'adjective', 'nhiều, đa dạng', 'There are various options.', 'Có nhiều lựa chọn khác nhau.', { level: 'B1' }),
+/** Cụm từ / collocation bổ sung (không trùng Part 1 single words) */
+const PHRASE_PACK: PackEntry[] = [
   e('according to', 'phrase', 'theo (ai/cái gì)', 'According to the report, ...', 'Theo báo cáo, ...', { level: 'B1' }),
   e('as a result', 'phrase', 'kết quả là', 'As a result, sales increased.', 'Kết quả là doanh số tăng.', { level: 'B1' }),
   e('for example', 'phrase', 'ví dụ', 'For example, Japan...', 'Ví dụ, Nhật Bản...', { level: 'A2' }),
@@ -148,28 +148,30 @@ const PACK: PackEntry[] = [
   e('similar to', 'phrase', 'tương tự', 'Your idea is similar to mine.', 'Ý bạn tương tự ý tôi.', { level: 'A2' }),
   e('different from', 'phrase', 'khác với', 'This is different from that.', 'Cái này khác cái kia.', { level: 'A2' }),
   e('famous for', 'phrase', 'nổi tiếng vì', 'Paris is famous for art.', 'Paris nổi tiếng về nghệ thuật.', { level: 'A2' }),
-  e('available', 'adjective', 'có sẵn', 'Is this room available?', 'Phòng này còn trống không?', { level: 'A2' }),
-  e('significant', 'adjective', 'đáng kể, quan trọng', 'A significant improvement.', 'Sự cải thiện đáng kể.', { level: 'B2' }),
-  e('essential', 'adjective', 'thiết yếu', 'Water is essential for life.', 'Nước thiết yếu cho sự sống.', { level: 'B1' }),
-  e('global', 'adjective', 'toàn cầu', 'Global warming is real.', 'Nóng lên toàn cầu là thật.', { level: 'B1' }),
-  e('local', 'adjective', 'địa phương', 'Support local businesses.', 'Hỗ trợ doanh nghiệp địa phương.', { level: 'A2' }),
-  e('modern', 'adjective', 'hiện đại', 'Modern technology helps us.', 'Công nghệ hiện đại giúp chúng ta.', { level: 'A2' }),
-  e('traditional', 'adjective', 'truyền thống', 'Traditional food is popular.', 'Đồ ăn truyền thống rất phổ biến.', { level: 'B1' }),
-  e('successful', 'adjective', 'thành công', 'She is a successful writer.', 'Cô ấy là nhà văn thành công.', { level: 'A2' }),
-  e('difficult', 'adjective', 'khó', 'This exam is difficult.', 'Bài thi này khó.', { level: 'A1' }),
-  e('important', 'adjective', 'quan trọng', 'Health is important.', 'Sức khỏe rất quan trọng.', { level: 'A1' }),
-  e('useful', 'adjective', 'hữu ích', 'This app is useful.', 'Ứng dụng này hữu ích.', { level: 'A1' }),
-  e('renewable', 'adjective', 'tái tạo được', 'Renewable energy is clean.', 'Năng lượng tái tạo sạch.', { level: 'B2' }),
-  e('sustainable', 'adjective', 'bền vững', 'We need sustainable growth.', 'Chúng ta cần tăng trưởng bền vững.', { level: 'B2' }),
 ]
 
+const partCards = (part1 as { cards: PartCard[] }).cards ?? []
+const partEntries = partCards.map(cardToEntry)
+
+const PACK: PackEntry[] = []
 const BY_KEY = new Map<string, PackEntry>()
-for (const item of PACK) {
-  BY_KEY.set(item.word.toLowerCase().trim(), item)
+
+function add(entry: PackEntry) {
+  const key = entry.word.toLowerCase().trim()
+  if (!key || BY_KEY.has(key)) return
+  BY_KEY.set(key, entry)
+  PACK.push(entry)
 }
+
+for (const item of partEntries) add(item)
+for (const item of PHRASE_PACK) add(item)
 
 export function offlineDictSize(): number {
   return PACK.length
+}
+
+export function offlineDictPart1Size(): number {
+  return partEntries.length
 }
 
 export function lookupOfflineDict(word: string): DictResult | null {

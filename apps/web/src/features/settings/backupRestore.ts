@@ -157,7 +157,7 @@ export async function exportBackup(): Promise<void> {
   downloadJson(filename, json)
 }
 
-export async function importBackup(file: File): Promise<{ counts: Record<string, number> }> {
+export async function importBackup(file: File): Promise<{ counts: Record<string, number>; source?: string }> {
   const text = await file.text()
   let parsed: unknown
   try {
@@ -166,45 +166,59 @@ export async function importBackup(file: File): Promise<{ counts: Record<string,
     throw new Error('File JSON không hợp lệ.')
   }
 
-  if (!isBackupPayload(parsed)) {
-    throw new Error('File backup không đúng format Ryan English (version 1, 2 hoặc 3).')
+  // Web backup v1–3
+  if (isBackupPayload(parsed)) {
+    const counts: Record<string, number> = {}
+
+    await db.transaction(
+      'rw',
+      [
+        db.groups,
+        db.decks,
+        db.cards,
+        db.srs,
+        db.reviewLog,
+        db.lessons,
+        db.writingDocs,
+        db.writingHistory,
+        db.errorBank,
+        db.mindmaps,
+        db.aiUsage,
+        db.settings,
+        db.translationSets,
+        db.readingExams,
+        db.listeningExams,
+      ],
+      async () => {
+        for (const table of BACKUP_TABLES) {
+          const rows = asArray(parsed.data[table])
+          if (rows.length === 0) {
+            counts[table] = 0
+            continue
+          }
+          await db.table(table).bulkPut(rows)
+          counts[table] = rows.length
+        }
+      },
+    )
+
+    return { counts, source: 'web-backup' }
   }
 
-  const counts: Record<string, number> = {}
+  // Electron / legacy vocab → Web (Electron → Web migration)
+  const { detectMigrateSource, importElectronOrLegacyBackup } = await import('./electronMigrate')
+  const detected = detectMigrateSource(parsed)
+  if (detected.ok) {
+    // re-read via File for the migrate helper (already have parsed path — use Blob)
+    const blob = new File([text], file.name, { type: 'application/json' })
+    const result = await importElectronOrLegacyBackup(blob)
+    return { counts: result.counts, source: result.source }
+  }
 
-  await db.transaction(
-    'rw',
-    [
-      db.groups,
-      db.decks,
-      db.cards,
-      db.srs,
-      db.reviewLog,
-      db.lessons,
-      db.writingDocs,
-      db.writingHistory,
-      db.errorBank,
-      db.mindmaps,
-      db.aiUsage,
-      db.settings,
-      db.translationSets,
-      db.readingExams,
-      db.listeningExams,
-    ],
-    async () => {
-      for (const table of BACKUP_TABLES) {
-        const rows = asArray(parsed.data[table])
-        if (rows.length === 0) {
-          counts[table] = 0
-          continue
-        }
-        await db.table(table).bulkPut(rows)
-        counts[table] = rows.length
-      }
-    },
+  throw new Error(
+    detected.reason ||
+      'File backup không đúng format Ryan English (Web v1–3, Electron Vocabulary v2, hoặc legacy flashcard).',
   )
-
-  return { counts }
 }
 
 export async function estimateBackupSize(): Promise<string> {

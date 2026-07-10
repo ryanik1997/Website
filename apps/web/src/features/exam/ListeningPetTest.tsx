@@ -27,8 +27,10 @@ import type { ListeningExam } from './listeningExamData'
 import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
 import { buildListeningReviewStatusMap, examReviewPillStyle, type ExamReviewStatus } from './examReviewUtils'
 import ListeningReviewActiveBar from './ListeningReviewActiveBar'
+import ListeningReviewTranscriptToolbar from './ListeningReviewTranscriptToolbar'
 import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
+import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
@@ -181,6 +183,7 @@ export default function ListeningPetTest({ exam }: Props) {
       submitted,
       highlightsByPart,
       notesByPart,
+      updatedAt: Date.now(),
     }))
     notifyExamDraftRevision()
     } catch {
@@ -280,6 +283,16 @@ export default function ListeningPetTest({ exam }: Props) {
     return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
   }, [activeQuestionId, allQuestions, reviewMode])
 
+  const {
+    showToolbar: showTranscriptToolbar,
+    loading: transcriptLoading,
+    error: transcriptError,
+    aiCount: transcriptAiCount,
+    importedCount: transcriptImportedCount,
+    transcriptForActive,
+    runAi: runTranscriptAi,
+  } = useListeningReviewTranscript(exam, reviewMode, currentQuestion)
+
   // Keep hooks before the submitted branch (Rules of Hooks).
   if (submitted && !reviewMode) {
     return (
@@ -307,11 +320,22 @@ export default function ListeningPetTest({ exam }: Props) {
           <button type="button" className="rounded-full px-3 py-1.5 text-xs font-bold" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }} onClick={() => setReviewMode(false)}>Về báo cáo</button>
         </div>
       )}
+      {showTranscriptToolbar && (
+        <ListeningReviewTranscriptToolbar
+          loading={transcriptLoading}
+          error={transcriptError}
+          aiCount={transcriptAiCount}
+          importedCount={transcriptImportedCount}
+          onRunAi={force => void runTranscriptAi(force)}
+          variant="cambridge"
+        />
+      )}
       {reviewMode && (
         <ListeningReviewActiveBar
           question={currentQuestion}
           userAnswer={currentQuestion ? (answers[currentQuestion.id] ?? '') : ''}
           status={currentQuestion ? (reviewStatusMap[currentQuestion.id] ?? null) : null}
+          transcriptOverride={transcriptForActive}
         />
       )}
       {reviewMode && reviewAiText && (
@@ -448,6 +472,7 @@ export default function ListeningPetTest({ exam }: Props) {
                 onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
                 reviewMode={reviewMode}
                 reviewStatus={reviewStatusMap[currentQuestion.id] ?? null}
+                transcriptOverride={transcriptForActive}
               />
               </div>
               {resizer}
