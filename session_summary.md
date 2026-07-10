@@ -12,11 +12,12 @@
 
 - **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-10** — Cambridge skill picker: nhãn **Reading - Writing** (A2–C2); IELTS giữ Reading
-- **Session trước:** **2026-07-09** — Dictionary offline+Pro AI · MindMap export/templates · CEFR + gợi ý sau exam · Sổ ghi chú v12
-- **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung** (không cần import lại)
-- **Production:** https://ryanenglishv2.vercel.app — **đã deploy** (SW cache, Listening publish, Admin publish v012); migrations 009–012 đã push
-- **Dev:** `pnpm dev` → `/app/exam/track/ielts` → Import Wizard Reading (P1/P2/P3 templates)
+- **Session:** **2026-07-10 (cuối)** — Vocab ghost sync fix + RLS harden + Cambridge checklist/transcript + deploy **v0.2.3**
+- **Session trước (cùng ngày):** Cambridge skill picker **Reading - Writing** (A2–C2); IELTS giữ Reading; Listening audioscript; Admin publish vocab
+- **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung**
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.3** (vocab dedupe/rekey, sync ghost soft-delete, chunked push)
+- **Migrations Supabase đã push:** 001–**015** (015 = user data RLS `WITH CHECK`)
+- **Dev:** `pnpm dev` → `/app/vocab` (Dọn thẻ trùng) · `/app/exam/...`
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -3099,3 +3100,66 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 ## Da xong (2026-07-10) — Cap nhat Prompt Universal Listening A2-C2
 - Prompt-Listening-Cambridge.txt: Answer Key + Audioscript + 2 nguon transcript (import + AI)
 - KET/PET/FCE/CAE/CPE Universal: ZIP answer-key/audioscript.txt, checklist, loi thuong gap, viec lam
+
+---
+
+## Đã xong (2026-07-10 cuối session) — Cambridge checklist + transcript + RLS + Vocab double/sync
+
+### HDSD / DeepSeek A2–C2
+- [x] `HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt` + `Prompt-Reading-Cambridge-CHECKLIST.txt` (A2–C2)
+- [x] Link checklist từ master + 10 Universal (KET…CPE L/R)
+- [x] DeepSeek Test 2: gửi prompt + PDF + `answer-key.txt` + `audioscript.txt` — **không** MP3 / không bắt buộc q1–q5.jpg
+- [x] Pack ZIP **phẳng** cùng cấp: `exam.json`, `listening.mp3`, `answer-key.txt`, `audioscript.txt`, `q*.jpg`
+
+### Listening transcript từ `audioscript.txt`
+- [x] **UI xem:** Nộp bài → kết quả `Transcript:` · hoặc **Xem cùng đề bài** → khối **Transcript · Câu N** / bar review
+- [x] Bug: ZIP `ket-listening-test2.zip` **thiếu** `audioscript.txt` (chỉ nested folder) → rebuild ZIP flat + file script
+- [x] Bug parser: format Cambridge `Question 1 One. …` / monologue Part 2–5 (`Look at questions 6–10`) không map được
+- [x] Fix `listeningAudioscriptParse.ts` — Question N + ordinal dài trước ngắn + range monologue → 25/25 câu KET Test 2
+- [x] Toolbar: Cambridge `importedCount=0` → gợi ý ZIP cần `audioscript.txt` / import lại
+
+### Listening khác (session)
+- [x] Audio play: blob URL revoke sớm (`useExamQuestionAudio`)
+- [x] KET Part 2 double form: strip gap trong instruction + UI + prompt rules
+- [x] Admin xóa đề: local Dexie + unpublish cloud published tables
+- [x] Import: alias audio `listening.mp3` / `Audio.mp3`
+
+### RLS / quyền user vs admin
+- [x] **Mô hình:** User ghi data **cá nhân** (deck/card/srs/writing/mindmap/exam_progress). Admin ghi **Luyện thi + Vocab mặc định** (published tables)
+- [x] Migration **`015_user_data_rls_harden.sql`** — `USING` + **`WITH CHECK`** (`auth.uid() = user_id`) — **đã `pnpm db:push`**
+- [x] Message lỗi sync phân biệt bảng admin vs data cá nhân (`useSyncManager.friendlySyncError`)
+
+### Vocab double + lỗi sync (production `/app/vocab`)
+- [x] **Root cause:** preset từng push cloud UUID → mỗi lần sync **pull lại** cạnh `preset:…` + card UUID vs `pcard:` cùng phrase
+- [x] `sync.ts`: nhận ghost deck (cùng group+tên preset) → **không pull**; **soft-delete** ghost deck/card cloud; chỉ push UUID user; push **chunked** + partial fail không “chết” sync
+- [x] `seedPresetDecks` trước/sau sync; dedupe theo stable slug + **tên seed duy nhất** (group cloud sai vẫn gộp)
+- [x] **Rekey** card → `pcard:{deckId}:{hash}` + merge SRS/reviewLog (`rekeyOneCard` / `repairVocabDuplicates`)
+- [x] UI `/app/vocab`: nút **「Dọn thẻ trùng」**
+- [x] Version web **0.2.3** · **deploy prod** https://ryanenglishv2.vercel.app
+- [x] User: hard refresh (Ctrl+Shift+R) → sync → **Dọn thẻ trùng**
+
+### Lỗi còn tồn tại / theo dõi
+- [ ] User verify sau deploy: số thẻ từng bộ preset (~100) hết x2/x3; sync sidebar không còn đỏ RLS
+- [ ] Admin **Publish lại vocab 1 lần** (payload cloud id ổn định `preset:` / `pcard:`) nếu cloud còn UUID cũ
+- [ ] Nếu unpublish/xóa đề cloud fail: kiểm tra RLS DELETE trên `reading_exam_published` / `listening_exam_published`
+- [ ] Re-import KET Listening Test 2 ZIP mới (có audioscript) nếu đề cũ local chưa có `ttsText`
+- [ ] Working tree local còn nhiều file uncommitted (HDSD, exam, vocab, Tainguyen xóa…) — chưa git commit full session
+
+## Next session start prompt (cập nhật 2026-07-10 cuối)
+
+```
+Đọc session_summary.md (đầu file + mục "2026-07-10 cuối session").
+
+1) Verify production https://ryanenglishv2.vercel.app/app/vocab
+   - Hard refresh → Đồng bộ → 「Dọn thẻ trùng」
+   - Kiểm tra bộ IELTS "Công nghệ" / Oxford… không double deck/card
+   - Sidebar sync không báo RLS
+
+2) Nếu vẫn double: gửi tên bộ + số thẻ; Admin Publish lại module vocab 1 lần
+
+3) Listening Cambridge: ZIP phải flat + audioscript.txt; checklist HDSD/*
+   - Transcript chỉ khi xem lại (sau nộp / Xem cùng đề bài)
+
+4) (Tuỳ chọn) git commit gọn code app (tránh commit bulk xóa Tainguyen nếu không chủ ý)
+5) (Tuỳ chọn) re-import ket-listening-test2.zip đã pack lại
+```
