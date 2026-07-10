@@ -1,4 +1,4 @@
-import { db, type Deck } from '@ryan/db'
+import { cardRepo, db, type Card, type Deck } from '@ryan/db'
 
 export interface SeedDeckDef {
   name: string
@@ -116,22 +116,45 @@ export function stablePresetDeckId(groupId: string, deckName: string): string {
   return `preset:${groupId}:${slug || 'deck'}`
 }
 
-function seedDeckNamesByGroup(): Map<string, Set<string>> {
-  return new Map(SEED_GROUPS.map(g => [g.id, new Set(g.decks.map(d => d.name))]))
+/** Khóa so khớp phrase (publish + merge + dedupe) — NFD, trim, gộp space. */
+export function phraseKeyForCard(phrase: string): string {
+  return phrase
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u200B-\u200D\uFEFF]/g, '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
 }
 
-async function migrateDeckCards(fromDeckId: string, toDeckId: string): Promise<void> {
-  if (fromDeckId === toDeckId) return
-  const cards = await db.cards.where('deckId').equals(fromDeckId).toArray()
-  if (!cards.length) return
-  const ts = Date.now()
-  await db.transaction('rw', db.cards, db.srs, async () => {
-    for (const card of cards) {
-      await db.cards.update(card.id, { deckId: toDeckId, updatedAt: ts })
-      const srs = await db.srs.get(card.id)
-      if (srs) await db.srs.put({ ...srs, deckId: toDeckId })
-    }
-  })
+/** Hash ổn định (FNV-1a × 2) — id thẻ không phụ thuộc UUID random khi Admin publish. */
+function hashPhraseKey(key: string): string {
+  let h1 = 0x811c9dc5
+  let h2 = 0x01000193
+  for (let i = 0; i < key.length; i++) {
+    const c = key.charCodeAt(i)
+    h1 = Math.imul(h1 ^ c, 0x01000193)
+    h2 = Math.imul(h2 ^ c, 0x811c9dc5)
+  }
+  return (h1 >>> 0).toString(36) + (h2 >>> 0).toString(36)
+}
+
+/**
+ * ID thẻ preset ổn định theo deck + phrase.
+ * Re-publish / re-import cùng từ → cùng id → bulkPut ghi đè, không double.
+ */
+export function stablePresetCardId(deckId: string, phrase: string): string {
+  const key = phraseKeyForCard(phrase)
+  if (!key) return `pcard:${deckId}:empty`
+  return `pcard:${deckId}:${hashPhraseKey(key)}`
+}
+
+export function isStablePresetCardId(id: string): boolean {
+  return id.startsWith('pcard:')
+}
+
+export function isStablePresetDeckId(id: string): boolean {
+  return id.startsWith('preset:')
 }
 
 async function removeDeckRecord(deckId: string): Promise<void> {
@@ -142,26 +165,157 @@ async function removeDeckRecord(deckId: string): Promise<void> {
   await db.decks.delete(deckId)
 }
 
-/** Gộp bộ preset trùng (groupId + tên) — giữ bản có nhiều thẻ nhất, chuẩn hoá ID. */
+/**
+ * Chuyển thẻ sang deck đích + rekey id → `pcard:…` (idempotent).
+ * Gộp phrase trùng, giữ SRS tốt hơn.
+ */
+async function migrateDeckCards(fromDeckId: string, toDeckId: string): Promise<void> {
+  if (fromDeckId === toDeckId) {
+    await rekeyCardsInDeck(toDeckId)
+    return
+  }
+  const cards = await db.cards.where('deckId').equals(fromDeckId).toArray()
+  const ts = Date.now()
+  for (const card of cards) {
+    await rekeyOneCard(card, toDeckId, ts)
+  }
+  await cardRepo.dedupeByPhrase(toDeckId)
+}
+
+async function rekeyOneCard(card: Card, toDeckId: string, ts: number): Promise<void> {
+  const stableId = stablePresetCardId(toDeckId, card.phrase)
+  const srs = await db.srs.get(card.id)
+  const existing = stableId !== card.id ? await db.cards.get(stableId) : undefined
+
+  if (existing && existing.id !== card.id) {
+    // Gộp field vào thẻ stable, xóa bản UUID/cũ
+    const patch: Record<string, unknown> = { updatedAt: ts, deckId: toDeckId }
+    if (!existing.meaning?.trim() && card.meaning?.trim()) patch.meaning = card.meaning
+    if (!existing.example?.trim() && card.example?.trim()) patch.example = card.example
+    if (!existing.ipaUS?.trim() && card.ipaUS?.trim()) patch.ipaUS = card.ipaUS
+    if (!existing.ipaUK?.trim() && card.ipaUK?.trim()) patch.ipaUK = card.ipaUK
+    if (!existing.pos?.trim() && card.pos?.trim()) patch.pos = card.pos
+    await db.cards.update(stableId, patch)
+    if (srs) {
+      const keepSrs = await db.srs.get(stableId)
+      if (!keepSrs || (srs.reps ?? 0) > (keepSrs.reps ?? 0)) {
+        await db.srs.put({ ...srs, cardId: stableId, deckId: toDeckId })
+      }
+      await db.srs.delete(card.id)
+    }
+    const logs = await db.reviewLog.where('cardId').equals(card.id).toArray()
+    for (const log of logs) {
+      if (log.id != null) await db.reviewLog.update(log.id, { cardId: stableId })
+    }
+    await db.cards.delete(card.id)
+    return
+  }
+
+  if (card.id === stableId && card.deckId === toDeckId) {
+    if (srs && srs.deckId !== toDeckId) await db.srs.put({ ...srs, deckId: toDeckId })
+    return
+  }
+
+  // Đổi id: put stable, xóa cũ
+  await db.cards.put({
+    ...card,
+    id: stableId,
+    deckId: toDeckId,
+    updatedAt: ts,
+  })
+  if (srs) {
+    await db.srs.put({ ...srs, cardId: stableId, deckId: toDeckId })
+    if (card.id !== stableId) await db.srs.delete(card.id)
+  }
+  if (card.id !== stableId) {
+    const logs = await db.reviewLog.where('cardId').equals(card.id).toArray()
+    for (const log of logs) {
+      if (log.id != null) await db.reviewLog.update(log.id, { cardId: stableId })
+    }
+    await db.cards.delete(card.id)
+  }
+}
+
+/** Rekey mọi thẻ trong deck preset → pcard: + dedupe phrase. */
+async function rekeyCardsInDeck(deckId: string): Promise<void> {
+  const cards = await db.cards.where('deckId').equals(deckId).toArray()
+  const ts = Date.now()
+  for (const card of cards) {
+    await rekeyOneCard(card, deckId, ts)
+  }
+  await cardRepo.dedupeByPhrase(deckId)
+}
+
+/** Map stableId → tên seed chuẩn (để rename + gộp). */
+function knownPresetStableIds(): Map<string, { groupId: string; name: string }> {
+  const map = new Map<string, { groupId: string; name: string }>()
+  for (const g of SEED_GROUPS) {
+    for (const d of g.decks) {
+      map.set(stablePresetDeckId(g.id, d.name), { groupId: g.id, name: d.name })
+    }
+  }
+  return map
+}
+
+/** Tên seed (normalize) → stableId khi tên là duy nhất toàn bộ preset. */
+function uniqueSeedNameToStable(): Map<string, string> {
+  const counts = new Map<string, string[]>()
+  for (const g of SEED_GROUPS) {
+    for (const d of g.decks) {
+      const key = phraseKeyForCard(d.name)
+      const id = stablePresetDeckId(g.id, d.name)
+      const list = counts.get(key) ?? []
+      list.push(id)
+      counts.set(key, list)
+    }
+  }
+  const unique = new Map<string, string>()
+  for (const [key, ids] of counts) {
+    if (ids.length === 1) unique.set(key, ids[0]!)
+  }
+  return unique
+}
+
+/**
+ * Gộp bộ preset trùng theo **stable slug** (không phụ thuộc exact name / origin).
+ * VD: "Công nghệ" + "Cong nghe" + UUID deck → `preset:ielts:cong-nghe`.
+ * Giữ bản có nhiều thẻ nhất, chuẩn hoá ID + tên seed + rekey card.
+ */
 export async function dedupePresetDecks(): Promise<number> {
-  const seedNames = seedDeckNamesByGroup()
-  const candidates = await db.decks
-    .filter(d => PRESET_GROUP_SET.has(d.groupId) && d.origin !== 'user')
-    .toArray()
+  const known = knownPresetStableIds()
+  const uniqueName = uniqueSeedNameToStable()
+  // Mọi deck: group preset HOẶC tên khớp seed (kể cả group_name cloud sai/null)
+  const allDecks = await db.decks.toArray()
+  const candidates = allDecks.filter(d => {
+    if (known.has(d.id) || isStablePresetDeckId(d.id)) return true
+    if (PRESET_GROUP_SET.has(d.groupId)) return true
+    if (uniqueName.has(phraseKeyForCard(d.name))) return true
+    return false
+  })
 
   const buckets = new Map<string, Deck[]>()
   for (const deck of candidates) {
-    if (!seedNames.get(deck.groupId)?.has(deck.name)) continue
-    const key = `${deck.groupId}::${deck.name}`
-    const list = buckets.get(key) ?? []
+    let stableId: string | null = null
+    if (known.has(deck.id)) {
+      stableId = deck.id
+    } else if (PRESET_GROUP_SET.has(deck.groupId)) {
+      const fromName = stablePresetDeckId(deck.groupId, deck.name)
+      if (known.has(fromName)) stableId = fromName
+    }
+    if (!stableId) {
+      const byName = uniqueName.get(phraseKeyForCard(deck.name))
+      if (byName) stableId = byName
+    }
+    if (!stableId) continue
+    const list = buckets.get(stableId) ?? []
     list.push(deck)
-    buckets.set(key, list)
+    buckets.set(stableId, list)
   }
 
   let removed = 0
-  for (const [, dupes] of buckets) {
+  for (const [stableId, dupes] of buckets) {
     if (!dupes.length) continue
-    const stableId = stablePresetDeckId(dupes[0]!.groupId, dupes[0]!.name)
+    const meta = known.get(stableId)!
 
     const ranked = await Promise.all(
       dupes.map(async deck => ({
@@ -175,6 +329,8 @@ export async function dedupePresetDecks(): Promise<number> {
     await db.decks.put({
       ...best,
       id: stableId,
+      groupId: meta.groupId,
+      name: meta.name,
       origin: 'preset',
       updatedAt: Date.now(),
     })
@@ -185,6 +341,9 @@ export async function dedupePresetDecks(): Promise<number> {
       await removeDeckRecord(deck.id)
       removed++
     }
+
+    // Rekey UUID card → pcard: + gộp phrase
+    await rekeyCardsInDeck(stableId)
   }
 
   return removed
@@ -251,11 +410,25 @@ export async function seedPresetDecks(): Promise<void> {
       }
       await repairPresetOrigin()
       await dedupePresetDecks()
+      // Dọn thẻ phrase trùng trên mọi deck (preset + user) — an toàn, idempotent
+      await cardRepo.dedupeAllDecks()
     })().finally(() => {
       seedTask = null
     })
   }
   await seedTask
+}
+
+/**
+ * Chạy tay / nút «Dọn thẻ trùng» — gộp deck preset + rekey card + dedupe phrase.
+ * @returns số deck ghost đã xoá
+ */
+export async function repairVocabDuplicates(): Promise<{ decksRemoved: number }> {
+  seedTask = null
+  await seedPresetDecks()
+  const decksRemoved = await dedupePresetDecks()
+  await cardRepo.dedupeAllDecks()
+  return { decksRemoved }
 }
 
 /** @deprecated Dùng seedPresetDecks */

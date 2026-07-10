@@ -19,21 +19,33 @@ export function findKetPart6ImageFile(files: File[]): File | null {
   return files.find(f => /^part6[-_]/i.test(normalizeFileKey(f.name))) ?? null
 }
 
-export function findKetPart7ImageFiles(files: File[]): File[] {
-  const found: File[] = []
-  for (let i = 1; i <= 3; i += 1) {
-    const aliases = [
-      `part7-p${i}.jpg`,
-      `part7-p${i}.jpeg`,
-      `part7-p${i}.png`,
-      `part7-${i}.jpg`,
-      `part7_${i}.jpg`,
-    ]
-    const hit = files.find(f => aliases.includes(normalizeFileKey(f.name)))
-      ?? files.find(f => new RegExp(`^part7[-_]?p?${i}\\.(jpe?g|png|webp)$`, 'i').test(normalizeFileKey(f.name)))
-    if (hit) found.push(hit)
+/**
+ * Part 7 Writing: **1 ảnh** `part7-page.jpg` (toàn trang / 3 khung trong 1 file).
+ * Không còn part7-p1…p3.
+ */
+export function findKetPart7ImageFile(files: File[]): File | null {
+  const preferred = [
+    'part7-page.jpg',
+    'part7-page.jpeg',
+    'part7-page.png',
+    'part7-page.webp',
+    'part7.jpg',
+    'part7.jpeg',
+    'part7.png',
+  ]
+  for (const name of preferred) {
+    const hit = files.find(f => normalizeFileKey(f.name) === name)
+    if (hit) return hit
   }
-  return found
+  return files.find(f => /^part7[-_]page\.(jpe?g|png|webp)$/i.test(normalizeFileKey(f.name)))
+    ?? files.find(f => /^part7\.(jpe?g|png|webp)$/i.test(normalizeFileKey(f.name)))
+    ?? null
+}
+
+/** @deprecated Dùng findKetPart7ImageFile — giữ alias mảng 0|1 phần tử cho UI cũ. */
+export function findKetPart7ImageFiles(files: File[]): File[] {
+  const f = findKetPart7ImageFile(files)
+  return f ? [f] : []
 }
 
 export function buildKetPart6Json(imageFile?: string): ReadingImportPartJson {
@@ -68,14 +80,10 @@ export function buildKetPart6Json(imageFile?: string): ReadingImportPartJson {
   }
 }
 
-export function buildKetPart7Json(imageFiles: string[]): ReadingImportPartJson {
-  const passage = imageFiles.length > 0
-    ? imageFiles.map(imageFile => ({ imageFile }))
-    : [
-      { imageFile: 'part7-p1.jpg' },
-      { imageFile: 'part7-p2.jpg' },
-      { imageFile: 'part7-p3.jpg' },
-    ]
+export function buildKetPart7Json(imageFile?: string): ReadingImportPartJson {
+  const passage = imageFile
+    ? [{ imageFile }]
+    : [{ imageFile: 'part7-page.jpg' }]
 
   return {
     partNumber: 7,
@@ -123,9 +131,9 @@ export function mergeKetWritingImagesIntoPayload(
   }
 
   const part6File = findKetPart6ImageFile(mediaFiles)
-  const part7Files = findKetPart7ImageFiles(mediaFiles)
+  const part7File = findKetPart7ImageFile(mediaFiles)
 
-  if (!part6File && part7Files.length === 0) {
+  if (!part6File && !part7File) {
     return { payload, merged: false, notes, extraMediaFiles }
   }
 
@@ -151,16 +159,14 @@ export function mergeKetWritingImagesIntoPayload(
     notes.push('Part 6: chưa có ảnh (part6-page.jpg hoặc part6.jpg).')
   }
 
-  if (part7Files.length >= 3) {
-    const names = part7Files.map(f => normalizeFileKey(f.name))
-    next.parts.push(buildKetPart7Json(names))
-    extraMediaFiles.push(...part7Files)
-    notes.push(`Part 7: ${names.join(', ')}`)
+  if (part7File) {
+    const imageFile = normalizeFileKey(part7File.name)
+    next.parts.push(buildKetPart7Json(imageFile))
+    extraMediaFiles.push(part7File)
+    notes.push(`Part 7: ảnh ${imageFile}`)
     merged = true
-  } else if (part7Files.length > 0) {
-    notes.push(`Part 7: cần đủ 3 ảnh (hiện có ${part7Files.length}/3 — part7-p1…p3.jpg).`)
   } else if (!next.parts.some(p => p.partNumber === 7)) {
-    notes.push('Part 7: chưa có ảnh (part7-p1.jpg, part7-p2.jpg, part7-p3.jpg).')
+    notes.push('Part 7: chưa có ảnh (part7-page.jpg).')
   }
 
   next.parts.sort((a, b) => a.partNumber - b.partNumber)
@@ -168,4 +174,4 @@ export function mergeKetWritingImagesIntoPayload(
   return { payload: next, merged, notes, extraMediaFiles }
 }
 
-export const KET_WRITING_IMAGE_HINT = 'part6-page.jpg (đề Part 6) + part7-p1.jpg … part7-p3.jpg (3 ảnh truyện)'
+export const KET_WRITING_IMAGE_HINT = 'part6-page.jpg (đề Part 6) + part7-page.jpg (1 ảnh truyện / 3 khung)'

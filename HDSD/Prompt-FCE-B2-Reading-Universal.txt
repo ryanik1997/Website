@@ -1,10 +1,12 @@
 Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** FCE B2 (Cambridge) vào web app "Ryan English".
 
+
+**Checklist trước ZIP:** HDSD/Prompt-Reading-Cambridge-CHECKLIST.txt
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
 Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
 1. Test_{N}_Reading_FCE_B2.pdf — đề Reading & Writing (Parts 1–9)
-2. Answer Key.pdf — đáp án Reading Parts 1–7 (Writing Part 8–9 không có key)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án Reading (Writing parts không có key; app ZIP nhận cả hai định dạng)
 3. part8-page.jpg — screenshot trang đề Part 8 (essay Q53) — **bắt buộc khi pack Writing**
 4. part9-page.jpg — **1 ảnh** truyện Part 9 (3 khung trong 1 file, Q54) — **bắt buộc khi pack Writing**
 
@@ -156,7 +158,7 @@ Giải thích / biến thể → `explanation` hoặc `/` `|` trong `answer` —
 | Level | Part Writing | Quy ước ảnh |
 |-------|--------------|-------------|
 | KET A2 | P6 email | 1 ảnh `part6-page.jpg` |
-| KET A2 | P7 story | **3 ảnh** `part7-p1.jpg` … `part7-p3.jpg` |
+| KET A2 | P7 story | **1 ảnh** `part7-page.jpg` |
 | PET B1 | P7 message | 1 ảnh `part7-page.jpg` |
 | PET B1 | P8 story | **1 ảnh** `part8-page.jpg` (3 khung trong 1 file) |
 | **FCE B2** | **P8 essay** | **1 ảnh** `part8-page.jpg` |
@@ -214,6 +216,34 @@ Kết quả: thêm Part 8–9, `durationMinutes: 80`, `bandHint` có chữ **Rea
 - Part 9: cắt **cả 3 khung truyện** thành **1 ảnh** → `part9-page.jpg`
 
 ---
+
+
+---
+
+## Answer Key trong ZIP (app import)
+
+App chấp nhận **cùng cấp** `exam.json`:
+
+| File | Ghi chú |
+|------|---------|
+| `answer-key.txt` | **Khuyến nghị** — UTF-8, dễ parse (ưu tiên hơn PDF scan) |
+| `answer-key.pdf` | OK nếu có **text layer** (copy được chữ) |
+| `Answer Key.pdf` / `answers.txt` / `answer_key.txt` | Tên alias được nhận |
+
+**Format dòng** (mỗi đáp án 1 dòng):
+
+```
+1 A
+2 C
+12 TRUE
+15 not given
+19 B
+25 August
+```
+
+- App **chỉ bổ sung** câu trong JSON đang `answer` trống — không ghi đè đáp án đã điền.
+- Writing task (KET P6–7, PET P7–8, FCE P8–9, …) **không** lấy từ key.
+- PDF scan không trích được chữ → xuất `answer-key.txt` từ key.
 
 ## Part 1 (Q1–8) — Multiple-choice cloze
 
@@ -640,6 +670,8 @@ ZIP: `part8-page.jpg`
 
 | Lỗi | Đúng |
 |-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
 | Hai JSON dính `}{` | Chỉ 1 object; JSON.parse trước khi xuất |
 | `durationMinutes: 75` | **80** phút |
 | Chỉ 7 part, thiếu Writing | Thêm Part 8–9 JSON hoặc 7 part + ảnh |

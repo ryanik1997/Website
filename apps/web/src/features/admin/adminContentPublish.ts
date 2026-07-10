@@ -1,6 +1,7 @@
 import { db } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
 import { PRESET_GROUP_IDS } from '../vocab/vocabSeedDecks'
+import { normalizeVocabPublishPayload } from '../vocab/vocabPublishNormalize'
 import {
   listPublishableLocalExams,
   publishAllLocalExamsToCloud,
@@ -59,14 +60,21 @@ const MODULE_ORDER: AdminPublishModuleId[] = [
 
 const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 
+/**
+ * Thu thập vocab preset + **chuẩn hoá id ổn định** (deck + card).
+ * Payload publish luôn idempotent → client bulkPut không double khi re-publish.
+ */
 async function collectVocab() {
-  const presetDecks = await db.decks.filter(d => d.origin === 'preset').toArray()
+  // Mọi deck trong group hệ thống (kể cả origin lệch) — normalize sẽ gộp theo slug
+  const presetDecks = await db.decks
+    .filter(d => PRESET_GROUP_SET.has(d.groupId) || d.origin === 'preset')
+    .toArray()
   const deckIds = new Set(presetDecks.map(d => d.id))
   const groups = await db.groups.filter(g => PRESET_GROUP_SET.has(g.id)).toArray()
   const cards = deckIds.size
     ? await db.cards.filter(c => deckIds.has(c.deckId)).toArray()
     : []
-  return { groups, decks: presetDecks, cards }
+  return normalizeVocabPublishPayload({ groups, decks: presetDecks, cards })
 }
 
 async function collectLessons() {

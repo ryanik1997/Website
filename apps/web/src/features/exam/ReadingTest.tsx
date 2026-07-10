@@ -287,6 +287,7 @@ export default function ReadingTest() {
         activeQuestionId,
         highlightsByPart,
         notesByPart,
+        updatedAt: Date.now(),
       }))
       notifyExamDraftRevision()
     } catch {

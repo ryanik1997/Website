@@ -100,3 +100,12 @@ export async function listPublishedReadingExams(): Promise<ReadingExam[]> {
   if (error) throw new Error(error.message)
   return (data ?? []).map(row => rowToExam(row as unknown as PublishedRow))
 }
+
+/** Gỡ đề Reading đã publish (Admin xóa — tránh đề “sống lại” sau khi xóa local). */
+export async function deletePublishedReadingExam(examId: string): Promise<void> {
+  const { error } = await supabase
+    .from('reading_exam_published')
+    .delete()
+    .eq('id', examId)
+  if (error) throw new Error(error.message)
+}

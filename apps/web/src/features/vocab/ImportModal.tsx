@@ -49,15 +49,16 @@ export default function ImportModal({ deckId, deckName, onClose }: Props) {
     let count = 0
     try {
       for (const row of rows) {
-        await cardRepo.add(deckId, {
+        const { created } = await cardRepo.addUnique(deckId, {
           phrase: row.phrase,
           meaning: row.meaning,
           example: row.example,
           ipaUS: row.ipaUS,
           ipaUK: row.ipaUK,
           pos: row.pos,
+          sourceKind: 'import',
         })
-        count++
+        if (created) count++
       }
       setImportedCount(count)
       setStep('success')

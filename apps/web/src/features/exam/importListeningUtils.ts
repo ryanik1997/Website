@@ -120,6 +120,84 @@ function resolveMediaFile(map: Map<string, File>, filename?: string): File | nul
   return map.get(normalizeFileKey(filename)) ?? null
 }
 
+/** Tên MP3 thường gặp trong ZIP pack tay / DeepSeek (Audio.mp3 ≠ listening.mp3). */
+const SHARED_LISTENING_AUDIO_ALIASES = [
+  'listening.mp3',
+  'audio.mp3',
+  'audio.wav',
+  'audio.m4a',
+  'track.mp3',
+  'test.mp3',
+  'test.wav',
+  'part.mp3',
+  'full.mp3',
+  'recording.mp3',
+]
+
+function isSharedListeningAudioName(name: string): boolean {
+  const n = normalizeFileKey(name)
+  if (SHARED_LISTENING_AUDIO_ALIASES.includes(n)) return true
+  // audio-1.mp3, listening_test2.mp3, Audio.MP3 đã normalize
+  if (/^(listening|audio|track|test)[-_.]?\d*\.(mp3|wav|m4a|ogg)$/i.test(n)) return true
+  return false
+}
+
+/**
+ * Tìm file audio cho part/câu:
+ * 1) đúng tên audioFile trong JSON
+ * 2) alias listening/audio.mp3
+ * 3) part{N}.mp3
+ * 4) nếu ZIP chỉ có 1 file audio → dùng file đó
+ */
+function resolveListeningAudioFile(
+  map: Map<string, File>,
+  audioFile?: string,
+  partNumber?: number,
+): File | null {
+  const tried = new Set<string>()
+  const tryName = (name?: string): File | null => {
+    if (!name) return null
+    const key = normalizeFileKey(name)
+    if (tried.has(key)) return null
+    tried.add(key)
+    return resolveMediaFile(map, key)
+  }
+
+  let hit = tryName(audioFile)
+  if (hit) return hit
+
+  // JSON ghi listening.mp3 nhưng ZIP là Audio.mp3 (và ngược lại)
+  if (!audioFile || isSharedListeningAudioName(audioFile) || /listening/i.test(audioFile)) {
+    for (const alias of SHARED_LISTENING_AUDIO_ALIASES) {
+      hit = tryName(alias)
+      if (hit) return hit
+    }
+  }
+
+  if (partNumber != null) {
+    hit = tryName(`part${partNumber}.mp3`)
+      ?? tryName(`part-${partNumber}.mp3`)
+      ?? tryName(`part_${partNumber}.mp3`)
+    if (hit) return hit
+  }
+
+  // Một file audio duy nhất trong ZIP
+  const audioFiles = [...map.values()].filter(f => AUDIO_EXT.test(normalizeFileKey(f.name)))
+  if (audioFiles.length === 1) return audioFiles[0]!
+
+  // Nhiều file: ưu tiên tên có listening/audio/test
+  const preferred = audioFiles.find(f => isSharedListeningAudioName(f.name))
+  if (preferred) return preferred
+
+  // Lấy file audio lớn nhất (thường là full test)
+  if (audioFiles.length > 1) {
+    return [...audioFiles].sort((a, b) => b.size - a.size)[0] ?? null
+  }
+
+  return null
+}
+
+
 export function parseListeningImportJson(text: string): ListeningImportPayload {
   let raw: unknown
   try {
@@ -212,6 +290,10 @@ function collectExpectedMediaFiles(payload: ListeningImportPayload): Array<{ lab
 function mediaFileFound(mediaFiles: File[], filename: string): boolean {
   const map = buildMediaMap(mediaFiles)
   if (resolveMediaFile(map, filename)) return true
+  // Audio: alias listening.mp3 ↔ Audio.mp3
+  if (AUDIO_EXT.test(filename) || isSharedListeningAudioName(filename)) {
+    if (resolveListeningAudioFile(map, filename)) return true
+  }
   const base = normalizeFileKey(filename)
   const alt = base.replace(/\.(jpg|jpeg|png|webp)$/i, '')
   for (const ext of ['.jpg', '.jpeg', '.png', '.webp']) {
@@ -347,10 +429,28 @@ async function storeSharedMedia(
   const cached = cache.get(fileKey)
   if (cached) return cached
 
-  const sharedListening = fileKey === 'listening.mp3'
+  const sharedListening = isSharedListeningAudioName(fileKey) || fileKey === 'listening.mp3'
   const mediaKey = listeningExamAudioKey(examId, sharedListening ? 'shared-listening' : suffix)
-  await audioRepo.put(mediaKey, file)
+  // Ép MIME audio — File từ ZIP đôi khi type rỗng → HTMLAudioElement không play
+  let toStore: Blob = file
+  if (AUDIO_EXT.test(fileKey) && (!file.type || !file.type.startsWith('audio/'))) {
+    const mime = fileKey.endsWith('.wav')
+      ? 'audio/wav'
+      : fileKey.endsWith('.m4a')
+        ? 'audio/mp4'
+        : fileKey.endsWith('.ogg')
+          ? 'audio/ogg'
+          : 'audio/mpeg'
+    toStore = new Blob([await file.arrayBuffer()], { type: mime })
+  }
+  await audioRepo.put(mediaKey, toStore)
   cache.set(fileKey, mediaKey)
+  // Alias map: JSON "listening.mp3" và file "audio.mp3" dùng chung key
+  if (sharedListening) {
+    for (const alias of SHARED_LISTENING_AUDIO_ALIASES) {
+      if (!cache.has(alias)) cache.set(alias, mediaKey)
+    }
+  }
   return mediaKey
 }
 
@@ -372,12 +472,27 @@ export async function buildListeningExamFromImport(
   })
   const parts: ListeningPart[] = []
 
+  // Fallback audio toàn đề (Audio.mp3 / listening.mp3 / file mp3 duy nhất)
+  const sharedAudioFile = resolveListeningAudioFile(mediaMap, 'listening.mp3')
+  let sharedAudioKey: string | undefined
+  if (sharedAudioFile) {
+    sharedAudioKey = await storeSharedMedia(
+      sharedMediaKeys,
+      examId,
+      'shared-listening',
+      sharedAudioFile,
+    )
+  }
+
   for (const partJson of normalized.parts) {
     const partId = `${examId}-part-${partJson.partNumber}`
     let partAudioKey: string | undefined
 
-    const partFile = resolveMediaFile(mediaMap, partJson.audioFile)
-      ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}.mp3`)
+    const partFile = resolveListeningAudioFile(
+      mediaMap,
+      partJson.audioFile,
+      partJson.partNumber,
+    )
     if (partFile) {
       partAudioKey = await storeSharedMedia(
         sharedMediaKeys,
@@ -385,6 +500,8 @@ export async function buildListeningExamFromImport(
         `part-${partJson.partNumber}`,
         partFile,
       )
+    } else if (sharedAudioKey) {
+      partAudioKey = sharedAudioKey
     }
 
     const questions: ListeningQuestion[] = []
@@ -395,6 +512,8 @@ export async function buildListeningExamFromImport(
 
       const qFile = resolveMediaFile(mediaMap, qJson.audioFile)
         ?? resolveMediaFile(mediaMap, `q${qJson.number}.mp3`)
+        // Chỉ dùng shared full-test audio khi JSON không chỉ định file câu riêng
+        ?? (!qJson.audioFile ? sharedAudioFile : null)
       if (qFile) {
         audioKey = await storeSharedMedia(
           sharedMediaKeys,
@@ -453,7 +572,7 @@ export async function buildListeningExamFromImport(
         pictureImageKey,
         pictureImageUrl,
         audioKey,
-        audioUrl: questionAudioUrl,
+        audioUrl: audioKey ? undefined : questionAudioUrl,
         ttsText: qJson.ttsText,
         wordLimit: qJson.wordLimit,
         context: qJson.context,
@@ -490,8 +609,9 @@ export async function buildListeningExamFromImport(
       partNumber: partJson.partNumber,
       rangeLabel: partJson.rangeLabel,
       instruction: partJson.instruction,
+      // Ưu tiên blob local; catalog URL chỉ fallback khi không có file trong ZIP
       audioKey: partAudioKey,
-      audioUrl: catalogAudioUrl,
+      audioUrl: partAudioKey ? undefined : catalogAudioUrl,
       ttsText: partJson.ttsText,
       maxPlays: partJson.maxPlays,
       passageTitle: partJson.passageTitle,

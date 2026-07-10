@@ -3,6 +3,7 @@ import type { ListeningExamRecord } from '@ryan/db'
 import { listeningExamRepo } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import { getListeningExam, LISTENING_EXAMS } from './listeningExamData'
+import { dedupeExamsForLibraryDisplay } from './examListFilter'
 import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
 import { getPublishedListeningExam, listPublishedListeningExams } from './listeningExamPublish'
 import { normalizeListeningExamForDisplay } from './listeningImportNormalize'
@@ -87,7 +88,9 @@ export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const publishedIds = new Set(published.map(e => e.id))
   const publishedOnly = published.filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
-  return [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam)
+  return dedupeExamsForLibraryDisplay(
+    [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam),
+  )
 }
 
 export function examRecordFromListening(

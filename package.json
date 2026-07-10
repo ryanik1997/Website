@@ -9,6 +9,7 @@
     "dev:web": "pnpm --filter web dev",
     "dev:web:open": "pnpm --filter web dev:open",
     "build:catalog": "node scripts/build-catalog.mjs",
+    "build:dict:part1": "node scripts/build-dict-part1.mjs",
     "fix:ielts-notes": "python scripts/sync-ielts-inline-gaps.py && python scripts/fix-all-ielts-p1.py && pnpm build:catalog",
     "sync:ielts-gaps": "python scripts/sync-ielts-inline-gaps.py",
     "pack:listening": "node scripts/pack-listening-bundle.mjs ket-listening-test1",

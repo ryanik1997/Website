@@ -106,3 +106,12 @@ export async function listPublishedListeningExams(): Promise<ListeningExam[]> {
   if (error) throw new Error(error.message)
   return (data ?? []).map(row => rowToExam(row as unknown as PublishedRow))
 }
+
+/** Gỡ đề Listening đã publish (Admin xóa — tránh đề “sống lại” sau khi xóa local). */
+export async function deletePublishedListeningExam(examId: string): Promise<void> {
+  const { error } = await supabase
+    .from('listening_exam_published')
+    .delete()
+    .eq('id', examId)
+  if (error) throw new Error(error.message)
+}

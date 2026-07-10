@@ -18,7 +18,17 @@ import { getListeningExamQuestions } from './listeningExamData'
 import type { ListeningExamType } from './listeningExamData'
 import type { ReadingExam } from './examData'
 import type { ListeningExam } from './listeningExamData'
-import { isImportedReadingExamId } from './importReadingManualUtils'
+import {
+  canDeleteReadingExamId,
+  isImportedReadingExamId,
+} from './importReadingManualUtils'
+import {
+  canDeleteListeningExamId,
+  isUserImportedListeningExamId,
+} from './examListFilter'
+import { db } from '@ryan/db'
+import { deletePublishedReadingExam } from './readingExamPublish'
+import { deletePublishedListeningExam } from './listeningExamPublish'
 import {
   clearListeningDraft,
   clearReadingDraft,
@@ -79,7 +89,7 @@ function safeReadingRow(exam: ReadingExam): {
         ? `Đúng ${completion.correct}/${completion.total} câu`
         : exam.bandHint || `${parts.length} part · ${qCount} câu`,
       done: Boolean(completion),
-      canDelete: isImportedReadingExamId(exam.id),
+      canDelete: canDeleteReadingExamId(exam.id),
       canEdit: isImportedReadingExamId(exam.id) && isIeltsReadingWizardEditable(exam),
     }
   } catch (err) {
@@ -88,7 +98,7 @@ function safeReadingRow(exam: ReadingExam): {
       id: exam.id,
       title: exam.title || exam.id,
       meta: 'Không đọc được metadata đề',
-      canDelete: isImportedReadingExamId(exam.id),
+      canDelete: canDeleteReadingExamId(exam.id),
     }
   }
 }
@@ -117,7 +127,7 @@ function safeListeningRow(exam: ListeningExam): {
         ? `Đúng ${completion.correct}/${completion.total} câu`
         : `${sourceLabel}${exam.bandHint || `${typeLabel} · ${qCount} câu · ${exam.examMode ?? 'practice'}`}`,
       done: Boolean(completion),
-      canDelete: exam.id.startsWith('listening-import-'),
+      canDelete: canDeleteListeningExamId(exam.id),
     }
   } catch (err) {
     console.warn('[ExamTrackPage] listening row failed', exam.id, err)
@@ -125,7 +135,7 @@ function safeListeningRow(exam: ListeningExam): {
       id: exam.id,
       title: exam.title || exam.id,
       meta: 'Không đọc được metadata đề',
-      canDelete: exam.id.startsWith('listening-import-'),
+      canDelete: canDeleteListeningExamId(exam.id),
     }
   }
 }
@@ -283,7 +293,7 @@ function ExamTrackPageInner() {
     : cambridgeLevel?.listeningExamTypes[0] ?? 'ket'
 
   const importedReading = readingList.filter(e => isImportedReadingExamId(e.id))
-  const importedListening = listeningList.filter(e => e.id.startsWith('listening-import-'))
+  const importedListening = listeningList.filter(e => isUserImportedListeningExamId(e.id))
 
   async function openReadingWizardEdit(examId: string) {
     if (!canImport) return
@@ -294,16 +304,73 @@ function ExamTrackPageInner() {
     setShowReadingWizard(true)
   }
 
+  /**
+   * Xóa đề Reading khỏi Library:
+   * 1) Dexie local  2) Cloud publish (Admin — tránh đề “sống lại” sau F5)
+   * Không xóa catalog/builtin.
+   */
   async function deleteReading(exam: ReadingExam) {
-    if (!canImport) return
-    if (!confirm(`Xóa đề "${exam.title}"?`)) return
-    await examRepo.delete(exam.id)
+    if (!canDeleteReadingExamId(exam.id)) {
+      alert('Không xóa được đề mẫu hệ thống (catalog / builtin).')
+      return
+    }
+    if (!confirm(`Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`)) return
+    try {
+      const prefix = `reading-exam:${exam.id}:`
+      const keys = await db.audioBlobs.where('key').startsWith(prefix).primaryKeys()
+      if (keys.length) await db.audioBlobs.bulkDelete(keys as string[])
+      await examRepo.delete(exam.id)
+      clearReadingDraft(exam.id)
+      // Admin: gỡ cloud — nếu chỉ xóa local, listPublished sẽ hiện lại đề
+      try {
+        await deletePublishedReadingExam(exam.id)
+      } catch (cloudErr) {
+        console.warn('[deleteReading] cloud unpublish', cloudErr)
+        if (canImport) {
+          alert(
+            `Đã xóa local. Không gỡ được bản cloud: ${
+              cloudErr instanceof Error ? cloudErr.message : cloudErr
+            }\n(Kiểm tra quyền RLS Supabase trên reading_exam_published.)`,
+          )
+        }
+      }
+    } catch (err) {
+      console.error(err)
+      alert(err instanceof Error ? err.message : 'Không xóa được đề Reading.')
+    }
   }
 
+  /**
+   * Xóa đề Listening khỏi Library — local + cloud publish + audio blobs.
+   */
   async function deleteListening(exam: ListeningExam) {
-    if (!canImport) return
-    if (!confirm(`Xóa đề "${exam.title}"?`)) return
-    await listeningExamRepo.delete(exam.id)
+    if (!canDeleteListeningExamId(exam.id)) {
+      alert('Không xóa được đề mẫu hệ thống (catalog / builtin).')
+      return
+    }
+    if (!confirm(`Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`)) return
+    try {
+      const prefix = `listening-exam:${exam.id}:`
+      const keys = await db.audioBlobs.where('key').startsWith(prefix).primaryKeys()
+      if (keys.length) await db.audioBlobs.bulkDelete(keys as string[])
+      await listeningExamRepo.delete(exam.id)
+      clearListeningDraft(exam.id)
+      try {
+        await deletePublishedListeningExam(exam.id)
+      } catch (cloudErr) {
+        console.warn('[deleteListening] cloud unpublish', cloudErr)
+        if (canImport) {
+          alert(
+            `Đã xóa local. Không gỡ được bản cloud: ${
+              cloudErr instanceof Error ? cloudErr.message : cloudErr
+            }\n(Kiểm tra quyền RLS Supabase trên listening_exam_published.)`,
+          )
+        }
+      }
+    } catch (err) {
+      console.error(err)
+      alert(err instanceof Error ? err.message : 'Không xóa được đề Listening.')
+    }
   }
 
   const skillBasePath = track.id === 'ielts'
@@ -343,6 +410,7 @@ function ExamTrackPageInner() {
           listeningCount={listeningList.length}
           readingCount={readingList.length}
           skills={skills}
+          readingTitle={cambridgeLevel ? 'Reading - Writing' : 'Reading'}
           onPick={skill => navigate(`${skillBasePath}/${skill}`)}
         />
         {canImport && showImportListening && (
@@ -375,12 +443,18 @@ function ExamTrackPageInner() {
         <section className="exam-full-mock-hero">
           <p className="exam-hub-kicker">{brandTitle}</p>
           <h1 className="exam-hub-title">
-            {activeSkill === 'listening' ? 'Listening' : 'Reading'}
+            {activeSkill === 'listening'
+              ? 'Listening'
+              : cambridgeLevel
+                ? 'Reading - Writing'
+                : 'Reading'}
           </h1>
           <p className="exam-hub-desc">
             {activeSkill === 'listening'
               ? 'Chọn sách / đề Listening trong Library Archives.'
-              : 'Chọn sách / đề Reading trong Library Archives.'}
+              : cambridgeLevel
+                ? 'Chọn sách / đề Reading - Writing trong Library Archives.'
+                : 'Chọn sách / đề Reading trong Library Archives.'}
           </p>
 
           {canImport && (
@@ -462,7 +536,8 @@ function ExamTrackPageInner() {
             exams={readingList}
             buildRow={exam => {
               const row = safeReadingRow(exam)
-              if (!canImport) return { ...row, canDelete: false, canEdit: false }
+              // Giữ canDelete cho đề import; chỉ khóa Sửa wizard nếu không admin
+              if (!canImport) return { ...row, canEdit: false }
               return row
             }}
             onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
@@ -471,10 +546,10 @@ function ExamTrackPageInner() {
               navigate(`/app/exam/reading/${id}`)
             }}
             onEditExam={canImport ? id => void openReadingWizardEdit(id) : undefined}
-            onDeleteExam={canImport ? id => {
+            onDeleteExam={id => {
               const target = readingList.find(e => e.id === id)
               if (target) void deleteReading(target)
-            } : undefined}
+            }}
           />
         )}
 
@@ -484,26 +559,23 @@ function ExamTrackPageInner() {
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
             exams={listeningList}
-            buildRow={exam => {
-              const row = safeListeningRow(exam)
-              if (!canImport) return { ...row, canDelete: false }
-              return row
-            }}
+            buildRow={exam => safeListeningRow(exam)}
             onOpenExam={id => navigate(`/app/exam/listening/${id}`)}
             onRetryExam={id => {
               clearListeningDraft(id)
               navigate(`/app/exam/listening/${id}`)
             }}
-            onDeleteExam={canImport ? id => {
+            onDeleteExam={id => {
               const target = listeningList.find(e => e.id === id)
               if (target) void deleteListening(target)
-            } : undefined}
+            }}
           />
         )}
 
-        {canImport && (importedReading.length > 0 || importedListening.length > 0) && (
+        {(importedReading.length > 0 || importedListening.length > 0) && (
           <p className="exam-hub-desc" style={{ marginTop: '1rem' }}>
             Đề import: {importedReading.length} Reading, {importedListening.length} Listening
+            {' · '}Có thể xóa đề import bằng nút thùng rác (không xóa đề mẫu hệ thống).
           </p>
         )}
       </div>

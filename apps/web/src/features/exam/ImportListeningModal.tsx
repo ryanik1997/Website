@@ -117,6 +117,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
       setPayload(bundle.payload)
       setMediaFiles(bundle.mediaFiles)
       setWarnings([
+        ...bundle.answerKeyNotes,
         ...validateListeningImport(bundle.payload),
         ...validateListeningImportMedia(bundle.payload, bundle.mediaFiles),
       ])
@@ -268,7 +269,8 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                       <li>Part 1 bảng → <code>noteTable</code> hoặc <code>noteTables[]</code> + layout <code>table</code>.</li>
                       <li>Part 1 hỗn hợp → xếp <code>questions</code> đúng thứ tại: gap → MC/Choose TWO → gap.</li>
                       <li>Audio: <code>listening.mp3</code> (một file ~30 phút cho cả bài).</li>
-                      <li><strong>ZIP</strong> = <code>exam.json</code> + <code>listening.mp3</code> cùng cấp.</li>
+                      <li><strong>ZIP</strong> = <code>exam.json</code> + <code>listening.mp3</code> (+ tuỳ chọn Answer Key).</li>
+                      <li>Transcript IELTS: không lấy từ PDF — vào <strong>Xem cùng đề bài</strong> → <strong>Hiện transcript (AI)</strong>.</li>
                       <li>Preview → <strong>Lưu & làm bài</strong>.</li>
                     </>
                   ) : (
@@ -277,7 +279,8 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                       <li>Thêm file âm thanh: <code>q1.mp3</code>, <code>part1.mp3</code>… (hoặc <code>ttsText</code> nếu không có MP3).</li>
                       <li>Ảnh Part 1: <code>q1.jpg</code> … <code>q5.jpg</code> (mỗi câu 1 ảnh chứa A+B+C).</li>
                       <li>Audio: <code>listening.mp3</code> (một file cho cả bài).</li>
-                      <li><strong>ZIP</strong> gồm tất cả file cùng cấp — chỉ đặt file vào <code>Tainguyen/</code> chưa tự import.</li>
+                      <li><strong>ZIP</strong> cùng cấp: exam + media + tuỳ chọn <code>answer-key.pdf</code> / <code>answer-key.txt</code> / <code>audioscript.txt</code>.</li>
+                      <li>Cambridge A2–C2: Answer Key (.pdf hoặc .txt) + Audioscript → transcript khi xem lại. (IELTS: AI khi xem cùng đề.)</li>
                       <li>Preview → <strong>Lưu & làm bài</strong>.</li>
                     </>
                   )}

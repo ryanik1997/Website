@@ -1,8 +1,6 @@
-import { db, settingsRepo } from '@ryan/db'
+import { cardRepo, db, settingsRepo } from '@ryan/db'
 import type {
   Card,
-  Deck,
-  Group,
   Lesson,
   MindMap,
   SentenceStructure,
@@ -10,14 +8,12 @@ import type {
   WritingDoc,
 } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
+import { dedupePresetDecks } from '../vocab/vocabSeedDecks'
 import {
-  dedupePresetDecks,
-  PRESET_GROUP_IDS,
-  stablePresetDeckId,
-} from '../vocab/vocabSeedDecks'
+  normalizeVocabPublishPayload,
+  type VocabPublishPayload,
+} from '../vocab/vocabPublishNormalize'
 import { ADMIN_PUBLISH_VERSION_KEY } from './adminContentPublish'
-
-const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 
 export interface AdminContentSyncResult {
   updated: boolean
@@ -26,43 +22,58 @@ export interface AdminContentSyncResult {
   modules: string[]
 }
 
-interface VocabPayload {
-  groups?: Group[]
-  decks?: Deck[]
-  cards?: Card[]
+/** Tạo SRS mặc định cho thẻ publish mới (chưa có tiến độ). */
+async function ensureSrsForCards(cards: Card[]): Promise<void> {
+  if (!cards.length) return
+  const now = Date.now()
+  const existing = await db.srs.bulkGet(cards.map(c => c.id))
+  const missing = cards.filter((_, i) => !existing[i])
+  if (!missing.length) return
+  await db.srs.bulkPut(
+    missing.map(c => ({
+      cardId: c.id,
+      deckId: c.deckId,
+      ease: 2.5,
+      interval: 0,
+      reps: 0,
+      lapses: 0,
+      dueAt: now,
+      state: 'new' as const,
+    })),
+  )
 }
 
-function remapPresetDeckId(deck: Deck): string {
-  if (!PRESET_GROUP_SET.has(deck.groupId)) return deck.id
-  return stablePresetDeckId(deck.groupId, deck.name)
-}
-
-async function mergeVocab(payload: VocabPayload): Promise<void> {
-  if (payload.groups?.length) {
-    await db.groups.bulkPut(payload.groups)
-  }
-
-  const deckIdRemap = new Map<string, string>()
-  const decks = payload.decks?.map(d => {
-    const id = remapPresetDeckId(d)
-    if (id !== d.id) deckIdRemap.set(d.id, id)
-    return { ...d, id, origin: 'preset' as const }
+/**
+ * Merge vocab publish → local.
+ * 1) Chuẩn hoá deck/card id ổn định (cả payload cũ UUID)
+ * 2) bulkPut idempotent
+ * 3) SRS thiếu + dedupe an toàn (legacy double)
+ */
+async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>): Promise<void> {
+  const raw = payload as VocabPublishPayload
+  const normalized = normalizeVocabPublishPayload({
+    groups: raw.groups,
+    decks: raw.decks,
+    cards: raw.cards,
   })
 
-  if (decks?.length) {
-    await db.decks.bulkPut(decks)
+  if (normalized.groups.length) {
+    await db.groups.bulkPut(normalized.groups)
+  }
+  if (normalized.decks.length) {
+    await db.decks.bulkPut(normalized.decks)
+  }
+  if (normalized.cards.length) {
+    await db.cards.bulkPut(normalized.cards)
+    await ensureSrsForCards(normalized.cards)
   }
 
-  if (payload.cards?.length) {
-    await db.cards.bulkPut(
-      payload.cards.map(c => ({
-        ...c,
-        deckId: deckIdRemap.get(c.deckId) ?? c.deckId,
-      })),
-    )
-  }
-
+  // Legacy: deck/card UUID còn sót sau publish cũ → gộp
   await dedupePresetDecks()
+  const deckIds = normalized.decks.map(d => d.id)
+  if (deckIds.length) {
+    await cardRepo.dedupeAllDecks(deckIds)
+  }
 }
 
 async function mergeLessons(lessons: Lesson[]): Promise<void> {
@@ -95,7 +106,7 @@ async function mergeMindmaps(items: MindMap[]): Promise<void> {
 async function mergeModule(module: string, payload: unknown): Promise<void> {
   switch (module) {
     case 'vocab':
-      await mergeVocab(payload as VocabPayload)
+      await mergeVocab(payload as VocabPublishPayload)
       break
     case 'lessons':
       await mergeLessons(payload as Lesson[])

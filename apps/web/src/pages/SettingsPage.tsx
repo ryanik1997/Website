@@ -693,7 +693,8 @@ function CloudSyncSection() {
       </div>
 
       <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-        Đồng bộ từ vựng, bài viết và mindmap lên Supabase.
+        Đồng bộ hai chiều (LWW): từ vựng, SRS, bài viết, mindmap, tiến độ Reading/Listening.
+        Khi offline xong online, bản cập nhật mới hơn thắng.
       </p>
     </section>
   )
@@ -789,7 +790,8 @@ function BackupSection() {
       )}
 
       <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-        Backup bao gồm từ vựng, bài viết, mindmap và cài đặt. Không bao gồm file âm thanh.
+        Backup Web: từ vựng, bài viết, mindmap, cài đặt (không gồm file âm thanh).
+        Cũng nhận file <strong>Electron</strong> (Vocabulary export v2 / legacy flashcard) — merge vào web rồi bấm Đồng bộ đám mây.
       </p>
 
       {restoreFile && (

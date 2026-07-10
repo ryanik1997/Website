@@ -10,5 +10,10 @@ export function rwDraftWithAnnotations(
   highlightsByPart: Record<string, ReadingHighlight[]>,
   notesByPart: Record<string, TextNote[]>,
 ): Record<string, unknown> {
-  return { ...base, highlightsByPart, notesByPart }
+  return {
+    ...base,
+    highlightsByPart,
+    notesByPart,
+    updatedAt: Date.now(),
+  }
 }

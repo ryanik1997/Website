@@ -18,6 +18,8 @@ import { buildListeningReviewStatusMap, type ExamReviewStatus } from './examRevi
 import ListeningReviewActiveBar from './ListeningReviewActiveBar'
 import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
+import ListeningReviewTranscriptToolbar from './ListeningReviewTranscriptToolbar'
+import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import {
   hasExamAudioFile,
   resolveListeningAudioSource,
@@ -158,6 +160,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
       submitted,
       highlightsByPart,
       notesByPart,
+      updatedAt: Date.now(),
     }))
     notifyExamDraftRevision()
     } catch {
@@ -283,6 +286,20 @@ export default function ListeningIeltsTest({ exam }: Props) {
     return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
   }, [activeQuestionId, allQuestions, reviewMode])
 
+  const activeReviewQuestion = useMemo(
+    () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
+    [activeQuestionId, allQuestions],
+  )
+  const {
+    showToolbar: showTranscriptToolbar,
+    loading: transcriptLoading,
+    error: transcriptError,
+    aiCount: transcriptAiCount,
+    importedCount: transcriptImportedCount,
+    transcriptForActive,
+    runAi: runTranscriptAi,
+  } = useListeningReviewTranscript(exam, reviewMode, activeReviewQuestion)
+
   // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
   if (submitted && !reviewMode) {
     return (
@@ -329,11 +346,23 @@ export default function ListeningIeltsTest({ exam }: Props) {
         )}
       </header>
 
+      {showTranscriptToolbar && (
+        <ListeningReviewTranscriptToolbar
+          loading={transcriptLoading}
+          error={transcriptError}
+          aiCount={transcriptAiCount}
+          importedCount={transcriptImportedCount}
+          onRunAi={force => void runTranscriptAi(force)}
+          variant="ielts"
+        />
+      )}
+
       {reviewMode && (
         <ListeningReviewActiveBar
-          question={allQuestions.find(q => q.id === activeQuestionId) ?? null}
+          question={activeReviewQuestion}
           userAnswer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
           status={activeQuestionId ? (reviewStatusMap[activeQuestionId] ?? null) : null}
+          transcriptOverride={transcriptForActive}
         />
       )}
 

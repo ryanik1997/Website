@@ -25,7 +25,7 @@ import type { ReadingExamTrack } from './examData'
 import { publishReadingExamToCloud } from './readingExamPublish'
 import {
   findKetPart6ImageFile,
-  findKetPart7ImageFiles,
+  findKetPart7ImageFile,
   isKetWritingImageFile,
   KET_WRITING_IMAGE_HINT,
   mergeKetWritingImagesIntoPayload,
@@ -125,6 +125,7 @@ export default function ImportReadingManualModal({
     files: File[],
     label: string,
     json: File | null,
+    extraNotes: string[] = [],
   ) => {
     const merged = isKetA2
       ? mergeKetWritingImagesIntoPayload(parsed, files)
@@ -144,6 +145,7 @@ export default function ImportReadingManualModal({
     setPayload(merged.payload)
     setWritingMergeNotes(merged.notes.filter(n => !n.startsWith('Part') || n.includes('ảnh')))
     setWarnings([
+      ...extraNotes,
       ...validateReadingManualImport(merged.payload),
       ...merged.notes.filter(n => n.includes('chưa') || n.includes('cần')),
     ])
@@ -199,7 +201,7 @@ export default function ImportReadingManualModal({
             ? 'Chọn JPG/PNG: part8-page.jpg + part9-page.jpg'
             : isPetB1
               ? 'Chọn JPG/PNG: part7-page.jpg, part8-page.jpg; tuỳ chọn part2-page.jpg, part4-page.jpg'
-              : 'Chọn file JPG/PNG: part6-page.jpg và/hoặc part7-p1…p3.jpg')
+              : 'Chọn file JPG/PNG: part6-page.jpg và/hoặc part7-page.jpg')
       return
     }
     const totalSize = list.reduce((s, f) => s + f.size, mediaFiles.reduce((s, f) => s + f.size, 0))
@@ -226,6 +228,7 @@ export default function ImportReadingManualModal({
         bundle.mediaFiles,
         bundle.zipName,
         bundle.jsonFile,
+        bundle.answerKeyNotes,
       )
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không giải nén được ZIP.')
@@ -274,7 +277,7 @@ export default function ImportReadingManualModal({
   const qCount = payload ? countReadingImportQuestions(payload) : 0
   const imageCount = mediaFiles.length
   const ketPart6Image = isKetA2 ? findKetPart6ImageFile(mediaFiles) : null
-  const ketPart7Images = isKetA2 ? findKetPart7ImageFiles(mediaFiles) : []
+  const ketPart7Image = isKetA2 ? findKetPart7ImageFile(mediaFiles) : null
   const petPart7Image = isPetB1 ? findPetPart7ImageFile(mediaFiles) : null
   const petPart8Image = isPetB1 ? findPetPart8ImageFile(mediaFiles) : null
   const fcePart8Image = isFceB2 ? findFcePart8ImageFile(mediaFiles) : null
@@ -323,11 +326,12 @@ export default function ImportReadingManualModal({
                   <li><strong>Part 1 (A2/B1 signs):</strong> có thể dùng ảnh <code>part1-page.jpg</code>.</li>
                   <li><strong>Part còn lại (A2–C2):</strong> copy text từ PDF vào <code>passage[].text</code> — cần text để <strong>Highlight</strong>.</li>
                   <li>Điền câu hỏi + đáp án vào <code>questionGroups</code>.</li>
-                  <li>Upload JSON (+ ảnh Part 1 nếu có) hoặc ZIP → Preview → <strong>Lưu & làm bài</strong>.</li>
+                  <li>Upload JSON (+ ảnh) hoặc ZIP → Preview → <strong>Lưu & làm bài</strong>.</li>
+                  <li>ZIP có thể kèm <code>answer-key.pdf</code> hoặc <code>answer-key.txt</code> (bổ sung đáp án trống).</li>
                   {isKetA2 && (
                     <li>
                       <strong>KET Part 6–7:</strong> upload ảnh JPG —{' '}
-                      <code>part6-page.jpg</code> (đề email) + <code>part7-p1…p3.jpg</code> (3 ảnh truyện).
+                      <code>part6-page.jpg</code> (đề email) + <code>part7-page.jpg</code> (1 ảnh truyện / 3 khung).
                       App tự ghép vào đề 5-part.
                     </li>
                   )}
@@ -390,7 +394,7 @@ export default function ImportReadingManualModal({
                   Chọn file ZIP bundle
                 </p>
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                  exam.json + part1-p1.jpg + …
+                  exam.json + ảnh + tuỳ chọn answer-key.pdf / answer-key.txt
                 </p>
                 <input
                   ref={zipInputRef}
@@ -506,10 +510,10 @@ export default function ImportReadingManualModal({
                               petPart8Image?.name,
                             ].filter(Boolean).join(', ')
                             : PET_WRITING_IMAGE_HINT)
-                          : (ketPart6Image || ketPart7Images.length > 0
+                          : (ketPart6Image || ketPart7Image
                             ? [
                               ketPart6Image ? `P6: ${ketPart6Image.name}` : 'P6: chưa có',
-                              `P7: ${ketPart7Images.length}/3 ảnh`,
+                              ketPart7Image ? `P7: ${ketPart7Image.name}` : 'P7: chưa có',
                             ].join(' · ')
                             : KET_WRITING_IMAGE_HINT)}
                   </p>

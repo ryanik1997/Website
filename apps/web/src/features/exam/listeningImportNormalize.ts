@@ -326,15 +326,147 @@ function stripRedundantGapLeadTrail(part: ListeningImportPartJson): ListeningImp
 }
 
 /**
- * Pipeline chuẩn — gọi cho mọi Part IELTS (Wizard, ZIP, load Dexie).
+ * KET/PET Part gap-fill: DeepSeek hay nhét cả form vào `instruction`
+ * (có "Day: (6)" + questions[].prompt "Day:") → UI double.
+ * Tách intro + tiêu đề form; bỏ dòng gap (N); giữ dòng tĩnh "Name: Tigers".
+ */
+export function stripEmbeddedGapFormFromInstruction(
+  part: ListeningImportPartJson,
+): ListeningImportPartJson {
+  const qs = part.questions ?? []
+  if (!qs.length || !qs.every(q => q.type === 'gap-fill')) return part
+  const raw = part.instruction ?? ''
+  if (!raw.includes('\n') && !/\(\d{1,2}\)/.test(raw)) return part
+
+  const promptBases = qs.map(q =>
+    q.prompt
+      .trim()
+      .toLowerCase()
+      .replace(/\s*\(\d{1,2}\)\s*$/g, '')
+      .replace(/:+\s*$/g, '')
+      .trim(),
+  )
+
+  const isGapFormLine = (line: string): boolean => {
+    const t = line.trim()
+    if (!t) return false
+    if (/\(\d{1,2}\)/.test(t)) return true
+    const lower = t.toLowerCase()
+    return promptBases.some(base => {
+      if (!base) return false
+      return (
+        lower === base
+        || lower.startsWith(`${base}:`)
+        || lower.startsWith(`${base} `)
+      )
+    })
+  }
+
+  const isStaticFilledLine = (line: string): boolean => {
+    // "Name of other team: Tigers" — có ":" và không có (N)
+    const t = line.trim()
+    if (!t.includes(':') || /\(\d{1,2}\)/.test(t)) return false
+    const lower = t.toLowerCase()
+    // không trùng label gap
+    if (promptBases.some(b => lower.startsWith(`${b}:`))) return false
+    const after = t.split(':').slice(1).join(':').trim()
+    return after.length > 0
+  }
+
+  const lines = raw.split(/\n/)
+  const intro: string[] = []
+  const staticRows: string[] = []
+  let formStarted = false
+  let formTitle: string | undefined
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim()
+    if (!line) {
+      if (!formStarted) intro.push('')
+      continue
+    }
+
+    if (isGapFormLine(line)) {
+      formStarted = true
+      continue
+    }
+    if (isStaticFilledLine(line)) {
+      formStarted = true
+      staticRows.push(line)
+      continue
+    }
+
+    // Tiêu đề form ngắn sau intro (vd. "Hockey match")
+    if (
+      !formStarted
+      && intro.some(l => l.trim())
+      && !line.includes(':')
+      && line.length <= 48
+      && !/you will hear/i.test(line)
+    ) {
+      formTitle = line
+      formStarted = true
+      continue
+    }
+
+    if (!formStarted) {
+      intro.push(line)
+    }
+  }
+
+  // Fallback: nếu instruction chỉ là form (không intro rõ) — giữ dòng đầu làm intro nếu là "You will hear"
+  let instruction = intro.join('\n').replace(/\n{3,}/g, '\n\n').trim()
+  if (!instruction && raw.trim()) {
+    const first = raw.split(/\n+/).map(l => l.trim()).find(Boolean) ?? ''
+    if (/you will hear/i.test(first)) instruction = first
+  }
+
+  // Ghép dòng tĩnh vào instruction (hiện 1 lần, không double với gap)
+  if (staticRows.length) {
+    const block = staticRows.join('\n')
+    instruction = instruction ? `${instruction}\n\n${block}` : block
+  }
+
+  const questions = qs.map(q => {
+    let prompt = q.prompt.trim()
+    prompt = prompt.replace(/\s*\(\d{1,2}\)\s*$/g, '').trim()
+    // Chuẩn "Day:" 
+    if (prompt && !prompt.endsWith(':') && !prompt.endsWith('…') && !prompt.endsWith('...')) {
+      // giữ "Dates of jobs: 15th June – 20th …" có sẵn dấu :
+      if (!prompt.includes(':')) prompt = `${prompt}:`
+    }
+    return { ...q, prompt }
+  })
+
+  return {
+    ...part,
+    instruction: instruction || part.instruction,
+    passageTitle: part.passageTitle?.trim() || formTitle,
+    questions,
+  }
+}
+
+/**
+ * Pipeline chuẩn — IELTS notes + Cambridge KET/PET gap form.
  */
 export function normalizeListeningImportPart(
   part: ListeningImportPartJson,
   options?: { examText?: string; examType?: string },
 ): ListeningImportPartJson {
-  if (options?.examType && options.examType !== 'ielts') return part
-
+  const examType = options?.examType ?? 'ielts'
   let next: ListeningImportPartJson = { ...part }
+
+  if (!next.audioFile) {
+    next.audioFile = 'listening.mp3'
+  }
+
+  // Cambridge KET/PET: form trong instruction
+  if (examType === 'ket' || examType === 'pet') {
+    next = stripEmbeddedGapFormFromInstruction(next)
+    return next
+  }
+
+  if (examType !== 'ielts') return next
 
   if (next.notePassageLayout && !VALID_LAYOUTS.has(next.notePassageLayout)) {
     delete next.notePassageLayout
@@ -342,10 +474,6 @@ export function normalizeListeningImportPart(
 
   if ('noteTable' in next && next.noteTable == null) {
     delete next.noteTable
-  }
-
-  if (!next.audioFile) {
-    next.audioFile = 'listening.mp3'
   }
 
   const layout = inferNotePassageLayout(next)
@@ -383,7 +511,6 @@ export function normalizeListeningImportPayload(
   payload: { examType: string; parts: ListeningImportPartJson[] },
   options?: { examTextByPart?: Record<number, string> },
 ): { examType: string; parts: ListeningImportPartJson[] } {
-  if (payload.examType !== 'ielts') return payload
   return {
     ...payload,
     parts: payload.parts.map(part =>
@@ -397,15 +524,30 @@ export function normalizeListeningImportPayload(
 
 /** Áp dụng khi load đề đã lưu Dexie — không cần import lại. */
 export function normalizeListeningExamForDisplay(exam: ListeningExam): ListeningExam {
-  if (exam.examType !== 'ielts') return exam
-  if (!exam.id.startsWith('listening-import-')) return exam
-
+  // Import / publish Cambridge + IELTS đều cần strip form double
   const parts = exam.parts.map(part => {
-    const normalized = normalizeListeningImportPart(
-      part as unknown as ListeningImportPartJson,
-      { examType: 'ielts' },
-    )
-    return { ...part, ...normalized } as ListeningPart
+    const asJson = part as unknown as ListeningImportPartJson
+    const normalized = normalizeListeningImportPart(asJson, { examType: exam.examType })
+    return {
+      ...part,
+      instruction: normalized.instruction ?? part.instruction,
+      passageTitle: normalized.passageTitle ?? part.passageTitle,
+      questions: part.questions.map((q, i) => {
+        const nq = normalized.questions?.[i]
+        if (!nq) return q
+        return {
+          ...q,
+          prompt: nq.prompt ?? q.prompt,
+          gapLead: nq.gapLead ?? q.gapLead,
+          gapTrail: nq.gapTrail ?? q.gapTrail,
+        }
+      }),
+      notePassage: (normalized as ListeningPart).notePassage ?? part.notePassage,
+      notePassageLayout: (normalized as ListeningPart).notePassageLayout ?? part.notePassageLayout,
+      noteTable: (normalized as ListeningPart).noteTable ?? part.noteTable,
+      noteTables: (normalized as ListeningPart).noteTables ?? part.noteTables,
+      notePassageSections: (normalized as ListeningPart).notePassageSections ?? part.notePassageSections,
+    } as ListeningPart
   })
 
   return { ...exam, parts }

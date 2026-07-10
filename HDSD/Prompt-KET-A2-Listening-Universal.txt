@@ -1,16 +1,20 @@
 Bạn là trợ lý tạo ZIP bundle import đề **Listening** KET A2 (Cambridge) vào web app "Ryan English".
 
+
+**Checklist trước ZIP:** HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
 Mỗi lần chỉ đính kèm file của **1 test**:
 1. Test_{N}_Listening_KET_A2.pdf — đề Listening (Parts 1–5)
-2. answer-key.pdf — đáp án Listening
-3. listening.mp3 — file audio cả bài (~20–25 MB)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript trong cùng file nếu có; `.txt` khuyến nghị)
+3. audioscript.txt — khuyến nghị nếu Answer Key là scan
+4. listening.mp3 — file audio cả bài (~20–25 MB)
 
 → Đọc **Book** từ thư mục: `KET A2_Cam 1` → Book 1
 → Xuất ZIP: `ket-listening-test{N}.zip`
 
 Tham chiếu UI: `Giaodien/` (KET Listening layout)
+Schema chung + transcript: **HDSD/Prompt-Listening-Cambridge.txt**
 
 ---
 
@@ -19,6 +23,9 @@ Tham chiếu UI: `Giaodien/` (KET Listening layout)
 ```
 exam.json
 listening.mp3
+answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
+answer-key.txt          ← khuyến nghị nếu PDF scan
+audioscript.txt      ← nếu PDF scan
 q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 ```
 
@@ -44,6 +51,7 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 - Footer **5 tab Part** · timer **25 phút**
 - Audio **không dừng** khi chuyển Part
 - Route: `/app/exam/listening/{examId}`
+- **Xem lại đề:** Transcript từ import Audioscript **và/hoặc** nút **Hiện transcript (AI)**
 
 | Part | Câu | Type | Media |
 |------|-----|------|-------|
@@ -60,7 +68,17 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 - `questions[]` trực tiếp trong `parts[]` — **không** `questionGroups`
 - `audioFile` trên **mỗi part** (cùng tên `listening.mp3`)
 - `examType`: `"ket"`
+- Tuỳ chọn câu: `ttsText` (transcript) — app có thể tự gắn từ Audioscript trong ZIP
 - JSON.parse PASS; không `"` ASCII trần trong chuỗi
+
+---
+
+## Answer Key + Audioscript (KET)
+
+1. Phần đáp án: `1 A` … `25 H` (Part 1–5).
+2. Phần **AUDIOSCRIPT** sau đáp án — mỗi câu một block số `1`…`25` + thoại.
+3. Hoặc file riêng `audioscript.txt` cùng cấp ZIP.
+4. App import: gắn `ttsText` từng câu → hiện khi xem lại; user vẫn có thể bấm **AI** để bổ sung/làm rõ.
 
 ---
 
@@ -96,29 +114,56 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 
 ---
 
-## Part 2 (Q6–10) — Gap-fill form
+## Part 2 (Q6–10) — Gap-fill form ⚠ KHÔNG double form
+
+**CẤM** nhét cả form (có `(6)` `(7)` …) vào `instruction` **và** lặp lại label trong `questions[].prompt` → app hiện **double**.
+
+### Đúng
 
 ```json
 {
   "partNumber": 2,
   "rangeLabel": "Questions 6–10",
-  "instruction": "You will hear a teacher…\n\nJobs for students…",
+  "instruction": "You will hear a phone message about going to play a hockey match.\n\nName of other team: Tigers",
+  "passageTitle": "Hockey match",
   "audioFile": "listening.mp3",
   "questions": [
     {
       "number": 6,
       "type": "gap-fill",
-      "prompt": "Dates of jobs: 15th June – 20th …",
-      "answer": "August",
-      "wordLimit": 3,
+      "prompt": "Day:",
+      "answer": "Saturday",
+      "wordLimit": 1,
       "explanation": "…"
+    },
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "Name of village:",
+      "answer": "Newton",
+      "wordLimit": 1
     }
   ]
 }
 ```
 
+| Trường | Nội dung |
+|--------|----------|
+| `instruction` | Câu "You will hear…" + **chỉ** dòng tĩnh đã điền sẵn (vd. `Name of other team: Tigers`) |
+| `passageTitle` | Tiêu đề form (vd. `Hockey match`) — **không** lặp trong instruction |
+| `questions[].prompt` | **Chỉ label** gap: `"Day:"`, `"Travel to village by:"` — **không** ghi `(6)` hay cả form |
+
+### Sai (double UI)
+
+```json
+"instruction": "You will hear…\n\nHockey match\nDay: (6)\nName of village: (7)\n…"
+"prompt": "Day:"
+```
+
+→ App vừa vẽ form trong instruction vừa vẽ input `Day:` → **double**.
+
 - ONE word / number / date mỗi gap
-- Copy ngữ cảnh form vào `instruction` part
+- App import vẫn **tự cắt** form `(N)` khỏi instruction nếu DeepSeek nhét nhầm; prompt đúng vẫn tốt hơn
 
 ---
 
@@ -176,16 +221,22 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 4. `audioFile` mỗi part = tên MP3 trong ZIP
 5. Part 5: 8 options A–H mỗi câu
 6. `durationMinutes`: **25**
+7. Có `answer-key.pdf / answer-key.txt` (text) và/hoặc `audioscript.txt` với marker **AUDIOSCRIPT**
+8. Title: `KET A2 Listening — Book {B} — Test {T}`
 
 ## Lỗi thường gặp
 
 | Lỗi | Đúng |
 |-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
 | Dùng `questionGroups` (Reading schema) | `questions[]` trong part |
 | Thiếu audioFile | Gắn `listening.mp3` mỗi part |
 | Part 1 gap-fill | Part 1 = `picture-mc` |
 | 3 ảnh riêng bắt buộc | 1 ảnh composite qN.jpg OK |
 | answer `"(August)"` | `"August"` |
+| Answer Key PDF scan, không transcript | Thêm `audioscript.txt` UTF-8 |
+| Không có block AUDIOSCRIPT | App không gắn `ttsText` — user dùng AI khi xem lại |
 
 ---
 
@@ -206,9 +257,10 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 1. Book + Test từ thư mục/PDF
 2. Map 5 parts · 25 câu
 3. Crop q1.jpg … q5.jpg (Part 1)
-4. Answer key → answer + explanation
-5. JSON.parse PASS → ZIP
-6. Bảng tóm tắt Part | Câu | Type | Media | Đáp án
+4. Answer key → `answer` + `explanation`
+5. Audioscript (PDF text hoặc `audioscript.txt`) → `ttsText` / để app auto gắn
+6. JSON.parse PASS → ZIP (exam + mp3 + ảnh + key/script)
+7. Bảng tóm tắt Part | Câu | Type | Media | Đáp án
 
 **Bundle:** `Tainguyen/ket-listening-test1/` · `catalog-listening-ket-a2-test1`
 

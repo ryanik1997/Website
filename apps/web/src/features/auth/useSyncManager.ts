@@ -1,8 +1,10 @@
 import { createContext, createElement, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
-import { syncLocalToCloud, syncCloudToLocal, isLocalEmpty } from '@ryan/db'
+import { syncBidirectional } from '@ryan/db'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../../lib/supabase'
 import { useAuth } from './AuthContext'
+import { syncExamProgress } from '../exam/examProgressSync'
+import { seedPresetDecks } from '../vocab/vocabSeedDecks'
 
 export type SyncState = 'idle' | 'syncing' | 'done' | 'error'
 
@@ -57,13 +59,30 @@ export function friendlySyncError(message: string): string {
     return 'Phiên đăng nhập hết hạn — thử đăng xuất và đăng nhập lại.'
   }
   if (m.includes('row-level security') || m.includes('violates row-level security') || m.includes('rls')) {
-    return 'Không có quyền ghi lên đám mây (RLS). Kiểm tra đã đăng nhập đúng tài khoản; nếu vẫn lỗi, đăng xuất/đăng nhập lại.'
+    // User chỉ ghi data cá nhân (deck/card/srs/writing/mindmap/exam_progress của mình).
+    // Luyện thi & Vocab mặc định = bảng admin publish — user chỉ đọc, không ghi.
+    if (
+      m.includes('reading_exam_published')
+      || m.includes('listening_exam_published')
+      || m.includes('admin_published')
+      || m.includes('reading_exam_images')
+    ) {
+      return 'Bảng Luyện thi / Vocab chung chỉ Admin được ghi. User import đề hoặc tạo deck riêng vẫn lưu máy (và sync data cá nhân). Đăng xuất/đăng nhập nếu vừa được cấp admin.'
+    }
+    return (
+      'Không có quyền ghi dữ liệu cá nhân lên đám mây (RLS). '
+      + 'User chỉ đồng bộ deck/từ/writing/mindmap của chính mình — không ghi đề Luyện thi chung. '
+      + 'Thử: đăng xuất → đăng nhập lại. Admin chạy migration 015_user_data_rls_harden.sql nếu nhiều user cùng lỗi.'
+    )
   }
   if (m.includes('failed to fetch') || m.includes('network') || m.includes('fetch failed')) {
     return 'Không kết nối được Supabase — kiểm tra mạng hoặc cấu hình VITE_SUPABASE_URL.'
   }
   if (m.includes('invalid input syntax for type uuid') && m.includes('preset:')) {
     return 'Bộ từ preset (IELTS, Oxford, …) không đồng bộ cloud — chỉ deck do bạn tạo được sync. Hãy refresh trang và thử lại.'
+  }
+  if (m.includes('exam_progress') && (m.includes('does not exist') || m.includes('schema cache') || m.includes('could not find'))) {
+    return 'Thiếu bảng exam_progress trên Supabase — admin chạy pnpm db:push (migration 014).'
   }
   if (m.includes('invalid input syntax for type uuid')) {
     return 'Dữ liệu local có id không hợp lệ khi đồng bộ. Thử backup, rồi xóa dữ liệu hỏng hoặc liên hệ admin.'
@@ -136,18 +155,33 @@ function useSyncManagerImpl(): SyncManagerValue {
     try {
       const { userId } = await ensureFreshSession()
 
-      const empty = await isLocalEmpty()
-      if (empty) {
-        await syncCloudToLocal(supabase)
-      } else {
-        // Máy có nội dung user: push local, rồi (tuỳ chọn) không overwrite local
-        await syncLocalToCloud(supabase, userId)
+      // Seed + dedupe preset TRƯỚC sync — để nhận diện ghost UUID trên cloud (tránh double Bộ từ vựng)
+      try {
+        await seedPresetDecks()
+      } catch (seedErr) {
+        console.warn('[sync] seedPresetDecks before', seedErr)
       }
 
-      // Thiết bị đã có preset nhưng chưa có user data local: pull bổ sung cloud
-      // (isLocalEmpty false vì preset → không vào nhánh trên). Chỉ pull khi local
-      // không có deck user — đã cover bởi isLocalEmpty.
-      // Nếu local có user data: push là đủ.
+      // Bidirectional LWW: merge decks/cards/srs/writing/mindmaps (offline→online safe)
+      await syncBidirectional(supabase, userId)
+
+      // Sau pull: gộp lại deck/card trùng (preset vs ghost, phrase double)
+      try {
+        await seedPresetDecks()
+      } catch (seedErr) {
+        console.warn('[sync] seedPresetDecks after', seedErr)
+      }
+
+      // Reading/Listening exam drafts (localStorage ↔ exam_progress)
+      try {
+        const examResult = await syncExamProgress(supabase, userId)
+        if (examResult.skipped) {
+          console.info('[sync] exam_progress:', examResult.skipped)
+        }
+      } catch (examErr) {
+        // Non-fatal: vocab/writing still synced
+        console.warn('[sync] exam progress', examErr)
+      }
 
       const now = new Date().toISOString()
       writeLastSyncAt(now)

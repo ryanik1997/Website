@@ -256,7 +256,7 @@ export default function DictionaryModal() {
                 <BookOpenIcon />
                 <p className="font-medium mt-3 mb-1" style={{ color: 'var(--text-primary)' }}>Từ điển</p>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Gói offline {offlineDictSize()}+ từ cơ bản · AI khi Pro.<br />
+                  Gói offline {offlineDictSize()} mục (Part 1 + cụm từ) · AI khi Pro.<br />
                   Chọn từ trên trang rồi nhấn FAB để tra nhanh.
                 </p>
               </div>
