@@ -44,17 +44,19 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
       PRESET_GROUP_IDS.map(id => [id, decks.filter(d => d.groupId === id).length]),
     ) as Record<PresetGroupId, number>
     return {
-      all: presetDecks.length + userDefaultDecks.length,
+      all: decks.length,
       ...byGroup,
       default: userDefaultDecks.length,
     } satisfies Record<FilterId, number>
-  }, [decks, presetDecks.length, userDefaultDecks.length])
+  }, [decks, userDefaultDecks.length])
 
   const filteredDecks = useMemo(() => {
     if (filter === 'default') {
       return userDefaultDecks.filter(d => d.id !== personalDeck?.id)
     }
-    if (filter === 'all') return presetDecks
+    if (filter === 'all') {
+      return decks.filter(d => d.id !== personalDeck?.id)
+    }
     if (isPresetGroup(filter)) {
       return decks.filter(d => d.groupId === filter)
     }

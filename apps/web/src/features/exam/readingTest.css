@@ -414,14 +414,14 @@
 .reading-test-note {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #ff9800;
+  text-decoration-color: var(--exam-note-color, #ff9800);
   text-underline-offset: 0.15em;
   cursor: help;
 }
 
 mark.reading-test-note {
   text-decoration: underline wavy;
-  text-decoration-color: #ff9800;
+  text-decoration-color: var(--exam-note-color, #ff9800);
 }
 
 .reading-highlight-toolbar {

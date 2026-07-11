@@ -4,6 +4,7 @@ import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../../lib/supabase'
 import { useAuth } from './AuthContext'
 import { syncExamProgress } from '../exam/examProgressSync'
+import { syncCheckInDays } from '../home/checkInSync'
 import { seedPresetDecks } from '../vocab/vocabSeedDecks'
 
 export type SyncState = 'idle' | 'syncing' | 'done' | 'error'
@@ -83,6 +84,9 @@ export function friendlySyncError(message: string): string {
   }
   if (m.includes('exam_progress') && (m.includes('does not exist') || m.includes('schema cache') || m.includes('could not find'))) {
     return 'Thiếu bảng exam_progress trên Supabase — admin chạy pnpm db:push (migration 014).'
+  }
+  if (m.includes('checkin_days') && (m.includes('does not exist') || m.includes('schema cache') || m.includes('could not find'))) {
+    return 'Thiếu bảng checkin_days trên Supabase — admin chạy pnpm db:push (migration 017).'
   }
   if (m.includes('invalid input syntax for type uuid')) {
     return 'Dữ liệu local có id không hợp lệ khi đồng bộ. Thử backup, rồi xóa dữ liệu hỏng hoặc liên hệ admin.'
@@ -181,6 +185,23 @@ function useSyncManagerImpl(): SyncManagerValue {
       } catch (examErr) {
         // Non-fatal: vocab/writing still synced
         console.warn('[sync] exam progress', examErr)
+      }
+
+      // Điểm danh (reviewLog checkin ↔ checkin_days)
+      try {
+        const checkInResult = await syncCheckInDays(supabase, userId)
+        if (checkInResult.skipped) {
+          console.info('[sync] checkin_days:', checkInResult.skipped)
+        } else if (checkInResult.pushed || checkInResult.pulled) {
+          console.info(
+            '[sync] checkin_days: pushed',
+            checkInResult.pushed,
+            'pulled',
+            checkInResult.pulled,
+          )
+        }
+      } catch (checkInErr) {
+        console.warn('[sync] check-in', checkInErr)
       }
 
       const now = new Date().toISOString()

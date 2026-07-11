@@ -6,11 +6,11 @@
  *      pnpm ielts:publish-media -- "IELTS/Listening IELTS_Test3_Cam9"
  */
 import { existsSync, mkdirSync, readdirSync, copyFileSync, statSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
+import { REPO_ROOT, resolveTainguyenPath } from './tainguyen-path.mjs'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-const TAINGUYEN_IELTS = join(ROOT, 'Tainguyen', 'IELTS')
+const ROOT = REPO_ROOT
+const TAINGUYEN_IELTS = join(resolveTainguyenPath(), 'IELTS')
 const PUBLIC_LISTENING = join(ROOT, 'apps', 'web', 'public', 'catalog', 'listening')
 
 const MEDIA_EXT = new Set(['.mp3', '.wav', '.ogg', '.jpg', '.jpeg', '.png', '.webp', '.gif'])

@@ -247,18 +247,35 @@ function sanitizeWordBank(
   })
 }
 
-/** Options có vẻ chỉ YES/NO/NG hoặc TRUE/FALSE/NG (≤3), không phải MC A–D. */
+/** Chữ cái MC chuẩn A–D — không được coi là YES/NO/TRUE/FALSE (normalizeTriStateId map a→yes, b→no, c→NG). */
+function isBareMcLetter(raw: string): boolean {
+  return /^[a-d]$/i.test(raw.trim())
+}
+
+/**
+ * Options có vẻ chỉ YES/NO/NG hoặc TRUE/FALSE/NG (≤3), không phải MC A–C (tên người/địa điểm).
+ * KET A2 Part 2: options id A/B/C + label "Angus"/"Frank"/"Zac" — trước đây bị ép nhầm ynng
+ * vì id A/B/C match normalizeTriStateId và label < 12 ký tự không vượt hasRealMcOpts.
+ */
 function optionsLookTriStateOnly(opts: ReadingQuestion['options'] | undefined): boolean {
   if (!Array.isArray(opts) || opts.length === 0) return false
   if (opts.length > 3) return false
   return opts.every(o => {
-    const id = String(o?.id ?? '').toLowerCase()
-    const lab = String(o?.label ?? '').toLowerCase()
+    const id = String(o?.id ?? '').trim()
+    const lab = String(o?.label ?? '').trim()
+    // Ưu tiên label: tên người/chỗ (Angus, Hillside…) ≠ tri-state
+    if (lab) {
+      return Boolean(
+        normalizeTriStateId(lab, 'ynng')
+        || normalizeTriStateId(lab, 'tfng')
+        || /^(yes|no|true|false|not[\s-]?given)\b/i.test(lab),
+      )
+    }
+    // Không label — id đơn A/B/C/D là MC letter, không phải YES/NO
+    if (isBareMcLetter(id)) return false
     return Boolean(
       normalizeTriStateId(id, 'ynng')
-      || normalizeTriStateId(lab, 'ynng')
-      || normalizeTriStateId(id, 'tfng')
-      || normalizeTriStateId(lab, 'tfng'),
+      || normalizeTriStateId(id, 'tfng'),
     )
   })
 }
@@ -291,15 +308,17 @@ function coerceTriStateGroupType(
     || optionsLookTriStateOnly(q.options)
     || /^(true|false|not[\s-]?given)$/i.test(String(q.answer ?? '')),
   )
-  // Có option MC thật (label dài không phải YES/NO) → không ép
+  // Có option MC thật (tên người/địa điểm, A–D dài…) → không ép tri-state
   const hasRealMcOpts = qs.some(q => {
     const opts = q.options ?? []
     if (opts.length >= 4) return true
     return opts.some(o => {
       const lab = String(o.label ?? '').trim()
-      if (lab.length < 12) return false
-      return !normalizeTriStateId(lab, 'ynng') && !normalizeTriStateId(lab, 'tfng')
-        && !/^(yes|no|true|false|not given)/i.test(lab)
+      if (!lab) return false
+      // Mọi label không phải YES/NO/TRUE/FALSE/NG đều là MC (kể cả "Angus", "Zac")
+      if (normalizeTriStateId(lab, 'ynng') || normalizeTriStateId(lab, 'tfng')) return false
+      if (/^(yes|no|true|false|not[\s-]?given)\b/i.test(lab)) return false
+      return true
     })
   })
   if (hasRealMcOpts) return preliminary

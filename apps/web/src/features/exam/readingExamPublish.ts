@@ -1,5 +1,7 @@
 import { supabase } from '../../lib/supabase'
 import type { ReadingExam, ReadingPart } from './examData'
+import { READING_EXAMS } from './examData'
+import { fillReadingExamFromSources } from './fillReadingExamMedia'
 
 interface PublishedRow {
   id: string
@@ -25,16 +27,34 @@ function rowToExam(row: PublishedRow): ReadingExam {
   }
 }
 
-/** Bỏ imageKey local — chỉ giữ URL cloud để user khác thiết bị thấy được. */
+/** Bỏ imageKey local — chỉ giữ URL cloud /catalog để user khác thiết bị thấy được. */
 function stripLocalMediaKeys(exam: ReadingExam): ReadingExam {
   return {
     ...exam,
     parts: exam.parts.map(part => ({
       ...part,
-      passage: part.passage.map(block => ({ ...block, imageKey: undefined })),
+      passage: part.passage.map(block => ({
+        ...block,
+        // Giữ imageUrl public; xóa blob key máy Admin
+        imageKey: undefined,
+      })),
       questionGroups: part.questionGroups.map(group => ({ ...group, imageKey: undefined })),
     })),
   }
+}
+
+function catalogDonorForPublish(exam: ReadingExam): ReadingExam | null {
+  const exact = READING_EXAMS.find(e => e.id === exam.id) ?? null
+  if (exact) return exact
+  if (!exam.cambridgeLevel) return null
+  return (
+    READING_EXAMS.find(
+      e =>
+        e.id.startsWith('catalog-')
+        && e.cambridgeLevel === exam.cambridgeLevel
+        && e.parts.length === exam.parts.length,
+    ) ?? null
+  )
 }
 
 /** Admin publish đề Reading lên Supabase — mọi user thấy. */
@@ -42,7 +62,9 @@ export async function publishReadingExamToCloud(
   exam: ReadingExam,
   meta?: { source?: string; sourceFilename?: string },
 ): Promise<void> {
-  const clean = stripLocalMediaKeys(exam)
+  // Vá imageUrl/text từ catalog trước khi strip imageKey (tránh Part 1/7 mất ảnh)
+  const withCatalogMedia = fillReadingExamFromSources(exam, [catalogDonorForPublish(exam)])
+  const clean = stripLocalMediaKeys(withCatalogMedia)
   const { data: userData } = await supabase.auth.getUser()
   const payload = {
     id: clean.id,

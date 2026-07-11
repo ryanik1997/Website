@@ -340,6 +340,126 @@
   margin-right: 0.35rem;
 }
 
+/* KET A2 Part 2 — portrait 2.5cm × 3.5cm trước mỗi profile */
+.ket-rw-profile {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 0 0 1rem;
+}
+
+.ket-rw-profile__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ket-rw-profile__body .ket-rw-paragraph {
+  margin-bottom: 0;
+}
+
+.ket-rw-portrait {
+  flex: 0 0 auto;
+  width: 2.5cm;
+  height: 3.5cm;
+  position: relative;
+}
+
+.ket-rw-portrait__figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-color, #c5c9d0);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--bg-secondary, #f3f4f6);
+  position: relative;
+}
+
+.ket-rw-portrait__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.ket-rw-portrait__actions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: color-mix(in srgb, var(--bg-primary, #111) 72%, transparent);
+}
+
+.ket-rw-portrait__btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: none;
+  border-radius: 2px;
+  padding: 2px 3px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: var(--color-on-primary, #fff);
+  line-height: 1.2;
+}
+
+.ket-rw-portrait__btn--muted {
+  background: color-mix(in srgb, var(--bg-card, #fff) 85%, transparent);
+  color: var(--text-primary);
+}
+
+.ket-rw-portrait__slot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  border: 1.5px dashed var(--border-color, #9aa0a8);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-card, #fff));
+  color: var(--text-muted, #6b7280);
+  cursor: pointer;
+  padding: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.ket-rw-portrait__slot:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.ket-rw-portrait__slot-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.ket-rw-portrait__slot-hint {
+  font-size: 0.55rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ket-rw-portrait__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Part 1 — sign box */
 .ket-rw-sign-box {
   border: 2px solid var(--ket-sign-border);
@@ -829,7 +949,7 @@
 .ket-rw-main .reading-test-note {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #ff9800;
+  text-decoration-color: var(--exam-note-color, #ff9800);
   text-underline-offset: 0.15em;
   cursor: help;
 }

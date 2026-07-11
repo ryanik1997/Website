@@ -27,6 +27,13 @@ import {
 import { compositePictureFileCandidates } from './listeningPictureMc'
 import { ieltsListeningFullTemplate } from './ieltsListeningImportTemplates'
 import { normalizeListeningImportPayload } from './listeningImportNormalize'
+import {
+  ensureImageFileMime,
+  isExamImportImageFile,
+  isExamImportImageFileName,
+  normalizeImportFileKey,
+  resolveImageMediaFile,
+} from './examImportImageFormats'
 
 export const LISTENING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const LISTENING_IMPORT_MAX_MEDIA_BYTES = 80 * 1024 * 1024
@@ -39,6 +46,11 @@ export interface ListeningImportQuestionJson {
   imageFile?: string
   options?: Array<{ id: string; label: string; imageFile?: string }>
   answer: string
+  /**
+   * Biến thể đáp án (gap-fill). Có thể dùng thêm answer: "8/eight".
+   * Import sẽ gộp vào chấm điểm.
+   */
+  acceptableAnswers?: string[]
   explanation?: string
   audioFile?: string
   ttsText?: string
@@ -101,22 +113,27 @@ export interface ListeningImportPayload {
 }
 
 const AUDIO_EXT = /\.(mp3|wav|m4a|ogg)$/i
-const IMAGE_EXT = /\.(jpg|jpeg|png|webp|gif)$/i
 
 function normalizeFileKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\\/g, '/').split('/').pop() ?? name
+  return normalizeImportFileKey(name)
 }
 
 function buildMediaMap(files: File[]): Map<string, File> {
   const map = new Map<string, File>()
   for (const file of files) {
-    map.set(normalizeFileKey(file.name), file)
+    const f = isExamImportImageFile(file) ? ensureImageFileMime(file) : file
+    map.set(normalizeFileKey(f.name), f)
   }
   return map
 }
 
 function resolveMediaFile(map: Map<string, File>, filename?: string): File | null {
   if (!filename) return null
+  // Ảnh: JSON .jpg ↔ file .webp
+  if (isExamImportImageFileName(filename) || !AUDIO_EXT.test(filename)) {
+    const img = resolveImageMediaFile(map, filename)
+    if (img) return img
+  }
   return map.get(normalizeFileKey(filename)) ?? null
 }
 
@@ -294,11 +311,7 @@ function mediaFileFound(mediaFiles: File[], filename: string): boolean {
   if (AUDIO_EXT.test(filename) || isSharedListeningAudioName(filename)) {
     if (resolveListeningAudioFile(map, filename)) return true
   }
-  const base = normalizeFileKey(filename)
-  const alt = base.replace(/\.(jpg|jpeg|png|webp)$/i, '')
-  for (const ext of ['.jpg', '.jpeg', '.png', '.webp']) {
-    if (resolveMediaFile(map, `${alt}${ext}`)) return true
-  }
+  if (resolveImageMediaFile(map, filename)) return true
   return false
 }
 
@@ -462,14 +475,17 @@ export async function buildListeningExamFromImport(
   const normalized = normalizeListeningImportPayload(payload)
   const mediaMap = buildMediaMap(mediaFiles)
   const sharedMediaKeys = new Map<string, string>()
+  // Twin catalog chỉ khi đúng số Test — không bao giờ gán audio Test 1 cho Test N
   const catalogTwin = findCatalogListeningTwin({
     examType: payload.examType,
     title: payload.title,
   })
-  const catalogAudioUrl = resolveListeningCatalogAudioUrl({
-    examType: payload.examType,
-    title: payload.title,
-  })
+  const catalogAudioUrl = catalogTwin
+    ? resolveListeningCatalogAudioUrl({
+        examType: payload.examType,
+        title: payload.title,
+      })
+    : undefined
   const parts: ListeningPart[] = []
 
   // Fallback audio toàn đề (Audio.mp3 / listening.mp3 / file mp3 duy nhất)
@@ -554,11 +570,18 @@ export async function buildListeningExamFromImport(
         })
       }
 
-      const pictureImageUrl = catalogTwin
+      // Catalog URL chỉ khi KHÔNG có blob local — tránh UI hiện ảnh/audio catalog đè import
+      const pictureImageUrl = !pictureImageKey && catalogTwin
         ? catalogPictureImageUrl(catalogTwin, qJson.number)
         : undefined
-      const questionAudioUrl = catalogTwin
+      const questionAudioUrl = !audioKey && catalogTwin
         ? catalogQuestionAudioUrl(catalogTwin, qJson.number)
+        : undefined
+
+      const acceptableAnswers = Array.isArray(qJson.acceptableAnswers)
+        ? qJson.acceptableAnswers
+            .filter((a): a is string => typeof a === 'string' && a.trim().length > 0)
+            .map(a => a.trim())
         : undefined
 
       questions.push({
@@ -567,7 +590,8 @@ export async function buildListeningExamFromImport(
         type: qJson.type,
         prompt: qJson.prompt,
         options,
-        answer: qJson.answer,
+        answer: typeof qJson.answer === 'string' ? qJson.answer : String(qJson.answer ?? ''),
+        ...(acceptableAnswers?.length ? { acceptableAnswers } : {}),
         explanation: qJson.explanation ?? '',
         pictureImageKey,
         pictureImageUrl,
@@ -599,7 +623,7 @@ export async function buildListeningExamFromImport(
         partImageKey = listeningExamAudioKey(examId, `part-img-${partJson.partNumber}`)
         await audioRepo.put(partImageKey, partImgFile)
       }
-      if (catalogTwin) {
+      if (!partImageKey && catalogTwin) {
         partImageUrl = catalogPartImageUrl(catalogTwin, partJson.partNumber)
       }
     }
@@ -704,7 +728,7 @@ export function listeningImportTemplate(examType: ListeningExamType = 'ket'): Li
 
 export function isListeningMediaFile(file: File): boolean {
   const name = normalizeFileKey(file.name)
-  return AUDIO_EXT.test(name) || IMAGE_EXT.test(name)
+  return AUDIO_EXT.test(name) || isExamImportImageFile(file) || isExamImportImageFileName(name)
 }
 
 export function isListeningJsonFile(file: File): boolean {

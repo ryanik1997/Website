@@ -1,10 +1,20 @@
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import type { ExamAudioSource } from './useExamQuestionAudio'
+import {
+  defaultCatalogAudioByExamType,
+  inferIeltsCatalogAudioUrl,
+} from './listeningCatalogAudioPaths'
+import {
+  allowDefaultCatalogAudioByExamType,
+  hasLocalAudioBlob,
+  shouldAttachCatalogAudio,
+} from './listeningLocalMediaPolicy'
 
 export function partAudioSource(part: ListeningPart): ExamAudioSource {
   return {
     audioKey: part.audioKey,
-    audioUrl: part.audioUrl,
+    // Có blob local → không expose URL catalog (player chỉ dùng blob)
+    audioUrl: hasLocalAudioBlob(part) ? undefined : part.audioUrl,
     ttsText: part.ttsText,
   }
 }
@@ -16,6 +26,32 @@ function sameAudioSource(a: ExamAudioSource, b: ExamAudioSource): boolean {
 }
 
 /**
+ * Fallback catalog khi không có blob.
+ * Không map KET Test N → audio Test 1 (allowDefaultCatalogAudioByExamType).
+ * Twin exact được merge ở mergeCatalogListeningMedia trước khi play.
+ */
+function catalogAudioFallbackUrl(exam: ListeningExam): string | undefined {
+  if (exam.examType === 'ielts') return inferIeltsCatalogAudioUrl(exam.title)
+  if (!allowDefaultCatalogAudioByExamType(exam.title)) return undefined
+  return defaultCatalogAudioByExamType(exam.examType)
+}
+
+function withCatalogAudioFallback(
+  exam: ListeningExam,
+  source: ExamAudioSource,
+): ExamAudioSource {
+  if (!shouldAttachCatalogAudio(source) || source.ttsText?.trim()) {
+    return {
+      ...source,
+      audioUrl: hasLocalAudioBlob(source) ? undefined : source.audioUrl,
+    }
+  }
+  const catalogUrl = catalogAudioFallbackUrl(exam)
+  if (!catalogUrl) return source
+  return { ...source, audioUrl: catalogUrl }
+}
+
+/**
  * Một file MP3 chung cho cả bài — khi mọi part (có audio) trỏ cùng audioKey/audioUrl.
  * KET/PET/import ZIP thường dùng pattern này.
  */
@@ -23,21 +59,33 @@ export function sharedExamAudioSource(exam: ListeningExam): ExamAudioSource | nu
   const partsWithAudio = exam.parts
     .map(partAudioSource)
     .filter(hasExamAudioSource)
-  if (partsWithAudio.length === 0) return null
+  if (partsWithAudio.length === 0) {
+    const catalogUrl = catalogAudioFallbackUrl(exam)
+    if (catalogUrl) return { audioUrl: catalogUrl }
+    return null
+  }
 
-  const first = partsWithAudio[0]
+  const first = partsWithAudio[0]!
   const allShare = exam.parts.every(part => {
     const src = partAudioSource(part)
     if (!hasExamAudioSource(src)) return true
     return sameAudioSource(src, first)
   })
 
-  return allShare ? first : null
+  if (!allShare) return null
+  return withCatalogAudioFallback(exam, first)
 }
 
 /** @deprecated Dùng sharedExamAudioSource */
 export function ketSharedExamAudioSource(exam: ListeningExam): ExamAudioSource {
-  return sharedExamAudioSource(exam) ?? { audioKey: undefined, audioUrl: undefined, ttsText: undefined }
+  return (
+    sharedExamAudioSource(exam)
+    ?? withCatalogAudioFallback(exam, {
+      audioKey: undefined,
+      audioUrl: undefined,
+      ttsText: undefined,
+    })
+  )
 }
 
 /** Audio cho IELTS / FCE / CAE / CPE: ưu tiên MP3 chung, không thì theo Part */
@@ -47,8 +95,12 @@ export function resolveListeningAudioSource(
 ): ExamAudioSource {
   const shared = sharedExamAudioSource(exam)
   if (shared) return shared
-  if (part) return partAudioSource(part)
-  return { audioKey: undefined, audioUrl: undefined, ttsText: undefined }
+  if (part) return withCatalogAudioFallback(exam, partAudioSource(part))
+  return withCatalogAudioFallback(exam, {
+    audioKey: undefined,
+    audioUrl: undefined,
+    ttsText: undefined,
+  })
 }
 
 export function hasExamAudioSource(source: ExamAudioSource): boolean {

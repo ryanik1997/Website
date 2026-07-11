@@ -4,18 +4,26 @@
  * - Emits processed exam JSON → packages/catalog/data/
  *
  * Run: node scripts/build-catalog.mjs
+ *      node scripts/build-catalog.mjs --if-present   # skip if no Tainguyen (CI/Vercel)
+ *
+ * Path: TAINGUYEN_PATH env, else <repo>/Tainguyen (junction OK)
  */
 import { existsSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { REPO_ROOT, resolveTainguyenPath, tainguyenExists } from './tainguyen-path.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '..')
-const TAINGUYEN = path.join(ROOT, 'Tainguyen')
+const ROOT = REPO_ROOT
+const TAINGUYEN = resolveTainguyenPath()
 const PUBLIC_CATALOG = path.join(ROOT, 'apps/web/public/catalog')
 const DATA_OUT = path.join(ROOT, 'packages/catalog/data')
+const IF_PRESENT =
+  process.argv.includes('--if-present')
+  || process.env.SKIP_CATALOG_BUILD === '1'
+  || process.env.VERCEL === '1'
 
 const STATIC_BUNDLES = [
   {
@@ -377,6 +385,26 @@ async function copyMediaFiles(sourceDir, destDir) {
 }
 
 async function main() {
+  if (!tainguyenExists(TAINGUYEN)) {
+    const hasPublic = existsSync(PUBLIC_CATALOG)
+    const hasData = existsSync(path.join(DATA_OUT, 'manifest.json'))
+    if (IF_PRESENT && hasPublic && hasData) {
+      console.log(`[build-catalog] No Tainguyen at ${TAINGUYEN}`)
+      console.log('[build-catalog] --if-present / Vercel: skip rebuild; using committed public/catalog + packages/catalog/data')
+      return
+    }
+    if (IF_PRESENT && hasPublic) {
+      console.warn(`[build-catalog] No Tainguyen at ${TAINGUYEN}; public/catalog present — skip rebuild`)
+      return
+    }
+    console.error(`[build-catalog] Tainguyen not found: ${TAINGUYEN}`)
+    console.error('  Set TAINGUYEN_PATH to the folder, or create a junction:')
+    console.error('  mklink /J Tainguyen D:\\path\\to\\Tainguyen')
+    console.error('  Or run with --if-present to skip when using prebuilt catalog only.')
+    process.exit(1)
+  }
+
+  console.log(`[build-catalog] Source: ${TAINGUYEN}`)
   await fs.mkdir(DATA_OUT, { recursive: true })
   await fs.mkdir(PUBLIC_CATALOG, { recursive: true })
 

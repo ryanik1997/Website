@@ -1,38 +1,83 @@
+/**
+ * Merge media từ builtin catalog vào đề Listening (import / published / local).
+ * Policy: apps/web/src/features/exam/listeningLocalMediaPolicy.ts
+ */
 import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
 import type { ListeningExam, ListeningPart, ListeningQuestion } from './listeningExamData'
+import {
+  defaultCatalogAudioByExamType,
+  inferIeltsCatalogAudioUrl,
+} from './listeningCatalogAudioPaths'
 import { hasExamAudioSource, partAudioSource } from './listeningExamAudio'
+import {
+  allowDefaultCatalogAudioByExamType,
+  extractListeningTestNumber,
+  isValidCatalogListeningTwin,
+  normalizeExamTitleKey,
+  preferLocalListeningMedia,
+  preferLocalAudioUrl,
+  preferLocalPartImageUrl,
+  preferLocalPictureUrl,
+  shouldAttachCatalogAudio,
+} from './listeningLocalMediaPolicy'
 import { usesCompositePictureBoard } from './listeningPictureMc'
 
-function normalizeExamTitle(title: string): string {
-  return title.trim().toLowerCase().replace(/\s+/g, ' ')
-}
+export { inferIeltsCatalogAudioUrl } from './listeningCatalogAudioPaths'
+export {
+  preferLocalListeningMedia,
+  shouldAttachCatalogAudio,
+  extractListeningTestNumber,
+  isValidCatalogListeningTwin,
+} from './listeningLocalMediaPolicy'
 
-/** URL audio catalog theo title IELTS (Cambridge X Test Y) khi không có twin trong bundle. */
-export function inferIeltsCatalogAudioUrl(title: string): string | undefined {
-  const match = title.match(/Cambridge\s*(\d+)\s*Test\s*(\d+)/i)
-  if (!match) return undefined
-  return `/catalog/listening/ielts-cam${match[1]}-test${match[2]}/listening.mp3`
-}
-
-/** Audio URL từ builtin catalog hoặc đường dẫn public suy ra từ title IELTS. */
+/** Audio URL từ builtin catalog hoặc path suy ra — không bao giờ gán Test 1 cho Test N. */
 export function resolveListeningCatalogAudioUrl(
   exam: Pick<ListeningExam, 'examType' | 'title'>,
 ): string | undefined {
   const twin = findCatalogListeningTwin(exam)
-  if (twin) return catalogSharedListeningAudioUrl(twin)
+  if (twin) {
+    const fromTwin = catalogSharedListeningAudioUrl(twin)
+    if (fromTwin) return fromTwin
+  }
   if (exam.examType === 'ielts') return inferIeltsCatalogAudioUrl(exam.title)
-  return undefined
+  if (!allowDefaultCatalogAudioByExamType(exam.title)) return undefined
+  return defaultCatalogAudioByExamType(exam.examType)
 }
 
-/** Tìm đề builtin catalog khớp examType + title (dùng khi import / resolve) */
+/** Tìm đề builtin catalog khớp examType + title (exact / cùng số Test). */
 export function findCatalogListeningTwin(
   exam: Pick<ListeningExam, 'examType' | 'title'>,
 ): ListeningExam | null {
-  const localNorm = normalizeExamTitle(exam.title)
-  const match = CATALOG_LISTENING_EXAMS.find(
-    c => c.examType === exam.examType && normalizeExamTitle(c.title) === localNorm,
-  )
-  return (match as ListeningExam | undefined) ?? null
+  const localNorm = normalizeExamTitleKey(exam.title)
+  const sameType = CATALOG_LISTENING_EXAMS.filter(c => c.examType === exam.examType)
+
+  const asTwin = (c: (typeof sameType)[number]): Pick<ListeningExam, 'examType' | 'title'> => ({
+    examType: c.examType,
+    title: c.title,
+  })
+
+  const exact = sameType.find(c => normalizeExamTitleKey(c.title) === localNorm)
+  if (exact && isValidCatalogListeningTwin(exam, asTwin(exact))) {
+    return exact as ListeningExam
+  }
+
+  const testNum = extractListeningTestNumber(exam.title)
+  if (testNum != null) {
+    const byTest = sameType.find(c => extractListeningTestNumber(c.title) === testNum)
+    if (byTest && isValidCatalogListeningTwin(exam, asTwin(byTest))) {
+      return byTest as ListeningExam
+    }
+    // Có số Test — catalog không có → null (không map Test 3 → Test 1)
+    return null
+  }
+
+  // Không ghi số Test: chỉ 1 đề builtin cùng type → dùng làm twin layout/media
+  if (sameType.length === 1) {
+    const only = sameType[0]!
+    if (isValidCatalogListeningTwin(exam, asTwin(only))) return only as ListeningExam
+  }
+
+  return null
 }
 
 export function catalogSharedListeningAudioUrl(twin: ListeningExam): string | undefined {
@@ -75,71 +120,70 @@ function mergeQuestionMedia(
 
   let merged = local
 
-  if (local.type === 'picture-mc' && catalog.pictureImageUrl) {
+  if (local.type === 'picture-mc') {
+    const catalogPic = catalog.pictureImageUrl
+    const pictureImageUrl = preferLocalPictureUrl(local, catalogPic)
+    const pictureImageKey = local.pictureImageKey
+      ?? (!local.pictureImageKey && !local.pictureImageUrl ? catalog.pictureImageKey : undefined)
     merged = {
       ...merged,
-      pictureImageUrl: local.pictureImageUrl ?? catalog.pictureImageUrl,
-      pictureImageKey: local.pictureImageKey ?? catalog.pictureImageKey,
-    }
-  } else if (local.type === 'picture-mc' && !usesCompositePictureBoard(local) && catalog.pictureImageUrl) {
-    merged = {
-      ...merged,
-      pictureImageUrl: catalog.pictureImageUrl,
-      pictureImageKey: local.pictureImageKey ?? catalog.pictureImageKey,
+      pictureImageKey: local.pictureImageKey ?? pictureImageKey,
+      pictureImageUrl,
     }
   }
 
-  if (!merged.audioUrl && catalog.audioUrl) {
-    merged = { ...merged, audioUrl: catalog.audioUrl }
-  }
-  if (!merged.ttsText && catalog.ttsText) {
-    merged = { ...merged, ttsText: catalog.ttsText }
+  merged = {
+    ...merged,
+    audioUrl: preferLocalAudioUrl(local, catalog.audioUrl),
+    ttsText: local.ttsText || catalog.ttsText,
   }
 
   return merged
 }
 
 function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined): ListeningPart {
-  if (!catalog) return local
+  if (!catalog) {
+    return {
+      ...local,
+      audioUrl: preferLocalAudioUrl(local),
+      partImageUrl: preferLocalPartImageUrl(local),
+      questions: local.questions.map(q => ({
+        ...q,
+        audioUrl: preferLocalAudioUrl(q),
+        pictureImageUrl: preferLocalPictureUrl(q),
+        options: q.options?.map(o => ({
+          ...o,
+          imageUrl: o.imageKey?.trim() ? undefined : o.imageUrl,
+        })) ?? q.options,
+      })),
+    }
+  }
 
-  let merged: ListeningPart = { ...local }
+  let merged: ListeningPart = {
+    ...local,
+    audioUrl: preferLocalAudioUrl(local, catalog.audioUrl),
+    partImageUrl: preferLocalPartImageUrl(local, catalog.partImageUrl),
+    ttsText: local.ttsText || catalog.ttsText,
+    passageTitle: local.passageTitle || catalog.passageTitle,
+    notePassage: local.notePassage?.length ? local.notePassage : catalog.notePassage,
+    noteTable: local.noteTable?.rows?.length ? local.noteTable : catalog.noteTable,
+    noteTables: local.noteTables?.length ? local.noteTables : catalog.noteTables,
+    notePassageSections: local.notePassageSections?.length
+      ? local.notePassageSections
+      : catalog.notePassageSections,
+    notePassageLayout: local.notePassageLayout || catalog.notePassageLayout,
+  }
 
-  if (!merged.audioUrl && catalog.audioUrl) {
-    merged = { ...merged, audioUrl: catalog.audioUrl }
-  }
-  if (!merged.ttsText && catalog.ttsText) {
-    merged = { ...merged, ttsText: catalog.ttsText }
-  }
-  if (!merged.passageTitle && catalog.passageTitle) {
-    merged = { ...merged, passageTitle: catalog.passageTitle }
-  }
-  if (catalog.notePassage?.length && !local.notePassage?.length) {
-    merged = { ...merged, notePassage: catalog.notePassage }
-  }
-  if (!merged.noteTable?.rows?.length && catalog.noteTable?.rows?.length) {
-    merged = { ...merged, noteTable: catalog.noteTable }
-  }
-  if (!merged.noteTables?.length && catalog.noteTables?.length) {
-    merged = { ...merged, noteTables: catalog.noteTables }
-  }
-  if (!merged.notePassageSections?.length && catalog.notePassageSections?.length) {
-    merged = { ...merged, notePassageSections: catalog.notePassageSections }
-  }
-  if (!merged.notePassageLayout && catalog.notePassageLayout) {
-    merged = { ...merged, notePassageLayout: catalog.notePassageLayout }
-  }
-  if (!merged.partImageUrl && catalog.partImageUrl) {
-    merged = { ...merged, partImageUrl: catalog.partImageUrl }
-  }
   if (!hasExamAudioSource(partAudioSource(local))) {
     merged = {
       ...merged,
       audioKey: local.audioKey ?? catalog.audioKey,
-      audioUrl: merged.audioUrl ?? catalog.audioUrl,
-      ttsText: merged.ttsText ?? catalog.ttsText,
+      audioUrl: preferLocalAudioUrl(
+        { audioKey: local.audioKey ?? catalog.audioKey, audioUrl: local.audioUrl },
+        catalog.audioUrl,
+      ),
+      ttsText: local.ttsText ?? catalog.ttsText ?? merged.ttsText,
     }
-  } else if (!merged.audioUrl && catalog.audioUrl) {
-    merged = { ...merged, audioUrl: catalog.audioUrl }
   }
 
   const questions = local.questions.map(q => {
@@ -150,26 +194,34 @@ function mergePartMedia(local: ListeningPart, catalog: ListeningPart | undefined
   return { ...merged, questions }
 }
 
-/** Bổ sung audioUrl / pictureImageUrl từ builtin catalog khi bản import thiếu blob */
+/**
+ * Bổ sung media catalog khi thiếu blob.
+ * Luôn kết thúc bằng preferLocalListeningMedia (gỡ URL xung đột blob).
+ */
 export function mergeCatalogListeningMedia(local: ListeningExam): ListeningExam {
   const catalog = findCatalogListeningTwin(local)
-  const fallbackAudioUrl = resolveListeningCatalogAudioUrl(local)
+  const twinAudioUrl = catalog ? catalogSharedListeningAudioUrl(catalog) : undefined
+  // Chỉ fallback type-default khi twin hợp lệ hoặc title cho phép (Test 1 / không số)
+  const fallbackAudioUrl = twinAudioUrl
+    ?? (catalog || allowDefaultCatalogAudioByExamType(local.title)
+      ? resolveListeningCatalogAudioUrl(local)
+      : undefined)
 
   let parts = catalog
     ? local.parts.map(part => {
         const catPart = catalog.parts.find(p => p.partNumber === part.partNumber)
         return mergePartMedia(part, catPart)
       })
-    : [...local.parts]
+    : local.parts.map(part => mergePartMedia(part, undefined))
 
   if (fallbackAudioUrl) {
-    parts = parts.map(part => ({
-      ...part,
-      audioUrl: part.audioUrl ?? fallbackAudioUrl,
-    }))
+    parts = parts.map(part => {
+      if (!shouldAttachCatalogAudio(part)) return part
+      return { ...part, audioUrl: fallbackAudioUrl }
+    })
   }
 
-  return { ...local, parts }
+  return preferLocalListeningMedia({ ...local, parts })
 }
 
 export function listeningExamNeedsCatalogMedia(exam: ListeningExam): boolean {
@@ -179,8 +231,8 @@ export function listeningExamNeedsCatalogMedia(exam: ListeningExam): boolean {
   )
   const noPictures = exam.parts.some(part =>
     part.questions.some(
-      q => q.type === 'picture-mc' && !usesCompositePictureBoard(q),
+      q => q.type === 'picture-mc' && !usesCompositePictureBoard(q) && !q.pictureImageKey,
     ),
   )
-  return noPartAudio && noQuestionAudio || noPictures
+  return (noPartAudio && noQuestionAudio) || noPictures
 }

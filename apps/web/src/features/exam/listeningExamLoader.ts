@@ -5,8 +5,14 @@ import type { ListeningExam, ListeningPart } from './listeningExamData'
 import { getListeningExam, LISTENING_EXAMS } from './listeningExamData'
 import { dedupeExamsForLibraryDisplay } from './examListFilter'
 import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
+import { preferLocalListeningMedia } from './listeningLocalMediaPolicy'
 import { getPublishedListeningExam, listPublishedListeningExams } from './listeningExamPublish'
 import { normalizeListeningExamForDisplay } from './listeningImportNormalize'
+
+/** Merge catalog (bổ sung thiếu) rồi luôn ưu tiên blob local — sửa đề import cũ. */
+function finalizeListeningExam(exam: ListeningExam): ListeningExam {
+  return preferLocalListeningMedia(mergeCatalogListeningMedia(exam))
+}
 
 function recordToExam(record: ListeningExamRecord): ListeningExam {
   return {
@@ -29,30 +35,28 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
 
   // Đề catalog builtin: luôn lấy JSON trong bundle (tránh bản Dexie cũ ghi đè notePassage/bullets).
   if (builtin && isCatalogListeningExamId(examId)) {
-    return mergeCatalogListeningMedia(builtin)
+    return finalizeListeningExam(builtin)
   }
 
   const local = await listeningExamRepo.get(examId)
   if (local) {
     let exam = recordToExam(local)
     exam = normalizeListeningExamForDisplay(exam)
-    exam = mergeCatalogListeningMedia(exam)
-    return exam
+    return finalizeListeningExam(exam)
   }
 
   try {
     const published = await getPublishedListeningExam(examId)
     if (published) {
       let exam = normalizeListeningExamForDisplay(published)
-      exam = mergeCatalogListeningMedia(exam)
-      return exam
+      return finalizeListeningExam(exam)
     }
   } catch (err) {
     console.warn('Không tải được đề Listening published:', err)
   }
 
   if (!builtin) return null
-  return mergeCatalogListeningMedia(builtin)
+  return finalizeListeningExam(builtin)
 }
 
 function safeListExam(exam: ListeningExam): ListeningExam {

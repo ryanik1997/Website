@@ -26,6 +26,7 @@ import { useExamReviewAi } from './useExamReviewAi'
 import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { hasExamAudioSource, resolveListeningAudioSource } from './listeningExamAudio'
 import { useListeningSplitPane } from './useListeningSplitPane'
 import { isDualLetterMatchingPart, isGroupedLetterMatchingPart } from './listeningMultiPartLayout'
@@ -34,9 +35,10 @@ const STORAGE_PREFIX = 'exam-listening-draft:'
 
 interface Props {
   exam: ListeningExam
+  sessionStarted?: boolean
 }
 
-export default function ListeningFceTest({ exam }: Props) {
+export default function ListeningFceTest({ exam, sessionStarted = true }: Props) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
@@ -79,6 +81,7 @@ export default function ListeningFceTest({ exam }: Props) {
     play,
     seekToPct,
     stopPlayback,
+    resetPlayback,
     playError,
   } = useExamQuestionAudio()
 
@@ -99,6 +102,15 @@ export default function ListeningFceTest({ exam }: Props) {
     beforePlay: () => canPlay(playKey, maxPlays),
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  useEffect(() => {
+    registerListeningAutoPlay(() => {
+      if (submitted || reviewMode) return
+      if (!hasAudioFile && !audioSource.ttsText?.trim()) return
+      return play(audioSource, makePlayOpts(1))
+    })
+    return () => registerListeningAutoPlay(null)
+  }, [audioSource, hasAudioFile, makePlayOpts, play, reviewMode, submitted])
 
   useEffect(() => {
     const savedRaw = window.localStorage.getItem(storageKey)
@@ -156,14 +168,14 @@ export default function ListeningFceTest({ exam }: Props) {
   }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
 
   useEffect(() => {
-    if (submitted || reviewMode) return
+    if (!sessionStarted || submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
     }
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
-  }, [submitted, timeLeft])
+  }, [reviewMode, sessionStarted, submitted, timeLeft])
 
   useEffect(() => {
     if (!currentPart) return
@@ -211,7 +223,7 @@ export default function ListeningFceTest({ exam }: Props) {
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
     clearAllHighlights()
-    stopPlayback()
+    resetPlayback()
     resetPlayCounts()
     setAnswers({})
     setUnsure({})
@@ -223,7 +235,7 @@ export default function ListeningFceTest({ exam }: Props) {
     if (fullMockId) {
       patchFullMockSession({ stage: 'listening', listening: undefined })
     }
-  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
+  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, resetPlayback])
 
   const answeredCount = useMemo(
     () => allQuestions.filter(q => Boolean(answers[q.id])).length,

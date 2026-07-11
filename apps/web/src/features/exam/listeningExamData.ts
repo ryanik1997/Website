@@ -88,6 +88,11 @@ export interface ListeningQuestion {
   options: ListeningQuestionOption[]
   answer: string
   explanation: string
+  /**
+   * Biến thể đáp án gap-fill (import).
+   * Cũng chấp nhận `answer: "8/eight"` hoặc `"8|eight"` (slash/pipe).
+   */
+  acceptableAnswers?: string[]
   /** Part 1 picture-mc: một ảnh lớn chứa A+B+C (ưu tiên hơn ảnh từng option) */
   pictureImageKey?: string
   pictureImageUrl?: string
@@ -174,8 +179,75 @@ export interface ListeningExam {
   parts: ListeningPart[]
 }
 
-function normalizeListeningAnswer(value: string): string {
-  return value.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, ' ')
+export function normalizeListeningAnswer(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    // NBSP / unicode slash / dash
+    .replace(/\u00a0/g, ' ')
+    .replace(/[／⁄∕¦]/g, '/')
+    .replace(/[^\p{L}\p{N}\s\-./|]/gu, '')
+    .replace(/\s+/g, ' ')
+}
+
+/**
+ * Tách biến thể đáp án:
+ * - answer "8/eight" | "8|eight" | "8 / eight"
+ * - answer "8 OR eight" / "8 or eight"
+ * - acceptableAnswers: ["8", "eight"]
+ */
+export function listeningAnswerVariants(
+  answer: string,
+  acceptableAnswers?: string[],
+): string[] {
+  const set = new Set<string>()
+
+  const addToken = (raw: string) => {
+    const n = normalizeListeningAnswer(raw)
+    if (n) set.add(n)
+  }
+
+  const addRaw = (raw: string) => {
+    const t = raw.trim()
+    if (!t) return
+    // 8/eight · 8|eight · 8／eight
+    if (/[/|／⁄]/.test(t)) {
+      t.split(/[/|／⁄]/).forEach(addToken)
+      return
+    }
+    // 8 OR eight · 8 or eight · 8, eight
+    if (/\s+or\s+/i.test(t) || (t.includes(',') && !/^\d+,\d+$/.test(t))) {
+      t.split(/\s+or\s+|,\s*/i).forEach(addToken)
+      return
+    }
+    addToken(t)
+  }
+
+  addRaw(answer ?? '')
+  for (const alt of acceptableAnswers ?? []) {
+    if (typeof alt === 'string') addRaw(alt)
+  }
+  return [...set]
+}
+
+export function listeningGapAnswersMatch(
+  expected: string,
+  given: string,
+  wordLimit?: number,
+): boolean {
+  if (!given || !expected) return false
+  if (given === expected) return true
+  const maxWords = wordLimit ?? 3
+  if (given.split(/\s+/).filter(Boolean).length > maxWords) return false
+  // Cho phép "eight" khớp "eights" ngắn / chứa số trong chuỗi dài hơn cẩn thận
+  if (given.length >= 1 && expected.length >= 1) {
+    if (given === expected) return true
+    // Số thuần: "8" vs "08"
+    if (/^\d+$/.test(given) && /^\d+$/.test(expected)) {
+      return Number(given) === Number(expected)
+    }
+  }
+  return given.includes(expected) || expected.includes(given)
 }
 
 export const LISTENING_EXAMS: ListeningExam[] = [
@@ -203,18 +275,15 @@ export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer
 
   if (question.type === 'gap-fill') {
     const given = normalizeListeningAnswer(userAnswer)
-    const expectedRaw = question.answer.trim()
-    const variants = /[/|]/.test(expectedRaw)
-      ? expectedRaw.split(/[/|]/).map(s => normalizeListeningAnswer(s)).filter(Boolean)
-      : [normalizeListeningAnswer(expectedRaw)]
-
-    return variants.some(expected => {
-      if (given === expected) return true
-      return given.split(/\s+/).length <= (question.wordLimit ?? 3)
-        && (given.includes(expected) || expected.includes(given))
-    })
+    if (!given) return false
+    const variants = listeningAnswerVariants(question.answer, question.acceptableAnswers)
+    if (variants.length === 0) return false
+    return variants.some(expected =>
+      listeningGapAnswersMatch(expected, given, question.wordLimit),
+    )
   }
 
+  // MC / matching / picture — đáp án letter; vẫn hỗ trợ A/B (chọn một)
   const given = userAnswer.trim().toUpperCase()
   const expectedRaw = question.answer.trim()
   if (/[/|]/.test(expectedRaw)) {
@@ -229,6 +298,17 @@ export function formatListeningAnswer(
   answerId: string,
 ): string {
   if (!answerId.trim()) return '—'
+
+  // Gap-fill: hiện "8 hoặc eight" (không coi slash là option A/B)
+  if (question.type === 'gap-fill') {
+    const variants = listeningAnswerVariants(
+      answerId === question.answer ? question.answer : answerId,
+      answerId === question.answer ? question.acceptableAnswers : undefined,
+    )
+    if (variants.length > 1) return variants.join(' hoặc ')
+    if (variants.length === 1) return variants[0]!
+    return answerId
+  }
 
   if (/[/|]/.test(answerId)) {
     const letters = answerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)

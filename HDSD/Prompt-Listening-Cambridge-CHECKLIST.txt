@@ -27,6 +27,8 @@ Tick hết trước khi import app. App sửa được một số lỗi — **kh
   VD: `"KET A2 Listening — Book 1 — Test 2"`
 - [ ] Không `questionGroups` / `examTrack` / `cambridgeLevel` (schema Listening)
 - [ ] Không dấu `"` ASCII trần trong chuỗi explanation
+- [ ] Gap-fill đáp án kép: `answer: "8/eight"` **và/hoặc** `acceptableAnswers: ["8","eight"]` (không `"8 (or eight)"`)
+- [ ] Ảnh: jpg **hoặc webp** (`q1.webp` OK dù JSON ghi `q1.jpg`)
 
 ---
 
@@ -50,14 +52,14 @@ Tick hết trước khi import app. App sửa được một số lỗi — **kh
 ## 3) Type câu theo Part (nhanh)
 
 ### A2 KET
-- [ ] P1 Q1–5: `picture-mc` + `q1.jpg`…`q5.jpg` (composite A+B+C)
-- [ ] P2 Q6–10: `gap-fill` — **xem §4 form**
+- [ ] P1 Q1–5: `picture-mc` + `q1.jpg|webp`…`q5.jpg|webp` (composite A+B+C)
+- [ ] P2 Q6–10: `gap-fill` — **xem §4 form** · đáp án kép dùng `/` hoặc `acceptableAnswers`
 - [ ] P3 Q11–15: `multiple-choice` A/B/C
 - [ ] P4 Q16–20: `multiple-choice` A/B/C
 - [ ] P5 Q21–25: `matching` options A–H
 
 ### B1 PET
-- [ ] P1 Q1–7: `picture-mc` + `q1.jpg`…`q7.jpg`
+- [ ] P1 Q1–7: `picture-mc` + `q1.jpg|webp`…`q7.jpg|webp`
 - [ ] P2 Q8–13: `multiple-choice` + `context` (nếu đề có)
 - [ ] P3 Q14–19: `gap-fill` + `passageTitle` / gapLead·gapTrail nếu cần
 - [ ] P4 Q20–25: `multiple-choice` + `audioIntro` nếu đề có

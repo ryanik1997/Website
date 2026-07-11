@@ -5,6 +5,7 @@ import {
   parseReadingImportJson,
   type ReadingImportPayload,
 } from './importReadingManualUtils'
+import { mimeFromImageFileName } from './examImportImageFormats'
 import { extractTextFromPdf } from './pdfExtract'
 import { parseCambridgeAnswerKey } from './cambridgeAnswerKeyParse'
 
@@ -29,10 +30,7 @@ function baseName(path: string): string {
 
 function mimeFromName(name: string): string {
   const lower = name.toLowerCase()
-  if (lower.endsWith('.webp')) return 'image/webp'
-  if (lower.endsWith('.png')) return 'image/png'
-  if (lower.endsWith('.gif')) return 'image/gif'
-  if (lower.endsWith('.jpg') || lower.endsWith('.jpeg')) return 'image/jpeg'
+  if (/\.(webp|png|gif|jpe?g)$/i.test(lower)) return mimeFromImageFileName(name)
   if (lower.endsWith('.json')) return 'application/json'
   if (lower.endsWith('.pdf')) return 'application/pdf'
   if (lower.endsWith('.txt')) return 'text/plain'

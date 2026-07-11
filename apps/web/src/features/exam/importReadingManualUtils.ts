@@ -24,10 +24,16 @@ import {
   validateReadingNoteTable,
 } from './readingNoteTableUtils'
 
+import {
+  ensureImageFileMime,
+  isExamImportImageFile,
+  normalizeImportFileKey,
+  resolveImageMediaFile,
+  resolveImageMediaFileAny,
+} from './examImportImageFormats'
+
 export const READING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
 export const READING_IMPORT_MAX_MEDIA_BYTES = 40 * 1024 * 1024
-
-const IMAGE_EXT = /\.(jpg|jpeg|png|webp|gif)$/i
 
 const YNNG_IMPORT_OPTIONS = [
   { id: 'yes', label: 'YES' },
@@ -115,20 +121,21 @@ export interface ReadingImportPayload {
 }
 
 function normalizeFileKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\\/g, '/').split('/').pop() ?? name
+  return normalizeImportFileKey(name)
 }
 
 function buildMediaMap(files: File[]): Map<string, File> {
   const map = new Map<string, File>()
   for (const file of files) {
-    map.set(normalizeFileKey(file.name), file)
+    const f = isExamImportImageFile(file) ? ensureImageFileMime(file) : file
+    map.set(normalizeFileKey(f.name), f)
   }
   return map
 }
 
+/** Ảnh: thử .jpg/.webp/… khi JSON ghi một đuôi nhưng ZIP là đuôi khác */
 function resolveMediaFile(map: Map<string, File>, filename?: string): File | null {
-  if (!filename) return null
-  return map.get(normalizeFileKey(filename)) ?? null
+  return resolveImageMediaFile(map, filename)
 }
 
 export function readingExamMediaKey(examId: string, suffix: string): string {
@@ -151,12 +158,11 @@ async function storePetPart2PersonImages(
   )
   for (let n = 6; n <= 10; n += 1) {
     if (!nums.has(n)) continue
-    const aliases = [
+    const imgFile = resolveImageMediaFileAny(mediaMap, [
       petPart2PersonImageFilename(n),
-      `part2-q${n}.jpeg`,
-      `part2-person${n}.jpg`,
-    ]
-    const imgFile = aliases.map(name => resolveMediaFile(mediaMap, name)).find(Boolean)
+      `part2-q${n}`,
+      `part2-person${n}`,
+    ])
     if (!imgFile) continue
     const imageKey = readingExamMediaKey(examId, petPart2PersonImageFilename(n))
     await audioRepo.put(imageKey, imgFile)
@@ -429,7 +435,7 @@ export function buildImportedReadingManualId(): string {
 }
 
 export function isReadingMediaFile(file: File): boolean {
-  return IMAGE_EXT.test(normalizeFileKey(file.name))
+  return isExamImportImageFile(file)
 }
 
 export function isReadingJsonFile(file: File): boolean {
@@ -469,11 +475,37 @@ export async function buildReadingExamFromImport(
     const partId = `${examId}-part-${partJson.partNumber}`
     const passage: ReadingPassageBlock[] = []
 
+    // Profile Part 2 (Angus/Frank/…) — đếm ảnh part2-p1.jpg theo block có label
+    let labeledPortraitOrdinal = 0
+
     for (let blockIndex = 0; blockIndex < (partJson.passage ?? []).length; blockIndex += 1) {
       const blockJson = partJson.passage[blockIndex]
       let imageKey: string | undefined
 
+      const hasLabel = Boolean(blockJson.label?.trim())
+      if (hasLabel) labeledPortraitOrdinal += 1
+
+      const portraitAliases =
+        partJson.partNumber === 2 && hasLabel
+          ? [
+              `part2-p${labeledPortraitOrdinal}.jpg`,
+              `part2-p${labeledPortraitOrdinal}.jpeg`,
+              `part2-p${labeledPortraitOrdinal}.png`,
+              `part2-p${labeledPortraitOrdinal}.webp`,
+              `part2-person${labeledPortraitOrdinal}.jpg`,
+            ]
+          : []
+
       const imgFile = resolveMediaFile(mediaMap, blockJson.imageFile)
+        ?? portraitAliases.map(n => resolveMediaFile(mediaMap, n)).find(Boolean)
+        // 1-based: part1-q1.jpg / part7-p1.jpg (hay dùng trong bundle KET)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.jpg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.jpeg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.png`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.jpg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.webp`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.png`)
+        // legacy 0-based fallback
         ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.jpg`)
         ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.webp`)
         ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.png`)

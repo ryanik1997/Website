@@ -16,7 +16,7 @@
 - **Session trước (cùng ngày):** Cambridge skill picker **Reading - Writing** (A2–C2); IELTS giữ Reading; Listening audioscript; Admin publish vocab
 - **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung**
 - **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.3** (vocab dedupe/rekey, sync ghost soft-delete, chunked push)
-- **Migrations Supabase đã push:** 001–**015** (015 = user data RLS `WITH CHECK`)
+- **Migrations Supabase:** 001–**016** (đã push trước); **017_checkin_days** — cần `pnpm db:push` (điểm danh cloud)
 - **Dev:** `pnpm dev` → `/app/vocab` (Dọn thẻ trùng) · `/app/exam/...`
 
 ### Bundle đề sẵn trong `Tainguyen/`
@@ -3145,21 +3145,100 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - [ ] Re-import KET Listening Test 2 ZIP mới (có audioscript) nếu đề cũ local chưa có `ttsText`
 - [ ] Working tree local còn nhiều file uncommitted (HDSD, exam, vocab, Tainguyen xóa…) — chưa git commit full session
 
-## Next session start prompt (cập nhật 2026-07-10 cuối)
+## Đã xong (2026-07-11) — Publish Listening kèm MP3 cloud
+
+- **Bug:** `listening-import-*` publish chỉ JSON; `stripLocalMediaKeys` xóa `audioKey` → Firefox/user khác **không có MP3**
+- **Fix:** `materializeListeningMediaForPublish` upload blob Dexie → bucket `listening-exam-media` (migration **016**, 50MB) + set `audioUrl`/`pictureImageUrl` public
+- User Admin: **Publish lại** đề import trên máy có blob local; Firefox hard refresh
+- URL ví dụ: `/app/exam/listening/listening-import-…` load từ `listening_exam_published`
+
+## Đã xong (2026-07-11) — Fix theo screenshot Error/error1+error2
+
+- **error2 Part 2:** passage chỉ còn title + 3 ảnh (không label/text) → UI `sign-box` khung lớn, mất Angus/Frank/Zac
+  - `repairKetPart2Passage` ghép lại 3 profile + portrait theo thứ tự
+  - Render Part 2 **không** còn sign-box; luôn portrait 2.5×3.5cm + text
+  - Cloud merge Part 2 gán ảnh theo profile, không dán title
+- **error1 Part 7:** broken image icon “Story picture 1/2/3” — URL strip/sai
+  - `repairKetPart7Passage` → `/catalog/reading/ket-a2-test1/part7-p*.jpg`
+  - UI fallback onError + luôn 3 slot catalog
+- Test `test-fill-reading-media.mts` PASS
+
+## Đã xong (2026-07-11) — Fix User: P1/P7 mất ảnh + P2 mất đoạn văn
+
+- **Root cause:** Publish từ local import chỉ có `imageKey` blob → `stripLocalMediaKeys` xóa key → user không có `imageUrl`. Published ghi đè catalog (có `/catalog/...`). Part 2 portrait + nhánh render chỉ ảnh → nuốt text khi thiếu label/text.
+- **Fix:** `fillReadingExamMedia.ts` — vá `imageUrl`/`text`/`label` từ catalog khi resolve + trước publish
+- Render Part 2: luôn hiện text kèm portrait
+- Test: `scripts/test-fill-reading-media.mts` PASS
+- User hard refresh là thấy (không bắt buộc re-publish); Admin **Publish lại** để JSON cloud sạch
+
+## Đã xong (2026-07-11) — User không thấy P6/P7 + ảnh KET A2
+
+- **Root cause P6/P7:** catalog builtin `reading-ket-a2-test1` chỉ **5 parts**; Admin import local 7-part → User chỉ thấy catalog
+- **Fix:** catalog → **7 parts** (P6 writing email + P7 story 3 ảnh `/catalog/reading/ket-a2-test1/part7-p*.jpg`); duration 60; bandHint RW
+- **Loader:** `listAllReadingExams` / `resolveReadingExam` ưu tiên bản **nhiều part hơn** (publish/local vs catalog cũ)
+- **Ảnh Part 2:** user chỉ thấy nếu upload gắn **cùng examId** user mở (vd. `catalog-reading-ket-a2-test1`); sau upload cập nhật published JSON nếu đã publish
+- Admin: import ảnh portrait **trên đề catalog** (hoặc Publish lại sau upload), không chỉ trên `reading-import-*`
+
+## Đã xong (2026-07-11) — KET A2 Part 2 portrait image (Admin import)
+
+- 3 profile (label Angus/Frank/Zac…): trước mỗi đoạn ô **2.5cm × 3.5cm**
+- **Admin** thấy ô import / Đổi / Xóa; **user** chỉ thấy ảnh khi đã có
+- Cloud: `reading_exam_images` slot `passage` + `item_index` = block index; public read, admin write
+- Files: `KetRwPassagePortrait.tsx`, `KetRwPartContent`, `ReadingKetRwTest` (merge cloud images), `persistReadingPassageBlockImage`, CSS `ket-rw-portrait*`
+
+## Đã xong (2026-07-11) — Fix KET A2 Part 2 bị ép YNNG (false positive)
+
+- **Bug:** Import ZIP `KET A2_Cam 1` — `exam.json` Part 2 đúng `multiple-choice` (A Angus / B Frank / C Zac) nhưng UI ra YES/NO/NOT GIVEN
+- **Root cause:** `coerceTriStateGroupType` / `optionsLookTriStateOnly` trong `readingExamSanitize.ts`
+  - `normalizeTriStateId` map **a→yes, b→no, c→not-given** (dành cho AI option id)
+  - Option id A/B/C → bị coi tri-state; label ngắn (`Angus` < 12 ký tự) không vượt `hasRealMcOpts`
+- **Fix:** Detect tri-state **ưu tiên label**; bare A–D không còn = YES/NO; mọi label không phải YES/NO/TRUE/FALSE/NG = MC thật
+- Verify: sanitize `Test 1/exam.json` → Part 2 vẫn `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) vẫn coerce
+- User: hard refresh dev → **import lại** ZIP (hoặc mở lại đề) — không cần sửa JSON
+
+## Next session start prompt (cập nhật 2026-07-11)
 
 ```
-Đọc session_summary.md (đầu file + mục "2026-07-10 cuối session").
+Đọc session_summary.md (đầu file + mục "2026-07-11" fix KET Part 2 YNNG + check-in cloud).
 
-1) Verify production https://ryanenglishv2.vercel.app/app/vocab
-   - Hard refresh → Đồng bộ → 「Dọn thẻ trùng」
-   - Kiểm tra bộ IELTS "Công nghệ" / Oxford… không double deck/card
-   - Sidebar sync không báo RLS
-
-2) Nếu vẫn double: gửi tên bộ + số thẻ; Admin Publish lại module vocab 1 lần
-
-3) Listening Cambridge: ZIP phải flat + audioscript.txt; checklist HDSD/*
-   - Transcript chỉ khi xem lại (sau nộp / Xem cùng đề bài)
-
-4) (Tuỳ chọn) git commit gọn code app (tránh commit bulk xóa Tainguyen nếu không chủ ý)
-5) (Tuỳ chọn) re-import ket-listening-test2.zip đã pack lại
+1) pnpm db:push — migration 017_checkin_days (bắt buộc trước khi streak cloud hoạt động)
+2) Đăng nhập → điểm danh → máy/browser khác login cùng account → Đồng bộ → streak điểm danh khôi phục
+3) Lưu ý: số lửa Home = streak HỌC (vocab), không phải điểm danh
 ```
+
+## 2026-07-11 — HDSD Universal A2–C2 (Listening + Reading)
+
+- Master: `Prompt-Listening-Cambridge.txt` / `Prompt-Reading-Cambridge.txt` + checklists
+- 5× Listening Universal + 5× Reading Universal: mục **App 2026-07**
+  - Gap-fill: `answer: "8/eight"` + `acceptableAnswers`
+  - Ảnh **webp** (map basename `q1.jpg` ↔ `q1.webp`)
+  - Listening: title Book/Test — không đè catalog audio Test 1
+- KET Listening Universal: ví dụ Q8 `8/eight` + bảng lỗi thường gặp
+
+## 2026-07-11 — Listening: local media > catalog (triệt để)
+
+- **Bug:** Import KET Test 3 ZIP → merge catalog gắn `/catalog/listening/ket-a2-test1` → phát nhầm audio Test 1
+- **Policy:** `listeningLocalMediaPolicy.ts` — blob local thắng; twin chỉ cùng số Test; không default Test 1 cho Test N
+- **Load path:** `resolveListeningExam` → merge + `preferLocalListeningMedia` (sửa đề Dexie cũ, không bắt re-import)
+- **Play:** `partAudioSource` / `sharedExamAudioSource` / `useExamQuestionAudio` không push catalog song song khi có blob
+- **Regression:** `pnpm test:listening-media` (`apps/web/scripts/test-listening-media-policy.mts`)
+
+## 2026-07-11 — Tainguyen ra ngoài repo (deploy nhẹ hơn)
+
+- **Data:** `D:\App-English-Ryan\Tainguyen` (~1.8 GB); **junction** `Website\Tainguyen` → path đó (script local OK)
+- **Code:** `scripts/tainguyen-path.mjs` (`TAINGUYEN_PATH`); `build-catalog.mjs --if-present` / skip trên Vercel nếu không có nguồn
+- **`vercel.json`:** `node scripts/build-catalog.mjs --if-present` rồi build web
+- **`.vercelignore`:** không upload Tainguyen, PDF thô, Giaodien, server, …
+- **`.gitignore`:** `Tainguyen/`
+- **Docs:** `docs/TAINGUYEN.md`
+- **Giữ:** `apps/web/public/catalog` (~830 MB audio) — vẫn là bottleneck upload nếu chưa CDN
+
+## 2026-07-11 — Check-in (điểm danh) sync theo tài khoản
+
+- **Vấn đề:** Chuỗi điểm danh chỉ trong IndexedDB (`reviewLog` mode=checkin); publish không xóa; đổi máy / clear site data / browser khác = mất streak. Sync cloud trước đó **không** gồm reviewLog.
+- **Fix:**
+  - Migration `017_checkin_days.sql` — bảng `checkin_days (user_id, day_key YYYY-MM-DD, checked_at)` + RLS own row
+  - `apps/web/src/features/home/checkInSync.ts` — union merge local ↔ cloud; push ngay khi bấm điểm danh (best-effort)
+  - `useCheckIn.ts` — ghi local + push cloud nếu đã login + online
+  - `useSyncManager` — gọi `syncCheckInDays` mỗi lần sync (cùng exam_progress)
+- **Deploy:** cần `pnpm db:push` (hoặc SQL Editor chạy 017) rồi deploy web

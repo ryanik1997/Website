@@ -17,21 +17,18 @@ export function isPictureMcQuestion(question: ListeningQuestion): boolean {
   return question.type === 'picture-mc'
 }
 
-/** Tên file ảnh composite gợi ý khi import (A2–C2 Part 1) */
+/** Tên file ảnh composite gợi ý khi import (A2–C2 Part 1) — jpg/png/webp/gif */
 export function compositePictureFileCandidates(
   questionNumber: number,
   explicit?: string,
 ): string[] {
-  const names = [
-    explicit,
-    `q${questionNumber}.jpg`,
-    `q${questionNumber}.jpeg`,
-    `q${questionNumber}.png`,
-    `q${questionNumber}.webp`,
-    `part1-q${questionNumber}.jpg`,
-    `part1-q${questionNumber}.jpeg`,
-    `part1-q${questionNumber}.png`,
-  ].filter((n): n is string => Boolean(n?.trim()))
-
-  return [...new Set(names.map(n => n.trim()))]
+  const n = questionNumber
+  const stems = [`q${n}`, `part1-q${n}`, `part1_q${n}`]
+  const exts = ['jpg', 'jpeg', 'png', 'webp', 'gif'] as const
+  const names: string[] = []
+  if (explicit?.trim()) names.push(explicit.trim())
+  for (const stem of stems) {
+    for (const ext of exts) names.push(`${stem}.${ext}`)
+  }
+  return [...new Set(names)]
 }

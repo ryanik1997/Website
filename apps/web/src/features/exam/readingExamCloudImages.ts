@@ -189,21 +189,66 @@ export function mergeReadingCloudImages(exam: ReadingExam, images: ReadingExamCl
 
   return {
     ...exam,
-    parts: exam.parts.map(part => ({
-      ...part,
-      topImageUrl: partPlacementImageUrl(images, part.partNumber, 'top') ?? part.topImageUrl,
-      bottomImageUrl: partPlacementImageUrl(images, part.partNumber, 'bottom') ?? part.bottomImageUrl,
-      passage: part.passage.map((block, blockIndex) => {
-        const cloudUrl = passageBlockImageUrl(images, part.partNumber, blockIndex)
-        if (!cloudUrl) return block
-        return { ...block, imageUrl: cloudUrl, imageKey: undefined }
-      }),
-      questionGroups: part.questionGroups.map((group, groupIndex) => {
-        const cloudUrl = groupImageUrl(images, part.partNumber, groupIndex)
-        if (!cloudUrl) return group
-        return { ...group, imageUrl: cloudUrl, imageKey: undefined }
-      }),
-    })),
+    parts: exam.parts.map(part => {
+      // Part 2: gán portrait theo thứ tự profile (label / đoạn dài), không dán vào title
+      if (part.partNumber === 2) {
+        const cloudImgs = images
+          .filter(img => img.partNumber === 2 && img.slot === 'passage')
+          .sort((a, b) => (a.itemIndex ?? 0) - (b.itemIndex ?? 0))
+        let profileImg = 0
+        return {
+          ...part,
+          topImageUrl: partPlacementImageUrl(images, part.partNumber, 'top') ?? part.topImageUrl,
+          bottomImageUrl: partPlacementImageUrl(images, part.partNumber, 'bottom') ?? part.bottomImageUrl,
+          passage: part.passage.map(block => {
+            const isTitle =
+              !block.label?.trim()
+              && Boolean(block.text?.trim())
+              && (block.text?.trim().length ?? 0) < 80
+              && !block.imageUrl
+              && !block.imageKey
+            if (isTitle) return block
+
+            const isProfile =
+              Boolean(block.label?.trim())
+              || (block.text?.trim().length ?? 0) > 60
+              || Boolean(block.imageUrl || block.imageKey)
+
+            if (!isProfile) return block
+
+            const cloudUrl = cloudImgs[profileImg]?.publicUrl
+            profileImg += 1
+            if (!cloudUrl && !block.imageUrl) return block
+            return {
+              ...block,
+              imageUrl: cloudUrl || block.imageUrl,
+              imageKey: undefined,
+            }
+          }),
+          questionGroups: part.questionGroups.map((group, groupIndex) => {
+            const cloudUrl = groupImageUrl(images, part.partNumber, groupIndex)
+            if (!cloudUrl) return group
+            return { ...group, imageUrl: cloudUrl, imageKey: undefined }
+          }),
+        }
+      }
+
+      return {
+        ...part,
+        topImageUrl: partPlacementImageUrl(images, part.partNumber, 'top') ?? part.topImageUrl,
+        bottomImageUrl: partPlacementImageUrl(images, part.partNumber, 'bottom') ?? part.bottomImageUrl,
+        passage: part.passage.map((block, blockIndex) => {
+          const cloudUrl = passageBlockImageUrl(images, part.partNumber, blockIndex)
+          if (!cloudUrl) return block
+          return { ...block, imageUrl: cloudUrl, imageKey: undefined }
+        }),
+        questionGroups: part.questionGroups.map((group, groupIndex) => {
+          const cloudUrl = groupImageUrl(images, part.partNumber, groupIndex)
+          if (!cloudUrl) return group
+          return { ...group, imageUrl: cloudUrl, imageKey: undefined }
+        }),
+      }
+    }),
   }
 }
 
@@ -231,4 +276,48 @@ export async function persistReadingPlacementImage(
   }
 
   await examRepo.create(examRecordFromReading({ ...exam, parts }, 'manual', 'cloud-images'))
+}
+
+/** Lưu URL ảnh portrait theo block passage (KET A2 Part 2: 3 profiles). */
+export async function persistReadingPassageBlockImage(
+  examId: string,
+  partNumber: number,
+  blockIndex: number,
+  publicUrl: string | undefined,
+): Promise<void> {
+  const exam = await resolveReadingExam(examId)
+  if (!exam) return
+
+  const parts = exam.parts.map(part => {
+    if (part.partNumber !== partNumber) return part
+    return {
+      ...part,
+      passage: part.passage.map((block, idx) => {
+        if (idx !== blockIndex) return block
+        if (!publicUrl) {
+          return { ...block, imageUrl: undefined, imageKey: undefined }
+        }
+        return { ...block, imageUrl: publicUrl, imageKey: undefined }
+      }),
+    }
+  })
+
+  const nextExam = { ...exam, parts }
+  const existing = await examRepo.get(examId)
+  if (existing) {
+    await examRepo.update(examId, { parts: parts as unknown[] })
+  } else {
+    await examRepo.create(examRecordFromReading(nextExam, 'manual', 'cloud-images'))
+  }
+
+  // Đồng bộ vào bản published (nếu có) — user load published vẫn thấy imageUrl trên block
+  try {
+    const { publishReadingExamToCloud, getPublishedReadingExam } = await import('./readingExamPublish')
+    const published = await getPublishedReadingExam(examId)
+    if (published) {
+      await publishReadingExamToCloud({ ...published, parts: nextExam.parts }, { source: 'cloud-images' })
+    }
+  } catch (err) {
+    console.warn('Không cập nhật published reading exam sau khi lưu portrait:', err)
+  }
 }

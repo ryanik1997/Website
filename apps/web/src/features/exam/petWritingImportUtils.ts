@@ -1,59 +1,59 @@
 import type { ReadingImportPartJson, ReadingImportPayload } from './importReadingManualUtils'
-
-const IMAGE_EXT = /\.(jpg|jpeg|png|webp)$/i
+import {
+  findImportImageByStems,
+  isExamImportImageFile,
+  normalizeImportFileKey,
+  resolveImageMediaFileAny,
+} from './examImportImageFormats'
 
 function normalizeFileKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\\/g, '/').split('/').pop() ?? name
+  return normalizeImportFileKey(name)
 }
 
 export function isPetWritingImageFile(file: File): boolean {
-  return IMAGE_EXT.test(normalizeFileKey(file.name))
+  return isExamImportImageFile(file)
 }
 
 export function findPetPart2PageImage(files: File[]): File | null {
-  const preferred = ['part2-page.jpg', 'part2.jpg', 'part2-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part2[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part2-page', 'part2', 'part2-prompt'],
+    /^part2[-_](page|prompt)?/i,
+  )
 }
 
 export function findPetPart4PageImage(files: File[]): File | null {
-  const preferred = ['part4-page.jpg', 'part4.jpg', 'part4-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part4[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part4-page', 'part4', 'part4-prompt'],
+    /^part4[-_]/i,
+  )
 }
 
 export function findPetPart2PersonImages(files: File[]): File[] {
+  const map = new Map(files.filter(isExamImportImageFile).map(f => [normalizeFileKey(f.name), f]))
   const found: File[] = []
   for (let n = 6; n <= 10; n += 1) {
-    const aliases = [`part2-q${n}.jpg`, `part2-q${n}.jpeg`, `part2-person${n}.jpg`]
-    const hit = files.find(f => aliases.includes(normalizeFileKey(f.name)))
+    const hit = resolveImageMediaFileAny(map, [`part2-q${n}`, `part2-person${n}`])
     if (hit) found.push(hit)
   }
   return found
 }
 
 export function findPetPart7ImageFile(files: File[]): File | null {
-  const preferred = ['part7-page.jpg', 'part7.jpg', 'part7-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part7[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part7-page', 'part7', 'part7-prompt'],
+    /^part7[-_]/i,
+  )
 }
 
 export function findPetPart8ImageFile(files: File[]): File | null {
-  const preferred = ['part8-page.jpg', 'part8.jpg', 'part8-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part8[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part8-page', 'part8', 'part8-prompt'],
+    /^part8[-_]/i,
+  )
 }
 
 export function buildPetPart7Json(imageFile?: string): ReadingImportPartJson {
@@ -209,4 +209,5 @@ export function mergePetWritingImagesIntoPayload(
   return { payload: next, merged, notes, extraMediaFiles }
 }
 
-export const PET_WRITING_IMAGE_HINT = 'part7-page.jpg (đề Part 7) + part8-page.jpg (1 ảnh truyện Part 8); tuỳ chọn part2-page.jpg, part2-q6…q10.jpg, part4-page.jpg'
+export const PET_WRITING_IMAGE_HINT =
+  'part7-page.jpg|.webp + part8-page.jpg|.webp; tuỳ chọn part2-page, part2-q6…q10, part4-page (jpg/png/webp)'

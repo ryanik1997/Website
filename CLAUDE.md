@@ -26,7 +26,11 @@ pnpm install --ignore-scripts         # Cài packages (tránh lỗi esbuild hook
 # Deploy production (migrations → build → Vercel)
 copy .env.deploy.example .env.deploy    # điền SUPABASE_ACCESS_TOKEN + DB password
 pnpm db:push                          # chỉ push SQL migrations (1 lần / release)
-pnpm deploy:prod                      # db:push + build + vercel deploy --prod
+pnpm deploy:prod                      # db:push + vercel deploy --prod
+
+# Nguồn đề (Tainguyen) — ngoài repo / junction; xem docs/TAINGUYEN.md
+# pnpm build:catalog                  # local khi sửa đề (cần Tainguyen hoặc TAINGUYEN_PATH)
+# node scripts/build-catalog.mjs --if-present   # Vercel: skip nếu không có Tainguyen
 ```
 
 ---

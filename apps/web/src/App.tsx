@@ -41,6 +41,16 @@ const AdminPage      = lazy(() => import('./features/admin/AdminPage'))
 export default function App() {
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return
+    // Xóa Cache Storage catalog cũ (SW cache-first từng chặn MP3 → NS_ERROR_INTERCEPTION_FAILED trên Firefox)
+    if (typeof caches !== 'undefined') {
+      void caches.keys().then(keys =>
+        Promise.all(
+          keys
+            .filter(k => k.startsWith('ryan-catalog-'))
+            .map(k => caches.delete(k)),
+        ),
+      )
+    }
     navigator.serviceWorker
       .register('/sw.js', { scope: '/' })
       .then(reg => { void reg.update() })

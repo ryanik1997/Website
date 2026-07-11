@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { ReadingPart, ReadingQuestion } from '../examData'
+import type { ReadingPart, ReadingPassageBlock, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions, isReadingAnswerCorrect } from '../examData'
 import {
   EXAM_REVIEW_COLORS,
@@ -13,6 +13,7 @@ import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import { ensureGapDots, questionByNumber, splitKetGapText } from './ketRwGapUtils'
 import KetRwSplitPane from './KetRwSplitPane'
 import { groupKetPart5Passage } from './ketRwEmailUtils'
+import KetRwPassagePortrait from './KetRwPassagePortrait'
 
 interface Props {
   part: ReadingPart
@@ -22,13 +23,59 @@ interface Props {
   onAnswer: (id: string, value: string) => void
   reviewMode?: boolean
   reviewStatusMap?: Record<string, ExamReviewStatus>
+  /** Admin: ô import ảnh chân dung Part 2 */
+  canEditPassagePortraits?: boolean
+  onPassagePortraitPick?: (blockIndex: number, file: File) => void
+  onPassagePortraitClear?: (blockIndex: number) => void
 }
 
-function PassageImage({ imageKey, imageUrl, alt }: { imageKey?: string; imageUrl?: string; alt: string }) {
-  const src = useBlobMediaUrl(imageKey, imageUrl)
-  if (!src) return null
-  return <img src={src} alt={alt} />
+/** KET Part 2: mọi block có ảnh hoặc label = profile (không dùng sign-box nuốt text). */
+function isKetPart2ProfileBlock(part: ReadingPart, block: ReadingPassageBlock): boolean {
+  if (part.partNumber !== 2) return false
+  if (block.label?.trim()) return true
+  if (block.imageUrl || block.imageKey) return true
+  return false
 }
+
+function isKetPart2TitleBlock(part: ReadingPart, block: ReadingPassageBlock): boolean {
+  if (part.partNumber !== 2) return false
+  if (block.label?.trim() || block.imageUrl || block.imageKey) return false
+  return Boolean(block.text?.trim())
+}
+
+function PassageImage({
+  imageKey,
+  imageUrl,
+  alt,
+  fallbackUrl,
+}: {
+  imageKey?: string
+  imageUrl?: string
+  alt: string
+  /** Khi URL chính 404 (Part 7 story) */
+  fallbackUrl?: string
+}) {
+  const primary = useBlobMediaUrl(imageKey, imageUrl)
+  const fallback = useBlobMediaUrl(undefined, fallbackUrl)
+  const [useFallback, setUseFallback] = useState(false)
+  const src = useFallback ? fallback : primary
+  if (!src && !fallback) return null
+  return (
+    <img
+      src={src ?? fallback ?? undefined}
+      alt={alt}
+      onError={() => {
+        if (fallback && !useFallback) setUseFallback(true)
+      }}
+    />
+  )
+}
+
+const KET_A2_PART7_CATALOG = [
+  '/catalog/reading/ket-a2-test1/part7-p1.jpg',
+  '/catalog/reading/ket-a2-test1/part7-p2.jpg',
+  '/catalog/reading/ket-a2-test1/part7-p3.jpg',
+] as const
 
 function InlineMcGap({
   number,
@@ -220,6 +267,9 @@ export default function KetRwPartContent({
   onAnswer,
   reviewMode = false,
   reviewStatusMap,
+  canEditPassagePortraits = false,
+  onPassagePortraitPick,
+  onPassagePortraitClear,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
   const partId = part.id
@@ -236,6 +286,45 @@ export default function KetRwPartContent({
   const instructionText = group?.instruction ?? ''
 
   const renderPassageBlocks = (blocks = part.passage) => blocks.map((block, idx) => {
+    // Part 2 title (Making friends…)
+    if (isKetPart2TitleBlock(part, block)) {
+      return (
+        <p key={`p2-title-${idx}`} className="ket-rw-paragraph ket-rw-paragraph--title">
+          <RwHighlightText blockId={`${partId}-txt-${idx}`} text={block.text} />
+        </p>
+      )
+    }
+
+    // Part 2 profiles: luôn portrait + text (error2: sign-box nuốt text)
+    if (isKetPart2ProfileBlock(part, block)) {
+      return (
+        <div key={`profile-${idx}`} className="ket-rw-profile">
+          <KetRwPassagePortrait
+            personLabel={block.label}
+            imageKey={block.imageKey}
+            imageUrl={block.imageUrl}
+            canEdit={canEditPassagePortraits}
+            onPick={onPassagePortraitPick ? file => onPassagePortraitPick(idx, file) : undefined}
+            onClear={onPassagePortraitClear ? () => onPassagePortraitClear(idx) : undefined}
+          />
+          <div className="ket-rw-profile__body">
+            <p className="ket-rw-paragraph">
+              {block.label && (
+                <RwHighlightText
+                  blockId={`${partId}-lbl-${idx}`}
+                  text={block.label}
+                  className="ket-rw-paragraph__label"
+                />
+              )}
+              {block.text?.trim() ? (
+                <RwHighlightText blockId={`${partId}-txt-${idx}`} text={block.text} />
+              ) : null}
+            </p>
+          </div>
+        </div>
+      )
+    }
+
     if (block.imageKey || block.imageUrl) {
       return (
         <div key={`img-${idx}`} className="ket-rw-sign-box">
@@ -376,14 +465,24 @@ export default function KetRwPartContent({
               </p>
             )}
             <div className="ket-rw-pictures">
-              {part.passage.map((block, idx) => (
-                <PassageImage
-                  key={`p7-${idx}`}
-                  imageKey={block.imageKey}
-                  imageUrl={block.imageUrl}
-                  alt={`Story picture ${idx + 1}`}
-                />
-              ))}
+              {(part.passage.length ? part.passage : [{ text: '' }, { text: '' }, { text: '' }])
+                .slice(0, 3)
+                .map((block, idx) => {
+                  const catalogUrl = KET_A2_PART7_CATALOG[idx]
+                  const hasLocal =
+                    Boolean(block.imageKey?.trim()) || Boolean(block.imageUrl?.trim())
+                  // Chỉ fallback catalog khi import/local không có ảnh — tránh đè blob import
+                  const url = block.imageUrl?.trim() || (hasLocal ? undefined : catalogUrl)
+                  return (
+                    <PassageImage
+                      key={`p7-${idx}`}
+                      imageKey={block.imageKey}
+                      imageUrl={url}
+                      fallbackUrl={hasLocal ? undefined : catalogUrl}
+                      alt={`Story picture ${idx + 1}`}
+                    />
+                  )
+                })}
             </div>
             {wq && (
               <>

@@ -26,7 +26,7 @@ listening.mp3
 answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
 answer-key.txt          ← khuyến nghị nếu PDF scan
 audioscript.txt      ← nếu PDF scan
-q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
+q1.jpg|webp … q5.jpg|webp   (Part 1: 1 ảnh/câu A+B+C — webp OK)
 ```
 
 ```json
@@ -142,6 +142,15 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
       "prompt": "Name of village:",
       "answer": "Newton",
       "wordLimit": 1
+    },
+    {
+      "number": 8,
+      "type": "gap-fill",
+      "prompt": "Time guests arrive:",
+      "answer": "8/eight",
+      "acceptableAnswers": ["8", "eight"],
+      "wordLimit": 1,
+      "explanation": "Answer key: 8 / eight — app chấp nhận cả hai."
     }
   ]
 }
@@ -233,8 +242,10 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 | Dùng `questionGroups` (Reading schema) | `questions[]` trong part |
 | Thiếu audioFile | Gắn `listening.mp3` mỗi part |
 | Part 1 gap-fill | Part 1 = `picture-mc` |
-| 3 ảnh riêng bắt buộc | 1 ảnh composite qN.jpg OK |
+| 3 ảnh riêng bắt buộc | 1 ảnh composite qN.jpg\|webp OK |
 | answer `"(August)"` | `"August"` |
+| Key `8 / eight` | `"answer": "8/eight"` ± `acceptableAnswers` |
+| File `q1.webp` JSON `q1.jpg` | OK — app map basename |
 | Answer Key PDF scan, không transcript | Thêm `audioscript.txt` UTF-8 |
 | Không có block AUDIOSCRIPT | App không gắn `ttsText` — user dùng AI khi xem lại |
 
@@ -252,12 +263,53 @@ q1.jpg … q5.jpg    (khuyến nghị — Part 1: 1 ảnh/câu chứa A+B+C)
 
 ---
 
+
+## ⚠ App 2026-07 — Gap-fill đáp án kép + WebP
+
+Chi tiết đầy đủ: **HDSD/Prompt-Listening-Cambridge.txt** (§ Gap-fill · § Ảnh WebP).
+
+### Gap-fill — app chấm cả biến thể
+
+| Viết trong JSON | User gõ → đúng |
+|-----------------|----------------|
+| `"answer": "8/eight"` | `8` hoặc `eight` |
+| `"answer": "8", "acceptableAnswers": ["eight"]` | idem |
+| `"answer": "could/may"` | `could` hoặc `may` |
+| `"answer": "8 OR eight"` | idem |
+
+```json
+{
+  "number": 6,
+  "type": "gap-fill",
+  "prompt": "Time guests arrive:",
+  "answer": "8/eight",
+  "acceptableAnswers": ["8", "eight"],
+  "wordLimit": 1,
+  "explanation": "Theo Answer key: 8 / eight."
+}
+```
+
+- Bỏ ngoặc key: `"(August)"` → `"August"`; số `(19)` → `"19"` hoặc `"19/nineteen"`
+- **Không** `"answer": "B (best)"` — chỉ letter
+- Review hiện **「8 hoặc eight」**
+
+### Ảnh — WebP
+
+- File: `q1.webp`, `q2.png`, `part7-page.webp` … OK
+- JSON có thể ghi `"imageFile": "q1.jpg"` dù file là **q1.webp** (app map basename)
+- Part 1 composite: `q1.jpg|webp` … (KET 5 ảnh / PET 7 ảnh)
+
+### Audio import
+
+- `listening.mp3` trong ZIP gắn local blob — **không** bị đè audio catalog Test 1 khi title là Test 2/3/4
+- Title bắt buộc: `… Book {B} — Test {T}`
+
 ## Việc làm
 
 1. Book + Test từ thư mục/PDF
 2. Map 5 parts · 25 câu
-3. Crop q1.jpg … q5.jpg (Part 1)
-4. Answer key → `answer` + `explanation`
+3. Crop q1.jpg|webp … q5.jpg|webp (Part 1)
+4. Answer key → `answer` (`8/eight` nếu kép) + `acceptableAnswers` (tuỳ) + `explanation`
 5. Audioscript (PDF text hoặc `audioscript.txt`) → `ttsText` / để app auto gắn
 6. JSON.parse PASS → ZIP (exam + mp3 + ảnh + key/script)
 7. Bảng tóm tắt Part | Câu | Type | Media | Đáp án

@@ -1,45 +1,36 @@
 import type { ReadingImportPartJson, ReadingImportPayload } from './importReadingManualUtils'
-
-const IMAGE_EXT = /\.(jpg|jpeg|png|webp)$/i
+import {
+  findImportImageByStems,
+  isExamImportImageFile,
+  normalizeImportFileKey,
+} from './examImportImageFormats'
 
 function normalizeFileKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\\/g, '/').split('/').pop() ?? name
+  return normalizeImportFileKey(name)
 }
 
 export function isKetWritingImageFile(file: File): boolean {
-  return IMAGE_EXT.test(normalizeFileKey(file.name))
+  return isExamImportImageFile(file)
 }
 
 export function findKetPart6ImageFile(files: File[]): File | null {
-  const preferred = ['part6-page.jpg', 'part6-page.jpeg', 'part6.jpg', 'part6.jpeg', 'part6-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part6[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part6-page', 'part6', 'part6-prompt'],
+    /^part6[-_]/i,
+  )
 }
 
 /**
- * Part 7 Writing: **1 ảnh** `part7-page.jpg` (toàn trang / 3 khung trong 1 file).
+ * Part 7 Writing: **1 ảnh** `part7-page.jpg|.webp` (toàn trang / 3 khung trong 1 file).
  * Không còn part7-p1…p3.
  */
 export function findKetPart7ImageFile(files: File[]): File | null {
-  const preferred = [
-    'part7-page.jpg',
-    'part7-page.jpeg',
-    'part7-page.png',
-    'part7-page.webp',
-    'part7.jpg',
-    'part7.jpeg',
-    'part7.png',
-  ]
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part7[-_]page\.(jpe?g|png|webp)$/i.test(normalizeFileKey(f.name)))
-    ?? files.find(f => /^part7\.(jpe?g|png|webp)$/i.test(normalizeFileKey(f.name)))
-    ?? null
+  return findImportImageByStems(
+    files,
+    ['part7-page', 'part7'],
+    /^part7([-_]page)?\./i,
+  )
 }
 
 /** @deprecated Dùng findKetPart7ImageFile — giữ alias mảng 0|1 phần tử cho UI cũ. */
@@ -174,4 +165,5 @@ export function mergeKetWritingImagesIntoPayload(
   return { payload: next, merged, notes, extraMediaFiles }
 }
 
-export const KET_WRITING_IMAGE_HINT = 'part6-page.jpg (đề Part 6) + part7-page.jpg (1 ảnh truyện / 3 khung)'
+export const KET_WRITING_IMAGE_HINT =
+  'part6-page.jpg|.webp (đề Part 6) + part7-page.jpg|.webp (1 ảnh truyện / 3 khung)'

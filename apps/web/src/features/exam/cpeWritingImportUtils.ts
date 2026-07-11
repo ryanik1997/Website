@@ -1,31 +1,32 @@
 import type { ReadingImportPartJson, ReadingImportPayload } from './importReadingManualUtils'
-
-const IMAGE_EXT = /\.(jpg|jpeg|png|webp)$/i
+import {
+  findImportImageByStems,
+  isExamImportImageFile,
+  normalizeImportFileKey,
+} from './examImportImageFormats'
 
 function normalizeFileKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\\/g, '/').split('/').pop() ?? name
+  return normalizeImportFileKey(name)
 }
 
 export function isCpeWritingImageFile(file: File): boolean {
-  return IMAGE_EXT.test(normalizeFileKey(file.name))
+  return isExamImportImageFile(file)
 }
 
 export function findCpePart8ImageFile(files: File[]): File | null {
-  const preferred = ['part8-page.jpg', 'part8.jpg', 'part8-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part8[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part8-page', 'part8', 'part8-prompt'],
+    /^part8[-_]/i,
+  )
 }
 
 export function findCpePart9ImageFile(files: File[]): File | null {
-  const preferred = ['part9-page.jpg', 'part9.jpg', 'part9-prompt.jpg']
-  for (const name of preferred) {
-    const hit = files.find(f => normalizeFileKey(f.name) === name)
-    if (hit) return hit
-  }
-  return files.find(f => /^part9[-_]/i.test(normalizeFileKey(f.name))) ?? null
+  return findImportImageByStems(
+    files,
+    ['part9-page', 'part9', 'part9-prompt'],
+    /^part9[-_]/i,
+  )
 }
 
 export function buildCpePart8Json(imageFile?: string): ReadingImportPartJson {
@@ -169,4 +170,5 @@ export function mergeCpeWritingImagesIntoPayload(
   return { payload: next, merged, notes, extraMediaFiles }
 }
 
-export const CPE_WRITING_IMAGE_HINT = 'part8-page.jpg (đề Part 8 Q1) + part9-page.jpg (đề Part 9 Q2–4)'
+export const CPE_WRITING_IMAGE_HINT =
+  'part8-page.jpg|.webp (đề Part 8 Q1) + part9-page.jpg|.webp (đề Part 9 Q2–4)'
