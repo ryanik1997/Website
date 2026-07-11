@@ -2,7 +2,8 @@ import type { ReadingExamRecord } from '@ryan/db'
 import { examRepo } from '@ryan/db'
 import type { ReadingExam, ReadingPart } from './examData'
 import { READING_EXAMS } from './examData'
-import { dedupeExamsForLibraryDisplay } from './examListFilter'
+import { dedupeExamsForLibraryDisplay, preferLibraryExam } from './examListFilter'
+import { fillReadingExamFromSources } from './fillReadingExamMedia'
 import { getPublishedReadingExam, listPublishedReadingExams } from './readingExamPublish'
 import { sanitizeReadingExam } from './readingExamSanitize'
 
@@ -22,18 +23,44 @@ export function getBuiltinReadingExam(examId: string): ReadingExam | null {
   return READING_EXAMS.find(exam => exam.id === examId) ?? null
 }
 
-export async function resolveReadingExam(examId: string): Promise<ReadingExam | null> {
-  const local = await examRepo.get(examId)
-  if (local) return recordToExam(local)
+/** Catalog cùng level + cùng số part (fill media khi publish/import id khác catalog). */
+function findCatalogMediaDonor(exam: ReadingExam): ReadingExam | null {
+  const exact = getBuiltinReadingExam(exam.id)
+  if (exact) return exact
+  if (!exam.cambridgeLevel) return null
+  return (
+    READING_EXAMS.find(
+      e =>
+        e.id.startsWith('catalog-')
+        && e.cambridgeLevel === exam.cambridgeLevel
+        && e.examTrack === (exam.examTrack ?? 'cambridge')
+        && e.parts.length === exam.parts.length,
+    ) ?? null
+  )
+}
 
+export async function resolveReadingExam(examId: string): Promise<ReadingExam | null> {
+  const local = await examRepo.get(examId).then(r => (r ? recordToExam(r) : null))
+
+  let published: ReadingExam | null = null
   try {
-    const published = await getPublishedReadingExam(examId)
-    if (published) return sanitizeReadingExam(published)
+    published = await getPublishedReadingExam(examId)
+    if (published) published = sanitizeReadingExam(published)
   } catch (err) {
     console.warn('Không tải được đề Reading published:', err)
   }
 
-  return getBuiltinReadingExam(examId)
+  const builtin = getBuiltinReadingExam(examId)
+
+  // Cùng id: ưu tiên nhiều part hơn (catalog 7-part / publish RW thắng local 5-part cũ)
+  const candidates = [local, published, builtin].filter((e): e is ReadingExam => Boolean(e))
+  if (!candidates.length) return null
+  const winner = candidates.reduce((best, cur) => preferLibraryExam(best, cur))
+
+  // Published/local hay mất imageUrl (chỉ còn imageKey bị strip) hoặc mất text Part 2
+  // → vá từ catalog + các bản còn lại
+  const donor = findCatalogMediaDonor(winner)
+  return fillReadingExamFromSources(winner, [donor, builtin, published, local])
 }
 
 export async function listAllReadingExams(): Promise<ReadingExam[]> {
@@ -47,11 +74,20 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
     console.warn('Không tải danh sách đề Reading published:', err)
   }
 
+  // Cùng id: ưu tiên bản nhiều part hơn (vd. publish 7-part ghi đè catalog 5-part cũ trên list)
+  const byId = new Map<string, ReadingExam>()
+  for (const exam of READING_EXAMS) {
+    byId.set(exam.id, exam)
+  }
+  for (const raw of published) {
+    const exam = sanitizeReadingExam(raw)
+    const prev = byId.get(exam.id)
+    byId.set(exam.id, prev ? preferLibraryExam(prev, exam) : exam)
+  }
   const publishedIds = new Set(published.map(e => e.id))
-  const publishedOnly = published.map(sanitizeReadingExam).filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   // Dedupe sample/catalog/local cùng Test (vd. double "Test 1 · A2 Key Reading — 5 parts")
-  return dedupeExamsForLibraryDisplay([...READING_EXAMS, ...publishedOnly, ...localOnly])
+  return dedupeExamsForLibraryDisplay([...byId.values(), ...localOnly])
 }
 
 export function examRecordFromReading(exam: ReadingExam, source: 'pdf' | 'manual', sourceFilename?: string) {

@@ -42,8 +42,9 @@ export default function ListeningExamAudioBar({
           type="button"
           className="listening-exam-audio__play-icon"
           onClick={playing ? onStop : onPlayNormal}
-          disabled={disabled}
-          aria-label={playing ? 'Dừng' : 'Phát'}
+          disabled={disabled && !playing}
+          aria-label={playing ? 'Tạm dừng' : 'Phát / tiếp tục'}
+          title={playing ? 'Tạm dừng (giữ vị trí)' : 'Phát / tiếp tục từ vị trí hiện tại'}
         >
           {buffering ? (
             <Loader2 size={16} className="animate-spin" />
@@ -81,10 +82,10 @@ export default function ListeningExamAudioBar({
         <button
           type="button"
           className="listening-exam-audio__btn listening-exam-audio__btn--primary"
-          onClick={onPlayNormal}
-          disabled={disabled}
+          onClick={playing ? onStop : onPlayNormal}
+          disabled={disabled && !playing}
         >
-          Phát
+          {playing ? 'Tạm dừng' : 'Phát'}
         </button>
       </div>
 

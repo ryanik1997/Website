@@ -5,12 +5,10 @@
 import { existsSync } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { zipSync } from '../apps/web/node_modules/fflate/esm/browser.js'
+import { resolveTainguyenPath } from './tainguyen-path.mjs'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '..')
-const TAINGUYEN = path.join(ROOT, 'Tainguyen')
+const TAINGUYEN = resolveTainguyenPath()
 
 const MEDIA_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.mp3', '.wav', '.ogg'])
 

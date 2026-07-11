@@ -27,8 +27,9 @@ Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
 2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript nếu có; ưu tiên `.txt`)
 3. **audioscript.txt** (khuyến nghị) — nếu Answer Key PDF là scan/không copy được chữ
 4. listening.mp3 — **một file audio cả bài** (gắn vào mỗi part)
-5. Ảnh Part 1 (KET/PET): `q1.jpg` … — crop 3 tranh A+B+C mỗi câu
-6. Ảnh Part 2 FCE: `q2.jpg` — minh họa cạnh tiêu đề (tuỳ đề)
+5. Ảnh Part 1 (KET/PET): `q1.jpg` **hoặc** `q1.webp` … — crop 3 tranh A+B+C mỗi câu
+6. Ảnh Part 2 FCE: `q2.jpg` / `q2.webp` — minh họa cạnh tiêu đề (tuỳ đề)
+7. Định dạng ảnh: **jpg / jpeg / png / webp / gif** (app map `imageFile: "q1.jpg"` ↔ file `q1.webp`)
 
 Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
 
@@ -44,8 +45,9 @@ listening.mp3                    ← bắt buộc
 answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
 answer-key.txt          ← khuyến nghị nếu PDF scan
 audioscript.txt                  ← khuyến nghị nếu PDF scan
-q1.jpg …                         ← KET Part 1 (5 ảnh) / PET Part 1 (7 ảnh)
-q2.jpg                           ← FCE Part 2 (tuỳ đề)
+q1.jpg|q1.webp …                 ← KET Part 1 (5) / PET Part 1 (7) — webp OK
+q2.jpg|q2.webp                   ← FCE Part 2 (tuỳ đề)
+map.jpg|diagram.webp             ← IELTS / đề có sơ đồ (nếu dùng schema listening)
 ```
 
 ```json
@@ -98,7 +100,50 @@ Mỗi **câu** PHẢI có:
 Type hợp lệ: `picture-mc` | `multiple-choice` | `gap-fill` | `matching`
 
 Tuỳ chọn part: `passageTitle`, `imageFile`, `audioIntro`, `matchingDualTask`, `taskOneInstruction`, `taskTwoInstruction`, `ttsText`
-Tuỳ chọn câu: `context`, `gapLead`, `gapTrail`, `imageFile`, `wordLimit`, **`ttsText`** (transcript đoạn nghe — xem lại đề)
+Tuỳ chọn câu: `context`, `gapLead`, `gapTrail`, `imageFile`, `wordLimit`, **`ttsText`**, **`acceptableAnswers`** (gap-fill)
+
+---
+
+## ⚠ Gap-fill — đáp án kép (app chấm điểm)
+
+App **hiểu** các dạng sau (gõ `8` hoặc `eight` đều đúng):
+
+| Cách viết trong exam.json | Ví dụ |
+|---------------------------|--------|
+| Slash `/` hoặc `\|` trong `answer` | `"answer": "8/eight"` · `"could/may"` |
+| `OR` / dấu phẩy | `"answer": "8 OR eight"` |
+| Mảng `acceptableAnswers` | `"answer": "8", "acceptableAnswers": ["eight"]` |
+| Kết hợp | `"answer": "8/eight", "acceptableAnswers": ["8", "eight"]` |
+
+```json
+{
+  "number": 6,
+  "type": "gap-fill",
+  "prompt": "Time guests arrive:",
+  "answer": "8/eight",
+  "acceptableAnswers": ["8", "eight"],
+  "wordLimit": 1,
+  "explanation": "Theo Answer key: 8 / eight."
+}
+```
+
+**Bắt buộc:**
+- Bỏ ngoặc key: `"(August)"` → `"August"`; `(19)` → `"19"` hoặc `"19/nineteen"`
+- `wordLimit`: ONE WORD → `1`; ONE WORD AND/OR A NUMBER → thường `1`–`2`
+- **Không** ghi `"answer": "B (best)"` — chỉ `"B"`
+- Review UI hiện **「8 hoặc eight」** (không nhầm thành option A/B)
+
+---
+
+## ⚠ Ảnh — WebP + tên file
+
+| JSON `imageFile` | File trong ZIP (app chấp nhận) |
+|------------------|--------------------------------|
+| `"q1.jpg"` | `q1.jpg` **hoặc** `q1.webp` / `q1.png` |
+| `"part2-page.jpg"` | `part2-page.webp` OK |
+| `"map.jpg"` | `map.webp` OK |
+
+MIME: app tự gắn `image/webp` khi import ZIP (type rỗng).
 
 ---
 
@@ -194,10 +239,10 @@ UI: KET / PET / FCE·CAE·CPE đều có thanh transcript AI khi review.
 |------|---------------|-----|
 | multiple-choice / picture-mc | `"A"` / `"B"` / `"C"` (hoặc chữ thường) | `"B (best)"` |
 | matching | một chữ `"A"` … `"H"` | `"Paragraph D"` |
-| gap-fill | từ/cụm: `"August"`, `"great name"` | `"(great) name"` — bỏ ngoặc key |
-| đáp án kép | `"could/may"` hoặc `"rings/sugar"` | `"rings (or sugar)"` |
+| gap-fill | `"August"`, `"great name"`, `"8/eight"` | `"(great) name"` — bỏ ngoặc key |
+| đáp án kép | `"could/may"` · `"8/eight"` · + `acceptableAnswers` | `"rings (or sugar)"` |
 
-Biến thể answer key → `explanation` hoặc `/` trong `answer`.
+Biến thể answer key → **`answer` có `/`** và/hoặc **`acceptableAnswers: ["…"]`** (+ `explanation`).
 
 ### 3. Lỗi JSON khác — KHÔNG được phép
 

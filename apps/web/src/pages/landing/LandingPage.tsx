@@ -18,6 +18,10 @@ const NAV_LINKS = [
   { id: 'contact', label: 'Liên hệ', href: '#lien-he' },
 ]
 
+const NAV_ITEM_CLASS =
+  'liquid-glass-hover inline-flex items-center rounded-full px-4 py-2 text-sm transition-all hover:text-foreground focus-visible:text-foreground'
+const NAV_BUTTON_CLASS = `${NAV_ITEM_CLASS} cursor-pointer border-0 bg-transparent`
+
 const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
 
 /** QR thanh toán (copy từ Tainguyen/QR.jpg → public/) */
@@ -571,7 +575,7 @@ export default function LandingPage() {
                     e.stopPropagation()
                     openContact()
                   }}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className={`${NAV_BUTTON_CLASS} text-muted-foreground`}
                 >
                   {link.label}
                 </button>
@@ -587,7 +591,7 @@ export default function LandingPage() {
                     e.stopPropagation()
                     openRoadmap()
                   }}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className={`${NAV_BUTTON_CLASS} text-muted-foreground`}
                 >
                   {link.label}
                 </button>
@@ -603,7 +607,7 @@ export default function LandingPage() {
                     e.stopPropagation()
                     openAbout()
                   }}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className={`${NAV_BUTTON_CLASS} text-muted-foreground`}
                 >
                   {link.label}
                 </button>
@@ -619,7 +623,7 @@ export default function LandingPage() {
                     e.stopPropagation()
                     openBlog()
                   }}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className={`${NAV_BUTTON_CLASS} text-muted-foreground`}
                 >
                   {link.label}
                 </button>
@@ -629,7 +633,7 @@ export default function LandingPage() {
               <a
                 key={link.id}
                 href={link.href}
-                className={`text-sm transition-colors ${
+                className={`${NAV_ITEM_CLASS} ${
                   link.active
                     ? 'text-foreground'
                     : 'text-muted-foreground hover:text-foreground'
@@ -665,15 +669,16 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col items-center px-6 pb-24 pt-24 py-[80px] text-center">
+        <div className="landing-hero__overlay" aria-hidden />
         <span
-          className="animate-fade-rise text-xs text-muted-foreground sm:text-sm"
+          className="landing-hero__content animate-fade-rise text-xs text-muted-foreground sm:text-sm"
           style={{ letterSpacing: '0.32em', textTransform: 'uppercase' }}
         >
           Nền tảng luyện thi IELTS · Cambridge
         </span>
 
         <h1
-          className="animate-fade-rise mt-6 max-w-6xl text-5xl font-normal leading-[0.98] text-foreground sm:text-7xl md:text-8xl"
+          className="landing-hero__content animate-fade-rise mt-6 max-w-6xl text-5xl font-normal leading-[0.98] text-foreground sm:text-7xl md:text-8xl"
           style={{ ...SERIF, letterSpacing: '-2.46px' }}
         >
           Where <em className="not-italic text-muted-foreground">fluency</em>{' '}
@@ -681,19 +686,19 @@ export default function LandingPage() {
           the practice.
         </h1>
 
-        <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="landing-hero__content animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           Chúng tôi xây dựng công cụ cho những người học đêm khuya và kiên trì
           âm thầm. Ryan English gom SRS, dictation, chấm viết AI và đề thi
           Cambridge vào một không gian tập trung — để bạn chỉ cần làm việc của
           mình: học.
         </p>
 
-        <div className="animate-fade-rise-delay-2 mt-12 flex flex-col items-center gap-4 sm:flex-row">
+        <div className="landing-hero__content animate-fade-rise-delay-2 mt-10 flex flex-col items-center gap-3 sm:mt-11 sm:flex-row sm:gap-3 md:mt-12 md:gap-4">
           <button
             type="button"
             onClick={startFree}
             disabled={signingIn}
-            className="liquid-glass cursor-pointer rounded-full px-10 py-4 text-base text-foreground transition-transform hover:scale-[1.03] disabled:cursor-wait disabled:opacity-70"
+            className="liquid-glass cursor-pointer rounded-full px-8 py-3.5 text-base text-foreground transition-transform hover:scale-[1.03] disabled:cursor-wait disabled:opacity-70 sm:px-9 md:px-10 md:py-4"
           >
             {signingIn ? 'Đang mở Google…' : 'Bắt đầu miễn phí →'}
           </button>
@@ -702,14 +707,15 @@ export default function LandingPage() {
             onClick={togglePricing}
             aria-expanded={pricingOpen}
             aria-controls="pricing-modal"
-            className="liquid-glass-hover cursor-pointer rounded-full px-8 py-4 text-base text-muted-foreground transition-all hover:text-foreground"
+            className="liquid-glass-hover landing-hero__surface cursor-pointer whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-medium text-[color:var(--muted-on-image)] transition-all hover:text-[color:var(--text-on-image)] sm:px-7 sm:text-[15px] md:px-8 md:py-4 md:text-base"
           >
-            {pricingOpen ? 'Đóng gói học' : 'Xem gói học'}
+            {pricingOpen ? 'Đóng học phí' : 'Xem học phí'}
           </button>
         </div>
 
         <p
-          className="animate-fade-rise-delay-2 mt-8 max-w-xl text-sm italic text-muted-foreground"
+          className="landing-hero__content landing-hero__surface animate-fade-rise-delay-2 mt-6 max-w-lg rounded-2xl px-4 py-2.5 text-center text-[13px] italic leading-relaxed text-[color:var(--text-on-image)] sm:mt-7 sm:px-5 sm:text-sm md:mt-8"
+          style={{ textWrap: 'balance' }}
         >
           "Bạn cứ việc focus… mọi việc đã có Ryan lo." — chú lính chì
         </p>
@@ -864,6 +870,10 @@ const LANDING_CSS = `
   --background: 201 100% 13%;
   --foreground: 0 0% 100%;
   --muted-foreground: 240 4% 66%;
+  --surface-on-image: rgba(10, 15, 30, 0.3);
+  --text-on-image: rgba(255, 255, 255, 0.92);
+  --muted-on-image: rgba(226, 232, 240, 0.82);
+  --text-on-image-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
   --primary: 0 0% 100%;
   --primary-foreground: 0 0% 4%;
   --secondary: 0 0% 10%;
@@ -876,6 +886,28 @@ const LANDING_CSS = `
 }
 .landing-hero .text-foreground { color: hsl(var(--foreground)); }
 .landing-hero .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+.landing-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 12, 24, 0.88) 0%,
+    rgba(8, 12, 24, 0.66) 28%,
+    rgba(8, 12, 24, 0.3) 56%,
+    rgba(8, 12, 24, 0.08) 76%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+.landing-hero__content {
+  position: relative;
+  z-index: 2;
+}
+.landing-hero__surface {
+  background: var(--surface-on-image);
+  box-shadow: var(--text-on-image-shadow);
+}
 
 .landing-hero .liquid-glass {
   background: rgba(255, 255, 255, 0.01);

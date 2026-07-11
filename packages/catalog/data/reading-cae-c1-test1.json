@@ -2,7 +2,7 @@
   "id": "catalog-reading-cae-c1-test1",
   "title": "CAE C1 Reading & Writing — Test 1",
   "durationMinutes": 120,
-  "bandHint": "C1 Advanced Reading & Writing — 10 parts",
+  "bandHint": "C1 Advanced Reading & Writing — 10 parts — 10 parts",
   "parts": [
     {
       "id": "catalog-reading-cae-c1-test1-part-1",
@@ -1656,6 +1656,7 @@
       "passageTitle": "Part 9 — Writing",
       "passage": [
         {
+          "text": "",
           "imageUrl": "/catalog/reading/cae-c1-test1/part9-page.jpg"
         }
       ],
@@ -1673,9 +1674,9 @@
               "prompt": "Write your answer to Question 1 in the box on the right.",
               "options": [],
               "answer": "",
-              "minWords": 220,
               "explanation": "Writing — chấm bằng AI.",
-              "answerConfidence": "key"
+              "answerConfidence": "key",
+              "minWords": 220
             }
           ]
         }
@@ -1688,6 +1689,7 @@
       "passageTitle": "Part 10 — Writing",
       "passage": [
         {
+          "text": "",
           "imageUrl": "/catalog/reading/cae-c1-test1/part10-page.jpg"
         }
       ],
@@ -1705,9 +1707,9 @@
               "prompt": "Write your answer to Question 2 in the box on the right.",
               "options": [],
               "answer": "",
-              "minWords": 220,
               "explanation": "Writing — chấm bằng AI.",
-              "answerConfidence": "key"
+              "answerConfidence": "key",
+              "minWords": 220
             }
           ]
         }

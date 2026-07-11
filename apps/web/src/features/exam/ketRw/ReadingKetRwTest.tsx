@@ -14,7 +14,8 @@ import ExamReviewAiPanel from '../ExamReviewAiPanel'
 import { useExamReviewAi } from '../useExamReviewAi'
 import { useReviewEvidenceHighlights } from '../useReviewEvidenceHighlights'
 import { buildCambridgeRwEvidenceBlocks } from '../buildCambridgeRwEvidenceBlocks'
-import { resolveReadingExam } from '../examLoader'
+import { getBuiltinReadingExam, resolveReadingExam } from '../examLoader'
+import { fillReadingExamFromSources } from '../fillReadingExamMedia'
 import { clearReadingDraft } from '../examCompletion'
 import { notifyExamDraftRevision } from '../useExamDraftRevision'
 import { useExamDraftGate } from '../useExamDraftGate'
@@ -23,6 +24,14 @@ import { initialExamTimerSeconds } from '../examTimer'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
 import { usePartHighlights } from '../usePartHighlights'
+import { useIsAdmin } from '../../auth/useIsAdmin'
+import {
+  deleteReadingExamCloudImage,
+  mergeReadingCloudImages,
+  persistReadingPassageBlockImage,
+  uploadReadingExamCloudImage,
+} from '../readingExamCloudImages'
+import { useReadingExamCloudImages } from '../useReadingExamCloudImages'
 import KetRwFooter from './KetRwFooter'
 import KetRwPartContent from './KetRwPartContent'
 import './readingKetRw.css'
@@ -62,10 +71,60 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
     fontStyle,
   } = useReadingFontSettings()
 
+  const isAdmin = useIsAdmin()
+  const [imageError, setImageError] = useState<string | null>(null)
+  const { images: cloudImages, error: cloudImagesError, refresh: refreshCloudImages } = useReadingExamCloudImages(
+    examId,
+  )
+  const displayExam = useMemo(() => {
+    if (!exam) return null
+    const merged = mergeReadingCloudImages(exam, cloudImages)
+    // Sau merge cloud: vá lại text Part 2 + URL Part 7 từ catalog (tránh error1/error2)
+    const donor = getBuiltinReadingExam(merged.id)
+      ?? getBuiltinReadingExam('catalog-reading-ket-a2-test1')
+    return fillReadingExamFromSources(merged, [donor])
+  }, [exam, cloudImages])
+
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
-  const currentPart = exam?.parts[partIndex] ?? null
+  const currentPart = displayExam?.parts[partIndex] ?? exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
+
+  const handlePassagePortraitPick = useCallback(async (blockIndex: number, file: File) => {
+    if (!examId || isAdmin !== true || !currentPart) return
+    setImageError(null)
+    try {
+      const uploaded = await uploadReadingExamCloudImage(
+        examId,
+        currentPart.partNumber,
+        'passage',
+        file,
+        blockIndex,
+      )
+      await persistReadingPassageBlockImage(examId, currentPart.partNumber, blockIndex, uploaded.publicUrl)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không lưu được ảnh chân dung.')
+    }
+  }, [currentPart, examId, isAdmin, refreshCloudImages])
+
+  const handlePassagePortraitClear = useCallback(async (blockIndex: number) => {
+    if (!examId || isAdmin !== true || !currentPart) return
+    setImageError(null)
+    try {
+      const target = cloudImages.find(
+        img =>
+          img.partNumber === currentPart.partNumber
+          && img.slot === 'passage'
+          && img.itemIndex === blockIndex,
+      )
+      if (target) await deleteReadingExamCloudImage(target)
+      await persistReadingPassageBlockImage(examId, currentPart.partNumber, blockIndex, undefined)
+      await refreshCloudImages()
+    } catch (err) {
+      setImageError(err instanceof Error ? err.message : 'Không xóa được ảnh.')
+    }
+  }, [cloudImages, currentPart, examId, isAdmin, refreshCloudImages])
   const {
     highlights,
     notes,
@@ -351,6 +410,15 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
         onNotesChange={handleNotesChange}
       >
+        {(imageError || cloudImagesError) && (
+          <p
+            className="px-4 py-2 text-sm"
+            style={{ color: 'var(--color-error, #b91c1c)', borderBottom: '1px solid var(--border-color)' }}
+            role="alert"
+          >
+            {imageError ?? cloudImagesError}
+          </p>
+        )}
         {currentPart && (
           <KetRwPartContent
             part={currentPart}
@@ -360,6 +428,17 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
             onAnswer={handleAnswer}
             reviewMode={reviewMode}
             reviewStatusMap={reviewStatusMap}
+            canEditPassagePortraits={isAdmin === true && currentPart.partNumber === 2 && !reviewMode}
+            onPassagePortraitPick={
+              isAdmin === true && currentPart.partNumber === 2 && !reviewMode
+                ? handlePassagePortraitPick
+                : undefined
+            }
+            onPassagePortraitClear={
+              isAdmin === true && currentPart.partNumber === 2 && !reviewMode
+                ? handlePassagePortraitClear
+                : undefined
+            }
           />
         )}
       </RwExamMain>

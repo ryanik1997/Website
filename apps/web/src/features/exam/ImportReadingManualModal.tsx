@@ -450,7 +450,7 @@ export default function ImportReadingManualModal({
                   <input
                     ref={mediaInputRef}
                     type="file"
-                    accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
+                    accept=".jpg,.jpeg,.png,.webp,.gif,image/jpeg,image/png,image/webp,image/gif,image/*"
                     multiple
                     className="hidden"
                     onChange={e => {
@@ -531,7 +531,7 @@ export default function ImportReadingManualModal({
                   <input
                     ref={writingImageInputRef}
                     type="file"
-                    accept=".jpg,.jpeg,.png,.webp,image/*"
+                    accept=".jpg,.jpeg,.png,.webp,.gif,image/jpeg,image/png,image/webp,image/gif,image/*"
                     multiple
                     className="hidden"
                     onChange={e => {

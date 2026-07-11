@@ -10,7 +10,7 @@ Tick hết trước khi import app.
 - [ ] Prompt đúng level (KET / PET / FCE / CAE / CPE Reading Universal)
 - [ ] PDF đề Reading (& Writing nếu level có P Writing)
 - [ ] `answer-key.txt` **hoặc** `answer-key.pdf` (ưu tiên `.txt`)
-- [ ] Ảnh Part 1 signs / Writing pages nếu cần crop
+- [ ] Ảnh Part 1 signs / Writing pages nếu cần crop (**jpg hoặc webp**)
 - [ ] Dòng context: `Book B · Test T · cambridgeLevel a2|b1|b2|c1|c2`
 - [ ] **Không** gộp nhiều test trong 1 JSON
 
@@ -28,6 +28,8 @@ Tick hết trước khi import app.
 - [ ] Schema **Reading**: `parts[].questionGroups[].questions[]`  
   (không dùng Listening `questions[]` thẳng trong part)
 - [ ] Không `"` ASCII trần trong explanation
+- [ ] Gap-fill đáp án kép: `answer: "từ1/từ2"` (không `"từ1 (or từ2)"`)
+- [ ] Ảnh: `imageFile` basename khớp file `.jpg` **hoặc** `.webp`
 
 ---
 
@@ -50,12 +52,12 @@ Tick hết trước khi import app.
 ## 3) Passage & media
 
 - [ ] Part đọc hiểu: `passage[].text` (để Highlight) — không chỉ ảnh nếu cần bôi đoạn
-- [ ] KET/PET Part 1 signs: `part1-q1.jpg`… hoặc `imageFile` đúng tên
-- [ ] Writing: ảnh 1 file/part  
-  - KET P6: `part6-page.jpg`  
-  - KET P7: **`part7-page.jpg`** (1 ảnh — không part7-p1…p3)  
-  - PET P7/P8, FCE P8/P9, CAE P9/P10, CPE P8/P9: `partN-page.jpg`
-- [ ] `imageFile` trong JSON = tên file trong ZIP
+- [ ] KET/PET Part 1 signs: `part1-q1.jpg|webp`… hoặc `imageFile` đúng basename
+- [ ] Writing: ảnh 1 file/part (jpg **hoặc webp**)  
+  - KET P6: `part6-page.jpg|webp`  
+  - KET P7: **`part7-page.jpg|webp`** (1 ảnh — không part7-p1…p3)  
+  - PET P7/P8, FCE P8/P9, CAE P9/P10, CPE P8/P9: `partN-page.jpg|webp`
+- [ ] `imageFile` trong JSON = basename; file ZIP có thể đổi đuôi `.webp`
 
 ---
 
@@ -74,7 +76,7 @@ Tick hết trước khi import app.
 - [ ] Đối chiếu **từng câu Reading** với answer-key
 - [ ] MC: `"a"` / `"b"` / `"c"` — không `"B (best)"`
 - [ ] TFNG / YNNG: đúng enum app (`true`/`false`/`not-given` hoặc YES/NO/NOT GIVEN theo prompt level)
-- [ ] gap-fill: một từ; kép: `a/one`
+- [ ] gap-fill: một từ; kép: `"a/one"` hoặc `"từ1/từ2"` (app chấm cả hai)
 - [ ] Writing: không bịa key — để trống + chấm AI sau
 - [ ] ZIP có `answer-key.txt` / `.pdf` → app chỉ **bổ sung** câu JSON đang trống
 

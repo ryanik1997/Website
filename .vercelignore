@@ -1,0 +1,33 @@
+# Heavy / local-only — not needed on Vercel if public/catalog is already built
+Tainguyen
+Tainguyen/**
+
+# Repo / tooling noise
+.git
+.github
+**/.git/**
+
+# Dependencies reinstalled on Vercel
+node_modules
+**/node_modules
+
+# Local env & deploy secrets
+.env
+.env.*
+.env.deploy
+!.env.example
+
+# Dev / research (not shipped as Vite assets)
+Giaodien
+HDSD
+server
+supabase/.temp
+supabase/.branches
+scripts/__pycache__
+scripts/_out-cam9t2
+**/*.pyc
+**/.turbo
+
+# Large raw dumps (if any outside catalog)
+**/*.pdf
+!apps/web/public/**/*.pdf

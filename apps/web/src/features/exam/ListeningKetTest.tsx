@@ -4,9 +4,12 @@ import { listeningExamBackPath } from './examNavigation'
 import ListeningSubmittedScreen from './ListeningSubmittedScreen'
 import ListeningKetGapFillPartView from './ListeningKetGapFillPartView'
 import ListeningKetMatchingPartView from './ListeningKetMatchingPartView'
+import ListeningKetPart1PictureView from './ListeningKetPart1PictureView'
+import ListeningKetPart3McListView from './ListeningKetPart3McListView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
 import ListeningSplitResizer from './ListeningSplitResizer'
+import { usesCompositePictureBoard } from './listeningPictureMc'
 import {
   isKetDragMatchingPart,
   isKetGroupedGapFillPart,
@@ -32,6 +35,7 @@ import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
+import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 import { Bell, Check, ChevronLeft, ChevronRight, Edit3, Menu, Wifi } from 'lucide-react'
@@ -40,9 +44,11 @@ const STORAGE_PREFIX = 'exam-listening-draft:'
 
 interface Props {
   exam: ListeningExam
+  /** false = overlay Play chưa bấm — không chạy timer */
+  sessionStarted?: boolean
 }
 
-export default function ListeningKetTest({ exam }: Props) {
+export default function ListeningKetTest({ exam, sessionStarted = true }: Props) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
@@ -88,7 +94,12 @@ export default function ListeningKetTest({ exam }: Props) {
   const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
   const isGroupedGapFill = Boolean(currentPart && isKetGroupedGapFillPart(currentPart))
   const isDragMatching = Boolean(currentPart && isKetDragMatchingPart(currentPart))
-  const isPartLayout = isGroupedGapFill || isDragMatching
+  const isPart3McList =
+    Boolean(currentPart)
+    && currentPart!.partNumber === 3
+    && partQuestions.length > 0
+    && partQuestions.every(q => q.type === 'multiple-choice')
+  const isPartLayout = isGroupedGapFill || isDragMatching || isPart3McList
 
   const {
     playing,
@@ -98,6 +109,7 @@ export default function ListeningKetTest({ exam }: Props) {
     play,
     seekToPct,
     stopPlayback,
+    resetPlayback,
     playError,
   } = useExamQuestionAudio()
 
@@ -116,6 +128,16 @@ export default function ListeningKetTest({ exam }: Props) {
     beforePlay: () => canPlay(playKey, maxPlays),
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  /** Đăng ký play cho nút Play overlay — phải gọi trong click gesture */
+  useEffect(() => {
+    registerListeningAutoPlay(() => {
+      if (submitted || reviewMode) return
+      if (!hasAudioFile && !audioSource.ttsText?.trim()) return
+      return play(audioSource, makePlayOpts(1))
+    })
+    return () => registerListeningAutoPlay(null)
+  }, [audioSource, hasAudioFile, makePlayOpts, play, reviewMode, submitted])
 
   const resetTimer = useCallback(() => {
     setTimeLeft(initialExamTimerSeconds(KET_LISTENING_DURATION_MINUTES))
@@ -194,14 +216,14 @@ export default function ListeningKetTest({ exam }: Props) {
   }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
 
   useEffect(() => {
-    if (submitted || reviewMode) return
+    if (!sessionStarted || submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       return
     }
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
-  }, [submitted, timeLeft])
+  }, [reviewMode, sessionStarted, submitted, timeLeft])
 
   useEffect(() => {
     if (!currentPart) return
@@ -252,7 +274,7 @@ export default function ListeningKetTest({ exam }: Props) {
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
     clearAllHighlights()
-    stopPlayback()
+    resetPlayback()
     resetPlayCounts()
     setAnswers({})
     setUnsure({})
@@ -264,7 +286,7 @@ export default function ListeningKetTest({ exam }: Props) {
     if (fullMockId) {
       patchFullMockSession({ stage: 'listening', listening: undefined })
     }
-  }, [clearAllHighlights, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
+  }, [clearAllHighlights, exam.id, exam.parts, fullMockId, resetPlayCounts, resetPlayback])
 
   const answeredCount = useMemo(
     () => allQuestions.filter(q => Boolean(answers[q.id])).length,
@@ -474,7 +496,45 @@ export default function ListeningKetTest({ exam }: Props) {
             )
           }
 
+          if (isPart3McList) {
+            return (
+              <ListeningKetPart3McListView
+                part={currentPart}
+                questions={partQuestions}
+                answers={answers}
+                activeQuestionId={activeQuestionId}
+                audioBar={audioBarProps}
+                onAnswer={(questionId, value) => { if (reviewMode) return; setAnswers(prev => ({ ...prev, [questionId]: value })) }}
+                onSelectQuestion={handleSelectQuestion}
+                reviewMode={reviewMode}
+                reviewStatusMap={reviewStatusMap}
+              />
+            )
+          }
+
           if (!currentQuestion) return null
+
+          const isPart1Picture =
+            currentPart.partNumber === 1
+            && (usesCompositePictureBoard(currentQuestion)
+              || currentQuestion.type === 'picture-mc'
+              || Boolean(currentQuestion.pictureImageUrl || currentQuestion.pictureImageKey))
+
+          if (isPart1Picture) {
+            return (
+              <ListeningKetPart1PictureView
+                part={currentPart}
+                question={currentQuestion}
+                answer={answers[currentQuestion.id] ?? ''}
+                unsure={Boolean(unsure[currentQuestion.id])}
+                audioBar={audioBarProps}
+                onAnswer={value => { if (reviewMode) return; setAnswers(prev => ({ ...prev, [currentQuestion.id]: value })) }}
+                onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
+                reviewMode={reviewMode}
+                reviewStatus={reviewStatusMap[currentQuestion.id] ?? null}
+              />
+            )
+          }
 
           return (
             <div className="listening-ket-cambridge__stage">

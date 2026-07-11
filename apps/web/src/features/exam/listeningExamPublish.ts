@@ -1,5 +1,9 @@
 import { supabase } from '../../lib/supabase'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
+import {
+  listeningExamMissingPublicAudio,
+  materializeListeningMediaForPublish,
+} from './listeningExamCloudMedia'
 
 interface PublishedRow {
   id: string
@@ -43,12 +47,22 @@ function stripLocalMediaKeys(exam: ListeningExam): ListeningExam {
   }
 }
 
-/** Admin publish đề Listening lên Supabase — mọi user thấy. */
+/** Admin publish đề Listening lên Supabase — mọi user thấy (kèm upload MP3/ảnh). */
 export async function publishListeningExamToCloud(
   exam: ListeningExam,
   meta?: { source?: string; sourceFilename?: string },
 ): Promise<void> {
-  const clean = stripLocalMediaKeys(exam)
+  // Import local chỉ có audioKey (Dexie) — phải upload Storage trước khi strip key
+  const withCloudMedia = await materializeListeningMediaForPublish(exam)
+  const clean = stripLocalMediaKeys(withCloudMedia)
+
+  if (listeningExamMissingPublicAudio(clean) && exam.parts.some(p => p.audioKey || p.audioUrl)) {
+    console.warn(
+      '[listening publish] Không có audioUrl public sau materialize — Firefox/user khác sẽ không nghe được.',
+      exam.id,
+    )
+  }
+
   const { data: userData } = await supabase.auth.getUser()
   const payload = {
     id: clean.id,

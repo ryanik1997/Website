@@ -1,3 +1,86 @@
+/* Overlay Play trước khi làm Listening (IELTS + Cambridge) */
+.listening-exam-start-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: color-mix(in srgb, #0f172a 58%, transparent);
+  backdrop-filter: blur(1px);
+}
+
+.listening-exam-start-overlay__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 32rem;
+  text-align: center;
+  color: #fff;
+}
+
+.listening-exam-start-overlay__icon {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: 0.95;
+  margin-bottom: 0.25rem;
+}
+
+.listening-exam-start-overlay__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #f8fafc;
+  text-shadow: 0 1px 2px color-mix(in srgb, #000 35%, transparent);
+}
+
+.listening-exam-start-overlay__hint {
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+}
+
+.listening-exam-start-overlay__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  min-width: 6.5rem;
+  height: 2.45rem;
+  padding: 0 1.15rem;
+  border: none;
+  border-radius: 0.35rem;
+  background: #0d9488;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px color-mix(in srgb, #000 25%, transparent);
+  transition: background 0.12s, transform 0.08s;
+}
+
+.listening-exam-start-overlay__play:hover {
+  background: #0f766e;
+}
+
+.listening-exam-start-overlay__play:active {
+  transform: scale(0.98);
+}
+
+.listening-exam-start-overlay__play-icon {
+  margin-left: -0.1rem;
+}
+
+.listening-exam-shell--locked {
+  pointer-events: none;
+  user-select: none;
+}
+
 /* KET Listening — card exam shell (theme-aware) */
 .listening-exam-shell {
   --le-accent: var(--color-primary);
@@ -479,7 +562,7 @@
   font-weight: 600;
 }
 
-/* Part 1 picture-mc — một ảnh lớn A+B+C (Cambridge A2–C2) */
+/* Part 1 picture-mc — một ảnh A+B+C (Cambridge A2–C2) */
 .listening-picture-board {
   margin: 0.85rem 0 1rem;
   border-radius: 0.55rem;
@@ -496,7 +579,9 @@
   display: block;
   width: 100%;
   height: auto;
+  max-height: min(42vh, 22rem);
   object-fit: contain;
+  margin-inline: auto;
 }
 
 .listening-picture-board__placeholder {
@@ -2751,14 +2836,14 @@
 .listening-exam-body .reading-test-note {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #ff9800;
+  text-decoration-color: var(--exam-note-color, #ff9800);
   text-underline-offset: 0.15em;
   cursor: help;
 }
 
 .listening-exam-body mark.reading-test-note {
   text-decoration: underline wavy;
-  text-decoration-color: #ff9800;
+  text-decoration-color: var(--exam-note-color, #ff9800);
 }
 
 /* FCE/CAE Part 2 — tiêu đề + ảnh minh họa (một ảnh cho cả Part) */
@@ -2917,10 +3002,509 @@
   background: var(--ket-ui-bg);
 }
 
+/* Chỉ Part 1 fix cứng khung viewport — Part 3+ cuộn bình thường */
+.listening-ket-cambridge__body:has(.listening-ket-p1) {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.listening-ket-cambridge__body:has(.listening-ket-p1) > .listening-ket-p1 {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+.listening-ket-cambridge:has(.listening-ket-p1) .listening-ket-cambridge__float-nav,
+.listening-ket-cambridge:has(.listening-ket-p1) .listening-ket-cambridge__side-mark {
+  display: none;
+}
+
 .listening-ket-cambridge__stage {
   min-height: 100%;
   padding: 1rem 1rem 8.4rem;
   background: var(--ket-ui-bg);
+}
+
+/* ── KET Part 1 — layout Cambridge computer-based (new.jpg) ── */
+.listening-ket-p1 {
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 1.35rem 0.75rem;
+  overflow: auto;
+  box-sizing: border-box;
+  background: #f0f2f4;
+}
+
+.listening-ket-p1__sheet {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.listening-ket-p1__instruction {
+  flex: 0 0 auto;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d5d9de;
+  border-radius: 0.2rem;
+  background: #fff;
+  color: #111;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.listening-ket-p1__instruction strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.listening-ket-p1__instruction span {
+  display: block;
+  color: #222;
+  font-weight: 400;
+}
+
+.listening-ket-p1__qrow {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  color: #111;
+  padding: 0 0.1rem;
+}
+
+.listening-ket-p1__qbadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  border: 2px solid #5a9ab5;
+  background: #fff;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.listening-ket-p1__prompt {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111;
+}
+
+/* Composite: 1 ảnh full — object-fit contain, không cắt góc */
+.listening-ket-p1__composite-wrap {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: min(100%, 52rem);
+}
+
+.listening-ket-p1__composite-frame {
+  width: 100%;
+  border-radius: 0.35rem;
+  border: 1px solid #d0d5db;
+  background: #fff;
+  box-shadow: 0 1px 4px color-mix(in srgb, #000 6%, transparent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+}
+
+.listening-ket-p1__composite-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(48vh, 26rem);
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}
+
+.listening-ket-p1__radios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.listening-ket-p1__radio-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #111;
+}
+
+.listening-ket-p1__radio-btn:disabled {
+  cursor: default;
+}
+
+.listening-ket-p1__radio-letter {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* 3 thẻ tranh ngang (khi mỗi option có ảnh riêng) */
+.listening-ket-p1__cards {
+  flex: 0 1 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 17.5rem));
+  gap: 1.1rem 1.35rem;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  max-width: 56rem;
+  padding: 0.15rem 0 0.25rem;
+}
+
+.listening-ket-p1-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  color: #111;
+}
+
+.listening-ket-p1-card:disabled {
+  cursor: default;
+}
+
+.listening-ket-p1-card__frame {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 0.35rem;
+  border: 1px solid #d0d5db;
+  background: #fff;
+  box-shadow: 0 1px 4px color-mix(in srgb, #000 6%, transparent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.listening-ket-p1-card.is-selected .listening-ket-p1-card__frame {
+  border-color: #5a9ab5;
+  box-shadow: 0 0 0 2px color-mix(in srgb, #5a9ab5 45%, transparent);
+}
+
+/* Vừa khung — không crop góc */
+.listening-ket-p1-card__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}
+
+.listening-ket-p1-card__placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #9ca3af;
+  background: #f8fafc;
+}
+
+.listening-ket-p1-card__radio {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  border: 2px solid #9aa3ad;
+  background: #fff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.listening-ket-p1-card__radio.is-on,
+.listening-ket-p1-card.is-selected .listening-ket-p1-card__radio,
+.listening-ket-p1__radio-btn.is-selected .listening-ket-p1-card__radio {
+  border-color: #0b72a0;
+  background: radial-gradient(circle at center, #0b72a0 0 38%, #fff 42% 100%);
+}
+
+.listening-ket-p1__footer-tools {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  max-width: 36rem;
+}
+
+.listening-ket-p1__unsure {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+}
+
+.listening-ket-p1__audio {
+  flex: 1 1 16rem;
+  min-width: 12rem;
+  max-width: 28rem;
+}
+
+.listening-ket-p1__audio .listening-exam-audio {
+  margin-bottom: 0;
+}
+
+.listening-ket-p1__audio .listening-exam-audio__actions {
+  display: none;
+}
+
+.listening-ket-p1__audio .listening-exam-audio__hint {
+  font-size: 0.72rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .listening-ket-p1__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+    max-width: 100%;
+  }
+
+  .listening-ket-p1-card__frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .listening-ket-p1__composite-wrap {
+    max-width: 100%;
+  }
+}
+
+@media (max-height: 700px) {
+  .listening-ket-p1-card__frame {
+    aspect-ratio: 5 / 3.6;
+  }
+
+  .listening-ket-p1__composite-img {
+    max-height: min(38vh, 18rem);
+  }
+
+  .listening-ket-p1 {
+    padding: 0.55rem 0.85rem 0.5rem;
+  }
+
+  .listening-ket-p1__sheet {
+    gap: 0.55rem;
+  }
+}
+
+/* ── KET Part 3 — MC list dọc (không fix khung; body scroll) ── */
+.listening-ket-p3 {
+  min-height: auto;
+  height: auto;
+  max-height: none;
+  display: block;
+  padding: 0.85rem 1.35rem 8.4rem;
+  overflow: visible;
+  box-sizing: border-box;
+  background: #f0f2f4;
+}
+
+.listening-ket-p3__sheet {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: none;
+  min-height: 0;
+}
+
+.listening-ket-p3__instruction {
+  flex: 0 0 auto;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d5d9de;
+  border-radius: 0.2rem;
+  background: #fff;
+  color: #111;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.listening-ket-p3__instruction strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.listening-ket-p3__instruction span {
+  display: block;
+  color: #222;
+  font-weight: 400;
+}
+
+.listening-ket-p3__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.listening-ket-p3__item {
+  background: #fff;
+  border: 1px solid #e4e7eb;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.listening-ket-p3__item.is-active {
+  border-color: #b9d5e3;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #5a9ab5 35%, transparent);
+}
+
+.listening-ket-p3__stem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  background: #f7f8fa;
+  border-bottom: 1px solid #eef0f2;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111;
+}
+
+.listening-ket-p3__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.25rem;
+  border: 2px solid #5a9ab5;
+  border-radius: 0.2rem;
+  background: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.listening-ket-p3__prompt {
+  font-weight: 600;
+  color: #111;
+  padding-top: 0.12rem;
+}
+
+.listening-ket-p3__options {
+  display: flex;
+  flex-direction: column;
+}
+
+.listening-ket-p3__option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.7rem 0.95rem;
+  border-bottom: 1px solid #eef0f2;
+  background: #fff;
+  color: #111;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.listening-ket-p3__option:last-child {
+  border-bottom: 0;
+}
+
+.listening-ket-p3__option:hover {
+  background: #fafbfc;
+}
+
+.listening-ket-p3__option.is-selected {
+  background: #eef7fb;
+}
+
+.listening-ket-p3__option input[type='radio'] {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #0b72a0;
+  cursor: pointer;
+}
+
+.listening-ket-p3__option-label {
+  flex: 1;
+  min-width: 0;
+  color: #111;
+}
+
+.listening-ket-p3__audio {
+  flex: 0 0 auto;
+  max-width: 28rem;
+  margin-top: 0.35rem;
+}
+
+.listening-ket-p3__audio .listening-exam-audio {
+  margin-bottom: 0;
+}
+
+.listening-ket-p3__audio .listening-exam-audio__actions {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .listening-ket-p3 {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .listening-ket-p3__sheet {
+    max-width: 100%;
+  }
 }
 
 .listening-ket-cambridge__instruction-card {

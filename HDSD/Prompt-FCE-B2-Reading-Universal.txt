@@ -706,6 +706,21 @@ Dùng để đối chiếu sau khi pack — **không** chép nhầm sang test kh
 
 ---
 
+
+## ⚠ App 2026-07 — Ảnh WebP + gap-fill đáp án kép
+
+Chi tiết: **HDSD/Prompt-Reading-Cambridge.txt**.
+
+### Ảnh
+- jpg / png / **webp** / gif trong ZIP
+- `imageFile: "part1-q1.jpg"` khớp file `part1-q1.webp`
+- Writing: `part7-page.webp`, `part8-page.jpg` … (1 ảnh/part)
+- Part 2 portrait: `part2-p1.webp` … (nếu có)
+
+### Gap-fill / open cloze
+- Đáp án kép answer key → `"answer": "từ1/từ2"` (user gõ từ1 **hoặc** từ2 đều đúng)
+- Bỏ ngoặc: `"(the)"` không nhét vào answer trừ khi đề yêu cầu
+
 ## Việc làm
 
 1. Xác định Book {B} + Test {T} từ thư mục / tên PDF

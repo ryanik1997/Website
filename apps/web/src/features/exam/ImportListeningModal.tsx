@@ -470,7 +470,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                 <input
                   ref={mediaInputRef}
                   type="file"
-                  accept=".mp3,.wav,.m4a,.ogg,.jpg,.jpeg,.png,.webp,.gif,audio/*,image/*"
+                  accept=".mp3,.wav,.m4a,.ogg,.jpg,.jpeg,.png,.webp,.gif,audio/*,image/jpeg,image/png,image/webp,image/gif,image/*"
                   multiple
                   className="hidden"
                   onChange={e => {

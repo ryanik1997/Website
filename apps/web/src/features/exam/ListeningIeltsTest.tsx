@@ -27,6 +27,7 @@ import {
 } from './listeningExamAudio'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { scrollListeningToQuestion } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 import { clearListeningDraft } from './examCompletion'
@@ -41,9 +42,10 @@ const STORAGE_PREFIX = 'exam-listening-draft:'
 
 interface Props {
   exam: ListeningExam
+  sessionStarted?: boolean
 }
 
-export default function ListeningIeltsTest({ exam }: Props) {
+export default function ListeningIeltsTest({ exam, sessionStarted = true }: Props) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
@@ -94,6 +96,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
     play,
     seekToPct,
     stopPlayback,
+    resetPlayback,
     playError,
   } = useExamQuestionAudio()
 
@@ -169,7 +172,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
   }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
 
   useEffect(() => {
-    if (submitted || reviewMode) return
+    if (!sessionStarted || submitted || reviewMode) return
     if (timeLeft <= 0) {
       setSubmitted(true)
       setReviewMode(false)
@@ -177,7 +180,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
     }
     const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
     return () => window.clearInterval(timer)
-  }, [reviewMode, submitted, timeLeft])
+  }, [reviewMode, sessionStarted, submitted, timeLeft])
 
   useEffect(() => {
     if (!currentPart) return
@@ -229,6 +232,15 @@ export default function ListeningIeltsTest({ exam }: Props) {
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
 
+  useEffect(() => {
+    registerListeningAutoPlay(() => {
+      if (submitted || reviewMode) return
+      if (!hasActiveAudioFile && !activeAudioSource.ttsText?.trim()) return
+      return play(activeAudioSource, makePlayOpts(1))
+    })
+    return () => registerListeningAutoPlay(null)
+  }, [activeAudioSource, hasActiveAudioFile, makePlayOpts, play, reviewMode, submitted])
+
   const scrollToQuestion = useCallback((questionId: string) => {
     window.requestAnimationFrame(() => {
       scrollListeningToQuestion(bodyRef.current, questionId)
@@ -247,7 +259,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
   const handleRetry = useCallback(() => {
     clearListeningDraft(exam.id)
     clearAllHighlights()
-    stopPlayback()
+    resetPlayback()
     resetPlayCounts()
     setAnswers({})
     setUnsure({})
@@ -259,7 +271,7 @@ export default function ListeningIeltsTest({ exam }: Props) {
     if (fullMockId) {
       patchFullMockSession({ stage: 'listening', listening: undefined })
     }
-  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, stopPlayback])
+  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, resetPlayback])
 
   const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
     if (!reviewMode) return {}

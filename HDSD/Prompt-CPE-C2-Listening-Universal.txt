@@ -235,6 +235,47 @@ Quy tắc: giống CAE Part 4 (xem **HDSD/Prompt-CAE-C1-Listening-Universal.txt*
 
 ---
 
+
+## ⚠ App 2026-07 — Gap-fill đáp án kép + WebP
+
+Chi tiết đầy đủ: **HDSD/Prompt-Listening-Cambridge.txt** (§ Gap-fill · § Ảnh WebP).
+
+### Gap-fill — app chấm cả biến thể
+
+| Viết trong JSON | User gõ → đúng |
+|-----------------|----------------|
+| `"answer": "8/eight"` | `8` hoặc `eight` |
+| `"answer": "8", "acceptableAnswers": ["eight"]` | idem |
+| `"answer": "could/may"` | `could` hoặc `may` |
+| `"answer": "8 OR eight"` | idem |
+
+```json
+{
+  "number": 6,
+  "type": "gap-fill",
+  "prompt": "Time guests arrive:",
+  "answer": "8/eight",
+  "acceptableAnswers": ["8", "eight"],
+  "wordLimit": 1,
+  "explanation": "Theo Answer key: 8 / eight."
+}
+```
+
+- Bỏ ngoặc key: `"(August)"` → `"August"`; số `(19)` → `"19"` hoặc `"19/nineteen"`
+- **Không** `"answer": "B (best)"` — chỉ letter
+- Review hiện **「8 hoặc eight」**
+
+### Ảnh — WebP
+
+- File: `q1.webp`, `q2.png`, `part7-page.webp` … OK
+- JSON có thể ghi `"imageFile": "q1.jpg"` dù file là **q1.webp** (app map basename)
+- Part 1 composite: `q1.jpg|webp` … (KET 5 ảnh / PET 7 ảnh)
+
+### Audio import
+
+- `listening.mp3` trong ZIP gắn local blob — **không** bị đè audio catalog Test 1 khi title là Test 2/3/4
+- Title bắt buộc: `… Book {B} — Test {T}`
+
 ## Việc làm
 
 1. Map 4 parts · 30 câu — chú ý Part 2 = **9 gap**
