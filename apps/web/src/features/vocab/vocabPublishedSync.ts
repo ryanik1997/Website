@@ -1,7 +1,7 @@
 import type { Card, Deck } from '@ryan/db'
-import { PRESET_GROUP_IDS } from './vocabSeedDecks'
+import { ADMIN_PUBLISHED_VOCAB_VERSION_KEY, PRESET_GROUP_IDS } from './vocabConstants'
 
-export const ADMIN_PUBLISHED_VOCAB_VERSION_KEY = 'admin_published_vocab_version'
+export { ADMIN_PUBLISHED_VOCAB_VERSION_KEY } from './vocabConstants'
 
 const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 

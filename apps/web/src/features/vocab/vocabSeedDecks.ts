@@ -1,5 +1,8 @@
 import { cardRepo, db, settingsRepo, type Card, type Deck } from '@ryan/db'
-import { ADMIN_PUBLISHED_VOCAB_VERSION_KEY } from './vocabPublishedSync'
+import { ADMIN_PUBLISHED_VOCAB_VERSION_KEY, PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
+
+export { PRESET_GROUP_IDS } from './vocabConstants'
+export type { PresetGroupId } from './vocabConstants'
 
 export interface SeedDeckDef {
   name: string
@@ -15,9 +18,6 @@ export interface SeedGroupDef {
   order: number
   decks: SeedDeckDef[]
 }
-
-export const PRESET_GROUP_IDS = ['ielts', 'oxford', 'toeic', 'academic', 'sat', 'toefl'] as const
-export type PresetGroupId = (typeof PRESET_GROUP_IDS)[number]
 
 export const GROUP_LABELS: Record<PresetGroupId, string> = {
   ielts: 'IELTS',
