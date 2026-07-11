@@ -21,6 +21,7 @@ import {
   catalogPartImageUrl,
   catalogPictureImageUrl,
   catalogQuestionAudioUrl,
+  diagnoseCatalogListeningMatch,
   findCatalogListeningTwin,
   resolveListeningCatalogAudioUrl,
 } from './listeningExamCatalogMerge'
@@ -338,8 +339,70 @@ export function validateListeningImportMedia(
   }
   if (mediaFiles.length === 0) {
     warnings.push('Chưa có file MP3/ảnh — upload ZIP (exam.json + listening.mp3 + q1.jpg …) hoặc chọn thêm media.')
+  } else {
+    const names = mediaFiles.map(f => f.name).sort((a, b) => a.localeCompare(b))
+    const audioNames = names.filter(name => AUDIO_EXT.test(name))
+    if (audioNames.length === 0) {
+      warnings.push(`Không thấy file audio trong media đã chọn. File hiện có: ${names.join(', ')}`)
+    } else {
+      warnings.push(`Audio/media đã nhận: ${audioNames.join(', ')}`)
+    }
   }
   return warnings
+}
+
+export function diagnoseListeningImportMedia(
+  payload: ListeningImportPayload,
+  mediaFiles: File[],
+): string[] {
+  const diagnostics: string[] = []
+  const mediaMap = buildMediaMap(mediaFiles)
+  const audioFiles = mediaFiles
+    .filter(file => AUDIO_EXT.test(normalizeFileKey(file.name)))
+    .map(file => file.name)
+    .sort((a, b) => a.localeCompare(b))
+
+  if (audioFiles.length > 0) {
+    diagnostics.push(`ZIP/media có audio: ${audioFiles.join(', ')}`)
+  }
+
+  const catalogMsg = diagnoseCatalogListeningMatch({
+    examType: payload.examType,
+    title: payload.title,
+  })
+  if (catalogMsg) diagnostics.push(catalogMsg)
+
+  const normalized = normalizeListeningImportPayload(payload)
+  const sharedAudioFile = resolveListeningAudioFile(mediaMap, 'listening.mp3')
+  if (audioFiles.length > 0 && !sharedAudioFile) {
+    diagnostics.push('ZIP có MP3 nhưng importer không resolve được shared audio từ listening.mp3/alias.')
+  }
+
+  const unmappedParts = normalized.parts
+    .filter(part => {
+      const partFile = resolveListeningAudioFile(mediaMap, part.audioFile, part.partNumber)
+      return !partFile && !sharedAudioFile
+    })
+    .map(part => `Part ${part.partNumber}`)
+  if (audioFiles.length > 0 && unmappedParts.length > 0) {
+    diagnostics.push(`Có MP3 nhưng chưa map được vào các part: ${unmappedParts.join(', ')}`)
+  }
+
+  const unmappedQuestions: number[] = []
+  for (const part of normalized.parts) {
+    for (const q of part.questions) {
+      if (!q.audioFile) continue
+      const qFile =
+        resolveMediaFile(mediaMap, q.audioFile)
+        ?? resolveMediaFile(mediaMap, `q${q.number}.mp3`)
+      if (!qFile) unmappedQuestions.push(q.number)
+    }
+  }
+  if (unmappedQuestions.length > 0) {
+    diagnostics.push(`audioFile không map được ở câu: ${unmappedQuestions.join(', ')}`)
+  }
+
+  return diagnostics
 }
 
 export function validateListeningImport(payload: ListeningImportPayload): string[] {

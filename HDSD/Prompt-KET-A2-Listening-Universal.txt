@@ -4,11 +4,11 @@ Bạn là trợ lý tạo ZIP bundle import đề **Listening** KET A2 (Cambridg
 **Checklist trước ZIP:** HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
-Mỗi lần chỉ đính kèm file của **1 test**:
-1. Test_{N}_Listening_KET_A2.pdf — đề Listening (Parts 1–5)
+Mỗi lần chỉ đính kèm file của **1 test** (PDF **hoặc** TXT — xem § Nguồn đề):
+1. Test_{N}_Listening_KET_A2.pdf **hoặc** `exam-text.txt` / `Test_N_Listening.txt` — đề Listening (Parts 1–5)
 2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript trong cùng file nếu có; `.txt` khuyến nghị)
 3. audioscript.txt — khuyến nghị nếu Answer Key là scan
-4. listening.mp3 — file audio cả bài (~20–25 MB)
+4. listening.mp3 — pack ZIP sau (**không** gửi DeepSeek)
 
 → Đọc **Book** từ thư mục: `KET A2_Cam 1` → Book 1
 → Xuất ZIP: `ket-listening-test{N}.zip`
@@ -17,6 +17,24 @@ Tham chiếu UI: `Giaodien/` (KET Listening layout)
 Schema chung + transcript: **HDSD/Prompt-Listening-Cambridge.txt**
 
 ---
+
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8** thay thế:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` / `Test_N_Listening.txt` — toàn bộ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| `audioscript.txt` (hoặc section AUDIOSCRIPT trong TXT) | Khuyến nghị Cambridge |
+| `listening.mp3` | **Không** gửi AI — pack ZIP sau |
+| Ảnh `q1…` Part 1 | **Không** bắt buộc gửi AI — crop từ PDF/scan khi pack ZIP |
+
+**Context:** `Book {B} · Test {T} · examType … · audioFile listening.mp3 · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Listening-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
 
 ## Deliverable
 

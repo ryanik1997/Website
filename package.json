@@ -12,6 +12,7 @@
     "build:catalog:if-present": "node scripts/build-catalog.mjs --if-present",
     "test:listening-media": "npx vite-node apps/web/scripts/test-listening-media-policy.mts",
     "test:listening-gap": "npx vite-node apps/web/scripts/test-listening-gap-answers.mts",
+    "test:ket-part4": "npx vite-node apps/web/scripts/test-ket-part4-no-double-passage.mts",
     "build:dict:part1": "node scripts/build-dict-part1.mjs",
     "fix:ielts-notes": "python scripts/sync-ielts-inline-gaps.py && python scripts/fix-all-ielts-p1.py && pnpm build:catalog",
     "sync:ielts-gaps": "python scripts/sync-ielts-inline-gaps.py",

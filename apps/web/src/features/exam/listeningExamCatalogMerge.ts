@@ -80,6 +80,33 @@ export function findCatalogListeningTwin(
   return null
 }
 
+export function diagnoseCatalogListeningMatch(
+  exam: Pick<ListeningExam, 'examType' | 'title'>,
+): string | null {
+  const twin = findCatalogListeningTwin(exam)
+  if (twin) {
+    return `Catalog match: ${twin.title}`
+  }
+
+  const testNum = extractListeningTestNumber(exam.title)
+  if (exam.examType === 'ielts') {
+    const inferred = inferIeltsCatalogAudioUrl(exam.title)
+    if (inferred) return `Catalog fallback URL từ title: ${inferred}`
+    return 'Title không match fallback catalog IELTS (cần dạng Cambridge N Test M).'
+  }
+
+  if (testNum != null && !allowDefaultCatalogAudioByExamType(exam.title)) {
+    return `Title ghi Test ${testNum} nhưng không có catalog twin cùng test; fallback theo examType bị chặn để tránh map nhầm audio.`
+  }
+
+  const fallback = defaultCatalogAudioByExamType(exam.examType)
+  if (fallback) {
+    return `Không có catalog twin exact; đang fallback theo examType: ${fallback}`
+  }
+
+  return 'Không có catalog twin và cũng không có fallback catalog khả dụng cho examType này.'
+}
+
 export function catalogSharedListeningAudioUrl(twin: ListeningExam): string | undefined {
   for (const part of twin.parts) {
     if (part.audioUrl) return part.audioUrl

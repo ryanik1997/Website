@@ -14,6 +14,7 @@ import {
   checkListeningImportMedia,
   validateListeningImport,
   validateListeningImportMedia,
+  diagnoseListeningImportMedia,
   type ListeningImportPayload,
 } from './importListeningUtils'
 import { extractListeningZip } from './importListeningZip'
@@ -86,6 +87,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
       setWarnings([
         ...validateListeningImport(parsed),
         ...validateListeningImportMedia(parsed, mediaFiles),
+        ...diagnoseListeningImportMedia(parsed, mediaFiles),
       ])
       setStep('preview')
     } catch (err) {
@@ -120,6 +122,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
         ...bundle.answerKeyNotes,
         ...validateListeningImport(bundle.payload),
         ...validateListeningImportMedia(bundle.payload, bundle.mediaFiles),
+        ...diagnoseListeningImportMedia(bundle.payload, bundle.mediaFiles),
       ])
       setStep('preview')
     } catch (err) {
@@ -220,6 +223,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     setWarnings([
       ...validateListeningImport(payload),
       ...validateListeningImportMedia(payload, mediaFiles),
+      ...diagnoseListeningImportMedia(payload, mediaFiles),
     ])
   }, [mediaFiles, payload, step])
 

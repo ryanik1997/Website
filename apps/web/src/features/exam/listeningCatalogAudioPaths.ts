@@ -10,10 +10,10 @@ export function inferIeltsCatalogAudioUrl(title: string): string | undefined {
 
 const CAMBRIDGE_CATALOG_AUDIO: Partial<Record<string, string>> = {
   ket: '/catalog/listening/ket-a2-test1/listening.mp3',
-  pet: '/catalog/listening/pet-b1-test1/listening.mp3',
+  pet: '/catalog/listening/pet-b1-test1/Test_1_Listening_PET_B1_Audio.mp3',
   fce: '/catalog/listening/fce-b2-test1/listening.mp3',
   cae: '/catalog/listening/cae-c1-test1/listening.mp3',
-  cpe: '/catalog/listening/cae-c1-test1/listening.mp3',
+  cpe: undefined,
 }
 
 /**

@@ -523,40 +523,134 @@
   accent-color: var(--ket-accent);
 }
 
-/* Part 4 — inline MC gap */
+/* Part 4 — inline MC gap (layout chips ngang + bar; màu theme = Part 1–3 / Part 5) */
 .ket-rw-inline-passage {
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 .ket-rw-gap-mc {
   display: inline-flex;
   align-items: center;
-  vertical-align: baseline;
+  vertical-align: middle;
   position: relative;
-  margin: 0 0.15rem;
+  margin: 0.15rem 0.2rem;
 }
 
-.ket-rw-gap-mc__btn {
+/* Stack: chips phía trên · bar số phía dưới */
+.ket-rw-gap-mc--chips {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.28rem;
+  vertical-align: middle;
+  max-width: min(100%, 22rem);
+}
+
+.ket-rw-gap-mc__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+  justify-content: center;
+  z-index: 25;
+}
+
+/* Pill đáp án — cùng họ màu option MC / accent-soft */
+.ket-rw-gap-mc__chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  min-width: 4.5rem;
-  padding: 0.2rem 0.45rem;
+  gap: 0.28rem;
+  padding: 0.28rem 0.55rem;
   border: 1px solid var(--ket-gap-border);
-  background: var(--ket-gap-bg);
-  border-radius: 4px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--ket-accent);
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--ket-text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
   cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--ket-text) 8%, transparent);
 }
 
-.ket-rw-gap-mc__btn.is-open,
-.ket-rw-gap-mc__btn.is-filled {
+.ket-rw-gap-mc__chip:hover {
+  background: var(--ket-accent-soft);
   border-color: var(--ket-accent);
+  color: var(--ket-text);
 }
 
+.ket-rw-gap-mc__chip.is-selected {
+  background: var(--ket-accent);
+  border-color: var(--ket-accent);
+  color: var(--ket-submit-text, #fff);
+  outline: none;
+}
+
+.ket-rw-gap-mc__chip-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ket-submit-text, #fff) 22%, transparent);
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.ket-rw-gap-mc__chip-label {
+  letter-spacing: 0.01em;
+}
+
+/* Thanh số — cùng --ket-gap-bg / border như ô gap Part 5 */
+.ket-rw-gap-mc__bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 3.25rem;
+  min-height: 1.65rem;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid var(--ket-gap-border);
+  border-radius: 4px;
+  background: var(--ket-gap-bg);
+  color: var(--ket-accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: none;
+}
+
+.ket-rw-gap-mc--chips:not(.is-filled) .ket-rw-gap-mc__bar:not(.is-open) {
+  background: var(--ket-gap-bg);
+  color: var(--ket-accent);
+}
+
+.ket-rw-gap-mc__bar.is-open,
+.ket-rw-gap-mc__bar.is-filled {
+  border-color: var(--ket-accent);
+  background: color-mix(in srgb, var(--color-primary) 16%, var(--bg-secondary));
+  color: var(--ket-accent);
+}
+
+.ket-rw-gap-mc__bar-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+
+.ket-rw-gap-mc__bar-word {
+  font-weight: 500;
+  font-size: 0.8rem;
+  max-width: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ket-text);
+}
+
+/* Legacy dropdown (nếu variant=dropdown) */
 .ket-rw-gap-mc__value {
   font-weight: 500;
   color: var(--ket-text);
@@ -564,6 +658,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.ket-rw-gap-mc__value--key {
+  color: var(--color-success, #16a34a);
 }
 
 .ket-rw-gap-mc__menu {
@@ -587,6 +685,7 @@
   padding: 0.45rem 0.75rem;
   border: none;
   background: transparent;
+  color: var(--ket-text);
   font-size: 0.88rem;
   cursor: pointer;
 }
@@ -594,6 +693,7 @@
 .ket-rw-gap-mc__option:hover,
 .ket-rw-gap-mc__option.is-selected {
   background: var(--ket-accent-soft);
+  color: var(--ket-text);
 }
 
 /* Part 5 — inline text gap */
@@ -748,8 +848,9 @@
 
 .ket-rw-pictures img {
   flex: 1;
-  min-width: 140px;
-  max-width: 32%;
+  /* 140px/32% → +15% → +25% nữa */
+  min-width: 201px;
+  max-width: 46%;
   height: auto;
   border: 1px solid var(--ket-pane-border);
   border-radius: 4px;

@@ -177,19 +177,32 @@ function mergePart(part: ReadingPart, source: ReadingPart | undefined): ReadingP
     mergePassageBlock(block, findSourceBlock(block, index, source.passage)),
   )
 
-  if (source.passage.length > passage.length) {
+  /**
+   * KHÔNG nối thêm block passage từ catalog/donor khi đề local đã có nội dung.
+   * Bug: KET Test 2 Part 4 (1 đoạn Nobel + gap 19–24) + catalog Test 1 (3 block Oymyakon
+   * cũng gap 19–24) → double inline MC 19–24 sau fillReadingExamFromSources.
+   * Chỉ vá ảnh/text thiếu trên block hiện có; append chỉ khi local trống hoàn toàn.
+   */
+  const localHasContent = passage.some(
+    b => hasText(b) || hasPublicImage(b) || Boolean(b.imageKey) || Boolean(b.label?.trim()),
+  )
+  const localHasGapMarkers = passage.some(b => /\(\d+\)/.test(b.text ?? ''))
+
+  if (!localHasContent && source.passage.length) {
+    passage = source.passage.map(b => ({
+      ...b,
+      imageKey: b.imageUrl ? undefined : b.imageKey,
+    }))
+  } else if (
+    !localHasGapMarkers
+    && !localHasContent
+    && source.passage.length > passage.length
+  ) {
     const extra = source.passage.slice(passage.length).map(b => ({
       ...b,
       imageKey: b.imageUrl ? undefined : b.imageKey,
     }))
     passage = [...passage, ...extra]
-  }
-
-  if (!passage.length && source.passage.length) {
-    passage = source.passage.map(b => ({
-      ...b,
-      imageKey: b.imageUrl ? undefined : b.imageKey,
-    }))
   }
 
   // Part 1 signs: nếu vẫn thiếu imageUrl → lấy catalog
@@ -226,12 +239,20 @@ export function fillMissingReadingMediaFromFallback(
   if (fallback.id !== exam.id) {
     const sameLevel = fallback.cambridgeLevel && fallback.cambridgeLevel === exam.cambridgeLevel
     const samePartCount = fallback.parts.length === exam.parts.length
-    // KET A2: cho phép donor catalog khi cùng level dù lệch 1–2 part (5 vs 7)
+    // Cùng số Test trong title (tránh Test 2 import + catalog Test 1)
+    const testOf = (t: string) => t.toLowerCase().match(/\btest\s*(\d+)\b/)?.[1]
+    const sameTest =
+      !testOf(exam.title)
+      || !testOf(fallback.title)
+      || testOf(exam.title) === testOf(fallback.title)
+    // KET A2: donor catalog cùng level + cùng Test (chỉ vá ảnh), không ghép passage đề khác
     const ketLoose =
       exam.cambridgeLevel === 'a2'
       && fallback.cambridgeLevel === 'a2'
       && fallback.id.startsWith('catalog-')
+      && sameTest
     if (!sameLevel || (!samePartCount && !ketLoose)) return exam
+    if (!sameTest && !samePartCount) return exam
   }
 
   const byPart = new Map(fallback.parts.map(p => [p.partNumber, p]))
