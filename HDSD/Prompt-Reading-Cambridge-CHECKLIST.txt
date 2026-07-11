@@ -8,10 +8,10 @@ Tick hết trước khi import app.
 ## 0) Gửi DeepSeek (mỗi lần 1 test)
 
 - [ ] Prompt đúng level (KET / PET / FCE / CAE / CPE Reading Universal)
-- [ ] PDF đề Reading (& Writing nếu level có P Writing)
+- [ ] **Đề Reading:** PDF **hoặc** TXT UTF-8 (`exam-text.txt`) — đúng 1 Test N (kèm text Writing nếu level có)
 - [ ] `answer-key.txt` **hoặc** `answer-key.pdf` (ưu tiên `.txt`)
-- [ ] Ảnh Part 1 signs / Writing pages nếu cần crop (**jpg hoặc webp**)
-- [ ] Dòng context: `Book B · Test T · cambridgeLevel a2|b1|b2|c1|c2`
+- [ ] Ảnh Part 1 signs / Writing pages: crop sau nếu cần (**jpg hoặc webp**) — không bắt buộc gửi AI
+- [ ] Dòng context: `Book B · Test T · cambridgeLevel a2|b1|b2|c1|c2 · nguồn: TXT|PDF`
 - [ ] **Không** gộp nhiều test trong 1 JSON
 
 ---

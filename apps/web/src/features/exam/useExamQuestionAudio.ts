@@ -419,11 +419,17 @@ export function useExamQuestionAudio() {
       }
 
       if (htmlSources.length === 0) {
+        console.warn('[exam audio] no playable source', {
+          audioKey: source.audioKey ?? null,
+          audioUrl: source.audioUrl ?? null,
+          hasTtsText: Boolean(ttsText),
+          sourceId,
+        })
         setTimeLabel('— / —')
         setPlayError(
           source.audioKey
-            ? `Không tìm thấy blob audio (key: ${source.audioKey}). Import lại ZIP kèm MP3.`
-            : 'Không tìm thấy file audio. Kiểm tra MP3 trong ZIP import hoặc dùng đề builtin.',
+            ? `Không tìm thấy blob audio (key: ${source.audioKey}). Bài import/local đang thiếu blob trong Dexie.`
+            : 'Không tìm thấy file audio. Kiểm tra title đề, MP3 trong ZIP import, hoặc mapping audioFile → part/question.',
         )
         return
       }
@@ -433,8 +439,8 @@ export function useExamQuestionAudio() {
       setBuffering(false)
       setPlayError(
         staticUrl
-          ? `Không phát được file: ${staticUrl}. Kiểm tra đường dẫn catalog / file MP3 trong ZIP.`
-          : 'Không phát được audio. Thử import lại ZIP kèm MP3 hoặc dùng đề builtin catalog.',
+          ? `Không phát được file: ${staticUrl}. Kiểm tra path catalog hoặc MP3 import.`
+          : 'Không phát được audio. Kiểm tra blob local, audioUrl fallback, hoặc mapping part/question.',
       )
     } catch (error) {
       console.warn('Exam audio playback failed', error)

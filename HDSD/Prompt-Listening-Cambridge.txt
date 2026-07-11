@@ -19,19 +19,55 @@ Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
 | C2 CPE | **HDSD/Prompt-CPE-C2-Listening-Universal.txt** | `cpe` | 4 | 30 | 40 |
 
 → Đọc **Book** từ thư mục: `KET A2_Cam 1` → Book 1, `PET B1_Cam 2` → Book 2, v.v.
-→ Đọc **Test** từ tên PDF / thư mục: `Test_3_Listening` hoặc `Test 3` → Test 3
+→ Đọc **Test** từ tên PDF **hoặc** tên file TXT / thư mục: `Test_3_Listening` hoặc `Test 3` → Test 3
 → Xuất ZIP: `{level}-listening-test{N}.zip` (tên ZIP tuỳ ý; quan trọng là `title` trong exam.json)
 
-**Tài liệu đính kèm chung:**
-1. PDF đề Listening (Parts theo level)
-2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript nếu có; ưu tiên `.txt`)
-3. **audioscript.txt** (khuyến nghị) — nếu Answer Key PDF là scan/không copy được chữ
-4. listening.mp3 — **một file audio cả bài** (gắn vào mỗi part)
-5. Ảnh Part 1 (KET/PET): `q1.jpg` **hoặc** `q1.webp` … — crop 3 tranh A+B+C mỗi câu
-6. Ảnh Part 2 FCE: `q2.jpg` / `q2.webp` — minh họa cạnh tiêu đề (tuỳ đề)
-7. Định dạng ảnh: **jpg / jpeg / png / webp / gif** (app map `imageFile: "q1.jpg"` ↔ file `q1.webp`)
+## ⚠ Nguồn đề: PDF **hoặc** TXT (DeepSeek / ChatGPT)
 
-Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
+Có thể **không gửi PDF đề** — gửi **file TXT UTF-8** thay thế. App import ZIP chỉ cần `exam.json` + media; không bắt buộc PDF trong ZIP.
+
+### Gửi AI (DeepSeek) — chọn một
+
+| Gói | File đính kèm AI | Ghi chú |
+|-----|------------------|---------|
+| **A — TXT (khuyến nghị nếu đã copy được chữ)** | (1) Prompt Universal level · (2) **`exam-text.txt`** hoặc `Test_N_Listening.txt` — toàn bộ Parts · (3) **`answer-key.txt`** · (4) **`audioscript.txt`** (nếu tách) | Không cần PDF |
+| **B — PDF** | Prompt + PDF đề + answer-key.pdf/.txt + audioscript nếu scan | Như trước |
+| **C — Hỗn hợp** | TXT đề + PDF chỉ để crop ảnh Part 1 | TXT cho chữ; PDF chỉ mắt người crop |
+
+**Dòng context bắt buộc** (dán kèm tin nhắn):  
+`Book {B} · Test {T} · examType ket|pet|fce|cae|cpe · audioFile listening.mp3 · nguồn: TXT|PDF`
+
+### Nội dung file TXT đề (`exam-text.txt` / `Test_N_Listening.txt`)
+
+- UTF-8, **1 test / 1 file** (không gộp Test 1+2)
+- Giữ cấu trúc: Part 1 … Part N, instruction, câu hỏi, options A/B/C, form gap (label dòng)
+- Có thể gộp answer key + audioscript **trong cùng 1 TXT** nếu có marker rõ:
+  - `ANSWER KEY` / `Part 1` + dòng `1 A`
+  - `AUDIOSCRIPT` / `Tapescript` + đoạn theo số câu
+- **Không** nhét base64 / binary; không cần gửi `listening.mp3` cho AI
+
+### Vẫn pack vào ZIP app (không gửi AI trừ khi cần)
+
+| File ZIP | Bắt buộc? | Ghi chú |
+|----------|-----------|---------|
+| `exam.json` | Có | AI xuất từ TXT/PDF |
+| `listening.mp3` | Có | Bạn thêm sau; AI không tạo audio |
+| `answer-key.txt` | Khuyến nghị | UTF-8 — app auto fill `answer` trống |
+| `audioscript.txt` | Khuyến nghị Cambridge | Auto `ttsText` khi xem lại |
+| Ảnh Part 1 KET/PET `q1…` | Có nếu picture-mc | Crop từ PDF/scan — **TXT không thay ảnh** |
+| Ảnh FCE `q2` / map… | Tuỳ đề | jpg/png/**webp**/gif |
+
+### Tài liệu đính kèm chung (tóm tắt)
+
+1. **Đề Listening:** PDF **hoặc** TXT UTF-8 (Parts theo level) — **TXT được chấp nhận đầy đủ cho bước AI**
+2. **answer-key.pdf** hoặc **answer-key.txt** — ưu tiên `.txt`
+3. **audioscript.txt** — khuyến nghị nếu key scan / cần transcript
+4. listening.mp3 — **một file audio cả bài** (pack ZIP; không gửi DeepSeek)
+5. Ảnh Part 1 (KET/PET): `q1.jpg|webp` … — crop A+B+C
+6. Ảnh Part 2 FCE: `q2.jpg|webp` (tuỳ đề)
+7. Ảnh: **jpg / jpeg / png / webp / gif**
+
+Không cần đổi prompt — chỉ đổi file đính kèm (PDF **hoặc** TXT) + ghi đúng Book/Test.
 
 ---
 

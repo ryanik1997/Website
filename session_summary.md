@@ -3206,6 +3206,12 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 3) Lưu ý: số lửa Home = streak HỌC (vocab), không phải điểm danh
 ```
 
+## 2026-07-11 — HDSD Universal: đề PDF **hoặc** TXT
+
+- Master L/R + checklist + 10 Universal: § **Nguồn đề PDF hoặc TXT**
+- DeepSeek: gửi `exam-text.txt` + `answer-key.txt` (+ audioscript) thay PDF được
+- Vẫn pack ZIP: `exam.json` + mp3/ảnh (crop ảnh ngoài AI)
+
 ## 2026-07-11 — HDSD Universal A2–C2 (Listening + Reading)
 
 - Master: `Prompt-Listening-Cambridge.txt` / `Prompt-Reading-Cambridge.txt` + checklists

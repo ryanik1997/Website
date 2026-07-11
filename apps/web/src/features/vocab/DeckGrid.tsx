@@ -52,16 +52,16 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
 
   const filteredDecks = useMemo(() => {
     if (filter === 'default') {
-      return userDefaultDecks.filter(d => d.id !== personalDeck?.id)
+      return userDefaultDecks
     }
     if (filter === 'all') {
-      return decks.filter(d => d.id !== personalDeck?.id)
+      return decks
     }
     if (isPresetGroup(filter)) {
       return decks.filter(d => d.groupId === filter)
     }
     return presetDecks
-  }, [filter, decks, presetDecks, userDefaultDecks, personalDeck?.id])
+  }, [filter, decks, presetDecks, userDefaultDecks])
 
   const createDefaultGroup = filter !== 'all' ? filter : undefined
 

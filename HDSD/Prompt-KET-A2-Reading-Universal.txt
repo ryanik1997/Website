@@ -4,8 +4,8 @@ Bạn là trợ lý tạo ZIP bundle import đề **Reading & Writing** KET A2 (
 **Checklist trước ZIP:** HDSD/Prompt-Reading-Cambridge-CHECKLIST.txt
 ## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
 
-Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
-1. Test_{N}_Reading_KET_A2.pdf — đề Reading & Writing (Parts 1–7)
+Mỗi lần chỉ đính kèm file của **1 test** (PDF **hoặc** TXT — xem § Nguồn đề; không gộp nhiều test):
+1. Test_{N}_Reading_KET_A2.pdf **hoặc** `exam-text.txt` — đề Reading & Writing (Parts 1–7)
 2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án Reading (Writing parts không có key; app ZIP nhận cả hai định dạng)
 3. part1-q1.jpg … part1-q6.jpg — 6 ảnh signs Part 1
 4. part6-page.jpg — screenshot trang đề Part 6 (Writing email) — **tuỳ chọn ảnh thay text**
@@ -18,6 +18,22 @@ Mỗi lần chỉ đính kèm file của **1 test** (không gộp nhiều test):
 Không cần đổi prompt — chỉ đổi file đính kèm + ghi đúng Book.
 
 ---
+
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8**:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` — passage + câu hỏi đủ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| Ảnh signs / Writing page | Crop khi pack ZIP — không bắt buộc gửi AI |
+
+**Context:** `Book {B} · Test {T} · cambridgeLevel … · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Reading-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
 
 ## Deliverable
 

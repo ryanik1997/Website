@@ -10,6 +10,10 @@ import type {
 import { supabase } from '../../lib/supabase'
 import { dedupePresetDecks } from '../vocab/vocabSeedDecks'
 import {
+  ADMIN_PUBLISHED_VOCAB_VERSION_KEY,
+  computePublishedVocabPrunePlan,
+} from '../vocab/vocabPublishedSync'
+import {
   normalizeVocabPublishPayload,
   type VocabPublishPayload,
 } from '../vocab/vocabPublishNormalize'
@@ -56,6 +60,32 @@ async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>
     decks: raw.decks,
     cards: raw.cards,
   })
+
+  const [localDecks, localCards] = await Promise.all([
+    db.decks.toArray(),
+    db.cards.toArray(),
+  ])
+  const prunePlan = computePublishedVocabPrunePlan(
+    localDecks,
+    localCards,
+    normalized.decks,
+    normalized.cards,
+  )
+
+  if (prunePlan.staleCardIds.length) {
+    await db.srs.bulkDelete(prunePlan.staleCardIds)
+    await db.reviewLog.where('cardId').anyOf(prunePlan.staleCardIds).delete()
+    await db.cards.bulkDelete(prunePlan.staleCardIds)
+  }
+  for (const deckId of prunePlan.staleDeckIds) {
+    const staleDeckCardIds = (await db.cards.where('deckId').equals(deckId).primaryKeys()) as string[]
+    if (staleDeckCardIds.length) {
+      await db.reviewLog.where('cardId').anyOf(staleDeckCardIds).delete()
+    }
+    await db.srs.where('deckId').equals(deckId).delete()
+    await db.cards.where('deckId').equals(deckId).delete()
+    await db.decks.delete(deckId)
+  }
 
   if (normalized.groups.length) {
     await db.groups.bulkPut(normalized.groups)
@@ -161,6 +191,9 @@ export async function syncAdminPublishedContent(): Promise<AdminContentSyncResul
   for (const row of rows ?? []) {
     const mod = row.module as string
     await mergeModule(mod, row.payload)
+    if (mod === 'vocab') {
+      await settingsRepo.putSetting(ADMIN_PUBLISHED_VOCAB_VERSION_KEY, remoteVersion)
+    }
     modules.push(mod)
   }
 

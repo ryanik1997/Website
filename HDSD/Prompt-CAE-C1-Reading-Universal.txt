@@ -23,6 +23,22 @@ Tham chiếu UI: `Giaodien/Taicautruc/Reading_Writing_CAE_C1/Part1.jpg` … `Par
 
 ---
 
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8**:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` — passage + câu hỏi đủ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| Ảnh signs / Writing page | Crop khi pack ZIP — không bắt buộc gửi AI |
+
+**Context:** `Book {B} · Test {T} · cambridgeLevel … · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Reading-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
+
 ## Deliverable
 
 ZIP cae-reading-test{N}.zip — file CÙNG CẤP, không thư mục con:

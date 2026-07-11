@@ -1,4 +1,5 @@
-import { cardRepo, db, type Card, type Deck } from '@ryan/db'
+import { cardRepo, db, settingsRepo, type Card, type Deck } from '@ryan/db'
+import { ADMIN_PUBLISHED_VOCAB_VERSION_KEY } from './vocabPublishedSync'
 
 export interface SeedDeckDef {
   name: string
@@ -284,12 +285,17 @@ function uniqueSeedNameToStable(): Map<string, string> {
 export async function dedupePresetDecks(): Promise<number> {
   const known = knownPresetStableIds()
   const uniqueName = uniqueSeedNameToStable()
-  // Mọi deck: group preset HOẶC tên khớp seed (kể cả group_name cloud sai/null)
+  // Chỉ gộp bản preset chính chủ (stable id / origin=preset) hoặc ghost UUID
+  // trong group preset (do sync cloud cũ tạo ra). KHÔNG đụng deck user tự tạo
+  // trong group "default" dù tên trùng seed — nếu không, deck user tự tạo tên
+  // "Công nghệ", "Môi trường"… sẽ bị merge vào preset và biến mất khỏi "Của tôi".
   const allDecks = await db.decks.toArray()
   const candidates = allDecks.filter(d => {
     if (known.has(d.id) || isStablePresetDeckId(d.id)) return true
-    if (PRESET_GROUP_SET.has(d.groupId)) return true
-    if (uniqueName.has(phraseKeyForCard(d.name))) return true
+    if (d.origin === 'preset') return true
+    // Deck user tự tạo (origin='user') KHÔNG merge dù groupId=ielts/oxford/…
+    // Chỉ gom ghost deck chưa có origin (legacy) trong group preset.
+    if (d.origin === undefined && PRESET_GROUP_SET.has(d.groupId)) return true
     return false
   })
 
@@ -303,8 +309,11 @@ export async function dedupePresetDecks(): Promise<number> {
       if (known.has(fromName)) stableId = fromName
     }
     if (!stableId) {
-      const byName = uniqueName.get(phraseKeyForCard(deck.name))
-      if (byName) stableId = byName
+      // Chỉ áp dụng tên-khớp-seed cho deck đã đánh dấu preset (ghost cloud id lạ)
+      if (deck.origin === 'preset') {
+        const byName = uniqueName.get(phraseKeyForCard(deck.name))
+        if (byName) stableId = byName
+      }
     }
     if (!stableId) continue
     const list = buckets.get(stableId) ?? []
@@ -405,6 +414,11 @@ let seedTask: Promise<void> | null = null
 export async function seedPresetDecks(): Promise<void> {
   if (!seedTask) {
     seedTask = (async () => {
+      const publishedVocabVersion = await settingsRepo.getSetting(ADMIN_PUBLISHED_VOCAB_VERSION_KEY)
+      if (typeof publishedVocabVersion === 'number' && publishedVocabVersion > 0) {
+        await cardRepo.dedupeAllDecks()
+        return
+      }
       for (const group of SEED_GROUPS) {
         await seedGroup(group)
       }

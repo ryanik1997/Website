@@ -79,9 +79,11 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   const displayExam = useMemo(() => {
     if (!exam) return null
     const merged = mergeReadingCloudImages(exam, cloudImages)
-    // Sau merge cloud: vá lại text Part 2 + URL Part 7 từ catalog (tránh error1/error2)
+    // Chỉ vá media từ catalog CÙNG id (hoặc đúng đề builtin).
+    // Không lấy catalog-ket-a2-test1 làm donor cho mọi import Test 2/3/4
+    // → trước đây ghép passage Part 4 Test 1 vào Test 2 (double gap 19–24).
     const donor = getBuiltinReadingExam(merged.id)
-      ?? getBuiltinReadingExam('catalog-reading-ket-a2-test1')
+    if (!donor) return merged
     return fillReadingExamFromSources(merged, [donor])
   }, [exam, cloudImages])
 

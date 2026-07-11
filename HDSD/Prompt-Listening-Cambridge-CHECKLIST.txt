@@ -8,11 +8,12 @@ Tick hết trước khi import app. App sửa được một số lỗi — **kh
 ## 0) Gửi DeepSeek (mỗi lần 1 test)
 
 - [ ] Prompt đúng level (KET / PET / FCE / CAE / CPE Universal)
-- [ ] PDF đề Listening (đúng Test N)
+- [ ] **Đề Listening:** PDF **hoặc** TXT UTF-8 (`exam-text.txt` / `Test_N_Listening.txt`) — đúng 1 Test N
 - [ ] `answer-key.txt` **hoặc** `answer-key.pdf` (ưu tiên `.txt`)
-- [ ] `audioscript.txt` nếu key PDF scan / cần transcript
-- [ ] Dòng context: `Book B · Test T · examType … · audioFile listening.mp3`
+- [ ] `audioscript.txt` nếu key scan / cần transcript (có thể gộp trong TXT đề nếu có marker AUDIOSCRIPT)
+- [ ] Dòng context: `Book B · Test T · examType … · audioFile listening.mp3 · nguồn: TXT|PDF`
 - [ ] **Không** gửi MP3 cho DeepSeek (chỉ pack ZIP sau)
+- [ ] Ảnh Part 1 (KET/PET): crop sau — không bắt buộc gửi AI
 
 ---
 
