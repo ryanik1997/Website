@@ -533,6 +533,7 @@ function ExamTrackPageInner() {
             skill="reading"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
+            showUngrouped={canImport}
             exams={readingList}
             buildRow={exam => {
               const row = safeReadingRow(exam)
@@ -558,6 +559,7 @@ function ExamTrackPageInner() {
             skill="listening"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
+            showUngrouped={canImport}
             exams={listeningList}
             buildRow={exam => safeListeningRow(exam)}
             onOpenExam={id => navigate(`/app/exam/listening/${id}`)}

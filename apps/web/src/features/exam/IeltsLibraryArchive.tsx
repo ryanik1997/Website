@@ -47,6 +47,7 @@ interface Props<T extends { id: string; title: string }> {
   archiveMode?: LibraryArchiveMode
   /** KET, PET, FCE, CAE, CPE — hiển thị trên bìa sách thay IELTS */
   brandLabel?: string
+  showUngrouped?: boolean
 }
 
 function BookCover({
@@ -152,6 +153,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
   onDeleteExam,
   archiveMode = 'ielts',
   brandLabel = 'IELTS',
+  showUngrouped = false,
 }: Props<T>) {
   const [query, setQuery] = useState('')
   const [selectedBookNum, setSelectedBookNum] = useState<number | null>(null)
@@ -246,7 +248,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
           onDeleteExam={onDeleteExam}
         />
 
-        {filtered.ungrouped.length > 0 && (
+        {showUngrouped && filtered.ungrouped.length > 0 && (
           <div className="ielts-library__ungrouped">
             <h3 className="ielts-library__ungrouped-title">Đề khác</h3>
             <TestRows
@@ -310,7 +312,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
         ))}
       </div>
 
-      {filtered.ungrouped.length > 0 && (
+      {showUngrouped && filtered.ungrouped.length > 0 && (
         <div className="ielts-library__ungrouped">
           <h3 className="ielts-library__ungrouped-title">Đề khác</h3>
           <TestRows
@@ -323,7 +325,7 @@ export default function IeltsLibraryArchive<T extends { id: string; title: strin
         </div>
       )}
 
-      {filtered.books.length === 0 && filtered.ungrouped.length === 0 && (
+      {filtered.books.length === 0 && (!showUngrouped || filtered.ungrouped.length === 0) && (
         <p className="ielts-library__empty">Không tìm thấy đề phù hợp.</p>
       )}
     </section>
