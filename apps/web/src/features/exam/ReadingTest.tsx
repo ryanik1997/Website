@@ -62,6 +62,9 @@ export default function ReadingTest() {
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
+  const requestedPart = Number(searchParams.get('part'))
+  const part = Number.isInteger(requestedPart) && requestedPart >= 1 && requestedPart <= 3 ? requestedPart : null
+  const initialPartIndex = part === null ? 0 : part - 1
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
@@ -75,7 +78,7 @@ export default function ReadingTest() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
   const [timeLeft, setTimeLeft] = useState(() => initialExamTimerSeconds(examDurationMinutes))
-  const [partIndex, setPartIndex] = useState(0)
+  const [partIndex, setPartIndex] = useState(initialPartIndex)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   /** Sau nộp: xem lại passage + câu (đúng/sai) */
@@ -227,8 +230,8 @@ export default function ReadingTest() {
     if (!savedRaw) {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
-      setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setPartIndex(initialPartIndex)
+      setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart({})
       setNotesByPart({})
       markHydrated()
@@ -253,20 +256,20 @@ export default function ReadingTest() {
       )
       setSubmitted(Boolean(saved.submitted))
       setReviewMode(false)
-      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
-      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : initialPartIndex)
+      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart(saved.highlightsByPart ?? {})
       setNotesByPart(saved.notesByPart ?? {})
     } catch {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
-      setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setPartIndex(initialPartIndex)
+      setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart({})
       setNotesByPart({})
     }
     markHydrated()
-  }, [exam, markHydrated, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [exam, initialPartIndex, markHydrated, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
     if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || !currentPart) return
