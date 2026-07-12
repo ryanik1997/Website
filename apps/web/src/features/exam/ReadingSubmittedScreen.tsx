@@ -17,6 +17,7 @@ interface Props {
   onRetry: () => void
   /** Xem lại đề trên UI làm bài (đúng/sai) — không dùng full mock stage */
   onReviewWithPaper?: () => void
+  scopedPartIndex?: number
 }
 
 /** Màn hình sau Submit Reading — tách riêng, hooks parent luôn gọi đủ trước khi render. */
@@ -26,6 +27,7 @@ export default function ReadingSubmittedScreen({
   fullMockId,
   onRetry,
   onReviewWithPaper,
+  scopedPartIndex,
 }: Props) {
   const navigate = useNavigate()
   const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
@@ -64,6 +66,7 @@ export default function ReadingSubmittedScreen({
       onRetry={onRetry}
       onBack={() => navigate(readingExamBackPath(exam))}
       onReviewWithPaper={onReviewWithPaper ?? (() => undefined)}
+      scopedPartIndex={scopedPartIndex}
     />
   )
 }

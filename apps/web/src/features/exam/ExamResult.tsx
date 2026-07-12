@@ -2,6 +2,7 @@ import {
   formatReadingAnswer,
   getExamQuestions,
   getScorableExamQuestions,
+  getPartQuestions,
   isCambridgeReadingWritingExam,
   isReadingAnswerCorrect,
   isWritingTaskQuestion,
@@ -21,6 +22,7 @@ interface Props {
   onBack: () => void
   /** Mở lại giao diện làm bài ở chế độ review (đúng/sai) */
   onReviewWithPaper: () => void
+  scopedPartIndex?: number
 }
 
 function readingFramework(exam: ReadingExam): 'ielts' | 'cambridge' | 'other' {
@@ -32,9 +34,11 @@ function readingFramework(exam: ReadingExam): 'ielts' | 'cambridge' | 'other' {
   return 'ielts'
 }
 
-export default function ExamResult({ exam, answers, onRetry, onBack, onReviewWithPaper }: Props) {
-  const allQuestions = getExamQuestions(exam)
-  const scorable = getScorableExamQuestions(exam)
+export default function ExamResult({ exam, answers, onRetry, onBack, onReviewWithPaper, scopedPartIndex }: Props) {
+  const scope = scopedPartIndex === undefined ? null : getPartQuestions(exam.parts[scopedPartIndex])
+  const allQuestions = scope ?? getExamQuestions(exam)
+  const scorable = getScorableExamQuestions(exam).filter(q => !scope || scope.some(s => s.id === q.id))
+  const visibleParts = scopedPartIndex === undefined ? exam.parts : [exam.parts[scopedPartIndex]]
   const hasWriting = allQuestions.some(isWritingTaskQuestion)
   const framework = readingFramework(exam)
 
@@ -78,7 +82,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack, onReviewWit
     }]
   })
 
-  const aiSourceText = exam.parts.map(part => {
+  const aiSourceText = visibleParts.map(part => {
     const body = part.passage
       .map(b => [b.label, b.text].filter(Boolean).join(' '))
       .filter(Boolean)
@@ -97,7 +101,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack, onReviewWit
           Reading chấm tự động; Part Writing chấm bằng AI (bên dưới từng câu Writing).
         </p>
       )}
-      {exam.parts.map(part => (
+      {visibleParts.map(part => (
         <section
           key={part.id}
           className="rounded-[24px] border p-5 sm:p-6"
