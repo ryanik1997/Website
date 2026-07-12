@@ -182,7 +182,7 @@ export default function StructureListHub() {
         {groupedPageItems.map(([level, categoryGroups]) => (
           <section className="ss-hub-group" key={level}>
             <header className="ss-hub-group-head">
-              <h2>{level === 'unassigned' ? 'Chưa gán CEFR' : `${level} · ${CEFR_LABELS[level as CefrLevel]}`}</h2>
+              <h2>{level === 'unassigned' ? 'Chưa gán CEFR' : CEFR_LABELS[level as CefrLevel]}</h2>
               <span>{categoryGroups.reduce((sum, [, items]) => sum + items.length, 0)}</span>
             </header>
             {categoryGroups.map(([category, categoryItems]) => (
