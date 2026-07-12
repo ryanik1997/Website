@@ -40,6 +40,7 @@ export default function StructureListHub() {
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(0)
   const [history, setHistory] = useState<StructureCompletionEntry[]>([])
+  const [showHistory, setShowHistory] = useState(false)
   const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
   const categoryFilter = searchParams.get('category') ?? ''
 
@@ -179,9 +180,12 @@ export default function StructureListHub() {
           {total.toLocaleString('vi-VN')} cấu trúc
           {(query.trim() || cefrFilter) ? ' (đã lọc)' : ''}
         </p>
+        <button type="button" className="ss-history-toggle" onClick={() => setShowHistory(value => !value)} aria-expanded={showHistory}>
+          Lịch sử{history.length > 0 ? ` · ${history.length}` : ''} <span>{showHistory ? '↑' : '↓'}</span>
+        </button>
       </div>
 
-      {history.length > 0 && (
+      {showHistory && history.length > 0 && (
         <section className="ss-history">
           <div className="ss-history-head"><h2>Lịch sử hoàn thành</h2><span>30 ngày gần nhất</span></div>
           <div className="ss-history-list">
