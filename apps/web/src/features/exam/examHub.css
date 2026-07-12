@@ -125,7 +125,7 @@
 .exam-hub-page--cambridge-selector .exam-hub-back { margin-bottom: 1.2rem; background: transparent; border-color: transparent; transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
 .exam-hub-page--cambridge-selector .exam-hub-back:hover { color: var(--color-primary); transform: translateX(-.25rem); }
 .exam-hub-page--cambridge-selector .exam-hub-kicker { display: block; margin: 0 0 .9rem; line-height: 1.35; }
-.exam-hub-page--cambridge-selector .exam-hub-title { margin-top: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400; letter-spacing: -.065em; line-height: .98; }
+.exam-hub-page--cambridge-selector .exam-hub-title { margin-top: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400; letter-spacing: -.02em; word-spacing: normal; line-height: 1.05; }
 .exam-hub-page--cambridge-selector .exam-hub-desc { max-width: 29rem; margin-top: 1.2rem; font-size: .92rem; line-height: 1.7; }
 .exam-hub-page--cambridge-selector .exam-hub-tracks--levels { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
 .exam-hub-page--cambridge-selector .exam-hub-track-card { min-height: 17rem; padding: 1.35rem; border: none; border-radius: 1.6rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 9%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1), background 650ms cubic-bezier(.32,.72,0,1); }
