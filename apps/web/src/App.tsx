@@ -35,6 +35,7 @@ const TranslationGenrePage   = lazy(() => import('./pages/TranslationGenrePage')
 const TranslationPracticePage = lazy(() => import('./pages/TranslationPracticePage'))
 const MindmapPage      = lazy(() => import('./pages/MindmapPage'))
 const SentenceStructureListPage = lazy(() => import('./pages/SentenceStructureListPage'))
+const SentenceStructureHistoryPage = lazy(() => import('./pages/SentenceStructureHistoryPage'))
 const SentenceStructurePracticePage = lazy(() => import('./pages/SentenceStructurePracticePage'))
 const SettingsPage   = lazy(() => import('./pages/SettingsPage'))
 const AdminPage      = lazy(() => import('./features/admin/AdminPage'))
@@ -110,6 +111,7 @@ export default function App() {
           <Route path="translation" element={<Navigate to="/app/writing/translate" replace />} />
           <Route path="mindmap"     element={<MindmapPage />} />
           <Route path="sentence-structure" element={<SentenceStructureListPage />} />
+          <Route path="sentence-structure/history" element={<SentenceStructureHistoryPage />} />
           <Route path="sentence-structure/:structureId" element={<SentenceStructurePracticePage />} />
           <Route path="settings"  element={<SettingsPage />} />
           <Route path="admin"     element={<AdminPage />} />

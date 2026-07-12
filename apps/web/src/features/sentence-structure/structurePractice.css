@@ -83,6 +83,19 @@
 .ss-list-page .ss-hub-count { flex: 0 0 auto; width: auto; color: var(--text-muted); font-size: .68rem; }
 .ss-list-page .ss-history-toggle { display: inline-flex; align-items: center; gap: .35rem; min-height: 2.25rem; padding: .45rem .75rem; border: 1px solid var(--border-color); border-radius: .6rem; background: var(--bg-card); color: var(--text-muted); font-size: .7rem; font-weight: 700; }
 .ss-list-page .ss-history-toggle:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.ss-history-back { display: inline-flex; align-items: center; gap: .4rem; color: var(--text-muted); font-size: .78rem; font-weight: 700; }
+.ss-history-page__main { max-width: 76rem; margin: 0 auto; padding: 2rem 0; }
+.ss-history-page__heading { margin-bottom: 1.5rem; }
+.ss-history-page__heading p { color: var(--color-primary); font-size: .7rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.ss-history-page__heading h1 { margin-top: .35rem; color: var(--text-primary); font-family: Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; letter-spacing: -.05em; }
+.ss-history-page__heading span { color: var(--text-muted); font-size: .75rem; }
+.ss-history-page__list { display: flex; flex-direction: column; gap: .6rem; }
+.ss-history-page__entry { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.2rem; border: 1px solid var(--border-color); border-radius: .9rem; background: var(--bg-card); }
+.ss-history-page__check { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: color-mix(in srgb, var(--color-accent) 15%, transparent); color: var(--color-accent); }
+.ss-history-page__entry h2 { color: var(--text-primary); font-size: .9rem; font-weight: 650; }
+.ss-history-page__entry p { margin-top: .2rem; color: var(--text-muted); font-size: .7rem; }
+.ss-history-page__entry time { margin-left: auto; color: var(--text-muted); font-size: .68rem; }
+@media (max-width: 760px) { .ss-history-page__main { padding: 1.5rem 0; } .ss-history-page__entry { align-items: flex-start; } .ss-history-page__entry time { white-space: nowrap; } }
 .ss-list-page .ss-history { margin: -1rem 0 1.25rem; padding: .8rem 1rem; border: 1px solid var(--border-color); border-radius: .9rem; background: var(--bg-card); }
 .ss-list-page .ss-history-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .45rem; }
 .ss-list-page .ss-history-head h2 { color: var(--text-primary); font-size: .72rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
