@@ -8,6 +8,7 @@ import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
 import { preferLocalListeningMedia } from './listeningLocalMediaPolicy'
 import { getPublishedListeningExam, listPublishedListeningExams } from './listeningExamPublish'
 import { normalizeListeningExamForDisplay } from './listeningImportNormalize'
+import { isListeningCatalogHidden, listHiddenListeningCatalogIds } from './examCatalogHide'
 
 /** Merge catalog (bổ sung thiếu) rồi luôn ưu tiên blob local — sửa đề import cũ. */
 function finalizeListeningExam(exam: ListeningExam): ListeningExam {
@@ -72,6 +73,8 @@ export function getBuiltinListeningExam(examId: string): ListeningExam | null {
 }
 
 export async function resolveListeningExam(examId: string): Promise<ListeningExam | null> {
+  if (await isListeningCatalogHidden(examId)) return null
+
   const builtin = getBuiltinListeningExam(examId)
 
   // Đề catalog builtin: luôn lấy JSON trong bundle (tránh bản Dexie cũ ghi đè notePassage/bullets).
@@ -134,9 +137,10 @@ export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const publishedIds = new Set(published.map(e => e.id))
   const publishedOnly = published.filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
+  const hidden = new Set(await listHiddenListeningCatalogIds())
   return dedupeExamsForLibraryDisplay(
     [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam),
-  )
+  ).filter(e => !hidden.has(e.id))
 }
 
 export function examRecordFromListening(

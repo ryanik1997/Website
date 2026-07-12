@@ -26,6 +26,7 @@ const ExamTrackPage = lazy(() => import('./features/exam/ExamTrackPage'))
 const FullMockIntro = lazy(() => import('./features/exam/FullMockIntro'))
 const FullMockSummary = lazy(() => import('./features/exam/FullMockSummary'))
 const ReadingTest = lazy(() => import('./features/exam/ReadingTest'))
+const ReadingPartPicker = lazy(() => import('./features/exam/ReadingPartPicker'))
 const ListeningTest = lazy(() => import('./features/exam/ListeningTest'))
 const WritingTest = lazy(() => import('./features/exam/WritingTest'))
 const WritingMockTest = lazy(() => import('./features/exam/WritingMockTest'))
@@ -34,6 +35,7 @@ const TranslationGenrePage   = lazy(() => import('./pages/TranslationGenrePage')
 const TranslationPracticePage = lazy(() => import('./pages/TranslationPracticePage'))
 const MindmapPage      = lazy(() => import('./pages/MindmapPage'))
 const SentenceStructureListPage = lazy(() => import('./pages/SentenceStructureListPage'))
+const SentenceStructureHistoryPage = lazy(() => import('./pages/SentenceStructureHistoryPage'))
 const SentenceStructurePracticePage = lazy(() => import('./pages/SentenceStructurePracticePage'))
 const SettingsPage   = lazy(() => import('./pages/SettingsPage'))
 const AdminPage      = lazy(() => import('./features/admin/AdminPage'))
@@ -100,6 +102,7 @@ export default function App() {
             <Route path="full/:mockId" element={<FullMockIntro />} />
             <Route path="full/:mockId/summary" element={<FullMockSummary />} />
             <Route path="reading/:examId" element={<ReadingTest />} />
+            <Route path="reading-picker/:examId" element={<ReadingPartPicker />} />
             <Route path="listening/:examId" element={<ListeningTest />} />
             <Route path="listening" element={<Navigate to="/app/exam/track/cambridge/a2" replace />} />
             <Route path="writing/:mockId" element={<WritingMockTest />} />
@@ -108,6 +111,7 @@ export default function App() {
           <Route path="translation" element={<Navigate to="/app/writing/translate" replace />} />
           <Route path="mindmap"     element={<MindmapPage />} />
           <Route path="sentence-structure" element={<SentenceStructureListPage />} />
+          <Route path="sentence-structure/history" element={<SentenceStructureHistoryPage />} />
           <Route path="sentence-structure/:structureId" element={<SentenceStructurePracticePage />} />
           <Route path="settings"  element={<SettingsPage />} />
           <Route path="admin"     element={<AdminPage />} />

@@ -53,9 +53,17 @@ export const deckRepo = {
       throw new Error('preset-deck-not-deletable')
     }
     const cardIds = (await db.cards.where('deckId').equals(id).primaryKeys()) as string[]
-    await db.srs.bulkDelete(cardIds)
-    await db.reviewLog.where('cardId').anyOf(cardIds).delete()
-    await db.cards.where('deckId').equals(id).delete()
-    await db.decks.delete(id)
+    await db.transaction(
+      'rw',
+      db.decks, db.cards, db.srs, db.reviewLog, db.deckTombstones,
+      async () => {
+        // Tombstone trước → sync sau đó hard-delete cloud (cards + srs cascade)
+        await db.deckTombstones.put({ id, deletedAt: now() })
+        await db.srs.bulkDelete(cardIds)
+        await db.reviewLog.where('cardId').anyOf(cardIds).delete()
+        await db.cards.where('deckId').equals(id).delete()
+        await db.decks.delete(id)
+      },
+    )
   },
 }

@@ -204,6 +204,17 @@ export function getActiveAudio(): HTMLAudioElement | null {
   return currentAudio
 }
 
+export function pauseActiveAudio(): boolean {
+  if (!currentAudio) return false
+  currentAudio.pause()
+  return true
+}
+
+export function resumeActiveAudio(): Promise<void> | null {
+  if (!currentAudio || currentAudio.ended) return null
+  return currentAudio.play()
+}
+
 export function getLastEngine(): TtsEngine {
   return lastEngine
 }

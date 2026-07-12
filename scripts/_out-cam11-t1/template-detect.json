@@ -1,0 +1,35 @@
+[
+  {
+    "passage": 1,
+    "signals": {
+      "sentence_completion": false,
+      "tfng": true,
+      "gap_before_tfng": false
+    },
+    "chosen": "p1-r1-tfng-gap",
+    "catalog_label": "TFNG + Gap (r1g) — groups gap+TFNG; order on paper is gap then TFNG",
+    "confidence": 0.4
+  },
+  {
+    "passage": 2,
+    "signals": {
+      "tfng": true,
+      "diagram": true,
+      "one_word": true
+    },
+    "chosen": "p2-r2-tfng-diagram",
+    "catalog_label": "TFNG + Diagram (r2d) — Cam11 Test 1 P2 exact",
+    "confidence": 0.95
+  },
+  {
+    "passage": 3,
+    "signals": {
+      "which_paragraph": true,
+      "table": true,
+      "match_scientists": true
+    },
+    "chosen": "p3-r3-match-table-features",
+    "catalog_label": "Match + Table + Features (r3tb) — Cam11 Test 1 P3 exact",
+    "confidence": 0.95
+  }
+]

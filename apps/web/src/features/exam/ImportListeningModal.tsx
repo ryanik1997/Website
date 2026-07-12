@@ -21,6 +21,7 @@ import { extractListeningZip } from './importListeningZip'
 import { useIsAdmin } from '../auth/useIsAdmin'
 import { examRecordFromListening } from './listeningExamLoader'
 import { publishListeningExamToCloud } from './listeningExamPublish'
+import { backupListeningExam } from './examAutoBackup'
 import type { ListeningExamType } from './listeningExamData'
 import {
   buildIeltsListeningImportTemplate,
@@ -137,11 +138,13 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
     setError(null)
     try {
       const exam = await buildListeningExamFromImport(payload, mediaFiles)
-      await listeningExamRepo.create(examRecordFromListening(exam, 'import', sourceLabel ?? jsonFile?.name))
+      const sourceFilename = sourceLabel ?? jsonFile?.name
+      await listeningExamRepo.create(examRecordFromListening(exam, 'import', sourceFilename))
+      await backupListeningExam(exam, { sourceFilename }).catch(() => undefined)
       if (isAdmin === true) {
         await publishListeningExamToCloud(exam, {
           source: 'import',
-          sourceFilename: sourceLabel ?? jsonFile?.name,
+          sourceFilename,
         })
       }
       onCreated?.(exam.id)

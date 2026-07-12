@@ -3,7 +3,7 @@
  * Policy: apps/web/src/features/exam/listeningLocalMediaPolicy.ts
  */
 import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
-import type { ListeningExam, ListeningPart, ListeningQuestion } from './listeningExamData'
+import type { ListeningExam, ListeningExamType, ListeningPart, ListeningQuestion } from './listeningExamData'
 import {
   defaultCatalogAudioByExamType,
   inferIeltsCatalogAudioUrl,
@@ -52,7 +52,8 @@ export function findCatalogListeningTwin(
   const sameType = CATALOG_LISTENING_EXAMS.filter(c => c.examType === exam.examType)
 
   const asTwin = (c: (typeof sameType)[number]): Pick<ListeningExam, 'examType' | 'title'> => ({
-    examType: c.examType,
+    // JSON catalog types widen examType to string when many generated exams are spread in.
+    examType: c.examType as ListeningExamType,
     title: c.title,
   })
 

@@ -51,8 +51,8 @@ import {
   isPetReadingWritingExam,
 } from './examData'
 import './readingTest.css'
+import { parseReadingPart, readingDraftKey } from './readingPartMode'
 
-const STORAGE_PREFIX = 'exam-reading-draft:'
 const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
@@ -62,10 +62,20 @@ export default function ReadingTest() {
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
+  const requestedPart = parseReadingPart(searchParams.get('part'))
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
   )
+  const isIeltsReading = Boolean(
+    exam && (
+      exam.examTrack === 'ielts'
+      || /ielts/i.test(exam.bandHint ?? '')
+      || /ielts/i.test(exam.id)
+    ),
+  )
+  const part = isIeltsReading ? requestedPart : null
+  const initialPartIndex = part === null ? 0 : part - 1
   const useKetRwShell = exam ? isKetReadingWritingExam(exam) : false
   const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
   const useFceRwShell = exam ? isFceReadingWritingExam(exam) : false
@@ -73,9 +83,10 @@ export default function ReadingTest() {
   const useCpeRwShell = exam ? isCpeReadingWritingExam(exam) : false
 
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 60
+  const singlePartMode = part !== null
+  const examDurationMinutes = exam ? (singlePartMode ? Math.ceil(readingExamDurationMinutes(exam) / 3) : readingExamDurationMinutes(exam)) : 60
   const [timeLeft, setTimeLeft] = useState(() => initialExamTimerSeconds(examDurationMinutes))
-  const [partIndex, setPartIndex] = useState(0)
+  const [partIndex, setPartIndex] = useState(initialPartIndex)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   /** Sau nộp: xem lại passage + câu (đúng/sai) */
@@ -102,7 +113,7 @@ export default function ReadingTest() {
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
 
-  const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
+  const allExamQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
 
   const useIeltsReadingShell = Boolean(
     exam && !useKetRwShell && !usePetRwShell && !useFceRwShell && !useCaeRwShell && !useCpeRwShell,
@@ -121,7 +132,8 @@ export default function ReadingTest() {
     () => (currentPart ? getPartQuestions(currentPart) : []),
     [currentPart],
   )
-  const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
+  const allQuestions = useMemo(() => singlePartMode ? partQuestions : allExamQuestions, [allExamQuestions, partQuestions, singlePartMode])
+  const storageKey = exam ? readingDraftKey(exam.id, part) : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
   const partNotes = currentPart ? (notesByPart[currentPart.id] ?? []) : []
@@ -226,9 +238,9 @@ export default function ReadingTest() {
     const savedRaw = window.localStorage.getItem(storageKey)
     if (!savedRaw) {
       setAnswers({})
-      setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
-      setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setTimeLeft(initialExamTimerSeconds(examDurationMinutes))
+      setPartIndex(initialPartIndex)
+      setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart({})
       setNotesByPart({})
       markHydrated()
@@ -249,24 +261,24 @@ export default function ReadingTest() {
       setTimeLeft(
         typeof saved.timeLeft === 'number'
           ? saved.timeLeft
-          : initialExamTimerSeconds(readingExamDurationMinutes(exam)),
+          : initialExamTimerSeconds(examDurationMinutes),
       )
       setSubmitted(Boolean(saved.submitted))
       setReviewMode(false)
-      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
-      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : initialPartIndex)
+      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart(saved.highlightsByPart ?? {})
       setNotesByPart(saved.notesByPart ?? {})
     } catch {
       setAnswers({})
-      setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
-      setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setTimeLeft(initialExamTimerSeconds(examDurationMinutes))
+      setPartIndex(initialPartIndex)
+      setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
       setHighlightsByPart({})
       setNotesByPart({})
     }
     markHydrated()
-  }, [exam, markHydrated, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
+  }, [exam, initialPartIndex, markHydrated, storageKey, useCpeRwShell, useFceRwShell, useKetRwShell, usePetRwShell])
 
   useEffect(() => {
     if (!exam || useKetRwShell || usePetRwShell || useFceRwShell || useCpeRwShell || !currentPart) return
@@ -333,7 +345,7 @@ export default function ReadingTest() {
   }, [answers, exam])
 
   const goToPart = useCallback((index: number) => {
-    if (!exam || index < 0 || index >= exam.parts.length) return
+    if (!exam || singlePartMode || index < 0 || index >= exam.parts.length) return
 
     const questions = getPartQuestions(exam.parts[index])
     const first = questions[0]
@@ -342,7 +354,7 @@ export default function ReadingTest() {
     setPartIndex(index)
     resetPaneScroll()
     setActiveQuestionId(first.id)
-  }, [exam, resetPaneScroll])
+  }, [exam, resetPaneScroll, singlePartMode])
 
   const clampSplit = useCallback((pct: number) => (
     Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, pct))
@@ -402,7 +414,7 @@ export default function ReadingTest() {
 
   const resetTimer = useCallback(() => {
     if (!exam) return
-    setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
+    setTimeLeft(initialExamTimerSeconds(examDurationMinutes))
   }, [exam])
 
   const goAdjacentQuestion = useCallback((delta: number) => {
@@ -427,15 +439,15 @@ export default function ReadingTest() {
     clearReadingDraft(exam.id)
     setAnswers({})
     setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
-    setPartIndex(0)
-    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setPartIndex(initialPartIndex)
+    setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
     setHighlightsByPart({})
     setSubmitted(false)
     setReviewMode(false)
     if (fullMockId) {
       patchFullMockSession({ stage: 'reading', reading: undefined })
     }
-  }, [exam, fullMockId])
+  }, [exam, fullMockId, initialPartIndex])
 
   const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
     if (!exam || !reviewMode) return {}
@@ -515,11 +527,12 @@ export default function ReadingTest() {
         exam={exam}
         answers={answers}
         fullMockId={fullMockId}
+        scopedPartIndex={singlePartMode ? partIndex : undefined}
         onRetry={handleRetry}
         onReviewWithPaper={() => {
           setReviewMode(true)
-          setPartIndex(0)
-          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+          setPartIndex(initialPartIndex)
+          setActiveQuestionId(getPartQuestions(exam.parts[initialPartIndex])[0]?.id ?? null)
         }}
       />
     )
@@ -689,7 +702,8 @@ export default function ReadingTest() {
       </div>
 
       <ExamPartFooter
-        parts={exam.parts}
+        parts={singlePartMode ? [exam.parts[partIndex]] : exam.parts}
+        partIndices={singlePartMode ? [partIndex] : undefined}
         getPartQuestions={index => {
           const part = exam.parts[index]
           return part ? getPartQuestions(part) : []

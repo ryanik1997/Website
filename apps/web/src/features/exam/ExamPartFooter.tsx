@@ -9,6 +9,7 @@ export interface ExamPartFooterPart {
 
 interface Props {
   parts: ExamPartFooterPart[]
+  partIndices?: number[]
   getPartQuestions: (partIndex: number) => Array<{ id: string; number: number }>
   partIndex: number
   activeQuestionId: string | null
@@ -27,6 +28,7 @@ interface Props {
 
 export default function ExamPartFooter({
   parts,
+  partIndices,
   getPartQuestions,
   partIndex,
   activeQuestionId,
@@ -49,9 +51,10 @@ export default function ExamPartFooter({
     <footer className={`reading-test-footer${reviewMode ? ' is-review' : ''}`}>
       <div className="reading-test-footer__parts">
         {parts.map((part, index) => {
-          const questions = getPartQuestions(index)
-          const answered = answeredInPart(index)
-          const isCurrent = index === partIndex
+          const actualIndex = partIndices?.[index] ?? index
+          const questions = getPartQuestions(actualIndex)
+          const answered = answeredInPart(actualIndex)
+          const isCurrent = actualIndex === partIndex
           return (
             <div
               key={part.id}
@@ -60,7 +63,7 @@ export default function ExamPartFooter({
               <button
                 type="button"
                 className="reading-test-footer-part__tab"
-                onClick={() => onGoToPart(index)}
+                onClick={() => onGoToPart(actualIndex)}
               >
                 <span className="reading-test-footer-part__label">Part {part.partNumber}</span>
                 {!isCurrent && (

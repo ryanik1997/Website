@@ -2,7 +2,7 @@ import { lazy, Suspense, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, Eye, EyeOff, FileJson, FileText, Headphones, Loader2, Sparkles } from 'lucide-react'
-import { examRepo, listeningExamRepo } from '@ryan/db'
+import { examBackupRepo, examRepo, listeningExamRepo } from '@ryan/db'
 import {
   CAMBRIDGE_EXAM_LEVELS,
   filterReadingForCambridgeLevel,
@@ -29,6 +29,13 @@ import {
 import { db } from '@ryan/db'
 import { deletePublishedReadingExam } from './readingExamPublish'
 import { deletePublishedListeningExam } from './listeningExamPublish'
+import {
+  hideListeningCatalogExam,
+  hideReadingCatalogExam,
+  isCatalogStyleExamId,
+} from './examCatalogHide'
+import { isSystemReadingExamId } from './importReadingManualUtils'
+import { isSystemListeningExamId } from './examListFilter'
 import {
   clearListeningDraft,
   clearReadingDraft,
@@ -63,7 +70,7 @@ function safeDraftFlag(read: () => boolean): boolean {
   }
 }
 
-function safeReadingRow(exam: ReadingExam): {
+function safeReadingRow(exam: ReadingExam, isAdmin: boolean): {
   id: string
   title: string
   meta: string
@@ -89,7 +96,7 @@ function safeReadingRow(exam: ReadingExam): {
         ? `Đúng ${completion.correct}/${completion.total} câu`
         : exam.bandHint || `${parts.length} part · ${qCount} câu`,
       done: Boolean(completion),
-      canDelete: canDeleteReadingExamId(exam.id),
+      canDelete: canDeleteReadingExamId(exam.id, { isAdmin }),
       canEdit: isImportedReadingExamId(exam.id) && isIeltsReadingWizardEditable(exam),
     }
   } catch (err) {
@@ -98,12 +105,12 @@ function safeReadingRow(exam: ReadingExam): {
       id: exam.id,
       title: exam.title || exam.id,
       meta: 'Không đọc được metadata đề',
-      canDelete: canDeleteReadingExamId(exam.id),
+      canDelete: canDeleteReadingExamId(exam.id, { isAdmin }),
     }
   }
 }
 
-function safeListeningRow(exam: ListeningExam): {
+function safeListeningRow(exam: ListeningExam, isAdmin: boolean): {
   id: string
   title: string
   meta: string
@@ -127,7 +134,7 @@ function safeListeningRow(exam: ListeningExam): {
         ? `Đúng ${completion.correct}/${completion.total} câu`
         : `${sourceLabel}${exam.bandHint || `${typeLabel} · ${qCount} câu · ${exam.examMode ?? 'practice'}`}`,
       done: Boolean(completion),
-      canDelete: canDeleteListeningExamId(exam.id),
+      canDelete: canDeleteListeningExamId(exam.id, { isAdmin }),
     }
   } catch (err) {
     console.warn('[ExamTrackPage] listening row failed', exam.id, err)
@@ -135,7 +142,7 @@ function safeListeningRow(exam: ListeningExam): {
       id: exam.id,
       title: exam.title || exam.id,
       meta: 'Không đọc được metadata đề',
-      canDelete: canDeleteListeningExamId(exam.id),
+      canDelete: canDeleteListeningExamId(exam.id, { isAdmin }),
     }
   }
 }
@@ -219,7 +226,7 @@ function ExamTrackPageInner() {
 
   if (track.id === 'cambridge' && !arg2) {
     return (
-      <div className="exam-hub-page">
+      <div className="exam-hub-page exam-hub-page--cambridge-selector">
         <div className="exam-hub-page__inner">
           <button type="button" className="exam-hub-back" onClick={() => navigate('/app/exam')}>
             <ArrowLeft size={14} />
@@ -228,7 +235,7 @@ function ExamTrackPageInner() {
 
           <section className="exam-full-mock-hero">
             <p className="exam-hub-kicker">{track.title}</p>
-            <h1 className="exam-hub-title">Chọn cấp độ CEFR</h1>
+            <h1 className="exam-hub-title">Select CEFR level</h1>
             <p className="exam-hub-desc">{track.description}</p>
           </section>
 
@@ -306,29 +313,36 @@ function ExamTrackPageInner() {
 
   /**
    * Xóa đề Reading khỏi Library:
-   * 1) Dexie local  2) Cloud publish (Admin — tránh đề “sống lại” sau F5)
-   * Không xóa catalog/builtin.
+   * - Import: local + cloud publish + backup
+   * - Catalog/IELTS (Admin): ẩn catalog + gỡ cloud + local + backup
    */
   async function deleteReading(exam: ReadingExam) {
-    if (!canDeleteReadingExamId(exam.id)) {
-      alert('Không xóa được đề mẫu hệ thống (catalog / builtin).')
+    if (!canDeleteReadingExamId(exam.id, { isAdmin: canImport })) {
+      alert('Không xóa được đề này.')
       return
     }
-    if (!confirm(`Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`)) return
+    const isSystem = isSystemReadingExamId(exam.id) || isCatalogStyleExamId(exam.id)
+    const msg = isSystem && canImport
+      ? `Admin xóa đề hệ thống "${exam.title}"?\n\n• Ẩn khỏi Library (catalog)\n• Gỡ cloud publish\n• Xóa local + backup\n\n(File trong bundle deploy vẫn còn đến khi redeploy.)`
+      : `Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`
+    if (!confirm(msg)) return
     try {
+      if (isSystem && canImport) {
+        await hideReadingCatalogExam(exam.id)
+      }
       const prefix = `reading-exam:${exam.id}:`
       const keys = await db.audioBlobs.where('key').startsWith(prefix).primaryKeys()
       if (keys.length) await db.audioBlobs.bulkDelete(keys as string[])
       await examRepo.delete(exam.id)
+      await examBackupRepo.delete(exam.id).catch(() => undefined)
       clearReadingDraft(exam.id)
-      // Admin: gỡ cloud — nếu chỉ xóa local, listPublished sẽ hiện lại đề
       try {
         await deletePublishedReadingExam(exam.id)
       } catch (cloudErr) {
         console.warn('[deleteReading] cloud unpublish', cloudErr)
         if (canImport) {
           alert(
-            `Đã xóa local. Không gỡ được bản cloud: ${
+            `Đã xóa/ẩn local. Không gỡ được bản cloud: ${
               cloudErr instanceof Error ? cloudErr.message : cloudErr
             }\n(Kiểm tra quyền RLS Supabase trên reading_exam_published.)`,
           )
@@ -341,19 +355,27 @@ function ExamTrackPageInner() {
   }
 
   /**
-   * Xóa đề Listening khỏi Library — local + cloud publish + audio blobs.
+   * Xóa đề Listening — Admin được xóa cả catalog IELTS.
    */
   async function deleteListening(exam: ListeningExam) {
-    if (!canDeleteListeningExamId(exam.id)) {
-      alert('Không xóa được đề mẫu hệ thống (catalog / builtin).')
+    if (!canDeleteListeningExamId(exam.id, { isAdmin: canImport })) {
+      alert('Không xóa được đề này.')
       return
     }
-    if (!confirm(`Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`)) return
+    const isSystem = isSystemListeningExamId(exam.id) || isCatalogStyleExamId(exam.id)
+    const msg = isSystem && canImport
+      ? `Admin xóa đề hệ thống "${exam.title}"?\n\n• Ẩn khỏi Library (catalog)\n• Gỡ cloud publish\n• Xóa local + backup`
+      : `Xóa đề "${exam.title}"?\n(Local + bản publish trên cloud nếu có)`
+    if (!confirm(msg)) return
     try {
+      if (isSystem && canImport) {
+        await hideListeningCatalogExam(exam.id)
+      }
       const prefix = `listening-exam:${exam.id}:`
       const keys = await db.audioBlobs.where('key').startsWith(prefix).primaryKeys()
       if (keys.length) await db.audioBlobs.bulkDelete(keys as string[])
       await listeningExamRepo.delete(exam.id)
+      await examBackupRepo.delete(exam.id).catch(() => undefined)
       clearListeningDraft(exam.id)
       try {
         await deletePublishedListeningExam(exam.id)
@@ -361,7 +383,7 @@ function ExamTrackPageInner() {
         console.warn('[deleteListening] cloud unpublish', cloudErr)
         if (canImport) {
           alert(
-            `Đã xóa local. Không gỡ được bản cloud: ${
+            `Đã xóa/ẩn local. Không gỡ được bản cloud: ${
               cloudErr instanceof Error ? cloudErr.message : cloudErr
             }\n(Kiểm tra quyền RLS Supabase trên listening_exam_published.)`,
           )
@@ -433,7 +455,7 @@ function ExamTrackPageInner() {
   const showListeningArchive = activeSkill === 'listening' && activeTrack.skills.includes('listening')
 
   return (
-    <div className={`exam-hub-page${useLibraryArchiveLayout ? ' exam-hub-page--ielts' : ''}`}>
+    <div className={`exam-hub-page${useLibraryArchiveLayout ? ' exam-hub-page--ielts' : ''}${activeSkill ? ` exam-hub-page--${activeSkill}` : ''}`}>
       <div className="exam-hub-page__inner">
         <button type="button" className="exam-hub-back" onClick={() => navigate(skillBasePath)}>
           <ArrowLeft size={14} />
@@ -533,14 +555,19 @@ function ExamTrackPageInner() {
             skill="reading"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
+            showUngrouped={canImport && libraryArchiveMode === 'ielts'}
             exams={readingList}
             buildRow={exam => {
-              const row = safeReadingRow(exam)
-              // Giữ canDelete cho đề import; chỉ khóa Sửa wizard nếu không admin
+              const row = safeReadingRow(exam, canImport)
+              // Admin: xóa được catalog; user: không Sửa wizard
               if (!canImport) return { ...row, canEdit: false }
               return row
             }}
-            onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
+            onOpenExam={id => navigate(
+              libraryArchiveMode === 'ielts'
+                ? `/app/exam/reading-picker/${id}`
+                : `/app/exam/reading/${id}`,
+            )}
             onRetryExam={id => {
               clearReadingDraft(id)
               navigate(`/app/exam/reading/${id}`)
@@ -558,8 +585,9 @@ function ExamTrackPageInner() {
             skill="listening"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
+            showUngrouped={canImport}
             exams={listeningList}
-            buildRow={exam => safeListeningRow(exam)}
+            buildRow={exam => safeListeningRow(exam, canImport)}
             onOpenExam={id => navigate(`/app/exam/listening/${id}`)}
             onRetryExam={id => {
               clearListeningDraft(id)
@@ -572,10 +600,13 @@ function ExamTrackPageInner() {
           />
         )}
 
-        {(importedReading.length > 0 || importedListening.length > 0) && (
+        {canImport && (importedReading.length > 0 || importedListening.length > 0) && (
           <p className="exam-hub-desc" style={{ marginTop: '1rem' }}>
             Đề import: {importedReading.length} Reading, {importedListening.length} Listening
-            {' · '}Có thể xóa đề import bằng nút thùng rác (không xóa đề mẫu hệ thống).
+            {' · '}
+            {canImport
+              ? 'Admin: thùng rác xóa được mọi đề (kể cả catalog IELTS — ẩn + gỡ cloud).'
+              : 'Có thể xóa đề import bằng nút thùng rác (không xóa đề mẫu hệ thống).'}
           </p>
         )}
       </div>

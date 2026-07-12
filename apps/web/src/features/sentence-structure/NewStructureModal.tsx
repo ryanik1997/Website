@@ -1,7 +1,8 @@
 import { useState, type CSSProperties } from 'react'
-import { X } from 'lucide-react'
+import { Download, FileJson, X } from 'lucide-react'
 import { sentenceStructureRepo } from '@ryan/db'
 import { STRUCTURE_CATEGORIES } from './types'
+import { CEFR_LEVELS, CEFR_LABELS, type CefrLevel } from '../../lib/cefr'
 
 export default function NewStructureModal({
   onClose,
@@ -14,10 +15,12 @@ export default function NewStructureModal({
   const [template, setTemplate] = useState('Just because [A] doesn\'t mean [B].')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState<string>(STRUCTURE_CATEGORIES[0].label)
+  const [cefr, setCefr] = useState<CefrLevel | ''>('')
   const [exampleA, setExampleA] = useState('')
   const [exampleB, setExampleB] = useState('')
   const [exampleNoteVi, setExampleNoteVi] = useState('')
   const [saving, setSaving] = useState(false)
+  const [importError, setImportError] = useState('')
 
   const inputStyle = {
     background: 'var(--bg-secondary)',
@@ -34,6 +37,7 @@ export default function NewStructureModal({
       template: template.trim(),
       description: description.trim() || 'Luyện điền A và B theo mẫu câu.',
       category,
+      cefr: cefr || undefined,
       exampleA: exampleA.trim() || '...',
       exampleB: exampleB.trim() || '...',
       exampleNoteVi: exampleNoteVi.trim() || 'Ví dụ minh họa cho cấu trúc này.',
@@ -41,6 +45,68 @@ export default function NewStructureModal({
     setSaving(false)
     onCreated(doc.id)
     onClose()
+  }
+
+  async function importJson(file: File) {
+    setImportError('')
+    try {
+      const parsed: unknown = JSON.parse(await file.text())
+      const rawItems = Array.isArray(parsed)
+        ? parsed
+        : parsed && typeof parsed === 'object' && Array.isArray((parsed as { structures?: unknown }).structures)
+          ? (parsed as { structures: unknown[] }).structures
+          : [parsed]
+      const items = rawItems.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === 'object'))
+      if (!items.length) throw new Error('JSON không có cấu trúc hợp lệ.')
+      setSaving(true)
+      let lastId = ''
+      for (const item of items) {
+        const itemTitle = String(item.title ?? '').trim()
+        const itemTemplate = String(item.template ?? '').trim()
+        if (!itemTitle || !itemTemplate.includes('[A]') || !itemTemplate.includes('[B]')) {
+          throw new Error('Mỗi cấu trúc cần title và template có [A], [B].')
+        }
+        const rawCefr = String(item.cefr ?? '').toUpperCase()
+        const validCefr = CEFR_LEVELS.includes(rawCefr as CefrLevel) ? rawCefr as CefrLevel : undefined
+        const created = await sentenceStructureRepo.create({
+          title: itemTitle,
+          template: itemTemplate,
+          description: String(item.description ?? 'Luyện điền A và B theo mẫu câu.'),
+          category: String(item.category ?? category),
+          cefr: validCefr,
+          exampleA: String(item.exampleA ?? '...'),
+          exampleB: String(item.exampleB ?? '...'),
+          exampleNoteVi: String(item.exampleNoteVi ?? 'Ví dụ minh họa cho cấu trúc này.'),
+        })
+        lastId = created.id
+      }
+      setSaving(false)
+      onCreated(lastId)
+      onClose()
+    } catch (error) {
+      setSaving(false)
+      setImportError(error instanceof Error ? error.message : 'Không đọc được file JSON.')
+    }
+  }
+
+  function downloadJsonSample() {
+    const sample = [{
+      title: 'The more ..., the more ...',
+      template: 'The more [A], the more [B].',
+      description: 'Hai vế tỷ lệ thuận — càng... càng...',
+      category: 'So sánh',
+      cefr: 'B1',
+      exampleA: 'you practise',
+      exampleB: 'you improve',
+      exampleNoteVi: 'Càng luyện tập, bạn càng tiến bộ.',
+    }]
+    const blob = new Blob([JSON.stringify(sample, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = 'sentence-structures-sample.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
   }
 
   const valid = title.trim() && template.includes('[A]') && template.includes('[B]')
@@ -58,6 +124,14 @@ export default function NewStructureModal({
         </div>
 
         <div className="px-6 py-5 flex flex-col gap-3 overflow-y-auto text-sm">
+          <label className="flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold" style={{ borderColor: 'var(--border-color)', color: 'var(--color-primary)', background: 'var(--bg-secondary)' }}>
+            <FileJson size={15} /> Import JSON (một hoặc nhiều cấu trúc)
+            <input type="file" accept="application/json,.json" className="hidden" onChange={e => { const file = e.target.files?.[0]; if (file) void importJson(file); e.currentTarget.value = '' }} />
+          </label>
+          <button type="button" onClick={downloadJsonSample} className="flex items-center gap-2 self-start text-xs font-semibold" style={{ color: 'var(--text-muted)' }}>
+            <Download size={14} /> Tải JSON mẫu
+          </button>
+          {importError && <p className="rounded-lg px-3 py-2 text-xs" style={{ background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)', color: 'var(--color-accent)' }}>{importError}</p>}
           <Field label="Tiêu đề" value={title} onChange={setTitle} placeholder="VD: Just because ... doesn't mean ..." style={inputStyle} />
           <Field label="Mẫu câu (dùng [A] và [B])" value={template} onChange={setTemplate} placeholder="Just because [A] doesn't mean [B]." style={inputStyle} />
           <Field label="Mô tả (tiếng Việt)" value={description} onChange={setDescription} placeholder="Giải thích ngắn khi nào dùng..." style={inputStyle} />
@@ -72,6 +146,18 @@ export default function NewStructureModal({
               {STRUCTURE_CATEGORIES.map(c => (
                 <option key={c.id} value={c.label}>{c.icon} {c.label}</option>
               ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Trình độ CEFR</label>
+            <select
+              value={cefr}
+              onChange={e => setCefr(e.target.value as CefrLevel | '')}
+              className="w-full px-3 py-2 rounded-lg border text-sm outline-none"
+              style={inputStyle}
+            >
+              <option value="">Chưa gán CEFR</option>
+              {CEFR_LEVELS.map(level => <option key={level} value={level}>{level} · {CEFR_LABELS[level]}</option>)}
             </select>
           </div>
           <div className="grid grid-cols-2 gap-3">

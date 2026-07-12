@@ -24,5 +24,10 @@ export const mindmapRepo = {
   setLayout: (id: string, layout: string) =>
     db.mindmaps.update(id, { layout, updatedAt: now() }),
 
-  delete: (id: string) => db.mindmaps.delete(id),
+  async delete(id: string): Promise<void> {
+    await db.transaction('rw', db.mindmaps, db.mindmapTombstones, async () => {
+      await db.mindmapTombstones.put({ id, deletedAt: now() })
+      await db.mindmaps.delete(id)
+    })
+  },
 }

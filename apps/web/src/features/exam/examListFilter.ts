@@ -10,7 +10,7 @@ export function isUserImportedListeningExamId(id: string): boolean {
   return id.startsWith('listening-import-')
 }
 
-/** Đề hệ thống (builtin/catalog/sample) — không cho xóa. */
+/** Đề hệ thống (builtin/catalog/sample). */
 export function isSystemListeningExamId(id: string): boolean {
   return (
     id.startsWith('catalog-')
@@ -19,12 +19,14 @@ export function isSystemListeningExamId(id: string): boolean {
   )
 }
 
-/** Có thể xóa khỏi Library: import local hoặc bản publish (không phải catalog). */
-export function canDeleteListeningExamId(id: string): boolean {
+/**
+ * User: chỉ import/publish.
+ * Admin: xóa được catalog/sample (ẩn + gỡ cloud).
+ */
+export function canDeleteListeningExamId(id: string, opts?: { isAdmin?: boolean }): boolean {
+  if (opts?.isAdmin === true) return true
   if (isSystemListeningExamId(id)) return false
-  // Import local hoặc publish từ import (cùng id listening-import-*)
   if (isUserImportedListeningExamId(id)) return true
-  // Publish admin với id khác (uuid) — cho xóa nếu không phải system
   if (!id.startsWith('catalog-') && !isCambridgeSampleExamId(id)) return true
   return false
 }

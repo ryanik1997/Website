@@ -1,0 +1,836 @@
+{
+  "id": "catalog-reading-ielts-cam9-test4",
+  "title": "IELTS Reading — Cambridge 9 Test 4",
+  "durationMinutes": 60,
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 4 · 3 passages · 40 câu — 3 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ielts-cam9-test4-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Read the text and answer questions 1–13.",
+      "passageTitle": "The life and work of Marie Curie",
+      "passage": [
+        {
+          "text": "The life and work of Marie Curie Marie Curie is probably the most famous woman scientist who has ever lived. Born Maria Sklodowska in Poland in 1867, she is famous for her work on radioactivity, and was twice a winner of the Nobel Prize. With her husband, Pierre Curie, and Henri Becquerel, she was awarded the 1903 Nobel Prize for Physics, and was then sole winner of the 1911 Nobel Prize for Chemistry. She was the first woman to win a Nobel Prize. From childhood, Marie was remarkable for her prodigious memory, and at the age of 16 won a gold medal on completion of her secondary education. Because her father lost his savings through bad investment, she then had to take work as a teacher. From her earnings she was able to finance her sister Bronia's medical studies in Paris, on the understanding that Bronia would, in turn, later help her to get an education. In 1891 this promise was fulfilled and Marie went to Paris and began to study at the Sorbonne (the University of Paris). She often worked far into the night and lived on little more than bread and butter and tea. She came first in the examination in the physical sciences in 1893, and in 1894 was placed second in the examination in mathematical sciences. It was not until the spring of that year that she was introduced to Pierre Curie. Their marriage in 1895 marked the start of a partnership that was soon to achieve results of world significance. Following Henri Becquerel's discovery in 1896 of a new phenomenon, which Marie later called 'radioactivity', Marie Curie decided to find out if the radioactivity discovered in uranium was to be found in other elements. She discovered that this was true for thorium. Turning her attention to minerals, she found her interest drawn to pitchblende, a mineral whose radioactivity, superior to that of pure uranium, could be explained only by the presence in the ore of small quantities of an unknown substance of very high activity. Pierre Curie joined her in the work that she had undertaken to resolve this problem, and that led to the discovery of the new elements, polonium and radium. While Pierre Curie devoted himself chiefly to the physical study of the new radiations, Marie Curie struggled to obtain pure radium in the metallic state. This was achieved with the help of the chemist Andre-Louis Debierne, one of"
+        },
+        {
+          "text": "Test4 Pierre Curie's pupils. Based on the results of this research, Marie Curie received her Doctorate of Science, and in 1903 Marie and Pierre shared with Becquerel the Nobel Prize for Physics for the discovery of radioactivity. The births of Marie's two daughters, Irene and Eve, in 1897 and 1904 failed to interrupt her scientific work. She was appointed lecturer in physics at the Ecole Normale Superieure for girls in Sevres, France (1900). and introduced a method of teaching based on experimental demonstrations. In December 1904 she was appointed chief assistant in the laboratory directed by Pierre Curie. The sudden death of her husband in 1906 was a bitter blow to Marie Curie, but was also a turning point in her career: henceforth she was to devote all her energy to completing alone the scientific work that they had undertaken. On May 13, 1906, she was appointed to the professorship that had been left vacant on her husband's death, becoming the first woman to teach at the Sorbonne. In 1911 she was awarded the Nobel Prize for Chemistry for the isolation of a pure form of radium. During World War I, Marie Curie, with the help of her daughter Irene, devoted herself to the development of the use of X-radiography, including the mobile units which came to be known as 'Little Curies', used for the treatment of wounded soldiers. In 1918 the Radium Institute, whose staff Irene had joined, began to operate in earnest, and became a centre for nuclear physics and chemistry. Marie Curie, now at the highest point of her fame and, from 1922, a member of the Academy of Medicine, researched the chemistry of radioactive substances and their medical applications. In 1921, accompanied by her two daughters, Marie Curie made a triumphant journey to the United States to raise funds for research on radium. Women there presented her with a gram of radium for her campaign. Marie also gave lectures in Belgium, Brazil, Spain and Czechoslovakia and, in addition, had the satisfaction of seeing the development of the Curie Foundation in Paris, and the inauguration in 1932 in Warsaw of the Radium Institute, where her sister Bronia became director. One of Marie Curie's outstanding achievements was to have understood the need to accumulate intense radioactive sources, not only to treat illness but also to maintain an abundant supply for research. The existence in Paris at the Radium Institute of a stock of 1.5 grams of radium made a decisive contribution to the success of the experiments undertaken in the years around 1930. This work prepared the way for the discovery of the neutron by Sir James Chadwick and, above all, for the discovery in 1934 by Irene and Frederic Joliot- Curie of artificial radioactivity. A few months after this discovery, Marie Curie died as a result of leukaemia caused by exposure to radiation. She had often carried test tubes containing radioactive isotopes in her pocket, remarking on the pretty blue-green light they gave off. Her contribution to physics had been immense, not only in her own work, the importance of which had been demonstrated by her two Nobel Prizes, but because of her influence on subsequent generations of nuclear physicists and chemists."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE or NOT GIVEN.",
+          "type": "tfng",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q1",
+              "number": 1,
+              "type": "true-false-not-given",
+              "prompt": "Marie Curie's husband was a joint winner of both Marie's Nobel Prizes.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Shared 1903 only; 1911 sole winner.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q2",
+              "number": 2,
+              "type": "true-false-not-given",
+              "prompt": "Marie became interested in science when she was a child.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "Prodigious memory — science interest not stated.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q3",
+              "number": 3,
+              "type": "true-false-not-given",
+              "prompt": "Marie was able to attend the Sorbonne because of her sister's financial contribution.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Bronia helped after promise.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q4",
+              "number": 4,
+              "type": "true-false-not-given",
+              "prompt": "Marie stopped doing research for several years when her children were born.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Births failed to interrupt work.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q5",
+              "number": 5,
+              "type": "true-false-not-given",
+              "prompt": "Marie took over the teaching position her husband had held.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Appointed to Pierre's professorship.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q6",
+              "number": 6,
+              "type": "true-false-not-given",
+              "prompt": "Marie's sister Bronia studied the medical uses of radioactivity.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "Bronia studied medicine.",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-1-g1",
+          "range": "Questions 7–13",
+          "instruction": "Complete the notes below. Choose ONE WORD from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q7",
+              "number": 7,
+              "type": "gap-fill",
+              "prompt": "When uranium was discovered to be radioactive, Marie Curie found that the element called ___ had the same property.",
+              "options": [],
+              "answer": "thorium",
+              "explanation": "Also radioactive.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q8",
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "Marie and Pierre Curie's research into the radioactivity of the mineral known as ___ led to the discovery of two new elements.",
+              "options": [],
+              "answer": "pitchblende",
+              "explanation": "Led to polonium and radium.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q9",
+              "number": 9,
+              "type": "gap-fill",
+              "prompt": "In 1911, Marie Curie received recognition for her work on the element ___.",
+              "options": [],
+              "answer": "radium",
+              "explanation": "Nobel Chemistry for radium.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q10",
+              "number": 10,
+              "type": "gap-fill",
+              "prompt": "Marie and Irene Curie developed X-radiography which was used as a medical technique for ___.",
+              "options": [],
+              "answer": "soldiers",
+              "explanation": "Treatment of wounded soldiers.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q11",
+              "number": 11,
+              "type": "gap-fill",
+              "prompt": "Marie Curie saw the importance of collecting radioactive material both for research and for cases of ___.",
+              "options": [],
+              "answer": "illness",
+              "explanation": "Treat illness.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q12",
+              "number": 12,
+              "type": "gap-fill",
+              "prompt": "The radioactive material stocked in Paris contributed to the discoveries in the 1930s of the ___ and of artificial radioactivity.",
+              "options": [],
+              "answer": "neutron",
+              "explanation": "Chadwick's neutron.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-1-q13",
+              "number": 13,
+              "type": "gap-fill",
+              "prompt": "During her research, Marie Curie was exposed to radiation and as a result she suffered from ___.",
+              "options": [],
+              "answer": "leukaemia",
+              "explanation": "Died of leukaemia.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ielts-cam9-test4-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Read the text and answer questions 14–26.",
+      "passageTitle": "Young children's sense of identity",
+      "passage": [
+        {
+          "text": "Young children's sense of identity"
+        },
+        {
+          "label": "A",
+          "text": "A sense of self develops in young children by degrees. The process can usefully be thought of in terms of the gradual emergence of two somewhat separate features: the self as a subject, and the self as an object. William James introduced the distinction in 1892, and contemporaries of his, such as Charles Cooley, added to the developing debate. Ever since then psychologists have continued building on the theory."
+        },
+        {
+          "label": "B",
+          "text": "According to James, a child's first step on the road to self-understanding can be seen as the recognition that he or she exists. This is an aspect of the self that he labelled 'self-as-subject', and he gave it various elements. These included an awareness of one's own agency (i.e. one's power to act), and an awareness of one's distinctiveness from other people. These features gradually emerge as infants explore their world and interact with caregivers. Cooley (1902) suggested that a sense of the self-as-subject was primarily concerned with being able to exercise power. He proposed that the earliest examples of this are an infant's attempts to control physical objects, such as toys or his or her own limbs. This is followed by attempts to affect the behaviour of other people. For example, infants learn that when they cry or smile someone responds to them."
+        },
+        {
+          "label": "C",
+          "text": "Another powerful source of information for infants about the effects they can have on the world around them is provided when others mimic them. Many parents spend a lot of time, particularly in the early months, copying their infant's vocalizations and expressions. In addition, young children enjoy looking in mirrors, where the movements they can see are dependent upon their own movements. This is not to say that infants recognize the reflection as their own image (a later development). However, Lewis and Brooks-Gunn (1979) suggest that infants' developing understanding that the movements they see in the mirror are contingent on their own, leads to a growing awareness that they are distinct from other people. This is because they, and only they, can change the reflection in the mirror."
+        },
+        {
+          "label": "D",
+          "text": "This understanding that children gain of themselves as active agents continues to develop in their attempts to co-operate with others in play. Dunn (1988) points out that it is in such day-to-day relationships and interactions that the child's understanding of his- or herself emerges. Empirical investigations of the self-as- subject in young children are, however, rather scarce because of difficulties of communication: even if young infants can reflect on their experience, they certainly cannot express this aspect of the self directly. 91 Test4"
+        },
+        {
+          "label": "E",
+          "text": "Once children have acquired a certain level of self-awareness, they begin to place themselves in a whole series of categories, which together play such an important part in defining them uniquely as 'themselves'. This second step in the development of a full sense of self is what James called the 'self-as-object'. This has been seen by many to be the aspect of the self which is most influenced by social elements, since it is made up of social roles (such as student, brother, colleague) and characteristics which derive their meaning from comparison or interaction with other people (such as trustworthiness, shyness, sporting ability)."
+        },
+        {
+          "label": "F",
+          "text": "Cooley and other researchers suggested a close connection between a person's own understanding of their identity and other people's understanding of it. Cooley believed that people build up their sense of identity from the reactions of others to them, and from the view they believe others have of them. He called the self- as-object the 'looking-glass self', since people come to see themselves as they are reflected in others. Mead (1934) went even further, and saw the self and the social world as inextricably bound together: 'The self is essentially a social structure, and it arises in social experience ... it is impossible to conceive of a self arising outside of social experience.'"
+        },
+        {
+          "label": "G",
+          "text": "Lewis and Brooks-Gunn argued that an important developmental milestone is reached when children become able to recognize themselves visually without the support of seeing contingent movement. This recognition occurs around their second birthday. In one experiment, Lewis and Brooks-Gunn (1979) dabbed some red powder on the noses of children who were playing in front of a mirror, and then observed how often they touched their noses. The psychologists reasoned that if the children knew what they usually looked like, they would be surprised by the unusual red mark and would start touching it. On the other hand, they found that children of 15 to 18 months are generally not able to recognize themselves unless other cues such as movement are present."
+        },
+        {
+          "label": "H",
+          "text": "Finally, perhaps the most graphic expressions of self-awareness in general can 92 be seen in the displays of rage which are most common from 18 months to 3 years of age. In a longitudinal study of groups of three or four children, Bronson (1975) found that the intensity of the frustration and anger in their disagreements increased sharply between the ages of 1and2 years. Often, the children's disagreements involved a struggle over a toy that none of them had played with before or after the tug-of-war: the children seemed to be disputing ownership rather than wanting to play with it. Although it may be less marked in other societies, the link between the sense of 'self' and of 'ownership' is a notable feature of childhood in Western societies. Reading"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-2-g0",
+          "range": "Questions 14–19",
+          "instruction": "Reading Passage 2 has eight paragraphs, A–H. Which paragraph contains the following information?",
+          "note": "NB You may use any letter more than once.",
+          "type": "matching-paragraph",
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q14",
+              "number": 14,
+              "type": "matching-paragraph",
+              "prompt": "an account of the method used by researchers in a particular study",
+              "options": [],
+              "answer": "g",
+              "explanation": "Red powder mirror experiment.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q15",
+              "number": 15,
+              "type": "matching-paragraph",
+              "prompt": "the role of imitation in developing a sense of identity",
+              "options": [],
+              "answer": "c",
+              "explanation": "Others mimic infants.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q16",
+              "number": 16,
+              "type": "matching-paragraph",
+              "prompt": "the age at which children can usually identify a static image of themselves",
+              "options": [],
+              "answer": "g",
+              "explanation": "Around second birthday.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q17",
+              "number": 17,
+              "type": "matching-paragraph",
+              "prompt": "a reason for the limitations of scientific research into 'self-as-subject'",
+              "options": [],
+              "answer": "d",
+              "explanation": "Difficulties of communication.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q18",
+              "number": 18,
+              "type": "matching-paragraph",
+              "prompt": "reference to a possible link between culture and a particular form of behaviour",
+              "options": [],
+              "answer": "h",
+              "explanation": "Ownership in Western societies.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q19",
+              "number": 19,
+              "type": "matching-paragraph",
+              "prompt": "examples of the wide range of features that contribute to the sense of 'self-as-object'",
+              "options": [],
+              "answer": "e",
+              "explanation": "Social roles and characteristics.",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-2-g1",
+          "range": "Questions 20–23",
+          "instruction": "Look at the following findings and the list of researchers below. Match each finding with the correct researcher, A–E.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "James"
+            },
+            {
+              "id": "b",
+              "name": "Cooley"
+            },
+            {
+              "id": "c",
+              "name": "Lewis and Brooks-Gunn"
+            },
+            {
+              "id": "d",
+              "name": "Mead"
+            },
+            {
+              "id": "e",
+              "name": "Bronson"
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q20",
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "A sense of identity can never be formed without relationships with other people.",
+              "options": [],
+              "answer": "d",
+              "explanation": "Mead — social experience.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q21",
+              "number": 21,
+              "type": "matching-features",
+              "prompt": "A child's awareness of self is related to a sense of mastery over things and people.",
+              "options": [],
+              "answer": "b",
+              "explanation": "Cooley — control objects.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q22",
+              "number": 22,
+              "type": "matching-features",
+              "prompt": "At a certain age, children's sense of identity leads to aggressive behaviour.",
+              "options": [],
+              "answer": "e",
+              "explanation": "Bronson — frustration/anger.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q23",
+              "number": 23,
+              "type": "matching-features",
+              "prompt": "Observing their own reflection contributes to children's self awareness.",
+              "options": [],
+              "answer": "c",
+              "explanation": "Mirror movements contingent.",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-2-g2",
+          "range": "Questions 24–26",
+          "instruction": "Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q24",
+              "number": 24,
+              "type": "gap-fill",
+              "prompt": "First, children come to realise that they can have an effect on the world around them, for example by causing the image to move when they face a ___.",
+              "options": [],
+              "answer": "mirror",
+              "explanation": "Mirror movements.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "This aspect of self-awareness is difficult to research directly, because of ___ problems.",
+              "options": [],
+              "answer": "communication",
+              "explanation": "Difficulties of communication.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-2-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "In Western societies, the development of self awareness is often linked to a sense of ___, and can lead to disputes.",
+              "options": [],
+              "answer": "ownership",
+              "explanation": "Link between self and ownership.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ielts-cam9-test4-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Read the text and answer questions 27–40.",
+      "passageTitle": "The development of museums",
+      "passage": [
+        {
+          "label": "A",
+          "text": "The conviction that historical relics provide infallible testimony about the past is rooted in the nineteenth and early twentieth centuries, when science was regarded as objective and value free. As one writer observes: 'Although it is now evident that artefacts are as easily altered as chronicles, public faith in their veracity endures: a tangible relic seems ipso facto real: Such conviction was, until recently, reflected in museum displays. Museums used to look - and some still do - much like storage rooms of objects packed together in showcases: good for scholars who wanted to study the subtle differences in design, but not for the ordinary visitor, to whom it all looked alike. Similarly, the information accompanying the objects often made little sense to the lay visitor. The content and format of explanations dated back to a time when the museum was the exclusive domain of the scientific researcher."
+        },
+        {
+          "label": "B",
+          "text": "Recently, however, attitudes towards history and the way it should be presented have altered. The key word in heritage display is now'experience: the more exciting the better and, if possible, involving all the senses. Good examples of this approach in the UK are the Jorvik Centre in York; the National Museum of Photography, Film and Television in Bradford; and the Imperial War Museum in London. In the US the trend emerged much earlier: Williamsburg has been a prototype for many heritage developments in other parts of the world. No one can predict where the process will end. On so-called heritage sites the re-enactment of historical events is increasingly popular, and computers will soon provide virtual reality experiences, which will present visitors with a vivid image of the period oftheir choice, in which they themselves can act as if part of the historical environment. Such developments have been criticised as an intolerable vulgarisation, but the success of many historical theme parks and similar locations suggests that the majority of the public does not share this opinion."
+        },
+        {
+          "label": "C",
+          "text": "In a related development, the sharp distinction between museum and heritage sites on the one hand, and theme parks on the other, is gradually evaporating. They already borrow ideas and concepts from one another. For example, museums have adopted story lines for exhibitions, sites have accepted 'theming' as a relevant tool, and theme parks are moving towards more authenticity and research-based presentations. In zoos, animals are no longer kept in cages, but in great spaces, either in the open air or in enormous greenhouses, such as the jungle and desert environments in Burgers' Zoo in Holland. This particular trend is regarded as one of the major developments in the presentation of natural history in the twentieth century. 97 Test4"
+        },
+        {
+          "label": "D",
+          "text": "Theme parks are undergoing other changes, too, as they try to present more serious social and cultural issues, and move away from fantasy. This development is a response to market forces and, although museums and heritage sites have a special, rather distinct, role to fulfil, they are also operating in a very competitive environment, where visitors make choices on how and where to spend their free time. Heritage and museum experts do not have to invent stories and recreate historical environments to attract their visitors: their assets are already in place. However, exhibits must be both based on artefacts and facts as we know them, and attractively presented. Those who are professionally engaged in the art of interpreting history are thus in a difficult position, as they must steer a narrow course between the demands of 'evidence' and 'attractiveness; especially given the increasing need in the heritage industry for income-generating activities."
+        },
+        {
+          "label": "E",
+          "text": "It could be claimed that in order to make everything in heritage more'real; historical accuracy must be increasingly altered. For example, Pithecanthropus erectus is depicted in an Indonesian museum with Malay facial features, because this corresponds to public perceptions. Similarly, in the Museum of Natural History in Washington, Neanderthal man is shown making a dominant gesture to his wife. Such presentations tell us more about contemporary perceptions of the world than about our ancestors. There is one compensation, however, for the professionals who make these interpretations: if they did not provide the interpretation, visitors would do it for themselves, based on their own ideas, misconceptions and prejudices. And no matter how exciting the result, it would contain a lot more bias than the presentations provided by experts."
+        },
+        {
+          "label": "F",
+          "text": "Human bias is inevitable, but another source of bias in the representation of history has to do with the transitory nature of the materials themselves. The simple fact is that not everything from history survives the historical process. Castles, palaces and cathedrals have a longer lifespan than the dwellings of ordinary people. The same applies to the furnishings and other contents of the premises. In a town like Leyden in Holland, which in the seventeenth century was occupied by approximately the same number of inhabitants as today, people lived within the walled town, an area more than five times smaller than modern Leyden. In most of the houses several families lived together in circumstances beyond our imagination. Yet in museums, fine period rooms give only an image of the lifestyle of the upper class of that era. No wonder that people who stroll around exhibitions are filled with nostalgia; the evidence in museums indicates that life was so much better in the past. This notion is induced by the bias in its representation in museums and heritage centres. 98"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-3-g0",
+          "range": "Questions 27–30",
+          "instruction": "Reading Passage 3 has six paragraphs, A–F. Choose the correct heading for paragraphs B–E from the list of headings below.",
+          "note": "Example: Paragraph A → v. There are more headings than paragraphs.",
+          "type": "matching-headings",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q27",
+              "number": 27,
+              "type": "matching-headings",
+              "prompt": "Paragraph B",
+              "options": [],
+              "answer": "ii",
+              "explanation": "Mixed views on museum changes.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q28",
+              "number": 28,
+              "type": "matching-headings",
+              "prompt": "Paragraph C",
+              "options": [],
+              "answer": "vi",
+              "explanation": "Museums and theme parks less distinct.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q29",
+              "number": 29,
+              "type": "matching-headings",
+              "prompt": "Paragraph D",
+              "options": [],
+              "answer": "i",
+              "explanation": "Commercial pressures on interpreters.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q30",
+              "number": 30,
+              "type": "matching-headings",
+              "prompt": "Paragraph E",
+              "options": [],
+              "answer": "iii",
+              "explanation": "Interpret to avoid visitor bias.",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-3-g1",
+          "range": "Questions 31–36",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q31",
+              "number": 31,
+              "type": "multiple-choice",
+              "prompt": "Compared with today's museums, those of the past",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "did not present history in a detailed way."
+                },
+                {
+                  "id": "b",
+                  "label": "were not primarily intended for the public."
+                },
+                {
+                  "id": "c",
+                  "label": "were more clearly organised."
+                },
+                {
+                  "id": "d",
+                  "label": "preserved items with greater care."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Like storage rooms for scholars.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q32",
+              "number": 32,
+              "type": "multiple-choice",
+              "prompt": "According to the writer, current trends in the heritage industry",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "emphasise personal involvement."
+                },
+                {
+                  "id": "b",
+                  "label": "have their origins in York and London."
+                },
+                {
+                  "id": "c",
+                  "label": "rely on computer images."
+                },
+                {
+                  "id": "d",
+                  "label": "reflect minority tastes."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Virtual reality — act as part of environment.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q33",
+              "number": 33,
+              "type": "multiple-choice",
+              "prompt": "The writer says that museums, heritage sites and theme parks",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "often work in close partnership."
+                },
+                {
+                  "id": "b",
+                  "label": "try to preserve separate identities."
+                },
+                {
+                  "id": "c",
+                  "label": "have similar exhibits."
+                },
+                {
+                  "id": "d",
+                  "label": "are less easy to distinguish than before."
+                }
+              ],
+              "answer": "d",
+              "explanation": "Distinction evaporating.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q34",
+              "number": 34,
+              "type": "multiple-choice",
+              "prompt": "The writer says that in preparing exhibits for museums, experts",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "should pursue a single objective."
+                },
+                {
+                  "id": "b",
+                  "label": "have to do a certain amount of language translation."
+                },
+                {
+                  "id": "c",
+                  "label": "should be free from commercial constraints."
+                },
+                {
+                  "id": "d",
+                  "label": "have to balance conflicting priorities."
+                }
+              ],
+              "answer": "d",
+              "explanation": "Evidence vs attractiveness.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q35",
+              "number": 35,
+              "type": "multiple-choice",
+              "prompt": "In paragraph E, the writer suggests that some museum exhibits",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "fail to match visitor expectations."
+                },
+                {
+                  "id": "b",
+                  "label": "are based on the false assumptions of professionals."
+                },
+                {
+                  "id": "c",
+                  "label": "reveal more about present beliefs than about the past."
+                },
+                {
+                  "id": "d",
+                  "label": "allow visitors to make more use of their imagination."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Contemporary perceptions.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q36",
+              "number": 36,
+              "type": "multiple-choice",
+              "prompt": "The passage ends by noting that our view of history is biased because",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "we fail to use our imagination."
+                },
+                {
+                  "id": "b",
+                  "label": "only very durable objects remain from the past."
+                },
+                {
+                  "id": "c",
+                  "label": "we tend to ignore things that displease us."
+                },
+                {
+                  "id": "d",
+                  "label": "museum exhibits focus too much on the local area."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Not everything survives.",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-reading-ielts-cam9-test4-part-3-g2",
+          "range": "Questions 37–40",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE or NOT GIVEN.",
+          "type": "tfng",
+          "questions": [
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q37",
+              "number": 37,
+              "type": "true-false-not-given",
+              "prompt": "Consumers prefer theme parks which avoid serious issues.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Theme parks present more serious issues.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q38",
+              "number": 38,
+              "type": "true-false-not-given",
+              "prompt": "More people visit museums than theme parks.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "Not compared.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q39",
+              "number": 39,
+              "type": "true-false-not-given",
+              "prompt": "The boundaries of Leyden have changed little since the seventeenth century.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "Modern Leyden five times larger.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ielts-cam9-test4-part-3-q40",
+              "number": 40,
+              "type": "true-false-not-given",
+              "prompt": "Museums can give a false impression of how life used to be.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "Bias in representation.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "ielts",
+  "catalogSlug": "ielts-cam9-test4",
+  "catalogBase": "/catalog/reading/ielts-cam9-test4"
+}

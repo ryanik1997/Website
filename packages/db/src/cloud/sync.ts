@@ -280,13 +280,19 @@ export async function syncBidirectional(
 ): Promise<SyncStats> {
   const stats = emptyStats()
 
-  const [allDecks, allCards, allSrs, localWriting, localMindmaps] = await Promise.all([
+  const [allDecks, allCards, allSrs, localWriting, localMindmaps, mmTombstones, deckTombstones, cardTombstones] = await Promise.all([
     db.decks.toArray(),
     db.cards.toArray(),
     db.srs.toArray(),
     db.writingDocs.toArray(),
     db.mindmaps.toArray(),
+    db.mindmapTombstones.toArray(),
+    db.deckTombstones.toArray(),
+    db.cardTombstones.toArray(),
   ])
+  const mmTombstoneIds = new Set(mmTombstones.map(t => t.id))
+  const deckTombstoneIds = new Set(deckTombstones.map(t => t.id).filter(isCloudUuid))
+  const cardTombstoneIds = new Set(cardTombstones.map(t => t.id).filter(isCloudUuid))
 
   // Chỉ user content + UUID hợp lệ → cloud (preset / catalog id không ghi đè RLS)
   const localDecks = allDecks.filter(d => !isPresetDeck(d) && isCloudUuid(d.id))
@@ -376,8 +382,57 @@ export async function syncBidirectional(
     }
   }
 
-  const cloudDecksLive = cloudDecks.filter(d => !ghostCloudDeckIds.has(d.id))
-  const cloudCardsLive = cloudCards.filter(c => !ghostCloudDeckIds.has(c.deck_id))
+  const cloudDecksLive = cloudDecks.filter(d => !ghostCloudDeckIds.has(d.id) && !deckTombstoneIds.has(d.id))
+  const cloudCardsLive = cloudCards.filter(
+    c => !ghostCloudDeckIds.has(c.deck_id)
+      && !deckTombstoneIds.has(c.deck_id)
+      && !cardTombstoneIds.has(c.id),
+  )
+
+  // Đẩy tombstone deck → cloud (hard delete, cards + srs cascade theo FK)
+  // Làm trước diff → tránh pull ngược deck đã xoá local.
+  if (deckTombstoneIds.size) {
+    const ids = [...deckTombstoneIds]
+    const chunkSize = 80
+    let allOk = true
+    for (let i = 0; i < ids.length; i += chunkSize) {
+      const chunk = ids.slice(i, i + chunkSize)
+      const { error } = await supabase
+        .from('decks')
+        .delete()
+        .eq('user_id', userId)
+        .in('id', chunk)
+      if (error) {
+        allOk = false
+        console.warn('[sync] deck tombstone delete', error.message)
+      }
+    }
+    if (allOk) {
+      await db.deckTombstones.bulkDelete(ids)
+    }
+  }
+
+  // Đẩy tombstone card đơn lẻ → cloud (srs cascade)
+  if (cardTombstoneIds.size) {
+    const ids = [...cardTombstoneIds]
+    const chunkSize = 80
+    let allOk = true
+    for (let i = 0; i < ids.length; i += chunkSize) {
+      const chunk = ids.slice(i, i + chunkSize)
+      const { error } = await supabase
+        .from('cards')
+        .delete()
+        .eq('user_id', userId)
+        .in('id', chunk)
+      if (error) {
+        allOk = false
+        console.warn('[sync] card tombstone delete', error.message)
+      }
+    }
+    if (allOk) {
+      await db.cardTombstones.bulkDelete(ids)
+    }
+  }
 
   // ── Decks ────────────────────────────────────────────────
   const localDeckMap = new Map(localDecks.map(d => [d.id, d]))
@@ -532,8 +587,33 @@ export async function syncBidirectional(
   }
 
   // ── Mindmaps ─────────────────────────────────────────────
+  // 1) Đẩy tombstone → cloud (hard delete) trước khi so sánh, tránh pull ngược
+  if (mmTombstoneIds.size) {
+    const ids = [...mmTombstoneIds]
+    const chunkSize = 80
+    let allOk = true
+    for (let i = 0; i < ids.length; i += chunkSize) {
+      const chunk = ids.slice(i, i + chunkSize)
+      const { error } = await supabase
+        .from('mindmaps')
+        .delete()
+        .eq('user_id', userId)
+        .in('id', chunk)
+      if (error) {
+        allOk = false
+        console.warn('[sync] mindmap tombstone delete', error.message)
+      }
+    }
+    if (allOk) {
+      await db.mindmapTombstones.bulkDelete(ids)
+    }
+  }
+
+  // 2) Loại tombstoned IDs khỏi cloud list — không pull ngược ngay cả khi delete cloud lỗi
+  const cloudMindmapsLive = cloudMindmaps.filter(m => !mmTombstoneIds.has(m.id))
+
   const localMmMap = new Map(localMindmaps.map(m => [m.id, m]))
-  const cloudMmMap = new Map(cloudMindmaps.map(m => [m.id, m]))
+  const cloudMmMap = new Map(cloudMindmapsLive.map(m => [m.id, m]))
   const mmToLocal: MindMap[] = []
   const mmToCloud: MindMap[] = []
 
@@ -552,7 +632,7 @@ export async function syncBidirectional(
       stats.conflicts += 1
     }
   }
-  for (const remote of cloudMindmaps) {
+  for (const remote of cloudMindmapsLive) {
     if (!localMmMap.has(remote.id)) {
       mmToLocal.push(cloudMindmapToLocal(remote))
     }
@@ -660,69 +740,3 @@ export async function syncBidirectional(
   return stats
 }
 
-/**
- * Push local Dexie → Supabase (legacy one-way). Prefer `syncBidirectional`.
- */
-export async function syncLocalToCloud(supabase: SupabaseClient, userId: string) {
-  await syncBidirectional(supabase, userId)
-}
-
-/**
- * Pull Supabase → Dexie when local is empty (new device).
- * Prefer `syncBidirectional` which also handles empty local.
- */
-export async function syncCloudToLocal(supabase: SupabaseClient) {
-  const [
-    { data: decks, error: decksErr },
-    { data: cards, error: cardsErr },
-    { data: srsList, error: srsErr },
-    { data: writingDocs, error: writingErr },
-    mindmapsResult,
-  ] = await Promise.all([
-    supabase.from('decks').select('*').is('deleted_at', null),
-    supabase.from('cards').select('*').is('deleted_at', null),
-    supabase.from('srs').select('*'),
-    supabase.from('writing_docs').select('*').is('deleted_at', null),
-    supabase.from('mindmaps').select('*'),
-  ])
-
-  throwIfError(decksErr, 'decks pull')
-  throwIfError(cardsErr, 'cards pull')
-  throwIfError(srsErr, 'srs pull')
-  throwIfError(writingErr, 'writing_docs pull')
-
-  let mindmaps = mindmapsResult.data
-  if (mindmapsResult.error) {
-    if (!isMissingTableError(mindmapsResult.error)) {
-      throwIfError(mindmapsResult.error, 'mindmaps pull')
-    }
-    mindmaps = []
-  }
-
-  if (decks?.length) {
-    await db.decks.bulkPut((decks as CloudDeck[]).map(cloudDeckToLocal))
-  }
-
-  if (cards?.length) {
-    await db.cards.bulkPut((cards as CloudCard[]).map(cloudCardToLocal))
-  }
-
-  if (srsList?.length) {
-    const cardDeckMap = new Map(
-      (cards as CloudCard[] | null)?.map(c => [c.id, c.deck_id]) ?? [],
-    )
-    await db.srs.bulkPut(
-      (srsList as CloudSrs[]).map(s =>
-        cloudSrsToLocal(s, cardDeckMap.get(s.card_id) ?? ''),
-      ),
-    )
-  }
-
-  if (writingDocs?.length) {
-    await db.writingDocs.bulkPut((writingDocs as CloudWritingDoc[]).map(cloudWritingToLocal))
-  }
-
-  if (mindmaps?.length) {
-    await db.mindmaps.bulkPut((mindmaps as CloudMindmap[]).map(cloudMindmapToLocal))
-  }
-}

@@ -6,6 +6,7 @@ import { dedupeExamsForLibraryDisplay, preferLibraryExam } from './examListFilte
 import { fillReadingExamFromSources } from './fillReadingExamMedia'
 import { getPublishedReadingExam, listPublishedReadingExams } from './readingExamPublish'
 import { sanitizeReadingExam } from './readingExamSanitize'
+import { isReadingCatalogHidden, listHiddenReadingCatalogIds } from './examCatalogHide'
 
 function recordToExam(record: ReadingExamRecord): ReadingExam {
   return sanitizeReadingExam({
@@ -20,7 +21,8 @@ function recordToExam(record: ReadingExamRecord): ReadingExam {
 }
 
 export function getBuiltinReadingExam(examId: string): ReadingExam | null {
-  return READING_EXAMS.find(exam => exam.id === examId) ?? null
+  const exam = READING_EXAMS.find(e => e.id === examId)
+  return exam ? sanitizeReadingExam(exam) : null
 }
 
 /** Catalog cùng level + cùng số part (fill media khi publish/import id khác catalog). */
@@ -40,6 +42,8 @@ function findCatalogMediaDonor(exam: ReadingExam): ReadingExam | null {
 }
 
 export async function resolveReadingExam(examId: string): Promise<ReadingExam | null> {
+  if (await isReadingCatalogHidden(examId)) return null
+
   const local = await examRepo.get(examId).then(r => (r ? recordToExam(r) : null))
 
   let published: ReadingExam | null = null
@@ -87,7 +91,9 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
   const publishedIds = new Set(published.map(e => e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   // Dedupe sample/catalog/local cùng Test (vd. double "Test 1 · A2 Key Reading — 5 parts")
-  return dedupeExamsForLibraryDisplay([...byId.values(), ...localOnly])
+  const hidden = new Set(await listHiddenReadingCatalogIds())
+  const all = dedupeExamsForLibraryDisplay([...byId.values(), ...localOnly])
+  return all.filter(e => !hidden.has(e.id))
 }
 
 export function examRecordFromReading(exam: ReadingExam, source: 'pdf' | 'manual', sourceFilename?: string) {
