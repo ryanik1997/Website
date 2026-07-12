@@ -2,9 +2,10 @@ import { isCatalogListeningExamId, isCatalogReadingExamId } from '@ryan/catalog'
 import { examRepo, listeningExamRepo, type ListeningExamRecord, type ReadingExamRecord } from '@ryan/db'
 import type { ListeningExam, ListeningPart } from '../exam/listeningExamData'
 import { mergeCatalogListeningMedia } from '../exam/listeningExamCatalogMerge'
-import { publishListeningExamToCloud } from '../exam/listeningExamPublish'
+import { deletePublishedListeningExam, publishListeningExamToCloud } from '../exam/listeningExamPublish'
 import { normalizeListeningExamForDisplay } from '../exam/listeningImportNormalize'
-import { publishReadingExamToCloud } from '../exam/readingExamPublish'
+import { deletePublishedReadingExam, publishReadingExamToCloud } from '../exam/readingExamPublish'
+import { supabase } from '../../lib/supabase'
 import type { ReadingExam, ReadingPart } from '../exam/examData'
 
 export interface BatchPublishProgress {
@@ -158,6 +159,30 @@ export async function publishAllLocalExamsToCloud(
         message: err instanceof Error ? err.message : 'Publish thất bại',
       })
     }
+  }
+
+  // Batch Publish is authoritative for admin-imported exams: remove cloud
+  // rows that no longer exist in the admin's local publishable set.
+  try {
+    const [{ data: cloudReading }, { data: cloudListening }] = await Promise.all([
+      supabase.from('reading_exam_published').select('id'),
+      supabase.from('listening_exam_published').select('id'),
+    ])
+    const readingIds = new Set(reading.map(record => record.id))
+    const listeningIds = new Set(listening.map(record => record.id))
+    for (const row of cloudReading ?? []) {
+      if (!readingIds.has(row.id)) await deletePublishedReadingExam(row.id)
+    }
+    for (const row of cloudListening ?? []) {
+      if (!listeningIds.has(row.id)) await deletePublishedListeningExam(row.id)
+    }
+  } catch (err) {
+    result.errors.push({
+      skill: 'reading',
+      examId: '__prune__',
+      title: 'Prune exam cloud',
+      message: err instanceof Error ? err.message : 'Không thể dọn đề đã xóa trên cloud',
+    })
   }
 
   return result

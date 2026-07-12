@@ -26,6 +26,26 @@ export interface AdminContentSyncResult {
   modules: string[]
 }
 
+const ADMIN_PUBLISHED_MINDMAP_IDS_KEY = 'admin_published_mindmap_ids'
+const ADMIN_PUBLISHED_LESSON_IDS_KEY = 'admin_published_lesson_ids'
+const ADMIN_PUBLISHED_TRANSLATION_IDS_KEY = 'admin_published_translation_ids'
+const ADMIN_PUBLISHED_STRUCTURE_IDS_KEY = 'admin_published_structure_ids'
+const ADMIN_PUBLISHED_WRITING_PROMPT_IDS_KEY = 'admin_published_writing_prompt_ids'
+
+async function mergePublishedCollection<T extends { id: string }>(
+  table: { bulkPut(items: T[]): Promise<unknown>; bulkDelete(ids: string[]): Promise<unknown> },
+  items: T[],
+  settingKey: string,
+): Promise<void> {
+  const previousIds = (await settingsRepo.getSetting(settingKey) as string[] | undefined) ?? []
+  const currentIds = items.map(item => item.id)
+  const currentIdSet = new Set(currentIds)
+  const staleIds = previousIds.filter(id => !currentIdSet.has(id))
+  if (staleIds.length) await table.bulkDelete(staleIds)
+  if (items.length) await table.bulkPut(items)
+  await settingsRepo.putSetting(settingKey, currentIds)
+}
+
 /** Tạo SRS mặc định cho thẻ publish mới (chưa có tiến độ). */
 async function ensureSrsForCards(cards: Card[]): Promise<void> {
   if (!cards.length) return
@@ -107,30 +127,33 @@ async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>
 }
 
 async function mergeLessons(lessons: Lesson[]): Promise<void> {
-  if (!lessons.length) return
-  await db.lessons.bulkPut(lessons)
+  await mergePublishedCollection(db.lessons, lessons, ADMIN_PUBLISHED_LESSON_IDS_KEY)
 }
 
 async function mergeTranslation(sets: TranslationSet[]): Promise<void> {
-  if (!sets.length) return
-  await db.translationSets.bulkPut(sets)
+  await mergePublishedCollection(db.translationSets, sets, ADMIN_PUBLISHED_TRANSLATION_IDS_KEY)
 }
 
 async function mergeSentenceStructures(items: SentenceStructure[]): Promise<void> {
-  if (!items.length) return
-  await db.sentenceStructures.bulkPut(items)
+  await mergePublishedCollection(db.sentenceStructures, items, ADMIN_PUBLISHED_STRUCTURE_IDS_KEY)
 }
 
 async function mergeWritingPrompts(docs: WritingDoc[]): Promise<void> {
-  if (!docs.length) return
   const prompts = docs.filter(d => !d.text.trim())
-  if (!prompts.length) return
-  await db.writingDocs.bulkPut(prompts)
+  await mergePublishedCollection(db.writingDocs, prompts, ADMIN_PUBLISHED_WRITING_PROMPT_IDS_KEY)
 }
 
 async function mergeMindmaps(items: MindMap[]): Promise<void> {
-  if (!items.length) return
-  await db.mindmaps.bulkPut(items)
+  const previousIds = (await settingsRepo.getSetting(ADMIN_PUBLISHED_MINDMAP_IDS_KEY) as string[] | undefined) ?? []
+  const currentIds = items.map(item => item.id)
+  const currentIdSet = new Set(currentIds)
+  const staleIds = previousIds.filter(id => !currentIdSet.has(id))
+
+  // Only prune IDs that came from a previous admin publish. Personal maps are
+  // never included here and therefore remain untouched.
+  if (staleIds.length) await db.mindmaps.bulkDelete(staleIds)
+  if (items.length) await db.mindmaps.bulkPut(items)
+  await settingsRepo.putSetting(ADMIN_PUBLISHED_MINDMAP_IDS_KEY, currentIds)
 }
 
 async function mergeModule(module: string, payload: unknown): Promise<void> {

@@ -3254,3 +3254,19 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
   - `useCheckIn.ts` — ghi local + push cloud nếu đã login + online
   - `useSyncManager` — gọi `syncCheckInDays` mỗi lần sync (cùng exam_progress)
 - **Deploy:** cần `pnpm db:push` (hoặc SQL Editor chạy 017) rồi deploy web
+## 2026-07-12 - Fix Home streak theo diem danh
+
+- Home now calculates the overview streak from persisted `reviewLog.mode=checkin` records, shared with `CheckInButton` via `calcCheckInStreak` in `checkInSync.ts`.
+- Verified with `pnpm --filter web exec tsc --noEmit`. Cloud multi-device persistence still requires applying migration `017_checkin_days.sql`.
+
+## 2026-07-12 - Admin Publish prune MindMap
+
+- Fixed admin-published MindMap deletion: user sync now remembers IDs received from the previous admin publish and removes only stale IDs missing from the new payload.
+- Personal MindMaps are not included in that ID list and are preserved.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-12 - Publish prune cho toàn bộ nội dung Admin
+
+- Lessons, Translation, Sentence Structures và Writing Prompts giờ prune các ID từng nhận từ Admin Publish nhưng đã vắng trong payload mới.
+- Batch Publish Reading/Listening giờ dọn các exam cloud không còn trong danh sách publishable local.
+- Dữ liệu cá nhân không nằm trong danh sách Admin Publish nên không bị xóa.
