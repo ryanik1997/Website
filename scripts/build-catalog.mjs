@@ -20,6 +20,7 @@ const ROOT = REPO_ROOT
 const TAINGUYEN = resolveTainguyenPath()
 const PUBLIC_CATALOG = path.join(ROOT, 'apps/web/public/catalog')
 const DATA_OUT = path.join(ROOT, 'packages/catalog/data')
+const OUT_READING = path.join(ROOT, 'out-reading')
 const IF_PRESENT =
   process.argv.includes('--if-present')
   || process.env.SKIP_CATALOG_BUILD === '1'
@@ -193,6 +194,29 @@ async function discoverIeltsReadingBundles() {
   return bundles
 }
 
+async function discoverPayloadReadingBundles() {
+  if (!existsSync(OUT_READING)) return []
+  const entries = await fs.readdir(OUT_READING)
+  return entries
+    .map(name => {
+      const match = name.match(/^reading-cam-(9|1[0-9]|20)-([1-4])\.json$/)
+      if (!match || (match[1] === '11' && match[2] === '2')) return null
+      const cam = Number(match[1])
+      const test = Number(match[2])
+      return {
+        kind: 'reading',
+        slug: `ielts-cam${cam}-test${test}`,
+        examId: `catalog-cam-${cam}-${test}-reading`,
+        examTrack: 'ielts',
+        cam,
+        test,
+        payloadPath: path.join(OUT_READING, name),
+      }
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.cam - b.cam || a.test - b.test)
+}
+
 async function writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles) {
   // Listening
   {
@@ -279,7 +303,7 @@ function transformReading(payload, bundle) {
           options: qJson.options ?? [],
           answer: qJson.answer,
           explanation: qJson.explanation ?? '',
-          answerConfidence: 'key',
+          answerConfidence: qJson.answerConfidence ?? 'key',
         }
         if (typeof qJson.minWords === 'number') question.minWords = qJson.minWords
         return question
@@ -292,7 +316,11 @@ function transformReading(payload, bundle) {
         note: groupJson.note,
         type: groupJson.type,
         paragraphLetters: groupJson.paragraphLetters,
+        noteTable: groupJson.noteTable,
+        notePassage: groupJson.notePassage,
+        notesTitle: groupJson.notesTitle,
         features: groupJson.features,
+        headings: groupJson.headings,
         wordBank: groupJson.wordBank,
         questions,
       }
@@ -306,6 +334,8 @@ function transformReading(payload, bundle) {
       passageSubtitle: partJson.passageSubtitle,
       passage,
       questionGroups,
+      topImageUrl: partJson.topImageUrl,
+      bottomImageUrl: partJson.bottomImageUrl,
     }
   })
 
@@ -513,8 +543,18 @@ async function main() {
   await fs.mkdir(PUBLIC_CATALOG, { recursive: true })
 
   const ieltsListeningBundles = await discoverIeltsListeningBundles()
-  const ieltsReadingBundles = await discoverIeltsReadingBundles()
-  const BUNDLES = [...STATIC_BUNDLES, ...ieltsReadingBundles, ...ieltsListeningBundles]
+  const discoveredReadingBundles = await discoverIeltsReadingBundles()
+  const payloadReadingBundles = await discoverPayloadReadingBundles()
+  const payloadSlugs = new Set(payloadReadingBundles.map(bundle => bundle.slug))
+  const ieltsReadingBundles = [
+    ...discoveredReadingBundles.filter(bundle => !payloadSlugs.has(bundle.slug)),
+    ...payloadReadingBundles,
+  ]
+  const BUNDLES = [
+    ...STATIC_BUNDLES,
+    ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
+    ...ieltsListeningBundles,
+  ]
   await writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles)
 
   const manifest = {
@@ -554,6 +594,18 @@ async function main() {
     console.log(`✓ ${bundle.kind}/${bundle.slug} — ${mediaCount} media, → ${outName}`)
   }
 
+  for (const bundle of payloadReadingBundles) {
+    const raw = JSON.parse(await fs.readFile(bundle.payloadPath, 'utf8'))
+    const processed = transformReading(raw, {
+      ...bundle,
+      cambridgeLevel: undefined,
+    })
+    const outName = `reading-${bundle.slug}.json`
+    manifest.reading.push({ id: bundle.examId, slug: bundle.slug, title: processed.title })
+    await fs.writeFile(path.join(DATA_OUT, outName), JSON.stringify(processed, null, 2), 'utf8')
+    console.log(`✓ reading/${bundle.slug} — payload, → ${outName}`)
+  }
+
   await fs.writeFile(
     path.join(DATA_OUT, 'manifest.json'),
     JSON.stringify(manifest, null, 2),
@@ -561,7 +613,7 @@ async function main() {
   )
 
   console.log(`\nIELTS listening: ${ieltsListeningBundles.length} đề`)
-  console.log(`IELTS reading:   ${ieltsReadingBundles.length} đề (có exam.json)`)
+  console.log(`IELTS reading:   ${ieltsReadingBundles.length} đề (${payloadReadingBundles.length} từ out-reading)`)
   console.log('\nCatalog build complete.')
   console.log(`  Public: ${PUBLIC_CATALOG}`)
   console.log(`  Data:   ${DATA_OUT}`)
