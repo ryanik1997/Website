@@ -3,6 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { Check, Loader2, RefreshCw, Sparkles } from 'lucide-react'
 import { canUse, type AIProvider, type Plan } from '@ryan/core'
 import { sentenceStructureRepo, writingRepo } from '@ryan/db'
+import { recordStructureCompletion } from './structureHistory'
 import AiSettingsModal from '../writing/AiSettingsModal'
 import {
   fillTemplate,
@@ -68,6 +69,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
     setChecked(true)
     setFlipped(false)
     clearAi()
+    if (okA && okB) recordStructureCompletion({ structureId: item.id, title: item.title, source: 'sample' })
   }
 
   function handleFlip() {
@@ -108,6 +110,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
         provider,
       )
       setAiGrade(result)
+      if (result.pass) recordStructureCompletion({ structureId: item.id, title: item.title, source: 'ai' })
       await writingRepo.recordUsage('structure_ai', tokens)
     } catch (e) {
       setAiError(e instanceof Error ? e.message.slice(0, 220) : 'Không chấm được. Thử lại.')

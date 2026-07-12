@@ -7,6 +7,7 @@ import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
 import { categoryMeta, STRUCTURE_CATEGORIES } from './types'
 import { CEFR_LEVELS, CEFR_LABELS, parseCefr, cefrBadgeStyle, type CefrLevel } from '../../lib/cefr'
+import { getStructureCompletionHistory, type StructureCompletionEntry } from './structureHistory'
 
 const PAGE_SIZE = 24
 
@@ -38,11 +39,13 @@ export default function StructureListHub() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(0)
+  const [history, setHistory] = useState<StructureCompletionEntry[]>([])
   const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
   const categoryFilter = searchParams.get('category') ?? ''
 
   useEffect(() => {
     void dedupeLegacySentenceStructures()
+    setHistory(getStructureCompletionHistory())
   }, [])
 
   const items = useLiveQuery(() => sentenceStructureRepo.all(), [])
@@ -177,6 +180,19 @@ export default function StructureListHub() {
           {(query.trim() || cefrFilter) ? ' (đã lọc)' : ''}
         </p>
       </div>
+
+      {history.length > 0 && (
+        <section className="ss-history">
+          <div className="ss-history-head"><h2>Lịch sử hoàn thành</h2><span>30 ngày gần nhất</span></div>
+          <div className="ss-history-list">
+            {history.slice(0, 6).map((entry, index) => (
+              <div className="ss-history-item" key={`${entry.completedAt}-${index}`}>
+                <span className="ss-history-check">✓</span><span>{entry.title}</span><time>{new Date(entry.completedAt).toLocaleDateString('vi-VN')}</time>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="ss-hub-groups">
         {groupedPageItems.map(([level, categoryGroups]) => (
