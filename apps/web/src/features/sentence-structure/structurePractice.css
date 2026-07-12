@@ -81,6 +81,8 @@
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button { border-color: var(--border-color) !important; background: var(--bg-card) !important; color: var(--text-muted) !important; padding: .45rem .8rem; font-size: .72rem; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button:first-child { border-color: color-mix(in srgb, var(--color-primary) 22%, var(--border-color)) !important; background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)) !important; color: var(--color-primary) !important; }
 .ss-list-page .ss-hub-count { flex: 0 0 auto; width: auto; color: var(--text-muted); font-size: .68rem; }
+.ss-list-page .ss-hub-category-filter { min-height: 2.25rem; padding: .45rem 2rem .45rem .75rem; border: 1px solid var(--border-color); border-radius: .6rem; background: var(--bg-card); color: var(--text-primary); font-size: .72rem; font-weight: 650; outline: none; }
+.ss-list-page .ss-hub-category-filter:focus { border-color: var(--color-primary); }
 .ss-list-page .ss-hub-list { display: flex; flex-direction: column; gap: .6rem; border: none; }
 .ss-list-page .ss-hub-groups { display: flex; flex-direction: column; gap: 1.5rem; }
 .ss-list-page .ss-hub-group-head { display: flex; align-items: baseline; gap: .65rem; margin: 0 0 .65rem; padding-bottom: .45rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent); }
