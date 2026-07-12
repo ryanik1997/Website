@@ -2,10 +2,10 @@ import type { MindmapLayout, NodeLayout } from './layouts'
 import { CANVAS_W, CANVAS_H } from './types'
 
 export const NODE_DIMS: Record<number, { w: number; h: number }> = {
-  0: { w: 140, h: 44 },
-  1: { w: 120, h: 36 },
-  2: { w: 100, h: 30 },
-  3: { w: 90, h: 28 },
+  0: { w: 200, h: 52 },
+  1: { w: 180, h: 44 },
+  2: { w: 160, h: 40 },
+  3: { w: 140, h: 36 },
 }
 
 /** Khe giữa mép pill và đường nối (gồm border 2px + stroke) */
@@ -14,6 +14,33 @@ const LINE_GAP = 5
 
 export function nodeDims(depth: number) {
   return NODE_DIMS[Math.min(depth, 3)]
+}
+
+/** Ưu tiên kích thước auto-fit trên NodeLayout, fallback về NODE_DIMS[depth] */
+export function layoutDims(l: { depth: number; w?: number; h?: number }): { w: number; h: number } {
+  const base = NODE_DIMS[Math.min(l.depth, 3)]
+  return { w: l.w ?? base.w, h: l.h ?? base.h }
+}
+
+/** Auto-fit dims theo text — tăng ngang trước, đến cap rồi mới xuống dòng */
+export function autoFitNodeDims(text: string, depth: number, fontPx: number): { w: number; h: number } {
+  const base = NODE_DIMS[Math.min(depth, 3)]
+  const raw = (text ?? '').trim()
+  if (!raw) return base
+
+  const charW = fontPx * 0.58
+  const padX = 26
+  const padY = 14
+  const lineH = fontPx * 1.2
+  const maxW = Math.round(base.w * 2.2)
+  const maxLines = 3
+
+  const idealW = Math.ceil(raw.length * charW + padX)
+  const w = Math.max(base.w, Math.min(idealW, maxW))
+  const availTextW = Math.max(1, w - padX)
+  const lines = Math.max(1, Math.min(maxLines, Math.ceil((raw.length * charW) / availTextW)))
+  const h = Math.max(base.h, Math.round(lines * lineH + padY))
+  return { w, h }
 }
 
 export interface ContentBounds {
@@ -32,7 +59,7 @@ export function computeContentBounds(layouts: NodeLayout[]): ContentBounds {
   let maxY = CANVAS_H
 
   for (const l of layouts) {
-    const { w, h } = nodeDims(l.depth)
+    const { w, h } = layoutDims(l)
     const pad = EDGE_PAD + 4
     minX = Math.min(minX, l.x - w / 2 - pad - 28)
     maxX = Math.max(maxX, l.x + w / 2 + pad + 28)
@@ -227,8 +254,8 @@ export function connectorPath(
   child: NodeLayout,
   layout: MindmapLayout = 'round',
 ): string {
-  const pSize = nodeDims(parent.depth)
-  const cSize = nodeDims(child.depth)
+  const pSize = layoutDims(parent)
+  const cSize = layoutDims(child)
   const { outDir, inDir } = layoutDirections(layout, parent, child)
 
   let start = pillEdgeAlongDir(parent.x, parent.y, pSize.w, pSize.h, outDir.x, outDir.y)

@@ -280,13 +280,15 @@ export async function syncBidirectional(
 ): Promise<SyncStats> {
   const stats = emptyStats()
 
-  const [allDecks, allCards, allSrs, localWriting, localMindmaps] = await Promise.all([
+  const [allDecks, allCards, allSrs, localWriting, localMindmaps, mmTombstones] = await Promise.all([
     db.decks.toArray(),
     db.cards.toArray(),
     db.srs.toArray(),
     db.writingDocs.toArray(),
     db.mindmaps.toArray(),
+    db.mindmapTombstones.toArray(),
   ])
+  const mmTombstoneIds = new Set(mmTombstones.map(t => t.id))
 
   // Chỉ user content + UUID hợp lệ → cloud (preset / catalog id không ghi đè RLS)
   const localDecks = allDecks.filter(d => !isPresetDeck(d) && isCloudUuid(d.id))
@@ -532,8 +534,33 @@ export async function syncBidirectional(
   }
 
   // ── Mindmaps ─────────────────────────────────────────────
+  // 1) Đẩy tombstone → cloud (hard delete) trước khi so sánh, tránh pull ngược
+  if (mmTombstoneIds.size) {
+    const ids = [...mmTombstoneIds]
+    const chunkSize = 80
+    let allOk = true
+    for (let i = 0; i < ids.length; i += chunkSize) {
+      const chunk = ids.slice(i, i + chunkSize)
+      const { error } = await supabase
+        .from('mindmaps')
+        .delete()
+        .eq('user_id', userId)
+        .in('id', chunk)
+      if (error) {
+        allOk = false
+        console.warn('[sync] mindmap tombstone delete', error.message)
+      }
+    }
+    if (allOk) {
+      await db.mindmapTombstones.bulkDelete(ids)
+    }
+  }
+
+  // 2) Loại tombstoned IDs khỏi cloud list — không pull ngược ngay cả khi delete cloud lỗi
+  const cloudMindmapsLive = cloudMindmaps.filter(m => !mmTombstoneIds.has(m.id))
+
   const localMmMap = new Map(localMindmaps.map(m => [m.id, m]))
-  const cloudMmMap = new Map(cloudMindmaps.map(m => [m.id, m]))
+  const cloudMmMap = new Map(cloudMindmapsLive.map(m => [m.id, m]))
   const mmToLocal: MindMap[] = []
   const mmToCloud: MindMap[] = []
 
@@ -552,7 +579,7 @@ export async function syncBidirectional(
       stats.conflicts += 1
     }
   }
-  for (const remote of cloudMindmaps) {
+  for (const remote of cloudMindmapsLive) {
     if (!localMmMap.has(remote.id)) {
       mmToLocal.push(cloudMindmapToLocal(remote))
     }

@@ -1,6 +1,8 @@
 import type { MindNode } from './types'
 import { computeLayout, applyNodeOffsets, flattenNodes, type MindmapLayout } from './types'
-import { computeContentBounds, shiftLayouts, connectorPath, nodeDims } from './connectors'
+import { computeContentBounds, shiftLayouts, connectorPath, autoFitNodeDims, layoutDims } from './connectors'
+
+const EXPORT_FONT_PX: Record<number, number> = { 0: 15.2, 1: 13.6, 2: 12.5, 3: 11.8 }
 
 function escapeXml(s: string): string {
   return s
@@ -22,7 +24,15 @@ export function mindmapToSvg(
   layoutMode: MindmapLayout = 'round',
   opts?: { bg?: string; title?: string },
 ): { svg: string; width: number; height: number } {
-  const base = computeLayout(root, layoutMode)
+  const sizeById = new Map<string, { w: number; h: number }>()
+  const buildSizes = (n: MindNode, depth: number) => {
+    const { w, h } = autoFitNodeDims(n.text ?? '', depth, EXPORT_FONT_PX[Math.min(depth, 3)])
+    sizeById.set(n.id, { w, h })
+    if (n.collapsed) return
+    n.children.forEach(c => buildSizes(c, depth + 1))
+  }
+  buildSizes(root, 0)
+  const base = computeLayout(root, layoutMode, sizeById)
   const layouts = applyNodeOffsets(base, root)
   const bounds = computeContentBounds(layouts)
   const display = shiftLayouts(layouts, bounds)
@@ -46,7 +56,7 @@ export function mindmapToSvg(
 
   const nodes: string[] = []
   for (const l of display) {
-    const { w, h } = nodeDims(l.depth)
+    const { w, h } = layoutDims(l)
     const c = nodeColors(l.depth)
     const label = textById.get(l.id) ?? ''
     const x = l.x - w / 2 + pad

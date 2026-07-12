@@ -193,6 +193,11 @@ export interface NotebookEntry {
   updatedAt: number
 }
 
+export interface MindmapTombstone {
+  id: string
+  deletedAt: number
+}
+
 export class RyanDB extends Dexie {
   groups!:         Table<Group, string>
   decks!:          Table<Deck, string>
@@ -207,6 +212,7 @@ export class RyanDB extends Dexie {
   writingHistory!: Table<WritingHistory, number>
   errorBank!:      Table<ErrorBank, number>
   mindmaps!:       Table<MindMap, string>
+  mindmapTombstones!: Table<MindmapTombstone, string>
   aiUsage!:        Table<AiUsage, [string, string]>
   settings!:       Table<Setting, string>
   sentenceStructures!: Table<SentenceStructure, string>
@@ -434,6 +440,29 @@ export class RyanDB extends Dexie {
       writingHistory:  '++id, docId, textHash, at',
       errorBank:       '++id, &signature',
       mindmaps:        '&id, updatedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+    })
+    // v13: Tombstone cho mindmap để sync xóa cloud thay vì pull ngược
+    this.version(13).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
       aiUsage:         '[day+feature], day',
       settings:        '&key',
       sentenceStructures: '&id, category, starred, updatedAt',

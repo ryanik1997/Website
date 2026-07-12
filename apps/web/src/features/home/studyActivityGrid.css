@@ -55,8 +55,8 @@
 
 .study-heatmap-grid {
   display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 4px;
 }
 
 .study-heatmap-cell {
@@ -129,6 +129,7 @@
 
 @media (max-width: 480px) {
   .study-heatmap-grid {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
     gap: 4px;
   }
 
