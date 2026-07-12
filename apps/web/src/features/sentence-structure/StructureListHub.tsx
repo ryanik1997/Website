@@ -78,7 +78,16 @@ export default function StructureListHub() {
       current.push(item)
       groups.set(key, current)
     }
-    return [...groups.entries()].sort(([a], [b]) => order.indexOf(a as typeof order[number]) - order.indexOf(b as typeof order[number]))
+    return [...groups.entries()]
+      .sort(([a], [b]) => order.indexOf(a as typeof order[number]) - order.indexOf(b as typeof order[number]))
+      .map(([level, items]) => {
+        const categories = new Map<string, SentenceStructure[]>()
+        for (const item of items) {
+          const category = categoryMeta(item.category).label
+          categories.set(category, [...(categories.get(category) ?? []), item])
+        }
+        return [level, [...categories.entries()]] as const
+      })
   }, [pageItems])
 
   function goToPractice(id: string) {
@@ -151,17 +160,20 @@ export default function StructureListHub() {
       </div>
 
       <div className="ss-hub-groups">
-        {groupedPageItems.map(([category, categoryItems]) => (
-          <section className="ss-hub-group" key={category}>
+        {groupedPageItems.map(([level, categoryGroups]) => (
+          <section className="ss-hub-group" key={level}>
             <header className="ss-hub-group-head">
-              <h2>{category === 'unassigned' ? 'Chưa gán CEFR' : `${category} · ${CEFR_LABELS[category as CefrLevel]}`}</h2>
-              <span>{categoryItems.length}</span>
+              <h2>{level === 'unassigned' ? 'Chưa gán CEFR' : `${level} · ${CEFR_LABELS[level as CefrLevel]}`}</h2>
+              <span>{categoryGroups.reduce((sum, [, items]) => sum + items.length, 0)}</span>
             </header>
-            <div className="ss-hub-list" role="list">
-              {categoryItems.map(item => (
-                <StructureRow key={item.id} item={item} onOpen={() => goToPractice(item.id)} />
-              ))}
-            </div>
+            {categoryGroups.map(([category, categoryItems]) => (
+              <div className="ss-hub-category" key={category}>
+                <div className="ss-hub-category-head"><span>{category}</span><b>{categoryItems.length}</b></div>
+                <div className="ss-hub-list" role="list">
+                  {categoryItems.map(item => <StructureRow key={item.id} item={item} onOpen={() => goToPractice(item.id)} />)}
+                </div>
+              </div>
+            ))}
           </section>
         ))}
         {filtered && total === 0 && (

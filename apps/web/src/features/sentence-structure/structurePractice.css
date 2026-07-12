@@ -84,6 +84,10 @@
 .ss-list-page .ss-hub-group-head { display: flex; align-items: baseline; gap: .65rem; margin: 0 0 .65rem; padding-bottom: .45rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent); }
 .ss-list-page .ss-hub-group-head h2 { color: var(--text-primary); font-size: .78rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .ss-list-page .ss-hub-group-head span { color: var(--text-muted); font-size: .68rem; font-weight: 700; }
+.ss-list-page .ss-hub-category { margin-top: .75rem; }
+.ss-list-page .ss-hub-category-head { display: flex; align-items: center; gap: .45rem; margin: 0 0 .4rem .15rem; color: var(--text-muted); font-size: .68rem; font-weight: 700; }
+.ss-list-page .ss-hub-category-head span { letter-spacing: .04em; }
+.ss-list-page .ss-hub-category-head b { color: var(--text-muted); font-size: .62rem; font-weight: 600; }
 .ss-list-page .ss-hub-empty--grouped { width: 100%; }
 .ss-list-page .ss-hub-row { min-height: 0; padding: 0; border: 1px solid var(--border-color); border-left: 3px solid var(--ss-level-color, var(--border-color)); border-radius: .9rem; background: var(--bg-card); transform: none; }
 .ss-list-page .ss-hub-row:hover { border-color: color-mix(in srgb, var(--border-color) 70%, var(--text-primary)); background: var(--bg-card); transform: none; }
