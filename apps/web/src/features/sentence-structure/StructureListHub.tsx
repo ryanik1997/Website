@@ -71,13 +71,14 @@ export default function StructureListHub() {
   const pageItems = filtered?.slice(pageStart, pageStart + PAGE_SIZE) ?? []
   const groupedPageItems = useMemo(() => {
     const groups = new Map<string, SentenceStructure[]>()
+    const order = [...CEFR_LEVELS, 'unassigned']
     for (const item of pageItems) {
-      const key = categoryMeta(item.category).label
+      const key = item.cefr ?? 'unassigned'
       const current = groups.get(key) ?? []
       current.push(item)
       groups.set(key, current)
     }
-    return [...groups.entries()]
+    return [...groups.entries()].sort(([a], [b]) => order.indexOf(a as typeof order[number]) - order.indexOf(b as typeof order[number]))
   }, [pageItems])
 
   function goToPractice(id: string) {
@@ -153,7 +154,7 @@ export default function StructureListHub() {
         {groupedPageItems.map(([category, categoryItems]) => (
           <section className="ss-hub-group" key={category}>
             <header className="ss-hub-group-head">
-              <h2>{category}</h2>
+              <h2>{category === 'unassigned' ? 'Chưa gán CEFR' : `${category} · ${CEFR_LABELS[category as CefrLevel]}`}</h2>
               <span>{categoryItems.length}</span>
             </header>
             <div className="ss-hub-list" role="list">
