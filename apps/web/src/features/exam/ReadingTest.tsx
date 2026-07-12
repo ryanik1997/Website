@@ -63,7 +63,6 @@ export default function ReadingTest() {
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
   const requestedPart = parseReadingPart(searchParams.get('part'))
-  const initialPartIndex = part === null ? 0 : part - 1
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
@@ -76,6 +75,7 @@ export default function ReadingTest() {
     ),
   )
   const part = isIeltsReading ? requestedPart : null
+  const initialPartIndex = part === null ? 0 : part - 1
   const useKetRwShell = exam ? isKetReadingWritingExam(exam) : false
   const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
   const useFceRwShell = exam ? isFceReadingWritingExam(exam) : false
