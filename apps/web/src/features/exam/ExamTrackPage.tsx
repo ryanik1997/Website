@@ -540,7 +540,7 @@ function ExamTrackPageInner() {
               if (!canImport) return { ...row, canEdit: false }
               return row
             }}
-            onOpenExam={id => navigate(`/app/exam/reading/${id}`)}
+            onOpenExam={id => navigate(`/app/exam/reading-picker/${id}`)}
             onRetryExam={id => {
               clearReadingDraft(id)
               navigate(`/app/exam/reading/${id}`)

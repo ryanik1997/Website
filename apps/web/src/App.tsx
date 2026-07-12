@@ -26,6 +26,7 @@ const ExamTrackPage = lazy(() => import('./features/exam/ExamTrackPage'))
 const FullMockIntro = lazy(() => import('./features/exam/FullMockIntro'))
 const FullMockSummary = lazy(() => import('./features/exam/FullMockSummary'))
 const ReadingTest = lazy(() => import('./features/exam/ReadingTest'))
+const ReadingPartPicker = lazy(() => import('./features/exam/ReadingPartPicker'))
 const ListeningTest = lazy(() => import('./features/exam/ListeningTest'))
 const WritingTest = lazy(() => import('./features/exam/WritingTest'))
 const WritingMockTest = lazy(() => import('./features/exam/WritingMockTest'))
@@ -100,6 +101,7 @@ export default function App() {
             <Route path="full/:mockId" element={<FullMockIntro />} />
             <Route path="full/:mockId/summary" element={<FullMockSummary />} />
             <Route path="reading/:examId" element={<ReadingTest />} />
+            <Route path="reading-picker/:examId" element={<ReadingPartPicker />} />
             <Route path="listening/:examId" element={<ListeningTest />} />
             <Route path="listening" element={<Navigate to="/app/exam/track/cambridge/a2" replace />} />
             <Route path="writing/:mockId" element={<WritingMockTest />} />
