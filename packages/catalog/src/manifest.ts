@@ -2,7 +2,7 @@
  * Global catalog version — bump khi admin cập nhật nội dung ship cùng app (deploy).
  * Mọi user sẽ nhận bản mới sau F5 / lần mở app tiếp theo.
  */
-export const GLOBAL_CATALOG_VERSION = 23
+export const GLOBAL_CATALOG_VERSION = 24
 
 export const CATALOG_SETTING_KEY = 'global_catalog_version'
 

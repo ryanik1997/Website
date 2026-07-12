@@ -1,0 +1,1319 @@
+{
+  "id": "catalog-listening-ielts-cam13-test1",
+  "title": "IELTS Listening — Cambridge 13 Test 1",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 13 · Test 1 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam13-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam13-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "how to … and cook with seasonal products:",
+          "options": [],
+          "answer": "choose",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "also offers … classes:",
+          "options": [],
+          "answer": "private",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "clients who return get a … discount:",
+          "options": [],
+          "answer": "20/percent/twenty percent",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "food that is …:",
+          "options": [],
+          "answer": "healthy",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "recipes to strengthen your …:",
+          "options": [],
+          "answer": "bones",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "they have a free … every Thursday:",
+          "options": [],
+          "answer": "lecture",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "The … Centre:",
+          "options": [],
+          "answer": "arretsa",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "mainly … food:",
+          "options": [],
+          "answer": "vegetarian",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "located near the …:",
+          "options": [],
+          "answer": "market",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "skills with a …:",
+          "options": [],
+          "answer": "knife",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "COOKERY CLASSES",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "title": "COOKERY CLASSES",
+          "headers": [
+            "Cookery Class",
+            "Focus",
+            "Other Information"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Example"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "The Food Studio"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "how to "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  },
+                  {
+                    "type": "static",
+                    "text": " and cook with seasonal products"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "• small classes"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "• also offers "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 2
+                  },
+                  {
+                    "type": "static",
+                    "text": " classes"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "• clients who return get a "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  },
+                  {
+                    "type": "static",
+                    "text": " discount"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Bond's Cookery School"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "food that is "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 4
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "• includes recipes to strengthen your "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 5
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "• they have a free "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  },
+                  {
+                    "type": "static",
+                    "text": " every Thursday"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "The "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  },
+                  {
+                    "type": "static",
+                    "text": " Centre"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "mainly "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 8
+                  },
+                  {
+                    "type": "static",
+                    "text": " food"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "• located near the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 9
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "• a special course in skills with a "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  },
+                  {
+                    "type": "static",
+                    "text": " is sometimes available"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam13-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–13: Choose A, B or C. Questions 14–20: Label the map A–I.",
+      "audioUrl": "/catalog/listening/ielts-cam13-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "Why are changes needed to traffic systems in Granford?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The number of traffic accidents has risen."
+            },
+            {
+              "id": "B",
+              "label": "The amount of traffic on the roads has increased."
+            },
+            {
+              "id": "C",
+              "label": "The types of vehicles on the roads have changed."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 11 – 13",
+          "sectionInstruction": "Choose the correct letter, A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "In a survey, local residents particularly complained about",
+          "options": [
+            {
+              "id": "A",
+              "label": "dangerous driving by parents."
+            },
+            {
+              "id": "B",
+              "label": "pollution from trucks and lorries."
+            },
+            {
+              "id": "C",
+              "label": "inconvenience from parked cars."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "According to the speaker, one problem with the new regulations will be",
+          "options": [
+            {
+              "id": "A",
+              "label": "raising money to pay for them."
+            },
+            {
+              "id": "B",
+              "label": "finding a way to make people follow them."
+            },
+            {
+              "id": "C",
+              "label": "getting the support of the police."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-14",
+          "number": 14,
+          "type": "matching",
+          "prompt": "New traffic lights",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 14 – 20",
+          "sectionInstruction": "Label the map below. Write the correct letter, A–I, next to Questions 14–20.",
+          "sectionTitle": "Proposed traffic changes in Granford",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-15",
+          "number": 15,
+          "type": "matching",
+          "prompt": "Pedestrian crossing",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-16",
+          "number": 16,
+          "type": "matching",
+          "prompt": "Parking allowed",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "New 'No Parking' sign",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "New disabled parking spaces",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-19",
+          "number": 19,
+          "type": "matching",
+          "prompt": "Widened pavement",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-20",
+          "number": 20,
+          "type": "matching",
+          "prompt": "Lorry loading/unloading restrictions",
+          "options": [
+            {
+              "id": "A",
+              "label": "A"
+            },
+            {
+              "id": "B",
+              "label": "B"
+            },
+            {
+              "id": "C",
+              "label": "C"
+            },
+            {
+              "id": "D",
+              "label": "D"
+            },
+            {
+              "id": "E",
+              "label": "E"
+            },
+            {
+              "id": "F",
+              "label": "F"
+            },
+            {
+              "id": "G",
+              "label": "G"
+            },
+            {
+              "id": "H",
+              "label": "H"
+            },
+            {
+              "id": "I",
+              "label": "I"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Chọn theo audio.",
+          "mapLabel": true
+        }
+      ],
+      "partImageUrl": "/catalog/listening/ielts-cam13-test1/map.jpg"
+    },
+    {
+      "id": "catalog-listening-ielts-cam13-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–25: Choose A, B or C. Questions 26–30: Complete the flow-chart A–H.",
+      "audioUrl": "/catalog/listening/ielts-cam13-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "Why is Jack interested in investigating seed germination?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He may do a module on a related topic later on."
+            },
+            {
+              "id": "B",
+              "label": "He wants to have a career in plant science."
+            },
+            {
+              "id": "C",
+              "label": "He is thinking of choosing this topic for his dissertation."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 21 – 25",
+          "sectionInstruction": "Choose the correct letter, A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "Jack and Emma agree the main advantage of their present experiment is that it can be",
+          "options": [
+            {
+              "id": "A",
+              "label": "described very easily."
+            },
+            {
+              "id": "B",
+              "label": "carried out inside the laboratory."
+            },
+            {
+              "id": "C",
+              "label": "completed in the time available."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-23",
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "What do they decide to check with their tutor?",
+          "options": [
+            {
+              "id": "A",
+              "label": "whether their aim is appropriate"
+            },
+            {
+              "id": "B",
+              "label": "whether anyone else has chosen this topic"
+            },
+            {
+              "id": "C",
+              "label": "whether the assignment contributes to their final grade"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-24",
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "They agree that Graves' book on seed germination is disappointing because",
+          "options": [
+            {
+              "id": "A",
+              "label": "it fails to cover recent advances in seed science."
+            },
+            {
+              "id": "B",
+              "label": "the content is irrelevant for them."
+            },
+            {
+              "id": "C",
+              "label": "its focus is very theoretical."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-25",
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "What does Jack say about the article on seed germination by Lee Hall?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The diagrams of plant development are useful."
+            },
+            {
+              "id": "B",
+              "label": "The analysis of seed germination statistics is thorough."
+            },
+            {
+              "id": "C",
+              "label": "The findings on seed germination after fires are surprising."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "Select seeds of different",
+          "options": [
+            {
+              "id": "A",
+              "label": "container"
+            },
+            {
+              "id": "B",
+              "label": "soil"
+            },
+            {
+              "id": "C",
+              "label": "weight"
+            },
+            {
+              "id": "D",
+              "label": "condition"
+            },
+            {
+              "id": "E",
+              "label": "height"
+            },
+            {
+              "id": "F",
+              "label": "colour"
+            },
+            {
+              "id": "G",
+              "label": "types"
+            },
+            {
+              "id": "H",
+              "label": "depths"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Chọn theo audio.",
+          "gapLead": "Select seeds of different",
+          "gapTrail": "and sizes.",
+          "sectionRange": "Questions 26 – 30",
+          "sectionInstruction": "Complete the flow-chart below. Choose FIVE answers from the box and write the correct letter, A–H, next to Questions 26–30.",
+          "sectionTitle": "Stages in the experiment",
+          "flowChart": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "Measure and record the",
+          "options": [
+            {
+              "id": "A",
+              "label": "container"
+            },
+            {
+              "id": "B",
+              "label": "soil"
+            },
+            {
+              "id": "C",
+              "label": "weight"
+            },
+            {
+              "id": "D",
+              "label": "condition"
+            },
+            {
+              "id": "E",
+              "label": "height"
+            },
+            {
+              "id": "F",
+              "label": "colour"
+            },
+            {
+              "id": "G",
+              "label": "types"
+            },
+            {
+              "id": "H",
+              "label": "depths"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chọn theo audio.",
+          "gapLead": "Measure and record the",
+          "gapTrail": "and size of each one.",
+          "flowChart": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "Decide on the",
+          "options": [
+            {
+              "id": "A",
+              "label": "container"
+            },
+            {
+              "id": "B",
+              "label": "soil"
+            },
+            {
+              "id": "C",
+              "label": "weight"
+            },
+            {
+              "id": "D",
+              "label": "condition"
+            },
+            {
+              "id": "E",
+              "label": "height"
+            },
+            {
+              "id": "F",
+              "label": "colour"
+            },
+            {
+              "id": "G",
+              "label": "types"
+            },
+            {
+              "id": "H",
+              "label": "depths"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Chọn theo audio.",
+          "gapLead": "Decide on the",
+          "gapTrail": "to be used.",
+          "flowChart": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-29",
+          "number": 29,
+          "type": "matching",
+          "prompt": "Use a different",
+          "options": [
+            {
+              "id": "A",
+              "label": "container"
+            },
+            {
+              "id": "B",
+              "label": "soil"
+            },
+            {
+              "id": "C",
+              "label": "weight"
+            },
+            {
+              "id": "D",
+              "label": "condition"
+            },
+            {
+              "id": "E",
+              "label": "height"
+            },
+            {
+              "id": "F",
+              "label": "colour"
+            },
+            {
+              "id": "G",
+              "label": "types"
+            },
+            {
+              "id": "H",
+              "label": "depths"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio.",
+          "gapLead": "Use a different",
+          "gapTrail": "for each seed and label it.",
+          "flowChart": true
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-30",
+          "number": 30,
+          "type": "matching",
+          "prompt": "After about 3 weeks, record the plant's",
+          "options": [
+            {
+              "id": "A",
+              "label": "container"
+            },
+            {
+              "id": "B",
+              "label": "soil"
+            },
+            {
+              "id": "C",
+              "label": "weight"
+            },
+            {
+              "id": "D",
+              "label": "condition"
+            },
+            {
+              "id": "E",
+              "label": "height"
+            },
+            {
+              "id": "F",
+              "label": "colour"
+            },
+            {
+              "id": "G",
+              "label": "types"
+            },
+            {
+              "id": "H",
+              "label": "depths"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio.",
+          "gapLead": "After about 3 weeks, record the plant's",
+          "gapTrail": ".",
+          "flowChart": true,
+          "flowChartEnd": "Investigate the findings."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam13-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam13-test1/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "the … — because of its general adaptability:",
+          "options": [],
+          "answer": "crow",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1,
+          "sectionTitle": "Effects of urban environments on animals"
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "walls of city buildings are similar to …:",
+          "options": [],
+          "answer": "cliffs",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "many urban animals are adapting with unusual …:",
+          "options": [],
+          "answer": "speed",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "the size of their … had increased:",
+          "options": [],
+          "answer": "brain/brains",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "locate new sources of …:",
+          "options": [],
+          "answer": "food",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "Catarina Miranda focused on the … of urban and rural blackbirds:",
+          "options": [],
+          "answer": "behaviour/behavior",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "afraid of situations that were …:",
+          "options": [],
+          "answer": "new",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "respond to … by producing lower levels of hormones:",
+          "options": [],
+          "answer": "stress",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "urban squirrels use their … to help them communicate:",
+          "options": [],
+          "answer": "tail/tails",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam13-test1-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "some changes may not be …:",
+          "options": [],
+          "answer": "permanent",
+          "explanation": "Điền theo audio.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Effects of urban environments on animals",
+      "notePassage": [
+        {
+          "type": "section",
+          "text": "Introduction"
+        },
+        {
+          "type": "static",
+          "text": "Recent urban developments represent massive environmental changes. Previously thought that only a few animals were suitable for city life, e.g."
+        },
+        {
+          "type": "static",
+          "text": "• the"
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": " — because of its general adaptability"
+        },
+        {
+          "type": "static",
+          "text": "• the pigeon — because walls of city buildings are similar to"
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": "• In fact, many urban animals are adapting with unusual"
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "section",
+          "text": "Recent research"
+        },
+        {
+          "type": "static",
+          "text": "• Emilie Snell-Rood studied small urbanised mammal specimens from museums in Minnesota"
+        },
+        {
+          "type": "static",
+          "text": "• She found the size of their"
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": " had increased."
+        },
+        {
+          "type": "static",
+          "text": "• She suggests this may be due to the need to locate new sources of"
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": "and to deal with new dangers."
+        },
+        {
+          "type": "static",
+          "text": "• Catarina Miranda focused on the "
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "static",
+          "text": "of urban and rural blackbirds."
+        },
+        {
+          "type": "static",
+          "text": "• She found urban birds were often braver, but were afraid of situations that were"
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": "• Jonathan Atwell studies how animals respond to urban environments."
+        },
+        {
+          "type": "static",
+          "text": "• He found that some animals respond to"
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "static",
+          "text": "• by producing lower levels of hormones."
+        },
+        {
+          "type": "static",
+          "text": "• Sarah Partan's team found urban squirrels use their "
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "to help them communicate"
+        },
+        {
+          "type": "section",
+          "text": "Long-term possibilities"
+        },
+        {
+          "type": "static",
+          "text": "Species of animals may develop which are unique to cities. However, some changes may not be"
+        },
+        {
+          "type": "gap",
+          "number": 40
+        }
+      ],
+      "notePassageLayout": "lecture"
+    }
+  ],
+  "catalogSlug": "ielts-cam13-test1",
+  "catalogBase": "/catalog/listening/ielts-cam13-test1"
+}
