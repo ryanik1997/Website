@@ -2,6 +2,7 @@ import { useState, type CSSProperties } from 'react'
 import { X } from 'lucide-react'
 import { sentenceStructureRepo } from '@ryan/db'
 import { STRUCTURE_CATEGORIES } from './types'
+import { CEFR_LEVELS, CEFR_LABELS, type CefrLevel } from '../../lib/cefr'
 
 export default function NewStructureModal({
   onClose,
@@ -14,6 +15,7 @@ export default function NewStructureModal({
   const [template, setTemplate] = useState('Just because [A] doesn\'t mean [B].')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState<string>(STRUCTURE_CATEGORIES[0].label)
+  const [cefr, setCefr] = useState<CefrLevel | ''>('')
   const [exampleA, setExampleA] = useState('')
   const [exampleB, setExampleB] = useState('')
   const [exampleNoteVi, setExampleNoteVi] = useState('')
@@ -34,6 +36,7 @@ export default function NewStructureModal({
       template: template.trim(),
       description: description.trim() || 'Luyện điền A và B theo mẫu câu.',
       category,
+      cefr: cefr || undefined,
       exampleA: exampleA.trim() || '...',
       exampleB: exampleB.trim() || '...',
       exampleNoteVi: exampleNoteVi.trim() || 'Ví dụ minh họa cho cấu trúc này.',
@@ -72,6 +75,18 @@ export default function NewStructureModal({
               {STRUCTURE_CATEGORIES.map(c => (
                 <option key={c.id} value={c.label}>{c.icon} {c.label}</option>
               ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Trình độ CEFR</label>
+            <select
+              value={cefr}
+              onChange={e => setCefr(e.target.value as CefrLevel | '')}
+              className="w-full px-3 py-2 rounded-lg border text-sm outline-none"
+              style={inputStyle}
+            >
+              <option value="">Chưa gán CEFR</option>
+              {CEFR_LEVELS.map(level => <option key={level} value={level}>{level} · {CEFR_LABELS[level]}</option>)}
             </select>
           </div>
           <div className="grid grid-cols-2 gap-3">
