@@ -21,6 +21,7 @@ import ListeningTtsStatusBadge from './ListeningTtsStatusBadge'
 import ListeningUserLessonCard, { type ListeningLibraryViewMode } from './ListeningUserLessonCard'
 import { lessonHasDue } from './listeningUtils'
 import { groupCambridgeLessons, isStructuredLesson } from './listeningMeta'
+import './listeningLibraryPage.css'
 
 const TABS = [
   { id: 'all', label: 'Tất cả' },
@@ -114,7 +115,7 @@ export default function ListeningLibraryPage() {
   } as const
 
   return (
-    <div className="listening-lesson-shell h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
+    <div className="listening-lesson-shell listening-library-page h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
       <div className="listening-lesson-scroll h-full min-h-0">
       <style>
         {`
@@ -130,7 +131,7 @@ export default function ListeningLibraryPage() {
           }
         `}
       </style>
-      <div className="mx-auto max-w-[1040px] px-4 py-8 sm:px-6">
+      <div className="listening-library-page__inner mx-auto max-w-[1040px] px-4 py-8 sm:px-6">
         <header className="mb-8">
           <h1
             className="text-3xl font-black leading-none tracking-tight sm:text-4xl"
