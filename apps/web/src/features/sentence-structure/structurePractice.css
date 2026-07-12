@@ -6,6 +6,37 @@
   background: var(--bg-primary);
 }
 
+/* Sentence structure library: editorial study index */
+.ss-shell { position: relative; isolation: isolate; background: radial-gradient(circle at 84% 0%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 27rem), var(--bg-primary); }
+.ss-shell::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .03; background-image: radial-gradient(var(--text-primary) .55px, transparent .55px); background-size: 5px 5px; }
+.ss-topbar { min-height: 4.5rem; padding: .9rem clamp(1rem, 4vw, 3rem); border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); background: color-mix(in srgb, var(--bg-primary) 78%, transparent); }
+.ss-badge { border: none; background: transparent; padding: 0; color: var(--color-primary); font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; letter-spacing: -.02em; }
+.ss-topbar-sub { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+.ss-check-btn { border: none; border-radius: 999px; background: var(--text-primary); color: var(--bg-primary); transition: transform 600ms cubic-bezier(.32,.72,0,1), background 600ms cubic-bezier(.32,.72,0,1); }
+.ss-check-btn:hover { transform: translateY(-.2rem); background: var(--color-primary); }
+.ss-hub { max-width: 76rem; width: 100%; margin: 0 auto; padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 3rem); }
+.ss-hub-toolbar { display: grid; grid-template-columns: minmax(16rem, 1fr) auto; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
+.ss-hub-search { min-height: 3rem; display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; border: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent); border-radius: 1rem; background: color-mix(in srgb, var(--bg-card) 82%, transparent); transition: border-color 500ms cubic-bezier(.32,.72,0,1), transform 500ms cubic-bezier(.32,.72,0,1); }
+.ss-hub-search:focus-within { border-color: color-mix(in srgb, var(--color-primary) 65%, var(--border-color)); transform: translateY(-.15rem); }
+.ss-hub-search svg { color: var(--text-muted); }
+.ss-hub-search input { background: transparent; color: var(--text-primary); outline: none; }
+.ss-hub-count { grid-column: 1 / -1; margin: 0; color: var(--text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.ss-hub-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+.ss-hub-row { position: relative; min-height: 10rem; border: none; border-radius: 1.5rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 8%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
+.ss-hub-row:hover { transform: translateY(-.3rem); box-shadow: 0 1.6rem 3rem color-mix(in srgb, var(--color-primary) 10%, transparent); }
+.ss-hub-row-main { width: 100%; height: 100%; padding: 1.25rem 1.35rem; text-align: left; }
+.ss-hub-row-title { font-family: Georgia, serif; font-size: 1.3rem; font-weight: 400; letter-spacing: -.03em; }
+.ss-hub-row-template { margin-top: .55rem; color: var(--color-primary); font-size: .78rem; line-height: 1.45; }
+.ss-hub-row-desc { margin-top: .45rem; color: var(--text-muted); font-size: .72rem; line-height: 1.5; }
+.ss-hub-row .ss-cat-tag { display: inline-block; margin-top: .8rem; border: none; background: color-mix(in srgb, var(--color-primary) 10%, transparent); }
+.ss-hub-star { top: 1rem; right: 1rem; transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
+.ss-hub-star:hover { color: var(--color-primary); transform: scale(1.15); }
+.ss-hub-empty { grid-column: 1 / -1; min-height: 14rem; display: grid; place-items: center; border-radius: 1.5rem; background: color-mix(in srgb, var(--bg-card) 78%, transparent); color: var(--text-muted); }
+.ss-hub-pagination { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
+.ss-hub-page-btn { border: none; border-radius: 999px; background: color-mix(in srgb, var(--bg-card) 88%, transparent); transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
+.ss-hub-page-btn:hover:not(:disabled) { color: var(--color-primary); transform: translateY(-.15rem); }
+@media (max-width: 760px) { .ss-hub-toolbar { grid-template-columns: 1fr; } .ss-hub-count { grid-column: auto; } .ss-hub-list { grid-template-columns: 1fr; } .ss-topbar-sub { display: none; } }
+
 .ss-topbar {
   display: flex;
   align-items: center;
