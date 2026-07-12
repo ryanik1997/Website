@@ -61,6 +61,11 @@
 
 /* Grammar Atlas reference layout */
 .ss-list-page { height: 100%; overflow-y: auto; display: block; padding: 2rem clamp(1rem, 4vw, 2.5rem) 5rem; background: var(--bg-primary); }
+.ss-list-page,
+.ss-list-page .ss-hub,
+.ss-list-page .ss-workspace,
+.ss-list-page .ss-main { background: var(--bg-primary) !important; }
+.ss-list-page::before { display: none; }
 .ss-list-page .ss-topbar { max-width: none; min-height: 0; margin: 0 0 1.75rem; padding: 0; align-items: center; border: none; background: transparent; }
 .ss-list-page .ss-topbar::after { display: none; }
 .ss-list-page .ss-topbar-left { align-items: center; gap: .85rem; }
