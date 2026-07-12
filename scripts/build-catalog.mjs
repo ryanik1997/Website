@@ -356,6 +356,72 @@ function transformReading(payload, bundle) {
   }
 }
 
+function enrichPayloadLayout(payload, sourceRows, cam, test) {
+  const sourceByPart = new Map(
+    sourceRows
+      .filter(row => row.youpass_id?.startsWith(`cam-${cam}-${test}-`))
+      .map(row => [Number(row.youpass_id.split('-').at(-1)), row]),
+  )
+  return {
+    ...payload,
+    parts: payload.parts.map(part => {
+      const source = sourceByPart.get(part.partNumber)
+      const sourceQuestions = new Map((source?.questions ?? []).map(question => [question.id ?? question.number, question]))
+      return {
+        ...part,
+        questionGroups: part.questionGroups.map(group => {
+          const first = group.questions[0]
+          const sourceQuestion = first && sourceQuestions.get(first.number)
+          const config = sourceQuestion?._blockConfig
+          const questions = group.questions.map(question => {
+            const original = sourceQuestions.get(question.number)
+            return {
+              ...question,
+              prompt: original?.question_text ?? question.prompt,
+              type: original?.displayType === 'table-completion' || original?.type === 'fill-blank'
+                ? 'gap-fill'
+                : original?.displayType === 'matching-heading'
+                  ? 'matching-headings'
+                  : original?.displayType === 'sentence-ending'
+                    ? 'matching-features'
+                    : question.type,
+            }
+          })
+          if (config?.type === 'table-completion' && Array.isArray(config.tableRows)) {
+            const rows = config.tableRows.map(row => ({
+              cells: row.map(cell => [{ type: 'static', text: String(cell ?? '').replace(/\[(\d+)\]/g, (_, number) => `__GAP_${number}__`) }]),
+            }))
+            for (const row of rows) {
+              for (const cell of row.cells) {
+                for (const block of cell) {
+                  if (block.text) {
+                    const parts = block.text.split(/(__GAP_\d+__)/g)
+                    cell.splice(0, cell.length, ...parts.filter(Boolean).map(text => text.startsWith('__GAP_')
+                      ? { type: 'gap', number: Number(text.match(/\d+/)?.[0]) }
+                      : { type: 'static', text }))
+                  }
+                }
+              }
+            }
+            return {
+              ...group,
+              type: 'gap-fill',
+              instruction: group.instruction,
+              noteTable: {
+                title: config.tableTitle || undefined,
+                headers: config.tableHeaders?.length ? config.tableHeaders : ['', ''],
+                rows,
+              },
+              questions,
+            }
+          }
+          return { ...group, questions }
+        }),
+      }
+    }),
+  }
+}
+
 function transformListening(payload, bundle, sourceDir) {
   const { examId, slug, examType, examMode } = bundle
   const sharedAudio = new Map()
@@ -596,7 +662,12 @@ async function main() {
 
   for (const bundle of payloadReadingBundles) {
     const raw = JSON.parse(await fs.readFile(bundle.payloadPath, 'utf8'))
-    const processed = transformReading(raw, {
+    const sourcePath = path.join(ROOT, 'reading_filtered.json')
+    const sourceRows = existsSync(sourcePath)
+      ? JSON.parse(await fs.readFile(sourcePath, 'utf8'))
+      : []
+    const enriched = enrichPayloadLayout(raw, sourceRows, bundle.cam, bundle.test)
+    const processed = transformReading(enriched, {
       ...bundle,
       cambridgeLevel: undefined,
     })

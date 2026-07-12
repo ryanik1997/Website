@@ -27,7 +27,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q1",
               "number": 1,
               "type": "gap-fill",
-              "prompt": "Gap (1)",
+              "prompt": "the leaves of the tree are 1. ___________ in shape",
               "options": [],
               "answer": "oval",
               "explanation": "Bước 1: Keyword\nleaves\nshape\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\n“dark green oval leaves”\n\nBước 3: Phân tích\nBài đọc mô tả lá cây có hình oval.\n=> điền đúng từ trong passage.\n\n=> Đáp án: oval",
@@ -37,7 +37,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q2",
               "number": 2,
               "type": "gap-fill",
-              "prompt": "Gap (2)",
+              "prompt": "the 2. ___________ surrounds the fruit and breaks open when the fruit is ripe",
               "options": [],
               "answer": "husk",
               "explanation": "Bước 1: Keyword\nsurrounds the fruit\nbreaks open\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\n“The fruit is encased in a fleshy husk.”\n“this husk splits into two halves”\n\nBước 3: Phân tích\n“husk” bao quanh quả và tách ra khi quả chín.\n=> phù hợp hoàn toàn với câu hỏi.\n\n=> Đáp án: husk",
@@ -47,7 +47,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q3",
               "number": 3,
               "type": "gap-fill",
-              "prompt": "Gap (3)",
+              "prompt": "the 3. ___________ is used to produce the spice nutmeg",
               "options": [],
               "answer": "seed",
               "explanation": "Bước 1: Keyword\nused to produce nutmeg\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\n“nutmeg … produced from the dried seed”\n\nBước 3: Phân tích\nNutmeg được làm từ hạt khô.\n=> “seed” là từ cần điền.\n\n=> Đáp án: seed",
@@ -57,7 +57,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q4",
               "number": 4,
               "type": "gap-fill",
-              "prompt": "Gap (4)",
+              "prompt": "the covering known as the aril is used to produce 4. ___________",
               "options": [],
               "answer": "mace",
               "explanation": "Bước 1: Keyword\naril\nused to produce\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\n“the latter from the aril”\n\nBước 3: Phân tích\n“the latter” = mace.\nAril được dùng để làm mace.\n\n=> Đáp án: mace",
@@ -75,7 +75,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q5",
               "number": 5,
               "type": "true-false-not-given",
-              "prompt": "Question 5",
+              "prompt": "In the Middle Ages, most Europeans knew where nutmeg was grown.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\nmost Europeans\nknew where nutmeg was grown\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\n“they never revealed the exact location of the source”\n\nBước 3: Phân tích\nNgười Ả Rập không tiết lộ nơi trồng nutmeg.\n=> Người châu Âu không biết nơi nutmeg được trồng.\n=> câu đề bài trái với thông tin bài đọc.\n\n=> Đáp án: FALSE",
@@ -85,7 +85,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q6",
               "number": 6,
               "type": "true-false-not-given",
-              "prompt": "Question 6",
+              "prompt": "The VOC was the world's first major trading company.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\nVOC\nfirst major trading company\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\n“the VOC was the richest commercial operation in the world.”\n\nBước 3: Phân tích\nBài đọc chỉ nói VOC là công ty thương mại giàu nhất thế giới.\nKhông nói VOC có phải công ty thương mại lớn đầu tiên hay không.\n=> không đủ thông tin xác định đúng/sai.\n\n=> Đáp án: NOT GIVEN",
@@ -95,7 +95,7 @@
               "id": "catalog-cam-15-1-reading-part-1-q7",
               "number": 7,
               "type": "true-false-not-given",
-              "prompt": "Question 7",
+              "prompt": "Following the Treaty of Breda, the Dutch had control of all the islands where nutmeg grew.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\nTreaty of Breda\ncontrol of all the islands\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\n“There was only one obstacle to Dutch domination.”\n“the island of Run … was under the control of the British.”\n“The British agreed.”\n“The Dutch now had a monopoly over the nutmeg trade”\n\nBước 3: Phân tích\nTrước hiệp ước Breda, đảo Run là đảo cuối cùng chưa thuộc Hà Lan.\nSau khi Anh đồng ý trao đảo Run, Hà Lan có “monopoly” về nutmeg.\n=> Hà Lan kiểm soát toàn bộ các đảo trồng nutmeg.\n=> câu đề bài cùng nghĩa với thông tin bài đọc.\n\n=> Đáp án: TRUE",
@@ -107,13 +107,89 @@
           "id": "catalog-cam-15-1-reading-part-1-g2",
           "range": "Questions 8–13",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "",
+              ""
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Middle Ages"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "Nutmeg was brought to Europe by the "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 8
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "16th century"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "European nations took control of the nutmeg trade"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "17th century"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\nThe Dutch\n– took control of the Banda Islands\n– restricted nutmeg production to a few areas\n– put "
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Late 18th century"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\n1778 – half the Banda Islands’ nutmeg plantations were destroyed by a "
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-15-1-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
-              "prompt": "Question 8",
+              "type": "gap-fill",
+              "prompt": "Middle Ages: Nutmeg was brought to Europe by the 8. ________",
               "options": [],
               "answer": "Arabs",
               "explanation": "Bước 1: Keyword\nbrought to Europe\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\n“the Arabs were the exclusive importers of the spice to Europe”\n\nBước 3: Phân tích\nNgười Ả Rập là bên mang nutmeg tới châu Âu.\n=> dùng đúng từ trong passage.\n\n=> Đáp án: Arabs",
@@ -122,8 +198,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-1-q9",
               "number": 9,
-              "type": "multiple-choice",
-              "prompt": "Question 9",
+              "type": "gap-fill",
+              "prompt": "17th century: Demand grew as nutmeg was believed effective against the disease known as the 9. ________",
               "options": [],
               "answer": "plague",
               "explanation": "Bước 1: Keyword\n“effective against the disease”\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\n“thousands of people across Europe were dying of the plague… they decided nutmeg held the cure.”\n\nBước 3: Phân tích\nNgười châu Âu tin rằng nhục đậu khấu có thể chữa căn bệnh plague.\n\n=> Đáp án: plague",
@@ -132,8 +208,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-1-q10",
               "number": 10,
-              "type": "multiple-choice",
-              "prompt": "Question 10",
+              "type": "gap-fill",
+              "prompt": "The Dutch: took control; restricted production; put 10. ________ on nutmeg",
               "options": [],
               "answer": "lime",
               "explanation": "Bước 1: Keyword\navoid it being cultivated\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\n“all exported nutmeg was covered with lime”\n\nBước 3: Phân tích\nNgười Hà Lan phủ lime lên nutmeg để hạt không thể được trồng nơi khác.\n=> phù hợp nội dung bảng.\n\n=> Đáp án: lime",
@@ -142,8 +218,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
-              "prompt": "Question 11",
+              "type": "gap-fill",
+              "prompt": "finally obtained island of 11. ________ from the British",
               "options": [],
               "answer": "Run",
               "explanation": "Bước 1: Keyword\nobtained the island\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\n“the island of Run”\n\nBước 3: Phân tích\nSau Treaty of Breda, Hà Lan lấy được đảo Run từ Anh.\n=> điền tên đảo.\n\n=> Đáp án: Run",
@@ -152,8 +228,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
-              "prompt": "Question 12",
+              "type": "gap-fill",
+              "prompt": "1770: nutmeg plants secretly taken to 12. ________",
               "options": [],
               "answer": "Mauritius",
               "explanation": "Bước 1: Keyword\nsecretly taken to\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\n“smuggled nutmeg plants to safety in Mauritius”\n\nBước 3: Phân tích\nNutmeg được bí mật đưa tới Mauritius năm 1770.\n=> dùng đúng từ trong passage.\n\n=> Đáp án: Mauritius",
@@ -162,8 +238,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-1-q13",
               "number": 13,
-              "type": "multiple-choice",
-              "prompt": "Question 13",
+              "type": "gap-fill",
+              "prompt": "1778: half the Banda Islands' nutmeg plantations destroyed by a 13. ________",
               "options": [],
               "answer": "tsunami",
               "explanation": "Bước 1: Keyword\ndestroyed\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\n“a tsunami that wiped out half the nutmeg groves”\n\nBước 3: Phân tích\nTsunami phá hủy một nửa đồn điền nutmeg.\n=> phù hợp câu hỏi.\n\n=> Đáp án: tsunami",
@@ -203,7 +279,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q14",
               "number": 14,
               "type": "matching-paragraph",
-              "prompt": "Question 14",
+              "prompt": "reference to the amount of time when a car is not in use",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\namount of time\ncar is not in use\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n“At present, the average car spends more than 90 percent of its life parked.”\n\nBước 3: Phân tích\n“parked” = không được sử dụng.\n=> đoạn C nói về thời gian xe không hoạt động.\n=> Đáp án: C",
@@ -213,7 +289,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q15",
               "number": 15,
               "type": "matching-paragraph",
-              "prompt": "Question 15",
+              "prompt": "mention of several advantages of driverless vehicles for individual road-users",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nadvantages\nindividual road-users\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n“it may be possible to be productive, to socialise or simply to relax...”\n“older or disabled travellers may be able to enjoy significantly greater travel autonomy.”\n\nBước 3: Phân tích\nĐoạn B liệt kê nhiều lợi ích cho người dùng cá nhân như thư giãn, làm việc, người già/người khuyết tật đi lại dễ hơn.\n=> Đáp án: B",
@@ -223,7 +299,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q16",
               "number": 16,
               "type": "matching-paragraph",
-              "prompt": "Question 16",
+              "prompt": "reference to the opportunity of choosing the most appropriate vehicle for each trip",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nchoosing\nmost appropriate vehicle\neach trip\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n“drivers will have the freedom to select one that best suits their needs for a particular journey”\n\nBước 3: Phân tích\n“select one that best suits” = chọn chiếc xe phù hợp nhất cho từng chuyến đi.\n=> Đáp án: E",
@@ -233,7 +309,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q17",
               "number": 17,
               "type": "matching-paragraph",
-              "prompt": "Question 17",
+              "prompt": "an estimate of how long it will take to overcome a number of problems",
               "options": [],
               "answer": "G",
               "explanation": "Bước 1: Keyword\nhow long\novercome problems\n\nBước 2: Tìm đoạn văn\nĐoạn G:\n“these can most probably be conquered within the next 10 years.”\n\nBước 3: Phân tích\nĐoạn G đưa ra thời gian ước tính để giải quyết các vấn đề.\n=> Đáp án: G",
@@ -243,7 +319,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q18",
               "number": 18,
               "type": "matching-paragraph",
-              "prompt": "Question 18",
+              "prompt": "a suggestion that the use of driverless cars may have no effect on the number of vehicles manufactured",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nno effect\nnumber of vehicles manufactured\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n“This faster rate of turnover may mean that vehicle production will not necessarily decrease.”\n\nBước 3: Phân tích\n“will not necessarily decrease” = có thể không giảm số lượng sản xuất xe.\n=> Đáp án: D",
@@ -263,7 +339,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q19",
               "number": 19,
               "type": "gap-fill",
-              "prompt": "Gap (19)",
+              "prompt": "Figures from the Transport Research Laboratory indicate that most motor accidents are partly due to 19. ___________.",
               "options": [],
               "answer": "human error",
               "explanation": "Bước 1: Keyword\nmotor accidents\npartly due to\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n“more than 90 percent of road collisions involve human error”\n\nBước 3: Phân tích\n“involve human error” = tai nạn do lỗi con người.\n=> Đáp án: human error",
@@ -273,7 +349,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q20",
               "number": 20,
               "type": "gap-fill",
-              "prompt": "Gap (20)",
+              "prompt": "...schemes for 20. ___________ will be more workable, especially in towns and cities.",
               "options": [],
               "answer": "car sharing",
               "explanation": "Bước 1: Keyword\nschemes\nmore workable\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n“initiatives for car-sharing become much more viable”\n\nBước 3: Phân tích\n“more viable” = workable.\n=> Đáp án: car-sharing",
@@ -283,7 +359,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q21",
               "number": 21,
               "type": "gap-fill",
-              "prompt": "Gap (21)",
+              "prompt": "According to the University of Michigan, there could be a 43 percent drop in 21. ___________ of cars.",
               "options": [],
               "answer": "ownership",
               "explanation": "Bước 1: Keyword\n43 percent drop\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n“automated vehicles might reduce vehicle ownership by 43 percent”\n\nBước 3: Phân tích\nCần điền danh từ sau “drop in”.\n=> Đáp án: ownership",
@@ -293,7 +369,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q22",
               "number": 22,
               "type": "gap-fill",
-              "prompt": "Gap (22)",
+              "prompt": "...the yearly 22. ___________ of each car would, on average, be twice as high as it currently is.",
               "options": [],
               "answer": "mileage",
               "explanation": "Bước 1: Keyword\nyearly\ntwice as high\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n“vehicles’ average annual mileage double”\n\nBước 3: Phân tích\n“annual mileage” = số dặm đi mỗi năm.\n=> Đáp án: mileage",
@@ -311,7 +387,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q23",
               "number": 23,
               "type": "multiple-choice",
-              "prompt": "Question 23",
+              "prompt": "Choose TWO Letters — Benefits of automated vehicles",
               "options": [
                 {
                   "id": "A",
@@ -342,7 +418,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q24",
               "number": 24,
               "type": "multiple-choice",
-              "prompt": "Question 24",
+              "prompt": "Choose TWO Letters — Benefits of automated vehicles",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\n“physically difficult could travel independently”\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n\n“older or disabled travellers – may be able to enjoy significantly greater travel autonomy.”\n\nBước 3: Phân tích\nNgười già hoặc người khuyết tật có thể tự di chuyển dễ dàng hơn nhờ xe tự lái.\n\n=> Đáp án: People who find driving physically difficult could travel independently.",
@@ -360,7 +436,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q25",
               "number": 25,
               "type": "multiple-choice",
-              "prompt": "Question 25",
+              "prompt": "Choose TWO Letters — Challenges to automated vehicle development",
               "options": [
                 {
                   "id": "A",
@@ -391,7 +467,7 @@
               "id": "catalog-cam-15-1-reading-part-2-q26",
               "number": 26,
               "type": "multiple-choice",
-              "prompt": "Question 26",
+              "prompt": "Choose TWO Letters — Challenges to automated vehicle development",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\n“different driving conditions”\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n\n“ensuring that the vehicle works reliably in the infinite range of traffic, weather and road situations”\n\nBước 3: Phân tích\nXe tự lái phải hoạt động ổn định trong nhiều điều kiện giao thông, thời tiết và đường xá khác nhau.\n\n=> Đáp án: getting automated vehicles to adapt to various different driving conditions",
@@ -422,7 +498,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q27",
               "number": 27,
               "type": "multiple-choice",
-              "prompt": "Question 27",
+              "prompt": "The writer refers to visitors to New York to illustrate the point that",
               "options": [
                 {
                   "id": "A",
@@ -449,7 +525,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q28",
               "number": 28,
               "type": "multiple-choice",
-              "prompt": "Question 28",
+              "prompt": "According to the second paragraph, what is the writer's view of explorers?",
               "options": [
                 {
                   "id": "A",
@@ -476,7 +552,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q29",
               "number": 29,
               "type": "multiple-choice",
-              "prompt": "Question 29",
+              "prompt": "The writer refers to a description of Egdon Heath to suggest that",
               "options": [
                 {
                   "id": "A",
@@ -503,7 +579,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q30",
               "number": 30,
               "type": "multiple-choice",
-              "prompt": "Question 30",
+              "prompt": "In the fourth paragraph, the writer refers to 'a golden age' to suggest that",
               "options": [
                 {
                   "id": "A",
@@ -530,7 +606,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q31",
               "number": 31,
               "type": "multiple-choice",
-              "prompt": "Question 31",
+              "prompt": "In the sixth paragraph, when discussing the definition of exploration, the writer argues that",
               "options": [
                 {
                   "id": "A",
@@ -557,7 +633,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q32",
               "number": 32,
               "type": "multiple-choice",
-              "prompt": "Question 32",
+              "prompt": "In the last paragraph, the writer explains that he is interested in",
               "options": [
                 {
                   "id": "A",
@@ -613,8 +689,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-3-q33",
               "number": 33,
-              "type": "matching-features",
-              "prompt": "Question 33",
+              "type": "gap-fill",
+              "prompt": "He referred to the relevance of the form of transport used.",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nform of transport used\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n“If I’d gone across by camel when I could have gone by car, it would have been a stunt.”\n\nBước 3: Phân tích\nWilfred Thesiger nói về phương tiện di chuyển (camel/car).\n=> Đáp án: E (Wilfred Thesiger)",
@@ -623,8 +699,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-3-q34",
               "number": 34,
-              "type": "matching-features",
-              "prompt": "Question 34",
+              "type": "gap-fill",
+              "prompt": "He described feelings on coming back home after a long journey.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\ncoming back home\nlong journey\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n“the explorer returns to the existence he has left behind with his loved ones.”\n\nBước 3: Phân tích\nPeter Fleming mô tả cảm giác trở về sau hành trình dài.\n=> Đáp án: A (Peter Fleming)",
@@ -633,8 +709,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-3-q35",
               "number": 35,
-              "type": "matching-features",
-              "prompt": "Question 35",
+              "type": "gap-fill",
+              "prompt": "He worked for the benefit of specific groups of people.",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nbenefit of specific groups of people\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n“a campaigner on behalf of remote so-called ‘tribal’ peoples”\n\nBước 3: Phân tích\nRobin Hanbury-Tenison hoạt động vì các nhóm người bộ lạc xa xôi.\n=> Đáp án: D (Robin Hanbury-Tenison)",
@@ -643,8 +719,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-3-q36",
               "number": 36,
-              "type": "matching-features",
-              "prompt": "Question 36",
+              "type": "gap-fill",
+              "prompt": "He did not consider learning about oneself an essential part of exploration.",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nnot consider learning about oneself essential\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n“To him, exploration meant bringing back information from a remote place regardless of any great self-discovery.”\n\nBước 3: Phân tích\nÔng cho rằng khám phá không cần gắn với tự khám phá bản thân.\n=> Đáp án: E (Wilfred Thesiger)",
@@ -653,8 +729,8 @@
             {
               "id": "catalog-cam-15-1-reading-part-3-q37",
               "number": 37,
-              "type": "matching-features",
-              "prompt": "Question 37",
+              "type": "gap-fill",
+              "prompt": "He defined exploration as being both unique and of value to others.",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nunique\nvalue to others\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n“someone who has done something that no human has done before – and also done something scientifically useful.”\n\nBước 3: Phân tích\n“no human has done before” = độc đáo\n“scientifically useful” = có ích cho người khác/khoa học.\n=> Đáp án: B (Ran Fiennes)",
@@ -674,7 +750,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q38",
               "number": 38,
               "type": "gap-fill",
-              "prompt": "Gap (38)",
+              "prompt": "The writer has experience of a large number of 38. ___________.",
               "options": [],
               "answer": "unique expeditions",
               "explanation": "Bước 1: Keyword\nexperience of a large number\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n“I’ve done a great many expeditions and each one was unique.”\n\nBước 3: Phân tích\nCụm cần điền là loại expedition.\n=> Đáp án: unique expeditions",
@@ -684,7 +760,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q39",
               "number": 39,
               "type": "gap-fill",
-              "prompt": "Gap (39)",
+              "prompt": "...and was the first stranger that certain previously 39. ___________ people had encountered.",
               "options": [],
               "answer": "uncontacted",
               "explanation": "Bước 1: Keyword\nfirst stranger\npeople had encountered\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n“even two ‘uncontacted tribes’.”\n\nBước 3: Phân tích\n“uncontacted” = chưa từng tiếp xúc người ngoài.\n=> Đáp án: uncontacted",
@@ -694,7 +770,7 @@
               "id": "catalog-cam-15-1-reading-part-3-q40",
               "number": 40,
               "type": "gap-fill",
-              "prompt": "Gap (40)",
+              "prompt": "He believes there is no need for further exploration of Earth's 40. ___________, except to answer specific questions such as how buffalo eat.",
               "options": [],
               "answer": "land surface",
               "explanation": "Bước 1: Keyword\nno need for further exploration\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n“We know how the land surface of our planet lies”\n\nBước 3: Phân tích\nTác giả cho rằng không cần khám phá thêm bề mặt đất nữa, chỉ còn nghiên cứu chi tiết chuyên sâu.\n=> Đáp án: land surface",

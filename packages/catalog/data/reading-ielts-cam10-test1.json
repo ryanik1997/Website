@@ -82,7 +82,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Which part of some stepwells provided shade for people?",
               "options": [],
               "answer": "pavilions",
@@ -92,7 +92,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "What type of serious climatic event, which took place in southern Rajasthan, is mentioned in the article?",
               "options": [],
               "answer": "drought",
@@ -102,7 +102,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Who are frequent visitors to stepwells nowadays?",
               "options": [],
               "answer": "tourists",
@@ -115,12 +115,162 @@
           "id": "catalog-cam-10-1-reading-part-1-g2",
           "range": "Questions 9–13",
           "instruction": "Complete the table below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "Stepwells",
+              "Date",
+              "Features",
+              "Other notes"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Rani Ki Vvr"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "Late 11th century"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "As many as 500 sculptures decorate the monument"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " of 2001."
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Surya Kund**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "1026"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " produce a geometric pattern\nCarved shrines."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " than a well."
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Raniji Ki Baori**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "1699"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\t\nIntricately carved monument"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "One of 21 baoris in the area commissioned by Queen Nathavatji"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Chand Baori**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "850 AD"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "Steps take you down 11 storeys to the bottom"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " which provide a view to the steps."
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Neemrana Ki Baori**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "1700"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " levels."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\t\nUsed by public today"
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-10-1-reading-part-1-q9",
               "number": 9,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Rani Ki Vav — Survived the ___ of 2001.",
               "options": [],
               "answer": "earthquake",
@@ -130,7 +280,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q10",
               "number": 10,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Surya Kund — Steps on the ___ sides produce a geometric pattern.",
               "options": [],
               "answer": "4 sides",
@@ -140,7 +290,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Surya Kund — Looks more like a ___ than a well.",
               "options": [],
               "answer": "tank",
@@ -150,7 +300,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Chand Baori — Has ___ which provide a view of the steps.",
               "options": [],
               "answer": "verandas",
@@ -160,7 +310,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-1-q13",
               "number": 13,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Neemrana Ki Baori — Has two ___ levels.",
               "options": [],
               "answer": "underwater",
@@ -248,7 +398,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q14",
               "number": 14,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph A",
               "options": [],
               "answer": "viii",
@@ -258,7 +408,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q15",
               "number": 15,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph B",
               "options": [],
               "answer": "iii",
@@ -268,7 +418,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q16",
               "number": 16,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph C",
               "options": [],
               "answer": "xi",
@@ -278,7 +428,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q17",
               "number": 17,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph D",
               "options": [],
               "answer": "i",
@@ -288,7 +438,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q18",
               "number": 18,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph E",
               "options": [],
               "answer": "v",
@@ -298,7 +448,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q19",
               "number": 19,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph G",
               "options": [],
               "answer": "x",
@@ -308,7 +458,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q20",
               "number": 20,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph H",
               "options": [],
               "answer": "ii",
@@ -318,7 +468,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-2-q21",
               "number": 21,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Paragraph I",
               "options": [],
               "answer": "iv",
@@ -622,7 +772,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-3-q31",
               "number": 31,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "Employees whose values match those of their employers are more likely to",
               "options": [],
               "answer": "G",
@@ -632,7 +782,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-3-q32",
               "number": 32,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "At times of change, people tend to",
               "options": [],
               "answer": "E",
@@ -642,7 +792,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-3-q33",
               "number": 33,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "If people are aware of what they might lose, they will often",
               "options": [],
               "answer": "A",
@@ -652,7 +802,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-3-q34",
               "number": 34,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "People working under a dominant boss are liable to",
               "options": [],
               "answer": "F",
@@ -662,7 +812,7 @@
             {
               "id": "catalog-cam-10-1-reading-part-3-q35",
               "number": 35,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "Employees working in organisations with few rules are more likely to",
               "options": [],
               "answer": "B",

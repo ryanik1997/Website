@@ -19,13 +19,232 @@
           "id": "catalog-cam-13-3-reading-part-1-g0",
           "range": "Questions 1–8",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "Cột 1",
+              "Cột 2",
+              "Cột 3"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Part**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Description**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "**Uses**"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**trunk**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "up to 30 metres"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "timber for houses and the making of "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 1
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**trunk**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "up to 6 metres long"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "to make brushes"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**flowers**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\t\nat the top of the trunk"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "stems provide sap, used as a drink or a source of "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 2
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "**fruits**"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "Outer layers\n\n"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": ""
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "^"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "middle layer (coir fibres"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "used for "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 3
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "^"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "Inner layer (shell)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\n(when halved) for "
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "^"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "coconut water"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " for other plants"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "^"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "coconut flesh\t"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "\nglycerine (an ingredient in "
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-13-3-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
-              "prompt": "Question 1",
+              "type": "gap-fill",
+              "prompt": "trunk: up to 30 metres. Uses: timber for houses and the making of 1. ________",
               "options": [],
               "answer": "furniture",
               "explanation": "Bước 1: Keyword\ntrunk\nmaking of ...\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\"used as a replacement for endangered hardwoods in the furniture construction industry\"\n\nBước 3: Phân tích\nBảng: timber for houses and the making of ...\n→ timber dùng để làm nhà và đồ nội thất.\n\n=> Đáp án: furniture",
@@ -34,8 +253,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
-              "prompt": "Question 2",
+              "type": "gap-fill",
+              "prompt": "flowers: at the top of the trunk. stems provide sap, used as a drink or a source of 2. ________",
               "options": [],
               "answer": "sugar",
               "explanation": "Bước 1: Keyword\nsap\nsource of ...\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\"the sap can also be reduced by boiling to produce a type of sugar\"\n\nBước 3: Phân tích\nNhựa cây → đun sôi → tạo đường.\n\n=> Đáp án: sugar",
@@ -44,8 +263,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
-              "prompt": "Question 3",
+              "type": "gap-fill",
+              "prompt": "middle layer (coir): used for 3. ________",
               "options": [],
               "answer": "ropes",
               "explanation": "Bước 1: Keyword\ncoir fibres\nused for ...\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"coir... particularly important in manufacturing ropes\"\n\nBước 3: Phân tích\nSợi xơ dừa dùng nhiều để sản xuất dây thừng.\n\n=> Đáp án: ropes",
@@ -54,8 +273,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
-              "prompt": "Question 4",
+              "type": "gap-fill",
+              "prompt": "inner layer (shell): a source of 4. ________",
               "options": [],
               "answer": "charcoal",
               "explanation": "Bước 1: Keyword\nshell\nsource of ...\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"An important product obtained from the shell is charcoal\"\n\nBước 3: Phân tích\nVỏ dừa → tạo than.\n\n=> Đáp án: charcoal",
@@ -64,8 +283,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
-              "prompt": "Question 5",
+              "type": "gap-fill",
+              "prompt": "(when halved) for 5. ________",
               "options": [],
               "answer": "bowls",
               "explanation": "Bước 1: Keyword\nwhen halved\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"the shells are also used as bowls\"\n\nBước 3: Phân tích\nVỏ dừa bổ đôi → dùng làm bát.\n\n=> Đáp án: bowls",
@@ -74,8 +293,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
-              "prompt": "Question 6",
+              "type": "gap-fill",
+              "prompt": "coconut water: a drink; a source of 6. ________ for other plants",
               "options": [],
               "answer": "hormones",
               "explanation": "Bước 1: Keyword\nother plants\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"provides the hormones which encourage other plants...\"\n\nBước 3: Phân tích\nNước dừa cung cấp hormone cho cây khác.\n\n=> Đáp án: hormones",
@@ -84,8 +303,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
-              "prompt": "Question 7",
+              "type": "gap-fill",
+              "prompt": "coconut flesh: oil and milk for cooking and 7. ________",
               "options": [],
               "answer": "cosmetics",
               "explanation": "Bước 1: Keyword\noil and milk\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"used in cooking... as well as in cosmetics\"\n\nBước 3: Phân tích\nDầu và sữa dừa dùng trong nấu ăn và mỹ phẩm.\n\n=> Đáp án: cosmetics",
@@ -94,8 +313,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
-              "prompt": "Question 8",
+              "type": "gap-fill",
+              "prompt": "glycerin (an ingredient in 8. ________)",
               "options": [],
               "answer": "dynamite",
               "explanation": "Bước 1: Keyword\nglycerine\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"nitroglycerine-based invention: dynamite\"\n\nBước 3: Phân tích\nGlycerine là thành phần của thuốc nổ dynamite.\n\n=> Đáp án: dynamite",
@@ -113,7 +332,7 @@
               "id": "catalog-cam-13-3-reading-part-1-q9",
               "number": 9,
               "type": "true-false-not-given",
-              "prompt": "Question 9",
+              "prompt": "Coconut seeds need shade in order to germinate.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\nshade\ngerminate\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\"exposed to the full glare of the tropical sun, coconut seeds are able to germinate\"\n\nBước 3: Phân tích\nBài nói hạt dừa nảy mầm dưới ánh nắng mạnh, không phải cần bóng râm.\n\n=> Đáp án: FALSE",
@@ -123,7 +342,7 @@
               "id": "catalog-cam-13-3-reading-part-1-q10",
               "number": 10,
               "type": "true-false-not-given",
-              "prompt": "Question 10",
+              "prompt": "Coconuts were probably transported to Asia from America in the 16th century.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\ntransported\nAsia → America\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\"moved coconuts from South and Southeast Asia to Africa and then across the Atlantic to the east coast of America\"\n\nBước 3: Phân tích\nChiều vận chuyển là Asia → America, đề nói ngược lại.\n\n=> Đáp án: FALSE",
@@ -133,7 +352,7 @@
               "id": "catalog-cam-13-3-reading-part-1-q11",
               "number": 11,
               "type": "true-false-not-given",
-              "prompt": "Question 11",
+              "prompt": "Coconuts found on the west coast of America were a different type from those found on the east coast.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\nwest coast\ndifferent type\n\nBước 2: Tìm đoạn văn\nĐoạn cuối chỉ nói:\n\"coconuts discovered along the west coast...\"\n\nBước 3: Phân tích\nKhông có thông tin chúng khác loại với dừa ở bờ đông.\n\n=> Đáp án: NOT GIVEN",
@@ -143,7 +362,7 @@
               "id": "catalog-cam-13-3-reading-part-1-q12",
               "number": 12,
               "type": "true-false-not-given",
-              "prompt": "Question 12",
+              "prompt": "All the coconuts found in Asia are cultivated varieties.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\n“All the coconuts found in Asia are cultivated varieties”\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\n“In Asia, there is a large degree of coconut diversity and evidence of millennia of human use – but there are no relatives growing in the wild.”\n\nBước 3: Phân tích\nỞ châu Á không có họ hàng dừa mọc hoang dã (“no relatives growing in the wild”), nghĩa là dừa ở đây đều gắn với sự canh tác và sử dụng của con người qua hàng nghìn năm.\n\n=> Có thể suy ra dừa ở châu Á là các giống được con người trồng/cultivated.\n=> Đáp án: TRUE",
@@ -153,7 +372,7 @@
               "id": "catalog-cam-13-3-reading-part-1-q13",
               "number": 13,
               "type": "true-false-not-given",
-              "prompt": "Question 13",
+              "prompt": "Coconuts are cultivated in different ways in America and the Pacific.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\ncultivated differently\nAmerica and Pacific\n\nBước 2: Tìm đoạn văn\nĐọc đoạn cuối.\n\nBước 3: Phân tích\nChỉ nói về nguồn gốc và sự phân tán, không nói cách trồng khác nhau.\n\n=> Đáp án: NOT GIVEN",
@@ -197,8 +416,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-2-q14",
               "number": 14,
-              "type": "matching-features",
-              "prompt": "Question 14",
+              "type": "gap-fill",
+              "prompt": "the importance of adults giving babies individual attention when talking to them",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nindividual attention\none-on-one\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"it really matters whether you use baby talk in a one-on-one context\"\n\nBước 3: Phân tích\nOne-on-one = nói riêng với từng bé → nhấn mạnh sự chú ý cá nhân.\n\n=> Đáp án: B",
@@ -207,8 +426,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-2-q15",
               "number": 15,
-              "type": "matching-features",
-              "prompt": "Question 15",
+              "type": "gap-fill",
+              "prompt": "the connection between what babies hear and their own efforts to create speech",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\nhear\ncreate speech\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n\"the baby brain is engaged in trying to talk back\"\n\nBước 3: Phân tích\nNhững gì bé nghe được liên quan đến nỗ lực tạo lời nói của bé.\n\n=> Đáp án: C",
@@ -217,8 +436,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-2-q16",
               "number": 16,
-              "type": "matching-features",
-              "prompt": "Question 16",
+              "type": "gap-fill",
+              "prompt": "the advantage for the baby of having two parents each speaking in a different way",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\ntwo parents\ndifferent way\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"a kid gets to practice a certain kind of speech with mom and another kind with dad\"\n\nBước 3: Phân tích\nMẹ nói kiểu này, bố nói kiểu khác → bé học được nhiều kiểu ngôn ngữ hơn.\n\n=> Đáp án: A",
@@ -227,8 +446,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-2-q17",
               "number": 17,
-              "type": "matching-features",
-              "prompt": "Question 17",
+              "type": "gap-fill",
+              "prompt": "the connection between the amount of baby talk babies hear and how much vocalising they do themselves",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nmore baby talk\nbabble\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"the more baby talk parents used, the more their youngsters began to babble\"\n\nBước 3: Phân tích\nNghe nhiều baby talk → phát âm nhiều hơn.\n\n=> Đáp án: B",
@@ -248,7 +467,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q18",
               "number": 18,
               "type": "gap-fill",
-              "prompt": "Gap (18)",
+              "prompt": "Researchers at Washington State University used ___________, together with specialised computer programs, to analyse how parents interacted with their babies.",
               "options": [],
               "answer": "recording devices",
               "explanation": "Bước 1: Keyword\nspecialised computer programs\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"equipped parents with recording devices and speech-recognition software\"\n\nBước 3: Phân tích\nThiết bị ghi âm + phần mềm.\n\n=> Đáp án: recording devices",
@@ -258,7 +477,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q19",
               "number": 19,
               "type": "gap-fill",
-              "prompt": "Gap (19)",
+              "prompt": "The study revealed that ___________ tended not to modify their ordinary speech patterns when interacting with their babies.",
               "options": [],
               "answer": "dads",
               "explanation": "Bước 1: Keyword\nordinary speech patterns\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"Dads didn't raise their pitch...\"\n\nBước 3: Phân tích\nBố ít thay đổi giọng nói.\n\n=> Đáp án: dads",
@@ -268,7 +487,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q20",
               "number": 20,
               "type": "gap-fill",
-              "prompt": "Gap (20)",
+              "prompt": "According to an idea known as the ___________, they may use a more adult type of speech to prepare infants for the language they will hear outside the family home.",
               "options": [],
               "answer": "bridge hypothesis",
               "explanation": "Bước 1: Keyword\nidea known as\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"called the bridge hypothesis\"\n\nBước 3: Phân tích\nTên lý thuyết xuất hiện trực tiếp.\n\n=> Đáp án: bridge hypothesis",
@@ -278,7 +497,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q21",
               "number": 21,
               "type": "gap-fill",
-              "prompt": "Gap (21)",
+              "prompt": "Hearing baby talk from one parent and 'normal' language from the other expands the baby's ___________ of types of speech which they can practise.",
               "options": [],
               "answer": "repertoire",
               "explanation": "Bước 1: Keyword\ntypes of speech\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"wider repertoire of kinds of speech\"\n\nBước 3: Phân tích\nRepertoire = vốn/khả năng đa dạng.\n\n=> Đáp án: repertoire",
@@ -288,7 +507,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q22",
               "number": 22,
               "type": "gap-fill",
-              "prompt": "Gap (22)",
+              "prompt": "Another study recorded speech and sound using special ___________ that the babies were equipped with.",
               "options": [],
               "answer": "audio-recording vests",
               "explanation": "Bước 1: Keyword\nequipped with\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"fitting 26 children with audio-recording vests\"\n\nBước 3: Phân tích\nÁo có thiết bị ghi âm.\n\n=> Đáp án: audio-recording vests",
@@ -298,7 +517,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q23",
               "number": 23,
               "type": "gap-fill",
-              "prompt": "Gap (23)",
+              "prompt": "When they studied the babies again at age two, the found that those who had heard a lot of baby talk in infancy had a much larger ___________ than those who had not.",
               "options": [],
               "answer": "vocabulary",
               "explanation": "Bước 1: Keyword\nlarger\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"dramatically boosted vocabulary\"\n\nBước 3: Phân tích\nNghe nhiều baby talk → vốn từ tăng.\n\n=> Đáp án: vocabulary",
@@ -324,7 +543,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q24",
               "number": 24,
               "type": "matching-paragraph",
-              "prompt": "Question 24",
+              "prompt": "a reference to a change which occurs in babies' brain activity before the end of their first year",
               "options": [],
               "answer": "F",
               "explanation": "Câu 24: F\n\nBước 1: Keyword\nbrain activity\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n\"seven-month-olds... older infants...\"\n\nBước 3: Phân tích\nCó sự thay đổi hoạt động não trước 1 tuổi.\n\n=> Đáp án: F",
@@ -334,7 +553,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q25",
               "number": 25,
               "type": "matching-paragraph",
-              "prompt": "Question 25",
+              "prompt": "an example of what some parents do for their baby's benefit before birth",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\nbefore birth\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n\"play classical music to their pregnant bellies\"\n\nBước 3: Phân tích\nCho thai nhi nghe nhạc trước sinh.\n\n=> Đáp án: A",
@@ -344,7 +563,7 @@
               "id": "catalog-cam-13-3-reading-part-2-q26",
               "number": 26,
               "type": "matching-paragraph",
-              "prompt": "Question 26",
+              "prompt": "a mention of babies' preference for the sounds that other babies make",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\npreference\nother babies\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n\"babies seem to like listening to each other rather than adults\"\n\nBước 3: Phân tích\nTrẻ thích nghe âm thanh của trẻ khác.\n\n=> Đáp án: E",
@@ -385,7 +604,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q27",
               "number": 27,
               "type": "matching-paragraph",
-              "prompt": "Question 27",
+              "prompt": "proposed explanations for the decline of the Harappan Civilisation",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\ndecline\nexplanations\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\n\"Some have claimed that...\"\n\"single cause for the decline...\"\n\nBước 3: Phân tích\nĐoạn này liệt kê nhiều nguyên nhân được đề xuất: sông đổi dòng, dân số tăng, chiến tranh, khí hậu...\n\n⇒ Đáp án: C",
@@ -395,7 +614,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q28",
               "number": 28,
               "type": "matching-paragraph",
-              "prompt": "Question 28",
+              "prompt": "reference to a present-day application of some archaeological research findings",
               "options": [],
               "answer": "H",
               "explanation": "Bước 1: Keyword\npresent-day application\n\nBước 2: Tìm đoạn văn\nĐoạn H:\n\n\"learn from the past...\"\n\"management of water supply...\"\n\nBước 3: Phân tích\nNghiên cứu khảo cổ được dùng để giải quyết vấn đề hiện nay.\n\n⇒ Đáp án: H",
@@ -405,7 +624,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q29",
               "number": 29,
               "type": "matching-paragraph",
-              "prompt": "Question 29",
+              "prompt": "a difference between the Harappan Civilisation and another culture of the same period",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\ndifference\nanother culture\n\nBước 2: Tìm đoạn văn\n\n\"Egyptians were carving...\"\n\"Harappan left almost no depictions...\"\n\nBước 3: Phân tích\nSo sánh Harappan với Ai Cập cổ đại.\n\n⇒ Đáp án: A",
@@ -415,7 +634,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q30",
               "number": 30,
               "type": "matching-paragraph",
-              "prompt": "Question 30",
+              "prompt": "a description of some features of Harappan urban design",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nurban design\n\nBước 2: Tìm đoạn văn\n\n\"Houses were arranged in blocks...\"\n\"wide streets, wells and drainage systems\"\n\nBước 3: Phân tích\nMô tả thiết kế thành phố Harappan.\n\n⇒ Đáp án: B",
@@ -425,7 +644,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q31",
               "number": 31,
               "type": "matching-paragraph",
-              "prompt": "Question 31",
+              "prompt": "reference to the discovery of errors made by previous archaeologists",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nerrors\nprevious archaeologists\n\nBước 2: Tìm đoạn văn\n\n\"found inaccuracies in published geographic locations\"\n\nBước 3: Phân tích\nPhát hiện sai sót trong dữ liệu khảo cổ trước đây.\n\n⇒ Đáp án: D",
@@ -445,7 +664,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q32",
               "number": 32,
               "type": "gap-fill",
-              "prompt": "Gap (32)",
+              "prompt": "By collecting the ___________ of snails and analysing them, they discovered evidence of a change in water levels.",
               "options": [],
               "answer": "shells",
               "explanation": "Bước 1: Keyword\ncollecting + snails\n\nBước 2: Tìm đoạn\n\n\"gathered shells of snails\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: shells",
@@ -455,7 +674,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q33",
               "number": 33,
               "type": "gap-fill",
-              "prompt": "Gap (33)",
+              "prompt": "This occurred in a ___________ in the region.",
               "options": [],
               "answer": "lake",
               "explanation": "Bước 1: Keyword\nwater levels\n\nBước 2: Tìm đoạn\n\n\"ancient lake\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: lake",
@@ -465,7 +684,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q34",
               "number": 34,
               "type": "gap-fill",
-              "prompt": "Gap (34)",
+              "prompt": "This occurred when there was less ___________ than evaporation, suggesting an extended period of drought.",
               "options": [],
               "answer": "rainfall",
               "explanation": "Bước 1: Keyword\nless ... than evaporation\n\nBước 2: Tìm đoạn\n\n\"evaporation exceeded rainfall\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: rainfall",
@@ -475,7 +694,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q35",
               "number": 35,
               "type": "gap-fill",
-              "prompt": "Gap (35)",
+              "prompt": "Petrie and Singh's team are using archaeological records to look at ___________ from five millennia ago.",
               "options": [],
               "answer": "grains",
               "explanation": "Bước 1: Keyword\n“adapted their agricultural practices” / “from five millennia ago”\n\nBước 2: Tìm đoạn văn\nĐoạn G:\n\n“They are analysing grains cultivated at the time…”\n\nBước 3: Phân tích\nNhóm nghiên cứu đang phân tích các loại hạt/ngũ cốc được trồng thời đó để xem con người có thích nghi với điều kiện khí hậu không.\n\n=> Đáp án: grains",
@@ -485,7 +704,7 @@
               "id": "catalog-cam-13-3-reading-part-3-q36",
               "number": 36,
               "type": "gap-fill",
-              "prompt": "Gap (36)",
+              "prompt": "They are also examining objects including ___________, so as to find out about links between inhabitants.",
               "options": [],
               "answer": "pottery",
               "explanation": "Bước 1: Keyword\n“objects” / “links between inhabitants”\n\nBước 2: Tìm đoạn văn\nĐoạn G:\n\n“They are also looking at whether the types of pottery used…”\n\nBước 3: Phân tích\nNhóm nghiên cứu xem xét các loại đồ gốm để tìm hiểu sự liên kết giữa các khu vực và sự thay đổi theo thời gian.\n\n=> Đáp án: pottery",
@@ -520,8 +739,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-3-q37",
               "number": 37,
-              "type": "matching-features",
-              "prompt": "Question 37",
+              "type": "gap-fill",
+              "prompt": "Finding further information about changes to environmental conditions in the region is vital.",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nfurther information\nenvironment\n\nBước 2: Tìm đoạn\n\n\"it is essential that we obtain more climate data...\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: B",
@@ -530,8 +749,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-3-q38",
               "number": 38,
-              "type": "matching-features",
-              "prompt": "Question 38",
+              "type": "gap-fill",
+              "prompt": "Examining previous patterns of behaviour may have long-term benefits.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\nlong-term benefits\n\nBước 2: Tìm đoạn\n\n\"learn from the past...\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: A",
@@ -540,8 +759,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-3-q39",
               "number": 39,
-              "type": "matching-features",
-              "prompt": "Question 39",
+              "type": "gap-fill",
+              "prompt": "Rough calculations indicate the approximate length of a period of water shortage.",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\napproximate length\n\nBước 2: Tìm đoạn\n\n\"We estimate...\"\n\"lasted about 200 years\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: D",
@@ -550,8 +769,8 @@
             {
               "id": "catalog-cam-13-3-reading-part-3-q40",
               "number": 40,
-              "type": "matching-features",
-              "prompt": "Question 40",
+              "type": "gap-fill",
+              "prompt": "Information about the decline of the Harappan Civilisation has been lacking.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\nlacking information\n\nBước 2: Tìm đoạn\n\n\"relatively little about its fall\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: A",
