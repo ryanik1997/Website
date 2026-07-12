@@ -4,6 +4,54 @@
   background: var(--bg-primary);
 }
 
+/* Exam studio: editorial luxury / asymmetrical bento */
+.exam-home {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(circle at 78% 14%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 24rem), var(--bg-primary);
+}
+.exam-home::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .035;
+  background-image: radial-gradient(var(--text-primary) .55px, transparent .55px);
+  background-size: 5px 5px;
+  z-index: -1;
+}
+.exam-home__inner { max-width: 74rem; padding: clamp(2rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem) 2rem; }
+.exam-home__hero { min-height: 31rem; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); align-items: center; gap: 3rem; }
+.exam-home__eyebrow { display: flex; align-items: center; gap: .55rem; margin: 0; color: var(--color-primary); font-size: .66rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.exam-home__eyebrow span { width: .4rem; height: .4rem; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 1rem color-mix(in srgb, var(--color-primary) 80%, transparent); }
+.exam-home__title { margin: 1.2rem 0 0; max-width: 42rem; color: var(--text-primary); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3.5rem, 8vw, 7.5rem); font-weight: 400; letter-spacing: -.07em; line-height: .86; }
+.exam-home__title em, .exam-home__section-head h2 em { color: var(--color-primary); font-style: italic; }
+.exam-home__desc { max-width: 31rem; margin: 2rem 0 0; color: var(--text-muted); font-size: .98rem; line-height: 1.7; }
+.exam-home__signal { display: flex; align-items: center; gap: .6rem; margin-top: 2rem; color: var(--text-primary); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.exam-home__signal-dot { width: .45rem; height: .45rem; border-radius: 50%; background: var(--color-accent); }
+.exam-home__orb { width: min(28rem, 70vw); aspect-ratio: 1; justify-self: end; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--color-primary) 65%, var(--bg-card)), color-mix(in srgb, var(--color-primary) 14%, var(--bg-card)) 48%, transparent 70%); box-shadow: inset 0 0 5rem color-mix(in srgb, var(--color-primary) 16%, transparent); transform: rotate(8deg); }
+.exam-home__orb span { color: var(--text-muted); font-size: .62rem; font-weight: 800; letter-spacing: .25em; line-height: 1.8; text-align: center; transform: rotate(-8deg); }
+.exam-home__section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin: 3rem 0 1.5rem; padding-top: 2rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent); }
+.exam-home__section-head h2 { margin: .65rem 0 0; color: var(--text-primary); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 400; letter-spacing: -.05em; line-height: .92; }
+.exam-home__section-head > p { max-width: 16rem; margin: 0; color: var(--text-muted); font-size: .8rem; line-height: 1.6; }
+.exam-home__tracks { grid-template-columns: 1.15fr .85fr; gap: 1rem; margin-top: 0; }
+.exam-home__track { min-height: 24rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 10%, transparent), 0 2rem 5rem color-mix(in srgb, var(--bg-primary) 35%, transparent); transition: transform 700ms cubic-bezier(.32,.72,0,1), border-color 700ms cubic-bezier(.32,.72,0,1), box-shadow 700ms cubic-bezier(.32,.72,0,1); }
+.exam-home__track:hover { transform: translateY(-.55rem) rotate(-.4deg); border-color: color-mix(in srgb, var(--color-primary) 60%, var(--border-color)); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 14%, transparent), 0 2.5rem 6rem color-mix(in srgb, var(--color-primary) 14%, transparent); }
+.exam-home__track--cambridge { margin-top: 2.5rem; }
+.exam-home__track-top { display: flex; justify-content: space-between; align-items: center; }
+.exam-home__track-index { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: .75rem; color: var(--color-on-primary); background: var(--color-primary); font-family: Georgia, serif; font-size: 1.1rem; }
+.exam-home__arrow { color: var(--text-muted); font-size: 1.8rem; transition: transform 700ms cubic-bezier(.32,.72,0,1); }
+.exam-home__track:hover .exam-home__arrow { transform: translate(.25rem, -.25rem) scale(1.1); }
+.exam-home__track .exam-hub-track-card__sub { margin-top: 2.2rem; color: var(--color-primary); }
+.exam-home__track .exam-hub-track-card__title { margin-top: .35rem; font-family: Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; letter-spacing: -.045em; }
+.exam-home__track .exam-hub-track-card__desc { max-width: 30rem; margin-top: .8rem; font-size: .8rem; line-height: 1.6; }
+.exam-home__skills { margin-top: auto; padding-top: 1.5rem; }
+.exam-home__skills .exam-hub-skill-tag { padding: .35rem .7rem; background: color-mix(in srgb, var(--color-primary) 10%, transparent); }
+.exam-home__track-footer { display: flex; justify-content: space-between; margin-top: 1.5rem; padding-top: .9rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); color: var(--text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.exam-home__track-footer b { color: var(--color-primary); font-size: 1.2rem; line-height: .5; }
+.exam-home__footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 5rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); color: var(--text-muted); font-size: .58rem; font-weight: 800; letter-spacing: .16em; }
+@media (max-width: 767px) { .exam-home__hero { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; } .exam-home__orb { width: 13rem; justify-self: end; } .exam-home__section-head { display: block; margin-top: 2rem; } .exam-home__section-head > p { margin-top: 1rem; } .exam-home__tracks { grid-template-columns: 1fr; gap: 1rem; } .exam-home__track--cambridge { margin-top: 0; } .exam-home__footer { flex-wrap: wrap; margin-top: 3rem; } .exam-home__footer span:last-child { width: 100%; } }
+
 .exam-hub-page__inner {
   max-width: 52rem;
   margin: 0 auto;
