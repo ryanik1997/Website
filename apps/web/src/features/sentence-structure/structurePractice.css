@@ -64,12 +64,12 @@
 .ss-list-page .ss-topbar { max-width: none; min-height: 0; margin: 0 0 1.75rem; padding: 0; align-items: center; border: none; background: transparent; }
 .ss-list-page .ss-topbar::after { display: none; }
 .ss-list-page .ss-topbar-left { align-items: center; gap: .85rem; }
-.ss-list-page .ss-badge { padding: .38rem .85rem; border-radius: 999px; background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-secondary)); color: var(--color-primary); font-family: inherit; font-size: .8rem; font-weight: 650; letter-spacing: 0; }
+.ss-list-page .ss-badge { padding: .38rem .85rem; border-radius: 999px; background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card)); color: var(--color-primary); font-family: inherit; font-size: .8rem; font-weight: 650; letter-spacing: 0; }
 .ss-list-page .ss-topbar-sub { font-size: .68rem; font-weight: 700; letter-spacing: .06em; }
 .ss-list-page .ss-check-btn { padding: .62rem 1rem !important; border-radius: .65rem; background: var(--color-primary); color: var(--bg-primary); font-size: .78rem !important; }
 .ss-list-page .ss-hub { max-width: none; padding: 0; }
 .ss-list-page .ss-hub-toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: .9rem; background: var(--bg-card); }
-.ss-list-page .ss-hub-search { flex: 1; min-width: 13rem; min-height: 0; padding: .65rem .9rem .65rem 1rem; border: none; border-radius: .6rem; background: var(--bg-secondary); transform: none; }
+.ss-list-page .ss-hub-search { flex: 1; min-width: 13rem; min-height: 0; padding: .65rem .9rem .65rem 1rem; border: 1px solid color-mix(in srgb, var(--border-color) 75%, transparent); border-radius: .6rem; background: var(--bg-card); transform: none; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) { display: flex; gap: .5rem; padding: 0; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button { border-color: var(--border-color) !important; background: var(--bg-card) !important; color: var(--text-muted) !important; padding: .45rem .8rem; font-size: .72rem; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button:first-child { border-color: color-mix(in srgb, var(--color-primary) 22%, var(--border-color)) !important; background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)) !important; color: var(--color-primary) !important; }
