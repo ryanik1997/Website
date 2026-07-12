@@ -82,6 +82,37 @@
 .exam-hub-page--listening .ielts-library-card:hover .ielts-library-card__chevron { color: var(--color-primary); transform: translate(.2rem, -.2rem); }
 @media (max-width: 700px) { .exam-hub-page--listening .exam-full-mock-hero { min-height: 15rem; padding: 1.5rem 1.25rem; } .exam-hub-page--listening .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--listening .ielts-library__toolbar { align-items: stretch; } .exam-hub-page--listening .ielts-library__toolbar-right, .exam-hub-page--listening .ielts-library__search { width: 100%; } .exam-hub-page--listening .ielts-library__search { min-width: 0; } .exam-hub-page--listening .ielts-library__cards { grid-template-columns: 1fr; } }
 
+/* IELTS Reading archive: quiet editorial focus */
+.exam-hub-page--reading.exam-hub-page--ielts { background: radial-gradient(circle at 12% 6%, color-mix(in srgb, var(--color-accent) 11%, transparent), transparent 24rem), var(--bg-primary); }
+.exam-hub-page--reading.exam-hub-page--ielts .exam-hub-page__inner { max-width: 72rem; padding-top: clamp(2rem, 5vw, 5rem); }
+.exam-hub-page--reading .exam-full-mock-hero { position: relative; min-height: 17rem; padding: 2.2rem 2.4rem 2.5rem; overflow: visible; border: none; border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 86%, transparent); box-shadow: none; }
+.exam-hub-page--reading .exam-full-mock-hero::after { content: 'READ\A / 01'; white-space: pre; position: absolute; right: 8%; bottom: 1.5rem; z-index: 0; color: color-mix(in srgb, var(--color-accent) 46%, transparent); font-family: Georgia, serif; font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(7deg); pointer-events: none; }
+.exam-hub-page--reading .exam-hub-back,
+.exam-hub-page--reading .exam-hub-kicker { position: relative; z-index: 3; line-height: 1.35; }
+.exam-hub-page--reading .exam-hub-back { margin-bottom: 1.2rem; background: transparent; border-color: transparent; transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--reading .exam-hub-back:hover { color: var(--color-primary); transform: translateX(-.25rem); }
+.exam-hub-page--reading .exam-hub-kicker { display: block; min-height: 1.2rem; margin: 0 0 .9rem; padding-left: .1rem; }
+.exam-hub-page--reading .exam-hub-title { position: relative; z-index: 1; margin-top: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 400; letter-spacing: -.06em; line-height: 1.05; }
+.exam-hub-page--reading .exam-hub-desc { position: relative; z-index: 1; max-width: 27rem; margin-top: 1rem; font-size: .9rem; }
+.exam-hub-page--reading .exam-hub-actions { position: relative; z-index: 2; gap: .6rem; margin-top: 1.35rem; }
+.exam-hub-page--reading .exam-hub-cta { padding: .7rem 1rem; border-color: color-mix(in srgb, var(--border-color) 55%, transparent); background: color-mix(in srgb, var(--bg-primary) 34%, transparent); transition: transform 600ms cubic-bezier(.32,.72,0,1), border-color 600ms cubic-bezier(.32,.72,0,1), background 600ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--reading .exam-hub-cta:hover { transform: translateY(-.2rem); border-color: color-mix(in srgb, var(--color-primary) 55%, var(--border-color)); background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)); }
+.exam-hub-page--reading .ielts-library { margin-top: 3rem; }
+.exam-hub-page--reading .ielts-library__toolbar { align-items: end; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
+.exam-hub-page--reading .ielts-library__title { font-family: Georgia, serif; font-size: 1.3rem; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
+.exam-hub-page--reading .ielts-library__filter-pill { padding: .55rem .9rem; background: var(--text-primary); color: var(--bg-primary); }
+.exam-hub-page--reading .ielts-library__search { min-width: 18rem; padding: .65rem 1rem; border-radius: 1rem; background: color-mix(in srgb, var(--bg-card) 80%, transparent); transition: border-color 500ms cubic-bezier(.32,.72,0,1), transform 500ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--reading .ielts-library__search:focus-within { border-color: color-mix(in srgb, var(--color-primary) 60%, var(--border-color)); transform: translateY(-.15rem); }
+.exam-hub-page--reading .ielts-library__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.exam-hub-page--reading .ielts-library-card { min-height: 7.5rem; padding: 1.2rem; border-radius: 1.35rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 8%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), border-color 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--reading .ielts-library-card:hover { transform: translateY(-.35rem) rotate(.25deg); box-shadow: 0 1.8rem 4rem color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.exam-hub-page--reading .ielts-library-cover { width: 4rem; height: 5.1rem; border-radius: .75rem; box-shadow: inset 0 -1.2rem 1.6rem color-mix(in srgb, var(--bg-primary) 18%, transparent); }
+.exam-hub-page--reading .ielts-library-cover__num { font-family: Georgia, serif; font-size: 1.8rem; font-weight: 400; }
+.exam-hub-page--reading .ielts-library-card__title { font-family: Georgia, serif; font-size: 1.08rem; font-weight: 400; letter-spacing: -.01em; }
+.exam-hub-page--reading .ielts-library-card__chevron { transition: transform 600ms cubic-bezier(.32,.72,0,1), color 600ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--reading .ielts-library-card:hover .ielts-library-card__chevron { color: var(--color-primary); transform: translate(.2rem, -.2rem); }
+@media (max-width: 700px) { .exam-hub-page--reading .exam-full-mock-hero { min-height: 15rem; padding: 1.5rem 1.25rem; } .exam-hub-page--reading .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--reading .ielts-library__toolbar { align-items: stretch; } .exam-hub-page--reading .ielts-library__toolbar-right, .exam-hub-page--reading .ielts-library__search { width: 100%; } .exam-hub-page--reading .ielts-library__search { min-width: 0; } .exam-hub-page--reading .ielts-library__cards { grid-template-columns: 1fr; } }
+
 .exam-hub-page__inner {
   max-width: 52rem;
   margin: 0 auto;
