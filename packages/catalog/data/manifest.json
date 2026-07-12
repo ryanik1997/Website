@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "builtAt": "2026-07-12T10:19:11.094Z",
+  "builtAt": "2026-07-12T13:35:00.714Z",
   "reading": [
     {
       "id": "catalog-reading-ket-a2-test1",
@@ -28,54 +28,239 @@
       "title": "CPE C2 Reading & Writing — Test 1"
     },
     {
-      "id": "catalog-reading-ielts-cam9-test1",
+      "id": "catalog-cam-9-1-reading",
       "slug": "ielts-cam9-test1",
-      "title": "IELTS Reading — Cambridge 9 Test 1"
+      "title": "CAM 9 1"
     },
     {
-      "id": "catalog-reading-ielts-cam9-test2",
+      "id": "catalog-cam-9-2-reading",
       "slug": "ielts-cam9-test2",
-      "title": "IELTS Reading — Cambridge 9 Test 2"
+      "title": "CAM 9 2"
     },
     {
-      "id": "catalog-reading-ielts-cam9-test3",
+      "id": "catalog-cam-9-3-reading",
       "slug": "ielts-cam9-test3",
-      "title": "IELTS Reading — Cambridge 9 Test 3"
+      "title": "CAM 9 3"
     },
     {
-      "id": "catalog-reading-ielts-cam9-test4",
+      "id": "catalog-cam-9-4-reading",
       "slug": "ielts-cam9-test4",
-      "title": "IELTS Reading — Cambridge 9 Test 4"
+      "title": "CAM 9 4"
     },
     {
-      "id": "catalog-reading-ielts-cam10-test1",
+      "id": "catalog-cam-10-1-reading",
       "slug": "ielts-cam10-test1",
-      "title": "IELTS Reading — Cambridge 10 Test 1"
+      "title": "CAM 10 1"
     },
     {
-      "id": "catalog-reading-ielts-cam10-test2",
+      "id": "catalog-cam-10-2-reading",
       "slug": "ielts-cam10-test2",
-      "title": "IELTS Reading — Cambridge 10 Test 2"
+      "title": "CAM 10 2"
     },
     {
-      "id": "catalog-reading-ielts-cam10-test3",
+      "id": "catalog-cam-10-3-reading",
       "slug": "ielts-cam10-test3",
-      "title": "IELTS Reading — Cambridge 10 Test 3"
+      "title": "CAM 10 3"
     },
     {
-      "id": "catalog-reading-ielts-cam10-test4",
+      "id": "catalog-cam-10-4-reading",
       "slug": "ielts-cam10-test4",
-      "title": "IELTS Reading — Cambridge 10 Test 4"
+      "title": "CAM 10 4"
     },
     {
-      "id": "catalog-reading-ielts-cam11-test1",
+      "id": "catalog-cam-11-1-reading",
       "slug": "ielts-cam11-test1",
-      "title": "IELTS Reading — Cambridge 11 Test 1"
+      "title": "CAM 11 1"
     },
     {
-      "id": "catalog-reading-ielts-cam11-test3",
+      "id": "catalog-cam-11-3-reading",
       "slug": "ielts-cam11-test3",
-      "title": "IELTS Reading — Cambridge 11 Test 3"
+      "title": "CAM 11 3"
+    },
+    {
+      "id": "catalog-cam-11-4-reading",
+      "slug": "ielts-cam11-test4",
+      "title": "CAM 11 4"
+    },
+    {
+      "id": "catalog-cam-12-1-reading",
+      "slug": "ielts-cam12-test1",
+      "title": "CAM 12 1"
+    },
+    {
+      "id": "catalog-cam-12-2-reading",
+      "slug": "ielts-cam12-test2",
+      "title": "CAM 12 2"
+    },
+    {
+      "id": "catalog-cam-12-3-reading",
+      "slug": "ielts-cam12-test3",
+      "title": "CAM 12 3"
+    },
+    {
+      "id": "catalog-cam-12-4-reading",
+      "slug": "ielts-cam12-test4",
+      "title": "CAM 12 4"
+    },
+    {
+      "id": "catalog-cam-13-1-reading",
+      "slug": "ielts-cam13-test1",
+      "title": "CAM 13 1"
+    },
+    {
+      "id": "catalog-cam-13-2-reading",
+      "slug": "ielts-cam13-test2",
+      "title": "CAM 13 2"
+    },
+    {
+      "id": "catalog-cam-13-3-reading",
+      "slug": "ielts-cam13-test3",
+      "title": "CAM 13 3"
+    },
+    {
+      "id": "catalog-cam-13-4-reading",
+      "slug": "ielts-cam13-test4",
+      "title": "CAM 13 4"
+    },
+    {
+      "id": "catalog-cam-14-1-reading",
+      "slug": "ielts-cam14-test1",
+      "title": "CAM 14 1"
+    },
+    {
+      "id": "catalog-cam-14-2-reading",
+      "slug": "ielts-cam14-test2",
+      "title": "CAM 14 2"
+    },
+    {
+      "id": "catalog-cam-14-3-reading",
+      "slug": "ielts-cam14-test3",
+      "title": "CAM 14 3"
+    },
+    {
+      "id": "catalog-cam-14-4-reading",
+      "slug": "ielts-cam14-test4",
+      "title": "CAM 14 4"
+    },
+    {
+      "id": "catalog-cam-15-1-reading",
+      "slug": "ielts-cam15-test1",
+      "title": "CAM 15 1"
+    },
+    {
+      "id": "catalog-cam-15-2-reading",
+      "slug": "ielts-cam15-test2",
+      "title": "CAM 15 2"
+    },
+    {
+      "id": "catalog-cam-15-3-reading",
+      "slug": "ielts-cam15-test3",
+      "title": "CAM 15 3"
+    },
+    {
+      "id": "catalog-cam-15-4-reading",
+      "slug": "ielts-cam15-test4",
+      "title": "CAM 15 4"
+    },
+    {
+      "id": "catalog-cam-16-1-reading",
+      "slug": "ielts-cam16-test1",
+      "title": "CAM 16 1"
+    },
+    {
+      "id": "catalog-cam-16-2-reading",
+      "slug": "ielts-cam16-test2",
+      "title": "CAM 16 2"
+    },
+    {
+      "id": "catalog-cam-16-3-reading",
+      "slug": "ielts-cam16-test3",
+      "title": "CAM 16 3"
+    },
+    {
+      "id": "catalog-cam-16-4-reading",
+      "slug": "ielts-cam16-test4",
+      "title": "CAM 16 4"
+    },
+    {
+      "id": "catalog-cam-17-1-reading",
+      "slug": "ielts-cam17-test1",
+      "title": "CAM 17 1"
+    },
+    {
+      "id": "catalog-cam-17-2-reading",
+      "slug": "ielts-cam17-test2",
+      "title": "CAM 17 2"
+    },
+    {
+      "id": "catalog-cam-17-3-reading",
+      "slug": "ielts-cam17-test3",
+      "title": "CAM 17 3"
+    },
+    {
+      "id": "catalog-cam-17-4-reading",
+      "slug": "ielts-cam17-test4",
+      "title": "CAM 17 4"
+    },
+    {
+      "id": "catalog-cam-18-1-reading",
+      "slug": "ielts-cam18-test1",
+      "title": "CAM 18 1"
+    },
+    {
+      "id": "catalog-cam-18-2-reading",
+      "slug": "ielts-cam18-test2",
+      "title": "CAM 18 2"
+    },
+    {
+      "id": "catalog-cam-18-3-reading",
+      "slug": "ielts-cam18-test3",
+      "title": "CAM 18 3"
+    },
+    {
+      "id": "catalog-cam-18-4-reading",
+      "slug": "ielts-cam18-test4",
+      "title": "CAM 18 4"
+    },
+    {
+      "id": "catalog-cam-19-1-reading",
+      "slug": "ielts-cam19-test1",
+      "title": "CAM 19 1"
+    },
+    {
+      "id": "catalog-cam-19-2-reading",
+      "slug": "ielts-cam19-test2",
+      "title": "CAM 19 2"
+    },
+    {
+      "id": "catalog-cam-19-3-reading",
+      "slug": "ielts-cam19-test3",
+      "title": "CAM 19 3"
+    },
+    {
+      "id": "catalog-cam-19-4-reading",
+      "slug": "ielts-cam19-test4",
+      "title": "CAM 19 4"
+    },
+    {
+      "id": "catalog-cam-20-1-reading",
+      "slug": "ielts-cam20-test1",
+      "title": "CAM 20 1"
+    },
+    {
+      "id": "catalog-cam-20-2-reading",
+      "slug": "ielts-cam20-test2",
+      "title": "CAM 20 2"
+    },
+    {
+      "id": "catalog-cam-20-3-reading",
+      "slug": "ielts-cam20-test3",
+      "title": "CAM 20 3"
+    },
+    {
+      "id": "catalog-cam-20-4-reading",
+      "slug": "ielts-cam20-test4",
+      "title": "CAM 20 4"
     }
   ],
   "listening": [
