@@ -520,6 +520,7 @@ export default function ReadingTest() {
         exam={exam}
         answers={answers}
         fullMockId={fullMockId}
+        scopedPartIndex={singlePartMode ? partIndex : undefined}
         onRetry={handleRetry}
         onReviewWithPaper={() => {
           setReviewMode(true)
