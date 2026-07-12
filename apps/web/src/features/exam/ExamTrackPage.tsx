@@ -433,7 +433,7 @@ function ExamTrackPageInner() {
   const showListeningArchive = activeSkill === 'listening' && activeTrack.skills.includes('listening')
 
   return (
-    <div className={`exam-hub-page${useLibraryArchiveLayout ? ' exam-hub-page--ielts' : ''}`}>
+    <div className={`exam-hub-page${useLibraryArchiveLayout ? ' exam-hub-page--ielts' : ''}${activeSkill ? ` exam-hub-page--${activeSkill}` : ''}`}>
       <div className="exam-hub-page__inner">
         <button type="button" className="exam-hub-back" onClick={() => navigate(skillBasePath)}>
           <ArrowLeft size={14} />
