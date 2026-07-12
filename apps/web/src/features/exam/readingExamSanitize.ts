@@ -200,6 +200,19 @@ function sanitizeFeatureList(
 ): ReadingQuestionGroup['features'] {
   if (!Array.isArray(features)) return features
   return features.map((feature, index) => {
+    // Import/build scripts sometimes pass "A Roger Angel" strings (not {id,name}).
+    const asUnknown = feature as unknown
+    if (typeof asUnknown === 'string') {
+      const text = asUnknown.trim()
+      const m = text.match(/^([A-Za-z0-9]+)[.)\s:-]+(.+)$/)
+      if (m) {
+        return { id: m[1].toLowerCase(), name: m[2].trim() }
+      }
+      return {
+        id: String.fromCharCode(97 + index),
+        name: text || `Item ${String.fromCharCode(65 + index)}`,
+      }
+    }
     const raw = feature as { id?: string; name?: string; label?: string }
     const id = typeof raw.id === 'string' && raw.id.trim()
       ? raw.id.trim().toLowerCase()

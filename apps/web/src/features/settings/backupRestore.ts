@@ -1,7 +1,7 @@
 import { db } from '@ryan/db'
 
-const BACKUP_VERSION = 3 as const
-const SUPPORTED_VERSIONS = [1, 2, 3] as const
+const BACKUP_VERSION = 4 as const
+const SUPPORTED_VERSIONS = [1, 2, 3, 4] as const
 const APP_NAME = 'RyanEnglish'
 
 const BACKUP_TABLES = [
@@ -20,6 +20,7 @@ const BACKUP_TABLES = [
   'translationSets',
   'readingExams',
   'listeningExams',
+  'examBackups',
 ] as const
 
 type BackupTable = (typeof BACKUP_TABLES)[number]
@@ -27,7 +28,7 @@ type BackupTable = (typeof BACKUP_TABLES)[number]
 export type BackupData = Record<BackupTable, unknown[]>
 
 export interface BackupPayload {
-  version: typeof BACKUP_VERSION | 1 | 2
+  version: typeof BACKUP_VERSION | 1 | 2 | 3
   exportedAt: string
   app: typeof APP_NAME
   data: Partial<BackupData> & Record<string, unknown>
@@ -73,6 +74,7 @@ async function readAllTables(): Promise<BackupData> {
     translationSets,
     readingExams,
     listeningExams,
+    examBackups,
   ] = await Promise.all([
     db.groups.toArray(),
     db.decks.toArray(),
@@ -89,6 +91,7 @@ async function readAllTables(): Promise<BackupData> {
     db.translationSets.toArray(),
     db.readingExams.toArray(),
     db.listeningExams.toArray(),
+    db.examBackups.toArray(),
   ])
 
   return {
@@ -107,6 +110,7 @@ async function readAllTables(): Promise<BackupData> {
     translationSets,
     readingExams,
     listeningExams,
+    examBackups,
   }
 }
 
@@ -127,6 +131,7 @@ async function countRecords(): Promise<number> {
     db.translationSets.count(),
     db.readingExams.count(),
     db.listeningExams.count(),
+    db.examBackups.count(),
   ])
   return counts.reduce((sum, n) => sum + n, 0)
 }
@@ -134,7 +139,7 @@ async function countRecords(): Promise<number> {
 function isBackupPayload(raw: unknown): raw is BackupPayload {
   if (!raw || typeof raw !== 'object') return false
   const obj = raw as Record<string, unknown>
-  if (!SUPPORTED_VERSIONS.includes(obj.version as 1 | 2 | 3)) return false
+  if (!SUPPORTED_VERSIONS.includes(obj.version as 1 | 2 | 3 | 4)) return false
   if (obj.app !== APP_NAME) return false
   if (!obj.data || typeof obj.data !== 'object') return false
   return true
@@ -188,6 +193,7 @@ export async function importBackup(file: File): Promise<{ counts: Record<string,
         db.translationSets,
         db.readingExams,
         db.listeningExams,
+        db.examBackups,
       ],
       async () => {
         for (const table of BACKUP_TABLES) {
@@ -196,6 +202,8 @@ export async function importBackup(file: File): Promise<{ counts: Record<string,
             counts[table] = 0
             continue
           }
+          // examBackups chỉ có từ backup v4+
+          if (table === 'examBackups' && !db.examBackups) continue
           await db.table(table).bulkPut(rows)
           counts[table] = rows.length
         }

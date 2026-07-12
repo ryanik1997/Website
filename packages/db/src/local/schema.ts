@@ -198,6 +198,28 @@ export interface MindmapTombstone {
   deletedAt: number
 }
 
+export interface DeckTombstone {
+  id: string
+  deletedAt: number
+}
+
+export interface CardTombstone {
+  id: string
+  deletedAt: number
+}
+
+/** Backup đề Reading/Listening khi import/Wizard — không phụ thuộc cloud. */
+export interface ExamBackupRecord {
+  id: string
+  skill: 'reading' | 'listening'
+  title: string
+  sourceFilename?: string
+  /** Full exam JSON serializable */
+  payload: unknown
+  createdAt: number
+  updatedAt: number
+}
+
 export class RyanDB extends Dexie {
   groups!:         Table<Group, string>
   decks!:          Table<Deck, string>
@@ -213,12 +235,15 @@ export class RyanDB extends Dexie {
   errorBank!:      Table<ErrorBank, number>
   mindmaps!:       Table<MindMap, string>
   mindmapTombstones!: Table<MindmapTombstone, string>
+  deckTombstones!: Table<DeckTombstone, string>
+  cardTombstones!: Table<CardTombstone, string>
   aiUsage!:        Table<AiUsage, [string, string]>
   settings!:       Table<Setting, string>
   sentenceStructures!: Table<SentenceStructure, string>
   readingExams!:      Table<ReadingExamRecord, string>
   listeningExams!:    Table<ListeningExamRecord, string>
   notebookEntries!:   Table<NotebookEntry, string>
+  examBackups!:       Table<ExamBackupRecord, string>
 
   constructor() {
     super('RyanEnglishDB')
@@ -469,6 +494,58 @@ export class RyanDB extends Dexie {
       readingExams:    '&id, source, createdAt, updatedAt',
       listeningExams:  '&id, examType, source, createdAt, updatedAt',
       notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+    })
+    // v14: Tombstone cho deck user để sync xoá cloud thay vì pull ngược
+    // (cards + srs cloud cascade theo FK on delete)
+    this.version(14).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+    })
+    // v15: Auto-backup đề Reading/Listening (Wizard/import) — Dexie durable
+    this.version(15).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state',
+      reviewLog:       '++id, cardId, at',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
     })
   }
 }

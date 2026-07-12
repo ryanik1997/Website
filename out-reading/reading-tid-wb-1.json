@@ -1,0 +1,430 @@
+{
+  "version": 1,
+  "title": "TID WB 1",
+  "durationMinutes": 60,
+  "examTrack": "ielts",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "",
+      "passageTitle": "The best cities in the world",
+      "passage": [
+        {
+          "text": "The best cities in the world\nSource: Internet survey of tourists and business travellers — 50 cities ranked.\nIn a recent internet survey, tourists and business travellers were asked to rate 50 cities around the world, from the best to the worst. Of the top three cities, two were in Europe and one was in Australia.\nIn third place was London, scoring highly mainly because it was the most famous city on the list of 50 surveyed. It was also seen as a very good place to do business, and was an important cultural centre. However, it lost points because people believed it was an extremely expensive place to live.\nSydney was also a very popular destination, achieving second place on the list because people believed it had the friendliest inhabitants, as well as the best standard of living and the nicest climate. It failed to make the top spot, however, because people thought there were very few things to see there, and many also thought it was too far away from other business and cultural centres.\nAt the top of the list was Paris. Despite problems such as the large amount of traffic, it beat other cities to first place because people considered it to be the most interesting city, with more museums, art galleries and places of interest than anywhere else. People also thought it was the best city to take a holiday in."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–7",
+          "instruction": "Complete the table below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "excellent",
+              "answer": "very good",
+              "explanation": "EN: \"a very good place to do business\"\nVI: \"một nơi rất tốt để kinh doanh\"",
+              "options": []
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "very",
+              "answer": "extremely",
+              "explanation": "EN: \"extremely expensive\"\nVI: \"cực kỳ đắt đỏ\"",
+              "options": []
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "residents",
+              "answer": "inhabitants",
+              "explanation": "EN: \"friendliest inhabitants\"\nVI: \"cư dân thân thiện nhất\"",
+              "options": []
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "quality of life",
+              "answer": "standard of living",
+              "explanation": "EN: \"best standard of living\"\nVI: \"mức sống tốt nhất\"",
+              "options": []
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "most pleasant",
+              "answer": "nicest",
+              "explanation": "EN: \"the nicest climate\"\nVI: \"khí hậu dễ chịu nhất\"",
+              "options": []
+            },
+            {
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "not many",
+              "answer": "few",
+              "explanation": "EN: \"very few things to see\"\nVI: \"rất ít thứ để tham quan\"",
+              "options": []
+            },
+            {
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "a lot",
+              "answer": "large amount",
+              "explanation": "EN: \"large amount of traffic\"\nVI: \"lượng giao thông lớn\"",
+              "options": []
+            }
+          ]
+        },
+        {
+          "range": "Questions 8–15",
+          "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "……………………",
+              "answer": "third",
+              "explanation": "Bước 1\n\nKeyword\n\nLondon\n\nBước 2\n\nĐoạn đầu\n\n\"In third place was London...\"\n\nBước 3\n\nOverall position\n\n=> third\n\nKhông lấy \"place\"",
+              "options": []
+            },
+            {
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Has excellent …………………… opportunities.",
+              "answer": "business",
+              "explanation": "Bước 1 (Keyword): Excellent + cụm từ đi với \"opportunities\" (cơ hội) và liên quan đến \"London\".\n\nBước 2 (Tìm đoạn): Đoạn 2 nói về London: \"...It was also seen as a very good place to do business...\"\n\nBước 3 (Phân tích): Từ phần dịch nghĩa ở trên, \"excellent\" tương đương với \"very good\". Nơi rất tốt để làm kinh doanh (do business) tức là có những cơ hội kinh doanh tuyệt vời.",
+              "options": []
+            },
+            {
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Is very …………………… .",
+              "answer": "expensive",
+              "explanation": "Bước 1 (Keyword): Is very + [Tính từ] (Nhược điểm của London).\n\nBước 2 (Tìm đoạn): Đoạn 2 nói về London: \"...because people believed it was an extremely expensive place to live.\"\n\nBước 3 (Phân tích): Cụm \"extremely expensive\" tương đương với \"very expensive\". Do đề bài giới hạn 1 từ và đã có chữ \"very\" ở bảng, ta chỉ lấy tính từ chính.\nĐáp án: expensive",
+              "options": []
+            },
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Residents are the  …………………… .",
+              "answer": "friendliest",
+              "explanation": "Bước 1 (Keyword): Residents are the + [Tính từ so sánh nhất] (Nói về người dân Sydney).\n\nBước 2 (Tìm đoạn): Đoạn 3 nói về Sydney: \"...because people believed it had the friendliest inhabitants...\"\n\nBước 3 (Phân tích): \"Inhabitants\" đồng nghĩa với \"Residents\". Từ đứng sau \"the\" và bổ nghĩa cho cư dân là tính từ so sánh nhất.\nĐáp án: friendliest",
+              "options": []
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Has the most pleasant …………………… .",
+              "answer": "climate",
+              "explanation": "Bước 1 (Keyword): Most pleasant + [Danh từ] (Ưu điểm về thời tiết của Sydney).\n\nBước 2 (Tìm đoạn): Đoạn 3 nói về Sydney: \"...and the nicest climate.\"\n\nBước 3 (Phân tích): Ở phần 1 chúng ta đã phân tích \"most pleasant\" tương đương với \"nicest\". Từ đi sau \"nicest\" để chỉ thời tiết/khí hậu là \"climate\".\n\nĐáp án: climate",
+              "options": []
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Is more …………………… than other cities.",
+              "answer": "first",
+              "explanation": "Bước 1 (Keyword): Vị trí tổng thể (Overall position) của Paris.\n\nBước 2 (Tìm đoạn): Đoạn 4 nói về Paris: \"At the top of the list was Paris... it beat other cities to first place...\"\n\nBước 3 (Phân tích): \"At the top of the list\" (Dẫn đầu danh sách) và \"first place\" đều chỉ vị trí số 1.\n Đáp án: first",
+              "options": []
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Has a lot of …………………… .",
+              "answer": "interesting",
+              "explanation": "Bước 1 (Keyword): Is more + [Tính từ] + than other cities (Ưu điểm của Paris).\n\nBước 2 (Tìm đoạn): Đoạn 4 nói về Paris: \"...because people considered it to be the most interesting city...\"\n\nBước 3 (Phân tích): Đoạn văn dùng so sánh nhất \"most interesting\", cấu trúc trong bảng chuyển thành so sánh hơn \"more... than other cities\". Tính từ cốt lõi được giữ nguyên.\n\n Đáp án: interesting",
+              "options": []
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Has a lot of 8 …………………… .",
+              "answer": "traffic",
+              "explanation": "Bước 1 (Keyword): Has a lot of + [Danh từ] (Nhược điểm của Paris).\n\nBước 2 (Tìm đoạn): Đoạn 4 nói về Paris: \"Despite problems such as the large amount of traffic...\"\n\nBước 3 (Phân tích): \"Problems\" (vấn đề/nhược điểm) của Paris được liệt kê là \"large amount of traffic\". Cụm từ \"large amount of\" tương đương với \"a lot of\". Danh từ đi sau là nạn kẹt xe/giao thông.\n\nĐáp án: traffic",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "",
+      "passageTitle": "The world's friendliest city",
+      "passage": [
+        {
+          "text": "The world's friendliest city\nSource: California State University — social psychology study across 23 cities.\nA team of social psychologists from California has spent six years studying the reactions of people in cities around the world to different situations. The results show that cities where people have less money generally have friendlier populations. Rio de Janeiro in Brazil, which is often known for its crime, comes out top, and the capital of Malawi, Lilongwe, comes third.\nBut what makes one city friendlier than another? The psychologists from California State University say it has got more to do with environment than culture or nationality.\nThey carried out a study into the way locals treated strangers in 23 cities around the world. The team conducted their research through a series of tests, where they dropped pens or pretended they were blind and needed help crossing the street.\nThe study concludes that people are more helpful in cities with a more relaxed way of life such as Rio. While they were there, researchers received help in 93 percent of cases, and the percentage in Lilongwe was only a little lower. However, richer cities such as Amsterdam and New York are considered the least friendly. Inhabitants of Amsterdam helped the researchers in 53 percent of cases and in New York just 44 percent. The psychologists found that, in these cities, people tend to be short of time, so they hurry and often ignore strangers."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "instruction": "Complete the table below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "friendly populations are more helpful in cities with a more 1 ________ way of life such as Rio",
+              "answer": "relaxed",
+              "explanation": "EN: 'friendly populations are more helpful in cities with a more relaxed way of life'. VI: 'người dân thân thiện sẵn lòng giúp đỡ hơn ở các thành phố có lối sống thư thái hơn'.",
+              "options": []
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "cities where people have less 2 ________ generally have friendlier populations",
+              "answer": "money",
+              "explanation": "EN: 'cities where people have less money generally have friendlier populations'. VI: 'những thành phố nơi con người có ít tiền hơn thường có người dân thân thiện hơn'.",
+              "options": []
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "helpful behavior in Rio occurs despite its bad reputation for 3 ________",
+              "answer": "crime",
+              "explanation": "EN: 'This was in spite of the city's reputation for crime'. VI: 'Điều này bất chấp tai tiếng về tội phạm của thành phố'.",
+              "options": []
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "in fast-paced, rich cities, people are often short of 4 ________",
+              "answer": "time",
+              "explanation": "EN: 'people tend to be short of time'. VI: 'con người thường có xu hướng thiếu thốn thời gian'.",
+              "options": []
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "as they hurry, people in wealthy cities frequently choose to ignore 5 ________",
+              "answer": "strangers",
+              "explanation": "EN: 'so they hurry and often ignore strangers'. VI: 'vì thế họ vội vã và thường phớt lờ người lạ'.",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "",
+      "passageTitle": "A city survey with a difference — The City Brands Index (CBI)",
+      "passage": [
+        {
+          "text": "A city survey with a difference — The City Brands Index (CBI)\nThere are many websites on the Internet which provide lists of the world's best cities to visit, live or work in. These lists usually grade these cities in order, from 'best' to 'worst', and are based on facts and figures provided by local or national organisations.\nThe City Brands Index (CBI) also provides a list of best and worst cities. However, unlike other surveys, it is based on the idea that cities are similar to products in shops. It asks ordinary people in other countries to grade cities in the same way that they would grade a product, like a soft drink or a car. What is particularly different about the CBI is that the people who take part in the survey may not have ever visited the cities. Instead, they are asked to say what they think the cities are like, basing their opinions on things like news stories, magazine articles or television programmes they have heard or seen.\nEach year, about 10,000 people in 20 countries take part in the CBI survey, and they grade a total of 50 cities. They do this by filling in an online questionnaire. There are several categories in the survey. These include things like the economy, education, the environment, local culture, climate and what the city's residents are like.\nThe CBI list is useful because it helps people choose a good place to live, find work or take a holiday. It also helps regional governments to understand why people and businesses are, or are not, coming to their cities, and so shows them areas which they could develop or improve."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–7",
+          "instruction": "Match each statement with the correct option, A–G.\nWrite the correct letter in boxes 1–7 on your answer sheet.",
+          "type": "matching-features",
+          "questions": [
+            {
+              "number": 1,
+              "type": "matching-features",
+              "prompt": "similar to",
+              "answer": "E",
+              "explanation": "Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: similar to.\nBước 2: Định vị thông tin tương đồng: Tìm từ có chức năng so sánh và mang ý nghĩa tương tự.\nBước 3: Phân tích: \"Similar to\" mang nghĩa là giống như, tương đương với giới từ \"like\" dùng khi chỉ ra các đặc điểm chung giữa các đối tượng.\nĐáp án: e (like)"
+            },
+            {
+              "number": 2,
+              "type": "matching-features",
+              "prompt": "each",
+              "answer": "B",
+              "explanation": "Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: each.\nBước 2: Định vị thông tin tương đồng: Tìm từ hạn định chỉ từng cá thể trong một nhóm.\nBước 3: Phân tích: \"Each\" (mỗi) được dùng để nhấn mạnh vào từng cá thể riêng lẻ, có nghĩa tương đương với từ \"every\" (mọi/mỗi) khi đứng trước danh từ số ít.\nĐáp án: b (every)"
+            },
+            {
+              "number": 3,
+              "type": "matching-features",
+              "prompt": "total",
+              "answer": "G",
+              "explanation": ".Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: total.\nBước 2: Định vị thông tin tương đồng: Tìm từ chỉ toàn bộ số lượng hoặc giới hạn cao nhất.\nBước 3: Phân tích: Trong các ngữ cảnh quy định số lượng tối đa của bài đọc (ví dụ: tổng số lượng người giới hạn trên con đường), từ \"total\" (tổng số) đồng nghĩa với từ \"maximum\" (tối đa).\nĐáp án: g (maximum)"
+            },
+            {
+              "number": 4,
+              "type": "matching-features",
+              "prompt": "several",
+              "answer": "A",
+              "explanation": "Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: several.\n\nBước 2: Định vị thông tin tương đồng: Tìm cụm từ chỉ một số lượng từ vài ba trở lên.\n\nBước 3: Phân tích: \"Several\" nghĩa là một vài, một số (nhiều hơn hai nhưng không quá nhiều), đồng nghĩa hoàn toàn với cụm từ định lượng \"a number of\".\n\nĐáp án: a (a number of)"
+            },
+            {
+              "number": 5,
+              "type": "matching-features",
+              "prompt": "useful",
+              "answer": "D",
+              "explanation": "Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: useful.\n\nBước 2: Định vị thông tin tương đồng: Tìm tính từ chỉ lợi ích, sự giúp đỡ.\n\nBước 3: Phân tích: \"Useful\" mang nghĩa là hữu ích, có ích cho một công việc hoặc mục đích nào đó, đồng nghĩa với tính từ \"helpful\" (có ích/giúp ích được nhiều).\n\nĐáp án: d (helpful)"
+            },
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "find work",
+              "answer": "C",
+              "explanation": "Bước 1: Tìm từ khóa trong cột bên phải cần nối nghĩa với: find work.\n\nBước 2: Định vị thông tin tương đồng: Tìm cụm động từ chỉ hành động kiếm việc làm.\n\nBước 3: Phân tích: Cụm từ \"find work\" (tìm kiếm việc làm/công việc) có nghĩa tương đương và cùng chỉ một mục đích với cụm \"get a job\" (kiếm được một công việc).\n\nĐáp án: c (get a job)"
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "regional",
+              "answer": "F",
+              "explanation": "EN: regional ≈ local\nVI: thuộc khu vực / địa phương"
+            }
+          ],
+          "features": [
+            {
+              "id": "A",
+              "name": "a number of"
+            },
+            {
+              "id": "B",
+              "name": "every"
+            },
+            {
+              "id": "C",
+              "name": "get a job"
+            },
+            {
+              "id": "D",
+              "name": "helpful"
+            },
+            {
+              "id": "E",
+              "name": "like"
+            },
+            {
+              "id": "F",
+              "name": "local"
+            },
+            {
+              "id": "G",
+              "name": "maximum"
+            }
+          ]
+        },
+        {
+          "range": "Questions 8–14",
+          "instruction": "Complete the notes below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "The CBI believes cities can be compared to 1 ________ in shops.",
+              "answer": "products",
+              "explanation": "EN: 'cities are similar to products in shops'. VI: 'các thành phố tương tự như các sản phẩm trong cửa hàng'."
+            },
+            {
+              "number": 9,
+              "type": "gap-fill",
+              "prompt": "The CBI survey is conducted every 2 ________.",
+              "answer": "year",
+              "explanation": "EN: 'Each year, about 10,000 people...'. VI: 'Mỗi năm, khoảng 10.000 người...'."
+            },
+            {
+              "number": 10,
+              "type": "gap-fill",
+              "prompt": "The survey grades a total of 3 ________ cities.",
+              "answer": "50",
+              "explanation": "EN: 'grade a total of 50 cities'. VI: 'chấm điểm tổng cộng 50 thành phố'"
+            },
+            {
+              "number": 11,
+              "type": "gap-fill",
+              "prompt": "Grades are divided across six different 4 ________.",
+              "answer": "categories",
+              "explanation": "EN: 'people grade them across six categories'. VI: 'mọi người chấm điểm chúng qua sáu danh mục'."
+            },
+            {
+              "number": 12,
+              "type": "gap-fill",
+              "prompt": "CBI results help individuals decide where to 5 ________ or find work.",
+              "answer": "live",
+              "explanation": "EN: 'helps people choose a good place to live, find work...'. VI: 'giúp mọi người chọn một nơi tốt để sống, tìm việc...'."
+            },
+            {
+              "number": 13,
+              "type": "gap-fill",
+              "prompt": "It also aids those looking to take a 6 ________.",
+              "answer": "holiday",
+              "explanation": "EN: 'or take a holiday'. VI: 'hoặc đi nghỉ mát'.holiday"
+            },
+            {
+              "number": 14,
+              "type": "gap-fill",
+              "prompt": "It provides valuable feedback to regional 7 ________.",
+              "answer": "governments",
+              "explanation": "EN: 'It also helps regional governments to understand...'. VI: 'Nó cũng giúp chính quyền địa phương hiểu được...'"
+            }
+          ],
+          "note": "The CBI believes that cities are like [8] which people can buy when they go shopping.\nSurveys take place every [9].\nA maximum of [10] cities are included in the survey.\nA number of different [11] are included in the survey.\nThe CBI list is helpful for:\n• people who are trying to decide where to [12] or get a job.\n• people who are looking for a good [13] destination.\n• local [14] who want to make their city a better place.\n\n\n\n"
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "",
+      "passageTitle": "The happiest country in the world — Costa Rica & the Happy Planet Index",
+      "passage": [
+        {
+          "text": "The happiest country in the world — Costa Rica & the Happy Planet Index\nChildren growing up in Costa Rica are surrounded by some of the most beautiful and diverse landscapes in the world. Preserving tropical rainforests isn't Costa Rica's only success, because the government also makes sure everyone has access to health-care and education. So when the New Economics Foundation released its second Happy Planet Index, Costa Rica came out number one. The index is a ranking of countries based on their impact on the environment and the health and happiness of their citizens.\nAccording to Mariano Rojas, a Costa Rican economics professor, Costa Rica is a mid-income country where citizens have plenty of time for themselves and for their relationships with others. 'A mid-income level allows most citizens to satisfy their basic needs. The government makes sure that all Costa Ricans have access to education, health and nutrition services.' Costa Ricans, he believes, are not interested in status or spending money to show how successful they are.\nCreated in 2008, the Happy Planet Index examines happiness on a national level and ranks 143 countries according to three measurements: citizens' happiness, how long they live (which reflects their health), and how much of the planet's resources each country consumes. According to researcher Saamah Abdallah, the Index also measures the outcomes that are most important — happy, healthy lives for everyone.\n(adapted from Yes! Magazine)"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–6",
+          "instruction": "Complete the notes below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 1,
+              "type": "gap-fill",
+              "prompt": "The Happy Planet Index was created in the year 1 ________.",
+              "answer": "2008",
+              "explanation": "EN: 'Created in 2008, the Happy Planet Index...'. VI: 'Được tạo ra vào năm 2008, Chỉ số Hành tinh Hạnh phúc...'."
+            },
+            {
+              "number": 2,
+              "type": "gap-fill",
+              "prompt": "The index ranks 2 ________ countries worldwide.",
+              "answer": "143",
+              "explanation": "EN: 'ranks 143 countries according to...'. VI: 'xếp hạng 143 quốc gia theo...'."
+            },
+            {
+              "number": 3,
+              "type": "gap-fill",
+              "prompt": "It grades countries based on their impact on the 3 ________.",
+              "answer": "environment",
+              "explanation": "EN: 'according to their impact on the environment'. VI: 'theo tác động của họ đối với môi trường'."
+            },
+            {
+              "number": 4,
+              "type": "gap-fill",
+              "prompt": "It measures how much of the planet's 4 ________ each country consumes.",
+              "answer": "resources",
+              "explanation": "EN: 'measures how much of the planet's resources each country consumes'. VI: 'đo lường lượng tài nguyên của hành tinh mà mỗi quốc gia tiêu thụ'."
+            },
+            {
+              "number": 5,
+              "type": "gap-fill",
+              "prompt": "It evaluates how long people live, reflecting their 5 ________.",
+              "answer": "health",
+              "explanation": "EN: 'based on how long they live (which reflects their health)'. VI: 'dựa trên thời gian sống của họ (phản ánh sức khỏe của họ)'."
+            },
+            {
+              "number": 6,
+              "type": "gap-fill",
+              "prompt": "It assesses the overall happiness of their 6 ________.",
+              "answer": "citizens",
+              "explanation": "EN: 'the health and happiness of their citizens'. VI: 'sức khỏe và hạnh phúc của công dân của họ'."
+            }
+          ],
+          "note": "**The Happy Planet Index**\nYear started: [1] \nNumber of countries it lists: [2] \nMeasures each country’s happiness according to:\n• its effect on the [3] (i.e. the quantity of the Earth’s [4] that it uses);\n• the [5] of the population (i.e. how long people live);\n• how happy its [6] are.\n\n\n"
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 
 - **Branch:** `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-12** — **Cứu lại 48 IELTS Listening + 9 Reading** vào builtin catalog (`GLOBAL_CATALOG_VERSION = 24`)
+- **Session:** **2026-07-12** — Cứu catalog IELTS + pilot Cam11 T1 Reading + **auto-backup đề** (Dexie v15 `examBackups` + OPFS + download)
 - **Session trước:** Vocab/sync + Cambridge; IELTS catalog từng bị xóa theo request “Xóa sạch 48 đề mẫu” (2026-07-04/05)
 - **Tạm hoãn:** Batch Reading IELTS còn lại (~39 đề chỉ PDF, chưa có `exam.json`)
 - **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4** (IELTS catalog restore: 48 Listening + 9 Reading)
@@ -55,7 +55,9 @@
 ### Còn lại
 - [x] Deploy production **v0.2.4** — `pnpm deploy:web` → https://ryanenglishv2.vercel.app (commit `e0f0581`)
 - [x] Push branch `feat/reading-part-picker`
-- [ ] Build `exam.json` cho ~39 Reading IELTS còn lại (PDF trong folder scaffold)
+- [x] **Auto-backup đề** (2026-07-12): Dexie `examBackups` v15, OPFS, auto-download JSON khi Lưu Wizard/Import; Settings toggle; full app backup v4 gồm examBackups
+- [x] Pilot Cam11 Reading T1 + fix white screen (`features` string → `{id,name}`)
+- [ ] Build `exam.json` cho ~38 Reading IELTS còn lại (PDF trong folder scaffold)
 - [ ] User: hard refresh production để catalog v24 nạp lại
 
 ### Lệnh verify
@@ -3331,3 +3333,16 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 - **Ghi chú:**
   - Deck/card đã bị xoá trước bản vá này (khi chưa có tombstone) vẫn có thể sống lại 1 lần từ cloud vào sync kế tiếp — không cứu lại được vì không có dấu vết. Từ giờ trở đi thì sạch.
   - Không cần migration Supabase — cloud schema đã có `on delete cascade` sẵn.
+
+## 2026-07-12 — Prune đề Reading/Listening Admin đã xoá (theo pattern mindmap)
+
+- **Vấn đề:** Admin xoá đề trong `reading_exam_published` / `listening_exam_published` thì `listAllReadingExams`/`listAllListeningExams` (đọc thẳng cloud) tự bỏ khỏi Library. Nhưng một số flow phụ như `readingExamCloudImages.persistReadingPartImage` có gọi `examRepo.create(..., 'cloud-images')` → cache lại bản local với cùng id. Nếu Admin xoá cloud, `resolveReadingExam` (`local || published || builtin`) vẫn còn bản local → đề "sống lại" khi mở chi tiết.
+- **Fix (kênh A: chỉ Admin publish, không đụng đề user tự import):**
+  - Mới: `apps/web/src/features/admin/syncAdminPublishedExams.ts`
+    - `syncPublishedReading()` / `syncPublishedListening()` — SELECT id từ 2 bảng publish cloud, so với danh sách id đã lưu trong settings key `admin_published_reading_exam_ids` / `admin_published_listening_exam_ids`, prune bản local (`examRepo.delete` / `listeningExamRepo.delete`) + audio blob prefix (`reading-exam:${id}:`, `listening-exam:${id}:`) cho id đã biến mất khỏi cloud.
+    - Ghi lại danh sách id hiện tại vào settings cho lần sau. Đề user tự import (không nằm trong id publish) không bị đụng.
+  - Nối vào `useSyncManager.runSync` sau bước check-in, non-fatal.
+- **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
+- **Ghi chú:**
+  - Không giải quyết bài toán "48 đề IELTS user tự import bị mất" — kênh B (sync user-imported exams lên cloud) chưa làm.
+  - Lần sync đầu tiên sau bản vá: settings chưa có key nên `previousIds` rỗng → không prune gì hết, chỉ ghi baseline. Từ lần Admin publish/xoá tiếp theo mới bắt đầu prune đúng.

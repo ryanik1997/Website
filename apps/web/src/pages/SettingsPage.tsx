@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Palette, Bot, User, Mail, MessageCircle, ExternalLink, Check, Bell, Database, Download, Upload, Cloud, LoaderCircle, Headphones, Sparkles, Camera } from 'lucide-react'
 import { useAuth } from '../features/auth/AuthContext'
-import { db } from '@ryan/db'
+import { db, examBackupRepo } from '@ryan/db'
 import { canUse, type Plan, type Feature } from '@ryan/core'
 import { THEMES, getTheme, setTheme, type Theme } from '../lib/theme'
 import { SUPPORT_EMAIL, supportMailto } from '../lib/contact'
@@ -12,6 +12,16 @@ import AiSettingsPanel from '../features/settings/AiSettingsPanel'
 import { useNotifications } from '../features/notifications/useNotifications'
 import { estimateBackupSize, exportBackup } from '../features/settings/backupRestore'
 import ConfirmRestoreModal from '../features/settings/ConfirmRestoreModal'
+import {
+  backupAllLocalListeningExams,
+  backupAllLocalReadingExams,
+  exportAllExamBackupsDownload,
+  isExamAutoBackupDownloadEnabled,
+  isExamAutoBackupEnabled,
+  setExamAutoBackupDownloadEnabled,
+  setExamAutoBackupEnabled,
+} from '../features/exam/examAutoBackup'
+
 import { useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
 import ListeningTtsStatusBadge from '../features/listening/ListeningTtsStatusBadge'
 
@@ -705,10 +715,16 @@ function BackupSection() {
   const [exporting, setExporting] = useState(false)
   const [exportMsg, setExportMsg] = useState<string | null>(null)
   const [restoreFile, setRestoreFile] = useState<File | null>(null)
+  const [autoBackup, setAutoBackup] = useState(true)
+  const [autoDownload, setAutoDownload] = useState(true)
+  const [examBackupCount, setExamBackupCount] = useState(0)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     void estimateBackupSize().then(setSizeEstimate)
+    void isExamAutoBackupEnabled().then(setAutoBackup)
+    void isExamAutoBackupDownloadEnabled().then(setAutoDownload)
+    void examBackupRepo.count().then(setExamBackupCount).catch(() => setExamBackupCount(0))
   }, [])
 
   async function handleExport() {
@@ -720,6 +736,58 @@ function BackupSection() {
       void estimateBackupSize().then(setSizeEstimate)
     } catch {
       setExportMsg('Xuất backup thất bại. Thử lại sau.')
+    } finally {
+      setExporting(false)
+    }
+  }
+
+  async function handleToggleAutoBackup(next: boolean) {
+    setAutoBackup(next)
+    await setExamAutoBackupEnabled(next)
+  }
+
+  async function handleToggleAutoDownload(next: boolean) {
+    setAutoDownload(next)
+    await setExamAutoBackupDownloadEnabled(next)
+  }
+
+  async function handleExportExamBackups() {
+    setExporting(true)
+    setExportMsg(null)
+    try {
+      const r = await exportAllExamBackupsDownload()
+      setExportMsg(`Đã tải ${r.count} bản backup đề (Reading/Listening).`)
+      void examBackupRepo.count().then(setExamBackupCount)
+    } catch {
+      setExportMsg('Xuất backup đề thất bại.')
+    } finally {
+      setExporting(false)
+    }
+  }
+
+  async function handleBackupAllReadingNow() {
+    setExporting(true)
+    setExportMsg(null)
+    try {
+      const r = await backupAllLocalReadingExams({ forceDownload: true })
+      setExportMsg(`Đã backup ${r.count} đề Reading local + tải file gộp.`)
+      void examBackupRepo.count().then(setExamBackupCount)
+    } catch {
+      setExportMsg('Backup Reading thất bại.')
+    } finally {
+      setExporting(false)
+    }
+  }
+
+  async function handleBackupAllListeningNow() {
+    setExporting(true)
+    setExportMsg(null)
+    try {
+      const r = await backupAllLocalListeningExams({ forceDownload: true })
+      setExportMsg(`Đã backup ${r.count} đề Listening local + tải file gộp.`)
+      void examBackupRepo.count().then(setExamBackupCount)
+    } catch {
+      setExportMsg('Backup Listening thất bại.')
     } finally {
       setExporting(false)
     }
@@ -743,7 +811,72 @@ function BackupSection() {
           </p>
           <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
             {sizeEstimate ?? 'Đang ước tính…'}
+            {examBackupCount > 0 ? ` · ${examBackupCount} bản backup đề` : ''}
           </p>
+        </div>
+      </div>
+
+      <div
+        className="rounded-xl p-3 flex flex-col gap-3"
+        style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+          Auto-backup đề Reading / Listening
+        </p>
+        <label className="flex items-center justify-between gap-3 cursor-pointer">
+          <span className="text-sm" style={{ color: 'var(--text-primary)' }}>
+            Tự backup khi Lưu Wizard / Import
+          </span>
+          <input
+            type="checkbox"
+            checked={autoBackup}
+            onChange={e => void handleToggleAutoBackup(e.target.checked)}
+            className="h-4 w-4"
+          />
+        </label>
+        <label className="flex items-center justify-between gap-3 cursor-pointer">
+          <span className="text-sm" style={{ color: 'var(--text-primary)' }}>
+            Tải file .json về máy mỗi lần lưu
+          </span>
+          <input
+            type="checkbox"
+            checked={autoDownload}
+            onChange={e => void handleToggleAutoDownload(e.target.checked)}
+            className="h-4 w-4"
+          />
+        </label>
+        <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+          Lưu vào Dexie + OPFS trình duyệt; Admin vẫn Publish cloud. Snapshot draft Wizard theo từng Cam/Test.
+        </p>
+        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() => void handleExportExamBackups()}
+            disabled={exporting}
+            className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-medium border disabled:opacity-60"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)', background: 'var(--bg-secondary)' }}
+          >
+            <Download size={14} />
+            Tải toàn bộ backup đề
+          </button>
+          <button
+            type="button"
+            onClick={() => void handleBackupAllReadingNow()}
+            disabled={exporting}
+            className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-medium border disabled:opacity-60"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)', background: 'var(--bg-secondary)' }}
+          >
+            Backup ngay mọi đề Reading local
+          </button>
+          <button
+            type="button"
+            onClick={() => void handleBackupAllListeningNow()}
+            disabled={exporting}
+            className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-medium border disabled:opacity-60"
+            style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)', background: 'var(--bg-secondary)' }}
+          >
+            Backup ngay mọi đề Listening local
+          </button>
         </div>
       </div>
 
@@ -755,7 +888,7 @@ function BackupSection() {
         style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
       >
         <Download size={15} />
-        {exporting ? 'Đang xuất…' : 'Xuất backup'}
+        {exporting ? 'Đang xuất…' : 'Xuất backup toàn app'}
       </button>
 
       <button
@@ -790,7 +923,7 @@ function BackupSection() {
       )}
 
       <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-        Backup Web: từ vựng, bài viết, mindmap, cài đặt (không gồm file âm thanh).
+        Backup Web: từ vựng, bài viết, mindmap, cài đặt, đề Reading/Listening, bảng examBackups (không gồm file âm thanh).
         Cũng nhận file <strong>Electron</strong> (Vocabulary export v2 / legacy flashcard) — merge vào web rồi bấm Đồng bộ đám mây.
       </p>
 
@@ -800,6 +933,7 @@ function BackupSection() {
           onClose={() => {
             setRestoreFile(null)
             void estimateBackupSize().then(setSizeEstimate)
+            void examBackupRepo.count().then(setExamBackupCount).catch(() => undefined)
           }}
         />
       )}

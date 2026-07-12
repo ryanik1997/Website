@@ -23,6 +23,7 @@ import {
 } from './cambridgeReadingImportTemplates'
 import type { ReadingExamTrack } from './examData'
 import { publishReadingExamToCloud } from './readingExamPublish'
+import { backupReadingExam } from './examAutoBackup'
 import {
   findKetPart6ImageFile,
   findKetPart7ImageFile,
@@ -246,11 +247,13 @@ export default function ImportReadingManualModal({
       })
       if (!exam.examTrack && examTrack) exam.examTrack = examTrack
       if (!exam.cambridgeLevel && cambridgeLevel) exam.cambridgeLevel = cambridgeLevel
-      await examRepo.create(examRecordFromReading(exam, 'manual', sourceLabel ?? jsonFile?.name))
+      const sourceFilename = sourceLabel ?? jsonFile?.name
+      await examRepo.create(examRecordFromReading(exam, 'manual', sourceFilename))
+      await backupReadingExam(exam, { sourceFilename }).catch(() => undefined)
       if (isIeltsTrack && isAdmin === true) {
         await publishReadingExamToCloud(exam, {
           source: 'manual',
-          sourceFilename: sourceLabel ?? jsonFile?.name,
+          sourceFilename,
         })
       }
       onCreated?.(exam.id)

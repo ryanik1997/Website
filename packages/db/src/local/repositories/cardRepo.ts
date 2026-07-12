@@ -111,8 +111,11 @@ export const cardRepo = {
   ) => db.cards.update(id, { ...patch, updatedAt: now() }),
 
   async delete(id: string): Promise<void> {
-    await db.srs.delete(id)
-    await db.cards.delete(id)
+    await db.transaction('rw', db.cards, db.srs, db.cardTombstones, async () => {
+      await db.cardTombstones.put({ id, deletedAt: now() })
+      await db.srs.delete(id)
+      await db.cards.delete(id)
+    })
   },
 
   /**

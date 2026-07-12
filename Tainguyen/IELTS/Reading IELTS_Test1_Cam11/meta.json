@@ -9,21 +9,21 @@
   "passages": [
     {
       "partNumber": 1,
-      "template": "r1-TBD",
+      "template": "p1-r1-tfng-gap",
       "file": "exam_passage1.json",
-      "note": "Q1–13 · TFNG/MC/Headings/Gap"
+      "note": "Cam11 T1 P1: sentence completion Q1–7 + TFNG Q8–13 (gap then TFNG)"
     },
     {
       "partNumber": 2,
-      "template": "r2-TBD",
+      "template": "p2-r2-tfng-diagram",
       "file": "exam_passage2.json",
-      "note": "Q14–26 · Match paragraph/MC/YNNG"
+      "note": "Cam11 T1 P2: TFNG Q14–19 + diagram label Q20–26 — catalog exact"
     },
     {
       "partNumber": 3,
-      "template": "r3-TBD",
+      "template": "p3-r3-match-table-features",
       "file": "exam_passage3.json",
-      "note": "Q27–40 · TFNG/YNNG/MC"
+      "note": "Cam11 T1 P3: match A–H Q27–29 + table Q30–36 + match scientists A–D Q37–40 — catalog exact"
     }
   ]
 }

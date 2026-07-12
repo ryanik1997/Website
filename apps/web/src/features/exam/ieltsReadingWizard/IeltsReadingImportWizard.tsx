@@ -53,6 +53,7 @@ import {
 import '../ieltsListeningWizard/ieltsListeningWizard.css'
 import { useIsAdmin } from '../../auth/useIsAdmin'
 import { publishReadingExamToCloud } from '../readingExamPublish'
+import { backupReadingExam } from '../examAutoBackup'
 
 interface Props {
   onClose: () => void
@@ -401,6 +402,8 @@ export default function IeltsReadingImportWizard({
           bandHint: built.bandHint,
           parts: parts as unknown[],
         })
+        // Auto-backup trước publish — không mất nếu cloud lỗi
+        await backupReadingExam(examToSave, { sourceFilename: label }).catch(() => undefined)
         if (isAdmin === true) {
           await publishReadingExamToCloud(examToSave, { source: 'manual', sourceFilename: label })
         }
@@ -408,6 +411,7 @@ export default function IeltsReadingImportWizard({
       } else {
         const exam = await buildReadingExamFromImport(next, extraMedia, undefined, { mediaStorage })
         await examRepo.create(examRecordFromReading(exam, 'manual', label))
+        await backupReadingExam(exam, { sourceFilename: label }).catch(() => undefined)
         if (isAdmin === true) {
           await publishReadingExamToCloud(exam, { source: 'manual', sourceFilename: label })
         }
