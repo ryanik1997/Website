@@ -11,7 +11,7 @@ export default function SentenceStructureListPage() {
   const [showCreate, setShowCreate] = useState(false)
 
   return (
-    <div className="ss-shell">
+    <div className="ss-shell ss-list-page">
       <header className="ss-topbar">
         <div className="ss-topbar-left">
           <span className="ss-badge">Cấu trúc câu</span>

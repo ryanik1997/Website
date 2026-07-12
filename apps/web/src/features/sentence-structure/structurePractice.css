@@ -59,6 +59,35 @@
 .ss-hub-row:hover { transform: translateX(.15rem); }
 @media (max-width: 760px) { .ss-topbar::after { display: none; } }
 
+/* Grammar Atlas reference layout */
+.ss-list-page { height: 100%; overflow-y: auto; display: block; padding: 2rem clamp(1rem, 4vw, 2.5rem) 5rem; background: var(--bg-primary); }
+.ss-list-page .ss-topbar { max-width: 76rem; min-height: 0; margin: 0 auto 1.75rem; padding: 0; align-items: center; border: none; background: transparent; }
+.ss-list-page .ss-topbar::after { display: none; }
+.ss-list-page .ss-topbar-left { align-items: center; gap: .85rem; }
+.ss-list-page .ss-badge { padding: .38rem .85rem; border-radius: 999px; background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-secondary)); color: var(--color-primary); font-family: inherit; font-size: .8rem; font-weight: 650; letter-spacing: 0; }
+.ss-list-page .ss-topbar-sub { font-size: .68rem; font-weight: 700; letter-spacing: .06em; }
+.ss-list-page .ss-check-btn { padding: .62rem 1rem !important; border-radius: .65rem; background: var(--color-primary); color: var(--bg-primary); font-size: .78rem !important; }
+.ss-list-page .ss-hub { max-width: 76rem; padding: 0; }
+.ss-list-page .ss-hub-toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: .9rem; background: var(--bg-card); }
+.ss-list-page .ss-hub-search { flex: 1; min-width: 13rem; min-height: 0; padding: .65rem .9rem .65rem 1rem; border: none; border-radius: .6rem; background: var(--bg-secondary); transform: none; }
+.ss-list-page .ss-hub-toolbar > div:nth-child(2) { display: flex; gap: .5rem; padding: 0; }
+.ss-list-page .ss-hub-toolbar > div:nth-child(2) button { border-color: var(--border-color) !important; background: var(--bg-card) !important; color: var(--text-muted) !important; padding: .45rem .8rem; font-size: .72rem; }
+.ss-list-page .ss-hub-toolbar > div:nth-child(2) button:first-child { border-color: color-mix(in srgb, var(--color-primary) 22%, var(--border-color)) !important; background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)) !important; color: var(--color-primary) !important; }
+.ss-list-page .ss-hub-count { flex: 0 0 auto; width: auto; color: var(--text-muted); font-size: .68rem; }
+.ss-list-page .ss-hub-list { display: flex; flex-direction: column; gap: .6rem; border: none; }
+.ss-list-page .ss-hub-row { min-height: 0; padding: 0; border: 1px solid var(--border-color); border-left: 3px solid var(--ss-level-color, var(--border-color)); border-radius: .9rem; background: var(--bg-card); transform: none; }
+.ss-list-page .ss-hub-row:hover { border-color: color-mix(in srgb, var(--border-color) 70%, var(--text-primary)); background: var(--bg-card); transform: none; }
+.ss-list-page .ss-hub-row-main { padding: 1rem 3.5rem 1rem 1.25rem; }
+.ss-list-page .ss-hub-row-top { align-items: center; gap: .65rem; margin-bottom: .35rem; }
+.ss-list-page .ss-hub-row-title { max-width: none; font-family: inherit; font-size: .95rem; font-weight: 650; letter-spacing: 0; }
+.ss-list-page .ss-hub-row-template { margin-bottom: .35rem; font-size: .78rem; font-weight: 500; }
+.ss-list-page .ss-hub-row-desc { margin-bottom: .6rem; font-size: .76rem; }
+.ss-list-page .ss-hub-row .ss-cat-tag { margin-top: 0; padding: 0; background: transparent; font-size: .68rem; }
+.ss-list-page .ss-hub-row-top > span { padding: .22rem .5rem !important; border-radius: .4rem !important; }
+.ss-list-page .ss-hub-star { top: 1rem; right: 1.1rem; }
+@media (max-width: 900px) { .ss-list-page .ss-hub-toolbar { align-items: stretch; flex-wrap: wrap; } .ss-list-page .ss-hub-search { flex-basis: 100%; } .ss-list-page .ss-hub-count { margin-left: auto; } }
+@media (max-width: 600px) { .ss-list-page { padding: 1.25rem 1rem 3rem; } .ss-list-page .ss-topbar { align-items: flex-start; } .ss-list-page .ss-topbar-sub { display: none; } .ss-list-page .ss-hub-toolbar > div:nth-child(2) { flex-wrap: wrap; } .ss-list-page .ss-hub-count { width: 100%; margin-left: 0; } }
+
 .ss-topbar {
   display: flex;
   align-items: center;
