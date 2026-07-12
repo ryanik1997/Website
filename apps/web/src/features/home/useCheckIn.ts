@@ -6,29 +6,10 @@ import { supabase } from '../../lib/supabase'
 import {
   CHECKIN_CARD_ID,
   CHECKIN_MODE,
+  calcCheckInStreak,
   checkInDateKey,
   pushCheckInDay,
 } from './checkInSync'
-
-function calcCheckInStreak(logs: ReviewLog[]): number {
-  if (!logs.length) return 0
-  const days = new Set(logs.map(l => checkInDateKey(new Date(l.at))))
-  let streak = 0
-  const cursor = new Date()
-  cursor.setHours(0, 0, 0, 0)
-  for (let i = 0; i < 365; i++) {
-    const key = checkInDateKey(cursor)
-    if (days.has(key)) {
-      streak++
-      cursor.setDate(cursor.getDate() - 1)
-    } else if (i === 0) {
-      cursor.setDate(cursor.getDate() - 1)
-    } else {
-      break
-    }
-  }
-  return streak
-}
 
 export function useCheckIn() {
   const [pending, setPending] = useState(false)

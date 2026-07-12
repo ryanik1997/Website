@@ -14,6 +14,27 @@ type CloudCheckin = {
   checked_at: string
 }
 
+/** Calculate the current attendance streak from check-in review logs. */
+export function calcCheckInStreak(logs: Array<{ at: number }>): number {
+  if (!logs.length) return 0
+  const days = new Set(logs.map(log => checkInDateKey(new Date(log.at))))
+  let streak = 0
+  const cursor = new Date()
+  cursor.setHours(0, 0, 0, 0)
+  for (let i = 0; i < 365; i++) {
+    const key = checkInDateKey(cursor)
+    if (days.has(key)) {
+      streak++
+      cursor.setDate(cursor.getDate() - 1)
+    } else if (i === 0) {
+      cursor.setDate(cursor.getDate() - 1)
+    } else {
+      break
+    }
+  }
+  return streak
+}
+
 function isMissingTableError(error: { message: string } | null): boolean {
   if (!error) return false
   const m = error.message.toLowerCase()
