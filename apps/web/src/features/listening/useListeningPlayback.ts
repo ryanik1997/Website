@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getActiveAudio, mapRateToSpeed, speak, stop } from './tts'
+import { getActiveAudio, mapRateToSpeed, pauseActiveAudio, resumeActiveAudio, speak, stop } from './tts'
 import { estimateSpeechDurationSec, formatAudioTime } from './practiceUtils'
 
 export function useListeningPlayback() {
@@ -61,6 +61,23 @@ export function useListeningPlayback() {
   }, [cancelProgress])
 
   const playTts = useCallback(async (text: string, rate = speed) => {
+    const activeAudio = getActiveAudio()
+    if (activeAudio && !activeAudio.ended) {
+      if (activeAudio.paused) {
+        try {
+          await resumeActiveAudio()
+          setPlaying(true)
+          startProgressLoop()
+        } catch {
+          setPlaying(false)
+        }
+      } else {
+        pauseActiveAudio()
+        cancelProgress()
+        setPlaying(false)
+      }
+      return
+    }
     cancelProgress()
     stop()
 
