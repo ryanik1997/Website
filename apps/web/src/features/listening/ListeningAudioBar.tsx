@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 
 interface Props {
   sentenceIndex: number
@@ -77,10 +77,10 @@ function ListeningAudioBar({
             disabled={playBlocked}
             className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 disabled:opacity-40"
             style={{ background: 'var(--text-primary)', color: 'var(--bg-primary)' }}
-            aria-label={playing ? 'Đang phát' : playBlocked ? 'Hết lượt nghe' : 'Phát audio'}
+            aria-label={playing ? 'Tạm dừng audio' : playBlocked ? 'Hết lượt nghe' : 'Phát audio'}
             title={playBlocked ? 'Hết lượt nghe (nâng Pro để không giới hạn)' : undefined}
           >
-            <Play size={16} className="ml-0.5" />
+            {playing ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
           </button>
           <button
             type="button"
