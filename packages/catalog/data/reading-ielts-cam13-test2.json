@@ -22,13 +22,74 @@
           "id": "catalog-cam-13-2-reading-part-1-g0",
           "range": "Questions 1–9",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "title": "The Early History of Cinemon",
+            "headers": [
+              "Cột 1",
+              ""
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "\nBiblical times:"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": ".\nused to show "
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Ancient Rome:"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "used for its sweet smell at "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 3
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Middle Ages:"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": ".\nknown as a treatment for "
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-13-2-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
-              "prompt": "Question 1",
+              "type": "gap-fill",
+              "prompt": "Biblical times: added to ___________",
               "options": [],
               "answer": "oils",
               "explanation": "Bước 1: Keyword\n\nBiblical times\nadded to\n\nBước 2: Tìm đoạn văn\n\nĐoạn 1:\n\n\"mixed with oils for anointing people's bodies\"\n\nBước 3: Phân tích\n\nMixed with = added to\n\n=> thêm vào oils\n\n=> Đáp án: oils",
@@ -37,8 +98,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
-              "prompt": "Question 2",
+              "type": "gap-fill",
+              "prompt": "used to show ___________ between people",
               "options": [],
               "answer": "friendship",
               "explanation": "Bước 1: Keyword\n\nshow\nbetween people\n\nBước 2: Tìm đoạn văn\n\nĐoạn 1:\n\n\"a token indicating friendship among lovers and friends\"\n\nBước 3: Phân tích\n\nindicating = showing\n\n=> biểu hiện tình bạn\n\n=> Đáp án: friendship",
@@ -47,8 +108,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
-              "prompt": "Question 3",
+              "type": "gap-fill",
+              "prompt": "Ancient Rome: used for its sweet smell at ___________",
               "options": [],
               "answer": "funerals",
               "explanation": "Bước 1: Keyword\n\nAncient Rome\nsweet smell\n\nBước 2: Tìm đoạn văn\n\nĐoạn 1:\n\n\"mourners attending funerals burnt cinnamon\"\n\nBước 3: Phân tích\n\nDùng để tạo mùi thơm trong lễ tang.\n\n=> Đáp án: funerals",
@@ -57,8 +118,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
-              "prompt": "Question 4",
+              "type": "gap-fill",
+              "prompt": "Middle Ages: was an indication of a person's ___________",
               "options": [],
               "answer": "wealth",
               "explanation": "Bước 1: Keyword\n\nindication\nperson\n\nBước 2: Tìm đoạn văn\n\nĐoạn 1:\n\n\"a sign of the wealth at his or her disposal\"\n\nBước 3: Phân tích\n\nsign = indication\n\n=> dấu hiệu của sự giàu có\n\n=> Đáp án: wealth",
@@ -67,8 +128,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
-              "prompt": "Question 5",
+              "type": "gap-fill",
+              "prompt": "known as a treatment for ___________ and other health problems",
               "options": [],
               "answer": "indigestion",
               "explanation": "Bước 1: Keyword\n\nhealth problems\n\nBước 2: Tìm đoạn văn\n\nĐoạn 1:\n\n\"thought to cure various ailments, such as indigestion\"\n\nBước 3: Phân tích\n\nAilments = vấn đề sức khỏe\n\nVí dụ được đưa ra là chứng khó tiêu.\n\n=> Đáp án: indigestion",
@@ -77,8 +138,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
-              "prompt": "Question 6",
+              "type": "gap-fill",
+              "prompt": "grown in ___________",
               "options": [],
               "answer": "India",
               "explanation": "Bước 1: Keyword\n\ngrown in\n\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"They took it from India, where it was grown\"\n\nBước 3: Phân tích\n\nBài ghi trực tiếp nơi trồng.\n\n=> Đáp án: India",
@@ -87,8 +148,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
-              "prompt": "Question 7",
+              "type": "gap-fill",
+              "prompt": "merchants used ___________ to bring it to the Mediterranean",
               "options": [],
               "answer": "camels",
               "explanation": "Bước 1: Keyword\n\nused\nbring\n\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"on camels via an overland route\"\n\nBước 3: Phân tích\n\nPhương tiện vận chuyển là lạc đà.\n\n=> Đáp án: camels",
@@ -97,8 +158,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
-              "prompt": "Question 8",
+              "type": "gap-fill",
+              "prompt": "arrived in the Mediterranean at ___________",
               "options": [],
               "answer": "Alexandria",
               "explanation": "Bước 1: Keyword\n\narrived in Mediterranean\n\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"Their journey ended when they reached Alexandria\"\n\nBước 3: Phân tích\n\nĐiểm đến ở Địa Trung Hải là Alexandria.\n\n=> Đáp án: Alexandria",
@@ -107,8 +168,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-1-q9",
               "number": 9,
-              "type": "multiple-choice",
-              "prompt": "Question 9",
+              "type": "gap-fill",
+              "prompt": "traders took it to ___________ and sold it to destinations around Europe",
               "options": [],
               "answer": "Venice",
               "explanation": "Bước 1: Keyword\n\ntraders took\n\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"European traders ... brought it back to Venice\"\n\nBước 3: Phân tích\n\nSau Alexandria, thương nhân đưa quế tới Venice.\n\n=> Đáp án: Venice",
@@ -126,7 +187,7 @@
               "id": "catalog-cam-13-2-reading-part-1-q10",
               "number": 10,
               "type": "true-false-not-given",
-              "prompt": "Question 10",
+              "prompt": "The Portuguese had control over the cinnamon trade in Ceylon throughout the 16th century.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\n\nPortuguese\ncontrol\n16th century\n\nBước 2: Tìm đoạn văn\n\nĐoạn 3:\n\n\"In 1518, the Portuguese built a fort on Ceylon...\"\n\"they enjoyed a tenfold profit...\"\n\nĐoạn 4:\n\n\"At the very beginning of the 17th century, the Dutch...\"\n\nBước 3: Phân tích\n\nNgười Hà Lan chỉ đến đầu thế kỷ 17, nghĩa là suốt thế kỷ 16, người Bồ Đào Nha vẫn kiểm soát việc buôn bán.\n\n=> Đáp án: TRUE",
@@ -136,7 +197,7 @@
               "id": "catalog-cam-13-2-reading-part-1-q11",
               "number": 11,
               "type": "true-false-not-given",
-              "prompt": "Question 11",
+              "prompt": "The Dutch took over the cinnamon trade from the Portuguese as soon as they arrived in Ceylon.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\n\nDutch\nas soon as arrived\n\nBước 2: Tìm đoạn văn\n\nĐoạn 4:\n\n\"By 1649, the Dutch broke the 150-year Portuguese monopoly.\"\n\nBước 3: Phân tích\n\n\"As soon as\" = ngay lập tức.\n\nBài nói họ phải mất thời gian mới đánh bại người Bồ Đào Nha.\n\n⇒ Không phải ngay khi đến.\n\n=> Đáp án: FALSEBước 1: Keyword\n\nDutch\nas soon as arrived\n\nBước 2: Tìm đoạn văn\n\nĐoạn 4:\n\n\"By 1649, the Dutch broke the 150-year Portuguese monopoly.\"\n\nBước 3: Phân tích\n\n\"As soon as\" = ngay lập tức.\n\nBài nói họ phải mất thời gian mới đánh bại người Bồ Đào Nha.\n\n⇒ Không phải ngay khi đến.\n\n=> Đáp án: FALSE",
@@ -146,7 +207,7 @@
               "id": "catalog-cam-13-2-reading-part-1-q12",
               "number": 12,
               "type": "true-false-not-given",
-              "prompt": "Question 12",
+              "prompt": "The trees planted by the Dutch produced larger quantities of cinnamon than the wild trees.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\n\nDutch trees\nlarger quantities\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"the Dutch began cultivating their own cinnamon trees\"\n\nBước 3: Phân tích\n\nĐoạn văn chỉ nói họ trồng cây quế riêng, không so sánh sản lượng giữa cây trồng và cây hoang dã.\n\n=> Đáp án: NOT GIVEN",
@@ -156,7 +217,7 @@
               "id": "catalog-cam-13-2-reading-part-1-q13",
               "number": 13,
               "type": "true-false-not-given",
-              "prompt": "Question 13",
+              "prompt": "The spice trade maintained its economic importance during the 19th century.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\n\n19th century\neconomic importance\n\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"the spice trade overall was diminishing in economic potential\"\n\nBước 3: Phân tích\n\nDiminishing = giảm xuống\n\nCâu đề nói vẫn giữ tầm quan trọng kinh tế → ngược lại với bài.\n\n=> Đáp án: FALSE",
@@ -195,7 +256,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q14",
               "number": 14,
               "type": "matching-paragraph",
-              "prompt": "Question 14",
+              "prompt": "reference to research showing the beneficial effects of oxytocin on people",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\nbeneficial effects\npositive effect\n\nBước 2: Tìm đoạn văn\n\nĐoạn B:\n\n\"people become more charitable, better at reading emotions...\"\n\nBước 3: Phân tích\n\nĐoạn này nói về những tác động tích cực của oxytocin lên con người.\n\n⇒ Đáp án: B",
@@ -205,7 +266,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q15",
               "number": 15,
               "type": "matching-paragraph",
-              "prompt": "Question 15",
+              "prompt": "reasons why the effects of oxytocin are complex",
               "options": [],
               "answer": "F",
               "explanation": "Bước 1: Keyword\n\neffects are complex\nmany effects\n\nBước 2: Tìm đoạn văn\n\nĐoạn F:\n\n\"basic processes could manifest in different ways depending on individual differences and context\"\n\nBước 3: Phân tích\n\nGiải thích tại sao tác dụng của oxytocin phức tạp: phụ thuộc cá nhân và hoàn cảnh.\n\n⇒ Đáp án: F",
@@ -215,7 +276,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q16",
               "number": 16,
               "type": "matching-paragraph",
-              "prompt": "Question 16",
+              "prompt": "mention of a period in which oxytocin attracted little scientific attention",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\nlittle scientific attention\n\nBước 2: Tìm đoạn văn\n\nĐoạn B:\n\n\"For eight years, it was quite a lonesome field\"\n\nBước 3: Phân tích\n\n\"Lonesome field\" = lĩnh vực ít người nghiên cứu.\n\n⇒ Đáp án: B",
@@ -225,7 +286,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q17",
               "number": 17,
               "type": "matching-paragraph",
-              "prompt": "Question 17",
+              "prompt": "reference to people ignoring certain aspects of their research data",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\n\nignoring data\n\nBước 2: Tìm đoạn văn\n\nĐoạn E:\n\n\"researchers took no notice of such findings\"\n\nBước 3: Phân tích\n\n\"took no notice\" = bỏ qua dữ liệu/kết quả nghiên cứu.\n\n⇒ Đáp án: E",
@@ -268,8 +329,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-2-q18",
               "number": 18,
-              "type": "matching-features",
-              "prompt": "Question 18",
+              "type": "gap-fill",
+              "prompt": "People are more trusting when affected by oxytocin.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\n\nmore trusting\n\nBước 2: Tìm đoạn văn\n\nĐoạn B:\n\n\"participants... invested more money\"\n\nBước 3: Phân tích\n\nĐầu tư nhiều tiền hơn → tin tưởng hơn.\n\n⇒ Đáp án: A (Markus Heinrichs)",
@@ -278,8 +339,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-2-q19",
               "number": 19,
-              "type": "matching-features",
-              "prompt": "Question 19",
+              "type": "gap-fill",
+              "prompt": "Oxytocin increases people's feelings of jealousy.",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\njealousy\n\nBước 2: Tìm đoạn văn\n\nĐoạn C:\n\n\"felt more envy\"\n\nBước 3: Phân tích\n\nenvy = jealousy.\n\n⇒ Đáp án: B (Simone Shamay-Tsoory)",
@@ -288,8 +349,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-2-q20",
               "number": 20,
-              "type": "matching-features",
-              "prompt": "Question 20",
+              "type": "gap-fill",
+              "prompt": "The effect of oxytocin varies from one type of person to another.",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\n\nvaries from one type of person to another\n\nBước 2: Tìm đoạn văn\n\nĐoạn C:\n\n\"depending on a person's disposition\"\n\nBước 3: Phân tích\n\nTác động thay đổi tùy từng kiểu người.\n\n⇒ Đáp án: C (Jennifer Bartz)",
@@ -309,7 +370,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q21",
               "number": 21,
               "type": "gap-fill",
-              "prompt": "Gap (21)",
+              "prompt": "The earliest findings about oxytocin and bonding came from research involving __________.",
               "options": [],
               "answer": "animals",
               "explanation": "Bước 1: Keyword\n\nearliest findings\n\nBước 2: Tìm đoạn văn\n\nĐoạn A:\n\n\"studies focusing on animals\"\n\nBước 3: Phân tích\n\nNghiên cứu đầu tiên được thực hiện trên động vật.\n\n⇒ Đáp án: animals",
@@ -319,7 +380,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q22",
               "number": 22,
               "type": "gap-fill",
-              "prompt": "Gap (22)",
+              "prompt": "It was also discovered that humans produce oxytocin during __________.",
               "options": [],
               "answer": "childbirth",
               "explanation": "Bước 1: Keyword\n\nhumans produce oxytocin during\n\nBước 2: Tìm đoạn văn\n\nĐoạn A:\n\n\"released by women in childbirth\"\n\nBước 3: Phân tích\n\nchildbirth = sinh con.\n\n⇒ Đáp án: childbirth",
@@ -329,7 +390,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q23",
               "number": 23,
               "type": "gap-fill",
-              "prompt": "Gap (23)",
+              "prompt": "An experiment in 2005, in which participants were given either oxytocin or a ___________, reinforced the belief that the hormone had a positive effect.",
               "options": [],
               "answer": "placebo",
               "explanation": "Bước 1: Keyword\n\ngiven either oxytocin or\n\nBước 2: Tìm đoạn văn\n\nĐoạn B:\n\n\"received a placebo\"\n\nBước 3: Phân tích\n\nNhóm đối chứng nhận giả dược.\n\n⇒ Đáp án: placebo",
@@ -339,7 +400,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q24",
               "number": 24,
               "type": "gap-fill",
-              "prompt": "Gap (24)",
+              "prompt": "A study at the University of Haifa where participants took part in a ___________ revealed the negative emotions which oxytocin can trigger.",
               "options": [],
               "answer": "game",
               "explanation": "Bước 1: Keyword\n\nUniversity of Haifa\n\nBước 2: Tìm đoạn văn\n\nĐoạn C:\n\n\"played a competitive game\"\n\nBước 3: Phân tích\n\nBài nghiên cứu dùng trò chơi cạnh tranh.\n\n⇒ Đáp án: game",
@@ -349,7 +410,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q25",
               "number": 25,
               "type": "gap-fill",
-              "prompt": "Gap (25)",
+              "prompt": "A study at the University of Antwerp showed people's lack of willingness to help ___________ while under the influence of oxytocin.",
               "options": [],
               "answer": "strangers",
               "explanation": "Bước 1: Keyword\n\nUniversity of Antwerp\n\nBước 2: Tìm đoạn văn\n\nĐoạn D:\n\n\"less cooperative when dealing with complete strangers\"\n\nBước 3: Phân tích\n\nKhông muốn hợp tác với người lạ.\n\n⇒ Đáp án: strangers",
@@ -359,7 +420,7 @@
               "id": "catalog-cam-13-2-reading-part-2-q26",
               "number": 26,
               "type": "gap-fill",
-              "prompt": "Gap (26)",
+              "prompt": "Research at the University of Amsterdam revealed that people who have been given oxytocin consider ___________ that are familiar to them in their own country to have more positive associations.",
               "options": [],
               "answer": "names",
               "explanation": "Bước 1: Keyword\n\npositive associations\n\nBước 2: Tìm đoạn văn\n\nĐoạn D:\n\n\"associate positive words with Dutch names\"\n\nBước 3: Phân tích\n\nSo sánh tên trong nước với tên nước ngoài.\n\n⇒ Đáp án: names",
@@ -390,7 +451,7 @@
               "id": "catalog-cam-13-2-reading-part-3-q27",
               "number": 27,
               "type": "multiple-choice",
-              "prompt": "Question 27",
+              "prompt": "In the first paragraph, the writer says that most managers",
               "options": [
                 {
                   "id": "A",
@@ -417,7 +478,7 @@
               "id": "catalog-cam-13-2-reading-part-3-q28",
               "number": 28,
               "type": "multiple-choice",
-              "prompt": "Question 28",
+              "prompt": "According to the third paragraph, Coach was anxious to",
               "options": [
                 {
                   "id": "A",
@@ -444,7 +505,7 @@
               "id": "catalog-cam-13-2-reading-part-3-q29",
               "number": 29,
               "type": "multiple-choice",
-              "prompt": "Question 29",
+              "prompt": "What point is made about Tesco's Greener Living programme?",
               "options": [
                 {
                   "id": "A",
@@ -471,7 +532,7 @@
               "id": "catalog-cam-13-2-reading-part-3-q30",
               "number": 30,
               "type": "multiple-choice",
-              "prompt": "Question 30",
+              "prompt": "What does the writer suggest about Nike's strategy?",
               "options": [
                 {
                   "id": "A",
@@ -498,7 +559,7 @@
               "id": "catalog-cam-13-2-reading-part-3-q31",
               "number": 31,
               "type": "multiple-choice",
-              "prompt": "Question 31",
+              "prompt": "What was original about the ME2?",
               "options": [
                 {
                   "id": "A",
@@ -550,8 +611,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q32",
               "number": 32,
-              "type": "matching-features",
-              "prompt": "Question 32",
+              "type": "gap-fill",
+              "prompt": "It turned the notion that its products could have harmful effects to its own advantage.",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\n\nharmful effects → own advantage\n\nBước 2: Tìm đoạn văn\n\nĐoạn 6:\n\n\"counteracted... negative impacts\"\n\nBước 3: Phân tích\n\niToys biến nhược điểm game gây ít vận động thành lợi thế.\n\n⇒ Đáp án: D (iToys)",
@@ -560,8 +621,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q33",
               "number": 33,
-              "type": "matching-features",
-              "prompt": "Question 33",
+              "type": "gap-fill",
+              "prompt": "It extended its offering by collaborating with another manufacturer.",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\n\ncollaborating\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"they teamed up with Apple\"\n\nBước 3: Phân tích\n\nNike hợp tác với Apple.\n\n⇒ Đáp án: C (Nike)",
@@ -570,8 +631,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q34",
               "number": 34,
-              "type": "matching-features",
-              "prompt": "Question 34",
+              "type": "gap-fill",
+              "prompt": "It implemented an incentive scheme to demonstrate its corporate social responsibility.",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\nincentive scheme\n\nBước 2: Tìm đoạn văn\n\nĐoạn 4:\n\n\"customers can accumulate points\"\n\nBước 3: Phân tích\n\nChương trình tích điểm là hình thức khuyến khích.\n\n⇒ Đáp án: B (Tesco)",
@@ -580,8 +641,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q35",
               "number": 35,
-              "type": "matching-features",
-              "prompt": "Question 35",
+              "type": "gap-fill",
+              "prompt": "It discovered that customers had a positive attitude towards dealing with difficult circumstances.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\n\ndifficult circumstances\n\nBước 2: Tìm đoạn văn\n\nĐoạn 3:\n\n\"customers were eager to lift themselves and the country out of tough times\"\n\nBước 3: Phân tích\n\nKhách hàng có thái độ tích cực với hoàn cảnh khó khăn.\n\n⇒ Đáp án: A (Coach)",
@@ -590,8 +651,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q36",
               "number": 36,
-              "type": "matching-features",
-              "prompt": "Question 36",
+              "type": "gap-fill",
+              "prompt": "It responded to a growing lifestyle trend in an unrelated product sector.",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\n\nunrelated product sector\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"integrate the digital revolution\"\n\nBước 3: Phân tích\n\nNike là hãng thể thao nhưng kết hợp xu hướng công nghệ số.\n\n⇒ Đáp án: C (Nike)",
@@ -600,8 +661,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q37",
               "number": 37,
-              "type": "matching-features",
-              "prompt": "Question 37",
+              "type": "gap-fill",
+              "prompt": "It successfully avoided having to charge its customers less for its core products.",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\n\navoided charging less\n\nBước 2: Tìm đoạn văn\n\nĐoạn 3:\n\n\"allowed Coach to avert an across-the-board price cut\"\n\nBước 3: Phân tích\n\nCoach tránh giảm giá toàn bộ sản phẩm.\n\n⇒ Đáp án: A (Coach)",
@@ -636,8 +697,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q38",
               "number": 38,
-              "type": "matching-features",
-              "prompt": "Question 38",
+              "type": "gap-fill",
+              "prompt": "If there are any trend-related changes impacting on your category, you should ___",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\ndetermine\n\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"you can determine which innovation strategies to pursue\"\n\nBước 3: Phân tích\n\nXác định chiến lược phù hợp.\n\n⇒ Đáp án: B",
@@ -646,8 +707,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q39",
               "number": 39,
-              "type": "matching-features",
-              "prompt": "Question 39",
+              "type": "gap-fill",
+              "prompt": "If a current trend highlights a negative aspect of your category, you should ___",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\n\nnegative aspect\n\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"counteract those changes by reaffirming core values\"\n\nBước 3: Phân tích\n\nDùng chiến lược counteract-and-reaffirm.\n\n⇒ Đáp án: C",
@@ -656,8 +717,8 @@
             {
               "id": "catalog-cam-13-2-reading-part-3-q40",
               "number": 40,
-              "type": "matching-features",
-              "prompt": "Question 40",
+              "type": "gap-fill",
+              "prompt": "If the consumers' new focus has an increasing lack of connection with your offering, you should ___",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\n\nincreasing disparity\n\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"innovations need to transcend the category to integrate the two worlds\"\n\nBước 3: Phân tích\n\nKhoảng cách tăng lên → dùng combine-and-transcend.\n\n⇒ Đáp án: D",

@@ -57,8 +57,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
-              "prompt": "Question 1",
+              "type": "gap-fill",
+              "prompt": "Michael Faraday was the first person to recognise Perkin's ability as a student of chemistry.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Xác định keyword trong câu hỏi\n\nMichael Faraday\nfirst person\nrecognise Perkin’s ability\nchemistry\n\nBước 2: Scan bài đọc tìm “Michael Faraday”\n\nĐoạn 2 có:\n\n“His talent and devotion to the subject were perceived by his teacher, Thomas Hall…”\n\n“perceived” = nhận ra.\n\nBước 3: So sánh với câu hỏi\n\nNgười đầu tiên nhận ra năng lực của Perkin là Thomas Hall, không phải Michael Faraday.\n\n=> FALSE.",
@@ -67,8 +67,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
-              "prompt": "Question 2",
+              "type": "gap-fill",
+              "prompt": "Michael Faraday suggested Perkin should enrol in the Royal College of Chemistry.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "NOT GIVEN\n\nBước 1: Keyword\n\nMichael Faraday\nsuggested\nenroll in the Royal College of Chemistry\n\nBước 2: Tìm đoạn chứa Faraday\n\nĐoạn nói:\n\n“Thomas Hall... encouraged him to attend a series of lectures given by Michael Faraday…”\n\nSau đó mới nói Perkin học Royal College of Chemistry.\n\nBước 3: Kiểm tra thông tin\n\nBài không hề nói Faraday khuyên Perkin vào trường này.\n\nIELTS rất hay bẫy kiểu:\n\ncó nhắc đến người đó\ncó nhắc đến trường đó\nnhưng không nói hai thứ liên quan với nhau.\n\n=> NOT GIVEN.",
@@ -77,8 +77,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
-              "prompt": "Question 3",
+              "type": "gap-fill",
+              "prompt": "Perkin employed August Wilhelm Hofmann as his assistant.",
               "options": [],
               "answer": "FALSE",
               "explanation": "FALSE\n\nBước 1: Keyword\n\nemployed\nHofmann\nassistant\n\nBước 2: Scan “assistant”\n\nĐoạn 3:\n\n“he became Hofmann’s youngest assistant.”\n\nBước 3: Phân tích\n\nCấu trúc:\n\nPerkin = assistant\nHofmann = boss\n\nĐề đảo ngược:\n“Perkin employed Hofmann”\n\n=> hoàn toàn trái nghĩa.\n\n=> FALSE.",
@@ -87,8 +87,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
-              "prompt": "Question 4",
+              "type": "gap-fill",
+              "prompt": "Perkin was still young when he made the discovery that made him rich and famous.",
               "options": [],
               "answer": "TRUE",
               "explanation": "TRUE\n\nBước 1: Keyword\n\nstill young\ndiscovery\nrich and famous\n\nBước 2: Tìm thông tin tuổi tác\n\nĐoạn trước nói:\n\n“...entering in 1853, at the age of 15.”\n\nSau đó:\n\n“Not long after that, Perkin made the scientific breakthrough…”\n\nBước 3: Suy luận\n\n“Not long after” = không lâu sau đó.\nNghĩa là ông vẫn còn trẻ khi phát minh ra thuốc nhuộm nổi tiếng.\n\n=> TRUE.",
@@ -97,8 +97,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
-              "prompt": "Question 5",
+              "type": "gap-fill",
+              "prompt": "The trees from which quinine is derived grow only in South America.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "NOT GIVEN\n\nBước 1: Keyword\n\ntrees\nquinine\nonly in South America\n\nBước 2: Tìm “South America”\n\nĐoạn 4:\n\n“the cinchona tree, native to South America”\n\nBước 3: Phân tích bẫy\n\n“native to” = có nguồn gốc từ.\nKHÔNG đồng nghĩa với:\n“grow only in” = chỉ mọc ở.\n\nBài không nói cây này chỉ tồn tại ở Nam Mỹ.\n\n=> NOT GIVEN.",
@@ -107,8 +107,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
-              "prompt": "Question 6",
+              "type": "gap-fill",
+              "prompt": "Perkin hoped to manufacture a drug from a coal tar waste product.",
               "options": [],
               "answer": "TRUE",
               "explanation": "TRUE\n\nBước 1: Keyword\n\nmanufacture a drug\ncoal tar waste product\n\nBước 2: Scan “coal tar”\n\nĐoạn 5:\n\n“He was attempting to manufacture quinine from aniline, an inexpensive and readily available coal tar waste product.”\n\nBước 3: Phân tích\n\nquinine = thuốc trị malaria\naniline = sản phẩm thải từ coal tar\n\nPerkin muốn tạo thuốc từ chất thải coal tar.\n\n=> TRUE.",
@@ -126,7 +126,7 @@
               "id": "catalog-cam-9-1-reading-part-1-q7",
               "number": 7,
               "type": "true-false-not-given",
-              "prompt": "Question 7",
+              "prompt": "Perkin was inspired by the discoveries of the famous scientist Louis Pasteur.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "NOT GIVEN\n\nBước 1: Keyword\n\ninspired\nLouis Pasteur\n\nBước 2: Tìm “Louis Pasteur”\n\nĐoạn có:\n\n“chance favors only the prepared mind”\n\nĐây chỉ là câu trích dẫn.\n\nBước 3: Kiểm tra\n\nBài không nói Perkin được truyền cảm hứng từ Pasteur hay nghiên cứu của ông.\n\n=> NOT GIVEN.",
@@ -143,8 +143,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
-              "prompt": "Question 8",
+              "type": "gap-fill",
+              "prompt": "Before Perkin's discovery, with what group in society was the colour purple associated?",
               "options": [],
               "answer": "the rich",
               "explanation": "the rich\n\nBước 1: Keyword\n\npurple\nassociated with society group\n\nBước 2: Scan “purple”\n\nĐoạn 6:\n\n“only the rich could afford it.”\n\nBước 3: Lấy đúng từ trong bài\n\n=> the rich\n\nLưu ý:\nKhông viết “rich people” vì đề yêu cầu NO MORE THAN TWO WORDS, nhưng phải lấy đúng wording trong passage sẽ an toàn hơn.",
@@ -161,8 +161,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q9",
               "number": 9,
-              "type": "multiple-choice",
-              "prompt": "Question 9",
+              "type": "gap-fill",
+              "prompt": "What potential did Perkin immediately understand that his new dye had?",
               "options": [],
               "answer": "commercial possibilities",
               "explanation": "commercial possibilities\n\nBước 1: Keyword\n\nimmediately understand\npotential\n\nBước 2: Scan “potential”\n\nĐoạn 7:\n\n“the new dye had commercial possibilities.”\n\nBước 3: Chép đúng cụm từ\n\n=> commercial possibilities",
@@ -179,8 +179,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q10",
               "number": 10,
-              "type": "multiple-choice",
-              "prompt": "Question 10",
+              "type": "gap-fill",
+              "prompt": "What was the name finally used to refer to the first colour Perkin invented?",
               "options": [],
               "answer": "mauve",
               "explanation": "mauve\n\nBước 1: Keyword\n\nfinally used\nfirst colour\n\nBước 2: Tìm tên màu\n\nĐoạn 8:\n\n“it later became commonly known as mauve”\n\nBan đầu tên là Tyrian Purple, nhưng tên cuối cùng được dùng phổ biến là “mauve”.\n\n=> mauve",
@@ -197,8 +197,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
-              "prompt": "Question 11",
+              "type": "gap-fill",
+              "prompt": "What was the name of the person Perkin consulted before setting up his own dye works?",
               "options": [],
               "answer": "Robert Pullar",
               "explanation": "Robert Pullar\n\nBước 1: Keyword\n\nconsulted\nbefore setting up\n\nBước 2: Scan tên riêng\n\nĐoạn 8:\n\n“He asked advice of Scottish dye works owner Robert Pullar…”\n\nBước 3: Chép đúng tên\n\n=> Robert Pullar",
@@ -215,8 +215,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
-              "prompt": "Question 12",
+              "type": "gap-fill",
+              "prompt": "In what country did Perkin's newly invented colour first become fashionable?",
               "options": [],
               "answer": "France",
               "explanation": "France\n\nBước 1: Keyword\n\nfirst become fashionable\n\nBước 2: Scan đoạn nói về thời trang\n\nĐoạn 9:\n\n“The company received a commercial boost from the Empress Eugenio of France…”\n\nvà:\n\n“Very soon, mauve was the necessary shade for all the fashionable ladies in that country.”\n\n“that country” = France.\n\nSau đó mới nói Queen Victoria làm màu này nổi ở Anh.",
@@ -233,8 +233,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-1-q13",
               "number": 13,
-              "type": "multiple-choice",
-              "prompt": "Question 13",
+              "type": "gap-fill",
+              "prompt": "According to the passage, which disease is now being targeted by researchers using synthetic dyes?",
               "options": [],
               "answer": "malaria",
               "explanation": "malaria\n\nBước 1: Keyword\n\ndisease\nresearchers\nsynthetic dyes\n\nBước 2: Scan đoạn cuối\n\n“their current use is in the search for a vaccine against malaria.”\n\nBước 3: Lấy đúng từ\n\n=> malaria",
@@ -264,8 +264,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q14",
               "number": 14,
-              "type": "multiple-choice",
-              "prompt": "Question 14",
+              "type": "gap-fill",
+              "prompt": "Paragraph B",
               "options": [],
               "answer": "iv",
               "explanation": "Bước 1: Đọc opening sentence của paragraph B\n\n“In discussing whether we are alone, most SETI scientists adopt two ground rules.”\n\nĐoạn này nói về:\n\ncác giả định\nnguyên tắc nền tảng\nassumption của SETI scientists\n\nBước 2: Match heading\n\nIV = Assumptions underlying the search for extra-terrestrial\n\n“underlying” = nền tảng/cơ sở.\n\n=> IV",
@@ -282,8 +282,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q15",
               "number": 15,
-              "type": "multiple-choice",
-              "prompt": "Question 15",
+              "type": "gap-fill",
+              "prompt": "Paragraph C",
               "options": [],
               "answer": "vii",
               "explanation": "Bước 1: Main idea paragraph C\n\nĐoạn này nói:\n\ncó bao nhiêu ngôi sao\nkhả năng tồn tại sự sống\nestimate số hành tinh có sự sống\n\nKeyword mạnh:\n“it seems inconceivable that at least one…”\n\n=> đang bàn về khả năng có sự sống ngoài hành tinh.\n\nBước 2: Match heading\n\nVII = Likelihood of life on other planets\n\n=> VII",
@@ -300,8 +300,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q16",
               "number": 16,
-              "type": "multiple-choice",
-              "prompt": "Question 16",
+              "type": "gap-fill",
+              "prompt": "Paragraph D",
               "options": [],
               "answer": "i",
               "explanation": "Bước 1: Main idea paragraph D\n\nĐoạn này tập trung vào:\n\nradio waves\nfrequencies\nradio telescopes\nsearching stars\n\n=> cách SETI tìm tín hiệu.\n\nBước 2: Match heading\n\nI = Seeking the transmission of radio signals from planets\n\n=> I",
@@ -318,8 +318,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q17",
               "number": 17,
-              "type": "multiple-choice",
-              "prompt": "Question 17",
+              "type": "gap-fill",
+              "prompt": "Paragraph E",
               "options": [],
               "answer": "ii",
               "explanation": "Bước 1: Main idea paragraph E\n\nĐoạn nói:\n\nnếu nhận được tín hiệu thì phản ứng thế nào\nkhông nên trả lời ngay\nethical questions\n\nBước 2: Match heading\n\nII = Appropriate responses to signals from other civilisations\n\n=> II",
@@ -336,8 +336,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q18",
               "number": 18,
-              "type": "multiple-choice",
-              "prompt": "Question 18",
+              "type": "gap-fill",
+              "prompt": "What is the life expectancy of Earth?",
               "options": [],
               "answer": "several billion years",
               "explanation": "several billion years\n\nBước 1: Keyword\n\nlife expectancy of Earth\n\nBước 2: Scan paragraph A\n\n“Since the lifetime of a planet like ours is several billion years…”\n\n=> several billion years",
@@ -354,8 +354,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q19",
               "number": 19,
-              "type": "multiple-choice",
-              "prompt": "Question 19",
+              "type": "gap-fill",
+              "prompt": "What kind of signals from other intelligent civilisations are SETI scientists searching for?",
               "options": [],
               "answer": "radio signals",
               "explanation": "radio waves\n\nBước 1: Keyword\n\nwhat kind of signals\n\nBước 2: Paragraph D\n\n“all searches to date have concentrated on looking for radio waves…”\n\n=> radio waves",
@@ -372,8 +372,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-2-q20",
               "number": 20,
-              "type": "multiple-choice",
-              "prompt": "Question 20",
+              "type": "gap-fill",
+              "prompt": "How many stars are the world's most powerful radio telescopes searching?",
               "options": [],
               "answer": "1000",
               "explanation": "1000 likely stars\n\nBước 1: Keyword\n\nworld’s most powerful radio telescopes\n\nBước 2: Scan đoạn telescope\n\n“This part of the project is searching the nearest 1000 likely stars…”\n\n=> 1000 (likely) (stars)",
@@ -391,7 +391,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q21",
               "number": 21,
               "type": "yes-no-not-given",
-              "prompt": "Question 21",
+              "prompt": "Alien civilisations may be able to help the human race to overcome serious problems.",
               "options": [
                 {
                   "id": "yes",
@@ -422,7 +422,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q22",
               "number": 22,
               "type": "yes-no-not-given",
-              "prompt": "Question 22",
+              "prompt": "SETI scientists are trying to find a life form that resembles humans in many ways.",
               "options": [
                 {
                   "id": "yes",
@@ -453,7 +453,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q23",
               "number": 23,
               "type": "yes-no-not-given",
-              "prompt": "Question 23",
+              "prompt": "The Americans and Australians have co-operated on joint research projects.",
               "options": [
                 {
                   "id": "yes",
@@ -484,7 +484,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q24",
               "number": 24,
               "type": "yes-no-not-given",
-              "prompt": "Question 24",
+              "prompt": "So far SETI scientists have picked up radio signals from several stars.",
               "options": [
                 {
                   "id": "yes",
@@ -515,7 +515,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q25",
               "number": 25,
               "type": "yes-no-not-given",
-              "prompt": "Question 25",
+              "prompt": "The NASA project attracted criticism from some members of Congress.",
               "options": [
                 {
                   "id": "yes",
@@ -546,7 +546,7 @@
               "id": "catalog-cam-9-1-reading-part-2-q26",
               "number": 26,
               "type": "yes-no-not-given",
-              "prompt": "Question 26",
+              "prompt": "If a signal from outer space is received, it will be important to respond promptly.",
               "options": [
                 {
                   "id": "yes",
@@ -607,8 +607,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q27",
               "number": 27,
-              "type": "multiple-choice",
-              "prompt": "Question 27",
+              "type": "gap-fill",
+              "prompt": "What had to transfer from sea to land before any animals could migrate?",
               "options": [],
               "answer": "plants",
               "explanation": "plants\n\nBước 1: Keyword\n\nbefore animals could migrate\ntransfer from sea to land\n\nBước 2: Scan đoạn đầu\n\n“And we mustn’t forget the plants, without whose prior invasion of the land none of the other migrations could have happened.”\n\nBước 3: Suy luận\n\n“prior invasion” = phải lên đất liền trước.\n\n=> Đáp án: plants",
@@ -625,8 +625,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q28",
               "number": 28,
-              "type": "multiple-choice",
-              "prompt": "Question 28",
+              "type": "gap-fill",
+              "prompt": "Which TWO processes are mentioned as those in which animals had to make big changes as they moved onto land?",
               "options": [],
               "answer": "breathing, reproduction",
               "explanation": "breathing and reproduction\n\nBước 1: Keyword\n\nTWO processes\nbig changes\nmoved onto land\n\nBước 2: Tìm đoạn nói về “major redesign”\n\n“Moving from water to land involved a major redesign of every aspect of life, including breathing and reproduction.”\n\nBước 3: Lấy đúng 2 quá trình\n\n=> breathing and reproduction",
@@ -643,8 +643,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q29",
               "number": 29,
-              "type": "multiple-choice",
-              "prompt": "Question 29",
+              "type": "gap-fill",
+              "prompt": "Which physical feature, possessed by their ancestors, do whales lack?",
               "options": [],
               "answer": "gills",
               "explanation": "gills\n\nBước 1: Keyword\n\nphysical feature\nancestors possessed\nwhales lack\n\nBước 2: Scan đoạn whales\n\n“They do, however, still breathe air, having never developed anything equivalent to the gills of their earlier marine incarnation.”\n\nBước 3: Xác định feature\n\n=> gills",
@@ -661,8 +661,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q30",
               "number": 30,
-              "type": "multiple-choice",
-              "prompt": "Question 30",
+              "type": "gap-fill",
+              "prompt": "Which animals might ichthyosaurs have resembled?",
               "options": [],
               "answer": "dolphins",
               "explanation": "dolphins\n\nBước 1: Keyword\n\nichthyosaurs\nresembled\n\nBước 2: Scan đoạn fossil\n\n“The fossils look like dolphins…”\n\n=> dolphins",
@@ -680,7 +680,7 @@
               "id": "catalog-cam-9-1-reading-part-3-q31",
               "number": 31,
               "type": "true-false-not-given",
-              "prompt": "Question 31",
+              "prompt": "Turtles were among the first group of animals to migrate back to the sea.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "NOT GIVEN\n\nBước 1: Keyword\n\namong the first\nmigrate back to sea\n\nBước 2: Kiểm tra bài có so sánh thứ tự thời gian không\n\nBài chỉ nói:\n\n“Turtles went back to the sea a very long time ago…”\n\nKhông nói chúng là nhóm đầu tiên.\n\n=> NOT GIVEN",
@@ -698,7 +698,7 @@
               "id": "catalog-cam-9-1-reading-part-3-q32",
               "number": 32,
               "type": "true-false-not-given",
-              "prompt": "Question 32",
+              "prompt": "It is always difficult to determine where an animal lived when its fossilised remains are incomplete.",
               "options": [],
               "answer": "FALSE",
               "explanation": "FALSE\n\nBước 1: Keyword\n\nalways difficult\nincomplete fossils\n\nBước 2: Scan đoạn nói về fossils\n\n“You might wonder how we can tell…”\n\n“Sometimes it’s obvious.”\n\nBước 3: So sánh\n\nĐề nói “always difficult”.\nBài nói “sometimes it’s obvious”.\n\n=> trái ngược hoàn toàn.\n\n=> FALSE",
@@ -716,7 +716,7 @@
               "id": "catalog-cam-9-1-reading-part-3-q33",
               "number": 33,
               "type": "true-false-not-given",
-              "prompt": "Question 33",
+              "prompt": "The habitat of ichthyosaurs can be determined by the appearance of their fossilised remains.",
               "options": [],
               "answer": "TRUE",
               "explanation": "TRUE\n\nBước 1: Keyword\n\nhabitat\nichthyosaurs\ndetermined by appearance\n\nBước 2: Đoạn liên quan\n\n“Ichthyosarus were reptilian contemporaries of the dinosaurs, with fins and streamlined bodies.”\n\n“The fossils look like dolphins and they surely lived like dolphins, in the water.”\n\nBước 3: Phân tích\n\nNhìn hình dạng fossil có thể xác định chúng sống dưới nước.\n\n=> TRUE",
@@ -733,8 +733,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q34",
               "number": 34,
-              "type": "multiple-choice",
-              "prompt": "Question 34",
+              "type": "gap-fill",
+              "prompt": "Walter Joyce and Jacques Gauthier obtained __________ in these particular bones of 71 species of living turtles and tortoises.",
               "options": [],
               "answer": "3 measurements",
               "explanation": "three measurements\n\nBước 1: Keyword\n\ntotal\ntaken from bones\n\nBước 2: Scan đoạn nghiên cứu Yale\n\n“obtained three measurements in these particular bones…”\n\n=> three measurements",
@@ -751,8 +751,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q35",
               "number": 35,
-              "type": "multiple-choice",
-              "prompt": "Question 35",
+              "type": "gap-fill",
+              "prompt": "They used a kind of __________ to plot the three measurements against one another.",
               "options": [],
               "answer": "triangular graph",
               "explanation": "triangular graph paper\n\nBước 1: Keyword\n\nnecessary for comparing\n\nBước 2: Scan tiếp\n\n“They used a kind of triangular graph paper…”\n\n=> triangular graph paper",
@@ -769,8 +769,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q36",
               "number": 36,
-              "type": "multiple-choice",
-              "prompt": "Question 36",
+              "type": "gap-fill",
+              "prompt": "All the land tortoise species formed a tight __________ of points in the upper part of the triangle.",
               "options": [],
               "answer": "cluster",
               "explanation": "cluster\n\nBước 1: Keyword\n\ndense\npoints\n\nBước 2: Đoạn liên quan\n\n“All the land tortoise species formed a tight cluster of points…”\n\n=> cluster",
@@ -787,8 +787,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q37",
               "number": 37,
-              "type": "multiple-choice",
-              "prompt": "Question 37",
+              "type": "gap-fill",
+              "prompt": "These __________ species show up on the triangular graph approximately half way between the 'wet cluster' and the 'dry cluster'.",
               "options": [],
               "answer": "amphibious",
               "explanation": "amphibious\n\nBước 1: Keyword\n\nliving species\nboth land and water\n\nBước 2: Scan đoạn overlap\n\n“these amphibious species…”\n\n=> amphibious",
@@ -805,8 +805,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q38",
               "number": 38,
-              "type": "multiple-choice",
-              "prompt": "Question 38",
+              "type": "gap-fill",
+              "prompt": "These amphibious species show up on the triangular graph approximately __________ between the 'wet cluster' and the 'dry cluster'.",
               "options": [],
               "answer": "half way",
               "explanation": "half way\n\nBước 1: Keyword\n\npositioned\nbetween\n\nBước 2: Tìm cụm gốc\n\n“approximately half way between…”\n\n=> half way",
@@ -823,8 +823,8 @@
             {
               "id": "catalog-cam-9-1-reading-part-3-q39",
               "number": 39,
-              "type": "multiple-choice",
-              "prompt": "Question 39",
+              "type": "gap-fill",
+              "prompt": "Both these fossils were __________.",
               "options": [],
               "answer": "dry-land tortoises",
               "explanation": "dry-land tortoises\n\nBước 1: Keyword\n\nposition of points indicated\n\nBước 2: Đoạn cuối phần graph\n\n“Both these fossils were dry-land tortoises.”\n\n=> dry-land tortoises",
@@ -842,7 +842,7 @@
               "id": "catalog-cam-9-1-reading-part-3-q40",
               "number": 40,
               "type": "multiple-choice",
-              "prompt": "Question 40",
+              "prompt": "According to the writer, the most significant thing about tortoises is that they",
               "options": [
                 {
                   "id": "A",

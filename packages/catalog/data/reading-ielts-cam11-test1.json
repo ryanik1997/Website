@@ -24,7 +24,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Some food plants, including ___________ are already grown indoors.",
               "options": [],
               "answer": "tomatoes",
@@ -34,7 +34,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Vertical farms would be located in ___________, meaning that there would be less need to take them long distances to customers.",
               "options": [],
               "answer": "urban centres",
@@ -44,7 +44,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "Vertical farms could use methane from plants and animals to produce ___________.",
               "options": [],
               "answer": "energy",
@@ -54,7 +54,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "The consumption of ___________ would be cut because agricultural vehicles would be unnecessary.",
               "options": [],
               "answer": "fossil fuel",
@@ -64,7 +64,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "The fact that vertical farms would need ___________ light is a disadvantage.",
               "options": [],
               "answer": "artificial",
@@ -74,7 +74,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "One form of vertical farming involves planting in ___________ which are not fixed.",
               "options": [],
               "answer": "stacked trays",
@@ -84,7 +84,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "The most probable development is that food will be grown on ___________ in towns and cities.",
               "options": [],
               "answer": "urban rooftops",
@@ -386,12 +386,120 @@
           "id": "catalog-cam-11-1-reading-part-3-g1",
           "range": "Questions 30–36",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "Procedure",
+              "Aim"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "put a large number of tiny spacecraft into orbit far above Earth"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " that would reduce the amount of light reaching Earth"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": " in the sea"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " to form"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "release aerosol sprays into the stratosphere"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " that would reduce the amount of light reaching Earth"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": " to Greenland ice sheets"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "to prevent icebergs moving into the sea"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "plant trees in Russian Arctic that would lose their leaves in winter"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "  to reflect radiation"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "change the direction of "
+                    },
+                    {
+                      "type": "gap",
+                      "number": 36
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "to bring more cold water into ice-forming areas"
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-11-1-reading-part-3-q30",
               "number": 30,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "to create a 30. ________ that would reduce the amount of light reaching Earth",
               "options": [],
               "answer": "sunshade",
@@ -401,7 +509,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q31",
               "number": 31,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "place 31. ________ in the sea",
               "options": [],
               "answer": "iron",
@@ -411,7 +519,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q32",
               "number": 32,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "to encourage 32. ________ to form",
               "options": [],
               "answer": "algae",
@@ -421,7 +529,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q33",
               "number": 33,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "release aerosol sprays into the stratosphere to create 33. ________ that would reduce the amount of light reaching Earth",
               "options": [],
               "answer": "clouds",
@@ -431,7 +539,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q34",
               "number": 34,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "fix strong 34. ________ to Greenland ice sheets to prevent icebergs moving into the sea",
               "options": [],
               "answer": "cables",
@@ -441,7 +549,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q35",
               "number": 35,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "plant trees in Russian Arctic that would lose their leaves in winter to allow the 35. ________ to reflect radiation",
               "options": [],
               "answer": "snow",
@@ -451,7 +559,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q36",
               "number": 36,
-              "type": "multiple-choice",
+              "type": "gap-fill",
               "prompt": "change the direction of 36. ________ to bring more cold water into ice-forming areas",
               "options": [],
               "answer": "rivers",
@@ -487,7 +595,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q37",
               "number": 37,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "The effects of geo-engineering may not be long-lasting.",
               "options": [],
               "answer": "B",
@@ -497,7 +605,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q38",
               "number": 38,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "Geo-engineering is a topic worth exploring.",
               "options": [],
               "answer": "D",
@@ -507,7 +615,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q39",
               "number": 39,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "It may be necessary to limit the effectiveness of geo-engineering projects.",
               "options": [],
               "answer": "C",
@@ -517,7 +625,7 @@
             {
               "id": "catalog-cam-11-1-reading-part-3-q40",
               "number": 40,
-              "type": "matching-features",
+              "type": "gap-fill",
               "prompt": "Research into non-fossil-based fuels cannot be replaced by geo-engineering.",
               "options": [],
               "answer": "A",

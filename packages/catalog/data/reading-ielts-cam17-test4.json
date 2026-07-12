@@ -25,7 +25,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q1",
               "number": 1,
               "type": "true-false-not-given",
-              "prompt": "Question 1",
+              "prompt": "1 Many Madagascan forests are being destroyed by attacks from insects.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\nMadagascan forests\ndestroyed\nattacks from insects\nBước 2: Tìm đoạn\nĐoạn 1: “insect pests are destroying vast quantities of what is grown by local subsistence farmers, leading them to clear forest to create new paddy fields.”\nBước 3: Phân tích\nCôn trùng đang phá hoại mùa màng của nông dân.\nVì mất mùa nên nông dân phải phá rừng để tạo thêm ruộng lúa.\nNghĩa là rừng bị phá bởi con người, không phải do insects trực tiếp tấn công.\n=> Đáp án: FALSE",
@@ -35,7 +35,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q2",
               "number": 2,
               "type": "true-false-not-given",
-              "prompt": "Question 2",
+              "prompt": "2 Loss of habitat has badly affected insectivorous bats in Madagascar.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\nloss of habitat\nbadly affected\ninsectivorous bats\nBước 2: Tìm đoạn\nĐoạn 1: “not all species are suffering. In fact, some of the island’s insectivorous bats are currently thriving”\nBước 3: Phân tích\n“thriving” = phát triển mạnh, sinh sống tốt.\nĐề nói bats bị ảnh hưởng xấu nghiêm trọng.\nNội dung bài lại nói một số loài đang phát triển.\n=> Đáp án: FALSE",
@@ -45,7 +45,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q3",
               "number": 3,
               "type": "true-false-not-given",
-              "prompt": "Question 3",
+              "prompt": "3 Ricardo Rocha has carried out studies of bats in different parts of the world.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\nRicardo Rocha\nstudies\ndifferent parts of the world\nBước 2: Tìm đoạn\nĐoạn 2 chỉ nói: “he’s interested in how bats are responding to human activity and deforestation”\nBước 3: Phân tích\nBài chỉ nói ông ấy quan tâm đến việc loài dơi phản ứng với hoạt động của con người và nạn phá rừng như thế nào.\nKhông có thông tin ông ấy nghiên cứu ở nhiều nơi trên thế giới.\nKhông thể suy luận thêm.\n=> Đáp án: NOT GIVEN",
@@ -55,7 +55,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q4",
               "number": 4,
               "type": "true-false-not-given",
-              "prompt": "Question 4",
+              "prompt": "4 Habitat modification has resulted in indigenous bats in Madagascar becoming useful to farmers.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\nhabitat modification\nindigenous bats\nuseful to farmers\nBước 2: Tìm đoạn\nĐoạn 4: “several species of indigenous bats are taking advantage of habitat modification to hunt insects swarming above the country’s rice fields.”\nĐoạn 5:\n“providing a valuable free service to Madagascar as biological pest suppressors”\nBước 3: Phân tích\n“habitat modification” = thay đổi môi trường sống.\nDơi săn côn trùng trên ruộng lúa → giúp tiêu diệt sâu hại.\n“valuable free service” cho thấy chúng có ích cho nông dân.\n=> Đáp án: TRUE",
@@ -75,7 +75,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q6",
               "number": 6,
               "type": "true-false-not-given",
-              "prompt": "Question 6",
+              "prompt": "6 Bats may feed on paddy swarming caterpillars and grass webworms.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\npaddy swarming caterpillars\ngrass webworms\nBước 2: Tìm đoạn\nĐoạn 5: “six species of bat are preying on rice pests, including the paddy swarming caterpillar and grass webworm”\nBước 3: Phân tích\n“preying on” = săn/ăn.\nHoàn toàn trùng nghĩa với “feed on”.\n=> Đáp án: TRUE",
@@ -87,13 +87,89 @@
           "id": "catalog-cam-17-4-reading-part-1-g1",
           "range": "Questions 7–12",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "",
+              "The study carried out by Rocha’s team"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Aim"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "●   to investigate the feeding habits of bats in farmland near the Ranomafana National Park"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Method\n\n"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "●   ultrasonic recording to identify favourite feeding spots\n●   DNA analysis of bat \n"
+                    },
+                    {
+                      "type": "gap",
+                      "number": 7
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Findings"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": ", sugarcane, nuts and fruit\n–  prevent the spread of disease by eating \n"
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Recommendation"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " to support the bat population"
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-17-4-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
-              "prompt": "Question 7",
+              "type": "gap-fill",
+              "prompt": "DNA analysis of bat 7 …………………",
               "options": [],
               "answer": "droppings",
               "explanation": "Bước 1: Keyword\nDNA analysis\nbat\nBước 2: Tìm đoạn\nĐoạn 7: “They next used DNA barcoding techniques to analyse droppings collected from bats at the different sites.”\nBước 3: Phân tích\n“analyse droppings” = phân tích phân dơi.\n“droppings” là danh từ chỉ phân động vật.\nBảng cho sẵn: “DNA analysis of bat ___”\n→ điền “droppings”.\n=> Đáp án: droppings",
@@ -102,8 +178,8 @@
             {
               "id": "catalog-cam-17-4-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
-              "prompt": "Question 8",
+              "type": "gap-fill",
+              "prompt": "ate pests of rice, 8 …………………, sugarcane, nuts and fruit",
               "options": [],
               "answer": "coffee",
               "explanation": "Bước 1: Keyword\ncoffee\nsugarcane\nnuts\nBước 2: Tìm đoạn\nĐoạn 8: “the black twig borer (which infests coffee plants), the sugarcane cicada, the macadamia nut-borer, and the sober tabby (a pest of citrus fruits).”\nBước 3: Phân tích\ncoffee plants → coffee\nsugarcane cicada → sugarcane\nnut-borer → nuts\ncitrus fruits → fruit\nBảng tóm tắt dùng danh từ chung.\n=> Đáp án: coffee",
@@ -112,8 +188,8 @@
             {
               "id": "catalog-cam-17-4-reading-part-1-q9",
               "number": 9,
-              "type": "multiple-choice",
-              "prompt": "Question 9",
+              "type": "gap-fill",
+              "prompt": "prevent the spread of disease by eating 9 ………………… and blackflies",
               "options": [],
               "answer": "mosquitoes",
               "explanation": "Bước 1: Keyword\ndisease\nblackflies\nBước 2: Tìm đoạn\n\nĐoạn 10: “bats feed not just on crop pests but also on mosquitoes ... as well as blackflies”\nBước 3: Phân tích\nBài nói dơi ăn mosquitoes và blackflies.\nHai loài này truyền bệnh.\nĐiền đúng từ trong passage.\n=> Đáp án: mosquitoes",
@@ -122,8 +198,8 @@
             {
               "id": "catalog-cam-17-4-reading-part-1-q10",
               "number": 10,
-              "type": "multiple-choice",
-              "prompt": "Question 10",
+              "type": "gap-fill",
+              "prompt": "they provide food rich in 10 …………………",
               "options": [],
               "answer": "protein",
               "explanation": "Bước 1: Keyword\nfood rich in\nBước 2: Tìm đoạn\nĐoạn 11: “bats become a crucial source of protein for local people”\nBước 3: Phân tích\n“source of protein” = nguồn giàu protein.\nBảng paraphrase thành “food rich in protein”.\n=> Đáp án: protein",
@@ -132,8 +208,8 @@
             {
               "id": "catalog-cam-17-4-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
-              "prompt": "Question 11",
+              "type": "gap-fill",
+              "prompt": "the buildings where they roost become 11 …………………",
               "options": [],
               "answer": "unclean",
               "explanation": "Bước 1: Keyword\nbuildings\nroost\nBước 2: Tìm đoạn\nĐoạn 11: “they are not welcomed there because they make them unclean”\nBước 3: Phân tích\n“them” ở đây chỉ buildings.\nDơi ở trong tòa nhà làm chúng trở nên bẩn.\n=> Đáp án: unclean",
@@ -142,8 +218,8 @@
             {
               "id": "catalog-cam-17-4-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
-              "prompt": "Question 12",
+              "type": "gap-fill",
+              "prompt": "they play an important role in local 12 …………………",
               "options": [],
               "answer": "culture",
               "explanation": "Bước 1: Keyword\nimportant role\nlocal\nBước 2: Tìm đoạn\nĐoạn 11: “they can be viewed as beings between worlds, which makes them very significant in the culture of the people.”\nBước 3: Phân tích\n“significant in the culture” = đóng vai trò quan trọng trong văn hóa.\nlocal culture = văn hóa địa phương.\n=> Đáp án: culture",
@@ -161,7 +237,7 @@
               "id": "catalog-cam-17-4-reading-part-1-q13",
               "number": 13,
               "type": "multiple-choice",
-              "prompt": "Question 13",
+              "prompt": "farmers should provide special 13 …………………",
               "options": [],
               "answer": "houses",
               "explanation": "Bước 1: Keyword\nprovide special\nsupport the bat population\nBước 2: Tìm đoạn\nĐoạn 11: “farmers can promote this mutually beneficial relationship by installing bat houses.”\nBước 3: Phân tích\n“bat houses” = nhà dành cho dơi.\nBảng paraphrase thành “special houses”.\n=> Đáp án: houses",
@@ -200,7 +276,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q14",
               "number": 14,
               "type": "matching-paragraph",
-              "prompt": "an explanation of the need for research to focus on individuals with a fairly consistent income",
+              "prompt": "14 an explanation of the need for research to focus on individuals with a fairly consistent income",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nfairly consistent income\nresearch focus on individuals\nBước 2: Tìm đoạn\nĐoạn E: “One way to look at whether education causes economic growth is to ‘hold wealth constant’.”\nBước 3: Phân tích\n“hold wealth constant” = giữ mức tài sản/thu nhập ổn định để nghiên cứu chính xác hơn.\nĐúng với ý câu hỏi.\n=> Đáp án: E",
@@ -210,7 +286,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q15",
               "number": 15,
               "type": "matching-paragraph",
-              "prompt": "examples of the sources the database has been compiled from",
+              "prompt": "15 examples of the sources the database has been compiled from",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\nsources\ndatabase compiled from\nBước 2: Tìm đoạn\nĐoạn A: “It includes court records, guild ledgers, parish registers, village censuses, tax lists...”\nBước 3: Phân tích\nĐoạn này liệt kê các nguồn dữ liệu dùng để xây dựng database.\n=> Đáp án: A",
@@ -220,7 +296,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q16",
               "number": 16,
               "type": "matching-paragraph",
-              "prompt": "an account of one individual’s refusal to obey an order",
+              "prompt": "16 an account of one individual’s refusal to obey an order",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nrefusal to obey\none individual\nBước 2: Tìm đoạn\nĐoạn D: “When Juliana continued taking jobs reserved for male guild members...”\nBước 3: Phân tích\nJuliana vẫn tiếp tục làm công việc bị cấm.\nĐây là hành động không tuân lệnh/quy định.\n=> Đáp án: D",
@@ -230,7 +306,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q17",
               "number": 17,
               "type": "matching-paragraph",
-              "prompt": "A reference to a region being particularly suited to research into the link between education and economic growth",
+              "prompt": "17 a reference to a region being particularly suited to research into the link between education and economic growth",
               "options": [],
               "answer": "F",
               "explanation": "Bước 1: Keyword\nregion\nsuited to research\neducation and economic growth\nBước 2: Tìm đoạn\nĐoạn F: “German-speaking central Europe is an excellent laboratory for testing theories of economic growth”\nBước 3: Phân tích\n“excellent laboratory” = nơi rất phù hợp để nghiên cứu/thử nghiệm.\n=> Đáp án: F",
@@ -240,7 +316,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q18",
               "number": 18,
               "type": "matching-paragraph",
-              "prompt": "examples of the items included in a list of personal possessions",
+              "prompt": "18 examples of the items included in a list of personal possessions",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\nitems\npersonal possessions\nBước 2: Tìm đoạn\nĐoạn C: “From badger skins to Bibles, sewing machines to scarlet bodices...”\nBước 3: Phân tích\nĐoạn này đưa ví dụ các món đồ cá nhân trong inventories.\n=> Đáp án: C",
@@ -260,7 +336,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q19",
               "number": 19,
               "type": "gap-fill",
-              "prompt": "Gap (19)",
+              "prompt": "as well as those of their 19 …………………, over a 300-year period.",
               "options": [],
               "answer": "descendants",
               "explanation": "Bước 1: Keyword\n300-year period\nBước 2: Tìm đoạn\nĐoạn D: “We can follow the same people – and their descendants – across 300 years...”\nBước 3: Phân tích\ndescendants = con cháu/hậu duệ.\n=> Đáp án: descendants",
@@ -270,7 +346,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q20",
               "number": 20,
               "type": "gap-fill",
-              "prompt": "Gap (20)",
+              "prompt": "while they should have been paying attention to a 20 ………………… .",
               "options": [],
               "answer": "sermon",
               "explanation": "Bước 1: Keyword\npaying attention\nBước 2: Tìm đoạn\nĐoạn D: “instead of listening to the sermon”\nBước 3: Phân tích\nlistening to = paying attention to.\n=> Đáp án: sermon",
@@ -280,7 +356,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q21",
               "number": 21,
               "type": "gap-fill",
-              "prompt": "Gap (21)",
+              "prompt": "As a punishment, she was later given a 21 ………………… .",
               "options": [],
               "answer": "fine",
               "explanation": "Bước 1: Keyword\npunishment\nBước 2: Tìm đoạn\nĐoạn D: “told to pay a fine”\nBước 3: Phân tích\nfine = tiền phạt.\n=> Đáp án: fine",
@@ -290,7 +366,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q22",
               "number": 22,
               "type": "gap-fill",
-              "prompt": "Gap (22)",
+              "prompt": "Cases like this illustrate how the guilds could prevent 22 …………………",
               "options": [],
               "answer": "innovation",
               "explanation": "Bước 1: Keyword\nguilds\nstop skilled people from working\nBước 2: Tìm đoạn\nĐoạn D: “held back even the simplest industrial innovation”\nBước 3: Phân tích\nheld back = prevent.\nindustrial innovation → innovation.\n=> Đáp án: innovation",
@@ -308,7 +384,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q23",
               "number": 23,
               "type": "multiple-choice",
-              "prompt": "Which TWO of the following statements does the writer make about literacy rates in Section B?",
+              "prompt": "Choose two (1)",
               "options": [
                 {
                   "id": "A",
@@ -339,7 +415,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q24",
               "number": 24,
               "type": "multiple-choice",
-              "prompt": "Which TWO of the following statements does the writer make about literacy rates in Section B?",
+              "prompt": "Choose two (2)",
               "options": [],
               "answer": "B,E",
               "explanation": "Bước 1: Keyword\nliteracy rates\nSection B\nBước 2: Tìm đoạn \nĐoạn B: “Germany and Scandinavia had excellent literacy rates” và “there is plenty of evidence that growth increases education”\nBước 3: Phân tích\n B. Literacy rates in Germany between 1600 and 1900 were very good.\n→ “excellent literacy rates”\n E. Economic growth can help to improve literacy rates.\n→ growth increases education.\n❌ A: không nói “very little research”\n❌ C: bài nói thiếu bằng chứng mạnh\n❌ D: England literacy chỉ “mediocre”\n=> Đáp án: B & E",
@@ -357,7 +433,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q25",
               "number": 25,
               "type": "multiple-choice",
-              "prompt": "Which TWO of the following statements does the writer make in Section F about guilds in German-speaking Central Europe between 1600 and 1900?",
+              "prompt": "Choose two (1)",
               "options": [
                 {
                   "id": "A",
@@ -388,7 +464,7 @@
               "id": "catalog-cam-17-4-reading-part-2-q26",
               "number": 26,
               "type": "multiple-choice",
-              "prompt": "Which TWO of the following statements does the writer make in Section F about guilds in German-speaking Central Europe between 1600 and 1900?",
+              "prompt": "Choose two (2)",
               "options": [],
               "answer": "B,D",
               "explanation": "Bước 1: Keyword\nguilds\nGerman-speaking Central Europe\nBước 2: Tìm đoạn\nĐoạn F: “guilds blocked labour migration” và “legislated against anything that undermined their monopolies”\nBước 3: Phân tích\n B. They were opposed to people moving to an area for work.\n→ blocked labour migration.\n D. They opposed practices that threatened their control over a trade.\n→ undermined their monopolies.\n❌ A: không đề cập\n❌ C: không đề cập\n❌ E: không nói guild chủ yếu gồm merchant giàu.\n=> Đáp án: B & D",
@@ -432,7 +508,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q27",
               "number": 27,
               "type": "matching-paragraph",
-              "prompt": "a reference to earlier examples of blindfold chess",
+              "prompt": "27 a reference to earlier examples of blindfold chess",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nearlier examples\nblindfold chess\nBước 2: Tìm đoạn\nĐoạn D: “The first recorded game in Europe was played in 13th-century Florence.” và “Miguel Najdorf played 45 simultaneous games in his mind”\nBước 3: Phân tích\nĐoạn này nhắc đến các ví dụ trong quá khứ về blindfold chess.\n=> Đáp án: D",
@@ -442,7 +518,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q28",
               "number": 28,
               "type": "matching-paragraph",
-              "prompt": "an outline of what blindfold chess involves",
+              "prompt": "28 an outline of what blindfold chess involves",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nwhat blindfold chess involves\nBước 2: Tìm đoạn\nĐoạn E: “Not only must the positions of each piece on every board be memorised...”\nBước 3: Phân tích\nĐoạn này giải thích người chơi phải:\nnhớ vị trí quân cờ\ncập nhật nước đi\nlưu lại trong trí nhớ\nĐây chính là cách blindfold chess hoạt động.\n=> Đáp án: E",
@@ -452,7 +528,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q29",
               "number": 29,
               "type": "matching-paragraph",
-              "prompt": "a claim that Gareyev’s skill is limited to chess",
+              "prompt": "29 a claim that Gareyev’s skill is limited to chess",
               "options": [],
               "answer": "F",
               "explanation": "Bước 1: Keyword\nskill limited to chess\nBước 2: Tìm đoạn\nĐoạn F: “We didn’t find anything other than playing chess that he seems to be supremely gifted at.”\nBước 3: Phân tích\nCác nhà nghiên cứu không thấy anh ấy đặc biệt ở lĩnh vực nào ngoài chess.\n=> Đáp án: F",
@@ -462,7 +538,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q30",
               "number": 30,
               "type": "matching-paragraph",
-              "prompt": "why Gareyev’s skill is of interest to scientists",
+              "prompt": "30 why Gareyev’s skill is of interest to scientists",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\ninterest to scientists\nBước 2: Tìm đoạn\nĐoạn B: “In the hope of understanding how he and others like him can perform such mental feats...”\nBước 3: Phân tích\nScientists muốn hiểu cách anh ấy thực hiện những kỳ tích trí nhớ.\n=> Đáp án: B",
@@ -472,7 +548,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q31",
               "number": 31,
               "type": "matching-paragraph",
-              "prompt": "an outline of Gareyev’s priorities",
+              "prompt": "31 an outline of Gareyev’s priorities",
               "options": [],
               "answer": "H",
               "explanation": "Bước 1: Keyword\npriorities\nBước 2: Tìm đoạn\nĐoạn H: “The most important part of blindfold chess for me is that I have found the one thing that I can fully dedicate myself to.”\nBước 3: Phân tích\nAnh ấy nói điều quan trọng nhất đối với mình là được cống hiến cho blindfold chess.\n=> Đáp án: H",
@@ -482,7 +558,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q32",
               "number": 32,
               "type": "matching-paragraph",
-              "prompt": "a reason why the last part of a game may be difficult",
+              "prompt": "32 a reason why the last part of a game may be difficult",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nlast part of a game\ndifficult\nBước 2: Tìm đoạn\nĐoạn E: “the ends of games are taxing too, as exhaustion sets in.”\nBước 3: Phân tích\nCuối ván đấu khó vì người chơi bị kiệt sức.\n=> Đáp án: E",
@@ -500,7 +576,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q33",
               "number": 33,
               "type": "true-false-not-given",
-              "prompt": "In the forthcoming games, all the participants will be blindfolded.",
+              "prompt": "33 In the forthcoming games, all the participants will be blindfolded.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\nall participants\nblindfolded\nBước 2: Tìm đoạn\nĐoạn A: “While his challengers will play the games as normal, Gareyev himself will be blindfolded.”\nBước 3: Phân tích\nChỉ Gareyev bị bịt mắt.\nNhững người khác chơi bình thường.\n=> Đáp án: FALSE",
@@ -510,7 +586,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q34",
               "number": 34,
               "type": "true-false-not-given",
-              "prompt": "Gareyev has won competitions in BASE jumping.",
+              "prompt": "34 Gareyev has won competitions in BASE jumping.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\nwon competitions\nBASE jumping\nBước 2: Tìm đoạn\nĐoạn A: “he gets his kicks from the adventure sport of BASE jumping.”\nBước 3: Phân tích\nChỉ nói anh ấy thích BASE jumping.\nKhông nói anh ấy từng thắng cuộc thi nào.\n=> Đáp án: NOT GIVEN",
@@ -520,7 +596,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q35",
               "number": 35,
               "type": "true-false-not-given",
-              "prompt": "UCLA is the first university to carry out research into blindfold chess players.",
+              "prompt": "35 UCLA is the first university to carry out research into blindfold chess players.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\nfirst university\nresearch into blindfold chess players\nBước 2: Tìm đoạn\nĐoạn B:\n\n“researchers at the University of California in Los Angeles (UCLA) called him in for tests.”\n\nBước 3: Phân tích\n\nĐoạn chỉ nói:\nUCLA nghiên cứu Gareyev.\nNHƯNG:\nkhông có thông tin UCLA là trường đầu tiên nghiên cứu blindfold chess players.\nBài không so sánh với các trường khác.\n→ đáp án NOT GIVEN",
@@ -530,7 +606,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q36",
               "number": 36,
               "type": "true-false-not-given",
-              "prompt": "Good chess players are likely to be able to play blindfold chess.",
+              "prompt": "36 Good chess players are likely to be able to play blindfold chess.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\ngood chess players\nable to play blindfold chess\nBước 2: Tìm đoạn\nĐoạn B: “The ability to play a game of chess with your eyes closed is not a far reach for most accomplished players.”\nBước 3: Phân tích\naccomplished players = người chơi giỏi.\n“not a far reach” = hoàn toàn có thể làm được.\n=> Đáp án: TRUE",
@@ -550,7 +626,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q37",
               "number": 37,
               "type": "gap-fill",
-              "prompt": "Gap (37)",
+              "prompt": "testing Gareyev’s 37 ……………………",
               "options": [],
               "answer": "memory",
               "explanation": "Bước 1: Keyword\ntesting\nBước 2: Tìm đoạn\nĐoạn F: “The scientists first had Gareyev perform some standard memory tests.”\nBước 3: Phân tích\nmemory tests = bài kiểm tra trí nhớ.\n=> Đáp án: memory",
@@ -560,7 +636,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q38",
               "number": 38,
               "type": "gap-fill",
-              "prompt": "Gap (38)",
+              "prompt": "recall a string of 38 ……………………",
               "options": [],
               "answer": "numbers",
               "explanation": "Bước 1: Keyword\nrecall\nreverse order\nBước 2: Tìm đoạn\nĐoạn F: “how many numbers a person can repeat”\nBước 3: Phân tích\nAnh ấy phải nhớ dãy số xuôi và ngược.\n=> Đáp án: numbers",
@@ -570,7 +646,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q39",
               "number": 39,
               "type": "gap-fill",
-              "prompt": "Gap (39)",
+              "prompt": "scans showed an unusual amount of 39 ……………………",
               "options": [],
               "answer": "communication",
               "explanation": "Bước 1: Keyword\nunusual amount\nareas of brain\nBước 2: Tìm đoạn\nĐoạn F: “much greater than average communication between parts of Gareyev’s brain”\nBước 3: Phân tích\ncommunication = sự kết nối/liên lạc giữa các vùng não.\n=> Đáp án: communication",
@@ -580,7 +656,7 @@
               "id": "catalog-cam-17-4-reading-part-3-q40",
               "number": 40,
               "type": "gap-fill",
-              "prompt": "Gap (40)",
+              "prompt": "brain that deal with 40 …………………… input.",
               "options": [],
               "answer": "visual",
               "explanation": "Bước 1: Keyword\nbrain parts\ninput\nBước 2: Tìm đoạn\nĐoạn G: “areas of his brain that process visual images”\nBước 3: Phân tích\nvisual images = thông tin hình ảnh.\n=> Đáp án: visual",

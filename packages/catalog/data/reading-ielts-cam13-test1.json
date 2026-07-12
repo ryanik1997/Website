@@ -19,13 +19,101 @@
           "id": "catalog-cam-13-1-reading-part-1-g0",
           "range": "Questions 1–7",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
+          "noteTable": {
+            "headers": [
+              "Section of website",
+              "Comments"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Database of tourism services"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": " information regularly\n•   provided a country-wide evaluation of businesses, including their impact on the "
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Special features on local topics"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": ", and an interactive tour of various locations used in "
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Information on driving routes"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "."
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "Travel Planner"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "."
+                    }
+                  ]
+                ]
+              },
+              {
+                "cells": [
+                  [
+                    {
+                      "type": "static",
+                      "text": "‘Your Words’"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "static",
+                      "text": "."
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
           "questions": [
             {
               "id": "catalog-cam-13-1-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
-              "prompt": "Question 1",
+              "type": "gap-fill",
+              "prompt": "Section: Database of tourism services. Comments: allowed businesses to 1. ________ information regularly",
               "options": [],
               "answer": "update",
               "explanation": "- **Bước 1**: Keyword\n\ninformation regularly\n\n- **Bước 2**: Tìm đoạn văn\nĐoạn 2:\n\"participating businesses were able to update the details they gave on a regular basis\"\n\n- **Bước 3**: Phân tích\nupdate details → cập nhật thông tin thường xuyên.\n\n=> Đáp án: update",
@@ -34,8 +122,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
-              "prompt": "Question 2",
+              "type": "gap-fill",
+              "prompt": "provided evaluation, including impact on the 2. ________",
               "options": [],
               "answer": "environment",
               "explanation": "Bước 1: Keyword\n\nimpact on\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\"the effect of each business on the environment was considered\"\n\nBước 3: Phân tích\n\n=> Đáp án: environment",
@@ -44,8 +132,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
-              "prompt": "Question 3",
+              "type": "gap-fill",
+              "prompt": "Special features on local topics: e.g. an interview with a former sports 3. ________",
               "options": [],
               "answer": "captain",
               "explanation": "Bước 1: Keyword\n\nformer sports\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"former New Zealand All Blacks rugby captain Tana Umaga\"\n\nBước 3: Phân tích\n\n=> Đáp án: captain",
@@ -54,8 +142,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
-              "prompt": "Question 4",
+              "type": "gap-fill",
+              "prompt": "and an interactive tour of locations used in 4. ________",
               "options": [],
               "answer": "films",
               "explanation": "Bước 1: Keyword\n\nlocations used in\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"locations chosen for blockbuster films\"\n\nBước 3: Phân tích\n\n=> Đáp án: films",
@@ -64,8 +152,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
-              "prompt": "Question 5",
+              "type": "gap-fill",
+              "prompt": "Information on driving routes: varied depending on the 5. ________",
               "options": [],
               "answer": "season",
               "explanation": "Bước 1: Keyword\n\nvaried depending on\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"highlighting different routes according to the season\"\n\nBước 3: Phân tích\n\n=> Đáp án: season",
@@ -74,8 +162,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
-              "prompt": "Question 6",
+              "type": "gap-fill",
+              "prompt": "Travel Planner: included a map showing selected places, details of public transport and local 6. ________",
               "options": [],
               "answer": "accommodation",
               "explanation": "Bước 1: Keyword\n\npublic transport and local\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"There were also links to accommodation in the area.\"\n\nBước 3: Phân tích\n\n=> Đáp án: accommodation",
@@ -84,8 +172,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
-              "prompt": "Question 7",
+              "type": "gap-fill",
+              "prompt": "'Your Words': travelers could send a link to their 7. ________",
               "options": [],
               "answer": "blog",
               "explanation": "Bước 1: Keyword\n\nsend a link to\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"anyone could submit a blog of their New Zealand travels\"\n\nBước 3: Phân tích\nBảng tóm tắt đổi từ submit a blog → gửi bài viết du lịch.\n\n=> Đáp án: blog",
@@ -103,7 +191,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q8",
               "number": 8,
               "type": "true-false-not-given",
-              "prompt": "Question 8",
+              "prompt": "The website www.newzealand.com aimed to provide ready-made itineraries and packages for travel companies and individual tourists.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\n\nready-made itineraries\npackages\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\"allow both individuals and travel organisations to create itineraries and travel packages to suit their own needs and interests\"\n\nBước 3: Phân tích\nWebsite giúp người dùng tự tạo (create) lịch trình phù hợp, không phải cung cấp sẵn (ready-made).\n\n=> Đáp án: FALSE",
@@ -113,7 +201,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q9",
               "number": 9,
               "type": "true-false-not-given",
-              "prompt": "Question 9",
+              "prompt": "It was found that most visitors started searching on the website by geographical location.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\n\nstarted searching\ngeographical location\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\"visitors can search ... not solely by geographical location...\"\n\nBước 3: Phân tích\nBài chỉ nói có thể tìm theo nhiều cách, không nói đa số bắt đầu bằng vị trí địa lý.\n\n=> Đáp án: NOT GIVEN",
@@ -123,7 +211,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q10",
               "number": 10,
               "type": "true-false-not-given",
-              "prompt": "Question 10",
+              "prompt": "According to research, 26% of visitor satisfaction is related to their accommodation.",
               "options": [],
               "answer": "FALSE",
               "explanation": "Bước 1: Keyword\n\n26%\naccommodation\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\"transport and accommodation account for the remaining 26%\"\n\nBước 3: Phân tích\n26% là transport + accommodation, không chỉ accommodation.\n\n=> Đáp án: FALSE",
@@ -133,7 +221,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q11",
               "number": 11,
               "type": "true-false-not-given",
-              "prompt": "Question 11",
+              "prompt": "Visitors to New Zealand like to become involved in the local culture.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\n\ninvolved\nlocal culture\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\"visitors enjoy cultural activities most when they are interactive\"\n\nBước 3: Phân tích\nKhách du lịch thích trải nghiệm văn hóa có tính tương tác → thích tham gia vào văn hóa địa phương.\n\n=> Đáp án: TRUE",
@@ -143,7 +231,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q12",
               "number": 12,
               "type": "true-false-not-given",
-              "prompt": "Question 12",
+              "prompt": "Visitors like staying in small hotels in New Zealand rather than in larger ones.",
               "options": [],
               "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\n\nsmall hotels\nlarger ones\n\nBước 2: Tìm đoạn văn\nKhông có thông tin.\n\nBước 3: Phân tích\nBài nói khách thích hoạt động ít người, không nói về khách sạn.\n\n=> Đáp án: NOT GIVEN",
@@ -153,7 +241,7 @@
               "id": "catalog-cam-13-1-reading-part-1-q13",
               "number": 13,
               "type": "true-false-not-given",
-              "prompt": "Question 13",
+              "prompt": "Many visitors feel it is unlikely that they will return to New Zealand after their visit.",
               "options": [],
               "answer": "TRUE",
               "explanation": "Bước 1: Keyword\n\nreturn\nonce-in-a-lifetime\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\"often seen as a once-in-a-lifetime visit\"\n\nBước 3: Phân tích\nMột chuyến đi được xem là “một lần trong đời” → nhiều người nghĩ khó có cơ hội quay lại.\n\n=> Đáp án: TRUE",
@@ -183,8 +271,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-2-q14",
               "number": 14,
-              "type": "multiple-choice",
-              "prompt": "Question 14",
+              "type": "matching-headings",
+              "prompt": "Paragraph A",
               "options": [],
               "answer": "iv",
               "explanation": "Bước 1: Keyword\n\ndifficult to define boredom\nscientific study\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n\"defining boredom so that it can be studied in the lab has proved difficult\"\n\nBước 3: Phân tích\nĐoạn nói về khó khăn khi nghiên cứu khoa học về sự chán nản.\n\n=> Đáp án: iv. Problems with a scientific approach to boredom",
@@ -194,7 +282,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q15",
               "number": 15,
               "type": "multiple-choice",
-              "prompt": "Question 15",
+              "prompt": "Paragraph B",
               "options": [],
               "answer": "vi",
               "explanation": "Bước 1: Keyword\n\nfive types\nclassify boredom\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n\"identified five distinct types\"\n\nBước 3: Phân tích\nĐoạn nói về việc phân loại các kiểu chán nản.\n\n=> Đáp án: vi. Creating a system of classification for feelings of boredom",
@@ -204,7 +292,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q16",
               "number": 16,
               "type": "multiple-choice",
-              "prompt": "Question 16",
+              "prompt": "Paragraph C",
               "options": [],
               "answer": "i",
               "explanation": "Bước 1: Keyword\n\nboredom makes us creative\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n\"being bored makes us more creative\"\n\nBước 3: Phân tích\nNói về lợi ích/tác động tích cực của sự chán nản.\n\n=> Đáp án: i. The productive outcomes that may result from boredom",
@@ -214,7 +302,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q17",
               "number": 17,
               "type": "multiple-choice",
-              "prompt": "Question 17",
+              "prompt": "Paragraph D",
               "options": [],
               "answer": "v",
               "explanation": "Bước 1: Keyword\n\ntoxic\ndanger\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"it can still be toxic if allowed to fester\"\n\nBước 3: Phân tích\nNói về nguy cơ từ việc chán nản kéo dài.\n\n=> Đáp án: v. A potential danger arising from boredom",
@@ -224,7 +312,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q18",
               "number": 18,
               "type": "multiple-choice",
-              "prompt": "Question 18",
+              "prompt": "Paragraph E",
               "options": [],
               "answer": "viii",
               "explanation": "Bước 1: Keyword\n\npersonality\nboredom proneness\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n\"why the attention system fails\"\n\"people who are more or less prone to boredom\"\n\nBước 3: Phân tích\nĐoạn tìm hiểu ai dễ bị chán hơn.\n\n=> Đáp án: viii. Identifying those most affected by boredom",
@@ -234,7 +322,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q19",
               "number": 19,
               "type": "multiple-choice",
-              "prompt": "Question 19",
+              "prompt": "Paragraph F",
               "options": [],
               "answer": "iii",
               "explanation": "Bước 1: Keyword\n\nmodern lifestyle\nnew source of boredom\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n\"our over-connected lifestyles might even be a new source of boredom\"\n\nBước 3: Phân tích\nĐưa ra giải thích mới và cách khắc phục mới.\n\n=> Đáp án: iii. A new explanation and a new cure for boredom",
@@ -273,8 +361,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-2-q20",
               "number": 20,
-              "type": "matching-features",
-              "prompt": "Question 20",
+              "type": "gap-fill",
+              "prompt": "Peter Toohey",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\n\nPeter Toohey\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n\"boredom may protect them from infectious social situations\"\n\nBước 3: Phân tích\nÔng cho rằng chán nản giúp tránh những tình huống không tốt.\n\n=> Đáp án: E. Boredom may encourage us to avoid an unpleasant experience",
@@ -283,8 +371,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-2-q21",
               "number": 21,
-              "type": "matching-features",
-              "prompt": "Question 21",
+              "type": "gap-fill",
+              "prompt": "Thomas Goetz",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\nThomas Goetz\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n\"Of the five types, the most damaging is reactant boredom\"\n\nBước 3: Phân tích\nCó một loại chán nản tệ hơn các loại còn lại.\n\n=> Đáp án: B. One sort of boredom is worse than all the others",
@@ -293,8 +381,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-2-q22",
               "number": 22,
-              "type": "matching-features",
-              "prompt": "Question 22",
+              "type": "gap-fill",
+              "prompt": "John Eastwood",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\n\nJohn Eastwood\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"your efforts to improve the situation can end up making you feel worse\"\n\nBước 3: Phân tích\nCố gắng đối phó với sự chán nản đôi khi làm tình hình tệ hơn.\n\n=> Đáp án: D. Trying to cope with boredom can increase its negative effects",
@@ -303,8 +391,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-2-q23",
               "number": 23,
-              "type": "matching-features",
-              "prompt": "Question 23",
+              "type": "gap-fill",
+              "prompt": "Francoise Wemelsfelder",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\n\nFrancoise Wemelsfelder\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n\"our over-connected lifestyles might even be a new source of boredom\"\n\nBước 3: Phân tích\n\n=> Đáp án: A. The way we live today may encourage boredom",
@@ -324,7 +412,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q24",
               "number": 24,
               "type": "gap-fill",
-              "prompt": "Gap (24)",
+              "prompt": "For John Eastwood, the central feature of boredom is that people cannot ___________, due to a failure in the 'attention system'.",
               "options": [],
               "answer": "focus",
               "explanation": "Bước 1: Keyword\n\ncannot...\n\nBước 2: Tìm đoạn văn\nĐoạn D:\n\"This causes an inability to focus on anything\"\n\nBước 3: Phân tích\n\n=> Đáp án: focus",
@@ -334,7 +422,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q25",
               "number": 25,
               "type": "gap-fill",
-              "prompt": "Gap (25)",
+              "prompt": "His team suggests that those for whom ___________ is an important aim in life may have problems coping with boredom...",
               "options": [],
               "answer": "pleasure",
               "explanation": "Bước 1: Keyword\n\nimportant aim in life\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n\"People who are motivated by pleasure...\"\n\nBước 3: Phân tích\n\n=> Đáp án: pleasure",
@@ -344,7 +432,7 @@
               "id": "catalog-cam-13-1-reading-part-2-q26",
               "number": 26,
               "type": "gap-fill",
-              "prompt": "Gap (26)",
+              "prompt": "...whereas those who have the characteristic of ___________ can generally cope with it.",
               "options": [],
               "answer": "curiosity",
               "explanation": "Bước 1: Keyword\n\ncharacteristic\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n\"Other personality traits, such as curiosity...\"\n\nBước 3: Phân tích\n\n=> Đáp án: curiosity",
@@ -375,7 +463,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q27",
               "number": 27,
               "type": "multiple-choice",
-              "prompt": "Question 27",
+              "prompt": "What is the writer suggesting about computer-produced works in the first paragraph?",
               "options": [
                 {
                   "id": "A",
@@ -402,7 +490,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q28",
               "number": 28,
               "type": "multiple-choice",
-              "prompt": "Question 28",
+              "prompt": "According to Geraint Wiggins, why are many people worried by computer art?",
               "options": [
                 {
                   "id": "A",
@@ -429,7 +517,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q29",
               "number": 29,
               "type": "multiple-choice",
-              "prompt": "Question 29",
+              "prompt": "What is a key difference between Aaron and the Painting Fool?",
               "options": [
                 {
                   "id": "A",
@@ -456,7 +544,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q30",
               "number": 30,
               "type": "multiple-choice",
-              "prompt": "Question 30",
+              "prompt": "What point does Simon Colton make in the fourth paragraph?",
               "options": [
                 {
                   "id": "A",
@@ -483,7 +571,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q31",
               "number": 31,
               "type": "multiple-choice",
-              "prompt": "Question 31",
+              "prompt": "The writer refers to the paintings of a chair as an example of computer art which",
               "options": [
                 {
                   "id": "A",
@@ -547,8 +635,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q32",
               "number": 32,
-              "type": "matching-features",
-              "prompt": "Question 32",
+              "type": "gap-fill",
+              "prompt": "Simon Colton says it is important to consider the long-term view when ___",
               "options": [],
               "answer": "D",
               "explanation": "Bước 1: Keyword\n\nSimon Colton\nlong-term view\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"Researchers like Colton don't believe it is right to measure machine creativity directly to that of humans who have had millennia to develop our skills.\"\n\nBước 3: Phân tích\n\nColton nói không nên so sánh trực tiếp thành tựu của máy và con người vì con người đã có hàng nghìn năm phát triển.\n\n⇒ nói về so sánh thành tựu nghệ thuật giữa người và máy\n\n=> Đáp án: D. comparing the artistic achievements of humans and computers",
@@ -557,8 +645,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q33",
               "number": 33,
-              "type": "matching-features",
-              "prompt": "Question 33",
+              "type": "gap-fill",
+              "prompt": "David Cope's EMI software surprised people by ___",
               "options": [],
               "answer": "A",
               "explanation": "Bước 1: Keyword\n\nEMI\nsurprised people\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"EMI even fooled classical music experts into thinking they were hearing genuine Bach.\"\n\nBước 3: Phân tích\n\nEMI đánh lừa cả chuyên gia âm nhạc vì tác phẩm quá giống người sáng tác.\n\n⇒ gần như không thể phân biệt được với sản phẩm con người.\n\n=> Đáp án: A. generating work that was virtually indistinguishable from that of humans",
@@ -567,8 +655,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q34",
               "number": 34,
-              "type": "matching-features",
-              "prompt": "Question 34",
+              "type": "gap-fill",
+              "prompt": "Geraint Wiggins criticised Cope for not ___",
               "options": [],
               "answer": "E",
               "explanation": "Bước 1: Keyword\n\nWiggins\ncriticized\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"condemned him for his deliberately vague explanation of how the software worked\"\n\nBước 3: Phân tích\n\nVague = mơ hồ\n\nWiggins phê bình Cope vì không giải thích rõ cách chương trình hoạt động.\n\n⇒ không tiết lộ chi tiết kỹ thuật.\n\n=> Đáp án: E. revealing the technical details of his program",
@@ -577,8 +665,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q35",
               "number": 35,
-              "type": "matching-features",
-              "prompt": "Question 35",
+              "type": "gap-fill",
+              "prompt": "Douglas Hofstadter claimed that EMI was ___",
               "options": [],
               "answer": "C",
               "explanation": "Bước 1: Keyword\n\nDouglas Hofstadter\nclaimed\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"EMI created replicas which still rely completely on the original artist's creative impulses.\"\n\nBước 3: Phân tích\n\nRely completely = phụ thuộc hoàn toàn\n\nÔng cho rằng EMI chỉ sao chép ý tưởng sáng tạo của người khác.\n\n=> Đáp án: C. producing work entirely dependent on the imagination of its creator",
@@ -587,8 +675,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q36",
               "number": 36,
-              "type": "matching-features",
-              "prompt": "Question 36",
+              "type": "gap-fill",
+              "prompt": "Audiences who had listened to EMI's music became angry after ___",
               "options": [],
               "answer": "G",
               "explanation": "Bước 1: Keyword\n\naudiences\nangry\n\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"When audiences found out the truth they were often outraged\"\n\nBước 3: Phân tích\n\nFound out the truth = phát hiện sự thật\n\nSự thật ở đây là nhạc được tạo bởi máy tính.\n\n=> Đáp án: G. discovering that it was the product of a computer program",
@@ -597,8 +685,8 @@
             {
               "id": "catalog-cam-13-1-reading-part-3-q37",
               "number": 37,
-              "type": "matching-features",
-              "prompt": "Question 37",
+              "type": "gap-fill",
+              "prompt": "The participants in David Moffat's study had to assess music without ___",
               "options": [],
               "answer": "B",
               "explanation": "Bước 1: Keyword\n\nparticipants\nassess music\n\nBước 2: Tìm đoạn văn\n\nĐoạn 6:\n\n\"The participants weren't told beforehand whether the tunes were composed by humans or computers\"\n\nBước 3: Phân tích\n\nKhông được cho biết trước nhạc do người hay máy sáng tác.\n\n=> Đáp án: B. knowing whether it was the work of humans or software",
@@ -616,7 +704,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q38",
               "number": 38,
               "type": "yes-no-not-given",
-              "prompt": "Question 38",
+              "prompt": "Moffat's research may help explain people's reactions to EMI.",
               "options": [
                 {
                   "id": "yes",
@@ -639,7 +727,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q39",
               "number": 39,
               "type": "yes-no-not-given",
-              "prompt": "Question 39",
+              "prompt": "The non-experts in Moffat's study all responded in a predictable way.",
               "options": [
                 {
                   "id": "yes",
@@ -662,7 +750,7 @@
               "id": "catalog-cam-13-1-reading-part-3-q40",
               "number": 40,
               "type": "yes-no-not-given",
-              "prompt": "Question 40",
+              "prompt": "Justin Kruger's findings cast doubt on Paul Bloom's theory about people's prejudice towards computer art.",
               "options": [
                 {
                   "id": "yes",
