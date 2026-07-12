@@ -55,10 +55,10 @@
 /* IELTS Listening archive: warm editorial library */
 .exam-hub-page--listening.exam-hub-page--ielts { background: radial-gradient(circle at 84% 4%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 22rem), var(--bg-primary); }
 .exam-hub-page--listening.exam-hub-page--ielts .exam-hub-page__inner { max-width: 72rem; padding-top: clamp(2rem, 5vw, 5rem); }
-.exam-hub-page--listening .exam-full-mock-hero { position: relative; min-height: 17rem; padding: 2.2rem 2.4rem 2.5rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 86%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 10%, transparent); }
+.exam-hub-page--listening .exam-full-mock-hero { position: relative; min-height: 17rem; padding: 2.2rem 2.4rem 2.5rem; overflow: visible; border: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 86%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 10%, transparent); }
 .exam-hub-page--listening .exam-full-mock-hero::after { content: 'LISTEN\A / 04'; white-space: pre; position: absolute; right: 7%; bottom: 1.5rem; z-index: 0; color: color-mix(in srgb, var(--color-primary) 42%, transparent); font-family: Georgia, serif; font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(-8deg); pointer-events: none; }
 .exam-hub-page--listening .exam-hub-back,
-.exam-hub-page--listening .exam-hub-kicker { position: relative; z-index: 3; display: block; min-height: 1.2rem; margin: 0 0 .9rem; line-height: 1.35; }
+.exam-hub-page--listening .exam-hub-kicker { position: relative; z-index: 3; display: block; min-height: 1.2rem; margin: 0 0 .9rem; padding-left: .1rem; line-height: 1.35; }
 .exam-hub-page--listening .exam-hub-title { position: relative; z-index: 1; margin-top: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 400; letter-spacing: -.06em; line-height: 1.05; }
 .exam-hub-page--listening .exam-hub-desc { position: relative; z-index: 1; max-width: 27rem; margin-top: 1rem; font-size: .9rem; }
 .exam-hub-page--listening .exam-hub-back { margin-bottom: 1.2rem; background: transparent; border-color: transparent; transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
@@ -80,7 +80,7 @@
 .exam-hub-page--listening .ielts-library-card__title { font-family: Georgia, serif; font-size: 1.08rem; font-weight: 400; letter-spacing: -.01em; }
 .exam-hub-page--listening .ielts-library-card__chevron { transition: transform 600ms cubic-bezier(.32,.72,0,1), color 600ms cubic-bezier(.32,.72,0,1); }
 .exam-hub-page--listening .ielts-library-card:hover .ielts-library-card__chevron { color: var(--color-primary); transform: translate(.2rem, -.2rem); }
-@media (max-width: 700px) { .exam-hub-page--listening .exam-full-mock-hero { min-height: 15rem; padding: 1.5rem; } .exam-hub-page--listening .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--listening .ielts-library__toolbar { align-items: stretch; } .exam-hub-page--listening .ielts-library__toolbar-right, .exam-hub-page--listening .ielts-library__search { width: 100%; } .exam-hub-page--listening .ielts-library__search { min-width: 0; } .exam-hub-page--listening .ielts-library__cards { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .exam-hub-page--listening .exam-full-mock-hero { min-height: 15rem; padding: 1.5rem 1.25rem; } .exam-hub-page--listening .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--listening .ielts-library__toolbar { align-items: stretch; } .exam-hub-page--listening .ielts-library__toolbar-right, .exam-hub-page--listening .ielts-library__search { width: 100%; } .exam-hub-page--listening .ielts-library__search { min-width: 0; } .exam-hub-page--listening .ielts-library__cards { grid-template-columns: 1fr; } }
 
 .exam-hub-page__inner {
   max-width: 52rem;
