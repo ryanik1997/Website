@@ -51,8 +51,8 @@ import {
   isPetReadingWritingExam,
 } from './examData'
 import './readingTest.css'
+import { parseReadingPart, readingDraftKey } from './readingPartMode'
 
-const STORAGE_PREFIX = 'exam-reading-draft:'
 const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
@@ -62,8 +62,7 @@ export default function ReadingTest() {
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
-  const requestedPart = Number(searchParams.get('part'))
-  const part = Number.isInteger(requestedPart) && requestedPart >= 1 && requestedPart <= 3 ? requestedPart : null
+  const part = parseReadingPart(searchParams.get('part'))
   const initialPartIndex = part === null ? 0 : part - 1
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
@@ -126,7 +125,7 @@ export default function ReadingTest() {
     [currentPart],
   )
   const allQuestions = useMemo(() => singlePartMode ? partQuestions : allExamQuestions, [allExamQuestions, partQuestions, singlePartMode])
-  const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}${singlePartMode ? `:p${part}` : ''}` : ''
+  const storageKey = exam ? readingDraftKey(exam.id, part) : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const partHighlights = currentPart ? (highlightsByPart[currentPart.id] ?? []) : []
   const partNotes = currentPart ? (notesByPart[currentPart.id] ?? []) : []
