@@ -219,7 +219,7 @@ function ExamTrackPageInner() {
 
   if (track.id === 'cambridge' && !arg2) {
     return (
-      <div className="exam-hub-page">
+      <div className="exam-hub-page exam-hub-page--cambridge-selector">
         <div className="exam-hub-page__inner">
           <button type="button" className="exam-hub-back" onClick={() => navigate('/app/exam')}>
             <ArrowLeft size={14} />
