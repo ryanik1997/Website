@@ -9,11 +9,23 @@ export const THEMES: { id: Theme; label: string; icon: string; preview: { bg: st
 const STORAGE_KEY = 'ryan-theme'
 
 export function getTheme(): Theme {
+  return getThemePreference() ?? getAutoTheme()
+}
+
+export function getThemePreference(): Theme | null {
   const saved = localStorage.getItem(STORAGE_KEY) as Theme | null
-  return saved && THEMES.some(t => t.id === saved) ? saved : 'light'
+  return saved && THEMES.some(t => t.id === saved) ? saved : null
+}
+
+export function getAutoTheme(): Theme {
+  return new Date().getUTCHours() >= 18 ? 'dark' : 'light'
+}
+
+export function applyTheme(theme: Theme): void {
+  document.documentElement.setAttribute('data-theme', theme)
 }
 
 export function setTheme(theme: Theme): void {
-  document.documentElement.setAttribute('data-theme', theme)
+  applyTheme(theme)
   localStorage.setItem(STORAGE_KEY, theme)
 }

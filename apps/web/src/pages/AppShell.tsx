@@ -24,7 +24,7 @@ import { usePlanSync } from '../features/auth/usePlanSync'
 import DictionaryFAB from '../features/dictionary/DictionaryFAB'
 import DictionaryModal from '../features/dictionary/DictionaryModal'
 import { db } from '@ryan/db'
-import { setTheme } from '../lib/theme'
+import { getTheme, setTheme } from '../lib/theme'
 import { useNotifications } from '../features/notifications/useNotifications'
 import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
@@ -377,7 +377,7 @@ function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
     { id: 'mid' as const, color: '#1e1e2e', border: '#313244', label: 'Tối nhẹ' },
     { id: 'dark' as const, color: '#0a0a0f', border: '#2a2a3a', label: 'Tối' },
   ]
-  const [active, setActive] = useState(() => localStorage.getItem('ryan-theme') ?? 'light')
+  const [active, setActive] = useState(() => getTheme())
 
   return (
     <div
