@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Search, Star, Tag } from 'lucide-react'
 import { dedupeLegacySentenceStructures } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
-import { categoryMeta } from './types'
+import { categoryMeta, STRUCTURE_CATEGORIES } from './types'
 import { CEFR_LEVELS, CEFR_LABELS, parseCefr, cefrBadgeStyle, type CefrLevel } from '../../lib/cefr'
 
 const PAGE_SIZE = 24
@@ -39,6 +39,7 @@ export default function StructureListHub() {
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(0)
   const cefrFilter = parseCefr(searchParams.get('cefr') ?? undefined)
+  const categoryFilter = searchParams.get('category') ?? ''
 
   useEffect(() => {
     void dedupeLegacySentenceStructures()
@@ -52,6 +53,9 @@ export default function StructureListHub() {
     if (cefrFilter) {
       unique = unique.filter(s => s.cefr === cefrFilter)
     }
+    if (categoryFilter) {
+      unique = unique.filter(s => categoryMeta(s.category).label === categoryFilter)
+    }
     const q = query.trim().toLowerCase()
     if (!q) return unique
     return unique.filter(s =>
@@ -62,7 +66,7 @@ export default function StructureListHub() {
       || s.exampleNoteVi.toLowerCase().includes(q)
       || (s.cefr?.toLowerCase().includes(q) ?? false),
     )
-  }, [items, query, cefrFilter])
+  }, [items, query, cefrFilter, categoryFilter])
 
   const total = filtered?.length ?? 0
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
@@ -153,6 +157,21 @@ export default function StructureListHub() {
             )
           })}
         </div>
+        <select
+          value={categoryFilter}
+          aria-label="Lọc theo nhóm cấu trúc"
+          className="ss-hub-category-filter"
+          onChange={e => {
+            const next = new URLSearchParams(searchParams)
+            if (e.target.value) next.set('category', e.target.value)
+            else next.delete('category')
+            setSearchParams(next, { replace: true })
+            setPage(0)
+          }}
+        >
+          <option value="">Tất cả nhóm</option>
+          {STRUCTURE_CATEGORIES.map(category => <option key={category.id} value={category.label}>{category.label}</option>)}
+        </select>
         <p className="ss-hub-count">
           {total.toLocaleString('vi-VN')} cấu trúc
           {(query.trim() || cefrFilter) ? ' (đã lọc)' : ''}
