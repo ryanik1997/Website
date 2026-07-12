@@ -1,7 +1,13 @@
 import { db } from './schema'
 
 const LOCAL_OWNER_KEY = 'ryan-local-user-id'
-const EXAM_DRAFT_PREFIXES = ['exam-reading-draft:', 'exam-listening-draft:'] as const
+const EXAM_DRAFT_PREFIXES = [
+  'exam-reading-draft:',
+  'exam-listening-draft:',
+  'ielts-reading-import-wizard-draft',
+  'ielts-reading-wizard-draft-slot:',
+  'ielts-listening-import-wizard-draft',
+] as const
 
 /** Keys that must not leak across accounts (user-scoped localStorage). */
 const USER_SCOPED_LS_KEYS = [

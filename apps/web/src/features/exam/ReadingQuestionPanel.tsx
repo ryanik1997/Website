@@ -1292,7 +1292,20 @@ function MatchingFeaturesGroup({
 }: {
   group: ReadingQuestionGroup
 } & Pick<Props, 'answers' | 'highlights' | 'cambridgeLevel' | 'activeQuestionId' | 'onSelectQuestion' | 'onAnswer'>) {
-  const features = group.features ?? []
+  // Normalize string features ("A Name") → { id, name } (catalog/import may omit objects).
+  const features = (group.features ?? []).map((feature, index) => {
+    const asUnknown = feature as unknown
+    if (typeof asUnknown === 'string') {
+      const text = asUnknown.trim()
+      const m = text.match(/^([A-Za-z0-9]+)[.)\s:-]+(.+)$/)
+      if (m) return { id: m[1].toLowerCase(), name: m[2].trim() }
+      return { id: String.fromCharCode(97 + index), name: text || `Item ${index + 1}` }
+    }
+    const obj = feature as { id?: string; name?: string }
+    const id = (obj.id ?? String.fromCharCode(97 + index)).toString().trim().toLowerCase() || String.fromCharCode(97 + index)
+    const name = (obj.name ?? '').toString()
+    return { id, name }
+  })
   /** Cambridge: passage trái đã có reviews/sections — không lặp list đầy đủ bên phải. */
   const hideFeatureList =
     cambridgeLevel === 'a2'
@@ -1494,11 +1507,16 @@ export default function ReadingQuestionPanel({
         )
         const ynngInstr = /claims of the writer|views of the writer/i.test(groupClean.instruction ?? '')
           && /not given/i.test(groupClean.instruction ?? '')
-        const effectiveType = (groupClean.type === 'multiple-choice' && allYnngQs) || (ynngInstr && allYnngQs)
+        const rawType = groupClean.type as string
+        const coercedType =
+          rawType === 'true-false-not-given' ? 'tfng'
+            : rawType === 'yes-no-not-given' ? 'ynng'
+              : groupClean.type
+        const effectiveType = (coercedType === 'multiple-choice' && allYnngQs) || (ynngInstr && allYnngQs)
           ? 'ynng' as const
-          : (groupClean.type === 'multiple-choice' && allTfngQs)
+          : (coercedType === 'multiple-choice' && allTfngQs) || allTfngQs
             ? 'tfng' as const
-            : groupClean.type
+            : coercedType
 
         switch (effectiveType) {
           case 'tfng':

@@ -1,0 +1,769 @@
+{
+  "version": 1,
+  "title": "EW 1",
+  "durationMinutes": 60,
+  "examTrack": "ielts",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "",
+      "passageTitle": "Environmental Impacts of Logging",
+      "passage": [
+        {
+          "text": "Environmental Impacts of Logging\nA From shipping crates to paper bags, the logging industry supplies the raw materials for an array of products. However, this is not without untold harm to the environment. The damage includes habitat loss, pollution, and climate change, with the effects spanning the globe from the rain forests of Central Africa, Southeast Asia, and South America to the northern forests of Canada and Scandinavia. The effects of logging extend beyond just the felling of a swath of trees. Nutrients, water, and shelter for plants, animals, and microorganisms throughout the ecosystem are also lost; many life forms—both terrestrial and aquatic—are becoming endangered as forests vanish.\nB Trees protect the soil beneath them; thus, tree loss can affect soil integrity. For example, the rain forest floor, home to myriad plant life as well as insects, worms, reptiles and amphibians, and small mammals, relies on a dense canopy of branches and leaves to keep it healthy and intact. The canopy prevents surface runoff by intercepting heavy rainfall so that water can drip down slowly onto the porous earth. Tree roots also stabilize the soil and help prevent erosion. In return, a healthy soil encourages root development and microbial activity, which contribute to tree growth and well-being. A major factor in logging-related soil damage comes from road building, with trucks and other heavy equipment compressing the spongy soil, creating furrows where water collects, and disrupting the underground water flow. Eventually, the topsoil wears away, leaving behind an infertile layer of rocks and hard clay.\nC Logging can also damage aquatic habitats. Vegetation along rivers and stream banks helps maintain a steady water flow by blocking the entry of soil and other residue, and tree shade inhibits the growth of algae. Removing trees obliterates these benefits. When eroding soil flows into waterways, the organic matter within it consumes more oxygen, which can lead to oxygen depletion in the water, killing fish and other aquatic wildlife.\nD Trees provide a natural defense against air pollution. They remove carbon dioxide from the atmosphere while they emit oxygen, and their leaves filter pollutants from the air. Cutting down trees keeps pollutants airborne, where they can mix with water vapor and form acid rain. Water quality in nearby streams and rivers also deteriorates as tree loss contributes to increased sedimentation.\nE In a healthy forest ecosystem, trees draw moisture from the soil and release it into the atmosphere while they provide shade to lessen evaporation. Thus, deforestation impacts rainfall patterns, leading to flooding as well as drought and forest fires. Deforestation is responsible for about one-fifth of carbon dioxide emissions worldwide, making it a major contributor to climate change—in particular, global warming. In the Amazon basin alone, deforestation is responsible for millions of tons of carbon dioxide being released into the atmosphere annually. Some logging companies burn large tracts of forest just to facilitate access to one area—a practice that discharges even more carbon dioxide.\nF Forests, especially the tropical rain forests, are a vital natural resource with extensive biodiversity and irreplaceable wildlife habitats. More responsible logging practices would help ensure that they are protected for future generations."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–4",
+          "instruction": "Reading Passage has sections A–F. Which section contains the following information?\nWrite the correct letter, A–F, in boxes 1–4 on your answer sheet.",
+          "type": "matching-paragraph",
+          "questions": [
+            {
+              "number": 1,
+              "type": "matching-paragraph",
+              "prompt": "1. The impact of logging on the weather",
+              "answer": "E",
+              "explanation": "Keyword: weather = rainfall patterns, flooding, drought, forest fires, climate change. Trong đoạn E: 'deforestation impacts rainfall patterns, leading to flooding as well as drought and forest fires'. Đoạn này nói trực tiếp việc phá rừng ảnh hưởng đến lượng mưa, gây lũ lụt, hạn hán và cháy rừng. Ngoài ra, 'making it a major contributor to climate change' cho thấy phá rừng góp phần vào biến đổi khí hậu. => Đáp án: E."
+            },
+            {
+              "number": 2,
+              "type": "matching-paragraph",
+              "prompt": "2. How trees inhibit soil erosion",
+              "answer": "B",
+              "explanation": "Keyword: inhibit soil erosion = ngăn xói mòn đất. Trong đoạn B: 'Tree roots also stabilize the soil and help prevent erosion.' Rễ cây giúp giữ đất ổn định và ngăn xói mòn. Ngoài ra, tán cây 'prevents surface runoff', giúp nước mưa thấm từ từ xuống đất thay vì cuốn trôi lớp đất mặt. => Đáp án: B."
+            },
+            {
+              "number": 3,
+              "type": "matching-paragraph",
+              "prompt": "3. How deforestation contributes to air pollution",
+              "answer": "D",
+              "explanation": "Keyword: air pollution. Trong đoạn D: 'Trees provide a natural defense against air pollution.' và 'Cutting down trees keeps pollutants airborne'. Khi cây bị chặt, các chất ô nhiễm không còn được lọc khỏi không khí và tiếp tục tồn tại trong khí quyển. => Đáp án: D."
+            },
+            {
+              "number": 4,
+              "type": "matching-paragraph",
+              "prompt": "4. The impact of erosion on fish",
+              "answer": "C",
+              "explanation": "Keyword: fish. Trong đoạn C: 'When eroding soil flows into waterways...' và sau đó 'killing fish and other aquatic wildlife'. Đất bị xói mòn chảy vào nguồn nước làm giảm lượng oxy trong nước, khiến cá và các sinh vật thủy sinh chết. => Đáp án: C."
+            }
+          ],
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ]
+        },
+        {
+          "range": "Questions 5–8",
+          "instruction": "Complete the summary using the list of phrases, A–H, below.",
+          "type": "summary-completion",
+          "questions": [
+            {
+              "number": 5,
+              "type": "gap-fill",
+              "prompt": "5. The logging industry ______ trees to get the wood that is used to make many products.",
+              "answer": "fells",
+              "explanation": "Từ phù hợp là 'fells'. Động từ 'fell' nghĩa là chặt cây. Câu trong bài đề cập đến hoạt động khai thác gỗ bằng cách chặt cây để lấy nguyên liệu sản xuất."
+            },
+            {
+              "number": 6,
+              "type": "gap-fill",
+              "prompt": "This practice has ______ effects on the environment.",
+              "answer": "myriad",
+              "explanation": "'Myriad' có nghĩa là vô số, rất nhiều. Cụm 'myriad effects' mang nghĩa 'rất nhiều tác động', phù hợp với nội dung bài đọc về các ảnh hưởng tiêu cực của hoạt động khai thác gỗ."
+            },
+            {
+              "number": 7,
+              "type": "gap-fill",
+              "prompt": "7. The natural ______ of many terrestrial and aquatic animals are damaged.",
+              "answer": "habitats",
+              "explanation": "'Habitats' nghĩa là môi trường sống. Bài đọc nhấn mạnh rằng việc khai thác gỗ và phá rừng làm mất nơi cư trú của nhiều loài động vật trên cạn và dưới nước."
+            },
+            {
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "8. They are an effective ______ against both air pollution and soil erosion.",
+              "answer": "defense",
+              "explanation": "'Defense' nghĩa là sự bảo vệ. Trong đoạn D, tác giả viết: 'Trees provide a natural defense against air pollution.' Đồng thời cây cũng giúp chống xói mòn đất nhờ hệ rễ và tán lá."
+            }
+          ],
+          "note": "The logging industry [5] trees to get the wood that is used to make many products. This practice has [6] effects on the environment. The natural [7] of many terrestrial and aquatic animals are damaged. Trees protect the environment in many ways. They are an effective [8] against both air pollution and soil erosion."
+        },
+        {
+          "range": "Questions 9–14",
+          "instruction": "Choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Modern industry has caused damage to our natural ______ in many ways.",
+              "answer": "A",
+              "explanation": "Sau tính từ 'natural' cần một danh từ. 'Environment' là danh từ mang nghĩa 'môi trường'. 'Environmental' là tính từ và 'environmentally' là trạng từ nên không phù hợp.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "environment"
+                },
+                {
+                  "id": "B",
+                  "label": "environmental"
+                },
+                {
+                  "id": "C",
+                  "label": "environmentally"
+                }
+              ]
+            },
+            {
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "The air and water are filled with ______.",
+              "answer": "B",
+              "explanation": "'Pollutants' là danh từ số nhiều, nghĩa là các chất gây ô nhiễm. Cấu trúc 'filled with pollutants' là cách diễn đạt tự nhiên. 'Pollution' chỉ hiện tượng ô nhiễm, còn 'pollutes' là động từ.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "pollution"
+                },
+                {
+                  "id": "B",
+                  "label": "pollutants"
+                },
+                {
+                  "id": "C",
+                  "label": "pollutes"
+                }
+              ]
+            },
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "One result of this is acid rain, which has caused ______ damage to vegetation in many areas.",
+              "answer": "C",
+              "explanation": "Cụm từ cố định là 'extensive damage' (thiệt hại trên diện rộng). 'Extensive' là tính từ bổ nghĩa cho danh từ 'damage'.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "extent"
+                },
+                {
+                  "id": "B",
+                  "label": "extend"
+                },
+                {
+                  "id": "C",
+                  "label": "extensive"
+                }
+              ]
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "When large amounts of vegetation die off, the environment loses ______.",
+              "answer": "A",
+              "explanation": "Sau động từ 'loses' cần một danh từ. 'Stability' nghĩa là sự ổn định. Khi thực vật biến mất, môi trường mất đi tính ổn định.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "stability"
+                },
+                {
+                  "id": "B",
+                  "label": "stabilizes"
+                },
+                {
+                  "id": "C",
+                  "label": "stable"
+                }
+              ]
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "If there are no plants to hold the soil, it starts to ______.",
+              "answer": "B",
+              "explanation": "Sau 'starts to' phải dùng động từ nguyên mẫu. 'Erode' nghĩa là bị xói mòn. Đất sẽ bắt đầu bị xói mòn khi không còn cây cối giữ đất.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "erosion"
+                },
+                {
+                  "id": "B",
+                  "label": "erode"
+                },
+                {
+                  "id": "C",
+                  "label": "eroded"
+                }
+              ]
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "______ of wildlife work hard to prevent further damage to natural areas.",
+              "answer": "B",
+              "explanation": "'Defenders' nghĩa là những người bảo vệ. Cụm 'Defenders of wildlife' mang nghĩa những người bảo vệ động vật hoang dã. Các lựa chọn còn lại không phù hợp về ngữ pháp và ý nghĩa.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Defenses"
+                },
+                {
+                  "id": "B",
+                  "label": "Defenders"
+                },
+                {
+                  "id": "C",
+                  "label": "Defends"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "",
+      "passageTitle": "Bird Migration",
+      "passage": [
+        {
+          "text": "Bird Migration\nMigration is the regular movement of animals between their breeding grounds and the areas that they inhabit during the rest of the year. Many types of animals migrate, but bird migration in particular has fascinated observers for centuries. Migration is an excellent example of how nature has responded to the biological imperative for species to evolve and spread out into all possible ecological niches that can provide the conditions necessary for species to breed and raise young.\nThe most common form of bird migration involves traveling to higher latitudes to breed during the warm season and then returning to lower latitudes during the nonbreeding period. This form of migration allows birds to breed in areas that provide optimal conditions for nesting and feeding their young. Because of the way in which the continents are situated upon Earth, migration of this type takes place primarily into the higher latitudes of the Northern Hemisphere. No land birds are known to migrate into the higher latitudes of the Southern Hemisphere; only species of seabirds migrate to the Southern Hemisphere to breed.\nAlthough most bird migration takes place between the lower and higher latitudes of the Northern Hemisphere, many species are transequatorial, living in the Northern Hemisphere during the breeding season and in the Southern Hemisphere during the remainder of the year. A well-known example of transequatorial migration is the arctic tern. This tern, which breeds in the arctic regions and winters in antarctic waters, travels 24,000 miles a year during migration.\nNot all migration is long distance. Some species exhibit altitudinal migration. Their breeding areas are in higher elevations, near or at the peaks of mountains, and they spend the nonbreeding season in neighboring valleys or other nearby low country. This variety of migration is typical of many grouse species, including the ptarmigan, a type of arctic grouse. Many rock ptarmigan never leave the high arctic tundra, spending their breeding season atop windswept arctic peaks and the winter season in nearby valleys, enduring some of the coldest conditions on Earth.\nDuring migration, most birds fly for a limited period each day, probably about six to eight hours, typically flying distances of several hundred miles. Some birds, however, undertake much longer flights when their routes include crossing large bodies of water or other geographic features such as deserts and mountains. For example, many species regularly cross the Gulf of Mexico, a trip that requires a continuous flight of more than 1,000 miles and takes from twenty-four to thirty-six hours or longer. An extreme example of nonstop bird migration is done by the bar-tailed godwit, which makes a nonstop flight of 7,200 miles from Alaska to New Zealand each year. At the start of its trip, about 55 percent of its body weight is made up of the fat necessary to fuel this amazing journey.\nHow birds manage to unerringly travel between distant locations is one aspect that has fascinated observers for centuries. Modern-day researchers have attempted to understand this feat. Most studies have found that migratory birds all have some ability to navigate and an innate drive to travel in a particular direction. Nocturnal migrants, those species that travel at night, seem to take their navigational cues from the stars. When the stars are obscured by clouds, nocturnal migrants may become confused and return to land or stray off course. Diurnal migrants, those migrating during the day, take their cues from the location of the sun. In addition, diurnal migrants have also been shown to use geographic features such as mountain ranges or seacoasts as other cues for navigation. Because the stars and the sun move constantly over the course of twenty-four hours, this suggests that migrating birds also have some sense of time."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–4",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 1–4 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
+          "type": "tfng",
+          "questions": [
+            {
+              "number": 1,
+              "type": "true-false-not-given",
+              "prompt": "Transequatorial birds cross from one hemisphere to the other when they migrate.",
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\nTransequatorial\none hemisphere\nother hemisphere\nBước 2: Tìm đoạn văn\n\nĐoạn 3:\n\n\"many species are transequatorial, living in the Northern Hemisphere during the breeding season and in the Southern Hemisphere during the remainder of the year.\"\n\nBước 3: Phân tích\nNorthern Hemisphere = Bắc bán cầu\nSouthern Hemisphere = Nam bán cầu\ntransequatorial = vượt qua xích đạo\n\nParaphrase:\n\nNorthern Hemisphere → Southern Hemisphere= cross from one hemisphere to the other\nThông tin hoàn toàn trùng khớp."
+            },
+            {
+              "number": 2,
+              "type": "true-false-not-given",
+              "prompt": "Many migratory birds breed in the Southern Hemisphere.",
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword\nbreed\nSouthern Hemisphere\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"No land birds are known to migrate into the higher latitudes of the Southern Hemisphere; only species of seabirds migrate to the Southern Hemisphere to breed.\"\n\nBước 3: Phân tích\n\nBài đọc nói:\n\nchỉ có seabirds (chim biển) di cư tới Nam bán cầu để sinh sản\nkhông phải many migratory birds\n\nĐề bài khẳng định:\n\nMany migratory birds breed in the Southern Hemisphere.\n\n=> Khái quát quá mức so với bài.\n\nĐáp án: FALSE"
+            },
+            {
+              "number": 3,
+              "type": "true-false-not-given",
+              "prompt": "Migrating birds spend the warm months where conditions for breeding are optimal.",
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\nwarm months\nbreeding\noptimal\nBước 2: Tìm đoạn văn\n\nĐoạn 2:\n\n\"traveling to higher latitudes to breed during the warm season\"\n\n\"provide optimal conditions for nesting and feeding their young\"\n\nBước 3: Phân tích\nwarm season = mùa ấm\noptimal conditions = điều kiện tốt nhất\nbreed = sinh sản\n\nParaphrase:\n\nwarm season\n=\nwarm months\n\noptimal conditions for nesting= conditions for breeding are optimal\nĐáp án: TRUE"
+            },
+            {
+              "number": 4,
+              "type": "true-false-not-given",
+              "prompt": "Many birds fail in their migration because they do not have enough body fat to fuel the journey.",
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword\nfail\nbody fat\nfuel\nBước 2: Tìm đoạn văn\n\nĐoạn 5:\n\n\"55 percent of its body weight is made up of the fat necessary to fuel this amazing journey.\"\n\nBước 3: Phân tích\n\nBài chỉ nói:\n\nchim cần mỡ để cung cấp năng lượng\n\nKhông hề nói:\n\nnhiều con thất bại vì thiếu mỡ\n\nKhông có thông tin về tỷ lệ thất bại.\n\nĐáp án: NOT GIVEN"
+            }
+          ]
+        },
+        {
+          "range": "Questions 5–8",
+          "instruction": "Match each statement with the correct option, A–B.\nWrite the correct letter in boxes 5–8 on your answer sheet.",
+          "type": "matching-features",
+          "questions": [
+            {
+              "number": 5,
+              "type": "matching-features",
+              "prompt": "They navigate by looking at the sun.",
+              "answer": "A",
+              "explanation": "Bước 1: Keyword\nnavigate\nsun\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\"Diurnal migrants ... take their cues from the location of the sun.\"\nBước 3: Phân tích\ndiurnal = hoạt động ban ngày\ntake cues from the sun = định hướng bằng mặt trời\nĐáp án: A"
+            },
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "They navigate by looking at the stars.",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword\nstars\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"Nocturnal migrants ... seem to take their navigational cues from the stars.\"\n\nBước 3: Phân tích\nnocturnal = hoạt động ban đêm\nnavigational cues = tín hiệu định hướng\nParaphrase:\nstars =looking at the stars\nĐáp án: B"
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "They may stop flying when clouds obscure the sky.",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword\nclouds\nobscure\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"When the stars are obscured by clouds, nocturnal migrants may become confused and return to land\"\nBước 3: Phân tích\nobscured by clouds = bị mây che khuất\nreturn to land = quay trở lại mặt đất\n\nĐiều này nghĩa là chúng có thể ngừng chuyến bay.\n=> Nocturnal migrants.\nĐáp án: B"
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "They navigate by looking at landforms.",
+              "answer": "A",
+              "explanation": "Bước 1: Keyword\nlandforms\nBước 2: Tìm đoạn văn\n\nĐoạn cuối:\n\n\"diurnal migrants have also been shown to use geographic features such as mountain ranges or seacoasts\"\nBước 3: Phân tích\ngeographic features=landforms\nVí dụ:\nmountain ranges\nseacoasts\nđều là địa hình tự nhiên.\n=> Chim di cư ban ngày sử dụng địa hình để định hướng.\nĐáp án: A"
+            }
+          ],
+          "features": [
+            {
+              "id": "A",
+              "name": "Diurnal species of birds"
+            },
+            {
+              "id": "B",
+              "name": "Nocturnal species of birds"
+            }
+          ]
+        },
+        {
+          "range": "Questions 9–13",
+          "instruction": "Choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Birds are _______to many people, and bird watching is a popular hobby. The best time to watch birds is in the early morning, because birds are usually very active at that time of day",
+              "answer": "C",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng sau động từ tobe are (Birds are...) và đứng trước cụm to many people. Ở đây chúng ta cần một Tính từ mang tính chủ động (đuôi -ing) để mô tả đặc điểm, bản chất của chủ ngữ \"Birds\" (gây ra sự hứng thú cho người khác).\n\nXét từ loại:\n\nfascination: Danh từ (sự mê hoặc, quyến rũ).\n\nfascinate: Động từ nguyên mẫu.\n\nfascinating: Tính từ (hấp dẫn, lôi cuốn) ->Chọn\nDịch nghĩa: Loài chim lôi cuốn/hấp dẫn đối với nhiều người, và ngắm chim là một sở thích phổ biến. Thời điểm tốt nhất để ngắm chim là vào sáng sớm, bởi vì chim thường rất hoạt động vào thời gian đó trong ngày.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "fascination"
+                },
+                {
+                  "id": "B",
+                  "label": "fascinate"
+                },
+                {
+                  "id": "C",
+                  "label": "fascinating"
+                }
+              ]
+            },
+            {
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "The _____ must keep still and quiet in order not to frighten the birds away.",
+              "answer": "B",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng sau mạo từ The và đứng trước trợ động từ must. Vị trí này bắt buộc phải điền một Danh từ đóng vai trò làm chủ ngữ cho câu. Dựa vào hành động phía sau (must keep still and quiet - phải giữ im lặng và bất động), danh từ này phải là Danh từ chỉ người.\n\nXét từ loại:\n\nobservation: Danh từ chỉ sự vật/sự việc (sự quan sát).\n\nobserver: Danh từ chỉ người (người quan sát) -> CHỌN\nobserve: Động từ.\n\nDịch nghĩa: Người quan sát phải giữ im lặng và bất động để không làm chim hoảng sợ bay mất.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "observation"
+                },
+                {
+                  "id": "B",
+                  "label": "observer"
+                },
+                {
+                  "id": "C",
+                  "label": "observe"
+                }
+              ]
+            },
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "If you live in a part of the world where _______birds spend their breeding season, then you will have the opportunity to see nest-building activity.",
+              "answer": "C",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng ngay trước danh từ birds. Theo quy tắc ngữ pháp, vị trí đứng trước để bổ nghĩa cho một danh từ phải là một Tính từ.Xét từ loại:migration: Danh từ (sự di cư).migrate: Động từ nguyên mẫu.migratory: Tính từ (di cư/thuộc về di cư) -> CHỌN\nDịch nghĩa: Nếu bạn sống ở một nơi trên thế giới nơi các loài chim di cư trải qua mùa sinh sản của chúng...",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "migration"
+                },
+                {
+                  "id": "B",
+                  "label": "migrate"
+                },
+                {
+                  "id": "C",
+                  "label": "migratory"
+                }
+              ]
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Over the ages, different species of birds have _______. with different types of nest-building skills. It makes an interesting study to look at the different types of nests built by birds and to watch them as they build their nests.",
+              "answer": "B",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng sau trợ động từ have trong cấu trúc different species of birds have 4........... Đây là cấu trúc của thì Hiện tại hoàn thành (Have + V3/ed), do đó vị trí này cần một Động từ ở dạng quá khứ phân từ (V3/ed).\n\nXét từ loại:\n\nevolution: Danh từ (sự tiến hóa).\n\nevolved: Động từ dạng V3/ed (đã tiến hóa)-> CHỌN\nDịch nghĩa: Trải qua nhiều thời kỳ, các loài chim khác nhau đã tiến hóa với những kỹ năng xây tổ khác nhau. Việc nhìn ngắm các loại tổ khác nhau được xây bởi các loài chim và xem chúng xây tổ là một nghiên cứu đầy thú vị",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "evolution"
+                },
+                {
+                  "id": "B",
+                  "label": "evolved"
+                },
+                {
+                  "id": "C",
+                  "label": "evolutionary"
+                }
+              ]
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "After the breeding season is over and the babies have left the nest, it is time for the birds to head for warmer parts of the world to spend the winter months. Birds ________ to their winter feeding grounds, using the stars or the sun as their guide.",
+              "answer": "B",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng ngay sau chủ ngữ số nhiều Birds và đứng trước giới từ to. Câu này đang thiếu một Động từ chính chia ở dạng nguyên mẫu (do chủ ngữ \"Birds\" là số nhiều) để hoàn thiện cấu trúc câu.\n\nXét từ loại:\n\nnavigation: Danh từ (sự định vị/sự điều hướng).\n\nnavigate: Động từ nguyên mẫu (định vị/tìm đường bay) -> CHỌN\nnavigational: Tính từ.\n\nDịch nghĩa: Sau khi mùa sinh sản kết thúc và chim non rời tổ, đã đến lúc các loài chim hướng về những vùng đất ấm áp hơn trên thế giới để trải qua những tháng mùa đông. Chim định vị/tìm đường đến các khu vực kiếm ăn mùa đông của chúng, sử dụng các ngôi sao hoặc mặt trời làm người dẫn đường.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "navigation"
+                },
+                {
+                  "id": "B",
+                  "label": "navigate"
+                },
+                {
+                  "id": "C",
+                  "label": "navigational"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "",
+      "passageTitle": "Plant Life in the Taklimakan Desert",
+      "passage": [
+        {
+          "text": "Plant Life in the Taklimakan Desert\nThe Taklimakan Desert, second in size only to Africa&apos;s Sahara Desert, occupies some 337,600 square kilometers (130,300 square miles) of northwestern China—an area about the size of Finland. Sparse rainfall, daily temperature swings of up to 20°C (68°F), and violent sandstorms make it one of the most extreme environments on Earth.\nEighty-five percent of the Taklimakan Desert consists of shifting sand dunes, some up to 250 meters tall, that are largely free of vegetation. Yet, transitional areas between the open desert and oases on the desert fringe support diverse plant forms that not only have adapted to the harsh conditions but actually thrive there.\nSuccessful desert plants are resilient to scorching summers and frigid winters, drought, and high-salt conditions. The plants&apos; principal defense against these environmental stressors consists of drawing in as much water as possible while minimizing moisture loss. Three Taklimakan plants—Populus euphratica, Tamarix ramosissima, and Alhagi sparsifolia—represent some of the most diverse, prolific vegetation in the area; although they share many survival strategies, each has developed unique coping mechanisms of its own.\nThe Euphrates poplar, Populus euphratica, the only tall tree in the Taklimakan ecosystem, has an extensive root system that allows it to absorb water far from the standing tree. P. euphratica controls evaporation by opening and closing the stomata, or tiny pores, on the leaf surface in response to the amount of moisture being lost through the leaves to the surrounding air. These stomata generally remain open during the day while the plant conducts photosynthesis.\nP euphratica can endure high-salt concentrations in the soil. It takes in unlimited amounts of salt through the roots, up the stem, and into leaves, where it dilutes the normally toxic salt by increasing the number and volume of its cells.\nTamarix ramosissima, a small tree with needlelike leaves commonly known as tamarisk or salt cedar, takes in enormous amounts of water via a far-reaching root system many times the size of the plant above ground. Like P. euphratica, tamarisk can naturally determine when to close stomata to inhibit evaporation and regulate photosynthesis.\nTamarisk has a high tolerance for salty conditions and even produces its own salt, which it accumulates in special glands between the leaves and then releases onto leaf surfaces. Leaves dropping to the ground make the soil more saline, or salty, giving tamarisk a competitive advantage over less salt-tolerant plants.\nAlhagi sparsifolia, a spiny shrub, thrives in the Taklimakan Desert even though it uses large amounts of water, especially during the summer months. With only a few wispy roots in the upper soil, it is unaffected by occasional flooding. Most of its roots reach down deep, where they take up water from as far as sixteen meters below ground. Unlike P. euphratica and T. ramosissima, which open and close stomata according to conditions on the leaf surface, A. sparsifolia does so according to hydraulic conductance—that is, the ease with which it takes up groundwater.\nAlthough desert plants have adapted for their own survival, they also help protect their ecosystem by stabilizing sand dunes, preventing erosion, presenting a barrier to sandstorms, and conserving biodiversity."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–3",
+          "instruction": "Choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Most of the Taklimakan Desert is covered with",
+              "answer": "C",
+              "explanation": "Bước 1: Keyword\nmost of the Taklimakan Desert\ncovered with\nBước 2: Tìm đoạn văn\n\n\"Eighty-five percent of the Taklimakan Desert consists of shifting sand dunes\"\n\nBước 3: Phân tích\nconsists of = is covered with\nshifting sand dunes = cồn cát di động\n\nĐáp án: C (sand dunes)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "tamarisk"
+                },
+                {
+                  "id": "B",
+                  "label": "spiny plants"
+                },
+                {
+                  "id": "C",
+                  "label": "sand dunes"
+                },
+                {
+                  "id": "D",
+                  "label": "diverse plant life"
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Plants in the Taklimakan Desert",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword\nplants\nTaklimakan Desert\nBước 2: Tìm đoạn văn\n\n\"support diverse plant forms that not only have adapted to the harsh conditions but actually thrive there\"\n\nBước 3: Phân tích\nadapted to harsh conditions = thích nghi với điều kiện khắc nghiệt\nthrive = phát triển mạnh\n\nĐáp án: B (thrive in extreme conditions)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "grow only in areas above 250 meters high."
+                },
+                {
+                  "id": "B",
+                  "label": "thrive in extreme conditions."
+                },
+                {
+                  "id": "C",
+                  "label": "are not very hardy."
+                },
+                {
+                  "id": "D",
+                  "label": "are mostly tall trees."
+                }
+              ]
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Environmental stressors in the Taklimakan Desert include",
+              "answer": "C",
+              "explanation": "Bước 1: Keyword\nenvironmental stressors\nBước 2: Tìm đoạn văn\n\n\"Successful desert plants are resilient to scorching summers and frigid winters\"\n\nBước 3: Phân tích\nscorching summers = mùa hè cực nóng\nfrigid winters = mùa đông cực lạnh\nđây là nhiệt độ khắc nghiệt\n\nĐáp án: C (extreme temperatures)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "sparse sunlight."
+                },
+                {
+                  "id": "B",
+                  "label": "lack of salt in the soil."
+                },
+                {
+                  "id": "C",
+                  "label": "extreme temperatures."
+                },
+                {
+                  "id": "D",
+                  "label": "periods of heavy rainfall"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "range": "Questions 4–5",
+          "instruction": "Choose TWO correct answers, A–E.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Which of the following mechanisms used by plants to survive in the desert environment are mentioned in the passage?\nChoose two answers from the list below.",
+              "answer": "B, D",
+              "explanation": "Bước 1: Keyword\nĐáp án B: Closing pores, minimize loss of moisture\nĐáp án D: Diluting the salt\n\nBước 2: Tìm đoạn văn\nĐối với đáp án B (Đoạn 4): \"...controls evaporation by opening and closing the stomata, or tiny pores, on the leaf surface in response to the amount of moisture being lost...\"\nĐối với đáp án D (Đoạn 5): \"...where it dilutes the normally toxic salt by increasing the number and volume of its cells.\"\n\nBước 3: Phân tích\n\nCơ chế giảm mất nước (Đáp án B): Cụm từ closing the stomata, or tiny pores tương đương với hành động \"closing pores\" (đóng các lỗ khí). Cụm từ in response to the amount of moisture being lost giải thích cho mục đích \"minimize loss of moisture\" (giảm thiểu mất độ ẩm).\n\nCơ chế xử lý muối độc (Đáp án D): Cụm từ dilutes the normally toxic salt (làm loãng lượng muối có độc tính thông thường) trùng khớp hoàn toàn về mặt ngữ nghĩa với hành động \"diluting the salt\" ở đáp án D.\n=> Đáp án: B và D",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Having strong roots that can hold on during violent sandstorms"
+                },
+                {
+                  "id": "B",
+                  "label": "Closing pores to minimize loss of moisture"
+                },
+                {
+                  "id": "C",
+                  "label": "Occupying a place in the shade of a larger plant to avoid the scorching desert sun"
+                },
+                {
+                  "id": "D",
+                  "label": "Diluting the salt that the plant takes in"
+                }
+              ]
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Which of the following mechanisms used by plants to survive in the desert environment are mentioned in the passage?\nChoose two answers from the list below.",
+              "answer": "B, D",
+              "explanation": "Bước 1: Keyword\nĐáp án B: Closing pores, minimize loss of moisture\nĐáp án D: Diluting the salt\n\nBước 2: Tìm đoạn văn\nĐối với đáp án B (Đoạn 4): \"...controls evaporation by opening and closing the stomata, or tiny pores, on the leaf surface in response to the amount of moisture being lost...\"\nĐối với đáp án D (Đoạn 5): \"...where it dilutes the normally toxic salt by increasing the number and volume of its cells.\"\n\nBước 3: Phân tích\n\nCơ chế giảm mất nước (Đáp án B): Cụm từ closing the stomata, or tiny pores tương đương với hành động \"closing pores\" (đóng các lỗ khí). Cụm từ in response to the amount of moisture being lost giải thích cho mục đích \"minimize loss of moisture\" (giảm thiểu mất độ ẩm).\n\nCơ chế xử lý muối độc (Đáp án D): Cụm từ dilutes the normally toxic salt (làm loãng lượng muối có độc tính thông thường) trùng khớp hoàn toàn về mặt ngữ nghĩa với hành động \"diluting the salt\" ở đáp án D.\n=> Đáp án: B và D",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Having strong roots that can hold on during violent sandstorms"
+                },
+                {
+                  "id": "B",
+                  "label": "Closing pores to minimize loss of moisture"
+                },
+                {
+                  "id": "C",
+                  "label": "Occupying a place in the shade of a larger plant to avoid the scorching desert sun"
+                },
+                {
+                  "id": "D",
+                  "label": "Diluting the salt that the plant takes in"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "range": "Questions 6–7",
+          "instruction": "Choose TWO correct answers, A–E.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Which of the following mechanisms used by plants to survive in the desert environment are mentioned in the passage?\nChoose two answers from the list below.",
+              "answer": "A, B",
+              "explanation": "Bước 1: Keyword\nĐáp án A: large root systems, reach water far\nĐáp án B: Adding salt to the soil, minimize competition\n\nBước 2: Tìm đoạn văn\nĐối với đáp án A (Đoạn 4 & 6): \"...has an extensive root system that allows it to absorb water far from the standing tree.\" và \"...via a far-reaching root system many times the size of the plant...\"\nĐối với đáp án B (Đoạn 7): \"Leaves dropping to the ground make the soil more saline, or salty, giving tamarisk a competitive advantage over less salt-tolerant plants.\"\n\nBước 3: Phân tích\nCơ chế phát triển rễ (Đáp án A): Các cụm từ extensive root system và far-reaching root system tương đương với \"large root systems\" (hệ thống rễ lớn). Cụm từ absorb water far from the standing tree giải thích cho khả năng \"reach water far\" (vươn tới nguồn nước ở xa).\n\nCơ chế cạnh tranh sinh tồn (Đáp án B): Cụm từ make the soil more saline, or salty (làm cho đất mặn hơn) tương đương với hành động \"adding salt to the soil\". Việc này mang lại a competitive advantage (lợi thế cạnh tranh) nhằm \"minimize competition\" (giảm thiểu sự cạnh tranh từ các loài cây khác ít chịu mặn).\n=> Đáp án:  Avà B",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Having large root systems that can reach water far from the plant"
+                },
+                {
+                  "id": "B",
+                  "label": "Adding salt to the soil to minimize competition from other plants"
+                },
+                {
+                  "id": "C",
+                  "label": "Accumulating water in the leaves of the plant"
+                }
+              ]
+            },
+            {
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Which of the following mechanisms used by plants to survive in the desert environment are mentioned in the passage?\nChoose two answers from the list below.",
+              "answer": "A, B",
+              "explanation": "Bước 1: Keyword\nĐáp án A: large root systems, reach water far\nĐáp án B: Adding salt to the soil, minimize competition\n\nBước 2: Tìm đoạn văn\nĐối với đáp án A (Đoạn 4 & 6): \"...has an extensive root system that allows it to absorb water far from the standing tree.\" và \"...via a far-reaching root system many times the size of the plant...\"\nĐối với đáp án B (Đoạn 7): \"Leaves dropping to the ground make the soil more saline, or salty, giving tamarisk a competitive advantage over less salt-tolerant plants.\"\n\nBước 3: Phân tích\nCơ chế phát triển rễ (Đáp án A): Các cụm từ extensive root system và far-reaching root system tương đương với \"large root systems\" (hệ thống rễ lớn). Cụm từ absorb water far from the standing tree giải thích cho khả năng \"reach water far\" (vươn tới nguồn nước ở xa).\n\nCơ chế cạnh tranh sinh tồn (Đáp án B): Cụm từ make the soil more saline, or salty (làm cho đất mặn hơn) tương đương với hành động \"adding salt to the soil\". Việc này mang lại a competitive advantage (lợi thế cạnh tranh) nhằm \"minimize competition\" (giảm thiểu sự cạnh tranh từ các loài cây khác ít chịu mặn).\n=> Đáp án:  A và B",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Having large root systems that can reach water far from the plant"
+                },
+                {
+                  "id": "B",
+                  "label": "Adding salt to the soil to minimize competition from other plants"
+                },
+                {
+                  "id": "C",
+                  "label": "Accumulating water in the leaves of the plant"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "range": "Questions 8–13",
+          "instruction": "Choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Desert plants have a variety of _________ that allow them to endure the desert environment.",
+              "answer": "A",
+              "explanation": "Phân tích ngữ pháp: Phía trước chỗ trống là cụm từ a variety of (rất nhiều, đa dạng các...). Theo quy tắc ngữ pháp, sau cụm này bắt buộc phải là một Danh từ đếm được số nhiều. Bên cạnh đó, đại từ quan hệ \"that\" thay thế cho chỗ trống đi với động từ \"allow\" (không chia \"s\") càng khẳng định đây là danh từ số nhiều.\nXét từ loại: adaptations: Danh từ số nhiều (các đặc điểm thích nghi) -> Chọn\nadapts: Động từ chia ở ngôi thứ 3 số ít \nadapted: Tính từ / Động từ quá khứ\nDịch nghĩa: Thực vật sa mạc có đa dạng các đặc điểm thích nghi cho phép chúng chịu đựng...",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "adaptations"
+                },
+                {
+                  "id": "B",
+                  "label": "adapts"
+                },
+                {
+                  "id": "C",
+                  "label": "adapted"
+                }
+              ]
+            },
+            {
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Because a desert is _________ dry, plants need to be able to take in as much water as possible when it rains and to store the water for a long time.",
+              "answer": "C",
+              "explanation": "Phân tích ngữ pháp: Phía sau chỗ trống là từ dry (tính từ: khô hạn). Theo quy tắc, để bổ nghĩa cho một tính từ về mặt mức độ, ta phải dùng một Trạng từ (Adverb) đứng ngay trước nó.\nXét từ loại:\nextreme: Tính từ\nextremes: Danh từ số nhiều\nextremely: Trạng từ (cực kỳ)-> Chọn",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "extreme"
+                },
+                {
+                  "id": "B",
+                  "label": "extremes"
+                },
+                {
+                  "id": "C",
+                  "label": "extremely"
+                }
+              ]
+            },
+            {
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Special root systems and types of leaves enable them to do this. Another source of _____ in a desert is the high temperature",
+              "answer": "B",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng ngay sau giới từ of trong cụm \"source of...\". Theo quy tắc, sau giới từ phải là một Danh từ (hoặc V-ing).\nXét từ loại:\nstressor: Danh từ đếm được (tác nhân gây căng thẳng). Nếu dùng phải có mạo từ (a stressor) hoặc số nhiều (stressors).\nstress: Danh từ không đếm được (sự căng thẳng/áp lực)-> Chọn (Đi với cụm \"source of stress\" - nguồn gây áp lực).\nstressful: Tính từ\nDịch nghĩa: Một nguồn gây áp lực khác ở sa mạc là nhiệt độ cao",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "stressor"
+                },
+                {
+                  "id": "B",
+                  "label": "stress"
+                },
+                {
+                  "id": "C",
+                  "label": "stressful"
+                }
+              ]
+            },
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "so desert plants need to have ________",
+              "answer": "A",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng sau động từ have (có). Để hoàn thành ý nghĩa của câu, ta cần một tân ngữ, và tân ngữ này phải là một Danh từ.\nXét từ loại:\nresilience: Danh từ (sự kiên cường, khả năng phục hồi)->  chọn\nresilient: Tính từ.\nresiliently: Trạng từ.\nDịch nghĩa: ...vì vậy thực vật sa mạc cần phải có sự kiên cường (khả năng phục hồi).",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "resilience"
+                },
+                {
+                  "id": "B",
+                  "label": "resilient"
+                },
+                {
+                  "id": "C",
+                  "label": "resiliently"
+                }
+              ]
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "_____storms can occur in a desert, and plants with strong roots will be able to endure the storms.",
+              "answer": "B",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống đứng đầu câu và ngay trước danh từ số nhiều storms (những trận bão). Theo quy tắc, để bổ nghĩa cho danh từ, ta cần một Tính từ đứng trước nó.\nXét từ loại:\nViolence: Danh từ.\nViolent: Tính từ (mãnh liệt, dữ dội) -> chọn\nViolently: Trạng từ.\nDịch nghĩa: Những trận bão dữ dội có thể xảy ra ở sa mạc, và thực vật với bộ rễ khỏe sẽ có thể chịu đựng được chúng.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Violence"
+                },
+                {
+                  "id": "B",
+                  "label": "Violent"
+                },
+                {
+                  "id": "C",
+                  "label": "Violently"
+                }
+              ]
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Considering the difficult conditions in a desert, the ______ of plants that can be found there is truly amazing.",
+              "answer": "A",
+              "explanation": "Phân tích ngữ pháp: Chỗ trống bị kẹp giữa mạo từ the và giới từ of. Theo cấu trúc ngữ pháp kinh điển: The + Danh từ + of + Danh từ, vị trí này bắt buộc phải điền một Danh từ.\nXét từ loại:\ndiversity: Danh từ (sự đa dạng)-> CHỌN\ndiversify: Động từ.\n\ndiverse: Tính từ.\nDịch nghĩa: Xét đến những điều kiện khó khăn ở sa mạc, sự đa dạng của các loài thực vật có thể được tìm thấy ở đó thực sự đáng kinh ngạc.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "diversity"
+                },
+                {
+                  "id": "B",
+                  "label": "diversify"
+                },
+                {
+                  "id": "C",
+                  "label": "diverse"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

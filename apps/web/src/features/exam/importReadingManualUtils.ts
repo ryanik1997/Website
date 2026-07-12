@@ -732,20 +732,23 @@ export function isImportedReadingExamId(id: string): boolean {
   return id.startsWith('reading-pdf-') || id.startsWith('reading-manual-')
 }
 
-/** Đề Reading hệ thống — không cho xóa. */
+/** Đề Reading hệ thống (catalog/sample). */
 export function isSystemReadingExamId(id: string): boolean {
   return (
     id.startsWith('catalog-')
-    || id.startsWith('cambridge-') && id.includes('-sample-')
+    || (id.startsWith('cambridge-') && id.includes('-sample-'))
     || id.startsWith('ielts-reading-')
     || id.includes('-reading-sample-')
   )
 }
 
-/** Import local hoặc bản đã publish (id không phải catalog). */
-export function canDeleteReadingExamId(id: string): boolean {
+/**
+ * User thường: chỉ xóa import/publish.
+ * Admin: xóa được mọi đề (kể cả catalog IELTS) — catalog bị ẩn + gỡ cloud.
+ */
+export function canDeleteReadingExamId(id: string, opts?: { isAdmin?: boolean }): boolean {
+  if (opts?.isAdmin === true) return true
   if (isSystemReadingExamId(id)) return false
   if (isImportedReadingExamId(id)) return true
-  // Publish admin với id custom / uuid
   return !id.startsWith('catalog-')
 }

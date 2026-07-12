@@ -5,6 +5,7 @@ import { supabase } from '../../lib/supabase'
 import { useAuth } from './AuthContext'
 import { syncExamProgress } from '../exam/examProgressSync'
 import { syncCheckInDays } from '../home/checkInSync'
+import { syncAdminPublishedExams } from '../admin/syncAdminPublishedExams'
 import { seedPresetDecks } from '../vocab/vocabSeedDecks'
 
 export type SyncState = 'idle' | 'syncing' | 'done' | 'error'
@@ -202,6 +203,21 @@ function useSyncManagerImpl(): SyncManagerValue {
         }
       } catch (checkInErr) {
         console.warn('[sync] check-in', checkInErr)
+      }
+
+      // Admin publish prune: đề Reading/Listening Admin xoá → dọn cache local
+      try {
+        const pruneResult = await syncAdminPublishedExams()
+        if (pruneResult.readingPruned || pruneResult.listeningPruned) {
+          console.info(
+            '[sync] admin exams pruned: reading',
+            pruneResult.readingPruned,
+            'listening',
+            pruneResult.listeningPruned,
+          )
+        }
+      } catch (pruneErr) {
+        console.warn('[sync] admin exam prune', pruneErr)
       }
 
       const now = new Date().toISOString()

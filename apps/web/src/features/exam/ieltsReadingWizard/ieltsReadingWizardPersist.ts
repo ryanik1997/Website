@@ -8,7 +8,15 @@ import {
 } from './ieltsReadingWizardConfig'
 
 const STORAGE_KEY = 'ielts-reading-import-wizard-draft'
+/** Snapshot theo Cam/Test — không bị đè khi soạn đề khác */
+const SLOT_PREFIX = 'ielts-reading-wizard-draft-slot:'
 const VERSION = 1 as const
+
+function slotKey(cambridge: string, test: string): string {
+  const cam = String(cambridge || 'x').trim() || 'x'
+  const t = String(test || 'x').trim() || 'x'
+  return `${SLOT_PREFIX}cam${cam}-test${t}`
+}
 
 export type ReadingWizardPersistStep = 'setup' | 'passage' | 'preview'
 
@@ -123,10 +131,14 @@ export function loadIeltsReadingWizardDraft(): IeltsReadingWizardDraft | null {
 
 export function saveIeltsReadingWizardDraft(draft: IeltsReadingWizardDraft): void {
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    const payload = JSON.stringify({
       ...draft,
       savedAt: Date.now(),
-    }))
+    })
+    // Draft hiện tại (resume)
+    window.localStorage.setItem(STORAGE_KEY, payload)
+    // Snapshot theo Cam/Test — auto-backup khi soạn dở
+    window.localStorage.setItem(slotKey(draft.cambridge, draft.test), payload)
   } catch {
     // localStorage đầy hoặc bị chặn
   }
@@ -137,6 +149,80 @@ export function clearIeltsReadingWizardDraft(): void {
     window.localStorage.removeItem(STORAGE_KEY)
   } catch {
     // ignore
+  }
+}
+
+/** Liệt kê snapshot draft theo Cam/Test (auto-backup wizard). */
+export function listIeltsReadingWizardDraftSlots(): Array<{
+  key: string
+  cambridge: string
+  test: string
+  title: string
+  savedAt: number
+  passagesDone: number
+}> {
+  const out: Array<{
+    key: string
+    cambridge: string
+    test: string
+    title: string
+    savedAt: number
+    passagesDone: number
+  }> = []
+  try {
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const key = window.localStorage.key(i)
+      if (!key?.startsWith(SLOT_PREFIX)) continue
+      const raw = window.localStorage.getItem(key)
+      if (!raw) continue
+      try {
+        const parsed = JSON.parse(raw) as Partial<IeltsReadingWizardDraft>
+        const drafts = normalizeDrafts(parsed.drafts)
+        out.push({
+          key,
+          cambridge: typeof parsed.cambridge === 'string' ? parsed.cambridge : '?',
+          test: typeof parsed.test === 'string' ? parsed.test : '?',
+          title: typeof parsed.title === 'string' ? parsed.title : key,
+          savedAt: typeof parsed.savedAt === 'number' ? parsed.savedAt : 0,
+          passagesDone: countReadingWizardDraftPassages(drafts),
+        })
+      } catch {
+        // skip corrupt
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return out.sort((a, b) => b.savedAt - a.savedAt)
+}
+
+export function loadIeltsReadingWizardDraftSlot(key: string): IeltsReadingWizardDraft | null {
+  try {
+    if (!key.startsWith(SLOT_PREFIX)) return null
+    const raw = window.localStorage.getItem(key)
+    if (!raw) return null
+    const parsed = JSON.parse(raw) as Partial<IeltsReadingWizardDraft>
+    if (parsed.version !== VERSION) return null
+    const step = parsed.step === 'passage' || parsed.step === 'preview' ? parsed.step : 'setup'
+    const rawActive = parsed.activePassage ?? 1
+    const activePassage: IeltsReadingPassageNumber = isPassageNumber(rawActive) ? rawActive : 1
+    const drafts = normalizeDrafts(parsed.drafts)
+    return {
+      version: VERSION,
+      savedAt: typeof parsed.savedAt === 'number' ? parsed.savedAt : Date.now(),
+      step,
+      activePassage,
+      title: typeof parsed.title === 'string' ? parsed.title : 'IELTS Reading',
+      cambridge: typeof parsed.cambridge === 'string' ? parsed.cambridge : '10',
+      test: typeof parsed.test === 'string' ? parsed.test : '1',
+      answerKey: typeof parsed.answerKey === 'string' ? parsed.answerKey : '',
+      drafts,
+      extraMediaNames: Array.isArray(parsed.extraMediaNames)
+        ? parsed.extraMediaNames.filter((n): n is string => typeof n === 'string')
+        : [],
+    }
+  } catch {
+    return null
   }
 }
 

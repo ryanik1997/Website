@@ -8,6 +8,7 @@ import ieltsReadingCam10Test1 from '../data/reading-ielts-cam10-test1.json'
 import ieltsReadingCam10Test2 from '../data/reading-ielts-cam10-test2.json'
 import ieltsReadingCam10Test3 from '../data/reading-ielts-cam10-test3.json'
 import ieltsReadingCam10Test4 from '../data/reading-ielts-cam10-test4.json'
+import ieltsReadingCam11Test1 from '../data/reading-ielts-cam11-test1.json'
 import ieltsReadingCam11Test3 from '../data/reading-ielts-cam11-test3.json'
 
 export const GENERATED_IELTS_READING_EXAMS = [
@@ -19,5 +20,6 @@ export const GENERATED_IELTS_READING_EXAMS = [
   ieltsReadingCam10Test2,
   ieltsReadingCam10Test3,
   ieltsReadingCam10Test4,
+  ieltsReadingCam11Test1,
   ieltsReadingCam11Test3,
 ]

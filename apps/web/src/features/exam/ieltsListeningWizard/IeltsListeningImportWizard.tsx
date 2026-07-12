@@ -27,6 +27,7 @@ import {
 import { useIsAdmin } from '../../auth/useIsAdmin'
 import { examRecordFromListening } from '../listeningExamLoader'
 import { publishListeningExamToCloud } from '../listeningExamPublish'
+import { backupListeningExam } from '../examAutoBackup'
 import {
   buildFullExamPayload,
   generateIeltsListeningPart,
@@ -388,6 +389,7 @@ export default function IeltsListeningImportWizard({ onClose, onCreated }: Props
       const exam = await buildListeningExamFromImport(next, mediaFiles)
       const label = `wizard-cam${cambridge}-test${test}`
       await listeningExamRepo.create(examRecordFromListening(exam, 'import', label))
+      await backupListeningExam(exam, { sourceFilename: label }).catch(() => undefined)
       if (isAdmin === true) {
         await publishListeningExamToCloud(exam, { source: 'import', sourceFilename: label })
       }
