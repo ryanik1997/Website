@@ -113,6 +113,31 @@
 .exam-hub-page--reading .ielts-library-card:hover .ielts-library-card__chevron { color: var(--color-primary); transform: translate(.2rem, -.2rem); }
 @media (max-width: 700px) { .exam-hub-page--reading .exam-full-mock-hero { min-height: 15rem; padding: 1.5rem 1.25rem; } .exam-hub-page--reading .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--reading .ielts-library__toolbar { align-items: stretch; } .exam-hub-page--reading .ielts-library__toolbar-right, .exam-hub-page--reading .ielts-library__search { width: 100%; } .exam-hub-page--reading .ielts-library__search { min-width: 0; } .exam-hub-page--reading .ielts-library__cards { grid-template-columns: 1fr; } }
 
+/* Cambridge level selector: structured editorial index */
+.exam-hub-page--cambridge-selector { background: radial-gradient(circle at 86% 10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 25rem), var(--bg-primary); }
+.exam-hub-page--cambridge-selector .exam-hub-page__inner { max-width: 74rem; padding-top: clamp(2rem, 6vw, 5.5rem); }
+.exam-hub-page--cambridge-selector .exam-full-mock-hero { position: relative; min-height: 22rem; padding: 2.4rem 2.5rem; overflow: hidden; border: none; border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 10%, transparent); }
+.exam-hub-page--cambridge-selector .exam-full-mock-hero::after { content: 'CEFR\A INDEX'; white-space: pre; position: absolute; right: 7%; bottom: 2rem; color: color-mix(in srgb, var(--color-primary) 35%, transparent); font-family: Georgia, serif; font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(-7deg); pointer-events: none; }
+.exam-hub-page--cambridge-selector .exam-hub-back,
+.exam-hub-page--cambridge-selector .exam-hub-kicker,
+.exam-hub-page--cambridge-selector .exam-hub-title,
+.exam-hub-page--cambridge-selector .exam-hub-desc { position: relative; z-index: 1; }
+.exam-hub-page--cambridge-selector .exam-hub-back { margin-bottom: 1.2rem; background: transparent; border-color: transparent; transition: transform 500ms cubic-bezier(.32,.72,0,1), color 500ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--cambridge-selector .exam-hub-back:hover { color: var(--color-primary); transform: translateX(-.25rem); }
+.exam-hub-page--cambridge-selector .exam-hub-kicker { display: block; margin: 0 0 .9rem; line-height: 1.35; }
+.exam-hub-page--cambridge-selector .exam-hub-title { margin-top: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400; letter-spacing: -.065em; line-height: .98; }
+.exam-hub-page--cambridge-selector .exam-hub-desc { max-width: 29rem; margin-top: 1.2rem; font-size: .92rem; line-height: 1.7; }
+.exam-hub-page--cambridge-selector .exam-hub-tracks--levels { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.exam-hub-page--cambridge-selector .exam-hub-track-card { min-height: 17rem; padding: 1.35rem; border: none; border-radius: 1.6rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 9%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1), background 650ms cubic-bezier(.32,.72,0,1); }
+.exam-hub-page--cambridge-selector .exam-hub-track-card:hover { transform: translateY(-.45rem) rotate(.25deg); background: color-mix(in srgb, var(--color-primary) 8%, var(--bg-card)); box-shadow: 0 1.8rem 4rem color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.exam-hub-page--cambridge-selector .exam-hub-track-card__title { font-family: Georgia, serif; font-size: 1.8rem; font-weight: 400; letter-spacing: -.04em; }
+.exam-hub-page--cambridge-selector .exam-hub-track-card__sub { margin-top: .8rem; color: var(--color-primary); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+.exam-hub-page--cambridge-selector .exam-hub-track-card__desc { margin-top: .7rem; font-size: .78rem; line-height: 1.55; }
+.exam-hub-page--cambridge-selector .exam-hub-track-skills { margin-top: auto; padding-top: 1.2rem; }
+.exam-hub-page--cambridge-selector .exam-hub-skill-tag { padding: .32rem .65rem; }
+@media (max-width: 900px) { .exam-hub-page--cambridge-selector .exam-hub-tracks--levels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .exam-hub-page--cambridge-selector .exam-full-mock-hero { min-height: 17rem; padding: 1.5rem 1.25rem; } .exam-hub-page--cambridge-selector .exam-full-mock-hero::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .exam-hub-page--cambridge-selector .exam-hub-tracks--levels { grid-template-columns: 1fr; margin-top: 1.5rem; } .exam-hub-page--cambridge-selector .exam-hub-track-card { min-height: 14rem; } }
+
 .exam-hub-page__inner {
   max-width: 52rem;
   margin: 0 auto;
