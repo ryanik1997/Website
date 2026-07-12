@@ -69,6 +69,16 @@ export default function StructureListHub() {
   const safePage = Math.min(page, totalPages - 1)
   const pageStart = safePage * PAGE_SIZE
   const pageItems = filtered?.slice(pageStart, pageStart + PAGE_SIZE) ?? []
+  const groupedPageItems = useMemo(() => {
+    const groups = new Map<string, SentenceStructure[]>()
+    for (const item of pageItems) {
+      const key = categoryMeta(item.category).label
+      const current = groups.get(key) ?? []
+      current.push(item)
+      groups.set(key, current)
+    }
+    return [...groups.entries()]
+  }, [pageItems])
 
   function goToPractice(id: string) {
     navigate(`/app/sentence-structure/${id}`)
@@ -139,16 +149,22 @@ export default function StructureListHub() {
         </p>
       </div>
 
-      <div className="ss-hub-list" role="list">
-        {pageItems.map(item => (
-          <StructureRow
-            key={item.id}
-            item={item}
-            onOpen={() => goToPractice(item.id)}
-          />
+      <div className="ss-hub-groups">
+        {groupedPageItems.map(([category, categoryItems]) => (
+          <section className="ss-hub-group" key={category}>
+            <header className="ss-hub-group-head">
+              <h2>{category}</h2>
+              <span>{categoryItems.length}</span>
+            </header>
+            <div className="ss-hub-list" role="list">
+              {categoryItems.map(item => (
+                <StructureRow key={item.id} item={item} onOpen={() => goToPractice(item.id)} />
+              ))}
+            </div>
+          </section>
         ))}
         {filtered && total === 0 && (
-          <p className="ss-hub-empty">
+          <p className="ss-hub-empty ss-hub-empty--grouped">
             {query.trim() ? 'Không tìm thấy cấu trúc phù hợp' : 'Chưa có bài nào — bấm Thêm bài để tạo'}
           </p>
         )}
