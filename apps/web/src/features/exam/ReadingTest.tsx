@@ -62,12 +62,20 @@ export default function ReadingTest() {
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
-  const part = parseReadingPart(searchParams.get('part'))
+  const requestedPart = parseReadingPart(searchParams.get('part'))
   const initialPartIndex = part === null ? 0 : part - 1
   const exam = useLiveQuery(
     () => (examId ? resolveReadingExam(examId) : null),
     [examId],
   )
+  const isIeltsReading = Boolean(
+    exam && (
+      exam.examTrack === 'ielts'
+      || /ielts/i.test(exam.bandHint ?? '')
+      || /ielts/i.test(exam.id)
+    ),
+  )
+  const part = isIeltsReading ? requestedPart : null
   const useKetRwShell = exam ? isKetReadingWritingExam(exam) : false
   const usePetRwShell = exam ? isPetReadingWritingExam(exam) : false
   const useFceRwShell = exam ? isFceReadingWritingExam(exam) : false

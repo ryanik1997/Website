@@ -541,7 +541,11 @@ function ExamTrackPageInner() {
               if (!canImport) return { ...row, canEdit: false }
               return row
             }}
-            onOpenExam={id => navigate(`/app/exam/reading-picker/${id}`)}
+            onOpenExam={id => navigate(
+              libraryArchiveMode === 'ielts'
+                ? `/app/exam/reading-picker/${id}`
+                : `/app/exam/reading/${id}`,
+            )}
             onRetryExam={id => {
               clearReadingDraft(id)
               navigate(`/app/exam/reading/${id}`)
