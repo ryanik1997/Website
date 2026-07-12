@@ -228,7 +228,7 @@ function ExamTrackPageInner() {
 
           <section className="exam-full-mock-hero">
             <p className="exam-hub-kicker">{track.title}</p>
-            <h1 className="exam-hub-title">Chọn cấp độ CEFR</h1>
+            <h1 className="exam-hub-title">Select CEFR level</h1>
             <p className="exam-hub-desc">{track.description}</p>
           </section>
 
