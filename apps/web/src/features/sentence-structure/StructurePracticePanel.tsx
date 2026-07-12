@@ -69,7 +69,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
     setChecked(true)
     setFlipped(false)
     clearAi()
-    if (okA && okB) recordStructureCompletion({ structureId: item!.id, title: item!.title, source: 'sample' })
+    if (okA && okB) recordStructureCompletion({ structureId: item!.id, title: item!.title, source: 'sample', completedSentence: fillTemplate(item!.template, inputA, inputB) })
   }
 
   function handleFlip() {
@@ -110,7 +110,7 @@ export default function StructurePracticePanel({ structureId }: Props) {
         provider,
       )
       setAiGrade(result)
-      if (result.pass) recordStructureCompletion({ structureId: item!.id, title: item!.title, source: 'ai' })
+      if (result.pass) recordStructureCompletion({ structureId: item!.id, title: item!.title, source: 'ai', completedSentence: fillTemplate(item!.template, inputA, inputB) })
       await writingRepo.recordUsage('structure_ai', tokens)
     } catch (e) {
       setAiError(e instanceof Error ? e.message.slice(0, 220) : 'Không chấm được. Thử lại.')
