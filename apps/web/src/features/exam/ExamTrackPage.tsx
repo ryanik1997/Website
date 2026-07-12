@@ -533,7 +533,7 @@ function ExamTrackPageInner() {
             skill="reading"
             archiveMode={libraryArchiveMode}
             brandLabel={libraryBrandLabel}
-            showUngrouped={canImport}
+            showUngrouped={canImport && libraryArchiveMode === 'ielts'}
             exams={readingList}
             buildRow={exam => {
               const row = safeReadingRow(exam)
