@@ -74,8 +74,9 @@
 .ss-list-page .ss-check-btn { padding: .62rem 1rem !important; border-radius: .65rem; background: var(--color-primary); color: var(--bg-primary); font-size: .78rem !important; }
 .ss-list-page .ss-hub { max-width: none; padding: 0; }
 .ss-list-page .ss-hub-toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: .9rem; background: var(--bg-card); }
-.ss-list-page .ss-hub-search { flex: 1; min-width: 13rem; min-height: 0; padding: .65rem .9rem .65rem 1.65rem; border: 1px solid color-mix(in srgb, var(--border-color) 75%, transparent); border-radius: .6rem; background: var(--bg-card); transform: none; }
-.ss-list-page .ss-hub-search > svg { flex: 0 0 auto; margin-left: .2rem; margin-right: .1rem; transform: none; }
+.ss-list-page .ss-hub-search { position: relative; flex: 1; min-width: 13rem; min-height: 0; padding: .65rem .9rem; border: 1px solid color-mix(in srgb, var(--border-color) 75%, transparent); border-radius: .6rem; background: var(--bg-card); transform: none; }
+.ss-list-page .ss-hub-search > svg { position: absolute; left: 1rem; top: 50%; margin: 0; transform: translateY(-50%); }
+.ss-list-page .ss-hub-search input { padding-left: 1.65rem; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) { display: flex; gap: .5rem; padding: 0; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button { border-color: var(--border-color) !important; background: var(--bg-card) !important; color: var(--text-muted) !important; padding: .45rem .8rem; font-size: .72rem; }
 .ss-list-page .ss-hub-toolbar > div:nth-child(2) button:first-child { border-color: color-mix(in srgb, var(--color-primary) 22%, var(--border-color)) !important; background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)) !important; color: var(--color-primary) !important; }
