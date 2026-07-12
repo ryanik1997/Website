@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from 'react'
-import { X } from 'lucide-react'
+import { FileJson, X } from 'lucide-react'
 import { sentenceStructureRepo } from '@ryan/db'
 import { STRUCTURE_CATEGORIES } from './types'
 import { CEFR_LEVELS, CEFR_LABELS, type CefrLevel } from '../../lib/cefr'
@@ -20,6 +20,7 @@ export default function NewStructureModal({
   const [exampleB, setExampleB] = useState('')
   const [exampleNoteVi, setExampleNoteVi] = useState('')
   const [saving, setSaving] = useState(false)
+  const [importError, setImportError] = useState('')
 
   const inputStyle = {
     background: 'var(--bg-secondary)',
@@ -46,6 +47,48 @@ export default function NewStructureModal({
     onClose()
   }
 
+  async function importJson(file: File) {
+    setImportError('')
+    try {
+      const parsed: unknown = JSON.parse(await file.text())
+      const rawItems = Array.isArray(parsed)
+        ? parsed
+        : parsed && typeof parsed === 'object' && Array.isArray((parsed as { structures?: unknown }).structures)
+          ? (parsed as { structures: unknown[] }).structures
+          : [parsed]
+      const items = rawItems.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === 'object'))
+      if (!items.length) throw new Error('JSON không có cấu trúc hợp lệ.')
+      setSaving(true)
+      let lastId = ''
+      for (const item of items) {
+        const itemTitle = String(item.title ?? '').trim()
+        const itemTemplate = String(item.template ?? '').trim()
+        if (!itemTitle || !itemTemplate.includes('[A]') || !itemTemplate.includes('[B]')) {
+          throw new Error('Mỗi cấu trúc cần title và template có [A], [B].')
+        }
+        const rawCefr = String(item.cefr ?? '').toUpperCase()
+        const validCefr = CEFR_LEVELS.includes(rawCefr as CefrLevel) ? rawCefr as CefrLevel : undefined
+        const created = await sentenceStructureRepo.create({
+          title: itemTitle,
+          template: itemTemplate,
+          description: String(item.description ?? 'Luyện điền A và B theo mẫu câu.'),
+          category: String(item.category ?? category),
+          cefr: validCefr,
+          exampleA: String(item.exampleA ?? '...'),
+          exampleB: String(item.exampleB ?? '...'),
+          exampleNoteVi: String(item.exampleNoteVi ?? 'Ví dụ minh họa cho cấu trúc này.'),
+        })
+        lastId = created.id
+      }
+      setSaving(false)
+      onCreated(lastId)
+      onClose()
+    } catch (error) {
+      setSaving(false)
+      setImportError(error instanceof Error ? error.message : 'Không đọc được file JSON.')
+    }
+  }
+
   const valid = title.trim() && template.includes('[A]') && template.includes('[B]')
 
   return (
@@ -61,6 +104,11 @@ export default function NewStructureModal({
         </div>
 
         <div className="px-6 py-5 flex flex-col gap-3 overflow-y-auto text-sm">
+          <label className="flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold" style={{ borderColor: 'var(--border-color)', color: 'var(--color-primary)', background: 'var(--bg-secondary)' }}>
+            <FileJson size={15} /> Import JSON (một hoặc nhiều cấu trúc)
+            <input type="file" accept="application/json,.json" className="hidden" onChange={e => { const file = e.target.files?.[0]; if (file) void importJson(file); e.currentTarget.value = '' }} />
+          </label>
+          {importError && <p className="rounded-lg px-3 py-2 text-xs" style={{ background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)', color: 'var(--color-accent)' }}>{importError}</p>}
           <Field label="Tiêu đề" value={title} onChange={setTitle} placeholder="VD: Just because ... doesn't mean ..." style={inputStyle} />
           <Field label="Mẫu câu (dùng [A] và [B])" value={template} onChange={setTemplate} placeholder="Just because [A] doesn't mean [B]." style={inputStyle} />
           <Field label="Mô tả (tiếng Việt)" value={description} onChange={setDescription} placeholder="Giải thích ngắn khi nào dùng..." style={inputStyle} />
