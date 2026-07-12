@@ -3346,3 +3346,11 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 - **Ghi chú:**
   - Không giải quyết bài toán "48 đề IELTS user tự import bị mất" — kênh B (sync user-imported exams lên cloud) chưa làm.
   - Lần sync đầu tiên sau bản vá: settings chưa có key nên `previousIds` rỗng → không prune gì hết, chỉ ghi baseline. Từ lần Admin publish/xoá tiếp theo mới bắt đầu prune đúng.
+-
+## 2026-07-12 — IELTS Reading Cambridge catalog import
+
+- Seed 47 đề Reading Cambridge IELTS Cam 9–20, Test 1–4 vào builtin catalog.
+- Loại `reading-cam-11-2.json` vì payload có 41 câu; ghi chú tại `docs/known-issues.md`.
+- Thêm `scripts/payload-to-catalog.mjs` và mở rộng `scripts/build-catalog.mjs` đọc `out-reading/`.
+- Fix layout câu hỏi: giữ prompt thật, table completion, title, rows và gap từ `reading_filtered.json`.
+- Verify: catalog test 47 đề/3 passages/40 câu PASS; `pnpm -C apps/web build` PASS.
