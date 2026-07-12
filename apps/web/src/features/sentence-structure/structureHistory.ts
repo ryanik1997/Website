@@ -6,6 +6,7 @@ export interface StructureCompletionEntry {
   title: string
   completedAt: number
   source: 'sample' | 'ai'
+  completedSentence?: string
 }
 
 function read(): StructureCompletionEntry[] {
