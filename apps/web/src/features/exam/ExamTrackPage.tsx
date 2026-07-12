@@ -578,7 +578,7 @@ function ExamTrackPageInner() {
           />
         )}
 
-        {(importedReading.length > 0 || importedListening.length > 0) && (
+        {canImport && (importedReading.length > 0 || importedListening.length > 0) && (
           <p className="exam-hub-desc" style={{ marginTop: '1rem' }}>
             Đề import: {importedReading.length} Reading, {importedListening.length} Listening
             {' · '}Có thể xóa đề import bằng nút thùng rác (không xóa đề mẫu hệ thống).
