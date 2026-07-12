@@ -40,6 +40,25 @@
 .ss-hub-page-btn:hover:not(:disabled) { color: var(--color-primary); transform: translateY(-.15rem); }
 @media (max-width: 760px) { .ss-topbar { min-height: 8rem; } .ss-topbar::after { font-size: 2.5rem; } .ss-hub-toolbar { grid-template-columns: 1fr; } .ss-hub-count { grid-column: auto; } .ss-hub-list { grid-template-columns: 1fr; } .ss-topbar-sub { display: none; } }
 
+/* Lookup cards: compact, information-led, CEFR visible */
+.ss-topbar::after { display: none; }
+.ss-hub-row { min-height: 0; overflow: hidden; padding-left: .25rem; border-left: 3px solid var(--ss-level-color, var(--border-color)); }
+.ss-hub-row::before { display: none; }
+.ss-hub-row--a2 { --ss-level-color: var(--color-accent); }
+.ss-hub-row--b1 { --ss-level-color: var(--color-primary); }
+.ss-hub-row--b2 { --ss-level-color: color-mix(in srgb, var(--color-primary) 72%, var(--color-accent)); }
+.ss-hub-row--c1 { --ss-level-color: color-mix(in srgb, var(--color-accent) 70%, var(--color-primary)); }
+.ss-hub-row--c2 { --ss-level-color: var(--color-primary); }
+.ss-hub-row-main { padding: 1rem 3rem 1rem 1.1rem; }
+.ss-hub-row-top { padding-right: 2rem; }
+.ss-hub-row-title { font-family: inherit; font-size: 1rem; font-weight: 750; letter-spacing: -.02em; line-height: 1.25; }
+.ss-hub-row-template { margin-top: .45rem; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .78rem; font-weight: 600; letter-spacing: -.01em; }
+.ss-hub-row-desc { margin-top: .35rem; font-size: .72rem; }
+.ss-hub-row .ss-cat-tag { display: inline-flex; align-items: center; gap: .3rem; margin-top: .65rem; padding: .18rem .5rem; color: var(--text-muted); font-size: .62rem; }
+.ss-hub-row-top > span { border-radius: .45rem !important; border: 1px solid color-mix(in srgb, var(--ss-level-color, var(--color-primary)) 28%, transparent); background: color-mix(in srgb, var(--ss-level-color, var(--color-primary)) 12%, transparent) !important; color: var(--ss-level-color, var(--color-primary)) !important; }
+.ss-hub-row:hover { transform: translateX(.15rem); }
+@media (max-width: 760px) { .ss-topbar::after { display: none; } }
+
 .ss-topbar {
   display: flex;
   align-items: center;
