@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from 'react'
-import { FileJson, X } from 'lucide-react'
+import { Download, FileJson, X } from 'lucide-react'
 import { sentenceStructureRepo } from '@ryan/db'
 import { STRUCTURE_CATEGORIES } from './types'
 import { CEFR_LEVELS, CEFR_LABELS, type CefrLevel } from '../../lib/cefr'
@@ -89,6 +89,26 @@ export default function NewStructureModal({
     }
   }
 
+  function downloadJsonSample() {
+    const sample = [{
+      title: 'The more ..., the more ...',
+      template: 'The more [A], the more [B].',
+      description: 'Hai vế tỷ lệ thuận — càng... càng...',
+      category: 'So sánh',
+      cefr: 'B1',
+      exampleA: 'you practise',
+      exampleB: 'you improve',
+      exampleNoteVi: 'Càng luyện tập, bạn càng tiến bộ.',
+    }]
+    const blob = new Blob([JSON.stringify(sample, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = 'sentence-structures-sample.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
   const valid = title.trim() && template.includes('[A]') && template.includes('[B]')
 
   return (
@@ -108,6 +128,9 @@ export default function NewStructureModal({
             <FileJson size={15} /> Import JSON (một hoặc nhiều cấu trúc)
             <input type="file" accept="application/json,.json" className="hidden" onChange={e => { const file = e.target.files?.[0]; if (file) void importJson(file); e.currentTarget.value = '' }} />
           </label>
+          <button type="button" onClick={downloadJsonSample} className="flex items-center gap-2 self-start text-xs font-semibold" style={{ color: 'var(--text-muted)' }}>
+            <Download size={14} /> Tải JSON mẫu
+          </button>
           {importError && <p className="rounded-lg px-3 py-2 text-xs" style={{ background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)', color: 'var(--color-accent)' }}>{importError}</p>}
           <Field label="Tiêu đề" value={title} onChange={setTitle} placeholder="VD: Just because ... doesn't mean ..." style={inputStyle} />
           <Field label="Mẫu câu (dùng [A] và [B])" value={template} onChange={setTemplate} placeholder="Just because [A] doesn't mean [B]." style={inputStyle} />
