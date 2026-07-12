@@ -1,0 +1,1236 @@
+{
+  "id": "catalog-listening-ielts-cam19-test2",
+  "title": "IELTS Listening — Cambridge 19 Test 2",
+  "durationMinutes": 30,
+  "bandHint": "IELTS · Cambridge 19 · Test 2 · 4 parts · 40 câu",
+  "examType": "ielts",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-ielts-cam19-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–10",
+      "instruction": "Questions 1–6: Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer. Questions 7–10: Complete the table below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam19-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-1",
+          "number": 1,
+          "type": "gap-fill",
+          "prompt": "Coordinator Gary …:",
+          "options": [],
+          "answer": "mathieson",
+          "explanation": "Mathieson.",
+          "wordLimit": 2,
+          "sectionRange": "Questions 1 – 6",
+          "sectionInstruction": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "sectionTitle": "Guitar Group"
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-2",
+          "number": 2,
+          "type": "gap-fill",
+          "prompt": "Level:",
+          "options": [],
+          "answer": "beginners",
+          "explanation": "Người mới.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-3",
+          "number": 3,
+          "type": "gap-fill",
+          "prompt": "Place — the …:",
+          "options": [],
+          "answer": "college",
+          "explanation": "Trường cao đẳng.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-4",
+          "number": 4,
+          "type": "gap-fill",
+          "prompt": "… Street:",
+          "options": [],
+          "answer": "new",
+          "explanation": "New Street.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-5",
+          "number": 5,
+          "type": "gap-fill",
+          "prompt": "Thursday morning at …:",
+          "options": [],
+          "answer": "11",
+          "explanation": "11 giờ.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-6",
+          "number": 6,
+          "type": "gap-fill",
+          "prompt": "'The perfect …':",
+          "options": [],
+          "answer": "instrument",
+          "explanation": "Nhạc cụ.",
+          "wordLimit": 2
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-7",
+          "number": 7,
+          "type": "gap-fill",
+          "prompt": "tuning using an app or by …:",
+          "options": [],
+          "answer": "ear",
+          "explanation": "Tai.",
+          "wordLimit": 1,
+          "sectionRange": "Questions 7 – 10",
+          "sectionInstruction": "Complete the table below. Write ONE WORD ONLY for each answer."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-8",
+          "number": 8,
+          "type": "gap-fill",
+          "prompt": "teacher is …:",
+          "options": [],
+          "answer": "clapping",
+          "explanation": "Vỗ tay.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-9",
+          "number": 9,
+          "type": "gap-fill",
+          "prompt": "listening to a … of a song:",
+          "options": [],
+          "answer": "recording",
+          "explanation": "Bản ghi.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-10",
+          "number": 10,
+          "type": "gap-fill",
+          "prompt": "playing together, then …:",
+          "options": [],
+          "answer": "alone",
+          "explanation": "Một mình.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Guitar Group",
+      "notePassageLayout": "table",
+      "noteTables": [
+        {
+          "gapNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "instruction": "Questions 1 – 6\nComplete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "title": "Guitar Group",
+          "headers": [
+            "Field",
+            "Details"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Coordinator"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Gary "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Level"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 2
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Place"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "the "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 3
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Address"
+                  }
+                ],
+                [
+                  {
+                    "type": "gap",
+                    "number": 4
+                  },
+                  {
+                    "type": "static",
+                    "text": " Street"
+                  },
+                  {
+                    "type": "break"
+                  },
+                  {
+                    "type": "static",
+                    "text": "First floor, Room T347"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Time"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "Thursday morning at "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 5
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "Recommended website"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "'The perfect "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 6
+                  },
+                  {
+                    "type": "static",
+                    "text": "'"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "gapNumbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "instruction": "Questions 7 – 10\nComplete the table below. Write ONE WORD ONLY for each answer.",
+          "title": "A typical 45-minute guitar lesson",
+          "headers": [
+            "Time",
+            "Activity",
+            "Notes"
+          ],
+          "rows": [
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "5 minutes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "tuning guitars"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "using an app or by "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 7
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "10 minutes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "strumming chords using our thumbs"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "keeping time while the teacher is "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 8
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "15 minutes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "playing songs"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "often listening to a "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 9
+                  },
+                  {
+                    "type": "static",
+                    "text": " of a song"
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "10 minutes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "playing single notes and simple tunes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "playing together, then "
+                  },
+                  {
+                    "type": "gap",
+                    "number": 10
+                  }
+                ]
+              ]
+            },
+            {
+              "cells": [
+                [
+                  {
+                    "type": "static",
+                    "text": "5 minutes"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": "noting things to practise at home"
+                  }
+                ],
+                [
+                  {
+                    "type": "static",
+                    "text": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam19-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 11–20",
+      "instruction": "Questions 11–16: Choose A, B or C. Questions 17–18 and 19–20: Choose TWO A–E.",
+      "audioUrl": "/catalog/listening/ielts-cam19-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "What made David leave London and move to Northsea?",
+          "options": [
+            {
+              "id": "A",
+              "label": "He was eager to develop a hobby."
+            },
+            {
+              "id": "B",
+              "label": "He wanted to work shorter hours."
+            },
+            {
+              "id": "C",
+              "label": "He found his job in website design unsatisfying."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Muốn phát triển sở thích (A).",
+          "sectionRange": "Questions 11 – 16",
+          "sectionInstruction": "Choose the correct letter, A, B or C.",
+          "sectionTitle": "Working as a lifeboat volunteer"
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "The Lifeboat Institution in Northsea was built with money provided by",
+          "options": [
+            {
+              "id": "A",
+              "label": "a local organisation."
+            },
+            {
+              "id": "B",
+              "label": "a local resident."
+            },
+            {
+              "id": "C",
+              "label": "the local council."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Cư dân địa phương (B)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "In his health assessment, the doctor was concerned about the fact that David",
+          "options": [
+            {
+              "id": "A",
+              "label": "might be colour blind."
+            },
+            {
+              "id": "B",
+              "label": "was rather short-sighted."
+            },
+            {
+              "id": "C",
+              "label": "had undergone eye surgery."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Mù màu (A)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-14",
+          "number": 14,
+          "type": "multiple-choice",
+          "prompt": "After arriving at the lifeboat station, they aim to launch the boat within",
+          "options": [
+            {
+              "id": "A",
+              "label": "five minutes."
+            },
+            {
+              "id": "B",
+              "label": "six to eight minutes."
+            },
+            {
+              "id": "C",
+              "label": "eight and a half minutes."
+            }
+          ],
+          "answer": "B",
+          "explanation": "6–8 phút (B)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-15",
+          "number": 15,
+          "type": "multiple-choice",
+          "prompt": "As a 'helmsman', David has the responsibility of deciding",
+          "options": [
+            {
+              "id": "A",
+              "label": "who will be the members of his crew."
+            },
+            {
+              "id": "B",
+              "label": "what equipment it will be necessary to take."
+            },
+            {
+              "id": "C",
+              "label": "if the lifeboat should be launched."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Có nên triển khai không (C)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-16",
+          "number": 16,
+          "type": "multiple-choice",
+          "prompt": "As well as going out on the lifeboat, David",
+          "options": [
+            {
+              "id": "A",
+              "label": "gives talks on safety at sea."
+            },
+            {
+              "id": "B",
+              "label": "helps with fundraising."
+            },
+            {
+              "id": "C",
+              "label": "recruits new volunteers."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Nói về an toàn biển (A)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-17",
+          "number": 17,
+          "type": "matching",
+          "prompt": "Which TWO things does David say about the lifeboat volunteer training?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The residential course developed his leadership skills."
+            },
+            {
+              "id": "B",
+              "label": "The training in use of ropes and knots was quite brief."
+            },
+            {
+              "id": "C",
+              "label": "The training exercises have built up his mental strength."
+            },
+            {
+              "id": "D",
+              "label": "The casualty care activities were particularly challenging for him."
+            },
+            {
+              "id": "E",
+              "label": "The wave tank activities provided practice in survival techniques."
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Sức mạnh tinh thần (C) và kỹ năng sinh tồn (E).",
+          "sectionRange": "Questions 17 and 18",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-18",
+          "number": 18,
+          "type": "matching",
+          "prompt": "Which TWO things does David say about the lifeboat volunteer training?",
+          "options": [
+            {
+              "id": "A",
+              "label": "The residential course developed his leadership skills."
+            },
+            {
+              "id": "B",
+              "label": "The training in use of ropes and knots was quite brief."
+            },
+            {
+              "id": "C",
+              "label": "The training exercises have built up his mental strength."
+            },
+            {
+              "id": "D",
+              "label": "The casualty care activities were particularly challenging for him."
+            },
+            {
+              "id": "E",
+              "label": "The wave tank activities provided practice in survival techniques."
+            }
+          ],
+          "answer": "C/E",
+          "explanation": "Sức mạnh tinh thần (C) và kỹ năng sinh tồn (E). (cặp 17–18)"
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-19",
+          "number": 19,
+          "type": "matching",
+          "prompt": "Which TWO things does David find most motivating about the work he does?",
+          "options": [
+            {
+              "id": "A",
+              "label": "working as part of a team"
+            },
+            {
+              "id": "B",
+              "label": "experiences when working in winter"
+            },
+            {
+              "id": "C",
+              "label": "being thanked by those he has helped"
+            },
+            {
+              "id": "D",
+              "label": "the fact that it keeps him fit"
+            },
+            {
+              "id": "E",
+              "label": "the chance to develop new equipment"
+            }
+          ],
+          "answer": "A/B",
+          "explanation": "Làm việc nhóm (A) và mùa đông (B).",
+          "sectionRange": "Questions 19 and 20",
+          "sectionInstruction": "Choose TWO letters, A–E."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-20",
+          "number": 20,
+          "type": "matching",
+          "prompt": "Which TWO things does David find most motivating about the work he does?",
+          "options": [
+            {
+              "id": "A",
+              "label": "working as part of a team"
+            },
+            {
+              "id": "B",
+              "label": "experiences when working in winter"
+            },
+            {
+              "id": "C",
+              "label": "being thanked by those he has helped"
+            },
+            {
+              "id": "D",
+              "label": "the fact that it keeps him fit"
+            },
+            {
+              "id": "E",
+              "label": "the chance to develop new equipment"
+            }
+          ],
+          "answer": "A/B",
+          "explanation": "Làm việc nhóm (A) và mùa đông (B). (cặp 19–20)"
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam19-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 21–30",
+      "instruction": "Questions 21–24: Choose A, B or C. Questions 25–28: Matching A–F. Questions 29–30: Choose A, B or C.",
+      "audioUrl": "/catalog/listening/ielts-cam19-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "At first, Don thought the topic of recycling footwear might be too",
+          "options": [
+            {
+              "id": "A",
+              "label": "limited in scope."
+            },
+            {
+              "id": "B",
+              "label": "hard to research."
+            },
+            {
+              "id": "C",
+              "label": "boring for listeners."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Phạm vi hẹp (A).",
+          "sectionRange": "Questions 21 – 24",
+          "sectionInstruction": "Choose the correct letter, A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "When discussing trainers, Bella and Don disagree about",
+          "options": [
+            {
+              "id": "A",
+              "label": "how popular they are among young people."
+            },
+            {
+              "id": "B",
+              "label": "how suitable they are for school."
+            },
+            {
+              "id": "C",
+              "label": "how quickly they wear out."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Phù hợp đi học (B)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-23",
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "Bella says that she sometimes recycles shoes because",
+          "options": [
+            {
+              "id": "A",
+              "label": "they no longer fit."
+            },
+            {
+              "id": "B",
+              "label": "she no longer likes them."
+            },
+            {
+              "id": "C",
+              "label": "they are no longer in fashion."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Không còn vừa (A)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-24",
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "What did the article say that confused Don?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Public consumption of footwear has risen."
+            },
+            {
+              "id": "B",
+              "label": "Less footwear is recycled now than in the past."
+            },
+            {
+              "id": "C",
+              "label": "People dispose of more footwear than they used to."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Ít tái chế hơn (B)."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-25",
+          "number": 25,
+          "type": "matching",
+          "prompt": "the high-heeled shoes",
+          "options": [
+            {
+              "id": "A",
+              "label": "one shoe was missing"
+            },
+            {
+              "id": "B",
+              "label": "the colour of one shoe had faded"
+            },
+            {
+              "id": "C",
+              "label": "one shoe had a hole in it"
+            },
+            {
+              "id": "D",
+              "label": "the shoes were brand new"
+            },
+            {
+              "id": "E",
+              "label": "the shoes were too dirty"
+            },
+            {
+              "id": "F",
+              "label": "the stitching on the shoes was broken"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Chọn theo audio.",
+          "sectionRange": "Questions 25 – 28",
+          "sectionInstruction": "What reasons did the recycling manager give for rejecting footwear? Choose FOUR answers from the box and write the correct letter, A–F, next to Questions 25–28.",
+          "sectionTitle": "Footwear"
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-26",
+          "number": 26,
+          "type": "matching",
+          "prompt": "the ankle boots",
+          "options": [
+            {
+              "id": "A",
+              "label": "one shoe was missing"
+            },
+            {
+              "id": "B",
+              "label": "the colour of one shoe had faded"
+            },
+            {
+              "id": "C",
+              "label": "one shoe had a hole in it"
+            },
+            {
+              "id": "D",
+              "label": "the shoes were brand new"
+            },
+            {
+              "id": "E",
+              "label": "the shoes were too dirty"
+            },
+            {
+              "id": "F",
+              "label": "the stitching on the shoes was broken"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-27",
+          "number": 27,
+          "type": "matching",
+          "prompt": "the baby shoes",
+          "options": [
+            {
+              "id": "A",
+              "label": "one shoe was missing"
+            },
+            {
+              "id": "B",
+              "label": "the colour of one shoe had faded"
+            },
+            {
+              "id": "C",
+              "label": "one shoe had a hole in it"
+            },
+            {
+              "id": "D",
+              "label": "the shoes were brand new"
+            },
+            {
+              "id": "E",
+              "label": "the shoes were too dirty"
+            },
+            {
+              "id": "F",
+              "label": "the stitching on the shoes was broken"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-28",
+          "number": 28,
+          "type": "matching",
+          "prompt": "the trainers",
+          "options": [
+            {
+              "id": "A",
+              "label": "one shoe was missing"
+            },
+            {
+              "id": "B",
+              "label": "the colour of one shoe had faded"
+            },
+            {
+              "id": "C",
+              "label": "one shoe had a hole in it"
+            },
+            {
+              "id": "D",
+              "label": "the shoes were brand new"
+            },
+            {
+              "id": "E",
+              "label": "the shoes were too dirty"
+            },
+            {
+              "id": "F",
+              "label": "the stitching on the shoes was broken"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Chọn theo audio."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-29",
+          "number": 29,
+          "type": "multiple-choice",
+          "prompt": "Why did the project to make 'new' shoes out of old shoes fail?",
+          "options": [
+            {
+              "id": "A",
+              "label": "People believed the 'new' pairs of shoes were unhygienic."
+            },
+            {
+              "id": "B",
+              "label": "There were not enough good parts to use in the old shoes."
+            },
+            {
+              "id": "C",
+              "label": "The shoes in the 'new' pairs were not completely alike."
+            }
+          ],
+          "answer": "C",
+          "explanation": "Giày không giống nhau (C).",
+          "sectionRange": "Questions 29 – 30",
+          "sectionInstruction": "Choose the correct letter, A, B or C."
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-30",
+          "number": 30,
+          "type": "multiple-choice",
+          "prompt": "Bella and Don agree that they can present their topic",
+          "options": [
+            {
+              "id": "A",
+              "label": "from a new angle."
+            },
+            {
+              "id": "B",
+              "label": "with relevant images."
+            },
+            {
+              "id": "C",
+              "label": "in a straightforward way."
+            }
+          ],
+          "answer": "A",
+          "explanation": "Góc nhìn mới (A)."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-ielts-cam19-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 31–40",
+      "instruction": "Complete the notes below. Write ONE WORD ONLY for each answer.",
+      "audioUrl": "/catalog/listening/ielts-cam19-test2/listening.mp3",
+      "questions": [
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-31",
+          "number": 31,
+          "type": "gap-fill",
+          "prompt": "due to how they …:",
+          "options": [],
+          "answer": "move",
+          "explanation": "Di chuyển.",
+          "wordLimit": 1,
+          "sectionTitle": "Tardigrades"
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-32",
+          "number": 32,
+          "type": "gap-fill",
+          "prompt": "a … round body:",
+          "options": [],
+          "answer": "short",
+          "explanation": "Ngắn/tròn.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-33",
+          "number": 33,
+          "type": "gap-fill",
+          "prompt": "claws or … for gripping:",
+          "options": [],
+          "answer": "discs",
+          "explanation": "Đĩa.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-34",
+          "number": 34,
+          "type": "gap-fill",
+          "prompt": "liquid carries both … and blood:",
+          "options": [],
+          "answer": "oxygen",
+          "explanation": "Oxy.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-35",
+          "number": 35,
+          "type": "gap-fill",
+          "prompt": "mouth shaped like a …:",
+          "options": [],
+          "answer": "tube",
+          "explanation": "Ống.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-36",
+          "number": 36,
+          "type": "gap-fill",
+          "prompt": "very low or high …:",
+          "options": [],
+          "answer": "temperatures",
+          "explanation": "Nhiệt độ.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-37",
+          "number": 37,
+          "type": "gap-fill",
+          "prompt": "A type of … ensures DNA is not damaged:",
+          "options": [],
+          "answer": "protein",
+          "explanation": "Protein.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-38",
+          "number": 38,
+          "type": "gap-fill",
+          "prompt": "stay alive in …:",
+          "options": [],
+          "answer": "space",
+          "explanation": "Không gian.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-39",
+          "number": 39,
+          "type": "gap-fill",
+          "prompt": "liquids found in moss or …:",
+          "options": [],
+          "answer": "seaweed",
+          "explanation": "Rong biển.",
+          "wordLimit": 1
+        },
+        {
+          "id": "catalog-listening-ielts-cam19-test2-q-40",
+          "number": 40,
+          "type": "gap-fill",
+          "prompt": "not considered …:",
+          "options": [],
+          "answer": "endangered",
+          "explanation": "Nguy cấp.",
+          "wordLimit": 1
+        }
+      ],
+      "passageTitle": "Tardigrades",
+      "notePassage": [
+        {
+          "type": "static",
+          "text": "• more than 1,000 species, 0.05–1.2 millimetres long"
+        },
+        {
+          "type": "static",
+          "text": "• also known as water 'bears' (due to how they "
+        },
+        {
+          "type": "gap",
+          "number": 31
+        },
+        {
+          "type": "static",
+          "text": ") and 'moss piglets'"
+        },
+        {
+          "type": "section",
+          "text": "Physical appearance"
+        },
+        {
+          "type": "static",
+          "text": "• a "
+        },
+        {
+          "type": "gap",
+          "number": 32
+        },
+        {
+          "type": "static",
+          "text": " round body and four pairs of legs"
+        },
+        {
+          "type": "static",
+          "text": "• claws or "
+        },
+        {
+          "type": "gap",
+          "number": 33
+        },
+        {
+          "type": "static",
+          "text": " for gripping"
+        },
+        {
+          "type": "static",
+          "text": "• absence of respiratory organs"
+        },
+        {
+          "type": "static",
+          "text": "• body filled with a liquid that carries both "
+        },
+        {
+          "type": "gap",
+          "number": 34
+        },
+        {
+          "type": "static",
+          "text": " and blood"
+        },
+        {
+          "type": "static",
+          "text": "• mouth shaped like a "
+        },
+        {
+          "type": "gap",
+          "number": 35
+        },
+        {
+          "type": "static",
+          "text": " with teeth called stylets"
+        },
+        {
+          "type": "section",
+          "text": "Habitat"
+        },
+        {
+          "type": "static",
+          "text": "• often found at the bottom of a lake or on plants"
+        },
+        {
+          "type": "static",
+          "text": "• very resilient and can exist in very low or high "
+        },
+        {
+          "type": "gap",
+          "number": 36
+        },
+        {
+          "type": "section",
+          "text": "Cryptobiosis"
+        },
+        {
+          "type": "static",
+          "text": "• In dry conditions, they roll into a ball called a 'tun'."
+        },
+        {
+          "type": "static",
+          "text": "• They stay alive with a much lower metabolism than usual."
+        },
+        {
+          "type": "static",
+          "text": "• A type of "
+        },
+        {
+          "type": "gap",
+          "number": 37
+        },
+        {
+          "type": "static",
+          "text": " ensures their DNA is not damaged."
+        },
+        {
+          "type": "static",
+          "text": "• Research is underway to find out how many days they can stay alive in "
+        },
+        {
+          "type": "gap",
+          "number": 38
+        },
+        {
+          "type": "section",
+          "text": "Feeding"
+        },
+        {
+          "type": "static",
+          "text": "• consume liquids, e.g., those found in moss or "
+        },
+        {
+          "type": "gap",
+          "number": 39
+        },
+        {
+          "type": "static",
+          "text": "• may eat other tardigrades"
+        },
+        {
+          "type": "section",
+          "text": "Conservation status"
+        },
+        {
+          "type": "static",
+          "text": "• They are not considered to be "
+        },
+        {
+          "type": "gap",
+          "number": 40
+        }
+      ],
+      "notePassageLayout": "lecture"
+    }
+  ],
+  "catalogSlug": "ielts-cam19-test2",
+  "catalogBase": "/catalog/listening/ielts-cam19-test2"
+}

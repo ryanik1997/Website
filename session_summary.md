@@ -10,14 +10,14 @@
 
 ## Trạng thái hiện tại
 
-- **Branch:** `main` (git repo `D:/App-English-Ryan/Website`)
+- **Branch:** `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-10 (cuối)** — Vocab ghost sync fix + RLS harden + Cambridge checklist/transcript + deploy **v0.2.3**
-- **Session trước (cùng ngày):** Cambridge skill picker **Reading - Writing** (A2–C2); IELTS giữ Reading; Listening audioscript; Admin publish vocab
-- **Tạm hoãn:** Batch import đề Reading Cam 11–20 — re-publish đề cũ có thể dùng **Admin → Publish nội dung**
-- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.3** (vocab dedupe/rekey, sync ghost soft-delete, chunked push)
+- **Session:** **2026-07-12** — **Cứu lại 48 IELTS Listening + 9 Reading** vào builtin catalog (`GLOBAL_CATALOG_VERSION = 24`)
+- **Session trước:** Vocab/sync + Cambridge; IELTS catalog từng bị xóa theo request “Xóa sạch 48 đề mẫu” (2026-07-04/05)
+- **Tạm hoãn:** Batch Reading IELTS còn lại (~39 đề chỉ PDF, chưa có `exam.json`)
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.3** (chưa deploy bản cứu catalog)
 - **Migrations Supabase:** 001–**016** (đã push trước); **017_checkin_days** — cần `pnpm db:push` (điểm danh cloud)
-- **Dev:** `pnpm dev` → `/app/vocab` (Dọn thẻ trùng) · `/app/exam/...`
+- **Dev:** `pnpm dev` → `/app/exam/...` — hard refresh để `syncGlobalCatalog` v24 nạp lại đề
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -31,7 +31,37 @@
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
 | Reading | C2 CPE | `cpe-Reading-test1` | **Builtin** `catalog-reading-cpe-c2-test1` — **9 parts RW** (P1–7 Reading + P8–9 Writing, 120 phút) |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
-| Listening | IELTS Cam 9–20 | `IELTS/Listening IELTS_Test*_Cam*` (48 đề) | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` — auto `build-catalog.mjs` |
+| Listening | IELTS Cam 9–20 | `IELTS/Listening/Listening IELTS_Test*_Cam*` (48 đề) | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` — restored 2026-07-12 |
+| Reading | IELTS Cam 9–11 (một phần) | `IELTS/Reading IELTS_Test*_Cam*` | **Builtin 9 đề** có `exam.json` (Cam9 T1–4, Cam10 T1–4, Cam11 T3); 39 folder còn PDF/scaffold |
+
+---
+
+## Session 2026-07-12 — Cứu catalog IELTS 48 Listening + 9 Reading
+
+### Nguyên nhân “mất”
+- 2026-07-04/05: user request “Xóa sạch 48 đề mẫu” → disable `discoverIeltsListeningBundles`, empty `generatedIeltsListening.ts`, xóa 48 JSON catalog.
+- **Nguồn Tainguyen + MP3 public vẫn còn** — không mất file gốc.
+
+### Đã làm
+- [x] Restore 48 JSON `packages/catalog/data/listening-ielts-cam*.json` + `generatedIeltsListening.ts` (git `ded4557` + rebuild)
+- [x] Bật lại discover Listening: `Tainguyen/IELTS/Listening/` (+ fallback flat `IELTS/`)
+- [x] Discover Reading IELTS chỉ folder có `exam.json` → **9 đề** + `generatedIeltsReading.ts`
+- [x] `pnpm`/`node scripts/build-catalog.mjs` — 48 listening + 9 reading IELTS + Cambridge static
+- [x] Wire `GENERATED_IELTS_READING_EXAMS` vào `builtinExams.ts`
+- [x] Bump `GLOBAL_CATALOG_VERSION` **23 → 24** (Dexie re-sync catalog)
+- [x] Fix TS: `listeningExamCatalogMerge` cast `examType as ListeningExamType` (JSON widen)
+- [x] `npx tsc --noEmit` (apps/web) — pass
+
+### Còn lại
+- [ ] Deploy production để mọi user thấy lại 48 Listening
+- [ ] Build `exam.json` cho ~39 Reading IELTS còn lại (PDF trong folder scaffold)
+- [ ] Hard refresh browser local nếu vẫn không thấy đề (catalog version gate)
+
+### Lệnh verify
+```bash
+node scripts/build-catalog.mjs   # IELTS listening: 48, reading: 9
+# apps/web: npx tsc --noEmit
+```
 
 ---
 
@@ -3202,9 +3232,12 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - Verify: sanitize `Test 1/exam.json` → Part 2 vẫn `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) vẫn coerce
 - User: hard refresh dev → **import lại** ZIP (hoặc mở lại đề) — không cần sửa JSON
 
-## Next session start prompt (cập nhật 2026-07-11)
+## Next session start prompt (cập nhật 2026-07-12)
 
 ```
+Đọc session_summary.md (đầu file + mục "2026-07-12 — Cứu catalog IELTS").
+48 IELTS Listening đã restore builtin (GLOBAL_CATALOG_VERSION=24). Reading IELTS: 9/48 có exam.json.
+Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để sync catalog v24.
 Đọc session_summary.md (đầu file + mục "2026-07-11" fix KET Part 2 YNNG + check-in cloud).
 
 1) pnpm db:push — migration 017_checkin_days (bắt buộc trước khi streak cloud hoạt động)
@@ -3270,3 +3303,30 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - Lessons, Translation, Sentence Structures và Writing Prompts giờ prune các ID từng nhận từ Admin Publish nhưng đã vắng trong payload mới.
 - Batch Publish Reading/Listening giờ dọn các exam cloud không còn trong danh sách publishable local.
 - Dữ liệu cá nhân không nằm trong danh sách Admin Publish nên không bị xóa.
+
+## 2026-07-12 — Fix MindMap xoá rồi sống lại (sync legacy bypass tombstone)
+
+- **Root cause:** `apps/web/src/features/auth/useSync.ts` chạy song song với `useSyncManager` và khi `db.decks.count() === 0` gọi `syncCloudToLocal` — hàm này pull thẳng `SELECT * FROM mindmaps` rồi `bulkPut`, **không đọc `mindmapTombstones`**. Mọi mindmap đã xoá local nhưng cloud chưa kịp xoá đều được kéo về "sống lại".
+- **Fix:**
+  - Xoá `apps/web/src/features/auth/useSync.ts` (đã không có caller — `useSyncManager` với `syncBidirectional` lo hết, và `syncBidirectional` tôn trọng `mindmapTombstones`).
+  - Xoá hàm legacy `syncLocalToCloud` + `syncCloudToLocal` khỏi `packages/db/src/cloud/sync.ts`.
+  - Bỏ 2 tên đó khỏi export ở `packages/db/src/index.ts`.
+- **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
+- **Ghi chú:** giờ chỉ còn 1 đường sync duy nhất qua `syncBidirectional`. Nếu sau này cần "pull-only cho máy mới" thì phải viết lại có filter tombstone (mindmaps, và các bảng khác về sau).
+
+## 2026-07-12 — Fix Deck/Card xoá rồi sống lại (thiếu tombstone)
+
+- **Root cause:** `deckRepo.delete()` và `cardRepo.delete()` chỉ xoá thuần local (`db.decks.delete` / `db.cards.delete`), không viết tombstone. `syncBidirectional` sau đó thấy row còn trên cloud mà không có local → coi như "remote mới" → `bulkPut` kéo về, sống lại toàn bộ deck + cards + SRS (hoặc card đơn lẻ).
+- **Fix:**
+  - `packages/db/src/local/schema.ts` — bump v14, thêm bảng `deckTombstones` + `cardTombstones` (interface `DeckTombstone`, `CardTombstone`), index `&id, deletedAt`.
+  - `deckRepo.delete()` — transaction: put tombstone → xoá srs/reviewLog/cards/deck local (giữ nguyên preset guard).
+  - `cardRepo.delete()` — transaction: put tombstone → xoá srs + card local.
+  - `packages/db/src/cloud/sync.ts` (`syncBidirectional`):
+    - Load `deckTombstones` + `cardTombstones` cùng lúc, lọc UUID hợp lệ.
+    - `cloudDecksLive` / `cloudCardsLive` filter thêm tombstone set (không pull ngược ngay cả khi push xoá cloud lỗi).
+    - Push hard-delete cloud (`.from('decks').delete().eq(user_id).in(id, chunk)` + tương tự cho cards), chunk 80. Cloud có FK `on delete cascade` nên xoá deck → cards + srs tự dọn.
+    - Xoá tombstone local sau khi cloud xác nhận thành công.
+- **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
+- **Ghi chú:**
+  - Deck/card đã bị xoá trước bản vá này (khi chưa có tombstone) vẫn có thể sống lại 1 lần từ cloud vào sync kế tiếp — không cứu lại được vì không có dấu vết. Từ giờ trở đi thì sạch.
+  - Không cần migration Supabase — cloud schema đã có `on delete cascade` sẵn.

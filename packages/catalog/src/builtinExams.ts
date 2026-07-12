@@ -8,6 +8,7 @@ import petListening from '../data/listening-pet-b1-test1.json'
 import fceListening from '../data/listening-fce-b2-test1.json'
 import caeListening from '../data/listening-cae-c1-test1.json'
 import { GENERATED_IELTS_LISTENING_EXAMS } from './generatedIeltsListening'
+import { GENERATED_IELTS_READING_EXAMS } from './generatedIeltsReading'
 import catalogManifest from '../data/manifest.json'
 
 type WithCatalogMeta = {
@@ -27,6 +28,7 @@ export const CATALOG_READING_EXAMS = [
   stripCatalogMeta(fceReading),
   stripCatalogMeta(caeReading),
   stripCatalogMeta(cpeReading),
+  ...GENERATED_IELTS_READING_EXAMS.map(exam => stripCatalogMeta(exam)),
 ]
 
 /** Đề Listening ship cùng app — media tại /public/catalog/listening/ */
