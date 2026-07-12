@@ -15,7 +15,7 @@
 - **Session:** **2026-07-12** — **Cứu lại 48 IELTS Listening + 9 Reading** vào builtin catalog (`GLOBAL_CATALOG_VERSION = 24`)
 - **Session trước:** Vocab/sync + Cambridge; IELTS catalog từng bị xóa theo request “Xóa sạch 48 đề mẫu” (2026-07-04/05)
 - **Tạm hoãn:** Batch Reading IELTS còn lại (~39 đề chỉ PDF, chưa có `exam.json`)
-- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.3** (chưa deploy bản cứu catalog)
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4** (IELTS catalog restore: 48 Listening + 9 Reading)
 - **Migrations Supabase:** 001–**016** (đã push trước); **017_checkin_days** — cần `pnpm db:push` (điểm danh cloud)
 - **Dev:** `pnpm dev` → `/app/exam/...` — hard refresh để `syncGlobalCatalog` v24 nạp lại đề
 
@@ -53,9 +53,10 @@
 - [x] `npx tsc --noEmit` (apps/web) — pass
 
 ### Còn lại
-- [ ] Deploy production để mọi user thấy lại 48 Listening
+- [x] Deploy production **v0.2.4** — `pnpm deploy:web` → https://ryanenglishv2.vercel.app (commit `e0f0581`)
+- [x] Push branch `feat/reading-part-picker`
 - [ ] Build `exam.json` cho ~39 Reading IELTS còn lại (PDF trong folder scaffold)
-- [ ] Hard refresh browser local nếu vẫn không thấy đề (catalog version gate)
+- [ ] User: hard refresh production để catalog v24 nạp lại
 
 ### Lệnh verify
 ```bash
