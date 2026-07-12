@@ -19,6 +19,7 @@ import {
 } from './types'
 import {
   nodeDims,
+  autoFitNodeDims,
   computeContentBounds,
   shiftLayouts,
   connectorPath,
@@ -60,6 +61,14 @@ const NODE_FONT: Record<number, string> = {
   1: '0.85rem',
   2: '0.78rem',
   3: '0.74rem',
+}
+
+/** rem→px cho auto-fit (1rem = 16px) */
+const NODE_FONT_PX: Record<number, number> = {
+  0: 15.2,
+  1: 13.6,
+  2: 12.5,
+  3: 11.8,
 }
 
 export default function MindmapCanvas({ root, layout: initialLayout, mapName = 'mindmap', onSave, onLayoutChange }: Props) {
@@ -110,7 +119,21 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
   useEffect(() => { if (editingId) setTimeout(() => editRef.current?.focus(), 50) }, [editingId])
   useEffect(() => { if (addingTo)  setTimeout(() => addRef.current?.focus(),  50) }, [addingTo])
 
-  const baseLayouts = useMemo(() => computeLayout(tree, layoutMode), [tree, layoutMode])
+  const sizeById = useMemo(() => {
+    const m = new Map<string, { w: number; h: number }>()
+    function walk(n: MindNode, depth: number) {
+      const { w, h } = autoFitNodeDims(n.text ?? '', depth, NODE_FONT_PX[Math.min(depth, 3)])
+      m.set(n.id, { w, h })
+      if (n.collapsed) return
+      n.children.forEach(c => walk(c, depth + 1))
+    }
+    walk(tree, 0)
+    return m
+  }, [tree])
+  const baseLayouts = useMemo(
+    () => computeLayout(tree, layoutMode, sizeById),
+    [tree, layoutMode, sizeById],
+  )
   const layouts = useMemo(
     () => applyNodeOffsets(baseLayouts, tree, liveOffsets),
     [baseLayouts, tree, liveOffsets],
@@ -265,10 +288,17 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
     setEditText(node.text)
     setAddingTo(null)
   }
+  const committingRef = useRef(false)
   async function commitEdit() {
+    if (committingRef.current) return
     if (!editingId || !editText.trim()) { setEditing(null); return }
-    await save(updateNode(tree, editingId, n => ({ ...n, text: editText.trim() })))
-    setEditing(null)
+    committingRef.current = true
+    try {
+      await save(updateNode(tree, editingId, n => ({ ...n, text: editText.trim() })))
+    } finally {
+      committingRef.current = false
+      setEditing(null)
+    }
   }
 
   // ── Add child ──
@@ -355,7 +385,10 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
         cursor: isPanning ? 'grabbing' : 'default',
       }}
       onMouseDown={onViewportMouseDown}
-      onClick={() => { setSel(null); setAddingTo(null); setEditing(null); setGateMsg('') }}
+      onClick={() => {
+        if (editingId) commitEdit()
+        setSel(null); setAddingTo(null); setGateMsg('')
+      }}
     >
       {/* Gate message */}
       {gateMsg && (
@@ -531,7 +564,8 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
         {displayLayouts.map(l => {
           const node = flattenNodes(tree).find(n => n.id === l.id)
           if (!node) return null
-          const size = nodeDims(l.depth)
+          const baseSize = nodeDims(l.depth)
+          const size = { w: l.w ?? baseSize.w, h: l.h ?? baseSize.h }
           const fontSize = NODE_FONT[Math.min(l.depth, 3)]
           const isRoot     = l.depth === 0
           const isSelected = selectedId === l.id
@@ -552,8 +586,10 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
                 onClick={e => {
                   e.stopPropagation()
                   if (suppressClickRef.current) return
+                  if (editingId && editingId !== l.id) commitEdit()
                   setSel(isSelected ? null : l.id)
                   setAddingTo(null)
+                  if (editingId === l.id) return
                   setEditing(null)
                 }}
                 onDoubleClick={e => { e.stopPropagation(); startEdit(node) }}
@@ -588,12 +624,25 @@ export default function MindmapCanvas({ root, layout: initialLayout, mapName = '
                       if (e.key === 'Escape') setEditing(null)
                       e.stopPropagation()
                     }}
+                    onBlur={() => commitEdit()}
                     onClick={e => e.stopPropagation()}
                     className="w-full text-center bg-transparent outline-none"
                     style={{ color: isRoot ? '#fff' : l.color, fontSize }}
                   />
                 ) : (
-                  <span className="truncate text-center px-1" style={{ maxWidth: size.w - 12 }}>
+                  <span
+                    className="text-center px-1"
+                    style={{
+                      maxWidth: size.w - 12,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      wordBreak: 'break-word',
+                      lineHeight: 1.2,
+                    }}
+                    title={node.text}
+                  >
                     {isExpanding ? '✨' : node.text}
                   </span>
                 )}
