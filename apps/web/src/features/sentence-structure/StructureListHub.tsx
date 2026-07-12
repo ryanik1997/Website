@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ChevronLeft, ChevronRight, Search, Star } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Search, Star, Tag } from 'lucide-react'
 import { dedupeLegacySentenceStructures } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
@@ -195,7 +195,7 @@ function StructureRow({
   const badge = cefr ? cefrBadgeStyle(cefr) : null
 
   return (
-    <div className="ss-hub-row" role="listitem">
+    <div className={`ss-hub-row${cefr ? ` ss-hub-row--${cefr.toLowerCase()}` : ''}`} role="listitem">
       <button type="button" className="ss-hub-row-main" onClick={onOpen}>
         <div className="ss-hub-row-top">
           <h2 className="ss-hub-row-title">{item.title}</h2>
@@ -212,7 +212,7 @@ function StructureRow({
         {item.description && (
           <p className="ss-hub-row-desc">{item.description}</p>
         )}
-        <span className="ss-cat-tag">{cat.icon} {item.category}</span>
+        <span className="ss-cat-tag"><Tag size={12} /> {item.category}</span>
       </button>
       <button
         type="button"
