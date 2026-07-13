@@ -1298,6 +1298,91 @@ Chưa xong:
 - Nếu cần render đẹp hơn (table layout P1, map ảnh nhúng, section header chi tiết hơn) → có thể mở rộng render + dùng thêm `meta.json` + ảnh.
 - Sau này muốn regenerate chỉ cần `python gen.py`.
 
+---
+
+## Session 2026-07-13 — Convert 47 đề Reading qua pipeline normalize + template (fix layout)
+
+### Gốc rễ
+- Adapter cũ làm phẳng noteTable/notePassage → mất bảng, nhảy dòng.
+- App có sẵn pipeline pure-function chuẩn hóa layout: `ieltsReadingAiNormalize.ts` + `readingNoteTableUtils.ts` + `ieltsReadingTemplateCatalog.ts` + `ieltsReadingPartTemplates.ts`. Chạy offline (Node/tsx), không cần browser.
+- Yêu cầu: KHÔNG viết lại parser tay, import trực tiếp từ source.
+
+### Branch + commits
+- Branch: `feat/fix-reading-layout`
+- Commits:
+  - `1f1dd35` — step0: pipeline signature confirm
+  - `df393ba` — chore: gitignore + remove `_recover_wizard` artefacts
+  - `aa56810` — feat(reading): reverse-index all 73 wizard templates (Bước 1)
+  - `de38422` — feat(reading): convert 47 IELTS Reading exams via template pipeline (Bước 2–4)
+  - `08ebe77` — chore(reading): drop cam-7/cam-8 converted files (out of scope)
+
+### Bước 0 — Xác minh signature (docs/READING-PIPELINE-CONFIRM.md)
+- Pure (0 hit `window|dexie|indexedDB|fetch|document.`) → chạy Node/tsx an toàn.
+- `normalizeAiReadingPart(part) → part` (line 209)
+- `alignQuestionGroupsToTemplate(part, templatePart)` (line 402)
+- `forceTemplateSummaryWordBanks(part, templatePart)` (line 461)
+- `forceTemplateHybridGroups(part, templatePart)` (line 562)
+- `applyReadingTemplateTableStructure(part, templatePart)` (line 849) — **wrapper compose sẵn** merge + align + force + notePassage
+- `resolveReadingTemplateKind(passageNumber, kind)` — chỉ validate kind chuỗi, KHÔNG detect từ displayType
+- `getIeltsReadingWizardTemplatePart(passageNumber, kind)` — line 9166
+
+### Quyết định user
+1. **Template detect:** B — Reverse-index all templates (chạy 73 builder, trích type-triplet, build map)
+2. **Wrapper:** dùng `applyReadingTemplateTableStructure` (không sửa source, không export merge riêng)
+
+### Bước 1 — Reverse-index (aa56810)
+- Chạy 73/73 template builder → 0 lỗi
+- 63 unique type-triplet, 8 collision (first-wins per passage)
+- Output: `out-reading/template-triplet-index.json`
+
+### Bước 2–4 — Convert + validate (de38422)
+- Scope: 47 đề (cam-9..20 × T1–T4, trừ `cam-11-2`) · 141 passage
+- Pipeline mỗi part: `normalizeAiReadingPart` → (nếu matched) `applyReadingTemplateTableStructure(part, templatePart)`
+- **Matched 52/141 (37%)** — apply wrapper
+- **Fallback normalize-only 89/141 (63%)** — nguyên nhân:
+  - Cam9 T1–T4: group-per-question (13 MC = 13 group riêng lẻ) do generator cũ → triplet 8–14 phần tử, không template nào khớp
+  - Cam12–20: nhiều passage có triplet 4-group chưa có trong catalog (top: `matching-paragraph|summary-completion|multiple-choice|multiple-choice` ×6; `matching-paragraph|matching-features|summary-completion` ×4)
+- Output: `out-reading/converted/reading-cam-{9..20}-{1..4}.json` (47 file) + `VALIDATE-REPORT.md`
+
+### Cảnh báo trước/sau — KHÔNG tái tạo được 345
+- Validator được export (`validateAiReadingPartShape`, `validateAiReadingPartAgainstTemplate`, `validateReadingNoteTable`): **trước 4 → sau 4**
+- Top loại sau: `missing-notePassage:3`, `missing-noteTable:1`. Top đề: `reading-cam-16-4.json:4`
+- Số **345** trong spec không đến từ 3 validator này — nghi là surface khác (runtime wizard warning / groupRoles counter / seed log). Cần user chỉ đúng nguồn.
+
+### Files mới
+- `scripts/reading/adapt-reading.mjs` — raw adapter giữ displayType
+- `scripts/reading/detect-template.mjs` — reverse-index detection
+- `scripts/reading/run-pipeline.mjs` — pipeline runner qua tsx
+- `scripts/reading/convert-and-validate.mts` — orchestrator (user đang mở file này)
+- `docs/READING-PIPELINE-CONFIRM.md` — Bước 0 signature report
+- `out-reading/template-triplet-index.json`
+- `out-reading/converted/reading-cam-{9..20}-{1..4}.json` (47)
+- `out-reading/VALIDATE-REPORT.md`
+- `.gitignore` — thêm `_recover_wizard/`
+
+### Chưa xong / Blocker
+- [ ] **63% passage fallback** — cần bước consolidate group (gộp 13 MC-per-group thành 1 group MC) TRƯỚC pipeline để match template Cam9. Nằm ngoài scope (bị cấm "viết lại normalize") — cần user cho phép thêm consolidator riêng biệt.
+- [ ] **Nguồn số 345** — user cần xác nhận validator/counter nào cho ra 345, để đo before/after chính xác.
+- [ ] **Seed + so mắt cam-20-2** — cần user chạy build-catalog với converted files rồi mở cam-20-2 so screenshot TID gốc (bảng ra bảng, notes đúng gap, sentence-ending không nhảy dòng).
+- [ ] Bổ sung template catalog cho 4-group triplet phổ biến (giảm fallback từ 63% xuống nhiều hơn).
+
+### Next session start prompt
+```
+Đọc session_summary.md phần Session 2026-07-13.
+
+Branch: feat/fix-reading-layout. Đã có 5 commit convert 47 đề Reading qua pipeline.
+
+Cần user quyết:
+(a) Cho phép viết consolidator gộp group-per-question Cam9 trước pipeline?
+(b) Số 345 đến từ đâu (validate script/UI nào)?
+(c) Đưa out-reading/converted/*.json vào build-catalog pipeline như nào?
+
+Sau khi có (a)(b)(c):
+- Rerun pipeline với consolidator → giảm fallback dưới 30%
+- Đo lại warnings đúng surface 345
+- pnpm build:catalog + seed lại + user mở cam-20-2 verify
+```
+
 ### Follow-up (line drops / rớt dòng fix)
 - User reported text dropping to new lines (real paper keeps the sentence + blank on 1 line).
 - Rewrote render_blocks: more aggressive lookahead for gaps after any static; always wrap static+gap+tail into one flex container (bullet-item / form-row / generic display:flex nowrap).
