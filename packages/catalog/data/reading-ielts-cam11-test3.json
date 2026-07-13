@@ -1,290 +1,164 @@
 {
-  "id": "catalog-reading-ielts-cam11-test3",
-  "title": "IELTS Reading — Cambridge 11 Test 3",
+  "id": "catalog-cam-11-3-reading",
+  "title": "CAM 11 3",
   "durationMinutes": 60,
-  "bandHint": "IELTS Academic · Cambridge 11 · Test 3 · 3 passages · 40 câu — 3 parts",
+  "bandHint": "Cambridge Reading — 3 parts",
   "parts": [
     {
-      "id": "catalog-reading-ielts-cam11-test3-part-1",
+      "id": "catalog-cam-11-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "Read the text and answer questions 1–13.",
-      "passageTitle": "Urban green spaces",
+      "rangeLabel": "",
+      "passageTitle": "The Story of Silk",
       "passage": [
         {
-          "label": "A",
-          "text": "City planners once treated parks as decorative extras. Today many municipalities rank green space as essential infrastructure that improves air quality and reduces flooding."
-        },
-        {
-          "label": "B",
-          "text": "Researchers comparing neighbourhoods found that residents living within a ten-minute walk of a park reported lower stress levels, though the study could not prove causation."
-        },
-        {
-          "label": "C",
-          "text": "Some councils resist large park projects because maintenance budgets are already strained. Critics argue that planting trees along streets delivers similar benefits at lower cost."
-        },
-        {
-          "label": "D",
-          "text": "Volunteer groups have restored abandoned lots into community gardens. These projects depend on local fundraising and rarely receive national grants."
-        },
-        {
-          "label": "E",
-          "text": "Architects increasingly design buildings with rooftop gardens. Supporters claim these spaces should be mandatory on new commercial developments."
-        },
-        {
-          "label": "F",
-          "text": "Historical records show that Victorian cities invested heavily in public parks to improve public health. Modern campaigns often cite this precedent."
-        },
-        {
-          "label": "G",
-          "text": "International surveys suggest that cities with generous green coverage attract skilled workers, but the relationship between greenery and economic growth remains debated."
+          "text": "The story of silk\nThe history of the world’s most luxurious fabric, from ancient China to the present day\nSilk is a fine, smooth material produced from the cocoons – soft protective shells – that are made by mulberry silkworms (insect larvae). Legend has it that it was Lei Tzu, wife of the Yellow Emperor, ruler of China in about 3000 BC, who discovered silkworms. One account of the story goes that as she was taking a walk in her husband’s gardens, she discovered that silkworms were responsible for the destruction of several mulberry trees. She collected a number of cocoons and sat down to have a rest. It just so happened that while she was sipping some tea, one of the cocoons that she had collected landed in the hot tea and started to unravel into a fine thread. Lei Tzu found that she could wind this thread around her fingers. Subsequently, she persuaded her husband to allow her to rear silkworms on a grove of mulberry trees. She also devised a special reel to draw the fibres from the cocoon into a single thread so that they would be strong enough to be woven into fabric. While it is unknown just how much of this is true, it is certainly known that silk cultivation has existed in China for several millennia.\nOriginally, silkworm farming was solely restricted to women, and it was they who were responsible for the growing, harvesting and weaving. Silk quickly grew into a symbol of status, and originally, only royalty were entitled to have clothes made of silk. The rules were gradually relaxed over the years until finally during the Qing Dynasty (1644—1911 AD), even peasants, the lowest caste, were also entitled to wear silk. Sometime during the Han Dynasty (206 BC-220 AD), silk was so prized that it was also used as a unit of currency. Government officials were paid their salary in silk, and farmers paid their taxes in grain and silk. Silk was also used as diplomatic gifts by the emperor. Fishing lines, bowstrings, musical instruments and paper were all made using silk. The earliest indication of silk paper being used was discovered in the tomb of a noble who is estimated to have died around 168 AD.\nDemand for this exotic fabric eventually created the lucrative trade route now known as the Silk Road, taking silk westward and bringing gold, silver and wool to the East. It was named the Silk Road after its most precious commodity, which was considered to be worth more than gold. The Silk Road stretched over 6,000 kilometres from Eastern China to the Mediterranean Sea, following the Great Wall of China, climbing the Pamir mountain range, crossing modern-day Afghanistan and going on to the Middle East, with a major trading market in Damascus. From there, the merchandise was shipped across the Mediterranean Sea. Few merchants travelled the entire route; goods were handled mostly by a series of middlemen.\nWith the mulberry silkworm being native to China, the country was the world’s sole producer of silk for many hundreds of years. The secret of silk-making eventually reached the rest of the world via the Byzantine Empire, which ruled over the Mediterranean region of southern Europe, North Africa and the Middle East during the period 330—1453 AD. According to another legend, monks working for the Byzantine emperor Justinian smuggle silkworm eggs to Constantinople (Istanbul in modern-day Turkey) in 550 AD, concealed inside hollow bamboo walking canes. The Byzantines were as secretive as the Chinese, however, and for many centuries the weaving and trading of silk fabric was a strict imperial monopoly. Then in the seventh century, the Arabs conquered Persia, capturing their magnificent silks in the process.\nSilk production thus spread through Africa, Sicily and Spain as the Arabs swept, through these lands. Andalusia in southern Spain was Europe’s main silk-producing centre in the tenth century. By the thirteenth century, however, Italy had become Europe’s leader in silk production and export. Venetian merchants traded extensively in silk and encouraged silk growers to settle in Italy. Even now, silk processed in the province of Como in northern Italy enjoys an esteemed reputation.\nThe nineteenth century and industrialisation saw the downfall of the European silk industry. Cheaper Japanese silk, trade in which was greatly facilitated by the opening of the Suez Canal, was one of the many factors driving the trend. Then in the twentieth century, new manmade fibres, such as nylon, started to be used in what had traditionally been silk products, such as stockings and parachutes. The two world wars, which interrupted the supply of raw material from Japan, also stifled the European silk industry. After the Second World War, Japan’s silk production was restored, with improved production and quality of raw silk. Japan was to remain the world’s biggest producer of raw silk, and practically the only major exporter of raw silk, until the 1970s. However, in more recent decades, China has gradually recaptured its position as the world’s biggest producer and exporter of raw silk and silk yarn. Today, around 125,000 metric tons of silk are produced in the world, and almost two thirds of that production takes place in China."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-ielts-cam11-test3-part-1-g0",
-          "range": "Questions 1–7",
-          "instruction": "Reading Passage 1 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.",
-          "note": "There are more headings than paragraphs, so you will not use all of them.",
-          "type": "matching-headings",
+          "id": "catalog-cam-11-3-reading-part-1-g0",
+          "range": "Questions 1–9",
+          "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
+          "note": "**Early silk production in China**\n• Around 3000 BC, according to legend:\n– silkworm cocoon fell into emperor’s wife’s [1]\n–  emperor’s wife invented a [2] to pull out silk fibres\n• Only [3] were allowed to produce silk\n• Only [4] were allowed to wear silk\n• Silk used as a form of [5]\n– e.g. farmers’ taxes consisted partly of silk\n• Silk used for many purposes\n– e.g. evidence found of [6] made from silk around 168 AD\n**Silk reaches rest of world**\n• Merchants use Silk Road to take silk westward and bring back [7] and precious metals\n• 550 AD: [8] hide silkworm eggs in canes and take them to Constantinople\n• Silk production spreads across Middle East and Europe\n• 20th century: [9] and other manmade fibres cause decline in silk production",
+          "type": "gap-fill",
+          "notesTitle": "THE STORY OF SILK",
           "questions": [
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q1",
+              "id": "catalog-cam-11-3-reading-part-1-q1",
               "number": 1,
-              "type": "matching-headings",
-              "prompt": "Paragraph A",
+              "type": "gap-fill",
+              "prompt": "silkworm cocoon fell into emperor’s wife’s \n 1. ________",
               "options": [],
-              "answer": "ii",
-              "explanation": "Paragraph A describes a shift from decorative parks to essential infrastructure.",
+              "answer": "tea",
+              "explanation": "Bước 1: Keyword: “Around 3000 BC”, “legend”, “cocoon fell into”, “emperor’s wife’s”\n\nBước 2: Tìm đoạn: Đoạn 1: “...while she was sipping some tea, one of the cocoons that she had collected landed in the hot tea and started to unravel...”\n\nBước 3: Phân tích: Trong văn bản gốc, chiếc kén (cocoon) đã rơi trúng (landed in) vào cốc trà nóng của người vợ hoàng đế khi bà đang uống nước. Do đó, danh từ chỉ nơi kén rơi vào chính là tách trà.\n\n=> Đáp án: tea",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q2",
+              "id": "catalog-cam-11-3-reading-part-1-q2",
               "number": 2,
-              "type": "matching-headings",
-              "prompt": "Paragraph B",
+              "type": "gap-fill",
+              "prompt": "–  emperor’s wife invented a  2. ________  to pull out silk fibres",
               "options": [],
-              "answer": "iii",
-              "explanation": "Paragraph B reports lower stress near parks.",
+              "answer": "reel",
+              "explanation": "Bước 1: Keyword: “invented” (phát minh/sáng chế), “pull out silk fibres” (kéo các sợi tơ ra)\n\nBước 2: Tìm đoạn: Đoạn 1: “She also devised a special reel to draw the fibres from the cocoon into a single thread...”\n\nBước 3: Phân tích: Động từ “devised” đồng nghĩa với “invented”, và cụm “draw the fibres from the cocoon” tương đồng với “pull out silk fibres”. Công cụ mà bà sáng chế ra để thực hiện việc này là một chiếc guồng quay tơ.\n\n=> Đáp án: reel",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q3",
+              "id": "catalog-cam-11-3-reading-part-1-q3",
               "number": 3,
-              "type": "matching-headings",
-              "prompt": "Paragraph C",
+              "type": "gap-fill",
+              "prompt": "Only 3 _______ were allowed to produce silk",
               "options": [],
-              "answer": "i",
-              "explanation": "Paragraph C discusses maintenance budgets and resistance to large projects.",
+              "answer": "women",
+              "explanation": "Bước 1: Keyword: “Only” (chỉ duy nhất), “allowed to produce silk” (được phép sản xuất lụa)\n\nBước 2: Tìm đoạn: Đoạn 2: “Originally, silkworm farming was solely restricted to women, and it was they who were responsible for the growing, harvesting and weaving.”\n\nBước 3: Phân tích: Trích dẫn chỉ rõ ban đầu việc nuôi tằm (silkworm farming/silk production) chỉ bị giới hạn độc quyền cho một đối tượng duy nhất (solely restricted to = only allowed to). Đối tượng đó chính là phụ nữ.\n\n=> Đáp án: women",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q4",
+              "id": "catalog-cam-11-3-reading-part-1-q4",
               "number": 4,
-              "type": "matching-headings",
-              "prompt": "Paragraph D",
+              "type": "gap-fill",
+              "prompt": "Only 4 _______ were allowed to wear silk",
               "options": [],
-              "answer": "iv",
-              "explanation": "Volunteers restore lots into community gardens.",
+              "answer": "royalty",
+              "explanation": "Bước 1: Keyword: “Only”, “allowed to wear silk” (được phép mặc đồ lụa)\n\nBước 2: Tìm đoạn: Đoạn 2: “...and originally, only royalty were entitled to have clothes made of silk.”\n\nBước 3: Phân tích: Cụm từ “entitled to have clothes made of silk” (có đặc quyền sở hữu quần áo làm từ lụa) đồng nghĩa với cụm “allowed to wear silk”. Nhóm người duy nhất có quyền lợi này vào thời kỳ đầu chính là hoàng tộc.\n\n=> Đáp án: royalty",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q5",
+              "id": "catalog-cam-11-3-reading-part-1-q5",
               "number": 5,
-              "type": "matching-headings",
-              "prompt": "Paragraph E",
+              "type": "gap-fill",
+              "prompt": "Silk used as a form of 5 _______ e.g. farmers’ taxes consisted partly of silk",
               "options": [],
-              "answer": "v",
-              "explanation": "Supporters want rooftop gardens mandatory on new buildings.",
+              "answer": "currency",
+              "explanation": "Bước 1: Keyword: “used as a form of” (được dùng như một hình thức...), “farmers’ taxes”\n\nBước 2: Tìm đoạn: Đoạn 2: “...silk was so prized that it was also used as a unit of currency. Government officials were paid their salary in silk, and farmers paid their taxes in grain and silk.”\n\nBước 3: Phân tích: Bài đọc chỉ ra lụa có giá trị lớn tới mức được sử dụng làm một đơn vị tiền tệ, minh chứng bằng việc trả lương cho quan lại hay thu thuế của nông dân bằng lụa. Do đó, lụa đóng vai trò như một hình thức tiền tệ.\n\n=> Đáp án: currency",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q6",
+              "id": "catalog-cam-11-3-reading-part-1-q6",
               "number": 6,
-              "type": "matching-headings",
-              "prompt": "Paragraph F",
+              "type": "gap-fill",
+              "prompt": "Silk used for many purposes e.g. evidence found of 6 _______ made from silk around 168 AD",
               "options": [],
-              "answer": "vi",
-              "explanation": "Victorian investment in parks is cited as a precedent.",
+              "answer": "paper",
+              "explanation": "Bước 1: Keyword: “evidence found of”, “made from silk”, “around 168 AD”\n\nBước 2: Tìm đoạn: Đoạn 2: “The earliest indication of silk paper being used was discovered in the tomb of a noble who is estimated to have died around 168 AD.”\n\nBước 3: Phân tích: Cụm từ “evidence found” tương ứng với cụm “indication... was discovered”. Loại vật phẩm làm từ lụa được tìm thấy trong ngôi mộ có niên đại quanh năm 168 SCN chính là giấy lụa. Vì đề bài yêu cầu chọn MỘT TỪ DUY NHẤT, ta giữ lại danh từ chính.\n\n=> Đáp án: paper",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q7",
+              "id": "catalog-cam-11-3-reading-part-1-q7",
               "number": 7,
-              "type": "matching-headings",
-              "prompt": "Paragraph G",
+              "type": "gap-fill",
+              "prompt": "Merchants use Silk Road to take silk westward and bring back 7 _______ and precious metals",
               "options": [],
-              "answer": "vii",
-              "explanation": "Economic benefits of greenery remain debated.",
+              "answer": "wool",
+              "explanation": "Bước 1: Keyword: “Silk Road”, “take silk westward”, “bring back”, “precious metals” (kim loại quý)\n\nBước 2: Tìm đoạn: Đoạn 3: “...taking silk westward and bringing gold, silver and wool to the East.”\n\nBước 3: Phân tích: Việc mang lụa sang phương Tây giúp các thương nhân thu về (bringing back) vàng, bạc và len cho phương Đông. Vàng và bạc đã được đề bài tóm gọn bằng cụm “precious metals”, vì thế danh từ còn thiếu ở đây là len.\n\n=> Đáp án: wool",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-1-q8",
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "550 AD:  8. ________hide silkworm eggs in canes and take them to Constantinople",
+              "options": [],
+              "answer": "monks",
+              "explanation": "Bước 1: Keyword: “550 AD”, “hide” (giấu), “silkworm eggs in canes”, “Constantinople”\n\nBước 2: Tìm đoạn: Đoạn 4: “...monks working for the Byzantine emperor Justinian smuggled silkworm eggs to Constantinople... in 550 AD, concealed inside hollow bamboo walking canes.”\n\nBước 3: Phân tích: Động từ “hide” đồng nghĩa với từ “concealed” và “smuggled”. Những người đã thực hiện hành vi lén lút giấu trứng tằm vào gậy tre để đưa tới vùng Constantinople vào năm 550 SCN là các nhà sư.\n\n=> Đáp án: monks",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-1-q8",
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "20th century:  9.  ________ and other manmade fibres cause decline in silk production",
+              "options": [],
+              "answer": "nylon",
+              "explanation": "Bước 1: Keyword: “20th century”, “manmade fibres” (sợi nhân tạo), “cause decline” (gây ra sự suy giảm)\n\nBước 2: Tìm đoạn: Đoạn 6: “Then in the twentieth century, new manmade fibres, such as nylon, started to be used in what had traditionally been silk products...”\n\nBước 3: Phân tích: Vào thế kỷ 20, các loại sợi nhân tạo mới xuất hiện đã thay thế vị trí của lụa trong các mặt hàng truyền thống, dẫn đến sự suy yếu của ngành này. Tên loại sợi nhân tạo tiêu biểu được bài viết liệt kê làm ví dụ là ni-lông.\n\n=> Đáp án: nylon",
               "answerConfidence": "key"
             }
           ]
         },
         {
-          "id": "catalog-reading-ielts-cam11-test3-part-1-g1",
-          "range": "Questions 8–13",
-          "instruction": "Choose the correct letter, A, B, C or D.",
-          "type": "multiple-choice",
+          "id": "catalog-cam-11-3-reading-part-1-g1",
+          "range": "Questions 10–13",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 10–13 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
+          "type": "tfng",
           "questions": [
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q8",
-              "number": 8,
-              "type": "multiple-choice",
-              "prompt": "When do female kākāpō usually lay eggs?",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "Throughout the year"
-                },
-                {
-                  "id": "b",
-                  "label": "Only in winter"
-                },
-                {
-                  "id": "c",
-                  "label": "In summer and autumn when food is plentiful"
-                },
-                {
-                  "id": "d",
-                  "label": "Only after government intervention"
-                }
-              ],
-              "answer": "c",
-              "explanation": "Females lay eggs in summer and autumn when food is plentiful.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q9",
-              "number": 9,
-              "type": "multiple-choice",
-              "prompt": "What happened to kākāpō numbers before conservation efforts intensified?",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "They increased on mainland farms"
-                },
-                {
-                  "id": "b",
-                  "label": "They remained stable for centuries"
-                },
-                {
-                  "id": "c",
-                  "label": "They were exported to other countries"
-                },
-                {
-                  "id": "d",
-                  "label": "They declined severely and neared extinction"
-                }
-              ],
-              "answer": "d",
-              "explanation": "By the late twentieth century the species was on the brink of extinction.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q10",
+              "id": "catalog-cam-11-3-reading-part-1-q10",
               "number": 10,
-              "type": "multiple-choice",
-              "prompt": "The 1894 government action was aimed at",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "saving the kākāpō"
-                },
-                {
-                  "id": "b",
-                  "label": "introducing new predators"
-                },
-                {
-                  "id": "c",
-                  "label": "relocating all parrots to Australia"
-                },
-                {
-                  "id": "d",
-                  "label": "banning nocturnal hunting"
-                }
-              ],
-              "answer": "a",
-              "explanation": "The government launched its first attempt to save the kākāpō in 1894.",
+              "type": "true-false-not-given",
+              "prompt": "Gold was the most valuable material transported along the Silk Road.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword: “Gold”, “the most valuable material” (vật liệu có giá trị nhất), “Silk Road”\n\nBước 2: Tìm đoạn: Đoạn 3: “It was named the Silk Road after its most precious commodity, which was considered to be worth more than gold.”\n\nBước 3: Phân tích: Đoạn văn khẳng định con đường được đặt tên theo mặt hàng quý giá nhất của nó (most precious commodity) chính là lụa, và lụa còn được coi là có giá trị hơn cả vàng (worth more than gold). Do đó, phát biểu nói \"vàng là vật liệu quý giá nhất\" hoàn toàn sai và mâu thuẫn với bài đọc.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q11",
+              "id": "catalog-cam-11-3-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
-              "prompt": "Kākāpō diet consists entirely of",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "insects and small mammals"
-                },
-                {
-                  "id": "b",
-                  "label": "plant material"
-                },
-                {
-                  "id": "c",
-                  "label": "fish and shellfish"
-                },
-                {
-                  "id": "d",
-                  "label": "food provided by conservation staff only"
-                }
-              ],
-              "answer": "b",
-              "explanation": "Their diet is completely vegetarian.",
+              "type": "true-false-not-given",
+              "prompt": "Most tradesmen only went along certain sections of the Silk Road.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword: “Most tradesmen” (phần lớn thương nhân), “only went along certain sections” (chỉ đi dọc theo một vài đoạn nhất định)\n\nBước 2: Tìm đoạn: Đoạn 3: “Few merchants travelled the entire route; goods were handled mostly by a series of middlemen.”\n\nBước 3: Phân tích: Bài đọc chỉ ra rằng rất ít thương nhân đi hết toàn bộ con đường (Few merchants travelled the entire route), thay vào đó hàng hóa chủ yếu được chuyền tay qua một chuỗi các trung gian (middlemen). Điều này đồng nghĩa với việc phần lớn bọn họ chỉ di chuyển ở những cung chặng, phân đoạn nhất định.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q12",
+              "id": "catalog-cam-11-3-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
-              "prompt": "Which factor made early European settlement especially damaging?",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "Widespread habitat loss"
-                },
-                {
-                  "id": "b",
-                  "label": "A ban on forest climbing"
-                },
-                {
-                  "id": "c",
-                  "label": "Reduced rainfall"
-                },
-                {
-                  "id": "d",
-                  "label": "Competition from other parrots"
-                }
-              ],
-              "answer": "a",
-              "explanation": "European colonisation caused widespread habitat loss.",
+              "type": "true-false-not-given",
+              "prompt": "The Byzantines spread the practice of silk production across the West.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword: “The Byzantines”, “spread” (lan truyền/phổ biến), “across the West” (khắp phương Tây)\n\nBước 2: Tìm đoạn: Đoạn 4 & Đoạn 5: “The Byzantines were as secretive as the Chinese, however, and for many centuries the weaving and trading of silk fabric was a strict imperial monopoly. Then in the seventh century, the Arabs conquered Persia... Silk production thus spread through Africa, Sicily and Spain as the Arabs swept through these lands.”\n\nBước 3: Phân tích: Bài viết nêu rõ người Byzantine cực kỳ giữ bí mật (secretive) và duy trì sự độc quyền nghiêm ngặt của hoàng gia (strict imperial monopoly) chứ không hề chia sẻ ra ngoài. Việc nghề lụa được lan rộng khắp các vùng châu Phi, Sicily và Tây Ban Nha thực chất là nhờ dòng người Ả Rập (Arabs) đánh chiếm và quét qua các vùng đất này. Do đó câu khẳng định trên là sai.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-1-q13",
+              "id": "catalog-cam-11-3-reading-part-1-q13",
               "number": 13,
-              "type": "multiple-choice",
-              "prompt": "The writer suggests that today the kākāpō",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "no longer needs human support"
-                },
-                {
-                  "id": "b",
-                  "label": "is still among the most endangered birds"
-                },
-                {
-                  "id": "c",
-                  "label": "has recovered fully in the wild"
-                },
-                {
-                  "id": "d",
-                  "label": "lives only in European zoos"
-                }
-              ],
-              "answer": "b",
-              "explanation": "Intensive management continues and it remains one of the most endangered birds.",
+              "type": "true-false-not-given",
+              "prompt": "Silk yarn makes up the majority of silk currently exported from China.",
+              "options": [],
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword: “Silk yarn” (sợi tơ lụa), “makes up the majority” (chiếm phần lớn/đại đa số), “currently exported from China”\n\nBước 2: Tìm đoạn: Đoạn 6: “...China has gradually recaptured its position as the world’s biggest producer and exporter of raw silk and silk yarn. Today, around 125,000 metric tons of silk are produced in the world, and almost two thirds of that production takes place in China.”  \n\nBước 3: Phân tích: Thông tin trong đoạn chỉ khẳng định Trung Quốc đã lấy lại vị thế là nhà sản xuất và xuất khẩu lớn nhất thế giới về cả hai mặt hàng: lụa thô (raw silk) và sợi lụa (silk yarn). Bài viết hoàn toàn không cung cấp số liệu so sánh chi tiết để biết mặt hàng sợi lụa có phải chiếm \"đại đa số\" tổng lượng xuất khẩu hay không.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             }
           ]
@@ -292,47 +166,219 @@
       ]
     },
     {
-      "id": "catalog-reading-ielts-cam11-test3-part-2",
+      "id": "catalog-cam-11-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "Read the text and answer questions 14–26.",
-      "passageTitle": "Reintroducing elms to Britain",
-      "passageSubtitle": "Mark Rowe investigates attempts to reintroduce elms to Britain",
+      "rangeLabel": "",
+      "passageTitle": "Great Migrations",
       "passage": [
         {
-          "label": "A",
-          "text": "Around 25 million elms died in Britain in the 1960s and 1970s from Dutch elm disease. The loss of 90% of Britain's elms changed the landscape. Today, conservationists hope to reintroduce elms in central and southern England. Matt Elliot of the Woodland Trust says disease-resistant strains offer real hope."
-        },
-        {
-          "label": "B",
-          "text": "Dutch elm disease is caused by a fungus that blocks the tree's vascular system. The first epidemic arrived in the 1920s. A far more destructive epidemic followed in the 1970s after infected elm logs were imported from Canada. Bark beetles spread the fungus between trees."
-        },
-        {
-          "label": "C",
-          "text": "Elms can still be found in southern England, though mainly as small hedgerow trees. When the trunk reaches 10–15 cm in diameter, the tree becomes vulnerable to beetles carrying the disease. Larger surviving elms are now extremely rare."
-        },
-        {
-          "label": "D",
-          "text": "One valley in Scotland has remained largely free of the disease because of its isolation and climate. Researchers study these locations to understand how some areas escape infection while neighbouring regions do not."
-        },
-        {
-          "label": "E",
-          "text": "Some landowners disagree about whether reintroducing elms is worthwhile. Critics argue that resources should focus on native species already under threat. Supporters believe elm avenues are part of Britain's cultural heritage and worth restoring."
-        },
-        {
-          "label": "F",
-          "text": "Scientists working with surviving mature elms face practical difficulties because so few large specimens remain. Collecting genetic material from scattered trees slows breeding programmes designed to produce resistant varieties."
-        },
-        {
-          "label": "G",
-          "text": "New planting schemes combine resistant cultivars with careful monitoring. Young trees are inspected regularly so that infection can be detected before it spreads. The aim is not only to restore elm numbers but to learn how to manage future outbreaks."
+          "text": "Great Migrations\nAnimal migration, however it is defined, is far more than just the movement of animals. It can loosely be described as travel that takes place at regular intervals – often in an annual cycle – that may involve many members of a species, and is rewarded only after a long journey. It suggests inherited instinct. The biologist Hugh Dingle has identified five characteristics that apply, in varying degrees and combinations, to all migrations. They are prolonged movements that carry animals outside familiar habitats; they tend to be linear, not zigzaggy; they involve special behaviours concerning preparation (such as overfeeding) and arrival; they demand special allocations of energy. And one more: migrating animals maintain an intense attentiveness to the greater mission, which keeps them undistracted by temptations and undeterred by challenges that would turn other animals aside.\nAn arctic tern, on its 20,000 km flight from the extreme south of South America to the Arctic circle, will take no notice of a nice smelly herring offered from a bird-watcher’s boat along the way. While local gulls will dive voraciously for such handouts, the tern flies on. Why? The arctic tern resists distraction because it is driven at that moment by an instinctive sense of something we humans find admirable: larger purpose. In other words, it is determined to reach its destination. The bird senses that it can eat, rest and mate later. Right now it is totally focused on the journey; its undivided intent is arrival.\nReaching some gravelly coastline in the Arctic, upon which other arctic terns have converged, will serve its larger purpose as shaped by evolution: finding a place, a time, and a set of circumstances in which it can successfully hatch and rear offspring.\nBut migration is a complex issue, and biologists define it differently, depending in part on what sorts of animals they study. Joe! Berger, of the University of Montana, who works on the American pronghorn and other large terrestrial mammals, prefers what he calls a simple, practical definition suited to his beasts: ‘movements from a seasonal home area away to another home area and back again’. Generally the reason for such seasonal back-and-forth movement is to seek resources that aren’t available within a single area year-round.\nBut daily vertical movements by zooplankton in the ocean – upward by night to seek food, downward by day to escape predators – can also be considered migration. So can the movement of aphids when, having depleted the young leaves on one food plant, their offspring then fly onward to a different host plant, with no one aphid ever returning to where it started.\nDingle is an evolutionary biologist who studies insects. His definition is more intricate than Berger’s, citing those five features that distinguish migration from other forms of movement. They allow for the fact that, for example, aphids will become sensitive to blue light (from the sky) when it’s time for takeoff on their big journey, and sensitive to yellow light (reflected from tender young leaves) when it’s appropriate to land. Birds will fatten themselves with heavy feeding in advance of a long migrational flight. The value of his definition, Dingle argues, is that it focuses attention on what the phenomenon of wildebeest migration shares with the phenomenon of the aphids, and therefore helps guide researchers towards understanding how evolution has produced them all.\nHuman behaviour, however, is having a detrimental impact on animal migration. The pronghorn, which resembles an antelope, though they are unrelated, is the fastest land mammal of the New World. One population, which spends the summer in the mountainous Grand Teton National Park of the western USA, follows a narrow route from its summer range in the mountains, across a river, and down onto the plains. Here they wait out the frozen months, feeding mainly on sagebrush blown clear of snow. These pronghorns are notable for the invariance of their migration route and the severity of its constriction at three bottlenecks. If they can’t pass through each of the three during their spring migration, they can’t reach their bounty of summer grazing; if they can’t pass through again in autumn, escaping south onto those windblown plains, they are likely to die trying to overwinter in the deep snow. Pronghorn, dependent on distance vision and speed to keep safe from predators, traverse high, open shoulders of land, where they can see and run. At one of the bottlenecks, forested hills rise to form a V, leaving a corridor of open ground only about 150 metres wide, filled with private homes. Increasing development is leading toward a crisis for the pronghorn, threatening to choke off their passageway.\nConservation scientists, along with some biologists and land managers within the USA’s National Park Service and other agencies, are now working to preserve migrational behaviours, not just species and habitats. A National Forest has recognised the path of the pronghorn, much of which passes across its land, as a protected migration corridor. But neither the Forest Service nor the Park Service can control what happens on private land at a bottleneck. And with certain other migrating species, the challenge is complicated further – by vastly greater distances traversed, more jurisdictions, more borders, more dangers along the way. We will require wisdom and resoluteness to ensure that migrating species can continue their journeying a while longer."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-ielts-cam11-test3-part-2-g0",
+          "id": "catalog-cam-11-3-reading-part-2-g0",
           "range": "Questions 14–18",
-          "instruction": "Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information?",
-          "note": "NB You may use any letter more than once.",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 14–18 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
+          "type": "tfng",
+          "questions": [
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q14",
+              "number": 14,
+              "type": "true-false-not-given",
+              "prompt": "Local gulls and migrating arctic terns behave in the same way when offered food.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword: “Local gulls”, “migrating arctic terns”, “same way”, “offered food”\n\nBước 2: Tìm đoạn: Đoạn 2: “An arctic tern... will take no notice of a nice smelly herring offered... While local gulls will dive voraciously for such handouts, the tern flies on.”\n\nBước 3: Phân tích: Khi được cho thức ăn, chim nhạn Bắc Cực ngó lơ (take no notice) và tiếp tục bay, trong khi mòng biển địa phương lại lao xuống ăn ngấu nghiến (dive voraciously). Do đó, hành vi của hai loài là hoàn toàn trái ngược nhau, không phải giống nhau (same way).\n\n=> Đáp án: FALSE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q15",
+              "number": 15,
+              "type": "true-false-not-given",
+              "prompt": "Experts’ definitions of migration tend to vary according to their area of study.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword: *“Experts’ definitions”, “vary” (thay đổi/khác nhau), “according to their area of study” (theo lĩnh vực nghiên cứu)\n\nBước 2: Tìm đoạn: Đoạn 4: “But migration is a complex issue, and biologists define it differently, depending in part on what sorts of animals they study.”\n\nBước 3: Phân tích: Đoạn văn khẳng định các nhà sinh vật học định nghĩa về di cư khác nhau (define it differently = vary), một phần phụ thuộc vào loại động vật mà họ nghiên cứu (what sorts of animals they study = area of study). Thông tin này hoàn toàn khớp với câu hỏi.\n\n=> Đáp án: TRUE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q16",
+              "number": 16,
+              "type": "true-false-not-given",
+              "prompt": "Very few experts agree that the movement of aphids can be considered migration.",
+              "options": [],
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword: “Very few experts agree”, “movement of aphids”, “considered migration”\n\nBước 2: Tìm đoạn: Đoạn 5: “So can the movement of aphids... be considered migration.”\n\nBước 3: Phân tích: Đoạn văn chỉ khẳng định sự di chuyển của rệp (aphids) cũng có thể được coi là di cư. Bài viết hoàn toàn không cung cấp thông tin về số lượng chuyên gia đồng ý hay phản đối nhận định này (very few experts agree hay nhiều).\n\n=> Đáp án: NOT GIVEN",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q17",
+              "number": 17,
+              "type": "true-false-not-given",
+              "prompt": "Aphids’ journeys are affected by changes in the light that they perceive.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword: “Aphids’ journeys”, “affected by”, “changes in the light”, “perceive” (nhận thức/cảm nhận)\n\nBước 2: Tìm đoạn: Đoạn 6: “...aphids will become sensitive to blue light (from the sky) when it's time for takeoff... and sensitive to yellow light (reflected from tender young leaves) when it's appropriate to land.”\n\nBước 3: Phân tích: Hành trình của loài rệp chịu ảnh hưởng trực tiếp bởi ánh sáng: chúng nhạy cảm với ánh sáng xanh để cất cánh và nhạy cảm với ánh sáng vàng để hạ cánh. Việc thay đổi phản ứng theo các màu sắc ánh sáng khác nhau đồng nghĩa với việc hành trình của chúng bị tác động bởi sự thay đổi ánh sáng mà chúng cảm nhận được.\n\n=> Đáp án: TRUE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q18",
+              "number": 18,
+              "type": "true-false-not-given",
+              "prompt": "Dingles aim is to distinguish between the migratory behaviours of different species.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword: “Dingle's aim” (mục đích của Dingle), “distinguish” (phân biệt), “migratory behaviours of different species”\n\nBước 2: Tìm đoạn: Đoạn 6: “The value of his definition, Dingle argues, is that it focuses attention on what the phenomenon of wildebeest migration shares with the phenomenon of the aphids, and therefore helps guide researchers...”\n\nBước 3: Phân tích: Định nghĩa của Dingle hướng sự chú ý vào điểm chung (shares with) giữa hiện tượng di cư của linh dương đầu bò và loài rệp để tìm ra cơ chế tiến hóa chung, chứ mục đích của ông không phải là để phân biệt (distinguish) sự khác nhau giữa các loài. Do đó câu hỏi đưa tin sai lệch so với bài đọc.\n\n=> Đáp án: FALSE",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-11-3-reading-part-2-g1",
+          "range": "Questions 19–22",
+          "instruction": "Complete each sentence with the correct ending, A–G, below.\nWrite the correct letter in boxes 19–22 on your answer sheet.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "name": "be discouraged by difficulties."
+            },
+            {
+              "id": "B",
+              "name": "travel on open land where they can look out for predators."
+            },
+            {
+              "id": "C",
+              "name": "eat more than they need for immediate purposes."
+            },
+            {
+              "id": "D",
+              "name": "be repeated daily."
+            },
+            {
+              "id": "E",
+              "name": "ignore distractions."
+            },
+            {
+              "id": "F",
+              "name": "be governed by the availability of water."
+            },
+            {
+              "id": "G",
+              "name": "follow a straight line."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "According to Dingle, migratory routes are likely to\n___________.",
+              "options": [],
+              "answer": "G",
+              "explanation": "Bước 1: Keyword: “According to Dingle”, “migratory routes”, “likely to”\n follow a straight line.\nBước 2: Tìm đoạn: Đoạn 1: “The biologist Hugh Dingle has identified five characteristics... they tend to be linear, not zigzaggy...”\n\nBước 3: Phân tích: Theo Dingle, một trong các đặc điểm của tuyến đường di cư là chúng có xu hướng theo đường thẳng, không ngoằn ngoèo (linear, not zigzaggy). Cụm này đồng nghĩa với cụm “follow a straight line” (đáp án G).\n\n=> Đáp án: G (follow a straight line)",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "To prepare for migration, animals are likely to\n___________.",
+              "options": [],
+              "answer": "C",
+              "explanation": "Bước 1: Keyword: “To prepare for migration”, “animals are likely to”\n\nBước 2: Tìm đoạn: Đoạn 1: “...they involve special behaviours concerning preparation (such as overfeeding) and arrival...”\n\nBước 3: Phân tích: Hành vi đặc biệt liên quan đến việc chuẩn bị (preparation) được Dingle lấy ví dụ là ăn quá nhiều (overfeeding). Khái niệm này hoàn toàn khớp với đáp án C: “eat more than they need for immediate purposes” (ăn nhiều hơn mức nhu cầu phục vụ mục đích tức thời).\n\n=> Đáp án: C(eat more than they need for immediate purposes)",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q21",
+              "number": 21,
+              "type": "gap-fill",
+              "prompt": "During migration, animals are unlikely to\n ___________.",
+              "options": [],
+              "answer": "A",
+              "explanation": "Bước 1: Keyword: “During migration”, “animals are unlikely to” (động vật không có khả năng/hiếm khi làm gì)\n\nBước 2: Tìm đoạn: Đoạn 1: “...which keeps them undistracted by temptations and undeterred by challenges that would turn other animals aside.”\n\nBước 3: Phân tích: Những động vật di cư tập trung cao độ vào sứ mệnh lớn lao nên chúng sẽ không bị nản lòng trước các thử thách (undeterred by challenges). Vì câu hỏi dùng cấu trúc phủ định “unlikely to”, ta chọn đáp án A: “be discouraged by difficulties” (bị nản lòng bởi những khó khăn) – vì undeterred đồng nghĩa với not discouraged.\n\n=> Đáp án: A ( be discouraged by difficulties)",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q22",
+              "number": 22,
+              "type": "gap-fill",
+              "prompt": "Arctic terns illustrate migrating animals’ ability to\n ___________",
+              "options": [],
+              "answer": "E",
+              "explanation": "Bước 1: Keyword: *“Arctic terns”, “illustrate migrating animals’ ability to” (minh họa cho khả năng...)\n\nBước 2: Tìm đoạn: Đoạn 2: “The arctic tern resists distraction because it is driven at that moment by an instinctive sense of... larger purpose.”\n\nBước 3: Phân tích: Loài chim nhạn Bắc Cực được đưa ra làm ví dụ chứng minh cho việc chúng có thể cưỡng lại các yếu tố gây xao nhãng (resists distraction) từ lời mời gọi thức ăn dọc đường để tiếp tục bay. Cụm này khớp hoàn toàn với đáp án E: “ignore distractions” (bỏ qua những sự xao nhãng).\n\n=> Đáp án: E (ignore distractions)",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-11-3-reading-part-2-g2",
+          "range": "Questions 23–26",
+          "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
+          "note": "Pronghorns rely on their eyesight and [23] to avoid predators. One particular population’s summer habitat is a national park, and their winter home is on the [24] where they go to avoid the danger presented by the snow at that time of year. However, their route between these two areas contains three [25] One problem is the construction of new homes in a narrow \n[26] corridor of land on the pronghorns’ route.",
+          "type": "summary-completion",
+          "notesTitle": "The migration of pronghorns",
+          "questions": [
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q23",
+              "number": 23,
+              "type": "gap-fill",
+              "prompt": "Pronghorns rely on their eyesight and 23 .................. to avoid predators.",
+              "options": [],
+              "answer": "speed",
+              "explanation": "Bước 1: Keyword: “Pronghorns rely on”, “eyesight”, “avoid predators”\n\nBước 2: Tìm đoạn: Đoạn 7: “Pronghorn, dependent on distance vision and speed to keep safe from predators, traverse high, open shoulders of land...”\n\nBước 3: Phân tích: Để giữ an toàn trước kẻ săn mồi (keep safe from predators = avoid predators), loài linh dương sừng gai phụ thuộc vào tầm nhìn xa (distance vision = eyesight) và yếu tố còn lại là tốc độ — speed.\n\n=> Đáp án: speed",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q24",
+              "number": 24,
+              "type": "gap-fill",
+              "prompt": "One particular population’s summer habitat is a national park, and their winter home is on the 24 .................",
+              "options": [],
+              "answer": "plains",
+              "explanation": "Bước 1: Keyword: “winter home”, “avoid the danger presented by the snow”\n\nBước 2: Tìm đoạn: Đoạn 7: “...follows a narrow route from its summer range in the mountains... and down onto the plains. Here they wait out the frozen months, feeding mainly on sagebrush blown clear of snow.”\n\nBước 3: Phân tích: Nơi chúng chọn làm nhà để đi xuống trú ẩn và vượt qua những tháng băng giá đông lạnh (wait out the frozen months = winter home) nhằm tránh tuyết dày chính là các vùng đồng bằng — plains.\n\n=> Đáp án: plains",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "However, their route between these two areas contains three",
+              "options": [],
+              "answer": "bottlenecks",
+              "explanation": "Bước 1: Keyword: “route between these two areas”, “contains three”\n\nBước 2: Tìm đoạn: Đoạn 7: “These pronghorn are notable for the invariance of their migration route and the severity of its construction at three bottlenecks.”\n\nBước 3: Phân tích: Tuyến đường di cư của chúng có đặc điểm là cực kỳ khắc nghiệt tại cấu trúc gồm có 3 điểm nghẽn giao thông — bottlenecks.\n\n=> Đáp án: bottlenecks",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-2-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "The wildebeest migration is the largest in the world.",
+              "options": [],
+              "answer": "corridor",
+              "explanation": "Bước 1: Keyword: “construction of new homes”, “narrow... of land”\n\nBước 2: Tìm đoạn: Đoạn 7: “...leaving a corridor of open ground only about 150 metres wide, filled with private homes.”\n\nBước 3: Phân tích: Việc xây dựng các ngôi nhà riêng (private homes = new homes) xuất hiện dày đặc tại một dải đất trống hẹp chỉ rộng khoảng 150 mét. Danh từ chỉ dải đất/hành lang này là corridor (hoặc từ đồng nghĩa xuất hiện trong đoạn là passageway).\n\n=> Đáp án: corridor",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-cam-11-3-reading-part-3",
+      "partNumber": 3,
+      "rangeLabel": "",
+      "passageTitle": "Preface to 'The World of Mathematics'",
+      "passage": [
+        {
+          "text": "Great Migrations\nAnimal migration, however it is defined, is far more than just the movement of animals. It can loosely be described as travel that takes place at regular intervals – often in an annual cycle – that may involve many members of a species, and is rewarded only after a long journey. It suggests inherited instinct. The biologist Hugh Dingle has identified five characteristics that apply, in varying degrees and combinations, to all migrations. They are prolonged movements that carry animals outside familiar habitats; they tend to be linear, not zigzaggy; they involve special behaviours concerning preparation (such as overfeeding) and arrival; they demand special allocations of energy. And one more: migrating animals maintain an intense attentiveness to the greater mission, which keeps them undistracted by temptations and undeterred by challenges that would turn other animals aside.\nAn arctic tern, on its 20,000 km flight from the extreme south of South America to the Arctic circle, will take no notice of a nice smelly herring offered from a bird-watcher’s boat along the way. While local gulls will dive voraciously for such handouts, the tern flies on. Why? The arctic tern resists distraction because it is driven at that moment by an instinctive sense of something we humans find admirable: larger purpose. In other words, it is determined to reach its destination. The bird senses that it can eat, rest and mate later. Right now it is totally focused on the journey; its undivided intent is arrival.\nReaching some gravelly coastline in the Arctic, upon which other arctic terns have converged, will serve its larger purpose as shaped by evolution: finding a place, a time, and a set of circumstances in which it can successfully hatch and rear offspring.\nBut migration is a complex issue, and biologists define it differently, depending in part on what sorts of animals they study. Joe! Berger, of the University of Montana, who works on the American pronghorn and other large terrestrial mammals, prefers what he calls a simple, practical definition suited to his beasts: ‘movements from a seasonal home area away to another home area and back again’. Generally the reason for such seasonal back-and-forth movement is to seek resources that aren’t available within a single area year-round.\nBut daily vertical movements by zooplankton in the ocean – upward by night to seek food, downward by day to escape predators – can also be considered migration. So can the movement of aphids when, having depleted the young leaves on one food plant, their offspring then fly onward to a different host plant, with no one aphid ever returning to where it started.\nDingle is an evolutionary biologist who studies insects. His definition is more intricate than Berger’s, citing those five features that distinguish migration from other forms of movement. They allow for the fact that, for example, aphids will become sensitive to blue light (from the sky) when it’s time for takeoff on their big journey, and sensitive to yellow light (reflected from tender young leaves) when it’s appropriate to land. Birds will fatten themselves with heavy feeding in advance of a long migrational flight. The value of his definition, Dingle argues, is that it focuses attention on what the phenomenon of wildebeest migration shares with the phenomenon of the aphids, and therefore helps guide researchers towards understanding how evolution has produced them all.\nHuman behaviour, however, is having a detrimental impact on animal migration. The pronghorn, which resembles an antelope, though they are unrelated, is the fastest land mammal of the New World. One population, which spends the summer in the mountainous Grand Teton National Park of the western USA, follows a narrow route from its summer range in the mountains, across a river, and down onto the plains. Here they wait out the frozen months, feeding mainly on sagebrush blown clear of snow. These pronghorns are notable for the invariance of their migration route and the severity of its constriction at three bottlenecks. If they can’t pass through each of the three during their spring migration, they can’t reach their bounty of summer grazing; if they can’t pass through again in autumn, escaping south onto those windblown plains, they are likely to die trying to overwinter in the deep snow. Pronghorn, dependent on distance vision and speed to keep safe from predators, traverse high, open shoulders of land, where they can see and run. At one of the bottlenecks, forested hills rise to form a V, leaving a corridor of open ground only about 150 metres wide, filled with private homes. Increasing development is leading toward a crisis for the pronghorn, threatening to choke off their passageway.\nConservation scientists, along with some biologists and land managers within the USA’s National Park Service and other agencies, are now working to preserve migrational behaviours, not just species and habitats. A National Forest has recognised the path of the pronghorn, much of which passes across its land, as a protected migration corridor. But neither the Forest Service nor the Park Service can control what happens on private land at a bottleneck. And with certain other migrating species, the challenge is complicated further – by vastly greater distances traversed, more jurisdictions, more borders, more dangers along the way. We will require wisdom and resoluteness to ensure that migrating species can continue their journeying a while longer."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-cam-11-3-reading-part-3-g0",
+          "range": "Questions 27–34",
+          "instruction": "Reading Passage has sections A–G. Which section contains the following information?\nWrite the correct letter, A–G, in boxes 27–34 on your answer sheet.\nNB You may use any letter more than once.",
           "type": "matching-paragraph",
           "paragraphLetters": [
             "A",
@@ -345,607 +391,151 @@
           ],
           "questions": [
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q14",
-              "number": 14,
-              "type": "matching-paragraph",
-              "prompt": "reference to the research problems that arise from there being only a few surviving large elms",
-              "options": [],
-              "answer": "f",
-              "explanation": "Paragraph F discusses difficulties because few large specimens remain.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q15",
-              "number": 15,
-              "type": "matching-paragraph",
-              "prompt": "details of a difference of opinion about the value of reintroducing elms to Britain",
-              "options": [],
-              "answer": "e",
-              "explanation": "Paragraph E describes disagreement among landowners.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q16",
-              "number": 16,
-              "type": "matching-paragraph",
-              "prompt": "reference to how Dutch elm disease was brought to Britain",
-              "options": [],
-              "answer": "b",
-              "explanation": "Paragraph B mentions infected logs imported from Canada.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q17",
-              "number": 17,
-              "type": "matching-paragraph",
-              "prompt": "a description of the conditions that have enabled a location in Britain to escape Dutch elm disease",
-              "options": [],
-              "answer": "d",
-              "explanation": "Paragraph D describes a Scottish valley that remained disease-free.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q18",
-              "number": 18,
-              "type": "matching-paragraph",
-              "prompt": "reference to the stage at which young elms become vulnerable to Dutch elm disease",
-              "options": [],
-              "answer": "c",
-              "explanation": "Paragraph C states vulnerability when trunks reach 10–15 cm.",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-reading-ielts-cam11-test3-part-2-g1",
-          "range": "Questions 19–23",
-          "instruction": "Look at the following statements and the list of people below. Match each statement with the correct person, A–C.",
-          "note": "NB You may use any letter more than once.",
-          "type": "matching-features",
-          "features": [
-            {
-              "id": "a",
-              "name": "Matt Elliot"
-            },
-            {
-              "id": "b",
-              "name": "Mark Rowe"
-            },
-            {
-              "id": "c",
-              "name": "A Scottish researcher"
-            }
-          ],
-          "questions": [
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q19",
-              "number": 19,
-              "type": "matching-features",
-              "prompt": "expresses optimism about disease-resistant strains",
-              "options": [],
-              "answer": "a",
-              "explanation": "Matt Elliot says disease-resistant strains offer real hope.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q20",
-              "number": 20,
-              "type": "matching-features",
-              "prompt": "reports on attempts to restore a traditional tree to the landscape",
-              "options": [],
-              "answer": "b",
-              "explanation": "Mark Rowe investigates reintroduction attempts.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q21",
-              "number": 21,
-              "type": "matching-features",
-              "prompt": "studies an area that has largely avoided infection",
-              "options": [],
-              "answer": "c",
-              "explanation": "Researchers study the Scottish valley mentioned in paragraph D.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q22",
-              "number": 22,
-              "type": "matching-features",
-              "prompt": "represents an organisation focused on woodland conservation",
-              "options": [],
-              "answer": "a",
-              "explanation": "Matt Elliot works for the Woodland Trust.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q23",
-              "number": 23,
-              "type": "matching-features",
-              "prompt": "describes how bark beetles spread infection",
-              "options": [],
-              "answer": "b",
-              "explanation": "The article by Mark Rowe explains beetle transmission in paragraph B.",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-reading-ielts-cam11-test3-part-2-g2",
-          "range": "Questions 24–26",
-          "instruction": "Choose the correct letter, A, B, C or D.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q24",
-              "number": 24,
-              "type": "multiple-choice",
-              "prompt": "What proportion of Britain's elms was lost in the twentieth century?",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "About half"
-                },
-                {
-                  "id": "b",
-                  "label": "About 70%"
-                },
-                {
-                  "id": "c",
-                  "label": "About 90%"
-                },
-                {
-                  "id": "d",
-                  "label": "Almost all mature trees in Scotland"
-                }
-              ],
-              "answer": "c",
-              "explanation": "The passage states the loss of 90% of Britain's elms.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q25",
-              "number": 25,
-              "type": "multiple-choice",
-              "prompt": "Young elms become vulnerable when their trunks reach",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "10–15 cm in diameter"
-                },
-                {
-                  "id": "b",
-                  "label": "25–30 cm in diameter"
-                },
-                {
-                  "id": "c",
-                  "label": "one metre in height only"
-                },
-                {
-                  "id": "d",
-                  "label": "the same size as hedgerow oaks"
-                }
-              ],
-              "answer": "a",
-              "explanation": "Paragraph C gives the 10–15 cm figure.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-2-q26",
-              "number": 26,
-              "type": "multiple-choice",
-              "prompt": "Modern planting schemes aim to",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "replace all other native species"
-                },
-                {
-                  "id": "b",
-                  "label": "avoid monitoring young trees"
-                },
-                {
-                  "id": "c",
-                  "label": "combine resistant trees with careful monitoring"
-                },
-                {
-                  "id": "d",
-                  "label": "remove beetles from imported logs only"
-                }
-              ],
-              "answer": "c",
-              "explanation": "Paragraph G describes resistant cultivars with regular inspection.",
-              "answerConfidence": "key"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "catalog-reading-ielts-cam11-test3-part-3",
-      "partNumber": 3,
-      "rangeLabel": "Read the text and answer questions 27–40.",
-      "passageTitle": "The science of sleep and memory",
-      "passage": [
-        {
-          "text": "Sleep has long been linked to memory, but only in recent decades have researchers begun to understand the mechanisms involved. Studies show that different stages of sleep support different kinds of learning, from factual recall to motor skills."
-        },
-        {
-          "text": "During slow-wave sleep, the brain appears to replay experiences from the day, strengthening neural connections that matter and weakening those that do not. This process may explain why students who sleep after revision often perform better in tests."
-        },
-        {
-          "text": "REM sleep, by contrast, is associated with more creative forms of problem solving. Volunteers woken during REM sleep sometimes solve puzzles more quickly after returning to sleep, suggesting that unusual associations are formed during this stage."
-        },
-        {
-          "text": "Not all findings are conclusive. Some experiments use small sample sizes, and laboratory sleep differs from sleep at home. Even so, schools and workplaces are increasingly aware that cutting sleep reduces productivity and long-term retention."
-        }
-      ],
-      "questionGroups": [
-        {
-          "id": "catalog-reading-ielts-cam11-test3-part-3-g0",
-          "range": "Questions 27–32",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE or NOT GIVEN.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q27",
+              "id": "catalog-cam-11-3-reading-part-3-q27",
               "number": 27,
-              "type": "true-false-not-given",
-              "prompt": "Scientists have fully explained how sleep affects memory.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "false",
-              "explanation": "The passage says researchers have only recently begun to understand mechanisms.",
+              "type": "matching-paragraph",
+              "prompt": "a reference to books that assume a lack of mathematical knowledge",
+              "options": [],
+              "answer": "D",
+              "explanation": "Bước 1: Keyword: “reference to books”, “assume a lack of mathematical knowledge” (giả định người đọc thiếu kiến thức toán)\n\nBước 2: Tìm đoạn: Đoạn D: “Other scientists have written books to explain their fields to non-scientists, but have necessarily had to omit the mathematics...”\n\nBước 3: Phân tích: Đoạn D nhắc tới việc các nhà khoa học khác viết sách cho đối tượng là những \"nhà phi khoa học\" (non-scientists), điều này đồng nghĩa với việc họ giả định nhóm độc giả này không có/thiếu nền tảng kiến thức toán học chuyên sâu nên đã chủ động lược bỏ phần toán đi (omit the mathematics).\n\n=> Đáp án: D",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q28",
+              "id": "catalog-cam-11-3-reading-part-3-q28",
               "number": 28,
-              "type": "true-false-not-given",
-              "prompt": "Slow-wave sleep may strengthen useful neural connections.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "true",
-              "explanation": "Slow-wave sleep strengthens important connections and weakens others.",
+              "type": "matching-paragraph",
+              "prompt": "the way in which this is not a typical book about mathematics",
+              "options": [],
+              "answer": "B",
+              "explanation": "Bước 1: Keyword: “not a typical book” (không phải một cuốn sách điển hình/thông thường)\n\nBước 2: Tìm đoạn: Đoạn B: “In that respect, this book differs from most books on mathematics written for the general public.”\n\nBước 3: Phân tích: Tác giả khẳng định cuốn sách này có sự khác biệt so với phần lớn các sách toán học thông thường dành cho đại chúng (differs from most books = not a typical book) ở chỗ nó chú trọng bóc tách phần lập luận phân tích phía sau các khám phá nghệ thuật.\n\n=> Đáp án: B",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q29",
+              "id": "catalog-cam-11-3-reading-part-3-q29",
               "number": 29,
-              "type": "true-false-not-given",
-              "prompt": "REM sleep is mainly responsible for factual recall.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "false",
-              "explanation": "Factual recall is linked to slow-wave sleep; REM supports creative problem solving.",
+              "type": "matching-paragraph",
+              "prompt": "personal examples of being helped by mathematics",
+              "options": [],
+              "answer": "G",
+              "explanation": "Bước 1: Keyword: “personal examples” (ví dụ cá nhân), “being helped by mathematics” (được giúp đỡ bởi toán học)\n\nBước 2: Tìm đoạn: Đoạn G: “A physician wrote... prepared me extremely well for medical school... A lawyer made the same point... I attribute much of my success there to having learned, through the study of mathematics...”\n\nBước 3: Phân tích: Đoạn G trích dẫn lời chứng thực trực tiếp từ một bác sĩ và một luật sư kể về việc tư duy toán học đã giúp ích lớn như thế nào cho quá trình học tập và làm nghề thực tế của chính họ.\n\n=> Đáp án: G",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q30",
+              "id": "catalog-cam-11-3-reading-part-3-q30",
               "number": 30,
-              "type": "true-false-not-given",
-              "prompt": "All sleep researchers agree on the value of laboratory experiments.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "not-given",
-              "explanation": "Limitations are noted but no universal agreement is described.",
+              "type": "matching-paragraph",
+              "prompt": "examples of people who each had abilities that seemed incompatible",
+              "options": [],
+              "answer": "C",
+              "explanation": "Bước 1: Keyword: “abilities that seemed incompatible” (những năng lực/khả năng có vẻ trái ngược, không tương thích nhau)\n\nBước 2: Tìm đoạn: Đoạn C: “To illustrate our human potential, I cite a structural engineer who is an artist, an electrical engineer who is an opera singer, an opera singer who published mathematical research, and a mathematician who publishes short stories.”  \n\nBước 3: Phân tích: Tác giả liệt kê một loạt ví dụ về các cá nhân sở hữu song song hai năng lực thuộc hai phạm trù hoàn toàn đối lập (não trái phân tích lý tính và não phải nghệ thuật trực giác) như: kỹ sư điện làm ca sĩ opera, nhà toán học viết truyện ngắn.  \n\n=> Đáp án: C",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q31",
+              "id": "catalog-cam-11-3-reading-part-3-q31",
               "number": 31,
-              "type": "true-false-not-given",
-              "prompt": "Sleeping after revision can improve test performance.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "true",
-              "explanation": "Students who sleep after revision often perform better.",
+              "type": "matching-paragraph",
+              "prompt": "mention of different focuses of books about mathematics",
+              "options": [],
+              "answer": "B",
+              "explanation": "Bước 1: Keyword: “different focuses of books” (những trọng tâm/hướng tiếp cận khác nhau của các sách về toán)\n\nBước 2: Tìm đoạn: Đoạn B: “Some present the lives of colorful mathematicians. Others describe important applications of mathematics. Yet others go into mathematical procedures...”\n\nBước 3: Phân tích: Tác giả liệt kê các lối khai thác đề tài khác nhau của sách toán học trên thị trường: cuốn thì tập trung viết về cuộc đời nhà toán học (lives), cuốn tập trung vào tính ứng dụng (applications), cuốn lại đi sâu vào quy trình giải toán (procedures).\n\n=> Đáp án: B",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q32",
+              "id": "catalog-cam-11-3-reading-part-3-q32",
               "number": 32,
-              "type": "true-false-not-given",
-              "prompt": "Workplaces now completely ban overtime to protect sleep.",
-              "options": [
-                {
-                  "id": "true",
-                  "label": "TRUE"
-                },
-                {
-                  "id": "false",
-                  "label": "FALSE"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "false",
-              "explanation": "Workplaces are increasingly aware of sleep loss, but no ban is mentioned.",
+              "type": "matching-paragraph",
+              "prompt": "a contrast between reading this book and reading other kinds of publication",
+              "options": [],
+              "answer": "E",
+              "explanation": "Bước 1: Keyword: “contrast” (sự tương phản/so sánh đối lập), “reading other kinds of publication”\n\nBước 2: Tìm đoạn: Đoạn E: “You will turn these pages much more slowly than when reading a novel or a newspaper.”\n\nBước 3: Phân tích: Tác giả chỉ ra sự tương phản rõ rệt khi đọc cuốn sách này là bạn sẽ phải lật từng trang chậm hơn rất nhiều (turn these pages much more slowly) so với tốc độ đọc các loại ấn phẩm giải trí thông thường khác như tiểu thuyết (novel) hay báo chí (newspaper).\n\n=> Đáp án: E",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-3-q33",
+              "number": 33,
+              "type": "matching-paragraph",
+              "prompt": "a claim that the whole of the book is accessible to everybody",
+              "options": [],
+              "answer": "A",
+              "explanation": "Bước 1: Keyword: “the whole of the book” (toàn bộ cuốn sách), “accessible to everybody” (ai cũng có thể tiếp cận/hiểu được)\n\nBước 2: Tìm đoạn: Đoạn A: “Each of the eight chapters in this book illustrates this phenomenon. Anyone can understand every step in the reasoning.”\n\nBước 3: Phân tích: Câu văn khẳng định tất cả 8 chương trong sách (Each of the eight chapters = the whole of the book) đều được viết sao cho bất kỳ ai cũng có thể hiểu được từng bước lập luận (Anyone can understand = accessible to everybody).\n\n=> Đáp án: A",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-11-3-reading-part-3-q34",
+              "number": 34,
+              "type": "matching-paragraph",
+              "prompt": "a reference to different categories of intended readers of this book",
+              "options": [],
+              "answer": "F",
+              "explanation": "Bước 1: Keyword: “different categories of intended readers” (các nhóm độc giả mục tiêu khác nhau)\n\nBước 2: Tìm đoạn: Đoạn F: “As I wrote, I kept in mind two types of readers: those who enjoyed mathematics until they were turned off... and mathematics aficionados...”\n\nBước 3: Phân tích: Tác giả chỉ rõ hai nhóm đối tượng độc giả (two types of readers = different categories of readers) mà ông hướng tới khi viết cuốn sách này: một là những người từng sợ toán sau biến cố ở trường học, và hai là những người vốn đã yêu thích và đam mê toán học (aficionados).\n\n=> Đáp án: F",
               "answerConfidence": "key"
             }
           ]
         },
         {
-          "id": "catalog-reading-ielts-cam11-test3-part-3-g1",
-          "range": "Questions 33–40",
-          "instruction": "Choose the correct letter, A, B, C or D.",
+          "id": "catalog-cam-11-3-reading-part-3-g1",
+          "range": "Questions 35–40",
+          "instruction": "Complete the sentences below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "type": "multiple-choice",
           "questions": [
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q33",
-              "number": 33,
-              "type": "multiple-choice",
-              "prompt": "The main purpose of the first paragraph is to",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "reject earlier theories about sleep"
-                },
-                {
-                  "id": "b",
-                  "label": "introduce the link between sleep and memory"
-                },
-                {
-                  "id": "c",
-                  "label": "compare human sleep with animal sleep"
-                },
-                {
-                  "id": "d",
-                  "label": "describe laboratory recording methods"
-                }
-              ],
-              "answer": "b",
-              "explanation": "The opening paragraph introduces the sleep–memory connection.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q34",
-              "number": 34,
-              "type": "multiple-choice",
-              "prompt": "During slow-wave sleep the brain",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "stops processing daytime experiences"
-                },
-                {
-                  "id": "b",
-                  "label": "replays and reorganises experiences"
-                },
-                {
-                  "id": "c",
-                  "label": "forms only creative associations"
-                },
-                {
-                  "id": "d",
-                  "label": "becomes less active than during REM sleep"
-                }
-              ],
-              "answer": "b",
-              "explanation": "The brain replays experiences and adjusts connections.",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q35",
+              "id": "catalog-cam-11-3-reading-part-3-q35",
               "number": 35,
-              "type": "multiple-choice",
-              "prompt": "Volunteers woken during REM sleep",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "may solve puzzles faster after sleeping again"
-                },
-                {
-                  "id": "b",
-                  "label": "lose all memory of the puzzle"
-                },
-                {
-                  "id": "c",
-                  "label": "cannot return to sleep in the laboratory"
-                },
-                {
-                  "id": "d",
-                  "label": "perform worse than those woken in slow-wave sleep"
-                }
-              ],
-              "answer": "a",
-              "explanation": "They sometimes solve puzzles more quickly after returning to sleep.",
+              "type": "gap-fill",
+              "prompt": "Some areas of both music and mathematics are suitable for someone who is a _______ .",
+              "options": [],
+              "answer": "beginner",
+              "explanation": "Bước 1: Keyword: “areas of both music and mathematics”, “suitable for someone who is a”\n\nBước 2: Tìm đoạn: Đoạn A: “Occasionally, in some difficult musical compositions, there are beautiful, but easy parts - parts so simple a beginner could play them. So it is with mathematics as well.”\n\nBước 3: Phân tích: Đoạn văn so sánh âm nhạc và toán học đều có những phần vô cùng đơn giản, dễ dàng tới mức một người mới bắt đầu chơi hay mới học cũng có thể xử lý được. Từ đơn thích hợp điền vào vị trí danh từ sau mạo từ \"a\" là beginner.\n\n=> Đáp án: beginner",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q36",
+              "id": "catalog-cam-11-3-reading-part-3-q36",
               "number": 36,
-              "type": "multiple-choice",
-              "prompt": "A limitation mentioned in the text is that",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "sleep research is illegal in schools"
-                },
-                {
-                  "id": "b",
-                  "label": "some studies use small samples"
-                },
-                {
-                  "id": "c",
-                  "label": "REM sleep cannot be measured"
-                },
-                {
-                  "id": "d",
-                  "label": "memory is unrelated to neural connections"
-                }
-              ],
-              "answer": "b",
-              "explanation": "Some experiments use small sample sizes.",
+              "type": "gap-fill",
+              "prompt": "It is sometimes possible to understand advanced mathematics using no more than a limited knowledge of _______ .",
+              "options": [],
+              "answer": "arithmetic",
+              "explanation": "Bước 1: Keyword: “advanced mathematics”, “using no more than” (không quá/nhiều nhất là), “limited knowledge of”\n\nBước 2: Tìm đoạn: Đoạn A: “There are some discoveries in advanced mathematics that do not depend on specialized knowledge... Instead, they may involve, at most, a little arithmetic...”\n\nBước 3: Phân tích: Để hiểu được một số khám phá toán cao cấp, người đọc không cần kiến thức chuyên sâu mà chỉ cần nhiều nhất là một chút kiến thức số học sơ cấp (at most, a little arithmetic tương đồng với no more than a limited knowledge of arithmetic).\n\n=> Đáp án: arithmetic",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q37",
+              "id": "catalog-cam-11-3-reading-part-3-q37",
               "number": 37,
-              "type": "multiple-choice",
-              "prompt": "Laboratory sleep differs from home sleep because",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "the environment is unnatural"
-                },
-                {
-                  "id": "b",
-                  "label": "volunteers sleep for longer periods"
-                },
-                {
-                  "id": "c",
-                  "label": "only children take part"
-                },
-                {
-                  "id": "d",
-                  "label": "REM sleep does not occur"
-                }
-              ],
-              "answer": "a",
-              "explanation": "Laboratory sleep differs from sleep at home.",
+              "type": "gap-fill",
+              "prompt": "The writer intends to show that mathematics requires _______ thinking, as well as analytical skills.",
+              "options": [],
+              "answer": "intuitive",
+              "explanation": "Bước 1: Keyword: “requires _______ thinking”, “as well as analytical skills”\n\nBước 2: Tìm đoạn: Đoạn C: “...mathematics is not restricted to the analytical and numerical; intuition plays a significant role... or should I say the right brain (intuitive) and the left brain (analytical, numerical).”\n\nBước 3: Phân tích: Tác giả nhấn mạnh toán học không chỉ giới hạn ở kỹ năng phân tích số liệu tính toán của não trái (analytical skills), mà nó còn đòi hỏi vai trò lớn của trực giác thuộc về não phải (intuition / intuitive). Do đó tính từ bổ nghĩa cho tư duy ở đây là intuitive.\n\n=> Đáp án: intuitive",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q38",
+              "id": "catalog-cam-11-3-reading-part-3-q38",
               "number": 38,
-              "type": "multiple-choice",
-              "prompt": "The writer suggests that reducing sleep can",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "increase long-term retention"
-                },
-                {
-                  "id": "b",
-                  "label": "improve creative thinking at work"
-                },
-                {
-                  "id": "c",
-                  "label": "lower productivity"
-                },
-                {
-                  "id": "d",
-                  "label": "have no effect on learning"
-                }
-              ],
-              "answer": "c",
-              "explanation": "Cutting sleep reduces productivity and retention.",
+              "type": "gap-fill",
+              "prompt": "Some books written by _______ have had to leave out the mathematics that is central to their theories.",
+              "options": [],
+              "answer": "scientists",
+              "explanation": "Bước 1: Keyword: “books written by”, “leave out the mathematics” (bỏ phần toán đi)\n\nBước 2: Tìm đoạn: Đoạn D: “Other scientists have written books to explain their fields to non-scientists, but have necessarily had to omit the mathematics...”\n\nBước 3: Phân tích: Động từ “omit” đồng nghĩa với cụm cụm từ “leave out”. Và chủ thể viết ra những cuốn sách buộc phải lược bỏ toán học này chính là các nhà khoa học — scientists.\n\n=> Đáp án: scientists",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q39",
+              "id": "catalog-cam-11-3-reading-part-3-q39",
               "number": 39,
-              "type": "multiple-choice",
-              "prompt": "Different stages of sleep are important because they",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "support different kinds of learning"
-                },
-                {
-                  "id": "b",
-                  "label": "replace the need for daytime practice"
-                },
-                {
-                  "id": "c",
-                  "label": "occur in the same order every night"
-                },
-                {
-                  "id": "d",
-                  "label": "are identical in all age groups"
-                }
-              ],
-              "answer": "a",
-              "explanation": "Different stages support factual recall and motor skills among other types.",
+              "type": "gap-fill",
+              "prompt": "The writer advises non-mathematical readers to perform _______ while reading.",
+              "options": [],
+              "answer": "experiments",
+              "explanation": "Bước 1: Keyword: “advises non-mathematical readers”, “perform _______ while reading”\n\nBước 2: Tìm đoạn: Đoạn E: “It may help to have a pencil and paper ready to check claims and carry out experiments.”\n\nBước 3: Phân tích: Tác giả đưa ra lời khuyên cho người đọc không chuyên là nên chuẩn bị sẵn giấy bút để kiểm tra các khẳng định và tiến hành/thực hiện các thử nghiệm. Động từ “carry out” đồng nghĩa với động từ “perform”, do đó danh từ cần điền là experiments.\n\n=> Đáp án: experiments",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-ielts-cam11-test3-part-3-q40",
+              "id": "catalog-cam-11-3-reading-part-3-q40",
               "number": 40,
-              "type": "multiple-choice",
-              "prompt": "The overall tone of the passage is",
-              "options": [
-                {
-                  "id": "a",
-                  "label": "cautiously informative"
-                },
-                {
-                  "id": "b",
-                  "label": "strongly dismissive"
-                },
-                {
-                  "id": "c",
-                  "label": "humorous and informal"
-                },
-                {
-                  "id": "d",
-                  "label": "entirely speculative"
-                }
-              ],
-              "answer": "a",
-              "explanation": "The writer presents evidence while noting limitations.",
+              "type": "gap-fill",
+              "prompt": "A lawyer found that studying _______ helped even more than other areas of mathematics in the study of law.",
+              "options": [],
+              "answer": "theorems",
+              "explanation": "Bước 1: Keyword: “A lawyer found”, “studying _______ helped even more”, “other areas of mathematics”\n\nBước 2: Tìm đoạn: Đoạn G: “I attribute much of my success there to having learned, through the study of mathematics, and, in particular, theorems, how to analyze complicated principles.”\n\nBước 3: Phân tích: Người luật sư chia sẻ rằng ông gặt hái được thành công nhờ việc học toán, và nhấn mạnh một phần cụ thể đặc biệt quan trọng (in particular tương đồng với helped even more than other areas) chính là việc học các định lý — theorems.\n\n=> Đáp án: theorems",
               "answerConfidence": "key"
             }
           ]
