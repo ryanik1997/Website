@@ -14,6 +14,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { REPO_ROOT, resolveTainguyenPath, tainguyenExists } from './tainguyen-path.mjs'
+import { crawlRowsToPayload } from './crawl-reading-to-payload.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = REPO_ROOT
@@ -21,6 +22,7 @@ const TAINGUYEN = resolveTainguyenPath()
 const PUBLIC_CATALOG = path.join(ROOT, 'apps/web/public/catalog')
 const DATA_OUT = path.join(ROOT, 'packages/catalog/data')
 const OUT_READING = path.join(ROOT, 'out-reading')
+const READING_CRAWL = path.join(TAINGUYEN, 'Crawl', 'Reading_ITELTS')
 const IF_PRESENT =
   process.argv.includes('--if-present')
   || process.env.SKIP_CATALOG_BUILD === '1'
@@ -204,6 +206,18 @@ async function discoverPayloadReadingBundles() {
 
   const bySlug = new Map()
 
+  // Crawl is the source of truth. Filename matching deliberately tolerates
+  // case, separators, whitespace and zero-padded Cambridge numbers.
+  if (existsSync(READING_CRAWL)) {
+    for (const name of await fs.readdir(READING_CRAWL)) {
+      const compact = name.replace(/\.json$/i, '').replace(/[^a-z0-9]/gi, '').toLowerCase()
+      const match = compact.match(/^cam0*(9|1[0-9]|20)test0*([1-4])$/)
+      if (!match || (match[1] === '11' && match[2] === '2')) continue
+      const cam = Number(match[1]); const test = Number(match[2]); const slug = `ielts-cam${cam}-test${test}`
+      bySlug.set(slug, { kind: 'reading', slug, examId: `catalog-cam-${cam}-${test}-reading`, examTrack: 'ielts', cam, test, crawlPath: path.join(READING_CRAWL, name) })
+    }
+  }
+
   const collect = async (dir) => {
     if (!existsSync(dir)) return
     const entries = await fs.readdir(dir)
@@ -214,7 +228,7 @@ async function discoverPayloadReadingBundles() {
       const cam = Number(match[1])
       const test = Number(match[2])
       const slug = `ielts-cam${cam}-test${test}`
-      if (bySlug.has(slug)) continue // converted wins because we visit it first
+      if (bySlug.has(slug)) continue // crawl wins; converted/raw remain fallback
       bySlug.set(slug, {
         kind: 'reading',
         slug,
@@ -291,7 +305,7 @@ function mediaUrl(kind, slug, filename) {
   return `${catalogBase(kind, slug)}/${filename}`
 }
 
-function transformReading(payload, bundle) {
+export function transformReading(payload, bundle) {
   const { examId, slug, cambridgeLevel, examTrack } = bundle
   const base = catalogBase('reading', slug)
 
@@ -634,7 +648,7 @@ async function main() {
   ]
   const BUNDLES = [
     ...STATIC_BUNDLES,
-    ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
+    ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath && !bundle.crawlPath),
     ...ieltsListeningBundles,
   ]
   await writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles)
@@ -677,12 +691,13 @@ async function main() {
   }
 
   for (const bundle of payloadReadingBundles) {
-    const raw = JSON.parse(await fs.readFile(bundle.payloadPath, 'utf8'))
+    const source = JSON.parse(await fs.readFile(bundle.crawlPath ?? bundle.payloadPath, 'utf8'))
+    const raw = bundle.crawlPath ? crawlRowsToPayload(source, bundle.cam, bundle.test) : source
     const sourcePath = path.join(ROOT, 'reading_filtered.json')
     const sourceRows = existsSync(sourcePath)
       ? JSON.parse(await fs.readFile(sourcePath, 'utf8'))
       : []
-    const enriched = enrichPayloadLayout(raw, sourceRows, bundle.cam, bundle.test)
+    const enriched = bundle.crawlPath ? raw : enrichPayloadLayout(raw, sourceRows, bundle.cam, bundle.test)
     const processed = transformReading(enriched, {
       ...bundle,
       cambridgeLevel: undefined,
@@ -706,7 +721,9 @@ async function main() {
   console.log(`  Data:   ${DATA_OUT}`)
 }
 
-main().catch(err => {
-  console.error(err)
-  process.exit(1)
-})
+if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
+}

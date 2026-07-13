@@ -430,14 +430,14 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
             onAnswer={handleAnswer}
             reviewMode={reviewMode}
             reviewStatusMap={reviewStatusMap}
-            canEditPassagePortraits={isAdmin === true && currentPart.partNumber === 2 && !reviewMode}
+            canEditPassagePortraits={isAdmin === true && [2, 6, 7].includes(currentPart.partNumber) && !reviewMode}
             onPassagePortraitPick={
-              isAdmin === true && currentPart.partNumber === 2 && !reviewMode
+              isAdmin === true && [2, 6, 7].includes(currentPart.partNumber) && !reviewMode
                 ? handlePassagePortraitPick
                 : undefined
             }
             onPassagePortraitClear={
-              isAdmin === true && currentPart.partNumber === 2 && !reviewMode
+              isAdmin === true && [2, 6, 7].includes(currentPart.partNumber) && !reviewMode
                 ? handlePassagePortraitClear
                 : undefined
             }

@@ -13,6 +13,8 @@
   --color-primary: #6366f1;
   --color-on-primary: #ffffff;
   --color-accent:  #8b5cf6;
+  --color-success: #166534;
+  --color-question-number: #991b1b;
   --exam-highlight-bg: #fff3a3;
   --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
   /* Gạch sóng note (IELTS + Cambridge) — Light: vàng/cam cũ */
@@ -30,6 +32,8 @@
   --color-primary: #818cf8;
   --color-on-primary: #ffffff;
   --color-accent:  #a78bfa;
+  --color-success: #166534;
+  --color-question-number: #991b1b;
   /* Tô sáng / bôi chọn: cam (theme tối) — IELTS + Cambridge */
   --exam-highlight-bg: #fb923c;
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);
@@ -48,6 +52,8 @@
   --color-primary: #89b4fa;
   --color-on-primary: #ffffff;
   --color-accent:  #cba6f7;
+  --color-success: #166534;
+  --color-question-number: #991b1b;
   /* Tô sáng / bôi chọn: cam (theme tối vừa) — IELTS + Cambridge */
   --exam-highlight-bg: #fb923c;
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);

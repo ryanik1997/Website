@@ -136,7 +136,7 @@ export function repairKetPart7Passage(
   part: ReadingPart,
   source: ReadingPart,
 ): ReadingPart {
-  const count = Math.max(part.passage.length, source.passage.length, 3)
+  const count = Math.max(part.passage.length, source.passage.length)
   const passage: ReadingPassageBlock[] = []
 
   for (let i = 0; i < count; i += 1) {
@@ -149,18 +149,17 @@ export function repairKetPart7Passage(
     if (!imageUrl && catalogUrl) imageUrl = catalogUrl
     // Fallback cứng KET test1 nếu catalog thiếu
     if (!imageUrl) {
-      imageUrl = `/catalog/reading/ket-a2-test1/part7-p${i + 1}.jpg`
     }
 
     passage.push({
       text: block?.text ?? src?.text ?? '',
       imageUrl,
-      imageKey: undefined,
+      imageKey: block?.imageKey,
     })
   }
 
   // Chỉ giữ tối đa số ảnh story (thường 3)
-  return { ...part, passage: passage.slice(0, Math.max(3, source.passage.length)) }
+  return { ...part, passage }
 }
 
 function mergePart(part: ReadingPart, source: ReadingPart | undefined): ReadingPart {

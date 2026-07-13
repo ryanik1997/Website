@@ -72,12 +72,6 @@ function PassageImage({
   )
 }
 
-const KET_A2_PART7_CATALOG = [
-  '/catalog/reading/ket-a2-test1/part7-p1.jpg',
-  '/catalog/reading/ket-a2-test1/part7-p2.jpg',
-  '/catalog/reading/ket-a2-test1/part7-p3.jpg',
-] as const
-
 /**
  * Part 4 MC gap — Part4_New: thanh số đen + 3 pill ngang phía trên (không dropdown dọc).
  * Part4_Now (cũ): ô tím + menu dọc.
@@ -490,6 +484,16 @@ export default function KetRwPartContent({
           left={(
             <div className="ket-rw-writing-prompt">
               <h3>Question {wq?.number ?? 31}</h3>
+              {canEditPassagePortraits && onPassagePortraitPick && (
+                <label className="ket-rw-import-image">
+                  Import
+                  <input type="file" accept="image/*" onChange={e => {
+                    const file = e.target.files?.[0]
+                    if (file) onPassagePortraitPick(0, file)
+                    e.currentTarget.value = ''
+                  }} />
+                </label>
+              )}
               <p>Write <strong>{wq?.minWords ?? 25} words or more</strong>.</p>
               <div className="ket-rw-writing-prompt__body">
                 {renderPassageBlocks()}
@@ -529,16 +533,24 @@ export default function KetRwPartContent({
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
             <h3 className="ket-rw-passage-title">Question {wq?.number ?? 32}</h3>
+            {canEditPassagePortraits && onPassagePortraitPick && (
+              <label className="ket-rw-import-image">
+                Import
+                <input type="file" accept="image/*" onChange={e => {
+                  const file = e.target.files?.[0]
+                  if (file) onPassagePortraitPick(0, file)
+                  e.currentTarget.value = ''
+                }} />
+              </label>
+            )}
             {wq && (
-              <p className="ket-rw-q-prompt">
-                <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
-              </p>
+              wq.prompt?.trim() ? <p className="ket-rw-q-prompt"><RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} /></p> : null
             )}
             <div className="ket-rw-pictures">
-              {(part.passage.length ? part.passage : [{ text: '' }, { text: '' }, { text: '' }])
+              {(part.passage.length ? part.passage : [])
                 .slice(0, 3)
                 .map((block, idx) => {
-                  const catalogUrl = KET_A2_PART7_CATALOG[idx]
+                  const catalogUrl = undefined
                   const hasLocal =
                     Boolean(block.imageKey?.trim()) || Boolean(block.imageUrl?.trim())
                   // Chỉ fallback catalog khi import/local không có ảnh — tránh đè blob import

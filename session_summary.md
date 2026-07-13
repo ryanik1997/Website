@@ -3439,3 +3439,96 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 - Thêm `scripts/payload-to-catalog.mjs` và mở rộng `scripts/build-catalog.mjs` đọc `out-reading/`.
 - Fix layout câu hỏi: giữ prompt thật, table completion, title, rows và gap từ `reading_filtered.json`.
 - Verify: catalog test 47 đề/3 passages/40 câu PASS; `pnpm -C apps/web build` PASS.
+
+## 2026-07-13 — IELTS Reading Crawl source-of-truth
+
+- Build catalog discover tên Crawl linh hoạt; ưu tiên Crawl > converted > raw > exam.json, bỏ Cam11 Test2 và giữ fallback cũ.
+- Converter hỗ trợ các dạng IELTS chính; displayType lạ cảnh báo theo đề/part/câu, giữ nguyên dữ liệu và không crash.
+- Cam20 Test2 đạt 3 passage, 40/40 answer, 40/40 explanation; build catalog PASS 47 Reading + 48 Listening.
+
+## 2026-07-13 — Fix Crawl→catalog giữ layout TID (pilot Cam20 Test2)
+
+- Chỉ sửa converter, không đụng renderer. `htmlToBlocks` tách passage theo p/br/div và giữ label A–Z.
+- `parseNoteContent` sinh `notePassage` gồm section/static/gap/break; note/summary giữ flow, không dump raw vào `note`.
+- `phraseOptions` sinh `wordBank[{id,label}]` với label thật; table headers/rows sinh đúng `ReadingNoteTable` cell blocks.
+- Thêm pilot command `node scripts/build-reading-crawl-pilot.mjs 20 2` và regression `node scripts/test-crawl-reading-layout.mjs`.
+- Cam20 Test2 catalog: passage 12/9/12 blocks; note gaps 1–6; summary gaps 33–37; word bank A–H nhãn thật; test + web tsc PASS.
+- Chưa scale lại 47 đề. Chưa so mắt được 6 screenshot vì phiên không có in-app browser khả dụng.
+
+- Đã đọc ảnh chuẩn `Tainguyen/Error/Reading/True.jpg` và `True2.jpg` (user gọi True1), đối chiếu `Now.jpg`/`Now1.jpg`.
+- Bổ sung bỏ dòng `Questions N–M` khỏi `group.instruction` để không lặp range; giữ các dòng hướng dẫn còn lại.
+- Catalog pilot Q17–22 và Q33–37 hiện giữ đúng summary inline, section title, gap tại chỗ và word bank có nhãn thật như ảnh chuẩn.
+
+- User cho phép chỉnh renderer/CSS tối thiểu để khớp True/True2: `SummaryCompletionGroup` giờ render `notePassage`, không render rows rời; word bank chuyển xuống cuối dạng chip ngang.
+- `ReadingNotePassageBox` thêm variant summary; CSS riêng bỏ card nền/viền, gap underline inline, spacing/bullet theo ảnh chuẩn. Renderer notes/table mặc định không đổi.
+- Verify: converter regression PASS, web tsc PASS, production build PASS, `git diff --check` PASS.
+
+## 2026-07-13 — Scale Crawl Reading layout toàn bộ catalog
+
+- Chạy `node scripts/build-catalog.mjs`: regenerate đủ 47 IELTS Reading hợp lệ (Cam9–20, trừ Cam11 Test2).
+- Tất cả dạng summary/note giống True/True2 dùng chung `notePassage` renderer và CSS summary inline; word bank chip ngang tự áp dụng khi có `phraseOptions`.
+- Audit catalog: 47 files, 57 summary groups, 93 notePassage groups, 22 word banks, 10 tables; 0 lỗi; mỗi đề 3 passage/40 câu.
+- Một dạng lạ còn log/fallback đúng yêu cầu: Cam18 Test1 Part3 Q40 `displayType=matching`.
+- Regression Cam20 Test2 PASS; web tsc + production build PASS.
+
+- Fix Cam18 Test1 P3 Q40: TID thiếu `blockId` nhưng còn `group_id=g3`; converter giờ ưu tiên `groupId/group_id` để ghép Q40 vào group matching-features Q36–40.
+- Q40 render cùng format Q39 với lựa chọn A–D, prompt “There is a risk we will not be able to undo the damage that occurs in space.”; range sửa theo actual questions thành 36–40.
+- Regression Cam18 Q40 + Cam20 layout PASS; build pilot Cam18 T1 + web tsc PASS.
+
+## 2026-07-13 — Map table-completion Crawl sang Import Wizard template
+
+- Đối chiếu `Cam18_Test1_Part4_True.jpg`/`Now.jpg`; Q4–7 map đúng shape `CAM_AEROPONIC_FARMING_TABLE` có sẵn.
+- Converter promote embedded markdown-bold header row trong `tableRows` thành headers; không promote body row thường (fix Cam15 Nutmeg Q8–13).
+- Parse table title/headers/body, bullet, newline→break, `[N]`→gap và gapNumbers; không tạo renderer bảng mới.
+- Regenerate 47 Reading; audit 10 table groups: headers/rows tồn tại, question numbers trùng gapNumbers, 0 lỗi. Regression + web tsc PASS.
+
+## 2026-07-13 — Align summary completion toàn catalog
+
+- Fix CSS summary variant: đổi line từ flex fragments sang block inline text flow, nên static/gap/static wrap cùng baseline như đoạn văn thật.
+- Giữ bullet inline, gap underline căn baseline; `text-wrap: pretty`, line-height desktop/mobile và width gap responsive.
+- Tự áp dụng 57 summary groups trong 47 đề; audit 57/57 có notePassage, 0 missing.
+- Regression, web tsc, production build và diff check PASS.
+
+## 2026-07-13 — Màu xanh green đậm cho số câu Reading
+
+- Chỉ đổi màu các number markers Q1–Q40 (`tfng`, matching, summary gap, notes gap, table gap), không đổi màu prompt/passage.
+- Thêm `--color-success` theo theme và dùng màu xanh green đậm nhất quán trong `readingTest.css`.
+- Web TypeScript + diff check PASS.
+
+## 2026-07-13 — Green underline cho toàn bộ ô điền Reading
+
+- Tất cả input gap Reading dùng `border-bottom: 2px solid var(--color-success)`, không còn border card quanh ô.
+- Áp dụng cho summary, note passage, note table và gap-fill thường trên toàn bộ 48 bundle Reading.
+- Prompt/passage và số câu giữ rule màu riêng; TypeScript + diff check PASS.
+
+## 2026-07-13 — Cam18 Test2 P3 Q34–40 green line
+
+- Verified catalog Q34–40 is `summary-completion` with `notePassage` gaps 34–40; renderer path is correct.
+- Fixed CSS specificity: summary note-gap input had a later 1px border rule overriding the green underline. It now uses 2px `var(--color-success)` like all Reading gap inputs.
+- Web TypeScript + diff check PASS. Hard refresh/dev-server restart may be needed to clear cached CSS.
+
+## 2026-07-13 — Fix Cam9 Test4 đề/đáp án bị trộn
+
+- Root cause: Crawl chỉ có `group_id` ở câu đầu mỗi nhóm; converter cũ tạo nhóm mới cho từng câu phía sau.
+- Fix: kế thừa group hiện tại khi type không đổi, mở group mới khi type đổi.
+- Cam9 Test4 hiện đúng 8 nhóm: Q1–6, 7–13, 14–19, 20–23, 24–26, 27–30, 31–36, 37–40.
+- Regression converter + full catalog build + web tsc PASS.
+
+## 2026-07-13 — Đổi số câu Q1–Q40 sang đỏ đậm
+
+- Thêm `--color-question-number: #991b1b` và áp dụng cho mọi marker số câu Reading: TFNG/YNNG, matching, summary, notes, table, gap-fill.
+- Số câu dùng `font-weight: 800`; đường line ô điền vẫn giữ xanh green đậm.
+- Web TypeScript + diff check PASS.
+## 2026-07-13 — KET A2 generated pilot 01 (review required)
+
+- Thêm generator `scripts/generate-ket-a2-pilot.mjs` và draft `packages/catalog/data/reading-ket-a2-generated-01.json`.
+- Draft đủ 5 parts / 30 câu, schema hợp lệ, nhưng chưa wire vào builtin catalog vì cần quality review về CEFR, distractor và ambiguity trước khi ship.
+## 2026-07-13 - KET A2 generated pilot wired
+
+- Wired `packages/catalog/data/reading-ket-a2-generated-01.json` into builtin exams.
+- Pilot has 7 parts: Reading Parts 1-5 (30 questions) and Writing Parts 6-7 (2 tasks).
+- Typecheck and production build pass. Content remains marked `generated-review-required` for CEFR/distractor review.
+## 2026-07-13 - KET A2 Cambridge 4/5 placement
+
+- Pilot is now exposed as five catalog entries: Cambridge 4 Tests 1-4 and Cambridge 5 Test 1.
+- All entries remain filtered into `/app/exam/track/cambridge/a2/reading`; typecheck passes.

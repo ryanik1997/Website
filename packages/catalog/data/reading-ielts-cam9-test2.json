@@ -1,13 +1,13 @@
 {
   "id": "catalog-cam-9-2-reading",
-  "title": "CAM 9 2",
+  "title": "Cambridge 9 Test 2 Reading",
   "durationMinutes": 60,
-  "bandHint": "Cambridge Reading — 3 parts",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 2 — 3 parts",
   "parts": [
     {
       "id": "catalog-cam-9-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "Read the text and answer questions 1–13.",
+      "rangeLabel": "",
       "passageTitle": "Hearing impairment in children",
       "passage": [
         {
@@ -62,35 +62,9 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-1-g0",
-          "range": "Questions 1–13",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "current teaching methods"
-            },
-            {
-              "id": "b",
-              "label": "echoing corridors"
-            },
-            {
-              "id": "c",
-              "label": "cooling systems"
-            },
-            {
-              "id": "d",
-              "label": "large class sizes"
-            },
-            {
-              "id": "e",
-              "label": "loud-voiced teachers"
-            },
-            {
-              "id": "f",
-              "label": "playground games"
-            }
-          ],
+          "range": "Questions 1-6",
+          "instruction": "",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-1-q1",
@@ -151,7 +125,15 @@
               "answer": "A",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-2-reading-part-1-g1",
+          "range": "Questions 7-10",
+          "instruction": "",
+          "type": "gap-fill",
+          "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-1-q7",
               "number": 7,
@@ -191,13 +173,46 @@
               "answer": "Objective 3",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-2-reading-part-1-g2",
+          "range": "Questions 11-13",
+          "instruction": "",
+          "type": "multiple-choice",
+          "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-1-q11",
               "number": 11,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Which TWO are mentioned by the writer?",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "current teaching methods"
+                },
+                {
+                  "id": "B",
+                  "label": "echoing corridors"
+                },
+                {
+                  "id": "C",
+                  "label": "cooling systems"
+                },
+                {
+                  "id": "D",
+                  "label": "large class sizes"
+                },
+                {
+                  "id": "E",
+                  "label": "loud-voiced teachers"
+                },
+                {
+                  "id": "F",
+                  "label": "playground games"
+                }
+              ],
               "answer": "A,C",
               "explanation": "",
               "answerConfidence": "key"
@@ -205,9 +220,34 @@
             {
               "id": "catalog-cam-9-2-reading-part-1-q12",
               "number": 12,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Question 12",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "current teaching methods"
+                },
+                {
+                  "id": "B",
+                  "label": "echoing corridors"
+                },
+                {
+                  "id": "C",
+                  "label": "cooling systems"
+                },
+                {
+                  "id": "D",
+                  "label": "large class sizes"
+                },
+                {
+                  "id": "E",
+                  "label": "loud-voiced teachers"
+                },
+                {
+                  "id": "F",
+                  "label": "playground games"
+                }
+              ],
               "answer": "A,C",
               "explanation": "",
               "answerConfidence": "key"
@@ -215,7 +255,7 @@
             {
               "id": "catalog-cam-9-2-reading-part-1-q13",
               "number": 13,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "What is the writer's overall purpose in writing this article?",
               "options": [
                 {
@@ -246,7 +286,7 @@
     {
       "id": "catalog-cam-9-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "Read the text and answer questions 14–26.",
+      "rangeLabel": "",
       "passageTitle": "Venus in Transit",
       "passage": [
         {
@@ -289,9 +329,9 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-2-g0",
-          "range": "Questions 14–21",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
+          "range": "Questions 14-17",
+          "instruction": "",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-2-q14",
@@ -332,7 +372,15 @@
               "answer": "E",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-2-reading-part-2-g1",
+          "range": "Questions 18-21",
+          "instruction": "",
+          "type": "multiple-choice",
+          "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-2-q18",
               "number": 18,
@@ -444,9 +492,9 @@
           ]
         },
         {
-          "id": "catalog-cam-9-2-reading-part-2-g1",
-          "range": "Questions 22–26",
-          "instruction": "Choose the correct answer.",
+          "id": "catalog-cam-9-2-reading-part-2-g2",
+          "range": "Questions 22-26",
+          "instruction": "",
           "type": "tfng",
           "questions": [
             {
@@ -506,7 +554,7 @@
     {
       "id": "catalog-cam-9-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "Read the text and answer questions 27–40.",
+      "rangeLabel": "",
       "passageTitle": "A Neuroscientist Reveals How to Think Differently",
       "passage": [
         {
@@ -561,8 +609,8 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-3-g0",
-          "range": "Questions 27–40",
-          "instruction": "Choose the correct answer.",
+          "range": "Questions 27-31",
+          "instruction": "",
           "type": "multiple-choice",
           "questions": [
             {
@@ -699,11 +747,19 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-2-reading-part-3-g1",
+          "range": "Questions 32-37",
+          "instruction": "",
+          "type": "ynng",
+          "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-3-q32",
               "number": 32,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Exposure to different events forces the brain to think differently.",
               "options": [],
               "answer": "YES",
@@ -713,7 +769,7 @@
             {
               "id": "catalog-cam-9-2-reading-part-3-q33",
               "number": 33,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Iconoclasts are unusually receptive to new experiences.",
               "options": [],
               "answer": "YES",
@@ -723,7 +779,7 @@
             {
               "id": "catalog-cam-9-2-reading-part-3-q34",
               "number": 34,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Most people are too shy to try different things.",
               "options": [],
               "answer": "NOT GIVEN",
@@ -733,7 +789,7 @@
             {
               "id": "catalog-cam-9-2-reading-part-3-q35",
               "number": 35,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "If you think in an iconoclastic way, you can easily overcome fear.",
               "options": [],
               "answer": "NOT GIVEN",
@@ -743,7 +799,7 @@
             {
               "id": "catalog-cam-9-2-reading-part-3-q36",
               "number": 36,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "When concern about embarrassment matters less, other fears become irrelevant.",
               "options": [],
               "answer": "NO",
@@ -753,13 +809,21 @@
             {
               "id": "catalog-cam-9-2-reading-part-3-q37",
               "number": 37,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Fear of public speaking is a psychological illness.",
               "options": [],
               "answer": "NO",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-2-reading-part-3-g2",
+          "range": "Questions 38-40",
+          "instruction": "",
+          "type": "multiple-choice",
+          "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-3-q38",
               "number": 38,

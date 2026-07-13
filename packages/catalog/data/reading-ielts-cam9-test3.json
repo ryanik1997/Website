@@ -1,13 +1,13 @@
 {
   "id": "catalog-cam-9-3-reading",
-  "title": "CAM 9 3",
+  "title": "Cambridge 9 Test 3 Reading",
   "durationMinutes": 60,
-  "bandHint": "Cambridge Reading — 3 parts",
+  "bandHint": "IELTS Academic · Cambridge 9 · Test 3 — 3 parts",
   "parts": [
     {
       "id": "catalog-cam-9-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "Read the text and answer questions 1–13.",
+      "rangeLabel": "",
       "passageTitle": "Attitudes to Language",
       "passage": [
         {
@@ -44,14 +44,14 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-3-reading-part-1-g0",
-          "range": "Questions 1–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
+          "range": "Questions 1-8",
+          "instruction": "",
+          "type": "ynng",
           "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-1-q1",
               "number": 1,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "There are understandable reasons why arguments occur about language.",
               "options": [],
               "answer": "YES",
@@ -61,7 +61,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "People feel more strongly about language education than about small differences in language usage.",
               "options": [],
               "answer": "NO",
@@ -71,7 +71,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Our assessment of a person's intelligence is affected by the way he or she uses language.",
               "options": [],
               "answer": "YES",
@@ -81,7 +81,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Prescriptive grammar books cost a lot of money to buy in the 18th century.",
               "options": [],
               "answer": "NOT GIVEN",
@@ -91,7 +91,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Prescriptivism still exists today.",
               "options": [],
               "answer": "YES",
@@ -101,7 +101,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "According to descriptivists it is pointless to try to stop language change.",
               "options": [],
               "answer": "YES",
@@ -111,7 +111,7 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Descriptivism only appeared after the 18th century.",
               "options": [],
               "answer": "NO",
@@ -121,13 +121,21 @@
             {
               "id": "catalog-cam-9-3-reading-part-1-q8",
               "number": 8,
-              "type": "multiple-choice",
+              "type": "yes-no-not-given",
               "prompt": "Both descriptivists and prescriptivists have been misrepresented.",
               "options": [],
               "answer": "YES",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-3-reading-part-1-g1",
+          "range": "Questions 9-12",
+          "instruction": "",
+          "type": "gap-fill",
+          "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-1-q9",
               "number": 9,
@@ -167,7 +175,15 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-3-reading-part-1-g2",
+          "range": "Questions 13-13",
+          "instruction": "",
+          "type": "multiple-choice",
+          "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-1-q13",
               "number": 13,
@@ -202,7 +218,7 @@
     {
       "id": "catalog-cam-9-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "Read the text and answer questions 14–26.",
+      "rangeLabel": "",
       "passageTitle": "Tidal Power",
       "passage": [
         {
@@ -245,51 +261,9 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-3-reading-part-2-g0",
-          "range": "Questions 14–26",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "It is a more reliable source of energy than wind power."
-            },
-            {
-              "id": "b",
-              "label": "It would replace all other forms of energy in Britain."
-            },
-            {
-              "id": "c",
-              "label": "Its introduction has come as a result of public pressure."
-            },
-            {
-              "id": "d",
-              "label": "It would cut down on air pollution."
-            },
-            {
-              "id": "e",
-              "label": "It could contribute to the closure of many existing power stations in Britain."
-            },
-            {
-              "id": "f",
-              "label": "It could be a means of increasing national income."
-            },
-            {
-              "id": "g",
-              "label": "It could face a lot of resistance from other fuel industries."
-            },
-            {
-              "id": "h",
-              "label": "It could be sold more cheaply than any other type of fuel."
-            },
-            {
-              "id": "i",
-              "label": "It could compensate for the shortage of inland sites for energy production."
-            },
-            {
-              "id": "j",
-              "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ],
+          "range": "Questions 14-17",
+          "instruction": "",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-2-q14",
@@ -330,13 +304,62 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-3-reading-part-2-g1",
+          "range": "Questions 18-22",
+          "instruction": "",
+          "type": "multiple-choice",
+          "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-2-q18",
               "number": 18,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Which FIVE claims about tidal power are made by the writer? Write the letters.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "B",
+                  "label": "It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "C",
+                  "label": "Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "D",
+                  "label": "It would cut down on air pollution."
+                },
+                {
+                  "id": "E",
+                  "label": "It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "F",
+                  "label": "It could be a means of increasing national income."
+                },
+                {
+                  "id": "G",
+                  "label": "It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "H",
+                  "label": "It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "I",
+                  "label": "It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "J",
+                  "label": "It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
               "answer": "A,D,E,F,J",
               "explanation": "",
               "answerConfidence": "key"
@@ -344,9 +367,50 @@
             {
               "id": "catalog-cam-9-3-reading-part-2-q19",
               "number": 19,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Question 19",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "B",
+                  "label": "It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "C",
+                  "label": "Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "D",
+                  "label": "It would cut down on air pollution."
+                },
+                {
+                  "id": "E",
+                  "label": "It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "F",
+                  "label": "It could be a means of increasing national income."
+                },
+                {
+                  "id": "G",
+                  "label": "It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "H",
+                  "label": "It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "I",
+                  "label": "It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "J",
+                  "label": "It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
               "answer": "A,D,E,F,J",
               "explanation": "",
               "answerConfidence": "key"
@@ -354,9 +418,50 @@
             {
               "id": "catalog-cam-9-3-reading-part-2-q20",
               "number": 20,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Question 20",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "B",
+                  "label": "It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "C",
+                  "label": "Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "D",
+                  "label": "It would cut down on air pollution."
+                },
+                {
+                  "id": "E",
+                  "label": "It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "F",
+                  "label": "It could be a means of increasing national income."
+                },
+                {
+                  "id": "G",
+                  "label": "It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "H",
+                  "label": "It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "I",
+                  "label": "It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "J",
+                  "label": "It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
               "answer": "A,D,E,F,J",
               "explanation": "",
               "answerConfidence": "key"
@@ -364,9 +469,50 @@
             {
               "id": "catalog-cam-9-3-reading-part-2-q21",
               "number": 21,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Question 21",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "B",
+                  "label": "It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "C",
+                  "label": "Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "D",
+                  "label": "It would cut down on air pollution."
+                },
+                {
+                  "id": "E",
+                  "label": "It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "F",
+                  "label": "It could be a means of increasing national income."
+                },
+                {
+                  "id": "G",
+                  "label": "It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "H",
+                  "label": "It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "I",
+                  "label": "It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "J",
+                  "label": "It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
               "answer": "A,D,E,F,J",
               "explanation": "",
               "answerConfidence": "key"
@@ -374,13 +520,62 @@
             {
               "id": "catalog-cam-9-3-reading-part-2-q22",
               "number": 22,
-              "type": "summary-completion",
+              "type": "multiple-choice",
               "prompt": "Question 22",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is a more reliable source of energy than wind power."
+                },
+                {
+                  "id": "B",
+                  "label": "It would replace all other forms of energy in Britain."
+                },
+                {
+                  "id": "C",
+                  "label": "Its introduction has come as a result of public pressure."
+                },
+                {
+                  "id": "D",
+                  "label": "It would cut down on air pollution."
+                },
+                {
+                  "id": "E",
+                  "label": "It could contribute to the closure of many existing power stations in Britain."
+                },
+                {
+                  "id": "F",
+                  "label": "It could be a means of increasing national income."
+                },
+                {
+                  "id": "G",
+                  "label": "It could face a lot of resistance from other fuel industries."
+                },
+                {
+                  "id": "H",
+                  "label": "It could be sold more cheaply than any other type of fuel."
+                },
+                {
+                  "id": "I",
+                  "label": "It could compensate for the shortage of inland sites for energy production."
+                },
+                {
+                  "id": "J",
+                  "label": "It is best produced in the vicinity of coastlines with particular features."
+                }
+              ],
               "answer": "A,D,E,F,J",
               "explanation": "",
               "answerConfidence": "key"
-            },
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-9-3-reading-part-2-g2",
+          "range": "Questions 23-26",
+          "instruction": "",
+          "type": "gap-fill",
+          "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-2-q23",
               "number": 23,
@@ -428,7 +623,7 @@
     {
       "id": "catalog-cam-9-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "Read the text and answer questions 27–40.",
+      "rangeLabel": "",
       "passageTitle": "Information Theory",
       "passage": [
         {
@@ -471,9 +666,9 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-3-reading-part-3-g0",
-          "range": "Questions 27–37",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
+          "range": "Questions 27-37",
+          "instruction": "",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-9-3-reading-part-3-q27",
@@ -589,8 +784,8 @@
         },
         {
           "id": "catalog-cam-9-3-reading-part-3-g1",
-          "range": "Questions 38–40",
-          "instruction": "Choose the correct answer.",
+          "range": "Questions 38-40",
+          "instruction": "",
           "type": "tfng",
           "questions": [
             {

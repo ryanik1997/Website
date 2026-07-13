@@ -1167,6 +1167,9 @@ function SummaryCompletionGroup({
   const bank = group.wordBank ?? []
   const activeQuestion = group.questions.find(q => q.id === activeQuestionId) ?? null
   const inlineSummary = summaryNoteHasInlineGaps(group.note)
+  const hasNotePassage = Boolean(group.notePassage?.length)
+  const questionsByNumber = new Map(group.questions.map(question => [question.number, question]))
+  const placeholder = gapFillPlaceholder(group)
 
   return (
     <section className="reading-test-group">
@@ -1204,25 +1207,43 @@ function SummaryCompletionGroup({
         />
       )}
 
+      {hasNotePassage && group.notePassage && (
+        <ReadingNotePassageBox
+          groupId={group.id}
+          blocks={group.notePassage}
+          questionsByNumber={questionsByNumber}
+          answers={answers}
+          highlights={highlights}
+          activeQuestionId={activeQuestionId ?? null}
+          placeholder={placeholder}
+          notesTitle={group.notesTitle}
+          variant="summary"
+          onAnswer={onAnswer}
+          onSelectQuestion={onSelectQuestion}
+        />
+      )}
+
       {bank.length > 0 && (
-        <div className="reading-test-word-bank">
+        <div className={`reading-test-word-bank${hasNotePassage ? ' reading-test-word-bank--inline' : ''}`}>
           <p className="reading-test-word-bank__title">LIST OF OPTIONS</p>
-          {bank.map(word => (
-            <p key={word.id} className="reading-test-word-bank__item">
-              <strong data-highlight-skip>{word.id.toUpperCase()}</strong>
-              {' '}
-              <ReadingHighlightableText
-                blockId={`${group.id}-bank-${word.id}`}
-                text={word.label}
-                highlights={highlights}
-                as="span"
-              />
-            </p>
-          ))}
+          <div className="reading-test-word-bank__options">
+            {bank.map(word => (
+              <p key={word.id} className="reading-test-word-bank__item">
+                <strong data-highlight-skip>{word.id.toUpperCase()}</strong>
+                {' '}
+                <ReadingHighlightableText
+                  blockId={`${group.id}-bank-${word.id}`}
+                  text={word.label}
+                  highlights={highlights}
+                  as="span"
+                />
+              </p>
+            ))}
+          </div>
         </div>
       )}
 
-      {!inlineSummary && group.questions.map(question => {
+      {!inlineSummary && !hasNotePassage && group.questions.map(question => {
         const answered = answers[question.id]
         const isActive = activeQuestionId === question.id
         return (

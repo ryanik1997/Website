@@ -532,6 +532,7 @@ mark.reading-test-note {
   line-height: 1.55;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
+  white-space: pre-line;
 }
 
 .reading-test-group__image {
@@ -639,7 +640,8 @@ mark.reading-test-note {
 .reading-test-table-gap__num {
   font-size: 0.78em;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--color-question-number);
+  font-weight: 800;
 }
 
 .reading-test-table-gap__input {
@@ -647,7 +649,8 @@ mark.reading-test-note {
   max-width: 9rem;
   padding: 0.15rem 0.35rem;
   font-size: 0.82rem;
-  border: 1px solid var(--border-color);
+  border: 0;
+  border-bottom: 2px solid var(--color-success);
   border-radius: 0.3rem;
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -722,7 +725,8 @@ mark.reading-test-note {
 .reading-test-notes-gap__num {
   font-size: 0.78em;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--color-question-number);
+  font-weight: 800;
 }
 
 .reading-test-notes-gap__input {
@@ -730,10 +734,72 @@ mark.reading-test-note {
   max-width: 10rem;
   padding: 0.12rem 0.35rem;
   font-size: 0.82rem;
-  border: 1px solid var(--border-color);
+  border: 0;
+  border-bottom: 2px solid var(--color-success);
   border-radius: 0.3rem;
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+.reading-test-notes-box--summary {
+  margin-top: 1.15rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.reading-test-notes-box--summary .reading-test-notes-box__section {
+  margin: 0 0 1.15rem;
+  font-size: 0.88em;
+  font-weight: 700;
+}
+
+.reading-test-notes-box--summary .reading-test-notes-box__line {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.88em;
+  line-height: 1.75;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.reading-test-notes-box--summary .reading-test-notes-box__line--bullet::before {
+  content: '–';
+  display: inline;
+  margin-right: 0.25rem;
+  font-weight: 400;
+}
+
+.reading-test-notes-box--summary .reading-test-notes-gap {
+  display: inline-flex;
+  margin-inline: 0.18rem;
+  transform: translateY(0.08em);
+}
+
+.reading-test-notes-box--summary .reading-test-notes-gap__input {
+  width: 8.25rem;
+  min-width: 8.25rem;
+  max-width: 8.25rem;
+  padding: 0.08rem 0.25rem 0.16rem;
+  border: 0;
+  border-bottom: 2px solid var(--color-success);
+  border-radius: 0;
+  background: transparent;
+  line-height: 1.25;
+}
+
+@media (max-width: 720px) {
+  .reading-test-notes-box--summary .reading-test-notes-box__line {
+    line-height: 1.65;
+    text-wrap: wrap;
+  }
+
+  .reading-test-notes-box--summary .reading-test-notes-gap__input {
+    width: 6.5rem;
+    min-width: 6.5rem;
+    max-width: 6.5rem;
+  }
 }
 
 .reading-test-group__note {
@@ -798,7 +864,8 @@ mark.reading-test-note {
 .reading-test-summary-gap__num {
   font-size: 0.78em;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--color-question-number);
+  font-weight: 800;
 }
 
 .reading-test-summary-gap__value {
@@ -821,12 +888,20 @@ mark.reading-test-note {
   font-size: 0.88em;
   color: var(--text-primary);
   padding: 0.1rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--rt-submit) 45%, var(--border-color));
+  border-bottom: 2px solid var(--color-success);
 }
 
 .reading-test-summary-gap__input:focus {
   outline: none;
-  border-bottom-color: var(--rt-submit);
+  border-bottom-color: var(--color-success);
+}
+
+/* Every Reading fill-in answer uses the same dark-green answer line. */
+.reading-test-gap-input,
+.reading-test-gap-table-row .reading-test-gap-input {
+  border: 0;
+  border-bottom: 2px solid var(--color-success);
+  border-radius: 0;
 }
 
 .reading-test-tfng-item {
@@ -844,7 +919,8 @@ mark.reading-test-note {
 .reading-test-tfng-num {
   font-size: 0.88em;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-question-number);
+  font-weight: 800;
   padding-top: 0.1rem;
 }
 
@@ -1484,8 +1560,9 @@ mark.reading-test-note {
   margin-top: 0.5rem;
   width: 100%;
   max-width: 14rem;
-  border-radius: 0.4rem;
-  border: 1px solid var(--border-color);
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid var(--color-success);
   background: var(--bg-primary);
   color: var(--text-primary);
   padding: 0.45rem 0.65rem;
@@ -1494,7 +1571,7 @@ mark.reading-test-note {
 }
 
 .reading-test-gap-input:focus {
-  border-color: color-mix(in srgb, var(--rt-submit) 55%, var(--border-color));
+  border-bottom-color: var(--color-success);
 }
 
 .reading-test-word-bank {
@@ -1518,6 +1595,42 @@ mark.reading-test-note {
   font-size: 0.88rem;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
+}
+
+/* Reading Q1–Q40: emphasize only the question number, never the prompt. */
+.reading-test-match-num,
+.reading-test-mc-item .reading-test-tfng-num,
+.reading-test-gap-table-row .reading-test-tfng-num {
+  color: var(--color-question-number);
+  font-weight: 800;
+}
+
+.reading-test-word-bank__options {
+  display: block;
+}
+
+.reading-test-word-bank--inline {
+  margin-top: 1.1rem;
+  padding: 0.85rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  border-radius: 0;
+  background: transparent;
+}
+
+.reading-test-word-bank--inline .reading-test-word-bank__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.reading-test-word-bank--inline .reading-test-word-bank__item {
+  margin: 0;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 45%, var(--border-color));
+  border-radius: 0.42rem;
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--bg-card));
+  line-height: 1.2;
 }
 
 .reading-test-inferred-badge {

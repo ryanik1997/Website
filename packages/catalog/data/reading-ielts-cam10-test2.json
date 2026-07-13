@@ -1,67 +1,91 @@
 {
   "id": "catalog-cam-10-2-reading",
-  "title": "CAM 10 2",
+  "title": "Cambridge 10 Test 2 Reading",
   "durationMinutes": 60,
-  "bandHint": "Cambridge Reading — 3 parts",
+  "bandHint": "IELTS Academic · Cambridge 10 · Test 2 — 3 parts",
   "parts": [
     {
       "id": "catalog-cam-10-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "Read the text and answer questions 1–13.",
+      "rangeLabel": "",
       "passageTitle": "Tea and the Industrial Revolution",
       "passage": [
         {
-          "text": "Tea and the Industrial Revolution"
+          "text": "Tea and the Industrial Revolution "
         },
         {
-          "text": "A."
-        },
-        {
+          "label": "A",
           "text": "Alan Macfarlane, professor of anthropological science at King’s College, Cambridge has, like other historians, spent decades wrestling with the enigma of the Industrial Revolution. Why did this particular Big Bang – the world-changing birth of industry-happen in Britain? And why did it strike at the end of the 18th century?"
         },
         {
-          "text": "B."
-        },
-        {
+          "label": "B",
           "text": "Macfarlane compares the puzzle to a combination lock. ‘There are about 20 different factors and all of them need to be present before the revolution can happen,’ he says. For industry to take off, there needs to be the technology and power to drive factories, large urban populations to provide cheap labour, easy transport to move goods around, an affluent middle-class willing to buy mass-produced objects, a market-driven economy and a political system that allows this to happen. While this was the case for England, other nations, such as Japan, the Netherlands and France also met some of these criteria but were not industrialising. All these factors must have been necessary. But not sufficient to cause the revolution, says Macfarlane. ‘After all, Holland had everything except coal while China also had many of these factors. Most historians are convinced there are one or two missing factors that you need to open the lock.’"
         },
         {
-          "text": "C."
-        },
-        {
+          "label": "C",
           "text": "The missing factors, he proposes, are to be found in almost even kitchen cupboard. Tea and beer, two of the nation’s favourite drinks, fuelled the revolution. The antiseptic properties of tannin, the active ingredient in tea, and of hops in beer – plus the fact that both are made with boiled water – allowed urban communities to flourish at close quarters without succumbing to water-borne diseases such as dysentery. The theory sounds eccentric but once he starts to explain the detective work that went into his deduction, the scepticism gives way to wary admiration. Macfarlanes case has been strengthened by support from notable quarters – Roy Porter, the distinguished medical historian, recently wrote a favourable appraisal of his research."
         },
         {
-          "text": "D."
-        },
-        {
+          "label": "D",
           "text": "Macfarlane had wondered for a long time how the Industrial Revolution came about. Historians had alighted on one interesting factor around the mid-18th century that required explanation. Between about 1650 and 1740, the population in Britain was static. But then there was a burst in population growth. Macfarlane says: ‘The infant mortality rate halved in the space of 20 years, and this happened in both rural areas and cities, and across all classes. People suggested four possible causes. Was there a sudden change in the viruses and bacteria around? Unlikely. Was there a revolution in medical science? But this was a century before Lister’s revolution*. Was there a change in environmental conditions? There were improvements in agriculture that wiped out malaria, but these were small gains. Sanitation did not become widespread until the 19th century. The only option left is food. But the height and weight statistics show a decline. So the food must have got worse. Efforts to explain this sudden reduction in child deaths appeared to draw a blank.’"
         },
         {
-          "text": "E."
-        },
-        {
+          "label": "E",
           "text": "This population burst seemed to happen at just the right time to provide labour for the Industrial Revolution. ‘When you start moving towards an industrial revolution, it is economically efficient to have people living close together,’ says Macfarlane. ‘But then you get disease, particularly from human waste.’ Some digging around in historical records revealed that there was a change in the incidence of water-borne disease at that time, especially dysentery. Macfarlane deduced that whatever the British were drinking must have been important in regulating disease. He says, ‘We drank beer. For a long time, the English were protected by the strong antibacterial agent in hops, which were added to help preserve the beer. But in the late 17th century a tax was introduced on malt, the basic ingredient of beer. The poor turned to water and gin and in the 1720s the mortality rate began to rise again. Then it suddenly dropped again. What caused this?"
         },
         {
-          "text": "F."
-        },
-        {
+          "label": "F",
           "text": "Macfarlane looked to Japan, which was also developing large cities about the same time, and also had no sanitation. Water-borne diseases had a much looser grip on the Japanese population than those in Britain. Could it be the prevalence of tea in their culture? Macfarlane then noted that the history of tea in Britain provided an extraordinary coincidence of dates. Tea was relatively expensive until Britain started a direct clipper trade with China in the early 18th century. By the 1740s, about the time that infant mortality was dipping, the drink was common. Macfarlane guessed that the fact that water had to be boiled, together with the stomach-purifying properties of tea meant that the breast milk provided by mothers was healthier than it had ever been. No other European nation sipped tea like the British, which, by Macfarlanes logic, pushed these other countries out of contention for the revolution."
         },
         {
-          "text": "G."
-        },
-        {
+          "label": "G",
           "text": "But, if tea is a factor in the combination lock, why didn’t Japan forge ahead in a tea-soaked industrial revolution of its own? Macfarlane notes that even though 17th-century Japan had large cities, high literacy rates, even a futures market, it had turned its back on the essence of any work-based revolution by giving up labour-saving devices such as animals, afraid that they would put people out of work. So, the nation that we now think of as one of the most technologically advanced entered the 19th century having ‘abandoned the wheel’."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-cam-10-2-reading-part-1-g0",
-          "range": "Questions 1–7",
+          "range": "Questions 1-7",
           "instruction": "Reading Passage has paragraphs A–G. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–ix, in boxes 1–7 on your answer sheet.",
-          "type": "multiple-choice",
+          "type": "matching-headings",
+          "headings": [
+            {
+              "id": "A",
+              "label": "The search for the reasons for an increase in population"
+            },
+            {
+              "id": "B",
+              "label": "Industrialisation and the fear of unemployment"
+            },
+            {
+              "id": "C",
+              "label": "The development of cities in Japan"
+            },
+            {
+              "id": "D",
+              "label": "The time and place of the Industrial Revolution"
+            },
+            {
+              "id": "E",
+              "label": "The cases of Holland, France and China"
+            },
+            {
+              "id": "F",
+              "label": "Changes in drinking habits in Britain"
+            },
+            {
+              "id": "G",
+              "label": "Two keys to Britain's industrial revolution"
+            },
+            {
+              "id": "H",
+              "label": "Conditions required for industrialisation"
+            },
+            {
+              "id": "I",
+              "label": "Comparisons with Japan lead to the answer"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-10-2-reading-part-1-q1",
@@ -93,7 +117,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q2",
               "number": 2,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Paragraph B",
               "options": [
                 {
@@ -120,7 +144,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q3",
               "number": 3,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Paragraph C",
               "options": [],
               "answer": "vii",
@@ -130,7 +154,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q4",
               "number": 4,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Paragraph D",
               "options": [
                 {
@@ -157,7 +181,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q5",
               "number": 5,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Paragraph E",
               "options": [],
               "answer": "vi",
@@ -167,7 +191,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q6",
               "number": 6,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Paragraph F",
               "options": [
                 {
@@ -194,7 +218,7 @@
             {
               "id": "catalog-cam-10-2-reading-part-1-q7",
               "number": 7,
-              "type": "multiple-choice",
+              "type": "matching-headings",
               "prompt": "Not Given: What was the main reason why Japan did not experience an industrial revolution?",
               "options": [],
               "answer": "ii",
@@ -205,7 +229,7 @@
         },
         {
           "id": "catalog-cam-10-2-reading-part-1-g1",
-          "range": "Questions 8–13",
+          "range": "Questions 8-13",
           "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 8–13 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
           "type": "tfng",
           "questions": [
@@ -224,7 +248,24 @@
               "number": 9,
               "type": "true-false-not-given",
               "prompt": "What was the main factor that Macfarlane identified as regulating disease in Britain during the Industrial Revolution?",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The introduction of sanitation"
+                },
+                {
+                  "id": "B",
+                  "label": "The development of medical science"
+                },
+                {
+                  "id": "C",
+                  "label": "The consumption of tea and beer"
+                },
+                {
+                  "id": "D",
+                  "label": "The improvement in agriculture"
+                }
+              ],
               "answer": "TRUE",
               "explanation": "Bước 1: Tìm từ khóa và xác định thành phần ngữ pháp\n\nTừ khóa chính trong câu hỏi: Tea and beer, prevent, dysentery.\n\nThành phần ngữ pháp: Câu hỏi là một mệnh đề hoàn chỉnh khẳng định rằng cả trà và bia đều giúp phòng ngừa bệnh kiết lỵ (dysentery) ở Anh. Nhiệm vụ của chúng ta là đối chiếu thông tin này với nội dung bài đọc để xác định tính chính xác (TRUE / FALSE / NOT GIVEN).\n\nBước 2: Định vị vị trí cần điền/đối chiếu\n\nTìm các từ khóa tea, beer, dysentery trong bài đọc.\n\nVị trí thông tin nằm ở Đoạn C (Paragraph C), câu thứ 2 và thứ 3:\n\n\"Tea and beer, two of the nation’s favourite drinks, fuelled the revolution. The antiseptic properties of tannin, the active ingredient in tea, and of hops in beer – plus the fact that both are made with boiled water – allowed urban communities to flourish at close quarters without succumbing to water-borne diseases such as dysentery.\"  \n\nBước 3: Phân tích từ loại và ngữ nghĩa đối chiếu\n\nBài đọc giải thích lý do: Trà có chứa chất tannin, bia có chứa hops (hoa bia). Cả hai chất này đều có đặc tính kháng khuẩn (antiseptic properties), cộng với việc cả hai thức uống đều được pha chế bằng nước đun sôi (boiled water).\n\nHệ quả của những đặc tính trên: Giúp các cộng đồng đô thị sống gần nhau mà không bị mắc (without succumbing to) các bệnh lây truyền qua đường nước như bệnh kiết lỵ (water-borne diseases such as dysentery).\n\nCụm từ \"without succumbing to... dysentery\" (không bị mắc bệnh kiết lỵ) trong bài đọc đồng nghĩa hoàn toàn với cụm \"helped to prevent dysentery\" (giúp phòng ngừa bệnh kiết lỵ) trong câu hỏi.\n\nĐáp án: TRUE",
               "answerConfidence": "key"
@@ -276,17 +317,37 @@
     {
       "id": "catalog-cam-10-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "Read the text and answer questions 14–26.",
+      "rangeLabel": "",
       "passageTitle": "Gifted Children and Learning",
       "passage": [
         {
-          "text": "Gifted children and learning\nA.\nInternationally, ‘giftedness’ is most frequently determined by a score on a general intelligence test, known as an IQ test, which is above a chosen cutoff point, usually at around the top 2-5%. Children’s educational environment contributes to the IQ score and the way intelligence is used. For example, a very close positive relationship was found when children’s IQ scores were compared with their home educational provision (Freeman, 2010). The higher the children’s IQ scores, especially over IQ 130, the better the quality of their educational backup, measured in terms of reported verbal interactions with parents, number of books and activities in their home etc. Because IQ tests are decidedly influenced by what the child has learned, they are to some extent measures of current achievement based on age-norms; that is, how well the children have learned to manipulate their knowledge and know-how within the terms of the test. The vocabulary aspect, for example, is dependent on having heard those words. But IQ tests can neither identify the processes of learning and thinking nor predict creativity.\nB.\nExcellence does not emerge without appropriate help. To reach an exceptionally high standard in any area very able children need the means to learn, which includes material to work with and focused challenging tuition -and the encouragement to follow their dream. There appears to be a qualitative difference in the way the intellectually highly able think, compared with more average-ability or older pupils, for whom external regulation by the teacher often compensates for lack of internal regulation. To be at their most effective in their self-regulation, all children can be helped to identify their own ways of learning – metacognition – which will include strategies of planning, monitoring, evaluation, and choice of what to learn. Emotional awareness is also part of metacognition, so children should be helped to be aware of their feelings around the area to be learned, feelings of curiosity or confidence, for example.\nC.\nHigh achievers have been found to use self-regulatory learning strategies more often and more effectively than lower achievers, and are better able to transfer these strategies to deal with unfamiliar tasks. This happens to such a high degree in some children that they appear to be demonstrating talent in particular areas. Overviewing research on the thinking process of highly able children, (Shore and Kanevsky, 1993) put the instructor’s problem succinctly: ‘If they the gifted merely think more quickly, then we need only teach more quickly. If they merely make fewer errors, then we can shorten the practice’. But of course, this is not entirely the case; adjustments have to be made in methods of learning and teaching, to take account of the many ways individuals think.\nD.\nYet in order to learn by themselves, the gifted do need some support from their teachers. Conversely, teachers who have a tendency to ‘overdirect’ can diminish their gifted pupils’ learning autonomy. Although ‘spoon-feeding’ can produce extremely high examination results, these are not always followed by equally impressive life successes. Too much dependence on the teachers risks loss of autonomy and motivation to discover. However, when teachers o pupils to reflect on their own learning and thinking activities, they increase their pupils’ self-regulation. For a young child, it may be just the simple question ‘What have you learned today?’ which helps them to recognise what they are doing. Given that a fundamental goal of education is to transfer the control of learning from teachers to pupils, improving pupils’ learning to learn techniques should be a major outcome of the school experience, especially for the highly competent. There are quite a number of new methods which can help, such as child- initiated learning, ability-peer tutoring, etc. Such practices have been found to be particularly useful for bright children from deprived areas.\nE.\nBut scientific progress is not all theoretical, knowledge is a so vital to outstanding performance: individuals who know a great deal about a specific domain will achieve at a higher level than those who do not (Elshout, 1995). Research with creative scientists by Simonton (1988) brought him to the conclusion that above a certain high level, characteristics such as independence seemed to contribute more to reaching the highest levels of expertise than intellectual skills, due to the great demands of effort and time needed for learning and practice. Creativity in all forms can be seen as expertise se mixed with a high level of motivation (Weisberg, 1993).\nF.\nTo sum up, learning is affected by emotions of both the individual and significant others. Positive emotions facilitate the creative aspects of earning and negative emotions inhibit it. Fear, for example, can limit the development of curiosity, which is a strong force in scientific advance, because it motivates problem-solving behaviour. In Boekaerts’ (1991) review of emotion the learning of very high IQ and highly achieving children, she found emotional forces in harness. They were not only curious, but often had a strong desire to control their environment, improve their learning efficiency and increase their own learning resources."
+          "text": "Gifted children and learningA.Internationally, ‘giftedness’ is most frequently determined by a score on a general intelligence test, known as an IQ test, which is above a chosen cutoff point, usually at around the top 2-5%. Children’s educational environment contributes to the IQ score and the way intelligence is used. For example, a very close positive relationship was found when children’s IQ scores were compared with their home educational provision (Freeman, 2010). The higher the children’s IQ scores, especially over IQ 130, the better the quality of their educational backup, measured in terms of reported verbal interactions with parents, number of books and activities in their home etc. Because IQ tests are decidedly influenced by what the child has learned, they are to some extent measures of current achievement based on age-norms; that is, how well the children have learned to manipulate their knowledge and know-how within the terms of the test. The vocabulary aspect, for example, is dependent on having heard those words. But IQ tests can neither identify the processes of learning and thinking nor predict creativity."
+        },
+        {
+          "label": "B",
+          "text": "Excellence does not emerge without appropriate help. To reach an exceptionally high standard in any area very able children need the means to learn, which includes material to work with and focused challenging tuition -and the encouragement to follow their dream. There appears to be a qualitative difference in the way the intellectually highly able think, compared with more average-ability or older pupils, for whom external regulation by the teacher often compensates for lack of internal regulation. To be at their most effective in their self-regulation, all children can be helped to identify their own ways of learning – metacognition – which will include strategies of planning, monitoring, evaluation, and choice of what to learn. Emotional awareness is also part of metacognition, so children should be helped to be aware of their feelings around the area to be learned, feelings of curiosity or confidence, for example."
+        },
+        {
+          "label": "C",
+          "text": "High achievers have been found to use self-regulatory learning strategies more often and more effectively than lower achievers, and are better able to transfer these strategies to deal with unfamiliar tasks. This happens to such a high degree in some children that they appear to be demonstrating talent in particular areas. Overviewing research on the thinking process of highly able children, (Shore and Kanevsky, 1993) put the instructor’s problem succinctly: ‘If they the gifted merely think more quickly, then we need only teach more quickly. If they merely make fewer errors, then we can shorten the practice’. But of course, this is not entirely the case; adjustments have to be made in methods of learning and teaching, to take account of the many ways individuals think."
+        },
+        {
+          "label": "D",
+          "text": "Yet in order to learn by themselves, the gifted do need some support from their teachers. Conversely, teachers who have a tendency to ‘overdirect’ can diminish their gifted pupils’ learning autonomy. Although ‘spoon-feeding’ can produce extremely high examination results, these are not always followed by equally impressive life successes. Too much dependence on the teachers risks loss of autonomy and motivation to discover. However, when teachers o pupils to reflect on their own learning and thinking activities, they increase their pupils’ self-regulation. For a young child, it may be just the simple question ‘What have you learned today?’ which helps them to recognise what they are doing. Given that a fundamental goal of education is to transfer the control of learning from teachers to pupils, improving pupils’ learning to learn techniques should be a major outcome of the school experience, especially for the highly competent. There are quite a number of new methods which can help, such as child- initiated learning, ability-peer tutoring, etc. Such practices have been found to be particularly useful for bright children from deprived areas."
+        },
+        {
+          "label": "E",
+          "text": "But scientific progress is not all theoretical, knowledge is a so vital to outstanding performance: individuals who know a great deal about a specific domain will achieve at a higher level than those who do not (Elshout, 1995). Research with creative scientists by Simonton (1988) brought him to the conclusion that above a certain high level, characteristics such as independence seemed to contribute more to reaching the highest levels of expertise than intellectual skills, due to the great demands of effort and time needed for learning and practice. Creativity in all forms can be seen as expertise se mixed with a high level of motivation (Weisberg, 1993)."
+        },
+        {
+          "label": "F",
+          "text": "To sum up, learning is affected by emotions of both the individual and significant others. Positive emotions facilitate the creative aspects of earning and negative emotions inhibit it. Fear, for example, can limit the development of curiosity, which is a strong force in scientific advance, because it motivates problem-solving behaviour. In Boekaerts’ (1991) review of emotion the learning of very high IQ and highly achieving children, she found emotional forces in harness. They were not only curious, but often had a strong desire to control their environment, improve their learning efficiency and increase their own learning resources."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-cam-10-2-reading-part-2-g0",
-          "range": "Questions 14–17",
+          "range": "Questions 14-17",
           "instruction": "Reading Passage has sections A–F. Which section contains the following information?\nWrite the correct letter, A–F, in boxes 14–17 on your answer sheet.\nNB You may use any letter more than once.",
           "type": "matching-paragraph",
           "paragraphLetters": [
@@ -303,7 +364,32 @@
               "number": 14,
               "type": "matching-paragraph",
               "prompt": "a reference to the influence of the domestic background on the gifted child.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                }
+              ],
               "answer": "A",
               "explanation": "Bước 1: Keyword\ndomestic background\ngifted child\nBước 2: Tìm đoạn văn\nĐoạn A:\n“children’s IQ scores were compared with their home educational provision”\nBước 3: Phân tích\nhome educational provision = domestic background\nchildren’s IQ scores = gifted child\n=> nói về ảnh hưởng của môi trường gia đình lên trẻ có năng khiếu.\n=> Đáp án: A",
               "answerConfidence": "key"
@@ -313,7 +399,32 @@
               "number": 15,
               "type": "matching-paragraph",
               "prompt": "reference to what can be lost if learners are given too much guidance.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                }
+              ],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nlost\ntoo much guidance\nBước 2: Tìm đoạn văn\nĐoạn D:\n“Too much dependence on the teachers risks loss of autonomy and motivation to discover.”\nBước 3: Phân tích\ntoo much guidance = too much dependence on teachers\nlost = loss of\nautonomy and motivation = sự tự chủ và động lực khám phá\n=> học sinh có thể mất tính tự lập nếu được hướng dẫn quá nhiều.\n=> Đáp án: D",
               "answerConfidence": "key"
@@ -323,7 +434,32 @@
               "number": 16,
               "type": "matching-paragraph",
               "prompt": "a reference to the damaging effects of anxiety.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                }
+              ],
               "answer": "F",
               "explanation": "Bước 1: Keyword\ndamaging effects\nanxiety\nBước 2: Tìm đoạn văn\nĐoạn F:\n“Fear, for example, can limit the development of curiosity...”\nBước 3: Phân tích\nfear = anxiety\nlimit the development = damaging effects\n=> lo lắng/sợ hãi gây ảnh hưởng tiêu cực đến việc học.\n=> Đáp án: F",
               "answerConfidence": "key"
@@ -333,7 +469,32 @@
               "number": 17,
               "type": "matching-paragraph",
               "prompt": "examples of classroom techniques which favour socially-disadvantaged children.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                }
+              ],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nclassroom techniques\nsocially-disadvantaged children\nBước 2: Tìm đoạn văn\nĐoạn D:\n“child-initiated learning, ability-peer tutoring... useful for bright children from deprived areas.”\nBước 3: Phân tích\nchild-initiated learning, peer tutoring = classroom techniques\ndeprived areas = socially-disadvantaged children\n=> đưa ví dụ về phương pháp học hỗ trợ trẻ em thiệt thòi.\n=> Đáp án: D",
               "answerConfidence": "key"
@@ -342,7 +503,7 @@
         },
         {
           "id": "catalog-cam-10-2-reading-part-2-g1",
-          "range": "Questions 18–22",
+          "range": "Questions 18-22",
           "instruction": "Match each statement with the correct option, A–E.\nWrite the correct letter in boxes 18–22 on your answer sheet.",
           "type": "matching-features",
           "features": [
@@ -371,9 +532,30 @@
             {
               "id": "catalog-cam-10-2-reading-part-2-q18",
               "number": 18,
-              "type": "gap-fill",
+              "type": "matching-features",
               "prompt": "Less time can be spent on exercises with gifted pupils who produce accurate work.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Freeman"
+                },
+                {
+                  "id": "B",
+                  "label": "B. Shore & Kanevsky"
+                },
+                {
+                  "id": "C",
+                  "label": "C. Elshout"
+                },
+                {
+                  "id": "D",
+                  "label": "D. Simonton"
+                },
+                {
+                  "id": "E",
+                  "label": "E. Boekaerts"
+                }
+              ],
               "answer": "B",
               "explanation": "Bước 1: Keyword\nless time\naccurate work\nBước 2: Tìm đoạn văn\nĐoạn C:\n“If they merely make fewer errors, then we can shorten the practice.”\nBước 3: Phân tích\nmake fewer errors = produce accurate work\nshorten the practice = spend less time on exercises\nShore and Kanevsky đưa ra nhận định này.\n=> Đáp án: Shore and Kanevsky",
               "answerConfidence": "key"
@@ -381,9 +563,30 @@
             {
               "id": "catalog-cam-10-2-reading-part-2-q19",
               "number": 19,
-              "type": "gap-fill",
+              "type": "matching-features",
               "prompt": "Self-reliance is a valuable tool that helps gifted students reach their goals.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Freeman"
+                },
+                {
+                  "id": "B",
+                  "label": "B. Shore & Kanevsky"
+                },
+                {
+                  "id": "C",
+                  "label": "C. Elshout"
+                },
+                {
+                  "id": "D",
+                  "label": "D. Simonton"
+                },
+                {
+                  "id": "E",
+                  "label": "E. Boekaerts"
+                }
+              ],
               "answer": "D",
               "explanation": "Bước 1: Keyword\nself-reliance\nreach goals\nBước 2: Tìm đoạn văn\nĐoạn E:\n“characteristics such as independence seemed to contribute more to reaching the highest levels...”\nBước 3: Phân tích\nindependence = self-reliance\ncontribute to reaching the highest levels = helps reach goals\nSimonton cho rằng tính tự lập giúp đạt thành công cao.\n=> Đáp án: Simonton",
               "answerConfidence": "key"
@@ -391,9 +594,30 @@
             {
               "id": "catalog-cam-10-2-reading-part-2-q20",
               "number": 20,
-              "type": "gap-fill",
+              "type": "matching-features",
               "prompt": "Gifted children know how to channel their feelings to assist their learning.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Freeman"
+                },
+                {
+                  "id": "B",
+                  "label": "B. Shore & Kanevsky"
+                },
+                {
+                  "id": "C",
+                  "label": "C. Elshout"
+                },
+                {
+                  "id": "D",
+                  "label": "D. Simonton"
+                },
+                {
+                  "id": "E",
+                  "label": "E. Boekaerts"
+                }
+              ],
               "answer": "E",
               "explanation": "Bước 1: Keyword\nchannel feelings\nassist learning\nBước 2: Tìm đoạn văn\nĐoạn F:\n“she found emotional forces in harness.”\nBước 3: Phân tích\nemotional forces in harness = biết kiểm soát/điều hướng cảm xúc\nassist learning = hỗ trợ việc học\nBoekaerts nói trẻ thông minh biết dùng cảm xúc phục vụ học tập.\n=> Đáp án: Boekaerts",
               "answerConfidence": "key"
@@ -401,9 +625,30 @@
             {
               "id": "catalog-cam-10-2-reading-part-2-q21",
               "number": 21,
-              "type": "gap-fill",
+              "type": "matching-features",
               "prompt": "The very gifted child benefits from appropriate support from close relatives.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Freeman"
+                },
+                {
+                  "id": "B",
+                  "label": "B. Shore & Kanevsky"
+                },
+                {
+                  "id": "C",
+                  "label": "C. Elshout"
+                },
+                {
+                  "id": "D",
+                  "label": "D. Simonton"
+                },
+                {
+                  "id": "E",
+                  "label": "E. Boekaerts"
+                }
+              ],
               "answer": "A",
               "explanation": "Bước 1: Keyword\nsupport from close relatives\ngifted child\nBước 2: Tìm đoạn văn\nĐoạn A:\n“reported verbal interactions with parents...”\nBước 3: Phân tích\nparents = close relatives\neducational backup = support\nFreeman cho rằng trẻ có IQ cao hưởng lợi từ hỗ trợ gia đình.\n=> Đáp án: Freeman",
               "answerConfidence": "key"
@@ -411,9 +656,30 @@
             {
               "id": "catalog-cam-10-2-reading-part-2-q22",
               "number": 22,
-              "type": "gap-fill",
+              "type": "matching-features",
               "prompt": "Really successful students have learnt a considerable amount about their subject.",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Freeman"
+                },
+                {
+                  "id": "B",
+                  "label": "B. Shore & Kanevsky"
+                },
+                {
+                  "id": "C",
+                  "label": "C. Elshout"
+                },
+                {
+                  "id": "D",
+                  "label": "D. Simonton"
+                },
+                {
+                  "id": "E",
+                  "label": "E. Boekaerts"
+                }
+              ],
               "answer": "C",
               "explanation": "Bước 1: Keyword\nsuccessful students\nconsiderable amount about subject\nBước 2: Tìm đoạn văn\nĐoạn E:\n“individuals who know a great deal about a specific domain will achieve at a higher level...”\nBước 3: Phân tích\nknow a great deal = learnt a considerable amount\nspecific domain = subject\nElshout cho rằng người thành công hiểu sâu lĩnh vực của họ.\n=> Đáp án: Elshout",
               "answerConfidence": "key"
@@ -422,9 +688,9 @@
         },
         {
           "id": "catalog-cam-10-2-reading-part-2-g2",
-          "range": "Questions 23–26",
+          "range": "Questions 23-26",
           "instruction": "Complete the sentences below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
-          "type": "multiple-choice",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-10-2-reading-part-2-q23",
@@ -473,68 +739,163 @@
     {
       "id": "catalog-cam-10-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "Read the text and answer questions 27–40.",
+      "rangeLabel": "",
       "passageTitle": "Museums of Fine Art and Their Public",
       "passage": [
         {
-          "text": "Museums of fine art and their public\nThe fact that people go to the Louvre museum in Paris to see the original painting Mona Lisa when they can see a reproduction anywhere leads us to question some assumptions about the role of museums of fine art in today’s world\nA.\nOne of the most famous works of art in the world is Leonardo da Vinci’s Mona Lisa. Nearly everyone who goes to see the original will already be familiar with it from reproductions, but they accept that fine art is more rewardingly viewed in its original form.\nB.\nHowever, if Mona Lisa was a famous novel, few people would bother to go to a museum to read the writer’s actual manuscript rather than a printed reproduction. This might be explained by the fact that the novel has evolved precisely because of technological developments that made it possible to print out huge numbers of texts, whereas oil paintings have always been produced as unique objects. In addition, it could be argued that the practice of interpreting or ‘reading’ each medium follows different conventions. With novels, the reader attends mainly to the meaning of words rather than the way they are printed on the page, whereas the ‘reader’ of a painting must attend just as closely to the material form of marks and shapes in the picture as to any ideas they may signify.\nC.\nYet it has always been possible to make very accurate facsimiles of pretty well any fine art work. The seven surviving versions of Mona Lisa bear witness to the fact that in the 16th century, artists seemed perfectly content to assign the reproduction of their creations to their workshop apprentices as regular ‘bread and butter’ work. And today the task of reproducing pictures is incomparably more simple and reliable, with reprographic techniques that allow the production of high-quality prints made exactly to the original scale, with faithful colour values, and even with duplication of the surface relief of the painting.\nD.\nBut despite an implicit recognition that the spread of good reproductions can be culturally valuable, museums continue to promote the special status of original work. Unfortunately, this seems to place severe limitations on the kind of experience offered to visitors.\nE.\nOne limitation is related to the way the museum presents its exhibits. As repositories of unique historical objects, art museums are often called ‘treasure houses’. We are reminded of this even before we view a collection by the presence of security guards, attendants, ropes and display cases to keep us away from the exhibits. In many cases, the architectural style of the building further reinforces that notion. In addition, a major collection like that of London’s National Gallery is housed in numerous rooms, each with dozens of works, any one of which is likely to be worth more than all the average visitor possesses. In a society that judges the personal status of the individual so much by their material worth, it is therefore difficult not to be impressed by one’s own relative ‘worthlessness’ in such an environment.\nF.\nFurthermore, consideration of the ‘value’ of the original work in its treasure house setting impresses upon the viewer that, since these works were originally produced, they have been assigned a huge monetary value by some person or institution more powerful than themselves. Evidently, nothing the viewer thinks about the work is going to alter that value, and so today’s viewer is deterred from trying to extend that spontaneous, immediate, self-reliant kind of reading which would originally have met the work.\nG.\nThe visitor may then be struck by the strangeness of seeing such diverse paintings, drawings and sculptures brought together in an environment for which they were not originally created. This ‘displacement effect’ is further heightened by the sheer volume of exhibits. In the case of a major collection, there are probably more works on display than we could realistically view in weeks or even months.\nH.\nThis is particularly distressing because time seems to be a vital factor in the appreciation of all art forms. A fundamental difference between paintings and other art forms is that there is no prescribed time over which a painting is viewed. By contrast, the audience encourage an opera or a play over a specific time, which is the duration of the performance. Similarly novels and poems are read in a prescribed temporal sequence, whereas a picture has no clear place at which to start viewing, or at which to finish. Thus art works themselves encourage us to view them superficially, without appreciating the richness of detail and labour that is involved.\nI.\nConsequently, the dominant critical approach becomes that of the art historian, a specialised academic approach devoted to ‘discovering the meaning’ of art within the cultural context of its time. This is in perfect harmony with the museum s function, since the approach is dedicated to seeking out and conserving ‘authentic’, original, readings of the exhibits. Again, this seems to put paid to that spontaneous, participators criticism which can be found in abundance in criticism of classic works of literature, but is absent from most art history.\nJ.\nThe displays of art museums serve as a warning of what critical practices can emerge when spontaneous criticism is suppressed. The museum public, like any other audience, experience art more rewardingly when given the confidence to express their views. If appropriate works of fine art could be rendered permanently accessible to the public by means of high-fidelity reproductions, as literature and music already are, the public may feel somewhat less in awe of them. Unfortunately, that may be too much to ask from those who seek to maintain and control the art establishment."
+          "text": "Museums of fine art and their publicThe fact that people go to the Louvre museum in Paris to see the original painting Mona Lisa when they can see a reproduction anywhere leads us to question some assumptions about the role of museums of fine art in today’s worldA.One of the most famous works of art in the world is Leonardo da Vinci’s Mona Lisa. Nearly everyone who goes to see the original will already be familiar with it from reproductions, but they accept that fine art is more rewardingly viewed in its original form."
+        },
+        {
+          "label": "B",
+          "text": "However, if Mona Lisa was a famous novel, few people would bother to go to a museum to read the writer’s actual manuscript rather than a printed reproduction. This might be explained by the fact that the novel has evolved precisely because of technological developments that made it possible to print out huge numbers of texts, whereas oil paintings have always been produced as unique objects. In addition, it could be argued that the practice of interpreting or ‘reading’ each medium follows different conventions. With novels, the reader attends mainly to the meaning of words rather than the way they are printed on the page, whereas the ‘reader’ of a painting must attend just as closely to the material form of marks and shapes in the picture as to any ideas they may signify."
+        },
+        {
+          "label": "C",
+          "text": "Yet it has always been possible to make very accurate facsimiles of pretty well any fine art work. The seven surviving versions of Mona Lisa bear witness to the fact that in the 16th century, artists seemed perfectly content to assign the reproduction of their creations to their workshop apprentices as regular ‘bread and butter’ work. And today the task of reproducing pictures is incomparably more simple and reliable, with reprographic techniques that allow the production of high-quality prints made exactly to the original scale, with faithful colour values, and even with duplication of the surface relief of the painting."
+        },
+        {
+          "label": "D",
+          "text": "But despite an implicit recognition that the spread of good reproductions can be culturally valuable, museums continue to promote the special status of original work. Unfortunately, this seems to place severe limitations on the kind of experience offered to visitors."
+        },
+        {
+          "label": "E",
+          "text": "One limitation is related to the way the museum presents its exhibits. As repositories of unique historical objects, art museums are often called ‘treasure houses’. We are reminded of this even before we view a collection by the presence of security guards, attendants, ropes and display cases to keep us away from the exhibits. In many cases, the architectural style of the building further reinforces that notion. In addition, a major collection like that of London’s National Gallery is housed in numerous rooms, each with dozens of works, any one of which is likely to be worth more than all the average visitor possesses. In a society that judges the personal status of the individual so much by their material worth, it is therefore difficult not to be impressed by one’s own relative ‘worthlessness’ in such an environment."
+        },
+        {
+          "label": "F",
+          "text": "Furthermore, consideration of the ‘value’ of the original work in its treasure house setting impresses upon the viewer that, since these works were originally produced, they have been assigned a huge monetary value by some person or institution more powerful than themselves. Evidently, nothing the viewer thinks about the work is going to alter that value, and so today’s viewer is deterred from trying to extend that spontaneous, immediate, self-reliant kind of reading which would originally have met the work."
+        },
+        {
+          "label": "G",
+          "text": "The visitor may then be struck by the strangeness of seeing such diverse paintings, drawings and sculptures brought together in an environment for which they were not originally created. This ‘displacement effect’ is further heightened by the sheer volume of exhibits. In the case of a major collection, there are probably more works on display than we could realistically view in weeks or even months."
+        },
+        {
+          "label": "H",
+          "text": "This is particularly distressing because time seems to be a vital factor in the appreciation of all art forms. A fundamental difference between paintings and other art forms is that there is no prescribed time over which a painting is viewed. By contrast, the audience encourage an opera or a play over a specific time, which is the duration of the performance. Similarly novels and poems are read in a prescribed temporal sequence, whereas a picture has no clear place at which to start viewing, or at which to finish. Thus art works themselves encourage us to view them superficially, without appreciating the richness of detail and labour that is involved."
+        },
+        {
+          "label": "I",
+          "text": "Consequently, the dominant critical approach becomes that of the art historian, a specialised academic approach devoted to ‘discovering the meaning’ of art within the cultural context of its time. This is in perfect harmony with the museum s function, since the approach is dedicated to seeking out and conserving ‘authentic’, original, readings of the exhibits. Again, this seems to put paid to that spontaneous, participators criticism which can be found in abundance in criticism of classic works of literature, but is absent from most art history."
+        },
+        {
+          "label": "J",
+          "text": "The displays of art museums serve as a warning of what critical practices can emerge when spontaneous criticism is suppressed. The museum public, like any other audience, experience art more rewardingly when given the confidence to express their views. If appropriate works of fine art could be rendered permanently accessible to the public by means of high-fidelity reproductions, as literature and music already are, the public may feel somewhat less in awe of them. Unfortunately, that may be too much to ask from those who seek to maintain and control the art establishment."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-cam-10-2-reading-part-3-g0",
-          "range": "Questions 27–31",
+          "range": "Questions 27-31",
           "instruction": "Complete the summary using the list of phrases, A–L, below.",
-          "note": "The value attached to original works of art\n\nPeople go to art museums because they accept the value of seeing an original work of art. But they do not go to museums to read original manuscripts of novels, perhaps because the availability of novels has depended on 27________ for so long, and also because with novels, the 28________ are the most important thing.\n\nHowever, in historical times artists such as Leonardo were happy to instruct 29________ to produce copies of their work and these days new methods of reproduction allow excellent replication of surface relief features as well as colour and 30________\n\nIt is regrettable that museums still promote the superiority of original works of art, since this may not be in the interests of the 31________",
           "type": "summary-completion",
+          "notePassage": [
+            {
+              "type": "static",
+              "text": "People go to art museums because they accept the value of seeing an original work of art. But they do not go to museums to read original manuscripts of novels, perhaps because the availability of novels has depended on "
+            },
+            {
+              "type": "gap",
+              "number": 27
+            },
+            {
+              "type": "static",
+              "text": " for so long, and also because with novels, the "
+            },
+            {
+              "type": "gap",
+              "number": 28
+            },
+            {
+              "type": "static",
+              "text": " are the most important thing."
+            },
+            {
+              "type": "break"
+            },
+            {
+              "type": "static",
+              "text": "However, in historical times artists such as Leonardo were happy to instruct "
+            },
+            {
+              "type": "gap",
+              "number": 29
+            },
+            {
+              "type": "static",
+              "text": " to produce copies of their work and these days new methods of reproduction allow excellent replication of surface relief features as well as colour and "
+            },
+            {
+              "type": "gap",
+              "number": 30
+            },
+            {
+              "type": "static",
+              "text": "."
+            },
+            {
+              "type": "break"
+            },
+            {
+              "type": "static",
+              "text": "It is regrettable that museums still promote the superiority of original works of art, since this may not be in the interests of the "
+            },
+            {
+              "type": "gap",
+              "number": 31
+            },
+            {
+              "type": "static",
+              "text": "."
+            }
+          ],
           "notesTitle": "The value attached to original works of art",
           "wordBank": [
             {
-              "id": "a",
+              "id": "A",
               "label": "institution"
             },
             {
-              "id": "b",
+              "id": "B",
               "label": "mass production"
             },
             {
-              "id": "c",
+              "id": "C",
               "label": "mechanical processes"
             },
             {
-              "id": "d",
+              "id": "D",
               "label": "public"
             },
             {
-              "id": "e",
+              "id": "E",
               "label": "paints"
             },
             {
-              "id": "f",
+              "id": "F",
               "label": "artist"
             },
             {
-              "id": "g",
+              "id": "G",
               "label": "size"
             },
             {
-              "id": "h",
+              "id": "H",
               "label": "underlying ideas"
             },
             {
-              "id": "i",
+              "id": "I",
               "label": "basic technology"
             },
             {
-              "id": "j",
+              "id": "J",
               "label": "readers"
             },
             {
-              "id": "k",
+              "id": "K",
               "label": "picture frames"
             },
             {
-              "id": "l",
+              "id": "L",
               "label": "assistants"
             }
           ],
@@ -544,7 +905,24 @@
               "number": 27,
               "type": "gap-fill",
               "prompt": "perhaps because the availability of novels has depended on _________",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. they were once more difficult to see."
+                },
+                {
+                  "id": "B",
+                  "label": "B. they were once more valued by society."
+                },
+                {
+                  "id": "C",
+                  "label": "C. they lose part of their meaning in a museum."
+                },
+                {
+                  "id": "D",
+                  "label": "D. they were once more easily understood."
+                }
+              ],
               "answer": "mass production",
               "explanation": "Bước 1: Keyword\n“availability of novels”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“the novel has evolved precisely because of technological developments that made it possible to print out huge numbers of texts”\n\nBước 3: Phân tích\n“print out huge numbers” = sản xuất hàng loạt.\n=> Đáp án: mass production",
               "answerConfidence": "key"
@@ -554,7 +932,24 @@
               "number": 28,
               "type": "gap-fill",
               "prompt": "and also because with novels, the _______",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. are always misleading."
+                },
+                {
+                  "id": "B",
+                  "label": "B. reflect the priorities of the institution."
+                },
+                {
+                  "id": "C",
+                  "label": "C. are designed to be as neutral as possible."
+                },
+                {
+                  "id": "D",
+                  "label": "D. help people to understand the history of art."
+                }
+              ],
               "answer": "underlying ideas",
               "explanation": "Bước 1: Keyword\n“with novels”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“the reader attends mainly to the meaning of words”\n\nBước 3: Phân tích\n“meaning of words” = ý tưởng/nội dung bên dưới.\n=> Đáp án: underlying ideas",
               "answerConfidence": "key"
@@ -564,7 +959,24 @@
               "number": 29,
               "type": "gap-fill",
               "prompt": "However, in historical times artists such as Leonardo were happy to instruct______",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. They are essential for understanding art."
+                },
+                {
+                  "id": "B",
+                  "label": "B. They provide a useful historical context."
+                },
+                {
+                  "id": "C",
+                  "label": "C. They are more popular than the paintings themselves."
+                },
+                {
+                  "id": "D",
+                  "label": "D. They can discourage individual responses to art."
+                }
+              ],
               "answer": "assistants",
               "explanation": "Bước 1: Keyword\n“produce copies”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“assign the reproduction of their creations to their workshop apprentices”\n\nBước 3: Phân tích\n“workshop apprentices” = người phụ việc/trợ lý.\n=> Đáp án: assistants",
               "answerConfidence": "key"
@@ -574,7 +986,24 @@
               "number": 30,
               "type": "gap-fill",
               "prompt": "these days new methods of reproduction allow excellent replication of surface relief features as well as colour and _________",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. express concern about the future of art."
+                },
+                {
+                  "id": "B",
+                  "label": "B. suggest that museums should be free of charge."
+                },
+                {
+                  "id": "C",
+                  "label": "C. explain why museums are so popular."
+                },
+                {
+                  "id": "D",
+                  "label": "D. show that art is no longer the main focus."
+                }
+              ],
               "answer": "size",
               "explanation": "Bước 1: Keyword\n“surface relief features”, “colour”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“high-quality prints made exactly to the original scale, with faithful colour values”\n\nBước 3: Phân tích\n“original scale” = kích thước gốc.\n=> Đáp án: size",
               "answerConfidence": "key"
@@ -584,7 +1013,24 @@
               "number": 31,
               "type": "gap-fill",
               "prompt": "since this may not be in the interests of the ________",
-              "options": [],
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. Reproductions are as good as originals."
+                },
+                {
+                  "id": "B",
+                  "label": "B. Reproductions can be seen in their original context."
+                },
+                {
+                  "id": "C",
+                  "label": "C. Reproductions allow for a more detailed study of art."
+                },
+                {
+                  "id": "D",
+                  "label": "D. Reproductions offer a different but valuable experience."
+                }
+              ],
               "answer": "public",
               "explanation": "Bước 1: Keyword\n“not be in the interests of”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“this may not be in the interests of the public”\n\nBước 3: Phân tích\nMuseums đề cao tác phẩm gốc nhưng điều này có thể không có lợi cho công chúng.\n=> Đáp án: public",
               "answerConfidence": "key"
@@ -593,7 +1039,7 @@
         },
         {
           "id": "catalog-cam-10-2-reading-part-3-g1",
-          "range": "Questions 32–35",
+          "range": "Questions 32-35",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -709,7 +1155,7 @@
         },
         {
           "id": "catalog-cam-10-2-reading-part-3-g2",
-          "range": "Questions 36–40",
+          "range": "Questions 36-40",
           "instruction": "Do the following statements agree with the claims of the writer in the Reading Passage?\nIn boxes 36–40 on your answer sheet, write\nYES  if the statement agrees with the claims of the writer\nNO  if the statement contradicts the claims of the writer\nNOT GIVEN  if it is impossible to say what the writer thinks about this",
           "type": "ynng",
           "questions": [
@@ -718,21 +1164,8 @@
               "number": 36,
               "type": "yes-no-not-given",
               "prompt": "Art history should focus on discovering the meaning of art using a range of media.",
-              "options": [
-                {
-                  "id": "yes",
-                  "label": "YES"
-                },
-                {
-                  "id": "no",
-                  "label": "NO"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "no",
+              "options": [],
+              "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\n“discovering the meaning”, “range of media”\n\nBước 2: Tìm đoạn văn\nĐoạn chỉ nói:\n\n“art historian … devoted to ‘discovering the meaning’ of art…”\n\nBước 3: Phân tích\nKhông có thông tin về “using a range of media”.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -741,21 +1174,8 @@
               "number": 37,
               "type": "yes-no-not-given",
               "prompt": "The approach of art historians conflicts with that of art museums.",
-              "options": [
-                {
-                  "id": "yes",
-                  "label": "YES"
-                },
-                {
-                  "id": "no",
-                  "label": "NO"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "no",
+              "options": [],
+              "answer": "NO",
               "explanation": "Bước 1: Keyword\n“conflicts”\n\nBước 2: Tìm đoạn văn\nĐoạn:\n\n“This is in perfect harmony with the museum’s function”\n\nBước 3: Phân tích\n“perfect harmony” = hoàn toàn phù hợp, không mâu thuẫn.\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -764,21 +1184,8 @@
               "number": 38,
               "type": "yes-no-not-given",
               "prompt": "People should be encouraged to give their opinions openly on works of art.",
-              "options": [
-                {
-                  "id": "yes",
-                  "label": "YES"
-                },
-                {
-                  "id": "no",
-                  "label": "NO"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "yes",
+              "options": [],
+              "answer": "YES",
               "explanation": "Bước 1: Keyword\n“encouraged”, “opinions”\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\n“The museum public… experience art more rewardingly when given the confidence to express their views.”\n\nBước 3: Phân tích\nTác giả cho rằng mọi người nên được khuyến khích bày tỏ quan điểm.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -787,21 +1194,8 @@
               "number": 39,
               "type": "yes-no-not-given",
               "prompt": "Reproductions of fine art should only be sold to the public if they are of high quality.",
-              "options": [
-                {
-                  "id": "yes",
-                  "label": "YES"
-                },
-                {
-                  "id": "no",
-                  "label": "NO"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "no",
+              "options": [],
+              "answer": "NOT GIVEN",
               "explanation": "Bước 1: Keyword\n“high quality”\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\n“If appropriate works of fine art could be rendered permanently accessible… by means of high-fidelity reproductions…”\n\nBước 3: Phân tích\nTác giả nói về việc dùng bản sao chất lượng cao để công chúng tiếp cận nghệ thuật dễ hơn, nhưng không nói “only be sold”.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -810,21 +1204,8 @@
               "number": 40,
               "type": "yes-no-not-given",
               "prompt": "In the future, those with power are likely to encourage more people to enjoy art.",
-              "options": [
-                {
-                  "id": "yes",
-                  "label": "YES"
-                },
-                {
-                  "id": "no",
-                  "label": "NO"
-                },
-                {
-                  "id": "not-given",
-                  "label": "NOT GIVEN"
-                }
-              ],
-              "answer": "no",
+              "options": [],
+              "answer": "NO",
               "explanation": "Bước 1: Keyword\n“those with power”, “encourage more people”\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\n“that may be too much to ask from those who seek to maintain and control the art establishment.”\n\nBước 3: Phân tích\nTác giả cho rằng những người có quyền lực không muốn mở rộng khả năng tiếp cận nghệ thuật cho công chúng.\n=> Đáp án: NO",
               "answerConfidence": "key"
             }
