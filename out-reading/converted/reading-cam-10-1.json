@@ -23,41 +23,111 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "Examples of ancient stepwells can be found all over the world.",
-              "answer": "FALSE",
-              "explanation": "Câu 1: FALSE.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword trong câu hỏi\n\n“examples of ancient stepwells”\n“all over the world”\n\nBước 2: Scan bài đọc tìm đoạn nói về vị trí của stepwells\n\nĐoạn quan trọng nằm ở paragraph 2:\n\n“Unique to the region, stepwells are often architecturally complex…”\n\nvà:\n\n“Most stepwells are found dotted around the desert areas of Gujarat … and Rajasthan … while a few also survive in Delhi.”\n\nBước 3: Phân tích meaning\n\nCâu hỏi nói:\n\n“Examples of ancient stepwells can be found all over the world.”\n\n= Stepwells tồn tại khắp thế giới.\n\nNhưng bài đọc nói:\n\n“Unique to the region”\n\n= Chỉ đặc trưng cho khu vực đó (Ấn Độ vùng Gujarat/Rajasthan).\n\nTức là không phải “all over the world”.\n\nBước 4: Kết luận dạng TRUE/FALSE/NOT GIVEN\n\nStatement nói phạm vi toàn thế giới.\nPassage nói chỉ riêng khu vực đó.\n\n→ Thông tin bị contradicted.\n\n=> Đáp án: FALSE.\n\nLý do nhiều người dễ sai:\n\nThấy “thousands of wells” rồi tưởng phổ biến toàn cầu.\nNhưng keyword quyết định là “all over the world”.\nPassage không hề nói toàn thế giới, mà còn nhấn mạnh “unique to the region”."
+              "answer": "false",
+              "explanation": "Câu 1: FALSE.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword trong câu hỏi\n\n“examples of ancient stepwells”\n“all over the world”\n\nBước 2: Scan bài đọc tìm đoạn nói về vị trí của stepwells\n\nĐoạn quan trọng nằm ở paragraph 2:\n\n“Unique to the region, stepwells are often architecturally complex…”\n\nvà:\n\n“Most stepwells are found dotted around the desert areas of Gujarat … and Rajasthan … while a few also survive in Delhi.”\n\nBước 3: Phân tích meaning\n\nCâu hỏi nói:\n\n“Examples of ancient stepwells can be found all over the world.”\n\n= Stepwells tồn tại khắp thế giới.\n\nNhưng bài đọc nói:\n\n“Unique to the region”\n\n= Chỉ đặc trưng cho khu vực đó (Ấn Độ vùng Gujarat/Rajasthan).\n\nTức là không phải “all over the world”.\n\nBước 4: Kết luận dạng TRUE/FALSE/NOT GIVEN\n\nStatement nói phạm vi toàn thế giới.\nPassage nói chỉ riêng khu vực đó.\n\n→ Thông tin bị contradicted.\n\n=> Đáp án: FALSE.\n\nLý do nhiều người dễ sai:\n\nThấy “thousands of wells” rồi tưởng phổ biến toàn cầu.\nNhưng keyword quyết định là “all over the world”.\nPassage không hề nói toàn thế giới, mà còn nhấn mạnh “unique to the region”.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             },
             {
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Stepwells had a range of functions, in addition to those related to water collection.",
-              "answer": "TRUE",
-              "explanation": "TRUE.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword trong câu hỏi\n\n“a range of functions”\n“in addition to”\n“water collection”\n\n“In addition to” = ngoài việc lấy nước ra còn có chức năng khác.\n\n→ Đây là dạng paraphrase cực phổ biến.\n\nBước 2: Scan bài đọc tìm đoạn nói về chức năng của stepwells\n\nĐoạn quan trọng nằm ở paragraph 2:\n\n“they were places of gathering, of leisure, of relaxation and of worship”\n\nBước 3: Phân tích meaning\n\nCâu hỏi nói:\n\n“Stepwells had a range of functions, in addition to those related to water collection.”\n\n= Stepwells có nhiều chức năng ngoài việc liên quan đến nước.\n\nPassage nói:\n\ngathering = tụ tập\nleisure = giải trí\nrelaxation = thư giãn\nworship = thờ cúng\n\n→ Rõ ràng có nhiều chức năng xã hội và tôn giáo ngoài lấy nước.\n\nBước 4: Kết luận\n\nStatement và passage cùng meaning.\n\n=> TRUE.\n\nLý do nhiều người dễ sai:\n\nNhiều bạn chỉ đọc paragraph đầu rồi nghĩ stepwells chỉ để lấy nước.\nNhưng IELTS thường đặt đáp án ở đoạn sau ngay cùng paragraph.\nTừ “functions” được paraphrase thành list activities."
+              "answer": "true",
+              "explanation": "TRUE.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword trong câu hỏi\n\n“a range of functions”\n“in addition to”\n“water collection”\n\n“In addition to” = ngoài việc lấy nước ra còn có chức năng khác.\n\n→ Đây là dạng paraphrase cực phổ biến.\n\nBước 2: Scan bài đọc tìm đoạn nói về chức năng của stepwells\n\nĐoạn quan trọng nằm ở paragraph 2:\n\n“they were places of gathering, of leisure, of relaxation and of worship”\n\nBước 3: Phân tích meaning\n\nCâu hỏi nói:\n\n“Stepwells had a range of functions, in addition to those related to water collection.”\n\n= Stepwells có nhiều chức năng ngoài việc liên quan đến nước.\n\nPassage nói:\n\ngathering = tụ tập\nleisure = giải trí\nrelaxation = thư giãn\nworship = thờ cúng\n\n→ Rõ ràng có nhiều chức năng xã hội và tôn giáo ngoài lấy nước.\n\nBước 4: Kết luận\n\nStatement và passage cùng meaning.\n\n=> TRUE.\n\nLý do nhiều người dễ sai:\n\nNhiều bạn chỉ đọc paragraph đầu rồi nghĩ stepwells chỉ để lấy nước.\nNhưng IELTS thường đặt đáp án ở đoạn sau ngay cùng paragraph.\nTừ “functions” được paraphrase thành list activities.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             },
             {
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "The few existing stepwells in Delhi are more attractive than those found elsewhere.",
-              "answer": "NOT GIVEN",
-              "explanation": "NOT GIVEN.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword\n\n“existing stepwells in Delhi”\n“more attractive”\n“than those found elsewhere”\n\nĐây là dạng comparison.\n\nBước 2: Scan bài đọc tìm “Delhi”\n\nĐoạn chứa keyword:\n\n“while a few also survive in Delhi.”\n\nBước 3: Kiểm tra xem có comparison không\n\nQuestion nói:\n\n“The few existing stepwells in Delhi are more attractive than those found elsewhere.”\n\n= Stepwells ở Delhi đẹp hơn nơi khác.\n\nNhưng passage chỉ nói:\n\ncó một vài cái còn tồn tại ở Delhi.\n\nKHÔNG nói:\n\nđẹp hơn\nhấp dẫn hơn\nnổi tiếng hơn\nxấu hơn\n\nKhông có bất kỳ sự so sánh nào.\n\nBước 4: Kết luận\n\nIELTS rule:\n\nCó keyword ≠ có đáp án.\nPhải đúng toàn bộ meaning.\n\nVì bài không cho thông tin so sánh.\n\n=> NOT GIVEN.\n\nLý do nhiều người dễ sai:\n\nThấy có “Delhi” là khoanh TRUE.\nNhưng TRUE/FALSE/NG phải kiểm tra:\ncó đúng keyword không\ncó đúng meaning không\ncó đủ thông tin không\n\nỞ đây chỉ match keyword, không match idea."
+              "answer": "not-given",
+              "explanation": "NOT GIVEN.\n\nCách làm từng bước:\n\nBước 1: Xác định keyword\n\n“existing stepwells in Delhi”\n“more attractive”\n“than those found elsewhere”\n\nĐây là dạng comparison.\n\nBước 2: Scan bài đọc tìm “Delhi”\n\nĐoạn chứa keyword:\n\n“while a few also survive in Delhi.”\n\nBước 3: Kiểm tra xem có comparison không\n\nQuestion nói:\n\n“The few existing stepwells in Delhi are more attractive than those found elsewhere.”\n\n= Stepwells ở Delhi đẹp hơn nơi khác.\n\nNhưng passage chỉ nói:\n\ncó một vài cái còn tồn tại ở Delhi.\n\nKHÔNG nói:\n\nđẹp hơn\nhấp dẫn hơn\nnổi tiếng hơn\nxấu hơn\n\nKhông có bất kỳ sự so sánh nào.\n\nBước 4: Kết luận\n\nIELTS rule:\n\nCó keyword ≠ có đáp án.\nPhải đúng toàn bộ meaning.\n\nVì bài không cho thông tin so sánh.\n\n=> NOT GIVEN.\n\nLý do nhiều người dễ sai:\n\nThấy có “Delhi” là khoanh TRUE.\nNhưng TRUE/FALSE/NG phải kiểm tra:\ncó đúng keyword không\ncó đúng meaning không\ncó đủ thông tin không\n\nỞ đây chỉ match keyword, không match idea.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             },
             {
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "It took workers many years to build the stone steps characteristic of stepwells.",
-              "answer": "NOT GIVEN",
-              "explanation": "Cách làm từng bước:\n\nBước 1: Xác định keyword\n\n“took workers many years”\n“build”\n“stone steps”\n\nBước 2: Scan bài đọc tìm đoạn nói về steps\n\nĐoạn liên quan:\n\n“stepwells comprise a series of stone steps descending from ground level to the water source”\n\nBước 3: So sánh meaning\n\nQuestion nói:\n\ncông nhân mất nhiều năm để xây các bậc đá.\n\nPassage chỉ mô tả:\n\ncó các bậc đá.\n\nPassage KHÔNG nói:\n\nai xây\nmất bao lâu\nquá trình xây dựng\n\nBước 4: Kết luận\n\nKhông đủ thông tin để xác nhận hay phủ định.\n\n=> NOT GIVEN.\n\nLý do nhiều người dễ sai:\n\nThấy công trình lớn nên tự suy luận “chắc xây lâu”.\nNhưng IELTS cấm dùng kiến thức ngoài bài.\nChỉ được dùng information explicitly stated."
+              "answer": "not-given",
+              "explanation": "Cách làm từng bước:\n\nBước 1: Xác định keyword\n\n“took workers many years”\n“build”\n“stone steps”\n\nBước 2: Scan bài đọc tìm đoạn nói về steps\n\nĐoạn liên quan:\n\n“stepwells comprise a series of stone steps descending from ground level to the water source”\n\nBước 3: So sánh meaning\n\nQuestion nói:\n\ncông nhân mất nhiều năm để xây các bậc đá.\n\nPassage chỉ mô tả:\n\ncó các bậc đá.\n\nPassage KHÔNG nói:\n\nai xây\nmất bao lâu\nquá trình xây dựng\n\nBước 4: Kết luận\n\nKhông đủ thông tin để xác nhận hay phủ định.\n\n=> NOT GIVEN.\n\nLý do nhiều người dễ sai:\n\nThấy công trình lớn nên tự suy luận “chắc xây lâu”.\nNhưng IELTS cấm dùng kiến thức ngoài bài.\nChỉ được dùng information explicitly stated.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             },
             {
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "The number of steps above the water level in a stepwell altered during the course of a year.",
-              "answer": "TRUE",
-              "explanation": "Cách làm từng bước:\n\nBước 1: Xác định keyword\n\n“number of steps”\n“above the water level”\n“altered during the course of a year”\n\n“altered” = changed.\n\nBước 2: Scan đoạn nói về water level\n\nĐoạn chứa đáp án:\n\n“When the water level was high, the user needed only to descend a few steps to reach it; when it was low, several levels would have to be negotiated.”\n\nBước 3: Phân tích meaning\n\nKhi nước cao:\n\nchỉ cần đi xuống vài bậc.\n\nKhi nước thấp:\n\nphải đi xuống nhiều tầng/bậc hơn.\n\nĐiều này có nghĩa:\n\nsố bậc nằm phía trên mặt nước thay đổi theo mực nước.\n\nBước 4: Kết luận\n\nMeaning hoàn toàn khớp với statement.\n\n=> TRUE.\n\nLý do nhiều người dễ sai:\n\nKhông nhận ra paraphrase:\naltered = changed\nseveral levels = more steps\nIELTS thường không dùng lại nguyên từ."
+              "answer": "true",
+              "explanation": "Cách làm từng bước:\n\nBước 1: Xác định keyword\n\n“number of steps”\n“above the water level”\n“altered during the course of a year”\n\n“altered” = changed.\n\nBước 2: Scan đoạn nói về water level\n\nĐoạn chứa đáp án:\n\n“When the water level was high, the user needed only to descend a few steps to reach it; when it was low, several levels would have to be negotiated.”\n\nBước 3: Phân tích meaning\n\nKhi nước cao:\n\nchỉ cần đi xuống vài bậc.\n\nKhi nước thấp:\n\nphải đi xuống nhiều tầng/bậc hơn.\n\nĐiều này có nghĩa:\n\nsố bậc nằm phía trên mặt nước thay đổi theo mực nước.\n\nBước 4: Kết luận\n\nMeaning hoàn toàn khớp với statement.\n\n=> TRUE.\n\nLý do nhiều người dễ sai:\n\nKhông nhận ra paraphrase:\naltered = changed\nseveral levels = more steps\nIELTS thường không dùng lại nguyên từ.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ]
             }
           ]
         },
         {
-          "range": "Questions 6–8",
+          "range": "Questions 6–13",
           "instruction": "Complete the sentences below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "type": "multiple-choice",
           "questions": [
@@ -84,14 +154,7 @@
               "answer": "tourists",
               "explanation": "Cách làm từng bước:\n\nBước 1: Xác định keyword\n\nQuestion:\n\nWho are frequent visitors to stepwells nowadays?\n\nKeyword:\n\nnowadays\nfrequent visitors\n\nBước 2: Scan đoạn cuối vì “nowadays/today” thường nằm cuối passage\n\nĐoạn:\n\n“Tourists flock to wells in far-flung corners of northwestern India…”\n\nBước 3: Match paraphrase\n\nQuestion:\n\nfrequent visitors\n\nPassage:\n\nflock to\n\n“flock to” = kéo đến đông đảo thường xuyên.\n\nBước 4: Chọn đáp án đúng grammar\n\nQuestion:\n\nWho are...\n\n→ cần noun chỉ người.\n\n=> tourists\n\nLý do dễ sai:\n\nCó bạn ghi “visitors”.\nNhưng phải lấy từ passage, không tự paraphrase đáp án.",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 9–13",
-          "instruction": "Complete the table below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
-          "type": "gap-fill",
-          "questions": [
+            },
             {
               "number": 9,
               "type": "multiple-choice",

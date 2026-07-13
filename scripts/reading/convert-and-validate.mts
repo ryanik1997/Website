@@ -28,6 +28,8 @@ import {
   gapNumbersInReadingNoteTable,
 } from '../../apps/web/src/features/exam/readingNoteTableUtils'
 import type { IeltsReadingPassageNumber } from '../../apps/web/src/features/exam/ieltsReadingWizard/ieltsReadingWizardConfig'
+// @ts-ignore — plain .mjs, no types
+import { consolidateGroups } from './consolidate-groups.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '../..')
@@ -123,6 +125,8 @@ interface Row {
   before: number
   after: number
   kindsAfter: string[]
+  groupsBefore: number
+  groupsAfter: number
 }
 
 const rows: Row[] = []
@@ -149,10 +153,10 @@ for (const f of files) {
   const doc = JSON.parse(fs.readFileSync(src, 'utf-8'))
   const converted = { ...doc, parts: [] as any[] }
 
-  for (const rawPart of doc.parts ?? []) {
-    const partNumber = rawPart.partNumber as IeltsReadingPassageNumber
+  for (const rawPartOriginal of doc.parts ?? []) {
+    const partNumber = rawPartOriginal.partNumber as IeltsReadingPassageNumber
     if (![1, 2, 3].includes(partNumber)) {
-      converted.parts.push(rawPart)
+      converted.parts.push(rawPartOriginal)
       rows.push({
         file: f,
         partNumber,
@@ -162,8 +166,22 @@ for (const f of files) {
         before: 0,
         after: 0,
         kindsAfter: ['skipped-part-number'],
+        groupsBefore: (rawPartOriginal.questionGroups ?? []).length,
+        groupsAfter: (rawPartOriginal.questionGroups ?? []).length,
       })
       continue
+    }
+
+    // Consolidator: gộp group liền kề cùng type + dải câu liên tục.
+    // KHÔNG đụng normalize — tiền xử lý để triplet gọn lại trước khi detect template.
+    const cons = consolidateGroups(rawPartOriginal) as {
+      part: any
+      before: number
+      after: number
+    }
+    const rawPart = cons.part
+    if (cons.before !== cons.after) {
+      console.log(`  ${f} P${partNumber}: consolidated ${cons.before} → ${cons.after} groups`)
     }
 
     const triplet = tripletOf(rawPart)
@@ -179,6 +197,8 @@ for (const f of files) {
         before: 0,
         after: 0,
         kindsAfter: ['empty-questionGroups'],
+        groupsBefore: cons.before,
+        groupsAfter: cons.after,
       })
       continue
     }
@@ -216,6 +236,8 @@ for (const f of files) {
       before: before.count,
       after: after.count,
       kindsAfter: after.kinds,
+      groupsBefore: cons.before,
+      groupsAfter: cons.after,
     })
   }
 
@@ -254,6 +276,16 @@ md.push(`- Cảnh báo TRƯỚC: **${totalBefore}**`)
 md.push(`- Cảnh báo SAU: **${totalAfter}**`)
 md.push(`- Giảm: **${totalBefore - totalAfter}** (${totalBefore ? Math.round((1 - totalAfter / totalBefore) * 100) : 0}%)`)
 md.push('')
+const groupsBeforeTotal = rows.reduce((s, r) => s + r.groupsBefore, 0)
+const groupsAfterTotal = rows.reduce((s, r) => s + r.groupsAfter, 0)
+const consolidatedPassages = rows.filter(r => r.groupsBefore !== r.groupsAfter).length
+md.push(`## Consolidator`)
+md.push('')
+md.push(`- Passages có gộp group: **${consolidatedPassages}** / ${rows.length}`)
+md.push(`- Tổng group TRƯỚC gộp: **${groupsBeforeTotal}**`)
+md.push(`- Tổng group SAU gộp: **${groupsAfterTotal}**`)
+md.push(`- Giảm: **${groupsBeforeTotal - groupsAfterTotal}** group`)
+md.push('')
 md.push(`## Top loại cảnh báo (sau)`)
 md.push('')
 md.push(`| Loại | Count |`)
@@ -268,10 +300,11 @@ for (const [k, v] of top(fileCount, 15)) if (v > 0) md.push(`| ${k} | ${v} |`)
 md.push('')
 md.push(`## Chi tiết per passage`)
 md.push('')
-md.push(`| File | Part | Triplet | Template | Before | After |`)
-md.push(`|------|------|---------|----------|--------|-------|`)
+md.push(`| File | Part | Groups (before → after) | Triplet | Template | Warn Before | Warn After |`)
+md.push(`|------|------|-------------------------|---------|----------|-------------|------------|`)
 for (const r of rows) {
-  md.push(`| ${r.file} | ${r.partNumber} | ${r.triplet || '(empty)'} | ${r.templateKind ?? '—'} | ${r.before} | ${r.after} |`)
+  const gs = `${r.groupsBefore} → ${r.groupsAfter}`
+  md.push(`| ${r.file} | ${r.partNumber} | ${gs} | ${r.triplet || '(empty)'} | ${r.templateKind ?? '—'} | ${r.before} | ${r.after} |`)
 }
 
 fs.writeFileSync(REPORT_FILE, md.join('\n'), 'utf-8')

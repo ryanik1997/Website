@@ -42,7 +42,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 1–1",
+          "range": "Questions 1–13",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -52,168 +52,84 @@
               "prompt": "There are understandable reasons why arguments occur about language.",
               "answer": "YES",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 2–2",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 2,
               "type": "multiple-choice",
               "prompt": "People feel more strongly about language education than about small differences in language usage.",
               "answer": "NO",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 3–3",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 3,
               "type": "multiple-choice",
               "prompt": "Our assessment of a person's intelligence is affected by the way he or she uses language.",
               "answer": "YES",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 4–4",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 4,
               "type": "multiple-choice",
               "prompt": "Prescriptive grammar books cost a lot of money to buy in the 18th century.",
               "answer": "NOT GIVEN",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 5–5",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 5,
               "type": "multiple-choice",
               "prompt": "Prescriptivism still exists today.",
               "answer": "YES",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 6–6",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 6,
               "type": "multiple-choice",
               "prompt": "According to descriptivists it is pointless to try to stop language change.",
               "answer": "YES",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 7–7",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 7,
               "type": "multiple-choice",
               "prompt": "Descriptivism only appeared after the 18th century.",
               "answer": "NO",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 8–8",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 8,
               "type": "multiple-choice",
               "prompt": "Both descriptivists and prescriptivists have been misrepresented.",
               "answer": "YES",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 9–9",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 9,
               "type": "multiple-choice",
               "prompt": "According to whom is there only one correct form of language?",
               "answer": "H",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 10–10",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 10,
               "type": "multiple-choice",
               "prompt": "Linguists who take this approach place great importance on grammatical what?",
               "answer": "F",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 11–11",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 11,
               "type": "multiple-choice",
               "prompt": "Conversely, the view of whom, such as Joseph Priestley, is that grammar should be based on popular speech?",
               "answer": "A",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 12–12",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 12,
               "type": "multiple-choice",
               "prompt": "Grammar should be based on what according to descriptivists such as Joseph Priestley?",
               "answer": "C",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 13–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 13,
               "type": "multiple-choice",
@@ -286,296 +202,100 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 14–14",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 14,
-              "type": "multiple-choice",
-              "prompt": "the location of the first test site",
-              "answer": "C",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 15–15",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 15,
-              "type": "multiple-choice",
-              "prompt": "a way of bringing the power produced on one site back into Britain",
-              "answer": "E",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 16–16",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 16,
-              "type": "multiple-choice",
-              "prompt": "a reference to a previous attempt by Britain to find an alternative source of energy",
-              "answer": "A",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 17–17",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 17,
-              "type": "multiple-choice",
-              "prompt": "mention of the possibility of applying technology from another industry",
-              "answer": "C",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 18–18",
+          "range": "Questions 14–26",
           "instruction": "Choose the correct answer.",
           "type": "summary-completion",
           "questions": [
+            {
+              "number": 14,
+              "type": "summary-completion",
+              "prompt": "the location of the first test site",
+              "answer": "C",
+              "options": []
+            },
+            {
+              "number": 15,
+              "type": "summary-completion",
+              "prompt": "a way of bringing the power produced on one site back into Britain",
+              "answer": "E",
+              "options": []
+            },
+            {
+              "number": 16,
+              "type": "summary-completion",
+              "prompt": "a reference to a previous attempt by Britain to find an alternative source of energy",
+              "answer": "A",
+              "options": []
+            },
+            {
+              "number": 17,
+              "type": "summary-completion",
+              "prompt": "mention of the possibility of applying technology from another industry",
+              "answer": "C",
+              "options": []
+            },
             {
               "number": 18,
               "type": "summary-completion",
               "prompt": "Which FIVE claims about tidal power are made by the writer? Write the letters.",
               "answer": "A,D,E,F,J",
               "options": []
-            }
-          ],
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "It is a more reliable source of energy than wind power."
             },
-            {
-              "id": "b",
-              "label": "It would replace all other forms of energy in Britain."
-            },
-            {
-              "id": "c",
-              "label": "Its introduction has come as a result of public pressure."
-            },
-            {
-              "id": "d",
-              "label": "It would cut down on air pollution."
-            },
-            {
-              "id": "e",
-              "label": "It could contribute to the closure of many existing power stations in Britain."
-            },
-            {
-              "id": "f",
-              "label": "It could be a means of increasing national income."
-            },
-            {
-              "id": "g",
-              "label": "It could face a lot of resistance from other fuel industries."
-            },
-            {
-              "id": "h",
-              "label": "It could be sold more cheaply than any other type of fuel."
-            },
-            {
-              "id": "i",
-              "label": "It could compensate for the shortage of inland sites for energy production."
-            },
-            {
-              "id": "j",
-              "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ]
-        },
-        {
-          "range": "Questions 19–19",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "questions": [
             {
               "number": 19,
               "type": "summary-completion",
               "prompt": "Question 19",
               "answer": "A,D,E,F,J",
               "options": []
-            }
-          ],
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "It is a more reliable source of energy than wind power."
             },
-            {
-              "id": "b",
-              "label": "It would replace all other forms of energy in Britain."
-            },
-            {
-              "id": "c",
-              "label": "Its introduction has come as a result of public pressure."
-            },
-            {
-              "id": "d",
-              "label": "It would cut down on air pollution."
-            },
-            {
-              "id": "e",
-              "label": "It could contribute to the closure of many existing power stations in Britain."
-            },
-            {
-              "id": "f",
-              "label": "It could be a means of increasing national income."
-            },
-            {
-              "id": "g",
-              "label": "It could face a lot of resistance from other fuel industries."
-            },
-            {
-              "id": "h",
-              "label": "It could be sold more cheaply than any other type of fuel."
-            },
-            {
-              "id": "i",
-              "label": "It could compensate for the shortage of inland sites for energy production."
-            },
-            {
-              "id": "j",
-              "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ]
-        },
-        {
-          "range": "Questions 20–20",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "questions": [
             {
               "number": 20,
               "type": "summary-completion",
               "prompt": "Question 20",
               "answer": "A,D,E,F,J",
               "options": []
-            }
-          ],
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "It is a more reliable source of energy than wind power."
             },
-            {
-              "id": "b",
-              "label": "It would replace all other forms of energy in Britain."
-            },
-            {
-              "id": "c",
-              "label": "Its introduction has come as a result of public pressure."
-            },
-            {
-              "id": "d",
-              "label": "It would cut down on air pollution."
-            },
-            {
-              "id": "e",
-              "label": "It could contribute to the closure of many existing power stations in Britain."
-            },
-            {
-              "id": "f",
-              "label": "It could be a means of increasing national income."
-            },
-            {
-              "id": "g",
-              "label": "It could face a lot of resistance from other fuel industries."
-            },
-            {
-              "id": "h",
-              "label": "It could be sold more cheaply than any other type of fuel."
-            },
-            {
-              "id": "i",
-              "label": "It could compensate for the shortage of inland sites for energy production."
-            },
-            {
-              "id": "j",
-              "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ]
-        },
-        {
-          "range": "Questions 21–21",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "questions": [
             {
               "number": 21,
               "type": "summary-completion",
               "prompt": "Question 21",
               "answer": "A,D,E,F,J",
               "options": []
-            }
-          ],
-          "wordBank": [
-            {
-              "id": "a",
-              "label": "It is a more reliable source of energy than wind power."
             },
-            {
-              "id": "b",
-              "label": "It would replace all other forms of energy in Britain."
-            },
-            {
-              "id": "c",
-              "label": "Its introduction has come as a result of public pressure."
-            },
-            {
-              "id": "d",
-              "label": "It would cut down on air pollution."
-            },
-            {
-              "id": "e",
-              "label": "It could contribute to the closure of many existing power stations in Britain."
-            },
-            {
-              "id": "f",
-              "label": "It could be a means of increasing national income."
-            },
-            {
-              "id": "g",
-              "label": "It could face a lot of resistance from other fuel industries."
-            },
-            {
-              "id": "h",
-              "label": "It could be sold more cheaply than any other type of fuel."
-            },
-            {
-              "id": "i",
-              "label": "It could compensate for the shortage of inland sites for energy production."
-            },
-            {
-              "id": "j",
-              "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ]
-        },
-        {
-          "range": "Questions 22–22",
-          "instruction": "Choose the correct answer.",
-          "type": "summary-completion",
-          "questions": [
             {
               "number": 22,
               "type": "summary-completion",
               "prompt": "Question 22",
               "answer": "A,D,E,F,J",
               "options": []
+            },
+            {
+              "number": 23,
+              "type": "summary-completion",
+              "prompt": "The whole tower can be raised for what and for the extraction of seaweed from the blades?",
+              "answer": "maintenance",
+              "options": []
+            },
+            {
+              "number": 24,
+              "type": "summary-completion",
+              "prompt": "Sea life is not in danger due to the fact that blades are comparatively what?",
+              "answer": "slow turning",
+              "options": []
+            },
+            {
+              "number": 25,
+              "type": "summary-completion",
+              "prompt": "Air bubbles result from the what behind the blades?",
+              "answer": "low pressure",
+              "options": []
+            },
+            {
+              "number": 26,
+              "type": "summary-completion",
+              "prompt": "What is this phenomenon known as?",
+              "answer": "cavitation",
+              "options": []
             }
           ],
           "wordBank": [
@@ -618,62 +338,6 @@
             {
               "id": "j",
               "label": "It is best produced in the vicinity of coastlines with particular features."
-            }
-          ]
-        },
-        {
-          "range": "Questions 23–23",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 23,
-              "type": "multiple-choice",
-              "prompt": "The whole tower can be raised for what and for the extraction of seaweed from the blades?",
-              "answer": "maintenance",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 24–24",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 24,
-              "type": "multiple-choice",
-              "prompt": "Sea life is not in danger due to the fact that blades are comparatively what?",
-              "answer": "slow turning",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 25–25",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 25,
-              "type": "multiple-choice",
-              "prompt": "Air bubbles result from the what behind the blades?",
-              "answer": "low pressure",
-              "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 26–26",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 26,
-              "type": "multiple-choice",
-              "prompt": "What is this phenomenon known as?",
-              "answer": "cavitation",
-              "options": []
             }
           ]
         }
@@ -723,7 +387,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 27–27",
+          "range": "Questions 27–37",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -733,140 +397,70 @@
               "prompt": "an explanation of the factors affecting the transmission of information",
               "answer": "D",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 28–28",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 28,
               "type": "multiple-choice",
               "prompt": "an example of how unnecessary information can be omitted",
               "answer": "F",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 29–29",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 29,
               "type": "multiple-choice",
               "prompt": "a reference to Shannon's attitude to fame",
               "answer": "B",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 30–30",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 30,
               "type": "multiple-choice",
               "prompt": "details of a machine capable of interpreting incomplete information",
               "answer": "E",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 31–31",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 31,
               "type": "multiple-choice",
               "prompt": "a detailed account of an incident involving information theory",
               "answer": "A",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 32–32",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 32,
               "type": "multiple-choice",
               "prompt": "a reference to what Shannon initially intended to achieve in his research",
               "answer": "C",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 33–33",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 33,
               "type": "multiple-choice",
               "prompt": "Voyager 1 sent back spectacular images of which two planets before leaving on its one-way mission?",
               "answer": "Jupiter, Saturn",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 34–34",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 34,
               "type": "multiple-choice",
               "prompt": "Voyager 1 then soared out of the what on a one-way mission to the stars?",
               "answer": "Solar System",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 35–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 35,
               "type": "multiple-choice",
               "prompt": "Scientists feared that which two parts were on the brink of failing?",
               "answer": "sensors, circuits",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 36–36",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 36,
               "type": "multiple-choice",
               "prompt": "The only hope was to tell the probe to replace them with what?",
               "answer": "spares",
               "options": []
-            }
-          ]
-        },
-        {
-          "range": "Questions 37–37",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "number": 37,
               "type": "multiple-choice",
@@ -877,7 +471,7 @@
           ]
         },
         {
-          "range": "Questions 38–38",
+          "range": "Questions 38–40",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -886,27 +480,13 @@
               "type": "true-false-not-given",
               "prompt": "The concept of describing something as true or false was the starting point for Shannon in his attempts to send messages over distances.",
               "answer": "TRUE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 39–39",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "number": 39,
               "type": "true-false-not-given",
               "prompt": "The amount of information that can be sent in a given time period is determined with reference to the signal strength and noise level.",
               "answer": "TRUE"
-            }
-          ]
-        },
-        {
-          "range": "Questions 40–40",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "number": 40,
               "type": "true-false-not-given",

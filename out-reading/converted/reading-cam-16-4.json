@@ -532,7 +532,7 @@
       ],
       "questionGroups": [
         {
-          "range": "Questions 27–32",
+          "range": "Questions 27–35",
           "instruction": "Reading Passage has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–viii, in boxes 27–32 on your answer sheet.",
           "type": "summary-completion",
           "questions": [
@@ -583,6 +583,81 @@
               "answer": "v",
               "explanation": "Bước 1: Keyword\nallow people control\nmodify an algorithm\nmore satisfied\nBước 2: Tìm đoạn\nĐoạn F:\n“allowing people some control”\n“modify an algorithm”\nBước 3: Phân tích\nKhi người dùng tham gia vào AI process, họ tin AI hơn.\nĐoạn tập trung vào lợi ích của việc involve users.\n=> Đáp án: v. The advantages of involving users in AI processes",
               "options": []
+            },
+            {
+              "number": 33,
+              "type": "summary-completion",
+              "prompt": "Question 33",
+              "answer": "C",
+              "explanation": "Bước 1: Keyword\nSection A\nwriter doing\nBước 2: Tìm đoạn\nĐoạn A:\n“people don’t like relying on AI”\n“prefer to trust human experts”\nBước 3: Phân tích\nTác giả đang nêu ra một vấn đề: con người thiếu niềm tin vào AI.\nKhông phải đưa giải pháp hay giải thích nguyên nhân chi tiết.\n=> Đáp án: C. highlighting the existence of a problem",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. providing a solution to a concern"
+                },
+                {
+                  "id": "B",
+                  "label": "B. justifying an opinion about an issue"
+                },
+                {
+                  "id": "C",
+                  "label": "C. highlighting the existence of a problem"
+                },
+                {
+                  "id": "D",
+                  "label": "D. explaining the reasons for a phenomenon"
+                }
+              ]
+            },
+            {
+              "number": 34,
+              "type": "summary-completion",
+              "prompt": "Question 34",
+              "answer": "B",
+              "explanation": "Bước 1: Keyword\nreluctant to accept AI\nSection C\nBước 2: Tìm đoạn\nĐoạn C:\n“AI’s decision-making process is usually too difficult…”\n“give us a sense that we’re losing control”\nBước 3: Phân tích\nAI quá phức tạp khiến con người cảm thấy bất lợi/mất kiểm soát.\nKhớp với ý “at a disadvantage”.\n=> Đáp án: B",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. They are afraid it will replace humans in decision-making jobs."
+                },
+                {
+                  "id": "B",
+                  "label": "B. Its complexity makes them feel that they are at a disadvantage."
+                },
+                {
+                  "id": "C",
+                  "label": "C. They would rather wait for the technology to be tested over a period of time."
+                },
+                {
+                  "id": "D",
+                  "label": "D. Misunderstandings about how it works make it seem more challenging than it is."
+                }
+              ]
+            },
+            {
+              "number": 35,
+              "type": "summary-completion",
+              "prompt": "Question 35",
+              "answer": "A",
+              "explanation": "Bước 1: Keyword\nmedia\nSection C\nBước 2: Tìm đoạn\nĐoạn C: “AI failures receive a disproportionate amount of media attention”\nBước 3: Phân tích\nTruyền thông tập trung nhiều vào thất bại của AI.\nĐiều này khiến công chúng mất niềm tin.\n=> Đáp án: A",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A. It leads the public to be mistrustful of AI."
+                },
+                {
+                  "id": "B",
+                  "label": "B. It devotes an excessive amount of attention to AI."
+                },
+                {
+                  "id": "C",
+                  "label": "C. Its reports of incidents involving AI are often inaccurate."
+                },
+                {
+                  "id": "D",
+                  "label": "D. It gives the impression that AI failures are due to designer error."
+                }
+              ]
             }
           ],
           "wordBank": [
@@ -617,88 +692,6 @@
             {
               "id": "h",
               "label": "viii=A surprisingly successful AI application"
-            }
-          ]
-        },
-        {
-          "range": "Questions 33–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
-            {
-              "number": 33,
-              "type": "multiple-choice",
-              "prompt": "Question 33",
-              "answer": "C",
-              "explanation": "Bước 1: Keyword\nSection A\nwriter doing\nBước 2: Tìm đoạn\nĐoạn A:\n“people don’t like relying on AI”\n“prefer to trust human experts”\nBước 3: Phân tích\nTác giả đang nêu ra một vấn đề: con người thiếu niềm tin vào AI.\nKhông phải đưa giải pháp hay giải thích nguyên nhân chi tiết.\n=> Đáp án: C. highlighting the existence of a problem",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A. providing a solution to a concern"
-                },
-                {
-                  "id": "B",
-                  "label": "B. justifying an opinion about an issue"
-                },
-                {
-                  "id": "C",
-                  "label": "C. highlighting the existence of a problem"
-                },
-                {
-                  "id": "D",
-                  "label": "D. explaining the reasons for a phenomenon"
-                }
-              ]
-            },
-            {
-              "number": 34,
-              "type": "multiple-choice",
-              "prompt": "Question 34",
-              "answer": "B",
-              "explanation": "Bước 1: Keyword\nreluctant to accept AI\nSection C\nBước 2: Tìm đoạn\nĐoạn C:\n“AI’s decision-making process is usually too difficult…”\n“give us a sense that we’re losing control”\nBước 3: Phân tích\nAI quá phức tạp khiến con người cảm thấy bất lợi/mất kiểm soát.\nKhớp với ý “at a disadvantage”.\n=> Đáp án: B",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A. They are afraid it will replace humans in decision-making jobs."
-                },
-                {
-                  "id": "B",
-                  "label": "B. Its complexity makes them feel that they are at a disadvantage."
-                },
-                {
-                  "id": "C",
-                  "label": "C. They would rather wait for the technology to be tested over a period of time."
-                },
-                {
-                  "id": "D",
-                  "label": "D. Misunderstandings about how it works make it seem more challenging than it is."
-                }
-              ]
-            },
-            {
-              "number": 35,
-              "type": "multiple-choice",
-              "prompt": "Question 35",
-              "answer": "A",
-              "explanation": "Bước 1: Keyword\nmedia\nSection C\nBước 2: Tìm đoạn\nĐoạn C: “AI failures receive a disproportionate amount of media attention”\nBước 3: Phân tích\nTruyền thông tập trung nhiều vào thất bại của AI.\nĐiều này khiến công chúng mất niềm tin.\n=> Đáp án: A",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A. It leads the public to be mistrustful of AI."
-                },
-                {
-                  "id": "B",
-                  "label": "B. It devotes an excessive amount of attention to AI."
-                },
-                {
-                  "id": "C",
-                  "label": "C. Its reports of incidents involving AI are often inaccurate."
-                },
-                {
-                  "id": "D",
-                  "label": "D. It gives the impression that AI failures are due to designer error."
-                }
-              ]
             }
           ]
         },
