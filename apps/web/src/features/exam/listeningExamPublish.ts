@@ -4,6 +4,7 @@ import {
   listeningExamMissingPublicAudio,
   materializeListeningMediaForPublish,
 } from './listeningExamCloudMedia'
+import { mergeCatalogListeningMedia } from './listeningExamCatalogMerge'
 
 interface PublishedRow {
   id: string
@@ -52,11 +53,24 @@ export async function publishListeningExamToCloud(
   exam: ListeningExam,
   meta?: { source?: string; sourceFilename?: string },
 ): Promise<void> {
+  // Bổ sung URL catalog cho part không có blob/URL trước khi materialize —
+  // đảm bảo Cambridge A2‑C2 luôn có audioUrl trong payload publish (kể cả khi
+  // ZIP admin import không kèm MP3). Không đè URL nếu đã có blob local.
+  const withCatalogFallback = mergeCatalogListeningMedia(exam)
   // Import local chỉ có audioKey (Dexie) — phải upload Storage trước khi strip key
-  const withCloudMedia = await materializeListeningMediaForPublish(exam)
+  const withCloudMedia = await materializeListeningMediaForPublish(withCatalogFallback)
   const clean = stripLocalMediaKeys(withCloudMedia)
 
-  if (listeningExamMissingPublicAudio(clean) && exam.parts.some(p => p.audioKey || p.audioUrl)) {
+  if (listeningExamMissingPublicAudio(clean)) {
+    // Chặn publish khi payload hoàn toàn thiếu audioUrl — user sẽ bấm Phát → báo
+    // "Không tìm thấy file audio". Admin phải kèm MP3 trong ZIP hoặc dùng title
+    // khớp catalog builtin (KET/PET/FCE/CAE Test 1) để có fallback.
+    throw new Error(
+      `Publish thất bại: đề "${exam.title}" không có audio public. Kèm MP3 trong ZIP import,`
+      + ` hoặc đặt title khớp catalog builtin (vd "KET A2 Listening — Test 1") để tự động fallback.`,
+    )
+  }
+  if (exam.parts.some(p => p.audioKey || p.audioUrl) && listeningExamMissingPublicAudio(clean)) {
     console.warn(
       '[listening publish] Không có audioUrl public sau materialize — Firefox/user khác sẽ không nghe được.',
       exam.id,

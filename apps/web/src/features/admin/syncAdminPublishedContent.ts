@@ -18,6 +18,7 @@ import {
   type VocabPublishPayload,
 } from '../vocab/vocabPublishNormalize'
 import { ADMIN_PUBLISH_VERSION_KEY } from './adminContentPublish'
+import { CUSTOM_DICTIONARY_KEY, type CustomDictionaryEntry } from '../dictionary/customDictionary'
 
 export interface AdminContentSyncResult {
   updated: boolean
@@ -145,6 +146,19 @@ async function mergeWritingPrompts(docs: WritingDoc[]): Promise<void> {
 
 async function mergeMindmaps(items: MindMap[]): Promise<void> {
   const previousIds = (await settingsRepo.getSetting(ADMIN_PUBLISHED_MINDMAP_IDS_KEY) as string[] | undefined) ?? []
+  const existingLocalIds = new Set((await db.mindmaps.toArray()).map(item => item.id))
+  const previousIdSet = new Set(previousIds)
+
+  // If an item was delivered by an earlier Admin publish but is now missing
+  // locally, the user/Admin deleted it. Do not resurrect it from an older
+  // published module payload while waiting for the next publish.
+  const deletedPublishedIds = new Set(
+    previousIds.filter(id => !existingLocalIds.has(id)),
+  )
+  const liveItems = items.filter(
+    item => !previousIdSet.has(item.id) || !deletedPublishedIds.has(item.id),
+  )
+
   const currentIds = items.map(item => item.id)
   const currentIdSet = new Set(currentIds)
   const staleIds = previousIds.filter(id => !currentIdSet.has(id))
@@ -152,7 +166,7 @@ async function mergeMindmaps(items: MindMap[]): Promise<void> {
   // Only prune IDs that came from a previous admin publish. Personal maps are
   // never included here and therefore remain untouched.
   if (staleIds.length) await db.mindmaps.bulkDelete(staleIds)
-  if (items.length) await db.mindmaps.bulkPut(items)
+  if (liveItems.length) await db.mindmaps.bulkPut(liveItems)
   await settingsRepo.putSetting(ADMIN_PUBLISHED_MINDMAP_IDS_KEY, currentIds)
 }
 
@@ -175,6 +189,9 @@ async function mergeModule(module: string, payload: unknown): Promise<void> {
       break
     case 'mindmaps':
       await mergeMindmaps(payload as MindMap[])
+      break
+    case 'dictionary':
+      await settingsRepo.putSetting(CUSTOM_DICTIONARY_KEY, payload as CustomDictionaryEntry[])
       break
     default:
       break

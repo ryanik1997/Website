@@ -10,6 +10,8 @@ import { useDictStore } from './dictStore'
 import SaveToDeckModal from './SaveToDeckModal'
 import CopyButton from '../../components/CopyButton'
 import { lookupOfflineDict, offlineDictSize } from './offlineDictPack'
+import { speakPhrase, stopSpeaking } from '../vocab/study/speakPhrase'
+import { lookupCustomDictionary } from './customDictionary'
 
 function formatDictResult(result: DictResult): string {
   const lines = [result.word]
@@ -26,25 +28,18 @@ function formatDictResult(result: DictResult): string {
   return lines.join('\n')
 }
 
-function speakWord(word: string) {
-  speechSynthesis.cancel()
-  const utt = new SpeechSynthesisUtterance(word)
-  utt.lang = 'en-US'
-  utt.rate = 0.85
-  speechSynthesis.speak(utt)
-}
-
 export default function DictionaryModal() {
   const { isOpen, initialQuery, close } = useDictStore()
   const [query, setQuery] = useState('')
   const [result, setResult] = useState<DictResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [sourceHint, setSourceHint] = useState<'cache' | 'offline' | 'ai' | null>(null)
+  const [sourceHint, setSourceHint] = useState<'cache' | 'custom' | 'offline' | 'ai' | null>(null)
   const [recent, setRecent] = useState<string[]>([])
   const [showSave, setShowSave] = useState(false)
   const [notebookBusy, setNotebookBusy] = useState(false)
   const [notebookFlash, setNotebookFlash] = useState<string | null>(null)
+  const [speaking, setSpeaking] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const plan = useLiveQuery(
     () => db.settings.get('plan').then(s => (s?.value as Plan) ?? 'free'),
@@ -63,6 +58,27 @@ export default function DictionaryModal() {
     if (initialQuery.trim()) void lookup(initialQuery.trim())
   }, [isOpen, initialQuery])
 
+  useEffect(() => {
+    if (isOpen) return
+    stopSpeaking()
+    setSpeaking(false)
+  }, [isOpen])
+
+  useEffect(() => () => stopSpeaking(), [])
+
+  function togglePronunciation(word: string) {
+    if (speaking) {
+      stopSpeaking()
+      setSpeaking(false)
+      return
+    }
+    void speakPhrase(word, 0.85, {
+      onStart: () => setSpeaking(true),
+      onEnd: () => setSpeaking(false),
+      onError: () => setSpeaking(false),
+    }, 'us')
+  }
+
   async function loadRecent() {
     const entries = await dictRepo.recent(12)
     setRecent(entries.map(e => (e.data as DictResult | null)?.word ?? e.word))
@@ -77,7 +93,28 @@ export default function DictionaryModal() {
     setSourceHint(null)
 
     try {
-      // 1. Cache (đã tra trước)
+      // 1. Dictionary do Admin import luôn ghi đè bản builtin còn thiếu.
+      const custom = await lookupCustomDictionary(w)
+      if (custom) {
+        setResult(custom)
+        setSourceHint('custom')
+        setLoading(false)
+        void loadRecent()
+        return
+      }
+
+      // 2. Offline pack luôn là source of truth để bản dữ liệu mới thay được cache cũ.
+      const offline = lookupOfflineDict(w)
+      if (offline) {
+        setResult(offline)
+        setSourceHint('offline')
+        try { await dictRepo.save(w, offline) } catch { /* ignore */ }
+        setLoading(false)
+        void loadRecent()
+        return
+      }
+
+      // 3. Cache AI (dành cho từ không có trong offline pack)
       const fresh = await dictRepo.isFresh(w)
       if (fresh) {
         const cached = await dictRepo.get(w)
@@ -90,19 +127,7 @@ export default function DictionaryModal() {
         }
       }
 
-      // 2. Offline pack cơ bản (mọi gói)
-      const offline = lookupOfflineDict(w)
-      if (offline) {
-        setResult(offline)
-        setSourceHint('offline')
-        // cache local để recent list
-        try { await dictRepo.save(w, offline) } catch { /* ignore */ }
-        setLoading(false)
-        void loadRecent()
-        return
-      }
-
-      // 3. AI — chỉ Pro / trial / lifetime
+      // 4. AI — chỉ Pro / trial / lifetime
       if (!aiAllowed) {
         setError(
           `Không có trong gói offline (${offlineDictSize()} từ). Nâng Pro để tra AI mọi từ, hoặc thử từ phổ biến (environment, education…).`,
@@ -256,7 +281,7 @@ export default function DictionaryModal() {
                 <BookOpenIcon />
                 <p className="font-medium mt-3 mb-1" style={{ color: 'var(--text-primary)' }}>Từ điển</p>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Gói offline {offlineDictSize()} mục (Part 1 + cụm từ) · AI khi Pro.<br />
+                  Gói offline {offlineDictSize()} mục CEFR A2–C2 · AI khi Pro.<br />
                   Chọn từ trên trang rồi nhấn FAB để tra nhanh.
                 </p>
               </div>
@@ -268,6 +293,7 @@ export default function DictionaryModal() {
                 {sourceHint && (
                   <p className="text-[11px] font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
                     {sourceHint === 'offline' && `Offline pack · ${offlineDictSize()} từ`}
+                    {sourceHint === 'custom' && 'Từ điển do Admin cập nhật'}
                     {sourceHint === 'cache' && 'Đã lưu trên máy'}
                     {sourceHint === 'ai' && 'AI (Pro)'}
                   </p>
@@ -307,12 +333,15 @@ export default function DictionaryModal() {
                   <div className="flex items-center gap-0.5 shrink-0">
                     <CopyButton text={formatDictResult(result)} title="Copy kết quả" size={16} />
                     <button
-                      onClick={() => speakWord(result.word)}
+                      onClick={() => togglePronunciation(result.word)}
                       className="p-2 rounded-lg transition-colors hover:bg-[var(--bg-secondary)]"
                       style={{ color: 'var(--text-muted)' }}
-                      title="Nghe phát âm"
+                      title={speaking ? 'Dừng phát âm' : 'Nghe phát âm bằng Kokoro offline'}
+                      aria-label={speaking ? 'Dừng phát âm' : `Phát âm ${result.word}`}
                     >
-                      <Volume2 size={18} />
+                      {speaking
+                        ? <Loader2 size={18} className="animate-spin" />
+                        : <Volume2 size={18} />}
                     </button>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import {
   publishAllLocalExamsToCloud,
   type BatchPublishResult,
 } from './publishLocalExamsBatch'
+import { getCustomDictionary } from '../dictionary/customDictionary'
 
 export const ADMIN_PUBLISH_VERSION_KEY = 'admin_publish_version'
 
@@ -17,6 +18,7 @@ export type AdminPublishModuleId =
   | 'sentence_structures'
   | 'writing_prompts'
   | 'mindmaps'
+  | 'dictionary'
   | 'reading_exams'
   | 'listening_exams'
 
@@ -27,6 +29,7 @@ export interface AdminModuleCounts {
   sentence_structures: number
   writing_prompts: number
   mindmaps: number
+  dictionary: number
   reading_exams: number
   listening_exams: number
 }
@@ -54,6 +57,7 @@ const MODULE_ORDER: AdminPublishModuleId[] = [
   'sentence_structures',
   'writing_prompts',
   'mindmaps',
+  'dictionary',
   'reading_exams',
   'listening_exams',
 ]
@@ -100,13 +104,14 @@ async function collectMindmaps() {
 }
 
 export async function countAdminPublishableContent(): Promise<AdminModuleCounts> {
-  const [vocab, lessons, translation, structures, writing, mindmaps, exams] = await Promise.all([
+  const [vocab, lessons, translation, structures, writing, mindmaps, dictionary, exams] = await Promise.all([
     collectVocab(),
     collectLessons(),
     collectTranslation(),
     collectSentenceStructures(),
     collectWritingPrompts(),
     collectMindmaps(),
+    getCustomDictionary(),
     listPublishableLocalExams(),
   ])
   return {
@@ -120,6 +125,7 @@ export async function countAdminPublishableContent(): Promise<AdminModuleCounts>
     sentence_structures: structures.length,
     writing_prompts: writing.length,
     mindmaps: mindmaps.length,
+    dictionary: dictionary.length,
     reading_exams: exams.reading.length,
     listening_exams: exams.listening.length,
   }
@@ -139,6 +145,8 @@ function moduleItemCount(module: AdminPublishModuleId, counts: AdminModuleCounts
       return counts.writing_prompts
     case 'mindmaps':
       return counts.mindmaps
+    case 'dictionary':
+      return counts.dictionary
     case 'reading_exams':
       return counts.reading_exams
     case 'listening_exams':
@@ -153,7 +161,24 @@ async function publishModule(
   payload: unknown,
   itemCount: number,
   userId: string | undefined,
-): Promise<void> {
+  options?: { skipUnchanged?: boolean },
+): Promise<boolean> {
+  if (options?.skipUnchanged) {
+    const { data: existing, error: readError } = await supabase
+      .from('admin_published_modules')
+      .select('payload, item_count')
+      .eq('module', module)
+      .maybeSingle()
+    if (readError) throw new Error(`${module}: ${readError.message}`)
+    if (
+      existing
+      && existing.item_count === itemCount
+      && JSON.stringify(existing.payload) === JSON.stringify(payload)
+    ) {
+      return false
+    }
+  }
+
   const { error } = await supabase
     .from('admin_published_modules')
     .upsert({
@@ -164,20 +189,22 @@ async function publishModule(
       updated_at: new Date().toISOString(),
     })
   if (error) throw new Error(`${module}: ${error.message}`)
+  return true
 }
 
 export async function publishAllAdminContent(
   onProgress?: (progress: AdminPublishProgress) => void,
+  options?: { forceAll?: boolean; examsOnly?: boolean },
 ): Promise<AdminPublishResult> {
   const counts = await countAdminPublishableContent()
-  const totalSteps = MODULE_ORDER.length
+  const totalSteps = options?.examsOnly ? 1 : MODULE_ORDER.length
   const { data: userData } = await supabase.auth.getUser()
   const userId = userData.user?.id
   const errors: string[] = []
   const publishedModules: AdminPublishModuleId[] = []
 
   let step = 0
-  for (const module of MODULE_ORDER) {
+  for (const module of options?.examsOnly ? [] : MODULE_ORDER) {
     if (module === 'reading_exams' || module === 'listening_exams') continue
 
     step += 1
@@ -212,12 +239,17 @@ export async function publishAllAdminContent(
         case 'mindmaps':
           payload = await collectMindmaps()
           break
+        case 'dictionary':
+          payload = await getCustomDictionary()
+          break
         default:
           payload = []
       }
 
-      await publishModule(module, payload, itemCount, userId)
-      publishedModules.push(module)
+      const didPublish = await publishModule(module, payload, itemCount, userId, {
+        skipUnchanged: options?.forceAll !== true,
+      })
+      if (didPublish) publishedModules.push(module)
     } catch (err) {
       errors.push(err instanceof Error ? err.message : `${module}: publish thất bại`)
     }
@@ -247,9 +279,9 @@ export async function publishAllAdminContent(
         total: totalSteps,
         label: p.title,
       })
-    })
-    if (counts.reading_exams > 0) publishedModules.push('reading_exams')
-    if (counts.listening_exams > 0) publishedModules.push('listening_exams')
+    }, { forceAll: options?.forceAll })
+    if (exams.reading.published > 0) publishedModules.push('reading_exams')
+    if (exams.listening.published > 0) publishedModules.push('listening_exams')
     for (const e of exams.errors) {
       errors.push(`[${e.skill}] ${e.title}: ${e.message}`)
     }

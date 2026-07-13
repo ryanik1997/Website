@@ -94,6 +94,7 @@ export async function listPublishableLocalExams(): Promise<{
 
 export async function publishAllLocalExamsToCloud(
   onProgress?: (progress: BatchPublishProgress) => void,
+  options?: { forceAll?: boolean },
 ): Promise<BatchPublishResult> {
   const { reading, listening } = await listPublishableLocalExams()
   const result: BatchPublishResult = {
@@ -102,10 +103,42 @@ export async function publishAllLocalExamsToCloud(
     errors: [],
   }
 
-  const total = reading.length + listening.length
+  // Incremental publish: a cloud row whose publish timestamp is newer than
+  // the local Dexie update has not changed and can be skipped safely.
+  const cloudReadingUpdated = new Map<string, number>()
+  const cloudListeningUpdated = new Map<string, number>()
+  try {
+    const [{ data: cloudReading }, { data: cloudListening }] = await Promise.all([
+      supabase.from('reading_exam_published').select('id, updated_at'),
+      supabase.from('listening_exam_published').select('id, updated_at'),
+    ])
+    for (const row of cloudReading ?? []) {
+      cloudReadingUpdated.set(row.id, Date.parse(row.updated_at ?? '') || 0)
+    }
+    for (const row of cloudListening ?? []) {
+      cloudListeningUpdated.set(row.id, Date.parse(row.updated_at ?? '') || 0)
+    }
+  } catch {
+    // Metadata lookup failure falls back to the previous full publish behavior.
+  }
+
+  const readingChanged = reading.filter(record => {
+    const cloudUpdatedAt = cloudReadingUpdated.get(record.id)
+    const changed = options?.forceAll === true || cloudUpdatedAt == null || record.updatedAt > cloudUpdatedAt
+    if (!changed) result.reading.skipped += 1
+    return changed
+  })
+  const listeningChanged = listening.filter(record => {
+    const cloudUpdatedAt = cloudListeningUpdated.get(record.id)
+    const changed = options?.forceAll === true || cloudUpdatedAt == null || record.updatedAt > cloudUpdatedAt
+    if (!changed) result.listening.skipped += 1
+    return changed
+  })
+
+  const total = readingChanged.length + listeningChanged.length
   let step = 0
 
-  for (const record of reading) {
+  for (const record of readingChanged) {
     step += 1
     onProgress?.({
       skill: 'reading',
@@ -132,7 +165,7 @@ export async function publishAllLocalExamsToCloud(
     }
   }
 
-  for (const record of listening) {
+  for (const record of listeningChanged) {
     step += 1
     onProgress?.({
       skill: 'listening',

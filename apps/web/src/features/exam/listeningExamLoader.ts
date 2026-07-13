@@ -123,7 +123,9 @@ function safeListExam(exam: ListeningExam): ListeningExam {
   }
 }
 
-export async function listAllListeningExams(): Promise<ListeningExam[]> {
+export async function listAllListeningExams(
+  options?: { includeLocalImports?: boolean },
+): Promise<ListeningExam[]> {
   const imported = (await listeningExamRepo.list()).map(recordToExam)
   const builtinIds = new Set(LISTENING_EXAMS.map(e => e.id))
 
@@ -133,10 +135,14 @@ export async function listAllListeningExams(): Promise<ListeningExam[]> {
   } catch (err) {
     console.warn('Không tải danh sách đề Listening published:', err)
   }
+  // Cùng lý do ở examLoader.listAllReadingExams — cloud rows `catalog-*` là rác trùng builtin.
+  published = published.filter(e => !e.id.startsWith('catalog-'))
 
   const publishedIds = new Set(published.map(e => e.id))
   const publishedOnly = published.filter(e => !builtinIds.has(e.id))
-  const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
+  const localOnly = options?.includeLocalImports === false
+    ? []
+    : imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   const hidden = new Set(await listHiddenListeningCatalogIds())
   return dedupeExamsForLibraryDisplay(
     [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam),

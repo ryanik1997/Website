@@ -10,6 +10,20 @@
 
 ## Trạng thái hiện tại
 
+### Offline dictionary CEFR A2–C2 (2026-07-13)
+- [x] Mở rộng gói tra offline từ 362 mục lên nguồn sinh 6.000 headword CEFR A2–C2; 300 mục Part 1 và phrase pack cũ được ưu tiên khi trùng.
+- [x] Phân bổ nguồn sinh: A2 1.218, B1 2.106, B2 1.426, C1 650, C2 600.
+- [x] Thêm script tái tạo `scripts/build-offline-cefr-dictionary.mjs`, dữ liệu `offlineCefrA2C2.json` và attribution/license trong `features/dictionary/data/README.md`.
+- [x] UI đổi nhãn thành “Gói offline … mục CEFR A2–C2”; lookup cũ và fallback biến thể từ vẫn giữ nguyên.
+- [x] `pnpm --filter web exec tsc --noEmit` — pass.
+- [x] Nút phát âm trong Dictionary dùng adapter TTS chung: ưu tiên Kokoro offline (US, tốc độ 0.85), tự fallback Web Speech; có trạng thái đang phát và dừng khi đóng modal.
+- [x] Sửa presentation dữ liệu generated: không dump toàn bộ entry Anh–Việt vào một đoạn; parser tách tối đa 4 nghĩa ngắn thành các definition riêng, nên layout đồng nhất với card curated.
+- [x] Offline pack được lookup trước Dexie cache để dữ liệu đã sửa thay ngay các entry raw từng bị cache; cache AI vẫn dùng cho từ ngoài pack.
+- [x] Generated dictionary trích thêm IPA, ví dụ Anh–Việt gắn theo từng nghĩa và collocations từ markup DictionaryForMIDs; các section thiếu dữ liệu được ẩn thay vì sinh placeholder.
+- [x] Audit đủ 6.000/6.000 entry: tất cả có 1–4 definition block, không meaning nào quá 220 ký tự; 5.876 có IPA, 2.920 có ví dụ song ngữ, 1.128 có collocation. Script build có assertion chống regression.
+- [x] Admin Publish có Import từ điển JSON/CSV; lưu module `dictionary`, từ import ưu tiên đè builtin, Publish lên Supabase và User sync về local settings.
+- [x] Thêm JSON/CSV template trong `Tainguyen/Giao dien/Dictionary` và public `/templates`; UI Admin có link tải trực tiếp dưới nút Import.
+
 - **Branch:** `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
 - **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
 - **Session:** **2026-07-12** — Cứu catalog IELTS + pilot Cam11 T1 Reading + **auto-backup đề** (Dexie v15 `examBackups` + OPFS + download)
@@ -3532,3 +3546,42 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 
 - Pilot is now exposed as five catalog entries: Cambridge 4 Tests 1-4 and Cambridge 5 Test 1.
 - All entries remain filtered into `/app/exam/track/cambridge/a2/reading`; typecheck passes.
+## 2026-07-13 - Catalog ID publish/dedupe guard
+
+- `isCatalogReadingExamId` now recognises `catalog-reading-`, `catalog-ket-`, `catalog-pet-`, `catalog-fce-`, `catalog-cae-`, and `catalog-cpe-` so builtin Cambridge exams cannot be published as user imports.
+- Reading/Listening loaders ignore stale cloud rows whose ids start with `catalog-`; builtin data remains authoritative.
+- Added `test:catalog-id-policy` regression coverage for catalog vs manual/import publishability. Web TypeScript passes; local test execution currently requires installing the missing `vite-node` executable.
+## 2026-07-13 - Separate Admin local imports from User Cambridge library
+
+- Root count diagnosis: A2 has 9 builtin entries; 8 local `reading-manual-*` rows in shared Dexie made User see 17.
+- `ExamTrackPage` now hides local Reading/Listening imports for non-admin users; Admin retains access and Imports-only filtering.
+- Cam1 ZIP structure is valid (`exam.json`, six Part 1 images, one `part7-page.jpg`) and its `Book 1 / Test 1` title groups under Cambridge 1.
+- Web TypeScript passes.
+## 2026-07-13 - Published manual exams visible to User
+
+- Fixed role filtering regression: filtering User rows by `reading-manual-*`/`listening-import-*` also hid cloud-published exams because published rows retain those ids.
+- `listAllReadingExams` / `listAllListeningExams` now accept `includeLocalImports`; User excludes only Dexie-local rows at the loader source while still receiving published manual/import ids.
+- Admin includes Dexie-local rows and keeps Imports-only behavior. Web TypeScript passes.
+## 2026-07-13 - Remove builtin KET Cambridge 3/4/5
+
+- Removed generated Cambridge 3 Tests 3-4, Cambridge 4 Tests 1-4, and Cambridge 5 Test 1 from `CATALOG_READING_EXAMS`.
+- Kept KET default and Cambridge 1 Test 1 builtin.
+- Web TypeScript and production build pass. Existing `reading-manual-*` Cam3/4/5 rows in browser Dexie are intentionally separate and may be deleted/re-imported by Admin.
+## 2026-07-13 - Incremental exam batch publish
+
+- `publishAllLocalExamsToCloud` now compares Dexie `updatedAt` with Supabase `updated_at` for Reading and Listening.
+- Unchanged cloud exams are counted as skipped; only new or locally updated exams are uploaded.
+- Authoritative prune still compares the complete local ID sets, so incremental upload does not delete unchanged exams.
+- Cloud metadata lookup failure safely falls back to full republish. Web TypeScript passes.
+## 2026-07-13 - Separate Publish and Publish all actions
+
+- Admin publish panel now has two adjacent buttons.
+- `Publish`: exams-only incremental upload; unchanged Reading/Listening exams are skipped.
+- `Publish tất cả`: republishes every admin module and forces all publishable exams to upload again.
+- Batch publisher accepts `forceAll`; prune remains authoritative in both modes. Web TypeScript passes.
+## 2026-07-13 - Incremental Publish covers all Admin data
+
+- `Publish` now checks every Admin module plus Reading/Listening and uploads only changed payloads.
+- Module comparison uses cloud `payload` + `item_count`; unchanged modules are skipped.
+- Exam comparison continues using Dexie `updatedAt` vs cloud `updated_at`.
+- `Publish tất cả` uses `forceAll` and rewrites every module/exam. Web TypeScript passes.

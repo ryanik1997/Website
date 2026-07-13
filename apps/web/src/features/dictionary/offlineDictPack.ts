@@ -1,11 +1,12 @@
 /**
  * Gói từ điển offline (không cần mạng / AI).
- * Nguồn chính: Part 1 — 300 từ A2–C2 (Tainguyen/TuDien/Part1.json).
+ * Nguồn chính: gói CEFR A2–C2 6.000 mục + Part 1 chất lượng cao.
  * Bổ sung: cụm từ / collocation hữu dụng cho writing.
  * Free/basic: tra offline; AI dictionary khi Pro (dictionary_ai).
  */
 import type { DictResult } from '@ryan/core'
 import part1 from './data/offlinePart1.json'
+import cefrPack from './data/offlineCefrA2C2.json'
 
 type PackEntry = Omit<DictResult, 'word'> & { word: string }
 
@@ -16,6 +17,15 @@ type PartCard = {
   ipaUS?: string
   ipaUK?: string
   pos?: string
+}
+
+type CefrCard = {
+  word: string
+  pos?: string
+  level: string
+  ipaUS?: string
+  definitions: Array<{ meaning: string; example?: string; exampleVi?: string }>
+  collocations?: string[]
 }
 
 function stripIpaSlashes(ipa?: string): string | undefined {
@@ -152,6 +162,18 @@ const PHRASE_PACK: PackEntry[] = [
 
 const partCards = (part1 as { cards: PartCard[] }).cards ?? []
 const partEntries = partCards.map(cardToEntry)
+const cefrEntries = ((cefrPack as { entries: CefrCard[] }).entries ?? []).map((item): PackEntry => ({
+  word: item.word,
+  pos: normalizePos(item.pos),
+  level: item.level,
+  ipaUS: stripIpaSlashes(item.ipaUS),
+  definitions: item.definitions.map(definition => ({
+    meaning: definition.meaning,
+    example: definition.example ?? '',
+    exampleVi: definition.exampleVi ?? '',
+  })),
+  collocations: item.collocations,
+}))
 
 const PACK: PackEntry[] = []
 const BY_KEY = new Map<string, PackEntry>()
@@ -163,8 +185,10 @@ function add(entry: PackEntry) {
   PACK.push(entry)
 }
 
+// Curated entries intentionally win over generated translations for duplicate words.
 for (const item of partEntries) add(item)
 for (const item of PHRASE_PACK) add(item)
+for (const item of cefrEntries) add(item)
 
 export function offlineDictSize(): number {
   return PACK.length

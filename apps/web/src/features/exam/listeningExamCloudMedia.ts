@@ -46,19 +46,30 @@ async function uploadKeyIfPresent(
   pathSuffix: string,
   key: string | undefined,
   fallbackExt: string,
+  cache?: Map<string, Promise<string | undefined>>,
 ): Promise<string | undefined> {
   if (!key?.trim()) return undefined
-  try {
-    const record = await audioRepo.get(key)
-    if (!record?.blob || record.blob.size === 0) {
-      console.warn('[listening publish] blob trống:', key)
-      return undefined
-    }
-    return await uploadBlob(examId, pathSuffix, record.blob, fallbackExt)
-  } catch (err) {
-    console.warn('[listening publish] upload key failed', key, err)
-    throw err
+  // Dedup: KET/PET/FCE/CAE dùng chung 1 audioKey cho mọi part — không upload lại
+  // 4–5 lần cùng blob 20MB. Cache theo key, tái dùng URL đã upload.
+  if (cache) {
+    const hit = cache.get(key)
+    if (hit) return hit
   }
+  const task = (async () => {
+    try {
+      const record = await audioRepo.get(key)
+      if (!record?.blob || record.blob.size === 0) {
+        console.warn('[listening publish] blob trống:', key)
+        return undefined
+      }
+      return await uploadBlob(examId, pathSuffix, record.blob, fallbackExt)
+    } catch (err) {
+      console.warn('[listening publish] upload key failed', key, err)
+      throw err
+    }
+  })()
+  if (cache) cache.set(key, task)
+  return task
 }
 
 /**
@@ -69,14 +80,16 @@ export async function materializeListeningMediaForPublish(
   exam: ListeningExam,
 ): Promise<ListeningExam> {
   const parts: ListeningPart[] = []
+  // 1 cache per exam — dedup shared audioKey (KET/PET/FCE/CAE dùng chung 1 MP3)
+  const uploadCache = new Map<string, Promise<string | undefined>>()
 
   for (const part of exam.parts) {
     const audioUrl =
-      (await uploadKeyIfPresent(exam.id, `part${part.partNumber}-audio`, part.audioKey, 'mp3'))
+      (await uploadKeyIfPresent(exam.id, `part${part.partNumber}-audio`, part.audioKey, 'mp3', uploadCache))
       ?? part.audioUrl
 
     const partImageUrl =
-      (await uploadKeyIfPresent(exam.id, `part${part.partNumber}-img`, part.partImageKey, 'jpg'))
+      (await uploadKeyIfPresent(exam.id, `part${part.partNumber}-img`, part.partImageKey, 'jpg', uploadCache))
       ?? part.partImageUrl
 
     const questions: ListeningQuestion[] = []
@@ -87,6 +100,7 @@ export async function materializeListeningMediaForPublish(
           `part${part.partNumber}-q${q.number}-pic`,
           q.pictureImageKey,
           'jpg',
+          uploadCache,
         ))
         ?? q.pictureImageUrl
 
@@ -96,6 +110,7 @@ export async function materializeListeningMediaForPublish(
           `part${part.partNumber}-q${q.number}-audio`,
           q.audioKey,
           'mp3',
+          uploadCache,
         ))
         ?? q.audioUrl
 
@@ -108,6 +123,7 @@ export async function materializeListeningMediaForPublish(
             `part${part.partNumber}-q${q.number}-opt${opt.id || oi}`,
             opt.imageKey,
             'jpg',
+            uploadCache,
           ))
           ?? opt.imageUrl
         options.push({

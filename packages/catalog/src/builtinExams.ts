@@ -1,5 +1,5 @@
 import ketReading from '../data/reading-ket-a2-test1.json'
-import ketGeneratedReading from '../data/reading-ket-a2-generated-01.json'
+import ketCam1Test1 from '../data/reading-ket-a2-cam1-test1.json'
 import petReading from '../data/reading-pet-b1-test1.json'
 import fceReading from '../data/reading-fce-b2-test1.json'
 import caeReading from '../data/reading-cae-c1-test1.json'
@@ -22,32 +22,10 @@ function stripCatalogMeta<T extends WithCatalogMeta>(exam: T): Omit<T, 'catalogS
   return rest
 }
 
-// KET A2 pilot is exposed in the same Cambridge book/test layout as the app's
-// other Cambridge sets: four tests under Cambridge 4 and one under Cambridge 5.
-const KET_A2_CAMBRIDGE_4_5 = [
-  ...[1, 2, 3, 4].map(test => ({
-    ...ketGeneratedReading,
-    id: `catalog-ket-cam4-test${test}`,
-    title: `KET A2 Reading — Cambridge 4 Test ${test}`,
-  })),
-  {
-    ...ketGeneratedReading,
-    id: 'catalog-ket-cam5-test1',
-    title: 'KET A2 Reading — Cambridge 5 Test 1',
-  },
-]
-
-const KET_A2_CAMBRIDGE_3 = [3, 4].map(test => ({
-  ...ketGeneratedReading,
-  id: `catalog-ket-cam3-test${test}`,
-  title: `KET A2 Reading — Cambridge 3 Test ${test}`,
-}))
-
 /** Đề Reading ship cùng app — mọi user thấy sau deploy. */
 export const CATALOG_READING_EXAMS = [
   stripCatalogMeta(ketReading),
-  ...KET_A2_CAMBRIDGE_4_5.map(exam => stripCatalogMeta(exam)),
-  ...KET_A2_CAMBRIDGE_3.map(exam => stripCatalogMeta(exam)),
+  stripCatalogMeta(ketCam1Test1),
   stripCatalogMeta(petReading),
   stripCatalogMeta(fceReading),
   stripCatalogMeta(caeReading),
@@ -69,10 +47,27 @@ export const CATALOG_EXAM_MANIFEST = catalogManifest
 export const CATALOG_READING_EXAM_IDS = CATALOG_READING_EXAMS.map(e => e.id)
 export const CATALOG_LISTENING_EXAM_IDS = CATALOG_LISTENING_EXAMS.map(e => e.id)
 
+// Prefix "catalog-<slug>-" ngoài "catalog-reading-" cũng thuộc catalog builtin.
+// Vd. reading-ket-a2-cam1-test1.json khai báo id "catalog-ket-cam1-test1" —
+// nếu chỉ so `catalog-reading-` thì id này bị coi là "user import" → admin publish
+// nhầm lên Supabase, sinh trùng row, User Library thấy đội đôi.
+const CATALOG_READING_ID_PREFIXES = [
+  'catalog-reading-',
+  'catalog-ket-',
+  'catalog-pet-',
+  'catalog-fce-',
+  'catalog-cae-',
+  'catalog-cpe-',
+] as const
+
+const CATALOG_LISTENING_ID_PREFIXES = [
+  'catalog-listening-',
+] as const
+
 export function isCatalogReadingExamId(id: string): boolean {
-  return id.startsWith('catalog-reading-')
+  return CATALOG_READING_ID_PREFIXES.some(p => id.startsWith(p))
 }
 
 export function isCatalogListeningExamId(id: string): boolean {
-  return id.startsWith('catalog-listening-')
+  return CATALOG_LISTENING_ID_PREFIXES.some(p => id.startsWith(p))
 }

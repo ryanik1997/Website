@@ -185,8 +185,14 @@ function ExamTrackPageInner() {
   } | null>(null)
   const { importsOnly, toggleImportsOnly } = useExamImportsOnlyFilter()
 
-  const readingExams = useLiveQuery(() => listAllReadingExams(), []) ?? []
-  const listeningExams = useLiveQuery(() => listAllListeningExams(), []) ?? []
+  const readingExams = useLiveQuery(
+    () => listAllReadingExams({ includeLocalImports: isAdmin === true }),
+    [isAdmin],
+  ) ?? []
+  const listeningExams = useLiveQuery(
+    () => listAllListeningExams({ includeLocalImports: isAdmin === true }),
+    [isAdmin],
+  ) ?? []
   useExamDraftRevision()
 
   if (trackId === 'ket') {
