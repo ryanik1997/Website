@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-19-1-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "HOW TENNIS RACKETS HAVE CHANGED",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "1 People had expected Andy Murray to become world top tennis player 5 years before 2016.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“People had expected Andy Murray to become the world's top tennis player for at least five years before 2016.”\n\nĐoạn:\n“five years previously, he had been regarded as a talented outsider who entered but never won the major tournaments.”\n\nPhân tích:\n\ntalented outsider ≠ expected future world number one\nmọi người chưa thực sự tin anh sẽ thành số 1.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "2 The change that Andy Murray made attracted a lot of attention.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“The change that Andy Murray made to his rackets attracted a lot of attention.”\n\nĐoạn:\n“Another change was so subtle as to pass more or less unnoticed.”\n\n→ unnoticed = không được chú ý.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "3 Most of the world's top players take professional racket stringer on tour.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Statement:\n“Most of the world's top players take a professional racket stringer on tour with them.”\n\nBài chỉ nhắc:\n“Colin Triplow, a professional racket stringer”\n\nKhông có:\n\nmost players\ntake on tour\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "4 Mike and Bob Bryan use rackets that are light compared to majority.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“Mike and Bob Bryan use rackets that are light”\n\nĐoạn:\n“The rackets they use now weigh more than the average model”\n\n→ nặng hơn average.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -66,8 +118,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "5 Werner Fischer played with spaghetti-strung racket he designed himself.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Statement:\n“Werner Fischer played with a spaghetti-strung racket that he designed himself.”\n\nBài chỉ nói:\n“Werner Fischer started playing with the so-called spaghetti-strung racket.”\n\nKhông nói ông tự thiết kế.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -76,8 +141,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "6 Weather can affect how professional players adjust strings.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement:\n“The weather can affect how professional players adjust the strings”\n\nĐoạn:\n“They will continually change it depending on ... climatic conditions”\n\n→ climatic conditions = weather.\n\n→ TRUE.",
               "answerConfidence": "key"
             },
@@ -86,8 +164,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "7 Believed change Pete Sampras made contributed to strong serve.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement:\n“It was believed that the change Pete Sampras made ... contributed to his strong serve.”\n\nĐoạn:\n“much of the serving power ... was attributed to the addition of four to five lead weights”\n\n→ attributed to = believed caused by.\n\n→ TRUE.",
               "answerConfidence": "key"
             }
@@ -97,7 +188,7 @@
           "id": "catalog-cam-19-1-reading-part-1-g1",
           "range": "Questions 8–13",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**The tennis racket and how it has changed**\n• Mike and Bob Bryan made changes to the types of [8] used on their racket frames.\n• Players were not allowed to use the spaghetti-strung racket because of the amount of [9]  it created.\n• Changes to rackets can be regarded as being as important as players' diets or the [10] they do.\n• All rackets used to have natural strings made from the [11] of animals.\n• Pete Sampras had metal [12] put into the frames of his rackets.\n• Goncalo Oliveira changed the [13] on his racket handles.\n",
+          "note": "**The tennis racket and how it has changed**\n• Mike and Bob Bryan made changes to the types of [8] used on their racket frames.\n• Players were not allowed to use the spaghetti-strung racket because of the amount of [9]  it created.\n• Changes to rackets can be regarded as being as important as players' diets or the [10] they do.\n• All rackets used to have natural strings made from the [11] of animals.\n• Pete Sampras had metal [12] put into the frames of his rackets.\n• Goncalo Oliveira changed the [13] on his racket handles.",
           "type": "gap-fill",
           "questions": [
             {
@@ -167,7 +258,7 @@
     {
       "id": "catalog-cam-19-1-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "THE PIRATES OF THE ANCIENT MEDITERRANEAN",
       "passage": [
         {
@@ -254,7 +345,7 @@
         },
         {
           "id": "catalog-cam-19-1-reading-part-2-g1",
-          "range": "Questions 20–21",
+          "range": "Questions 20–23",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -319,15 +410,7 @@
               "answer": "B,D",
               "explanation": "Option B:\n“They managed to escape capture ... because they knew the area so well.”\n\nĐoạn B:\n“knowledge of the local area helped the pirates to avoid retaliation”\n\n→ đúng.\n\nOption D:\n“They depended more on the sea ... than on farming.”\n\nĐoạn:\n“relied heavily on marine resources”\n\n→ đúng.\n\nCác option khác:\n\nstolen vessels → không có\npaid for information → không có\nstored goods in coves → không có\n\n→ Đáp án:\nB + D.",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-19-1-reading-part-2-g2",
-          "range": "Questions 22–23",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-19-1-reading-part-2-q22",
               "number": 22,
@@ -393,10 +476,10 @@
           ]
         },
         {
-          "id": "catalog-cam-19-1-reading-part-2-g3",
+          "id": "catalog-cam-19-1-reading-part-2-g2",
           "range": "Questions 24–26",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Ancient Rome and piracy**\nPiracy was an issue ancient Rome had to deal with, but it also brought some benefits for Rome. For example, pirates supplied slaves that were important for Rome's industries. However, attacks on vessels transporting [24]  to Rome resulted in calls for [25] for the pirates responsible. Nevertheless, piracy continued, with some pirates demanding a [26] for the return of the Roman officials they captured. \n",
+          "note": "**Ancient Rome and piracy**\nPiracy was an issue ancient Rome had to deal with, but it also brought some benefits for Rome. For example, pirates supplied slaves that were important for Rome's industries. However, attacks on vessels transporting [24]  to Rome resulted in calls for [25] for the pirates responsible. Nevertheless, piracy continued, with some pirates demanding a [26] for the return of the Roman officials they captured.",
           "type": "gap-fill",
           "questions": [
             {
@@ -436,7 +519,7 @@
     {
       "id": "catalog-cam-19-1-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "THE PERSISTENCE AND PERIL OF MISINFORMATION",
       "passage": [
         {
@@ -564,8 +647,50 @@
           "id": "catalog-cam-19-1-reading-part-3-g1",
           "range": "Questions 31–36",
           "instruction": "Complete the summary using the list of phrases, A–J, below.",
-          "note": "**What happens when people encounter misinformation?**\nAlthough people have [31] to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had [32] about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct [33] is involved in these stages. Recent research has provided [34] for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely [35], and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in \n[36] in the brain. ",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-19-1-reading-part-3-q31",
@@ -654,7 +779,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Statement:\n“Campaigns ... will fail if people are unable to understand them.”\n\nĐoạn:\n“For corrective campaigns to be persuasive, audiences need to be able to comprehend them”\n\n→ nếu không hiểu → không persuasive.\n\n→ YES.",
               "answerConfidence": "key"
             },
@@ -677,7 +802,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“Attempts to teach elementary school students ... have been opposed.”\n\nBài chỉ nói:\n“suggests the utility of media literacy efforts as early as elementary school.”\n\nKhông nói:\n\nbị phản đối.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -700,7 +825,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Statement:\n“It may be possible to overcome misinformation in a relatively short period.”\n\nĐoạn cuối:\n“The journey forward undoubtedly will be a long and arduous one.”\n\n→ ngược hoàn toàn với “short period”.\n\n→ NO.",
               "answerConfidence": "key"
             },
@@ -723,7 +848,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“The need to keep up with new information is hugely exaggerated today.”\n\nKhông có ý nào như vậy trong bài.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             }

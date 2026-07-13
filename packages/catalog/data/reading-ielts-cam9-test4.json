@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-9-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "The Life and Work of Marie Curie",
       "passage": [
         {
@@ -56,7 +56,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-4-reading-part-1-g0",
-          "range": "Questions 1–1",
+          "range": "Questions 1–6",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -65,8 +65,136 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "Marie Curie's husband was a joint winner of both Marie's Nobel Prizes.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-9-4-reading-part-1-q2",
+              "number": 2,
+              "type": "true-false-not-given",
+              "prompt": "Marie became interested in science when she was a child.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-9-4-reading-part-1-q3",
+              "number": 3,
+              "type": "true-false-not-given",
+              "prompt": "Marie was able to attend the Sorbonne because of her sister's financial contribution.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-9-4-reading-part-1-q4",
+              "number": 4,
+              "type": "true-false-not-given",
+              "prompt": "Marie stopped doing research for several years when her children were born.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-9-4-reading-part-1-q5",
+              "number": 5,
+              "type": "true-false-not-given",
+              "prompt": "Marie took over the teaching position her husband had held.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-9-4-reading-part-1-q6",
+              "number": 6,
+              "type": "true-false-not-given",
+              "prompt": "Marie's sister Bronia studied the medical uses of radioactivity.",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "",
               "answerConfidence": "key"
             }
@@ -74,97 +202,7 @@
         },
         {
           "id": "catalog-cam-9-4-reading-part-1-g1",
-          "range": "Questions 2–2",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-cam-9-4-reading-part-1-q2",
-              "number": 2,
-              "type": "true-false-not-given",
-              "prompt": "Marie became interested in science when she was a child.",
-              "options": [],
-              "answer": "NOT GIVEN",
-              "explanation": "",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g2",
-          "range": "Questions 3–3",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-cam-9-4-reading-part-1-q3",
-              "number": 3,
-              "type": "true-false-not-given",
-              "prompt": "Marie was able to attend the Sorbonne because of her sister's financial contribution.",
-              "options": [],
-              "answer": "TRUE",
-              "explanation": "",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g3",
-          "range": "Questions 4–4",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-cam-9-4-reading-part-1-q4",
-              "number": 4,
-              "type": "true-false-not-given",
-              "prompt": "Marie stopped doing research for several years when her children were born.",
-              "options": [],
-              "answer": "FALSE",
-              "explanation": "",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g4",
-          "range": "Questions 5–5",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-cam-9-4-reading-part-1-q5",
-              "number": 5,
-              "type": "true-false-not-given",
-              "prompt": "Marie took over the teaching position her husband had held.",
-              "options": [],
-              "answer": "TRUE",
-              "explanation": "",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g5",
-          "range": "Questions 6–6",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
-            {
-              "id": "catalog-cam-9-4-reading-part-1-q6",
-              "number": 6,
-              "type": "true-false-not-given",
-              "prompt": "Marie's sister Bronia studied the medical uses of radioactivity.",
-              "options": [],
-              "answer": "NOT GIVEN",
-              "explanation": "",
-              "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g6",
-          "range": "Questions 7–7",
+          "range": "Questions 7–13",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -177,15 +215,7 @@
               "answer": "thorium",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g7",
-          "range": "Questions 8–8",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q8",
               "number": 8,
@@ -195,15 +225,7 @@
               "answer": "pitchblende",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g8",
-          "range": "Questions 9–9",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q9",
               "number": 9,
@@ -213,15 +235,7 @@
               "answer": "radium",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g9",
-          "range": "Questions 10–10",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q10",
               "number": 10,
@@ -231,15 +245,7 @@
               "answer": "soldiers",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g10",
-          "range": "Questions 11–11",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q11",
               "number": 11,
@@ -249,15 +255,7 @@
               "answer": "illness",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g11",
-          "range": "Questions 12–12",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q12",
               "number": 12,
@@ -267,15 +265,7 @@
               "answer": "neutron",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-1-g12",
-          "range": "Questions 13–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-1-q13",
               "number": 13,
@@ -293,7 +283,7 @@
     {
       "id": "catalog-cam-9-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Young Children's Sense of Identity",
       "passage": [
         {
@@ -1938,7 +1928,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-4-reading-part-2-g0",
-          "range": "Questions 14–14",
+          "range": "Questions 14–26",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -1951,15 +1941,7 @@
               "answer": "G",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g1",
-          "range": "Questions 15–15",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q15",
               "number": 15,
@@ -1969,15 +1951,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g2",
-          "range": "Questions 16–16",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q16",
               "number": 16,
@@ -1987,15 +1961,7 @@
               "answer": "G",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g3",
-          "range": "Questions 17–17",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q17",
               "number": 17,
@@ -2005,15 +1971,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g4",
-          "range": "Questions 18–18",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q18",
               "number": 18,
@@ -2023,15 +1981,7 @@
               "answer": "H",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g5",
-          "range": "Questions 19–19",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q19",
               "number": 19,
@@ -2041,15 +1991,7 @@
               "answer": "E",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g6",
-          "range": "Questions 20–20",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q20",
               "number": 20,
@@ -2080,15 +2022,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g7",
-          "range": "Questions 21–21",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q21",
               "number": 21,
@@ -2119,15 +2053,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g8",
-          "range": "Questions 22–22",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q22",
               "number": 22,
@@ -2158,15 +2084,7 @@
               "answer": "E",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g9",
-          "range": "Questions 23–23",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q23",
               "number": 23,
@@ -2197,15 +2115,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g10",
-          "range": "Questions 24–24",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q24",
               "number": 24,
@@ -2215,15 +2125,7 @@
               "answer": "mirror",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g11",
-          "range": "Questions 25–25",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q25",
               "number": 25,
@@ -2233,15 +2135,7 @@
               "answer": "communication",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-2-g12",
-          "range": "Questions 26–26",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-2-q26",
               "number": 26,
@@ -2259,7 +2153,7 @@
     {
       "id": "catalog-cam-9-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "The Development of Museums",
       "passage": [
         {
@@ -2719,7 +2613,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-4-reading-part-3-g0",
-          "range": "Questions 27–27",
+          "range": "Questions 27–36",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -2732,15 +2626,7 @@
               "answer": "ii",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g1",
-          "range": "Questions 28–28",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q28",
               "number": 28,
@@ -2750,15 +2636,7 @@
               "answer": "vi",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g2",
-          "range": "Questions 29–29",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q29",
               "number": 29,
@@ -2768,15 +2646,7 @@
               "answer": "i",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g3",
-          "range": "Questions 30–30",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q30",
               "number": 30,
@@ -2786,15 +2656,7 @@
               "answer": "iii",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g4",
-          "range": "Questions 31–31",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q31",
               "number": 31,
@@ -2821,15 +2683,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g5",
-          "range": "Questions 32–32",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q32",
               "number": 32,
@@ -2856,15 +2710,7 @@
               "answer": "A",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g6",
-          "range": "Questions 33–33",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q33",
               "number": 33,
@@ -2891,15 +2737,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g7",
-          "range": "Questions 34–34",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q34",
               "number": 34,
@@ -2926,15 +2764,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g8",
-          "range": "Questions 35–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q35",
               "number": 35,
@@ -2961,15 +2791,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g9",
-          "range": "Questions 36–36",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q36",
               "number": 36,
@@ -3000,8 +2822,8 @@
           ]
         },
         {
-          "id": "catalog-cam-9-4-reading-part-3-g10",
-          "range": "Questions 37–37",
+          "id": "catalog-cam-9-4-reading-part-3-g1",
+          "range": "Questions 37–40",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -3014,15 +2836,7 @@
               "answer": "FALSE",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g11",
-          "range": "Questions 38–38",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q38",
               "number": 38,
@@ -3032,15 +2846,7 @@
               "answer": "NOT GIVEN",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g12",
-          "range": "Questions 39–39",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q39",
               "number": 39,
@@ -3050,15 +2856,7 @@
               "answer": "FALSE",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-4-reading-part-3-g13",
-          "range": "Questions 40–40",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-4-reading-part-3-q40",
               "number": 40,

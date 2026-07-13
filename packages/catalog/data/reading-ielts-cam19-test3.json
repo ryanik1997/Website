@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-19-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "ARCHAEOLOGISTS DISCOVER EVIDENCE OF PREHISTORIC ISLAND SETTLERS",
       "passage": [
         {
@@ -29,8 +29,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "1 research on Obi before Ceri Shipton.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Đoạn đầu:\n“became the first archaeologists to explore Obi”\n\n→ trước đó chưa có archaeological research trên Obi.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -39,8 +52,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "2 first clam shell axes ever discovered in region.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Đoạn:\n“Axes made from clam shells ... had also previously been found elsewhere in this region”\n\n→ không phải first ever discovered.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -49,8 +75,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "3 size of Obi today less than 18k years ago.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Đoạn:\n“Sea levels were about 120 metres lower, meaning Obi was a much larger island”\n\n→ Obi trước đây lớn hơn hiện nay.\n\n→ TRUE.",
               "answerConfidence": "key"
             },
@@ -59,8 +98,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "4 climate change 11k years ago greater impact on Obi.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bài chỉ nói climate changed on Obi, không so sánh impact với surrounding islands.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -69,8 +121,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "5 connection between warmer weather and change in material.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Đoạn:\n“it is no coincidence that around this time the first axes crafted from stone rather than sea shells appear”\n\n→ researchers liên hệ climate change với change of axe material.\n\n→ TRUE",
               "answerConfidence": "key"
             },
@@ -79,8 +144,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "6 surprised to find evidence of hunting.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bài nói họ tìm thấy bones và biết people hunted cuscus, nhưng không nói researchers surprised.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -89,8 +167,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "7 occupied continuously until 1k years ago.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Đoạn:\n“about 8,000 years ago, both were abandoned.”\n\n→ shelters không occupied continuously.\n\n→ FALSE.",
               "answerConfidence": "key"
             }
@@ -100,7 +191,7 @@
           "id": "catalog-cam-19-3-reading-part-1-g1",
           "range": "Questions 8–13",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Archaeological findings on Obi**\nExcavations of rock shelters inside [8] near the village of Keio revealed:\n• axes from around 14,000 years ago, probably used to make canoes\n• axes made out of [9], dating from around 11,700 years ago\n• [10] of an animal: evidence of what ancient islanders ate\n• evidence of travel between islands:\n- obsidian: a material that is not found naturally on Obi\n-[11] which resembled ones found on other islands.\n\nIt is thought that from 8,000 years ago, Obi islanders:\n• may have switched from hunting to fishing\n• had [12] as well as items made out of metal\n• probably took part in the production and sale of \n[13]\n",
+          "note": "**Archaeological findings on Obi**\nExcavations of rock shelters inside [8] near the village of Keio revealed:\n• axes from around 14,000 years ago, probably used to make canoes\n• axes made out of [9], dating from around 11,700 years ago\n• [10] of an animal: evidence of what ancient islanders ate\n• evidence of travel between islands:\n- obsidian: a material that is not found naturally on Obi\n-[11] which resembled ones found on other islands.\n\nIt is thought that from 8,000 years ago, Obi islanders:\n• may have switched from hunting to fishing\n• had [12] as well as items made out of metal\n• probably took part in the production and sale of \n[13]",
           "type": "gap-fill",
           "questions": [
             {
@@ -170,7 +261,7 @@
     {
       "id": "catalog-cam-19-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "THE GLOBAL IMPORTANCE OF WETLANDS",
       "passage": [
         {
@@ -365,7 +456,7 @@
     {
       "id": "catalog-cam-19-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "IS THE ERA OF ARTIFICIAL SPEECH TRANSLATION UPON US?",
       "passage": [
         {

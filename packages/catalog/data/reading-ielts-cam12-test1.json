@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-12-1-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "CORK",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "The cork oak has the thickest bark of any living tree.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nthickest bark\n\nBước 2: Tìm đoạn\n\n\"Its bark grows up to 20 cm in thickness\"\n\nBước 3: Phân tích\n\nBài chỉ nói vỏ cây dày 20 cm, nhưng không nói dày nhất trong tất cả cây sống.\n\nCó so sánh → TRUE/FALSE\nKhông có thông tin so sánh → NOT GIVEN\n\n⇒ NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Scientists have developed a synthetic cork with the same cellular structures as natural cork.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nsynthetic cork + same cellular structure\n\nBước 2: Tìm đoạn\n\n\"technology has never succeeded in replicating\"\n\nBước 3: Phân tích\n\nNever succeeded = chưa từng thành công sao chép cấu trúc này.\n\nĐề: Scientists have developed...\n\nBài: chưa phát triển được\n\n⇒ FALSE",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "Individual cork oak trees must be left for 25 years between the first and second harvest.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\n25 years between first and second harvest\n\nBước 2: Tìm đoạn\n\n\"From planting to the first harvest takes 25 years\"\n\n\"a gap of approximately a decade must separate harvests\"\n\nBước 3: Phân tích\n\nĐề nói:\n\nlần 1 → lần 2 = 25 năm\n\nNhưng bài nói:\n\ntrồng → thu hoạch đầu tiên = 25 năm\ncác lần thu hoạch cách nhau 10 năm\n\n⇒ Sai thông tin\n\n⇒ FALSE",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "Cork bark should be stripped in dry atmospheric conditions.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\ndry atmospheric conditions\n\nBước 2: Tìm đoạn\n\n\"when the air is damp – the tree will be damaged\"\n\nBước 3: Phân tích\n\ndamp = ẩm\n\nMuốn tránh hư cây → phải thu hoạch lúc không ẩm, tức điều kiện khô.\n\n⇒ TRUE",
               "answerConfidence": "key"
             },
@@ -66,8 +118,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "The only way to remove the bark from cork oak trees is by hand.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nonly way remove bark\n\nBước 2: Tìm đoạn\n\n\"No mechanical means of stripping cork bark has been invented\"\n\nBước 3: Phân tích\n\nKhông có máy móc thực hiện được → chỉ có người làm bằng tay.\n\n⇒ TRUE",
               "answerConfidence": "key"
             }
@@ -168,7 +233,7 @@
     {
       "id": "catalog-cam-12-1-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "COLLECTING AS A HOBBY",
       "passage": [
         {
@@ -328,7 +393,7 @@
     {
       "id": "catalog-cam-12-1-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "WHAT'S THE PURPOSE OF GAINING KNOWLEDGE?",
       "passage": [
         {
@@ -340,7 +405,50 @@
           "id": "catalog-cam-12-1-reading-part-3-g0",
           "range": "Questions 27–32",
           "instruction": "Reading Passage has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–viii, in boxes 27–32 on your answer sheet.",
-          "type": "multiple-choice",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-12-1-reading-part-3-q27",
@@ -355,7 +463,7 @@
             {
               "id": "catalog-cam-12-1-reading-part-3-q28",
               "number": 28,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section B",
               "options": [],
               "answer": "viii",
@@ -365,7 +473,7 @@
             {
               "id": "catalog-cam-12-1-reading-part-3-q29",
               "number": 29,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section C",
               "options": [],
               "answer": "ii",
@@ -375,7 +483,7 @@
             {
               "id": "catalog-cam-12-1-reading-part-3-q30",
               "number": 30,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section D",
               "options": [],
               "answer": "iv",
@@ -385,7 +493,7 @@
             {
               "id": "catalog-cam-12-1-reading-part-3-q31",
               "number": 31,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section E",
               "options": [],
               "answer": "iii",
@@ -395,7 +503,7 @@
             {
               "id": "catalog-cam-12-1-reading-part-3-q32",
               "number": 32,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section F",
               "options": [],
               "answer": "vii",
@@ -408,9 +516,51 @@
           "id": "catalog-cam-12-1-reading-part-3-g1",
           "range": "Questions 33–36",
           "instruction": "Complete the summary below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
-          "note": "This is a university course intended for students who are undergraduates and who are studying [33]. The expectation is that they will become [34] specialising in arson. The course will help them to detect cases of arson and find [35] of criminal intent, leading to successful [36] in the courts.",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
           "notesTitle": "The ‘Arson for Profit’ course",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-12-1-reading-part-3-q33",
@@ -479,7 +629,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Câu 37: It is difficult to attract students onto courses that do not focus on a career.\n\nBước 1: Keyword\ndifficult / attract students / career\n\nBước 2: Tìm đoạn\n\nKhông có đoạn nào nói về mức độ khó thu hút sinh viên.\n\nBước 3: Phân tích\n\nBài không đề cập.\n\n⇒ Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -502,7 +652,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nuseful / set fire\n\nBước 2: Tìm đoạn B\n\n\"wouldn't this also be the perfect course for prospective arsonists\"\n\nBước 3: Phân tích\n\nperfect course = rất hữu ích\n\nĐề và bài cùng ý.\n\n⇒ Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -525,7 +675,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\ntoo academic\n\n**Bước 2: Tìm đoạn B\n\n\"they are highly welcome as part of increasing professionalisation\"\n\nBước 3: Phân tích\n\nTác giả nói tích cực về khóa học.\n\nĐề nói quá học thuật và không hữu ích → ngược ý.\n\n⇒ Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -548,7 +698,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\ndetailed definition\n\n**Bước 2: Tìm đoạn F\n\n\"they eventually generalize to something like 'The safety and welfare of society'\"\n\nBước 3: Phân tích\n\ngeneralize = khái quát\n\nĐề nói detailed (chi tiết) → trái nghĩa.\n\n⇒ Đáp án: NO",
               "answerConfidence": "key"
             }

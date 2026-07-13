@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-16-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "THE WHITE HORSE OF UFFINGTON",
       "passage": [
         {
@@ -107,8 +107,8 @@
           "id": "catalog-cam-16-2-reading-part-1-g1",
           "range": "Questions 9–13",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**The location of the Uffington White Horse:**\n• a distance of 2.5 km from Uffington village\n• near an ancient road known as the [9]\n• close to an ancient cemetery that has a number of burial mounds\n**Dating the Uffington White Horse:**\n• first reference to White Horse Hill appears in [10] from the 1070s\n• horses shown on coins from the period 100 BCE – 1 BCE are similar in appearance\n• according to analysis of the surrounding [11], the Horse is Late Bronze Age / Early Iron Age\n**Possible reasons for creation of the Uffington White Horse:**\n• an emblem to indicate land ownership\n• formed part of an ancient ritual\n• was a representation of goddess Epona – associated with protection of horses and [12]\n• was a representation of a Welsh goddess called [13]\n",
-          "type": "summary-completion",
+          "note": "**The location of the Uffington White Horse:**\n• a distance of 2.5 km from Uffington village\n• near an ancient road known as the [9]\n• close to an ancient cemetery that has a number of burial mounds\n**Dating the Uffington White Horse:**\n• first reference to White Horse Hill appears in [10] from the 1070s\n• horses shown on coins from the period 100 BCE – 1 BCE are similar in appearance\n• according to analysis of the surrounding [11], the Horse is Late Bronze Age / Early Iron Age\n**Possible reasons for creation of the Uffington White Horse:**\n• an emblem to indicate land ownership\n• formed part of an ancient ritual\n• was a representation of goddess Epona – associated with protection of horses and [12]\n• was a representation of a Welsh goddess called [13]",
+          "type": "gap-fill",
           "notesTitle": "The Uffington White Horse",
           "questions": [
             {
@@ -168,7 +168,7 @@
     {
       "id": "catalog-cam-16-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "I CONTAIN MULTITUDES (BOOK REVIEW)",
       "passage": [
         {
@@ -269,9 +269,35 @@
           "id": "catalog-cam-16-2-reading-part-2-g1",
           "range": "Questions 17–20",
           "instruction": "Complete the summary using the list of phrases, A–H, below.",
-          "note": "Yong’s book argues that we should be more tolerant of microbes. Many have a beneficial effect, and only a relatively small number lead to [17]. And although it is misleading to think of microbes as ‘friendly’, we should also stop thinking of them as the enemy. In fact, we should accept that our relationship with microbes is one based on [18]\nNew research shows that microbes have numerous benefits for humans. Amongst other things, they aid digestion, remove poisons, produce vitamins and may even help reduce obesity. However, there is a growing problem. Our poor [19], our overuse of antibiotics, and our excessive focus on [20] are upsetting the bacterial balance and may be contributing to the huge increase in allergies and immune system problems.",
+          "note": "Reintroducing the lynx to Britain\n\nThere would be many advantages to reintroducing the lynx to Britain. While there is no evidence that the lynx has ever put 19________ in danger, it would reduce the numbers of certain 20________ whose populations have increased enormously in recent decades. It would present only a minimal threat to 21________, provided these were kept away from lynx habitats. Furthermore, the reintroduction programme would also link efficiently with initiatives to return native 22________ to certain areas of the country.",
           "type": "summary-completion",
           "notesTitle": "We should be more tolerant of microbes",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "trees"
+            },
+            {
+              "id": "b",
+              "label": "endangered species"
+            },
+            {
+              "id": "c",
+              "label": "hillsides"
+            },
+            {
+              "id": "d",
+              "label": "wild animals"
+            },
+            {
+              "id": "e",
+              "label": "humans"
+            },
+            {
+              "id": "f",
+              "label": "farm animals"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-16-2-reading-part-2-q17",
@@ -340,7 +366,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword:\n“antibacterial products” / “fails to have the desired effect”\nBước 2: Tìm đoạn văn:\nĐoạn 8: “antibacterial products actually destroys the microbes that normally keep the more dangerous germs at bay”\nBước 3: Phân tích:\nCác sản phẩm diệt khuẩn có thể giết luôn vi khuẩn có lợi.\n=> Có thể không mang lại hiệu quả mong muốn.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -363,7 +389,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\n“children” / “as few bacteria as possible”\nBước 2: Tìm đoạn văn:\nĐoạn 8: “keeping a dog as a pet gives children early exposure to a diverse range of bacteria”\nBước 3: Phân tích:\nBài đọc nói trẻ nên tiếp xúc với nhiều loại bacteria để giảm dị ứng sau này.\n=> Trái ngược với câu hỏi.\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -386,7 +412,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\n“more case studies than are necessary”\nBước 2: Tìm đoạn văn:\nScan đoạn 9 nói về case studies.\nBước 3: Phân tích:\nBài chỉ nhắc một vài case studies “less appealing”, không nói có quá nhiều.\n=> Không đủ thông tin.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -409,7 +435,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword:\n“squid” / “limited appeal”\nBước 2: Tìm đoạn văn:\nĐoạn 9: “Among the less appealing case studies … Another is about squid…”\nBước 3: Phân tích:\nCase study về squid nằm trong nhóm “less appealing”.\n=> nghĩa là ít hấp dẫn.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -432,7 +458,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\n“Efforts to control dengue fever” / “surprisingly successful”\nBước 2: Tìm đoạn văn:\nĐoạn 9: “in an attempt to stop mosquitoes spreading dengue fever…”\nBước 3: Phân tích:\nBài chỉ nói đang có nỗ lực kiểm soát dengue fever.\nKhông nói kết quả “thành công ngoài mong đợi”.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -455,7 +481,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\n“already been put inside the walls”\nBước 2: Tìm đoạn văn:\nĐoạn 9: “In the future, our ability to manipulate microbes means we could construct buildings…”\nBước 3: Phân tích:\nBài nói đây là khả năng trong tương lai, chưa xảy ra ở hiện tại.\n=> Câu hỏi nói “already” là sai.\n=> Đáp án: NO",
               "answerConfidence": "key"
             }
@@ -466,7 +492,7 @@
     {
       "id": "catalog-cam-16-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "HOW TO MAKE WISE DECISIONS",
       "passage": [
         {
@@ -594,7 +620,7 @@
           "id": "catalog-cam-16-2-reading-part-3-g1",
           "range": "Questions 31–35",
           "instruction": "Complete the summary using the list of phrases, A–J, below.",
-          "note": "Igor Grossmann and colleagues have established four characteristics which enable us to make wise decisions. It is important to have a certain degree of [31]regarding the extent of our knowledge, and to take into account [32] which may not be the same as our own. We should also be able to take a broad [33] of any situation. Another key characteristic is being aware of the likelihood of alterations in the way that people relate to each other.\nGrossmann also believes that it is better to regard scenarios with [34]. By avoiding the first-person perspective, we focus more on [35] and on other moral ideals, which in turn leads to wiser decision-making.\n\n",
+          "note": "Igor Grossmann and colleagues have established four characteristics which enable us to make wise decisions. It is important to have a certain degree of [31]regarding the extent of our knowledge, and to take into account [32] which may not be the same as our own. We should also be able to take a broad [33] of any situation. Another key characteristic is being aware of the likelihood of alterations in the way that people relate to each other.\nGrossmann also believes that it is better to regard scenarios with [34]. By avoiding the first-person perspective, we focus more on [35] and on other moral ideals, which in turn leads to wiser decision-making.",
           "type": "summary-completion",
           "notesTitle": "The characteristics of wise reasoning",
           "questions": [

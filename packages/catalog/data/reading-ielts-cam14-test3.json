@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-14-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "THE CONCEPT OF INTELLIGENCE",
       "passage": [
         {
@@ -90,7 +90,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\nslow language development / parents / disappointing\nBước 2: Tìm đoạn văn:\nĐoạn B: “parents’ implicit theories of their children’s language development will determine at what ages they will be willing to make various corrections…”\nKHÔNG có đoạn nào nói: “disappointing / thất vọng”\nBước 3: Phân tích:\nBài chỉ nói cha mẹ dùng “implicit theories” để quyết định cách đánh giá con, không nói họ thất vọng khi trẻ phát triển chậm.\n=> Không có thông tin về “disappointing”.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -113,7 +113,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword:\nexpectations / education / universal\nBước 2: Tìm đoạn văn:\nĐoạn E: “How these expectations differ is in part a function of culture.”\nBước 3: Phân tích:\nBài nói rõ kỳ vọng khác nhau theo văn hóa → không phải universal (không giống nhau toàn cầu).\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -136,7 +136,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword:\nscholars / discuss / misunderstanding\nBước 2: Tìm đoạn văn:\nĐoạn J: “they are likely to miss the point of what others are saying when discussing their explicit theories and their data.”\nBước 3: Phân tích:\nNếu không hiểu “implicit theories”, học giả có thể hiểu sai nhau khi thảo luận.\n=> Đáp án: YES",
               "answerConfidence": "key"
             }
@@ -239,7 +239,7 @@
     {
       "id": "catalog-cam-14-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "SAVING BUGS TO FIND NEW DRUGS",
       "passage": [
         {
@@ -389,8 +389,8 @@
           "id": "catalog-cam-14-3-reading-part-2-g2",
           "range": "Questions 23–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "Ross Piper and fellow zoologists at Aberystwyth University are using their expertise in [23] when undertaking bioprospecting with insects. They are especially interested in the compounds that insects produce to overpower and preserve their [24]. They are also interested in compounds which insects use to protect themselves from pathogenic bacteria and fungi found in their [25] Piper hopes that these substances will be useful in the development of drugs such as [26]\n",
-          "type": "summary-completion",
+          "note": "Ross Piper and fellow zoologists at Aberystwyth University are using their expertise in [23] when undertaking bioprospecting with insects. They are especially interested in the compounds that insects produce to overpower and preserve their [24]. They are also interested in compounds which insects use to protect themselves from pathogenic bacteria and fungi found in their [25] Piper hopes that these substances will be useful in the development of drugs such as [26]",
+          "type": "gap-fill",
           "notesTitle": "Research at Aberystwyth University",
           "questions": [
             {
@@ -440,7 +440,7 @@
     {
       "id": "catalog-cam-14-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "THE POWER OF PLAY",
       "passage": [
         {
@@ -664,7 +664,7 @@
           "range": "Questions 37–40",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "In the simplest form of guided play, an adult contributes to the environment in which the child is playing. Alternatively, an adult can play with a child and develop the play, for instance by [37] the child to investigate different aspects of their game. Adults can help children to learn through play, and may make the activity rather structured, but it should still be based on the child’s [38] to play.\nPlay without the intervention of adults gives children real [39]; with adults, play can be [40] at particular goals. However, all forms of play should be an opportunity for children to have fun.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Guided play",
           "questions": [
             {

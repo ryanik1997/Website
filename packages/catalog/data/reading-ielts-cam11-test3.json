@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-11-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "The Story of Silk",
       "passage": [
         {
@@ -19,8 +19,97 @@
           "id": "catalog-cam-11-3-reading-part-1-g0",
           "range": "Questions 1–9",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Early silk production in China**\n• Around 3000 BC, according to legend:\n– silkworm cocoon fell into emperor’s wife’s [1]\n–  emperor’s wife invented a [2] to pull out silk fibres\n• Only [3] were allowed to produce silk\n• Only [4] were allowed to wear silk\n• Silk used as a form of [5]\n– e.g. farmers’ taxes consisted partly of silk\n• Silk used for many purposes\n– e.g. evidence found of [6] made from silk around 168 AD\n**Silk reaches rest of world**\n• Merchants use Silk Road to take silk westward and bring back [7] and precious metals\n• 550 AD: [8] hide silkworm eggs in canes and take them to Constantinople\n• Silk production spreads across Middle East and Europe\n• 20th century: [9] and other manmade fibres cause decline in silk production",
           "type": "gap-fill",
+          "notePassage": [
+            {
+              "type": "section",
+              "text": "• Characteristics of wildfires and wildfire conditions today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– occurrence: more frequent"
+            },
+            {
+              "type": "static",
+              "text": "– temperature: hotter"
+            },
+            {
+              "type": "static",
+              "text": "– speed: faster"
+            },
+            {
+              "type": "static",
+              "text": "– movement: "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " more unpredictable"
+            },
+            {
+              "type": "static",
+              "text": "– size of fires: "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " greater on average than two decades ago"
+            },
+            {
+              "type": "section",
+              "text": "• Reasons wildfires cause more damage today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– rainfall: "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " average"
+            },
+            {
+              "type": "static",
+              "text": "– more brush to act as "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "– increase in yearly temperature"
+            },
+            {
+              "type": "static",
+              "text": "– extended fire "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": "– more building of "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            },
+            {
+              "type": "static",
+              "text": " in vulnerable places"
+            }
+          ],
           "notesTitle": "THE STORY OF SILK",
           "questions": [
             {
@@ -126,8 +215,21 @@
               "number": 10,
               "type": "true-false-not-given",
               "prompt": "Gold was the most valuable material transported along the Silk Road.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword: “Gold”, “the most valuable material” (vật liệu có giá trị nhất), “Silk Road”\n\nBước 2: Tìm đoạn: Đoạn 3: “It was named the Silk Road after its most precious commodity, which was considered to be worth more than gold.”\n\nBước 3: Phân tích: Đoạn văn khẳng định con đường được đặt tên theo mặt hàng quý giá nhất của nó (most precious commodity) chính là lụa, và lụa còn được coi là có giá trị hơn cả vàng (worth more than gold). Do đó, phát biểu nói \"vàng là vật liệu quý giá nhất\" hoàn toàn sai và mâu thuẫn với bài đọc.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -136,8 +238,21 @@
               "number": 11,
               "type": "true-false-not-given",
               "prompt": "Most tradesmen only went along certain sections of the Silk Road.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword: “Most tradesmen” (phần lớn thương nhân), “only went along certain sections” (chỉ đi dọc theo một vài đoạn nhất định)\n\nBước 2: Tìm đoạn: Đoạn 3: “Few merchants travelled the entire route; goods were handled mostly by a series of middlemen.”\n\nBước 3: Phân tích: Bài đọc chỉ ra rằng rất ít thương nhân đi hết toàn bộ con đường (Few merchants travelled the entire route), thay vào đó hàng hóa chủ yếu được chuyền tay qua một chuỗi các trung gian (middlemen). Điều này đồng nghĩa với việc phần lớn bọn họ chỉ di chuyển ở những cung chặng, phân đoạn nhất định.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -146,8 +261,21 @@
               "number": 12,
               "type": "true-false-not-given",
               "prompt": "The Byzantines spread the practice of silk production across the West.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword: “The Byzantines”, “spread” (lan truyền/phổ biến), “across the West” (khắp phương Tây)\n\nBước 2: Tìm đoạn: Đoạn 4 & Đoạn 5: “The Byzantines were as secretive as the Chinese, however, and for many centuries the weaving and trading of silk fabric was a strict imperial monopoly. Then in the seventh century, the Arabs conquered Persia... Silk production thus spread through Africa, Sicily and Spain as the Arabs swept through these lands.”\n\nBước 3: Phân tích: Bài viết nêu rõ người Byzantine cực kỳ giữ bí mật (secretive) và duy trì sự độc quyền nghiêm ngặt của hoàng gia (strict imperial monopoly) chứ không hề chia sẻ ra ngoài. Việc nghề lụa được lan rộng khắp các vùng châu Phi, Sicily và Tây Ban Nha thực chất là nhờ dòng người Ả Rập (Arabs) đánh chiếm và quét qua các vùng đất này. Do đó câu khẳng định trên là sai.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -156,8 +284,21 @@
               "number": 13,
               "type": "true-false-not-given",
               "prompt": "Silk yarn makes up the majority of silk currently exported from China.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword: “Silk yarn” (sợi tơ lụa), “makes up the majority” (chiếm phần lớn/đại đa số), “currently exported from China”\n\nBước 2: Tìm đoạn: Đoạn 6: “...China has gradually recaptured its position as the world’s biggest producer and exporter of raw silk and silk yarn. Today, around 125,000 metric tons of silk are produced in the world, and almost two thirds of that production takes place in China.”  \n\nBước 3: Phân tích: Thông tin trong đoạn chỉ khẳng định Trung Quốc đã lấy lại vị thế là nhà sản xuất và xuất khẩu lớn nhất thế giới về cả hai mặt hàng: lụa thô (raw silk) và sợi lụa (silk yarn). Bài viết hoàn toàn không cung cấp số liệu so sánh chi tiết để biết mặt hàng sợi lụa có phải chiếm \"đại đa số\" tổng lượng xuất khẩu hay không.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             }
@@ -168,7 +309,7 @@
     {
       "id": "catalog-cam-11-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Great Migrations",
       "passage": [
         {
@@ -317,7 +458,7 @@
           "range": "Questions 23–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "Pronghorns rely on their eyesight and [23] to avoid predators. One particular population’s summer habitat is a national park, and their winter home is on the [24] where they go to avoid the danger presented by the snow at that time of year. However, their route between these two areas contains three [25] One problem is the construction of new homes in a narrow \n[26] corridor of land on the pronghorns’ route.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "The migration of pronghorns",
           "questions": [
             {
@@ -367,7 +508,7 @@
     {
       "id": "catalog-cam-11-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Preface to 'The World of Mathematics'",
       "passage": [
         {

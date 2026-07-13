@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-16-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "ROMAN TUNNELS",
       "passage": [
         {
@@ -19,8 +19,58 @@
           "id": "catalog-cam-16-4-reading-part-1-g0",
           "range": "Questions 1–6",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "- [1] to direct the tunnelling\n- water runs into a [2] used by local people\n- vertical shafts to remove earth and for [3] \n- [4] made of wood or stone\n- [5] attached to the plumb line\n- handholds and footholds used for [6] ",
           "type": "gap-fill",
+          "notePassage": [
+            {
+              "type": "static",
+              "text": "• the leaves of the tree are "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " in shape"
+            },
+            {
+              "type": "static",
+              "text": "• the "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " surrounds the fruit and breaks open when the fruit is ripe"
+            },
+            {
+              "type": "static",
+              "text": "• the "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " is used to produce the spice nutmeg"
+            },
+            {
+              "type": "static",
+              "text": "• the covering known as the aril is used to produce "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "• the tree has yellow flowers and fruit"
+            }
+          ],
+          "notesTitle": "The nutmeg tree and fruit",
           "questions": [
             {
               "id": "catalog-cam-16-4-reading-part-1-q1",
@@ -95,8 +145,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "The counter-excavation method completely replaced the qanat method in the 6th century BCE.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\ncompletely replaced\nqanat method\n6th century BCE\nBước 2: Tìm đoạn\nĐoạn 3: “By the 6th century BCE, a second method of tunnel construction appeared called the counter-excavation method…”\nBước 3: Phân tích\nPassage chỉ nói “a second method appeared” = xuất hiện thêm một phương pháp mới.\nKhông hề nói phương pháp mới “completely replaced” (= hoàn toàn thay thế) qanat method.\nThông tin bị trái nghĩa do thêm ý “completely replaced”.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -105,8 +168,21 @@
               "number": 8,
               "type": "true-false-not-given",
               "prompt": "Only experienced builders were employed to construct a tunnel using the counter-excavation method.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nonly experienced builders\ncounter-excavation method\nBước 2: Tìm đoạn\nĐoạn 3: “This method required greater planning and advanced knowledge of surveying, mathematics and geometry…”\nBước 3: Phân tích\nĐoạn văn chỉ nói phương pháp này cần “advanced knowledge”.\nKhông có thông tin nào nói “only experienced builders were employed”.\nPassage không đề cập đối tượng công nhân hay kinh nghiệm của họ.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -115,8 +191,21 @@
               "number": 9,
               "type": "true-false-not-given",
               "prompt": "The information about a problem that occurred during the construction of the Saldae aqueduct system was found in an ancient book.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nproblem\nSaldae aqueduct system\nancient book\nBước 2: Tìm đoạn\nĐoạn 4: “An inscription written on the side of a 428-meter tunnel…”\nBước 3: Phân tích\n“inscription” = chữ khắc trên tường/đá.\nStatement lại nói thông tin được tìm thấy trong “an ancient book”.\nHai thông tin khác nhau hoàn toàn.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -125,8 +214,21 @@
               "number": 10,
               "type": "true-false-not-given",
               "prompt": "The mistake made by the builders of the Saldae aqueduct system was that the two parts of the tunnel failed to meet.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nmistake\ntwo parts of the tunnel\nfailed to meet\nBước 2: Tìm đoạn\nĐoạn 4: “the two teams of builders missed each other in the mountain…”\nBước 3: Phân tích\n“missed each other” = hai phía đào không gặp nhau.\nParaphrase thành “failed to meet”.\nÝ nghĩa trùng khớp hoàn toàn.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -136,7 +238,7 @@
           "id": "catalog-cam-16-4-reading-part-1-g2",
           "range": "Questions 11–13",
           "instruction": "Complete the notes below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
-          "note": "What type of mineral were the Dolaucothi mines in Wales built to extract? \n[11]\nIn addition to the patron, whose name might be carved onto a tunnel? \n[12]\nWhat part of Seleuceia Pieria was the Çevlik tunnel built to protect? \n[13]\n",
+          "note": "What type of mineral were the Dolaucothi mines in Wales built to extract? \n[11]\nIn addition to the patron, whose name might be carved onto a tunnel? \n[12]\nWhat part of Seleuceia Pieria was the Çevlik tunnel built to protect? \n[13]",
           "type": "gap-fill",
           "questions": [
             {
@@ -176,7 +278,7 @@
     {
       "id": "catalog-cam-16-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "CHANGES IN READING HABITS",
       "passage": [
         {
@@ -304,9 +406,35 @@
           "id": "catalog-cam-16-4-reading-part-2-g1",
           "range": "Questions 18–22",
           "instruction": "Complete the summary using the list of phrases, A–H, below.",
-          "note": "There have been many studies on digital screen use, showing some [18] trends. Psychologist Anne Mangen gave high-school students a short story to read, half using digital and half using print mediums. Her team then used a question-and-answer technique to find out how [19] each group's understanding of the plot was. The findings showed a clear pattern in the responses, with those who read screens finding the order of information [20] to recall.\nStudies by Ziming Liu show that students are tending to read [21] words and phrases in a text to save time. This approach, she says, gives the reader a superficial understanding of the [22] content of material, leaving no time for thought.\n",
+          "note": "Reintroducing the lynx to Britain\n\nThere would be many advantages to reintroducing the lynx to Britain. While there is no evidence that the lynx has ever put 19________ in danger, it would reduce the numbers of certain 20________ whose populations have increased enormously in recent decades. It would present only a minimal threat to 21________, provided these were kept away from lynx habitats. Furthermore, the reintroduction programme would also link efficiently with initiatives to return native 22________ to certain areas of the country.",
           "type": "summary-completion",
           "notesTitle": "Studies on digital screen use",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "trees"
+            },
+            {
+              "id": "b",
+              "label": "endangered species"
+            },
+            {
+              "id": "c",
+              "label": "hillsides"
+            },
+            {
+              "id": "d",
+              "label": "wild animals"
+            },
+            {
+              "id": "e",
+              "label": "humans"
+            },
+            {
+              "id": "f",
+              "label": "farm animals"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-16-4-reading-part-2-q18",
@@ -385,7 +513,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "The medium we use to read can affect our choice of reading content.\n\nBước 1: Keyword\nmedium\naffect choice of reading content\nBước 2: Tìm đoạn\nĐoạn 8: “changes not only what we read, but also the purposes for which we read”\nBước 3: Phân tích\n“what we read” = nội dung đọc bị ảnh hưởng bởi medium.\nStatement cùng ý với passage.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -408,7 +536,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nsome age groups\nmore likely\nBước 2: Tìm đoạn\nĐoạn 8: “affects us all equally”\nBước 3: Phân tích\nPassage nói mọi người bị ảnh hưởng như nhau.\nStatement nói một số nhóm tuổi dễ bị hơn.\nÝ trái ngược.\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -431,7 +559,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nfalse information\nmore widespread\nBước 2: Tìm đoạn\nĐoạn 8: “leaving us susceptible to false information”\nBước 3: Phân tích\nPassage chỉ nói con người dễ tin thông tin sai hơn.\nKhông nói false information trở nên phổ biến hơn.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -454,7 +582,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nopportunities\nrectify problems\nBước 2: Tìm đoạn\nĐoạn cuối:\n“identify and redress the changes”\n“before they become entrenched”\nBước 3: Phân tích\n“redress” = sửa chữa/khắc phục.\nTác giả tin vẫn còn cơ hội xử lý vấn đề.\n=> Đáp án: YES",
               "answerConfidence": "key"
             }
@@ -465,7 +593,7 @@
     {
       "id": "catalog-cam-16-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "ATTITUDES TOWARDS ARTIFICIAL INTELLIGENCE",
       "passage": [
         {
@@ -475,49 +603,50 @@
       "questionGroups": [
         {
           "id": "catalog-cam-16-4-reading-part-3-g0",
-          "range": "Questions 27–32",
+          "range": "Questions 27–35",
           "instruction": "Reading Passage has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–viii, in boxes 27–32 on your answer sheet.",
-          "type": "multiple-choice",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "i=An increasing divergence of attitudes towards AI"
+            },
+            {
+              "id": "b",
+              "label": "ii=Reasons why we have more faith in human judgement than in AI"
+            },
+            {
+              "id": "c",
+              "label": "iii=The superiority of AI projections over those made by humans"
+            },
+            {
+              "id": "d",
+              "label": "iv=The process by which AI can help us make good decisions"
+            },
+            {
+              "id": "e",
+              "label": "v=The advantages of involving users in AI processes"
+            },
+            {
+              "id": "f",
+              "label": "vi=Widespread distrust of an AI innovation"
+            },
+            {
+              "id": "g",
+              "label": "vii=Encouraging openness about how AI functions"
+            },
+            {
+              "id": "h",
+              "label": "viii=A surprisingly successful AI application"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-16-4-reading-part-3-q27",
               "number": 27,
               "type": "matching-headings",
               "prompt": "Section A",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "i=An increasing divergence of attitudes towards AI"
-                },
-                {
-                  "id": "B",
-                  "label": "ii=Reasons why we have more faith in human judgement than in AI"
-                },
-                {
-                  "id": "C",
-                  "label": "iii=The superiority of AI projections over those made by humans"
-                },
-                {
-                  "id": "D",
-                  "label": "iv=The process by which AI can help us make good decisions"
-                },
-                {
-                  "id": "E",
-                  "label": "v=The advantages of involving users in AI processes"
-                },
-                {
-                  "id": "F",
-                  "label": "vi=Widespread distrust of an AI innovation"
-                },
-                {
-                  "id": "G",
-                  "label": "vii=Encouraging openness about how AI functions"
-                },
-                {
-                  "id": "H",
-                  "label": "viii=A surprisingly successful AI application"
-                }
-              ],
+              "options": [],
               "answer": "iii",
               "explanation": "Bước 1: Keyword\nAI predict the future\nbetter at forecasting than humans\nBước 2: Tìm đoạn\nĐoạn A: “AI is almost always better at forecasting than we are.”\nBước 3: Phân tích\nĐoạn nhấn mạnh AI dự đoán tốt hơn con người.\n“better at forecasting” = superiority of AI projections.\n=> Đáp án: iii. The superiority of AI projections over those made by humans",
               "answerConfidence": "key"
@@ -525,7 +654,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q28",
               "number": 28,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section B",
               "options": [],
               "answer": "vi",
@@ -535,7 +664,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q29",
               "number": 29,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section C",
               "options": [],
               "answer": "ii",
@@ -545,7 +674,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q30",
               "number": 30,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section D",
               "options": [],
               "answer": "i",
@@ -555,7 +684,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q31",
               "number": 31,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section E",
               "options": [],
               "answer": "vii",
@@ -565,25 +694,17 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q32",
               "number": 32,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section F",
               "options": [],
               "answer": "v",
               "explanation": "Bước 1: Keyword\nallow people control\nmodify an algorithm\nmore satisfied\nBước 2: Tìm đoạn\nĐoạn F:\n“allowing people some control”\n“modify an algorithm”\nBước 3: Phân tích\nKhi người dùng tham gia vào AI process, họ tin AI hơn.\nĐoạn tập trung vào lợi ích của việc involve users.\n=> Đáp án: v. The advantages of involving users in AI processes",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-16-4-reading-part-3-g1",
-          "range": "Questions 33–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-16-4-reading-part-3-q33",
               "number": 33,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "What is the writer doing in Section A?",
               "options": [
                 {
@@ -610,7 +731,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q34",
               "number": 34,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "According to Section C, why might some people be reluctant to accept AI?",
               "options": [
                 {
@@ -637,7 +758,7 @@
             {
               "id": "catalog-cam-16-4-reading-part-3-q35",
               "number": 35,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "What does the writer say about the media in Section C of the text?",
               "options": [
                 {
@@ -664,7 +785,7 @@
           ]
         },
         {
-          "id": "catalog-cam-16-4-reading-part-3-g2",
+          "id": "catalog-cam-16-4-reading-part-3-g1",
           "range": "Questions 36–40",
           "instruction": "Do the following statements agree with the claims of the writer in the Reading Passage?\nIn boxes 36–40 on your answer sheet, write\nYES  if the statement agrees with the claims of the writer\nNO  if the statement contradicts the claims of the writer\nNOT GIVEN  if it is impossible to say what the writer thinks about this",
           "type": "ynng",

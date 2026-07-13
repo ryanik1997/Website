@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-15-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "THE RETURN OF THE HUARANGO",
       "passage": [
         {
@@ -252,7 +252,7 @@
     {
       "id": "catalog-cam-15-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "SILBO GOMERO: THE WHISTLE 'LANGUAGE' OF THE CANARY ISLANDS",
       "passage": [
         {
@@ -271,8 +271,21 @@
               "number": 14,
               "type": "true-false-not-given",
               "prompt": "La Gomera is the most mountainous of all the Canary Islands.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\n\nmost mountainous\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\"This small volcanic island is mountainous...\"\n\nBước 3: Phân tích\nBài chỉ nói La Gomera là đảo nhiều núi, không nói nhiều núi nhất trong quần đảo Canary.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -281,8 +294,21 @@
               "number": 15,
               "type": "true-false-not-given",
               "prompt": "Silbo is only appropriate for short and simple messages.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\n\nonly\nshort messages\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\"any Spanish sentence could be whistled\"\n\nBước 3: Phân tích\nKhông chỉ dùng cho tin nhắn ngắn; bất kỳ câu tiếng Tây Ban Nha nào cũng có thể huýt sáo.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -291,8 +317,21 @@
               "number": 16,
               "type": "true-false-not-given",
               "prompt": "In the brain-activity study, silbadores and non-whistlers produced different results.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\n\nbrain study\ndifferent results\n\nBước 2: Tìm đoạn văn\nĐoạn 6:\n\"When the experiments were repeated with non-whistlers, however...\"\n\nBước 3: Phân tích\nNgười biết Silbo và người không biết có kết quả hoạt động não khác nhau.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -301,8 +340,21 @@
               "number": 17,
               "type": "true-false-not-given",
               "prompt": "The Spanish introduced Silbo to the islands in the 15th century.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\n\nintroduced\n15th century\n\nBước 2: Tìm đoạn văn\nĐoạn 8:\n\"already had a whistled language when Spain conquered...\"\n\nBước 3: Phân tích\nNgôn ngữ này đã tồn tại trước khi người Tây Ban Nha đến.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -311,8 +363,21 @@
               "number": 18,
               "type": "true-false-not-given",
               "prompt": "There is precise data available regarding all of the whistle languages in existence today.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\n\nall whistle languages\nprecise data\n\nBước 2: Tìm đoạn văn\nĐoạn 8:\n\"only 12 have been described and studied scientifically\"\n\nBước 3: Phân tích\nKhông phải tất cả đều được nghiên cứu.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -321,8 +386,21 @@
               "number": 19,
               "type": "true-false-not-given",
               "prompt": "The children of Gomera now learn Silbo.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\n\nchildren\nlearn Silbo\n\nBước 2: Tìm đoạn văn\nĐoạn cuối:\n\"Since 1999, Silbo Gomero has been taught in all of the island's elementary schools.\"\n\nBước 3: Phân tích\nHọc sinh tiểu học trên đảo được học Silbo.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -413,7 +491,7 @@
     {
       "id": "catalog-cam-15-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "ENVIRONMENTAL PRACTICES OF BIG BUSINESSES",
       "passage": [
         {

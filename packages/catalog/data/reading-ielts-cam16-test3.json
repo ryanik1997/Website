@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-16-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "ROMAN SHIPBUILDING AND NAVIGATION",
       "passage": [
         {
@@ -78,7 +78,7 @@
           "range": "Questions 6–13",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "• Warships were designed so that they were [6] and moved quickly. They often remained afloat after battles and were able to sail close to land as they lacked any additional weight. A battering ram made of [7] was included in the design for attacking and damaging the timber and oars of enemy ships. Warships, such as the ‘trireme’, had rowers on three different [8] \n• Unlike warships, merchant ships had a broad [9] that lay far below the surface of the sea. Merchant ships were steered through the water with the help of large rudders and a tiller bar. They had both square and [10] sails. On merchant ships and warships, [11] was used to ensure rowers moved their oars in and out of the water at the same time.\n• Quantities of agricultural goods such as [12] were transported by merchant ships to two main ports in Italy. The ships were pulled to the shore by [13]. When the weather was clear and they could see islands or land, sailors used landmarks that they knew to help them navigate their route.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Warships and merchant ships",
           "questions": [
             {
@@ -168,7 +168,7 @@
     {
       "id": "catalog-cam-16-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "CLIMATE CHANGE REVEALS ANCIENT ARTEFACTS IN NORWAY'S GLACIERS",
       "passage": [
         {
@@ -259,7 +259,7 @@
           "range": "Questions 20–22",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "Organic materials such as animal skins and textiles are not discovered very often at archaeological sites. They have little protection against [20], which means that they decay relatively quickly. But this is not always the case. If temperatures are low enough, fragile artefacts can be preserved for thousands of years.\nA team of archaeologists have been working in the mountains in Oppland in Norway to recover artefacts revealed by shrinking ice cover. In the past, there were trade routes through these mountains and [21] gathered there in the summer months to avoid being attacked by [22] on lower ground. The people who used these mountains left things behind and it is those objects that are of interest to archaeologists.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Interesting finds at an archaeological site",
           "questions": [
             {
@@ -296,7 +296,7 @@
         },
         {
           "id": "catalog-cam-16-3-reading-part-2-g2",
-          "range": "Questions 23–24",
+          "range": "Questions 23–26",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -340,15 +340,7 @@
               "answer": "C",
               "explanation": "Bước 1: Keyword\ndiscoveries of Barrett’s team\nBước 2: Tìm đoạn\nSection E: “there were few or no signs of activity during other periods.”\nSection F: “hunters kept regularly venturing into the mountains even when the climate turned cold”\nBước 3: Phân tích\n\nSection E nói có một số giai đoạn số lượng hiện vật rất ít.\n=> Khớp với:\n“The number of artefacts from certain time periods was relatively low.”\n→ Đáp án C\nSection F nói thợ săn vẫn vào núi ngay cả trong thời kỳ cực lạnh.\n=> Khớp với:\n“Hunters went into the mountains even during periods of extreme cold.”\n→ Đáp án B",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-16-3-reading-part-2-g3",
-          "range": "Questions 25–26",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-16-3-reading-part-2-q25",
               "number": 25,
@@ -397,7 +389,7 @@
     {
       "id": "catalog-cam-16-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "PLANT 'THERMOMETER' TRIGGERS SPRINGTIME GROWTH",
       "passage": [
         {

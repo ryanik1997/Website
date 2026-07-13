@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-9-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Hearing impairment in children",
       "passage": [
         {
@@ -62,9 +62,35 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-1-g0",
-          "range": "Questions 1–1",
+          "range": "Questions 1–13",
           "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "current teaching methods"
+            },
+            {
+              "id": "b",
+              "label": "echoing corridors"
+            },
+            {
+              "id": "c",
+              "label": "cooling systems"
+            },
+            {
+              "id": "d",
+              "label": "large class sizes"
+            },
+            {
+              "id": "e",
+              "label": "loud-voiced teachers"
+            },
+            {
+              "id": "f",
+              "label": "playground games"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-9-2-reading-part-1-q1",
@@ -75,15 +101,7 @@
               "answer": "I",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g1",
-          "range": "Questions 2–2",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q2",
               "number": 2,
@@ -93,15 +111,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g2",
-          "range": "Questions 3–3",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q3",
               "number": 3,
@@ -111,15 +121,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g3",
-          "range": "Questions 4–4",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q4",
               "number": 4,
@@ -129,15 +131,7 @@
               "answer": "I",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g4",
-          "range": "Questions 5–5",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q5",
               "number": 5,
@@ -147,15 +141,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g5",
-          "range": "Questions 6–6",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q6",
               "number": 6,
@@ -165,15 +151,7 @@
               "answer": "A",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g6",
-          "range": "Questions 7–7",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q7",
               "number": 7,
@@ -183,15 +161,7 @@
               "answer": "two decades",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g7",
-          "range": "Questions 8–8",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q8",
               "number": 8,
@@ -201,15 +171,7 @@
               "answer": "crowd noise",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g8",
-          "range": "Questions 9–9",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q9",
               "number": 9,
@@ -219,15 +181,7 @@
               "answer": "invisible disabilities",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g9",
-          "range": "Questions 10–10",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q10",
               "number": 10,
@@ -237,105 +191,31 @@
               "answer": "Objective 3",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g10",
-          "range": "Questions 11–11",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q11",
               "number": 11,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Which TWO are mentioned by the writer?",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "current teaching methods"
-                },
-                {
-                  "id": "B",
-                  "label": "echoing corridors"
-                },
-                {
-                  "id": "C",
-                  "label": "cooling systems"
-                },
-                {
-                  "id": "D",
-                  "label": "large class sizes"
-                },
-                {
-                  "id": "E",
-                  "label": "loud-voiced teachers"
-                },
-                {
-                  "id": "F",
-                  "label": "playground games"
-                }
-              ],
+              "options": [],
               "answer": "A,C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g11",
-          "range": "Questions 12–12",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q12",
               "number": 12,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Question 12",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "current teaching methods"
-                },
-                {
-                  "id": "B",
-                  "label": "echoing corridors"
-                },
-                {
-                  "id": "C",
-                  "label": "cooling systems"
-                },
-                {
-                  "id": "D",
-                  "label": "large class sizes"
-                },
-                {
-                  "id": "E",
-                  "label": "loud-voiced teachers"
-                },
-                {
-                  "id": "F",
-                  "label": "playground games"
-                }
-              ],
+              "options": [],
               "answer": "A,C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-1-g12",
-          "range": "Questions 13–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-1-q13",
               "number": 13,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "What is the writer's overall purpose in writing this article?",
               "options": [
                 {
@@ -366,7 +246,7 @@
     {
       "id": "catalog-cam-9-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Venus in Transit",
       "passage": [
         {
@@ -409,7 +289,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-2-g0",
-          "range": "Questions 14–14",
+          "range": "Questions 14–21",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -422,15 +302,7 @@
               "answer": "F",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g1",
-          "range": "Questions 15–15",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q15",
               "number": 15,
@@ -440,15 +312,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g2",
-          "range": "Questions 16–16",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q16",
               "number": 16,
@@ -458,15 +322,7 @@
               "answer": "G",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g3",
-          "range": "Questions 17–17",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q17",
               "number": 17,
@@ -476,15 +332,7 @@
               "answer": "E",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g4",
-          "range": "Questions 18–18",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q18",
               "number": 18,
@@ -511,15 +359,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g5",
-          "range": "Questions 19–19",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q19",
               "number": 19,
@@ -546,15 +386,7 @@
               "answer": "A",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g6",
-          "range": "Questions 20–20",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q20",
               "number": 20,
@@ -581,15 +413,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g7",
-          "range": "Questions 21–21",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q21",
               "number": 21,
@@ -620,8 +444,8 @@
           ]
         },
         {
-          "id": "catalog-cam-9-2-reading-part-2-g8",
-          "range": "Questions 22–22",
+          "id": "catalog-cam-9-2-reading-part-2-g1",
+          "range": "Questions 22–26",
           "instruction": "Choose the correct answer.",
           "type": "tfng",
           "questions": [
@@ -634,15 +458,7 @@
               "answer": "FALSE",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g9",
-          "range": "Questions 23–23",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q23",
               "number": 23,
@@ -652,15 +468,7 @@
               "answer": "FALSE",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g10",
-          "range": "Questions 24–24",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q24",
               "number": 24,
@@ -670,15 +478,7 @@
               "answer": "TRUE",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g11",
-          "range": "Questions 25–25",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q25",
               "number": 25,
@@ -688,15 +488,7 @@
               "answer": "NOT GIVEN",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-2-g12",
-          "range": "Questions 26–26",
-          "instruction": "Choose the correct answer.",
-          "type": "tfng",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-2-q26",
               "number": 26,
@@ -714,7 +506,7 @@
     {
       "id": "catalog-cam-9-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "A Neuroscientist Reveals How to Think Differently",
       "passage": [
         {
@@ -769,7 +561,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-9-2-reading-part-3-g0",
-          "range": "Questions 27–27",
+          "range": "Questions 27–40",
           "instruction": "Choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
@@ -799,15 +591,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g1",
-          "range": "Questions 28–28",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q28",
               "number": 28,
@@ -834,15 +618,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g2",
-          "range": "Questions 29–29",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q29",
               "number": 29,
@@ -869,15 +645,7 @@
               "answer": "D",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g3",
-          "range": "Questions 30–30",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q30",
               "number": 30,
@@ -904,15 +672,7 @@
               "answer": "C",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g4",
-          "range": "Questions 31–31",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q31",
               "number": 31,
@@ -939,15 +699,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g5",
-          "range": "Questions 32–32",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q32",
               "number": 32,
@@ -957,15 +709,7 @@
               "answer": "YES",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g6",
-          "range": "Questions 33–33",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q33",
               "number": 33,
@@ -975,15 +719,7 @@
               "answer": "YES",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g7",
-          "range": "Questions 34–34",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q34",
               "number": 34,
@@ -993,15 +729,7 @@
               "answer": "NOT GIVEN",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g8",
-          "range": "Questions 35–35",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q35",
               "number": 35,
@@ -1011,15 +739,7 @@
               "answer": "NOT GIVEN",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g9",
-          "range": "Questions 36–36",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q36",
               "number": 36,
@@ -1029,15 +749,7 @@
               "answer": "NO",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g10",
-          "range": "Questions 37–37",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q37",
               "number": 37,
@@ -1047,15 +759,7 @@
               "answer": "NO",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g11",
-          "range": "Questions 38–38",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q38",
               "number": 38,
@@ -1086,15 +790,7 @@
               "answer": "A",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g12",
-          "range": "Questions 39–39",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q39",
               "number": 39,
@@ -1125,15 +821,7 @@
               "answer": "B",
               "explanation": "",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-9-2-reading-part-3-g13",
-          "range": "Questions 40–40",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-9-2-reading-part-3-q40",
               "number": 40,

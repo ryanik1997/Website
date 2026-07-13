@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-17-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "The thylacine",
       "passage": [
         {
@@ -22,8 +22,97 @@
           "id": "catalog-cam-17-3-reading-part-1-g0",
           "range": "Questions 1–6",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Appearance and behaviour**\n •looked rather like a dog\n •had a series of stripes along its body and tail\n •ate an entirely [1] diet\n •probably depended mainly on [2] when hunting\n •young spent first months of life inside its mother’s [3]\n**Decline and extinction**\n •last evidence in mainland Australia is a 3,100-year-old [4]\n •probably went extinct in mainland Australia due to animals known as dingoes\n •reduction in [5] and available sources of food were partly responsible for decline in Tasmania",
           "type": "gap-fill",
+          "notePassage": [
+            {
+              "type": "section",
+              "text": "• Characteristics of wildfires and wildfire conditions today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– occurrence: more frequent"
+            },
+            {
+              "type": "static",
+              "text": "– temperature: hotter"
+            },
+            {
+              "type": "static",
+              "text": "– speed: faster"
+            },
+            {
+              "type": "static",
+              "text": "– movement: "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " more unpredictable"
+            },
+            {
+              "type": "static",
+              "text": "– size of fires: "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " greater on average than two decades ago"
+            },
+            {
+              "type": "section",
+              "text": "• Reasons wildfires cause more damage today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– rainfall: "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " average"
+            },
+            {
+              "type": "static",
+              "text": "– more brush to act as "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "– increase in yearly temperature"
+            },
+            {
+              "type": "static",
+              "text": "– extended fire "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": "– more building of "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            },
+            {
+              "type": "static",
+              "text": " in vulnerable places"
+            }
+          ],
           "notesTitle": "The thylacine",
           "questions": [
             {
@@ -89,8 +178,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "Significant numbers of thylacines were killed by humans from the 1830s onwards.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nkilled by humans\n1830s onwards\nBước 2: Tìm đoạn\nĐoạn 5: “began in the 1830s” và “relentless efforts of sheep farmers and bounty hunters with shotguns”\nBước 3: Phân tích\nrelentless efforts = săn bắt liên tục.\nĐiều này cho thấy nhiều thylacines bị con người giết.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -99,8 +201,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "Several thylacines were born in zoos during the late 1800s.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nborn in zoos\nlate 1800s\nBước 2: Tìm đoạn\nĐoạn 6: “There was only one successful attempt to breed a thylacine in captivity”\nBước 3: Phân tích\nonly one successful attempt\n“several” là sai.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -109,8 +224,21 @@
               "number": 8,
               "type": "true-false-not-given",
               "prompt": "John Gould’s prediction about the thylacine surprised some biologists.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nprediction\nsurprised biologists\nBước 2: Tìm đoạn\nĐoạn 6 chỉ nói: “John Gould foresaw the thylacine’s demise”\nBước 3: Phân tích\nKhông có thông tin các nhà sinh học ngạc nhiên.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -119,8 +247,21 @@
               "number": 9,
               "type": "true-false-not-given",
               "prompt": "In the early 1900s, many scientists became worried about the possible extinction of the thylacine.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nmany scientists\nworried\nBước 2: Tìm đoạn\nĐoạn 7: “there seems to have been little public pressure ... nor was much concern expressed by scientists”\nBước 3: Phân tích\nlittle concern = ít lo ngại.\n“many scientists became worried” trái ngược bài.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -129,8 +270,21 @@
               "number": 10,
               "type": "true-false-not-given",
               "prompt": "T.T. Flynn’s proposal to rehome captive thylacines on an island proved to be impractical.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nproposal\nisland\nimpractical\nBước 2: Tìm đoạn\nĐoạn 7: “he suggested that some should be captured and placed on a small island.”\nBước 3: Phân tích\nChỉ nói ông đề xuất ý tưởng.\nKhông nói kế hoạch đó bất khả thi.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -139,8 +293,21 @@
               "number": 11,
               "type": "true-false-not-given",
               "prompt": "There were still reasonable numbers of thylacines in existence when a piece of legislation protecting the species was passed.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nprotecting the species\nbreeding season\nBước 2: Tìm đoạn\nĐoạn 7: “with the species on the very edge of extinction”\nBước 3: Phân tích\nvery edge of extinction = gần tuyệt chủng.\nKhông còn số lượng đáng kể.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -149,8 +316,21 @@
               "number": 12,
               "type": "true-false-not-given",
               "prompt": "From 1930 to 1936, the only known living thylacines were all in captivity.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\n1930 to 1936\nonly known living thylacines\nBước 2: Tìm đoạn\nĐoạn 7: “The last known wild thylacine ... in 1930, leaving just captive specimens.”\nBước 3: Phân tích\nSau năm 1930 chỉ còn cá thể nuôi nhốt.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -159,8 +339,21 @@
               "number": 13,
               "type": "true-false-not-given",
               "prompt": "Attempts to find living thylacines are now rarely made.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nattempts\nrarely made\nBước 2: Tìm đoạn\nĐoạn cuối: “There have been numerous expeditions and searches”\nBước 3: Phân tích\nnumerous = nhiều.\nNhưng không có thông tin “hiện nay hiếm khi diễn ra”.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             }
@@ -171,7 +364,7 @@
     {
       "id": "catalog-cam-17-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Palm oil",
       "passage": [
         {
@@ -378,7 +571,7 @@
     {
       "id": "catalog-cam-17-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Building the Skyline: The Birth and Growth of Manhattan’s Skyscrapers",
       "passage": [
         {
@@ -636,7 +829,7 @@
           "id": "catalog-cam-17-3-reading-part-3-g2",
           "range": "Questions 36–40",
           "instruction": "Complete the summary using the list of phrases, A–J, below.",
-          "note": "In chapter seven, Barr indicates how the lack of bedrock close to the surface does not explain why skyscrapers are absent from [36]. He points out that although the cost of foundations increases when bedrock is deep below the surface, this cannot be regarded as [37], especially when compared to [38]\nA particularly enjoyable part of the chapter was Barr’s account of how foundations are built. He describes not only how [39] are made possible by the use of caissons, but he also discusses their [40]. The chapter is well researched but relatively easy to understand.\n\n",
+          "note": "In chapter seven, Barr indicates how the lack of bedrock close to the surface does not explain why skyscrapers are absent from [36]. He points out that although the cost of foundations increases when bedrock is deep below the surface, this cannot be regarded as [37], especially when compared to [38]\nA particularly enjoyable part of the chapter was Barr’s account of how foundations are built. He describes not only how [39] are made possible by the use of caissons, but he also discusses their [40]. The chapter is well researched but relatively easy to understand.",
           "type": "summary-completion",
           "notesTitle": "The bedrock myth",
           "questions": [

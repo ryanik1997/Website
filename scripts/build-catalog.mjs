@@ -195,26 +195,42 @@ async function discoverIeltsReadingBundles() {
 }
 
 async function discoverPayloadReadingBundles() {
-  if (!existsSync(OUT_READING)) return []
-  const entries = await fs.readdir(OUT_READING)
-  return entries
-    .map(name => {
+  // Prefer out-reading/converted/ (post-consolidate + normalize + template pipeline).
+  // Fall back to out-reading/ (raw) for slugs missing a converted counterpart.
+  const CONVERTED_DIR = path.join(OUT_READING, 'converted')
+  const hasConverted = existsSync(CONVERTED_DIR)
+  const hasRaw = existsSync(OUT_READING)
+  if (!hasConverted && !hasRaw) return []
+
+  const bySlug = new Map()
+
+  const collect = async (dir) => {
+    if (!existsSync(dir)) return
+    const entries = await fs.readdir(dir)
+    for (const name of entries) {
       const match = name.match(/^reading-cam-(9|1[0-9]|20)-([1-4])\.json$/)
-      if (!match || (match[1] === '11' && match[2] === '2')) return null
+      if (!match) continue
+      if (match[1] === '11' && match[2] === '2') continue
       const cam = Number(match[1])
       const test = Number(match[2])
-      return {
+      const slug = `ielts-cam${cam}-test${test}`
+      if (bySlug.has(slug)) continue // converted wins because we visit it first
+      bySlug.set(slug, {
         kind: 'reading',
-        slug: `ielts-cam${cam}-test${test}`,
+        slug,
         examId: `catalog-cam-${cam}-${test}-reading`,
         examTrack: 'ielts',
         cam,
         test,
-        payloadPath: path.join(OUT_READING, name),
-      }
-    })
-    .filter(Boolean)
-    .sort((a, b) => a.cam - b.cam || a.test - b.test)
+        payloadPath: path.join(dir, name),
+      })
+    }
+  }
+
+  await collect(CONVERTED_DIR)
+  await collect(OUT_READING)
+
+  return [...bySlug.values()].sort((a, b) => a.cam - b.cam || a.test - b.test)
 }
 
 async function writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles) {

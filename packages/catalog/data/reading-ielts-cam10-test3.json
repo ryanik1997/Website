@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-10-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "The Context, Meaning and Scope of Tourism",
       "passage": [
         {
@@ -174,7 +174,7 @@
     {
       "id": "catalog-cam-10-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Autumn Leaves",
       "passage": [
         {
@@ -379,7 +379,7 @@
     {
       "id": "catalog-cam-10-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Beyond the Blue Horizon",
       "passage": [
         {
@@ -391,9 +391,59 @@
           "id": "catalog-cam-10-3-reading-part-3-g0",
           "range": "Questions 27–31",
           "instruction": "Complete the summary below. Choose the correct letter, A–J, below.",
-          "note": "A 3,000-year-old burial ground of a seafaring people called the Lapita has been found on an abandoned [27] on the Pacific island of Efate. The cemetery, which is a significant [28], was uncovered accidentally by an agricultural worker.\nThe Lapita explored and colonised many Pacific islands over several centuries. They took many things with them on their voyages including [29] and tools.\nThe burial ground increases the amount of information about the Lapita available to scientists. A team of researchers, led by Matthew Spriggs from the Australian National University, are helping with the excavation of the site. Spriggs believes the [30] which was found at the site is very important since it confirms that the [31] found inside are Lapita.",
+          "note": "The value attached to original works of art\n\nPeople go to art museums because they accept the value of seeing an original work of art. But they do not go to museums to read original manuscripts of novels, perhaps because the availability of novels has depended on 27________ for so long, and also because with novels, the 28________ are the most important thing.\n\nHowever, in historical times artists such as Leonardo were happy to instruct 29________ to produce copies of their work and these days new methods of reproduction allow excellent replication of surface relief features as well as colour and 30________\n\nIt is regrettable that museums still promote the superiority of original works of art, since this may not be in the interests of the 31________",
           "type": "summary-completion",
           "notesTitle": "The Éfaté burial site",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "institution"
+            },
+            {
+              "id": "b",
+              "label": "mass production"
+            },
+            {
+              "id": "c",
+              "label": "mechanical processes"
+            },
+            {
+              "id": "d",
+              "label": "public"
+            },
+            {
+              "id": "e",
+              "label": "paints"
+            },
+            {
+              "id": "f",
+              "label": "artist"
+            },
+            {
+              "id": "g",
+              "label": "size"
+            },
+            {
+              "id": "h",
+              "label": "underlying ideas"
+            },
+            {
+              "id": "i",
+              "label": "basic technology"
+            },
+            {
+              "id": "j",
+              "label": "readers"
+            },
+            {
+              "id": "k",
+              "label": "picture frames"
+            },
+            {
+              "id": "l",
+              "label": "assistants"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-10-3-reading-part-3-q27",
@@ -588,7 +638,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nclear\nsail into a prevailing wind\nBước 2: Tìm đoạn văn\nĐoạn 9: “there’s no proof they could do any such thing”\nBước 3: Phân tích\nKhông có bằng chứng rõ ràng họ làm được điều đó.\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -611,7 +661,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nclimate conditions\nmigration\nBước 2: Tìm đoạn văn\nĐoạn 10: “El Nino ... may have helped scatter the Lapita”\nBước 3: Phân tích\nĐiều kiện khí hậu cực đoan có thể góp phần vào sự di cư.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -634,7 +684,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\npredict\nEl Nino\nBước 2: Tìm đoạn văn\nKhông có đoạn nào nói Lapita dự đoán El Nino.\nBước 3: Phân tích\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -657,7 +707,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nunclear\nhalted expansion\nBước 2: Tìm đoạn văn\nĐoạn cuối: “for reasons known only to them”\nBước 3: Phân tích\nLý do họ dừng mở rộng vẫn chưa rõ.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -680,7 +730,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nmajority\nFiji\nBước 2: Tìm đoạn văn\nĐoạn cuối: “more than 300 in Fiji alone”\nBước 3: Phân tích\nBài chỉ nói có nhiều đảo ở Fiji, không nói phần lớn Lapita định cư ở đó.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             }

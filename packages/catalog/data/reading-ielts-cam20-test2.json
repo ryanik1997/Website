@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-20-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Manatees",
       "passage": [
         {
@@ -25,8 +25,97 @@
           "id": "catalog-cam-20-2-reading-part-1-g0",
           "range": "Questions 1–6",
           "instruction": "Complete the notes below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
-          "note": "**Appearance**\n- look similar to dugongs, but with a differently shaped [1]\n**Movement**\n- have fewer neck bones than most mammals\n- need to use their [2] to help to turn their bodies around in order to look sideways\n- sense vibrations in the water by means of [3] on their skin\n**Feeding**\n- eat mainly aquatic vegetation, such as [4]\n- grasp and pull up plants with their [5]\n**Breathing**\n- come to the surface for air every 2–4 minutes when awake and every 15–20 while sleeping\n- may regulate the [6] of their bodies by using muscles of diaphragm to store air internally",
           "type": "gap-fill",
+          "notePassage": [
+            {
+              "type": "section",
+              "text": "• Characteristics of wildfires and wildfire conditions today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– occurrence: more frequent"
+            },
+            {
+              "type": "static",
+              "text": "– temperature: hotter"
+            },
+            {
+              "type": "static",
+              "text": "– speed: faster"
+            },
+            {
+              "type": "static",
+              "text": "– movement: "
+            },
+            {
+              "type": "gap",
+              "number": 1
+            },
+            {
+              "type": "static",
+              "text": " more unpredictable"
+            },
+            {
+              "type": "static",
+              "text": "– size of fires: "
+            },
+            {
+              "type": "gap",
+              "number": 2
+            },
+            {
+              "type": "static",
+              "text": " greater on average than two decades ago"
+            },
+            {
+              "type": "section",
+              "text": "• Reasons wildfires cause more damage today compared to the past:"
+            },
+            {
+              "type": "static",
+              "text": "– rainfall: "
+            },
+            {
+              "type": "gap",
+              "number": 3
+            },
+            {
+              "type": "static",
+              "text": " average"
+            },
+            {
+              "type": "static",
+              "text": "– more brush to act as "
+            },
+            {
+              "type": "gap",
+              "number": 4
+            },
+            {
+              "type": "static",
+              "text": "– increase in yearly temperature"
+            },
+            {
+              "type": "static",
+              "text": "– extended fire "
+            },
+            {
+              "type": "gap",
+              "number": 5
+            },
+            {
+              "type": "static",
+              "text": "– more building of "
+            },
+            {
+              "type": "gap",
+              "number": 6
+            },
+            {
+              "type": "static",
+              "text": " in vulnerable places"
+            }
+          ],
           "notesTitle": "Manatees",
           "questions": [
             {
@@ -102,8 +191,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "7 variety of different aquatic habitats.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Câu:\n“West Indian manatees can be found in a variety of different aquatic habitats.”\n\nĐoạn:\n“It moves between fresh water and salt water, taking advantage of coastal mangroves and coral reefs, rivers, lakes and inland lagoons.”\n\nCó rất nhiều môi trường sống khác nhau.\n\n=> TRUE",
               "answerConfidence": "key"
             },
@@ -112,8 +214,21 @@
               "number": 8,
               "type": "true-false-not-given",
               "prompt": "8 Florida manatee warmer than Antillean.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Câu:\n“The Florida manatee lives in warmer waters than the Antillean manatee.”\n\nBài chỉ nói:\n\nFlorida manatee ở Florida vào mùa đông\ncần nước ấm khi nhiệt độ dưới 20°C\n\nKhông có sự so sánh trực tiếp nhiệt độ nước giữa Florida và Antillean manatee.\n\n=> NOT GIVEN\n\nBẫy:\nCó nhắc “warm-water outfalls” nhưng không hề nói Florida sống ở vùng ấm hơn Antillean.",
               "answerConfidence": "key"
             },
@@ -122,8 +237,21 @@
               "number": 9,
               "type": "true-false-not-given",
               "prompt": "9 African range limited to coastal.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Câu:\n“African manatee’s range is limited to coastal waters…”\n\nĐoạn:\n“The species also makes use of rivers, with the mammals seen in landlocked countries such as Mali and Niger.”\n\nKhông chỉ ở coastal waters mà còn sống trong sông và quốc gia không giáp biển.\n\n=> FALSE",
               "answerConfidence": "key"
             },
@@ -132,8 +260,21 @@
               "number": 10,
               "type": "true-false-not-given",
               "prompt": "10 loss of Amazonian only revealed later.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Câu:\n“The extent of the loss ... was only revealed many years later.”\n\nĐoạn chỉ nói:\n“It is estimated that 140,000 Amazonian manatees were killed between 1935 and 1954”\n\nKhông có thông tin:\n\nkhi nào người ta phát hiện ra số liệu này\ncó phải nhiều năm sau mới biết hay không\n\n=> NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -142,8 +283,21 @@
               "number": 11,
               "type": "true-false-not-given",
               "prompt": "11 populations will fall in coming decades.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Đoạn:\n“Both are also expected to undergo a decline of 20% over the next 40 years.”\n\nCâu hỏi:\n“populations will fall in the coming decades”\n\nexpected decline = predicted fall\nnext 40 years = coming decades\n\n=> TRUE",
               "answerConfidence": "key"
             },
@@ -152,8 +306,21 @@
               "number": 12,
               "type": "true-false-not-given",
               "prompt": "12 risk increased significantly in 2009-2020.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Câu:\n“The risk ... increased significantly in the period 2009-2020.”\n\nĐoạn:\n“A review ... from 2009 to 2020 found that at least 700 cases involved manatees.”\n\nChỉ cho số liệu tổng hợp.\nKhông có thông tin:\n\nrisk increased\nincreased significantly\n\n=> NOT GIVEN\n\nBẫy:\nCó mốc thời gian nhưng không có xu hướng tăng.",
               "answerConfidence": "key"
             },
@@ -162,8 +329,21 @@
               "number": 13,
               "type": "true-false-not-given",
               "prompt": "13 legislation aims to reduce boat strikes.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement:\n“There is some legislation ... to reduce the likelihood of boat strikes.”\n\nĐoạn:\n“laws in certain parts of Florida now limit boat speeds during winter”\n\nMục đích:\n“allowing slow-moving manatees more time to respond.”\n\nBước 1: Paraphrase\n\nlaws = legislation\nreduce likelihood of boat strikes = give them more time to avoid collisions",
               "answerConfidence": "key"
             }
@@ -174,7 +354,7 @@
     {
       "id": "catalog-cam-20-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Procrastination",
       "passage": [
         {
@@ -238,8 +418,8 @@
           "id": "catalog-cam-20-2-reading-part-2-g1",
           "range": "Questions 17–22",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**What makes us procrastinate?**\n- Many people think that procrastination is the result of [17]. Others believe it to be the result of an inability to organise time efficiently.\n- But scientific studies suggest that procrastination is actually due to poor mood management. The tasks we are most likely to put off are those that could damage our self-esteem or cause us to feel [18] when we think about them. Research comparing chronic procrastinators with other people even found differences in the brain regions associated with regulating emotions and identifying [19]\n- Emotionally loaded and difficult tasks often cause us to procrastinate. Getting ready to take [20] might be a typical example of one such task.\nPeople who are likely to procrastinate tend to be either [21] or those with low self-esteem.\n- Procrastination is only a short-term measure for managing emotions. It’s often followed by a feeling of [22], which worsens our mood and leads to more procrastination.\n",
-          "type": "summary-completion",
+          "note": "**What makes us procrastinate?**\n- Many people think that procrastination is the result of [17]. Others believe it to be the result of an inability to organise time efficiently.\n- But scientific studies suggest that procrastination is actually due to poor mood management. The tasks we are most likely to put off are those that could damage our self-esteem or cause us to feel [18] when we think about them. Research comparing chronic procrastinators with other people even found differences in the brain regions associated with regulating emotions and identifying [19]\n- Emotionally loaded and difficult tasks often cause us to procrastinate. Getting ready to take [20] might be a typical example of one such task.\nPeople who are likely to procrastinate tend to be either [21] or those with low self-esteem.\n- Procrastination is only a short-term measure for managing emotions. It’s often followed by a feeling of [22], which worsens our mood and leads to more procrastination.",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-20-2-reading-part-2-q17",
@@ -305,7 +485,7 @@
         },
         {
           "id": "catalog-cam-20-2-reading-part-2-g2",
-          "range": "Questions 23–24",
+          "range": "Questions 23–26",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -370,15 +550,7 @@
               "answer": "A,C",
               "explanation": "Đề hỏi:\n“Which TWO comparisons ... are mentioned?”\n\nOption A:\n“Their salaries are lower.”\n\nĐoạn D:\n“participants who said they regularly procrastinated had less annual income”\n\n→ less annual income = salaries are lower\n\n→ Đúng.\n\nOption B:\n“The quality of their work is inferior.”\n\nBài KHÔNG nói chất lượng công việc tệ hơn.\n\n→ Sai.\n\nOption C:\n“They don’t keep their jobs for as long.”\n\nĐoạn D:\n“less employment stability”\n\n→ việc làm không ổn định = khó giữ việc lâu dài\n\n→ Đúng.\n\nOption D:\n“They don’t enjoy their working lives as much.”\n\nKhông có thông tin enjoyment.\n\n→ Sai.\n\nOption E:\n“They have poorer relationships with colleagues.”\n\nKhông đề cập colleague relationships.\n\n→ Sai.\n\n→ Đáp án:\nA + C.",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-20-2-reading-part-2-g3",
-          "range": "Questions 25–26",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-20-2-reading-part-2-q25",
               "number": 25,
@@ -448,7 +620,7 @@
     {
       "id": "catalog-cam-20-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Invasion of the Robot Umpires",
       "passage": [
         {
@@ -487,7 +659,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Statement:\n“When DeJesus first used ABS, he shared decision-making about strikes with it.”\n\nĐoạn đầu:\n“Instead of making any judgments himself about a strike, DeJesus had decisions fed to him through an earpiece”\n\nPhân tích:\n\ninstead of = thay vì\ntức là DeJesus KHÔNG cùng đưa ra quyết định với ABS.\nABS quyết định hoàn toàn.\n\n→ Statement sai.\n\n→ NO.",
               "answerConfidence": "key"
             },
@@ -510,7 +682,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Statement:\n“MLB considered it necessary to amend the size of the strike zone when criticisms were received from players.”\n\nĐoạn:\n“players complained about some strange calls. In response, MLB decided to tweak the dimensions of the zone”\n\nPhân tích:\n\ncomplained = criticisms\ntweak the dimensions = amend the size\n\n→ Ý khớp hoàn toàn.\n\n→ YES.",
               "answerConfidence": "key"
             },
@@ -533,7 +705,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“MLB is keen to justify the money spent on improving the accuracy of ABS’s calculations.”\n\nBài có nói:\n\nMLB says device is near-perfect\nprecise within fractions of an inch\n\nNHƯNG:\nKhông có thông tin:\n\ntiền bạc\njustify spending\nimproving calculations\n\n→ Statement tự thêm ý.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -556,7 +728,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Statement:\n“The hundred-mile-an-hour fastball led to a more exciting style of play.”\n\nĐoạn:\n“This type of baseball essentially hasn’t existed since the 1960s, when the hundred-mile-an-hour fastball ... entered the game. It flattened the game into strikeouts, walks, and home runs-a type of play lacking much action.”\n\nPhân tích:\n\nlacking much action = ít hấp dẫn hơn\nflatten the game = làm game đơn điệu\n\n→ hoàn toàn ngược với “more exciting”.\n\n→ NO.",
               "answerConfidence": "key"
             },
@@ -579,7 +751,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“The differing proposals for alterations to the baseball bat led to fierce debate on Sword’s team.”\n\nĐoạn:\n“Sword’s team brainstormed potential fixes.”\n\n“they talked about changing—from changing the bats to changing the geometry of the field.”\n\nKhông có:\n\nfierce debate\ntranh cãi dữ dội\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -602,7 +774,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Statement:\n“ABS makes changes to the shape of the strike zone feasible.”\n\nĐoạn:\n“you can load any strike zone you want into the system.”\n\n“It might be a triangle, or a blob...”\n\nPhân tích:\nABS cho phép thay đổi shape của strike zone.\n\n→ feasible = possible.\n\n→ YES.",
               "answerConfidence": "key"
             }
@@ -612,8 +784,50 @@
           "id": "catalog-cam-20-2-reading-part-3-g1",
           "range": "Questions 33–37",
           "instruction": "Complete the summary using the list of phrases, A–H, below.",
-          "note": "**Calls by the umpire**\nEven after ABS was developed, MLB still wanted human umpires to shout out decisions as they had in their [33]. The umpire’s job had, at one time, required a [34] about whether a ball was a strike. A ball is considered a strike when the batter does not hit it and it crosses through a [35] extending approximately from the batter’s knee to his chest.\nIn the past, [36] over strike calls were not uncommon, but today everyone accepts the complete ban on pushing or shoving the umpire. One difference, however, is that during the first game DeJesus used ABS, strike calls were met with [37].",
+          "note": "Wegener's life and work:\n\nOne of the remarkable things about Wegener from a 31________ is that although he proposed a theory of continental drift, he was not a geologist. His 32________ were limited to atmospheric physics. However, at the time he proposed his theory of continental drift in 1912, he was already a person of 33________. Six years previously, there had been his 34________ of 52 hours in a hot-air balloon, followed by his well-publicised but 35________ of Greenland's coast. With the publication of his textbook on thermodynamics, he had also come to the attention of a 36________ of German scientists.",
           "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "modest fame"
+            },
+            {
+              "id": "b",
+              "label": "vast range"
+            },
+            {
+              "id": "c",
+              "label": "record-breaking achievement"
+            },
+            {
+              "id": "d",
+              "label": "research methods"
+            },
+            {
+              "id": "e",
+              "label": "select group"
+            },
+            {
+              "id": "f",
+              "label": "professional interests"
+            },
+            {
+              "id": "g",
+              "label": "scientific debate"
+            },
+            {
+              "id": "h",
+              "label": "hazardous exploration"
+            },
+            {
+              "id": "i",
+              "label": "biographer's perspective"
+            },
+            {
+              "id": "j",
+              "label": "narrow investigation"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-20-2-reading-part-3-q33",

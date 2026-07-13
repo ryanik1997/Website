@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-14-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "ALEXANDER HENDERSON (1831–1913)",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "Henderson rarely visited the area around Press estate when he was younger.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nrarely visited\nPress estate\nyounger\nBước 2: Tìm đoạn\nĐoạn 1:\n“Alexander spent much of his childhood in the area”\nvà “Henderson returned to Press at weekends”\nBước 3: Phân tích\n“spent much of his childhood” = dành phần lớn tuổi thơ ở đó\n“returned at weekends” = thường xuyên quay lại\n⇒ Trái ngược với “rarely visited”.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Henderson pursued a business career because it was what his family wanted.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nbusiness career\nfamily wanted\nBước 2: Tìm đoạn\nĐoạn 2: “he stayed with it to please his family”\nBước 3: Phân tích\n“it” = nghề kinh doanh/kế toán\n“to please his family” = để làm hài lòng gia đình\n⇒ Khớp hoàn toàn với đề bài.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "Henderson and Notman were surprised by the results of their 1865 experiment.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nsurprised\n1865 experiment\nBước 2: Tìm đoạn\nĐoạn 3: “they cooperated on experiments with magnesium flares ... in 1865”\nBước 3: Phân tích\nBài chỉ nói họ làm thí nghiệm\nKhông nói họ “surprised” hay cảm thấy thế nào về kết quả\n⇒ Không có thông tin.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "There were many similarities between Henderson's early landscapes and those of Notman.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nsimilarities\nHenderson\nNotman\nBước 2: Tìm đoạn\nĐoạn 4: “their styles of photography were quite different”\nBước 3: Phân tích\n“quite different” = rất khác nhau\nđề bài nói “many similarities”\n⇒ Thông tin trái ngược.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -66,8 +118,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "The studio that Henderson opened in 1866 was close to his home.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nstudio\n1866\nclose to home\nBước 2: Tìm đoạn\nĐoạn 5: “In 1866, he gave up his business to open a photographic studio”\nBước 3: Phân tích\nChỉ nói ông mở studio\nKhông nói ở gần hay xa nhà\n⇒ Không có thông tin.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -76,8 +141,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "Henderson gave up portraiture so that he could focus on taking photographs of scenery.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\ngave up portraiture\nfocus on scenery\nBước 2: Tìm đoạn\nĐoạn 5: “he dropped portraiture to specialize in landscape photography”\nBước 3: Phân tích\n“landscape photography” = chụp phong cảnh\n“specialize in” = tập trung/chuyên về\n⇒ Khớp ý hoàn toàn.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -86,8 +164,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "When Henderson began work for the Intercolonial Railway, the Montreal to Halifax line had been finished.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nIntercolonial Railway\nline had been finished\nBước 2: Tìm đoạn\nĐoạn 7: “the almost-completed line connecting Montreal to Halifax”\nBước 3: Phân tích\n“almost-completed” = gần hoàn thành\nđề bài nói “had been finished” = đã hoàn thành\n⇒ Trái nghĩa.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -96,8 +187,21 @@
               "number": 8,
               "type": "true-false-not-given",
               "prompt": "Henderson's last work as a photographer was with the Canadian Pacific Railway.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nlast work\nCanadian Pacific Railway\nBước 2: Tìm đoạn\nĐoạn 8: “He continued in this post until 1897, when he retired completely from photography.”\nBước 3: Phân tích\nCông việc cuối cùng trước khi nghỉ hưu là làm cho CPR\n⇒ Khớp thông tin.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -168,7 +272,7 @@
     {
       "id": "catalog-cam-14-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "BACK TO THE FUTURE OF SKYSCRAPER DESIGN",
       "passage": [
         {
@@ -250,7 +354,7 @@
           "range": "Questions 19–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "Professor Alan Short examined the work of John Shaw Billings, who influenced the architectural [19] of hospitals to ensure they had good ventilation. He calculated that [20] in the air coming from patients suffering from [21] would not have harmed other patients. He also found that the air in [22] in hospitals could change as often as in a modern operating theatre. He suggests that energy use could be reduced by locating more patients in [23] areas.\nA major reason for improving ventilation in 19th-century hospitals was the demand from the [24] for protection against bad air, known as [25] These were blamed for the spread of disease for hundreds of years, including epidemics of [26] in London and Paris in the middle of the 19th century.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Ventilation in 19th-century hospital wards",
           "questions": [
             {
@@ -340,7 +444,7 @@
     {
       "id": "catalog-cam-14-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "WHY COMPANIES SHOULD WELCOME DISORDER",
       "passage": [
         {
@@ -371,7 +475,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-14-2-reading-part-3-g0",
-          "range": "Questions 27–34",
+          "range": "Questions 27–37",
           "instruction": "Reading Passage has paragraphs A–H. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–ix, in boxes 27–34 on your answer sheet.",
           "type": "multiple-choice",
           "questions": [
@@ -454,15 +558,7 @@
               "answer": "viii",
               "explanation": "Bước 1: Keyword\ndisorder also has diminishing utility\noverused\nBước 2: Tìm đoạn\nĐoạn H: “disorder, much like order, also seems to have diminishing utility”\nBước 3: Phân tích\nCả “order” lẫn “disorder” đều không phải lúc nào cũng hiệu quả nếu dùng quá mức.\n→ Đáp án: viii",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-14-2-reading-part-3-g1",
-          "range": "Questions 35–37",
-          "instruction": "Complete the sentences below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-14-2-reading-part-3-q35",
               "number": 35,
@@ -496,7 +592,7 @@
           ]
         },
         {
-          "id": "catalog-cam-14-2-reading-part-3-g2",
+          "id": "catalog-cam-14-2-reading-part-3-g1",
           "range": "Questions 38–40",
           "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 38–40 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
           "type": "tfng",

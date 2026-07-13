@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-15-3-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "HENRY MOORE (1898–1986)",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "On leaving school, Moore did what his father wanted him to do.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1:\n\nStatement: On leaving school, Moore did what his father wanted him to do.\n\nBước 1: Keyword\n\nleaving school\nfather wanted\n\nBước 2: Tìm đoạn văn\nĐoạn 1:\n\"After leaving school, Moore hoped to become a sculptor, but instead he complied with his father’s wish that he train as a schoolteacher.\"\n\nBước 3: Phân tích\nMoore muốn trở thành nhà điêu khắc nhưng lại làm theo mong muốn của cha là đào tạo làm giáo viên.\n→ \"complied with his father's wish\" = làm theo ý cha.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Moore began studying sculpture in his first term at the Leeds School of Art.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\n\nfirst term/year\nstudying sculpture\n\nBước 2: Tìm đoạn văn\nĐoạn 2:\n\"In his first year, he spent most of his time drawing... no teacher was appointed until his second year.\"\n\nBước 3: Phân tích\nNăm đầu Moore chủ yếu học vẽ, đến năm hai mới có giáo viên dạy điêu khắc.\n\n→ câu nói học điêu khắc từ học kỳ đầu sai.\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "When Moore started at the Royal College of Art, its reputation for teaching sculpture was excellent.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\n\nRoyal College\nreputation\nexcellent\n\nBước 2: Tìm đoạn văn\nĐoạn 2 chỉ nói:\n\"he was awarded a scholarship...\"\n\"began three years of advanced study...\"\n\nBước 3: Phân tích\nĐoạn văn không nói chất lượng hay danh tiếng của trường về việc dạy điêu khắc.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "Moore became aware of ancient sculpture as a result of visiting London Museums.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement: Moore became aware of ancient sculpture as a result of visiting London museums.\n\nBước 1: Keyword\n\nancient sculpture\nLondon museums\n\nBước 2: Tìm đoạn văn\nĐoạn 3:\n\"he visited many London museums...\"\n\"During these visits, he discovered the power and beauty of ancient Egyptian and African sculpture.\"\n\nBước 3: Phân tích\nMoore biết đến vẻ đẹp của nghệ thuật điêu khắc cổ đại nhờ các chuyến thăm bảo tàng London.\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -66,8 +118,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "The Trocadero Museum's Mayan sculpture attracted a lot of public interest.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Statement: The Trocadero Museum’s Mayan sculpture attracted a lot of public interest.\n\nBước 1: Keyword\n\nMayan sculpture\npublic interest\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"he was impressed by a cast of a Mayan sculpture...\"\n\nBước 3: Phân tích\nChỉ nói Moore bị thu hút, không nói công chúng quan tâm nhiều hay ít.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -76,8 +141,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "Moore thought the Mayan sculpture was similar in certain respects to other stone sculptures.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement: Moore thought the Mayan sculpture was similar in certain respects to other stone sculptures.\n\nBước 1: Keyword\n\nsimilar\nother stone sculptures\n\nBước 2: Tìm đoạn văn\nĐoạn 4:\n\"he thought it had a power and originality that no other stone sculpture possessed.\"\n\nBước 3: Phân tích\nMoore cho rằng nó độc đáo, không giống các tác phẩm khác.\n\nsimilar ↔ no other possessed (đối lập)\n\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -86,8 +164,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "The artists who belonged to Unit One wanted to make modern art and architecture more popular.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement: The artists who belonged to Unit One wanted to make modern art and architecture more popular.\n\nBước 1: Keyword\n\nUnit One\nmodern art and architecture\nmore popular\n\nBước 2: Tìm đoạn văn\nĐoạn 5:\n\"The aim of the group was to convince the English public of the merits of the emerging international movement in modern art and architecture.\"\n\nBước 3: Phân tích\nMục tiêu là thuyết phục công chúng về giá trị của nghệ thuật và kiến trúc hiện đại.\n\nmake more popular = convince the public of the merits\n\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -168,7 +259,7 @@
     {
       "id": "catalog-cam-15-3-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "THE DESOLENATOR: PRODUCING CLEAN WATER",
       "passage": [
         {
@@ -180,55 +271,56 @@
           "id": "catalog-cam-15-3-reading-part-2-g0",
           "range": "Questions 14–20",
           "instruction": "Reading Passage has paragraphs A–G. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–x, in boxes 14–20 on your answer sheet.",
-          "type": "multiple-choice",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "i=Getting the finance for production"
+            },
+            {
+              "id": "b",
+              "label": "ii=An unexpected benefit"
+            },
+            {
+              "id": "c",
+              "label": "iii=From initial inspiration to new product"
+            },
+            {
+              "id": "d",
+              "label": "iv=The range of potential customers for the device"
+            },
+            {
+              "id": "e",
+              "label": "v=What makes the device different from alternatives"
+            },
+            {
+              "id": "f",
+              "label": "vi=Cleaning water from a range of sources"
+            },
+            {
+              "id": "g",
+              "label": "vii=Overcoming production difficulties"
+            },
+            {
+              "id": "h",
+              "label": "viii=Profit not the primary goal"
+            },
+            {
+              "id": "i",
+              "label": "ix=A warm welcome for the device"
+            },
+            {
+              "id": "j",
+              "label": "x=The number of people affected by water shortages"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-15-3-reading-part-2-q14",
               "number": 14,
               "type": "matching-headings",
               "prompt": "Section A",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "i=Getting the finance for production"
-                },
-                {
-                  "id": "B",
-                  "label": "ii=An unexpected benefit"
-                },
-                {
-                  "id": "C",
-                  "label": "iii=From initial inspiration to new product"
-                },
-                {
-                  "id": "D",
-                  "label": "iv=The range of potential customers for the device"
-                },
-                {
-                  "id": "E",
-                  "label": "v=What makes the device different from alternatives"
-                },
-                {
-                  "id": "F",
-                  "label": "vi=Cleaning water from a range of sources"
-                },
-                {
-                  "id": "G",
-                  "label": "vii=Overcoming production difficulties"
-                },
-                {
-                  "id": "H",
-                  "label": "viii=Profit not the primary goal"
-                },
-                {
-                  "id": "I",
-                  "label": "ix=A warm welcome for the device"
-                },
-                {
-                  "id": "J",
-                  "label": "x=The number of people affected by water shortages"
-                }
-              ],
+              "options": [],
               "answer": "iii",
               "explanation": "Bước 1: Keyword\n\ninspiration\nnew product\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n\"William Janssen was impressed with basic rooftop solar heating systems...\"\n\"Two decades later Janssen developed that basic idea...\"\n\nBước 3: Phân tích\nBan đầu Janssen có cảm hứng từ hệ thống năng lượng mặt trời ở Thái Lan, sau đó phát triển thành thiết bị mới.\n\n=> Đáp án: iii",
               "answerConfidence": "key"
@@ -236,7 +328,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q15",
               "number": 15,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section B",
               "options": [],
               "answer": "vi",
@@ -246,7 +338,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q16",
               "number": 16,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section C",
               "options": [],
               "answer": "v",
@@ -256,7 +348,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q17",
               "number": 17,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section D",
               "options": [],
               "answer": "x",
@@ -266,7 +358,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q18",
               "number": 18,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section E",
               "options": [],
               "answer": "iv",
@@ -276,7 +368,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q19",
               "number": 19,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section F",
               "options": [],
               "answer": "viii",
@@ -286,7 +378,7 @@
             {
               "id": "catalog-cam-15-3-reading-part-2-q20",
               "number": 20,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "Section G",
               "options": [],
               "answer": "i",
@@ -300,7 +392,7 @@
           "range": "Questions 21–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "The energy required to operate the Desolenator comes from sunlight. The device can be used in different locations, as it has [21]. Water is fed into a pipe, and a [22] of water flows over a solar panel. The water then enters a boiler, where it turns into steam. Any particles in the water are caught in a [23]. The purified water comes out through one tube, and all types of [24] come out through another. A screen displays the [25] of the device, and transmits the information to the company so that they know when the Desolenator requires [26]",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "How the Desolenator works",
           "questions": [
             {
@@ -370,7 +462,7 @@
     {
       "id": "catalog-cam-15-3-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "WHY FAIRY TALES ARE REALLY SCARY TALES",
       "passage": [
         {
@@ -469,6 +561,24 @@
           "note": "Tehrani used techniques from evolutionary biology to find out if [32] existed among 58 stories from around the world. He also wanted to know which aspects of the stories had fewest [33]. as he believed these aspects would be the most important ones. Contrary to other beliefs, he found that some [34] that were included in a story tended to change over time, and that the middle of a story seemed no more important than the other parts. He was also surprised that parts of a story which seemed to provide some sort of [35] were unimportant. The aspect that he found most important in a story’s survival was [36]",
           "type": "summary-completion",
           "notesTitle": "Phylogenetic analysis of Little Red Riding Hood",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "robots to explore outer space."
+            },
+            {
+              "id": "b",
+              "label": "advances made in machine intelligence so far."
+            },
+            {
+              "id": "c",
+              "label": "changes made to other planets for our own benefit."
+            },
+            {
+              "id": "d",
+              "label": "the harm already done by artificial intelligence."
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-15-3-reading-part-3-q32",

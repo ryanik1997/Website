@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-17-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Bats to the rescue",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "1 Many Madagascan forests are being destroyed by attacks from insects.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nMadagascan forests\ndestroyed\nattacks from insects\nBước 2: Tìm đoạn\nĐoạn 1: “insect pests are destroying vast quantities of what is grown by local subsistence farmers, leading them to clear forest to create new paddy fields.”\nBước 3: Phân tích\nCôn trùng đang phá hoại mùa màng của nông dân.\nVì mất mùa nên nông dân phải phá rừng để tạo thêm ruộng lúa.\nNghĩa là rừng bị phá bởi con người, không phải do insects trực tiếp tấn công.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "2 Loss of habitat has badly affected insectivorous bats in Madagascar.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nloss of habitat\nbadly affected\ninsectivorous bats\nBước 2: Tìm đoạn\nĐoạn 1: “not all species are suffering. In fact, some of the island’s insectivorous bats are currently thriving”\nBước 3: Phân tích\n“thriving” = phát triển mạnh, sinh sống tốt.\nĐề nói bats bị ảnh hưởng xấu nghiêm trọng.\nNội dung bài lại nói một số loài đang phát triển.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "3 Ricardo Rocha has carried out studies of bats in different parts of the world.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nRicardo Rocha\nstudies\ndifferent parts of the world\nBước 2: Tìm đoạn\nĐoạn 2 chỉ nói: “he’s interested in how bats are responding to human activity and deforestation”\nBước 3: Phân tích\nBài chỉ nói ông ấy quan tâm đến việc loài dơi phản ứng với hoạt động của con người và nạn phá rừng như thế nào.\nKhông có thông tin ông ấy nghiên cứu ở nhiều nơi trên thế giới.\nKhông thể suy luận thêm.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "4 Habitat modification has resulted in indigenous bats in Madagascar becoming useful to farmers.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nhabitat modification\nindigenous bats\nuseful to farmers\nBước 2: Tìm đoạn\nĐoạn 4: “several species of indigenous bats are taking advantage of habitat modification to hunt insects swarming above the country’s rice fields.”\nĐoạn 5:\n“providing a valuable free service to Madagascar as biological pest suppressors”\nBước 3: Phân tích\n“habitat modification” = thay đổi môi trường sống.\nDơi săn côn trùng trên ruộng lúa → giúp tiêu diệt sâu hại.\n“valuable free service” cho thấy chúng có ích cho nông dân.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -66,8 +118,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "5 The Malagasy mouse-eared bat is more common than other indigenous bat species in Madagascar.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword\nMalagasy mouse-eared bat\nmore common\nBước 2: Tìm đoạn\nĐoạn 4: “They include the Malagasy mouse-eared bat...”\nBước 3: Phân tích\nBài chỉ liệt kê tên loài dơi.\nKhông có thông tin nó phổ biến hơn các loài khác.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -76,8 +141,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "6 Bats may feed on paddy swarming caterpillars and grass webworms.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\npaddy swarming caterpillars\ngrass webworms\nBước 2: Tìm đoạn\nĐoạn 5: “six species of bat are preying on rice pests, including the paddy swarming caterpillar and grass webworm”\nBước 3: Phân tích\n“preying on” = săn/ăn.\nHoàn toàn trùng nghĩa với “feed on”.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -85,7 +163,7 @@
         },
         {
           "id": "catalog-cam-17-4-reading-part-1-g1",
-          "range": "Questions 7–12",
+          "range": "Questions 7–13",
           "instruction": "Complete the table below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "type": "gap-fill",
           "noteTable": {
@@ -224,15 +302,7 @@
               "answer": "culture",
               "explanation": "Bước 1: Keyword\nimportant role\nlocal\nBước 2: Tìm đoạn\nĐoạn 11: “they can be viewed as beings between worlds, which makes them very significant in the culture of the people.”\nBước 3: Phân tích\n“significant in the culture” = đóng vai trò quan trọng trong văn hóa.\nlocal culture = văn hóa địa phương.\n=> Đáp án: culture",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-17-4-reading-part-1-g2",
-          "range": "Questions 13–13",
-          "instruction": "Choose the correct answer.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-17-4-reading-part-1-q13",
               "number": 13,
@@ -250,7 +320,7 @@
     {
       "id": "catalog-cam-17-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Does education fuel economic growth?",
       "passage": [
         {
@@ -329,7 +399,7 @@
           "range": "Questions 19–22",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "The database that Ogilvie and her team has compiled sheds light on the lives of a range of individuals, as well as those of their [19], over a 300-year period. For example, Ana Regina and Magdalena Riethmüllerin were reprimanded for reading while they should have been paying attention to a [20]\nThere was also Juliana Schweickherdt, who came to the notice of the weavers’ guild in the year 1752 for breaking guild rules. As a punishment, she was later given a [21]. Cases like this illustrate how the guilds could prevent [22] and stop skilled people from working",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Demographic reconstruction of two German communities",
           "questions": [
             {
@@ -376,7 +446,7 @@
         },
         {
           "id": "catalog-cam-17-4-reading-part-2-g2",
-          "range": "Questions 23–24",
+          "range": "Questions 23–26",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -420,15 +490,7 @@
               "answer": "B,E",
               "explanation": "Bước 1: Keyword\nliteracy rates\nSection B\nBước 2: Tìm đoạn \nĐoạn B: “Germany and Scandinavia had excellent literacy rates” và “there is plenty of evidence that growth increases education”\nBước 3: Phân tích\n B. Literacy rates in Germany between 1600 and 1900 were very good.\n→ “excellent literacy rates”\n E. Economic growth can help to improve literacy rates.\n→ growth increases education.\n❌ A: không nói “very little research”\n❌ C: bài nói thiếu bằng chứng mạnh\n❌ D: England literacy chỉ “mediocre”\n=> Đáp án: B & E",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-17-4-reading-part-2-g3",
-          "range": "Questions 25–26",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-17-4-reading-part-2-q25",
               "number": 25,
@@ -477,7 +539,7 @@
     {
       "id": "catalog-cam-17-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Timur Gareyev – blindfold chess champion",
       "passage": [
         {
@@ -618,8 +680,8 @@
           "id": "catalog-cam-17-4-reading-part-3-g2",
           "range": "Questions 37–40",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "The researchers started by testing Gareyev’s [37]; for example, he was required to recall a string of [38] in order and also in reverse order. Although his performance was normal, scans showed an unusual amount of [39] within the areas of Gareyev’s brain that are concerned with directing attention. In addition, the scans raised the possibility of unusual strength in the parts of his brain that deal with [40] input.\n\n",
-          "type": "summary-completion",
+          "note": "The researchers started by testing Gareyev’s [37]; for example, he was required to recall a string of [38] in order and also in reverse order. Although his performance was normal, scans showed an unusual amount of [39] within the areas of Gareyev’s brain that are concerned with directing attention. In addition, the scans raised the possibility of unusual strength in the parts of his brain that deal with [40] input.",
+          "type": "gap-fill",
           "notesTitle": "How the research was carried out",
           "questions": [
             {

@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-18-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "GREEN ROOFS",
       "passage": [
         {
@@ -84,8 +84,8 @@
           "id": "catalog-cam-18-4-reading-part-1-g1",
           "range": "Questions 6–11",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Advantages of green roofs**\nCity rooftops covered with greenery have many advantages. These include lessening the likelihood that floods will occur, reducing how much money is spent on [6] and creating environments that are suitable for wildlife. In many cases, they can also be used for producing [7] \nThere are also social benefits of green roofs. For example, the medical profession recommends [8] as an activity to help people cope with mental health issues. Studies have also shown that the availability of green spaces can prevent physical problems such as [9]\n ",
-          "type": "summary-completion",
+          "note": "**Advantages of green roofs**\nCity rooftops covered with greenery have many advantages. These include lessening the likelihood that floods will occur, reducing how much money is spent on [6] and creating environments that are suitable for wildlife. In many cases, they can also be used for producing [7] \nThere are also social benefits of green roofs. For example, the medical profession recommends [8] as an activity to help people cope with mental health issues. Studies have also shown that the availability of green spaces can prevent physical problems such as [9]",
+          "type": "gap-fill",
           "notesTitle": "Advantages of green roofs",
           "questions": [
             {
@@ -132,7 +132,7 @@
         },
         {
           "id": "catalog-cam-18-4-reading-part-1-g2",
-          "range": "Questions 10–11",
+          "range": "Questions 10–13",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -197,15 +197,7 @@
               "answer": "C,D",
               "explanation": "Lợi thế thứ nhất (Chọn C: greater water-storage capacity)\nBước 1: Tìm từ khóa và xác định thành phần ngữ pháp\n\nTừ khóa chính trong câu hỏi và phương án: newer buildings, Paragraph C, greater water-storage capacity.\n\nThành phần ngữ pháp: Đi tìm một danh từ/cụm danh từ chỉ lợi thế về khả năng giữ/lưu trữ nước của các tòa nhà mới.\n\nBước 2: Định vị vị trí đối chiếu trong bài đọc\n\nTìm từ khóa newer buildings và thông tin về nước trong Đoạn C, câu số 3 và 4:\n\n“These countries also benefit from having newer buildings... Being able to keep enough water at roof height and distribute it right across the rooftop is crucial... And it’s much easier to do this in newer buildings, which can typically hold greater weight, than to retro-fit old ones.”\n\nBước 3: Phân tích ngữ nghĩa đối chiếu\n\nBài đọc chỉ ra rằng các tòa nhà mới có thể chịu được trọng lượng lớn hơn, do đó dễ dàng \"keep enough water at roof height\" (giữ đủ lượng nước ở độ cao của mái nhà).\n\nCụm từ \"keep enough water\" (giữ đủ nước) đồng nghĩa hoàn toàn với khái niệm \"greater water-storage capacity\" (khả năng lưu trữ nước lớn hơn) ở phương án C.\n\nĐáp án: C\n\nLợi thế thứ hai (Chọn D: ability to cultivate more plant types)\nBước 2: Định vị vị trí đối chiếu trong bài đọc\n\nNhìn vào câu cuối cùng của Đoạn C:\n\n“Having a stronger roof also makes it easier to grow a greater variety of plants, since the soil can be deeper.”\n\nBước 3: Phân tích ngữ nghĩa đối chiếu\n\nBài đọc khẳng định phần mái của tòa nhà mới chắc chắn hơn giúp dễ dàng \"grow a greater variety of plants\" (trồng nhiều loại cây đa dạng hơn) nhờ lớp đất có thể đổ sâu hơn.\n\nCụm từ \"grow a greater variety of plants\" đồng nghĩa hoàn toàn với cụm \"ability to cultivate more plant types\" (khả năng canh tác/nuôi trồng nhiều loại cây hơn) ở phương án D.\n\nĐáp án: D",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-18-4-reading-part-1-g3",
-          "range": "Questions 12–13",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-18-4-reading-part-1-q12",
               "number": 12,
@@ -275,7 +267,7 @@
     {
       "id": "catalog-cam-18-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "THE GROWTH MINDSET",
       "passage": [
         {
@@ -487,7 +479,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Đáp án: YES\nBước 1: Keyword\n\nDweck response, criticism\n\nBước 2: Locate đoạn\n\nĐoạn 6:\n\n“deserves great credit”\n“responding and adapting”\nBước 3: Đối chiếu\n\n→ tác giả khen cách Dweck xử lý criticism\n\n=> YES",
               "answerConfidence": "key"
             },
@@ -510,7 +502,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\n\nself-perception, achievement stronger\n\nBước 2: Locate đoạn\n\nĐoạn 8:\n\nachievement ảnh hưởng self-perception mạnh hơn\nBước 3: Đối chiếu\n\n→ câu đề nói ngược\n\n=> NO",
               "answerConfidence": "key"
             },
@@ -533,7 +525,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\n\nmedia coverage, unfair\n\nBước 2: Locate đoạn\n\nKhông có nói về “media unfair coverage”\n\nBước 3: Đối chiếu\n\n→ không có thông tin\n\n=> NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -556,7 +548,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\n\nencourage achievement, negative effect\n\nBước 2: Locate đoạn\n\nCuối bài:\n\nmotivational posters waste time\ncan mislead students\nBước 3: Đối chiếu\n\n→ khuyến khích sai cách có thể gây tác dụng ngược\n\n=> YES",
               "answerConfidence": "key"
             }
@@ -567,7 +559,7 @@
     {
       "id": "catalog-cam-18-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "ALFRED WEGENER",
       "passage": [
         {
@@ -600,7 +592,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Đáp án: YES\n\nBước 1: Keyword\n\nideas about continental drift\ndisputed while alive\n\nBước 2: Trong bài\n\n“...was the focus of an international controversy in his lifetime...”\n\nBước 3: Phân tích\n\ninternational controversy = tranh cãi trên phạm vi quốc tế\nin his lifetime = khi ông còn sống\n\n→ Ý tưởng của Wegener bị tranh cãi mạnh mẽ khi ông còn sống.",
               "answerConfidence": "key"
             },
@@ -623,7 +615,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Đáp án: NOT GIVEN\n\nBước 1: Keyword\n\ncontinents remained fixed\ndefended\nscientific publications\n\nBước 2: Trong bài\n\nCó đề cập:\n\n“rather than supposing that they remained fixed in place”\n\nBước 3: Phân tích\n\nBài chỉ nói trước đó người ta cho rằng các lục địa cố định.\n\nKhông có thông tin:\n\nai bảo vệ quan điểm này\ncó bao nhiêu công trình khoa học\ncó được đăng trên các ấn phẩm khoa học uy tín hay không\n\n→ Không đủ thông tin.",
               "answerConfidence": "key"
             },
@@ -646,7 +638,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Đáp án: NO\n\nBước 1: Keyword\n\nlimited range\nscientific fields\n\nBước 2: Trong bài\n\n“using evidence from a large number of sciences including geology, geophysics, paleontology, and climatology”\n\nBước 3: Phân tích\n\na large number of sciences = nhiều ngành khoa học\n\nTrong khi đề nói:\n\nlimited range = phạm vi hạn chế\n\n→ Trái ngược hoàn toàn.",
               "answerConfidence": "key"
             },
@@ -669,7 +661,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Đáp án: NO\n\nBước 1: Keyword\n\nsimilarities\nenormous\n\nBước 2: Trong bài\n\n“Plate tectonics is in many respects quite different from Wegener’s proposal”\n\nBước 3: Phân tích\n\nquite different = khá khác biệt\n\nĐề nói:\n\nsimilarities are enormous = rất giống nhau\n\n→ Trái ngược.",
               "answerConfidence": "key"
             }
@@ -679,8 +671,50 @@
           "id": "catalog-cam-18-4-reading-part-3-g1",
           "range": "Questions 31–36",
           "instruction": "Complete the summary using the list of phrases, A–J, below.",
-          "note": "**Wegener’s life and work:**\nOne of the remarkable things about Wegener from a [31] is that although he proposed a theory of continental drift, he was not a geologist. His [32] were limited to atmospheric physics. However, at the time he proposed his theory of continental drift in 1912, he was already a person of [33] . Six years previously, there had been his [34] of 52 hours in a hot-air balloon, followed by his well-publicised but \n[35] of Greenland’s coast. With the publication of his textbook on thermodynamics, he had also come to the attention of a [36] of German scientists.",
+          "note": "Wegener's life and work:\n\nOne of the remarkable things about Wegener from a 31________ is that although he proposed a theory of continental drift, he was not a geologist. His 32________ were limited to atmospheric physics. However, at the time he proposed his theory of continental drift in 1912, he was already a person of 33________. Six years previously, there had been his 34________ of 52 hours in a hot-air balloon, followed by his well-publicised but 35________ of Greenland's coast. With the publication of his textbook on thermodynamics, he had also come to the attention of a 36________ of German scientists.",
           "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "modest fame"
+            },
+            {
+              "id": "b",
+              "label": "vast range"
+            },
+            {
+              "id": "c",
+              "label": "record-breaking achievement"
+            },
+            {
+              "id": "d",
+              "label": "research methods"
+            },
+            {
+              "id": "e",
+              "label": "select group"
+            },
+            {
+              "id": "f",
+              "label": "professional interests"
+            },
+            {
+              "id": "g",
+              "label": "scientific debate"
+            },
+            {
+              "id": "h",
+              "label": "hazardous exploration"
+            },
+            {
+              "id": "i",
+              "label": "biographer's perspective"
+            },
+            {
+              "id": "j",
+              "label": "narrow investigation"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-18-4-reading-part-3-q31",

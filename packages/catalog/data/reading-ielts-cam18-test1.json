@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-18-1-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "URBAN FARMING",
       "passage": [
         {
@@ -17,7 +17,7 @@
       "questionGroups": [
         {
           "id": "catalog-cam-18-1-reading-part-1-g0",
-          "range": "Questions 1–3",
+          "range": "Questions 1–7",
           "instruction": "Complete the sentences below.\nChoose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer.",
           "type": "multiple-choice",
           "questions": [
@@ -50,117 +50,7 @@
               "answer": "consumption",
               "explanation": "Câu:\n“account for as much as 10% of the city’s ___ overall”\n\nĐoạn:\n“target maybe between 5% and 10% of consumption”\n\n→ consumption = amount of food used/eaten in the city.\n\n→ Đáp án: consumption.",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-18-1-reading-part-1-g1",
-          "range": "Questions 4–7",
-          "instruction": "Complete the table below.\nChoose ONE WORD AND/OR A NUMBER from the passage for each answer.",
-          "type": "gap-fill",
-          "noteTable": {
-            "headers": [
-              "",
-              "",
-              "",
-              ""
-            ],
-            "rows": [
-              {
-                "cells": [
-                  [
-                    {
-                      "type": "static",
-                      "text": ""
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "\t\n**Growth**"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "**Selection**"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "**Sale**"
-                    }
-                  ]
-                ]
-              },
-              {
-                "cells": [
-                  [
-                    {
-                      "type": "static",
-                      "text": "Intensive farming"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": " used\n● techniques pollute air"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "● quality not good\n● varieties of fruit and vegetables chosen that can survive long "
-                    },
-                    {
-                      "type": "gap",
-                      "number": 5
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": " receive very little of overall income"
-                    }
-                  ]
-                ]
-              },
-              {
-                "cells": [
-                  [
-                    {
-                      "type": "static",
-                      "text": "Aeroponic urban farming"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "● no soil used\n● nutrients added to water, which is recycled"
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": "● produce chosen because of its "
-                    },
-                    {
-                      "type": "gap",
-                      "number": 7
-                    }
-                  ],
-                  [
-                    {
-                      "type": "static",
-                      "text": ""
-                    }
-                  ]
-                ]
-              }
-            ]
-          },
-          "questions": [
+            },
             {
               "id": "catalog-cam-18-1-reading-part-1-q4",
               "number": 4,
@@ -204,7 +94,7 @@
           ]
         },
         {
-          "id": "catalog-cam-18-1-reading-part-1-g2",
+          "id": "catalog-cam-18-1-reading-part-1-g1",
           "range": "Questions 8–13",
           "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 8–13 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
           "type": "tfng",
@@ -276,7 +166,7 @@
     {
       "id": "catalog-cam-18-1-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "FOREST MANAGEMENT IN PENNSYLVANIA, USA",
       "passage": [
         {
@@ -466,7 +356,7 @@
     {
       "id": "catalog-cam-18-1-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "CONQUERING EARTH'S SPACE JUNK PROBLEM",
       "passage": [
         {
@@ -545,7 +435,7 @@
           "range": "Questions 32–35",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "The committee gives advice on how the [32] of space can be achieved. The committee advises that when satellites are no longer active, any unused [33] or pressurised material that could cause [34] should be removed.\nAlthough operators of large satellite constellations accept that they have obligations as stewards of space, Holger Krag points out that the operators that become [35] are unlikely to prioritise removing their satellites from space.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "The Inter-Agency Space Debris Coordination Committee",
           "questions": [
             {

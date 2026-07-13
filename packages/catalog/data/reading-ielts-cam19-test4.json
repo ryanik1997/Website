@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-19-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "THE IMPACT OF CLIMATE CHANGE ON BUTTERFLIES IN BRITAIN",
       "passage": [
         {
@@ -29,8 +29,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "1 40 years ago, fewer butterflies than present.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“Forty years ago, there were fewer butterflies ... than at present.”\n\nĐoạn đầu nói:\n“populations ... have declined in Britain over the past 40 years.”\n\n→ declined = giảm đi theo thời gian.\n→ nghĩa là 40 năm trước butterflies nhiều hơn bây giờ.\n\n→ Statement bị ngược.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -39,8 +52,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "2 Caterpillars eaten by different predators.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement:\n“Caterpillars are eaten by a number of different predators.”\n\nĐoạn:\n“act as prey for birds as well as bats and other small mammals.”\n\n→ birds, bats, mammals đều ăn caterpillars.\n\n→ “a number of different predators” hoàn toàn đúng.\n\n→ TRUE.",
               "answerConfidence": "key"
             },
@@ -49,8 +75,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "3 Phenology term for ability to alter location.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“Phenology ... alter the location of a lifecycle event.”\n\nĐoạn:\n“Scientists refer to the timing of such lifecycle events as ‘phenology’”\n\n→ timing = thời gian\nKHÔNG phải:\n\nlocation = địa điểm\n\n→ Statement đổi sai keyword.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -59,8 +98,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "4 species have reduced lifespan.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Statement:\n“Some butterfly species have a reduced lifespan...”\n\nBài chỉ nói:\n\nbutterflies emerge earlier\nchange reproductive timing\n\nKhông có thông tin:\n\nlifespan shorter\nreduced lifespan\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -69,8 +121,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "5 clear reason for adaptations.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Statement:\n“There is a clear reason for the adaptations...”\n\nĐoạn:\n“The answer is still unknown”\n\n→ researchers chưa biết butterflies đang thích nghi tốt hay đang bị stress.\n\n→ không có “clear reason”.\n\n→ FALSE.",
               "answerConfidence": "key"
             },
@@ -79,8 +144,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "6 data taken from amateur watchers.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Statement:\n“data ... from amateur butterfly watchers.”\n\nĐoạn:\n“records ... submitted by butterfly enthusiasts”\n\n→ butterfly enthusiasts = amateur butterfly watchers.\n\n→ TRUE.",
               "answerConfidence": "key"
             }
@@ -90,7 +168,7 @@
           "id": "catalog-cam-19-4-reading-part-1-g1",
           "range": "Questions 7–13",
           "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Butterflies in the UK**\n**The Small Blue**\n• lives in large [7]\n• first appears at the start of [8]\n• completes more than one reproductive cycle per year\n**The High Brown Fritillary**\n• has one reproductive cycle\n• is considered to be more [9] than other species\n• its caterpillars occupy a limited range of [10]\n**The Silver-studded Blue**\n• is already able to reproduce twice a year in warm areas of [11]\n**The White Admiral**\n• is found in [12] areas of England\n• both climate change and the [13] of the caterpillar are possible reasons for decline ",
+          "note": "**Butterflies in the UK**\n**The Small Blue**\n• lives in large [7]\n• first appears at the start of [8]\n• completes more than one reproductive cycle per year\n**The High Brown Fritillary**\n• has one reproductive cycle\n• is considered to be more [9] than other species\n• its caterpillars occupy a limited range of [10]\n**The Silver-studded Blue**\n• is already able to reproduce twice a year in warm areas of [11]\n**The White Admiral**\n• is found in [12] areas of England\n• both climate change and the [13] of the caterpillar are possible reasons for decline",
           "type": "gap-fill",
           "questions": [
             {
@@ -170,7 +248,7 @@
     {
       "id": "catalog-cam-19-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "DEEP-SEA MINING",
       "passage": [
         {
@@ -332,7 +410,7 @@
           "range": "Questions 24–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "**Mining the sea floor**\nMining corporations believe that the mineral resources lying under the sea may be superior to those found in the earth. They also say that these can be removed without producing much [24] The extraction is often done by adapting the [25] that has already been used to work on land. The method of excavation involves removing the seawater from the slurry that is brought up to ships and returning it to the seabed. However, concerned groups strongly believe that [26]  is necessary due to the possible number of unidentified consequences.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-19-4-reading-part-2-q24",
@@ -371,7 +449,7 @@
     {
       "id": "catalog-cam-19-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "THE UNSELFISH GENE",
       "passage": [
         {
@@ -499,8 +577,50 @@
           "id": "catalog-cam-19-4-reading-part-3-g1",
           "range": "Questions 31–35",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
-          "note": "**Contemporary hunter-gatherer societies**\nBruce Knauft’s research shows that contemporary hunter-gatherer societies tend to exhibit a high level of [31] in all areas of life. In these cultures, distributing resources fairly among all members is a moral obligation. These societies also employ strategies to prevent differences in [32] occurring: for example, the IKung follow a custom whereby the credit for one person’s success at [33] is given to another member of the group. Individuals who behave in a [34] manner are punished by being excluded from the group, and women have a considerable amount of [35] in choices regarding work and marriage.",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-19-4-reading-part-3-q31",
@@ -579,7 +699,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“Some anthropologists are mistaken...”\n\nBài chỉ nói:\n“Many anthropologists believe...”\n\n→ không nói belief đó đúng hay sai.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -602,7 +722,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Statement:\n“Humans with warlike traits would have had an advantage”\n\nĐoạn:\n“Individuals who behaved selfishly and ruthlessly would be less likely to survive”\n\n→ opposite meaning:\n\nstatement = advantage\npassage = disadvantage\n\n→ NO.",
               "answerConfidence": "key"
             },
@@ -625,7 +745,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Statement:\n“Being peaceful and cooperative is natural”\n\nĐoạn:\n“cooperation, egalitarianism, altruism and peacefulness” are “innate characteristics”\n\n→ innate = natural/inborn.\n\n→ YES.",
               "answerConfidence": "key"
             },
@@ -648,7 +768,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Statement:\n“Negative traits are more apparent in some cultures”\n\nBài không hề so sánh culture này với culture khác.\n\n→ NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -671,7 +791,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Statement:\n“Animal research has failed to reveal a link...”\n\nĐoạn:\n“when habitats ... are disrupted, they tend to become more violent”\n\n→ research DID reveal a link between environment change and aggression.\n\n→ statement trái nghĩa hoàn toàn.\n\n→ NO.",
               "answerConfidence": "key"
             }

@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-11-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Research Using Twins",
       "passage": [
         {
@@ -26,8 +26,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "There may be genetic causes for the differences in how young the skin of identical twins looks.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword: “genetic causes” (nguyên nhân di truyền), “differences”, “how young the skin... looks”\nBước 2: Tìm đoạn: Đoạn 1: “Any differences between them - one twin having younger-looking skin, for example - must be due to environmental factors such as less time spent in the sun.”\nBước 3: Phân tích: Đoạn văn khẳng định bất kỳ sự khác biệt nào giữa cặp song sinh cùng trứng — ví dụ như một người có làn da trông trẻ trung hơn — bắt buộc phải là do các yếu tố môi trường (must be due to environmental factors) như việc ít tiếp xúc với ánh nắng mặt trời, chứ hoàn toàn không phải do mã di truyền (vì họ có chung một mã di truyền giống hệt nhau). Phát biểu mang thông tin trái ngược.\n=> Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -36,8 +49,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Twins are at greater risk of developing certain illnesses than non-twins.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword: “greater risk” (nguy cơ cao hơn), “developing certain illnesses”, “than non-twins” (so với người không sinh đôi)\nBước 2: Tìm đoạn: Đoạn 2 & Đoạn 3: Các đoạn này có nhắc đến cụm “vulnerability to the disease” và “ailment”.\nBước 3: Phân tích: Bài đọc chỉ đề cập đến việc so sánh mức độ mắc bệnh giữa cặp song sinh cùng trứng và khác trứng nhằm xác định xem căn bệnh đó có phải do di truyền hay không. Tuyệt đối không có bất kỳ thông tin nào so sánh nguy cơ mắc bệnh giữa người sinh đôi với người không sinh đôi (non-twins).\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -46,8 +72,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "Bouchard advertised in newspapers for twins who had been separated at birth.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Bước 1: Keyword: “Bouchard”, “advertised in newspapers” (quảng cáo trên báo), “separated at birth”\nBước 2: Tìm đoạn: Đoạn 4 & Đoạn 5: Nói về nghiên cứu của Bouchard (Minnesota Study of Twins Reared Apart).\nBước 3: Phân tích: Bài viết có nêu thông tin trong suốt hai thập kỷ đã có 137 cặp song sinh bị tách rời từ nhỏ đến tham gia phòng thí nghiệm của Thomas Bouchard. Tuy nhiên, việc ông thu hút hay tìm kiếm họ bằng cách nào (có phải qua quảng cáo trên báo — advertised in newspapers hay không) thì bài đọc hoàn toàn không nhắc tới.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -56,8 +95,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "Epigenetic processes are different from both genetic and environmental processes.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword: “Epigenetic processes”, “different from both”, “genetic and environmental processes”\nBước 2: Tìm đoạn: Đoạn 6 & Đoạn 7: “According to a recent field called epigenetics, there is a third factor also in play... Epigenetic processes are chemical reactions tied to neither nature nor nurture but representing what researchers have called a 'third component'.”\nBước 3: Phân tích: Quá trình biểu sinh (epigenetics) được khẳng định là không gắn liền với tự nhiên (nature — yếu tố di truyền/gen) cũng không thuộc về sự nuôi dưỡng (nurture — yếu tố môi trường), mà đóng vai trò độc lập như một \"thành phần thứ ba\" (third component). Vì vậy, nó hoàn toàn khác biệt với hai quá trình trên.\n=> Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -139,9 +191,35 @@
           "id": "catalog-cam-11-4-reading-part-1-g2",
           "range": "Questions 10–13",
           "instruction": "Complete the summary using the list of phrases, A–F, below.",
-          "note": "In epigenetic processes, [10] influence the activity of our genes, for example in creating our internal [11] . The study of epigenetic processes is uncovering a way in which our genes can be affected by our [12]. One example is that if a pregnant rat suffers stress, the new-born rat may later show problems in its [13].",
+          "note": "Epigenetic processes\n\nIn epigenetic processes, 10________ influence the activity of our genes, for example in creating our internal 11________. The study of epigenetic processes is uncovering a way in which our genes can be affected by our 12________. One example is that if a pregnant rat suffers stress, the new-born rat may later show problems in its 13________.",
           "type": "summary-completion",
           "notesTitle": "Epigenetic processes",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "nurture"
+            },
+            {
+              "id": "b",
+              "label": "organs"
+            },
+            {
+              "id": "c",
+              "label": "code"
+            },
+            {
+              "id": "d",
+              "label": "chemicals"
+            },
+            {
+              "id": "e",
+              "label": "environment"
+            },
+            {
+              "id": "f",
+              "label": "behaviour"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-11-4-reading-part-1-q10",
@@ -190,7 +268,7 @@
     {
       "id": "catalog-cam-11-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "An Introduction to Film Sound",
       "passage": [
         {
@@ -467,7 +545,7 @@
     {
       "id": "catalog-cam-11-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "This Marvellous Invention",
       "passage": [
         {
@@ -479,43 +557,57 @@
           "id": "catalog-cam-11-4-reading-part-3-g0",
           "range": "Questions 27–32",
           "instruction": "Reading Passage has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–vii, in boxes 27–32 on your answer sheet.",
-          "type": "multiple-choice",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
+          "type": "summary-completion",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-11-4-reading-part-3-q27",
               "number": 27,
               "type": "matching-headings",
               "prompt": "paragraph A",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "vi",
               "explanation": "Bước 1: Keyword\nlanguage made us human\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n“the advent of language is what made us human”\n\nBước 3: Phân tích\nĐoạn nói ngôn ngữ là phát minh quan trọng nhất.\n=> Đáp án: vi",
               "answerConfidence": "key"
@@ -523,38 +615,9 @@
             {
               "id": "catalog-cam-11-4-reading-part-3-q28",
               "number": 28,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "paragraph B",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "iv",
               "explanation": "Bước 1: Keyword\ngreatest invention\nnever invented\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n“language is mankind’s greatest invention – except… it was never invented.”\n\nBước 3: Phân tích\nHai đặc điểm tưởng như mâu thuẫn cùng tồn tại.\n=> Đáp án: iv",
               "answerConfidence": "key"
@@ -562,38 +625,9 @@
             {
               "id": "catalog-cam-11-4-reading-part-3-q29",
               "number": 29,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "a description of the speed of language processing",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "ii",
               "explanation": "Bước 1: Keyword\nfew sounds\nhuge range of meaning\n\nBước 2: Tìm đoạn văn\nĐoạn C:\n“there is nothing that these meaningless streams of air cannot do”\n\nBước 3: Phân tích\nMột số ít âm thanh được sắp xếp để tạo vô số ý nghĩa.\n=> Đáp án: ii",
               "answerConfidence": "key"
@@ -601,38 +635,9 @@
             {
               "id": "catalog-cam-11-4-reading-part-3-q30",
               "number": 30,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "a mention of the importance of agreement among speakers",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "vii",
               "explanation": "Bước 1: Keyword everybody without exertion  Bước 2: Tìm đoạn văn Đoạn D: “just about everybody… without the slightest exertion”  Bước 3: Phân tích Mọi người đều có khả năng sử dụng ngôn ngữ. => Đáp án: vii",
               "answerConfidence": "key"
@@ -640,38 +645,9 @@
             {
               "id": "catalog-cam-11-4-reading-part-3-q31",
               "number": 31,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "an explanation of why language is not a 'marvellous invention'",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "i",
               "explanation": "Bước 1: Keyword\nforeign tongues\ndifferent languages\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n“the estrangement of foreign tongues”\n\nBước 3: Phân tích\nSự khác biệt giữa các ngôn ngữ làm nổi bật tính ấn tượng của chúng.\n=> Đáp án: i",
               "answerConfidence": "key"
@@ -679,38 +655,9 @@
             {
               "id": "catalog-cam-11-4-reading-part-3-q32",
               "number": 32,
-              "type": "multiple-choice",
+              "type": "summary-completion",
               "prompt": "a mention of the implications of linguistic research",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
+              "options": [],
               "answer": "v",
               "explanation": "Bước 1: Keyword\nabsence of a sound\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n“even the absence of a sound has been enlisted to express something specific”\n\nBước 3: Phân tích\nNgay cả sự im lặng cũng có ý nghĩa.\n=> Đáp án: v",
               "answerConfidence": "key"
@@ -721,9 +668,51 @@
           "id": "catalog-cam-11-4-reading-part-3-g1",
           "range": "Questions 33–36",
           "instruction": "Complete the summary using the list of phrases, A–G, below.",
-          "note": "The wheel is one invention that has had a major impact on [33] aspects of life, but no impact has been as [34] as that of language. Language is very [35], yet composed of just a small number of sounds.\nLanguage appears to be [36] to use. However, its sophistication is often overlooked.",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
           "notesTitle": "The importance of language",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-11-4-reading-part-3-q33",
@@ -792,7 +781,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nwithout language\n\nBước 2: Tìm đoạn văn\nĐoạn A:\n“Without language, we could never have embarked on our ascent”\n\nBước 3: Phân tích\nTác giả cho rằng không có ngôn ngữ thì loài người không đạt được vị trí hiện tại.\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -815,7 +804,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nPort-Royal grammarians\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n“no one since has celebrated more eloquently the magnitude of its achievement”\n\nBước 3: Phân tích\nTác giả đánh giá cao cách họ mô tả ngôn ngữ.\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -838,7 +827,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nsingle word\nsentence\n\nBước 2: Tìm đoạn văn\nĐoạn E:\n“express in one word what English takes a whole sentence to say”\n\nBước 3: Phân tích\nBài đọc không nói câu văn rõ ràng hơn từ đơn.\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -861,7 +850,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nSumerians\nrecording of events\n\nBước 2: Tìm đoạn văn\nĐoạn F:\n“invented writing and thus enabled the documentation of history”\n\nBước 3: Phân tích\nNgười Sumer phát minh chữ viết, giúp ghi chép lịch sử.\n=> Đáp án: YES",
               "answerConfidence": "key"
             }

@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-15-2-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "COULD URBAN ENGINEERS LEARN FROM DANCE?",
       "passage": [
         {
@@ -97,7 +97,7 @@
           "range": "Questions 7–13",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "Guard rails were introduced on British roads to improve the [7] of pedestrians, while ensuring that the movement of [8] is not disrupted. Pedestrians are led to access points, and encouraged to cross one [9] at a time.\nAn unintended effect is to create psychological difficulties in crossing the road, particularly for less [10] people. Another result is that some people cross the road in a [11] way. The guard rails separate [12], and make it more difficult to introduce forms of transport that are [13]",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Guard rails",
           "questions": [
             {
@@ -177,7 +177,7 @@
     {
       "id": "catalog-cam-15-2-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "SHOULD WE TRY TO BRING EXTINCT SPECIES BACK TO LIFE?",
       "passage": [
         {
@@ -246,7 +246,7 @@
           "range": "Questions 18–22",
           "instruction": "Complete the summary below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
           "note": "• Professor George Church and his team are trying to identify the [18] which enabled mammoths to live in the tundra. The findings could help preserve the mammoth’s close relative, the endangered Asian elephant.\n• According to Church, introducing Asian elephants to the tundra would involve certain physical adaptations to minimise [19] To survive in the tundra, the species would need to have the mammoth-like features of thicker hair, [20] of a reduced size and more [21]\n• Repopulating the tundra with mammoths or Asian elephant/mammoth hybrids would also have an impact on the environment, which could help to reduce temperatures and decrease [22]",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "The woolly mammoth revival project",
           "questions": [
             {
@@ -368,7 +368,7 @@
     {
       "id": "catalog-cam-15-2-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "HAVING A LAUGH",
       "passage": [
         {
@@ -523,9 +523,51 @@
           "id": "catalog-cam-15-2-reading-part-3-g1",
           "range": "Questions 32–36",
           "instruction": "Complete the summary using the list of phrases, A–H, below.",
-          "note": "In one study at Australian National University, randomly chosen groups of participants were shown one of three videos, each designed to generate a different kind of [32]. When all participants were then given a deliberately frustrating task to do, it was found that those who had watched the [33] video persisted with the task for longer and tried harder to accomplish the task than either of the other two groups.\nA second study in which participants were asked to perform a particularly [34] task produced similar results. According to researchers David Cheng and Lu Wang, these findings suggest that humour not only reduces [35] and helps build social connections but it may also have a [36] Effect on the body and mind.",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
           "notesTitle": "The benefits of humour",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-15-2-reading-part-3-q32",
@@ -604,7 +646,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Câu 37\n\nBước 1: Keyword\nfriends more accurate than strangers\n\nBước 2: Tìm đoạn\n\n\"Participants were asked whether they thought the people laughing were friends or strangers.\"\n\nBước 3: Phân tích\n\nBài chỉ nói độ chính xác chung là 60%, không so sánh giữa bạn bè và người lạ.\n\n=> Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -627,7 +669,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\npredictions + high-status individuals\n\nBước 2: Tìm đoạn\n\n\"Analysis revealed that, as expected...\"\n\nBước 3: Phân tích\n\nKết quả đúng như dự đoán của các nhà nghiên cứu.\n\n=> Đáp án: YES",
               "answerConfidence": "key"
             },
@@ -650,7 +692,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nfixed amount of time\n\nBước 2: Tìm đoạn\n\n\"Participants were allowed to quit the task at any point.\"\n\nBước 3: Phân tích\n\nKhông có thời gian cố định; họ có thể dừng bất cứ lúc nào.\n\n=> Đáp án: NO",
               "answerConfidence": "key"
             },
@@ -673,7 +715,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nin line with established notions\n\nBước 2: Tìm đoạn\n\n\"traditional view ... individuals should avoid humour...\"\n\nBước 3: Phân tích\n\nKết luận của Cheng và Wang trái với quan điểm truyền thống.\n\n=> Đáp án: NO",
               "answerConfidence": "key"
             }

@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-15-1-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "NUTMEG: A VALUABLE SPICE",
       "passage": [
         {
@@ -252,7 +252,7 @@
     {
       "id": "catalog-cam-15-1-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "DRIVERLESS CARS",
       "passage": [
         {
@@ -332,7 +332,7 @@
           "range": "Questions 19–22",
           "instruction": "Complete the summary below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
           "note": "Figures from the Transport Research Laboratory indicate that most motor accidents are partly due to [19], so the introduction of driverless vehicles will result in greater safety. In addition to the direct benefits of automation, it may bring other advantages. For example, schemes for [20] will be more workable, especially in towns and cities, resulting in fewer cars on the road.\nAccording to the University of Michigan Transportation Research Institute, there could be a 43 percent drop in [21] of cars. However, this would mean that the yearly [22] of each car would, on average, be twice as high as it currently is. This would lead to a higher turnover of vehicles, and therefore no reduction in automotive manufacturing.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "The impact of driverless cars",
           "questions": [
             {
@@ -379,7 +379,7 @@
         },
         {
           "id": "catalog-cam-15-1-reading-part-2-g2",
-          "range": "Questions 23–24",
+          "range": "Questions 23–26",
           "instruction": "Choose TWO correct answers, A–E.",
           "type": "multiple-choice",
           "questions": [
@@ -423,15 +423,7 @@
               "answer": "D",
               "explanation": "Bước 1: Keyword\n“physically difficult could travel independently”\n\nBước 2: Tìm đoạn văn\nĐoạn B:\n\n“older or disabled travellers – may be able to enjoy significantly greater travel autonomy.”\n\nBước 3: Phân tích\nNgười già hoặc người khuyết tật có thể tự di chuyển dễ dàng hơn nhờ xe tự lái.\n\n=> Đáp án: People who find driving physically difficult could travel independently.",
               "answerConfidence": "key"
-            }
-          ]
-        },
-        {
-          "id": "catalog-cam-15-1-reading-part-2-g3",
-          "range": "Questions 25–26",
-          "instruction": "Choose TWO correct answers, A–E.",
-          "type": "multiple-choice",
-          "questions": [
+            },
             {
               "id": "catalog-cam-15-1-reading-part-2-q25",
               "number": 25,
@@ -480,7 +472,7 @@
     {
       "id": "catalog-cam-15-1-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "WHAT IS EXPLORATION?",
       "passage": [
         {
@@ -743,7 +735,7 @@
           "range": "Questions 38–40",
           "instruction": "Complete the summary below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
           "note": "The writer has experience of a large number of [38], and was the first stranger that certain previously [39] people had encountered. He believes there is no need for further exploration of Earth’s [40], except to answer specific questions such as how buffalo eat.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "The writer’s own bias",
           "questions": [
             {

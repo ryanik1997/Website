@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-20-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Georgia O'Keeffe",
       "passage": [
         {
@@ -175,7 +175,7 @@
     {
       "id": "catalog-cam-20-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Adapting to the effects of climate change",
       "passage": [
         {
@@ -373,7 +373,7 @@
     {
       "id": "catalog-cam-20-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "A new role for livestock guard dogs",
       "passage": [
         {
@@ -533,7 +533,7 @@
           "range": "Questions 37–40",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "**Unintended ecological effects of using guard dogs**\n- In Namibia, livestock guard dogs have been used to protect domestic animals from attacks by cheetahs. This has led to a rise in the deaths of other predators, particularly [37]\n- In addition, it has been suggested that the dogs could have [38] which may affect other species, and that they may reduce the amount of [39]\n available to certain wild animals. \n- On the other hand, these dogs may help birds by protecting their nests. These might otherwise be threatened by predators such as [40]",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-20-4-reading-part-3-q37",

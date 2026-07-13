@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-20-1-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "The kākāpō",
       "passage": [
         {
@@ -29,8 +29,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "1 Other parrots share inability to fly.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "FALSE\n\nCâu hỏi:\n“There are other parrots that share the kākāpō's inability to fly.”\n\nBước 1: xác định keyword\n\nother parrots\ninability to fly = flightless\n\nBước 2: scan đoạn đầu bài.\n\nBài viết:\n“It is the world’s only flightless parrot”.\n\nPhân tích:\n\nthe world’s only = duy nhất trên thế giới\nflightless parrot = loài vẹt không biết bay\n\nCâu hỏi lại nói “có những loài khác cũng như vậy”.\n\n→ Ý bị đảo ngược hoàn toàn.\n\nNếu bài viết:\n\n“one of several flightless parrots” → TRUE\nNhưng bài viết:\n“only flightless parrot” → FALSE.",
               "answerConfidence": "key"
             },
@@ -39,8 +52,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "2 Adult kakapo produce chicks every year.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "FALSE\n\nCâu hỏi:\n“Adult kākāpō produce chicks every year.”\n\nKeyword:\n\nevery year\n\nBài viết:\n“Kākāpō breed in summer and autumn, but only in years when food is plentiful.”\n\nPhân tích từng bước:\n\nbreed = sinh sản\nbut only in years = nhưng chỉ vào những năm…\nfood is plentiful = thức ăn dồi dào\n\nĐiều này nghĩa là:\n→ không phải năm nào chúng cũng breeding\n→ việc sinh sản phụ thuộc vào nguồn thức ăn.\n\nCâu hỏi dùng “every year” → quá tuyệt đối.\n\nIELTS rất thích bẫy bằng:\n\nalways\nevery year\nall\nonly\nnever\n\nChỉ cần bài không support tuyệt đối như vậy thì thường sẽ FALSE.\n\n=> FALSE.",
               "answerConfidence": "key"
             },
@@ -49,8 +75,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "3 Adult male kakapo bring food back to nesting females.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: tìm đoạn nói về male/female roles.\n\nBài viết:\n“Males play no part in incubation or chick-rearing – females alone incubate eggs and feed the chicks.”\n\nPhân tích:\n\nno part = không tham gia chút nào\nincubation = ấp trứng\nchick-rearing = nuôi con\n\nCâu hỏi nói con đực mang thức ăn về cho con cái.\n\nNhưng nếu male “play no part”, thì chắc chắn không có chuyện chăm sóc hay hỗ trợ thức ăn.\n\n→ Statement trái ý bài.\n\n=> FALSE.",
               "answerConfidence": "key"
             },
@@ -59,8 +98,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "4 Polynesian rat greater threat than settlers.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "Keyword:\n\ngreater threat than = nguy hiểm hơn\n\nBài viết chỉ nói:\n\nsettlers săn kākāpō\nrats cũng prey on kākāpō\n\nNhưng bài KHÔNG hề:\n\nso sánh mức độ nguy hiểm\nnói bên nào gây hại nhiều hơn\n\nĐây là bẫy comparison.\n\nCó thông tin:\n✓ settlers dangerous\n✓ rats dangerous\n\nKhông có thông tin:\n✗ rats more dangerous than settlers\n\nRất nhiều bạn thấy có cả hai đối tượng xuất hiện rồi tự suy luận.\n\nIELTS không cho phép tự suy luận ngoài bài.\n\n=> NOT GIVEN.",
               "answerConfidence": "key"
             },
@@ -69,8 +121,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "5 Transferred because at risk from feral cats.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "TRUE\n\nCâu hỏi:\n“Kākāpō were transferred from Rakiura Island to other locations because they were at risk from feral cats.”\n\nBài viết:\n“predation by feral cats on Rakiura Island led to a rapid decline…”\n\nSau đó:\n“the surviving population was evacuated to three island sanctuaries”\n\nPhân tích:\n\npredation by feral cats = bị mèo hoang săn bắt\nled to rapid decline = làm số lượng giảm mạnh\nevacuated = di chuyển khẩn cấp sang nơi khác\n\n=> Nguyên nhân chuyển đi chính là mối đe doạ từ feral cats.\n\nĐây là dạng TRUE paraphrase:\n\ntransferred = evacuated\nat risk from = threatened by predation\n\n=> TRUE.",
               "answerConfidence": "key"
             },
@@ -79,8 +144,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "6 caring for struggling young birds helped.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "TRUE\n\nCâu hỏi:\n“One Recovery Plan initiative that helped increase the kākāpō population size was caring for struggling young birds.”\n\nBài viết:\n“This involved ... rescuing and hand-raising any failing chicks.”\n\nPhân tích:\n\ninitiative = hoạt động trong Recovery Plan\nfailing chicks = struggling young birds\nhand-raising = chăm sóc/nuôi bằng tay\n\nCâu hỏi paraphrase rất mạnh:\n\ncaring for = rescuing and hand-raising\nyoung birds = chicks\n\nĐây là kỹ thuật IELTS hay dùng:\nthay từ đơn giản bằng cụm chuyên môn hơn.\n\n=> TRUE.",
               "answerConfidence": "key"
             }
@@ -171,7 +249,7 @@
     {
       "id": "catalog-cam-20-1-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Reintroducing elms to Britain",
       "passage": [
         {
@@ -329,7 +407,7 @@
           "range": "Questions 24–26",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "**Uses of a popular tree**\nFor hundreds of years, the only tree that was more popular in Britain than elm was [24]. Starting in the Bronze Age, many tools were made from elm and people also used it to make weapons. In the 18th century, it was grown to provide wood for boxes and [25]. Due to its strength, elm was often used for mining equipment and the Cutty Sark's [26] was also constructed from elm.",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "questions": [
             {
               "id": "catalog-cam-20-1-reading-part-2-q24",
@@ -368,7 +446,7 @@
     {
       "id": "catalog-cam-20-1-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "How stress affects our judgement",
       "passage": [
         {

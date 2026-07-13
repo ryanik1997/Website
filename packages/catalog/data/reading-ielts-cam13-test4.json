@@ -7,7 +7,7 @@
     {
       "id": "catalog-cam-13-4-reading-part-1",
       "partNumber": 1,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 1–13.",
       "passageTitle": "Cutty Sark: the fastest sailing ship of all time",
       "passage": [
         {
@@ -29,8 +29,21 @@
               "number": 1,
               "type": "true-false-not-given",
               "prompt": "Clippers were originally intended to be used as passenger ships.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\noriginally intended / passenger ships\n\nBước 2: Tìm đoạn\n“The fastest commercial sailing vessels… built to transport goods around the world, although some also took passengers.”\n\nBước 3: Phân tích\nBài nói clippers được xây để vận chuyển hàng hóa, chỉ có một số cũng chở khách.\n\nĐề nói: ban đầu tạo ra để chở khách → sai.\n\n⇒ Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -39,8 +52,21 @@
               "number": 2,
               "type": "true-false-not-given",
               "prompt": "Cutty Sark was given the name of a character in a poem.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nname / character / poem\n\nBước 2: Tìm đoạn\n“Cutty Sark’s unusual name comes from the poem...”\n“...wearing a ‘cutty sark’ – an old Scottish name for a short nightdress.”\n\nBước 3: Phân tích\nTên lấy từ cutty sark = váy ngủ ngắn, không phải tên nhân vật.\n\n⇒ Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -49,8 +75,21 @@
               "number": 3,
               "type": "true-false-not-given",
               "prompt": "The contract between John Willis and Scott & Linton favoured Willis.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\ncontract / Scott & Linton / favoured Willis\n\nBước 2: Tìm đoạn\n“...ensured that the contract with them put him in a very strong position.”\n\nBước 3: Phân tích\n“strong position” = có lợi cho Willis.\n\n⇒ Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -59,8 +98,21 @@
               "number": 4,
               "type": "true-false-not-given",
               "prompt": "John Willis wanted Cutty Sark to be the fastest tea clipper travelling between the UK and China.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nfastest / UK and China\n\nBước 2: Tìm đoạn\n“Cutty Sark was designed to make the journey more quickly than any other ship.”\n\nBước 3: Phân tích\nMục tiêu là nhanh nhất tuyến Anh–Trung Quốc.\n\n⇒ Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -69,8 +121,21 @@
               "number": 5,
               "type": "true-false-not-given",
               "prompt": "Despite storm damage, Cutty Sark beat Thermopylae back to London.",
-              "options": [],
-              "answer": "FALSE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "false",
               "explanation": "Bước 1: Keyword\nstorm damage / beat Thermopylae\n\nBước 2: Tìm đoạn\n“Cutty Sark reached London a week after Thermopylae.”\n\nBước 3: Phân tích\nĐề nói thắng nhưng bài nói về sau 1 tuần.\n\n⇒ Đáp án: FALSE",
               "answerConfidence": "key"
             },
@@ -79,8 +144,21 @@
               "number": 6,
               "type": "true-false-not-given",
               "prompt": "The opening of the Suez Canal meant that steam ships could travel between Britain and China faster than clippers.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nSuez Canal / faster\n\nBước 2: Tìm đoạn\n“Steam ships reduced the journey time... by approximately two months.”\n\nBước 3: Phân tích\nTàu hơi nước nhanh hơn nhờ dùng kênh đào Suez.\n\n⇒ Đáp án: TRUE",
               "answerConfidence": "key"
             },
@@ -89,8 +167,21 @@
               "number": 7,
               "type": "true-false-not-given",
               "prompt": "Steam ships sometimes used the ocean route to travel between London and China.",
-              "options": [],
-              "answer": "NOT GIVEN",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "not-given",
               "explanation": "steam ships / ocean route\n\nBước 2: Tìm đoạn\nBài chỉ nói tàu hơi nước có thể dùng kênh đào Suez.\n\nBước 3: Phân tích\nKhông có thông tin liệu đôi khi họ vẫn dùng đường biển hay không.\n\n⇒ Đáp án: NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -99,8 +190,21 @@
               "number": 8,
               "type": "true-false-not-given",
               "prompt": "Captain Woodget put Cutty Sark at risk of hitting an iceberg.",
-              "options": [],
-              "answer": "TRUE",
+              "options": [
+                {
+                  "id": "true",
+                  "label": "TRUE"
+                },
+                {
+                  "id": "false",
+                  "label": "FALSE"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "true",
               "explanation": "Bước 1: Keyword\nWoodget / iceberg\n\nBước 2: Tìm đoạn\n“bringing her dangerously close to icebergs...”\n\nBước 3: Phân tích\n“dangerously close” = đặt tàu vào nguy cơ va chạm băng trôi.\n\n⇒ Đáp án: TRUE",
               "answerConfidence": "key"
             }
@@ -169,7 +273,7 @@
     {
       "id": "catalog-cam-13-4-reading-part-2",
       "partNumber": 2,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 14–26.",
       "passageTitle": "Saving the Soil",
       "passage": [
         {
@@ -182,7 +286,7 @@
           "range": "Questions 14–17",
           "instruction": "Complete the summary below.\nChoose ONE WORD ONLY from the passage for each answer.",
           "note": "Healthy soil contains a large variety of bacteria and other microorganisms, as well as plant remains and [14] It provides us with food and also with antibiotics, and its function in storing [15] has a significant effect on the climate. In addition, it prevents damage to property and infrastructure because it holds [16].\nIf these microorganisms are lost, soil may lose its special properties. The main factor contributing to soil degradation is the [17] carried out by humans",
-          "type": "summary-completion",
+          "type": "gap-fill",
           "notesTitle": "Why soil degradation could be a disaster for humans",
           "questions": [
             {
@@ -373,7 +477,7 @@
     {
       "id": "catalog-cam-13-4-reading-part-3",
       "partNumber": 3,
-      "rangeLabel": "",
+      "rangeLabel": "Read the text and answer questions 27–40.",
       "passageTitle": "Book Review: The Happiness Industry",
       "passage": [
         {
@@ -474,9 +578,51 @@
           "id": "catalog-cam-13-4-reading-part-3-g1",
           "range": "Questions 30–34",
           "instruction": "Complete the summary using the list of phrases, A–G, below.",
-          "note": "Jeremy Bentham was active in other areas besides philosophy. In the 1790s he suggested a type of technology to improve [30] for different Government departments. He developed a new way of printing banknotes to increase [31] and also designed a method for the [32] of food. He also drew up plans for a prison which allowed the [33] of prisoners at al times, and believed the same design could be used for other institutions as well. When researching happiness, he investigated possibilities for its [34],  and suggested some methods of doing this.",
+          "note": "What happens when people encounter misinformation?\n\nAlthough people have 31________ to misinformation, there is debate about precisely how and when we label something as true or untrue. The philosophers Descartes and Spinoza had 32________ about how people engage with information. While Descartes believed that people accept or reject information after considering whether it is true or not, Spinoza argued that people accepted all information they encountered (and by default misinformation) and did not verify or reject it until afterwards. Moreover, Spinoza believed that a distinct 33________ is involved in these stages. Recent research has provided 34________ for Spinoza's theory and it would appear that people accept all encountered information as if it were true, even if this is for an extremely 35________, and do not label the information as true or false until later. This is consistent with the fact that the resources for scepticism and the resources for perceiving and encoding are in 36________ in the brain.",
           "type": "summary-completion",
           "notesTitle": "Jeremy Bentham",
+          "wordBank": [
+            {
+              "id": "a",
+              "label": "constant conflict"
+            },
+            {
+              "id": "b",
+              "label": "additional evidence"
+            },
+            {
+              "id": "c",
+              "label": "different locations"
+            },
+            {
+              "id": "d",
+              "label": "experimental subjects"
+            },
+            {
+              "id": "e",
+              "label": "short period"
+            },
+            {
+              "id": "f",
+              "label": "extreme distrust"
+            },
+            {
+              "id": "g",
+              "label": "mental operation"
+            },
+            {
+              "id": "h",
+              "label": "frequent exposure"
+            },
+            {
+              "id": "i",
+              "label": "dubious reason"
+            },
+            {
+              "id": "j",
+              "label": "different ideas"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-cam-13-4-reading-part-3-q30",
@@ -555,7 +701,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nstrength + psychology + economics\n\nBước 2: Tìm đoạn\n\n\"We learn much that is interesting...\"\n\nBước 3: Phân tích\n\nTác giả khen sách giải thích sự liên hệ giữa tâm lý và kinh tế.\n\n⇒ YES",
               "answerConfidence": "key"
             },
@@ -578,7 +724,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nsome emotions harder to measure\n\nBước 2: Tìm đoạn\n\nKhông thấy so sánh giữa các cảm xúc.\n\n⇒ NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -601,7 +747,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\nresearch on humans before 1915\n\nBước 2: Tìm đoạn\n\n\"had never even studied a single human being\"\n\nBước 3: Phân tích\n\nChưa từng nghiên cứu con người.\n\n⇒ NO",
               "answerConfidence": "key"
             },
@@ -624,7 +770,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NOT GIVEN",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\noutside America\n\nBước 2: Tìm đoạn\n\nChỉ nói Anh dùng Behaviour Insights Team.\n\n⇒ NOT GIVEN",
               "answerConfidence": "key"
             },
@@ -647,7 +793,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "YES",
+              "answer": "yes",
               "explanation": "Bước 1: Keyword\nindustrial societies + happiness\n\nBước 2: Tìm đoạn\n\n\"Modern industrial societies appear to need...\"\n\nBước 3: Phân tích\n\nTác giả liên hệ nhu cầu hạnh phúc với xã hội công nghiệp.\n\n⇒ YES",
               "answerConfidence": "key"
             },
@@ -670,7 +816,7 @@
                   "label": "NOT GIVEN"
                 }
               ],
-              "answer": "NO",
+              "answer": "no",
               "explanation": "Bước 1: Keyword\ngovernment should increase happiness\n\nBước 2: Tìm đoạn\n\n\"always a threat to human freedom\"\n\nBước 3: Phân tích\n\nTác giả phản đối việc chính phủ coi tăng hạnh phúc là mục tiêu chính.\n\n⇒ NO",
               "answerConfidence": "key"
             }
