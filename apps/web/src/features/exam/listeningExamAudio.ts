@@ -76,16 +76,12 @@ export function sharedExamAudioSource(exam: ListeningExam): ExamAudioSource | nu
   return withCatalogAudioFallback(exam, first)
 }
 
-/** @deprecated Dùng sharedExamAudioSource */
+/**
+ * @deprecated Dùng resolveListeningAudioSource(exam, part).
+ * Fallback part 0 khi multi-part — không còn trả source rỗng (bug 5× part*.mp3).
+ */
 export function ketSharedExamAudioSource(exam: ListeningExam): ExamAudioSource {
-  return (
-    sharedExamAudioSource(exam)
-    ?? withCatalogAudioFallback(exam, {
-      audioKey: undefined,
-      audioUrl: undefined,
-      ttsText: undefined,
-    })
-  )
+  return resolveListeningAudioSource(exam, exam.parts[0] ?? null)
 }
 
 /** Audio cho IELTS / FCE / CAE / CPE: ưu tiên MP3 chung, không thì theo Part */

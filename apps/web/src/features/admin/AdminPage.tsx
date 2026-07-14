@@ -32,6 +32,33 @@ interface PaymentRequest {
   activated_at: string | null
 }
 
+function UserAvatar({ profile }: { profile: Profile }) {
+  const [imageFailed, setImageFailed] = useState(false)
+  const label = profile.display_name ?? profile.email ?? '?'
+
+  if (profile.avatar_url && !imageFailed) {
+    return (
+      <img
+        src={profile.avatar_url}
+        className="w-8 h-8 rounded-full shrink-0 object-cover"
+        alt={`Avatar của ${label}`}
+        referrerPolicy="no-referrer"
+        onError={() => setImageFailed(true)}
+      />
+    )
+  }
+
+  return (
+    <div
+      className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+      style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+      aria-label={`Avatar mặc định của ${label}`}
+    >
+      {label[0].toUpperCase()}
+    </div>
+  )
+}
+
 type AdminTab = 'users' | 'requests' | 'exams'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -554,16 +581,7 @@ export default function AdminPage() {
                     {/* User */}
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-3">
-                        {profile.avatar_url ? (
-                          <img src={profile.avatar_url} className="w-8 h-8 rounded-full shrink-0" alt="" />
-                        ) : (
-                          <div
-                            className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                            style={{ background: 'var(--color-primary)' }}
-                          >
-                            {(profile.display_name ?? profile.email ?? '?')[0].toUpperCase()}
-                          </div>
-                        )}
+                        <UserAvatar profile={profile} />
                         <div className="min-w-0">
                           <p className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>
                             {profile.display_name ?? '—'}

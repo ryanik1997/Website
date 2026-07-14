@@ -34,7 +34,11 @@ import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
-import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
+import {
+  hasExamAudioSource,
+  resolveListeningAudioSource,
+  sharedExamAudioSource,
+} from './listeningExamAudio'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 import { Bell, Check, ChevronLeft, ChevronRight, Edit3, Menu, Wifi } from 'lucide-react'
@@ -84,7 +88,10 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
     [activeQuestionId, allQuestions],
   )
-  const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
+  const audioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
   const isPicturePart = Boolean(currentPart && isPetPicturePart(exam.examType, currentPart))
   const isExtractPart = Boolean(currentPart && isPetExtractPart(exam.examType, currentPart))
   const isGroupedGapFill = Boolean(currentPart && isPetGroupedGapFillPart(exam.examType, currentPart))
@@ -104,9 +111,12 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
   } = useExamQuestionAudio()
 
   const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
-  const playKey = `exam-${exam.id}`
+  const playKey = useMemo(() => {
+    if (sharedExamAudioSource(exam)) return `exam-${exam.id}`
+    if (currentPart) return `exam-${exam.id}-part-${currentPart.partNumber}`
+    return `exam-${exam.id}`
+  }, [exam, currentPart])
   const maxPlays = exam.examMode === 'exam' ? 2 : undefined
-  const audioSource = examAudioSource
   const hasAudioFile = hasExamAudioSource(audioSource)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)

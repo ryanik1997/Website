@@ -34,7 +34,11 @@ import { useExamReviewAi } from './useExamReviewAi'
 import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
-import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
+import {
+  hasExamAudioSource,
+  resolveListeningAudioSource,
+  sharedExamAudioSource,
+} from './listeningExamAudio'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
@@ -91,7 +95,15 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
     () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
     [activeQuestionId, allQuestions],
   )
-  const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
+  /**
+   * 1 MP3 full-test → shared source (đổi part không đổi track).
+   * 5 file part1…part5 → audio theo currentPart (trước đây ketSharedExamAudioSource
+   * rơi về empty khi parts không cùng key → "Không tìm thấy file audio").
+   */
+  const audioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
   const isGroupedGapFill = Boolean(currentPart && isKetGroupedGapFillPart(currentPart))
   const isDragMatching = Boolean(currentPart && isKetDragMatchingPart(currentPart))
   const isPart3McList =
@@ -114,10 +126,13 @@ export default function ListeningKetTest({ exam, sessionStarted = true }: Props)
   } = useExamQuestionAudio()
 
   const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
-  /** Một file MP3 chung — đếm lượt nghe theo cả bài, không reset khi đổi câu */
-  const playKey = `exam-${exam.id}`
+  /** 1 MP3 chung → 1 playKey cả bài. Nhiều part*.mp3 → đếm theo part. */
+  const playKey = useMemo(() => {
+    if (sharedExamAudioSource(exam)) return `exam-${exam.id}`
+    if (currentPart) return `exam-${exam.id}-part-${currentPart.partNumber}`
+    return `exam-${exam.id}`
+  }, [exam, currentPart])
   const maxPlays = exam.examMode === 'exam' ? 3 : undefined
-  const audioSource = examAudioSource
   const hasAudioFile = hasExamAudioSource(audioSource)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)

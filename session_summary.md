@@ -10,14 +10,14 @@
 
 ## Trạng thái hiện tại
 
-- **Branch:** `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
-- **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-12** — Cứu catalog IELTS + pilot Cam11 T1 Reading + **auto-backup đề** (Dexie v15 `examBackups` + OPFS + download)
-- **Session trước:** Vocab/sync + Cambridge; IELTS catalog từng bị xóa theo request “Xóa sạch 48 đề mẫu” (2026-07-04/05)
-- **Tạm hoãn:** Batch Reading IELTS còn lại (~39 đề chỉ PDF, chưa có `exam.json`)
-- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4** (IELTS catalog restore: 48 Listening + 9 Reading)
-- **Migrations Supabase:** 001–**016** (đã push trước); **017_checkin_days** — cần `pnpm db:push` (điểm danh cloud)
-- **Dev:** `pnpm dev` → `/app/exam/...` — hard refresh để `syncGlobalCatalog` v24 nạp lại đề
+- **Branch:** `project_14726` / `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
+- **Phase:** Import batch **KET A2 Listening practice** (44 đề) — pilot Test 01 OK; chờ user thả media
+- **Session:** **2026-07-14** — KET Listening multi-part audio fix + convert pipeline CSV→ZIP; pilot Book 3 Test 3
+- **Session trước:** 2026-07-12 — catalog IELTS + auto-backup đề
+- **Tạm hoãn / chờ user (~1h):** Đủ `part1–5.mp3` + `q1–5.jpg` cho **test-02…44** → convert 43 đề còn lại
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4**
+- **Migrations Supabase:** 001–**016** (đã push); **017–018** — cần `pnpm db:push` nếu chưa
+- **Dev:** `pnpm dev` → hard refresh sau pull fix audio KET
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -26,6 +26,7 @@
 | Reading | B1 PET | `pet-reading-test1` | **Builtin** `catalog-reading-pet-b1-test1` |
 | Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
+| Listening | A2 KET practice 44 | `Crawl/Import_KET_A2_Listening/test-NN` | **Pilot:** test-01 → Book 3 Test 3 (ZIP import); **43 đề** chờ media → convert |
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
@@ -393,14 +394,15 @@ pnpm --filter server typecheck
 
 - [x] Google OAuth flow end-to-end trên production — OK (2026-06-30)
 - [x] Deploy production Vercel — OK https://ryanenglishv2.vercel.app/
-- [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix (mất chữ "o" trong "do", ô trống, vòng tròn đỏ trùng WordDiff). Đã rewrite DOM thuần + tách `ListeningAudioBar`; **chờ user hard refresh production và xác nhận**
-- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar; bỏ `overflow-x-auto` tabs + debug observer
-- [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần tương tác người dùng trước (autoplay policy)
-- [ ] **IELTS Cam20 Listening UI** — fix `notePassage` + Choose TWO + **P1 bảng 4 cột** + **Part 2 segment UI**; **chờ user hard refresh + so sánh `Giaodien/a2` (bảng) + `a5–a10` + `Part2-Listening/a7,a10`**
-- [ ] Nếu user đã import ZIP Cam20 cũ vào Dexie → xóa đề cũ hoặc re-import `Listening IELTS_Test1_Cam20.zip` mới
-- [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
-- [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
-- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder (chưa ảnh Q58 riêng); xem mục Cambridge RW cuối file
+- [x] **KET Listening 5× part*.mp3 “Không tìm thấy file audio”** — fix 2026-07-14 (`resolveListeningAudioSource` + currentPart); user confirm OK
+- [ ] **KET A2 Listening practice test-02…44** — chờ user đủ media (~1h) → `node scripts/ket-practice-csv-to-exam.mjs 2-44` (hoặc `all`)
+- [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix; **chờ user hard refresh production và xác nhận**
+- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar
+- [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần gesture trước (autoplay policy)
+- [ ] **IELTS Cam20 Listening UI** — notePassage / Choose TWO / P1 bảng / Part 2 segment
+- [ ] Nếu user đã import ZIP Cam20 cũ → re-import ZIP mới
+- [ ] `pnpm install --ignore-scripts` khi hook esbuild lỗi
+- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder
 
 ---
 
@@ -3320,17 +3322,30 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - Verify: sanitize `Test 1/exam.json` → Part 2 vẫn `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) vẫn coerce
 - User: hard refresh dev → **import lại** ZIP (hoặc mở lại đề) — không cần sửa JSON
 
-## Next session start prompt (cập nhật 2026-07-12)
+## Next session start prompt (cập nhật 2026-07-14 — KET Listening 44 practice)
 
 ```
-Đọc session_summary.md (đầu file + mục "2026-07-12 — Cứu catalog IELTS").
-48 IELTS Listening đã restore builtin (GLOBAL_CATALOG_VERSION=24). Reading IELTS: 9/48 có exam.json.
-Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để sync catalog v24.
-Đọc session_summary.md (đầu file + mục "2026-07-11" fix KET Part 2 YNNG + check-in cloud).
+Đọc session_summary.md (đầu file + mục "2026-07-14 — KET A2 Listening practice 44 đề").
 
-1) pnpm db:push — migration 017_checkin_days (bắt buộc trước khi streak cloud hoạt động)
-2) Đăng nhập → điểm danh → máy/browser khác login cùng account → Đồng bộ → streak điểm danh khôi phục
-3) Lưu ý: số lửa Home = streak HỌC (vocab), không phải điểm danh
+CONTEXT:
+- App đã có ~10 đề KET Listening (Book 1 T1–4, Book 2 T1–4, Book 3 T1–2).
+- Pilot test-01: title "KET A2 Listening — Book 3 — Test 3" — import ZIP OK sau fix multi-part audio.
+- User sẽ thả media test-02…44 (~1h sau session này).
+
+ROOT media:
+  D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-NN\
+  Cần: ket-a2-test-NN.csv (đã có) + part1.mp3…part5.mp3 + q1.jpg…q5.jpg
+  Optional meta.json: { "book": N, "test": M }
+
+NEXT (khi user báo đủ media):
+1) Kiểm tra STATUS / từng folder đủ 5 mp3 + 5 ảnh
+2) node scripts/ket-practice-csv-to-exam.mjs 2-44   # hoặc all
+3) User import ZIP (hoặc sau: build-catalog discover) — title auto Book/Test slot
+4) Không gộp catalog vào ket-a2-test1 (tránh merge audio nhầm)
+
+FIX đã ship (code):
+- ListeningKetTest/Pet: resolveListeningAudioSource(exam, currentPart)
+- Bug: ketSharedExamAudioSource rỗng khi 5 part khác MP3
 ```
 
 ## 2026-07-11 — HDSD Universal: đề PDF **hoặc** TXT
@@ -3439,3 +3454,59 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 - Thêm `scripts/payload-to-catalog.mjs` và mở rộng `scripts/build-catalog.mjs` đọc `out-reading/`.
 - Fix layout câu hỏi: giữ prompt thật, table completion, title, rows và gap từ `reading_filtered.json`.
 - Verify: catalog test 47 đề/3 passages/40 câu PASS; `pnpm -C apps/web build` PASS.
+
+## 2026-07-14 — Fix avatar User trong Admin
+
+- **Root cause:** Admin đã render `profiles.avatar_url`, nhưng profile sync chỉ đọc `user_metadata.avatar_url`; một số Google identity chỉ có `picture`, và profile cũ chưa được backfill.
+- `syncAuthProfile.ts`: đồng bộ email/tên/avatar từ Auth vào `profiles` khi bootstrap/đăng nhập, hỗ trợ `avatar_url` + `picture`, không ghi `null` đè dữ liệu profile hiện có.
+- `018_profile_avatar_sync.sql`: cập nhật trigger Auth và backfill avatar/tên cho user cũ từ `auth.users`.
+- `AdminPage.tsx`: ảnh dùng `referrerPolicy="no-referrer"`; URL hỏng tự fallback sang avatar chữ cái.
+- Verify: `vitest run src/features/auth/syncAuthProfile.test.ts` — 2 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Deploy cần chạy `pnpm db:push` để áp migration 017–018 trước hoặc cùng lúc deploy web.
+
+## 2026-07-14 — KET A2 Listening practice 44 đề (pilot + multi-part audio)
+
+### Mục tiêu
+Import thêm ~44 đề KET Listening (crawl CSV + media) vào app, title theo Cambridge Book/Test (tiếp sau 10 đề sẵn).
+
+### Nguồn / layout
+- Root: `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\`
+- 44 folder `test-01`…`test-44` (đã scaffold + copy CSV)
+- Mỗi folder: `ket-a2-test-NN.csv` + `part1.mp3`…`part5.mp3` + `q1.jpg`…`q5.jpg`
+- `meta.json` (optional): `{ "book", "test" }` — test-01 = Book 3 Test 3
+- Mapping slot mặc định (KET_EXISTING_COUNT=10): test-01→B3T3, test-02→B3T4, test-03→B4T1, …
+
+### Đã làm
+- [x] Survey cơ chế import KET (ZIP `exam.json` + media; catalog 1 đề builtin)
+- [x] Scaffold 44 folder + README + STATUS.csv
+- [x] `scripts/ket-practice-csv-to-exam.mjs` — CSV→exam.json + audioscript + answer-key + ZIP flat
+- [x] Pilot **test-01**: title `KET A2 Listening — Book 3 — Test 3`
+  - ZIP: `Import_KET_A2_Listening\ket-practice-test-01.zip`
+  - 5 parts / 25 câu; audio per-part; picture-mc q1–q5
+- [x] **Bug fix multi-part audio:** `ListeningKetTest` / `ListeningPetTest` dùng `resolveListeningAudioSource(exam, currentPart)` thay `ketSharedExamAudioSource` (trước đây 5× part*.mp3 → "Không tìm thấy file audio")
+- [x] `ketSharedExamAudioSource` fallback part 0 (không source rỗng)
+- [x] User confirm: pilot **hoạt động tốt**
+- [x] Cập nhật session_summary
+
+### Chờ user (~1 giờ)
+- [ ] Thả đủ media **test-02…test-44** (5 mp3 + 5 jpg mỗi folder)
+- [ ] Báo agent → convert batch:
+  ```bash
+  node scripts/ket-practice-csv-to-exam.mjs 2-44
+  # hoặc: node scripts/ket-practice-csv-to-exam.mjs all
+  ```
+- [ ] Import ZIP từng đề (hoặc batch) / sau có thể discover catalog
+
+### Lưu ý
+- Không dùng id/slug chung `catalog-listening-ket-a2-test1` cho practice
+- App UI KET đã hỗ trợ 5 file part (không bắt buộc gộp listening.mp3)
+- Catalog global ship 44 đề = bước sau (build-catalog discover) — hiện pilot = import ZIP tay
+
+### Lệnh
+```bash
+node scripts/ket-practice-csv-to-exam.mjs 1      # pilot
+node scripts/ket-practice-csv-to-exam.mjs 2-44  # batch còn lại
+pnpm --filter web exec tsc --noEmit            # sau sửa ListeningKet*
+```
+
+---

@@ -3,6 +3,7 @@ import type { Session, User } from '@supabase/supabase-js'
 import { clearLocalUserData, ensureLocalUserIsolation } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
 import { hasOAuthCallbackInUrl, recoverOAuthSession } from './recoverOAuthSession'
+import { syncAuthProfile } from './syncAuthProfile'
 
 interface AuthCtx {
   session: Session | null
@@ -41,6 +42,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  const prepareUser = useCallback(async (user: User) => {
+    await isolateForUser(user.id)
+    try {
+      await syncAuthProfile(user)
+    } catch (err) {
+      // Profile display data must not block login or local-first usage.
+      console.error('[auth] syncAuthProfile failed', err)
+    }
+  }, [isolateForUser])
+
   const bootstrap = useCallback(async () => {
     recoveringRef.current = true
     setLoading(true)
@@ -54,12 +65,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const { data: { session: s } } = await supabase.auth.getSession()
     if (s?.user?.id) {
-      await isolateForUser(s.user.id)
+      await prepareUser(s.user)
     }
     setSession(s)
     recoveringRef.current = false
     setLoading(false)
-  }, [isolateForUser])
+  }, [prepareUser])
 
   useEffect(() => {
     bootstrap()
@@ -67,7 +78,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, s) => {
       void (async () => {
         if (event === 'SIGNED_IN' && s?.user?.id) {
-          await isolateForUser(s.user.id)
+          await prepareUser(s.user)
           setAuthError(null)
         }
         if (event === 'SIGNED_OUT') {
@@ -91,7 +102,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       subscription.unsubscribe()
       window.removeEventListener('hashchange', onHashChange)
     }
-  }, [bootstrap, isolateForUser])
+  }, [bootstrap, prepareUser])
 
   const signInWithGoogle = async () => {
     setAuthError(null)
