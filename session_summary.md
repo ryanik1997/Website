@@ -17,6 +17,17 @@
 - Smoke `/`, `/terms`, `/privacy`: HTTP 200, CSP có mặt, `X-Frame-Options: DENY`.
 - Còn smoke browser: Turnstile login, Google OAuth, signed PDF/media và admin publish Listening MP3.
 
+## 2026-07-17 — Re-verify Security HIGH + production backend
+
+- Xác nhận code Security HIGH có đủ Phase 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, Phase 4 và migration 023.
+- Bộ verify được báo cáo: `phase1Hardening`, `phase2Hardening`, `phase4Legal`, `BookReaderPage` tổng 10/10 PASS; `tsc --noEmit` PASS.
+- Đối chiếu Git: working tree không hoàn toàn sạch vì còn `.claude/settings.local.json` untracked; HEAD thực tế lúc kiểm tra là `b1db15f7`, không phải `86e26916`.
+- Chạy lại `pnpm db:push` production: Supabase project `ntcagvtkwxwsmlxlumfo` trả `Remote database is up to date`; migrations 017–023 đã có trên remote.
+- Redeploy `content-sign` thành công lên project `ntcagvtkwxwsmlxlumfo`. CLI lần đầu thiếu token; lần hai chỉ nạp `SUPABASE_ACCESS_TOKEN` từ `.env.deploy` trong process, không ghi/in secret.
+- Không chạy lại backfill/upload: session trước đã audit production và ghi nhận 51 Listening rows được tách 1.275 answers vào vault; 2.011/2.012 private media đã upload, thiếu duy nhất CAE audio 82.94MB vượt giới hạn Supabase Free 50MB.
+- Frontend production đã deploy Ready ở `https://ryanenglishv2.vercel.app`; HTTP smoke `/`, `/terms`, `/privacy` PASS.
+- Còn ngoài code: smoke browser Turnstile/OAuth/signed media/admin publish; tạo và review Vercel Firewall draft; xử lý CAE audio >50MB; cấu hình kênh gửi security alert/PITR/legal review nếu cần.
+
 ### Next session start prompt
 
 Smoke browser production tại `https://ryanenglishv2.vercel.app`, gồm Turnstile login, signed PDF/media và retry publish Listening MP3 admin. Sau đó tạo Vercel Firewall draft và review diff trước khi publish. Audio CAE 82.94MB vẫn cần nén dưới 50MB hoặc nâng Supabase Pro.
@@ -4550,3 +4561,26 @@ dưới 50MB và upload lại đúng path.
   - Signup handler chưa tồn tại nên checkbox consent chưa được wire.
   - Alert mới dừng ở DB queue; chưa gửi email/Zalo.
   - PITR, legal review và đăng ký bản quyền cần thao tác dashboard/nghiệp vụ.
+
+### Session 2026-07-17 — Verify production + smoke test HIGH security
+
+- Xác minh code: migrations 019–023 trong repo; `pnpm db:push` remote up-to-date;
+  `content-sign` redeploy OK; security tests (phase1/2/4 + BookReaderPage)
+  10/10 PASS; `tsc --noEmit` PASS.
+- Smoke test production (https://ryanenglishv2.vercel.app) — ALL PASS:
+  - `/terms`, `/privacy` render đầy đủ (điều khoản cấm crawl, copyright footer)
+  - `/books/*.pdf` → SPA fallback (PDF binary đã strip khỏi dist)
+  - REST anon `reading/listening_exam_published` → `[]`
+  - `content-sign` không JWT → 401; storage `exam-media` public access → 400
+  - Login: Turnstile widget hiển thị, nút Đăng nhập disabled tới khi có token;
+    không lỗi CSP
+- **Audio CAE fix:** user đã nén mp3 <20MB và import lại vào app — hết blocker
+  50MB Supabase Free.
+- **Vercel Hobby note:** không có rate-limit rule (cần Pro). Mức Hobby dùng:
+  Attack Challenge Mode (bật khi bị crawl) + 1 custom WAF rule challenge/deny
+  theo UA bot (python-requests, scrapy, curl, wget, HeadlessChrome,
+  Go-http-client). Daily quota 400/user/24h ở content-sign là lớp rate-limit
+  chính — chỉ nâng Pro/Cloudflare khi có bằng chứng bị crawl
+  (theo dõi `content_access_log` + Vercel Analytics).
+- Còn lại (tay user): tạo 1 custom WAF rule UA-bot trên Vercel Dashboard;
+  login thật + admin publish 1 đề để confirm end-to-end.
