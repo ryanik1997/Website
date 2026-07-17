@@ -4,6 +4,7 @@ import { clearLocalUserData, ensureLocalUserIsolation } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
 import { hasOAuthCallbackInUrl, recoverOAuthSession } from './recoverOAuthSession'
 import { syncAuthProfile } from './syncAuthProfile'
+import { forgetPendingLegalConsent, LEGAL_TERMS_VERSION, recordPendingLegalConsent, rememberPendingLegalConsent } from './legalConsent'
 
 interface AuthCtx {
   session: Session | null
@@ -12,6 +13,7 @@ interface AuthCtx {
   authError: string | null
   signInWithGoogle: () => Promise<void>
   signInWithPassword: (email: string, password: string) => Promise<void>
+  signUpWithPassword: (email: string, password: string) => Promise<{ emailConfirmationRequired: boolean }>
   signOut: () => Promise<void>
 }
 
@@ -50,6 +52,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (err) {
       // Profile display data must not block login or local-first usage.
       console.error('[auth] syncAuthProfile failed', err)
+    }
+    try {
+      await recordPendingLegalConsent()
+    } catch (err) {
+      console.error('[auth] recordPendingLegalConsent failed', err)
     }
   }, [isolateForUser])
 
@@ -141,6 +148,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const signUpWithPassword = async (email: string, password: string) => {
+    setAuthError(null)
+    rememberPendingLegalConsent()
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          legal_consent: true,
+          legal_consent_version: LEGAL_TERMS_VERSION,
+        },
+      },
+    })
+    if (error) {
+      forgetPendingLegalConsent()
+      setAuthError(error.message)
+      throw error
+    }
+    if (data.session) await recordPendingLegalConsent()
+    return { emailConfirmationRequired: !data.session }
+  }
+
   const signOut = async () => {
     try {
       const { clearProtectedMediaCache } = await import('../../lib/protectedMedia')
@@ -167,6 +196,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       authError,
       signInWithGoogle,
       signInWithPassword,
+      signUpWithPassword,
       signOut,
     }}>
       {loading ? <AuthLoading /> : children}

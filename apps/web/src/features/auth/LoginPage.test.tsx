@@ -11,6 +11,7 @@ import LoginPage from './LoginPage'
 
 const signInWithGoogle = vi.fn()
 const signInWithPassword = vi.fn()
+const signUpWithPassword = vi.fn()
 const verifyTurnstileToken = vi.fn()
 
 function renderLoginPage() {
@@ -27,6 +28,7 @@ vi.mock('./AuthContext', () => ({
     loading: false,
     signInWithGoogle,
     signInWithPassword,
+    signUpWithPassword,
   }),
 }))
 
@@ -56,6 +58,8 @@ describe('LoginPage', () => {
     signInWithGoogle.mockReset()
     signInWithPassword.mockReset()
     signInWithPassword.mockResolvedValue(undefined)
+    signUpWithPassword.mockReset()
+    signUpWithPassword.mockResolvedValue({ emailConfirmationRequired: true })
     verifyTurnstileToken.mockReset()
     verifyTurnstileToken.mockResolvedValue(true)
   })
@@ -96,6 +100,25 @@ describe('LoginPage', () => {
     await waitFor(() => {
       expect(verifyTurnstileToken).toHaveBeenCalledWith('valid-turnstile-token')
       expect(signInWithPassword).not.toHaveBeenCalled()
+    })
+  })
+
+  it('requires legal consent and records signup through the dedicated handler', async () => {
+    renderLoginPage()
+    fireEvent.click(screen.getByRole('button', { name: 'Đăng ký' }))
+    fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'new@example.com' } })
+    fireEvent.change(screen.getByLabelText('Mật khẩu'), { target: { value: 'secret123' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Complete Turnstile' }))
+
+    const submit = screen.getByRole('button', { name: /^Tạo tài khoản/ })
+    expect(submit).toBeDisabled()
+    fireEvent.click(screen.getByRole('checkbox'))
+    expect(submit).toBeEnabled()
+    fireEvent.click(submit)
+
+    await waitFor(() => {
+      expect(signUpWithPassword).toHaveBeenCalledWith('new@example.com', 'secret123')
+      expect(screen.getByRole('status')).toHaveTextContent('kiểm tra email')
     })
   })
 })

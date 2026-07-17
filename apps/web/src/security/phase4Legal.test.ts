@@ -26,4 +26,19 @@ describe('Phase 4 legal protections', () => {
     expect(migration).toContain('security definer')
     expect(migration).toContain('grant execute on function public.accept_legal_terms')
   })
+
+  it('requires consent in signup and persists it with or without an immediate session', () => {
+    const login = readFileSync(resolve(root, 'apps/web/src/features/auth/LoginPage.tsx'), 'utf8')
+    const auth = readFileSync(resolve(root, 'apps/web/src/features/auth/AuthContext.tsx'), 'utf8')
+    const migration = readFileSync(
+      resolve(root, 'supabase/migrations/024_signup_consent_and_security_email.sql'),
+      'utf8',
+    )
+    expect(login).toContain('<TermsConsentCheckbox')
+    expect(login).toContain("mode === 'signup' && !legalConsent")
+    expect(auth).toContain('supabase.auth.signUp')
+    expect(auth).toContain('legal_consent_version: LEGAL_TERMS_VERSION')
+    expect(migration).toContain("new.raw_user_meta_data->>'legal_consent_version'")
+    expect(migration).toContain('terms_accepted_at')
+  })
 })

@@ -179,12 +179,21 @@
 }
 
 .login-card__tab {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
   border-radius: 999px;
   padding: .7rem 1rem;
   color: color-mix(in srgb, var(--color-on-primary) 66%, transparent);
   font-size: .72rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.login-card__success {
+  color: var(--color-success);
+  font-size: .82rem;
+  line-height: 1.5;
 }
 
 .login-card__tab--active {

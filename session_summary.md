@@ -28,7 +28,20 @@
 - Frontend production đã deploy Ready ở `https://ryanenglishv2.vercel.app`; HTTP smoke `/`, `/terms`, `/privacy` PASS.
 - Còn ngoài code: smoke browser Turnstile/OAuth/signed media/admin publish; tạo và review Vercel Firewall draft; xử lý CAE audio >50MB; cấu hình kênh gửi security alert/PITR/legal review nếu cần.
 
+## 2026-07-17 — Signup legal consent + email security alerts
+
+- Biến tab `Đăng ký` từ trang trí thành signup email/password thật; dùng Turnstile hiện có, yêu cầu password >= 8 ký tự và bắt buộc `TermsConsentCheckbox`.
+- Consent version `2026-07-16` được gửi trong Auth metadata. Migration `024_signup_consent_and_security_email.sql` mở rộng `handle_new_user()` để ghi server timestamp vào `profiles` ngay cả khi bật email confirmation/chưa có session.
+- Với signup có session và Google OAuth signup, app lưu pending version ngắn hạn rồi gọi RPC `accept_legal_terms`; pending được xóa khi thành công hoặc signup lỗi để không ghi nhầm ở login sau.
+- Alert quota >=300 request/24h dùng Resend trong `content-sign`. RPC `claim_content_security_alert_email` claim nguyên tử một email/user/ngày; nếu Resend lỗi thì release claim để request sau retry. DB queue vẫn giữ nguyên.
+- Migration 024 đã push production; `content-sign` mới đã deploy production.
+- Blocker email production: Supabase project chưa có các secret `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`; `.env.deploy` cũng không có. Cho đến khi set secret, function chỉ cảnh báo log + lưu DB, chưa gửi email thật.
+- Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
+- Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
+
 ### Next session start prompt
+
+Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rồi test một alert có kiểm soát. Smoke signup email-confirmation + Google consent và kiểm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sửa baseline catalog test 47→48 sau khi xác nhận đề thứ 48 hợp lệ.
 
 Smoke browser production tại `https://ryanenglishv2.vercel.app`, gồm Turnstile login, signed PDF/media và retry publish Listening MP3 admin. Sau đó tạo Vercel Firewall draft và review diff trước khi publish. Audio CAE 82.94MB vẫn cần nén dưới 50MB hoặc nâng Supabase Pro.
 

@@ -130,6 +130,48 @@ function clientIp(req: Request): string | null {
     ?? null
 }
 
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[char] ?? char))
+}
+
+async function sendSecurityAlertEmail(opts: {
+  email: string
+  userId: string
+  requestCount: number
+  plan: Plan
+  path: string
+  ip: string | null
+}): Promise<boolean> {
+  const resendKey = Deno.env.get('RESEND_API_KEY')
+  const adminEmail = Deno.env.get('ADMIN_EMAIL') ?? ''
+  if (!resendKey || !adminEmail) {
+    console.warn('[content-sign] RESEND_API_KEY or ADMIN_EMAIL missing; alert remains in DB')
+    return false
+  }
+  const appOrigin = Deno.env.get('APP_ORIGIN') ?? 'https://ryanenglishv2.vercel.app'
+  const adminLink = `${appOrigin}/app/admin?search=${encodeURIComponent(opts.email)}`
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: 'Ryan English Security <onboarding@resend.dev>',
+      to: [adminEmail],
+      subject: `[Ryan English Security] ${opts.requestCount} signed-media requests — ${opts.email}`,
+      html: `<h2>Cảnh báo truy cập nội dung</h2>
+        <p>User <strong>${escapeHtml(opts.email)}</strong> đã tạo <strong>${opts.requestCount}</strong> signed URL trong 24 giờ.</p>
+        <ul><li>User ID: ${escapeHtml(opts.userId)}</li><li>Plan: ${escapeHtml(opts.plan)}</li><li>IP: ${escapeHtml(opts.ip ?? 'unknown')}</li><li>Path cuối: ${escapeHtml(opts.path)}</li></ul>
+        <p><a href="${escapeHtml(adminLink)}">Mở Admin</a></p>`,
+    }),
+  })
+  if (!response.ok) {
+    console.error('[content-sign] Resend alert failed', response.status, await response.text())
+    return false
+  }
+  return true
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -260,23 +302,37 @@ Deno.serve(async (req) => {
     user_agent: ua,
   })
 
-  if ((dailyUserCount ?? 0) + 1 >= ALERT_DAILY_USER) {
-    const alertDay = new Date().toISOString().slice(0, 10)
-    void adminClient.from('content_security_alerts').upsert({
-      user_id: user.id,
-      alert_type: 'DAILY_SIGN_VOLUME',
-      alert_day: alertDay,
-      request_count: (dailyUserCount ?? 0) + 1,
-      metadata: {
-        threshold: ALERT_DAILY_USER,
-        lastPath: path,
-        plan,
-        ip,
-      },
-      updated_at: new Date().toISOString(),
-    }, {
-      onConflict: 'user_id,alert_type,alert_day',
-    })
+  const nextDailyCount = (dailyUserCount ?? 0) + 1
+  if (nextDailyCount >= ALERT_DAILY_USER) {
+    const metadata = { threshold: ALERT_DAILY_USER, lastPath: path, plan, ip }
+    const { data: emailClaimed, error: claimError } = await adminClient.rpc(
+      'claim_content_security_alert_email',
+      { target_user_id: user.id, target_request_count: nextDailyCount, target_metadata: metadata },
+    )
+    if (claimError) {
+      console.error('[content-sign] alert claim failed', claimError.message)
+    } else if (emailClaimed) {
+      let emailSent = false
+      try {
+        emailSent = await sendSecurityAlertEmail({
+          email: user.email ?? user.id,
+          userId: user.id,
+          requestCount: nextDailyCount,
+          plan,
+          path,
+          ip,
+        })
+      } catch (emailError) {
+        console.error('[content-sign] Resend alert threw', emailError)
+      }
+      if (!emailSent) {
+        const { error: releaseError } = await adminClient.rpc(
+          'release_content_security_alert_email',
+          { target_user_id: user.id },
+        )
+        if (releaseError) console.error('[content-sign] alert release failed', releaseError.message)
+      }
+    }
   }
 
   const expiresAt = new Date(Date.now() + SIGN_TTL_SEC * 1000).toISOString()

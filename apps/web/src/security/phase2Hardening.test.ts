@@ -13,7 +13,7 @@ describe('security hardening phase 2', () => {
     expect(edge).toContain('const SIGN_TTL_SEC = 60')
     expect(edge).toContain('const RATE_MAX_DAILY_USER = 400')
     expect(edge).toContain("code: 'RATE_LIMIT_DAILY'")
-    expect(edge).toContain("'content_security_alerts'")
+    expect(edge).toContain("'claim_content_security_alert_email'")
   })
 
   it('creates an admin-only alert queue and hourly anomaly scan', () => {
@@ -26,5 +26,15 @@ describe('security hardening phase 2', () => {
     expect(migration).not.toMatch(
       /create policy "content_security_alerts[^"]*"\s+[\s\S]*?using\s*\(true\)/,
     )
+  })
+
+  it('claims and emails each high-volume alert once per user/day', () => {
+    const edge = repoFile('supabase/functions/content-sign/index.ts')
+    const migration = repoFile('supabase/migrations/024_signup_consent_and_security_email.sql')
+    expect(edge).toContain("'claim_content_security_alert_email'")
+    expect(edge).toContain('https://api.resend.com/emails')
+    expect(edge).toContain("Deno.env.get('RESEND_API_KEY')")
+    expect(migration).toContain('emailClaimedAt')
+    expect(migration).toContain('grant execute on function public.claim_content_security_alert_email')
   })
 })

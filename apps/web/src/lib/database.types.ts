@@ -240,6 +240,11 @@ export interface Database {
       }
     }
     Views: Record<string, never>
-    Functions: Record<string, never>
+    Functions: {
+      accept_legal_terms: {
+        Args: { version: string }
+        Returns: string
+      }
+    }
   }
 }

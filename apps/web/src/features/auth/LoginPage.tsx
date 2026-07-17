@@ -7,16 +7,21 @@ import {
   verifyTurnstileToken,
 } from './turnstileVerification'
 import LegalFooter from '../../components/LegalFooter'
+import TermsConsentCheckbox from '../../components/TermsConsentCheckbox'
+import { rememberPendingLegalConsent } from './legalConsent'
 import './loginPage.css'
 
 export default function LoginPage() {
-  const { authError, signInWithGoogle, signInWithPassword, loading } = useAuth()
+  const { authError, signInWithGoogle, signInWithPassword, signUpWithPassword, loading } = useAuth()
+  const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [formError, setFormError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const [turnstileKey, setTurnstileKey] = useState(0)
+  const [legalConsent, setLegalConsent] = useState(false)
+  const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const busy = loading || submitting
   const handleTurnstileToken = useCallback((token: string | null) => {
     setTurnstileToken(token)
@@ -38,6 +43,14 @@ export default function LoginPage() {
       setFormError('Vui lòng hoàn tất bước xác minh bảo mật.')
       return
     }
+    if (mode === 'signup' && !legalConsent) {
+      setFormError('Bạn cần đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư.')
+      return
+    }
+    if (mode === 'signup' && password.length < 8) {
+      setFormError('Mật khẩu đăng ký phải có ít nhất 8 ký tự.')
+      return
+    }
 
     setSubmitting(true)
     try {
@@ -48,7 +61,14 @@ export default function LoginPage() {
         setFormError('Xác minh bảo mật không hợp lệ hoặc đã hết hạn. Vui lòng thử lại.')
         return
       }
-      await signInWithPassword(email, password)
+      if (mode === 'signup') {
+        const result = await signUpWithPassword(email, password)
+        setSuccessMessage(result.emailConfirmationRequired
+          ? 'Đăng ký thành công. Vui lòng kiểm tra email để xác nhận tài khoản.'
+          : 'Đăng ký thành công.')
+      } else {
+        await signInWithPassword(email, password)
+      }
       // Turnstile tokens are single-use. A failed credential attempt must
       // receive a fresh challenge before the next submission.
       setTurnstileToken(null)
@@ -85,15 +105,15 @@ export default function LoginPage() {
                 <p className="login-card__brand-sub">IELTS · Cambridge · SRS</p>
               </div>
             </div>
-            <div className="login-card__tabs" aria-hidden>
-              <span className="login-card__tab login-card__tab--active">Đăng nhập</span>
-              <span className="login-card__tab">Đăng ký</span>
+            <div className="login-card__tabs">
+              <button type="button" className={`login-card__tab${mode === 'login' ? ' login-card__tab--active' : ''}`} onClick={() => { setMode('login'); setFormError(null); setSuccessMessage(null) }}>Đăng nhập</button>
+              <button type="button" className={`login-card__tab${mode === 'signup' ? ' login-card__tab--active' : ''}`} onClick={() => { setMode('signup'); setFormError(null); setSuccessMessage(null) }}>Đăng ký</button>
             </div>
           </header>
 
           <section className="login-card__body">
-            <p className="login-card__eyebrow">Vào lớp học</p>
-            <h1>Chào mừng trở lại</h1>
+            <p className="login-card__eyebrow">{mode === 'signup' ? 'Bắt đầu học' : 'Vào lớp học'}</p>
+            <h1>{mode === 'signup' ? 'Tạo tài khoản' : 'Chào mừng trở lại'}</h1>
             <p className="login-card__copy">
               Đăng nhập để đồng bộ tiến độ, streak và tiếp tục lộ trình học của bạn.
             </p>
@@ -150,18 +170,23 @@ export default function LoginPage() {
                 onError={handleTurnstileError}
               />
 
+              {mode === 'signup' && (
+                <TermsConsentCheckbox checked={legalConsent} disabled={busy} onChange={setLegalConsent} />
+              )}
+
               {(formError || authError) && (
                 <p className="login-card__error" role="alert">
                   {formError || authError}
                 </p>
               )}
+              {successMessage && <p className="login-card__success" role="status">{successMessage}</p>}
 
               <button
                 type="submit"
-                disabled={busy || !turnstileToken}
+                disabled={busy || !turnstileToken || (mode === 'signup' && !legalConsent)}
                 className="login-card__primary"
               >
-                <span>{submitting ? 'Đang đăng nhập...' : 'Đăng nhập ngay'}</span>
+                <span>{submitting ? 'Đang xử lý...' : mode === 'signup' ? 'Tạo tài khoản' : 'Đăng nhập ngay'}</span>
                 <span className="login-card__arrow">→</span>
               </button>
             </form>
@@ -172,8 +197,11 @@ export default function LoginPage() {
 
             <button
               type="button"
-              onClick={signInWithGoogle}
-              disabled={busy}
+              onClick={() => {
+                if (mode === 'signup') rememberPendingLegalConsent()
+                void signInWithGoogle()
+              }}
+              disabled={busy || (mode === 'signup' && !legalConsent)}
               className="login-card__google"
             >
               <GoogleIcon />
