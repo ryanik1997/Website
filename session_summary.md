@@ -43,13 +43,17 @@
 
 ## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
 
+- Entitlement/retention: admin + Pro còn hạn + Lifetime dùng Speaking AI không giới hạn; Free/Trial/Basic giữ quota 600 giây/ngày. API trả access metadata để UI hiện đúng quyền.
+- Migration `027_speaking_ai_entitlements_retention.sql`: cron chạy hằng ngày, xóa message/usage quá 30 ngày và conversation rỗng; function dọn dữ liệu không cho anon/authenticated gọi trực tiếp.
+- UI Speaking AI hiển thị `Không giới hạn` cho Pro/admin và thông báo lịch sử tự xóa sau 30 ngày; web bump v0.2.6.
+- Verify entitlement/retention: scoped 6/6 PASS, `tsc --noEmit` PASS; full suite 130/131 PASS. Lỗi duy nhất ngoài feature vẫn là catalog Reading test hardcode 47 khi catalog có 48.
 - Fix tiếp: thêm i18n `nav.speakingAi` cho VI/EN để toolbar không hiện raw key; regression test 1/1 và `tsc --noEmit` PASS.
-- Thêm nút `Speaking AI` ở đầu sidebar AppShell; mở panel phải/modal lớn, không đổi route và lazy-load riêng.
-- Panel chọn level A1–C1, 7 mode, 6 topic; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
+- Thêm route riêng `/app/speaking-ai` trong sidebar AppShell; trang được lazy-load và dùng backdrop grid/ribbon chung.
+- Trang chọn level A1–C1, 7 mode, 6 topic và mở lại các phiên lịch sử đã lưu; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
 - `useSpeakingRecorder`: MediaRecorder giữ audio cục bộ để replay; Web Speech API (`SpeechRecognition`, `en-US`) tạo transcript trực tiếp trên Chrome/Edge; giới hạn 60 giây, permission error rõ và cleanup stream/object URL.
 - Edge Function `speaking-ai` chuyển sang DeepSeek Chat Completions JSON mode (`deepseek-v4-flash` mặc định): chỉ nhận transcript, không upload audio; JWT user bắt buộc, timeout 25s, conversation ownership check và không log/lộ API key.
-- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lưu lâu dài, audio không lưu; quota 600 giây/ngày/user.
-- Lịch sử phiên gần nhất được tải lại khi mở panel nên đóng/mở không mất ngữ cảnh. TTS dùng engine hiện có và fallback browser.
+- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lưu tối đa 30 ngày, audio không lưu; quota mặc định 600 giây/ngày/user.
+- Tối đa 12 phiên gần nhất được tải và chọn lại trên trang. TTS dùng engine hiện có và fallback browser.
 - Production backend: migration 026 đã push và Edge Function `speaking-ai` bản DeepSeek đã deploy lên project `ntcagvtkwxwsmlxlumfo`.
 - Frontend commit `cb8925de` đã deploy Vercel production Ready tại `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
 - Bản DeepSeek commit `2aa07056`, web v0.2.5 đã deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.

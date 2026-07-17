@@ -5,6 +5,12 @@ const json = (body: unknown, status = 200) => new Response(JSON.stringify(body),
 const LEVELS = new Set(['A1', 'A2', 'B1', 'B2', 'C1'])
 const DAILY_SECONDS = 600
 
+function effectivePlan(plan: string | null | undefined, expiresAt: string | null | undefined) {
+  const value = plan ?? 'free'
+  if (value === 'free' || value === 'lifetime' || !expiresAt) return value
+  return new Date(expiresAt).getTime() >= Date.now() ? value : 'free'
+}
+
 Deno.serve(async req => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors })
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405)
@@ -20,12 +26,16 @@ Deno.serve(async req => {
   const { data: auth } = await userClient.auth.getUser(token)
   if (!auth.user) return json({ error: 'Unauthorized' }, 401)
   const admin = createClient(url, service)
+  const { data: profile } = await admin.from('profiles').select('plan,plan_expires_at,is_admin').eq('id', auth.user.id).maybeSingle()
+  const activePlan = effectivePlan(profile?.plan, profile?.plan_expires_at)
+  const unlimited = profile?.is_admin === true || activePlan === 'pro' || activePlan === 'lifetime'
+  const access = { unlimited, dailyLimitSeconds: unlimited ? null : DAILY_SECONDS, retentionDays: 30 }
   const body = await req.json().catch(() => null) as Record<string, unknown> | null
   if (!body) return json({ error: 'Invalid JSON' }, 400)
 
   if (body.action === 'history') {
     const { data } = await admin.from('speaking_conversations').select('id,title,level,topic,mode,started_at,total_duration,speaking_messages(*)').eq('user_id', auth.user.id).order('started_at', { ascending: false }).limit(12)
-    return json({ conversations: data ?? [] })
+    return json({ conversations: data ?? [], access })
   }
 
   const transcript = typeof body.transcript === 'string' ? body.transcript.trim().slice(0, 2_000) : ''
@@ -37,7 +47,7 @@ Deno.serve(async req => {
 
   const today = new Date().toISOString().slice(0, 10)
   const { data: usage } = await admin.from('speaking_usage').select('audio_seconds,request_count').eq('user_id', auth.user.id).eq('usage_date', today).maybeSingle()
-  if ((usage?.audio_seconds ?? 0) + durationSec > DAILY_SECONDS) return json({ error: 'Bạn đã dùng hết 10 phút Speaking AI hôm nay.', code: 'DAILY_LIMIT' }, 429)
+  if (!unlimited && (usage?.audio_seconds ?? 0) + durationSec > DAILY_SECONDS) return json({ error: 'Bạn đã dùng hết 10 phút Speaking AI hôm nay.', code: 'DAILY_LIMIT' }, 429)
 
   let conversationId = typeof body.conversationId === 'string' ? body.conversationId : ''
   if (!conversationId) {
@@ -84,5 +94,5 @@ Return JSON only in exactly this shape: {"reply":"...","correction":{"original":
   ])
   await admin.from('speaking_conversations').update({ total_duration: (conversation?.total_duration ?? 0) + durationSec }).eq('id', conversationId).eq('user_id', auth.user.id)
   await admin.from('speaking_usage').upsert({ user_id: auth.user.id, usage_date: today, audio_seconds: (usage?.audio_seconds ?? 0) + durationSec, request_count: (usage?.request_count ?? 0) + 1 }, { onConflict: 'user_id,usage_date' })
-  return json({ conversationId, transcript, reply, correction: result.correction, vocabulary: result.vocabulary, followUpQuestion: result.follow_up_question, usedSeconds: (usage?.audio_seconds ?? 0) + durationSec, dailyLimitSeconds: DAILY_SECONDS })
+  return json({ conversationId, transcript, reply, correction: result.correction, vocabulary: result.vocabulary, followUpQuestion: result.follow_up_question, usedSeconds: (usage?.audio_seconds ?? 0) + durationSec, ...access })
 })

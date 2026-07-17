@@ -8,15 +8,29 @@ export interface TutorTurn {
   vocabulary: Array<{ word: string; meaning: string; example: string }>
   followUpQuestion: string
   usedSeconds: number
-  dailyLimitSeconds: number
+  dailyLimitSeconds: number | null
+  unlimited: boolean
+  retentionDays: number
 }
 
-interface StoredConversation {
+export interface SpeakingAccess {
+  unlimited: boolean
+  dailyLimitSeconds: number | null
+  retentionDays: number
+}
+
+export interface StoredConversation {
   id: string
+  title: string
   level: string
   topic: string
   mode: string
   speaking_messages: Array<{ id: number; role: 'user' | 'assistant'; text: string; corrected_text?: string | null; feedback_json?: Record<string, unknown> }>
+}
+
+export interface SpeakingHistory {
+  conversation: StoredConversation
+  turns: TutorTurn[]
 }
 
 export async function sendSpeakingTurn(input: { transcript: string; durationSec: number; conversationId?: string; level: string; topic: string; mode: string }): Promise<TutorTurn> {
@@ -32,18 +46,7 @@ export async function sendSpeakingTurn(input: { transcript: string; durationSec:
   return data as TutorTurn
 }
 
-export async function loadLatestSpeakingConversation(): Promise<{ conversation: StoredConversation; turns: TutorTurn[] } | null> {
-  const { data: { session } } = await supabase.auth.getSession()
-  if (!session) return null
-  const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/speaking-ai`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${session.access_token}`, apikey: import.meta.env.VITE_SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'history' }),
-  })
-  if (!response.ok) return null
-  const data = await response.json() as { conversations?: StoredConversation[] }
-  const conversation = data.conversations?.[0]
-  if (!conversation) return null
+function conversationTurns(conversation: StoredConversation, access: SpeakingAccess): TutorTurn[] {
   const turns: TutorTurn[] = []
   const messages = [...conversation.speaking_messages].sort((a, b) => a.id - b.id)
   for (let index = 0; index < messages.length; index += 2) {
@@ -59,8 +62,25 @@ export async function loadLatestSpeakingConversation(): Promise<{ conversation: 
       vocabulary: (feedback.vocabulary ?? []) as TutorTurn['vocabulary'],
       followUpQuestion: String(feedback.followUpQuestion ?? ''),
       usedSeconds: 0,
-      dailyLimitSeconds: 600,
+      dailyLimitSeconds: access.dailyLimitSeconds,
+      unlimited: access.unlimited,
+      retentionDays: access.retentionDays,
     })
   }
-  return { conversation, turns }
+  return turns
+}
+
+export async function loadLatestSpeakingConversation(): Promise<{ conversation: StoredConversation | null; turns: TutorTurn[]; histories: SpeakingHistory[]; access: SpeakingAccess } | null> {
+  const { data: { session } } = await supabase.auth.getSession()
+  if (!session) return null
+  const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/speaking-ai`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${session.access_token}`, apikey: import.meta.env.VITE_SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'history' }),
+  })
+  if (!response.ok) return null
+  const data = await response.json() as { conversations?: StoredConversation[]; access?: SpeakingAccess }
+  const access = data.access ?? { unlimited: false, dailyLimitSeconds: 600, retentionDays: 30 }
+  const histories = (data.conversations ?? []).map(conversation => ({ conversation, turns: conversationTurns(conversation, access) }))
+  return { conversation: histories[0]?.conversation ?? null, turns: histories[0]?.turns ?? [], histories, access }
 }

@@ -36,6 +36,7 @@ const ListeningLibraryPage = lazy(() => import('./features/listening/ListeningLi
 const ListeningLessonPage  = lazy(() => import('./features/listening/ListeningLessonPage'))
 const ShadowingLibraryPage = lazy(() => import('./features/shadowing/ShadowingLibraryPage'))
 const ShadowingLessonPage  = lazy(() => import('./features/shadowing/ShadowingLessonPage'))
+const SpeakingAiPage       = lazy(() => import('./features/speaking-ai/SpeakingAiPage'))
 const ReadingCornerHub     = lazy(() => import('./features/reading-corner/ReadingCornerHub'))
 const BilingualPressPortal = lazy(() => import('./features/reading-corner/BilingualPressPortal'))
 const BilingualBooksPage   = lazy(() => import('./features/reading-corner/BilingualBooksPage'))
@@ -123,6 +124,7 @@ export default function App() {
             <Route index element={<ShadowingLibraryPage />} />
             <Route path=":videoKey" element={<ShadowingLessonPage />} />
           </Route>
+          <Route path="speaking-ai" element={<SpeakingAiPage />} />
           <Route path="reading-corner">
             <Route index element={<ReadingCornerHub />} />
             <Route path="bao" element={<BilingualPressPortal />} />

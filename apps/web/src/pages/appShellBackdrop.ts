@@ -19,6 +19,7 @@ const SENTENCE_STRUCTURE_CATALOG_RIBBON_PATH =
 
 const APP_GRID_ONLY_PATHS = new Set([
   '/app/vocab',
+  '/app/speaking-ai',
   '/app/writing/dashboard',
 ])
 
