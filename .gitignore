@@ -18,3 +18,9 @@ supabase/.temp
 Tainguyen/
 Tainguyen
 _recover_wizard/
+
+# Bulk listening audio (GBs) — local/dev only. Do NOT commit; upload via Supabase exam-media.
+# (Already-tracked small listening.mp3 stay in git; new part*.mp3 / bulk folders stay ignored.)
+apps/web/public/catalog/listening/**/part*.mp3
+apps/web/public/catalog/listening/fce-b2-book*/
+apps/web/public/catalog/listening/pet-b1-book*/
