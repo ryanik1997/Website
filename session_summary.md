@@ -43,6 +43,7 @@
 
 ## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
 
+- Fix tiếp: thêm i18n `nav.speakingAi` cho VI/EN để toolbar không hiện raw key; regression test 1/1 và `tsc --noEmit` PASS.
 - Thêm nút `Speaking AI` ở đầu sidebar AppShell; mở panel phải/modal lớn, không đổi route và lazy-load riêng.
 - Panel chọn level A1–C1, 7 mode, 6 topic; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
 - `useSpeakingRecorder`: MediaRecorder giữ audio cục bộ để replay; Web Speech API (`SpeechRecognition`, `en-US`) tạo transcript trực tiếp trên Chrome/Edge; giới hạn 60 giây, permission error rõ và cleanup stream/object URL.
@@ -4616,3 +4617,22 @@ dưới 50MB và upload lại đúng path.
   (theo dõi `content_access_log` + Vercel Analytics).
 - Còn lại (tay user): tạo 1 custom WAF rule UA-bot trên Vercel Dashboard;
   login thật + admin publish 1 đề để confirm end-to-end.
+
+### Session 2026-07-17 — Speaking AI thành trang riêng, chat + thu âm
+
+- Speaking AI chuyển từ modal panel sang trang riêng `/app/speaking-ai`
+  (`features/speaking-ai/SpeakingAiPage.tsx` + `speakingAiPage.css`); xóa
+  `SpeakingAiPanel.tsx`, `speakingAi.css`, `speakingAiTranscript.css`.
+- Hỗ trợ song song gõ chat và thu âm micro: textarea + nút mic; transcript
+  nhận dạng ghép với text gõ tay; lượt gõ tay ước lượng `durationSec` theo số
+  từ (words/2, kẹp 1–60s) nên vẫn dùng edge function `speaking-ai` (DeepSeek)
+  hiện có, không đổi backend.
+- UI premium theo skill high-end-visual-design: hero eyebrow pill, console
+  double-bezel bo 2rem, bubble gradient, composer pill + nút send button-in-button,
+  motion cubic-bezier, tôn trọng prefers-reduced-motion; nền dùng grid xanh
+  nhạt sẵn có (`/app/speaking-ai` thêm vào `APP_GRID_ONLY_PATHS`).
+- Sidebar: bỏ nút mở modal ở đầu toolbar; thêm NavLink "Speaking AI"
+  (icon AudioLines) ngay dưới "Luyện Shadowing".
+- Test `speakingAiMvp.test.ts` cập nhật theo trang mới — 3/3 PASS;
+  `tsc --noEmit` PASS.
+- Chưa smoke UI trong trình duyệt (route cần đăng nhập, user chọn bỏ qua).
