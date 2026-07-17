@@ -1,6 +1,6 @@
 const AUTHOR_PHOTO = '/Tac_gia.jpg'
 
-const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
+const SERIF: React.CSSProperties = { fontFamily: 'var(--font-app)' }
 
 const PILLARS = [
   {

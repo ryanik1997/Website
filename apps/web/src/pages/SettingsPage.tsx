@@ -12,6 +12,7 @@ import { SUPPORT_EMAIL, supportMailto } from '../lib/contact'
 import { supabase } from '../lib/supabase'
 import AiSettingsPanel from '../features/settings/AiSettingsPanel'
 import { useNotifications } from '../features/notifications/useNotifications'
+import { SRS_POPUP_INTERVAL_OPTIONS, useSrsPopupIntervalMinutes } from '../features/vocab/reminder/useSrsReviewPopup'
 import { estimateBackupSize, exportBackup } from '../features/settings/backupRestore'
 import ConfirmRestoreModal from '../features/settings/ConfirmRestoreModal'
 import {
@@ -188,6 +189,7 @@ export default function SettingsPage() {
 
 function AppearanceTab({ theme, onChange, language, onLanguageChange }: { theme: Theme; onChange: (t: Theme) => void; language: Language; onLanguageChange: (language: Language) => void }) {
   const { t } = useI18n()
+  const [srsPopupIntervalMinutes, setSrsPopupIntervalMinutes] = useSrsPopupIntervalMinutes()
   const {
     permission,
     isSupported,
@@ -348,6 +350,35 @@ function AppearanceTab({ theme, onChange, language, onLanguageChange }: { theme:
         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
           Thông báo chỉ hiện khi bạn đang mở tab Ryan English.
         </p>
+      </div>
+      <div className="pt-6 border-t" style={{ borderColor: 'var(--border-color)' }}>
+        <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+          Pop-up nhắc ôn tập trong app
+        </p>
+        <p className="text-xs mt-1 mb-3" style={{ color: 'var(--text-muted)' }}>
+          Khi còn từ đến hạn, nhắc lại sau khoảng thời gian bạn chọn.
+        </p>
+        <div className="grid grid-cols-4 gap-2">
+          {SRS_POPUP_INTERVAL_OPTIONS.map(minutes => {
+            const selected = srsPopupIntervalMinutes === minutes
+            return (
+              <button
+                key={minutes}
+                type="button"
+                onClick={() => setSrsPopupIntervalMinutes(minutes)}
+                className="rounded-xl border py-2.5 text-sm font-semibold transition-colors"
+                style={{
+                  background: selected ? 'var(--color-primary)' : 'var(--bg-secondary)',
+                  borderColor: selected ? 'var(--color-primary)' : 'var(--border-color)',
+                  color: selected ? 'var(--color-on-primary)' : 'var(--text-primary)',
+                }}
+                aria-pressed={selected}
+              >
+                {minutes} phút
+              </button>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

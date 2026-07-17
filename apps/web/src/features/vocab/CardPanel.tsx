@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Plus, Edit2, Trash2, BookOpen, Play, ChevronDown, Download, Upload } from 'lucide-react'
+import { Plus, Edit2, Trash2, BookOpen, Play, ChevronDown, Download, Upload, Volume2 } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { db, cardRepo } from '@ryan/db'
 import type { Card, Srs } from '@ryan/db'
@@ -11,7 +11,9 @@ import { exportDeckAsCSV, exportDeckAsJSON } from './importExport'
 import PanelHeader from '../../components/PanelHeader'
 import { PosBadge, StatusBadge } from './CardBadges'
 import { filterCardsByUnitKind, VOCAB_UNIT_KIND_LABELS } from './vocabUnitKind'
+import { speakPhrase } from './study/speakPhrase'
 import './vocabList.css'
+import './vocabLesson.css'
 import { useI18n } from '../../lib/language'
 
 const STUDY_BTNS = [
@@ -252,6 +254,16 @@ export default function CardPanel() {
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
+                        <button
+                          type="button"
+                          onClick={() => void speakPhrase(card.phrase)}
+                          className="vocab-word-audio p-1.5 rounded-md transition-colors hover:bg-[var(--bg-secondary)]"
+                          style={{ color: 'var(--text-muted)' }}
+                          title="Nghe phát âm"
+                          aria-label={`Nghe phát âm ${card.phrase}`}
+                        >
+                          <Volume2 size={14} />
+                        </button>
                         <button
                           onClick={() => setEditCard(card)}
                           className="p-1.5 rounded-md transition-colors hover:bg-[var(--bg-secondary)]"

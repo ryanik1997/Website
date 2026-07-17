@@ -18,7 +18,7 @@
   overflow: hidden;
   background: #fff;
   color: var(--tid-text);
-  font-family: Quicksand, Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-app);
   position: relative;
   /* Don't block text selection globally — paper enables select; chrome stays non-selectable via children */
   user-select: none;

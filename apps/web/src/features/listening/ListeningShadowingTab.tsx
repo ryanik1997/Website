@@ -92,7 +92,7 @@ export default function ListeningShadowingTab({
 
   return (
     <div
-      className="rounded-2xl p-6 sm:p-8"
+      className="listening-bao-card rounded-2xl p-6 sm:p-8"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       <div className="flex items-center justify-center gap-2 mb-6">

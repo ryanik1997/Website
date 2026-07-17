@@ -23,7 +23,7 @@ const NAV_ITEM_CLASS =
   'liquid-glass-hover inline-flex items-center rounded-full px-4 py-2 text-sm transition-all hover:text-foreground focus-visible:text-foreground'
 const NAV_BUTTON_CLASS = `${NAV_ITEM_CLASS} cursor-pointer border-0 bg-transparent`
 
-const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
+const SERIF: React.CSSProperties = { fontFamily: 'var(--font-app)' }
 
 /** QR thanh toán (copy từ Tainguyen/QR.jpg → public/) */
 const PAYMENT_QR_SRC = '/QR.jpg'
@@ -529,7 +529,7 @@ export default function LandingPage() {
   return (
     <div
       className="landing-hero relative min-h-screen w-full overflow-x-hidden"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      style={{ fontFamily: 'var(--font-app)' }}
     >
       <style>{LANDING_CSS}</style>
 
@@ -1021,7 +1021,7 @@ body .landing-payment-panel {
 }
 .landing-roadmap {
   color: #1a2e22;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-roadmap__hero {
   display: flex;
@@ -1361,7 +1361,7 @@ body .landing-payment-panel {
 }
 .landing-about {
   color: #1c1c1a;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-about__grid {
   display: grid;
@@ -1504,7 +1504,7 @@ body .landing-payment-panel {
 }
 .landing-blog {
   color: #1c1c1a;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-blog__intro {
   margin-bottom: 1.15rem;

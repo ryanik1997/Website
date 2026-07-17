@@ -436,6 +436,7 @@ function ExamTrackPageInner() {
           readingCount={readingList.length}
           skills={skills}
           readingTitle={cambridgeLevel ? 'Reading - Writing' : 'Reading'}
+          ieltsCardStyle={isIeltsTrack}
           onPick={skill => navigate(`${skillBasePath}/${skill}`)}
         />
         {canImport && showImportListening && (

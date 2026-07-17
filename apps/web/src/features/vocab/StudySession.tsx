@@ -15,6 +15,7 @@ import ReviewHubMode from './modes/ReviewHubMode'
 import StatsMode from './modes/StatsMode'
 import NotebookMode from './modes/NotebookMode'
 import './study/vocabStudy.css'
+import './study/vocabStudyPaper.css'
 
 export default function StudySession() {
   const { activeDeckId, studyMode, startStudy, stopStudy } = useVocabStore()

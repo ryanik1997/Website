@@ -25,6 +25,7 @@ import {
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useAuth } from '../features/auth/AuthContext'
 import UserAvatar from '../components/UserAvatar'
+import SunnyMascotSvg from '../components/SunnyMascotSvg'
 import { SyncProvider, useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
 import { usePlanSync } from '../features/auth/usePlanSync'
 import DictionaryFAB from '../features/dictionary/DictionaryFAB'
@@ -98,6 +99,20 @@ const NAV: NavItem[] = [
   { kind: 'link', to: '/app/settings', icon: Settings, label: 'Cài đặt', navKey: 'nav.settings' },
 ]
 
+const CORNER_SUN_PATHS = new Set([
+  '/app/vocab',
+  '/app/writing',
+  '/app/listening',
+  '/app/shadowing',
+  '/app/speaking-ai',
+  '/app/sentence-structure',
+  '/app/settings',
+])
+
+function shouldShowCornerSun(pathname: string): boolean {
+  return CORNER_SUN_PATHS.has(pathname) || pathname.startsWith('/app/reading-corner')
+}
+
 export default function AppShell() {
   return (
     <SyncProvider>
@@ -137,6 +152,7 @@ function AppShellInner() {
   const examPlayerMode = /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
   const appBackdropMode = getAppShellBackdropMode(location.pathname)
   const appBackdropActive = appBackdropMode !== 'none'
+  const showCornerSun = shouldShowCornerSun(location.pathname)
 
   useEffect(() => {
     localStorage.setItem('ryan-sidebar-collapsed', sidebarCollapsed ? '1' : '0')
@@ -374,6 +390,12 @@ function AppShellInner() {
       <main className="app-shell__main flex-1 min-h-0 flex flex-col overflow-hidden select-text">
         <Outlet />
       </main>
+
+      {showCornerSun && (
+        <div className="app-corner-sun" aria-hidden="true">
+          <SunnyMascotSvg className="app-corner-sun__mascot" />
+        </div>
+      )}
 
       <GlobalCatalogSync />
       {!examPlayerMode && (

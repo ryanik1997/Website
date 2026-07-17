@@ -28,7 +28,7 @@
   overflow: hidden;
   background: var(--ket-body-bg);
   color: var(--ket-text);
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 
 /* Nội dung đề theo font user chọn (không áp header/footer chrome) */

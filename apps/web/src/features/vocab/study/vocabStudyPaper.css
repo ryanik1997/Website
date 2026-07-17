@@ -1,0 +1,113 @@
+/* Lesson-paper treatment shared by every vocabulary study mode. */
+.vocab-study-shell {
+  --vs-paper: color-mix(in srgb, var(--bg-card) 80%, var(--color-primary));
+  --vs-paper-card: color-mix(in srgb, var(--bg-card) 94%, var(--color-primary));
+  --vs-paper-active: color-mix(in srgb, var(--color-primary) 42%, var(--bg-card));
+  --vs-paper-border: var(--text-primary);
+  --vs-paper-shadow: color-mix(in srgb, var(--text-primary) 88%, transparent);
+  --vs-paper-grid: color-mix(in srgb, var(--color-primary) 17%, transparent);
+  background-color: var(--vs-paper);
+  background-image: linear-gradient(var(--vs-paper-grid) 1px, transparent 1px), linear-gradient(90deg, var(--vs-paper-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.vocab-study-shell .vs-statbar { padding: 13px 28px; background: color-mix(in srgb, var(--bg-card) 86%, transparent); border-bottom: 2px solid var(--vs-paper-border); }
+
+.vocab-study-shell .vs-btn-exit,
+.vocab-study-shell .vs-btn-secondary,
+.vocab-study-shell .vs-btn-primary,
+.vocab-study-shell .vs-notebook-close { border: 2px solid var(--vs-paper-border); border-radius: 7px; box-shadow: 3px 3px 0 var(--vs-paper-shadow); font-weight: 800; }
+.vocab-study-shell .vs-btn-primary { background: var(--vs-paper-active); color: var(--text-primary); }
+.vocab-study-shell .vs-btn-flip {
+  border: 2px solid var(--vs-paper-border);
+  border-radius: 7px;
+  background: var(--vs-paper-card);
+  color: var(--text-primary);
+  box-shadow: 3px 3px 0 var(--vs-paper-shadow);
+  font-weight: 800;
+}
+.vocab-study-shell .vs-btn-primary:hover,
+.vocab-study-shell .vs-btn-secondary:hover,
+.vocab-study-shell .vs-btn-exit:hover,
+.vocab-study-shell .vs-notebook-close:hover,
+.vocab-study-shell .vs-btn-flip:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--vs-paper-shadow); }
+
+/* The nine learning modes read as lesson mode cards, not tiny tabs. */
+.vocab-study-shell .vs-modebar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: min(1040px, calc(100% - 56px)); margin: 14px auto 8px; padding: 0; }
+.vocab-study-shell .vs-mode-tab { min-height: 58px; padding: 12px 14px; justify-content: flex-start; border: 2px solid var(--vs-paper-border); border-radius: 7px; background: var(--vs-paper-card); box-shadow: 4px 4px 0 var(--vs-paper-shadow); color: var(--text-primary); font-weight: 800; }
+.vocab-study-shell .vs-mode-tab::after { content: 'Sẵn sàng học'; display: block; margin-left: auto; padding: 3px 7px; border: 1px solid var(--vs-paper-border); border-radius: 4px; color: var(--text-muted); font-size: 10px; font-weight: 700; }
+.vocab-study-shell .vs-mode-tab:hover:not(:disabled) { transform: translate(1px, 1px); background: color-mix(in srgb, var(--vs-paper-active) 48%, var(--vs-paper-card)); box-shadow: 3px 3px 0 var(--vs-paper-shadow); color: var(--text-primary); }
+.vocab-study-shell .vs-mode-tab.active-srs,
+.vocab-study-shell .vs-mode-tab.active-quiz,
+.vocab-study-shell .vs-mode-tab.active-type,
+.vocab-study-shell .vs-mode-tab.active-weak,
+.vocab-study-shell .vs-mode-tab.active-review,
+.vocab-study-shell .vs-mode-tab.active-stats,
+.vocab-study-shell .vs-mode-tab.active-notebook { background: var(--vs-paper-active); border-color: var(--vs-paper-border); box-shadow: 4px 4px 0 var(--vs-paper-shadow); color: var(--text-primary); }
+.vocab-study-shell .vs-mode-tab.active-srs::after,
+.vocab-study-shell .vs-mode-tab.active-quiz::after,
+.vocab-study-shell .vs-mode-tab.active-type::after,
+.vocab-study-shell .vs-mode-tab.active-weak::after,
+.vocab-study-shell .vs-mode-tab.active-review::after,
+.vocab-study-shell .vs-mode-tab.active-stats::after,
+.vocab-study-shell .vs-mode-tab.active-notebook::after { content: 'Đang mở'; color: var(--text-primary); background: color-mix(in srgb, var(--bg-card) 75%, transparent); }
+
+.vocab-study-shell .vs-main { padding-top: 16px; }
+.vocab-study-shell .vs-session-bar { width: min(1040px, calc(100% - 56px)); margin: 0 auto; padding: 14px 0; }
+.vocab-study-shell .vs-session-counter { border: 2px solid var(--vs-paper-border); border-radius: 7px; background: var(--vs-paper-active) !important; color: var(--text-primary); box-shadow: 3px 3px 0 var(--vs-paper-shadow); }
+
+.vocab-study-shell .vs-flip-scene {
+  padding: 3px;
+  overflow: hidden;
+  background: var(--vs-paper-card);
+  border: 2px solid var(--vs-paper-border);
+  border-radius: 8px;
+  box-shadow: 5px 5px 0 var(--vs-paper-shadow);
+}
+
+.vocab-study-shell .vs-flip-face,
+.vocab-study-shell .vs-quiz-card,
+.vocab-study-shell .vs-panel-card,
+.vocab-study-shell .vs-data-table-wrap,
+.vocab-study-shell .vs-panel-empty,
+.vocab-study-shell .vs-review-hero,
+.vocab-study-shell .vs-stat-card,
+.vocab-study-shell .vs-notebook-hero,
+.vocab-study-shell .vs-notebook-card,
+.vocab-study-shell .vs-done { border: 2px solid var(--vs-paper-border); border-radius: 8px; box-shadow: 5px 5px 0 var(--vs-paper-shadow); background: var(--vs-paper-card); }
+.vocab-study-shell .vs-flip-face { border: 0; border-radius: 4px; box-shadow: none; background: var(--vs-paper-active); background-image: none; }
+.vocab-study-shell .vs-flip-face-back { background: var(--vs-paper-card); }
+.vocab-study-shell .vs-flip-face-front .vs-card-word { color: var(--text-primary); }
+.vocab-study-shell .vs-flip-face-front .vs-card-lang,
+.vocab-study-shell .vs-flip-face-front .vs-card-example p { color: var(--text-primary); }
+.vocab-study-shell .vs-flip-face-front .vs-flip-hint { color: var(--text-primary); }
+.vocab-study-shell .vs-flip-face-front .vs-tag-topic,
+.vocab-study-shell .vs-flip-face-front .vs-tag-due,
+.vocab-study-shell .vs-flip-face-front .vs-tag-reviewed {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-card) 74%, var(--color-primary));
+}
+.vocab-study-shell .vs-flip-face-front .vs-btn-audio {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-card) 74%, var(--color-primary));
+}
+
+.vocab-study-shell .vs-options-grid button,
+.vocab-study-shell .vs-quick-card,
+.vocab-study-shell .vs-rating-btn,
+.vocab-study-shell .vs-notebook-icon-btn,
+.vocab-study-shell .vs-notebook-save-note { border: 2px solid var(--vs-paper-border); border-radius: 7px; box-shadow: 3px 3px 0 var(--vs-paper-shadow); }
+.vocab-study-shell .vs-review-hero-icon { border: 2px solid var(--vs-paper-border); border-radius: 7px; background: var(--vs-paper-active); color: var(--text-primary); box-shadow: 3px 3px 0 var(--vs-paper-shadow); }
+.vocab-study-shell .vs-info-banner,
+.vocab-study-shell .vs-notebook-search-input,
+.vocab-study-shell .vs-notebook-textarea,
+.vocab-study-shell .vs-data-table thead { border: 2px solid var(--vs-paper-border); border-radius: 6px; background: color-mix(in srgb, var(--bg-card) 86%, var(--color-primary)); }
+
+@media (max-width: 760px) {
+  .vocab-study-shell .vs-modebar,
+  .vocab-study-shell .vs-session-bar { width: calc(100% - 32px); }
+  .vocab-study-shell .vs-modebar { grid-template-columns: 1fr; }
+  .vocab-study-shell .vs-mode-tab { min-height: 50px; }
+}

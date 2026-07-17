@@ -344,7 +344,7 @@ export default function ListeningPracticeTab({
 
   return (
     <div
-      className="min-w-0 overflow-hidden rounded-2xl p-5 sm:p-6"
+      className="listening-bao-card min-w-0 overflow-hidden rounded-2xl p-5 sm:p-6"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       {burstId > 0 && (

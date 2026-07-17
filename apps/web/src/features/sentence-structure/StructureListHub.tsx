@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ChevronLeft, ChevronRight, Search, Star, Tag } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, RotateCcw, Search, Star, Tag } from 'lucide-react'
 import { dedupeLegacySentenceStructures, syncGlobalCatalog } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
@@ -86,6 +86,10 @@ export default function StructureListHub() {
   const safePage = Math.min(page, totalPages - 1)
   const pageStart = safePage * PAGE_SIZE
   const pageItems = filtered?.slice(pageStart, pageStart + PAGE_SIZE) ?? []
+  const completedStructureIds = useMemo(
+    () => new Set(history.map(entry => entry.structureId)),
+    [history],
+  )
   const groupedPageItems = useMemo(() => {
     const groups = new Map<string, SentenceStructure[]>()
     const order = [...CEFR_LEVELS, 'unassigned']
@@ -204,7 +208,14 @@ export default function StructureListHub() {
               <div className="ss-hub-category" key={category}>
                 <div className="ss-hub-category-head"><span>{category}</span><b>{categoryItems.length}</b></div>
                 <div className="ss-hub-list" role="list">
-                  {categoryItems.map(item => <StructureRow key={item.id} item={item} onOpen={() => goToPractice(item.id)} />)}
+                  {categoryItems.map(item => (
+                    <StructureRow
+                      key={item.id}
+                      item={item}
+                      learned={completedStructureIds.has(item.id)}
+                      onOpen={() => goToPractice(item.id)}
+                    />
+                  ))}
                 </div>
               </div>
             ))}
@@ -248,9 +259,10 @@ export default function StructureListHub() {
 }
 
 function StructureRow({
-  item, onOpen,
+  item, learned, onOpen,
 }: {
   item: SentenceStructure
+  learned: boolean
   onOpen: () => void
 }) {
   const cat = categoryMeta(item.category)
@@ -270,12 +282,33 @@ function StructureRow({
               {cefr}
             </span>
           )}
+          {learned && (
+            <span
+              className="ss-learning-status inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
+              style={{
+                background: 'color-mix(in srgb, var(--color-success) 18%, transparent)',
+                color: 'var(--color-success)',
+              }}
+            >
+              <Check size={11} strokeWidth={2.5} aria-hidden="true" />
+              Đã học
+            </span>
+          )}
         </div>
         <p className="ss-hub-row-template">{item.template}</p>
         {item.description && (
           <p className="ss-hub-row-desc">{item.description}</p>
         )}
         <span className="ss-cat-tag"><Tag size={12} /> {item.category}</span>
+        {learned && (
+          <span
+            className="inline-flex items-center gap-1 ml-2 text-[10px] font-semibold"
+            style={{ color: 'var(--text-muted)' }}
+          >
+            <RotateCcw size={11} aria-hidden="true" />
+            Học lại
+          </span>
+        )}
       </button>
       <button
         type="button"

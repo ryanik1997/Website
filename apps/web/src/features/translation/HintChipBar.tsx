@@ -5,49 +5,64 @@ import { maskChipLabel, type TranslationChip } from './translationChips'
 
 interface HintChipBarProps {
   chips: TranslationChip[]
-  /** Mở theo tiến độ gõ (typing unlock) */
+  /** Gõ đúng exact → xanh */
   unlockStates?: boolean[]
-  /** Hiện tất cả (nút "Hiện tất cả" hoặc màn result) */
+  /** Gõ sai → đỏ (luôn thắng revealAll / click tay) */
+  wrongStates?: boolean[]
+  /** Từ user đã gõ tại vị trí (để hiện trên chip đỏ) */
+  typedWords?: (string | undefined)[]
+  /** Hiện text gợi ý (không đổi màu đúng/sai) */
   revealAll?: boolean
   onToggleRevealAll?: () => void
-  /** Reset override khi đổi câu (key từ parent: sentence id) */
   resetKey?: string | number
   className?: string
   showRevealAllButton?: boolean
 }
 
+type ChipVisual = 'ok' | 'wrong' | 'hint' | 'locked'
+
 /**
- * Chip gợi ý: bấm 1 lần hiện từ, bấm lại ẩn.
- * Typing unlock / revealAll vẫn mở chip (trừ khi user vừa ẩn thủ công — override).
+ * Màu chip theo gõ:
+ * - đúng → xanh (ok)
+ * - sai → đỏ (wrong) — luôn, kể cả khi "Hiện tất cả"
+ * - chưa gõ + hiện gợi ý → hint (neutral)
+ * - chưa gõ → locked ●●●
  */
 export default function HintChipBar({
   chips,
   unlockStates,
+  wrongStates,
+  typedWords,
   revealAll = false,
   onToggleRevealAll,
   resetKey,
   className = '',
   showRevealAllButton = true,
 }: HintChipBarProps) {
-  /** true = ép hiện, false = ép ẩn, missing = theo auto */
+  /** true = ép hiện text, false = ép ẩn, missing = theo auto */
   const [override, setOverride] = useState<Record<number, boolean>>({})
 
   useEffect(() => {
     setOverride({})
   }, [resetKey, chips.length])
 
-  function autoShown(i: number): boolean {
-    return Boolean(revealAll || unlockStates?.[i])
+  function visualOf(i: number): ChipVisual {
+    if (wrongStates?.[i]) return 'wrong'
+    if (unlockStates?.[i]) return 'ok'
+    if (revealAll || override[i] === true) return 'hint'
+    return 'locked'
   }
 
-  function isShown(i: number, ov: Record<number, boolean> = override): boolean {
-    if (ov[i] !== undefined) return ov[i]!
-    return autoShown(i)
+  function isTextShown(i: number): boolean {
+    if (override[i] === false) return false
+    if (override[i] === true) return true
+    const v = visualOf(i)
+    return v === 'ok' || v === 'wrong' || v === 'hint' || revealAll
   }
 
   function toggleChip(i: number) {
     setOverride(prev => {
-      const currently = isShown(i, prev)
+      const currently = isTextShown(i)
       return { ...prev, [i]: !currently }
     })
   }
@@ -57,20 +72,65 @@ export default function HintChipBar({
   return (
     <div className={`tp-chip-row ${className}`.trim()}>
       {chips.map((chip, i) => {
-        const shown = isShown(i)
+        const visual = visualOf(i)
+        const shown = isTextShown(i)
+        const typed = typedWords?.[i]?.trim()
+        const classByVisual =
+          visual === 'wrong'
+            ? 'tp-chip--wrong'
+            : visual === 'ok'
+              ? 'tp-chip--unlocked'
+              : visual === 'hint'
+                ? 'tp-chip--hint'
+                : 'tp-chip--locked'
+
         return (
           <button
             key={`${chip.text}-${i}`}
             type="button"
-            className={`tp-chip tp-chip--toggle ${shown ? 'tp-chip--unlocked' : 'tp-chip--locked'}`}
+            data-chip-state={visual}
+            className={`tp-chip tp-chip--toggle ${classByVisual}`}
             onClick={() => toggleChip(i)}
-            title={shown ? 'Bấm để ẩn từ' : 'Bấm để hiện từ'}
+            title={
+              visual === 'wrong'
+                ? typed
+                  ? `Sai: “${typed}” → đúng: “${chip.text}”`
+                  : `Sai — từ đúng: ${chip.text}`
+                : visual === 'ok'
+                  ? `Đúng: ${chip.text}`
+                  : shown
+                    ? 'Bấm để ẩn từ'
+                    : 'Bấm để hiện từ'
+            }
             aria-pressed={shown}
-            aria-label={shown ? `Ẩn từ ${chip.text}` : `Hiện gợi ý từ số ${i + 1}`}
+            aria-invalid={visual === 'wrong' || undefined}
+            aria-label={
+              visual === 'wrong'
+                ? `Từ ${i + 1} sai${typed ? `, bạn gõ ${typed}` : ''}, đáp án ${chip.text}`
+                : visual === 'ok'
+                  ? `Từ ${i + 1} đúng: ${chip.text}`
+                  : shown
+                    ? `Ẩn từ ${chip.text}`
+                    : `Hiện gợi ý từ số ${i + 1}`
+            }
           >
             {shown ? (
               <>
-                <span>{chip.text}</span>
+                {visual === 'wrong' && (
+                  <span className="tp-chip-mark" aria-hidden>
+                    ✗
+                  </span>
+                )}
+                {visual === 'ok' && (
+                  <span className="tp-chip-mark" aria-hidden>
+                    ✓
+                  </span>
+                )}
+                <span className="tp-chip-label">
+                  {visual === 'wrong' && typed && typed.toLowerCase() !== chip.text.toLowerCase()
+                    ? `${typed} → ${chip.text}`
+                    : chip.text}
+                </span>
                 <span
                   role="button"
                   tabIndex={0}

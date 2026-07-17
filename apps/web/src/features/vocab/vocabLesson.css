@@ -1,0 +1,17 @@
+/* Selected-deck lesson chrome: grid paper and hard-shadow component language. */
+.vocab-lesson-page { padding: .75rem; background: var(--bg-secondary); }
+.vocab-lesson-page > .flex { border: 3px solid var(--text-primary); border-radius: 1.5rem; background-color: var(--reading-corner-bg); background-image: linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px); background-size: 32px 32px; box-shadow: .45rem .45rem 0 var(--text-primary); overflow: hidden; }
+.vocab-lesson-page .vocab-card-panel { margin: 0; background: transparent !important; }
+.vocab-lesson-page .vocab-card-panel > :last-child { background: color-mix(in srgb, var(--bg-card) 92%, transparent); }
+.vocab-lesson-page .vocab-card-panel table { border: 3px solid var(--text-primary); border-collapse: separate; border-spacing: 0 .6rem; background: transparent; }
+.vocab-lesson-page .vocab-card-panel thead { display: none; }
+.vocab-lesson-page .vocab-card-panel tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; padding: .75rem; }
+.vocab-lesson-page .vocab-card-panel tbody tr { display: grid; grid-template-columns: 1fr auto; align-items: start; border: 2px solid var(--text-primary) !important; border-radius: .9rem; background: var(--bg-card); box-shadow: .2rem .2rem 0 var(--text-primary); }
+.vocab-lesson-page .vocab-card-panel tbody td { padding: .85rem !important; border: 0; }
+.vocab-lesson-page .vocab-card-panel tbody td:nth-child(2) { grid-column: 1; padding-top: 0 !important; color: var(--color-primary) !important; font-weight: 700; }
+.vocab-lesson-page .vocab-card-panel tbody td:nth-child(3), .vocab-lesson-page .vocab-card-panel tbody td:nth-child(4) { display: none; }
+.vocab-lesson-page .vocab-card-panel tbody td:last-child { grid-column: 2; grid-row: 1 / span 2; }
+.vocab-lesson-page .vocab-card-panel .vocab-word-audio { border: 1px solid var(--text-primary); background: var(--bg-card); color: var(--text-primary) !important; }
+.vocab-lesson-page .vocab-card-panel .vocab-word-audio:hover { background: color-mix(in srgb, var(--color-primary) 22%, var(--bg-card)); }
+.vocab-lesson-page .vocab-card-panel tbody tr:hover { transform: translate(-.12rem, -.12rem); box-shadow: .34rem .34rem 0 var(--text-primary); }
+@media (max-width: 700px) { .vocab-lesson-page { padding: 0; } .vocab-lesson-page > .flex { border: 0; border-radius: 0; box-shadow: none; } .vocab-lesson-page .vocab-card-panel tbody { grid-template-columns: 1fr; } }

@@ -38,7 +38,7 @@ export default function ListeningSidebarCards({
   return (
     <div className="flex flex-col gap-4">
       <div
-        className="rounded-2xl p-5"
+        className="listening-bao-card rounded-2xl p-5"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div className="flex items-center gap-2 mb-3">
@@ -68,7 +68,7 @@ export default function ListeningSidebarCards({
       </div>
 
       <div
-        className="rounded-2xl p-5"
+        className="listening-bao-card rounded-2xl p-5"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div className="flex items-center gap-2 mb-2">

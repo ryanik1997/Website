@@ -35,5 +35,5 @@
 }
 
 .ielts-exam-root {
-  font-family: Quicksand, Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-app);
 }

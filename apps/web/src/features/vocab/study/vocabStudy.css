@@ -184,7 +184,7 @@
 }
 
 .vocab-study-shell {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-app);
   color: var(--vs-text);
   min-height: 100%;
   display: flex;
@@ -633,7 +633,7 @@
 }
 
 .vs-card-ipa-label {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-app);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;

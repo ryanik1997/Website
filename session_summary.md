@@ -4647,3 +4647,174 @@ dưới 50MB và upload lại đúng path.
 - Test `speakingAiMvp.test.ts` cập nhật theo trang mới — 3/3 PASS;
   `tsc --noEmit` PASS.
 - Chưa smoke UI trong trình duyệt (route cần đăng nhập, user chọn bỏ qua).
+
+### Session 2026-07-17 — Nền lưới Writing subpages
+
+- Mọi route con `/app/writing/*` dùng nền lưới xanh nhạt, không ribbon; trang
+  hub `/app/writing` giữ ribbon.
+- Bổ sung transparency cho `writing-shell`, cùng Translation Practice:
+  danh sách/chi tiết, empty state và màn hình luyện tập toàn trang (`tp-shell`)
+  đều để lộ backdrop lưới; card và input vẫn giữ nền riêng.
+- Verify: `appShellBackdrop.test.ts` 62/62 PASS; `tsc --noEmit` PASS.
+
+### Session 2026-07-17 — Translation: nhận diện câu đã dịch
+
+- Câu đã dịch có nền và viền màu primary rất nhẹ, đồng thời badge `Đã dịch` có
+  icon check để phân biệt nhanh với câu chưa dịch mà không làm mất độ dễ đọc.
+
+### Session 2026-07-17 — Sửa overlay phiên luyện dịch
+
+- `tp-shell` là lớp phủ toàn trang của phiên luyện dịch, nên không được làm
+  trong suốt theo backdrop grid. Đã bỏ override này; grid chỉ hiện ở màn hình
+  danh sách, còn phiên luyện tập có nền đặc và không còn lộ UI phía sau.
+- Regression check `appShellBackdrop.test.ts`: red trước sửa (1/62 fail vì
+  `tp-shell` bị transparent), green sau sửa.
+
+### Session 2026-07-17 — Lưới trong phiên luyện dịch
+
+- `tp-shell` có nền lưới xanh nhạt độc lập (opaque), vì vậy phiên luyện tập có
+  đúng visual grid mà không làm lộ UI danh sách phía sau.
+- Tăng độ nhận diện cho câu/badge `Đã dịch`: tint 11%, viền primary 45% và
+  badge 30% để trạng thái xanh nhìn thấy ngay ở light/mid/dark theme.
+
+### Session 2026-07-17 — Badge Đã dịch xanh lá
+
+- Thêm token `--color-success` cho cả light/dark/mid theme; chỉ badge check
+  `Đã dịch` dùng token này, để trạng thái hoàn thành được nhận diện bằng xanh lá.
+
+### Session 2026-07-17 — Trạng thái Sentence Structure
+
+- Danh sách `/app/sentence-structure` đọc completion history: cấu trúc đã hoàn
+  thành hiện badge xanh lá `✓ Đã học` và gợi ý `↻ Học lại`, click hàng vẫn mở
+  đúng phiên luyện tập hiện có.
+
+### Session 2026-07-17 — Font Sentence Structure practice
+
+- Bỏ style serif/editorial cũ chỉ còn ở route luyện cấu trúc: header `Điền trắc
+  nghiệm` trở về font ứng dụng chuẩn và không còn chữ trang trí `GRAMMAR ATLAS`
+  chồng lên màn hình.
+
+### Session 2026-07-17 — Sunny dạo chơi trên Home
+
+- Sau 30 giây ở `/app/home`, mascot Sunny chuyển sang animation “dạo chơi/trốn
+  tìm” nhẹ quanh bubble header; vẫn `pointer-events: none` và tắt hoàn toàn khi
+  người dùng bật `prefers-reduced-motion`.
+
+### Session 2026-07-17 — Sunny ở các trang chính
+
+- `AppShell` dùng một mascot góc phải trên cho Từ vựng, Viết, Nghe, Shadowing,
+  Speaking AI, mọi trang Góc đọc, Cấu trúc câu và Cài đặt. Mascot không nhận
+  pointer events, ẩn dưới 720px và tắt nhún khi giảm chuyển động.
+- Sau 30 giây, Sunny ở góc phải trên chơi trốn tìm: nép ra ngoài mép phải rồi
+  quay lại theo chu kỳ nhẹ.
+
+### Session 2026-07-17 — Card IELTS theo Góc đọc Báo
+
+- Hai card Listening/Reading ở `/app/exam/track/ielts` dùng variant riêng theo
+  surface của Góc đọc Báo: card sáng, viền đậm, bo lớn, offset shadow và hover
+  dịch chéo. Cambridge không thay đổi style.
+
+### Session 2026-07-17 — Surface card chung toàn app
+
+- Áp surface card lấy cảm hứng từ Góc đọc Báo cho card cấp một toàn app: Home,
+  Từ vựng, Writing/Translation, Shadowing, Exam, Sentence Structure và Prompt
+  Bank. Các card có viền primary text, nền theme, offset shadow, hover/focus rõ;
+  không áp vào question card, modal hoặc input để bảo toàn luồng học.
+- Bổ sung `study-heatmap` ("60 ngày học gần nhất") vào card surface chung.
+
+### Session 2026-07-17 — Light theme Writing Library contrast
+
+- Shared card surface làm nền Writing Library sáng, trong khi copy cũ là trắng.
+  Đã override title/description/CTA theo token theme để card luôn đọc được ở
+  Light, Mid và Dark.
+
+### Session 2026-07-17 — Card archive IELTS/Cambridge
+
+- Card sách, header sách và hàng đề trong mọi trang con Reading/Listening của
+  `/app/exam/track/ielts/*` và `/app/exam/track/cambridge/*` dùng surface card
+  Góc đọc Báo. Chỉ đổi archive/library UI, không ảnh hưởng màn hình làm bài.
+
+### Session 2026-07-17 — Light contrast Cambridge exam cards
+
+- Shared card surface đã thay gradient của card kỹ năng Cambridge nhưng copy cũ
+  vẫn màu trắng. Title, mô tả, icon chip và badge giờ dùng token theme, nên đọc
+  rõ ở Light (và vẫn đúng ở Mid/Dark).
+
+### Session 2026-07-17 — Typography chung theo Góc đọc Báo
+
+- Thống nhất font UI bằng stack native của `/app/reading-corner/bao` qua
+  `--font-app`; controls kế thừa đúng font. Các màn Writing, Vocab và paper
+  IELTS/KET không còn giữ Inter/Quicksand/Segoe riêng. Heading editorial dùng
+  `--font-editorial` (Georgia), tương ứng typography headline của Báo; font mono
+  cho IPA/code và lựa chọn font đọc đề của người dùng được giữ nguyên.
+
+### Session 2026-07-17 — Typography Tổng quan
+
+- `/app/home` còn override Cambria/Georgia ở tiêu đề, chỉ số và nhãn section
+  nên nhìn chưa đồng bộ. Ba phần này nay dùng `--font-app` như Góc đọc Báo.
+
+### Session 2026-07-17 — Audit typography toàn app
+
+- Rà toàn bộ CSS app và thay các font UI/decorative còn sót ở Reading Corner,
+  Exam hub, Listening library, Sentence Structure, Login và KET Listening về
+  `--font-app`. Ngoại lệ duy nhất giữ lại là text IPA/code và font reading do
+  học viên chọn trong trình làm đề; đây là dữ liệu/chức năng học, không phải
+  typography giao diện.
+- Landing và text trong mascot SVG cũng đã bỏ Inter/Instrument Serif để cùng
+  hệ font; export MindMap vốn đã dùng system font tương thích.
+
+### Session 2026-07-17 — Popup nhắc ôn tập theo card Báo
+
+- Restyle `SrsReviewReminderModal` theo surface card Góc đọc Báo: nền theo
+  theme, viền đậm, offset shadow, CTA/deck rows có haptic hover/focus và
+  animation transform/opacity. Logic nhắc, đóng popup, chọn deck và
+  `prefers-reduced-motion` giữ nguyên.
+
+### Session 2026-07-17 — Cài khoảng nhắc pop-up ôn tập
+
+- Cài đặt > Giao diện có lựa chọn 5 / 15 / 25 / 30 phút cho pop-up nhắc ôn
+  trong app. Giá trị được lưu local, phát event để AppShell đang mở nhận ngay;
+  mặc định tương thích ngược là 30 phút.
+
+### Session 2026-07-17 — Vocab library theo Nhai TOPIK (UI-only reference)
+
+- `/app/vocab` dùng grid-paper panel neo-brutalist, filter/tabs viền đậm và
+  card giáo trình 2 cột dạng bìa sách + metadata/progress. Giữ AppShell, dữ
+  liệu deck và luồng học Ryan; không dùng hay import dữ liệu từ website crawl.
+
+### Session 2026-07-17 — Vocab lesson theo Nhai TOPIK (UI-only reference)
+
+- Khi mở một deck, `/app/vocab` chuyển sang lesson canvas grid-paper với hard
+  border/shadow; danh sách từ trở thành 2-column word cards trên desktop và
+  một cột trên mobile. SRS/study modes hiện có vẫn là luồng flashcard thật của
+  Ryan, không đưa dữ liệu lesson từ crawl vào app.
+
+### Session 2026-07-17 — Đồng bộ 9 mode học vocab theo lesson grid-paper
+
+- `Lặp lại ngắt quãng`, `Trắc nghiệm`, `Đoán nghĩa`, `Nghe & Gõ`, `Speaking`, `Từ yếu`, `Ôn tập`, `Thống kê`, `Sổ ghi chú` dùng chung bề mặt paper-grid: viền đậm, hard-shadow, nút/card khối và màu xanh chọn như ảnh UI crawl.
+- Thanh 9 mode là mode card rõ ràng (3 cột desktop, 1 cột mobile); luồng học và dữ liệu không thay đổi.
+
+### Session 2026-07-17 — Phát âm trong danh sách từ
+
+- Mỗi thẻ từ ở lesson `/app/vocab` có nút loa, gọi TTS phrase hiện có và có nhãn trợ năng theo từ đang phát.
+
+### Session 2026-07-17 — Khung flashcard SRS paper-grid
+
+- Bổ sung hard-border/hard-shadow trực tiếp vào 3D flip scene và loại bỏ gradient/bóng lồng ở hai mặt thẻ; mặt trước/sau giờ cùng hệ paper-card với các mode vocab khác mà vẫn giữ cơ chế lật.
+- Nút `Lật thẻ` cạnh `Hỏi AI` cũng dùng surface paper-card, viền đậm và hard-shadow thay vì gradient cũ.
+- Mặt trước SRS ở light theme khóa foreground của từ, nhãn, ví dụ và gợi ý lật về `--text-primary` để tương phản rõ trên nền xanh paper-card.
+- Bổ sung tương phản cho các badge chủ đề/đến hạn và nút audio ở mặt trước; chúng không còn dùng chữ nhạt dành cho dark theme.
+
+### Session 2026-07-17 — Listening cards theo style Góc đọc Báo
+
+- Card Cambridge pack, lesson cá nhân và card Part bên trong `/app/listening` nay dùng nền theme, border rõ, offset hard-shadow và hover nâng nhẹ theo hệ card Báo; thao tác/list/grid/compact vẫn giữ nguyên.
+- Các route lesson `/app/listening/:lessonId` cũng dùng background grid-paper và cùng card family cho header, luyện tập, shadowing, transcript và sidebar.
+- Xóa lớp hình trang trí tròn/vuông khỏi card Listening: card/subcard ép surface sạch, không background image hay pseudo-element trang trí.
+
+### Session 2026-07-17 — Writing library surface sạch
+
+- `/app/writing` bỏ toàn bộ các hình tròn/vuông minh họa trong bốn card hub; card chuyển sang bố cục một cột, giữ gradient, nội dung và CTA.
+
+### Next session start prompt
+
+Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/app/listening/:lessonId` và `/app/writing`: bảo đảm card paper/Báo có tương phản chữ tốt, không còn shape hình học ở Writing và các thao tác học/SRS/Listening vẫn hoạt động. Các thay đổi UI hiện tại đã pass `pnpm --filter web exec -- tsc --noEmit`; working tree có thay đổi UI của user/session, không reset hoặc checkout.

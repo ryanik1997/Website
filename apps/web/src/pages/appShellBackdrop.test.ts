@@ -87,8 +87,28 @@ describe('getAppShellBackdropMode', () => {
     expect(getAppShellBackdropMode(pathname)).toBe('grid')
   })
 
-  it('keeps the Writing editor shell transparent so Writing subpages reveal the grid', () => {
+  it('keeps Writing shells transparent so subpages reveal the grid', () => {
     const css = readFileSync(resolve(process.cwd(), 'src/pages/appShellBackdrop.css'), 'utf8')
     expect(css).toContain('.app-shell--backdrop .writing-shell')
+    expect(css).toContain('.app-shell--backdrop .translation-practice-page > .flex-1 > .flex-1')
+    expect(css).not.toContain('.app-shell--backdrop .tp-shell')
+  })
+
+  it('keeps Writing Library card copy legible after the shared card surface is applied', () => {
+    const css = readFileSync(resolve(process.cwd(), 'src/pages/appShellBackdrop.css'), 'utf8')
+    expect(css).toContain('.app-shell .writing-library-card .writing-library-card-title')
+  })
+
+  it('uses the shared card surface for IELTS and Cambridge library archive content', () => {
+    const css = readFileSync(resolve(process.cwd(), 'src/pages/appShellBackdrop.css'), 'utf8')
+    expect(css).toContain('.ielts-library-card')
+    expect(css).toContain('.ielts-library__book-hero')
+    expect(css).toContain('.ielts-library-test-row')
+  })
+
+  it('keeps Cambridge skill-card copy visible after the shared card surface replaces its gradient', () => {
+    const css = readFileSync(resolve(process.cwd(), 'src/pages/appShellBackdrop.css'), 'utf8')
+    expect(css).toContain('.app-shell .exam-skill-card .exam-skill-card__title')
+    expect(css).toContain('color: var(--text-primary) !important')
   })
 })

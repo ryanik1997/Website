@@ -10,7 +10,7 @@
   overflow-y: auto;
   padding: clamp(1rem, 4vw, 3rem);
   background: var(--reading-corner-bg);
-  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 
 .login-page__grid {
@@ -217,7 +217,7 @@
 .login-card h1 {
   margin: 0;
   color: var(--text-primary);
-  font-family: 'Segoe UI Variable Display', 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-app);
   font-size: clamp(2rem, 4.6vw, 3rem);
   font-weight: 720;
   letter-spacing: -.035em;

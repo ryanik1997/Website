@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   BookOpen, PenLine, Headphones, GitBranch, Languages,
@@ -62,6 +63,12 @@ export default function HomePage() {
   const { t } = useI18n()
   const { user } = useAuth()
   const { wordsStudied, docCount, streak, onboardingDone } = useHomeStats()
+  const [sunExploring, setSunExploring] = useState(false)
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => setSunExploring(true), 30_000)
+    return () => window.clearTimeout(timeoutId)
+  }, [])
 
   const name = user?.user_metadata?.full_name?.split(' ')[0] ?? 'bạn'
 
@@ -78,7 +85,7 @@ export default function HomePage() {
             </h1>
           </div>
           <div className="home-page-header-actions">
-            <div className="home-sun-mascot" aria-hidden>
+            <div className={`home-sun-mascot${sunExploring ? ' home-sun-mascot--exploring' : ''}`} aria-hidden>
               <div className="home-sun-mascot__bubble">
                 {getMascotLine(streak, t)}
               </div>

@@ -15,6 +15,7 @@ interface Props {
   skills?: ExamSkillPick[]
   /** Cambridge RW paper: "Reading - Writing"; IELTS mặc định "Reading" */
   readingTitle?: string
+  ieltsCardStyle?: boolean
 }
 
 function formatCount(n: number): string {
@@ -33,12 +34,13 @@ export default function ExamSkillPicker({
   onPick,
   skills = ['listening', 'reading'],
   readingTitle = 'Reading',
+  ieltsCardStyle = false,
 }: Props) {
   const showListening = skills.includes('listening')
   const showReading = skills.includes('reading')
 
   return (
-    <div className="exam-skill-picker">
+    <div className={`exam-skill-picker${ieltsCardStyle ? ' exam-skill-picker--ielts' : ''}`}>
       <div className="exam-skill-picker__inner">
         <button type="button" className="exam-hub-back exam-skill-picker__back" onClick={onBack}>
           <ArrowLeft size={14} />

@@ -10,6 +10,8 @@ import {
   type VocabUnitKind,
 } from '../features/vocab/vocabUnitKind'
 import { useI18n } from '../lib/language'
+import '../features/vocab/vocabLibrary.css'
+import '../features/vocab/vocabLibrary.css'
 
 const UNIT_TABS: { id: VocabUnitKind; label: string }[] = [
   { id: 'single', label: VOCAB_UNIT_KIND_LABELS.single },
@@ -58,9 +60,9 @@ export default function VocabularyPage() {
 
   if (activeDeckId === null) {
     return (
-      <div className="app-page-surface relative h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="max-w-5xl mx-auto px-6 py-8">
-          <div className="mb-6 flex items-center justify-between gap-4">
+      <div className="app-page-surface vocab-library-page relative h-full overflow-y-auto">
+        <div className="vocab-library-page__panel max-w-5xl mx-auto px-6 py-8">
+          <div className="vocab-library-page__header mb-6 flex items-center justify-between gap-4">
             <div>
               <h1 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
                 {t('vocab.title')}
@@ -111,7 +113,7 @@ export default function VocabularyPage() {
 
           {/* Cấp 1: Từ đơn | Cụm từ */}
           <div
-            className="mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3"
+            className="vocab-library-kind-tabs mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3"
             role="tablist"
             aria-label={t('vocab.kind')}
           >
@@ -124,7 +126,7 @@ export default function VocabularyPage() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setUnitKind(tab.id)}
-                  className="text-left rounded-2xl px-4 py-3.5 border transition-all"
+                  className="vocab-library-kind-tab text-left rounded-2xl px-4 py-3.5 border transition-all"
                   style={{
                     background: active
                       ? 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))'
@@ -164,7 +166,7 @@ export default function VocabularyPage() {
   }
 
   return (
-    <div className="app-page-surface relative flex h-full overflow-hidden">
+    <div className="app-page-surface vocab-lesson-page relative flex h-full overflow-hidden">
       <div className="flex flex-col h-full w-full">
         <div
           className="px-6 py-3 border-b flex items-center gap-3 shrink-0"

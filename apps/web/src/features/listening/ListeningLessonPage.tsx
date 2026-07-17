@@ -184,7 +184,7 @@ export default function ListeningLessonPage() {
   if (!currentLesson) return <Navigate to="/app/listening" replace />
 
   return (
-    <div className="listening-lesson-shell h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
+    <div className="listening-lesson-shell listening-lesson-page h-full min-h-0" style={{ background: 'var(--bg-primary)' }}>
       <div className="listening-lesson-scroll h-full min-h-0">
       <div className="mx-auto min-w-0 w-full max-w-[1080px] px-4 py-6 sm:px-6 sm:py-8">
         <Link

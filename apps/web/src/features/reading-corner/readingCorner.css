@@ -1,4 +1,4 @@
-﻿.snb-shell { min-height: 100vh; background: #f8fafc; color: #0f172a; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+.snb-shell { min-height: 100vh; background: #f8fafc; color: #0f172a; font-family: var(--font-app); }
 .snb-loading { display: grid; place-items: center; min-height: 100vh; color: #64748b; font-weight: 700; }
 .snb-topnav {
   height: 72px; display: flex; align-items: center; justify-content: space-between;
@@ -277,7 +277,7 @@
   border: 1px solid #e2e8f0; background: #fff; border-radius: 10px; padding: 9px 12px; font-size: 12px; font-weight: 800; cursor: pointer; color: #334155;
 }
 .snb-list-actions .primary { background: #3b82c4; border-color: #3b82c4; color: #fff; }
-.snb-source-title { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 2.8rem); margin: 8px 0 22px; color: #1e293b; }
+.snb-source-title { font-family: var(--font-app); font-size: clamp(2rem, 4vw, 2.8rem); margin: 8px 0 22px; color: #1e293b; }
 .snb-featured {
   display: block; text-decoration: none; color: #fff; border-radius: 32px; overflow: hidden;
   min-height: 280px; background-size: cover; background-position: center; margin-bottom: 28px;
@@ -286,7 +286,7 @@
 .snb-featured-body { max-width: 34rem; padding: 36px 32px; }
 .snb-cat { font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; }
 .snb-featured .snb-cat { color: #cbd5e1; }
-.snb-featured h2 { font-family: Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.2; margin: 0 0 10px; }
+.snb-featured h2 { font-family: var(--font-app); font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.2; margin: 0 0 10px; }
 .snb-featured p { margin: 0 0 16px; color: #e2e8f0; font-size: .95rem; }
 .snb-cta {
   display: inline-block; background: #fde047; color: #111; font-size: 11px; font-weight: 900;
@@ -303,7 +303,7 @@
   transition: transform .2s, box-shadow .2s;
 }
 .snb-article-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(15,23,42,.08); }
-.snb-article-card h3 { font-family: Georgia, serif; font-size: 1.1rem; line-height: 1.25; margin: 0 0 8px; color: #0f172a; }
+.snb-article-card h3 { font-family: var(--font-app); font-size: 1.1rem; line-height: 1.25; margin: 0 0 8px; color: #0f172a; }
 .snb-source-link { font-size: 10px; font-weight: 800; color: #64748b; text-decoration: none; margin-bottom: 8px; }
 .snb-title-vi { font-size: 13px; color: #2b6cb0; font-weight: 600; margin: 0 0 12px; line-height: 1.4; }
 .snb-meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 12px; font-size: 11px; color: #94a3b8; font-weight: 700; }
@@ -490,7 +490,7 @@
   margin-bottom: 12px;
 }
 .snb-col h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-app);
   font-size: 1.55rem;
   line-height: 1.25;
   margin: 0 0 12px;
@@ -646,7 +646,7 @@
   min-height: 0;
   overflow: auto;
   padding: clamp(1.75rem, 4vw, 3.25rem) clamp(1rem, 3vw, 2rem) 4rem;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: var(--font-app);
   /* Light blue grid — same family as Đọc báo / reader */
   background-color: var(--reading-corner-bg);
   background-image:
@@ -752,7 +752,7 @@
 
 .rc-hub-title {
   margin: 0 0 0.65rem;
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-app);
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -855,14 +855,14 @@
 }
 
 .rc-word-dark {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: var(--font-app);
   font-size: clamp(1.85rem, 3.4vw, 2.65rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: #1c1c1c;
 }
 .rc-word-serif {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-app);
   font-size: clamp(2.1rem, 3.8vw, 3rem);
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -870,7 +870,7 @@
   text-transform: uppercase;
 }
 .rc-word-script {
-  font-family: 'Caveat', 'Instrument Serif', cursive;
+  font-family: var(--font-app);
   font-size: clamp(2.2rem, 4vw, 3.1rem);
   font-weight: 600;
   font-style: normal;
@@ -892,7 +892,7 @@
   justify-content: center;
   padding: 0.28rem 0.85rem 0.38rem;
   border-radius: 999px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: var(--font-app);
   font-size: clamp(1.15rem, 2.2vw, 1.55rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1130,7 +1130,7 @@
   overflow: hidden;
   isolation: isolate;
   background: var(--bg-blue);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-app);
 }
 .hero-bilingual .grid-bg {
   position: absolute;
@@ -2284,7 +2284,7 @@
 .book-preview-modal .book-inside h2 {
   margin: 0.55rem 0 0;
   color: var(--text-primary);
-  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+  font-family: var(--font-app);
   font-size: clamp(1.05rem, 3.2vw, 1.8rem);
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -2457,7 +2457,7 @@
   50% { opacity: 1; }
 }
 .hero-bilingual h1 {
-  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+  font-family: var(--font-app);
   font-weight: 800;
   font-size: clamp(30px, 4.4vw, 60px);
   line-height: 1.0;

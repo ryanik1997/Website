@@ -108,7 +108,7 @@ export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="vocab-library-filters flex flex-wrap gap-2 mb-6">
         {FILTERS.map(f => {
           const active = filter === f.id
           return (
@@ -116,7 +116,7 @@ export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props
               key={f.id}
               type="button"
               onClick={() => setFilter(f.id)}
-              className="px-4 py-1.5 rounded-full text-sm font-medium transition-colors"
+              className="vocab-library-filter px-4 py-1.5 rounded-full text-sm font-medium transition-colors"
               style={{
                 background: active ? 'var(--color-primary)' : 'var(--bg-card)',
                 color: active ? 'var(--color-on-primary, #fff)' : 'var(--text-muted)',

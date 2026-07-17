@@ -118,7 +118,7 @@ export default function ListeningTranscriptTab({ lessonId, sentences, onSentence
         return (
           <div
             key={s.id}
-            className="rounded-xl p-4 transition-shadow"
+            className="listening-bao-subcard rounded-xl p-4 transition-shadow"
             style={{
               background: 'var(--bg-card)',
               border: `1px solid ${isEditing || isActive ? 'var(--color-primary)' : 'var(--border-color)'}`,

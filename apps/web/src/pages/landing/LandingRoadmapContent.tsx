@@ -9,7 +9,7 @@ import {
   Trophy,
 } from 'lucide-react'
 
-const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
+const SERIF: React.CSSProperties = { fontFamily: 'var(--font-app)' }
 
 const TIMELINE_ROWS = [
   {

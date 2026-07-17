@@ -2962,7 +2962,7 @@
   --ket-ui-dark: #575757;
   color: #111;
   background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-app);
 }
 
 .listening-ket-cambridge__header {
@@ -3004,7 +3004,7 @@
 
 .listening-ket-cambridge__brand strong {
   display: block;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-app);
   font-size: 1.5rem;
   line-height: 1.05;
   font-weight: 500;
