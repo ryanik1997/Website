@@ -51,6 +51,7 @@
 - Lịch sử phiên gần nhất được tải lại khi mở panel nên đóng/mở không mất ngữ cảnh. TTS dùng engine hiện có và fallback browser.
 - Production backend: migration 026 đã push và Edge Function `speaking-ai` bản DeepSeek đã deploy lên project `ntcagvtkwxwsmlxlumfo`.
 - Frontend commit `cb8925de` đã deploy Vercel production Ready tại `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
+- Bản DeepSeek commit `2aa07056`, web v0.2.5 đã deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
 - Blocker: `.env.deploy` chưa có `DEEPSEEK_API_KEY`; cần đặt secret này trực tiếp trong Supabase trước khi deploy function. Frontend tuyệt đối không chứa key.
 - Verify bản DeepSeek: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production web build PASS + strip private media; full suite 120/121 PASS. Lỗi duy nhất ngoài patch vẫn là catalog Reading kỳ vọng 47 nhưng hiện có 48.
 - Migration `026_speaking_ai_deepseek.sql` đổi provider mặc định sang `deepseek`; client chỉ gửi transcript + metadata, không còn FileReader/base64/audioData.
