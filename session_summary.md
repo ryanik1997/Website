@@ -35,6 +35,8 @@
 - Với signup có session và Google OAuth signup, app lưu pending version ngắn hạn rồi gọi RPC `accept_legal_terms`; pending được xóa khi thành công hoặc signup lỗi để không ghi nhầm ở login sau.
 - Alert quota >=300 request/24h dùng Resend trong `content-sign`. RPC `claim_content_security_alert_email` claim nguyên tử một email/user/ngày; nếu Resend lỗi thì release claim để request sau retry. DB queue vẫn giữ nguyên.
 - Migration 024 đã push production; `content-sign` mới đã deploy production.
+- Frontend commit `3321c983` đã deploy Vercel production Ready tại deployment `ryanenglishv2-okqsjcn1x-ryanenglish.vercel.app`; alias chính giữ `https://ryanenglishv2.vercel.app`.
+- HEAD smoke vào alias chính trả HTTP 429 từ lớp Vercel, nên chưa xác nhận UI signup bằng production browser.
 - Blocker email production: Supabase project chưa có các secret `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`; `.env.deploy` cũng không có. Cho đến khi set secret, function chỉ cảnh báo log + lưu DB, chưa gửi email thật.
 - Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
 - Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
