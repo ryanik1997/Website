@@ -11,6 +11,8 @@ import { shuffle, isPhraseCorrect, hintPhrase } from '../study/studyUtils'
 import StudyDoneActions from '../study/StudyDoneActions'
 import { useStudyAnswerFeedback } from '../study/useStudyAnswerFeedback'
 import StudyFireworks from '../../../components/StudyFireworks'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 type Result = 'correct' | 'wrong' | 'skipped' | null
 type DotState = 'pending' | 'current' | 'done' | 'wrong'
@@ -64,9 +66,11 @@ export default function ListenTypeMode({
     setRunId(n => n + 1)
   }, [])
 
+  const unitKind = useVocabStore(s => s.unitKind)
+
   const load = useCallback(async () => {
-    const c = await db.cards.where('deckId').equals(deckId).toArray()
-    const shuffled = shuffle(c)
+    const all = await db.cards.where('deckId').equals(deckId).toArray()
+    const shuffled = shuffle(filterCardsByUnitKind(all, unitKind))
     setCards(shuffled)
     setIdx(0)
     setInput('')
@@ -79,7 +83,7 @@ export default function ListenTypeMode({
     setDotStates(shuffled.map((_, i) => (i === 0 ? 'current' : 'pending')))
     setLoaded(true)
     playedRef.current = false
-  }, [deckId])
+  }, [deckId, unitKind])
 
   useEffect(() => { void load() }, [load, runId])
 

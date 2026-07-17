@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ChevronLeft, ChevronRight, Search, Star, Tag } from 'lucide-react'
-import { dedupeLegacySentenceStructures } from '@ryan/catalog'
+import { dedupeLegacySentenceStructures, syncGlobalCatalog } from '@ryan/catalog'
 import { sentenceStructureRepo } from '@ryan/db'
 import type { SentenceStructure } from '@ryan/db'
 import { categoryMeta, STRUCTURE_CATEGORIES } from './types'
@@ -12,11 +12,21 @@ import { Link } from 'react-router-dom'
 
 const PAGE_SIZE = 24
 
-function structureDedupeKey(s: Pick<SentenceStructure, 'title' | 'template'>): string {
-  return `${s.title.trim().toLowerCase()}|${s.template.trim().toLowerCase()}`
+/** 1 bản / template — gộp “· 02” clone và UUID trùng catalog. */
+function structureDedupeKey(s: Pick<SentenceStructure, 'template'>): string {
+  return s.template.trim().toLowerCase().replace(/\s+/g, ' ')
 }
 
-/** Ưu tiên catalog id khi list còn sót bản trùng (UI an toàn). */
+function preferListItem(a: SentenceStructure, b: SentenceStructure): SentenceStructure {
+  const aCore = a.id.startsWith('catalog:') && !a.id.includes(':v') && !a.id.includes('extra')
+  const bCore = b.id.startsWith('catalog:') && !b.id.includes(':v') && !b.id.includes('extra')
+  if (aCore && !bCore) return a
+  if (bCore && !aCore) return b
+  if (a.id.startsWith('catalog:') && !b.id.startsWith('catalog:')) return a
+  if (b.id.startsWith('catalog:') && !a.id.startsWith('catalog:')) return b
+  return a.updatedAt >= b.updatedAt ? a : b
+}
+
 function uniqueStructures(items: SentenceStructure[]): SentenceStructure[] {
   const map = new Map<string, SentenceStructure>()
   for (const item of items) {
@@ -26,11 +36,7 @@ function uniqueStructures(items: SentenceStructure[]): SentenceStructure[] {
       map.set(key, item)
       continue
     }
-    const preferNew =
-      (item.id.startsWith('catalog:') && !prev.id.startsWith('catalog:'))
-      || (!item.id.startsWith('catalog:') && !prev.id.startsWith('catalog:') && item.updatedAt >= prev.updatedAt)
-      || (item.id.startsWith('catalog:') && prev.id.startsWith('catalog:') && item.updatedAt >= prev.updatedAt)
-    if (preferNew) map.set(key, item)
+    map.set(key, preferListItem(prev, item))
   }
   return [...map.values()].sort((a, b) => b.updatedAt - a.updatedAt)
 }
@@ -45,7 +51,10 @@ export default function StructureListHub() {
   const categoryFilter = searchParams.get('category') ?? ''
 
   useEffect(() => {
-    void dedupeLegacySentenceStructures()
+    void (async () => {
+      await syncGlobalCatalog().catch(err => console.warn('[structure] catalog sync', err))
+      await dedupeLegacySentenceStructures()
+    })()
     setHistory(getStructureCompletionHistory())
   }, [])
 

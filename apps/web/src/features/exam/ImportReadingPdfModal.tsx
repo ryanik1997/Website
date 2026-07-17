@@ -140,6 +140,10 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
 
   async function runParse() {
     if (!file) return
+    if (cambridgeLevel === 'a2') {
+      setError('Không dùng AI để tạo đề KET A2. Hãy import ZIP có exam.json và answer-key từ nguồn đề chuẩn để giữ đúng câu hỏi, đáp án và hình ảnh.')
+      return
+    }
     setError('')
     setStep('parsing')
     setParseProgress([])
@@ -274,7 +278,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
             <>
               <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
                 {cambridgeLevel === 'a2'
-                  ? 'Upload PDF KET A2 → AI trích câu hỏi + giữ ảnh trang làm đề bài (passage fallback). PDF scan: Vision OCR từng trang.'
+                  ? 'KET A2 không tạo đề bằng AI. Hãy đóng cửa sổ này và import ZIP có exam.json + answer-key từ nguồn đề chuẩn.'
                   : cambridgeLevel === 'b1'
                     ? 'Upload PDF PET B1 → AI trích câu hỏi + giữ ảnh trang khi passage yếu. PDF scan: Vision OCR.'
                     : 'Upload PDF → trích Part 1–3 bằng AI. PDF scan tự động dùng Vision OCR (OpenAI/Gemini).'}
@@ -537,7 +541,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
             </div>
           )}
 
-          {step === 'upload' && !error.includes('API key') && (
+          {step === 'upload' && cambridgeLevel !== 'a2' && !error.includes('API key') && (
             <p className="text-xs mt-4" style={{ color: 'var(--text-muted)' }}>
               Cần API key trong{' '}
               <Link to="/app/settings?tab=ai" className="underline" style={{ color: 'var(--color-primary)' }}>
@@ -564,7 +568,7 @@ export default function ImportReadingPdfModal({ onClose, onCreated, cambridgeLev
           {step === 'upload' && (
             <button
               type="button"
-              disabled={!file}
+              disabled={!file || cambridgeLevel === 'a2'}
               onClick={() => void runParse()}
               className="rounded-lg px-4 py-2 text-sm font-semibold disabled:opacity-40"
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}

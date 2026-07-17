@@ -1,10 +1,10 @@
 import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import ListeningIeltsSectionHeader from './ListeningIeltsSectionHeader'
-import { resolveExamMediaUrl } from './examMediaUrl'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 import { sectionMetaFromQuestions } from './ieltsListeningSegmentUtils'
 import type { ListeningPart, ListeningQuestion } from './listeningExamData'
+import { resolveMapOrDiagramLetterOptions } from './listeningLetterOptions'
 
 interface Props {
   part: ListeningPart
@@ -26,9 +26,12 @@ export default function ListeningIeltsDiagramBlock({
   onSelectQuestion,
 }: Props) {
   const highlights = useExamHighlights()
-  const options = questions[0]?.options ?? []
   const meta = sectionMetaFromQuestions(questions)
-  const imageSrc = useBlobMediaUrl(part.partImageKey, resolveExamMediaUrl(part.partImageUrl))
+  const options = resolveMapOrDiagramLetterOptions(
+    questions,
+    meta.instruction ?? part.instruction,
+  )
+  const imageSrc = useBlobMediaUrl(part.partImageKey, part.partImageUrl)
   const isActive = questions.some(q => q.id === activeQuestionId)
 
   return (

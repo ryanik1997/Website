@@ -1,25 +1,27 @@
 /* Báo cáo kết quả Luyện thi (IELTS / Cambridge) — mockup Reading_IELTS_Result */
 
 .exam-practice-result {
-  --epr-green: #5a8f3a;
-  --epr-green-deep: #4a7a2e;
-  --epr-grid: rgba(255, 255, 255, 0.07);
-  --epr-panel: rgba(40, 70, 28, 0.42);
-  --epr-panel-border: rgba(255, 255, 255, 0.12);
-  --epr-text: #f4f8ef;
-  --epr-muted: rgba(244, 248, 239, 0.72);
-  --epr-dark: #1a2e12;
+  /* Light blue — match Góc đọc / Đọc báo & Đọc sách */
+  --epr-blue: #9ec9e8;
+  --epr-blue-mid: #7eb6dc;
+  --epr-blue-deep: #5a9bc9;
+  --epr-grid: rgba(255, 255, 255, 0.4);
+  --epr-panel: rgba(255, 255, 255, 0.42);
+  --epr-panel-border: rgba(30, 80, 140, 0.18);
+  --epr-text: #1e3a5f;
+  --epr-muted: rgba(30, 58, 95, 0.72);
+  --epr-dark: #0f2744;
   --epr-ok: #2ecc71;
   --epr-skip: #f1c40f;
   --epr-bad: #ff6b81;
-  --epr-band: #5dade2;
+  --epr-band: #3b82c4;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   background:
     linear-gradient(var(--epr-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--epr-grid) 1px, transparent 1px),
-    linear-gradient(165deg, var(--epr-green) 0%, var(--epr-green-deep) 55%, #3d6b24 100%);
+    linear-gradient(165deg, var(--epr-blue) 0%, var(--epr-blue-mid) 55%, var(--epr-blue-deep) 100%);
   background-size: 28px 28px, 28px 28px, 100% 100%;
   color: var(--epr-text);
   overflow-y: auto;
@@ -63,7 +65,7 @@
 }
 
 .exam-practice-result__badge {
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(30, 80, 140, 0.28);
   border-radius: 999px;
   padding: 0.45rem 1rem;
   font-size: 0.7rem;
@@ -71,7 +73,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--epr-text);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .exam-practice-result__hero {
@@ -102,7 +104,7 @@
   letter-spacing: -0.03em;
   line-height: 1;
   color: var(--epr-dark);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .exam-practice-result__exam-title {
@@ -124,13 +126,13 @@
 .exam-practice-result__bubble {
   max-width: 220px;
   background: #fff;
-  color: #2c3e1f;
+  color: #1e3a5f;
   border-radius: 14px;
   padding: 0.65rem 0.85rem;
   font-size: 0.82rem;
   font-weight: 600;
   line-height: 1.35;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(30, 80, 140, 0.12);
   position: relative;
 }
 
@@ -166,6 +168,7 @@
   border-radius: 22px;
   padding: 1.1rem 0.75rem;
   backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(30, 80, 140, 0.1);
 }
 
 @media (max-width: 640px) {
@@ -205,18 +208,18 @@
   font-size: clamp(1.55rem, 4vw, 2rem);
   font-weight: 900;
   line-height: 1;
-  color: #fff;
+  color: var(--epr-dark);
 }
 
 .exam-practice-result__stat-label {
   font-size: 0.82rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--epr-muted);
 }
 
 .exam-practice-result__stat-pct {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(30, 58, 95, 0.55);
 }
 
 .exam-practice-result__actions {
@@ -232,9 +235,9 @@
   align-items: center;
   gap: 0.45rem;
   border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border: 1.5px solid rgba(30, 80, 140, 0.2);
   background: rgba(255, 255, 255, 0.94);
-  color: #2c3e1f;
+  color: #1e4d7b;
   font-size: 0.88rem;
   font-weight: 700;
   padding: 0.7rem 1.15rem;
@@ -244,7 +247,7 @@
 
 .exam-practice-result__btn:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(30, 80, 140, 0.14);
 }
 
 .exam-practice-result__btn:disabled {
@@ -253,14 +256,15 @@
 }
 
 .exam-practice-result__btn--ghost {
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.35);
+  color: var(--epr-text);
+  border-color: rgba(30, 80, 140, 0.22);
 }
 
 .exam-practice-result__btn--primary {
   background: #fff;
   border-color: transparent;
+  color: #1e4d7b;
 }
 
 .exam-practice-result__detail {

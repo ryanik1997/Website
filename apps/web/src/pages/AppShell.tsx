@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Outlet, NavLink, useNavigate } from 'react-router-dom'
+import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {
   BookOpen,
   PenLine,
@@ -14,11 +14,16 @@ import {
   AlertCircle,
   Blocks,
   ClipboardCheck,
+  Mic2,
+  BookMarked,
+  ChevronDown,
+  Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
 } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useAuth } from '../features/auth/AuthContext'
+import UserAvatar from '../components/UserAvatar'
 import { SyncProvider, useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
 import { usePlanSync } from '../features/auth/usePlanSync'
 import DictionaryFAB from '../features/dictionary/DictionaryFAB'
@@ -29,34 +34,84 @@ import { useNotifications } from '../features/notifications/useNotifications'
 import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
 import GlobalCatalogSync from '../features/catalog/GlobalCatalogSync'
+import LegalFooter from '../components/LegalFooter'
+import { LanguageProvider, useI18n } from '../lib/language'
+import { getAppShellBackdropMode } from './appShellBackdrop'
+import './appShellBackdrop.css'
 
-const NAV: Array<{
+type NavLeaf = {
+  kind: 'link'
   to: string
   icon: typeof Home
   label: string
-}> = [
-  { to: '/app/home', icon: Home, label: 'Tổng quan' },
-  { to: '/app/vocab', icon: BookOpen, label: 'Từ vựng' },
-  { to: '/app/writing', icon: PenLine, label: 'Viết' },
-  { to: '/app/listening', icon: Headphones, label: 'Nghe' },
-  { to: '/app/exam', icon: ClipboardCheck, label: 'Luyện thi' },
-  { to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu' },
-  { to: '/app/mindmap', icon: GitBranch, label: 'MindMap' },
-  { to: '/app/settings', icon: Settings, label: 'Cài đặt' },
+  navKey: string
+}
+
+type NavGroup = {
+  kind: 'group'
+  id: string
+  icon: typeof Home
+  label: string
+  navKey: string
+  children: Array<{
+    to: string
+    icon: typeof Home
+    label: string
+    navKey: string
+  }>
+}
+
+type NavItem = NavLeaf | NavGroup
+
+const NAV: NavItem[] = [
+  { kind: 'link', to: '/app/home', icon: Home, label: 'Tổng quan', navKey: 'nav.home' },
+  { kind: 'link', to: '/app/vocab', icon: BookOpen, label: 'Từ vựng', navKey: 'nav.vocab' },
+  { kind: 'link', to: '/app/writing', icon: PenLine, label: 'Viết', navKey: 'nav.writing' },
+  { kind: 'link', to: '/app/listening', icon: Headphones, label: 'Nghe', navKey: 'nav.listening' },
+  { kind: 'link', to: '/app/shadowing', icon: Mic2, label: 'Luyện Shadowing', navKey: 'nav.shadowing' },
+  {
+    kind: 'group',
+    id: 'reading-corner',
+    icon: BookMarked,
+    label: 'Góc đọc',
+    navKey: 'nav.readingCorner',
+    children: [
+      {
+        to: '/app/reading-corner/bao',
+        icon: Newspaper,
+        label: 'Đọc Báo Song Ngữ',
+        navKey: 'nav.readingBao',
+      },
+      {
+        to: '/app/reading-corner/sach',
+        icon: BookOpen,
+        label: 'Đọc Sách Song Ngữ',
+        navKey: 'nav.readingSach',
+      },
+    ],
+  },
+  { kind: 'link', to: '/app/exam', icon: ClipboardCheck, label: 'Luyện thi', navKey: 'nav.exam' },
+  { kind: 'link', to: '/app/sentence-structure', icon: Blocks, label: 'Cấu trúc câu', navKey: 'nav.sentence' },
+  { kind: 'link', to: '/app/mindmap', icon: GitBranch, label: 'MindMap', navKey: 'nav.mindmap' },
+  { kind: 'link', to: '/app/settings', icon: Settings, label: 'Cài đặt', navKey: 'nav.settings' },
 ]
 
 export default function AppShell() {
   return (
     <SyncProvider>
-      <AppShellInner />
+      <LanguageProvider><AppShellInner /></LanguageProvider>
     </SyncProvider>
   )
 }
 
 function AppShellInner() {
+  const { t } = useI18n()
+  const location = useLocation()
   const [sidebarCollapsed, setSidebarCollapsed] = useState(
     () => localStorage.getItem('ryan-sidebar-collapsed') === '1',
   )
+  const readingCornerActive = location.pathname.startsWith('/app/reading-corner')
+  const [readingOpen, setReadingOpen] = useState(readingCornerActive)
   const navigate = useNavigate()
   const { user, signOut } = useAuth()
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
@@ -76,13 +131,32 @@ function AppShellInner() {
     [],
   )
 
+  // Full-bleed exam player (TID Listening / Reading paper) — hide app sidebar
+  const examPlayerMode = /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
+  const appBackdropMode = getAppShellBackdropMode(location.pathname)
+  const appBackdropActive = appBackdropMode !== 'none'
+
   useEffect(() => {
     localStorage.setItem('ryan-sidebar-collapsed', sidebarCollapsed ? '1' : '0')
   }, [sidebarCollapsed])
 
+  useEffect(() => {
+    if (readingCornerActive) setReadingOpen(true)
+  }, [readingCornerActive])
+
   return (
-    <div className="flex h-[100dvh] overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
-      <aside
+    <div
+      className={`app-shell flex h-[100dvh] overflow-hidden${appBackdropActive ? ` app-shell--backdrop app-shell--${appBackdropMode}` : ''}`}
+      style={{
+        background: examPlayerMode
+          ? 'var(--bg-card)'
+          : appBackdropActive
+            ? 'var(--reading-corner-bg)'
+            : 'var(--bg-secondary)',
+      }}
+    >
+      {appBackdropActive && <AppShellBackdrop withRibbon={appBackdropMode === 'ribbon'} />}
+      {!examPlayerMode && <aside
         className={`flex flex-col shrink-0 border-r transition-[width] duration-200 ${
           sidebarCollapsed ? 'w-20' : 'w-52'
         }`}
@@ -112,25 +186,100 @@ function AppShellInner() {
           </div>
         </div>
 
-        <nav className="flex-1 p-2.5 flex flex-col gap-0.5">
-          {NAV.map(({ to, icon: Icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to !== '/app/writing'}
-              className={({ isActive }) =>
-                `flex items-center px-2.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-                } ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`
-              }
-              title={sidebarCollapsed ? label : undefined}
-            >
-              <Icon size={17} className="shrink-0" />
-              {!sidebarCollapsed && <span className="flex-1 truncate">{label}</span>}
-            </NavLink>
-          ))}
+        <nav className="flex-1 p-2.5 flex flex-col gap-0.5 overflow-y-auto">
+          {NAV.map(item => {
+            if (item.kind === 'group') {
+              const Icon = item.icon
+              const open = readingOpen || readingCornerActive
+              return (
+                <div key={item.id} className="flex flex-col gap-0.5">
+                  <div
+                    className={`flex items-center rounded-lg transition-colors ${
+                      location.pathname === '/app/reading-corner' || location.pathname === '/app/reading-corner/'
+                        ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                        : readingCornerActive
+                          ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]'
+                          : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // Hub UI (2 cards) — not only toggle submenu
+                        setReadingOpen(true)
+                        navigate('/app/reading-corner')
+                      }}
+                      className={`flex flex-1 items-center min-w-0 px-2.5 py-2 rounded-lg text-sm font-medium ${
+                        sidebarCollapsed ? 'justify-center' : 'gap-2.5'
+                      }`}
+                      title={sidebarCollapsed ? t(item.navKey) || item.label : undefined}
+                    >
+                      <Icon size={17} className="shrink-0" />
+                      {!sidebarCollapsed && (
+                        <span className="flex-1 truncate text-left">{t(item.navKey) || item.label}</span>
+                      )}
+                    </button>
+                    {!sidebarCollapsed && (
+                      <button
+                        type="button"
+                        aria-label={open ? 'Thu gọn Góc đọc' : 'Mở rộng Góc đọc'}
+                        onClick={() => setReadingOpen(v => !v)}
+                        className="shrink-0 p-2 mr-0.5 rounded-md text-[var(--text-muted)] hover:bg-[var(--bg-secondary)]"
+                      >
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform ${open ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                    )}
+                  </div>
+                  {open && !sidebarCollapsed && (
+                    <div className="ml-3 pl-2 border-l flex flex-col gap-0.5" style={{ borderColor: 'var(--border-color)' }}>
+                      {item.children.map(child => {
+                        const ChildIcon = child.icon
+                        return (
+                          <NavLink
+                            key={child.to}
+                            to={child.to}
+                            className={({ isActive }) =>
+                              `flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                                isActive
+                                  ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                              }`
+                            }
+                          >
+                            <ChildIcon size={14} className="shrink-0" />
+                            <span className="truncate">{t(child.navKey) || child.label}</span>
+                          </NavLink>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              )
+            }
+
+            const { to, icon: Icon, label, navKey } = item
+            return (
+              <NavLink
+                key={to}
+                to={to}
+                end={to !== '/app/writing' && to !== '/app/shadowing'}
+                className={({ isActive }) =>
+                  `flex items-center px-2.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                  } ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`
+                }
+                title={sidebarCollapsed ? t(navKey) || label : undefined}
+              >
+                <Icon size={17} className="shrink-0" />
+                {!sidebarCollapsed && <span className="flex-1 truncate">{t(navKey) || label}</span>}
+              </NavLink>
+            )
+          })}
           {isAdmin && (
             <NavLink
               to="/app/admin"
@@ -167,20 +316,11 @@ function AppShellInner() {
             onClick={() => navigate('/app/settings?tab=account')}
             className={`w-full px-1 mb-2 flex items-center rounded-xl transition-colors hover:bg-[var(--bg-secondary)] ${sidebarCollapsed ? 'justify-center py-1.5' : 'gap-2.5 py-1.5'}`}
           >
-            {user?.user_metadata?.avatar_url ? (
-              <img src={user.user_metadata.avatar_url} className="w-8 h-8 rounded-full shrink-0" alt="" />
-            ) : (
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
-              >
-                {(user?.user_metadata?.full_name ?? user?.email ?? '?')[0].toUpperCase()}
-              </div>
-            )}
+            <UserAvatar user={user} size="sm" />
             {!sidebarCollapsed && (
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
-                  {user?.user_metadata?.full_name ?? 'Người dùng'}
+                  {user?.user_metadata?.full_name ?? t('app.user')}
                 </p>
                 <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
                   {user?.email}
@@ -196,7 +336,7 @@ function AppShellInner() {
           <button
             type="button"
             onClick={signOut}
-            title="Đăng xuất"
+            title={t('app.logout')}
             className={`group flex px-2 py-1.5 rounded-lg w-full transition-colors mt-1 hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)] ${
               sidebarCollapsed ? 'justify-center items-center' : 'items-center gap-1.5'
             }`}
@@ -208,7 +348,7 @@ function AppShellInner() {
                 className="text-xs opacity-0 group-hover:opacity-100 transition-opacity"
                 style={{ color: 'var(--color-accent)' }}
               >
-                Đăng xuất
+                {t('app.logout')}
               </span>
             )}
           </button>
@@ -217,8 +357,8 @@ function AppShellInner() {
         <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
           <button
             type="button"
-            aria-label={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
-            title={sidebarCollapsed ? 'Mở rộng thanh chức năng' : 'Thu gọn thanh chức năng'}
+            aria-label={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
+            title={sidebarCollapsed ? t('app.expand') : t('app.collapse')}
             onClick={() => setSidebarCollapsed(value => !value)}
             className="h-8 w-full rounded-lg border flex items-center justify-center transition-colors hover:bg-[var(--bg-secondary)]"
             style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
@@ -226,21 +366,41 @@ function AppShellInner() {
             {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
           </button>
         </div>
-      </aside>
+        {!sidebarCollapsed && <LegalFooter compact />}
+      </aside>}
 
-      <main className="flex-1 min-h-0 flex flex-col overflow-hidden select-text">
+      <main className="app-shell__main flex-1 min-h-0 flex flex-col overflow-hidden select-text">
         <Outlet />
       </main>
 
       <GlobalCatalogSync />
-      <DictionaryFAB />
-      <DictionaryModal />
-      <SrsReviewReminderModal
-        open={srsPopup.open}
-        dueCount={srsPopup.dueCount}
-        dueLoading={srsPopup.dueLoading}
-        onClose={srsPopup.dismiss}
-      />
+      {!examPlayerMode && (
+        <>
+          <DictionaryFAB />
+          <DictionaryModal />
+          <SrsReviewReminderModal
+            open={srsPopup.open}
+            dueCount={srsPopup.dueCount}
+            dueLoading={srsPopup.dueLoading}
+            onClose={srsPopup.dismiss}
+          />
+        </>
+      )}
+    </div>
+  )
+}
+
+function AppShellBackdrop({ withRibbon }: { withRibbon: boolean }) {
+  return (
+    <div className="app-shell__backdrop" aria-hidden>
+      <div className="app-shell__backdrop-grid" />
+      {withRibbon && (
+        <>
+          <div className="app-shell__ribbon app-shell__ribbon--1" />
+          <div className="app-shell__ribbon app-shell__ribbon--2" />
+          <div className="app-shell__ribbon app-shell__ribbon--3" />
+        </>
+      )}
     </div>
   )
 }
@@ -258,10 +418,11 @@ function SyncStatusIndicator({
   onRetry: () => void
   compact?: boolean
 }) {
+  const { t } = useI18n()
   if (compact) {
     if (syncState === 'syncing') {
       return (
-        <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title="Đang đồng bộ">
+        <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title={t('app.syncing')}>
           <LoaderCircle size={16} className="animate-spin shrink-0" />
         </div>
       )
@@ -281,7 +442,7 @@ function SyncStatusIndicator({
     }
 
     return (
-      <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title="Đã đồng bộ">
+      <div className="px-3 pb-2 flex justify-center" style={{ color: 'var(--text-muted)' }} title={t('app.synced')}>
         <Cloud size={16} className="shrink-0" />
       </div>
     )
@@ -291,7 +452,7 @@ function SyncStatusIndicator({
     return (
       <div className="px-3 pb-2 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
         <LoaderCircle size={16} className="animate-spin shrink-0" />
-        <span className="text-xs">Đang đồng bộ…</span>
+        <span className="text-xs">{t('app.syncing')}</span>
       </div>
     )
   }
@@ -306,7 +467,7 @@ function SyncStatusIndicator({
       >
         <span className="flex items-center gap-2">
           <AlertCircle size={16} className="shrink-0" style={{ color: 'var(--color-accent)' }} />
-          <span className="text-xs" style={{ color: 'var(--color-accent)' }}>Lỗi đồng bộ — bấm thử lại</span>
+          <span className="text-xs" style={{ color: 'var(--color-accent)' }}>{t('app.syncError')}</span>
         </span>
         {error && (
           <span className="text-[10px] leading-snug pl-6 line-clamp-3" style={{ color: 'var(--text-muted)' }}>
@@ -320,7 +481,7 @@ function SyncStatusIndicator({
   return (
     <div className="px-3 pb-2 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
       <Cloud size={16} className="shrink-0" />
-      <span className="text-xs">Đã đồng bộ lúc {formatSyncTime(lastSyncAt)}</span>
+      <span className="text-xs">{t('app.synced')} · {formatSyncTime(lastSyncAt)}</span>
     </div>
   )
 }
@@ -334,6 +495,7 @@ const PLAN_STYLE: Record<string, { label: string; color: string }> = {
 }
 
 function PlanStatus({ plan, expiresAt }: { plan: string; expiresAt: string | null }) {
+  const { t } = useI18n()
   const cfg = PLAN_STYLE[plan] ?? PLAN_STYLE.free
   const now = Date.now()
   const expired = expiresAt ? new Date(expiresAt).getTime() < now : false
@@ -365,13 +527,14 @@ function PlanStatus({ plan, expiresAt }: { plan: string; expiresAt: string | nul
         </span>
       )}
       {!expiresAt && plan !== 'free' && (
-        <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>Vĩnh viễn</span>
+        <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>{t('app.forever')}</span>
       )}
     </div>
   )
 }
 
 function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
+  const { t } = useI18n()
   const DOTS = [
     { id: 'light' as const, color: 'var(--bg-secondary)', border: 'var(--border-color)', label: 'Sáng' },
     { id: 'mid' as const, color: '#1e1e2e', border: '#313244', label: 'Tối nhẹ' },
@@ -384,7 +547,7 @@ function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
       className={`px-3 py-2.5 flex border-t ${compact ? 'flex-col items-center gap-2' : 'items-center gap-2'}`}
       style={{ borderColor: 'var(--border-color)' }}
     >
-      {!compact && <span className="text-[11px] flex-1" style={{ color: 'var(--text-muted)' }}>Giao diện</span>}
+      {!compact && <span className="text-[11px] flex-1" style={{ color: 'var(--text-muted)' }}>{t('app.appearance')}</span>}
       <div className="flex gap-1.5">
         {DOTS.map(d => (
           <button

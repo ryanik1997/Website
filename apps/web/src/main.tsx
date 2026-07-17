@@ -45,4 +45,13 @@ async function bootstrap() {
   )
 }
 
+// SW chỉ cần trên production (push). Dev: unregister để tránh cache/HMR lạ.
+if ('serviceWorker' in navigator) {
+  if (import.meta.env.DEV) {
+    void navigator.serviceWorker.getRegistrations().then(regs => {
+      for (const reg of regs) void reg.unregister()
+    })
+  }
+}
+
 bootstrap()

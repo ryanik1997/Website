@@ -1,29 +1,56 @@
 /**
  * Gói từ điển offline (không cần mạng / AI).
- * Nguồn chính: Part 1 — 300 từ A2–C2 (Tainguyen/TuDien/Part1.json).
- * Bổ sung: cụm từ / collocation hữu dụng cho writing.
+ * Nguồn:
+ * - Part 1: ~300 từ A2–C2 (Tainguyen/TuDien/Part1.json)
+ * - Part 2: +6000 từ EN→VI từ GitHub open-vn-en-dict (MIT)
+ * - Part 2–5: +6000 mỗi part (không trùng các part trước)
+ * - Phrasal ~2000 / Idioms ~3000 / Collocations ~10000 (scripts/build-dict-multi.mjs)
+ * - Cụm từ / collocation bổ sung (PHRASE_PACK)
  * Free/basic: tra offline; AI dictionary khi Pro (dictionary_ai).
  */
 import type { DictResult } from '@ryan/core'
 import part1 from './data/offlinePart1.json'
+import part2 from './data/offlinePart2.json'
+import part3 from './data/offlinePart3.json'
+import part4 from './data/offlinePart4.json'
+import part5 from './data/offlinePart5.json'
+import phrasalPack from './data/offlinePhrasal.json'
+import idiomsPack from './data/offlineIdioms.json'
+import collocationsPack from './data/offlineCollocations.json'
 
 type PackEntry = Omit<DictResult, 'word'> & { word: string }
 
+type PartDef = {
+  meaning: string
+  example?: string
+  exampleVi?: string
+}
+
 type PartCard = {
   phrase: string
-  meaning: string
-  example: string
+  meaning?: string
+  example?: string
+  exampleVi?: string
   ipaUS?: string
   ipaUK?: string
   pos?: string
+  level?: string
+  definitions?: PartDef[]
+  collocations?: string[]
+  synonyms?: string[]
 }
 
 function stripIpaSlashes(ipa?: string): string | undefined {
   if (!ipa) return undefined
-  return ipa.replace(/^\/+|\/+$/g, '').trim() || undefined
+  // Clean messy multi-forms: /ði:, ði, ðə/ → /ðiː/
+  let s = ipa.replace(/^\/+|\/+$/g, '').trim()
+  s = s.split(/[;,|]/)[0]?.trim() || s
+  s = s.replace(/[\[\]]/g, '').trim()
+  if (!s || s.length > 48) return undefined
+  return `/${s}/`
 }
 
-/** Map nhãn POS tiếng Việt / hỗn hợp → dạng hiển thị gọn */
+/** Map nhãn POS tiếng Việt / hỗn hợp → dạng hiển thị gọn (như true.jpg: adjective) */
 function normalizePos(pos?: string): string | undefined {
   if (!pos) return undefined
   const p = pos.trim().toLowerCase()
@@ -32,6 +59,7 @@ function normalizePos(pos?: string): string | undefined {
     'động từ': 'verb',
     'tính từ': 'adjective',
     'phó từ': 'adverb',
+    'trạng từ': 'adverb',
     'giới từ': 'preposition',
     'liên từ': 'conjunction',
     'đại từ': 'pronoun',
@@ -39,6 +67,7 @@ function normalizePos(pos?: string): string | undefined {
     'số từ': 'numeral',
     'thán từ': 'interjection',
     'cụm từ': 'phrase',
+    'cụm động từ': 'phrase',
     noun: 'noun',
     verb: 'verb',
     adjective: 'adjective',
@@ -52,19 +81,74 @@ function normalizePos(pos?: string): string | undefined {
   return map[p] ?? pos
 }
 
+/** Tách nghĩa dài (nối bằng ; / ,) thành các sense gọn — UI dạng true.jpg */
+function splitMeanings(raw: string): string[] {
+  const text = raw.replace(/\s+/g, ' ').trim()
+  if (!text) return []
+  // Ưu tiên tách theo ; hoặc dấu chấm phẩy fullwidth
+  let parts = text.split(/[;；]/).map(s => s.trim()).filter(Boolean)
+  if (parts.length === 1 && text.length > 80) {
+    // fallback: tách theo dấu phẩy nếu đoạn quá dài
+    parts = text.split(/,(?=\s)/).map(s => s.trim()).filter(s => s.length >= 2)
+  }
+  const out: string[] = []
+  const seen = new Set<string>()
+  for (const p of parts) {
+    let m = p.replace(/^[•·\-–—\d.)]+\s*/, '').trim()
+    if (m.length < 2) continue
+    // gộp sense quá ngắn vào trước
+    if (m.length < 4 && out.length) {
+      out[out.length - 1] = `${out[out.length - 1]}, ${m}`
+      continue
+    }
+    const key = m.toLowerCase()
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push(m)
+    if (out.length >= 5) break
+  }
+  return out
+}
+
 function cardToEntry(c: PartCard): PackEntry {
+  const word = c.phrase.trim()
+  let definitions: PartDef[] = []
+
+  if (c.definitions?.length) {
+    definitions = c.definitions
+      .map(d => ({
+        meaning: (d.meaning || '').trim(),
+        example: d.example?.trim() || undefined,
+        exampleVi: d.exampleVi?.trim() || undefined,
+      }))
+      .filter(d => d.meaning)
+  } else if (c.meaning?.trim()) {
+    const senses = splitMeanings(c.meaning)
+    definitions = senses.map((meaning, i) => ({
+      meaning,
+      // gán example cho sense đầu (nếu có)
+      example: i === 0 ? c.example?.trim() || undefined : undefined,
+      exampleVi: i === 0 ? c.exampleVi?.trim() || undefined : undefined,
+    }))
+  }
+
+  if (!definitions.length) {
+    definitions = [{ meaning: c.meaning?.trim() || word, example: c.example }]
+  }
+
   return {
-    word: c.phrase.trim(),
+    word,
     pos: normalizePos(c.pos),
     ipaUS: stripIpaSlashes(c.ipaUS),
     ipaUK: stripIpaSlashes(c.ipaUK),
-    definitions: [
-      {
-        meaning: c.meaning,
-        example: c.example,
-        exampleVi: '',
-      },
-    ],
+    definitions: definitions.map(d => ({
+      meaning: d.meaning,
+      example: d.example,
+      exampleVi: d.exampleVi || '',
+    })),
+    collocations: c.collocations,
+    synonyms: c.synonyms,
+    level: c.level,
   }
 }
 
@@ -150,20 +234,42 @@ const PHRASE_PACK: PackEntry[] = [
   e('famous for', 'phrase', 'nổi tiếng vì', 'Paris is famous for art.', 'Paris nổi tiếng về nghệ thuật.', { level: 'A2' }),
 ]
 
-const partCards = (part1 as { cards: PartCard[] }).cards ?? []
-const partEntries = partCards.map(cardToEntry)
+const part1Cards = (part1 as { cards: PartCard[] }).cards ?? []
+const part2Cards = (part2 as { cards: PartCard[] }).cards ?? []
+const part3Cards = (part3 as { cards: PartCard[] }).cards ?? []
+const part4Cards = (part4 as { cards: PartCard[] }).cards ?? []
+const part5Cards = (part5 as { cards: PartCard[] }).cards ?? []
+const phrasalCards = (phrasalPack as { cards: PartCard[] }).cards ?? []
+const idiomsCards = (idiomsPack as { cards: PartCard[] }).cards ?? []
+const collocationCards = (collocationsPack as { cards: PartCard[] }).cards ?? []
+const part1Entries = part1Cards.map(cardToEntry)
+const part2Entries = part2Cards.map(cardToEntry)
+const part3Entries = part3Cards.map(cardToEntry)
+const part4Entries = part4Cards.map(cardToEntry)
+const part5Entries = part5Cards.map(cardToEntry)
+const phrasalEntries = phrasalCards.map(cardToEntry)
+const idiomsEntries = idiomsCards.map(cardToEntry)
+const collocationEntries = collocationCards.map(cardToEntry)
 
 const PACK: PackEntry[] = []
 const BY_KEY = new Map<string, PackEntry>()
 
 function add(entry: PackEntry) {
-  const key = entry.word.toLowerCase().trim()
+  const key = entry.word.toLowerCase().trim().replace(/\s+/g, ' ')
   if (!key || BY_KEY.has(key)) return
   BY_KEY.set(key, entry)
   PACK.push(entry)
 }
 
-for (const item of partEntries) add(item)
+// Part1 ưu tiên → Part2–5 → multi-word packs → PHRASE_PACK
+for (const item of part1Entries) add(item)
+for (const item of part2Entries) add(item)
+for (const item of part3Entries) add(item)
+for (const item of part4Entries) add(item)
+for (const item of part5Entries) add(item)
+for (const item of phrasalEntries) add(item)
+for (const item of idiomsEntries) add(item)
+for (const item of collocationEntries) add(item)
 for (const item of PHRASE_PACK) add(item)
 
 export function offlineDictSize(): number {
@@ -171,7 +277,35 @@ export function offlineDictSize(): number {
 }
 
 export function offlineDictPart1Size(): number {
-  return partEntries.length
+  return part1Entries.length
+}
+
+export function offlineDictPart2Size(): number {
+  return part2Entries.length
+}
+
+export function offlineDictPart3Size(): number {
+  return part3Entries.length
+}
+
+export function offlineDictPart4Size(): number {
+  return part4Entries.length
+}
+
+export function offlineDictPart5Size(): number {
+  return part5Entries.length
+}
+
+export function offlineDictPhrasalSize(): number {
+  return phrasalEntries.length
+}
+
+export function offlineDictIdiomsSize(): number {
+  return idiomsEntries.length
+}
+
+export function offlineDictCollocationsSize(): number {
+  return collocationEntries.length
 }
 
 export function lookupOfflineDict(word: string): DictResult | null {

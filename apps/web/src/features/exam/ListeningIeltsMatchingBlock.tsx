@@ -2,11 +2,12 @@ import ReadingHighlightableText from './ReadingHighlightableText'
 import { useExamHighlights } from './examHighlightContext'
 import ListeningIeltsSectionHeader from './ListeningIeltsSectionHeader'
 import { sectionMetaFromQuestions } from './ieltsListeningSegmentUtils'
-import type { ListeningQuestion } from './listeningExamData'
+import type { ListeningPart, ListeningQuestion } from './listeningExamData'
 
 import { Check } from 'lucide-react'
 import { EXAM_REVIEW_COLORS, type ExamReviewStatus } from './examReviewUtils'
 import { isListeningKeyOption } from './listeningReviewUi'
+import { useBlobMediaUrl } from './useBlobMediaUrl'
 
 interface Props {
   blockIdPrefix: string
@@ -17,6 +18,8 @@ interface Props {
   onSelectQuestion: (questionId: string) => void
   reviewMode?: boolean
   reviewStatusMap?: Record<string, ExamReviewStatus>
+  /** Optional map/figure for matching tasks (Tainguyen image) */
+  part?: ListeningPart
 }
 
 export default function ListeningIeltsMatchingBlock({
@@ -28,11 +31,13 @@ export default function ListeningIeltsMatchingBlock({
   onSelectQuestion,
   reviewMode = false,
   reviewStatusMap,
+  part,
 }: Props) {
   const highlights = useExamHighlights()
   const options = questions[0]?.options ?? []
   const meta = sectionMetaFromQuestions(questions)
   const isActive = questions.some(q => q.id === activeQuestionId)
+  const imageSrc = useBlobMediaUrl(part?.partImageKey, part?.partImageUrl)
   const inlineBank = options.length <= 6
     && options.every(option => {
       const label = option.label.trim()
@@ -42,6 +47,16 @@ export default function ListeningIeltsMatchingBlock({
   return (
     <section className={`listening-ielts-matching${isActive ? ' is-active' : ''}`}>
       <ListeningIeltsSectionHeader blockIdPrefix={blockIdPrefix} meta={meta} />
+
+      {imageSrc && (
+        <div className="listening-ielts-map__image-wrap" style={{ marginBottom: 12 }}>
+          <img
+            src={imageSrc}
+            alt={meta.title ?? 'Figure'}
+            className="listening-ielts-map__image"
+          />
+        </div>
+      )}
 
       <ul className={[
         'listening-ielts-matching__bank',

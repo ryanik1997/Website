@@ -72,11 +72,6 @@ function PassageImage({
   )
 }
 
-const KET_A2_PART7_CATALOG = [
-  '/catalog/reading/ket-a2-test1/part7-p1.jpg',
-  '/catalog/reading/ket-a2-test1/part7-p2.jpg',
-  '/catalog/reading/ket-a2-test1/part7-p3.jpg',
-] as const
 
 /**
  * Part 4 MC gap — Part4_New: thanh số đen + 3 pill ngang phía trên (không dropdown dọc).
@@ -523,6 +518,12 @@ export default function KetRwPartContent({
   if (part.partNumber === 7) {
     const wq = questions[0]
     const text = wq ? answers[wq.id] ?? '' : ''
+    // 1 ảnh full strip (part7-page.jpg) hoặc 2–3 panel — không pad 3 slot rỗng + fallback Test 1
+    const pictureBlocks = part.passage.filter(
+      b => Boolean(b.imageKey?.trim()) || Boolean(b.imageUrl?.trim()),
+    )
+    const blocks = (pictureBlocks.length ? pictureBlocks : part.passage).slice(0, 3)
+    const singleStrip = blocks.length === 1
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
@@ -534,25 +535,15 @@ export default function KetRwPartContent({
                 <RwHighlightText blockId={`${partId}-wq-prompt`} text={wq.prompt} />
               </p>
             )}
-            <div className="ket-rw-pictures">
-              {(part.passage.length ? part.passage : [{ text: '' }, { text: '' }, { text: '' }])
-                .slice(0, 3)
-                .map((block, idx) => {
-                  const catalogUrl = KET_A2_PART7_CATALOG[idx]
-                  const hasLocal =
-                    Boolean(block.imageKey?.trim()) || Boolean(block.imageUrl?.trim())
-                  // Chỉ fallback catalog khi import/local không có ảnh — tránh đè blob import
-                  const url = block.imageUrl?.trim() || (hasLocal ? undefined : catalogUrl)
-                  return (
-                    <PassageImage
-                      key={`p7-${idx}`}
-                      imageKey={block.imageKey}
-                      imageUrl={url}
-                      fallbackUrl={hasLocal ? undefined : catalogUrl}
-                      alt={`Story picture ${idx + 1}`}
-                    />
-                  )
-                })}
+            <div className={`ket-rw-pictures${singleStrip ? ' is-single-strip' : ''}`}>
+              {blocks.map((block, idx) => (
+                <PassageImage
+                  key={`p7-${idx}`}
+                  imageKey={block.imageKey}
+                  imageUrl={block.imageUrl?.trim() || undefined}
+                  alt={singleStrip ? 'Story pictures' : `Story picture ${idx + 1}`}
+                />
+              ))}
             </div>
             {wq && (
               <>

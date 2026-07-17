@@ -217,6 +217,164 @@ async function discoverPayloadReadingBundles() {
     .sort((a, b) => a.cam - b.cam || a.test - b.test)
 }
 
+/**
+ * KET A2 practice web tests published under Import Cambridge Books 4–7
+ * (englishpracticetest.net practice 1–14 — does not touch Cam 1–3).
+ * Layout: Tainguyen/Import Cambridge/KET_A2/Reading/KET A2_Cam {B}/Test {T}/
+ */
+/**
+ * FCE B2 practice Listening Book 2+ (Import_FCE_B2_Listening tests 10–36).
+ * Layout: Tainguyen/Import Cambridge/FCE_B2/Listening/FCE B2_Cam {B}/Test {T}/
+ */
+async function discoverFcePracticeListeningBundles() {
+  const listeningRoot = path.join(
+    TAINGUYEN,
+    'Import Cambridge',
+    'FCE_B2',
+    'Listening',
+  )
+  if (!existsSync(listeningRoot)) return []
+
+  const bundles = []
+  const entries = await fs.readdir(listeningRoot, { withFileTypes: true })
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue
+    const camMatch = entry.name.match(/^FCE B2_Cam\s+(\d+)$/i)
+    if (!camMatch) continue
+    const book = Number.parseInt(camMatch[1], 10)
+    if (book < 2) continue
+    const camDir = path.join(listeningRoot, entry.name)
+    const tests = await fs.readdir(camDir, { withFileTypes: true })
+    for (const t of tests) {
+      if (!t.isDirectory()) continue
+      const tm = t.name.match(/^Test\s+(\d+)$/i)
+      if (!tm) continue
+      const test = Number.parseInt(tm[1], 10)
+      const examJsonPath = path.join(camDir, t.name, 'exam.json')
+      if (!existsSync(examJsonPath)) continue
+      const slug = `fce-b2-book${book}-test${test}`
+      bundles.push({
+        kind: 'listening',
+        slug,
+        examId: `catalog-listening-fce-b2-book${book}-test${test}`,
+        sourceDir: path.join(
+          'Import Cambridge',
+          'FCE_B2',
+          'Listening',
+          entry.name,
+          t.name,
+        ),
+        examType: 'fce',
+        examMode: 'practice',
+        book,
+        test,
+      })
+    }
+  }
+  bundles.sort((a, b) => a.book - b.book || a.test - b.test)
+  return bundles
+}
+
+/**
+ * PET B1 practice Listening Book 2+ (englishpracticetest practice tests).
+ * Layout: Tainguyen/Import Cambridge/PET_B1/Listening/PET B1_Cam {B}/Test {T}/
+ */
+async function discoverPetPracticeListeningBundles() {
+  const listeningRoot = path.join(
+    TAINGUYEN,
+    'Import Cambridge',
+    'PET_B1',
+    'Listening',
+  )
+  if (!existsSync(listeningRoot)) return []
+
+  const bundles = []
+  const entries = await fs.readdir(listeningRoot, { withFileTypes: true })
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue
+    const camMatch = entry.name.match(/^PET B1_Cam\s+(\d+)$/i)
+    if (!camMatch) continue
+    const book = Number.parseInt(camMatch[1], 10)
+    // Book 1 is reserved for official Cam sample (STATIC pet-listening-test1)
+    if (book < 2) continue
+    const camDir = path.join(listeningRoot, entry.name)
+    const tests = await fs.readdir(camDir, { withFileTypes: true })
+    for (const t of tests) {
+      if (!t.isDirectory()) continue
+      const tm = t.name.match(/^Test\s+(\d+)$/i)
+      if (!tm) continue
+      const test = Number.parseInt(tm[1], 10)
+      const examJsonPath = path.join(camDir, t.name, 'exam.json')
+      if (!existsSync(examJsonPath)) continue
+      const slug = `pet-b1-book${book}-test${test}`
+      bundles.push({
+        kind: 'listening',
+        slug,
+        examId: `catalog-listening-pet-b1-book${book}-test${test}`,
+        sourceDir: path.join(
+          'Import Cambridge',
+          'PET_B1',
+          'Listening',
+          entry.name,
+          t.name,
+        ),
+        examType: 'pet',
+        examMode: 'practice',
+        book,
+        test,
+      })
+    }
+  }
+  bundles.sort((a, b) => a.book - b.book || a.test - b.test)
+  return bundles
+}
+
+async function discoverKetPracticeReadingBundles() {
+  const readingRoot = path.join(
+    TAINGUYEN,
+    'Import Cambridge',
+    'KET_A2',
+    'Reading',
+  )
+  if (!existsSync(readingRoot)) return []
+
+  const bundles = []
+  // Books 4–7 only (Cam 1–3 already live as user/catalog content)
+  for (const book of [4, 5, 6, 7]) {
+    const camDir = path.join(readingRoot, `KET A2_Cam ${book}`)
+    if (!existsSync(camDir)) continue
+    const entries = await fs.readdir(camDir, { withFileTypes: true })
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue
+      const m = entry.name.match(/^Test\s+(\d+)$/i)
+      if (!m) continue
+      const test = Number.parseInt(m[1], 10)
+      const examJsonPath = path.join(camDir, entry.name, 'exam.json')
+      if (!existsSync(examJsonPath)) continue
+      const slug = `ket-a2-book${book}-test${test}`
+      bundles.push({
+        kind: 'reading',
+        slug,
+        examId: `catalog-reading-ket-a2-book${book}-test${test}`,
+        sourceDir: path.join(
+          'Import Cambridge',
+          'KET_A2',
+          'Reading',
+          `KET A2_Cam ${book}`,
+          entry.name,
+        ),
+        cambridgeLevel: 'a2',
+        examTrack: 'cambridge',
+        book,
+        test,
+      })
+    }
+  }
+
+  bundles.sort((a, b) => a.book - b.book || a.test - b.test)
+  return bundles
+}
+
 async function writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles) {
   // Listening
   {
@@ -263,6 +421,72 @@ async function writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBun
     lines.push('')
     await fs.writeFile(outPath, lines.join('\n'), 'utf8')
   }
+}
+
+async function writeGeneratedKetReadingImports(ketBundles) {
+  const outPath = path.join(ROOT, 'packages/catalog/src/generatedKetReading.ts')
+  const lines = [
+    '// AUTO-GENERATED by scripts/build-catalog.mjs — do not edit',
+    '',
+  ]
+  const vars = []
+  for (const bundle of ketBundles) {
+    const varName = `ketReadingBook${bundle.book}Test${bundle.test}`
+    lines.push(`import ${varName} from '../data/reading-${bundle.slug}.json'`)
+    vars.push(varName)
+  }
+  lines.push('')
+  lines.push('export const GENERATED_KET_READING_EXAMS = [')
+  for (const varName of vars) {
+    lines.push(`  ${varName},`)
+  }
+  lines.push(']')
+  lines.push('')
+  await fs.writeFile(outPath, lines.join('\n'), 'utf8')
+}
+
+async function writeGeneratedPetListeningImports(petBundles) {
+  const outPath = path.join(ROOT, 'packages/catalog/src/generatedPetListening.ts')
+  const lines = [
+    '// AUTO-GENERATED by scripts/build-catalog.mjs — do not edit',
+    '',
+  ]
+  const vars = []
+  for (const bundle of petBundles) {
+    const varName = `petListeningBook${bundle.book}Test${bundle.test}`
+    lines.push(`import ${varName} from '../data/listening-${bundle.slug}.json'`)
+    vars.push(varName)
+  }
+  lines.push('')
+  lines.push('export const GENERATED_PET_LISTENING_EXAMS = [')
+  for (const varName of vars) {
+    lines.push(`  ${varName},`)
+  }
+  lines.push(']')
+  lines.push('')
+  await fs.writeFile(outPath, lines.join('\n'), 'utf8')
+}
+
+async function writeGeneratedFceListeningImports(fceBundles) {
+  const outPath = path.join(ROOT, 'packages/catalog/src/generatedFceListening.ts')
+  const lines = [
+    '// AUTO-GENERATED by scripts/build-catalog.mjs — do not edit',
+    '',
+  ]
+  const vars = []
+  for (const bundle of fceBundles) {
+    const varName = `fceListeningBook${bundle.book}Test${bundle.test}`
+    lines.push(`import ${varName} from '../data/listening-${bundle.slug}.json'`)
+    vars.push(varName)
+  }
+  lines.push('')
+  lines.push('export const GENERATED_FCE_LISTENING_EXAMS = [')
+  for (const varName of vars) {
+    lines.push(`  ${varName},`)
+  }
+  lines.push(']')
+  lines.push('')
+  await fs.writeFile(outPath, lines.join('\n'), 'utf8')
 }
 
 const MEDIA_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.mp3', '.wav', '.ogg'])
@@ -588,9 +812,9 @@ async function main() {
   if (!tainguyenExists(TAINGUYEN)) {
     const hasPublic = existsSync(PUBLIC_CATALOG)
     const hasData = existsSync(path.join(DATA_OUT, 'manifest.json'))
-    if (IF_PRESENT && hasPublic && hasData) {
+    if (IF_PRESENT && hasData) {
       console.log(`[build-catalog] No Tainguyen at ${TAINGUYEN}`)
-      console.log('[build-catalog] --if-present / Vercel: skip rebuild; using committed public/catalog + packages/catalog/data')
+      console.log('[build-catalog] --if-present / Vercel: skip rebuild; using committed packages/catalog/data')
       return
     }
     if (IF_PRESENT && hasPublic) {
@@ -611,6 +835,9 @@ async function main() {
   const ieltsListeningBundles = await discoverIeltsListeningBundles()
   const discoveredReadingBundles = await discoverIeltsReadingBundles()
   const payloadReadingBundles = await discoverPayloadReadingBundles()
+  const ketPracticeReadingBundles = await discoverKetPracticeReadingBundles()
+  const petPracticeListeningBundles = await discoverPetPracticeListeningBundles()
+  const fcePracticeListeningBundles = await discoverFcePracticeListeningBundles()
   const payloadSlugs = new Set(payloadReadingBundles.map(bundle => bundle.slug))
   const ieltsReadingBundles = [
     ...discoveredReadingBundles.filter(bundle => !payloadSlugs.has(bundle.slug)),
@@ -618,10 +845,16 @@ async function main() {
   ]
   const BUNDLES = [
     ...STATIC_BUNDLES,
+    ...ketPracticeReadingBundles,
+    ...petPracticeListeningBundles,
+    ...fcePracticeListeningBundles,
     ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
     ...ieltsListeningBundles,
   ]
   await writeGeneratedIeltsImports(ieltsListeningBundles, ieltsReadingBundles)
+  await writeGeneratedKetReadingImports(ketPracticeReadingBundles)
+  await writeGeneratedPetListeningImports(petPracticeListeningBundles)
+  await writeGeneratedFceListeningImports(fcePracticeListeningBundles)
 
   const manifest = {
     version: 2,
@@ -685,6 +918,9 @@ async function main() {
 
   console.log(`\nIELTS listening: ${ieltsListeningBundles.length} đề`)
   console.log(`IELTS reading:   ${ieltsReadingBundles.length} đề (${payloadReadingBundles.length} từ out-reading)`)
+  console.log(`KET practice R:  ${ketPracticeReadingBundles.length} đề (Book 4–7)`)
+  console.log(`PET practice L:  ${petPracticeListeningBundles.length} đề (Book 2+)`)
+  console.log(`FCE practice L:  ${fcePracticeListeningBundles.length} đề (Book 2+)`)
   console.log('\nCatalog build complete.')
   console.log(`  Public: ${PUBLIC_CATALOG}`)
   console.log(`  Data:   ${DATA_OUT}`)

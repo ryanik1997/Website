@@ -1,5 +1,6 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ImageIcon, Upload } from 'lucide-react'
+import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
 
 interface Props {
   partNumber: number
@@ -19,13 +20,36 @@ export default function ReadingPartTopImage({
   const inputRef = useRef<HTMLInputElement>(null)
   const isBottom = placement === 'bottom'
   const rootClass = `reading-test-part-top-image${isBottom ? ' reading-test-part-top-image--bottom' : ''}`
+  const [resolvedSrc, setResolvedSrc] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      if (!imageUrl?.trim()) {
+        setResolvedSrc(null)
+        return
+      }
+      // data: / blob: skip signing
+      if (imageUrl.startsWith('data:') || imageUrl.startsWith('blob:')) {
+        setResolvedSrc(imageUrl)
+        return
+      }
+      try {
+        const url = await resolvePlayableMediaUrl(imageUrl)
+        if (!cancelled) setResolvedSrc(url ?? null)
+      } catch {
+        if (!cancelled) setResolvedSrc(null)
+      }
+    })()
+    return () => { cancelled = true }
+  }, [imageUrl])
 
   return (
     <div className={rootClass} data-highlight-skip>
-      {imageUrl ? (
+      {resolvedSrc ? (
         <figure className="reading-test-part-top-image__figure">
           <img
-            src={imageUrl}
+            src={resolvedSrc}
             alt={`Passage ${partNumber} — ${isBottom ? 'diagram cuối trang' : 'diagram'}`}
             className="reading-test-part-top-image__img"
           />

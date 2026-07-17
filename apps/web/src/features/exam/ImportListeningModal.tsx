@@ -549,7 +549,7 @@ export default function ImportListeningModal({ onClose, onCreated, defaultExamTy
                     <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                       Part {part.partNumber}
                     </span>
-                    <span style={{ color: 'var(--text-muted)' }}> — {part.rangeLabel} · {part.questions.length} câu</span>
+                    <span style={{ color: 'var(--text-muted)' }}> — {part.rangeLabel} · {Array.isArray(part.questions) ? part.questions.length : 0} câu</span>
                   </div>
                 ))}
               </div>

@@ -214,8 +214,28 @@ export default function ListeningTranscriptTab({ lessonId, sentences, onSentence
                         </span>
                       )}
                     </p>
-                    {s.vi && (
-                      <p className="text-xs mt-1.5" style={{ color: 'var(--text-muted)' }}>{s.vi}</p>
+                    {s.vi ? (
+                      <div
+                        className="mt-2 rounded-lg px-3 py-2"
+                        style={{
+                          background: 'color-mix(in srgb, var(--color-primary) 6%, var(--bg-secondary))',
+                          border: '1px solid var(--border-color)',
+                        }}
+                      >
+                        <span
+                          className="mb-0.5 block text-[10px] font-bold uppercase tracking-widest"
+                          style={{ color: 'var(--text-muted)' }}
+                        >
+                          Bản dịch tiếng Việt
+                        </span>
+                        <p className="text-xs leading-relaxed" style={{ color: 'var(--text-primary)' }}>
+                          {s.vi}
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="mt-1.5 text-[11px] italic" style={{ color: 'var(--text-muted)' }}>
+                        Chưa có bản dịch tiếng Việt — bấm Sửa để thêm.
+                      </p>
                     )}
                     <div className="flex items-center gap-2 mt-2">
                       <button
@@ -228,6 +248,7 @@ export default function ListeningTranscriptTab({ lessonId, sentences, onSentence
                         Sửa
                       </button>
                       <CopyButton text={s.text} />
+                      {s.vi && <CopyButton text={s.vi} title="Copy bản dịch" />}
                     </div>
                   </>
                 )}

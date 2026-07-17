@@ -1,0 +1,538 @@
+{
+  "id": "catalog-listening-pet-b1-book3-test1",
+  "title": "PET B1 Listening — Book 3 — Test 1",
+  "durationMinutes": 30,
+  "bandHint": "B1 Preliminary Listening · 4 parts · 25 câu",
+  "examType": "pet",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-pet-b1-book3-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–7",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book3-test1/part1.mp3",
+      "ttsText": "Girl 1: Will you meet me in the park? Girl 2: OK. Where? By the entrance? Girl 1: No, at the ice-cream kiosk. You know, the one by the lake. Girl 2: OK.",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-1",
+          "number": 1,
+          "type": "picture-mc",
+          "prompt": "Where will the girls meet?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q1.jpg",
+          "ttsText": "Girl 1: Will you meet me in the park? Girl 2: OK. Where? By the entrance? Girl 1: No, at the ice-cream kiosk. You know, the one by the lake. Girl 2: OK."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-2",
+          "number": 2,
+          "type": "picture-mc",
+          "prompt": "Which chair does the man want?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q2.jpg",
+          "ttsText": "Man: Good afternoon. Can you show me your office chairs? I'm looking for something with a high back and arms."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-3",
+          "number": 3,
+          "type": "picture-mc",
+          "prompt": "Which picture shows what the girls need?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q3.jpg",
+          "ttsText": "Girl 1: Now, have we got everything? Flour, butter, a lemon, milk ... Girl 2: Don't we need eggs? Girl 1: Of course? Two eggs."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-4",
+          "number": 4,
+          "type": "picture-mc",
+          "prompt": "Which pictures shows what happened?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q4.jpg",
+          "ttsText": "Woman: Look at that mirror - how did it get broken? Boy: We were playing ball and I missed it. Woman: I've told you before you are not to play ball in the house. Well, you will both have to buy a new mirror."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-5",
+          "number": 5,
+          "type": "picture-mc",
+          "prompt": "What is Sarah's mother doing?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q5.jpg",
+          "ttsText": "Sarah: When can we go out, Mum? Mother: In about half an hour, Sarah, when I've finished doing the washing-up."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-6",
+          "number": 6,
+          "type": "picture-mc",
+          "prompt": "What luggage is the man taking on holiday?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q6.jpg",
+          "ttsText": "Woman: I thought you were only taking two suitcases on holiday with you? Man: Well, I was, but I decided to take my overnight bag as well. I couldn't get everything into two cases and there's no way I could carry a third!"
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-7",
+          "number": 7,
+          "type": "picture-mc",
+          "prompt": "Which photograph does the man like?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book3-test1/q7.jpg",
+          "ttsText": "Man: I'm really disappointed with my holiday photos. The only good one is the one of us all standing together on the clifftop looking down at the beach."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book3-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 8–13",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book3-test1/part2.mp3",
+      "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ...",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-8",
+          "number": 8,
+          "type": "multiple-choice",
+          "prompt": "This week's prize is",
+          "options": [
+            {
+              "id": "A",
+              "label": "a music cassette."
+            },
+            {
+              "id": "B",
+              "label": "two concert tickets."
+            },
+            {
+              "id": "C",
+              "label": "a classical CD."
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-9",
+          "number": 9,
+          "type": "multiple-choice",
+          "prompt": "The person who wrote the music lived in",
+          "options": [
+            {
+              "id": "A",
+              "label": "Italy."
+            },
+            {
+              "id": "B",
+              "label": "Spain."
+            },
+            {
+              "id": "C",
+              "label": "France."
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-10",
+          "number": 10,
+          "type": "multiple-choice",
+          "prompt": "What else shares the title of this music?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a garden"
+            },
+            {
+              "id": "B",
+              "label": "a play"
+            },
+            {
+              "id": "C",
+              "label": "a park"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "What did people do when they first heard the music?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Some left before the end."
+            },
+            {
+              "id": "B",
+              "label": "Only a few clapped."
+            },
+            {
+              "id": "C",
+              "label": "Some asked for their money back."
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "This piece of music has been",
+          "options": [
+            {
+              "id": "A",
+              "label": "played in the cinema."
+            },
+            {
+              "id": "B",
+              "label": "used in advertising."
+            },
+            {
+              "id": "C",
+              "label": "used for a TV play."
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "If you know the competition answer you should ring",
+          "options": [
+            {
+              "id": "A",
+              "label": "0108 937 224."
+            },
+            {
+              "id": "B",
+              "label": "0018 739 242."
+            },
+            {
+              "id": "C",
+              "label": "0018 937 224."
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "ttsText": "Presenter: ... and now if you're a regular listener to this programme, you'll know that it's time for our weekly competition. Last week's prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you've received your tickets by now. This week we're offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I'm going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I'm going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week's lucky winner. Although the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air - in the summer. Any idea yet? I should warn you that it's not that easy. Anyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I'm sure wasn't very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It's amazing really, when you think how popular it is today. And now for the last point. Part of this music has been used for an advertisement which you can see on television. I'm sure when you hear the music, you'll know what the advertisement is for. I'm not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens. So that's four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now ..."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book3-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–19",
+      "instruction": "For each question, write the correct answer in the gap. Write one or two words or a number or a date or a time.",
+      "audioUrl": "/catalog/listening/pet-b1-book3-test1/part3.mp3",
+      "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Information sheet Name: Mike Davis Age: 13 years Favourite subject",
+          "options": [],
+          "answer": "science",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-15",
+          "number": 15,
+          "type": "gap-fill",
+          "prompt": "Mike Davis Age: 13 years Favourite subject: (14) ... Favourite sport",
+          "options": [],
+          "answer": "running",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-16",
+          "number": 16,
+          "type": "gap-fill",
+          "prompt": "avourite subject: (14) ... Favourite sport: (15) ... Usual transport",
+          "options": [],
+          "answer": "bicycle",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-17",
+          "number": 17,
+          "type": "gap-fill",
+          "prompt": "Favourite sport: (15) ... Usual transport: (16) ... On Saturday",
+          "options": [],
+          "answer": "(he) helps (his uncle) to milk (fifty) cows (he) helps (to) do the milking (he) sometimes cleans (the) cowsheds (he) milks (his uncle's) cows helps his uncle (on his farm) works at",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-18",
+          "number": 18,
+          "type": "gap-fill",
+          "prompt": "te sport: (15) ... Usual transport: (16) ... On Saturday: (17) ... On",
+          "options": [],
+          "answer": ") 14 science 15 running 16 bicycle",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-19",
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "On Saturday: (17) ... On (18) ... : Young Farmers' Group Future job",
+          "options": [],
+          "answer": "farmer",
+          "explanation": "",
+          "ttsText": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you'll hear Mike Davis, who lives in Hereford, telling you something about his life. Boy: Hello. I'm 13 years old and I go to Stanley School. I'm in Form 3, and I'm really interested in science but I find maths and especially English a bit hard. I'm good at running and I've run for the school team in the 800 metres. My dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He's got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It's hard work, but it's good to see everything looking clean. I painted it white last summer - I'm good at painting. My uncle's got a tractor and he says I can drive it when I'm 15. I'm looking forward to that. On Mondays I go to the Young Farmers' Group which I've belonged to since I was 10. It's mostly fun but we also learn things, like how to look after animals properly. I definitely want to work in the countryside when I leave school. I wouldn't like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I'll have to go to agricultural college first, so I'm going to work hard to pass all my exams. Man: Thank you, Mike, ...",
+          "wordLimit": 3
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book3-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 20–25",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book3-test1/part4.mp3",
+      "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ...",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "Jim's bicycle needs to be mended",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "He's keen to start saving money",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "His mother thinks a mountain bike is suitable for their area",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-23",
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "She encourages Jim to manage his money better",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-24",
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "His mother offers to lend him some money",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book3-test1-q-25",
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "Jim is disappointed by his mother's suggestion",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jim: Mum, my old bicycle needs to be repaired again. Mother: Well then, why don't you think of buying a new one, Jim? Jim: You know, I'd really like to buy one of those mountain bikes. Mother: Well, what's stopping you? Jim: Do you know how much they cost? At least £300. Where can I find that kind of money? Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year. Jim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day. Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper? Jim: Yes. But mountain bikes are stronger, and they're better at going up hills. Mother: We don't even have any hills near us. How much does an ordinary bike cost? Jim: I don't know ... Oh, I suppose you can get quite a good one for about £150. Mother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months. Jim: That won't help me get to college next term! Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me. Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ..."
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "pet-b1-book3-test1",
+  "catalogBase": "/catalog/listening/pet-b1-book3-test1"
+}

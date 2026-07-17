@@ -1,6 +1,6 @@
 import { db } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
-import { PRESET_GROUP_IDS } from '../vocab/vocabSeedDecks'
+import { PRESET_GROUP_IDS } from '../vocab/vocabConstants'
 import { normalizeVocabPublishPayload } from '../vocab/vocabPublishNormalize'
 import {
   listPublishableLocalExams,

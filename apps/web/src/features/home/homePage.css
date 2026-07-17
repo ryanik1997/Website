@@ -265,3 +265,70 @@
     width: 100%;
   }
 }
+
+/* ── Mascot mặt trời header Tổng quan (như màn kết quả bài thi) ── */
+.home-sun-mascot {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.home-sun-mascot__bubble {
+  max-width: 240px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 1.6rem;
+}
+
+.home-sun-mascot__bubble::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  bottom: 12px;
+  border: 7px solid transparent;
+  border-left-color: var(--bg-card);
+  border-right: 0;
+}
+
+/*
+ * Wrapper animate transform tách khỏi phần tử mang drop-shadow:
+ * filter chỉ rasterize 1 lần rồi được composite theo transform (GPU),
+ * tránh repaint mỗi frame gây giật.
+ */
+.home-sun-mascot__float {
+  flex-shrink: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  animation: home-sun-float 5.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.home-sun-mascot__sun {
+  display: block;
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16));
+}
+
+@keyframes home-sun-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -5px, 0) rotate(-1.5deg); }
+}
+
+@media (max-width: 720px) {
+  .home-sun-mascot__bubble { display: none; }
+  .home-sun-mascot__sun { width: 52px; height: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-sun-mascot__float { animation: none; }
+}

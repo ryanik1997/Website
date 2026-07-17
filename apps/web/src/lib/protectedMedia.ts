@@ -1,0 +1,198 @@
+/**
+ * Mode A/B — resolve playable media URLs.
+ *
+ * - DEV (default): serve from Vite public/ (local catalog)
+ * - PROD or VITE_MEDIA_MODE=signed: Edge Function content-sign → short-lived URL
+ *
+ * Protected prefixes: /catalog/*, /data/*, /books/*, /ielts-wizard/*
+ */
+import { supabase } from './supabase'
+import { resolveExamMediaUrl } from '../features/exam/examMediaUrl'
+import { MediaAccessError, type MediaAccessCode } from './mediaAccessErrors'
+
+const SIGN_CACHE = new Map<string, { url: string; expiresAt: number }>()
+const SIGN_SKEW_MS = 12_000
+const FAIL_CACHE = new Map<string, { at: number; err: MediaAccessError }>()
+const FAIL_TTL_MS = 8_000
+
+export type MediaMode = 'local' | 'signed'
+
+export function getMediaMode(): MediaMode {
+  const forced = (import.meta.env.VITE_MEDIA_MODE as string | undefined)?.toLowerCase()
+  if (forced === 'signed') return 'signed'
+  if (forced === 'local') return 'local'
+  // Production builds default to signed fortress mode
+  return import.meta.env.PROD ? 'signed' : 'local'
+}
+
+/** Paths that must never be public on Vercel (Mode A). */
+export function isProtectedMediaPath(url: string): boolean {
+  const p = toStorageObjectPath(url)
+  if (!p) return false
+  return p.startsWith('catalog/') || p.startsWith('data/') || p.startsWith('books/')
+}
+
+/**
+ * Convert app-relative or absolute URL → storage object path inside bucket exam-media.
+ * e.g. /catalog/listening/x.mp3 → catalog/listening/x.mp3
+ */
+export function toStorageObjectPath(raw?: string | null): string | null {
+  if (!raw?.trim()) return null
+  let p = raw.trim()
+
+  if (p.startsWith('blob:')) return null
+
+  try {
+    if (/^https?:\/\//i.test(p)) {
+      const u = new URL(p)
+      // Already a Supabase signed URL — not a storage path
+      if (u.pathname.includes('/storage/v1/object/sign/')) return null
+      if (u.pathname.includes('/storage/v1/object/public/exam-media/')) {
+        p = u.pathname.split('/storage/v1/object/public/exam-media/')[1] ?? ''
+      } else {
+        p = u.pathname
+      }
+    }
+  } catch {
+    /* keep */
+  }
+
+  p = p.split('?')[0] ?? p
+  try {
+    p = decodeURIComponent(p)
+  } catch {
+    /* keep */
+  }
+  p = p.replace(/\\/g, '/')
+  while (p.startsWith('/')) p = p.slice(1)
+  if (!p || p.includes('..')) return null
+  if (p.startsWith('exam-media/')) p = p.slice('exam-media/'.length)
+  // Legacy local wizard URLs map to their private catalog storage prefix.
+  if (p.startsWith('ielts-wizard/')) p = `catalog/${p}`
+  if (!(p.startsWith('catalog/') || p.startsWith('data/') || p.startsWith('books/'))) return null
+  return p
+}
+
+function asAccessCode(code?: string): MediaAccessCode {
+  switch (code) {
+    case 'NO_JWT':
+    case 'BAD_TOKEN':
+    case 'INVALID_SESSION':
+    case 'PLAN_REQUIRED':
+    case 'ADMIN_REQUIRED':
+    case 'RATE_LIMIT':
+    case 'RATE_LIMIT_IP':
+    case 'RATE_LIMIT_DAILY':
+    case 'SIGN_FAILED':
+    case 'BAD_PATH':
+      return code
+    default:
+      return 'UNKNOWN'
+  }
+}
+
+async function signPath(path: string): Promise<string> {
+  const now = Date.now()
+  const hit = SIGN_CACHE.get(path)
+  if (hit && hit.expiresAt > now + SIGN_SKEW_MS) {
+    return hit.url
+  }
+
+  const fail = FAIL_CACHE.get(path)
+  if (fail && now - fail.at < FAIL_TTL_MS) {
+    throw fail.err
+  }
+
+  const { data: sessionData } = await supabase.auth.getSession()
+  const token = sessionData.session?.access_token
+  if (!token) {
+    throw new MediaAccessError('INVALID_SESSION', 'Cần đăng nhập để tải media (Mode A/B).')
+  }
+
+  const { data, error } = await supabase.functions.invoke<{
+    url?: string
+    expiresAt?: string
+    error?: string
+    code?: string
+    plan?: string
+  }>('content-sign', {
+    body: { path },
+  })
+
+  if (error) {
+    // FunctionsHttpError may embed body JSON in context
+    const ctx = (error as { context?: { body?: string; json?: { code?: string; error?: string; plan?: string } } }).context
+    let code: MediaAccessCode = 'UNKNOWN'
+    let message = error.message || 'content-sign failed'
+    let plan: string | undefined
+    try {
+      const body = ctx?.json ?? (ctx?.body ? JSON.parse(ctx.body) : null)
+      if (body?.code) code = asAccessCode(body.code)
+      if (body?.error) message = body.error
+      if (body?.plan) plan = body.plan
+    } catch {
+      /* ignore */
+    }
+    if (message.includes('PLAN_REQUIRED') || message.toLowerCase().includes('upgrade plan')) {
+      code = 'PLAN_REQUIRED'
+    }
+    if (message.toLowerCase().includes('rate limit')) {
+      code = 'RATE_LIMIT'
+    }
+    const err = new MediaAccessError(code, message, plan)
+    FAIL_CACHE.set(path, { at: now, err })
+    throw err
+  }
+  if (!data?.url) {
+    const code = asAccessCode(data?.code)
+    const err = new MediaAccessError(code, data?.error || 'Không ký được URL media', data?.plan)
+    FAIL_CACHE.set(path, { at: now, err })
+    throw err
+  }
+
+  const expiresAt = data.expiresAt
+    ? new Date(data.expiresAt).getTime()
+    : now + 90_000
+  SIGN_CACHE.set(path, { url: data.url, expiresAt })
+  FAIL_CACHE.delete(path)
+  return data.url
+}
+
+/**
+ * Resolve a catalog/data/http/blob reference to a browser-playable URL.
+ */
+export async function resolvePlayableMediaUrl(
+  url?: string | null,
+): Promise<string | undefined> {
+  if (!url?.trim()) return undefined
+  const trimmed = url.trim()
+
+  if (trimmed.startsWith('blob:')) return trimmed
+
+  // Already signed / external CDN (not our static catalog)
+  if (/^https?:\/\//i.test(trimmed)) {
+    const path = toStorageObjectPath(trimmed)
+    if (!path) return trimmed
+    // our public catalog URL on same origin → protect in signed mode
+    if (getMediaMode() === 'local') return trimmed
+    return signPath(path)
+  }
+
+  const path = toStorageObjectPath(trimmed)
+  if (!path) {
+    // non-protected relative asset (e.g. /images/logo.png)
+    return resolveExamMediaUrl(trimmed)
+  }
+
+  if (getMediaMode() === 'local') {
+    return resolveExamMediaUrl(`/${path}`)
+  }
+
+  return signPath(path)
+}
+
+/** Clear signed URL cache (logout). */
+export function clearProtectedMediaCache(): void {
+  SIGN_CACHE.clear()
+  FAIL_CACHE.clear()
+}

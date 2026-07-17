@@ -64,7 +64,23 @@
   border: 1px solid var(--border-color);
   background: var(--bg-secondary);
   color: var(--text-muted);
-  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+
+button.tp-chip {
+  font: inherit;
+  cursor: pointer;
+  line-height: inherit;
+}
+
+.tp-chip--toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.tp-chip--toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .tp-chip--locked {

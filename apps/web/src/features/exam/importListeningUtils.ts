@@ -287,7 +287,7 @@ function collectExpectedMediaFiles(payload: ListeningImportPayload): Array<{ lab
 
   for (const part of payload.parts) {
     if (part.audioFile) push(part.audioFile, true)
-    for (const q of part.questions) {
+    for (const q of Array.isArray(part.questions) ? part.questions : []) {
       if (q.audioFile) push(q.audioFile, false)
       if (q.type === 'picture-mc') {
         if (q.imageFile) {
@@ -390,7 +390,7 @@ export function diagnoseListeningImportMedia(
 
   const unmappedQuestions: number[] = []
   for (const part of normalized.parts) {
-    for (const q of part.questions) {
+    for (const q of Array.isArray(part.questions) ? part.questions : []) {
       if (!q.audioFile) continue
       const qFile =
         resolveMediaFile(mediaMap, q.audioFile)
@@ -463,8 +463,9 @@ export function validateListeningImport(payload: ListeningImportPayload): string
       warnings.push(`Part ${part.partNumber}: không có câu hỏi.`)
       continue
     }
-    totalQuestions += part.questions.length
-    for (const q of part.questions) {
+    const questions = Array.isArray(part.questions) ? part.questions : []
+    totalQuestions += questions.length
+    for (const q of questions) {
       if (!q.prompt?.trim()) warnings.push(`Câu ${q.number}: thiếu prompt.`)
       if (!q.answer?.trim()) warnings.push(`Câu ${q.number}: thiếu answer.`)
       if ((q.type === 'picture-mc' || q.type === 'multiple-choice' || q.type === 'matching')

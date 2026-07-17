@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Plus, BookOpen, Trash2 } from 'lucide-react'
 import { useState } from 'react'
+import { isSrsReviewDue } from '@ryan/core'
 import { db, deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import PanelHeader from '../../components/PanelHeader'
@@ -73,10 +74,12 @@ function DeckItem({
   deck: Deck; active: boolean; onSelect: () => void; onDelete: () => void
 }) {
   const count = useLiveQuery(() => db.cards.where('deckId').equals(deck.id).count(), [deck.id]) ?? 0
-  const due = useLiveQuery(
-    () => db.srs.where('deckId').equals(deck.id).and(s => s.dueAt <= Date.now()).count(),
-    [deck.id],
-  ) ?? 0
+  const due = useLiveQuery(async () => {
+    const t = Date.now()
+    const rows = await db.srs.where('deckId').equals(deck.id).and(s => s.dueAt <= t).toArray()
+    // Chỉ thẻ đã ôn + đến hạn (không đếm seed "new")
+    return rows.filter(s => isSrsReviewDue(s, t)).length
+  }, [deck.id]) ?? 0
   const canDelete = deck.origin !== 'preset'
 
   return (

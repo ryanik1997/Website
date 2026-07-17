@@ -11,6 +11,7 @@ interface AuthCtx {
   loading: boolean
   authError: string | null
   signInWithGoogle: () => Promise<void>
+  signInWithPassword: (email: string, password: string) => Promise<void>
   signOut: () => Promise<void>
 }
 
@@ -83,6 +84,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
         if (event === 'SIGNED_OUT') {
           try {
+            const { clearProtectedMediaCache } = await import('../../lib/protectedMedia')
+            clearProtectedMediaCache()
+            const { clearCatalogExamBodyCache } = await import('../exam/catalogExamBody')
+            clearCatalogExamBodyCache()
+            const { clearCatalogExamAnswersCache } = await import('../exam/catalogExamAnswers')
+            clearCatalogExamAnswersCache()
+          } catch { /* ignore */ }
+          try {
             await clearLocalUserData()
           } catch (err) {
             console.error('[auth] clearLocalUserData on SIGNED_OUT failed', err)
@@ -117,7 +126,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (error) setAuthError(error.message)
   }
 
+  const signInWithPassword = async (email: string, password: string) => {
+    setAuthError(null)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    })
+    if (error) {
+      setAuthError(
+        error.message === 'Invalid login credentials'
+          ? 'Email hoặc mật khẩu không chính xác.'
+          : error.message,
+      )
+    }
+  }
+
   const signOut = async () => {
+    try {
+      const { clearProtectedMediaCache } = await import('../../lib/protectedMedia')
+      clearProtectedMediaCache()
+      const { clearCatalogExamBodyCache } = await import('../exam/catalogExamBody')
+      clearCatalogExamBodyCache()
+      const { clearCatalogExamAnswersCache } = await import('../exam/catalogExamAnswers')
+      clearCatalogExamAnswersCache()
+    } catch { /* ignore */ }
     try {
       await clearLocalUserData()
     } catch (err) {
@@ -134,6 +166,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       loading,
       authError,
       signInWithGoogle,
+      signInWithPassword,
       signOut,
     }}>
       {loading ? <AuthLoading /> : children}

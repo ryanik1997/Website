@@ -6,6 +6,7 @@ import { useAuth } from '../../features/auth/AuthContext'
 import LandingAboutContent from './LandingAboutContent'
 import LandingBlogContent from './LandingBlogContent'
 import LandingRoadmapContent from './LandingRoadmapContent'
+import LegalFooter from '../../components/LegalFooter'
 
 const VIDEO_SRC =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
@@ -93,8 +94,7 @@ const pricingPlans = [
 
 export default function LandingPage() {
   const navigate = useNavigate()
-  const { user, signInWithGoogle, authError } = useAuth()
-  const [signingIn, setSigningIn] = useState(false)
+  const { user, authError } = useAuth()
   const [pricingOpen, setPricingOpen] = useState(false)
   /** Gói đang chọn trong popup — mặc định gói 3 tháng (phổ biến) */
   const [selectedPlanId, setSelectedPlanId] = useState('3-months')
@@ -160,18 +160,8 @@ export default function LandingPage() {
     }
   }, [anyModalOpen, paymentPlanId, contactOpen, roadmapOpen, aboutOpen, blogOpen])
 
-  const startFree = async () => {
-    if (user) {
-      navigate('/app')
-      return
-    }
-    if (signingIn) return
-    setSigningIn(true)
-    try {
-      await signInWithGoogle()
-    } finally {
-      setSigningIn(false)
-    }
+  const startFree = () => {
+    navigate('/app')
   }
 
   const togglePricing = () => {
@@ -697,10 +687,9 @@ export default function LandingPage() {
           <button
             type="button"
             onClick={startFree}
-            disabled={signingIn}
-            className="liquid-glass cursor-pointer rounded-full px-8 py-3.5 text-base text-foreground transition-transform hover:scale-[1.03] disabled:cursor-wait disabled:opacity-70 sm:px-9 md:px-10 md:py-4"
+            className="liquid-glass cursor-pointer rounded-full px-8 py-3.5 text-base text-foreground transition-transform hover:scale-[1.03] sm:px-9 md:px-10 md:py-4"
           >
-            {signingIn ? 'Đang mở Google…' : 'Bắt đầu miễn phí →'}
+            Bắt đầu miễn phí →
           </button>
           <button
             type="button"
@@ -837,7 +826,6 @@ export default function LandingPage() {
                           }
                           openPaymentQr(plan.id)
                         }}
-                        disabled={plan.id === 'free' && signingIn}
                         className={[
                           'mt-auto inline-flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
                           selected
@@ -845,7 +833,7 @@ export default function LandingPage() {
                             : 'bg-gray-900 text-white hover:bg-black',
                         ].join(' ')}
                       >
-                        {plan.id === 'free' && signingIn ? 'Đang mở Google…' : plan.cta}
+                        {plan.cta}
                       </button>
                     </div>
                   )
@@ -861,6 +849,7 @@ export default function LandingPage() {
       {roadmapModal}
       {contactModal}
       {paymentModal}
+      <LegalFooter onImage />
     </div>
   )
 }

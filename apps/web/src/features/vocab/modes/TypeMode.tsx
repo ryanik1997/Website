@@ -10,6 +10,8 @@ import {
 import StudyDoneActions from '../study/StudyDoneActions'
 import { useStudyAnswerFeedback } from '../study/useStudyAnswerFeedback'
 import StudyFireworks from '../../../components/StudyFireworks'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 type Result = 'correct' | 'wrong' | 'skipped' | null
 
@@ -36,8 +38,11 @@ export default function TypeMode({ deckId, onDone }: { deckId: string; onDone: (
     setRunId(n => n + 1)
   }, [])
 
+  const unitKind = useVocabStore(s => s.unitKind)
+
   const load = useCallback(async () => {
-    const c = await db.cards.where('deckId').equals(deckId).toArray()
+    const all = await db.cards.where('deckId').equals(deckId).toArray()
+    const c = filterCardsByUnitKind(all, unitKind)
     setCards(shuffle(c))
     setIdx(0)
     setInput('')
@@ -46,7 +51,7 @@ export default function TypeMode({ deckId, onDone }: { deckId: string; onDone: (
     setAttempted(0)
     setHinted(false)
     setLoaded(true)
-  }, [deckId])
+  }, [deckId, unitKind])
 
   useEffect(() => { void load() }, [load, runId])
 

@@ -77,9 +77,16 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
 
   const builtin = getBuiltinListeningExam(examId)
 
-  // Đề catalog builtin: luôn lấy JSON trong bundle (tránh bản Dexie cũ ghi đè notePassage/bullets).
+  // Mode C: catalog stubs hydrate full body via signed path (not JS bundle).
   if (builtin && isCatalogListeningExamId(examId)) {
-    return finalizeListeningExam(builtin)
+    const { fetchCatalogExamBody } = await import('./catalogExamBody')
+    try {
+      const full = await fetchCatalogExamBody(builtin as ListeningExam, 'listening')
+      return finalizeListeningExam(full)
+    } catch (err) {
+      console.warn('[resolveListeningExam] catalog body hydrate failed', examId, err)
+      throw err
+    }
   }
 
   const local = await listeningExamRepo.get(examId)
@@ -101,6 +108,7 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
   }
 
   if (!builtin) return null
+  // Non-catalog samples still in bundle
   return finalizeListeningExam(builtin)
 }
 
@@ -138,9 +146,11 @@ export async function listAllListeningExams(): Promise<ListeningExam[]> {
   const publishedOnly = published.filter(e => !builtinIds.has(e.id))
   const localOnly = imported.filter(e => !builtinIds.has(e.id) && !publishedIds.has(e.id))
   const hidden = new Set(await listHiddenListeningCatalogIds())
-  return dedupeExamsForLibraryDisplay(
+  const listed = dedupeExamsForLibraryDisplay(
     [...LISTENING_EXAMS, ...publishedOnly, ...localOnly].map(safeListExam),
   ).filter(e => !hidden.has(e.id))
+  const { filterExamsForPlan } = await import('./freePlanCatalogGate')
+  return filterExamsForPlan(listed, 'listening')
 }
 
 export function examRecordFromListening(

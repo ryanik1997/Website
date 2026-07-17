@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 
 export const SRS_REMINDER_TIME_KEY = 'srs-reminder-time'
@@ -58,7 +59,9 @@ async function tryShowReminder(): Promise<void> {
   const today = todayString()
   if (localStorage.getItem(SRS_LAST_NOTIFIED_KEY) === today) return
 
-  const count = await db.srs.where('dueAt').belowOrEqual(Date.now()).count()
+  const t = Date.now()
+  const rows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
+  const count = rows.filter(s => isSrsReviewDue(s, t)).length
   if (count === 0) return
 
   const reg = await navigator.serviceWorker.ready

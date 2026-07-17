@@ -1,7 +1,7 @@
 export { db } from './local/schema'
 export type {
   Group, Deck, Card, Srs, ReviewLog, DictEntry,
-  Lesson, TranslationSet, TranslationSentence, TranslationGenre, CefrLevel,
+  Lesson, TranslationSet, TranslationSentence, TranslationGenre, TranslationCategory, CefrLevel,
   AudioBlob, WritingDoc, WritingGenre, CambridgeGenre, WritingHistory,
   ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord, ListeningExamRecord,
   NotebookEntry, ExamBackupRecord,

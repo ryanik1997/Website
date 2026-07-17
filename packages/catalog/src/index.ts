@@ -13,8 +13,13 @@ export {
   CATALOG_LISTENING_EXAM_IDS,
   isCatalogReadingExamId,
   isCatalogListeningExamId,
+  catalogExamBodyPath,
 } from './builtinExams'
 
-export { CATALOG_SENTENCE_STRUCTURES } from './seeds/sentenceStructures'
+export {
+  CATALOG_SENTENCE_STRUCTURES,
+  TARGET_STRUCTURE_COUNT,
+  CORE_SENTENCE_STRUCTURES,
+} from './seeds/sentenceStructures'
 export { dedupeLegacySentenceStructures, syncGlobalCatalog } from './syncGlobalCatalog'
 export type { GlobalCatalogSyncResult } from './syncGlobalCatalog'

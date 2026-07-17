@@ -26,7 +26,7 @@ export default function AuthCallback() {
 
       const { data: { session } } = await supabase.auth.getSession()
       if (!cancelled) {
-        navigate(session ? '/app/vocab' : '/', { replace: true })
+        navigate(session ? '/app' : '/', { replace: true })
       }
     }
 

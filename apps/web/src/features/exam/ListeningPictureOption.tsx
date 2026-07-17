@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { resolveExamMediaUrl } from './examMediaUrl'
 import { useBlobMediaUrl } from './useBlobMediaUrl'
 import type { ListeningQuestionOption } from './listeningExamData'
 
@@ -11,7 +10,7 @@ interface Props {
 
 export default function ListeningPictureOption({ option, selected, onSelect }: Props) {
   const [imageFailed, setImageFailed] = useState(false)
-  const imageSrc = useBlobMediaUrl(option.imageKey, resolveExamMediaUrl(option.imageUrl))
+  const imageSrc = useBlobMediaUrl(option.imageKey, option.imageUrl)
   const showImage = Boolean(imageSrc) && !imageFailed
 
   return (

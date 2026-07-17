@@ -1,0 +1,104 @@
+.legal-page {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.legal-page__grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: .55;
+}
+
+.legal-page__header {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 58rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.legal-page__brand,
+.legal-page__back {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.legal-page__brand {
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.legal-page__back {
+  color: var(--text-muted);
+  font-size: .84rem;
+}
+
+.legal-page__document {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 58rem);
+  margin: 1rem auto 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+
+.legal-page__eyebrow {
+  margin: 0 0 .8rem;
+  color: var(--color-primary);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.legal-page h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: -.045em;
+}
+
+.legal-page__updated,
+.legal-page__intro,
+.legal-page__sections p {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.legal-page__updated {
+  margin: .75rem 0 0;
+  font-size: .8rem;
+}
+
+.legal-page__intro {
+  margin: 2rem 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.legal-page__sections {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.legal-page__sections h2 {
+  margin: 0 0 .55rem;
+  font-size: 1.05rem;
+}
+
+.legal-page__sections p {
+  margin: 0;
+}

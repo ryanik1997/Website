@@ -1,6 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Plus, Edit2, Trash2, BookOpen, Play, ChevronDown, Download, Upload } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { db, cardRepo } from '@ryan/db'
 import type { Card, Srs } from '@ryan/db'
 import { useVocabStore } from './vocabStore'
@@ -10,7 +10,9 @@ import ImportModal from './ImportModal'
 import { exportDeckAsCSV, exportDeckAsJSON } from './importExport'
 import PanelHeader from '../../components/PanelHeader'
 import { PosBadge, StatusBadge } from './CardBadges'
+import { filterCardsByUnitKind, VOCAB_UNIT_KIND_LABELS } from './vocabUnitKind'
 import './vocabList.css'
+import { useI18n } from '../../lib/language'
 
 const STUDY_BTNS = [
   { mode: 'srs'    as const, label: 'Lặp lại' },
@@ -24,20 +26,26 @@ const STUDY_BTNS = [
 ]
 
 export default function CardPanel() {
-  const { activeDeckId, startStudy } = useVocabStore()
+  const { t } = useI18n()
+  const { activeDeckId, startStudy, unitKind } = useVocabStore()
   const deck = useLiveQuery(
     () => activeDeckId ? db.decks.get(activeDeckId) : undefined,
     [activeDeckId],
   )
-  const cards = useLiveQuery(
+  const allCards = useLiveQuery(
     () => activeDeckId ? db.cards.where('deckId').equals(activeDeckId).toArray() : [],
     [activeDeckId],
   ) ?? []
+  const cards = useMemo(
+    () => filterCardsByUnitKind(allCards, unitKind),
+    [allCards, unitKind],
+  )
   const srsByCard = useLiveQuery(async () => {
     if (!activeDeckId) return new Map<string, Srs>()
     const rows = await db.srs.where('deckId').equals(activeDeckId).toArray()
     return new Map(rows.map(s => [s.cardId, s]))
   }, [activeDeckId]) ?? new Map<string, Srs>()
+  const unitLabel = unitKind === 'phrase' ? 'cụm' : 'từ'
 
   const [showAddCard, setShowAddCard] = useState(false)
   const [showImport, setShowImport] = useState(false)
@@ -58,21 +66,27 @@ export default function CardPanel() {
 
   if (!activeDeckId || !deck) {
     return (
-      <div className="flex-1 flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+      <div
+        className="vocab-card-panel flex-1 flex items-center justify-center"
+        style={{ background: 'var(--bg-primary)' }}
+      >
         <div className="text-center">
           <BookOpen size={44} className="mx-auto mb-4" style={{ color: 'var(--border-color)' }} />
-          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chọn bộ thẻ</p>
-          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Chọn một bộ thẻ từ danh sách bên trái để bắt đầu</p>
+          <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>{t('vocab.selectDeck')}</p>
+          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{t('vocab.selectDeckHint')}</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <div
+      className="vocab-card-panel flex-1 flex flex-col overflow-hidden"
+      style={{ background: 'var(--bg-primary)' }}
+    >
       <PanelHeader
         title={deck.name}
-        subtitle={`${cards.length} từ`}
+        subtitle={`${cards.length} ${unitLabel} · ${VOCAB_UNIT_KIND_LABELS[unitKind]}`}
         actions={
           <div className="flex items-center gap-1.5 flex-wrap justify-end">
             <button
@@ -80,7 +94,7 @@ export default function CardPanel() {
               onClick={() => setEditDeck(true)}
               className="p-1 rounded transition-colors hover:bg-[var(--bg-secondary)] shrink-0"
               style={{ color: 'var(--text-muted)' }}
-              title="Sửa tên"
+              title={t('vocab.editName')}
             >
               <Edit2 size={13} />
             </button>
@@ -113,7 +127,7 @@ export default function CardPanel() {
                 }}
               >
                 <Download size={14} />
-                Xuất
+                {t('vocab.export')}
                 <ChevronDown size={12} className={`transition-transform ${exportOpen ? 'rotate-180' : ''}`} />
               </button>
               {exportOpen && cards.length > 0 && (
@@ -130,7 +144,7 @@ export default function CardPanel() {
                     className="w-full px-3 py-2 text-left text-sm transition-colors hover:bg-[var(--bg-secondary)]"
                     style={{ color: 'var(--text-primary)' }}
                   >
-                    Xuất CSV
+                    {t('vocab.csv')}
                   </button>
                   <button
                     type="button"
@@ -141,7 +155,7 @@ export default function CardPanel() {
                     className="w-full px-3 py-2 text-left text-sm transition-colors hover:bg-[var(--bg-secondary)]"
                     style={{ color: 'var(--text-primary)' }}
                   >
-                    Xuất JSON
+                    {t('vocab.json')}
                   </button>
                 </div>
               )}
@@ -157,7 +171,7 @@ export default function CardPanel() {
               }}
             >
               <Upload size={14} />
-              Nhập
+              {t('vocab.import')}
             </button>
             <button
               type="button"
@@ -166,7 +180,7 @@ export default function CardPanel() {
               style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
             >
               <Plus size={14} />
-              Thêm từ
+              {t('vocab.addWord')}
             </button>
           </div>
         }
@@ -177,14 +191,14 @@ export default function CardPanel() {
         {cards.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-4xl mb-3">📚</div>
-            <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chưa có từ nào</p>
-            <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>Thêm từ đầu tiên vào bộ thẻ này</p>
+            <p className="font-medium mb-1" style={{ color: 'var(--text-primary)' }}>{t('vocab.noWords')}</p>
+            <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>{t('vocab.addFirst')}</p>
             <button
               onClick={() => setShowAddCard(true)}
               className="px-4 py-2 rounded-lg text-sm text-white font-medium"
               style={{ background: 'var(--color-primary)' }}
             >
-              + Thêm từ đầu tiên
+              {t('vocab.addFirstButton')}
             </button>
           </div>
         ) : (

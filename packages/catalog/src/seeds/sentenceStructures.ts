@@ -1,78 +1,26 @@
-import type { SentenceStructure } from '@ryan/db'
+/**
+ * Catalog cấu trúc câu ship cùng app — **mỗi template một bản** (không clone).
+ * Mục tiêu: 365 cấu trúc khác nhau (core + extra, dedupe template).
+ * Sync: bump GLOBAL_CATALOG_VERSION trong manifest.ts
+ */
+import { CORE_SENTENCE_STRUCTURES } from './sentenceStructures.core'
+import { EXTRA_SENTENCE_STRUCTURES } from './sentenceStructures.extra'
+import {
+  expandSentenceStructures,
+  TARGET_STRUCTURE_COUNT,
+} from './sentenceStructures.expand'
 
-type CatalogStructure = Omit<SentenceStructure, 'createdAt' | 'updatedAt'>
+export { VARIANTS_PER_CORE, TARGET_STRUCTURE_COUNT } from './sentenceStructures.expand'
+export { CORE_SENTENCE_STRUCTURES } from './sentenceStructures.core'
+export { EXTRA_SENTENCE_STRUCTURES } from './sentenceStructures.extra'
 
-export const CATALOG_SENTENCE_STRUCTURES: CatalogStructure[] = [
+export const CATALOG_SENTENCE_STRUCTURES = expandSentenceStructures(
+  [...CORE_SENTENCE_STRUCTURES, ...EXTRA_SENTENCE_STRUCTURES],
   {
-    id: 'catalog:ss:just-because',
-    title: "Just because ... doesn't mean ...",
-    template: "Just because [A] doesn't mean [B].",
-    description: 'Dùng để nói một lý do chưa đủ để kết luận điều gì.',
-    category: 'Liên từ / Lý do',
-    exampleA: 'you fail once',
-    exampleB: 'you should give up',
-    exampleNoteVi: 'Chỉ vì bạn thất bại một lần không có nghĩa là bạn nên bỏ cuộc.',
-    starred: true,
-    cefr: 'B2',
+    targetCount: TARGET_STRUCTURE_COUNT,
+    priorityTemplates: CORE_SENTENCE_STRUCTURES.map((s) => s.template),
   },
-  {
-    id: 'catalog:ss:the-more',
-    title: 'The more ..., the more ...',
-    template: 'The more [A], the more [B].',
-    description: 'Hai vế tỷ lệ thuận — càng… càng…',
-    category: 'So sánh',
-    exampleA: 'you practise',
-    exampleB: 'you improve',
-    exampleNoteVi: 'Bạn càng luyện tập nhiều, bạn càng tiến bộ.',
-    starred: true,
-    cefr: 'B1',
-  },
-  {
-    id: 'catalog:ss:so-that',
-    title: 'S + V ... so that S + can + V',
-    template: '[A] so that I can [B].',
-    description: 'Nêu mục đích của hành động — để có thể làm gì.',
-    category: 'Mục đích',
-    exampleA: 'I wake up early',
-    exampleB: 'finish my homework',
-    exampleNoteVi: 'Tôi dậy sớm để có thể hoàn thành bài tập.',
-    starred: false,
-    cefr: 'A2',
-  },
-  {
-    id: 'catalog:ss:although',
-    title: 'Although ..., ...',
-    template: 'Although [A], [B].',
-    description: 'Mệnh đề tương phản — mặc dù… nhưng…',
-    category: 'Tương phản',
-    exampleA: 'it was raining',
-    exampleB: 'we still went out',
-    exampleNoteVi: 'Mặc dù trời mưa, chúng tôi vẫn đi ra ngoài.',
-    starred: false,
-    cefr: 'B1',
-  },
-  {
-    id: 'catalog:ss:if-will',
-    title: 'If ..., ... will ...',
-    template: 'If [A], [B].',
-    description: 'Câu điều kiện loại 1 — nếu… thì sẽ…',
-    category: 'Điều kiện',
-    exampleA: 'you study hard',
-    exampleB: 'you will succeed',
-    exampleNoteVi: 'Nếu bạn học chăm, bạn sẽ đạt kết quả tốt.',
-    starred: false,
-    cefr: 'A2',
-  },
-  {
-    id: 'catalog:ss:not-only',
-    title: 'Not only ... but also ...',
-    template: 'Not only [A], but also [B].',
-    description: 'Nhấn mạnh hai ý song song.',
-    category: 'Liên từ / Lý do',
-    exampleA: 'is it cheap',
-    exampleB: 'it is effective',
-    exampleNoteVi: 'Không những rẻ mà còn hiệu quả.',
-    starred: false,
-    cefr: 'B2',
-  },
-]
+)
+
+/** Số mẫu catalog ship (sau dedupe + cap 365). */
+export const CATALOG_STRUCTURE_COUNT = CATALOG_SENTENCE_STRUCTURES.length

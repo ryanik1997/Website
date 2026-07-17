@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
+import { isSrsReviewDue } from '@ryan/core'
 import { db, settingsRepo } from '@ryan/db'
 
 /** Modes that count as real vocab study (not check-in) */
@@ -37,10 +38,11 @@ export function useDailyGoal() {
   ) ?? DEFAULT_GOAL_DUE
 
   const reviewLogs = useLiveQuery(() => db.reviewLog.toArray(), []) ?? []
-  const dueCount = useLiveQuery(
-    () => db.srs.where('dueAt').belowOrEqual(Date.now()).count(),
-    [],
-  ) ?? 0
+  const dueCount = useLiveQuery(async () => {
+    const t = Date.now()
+    const rows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
+    return rows.filter(s => isSrsReviewDue(s, t)).length
+  }, []) ?? 0
 
   const { wordsToday, translationsToday, dueReviewedToday } = useMemo(() => {
     const tk = todayKey()

@@ -7,7 +7,7 @@ export default function WritingLayout() {
 
   return (
     <div
-      className="flex flex-col h-full min-h-0 overflow-hidden"
+      className="writing-layout flex flex-col h-full min-h-0 overflow-hidden"
       style={{ background: 'var(--bg-primary)' }}
     >
       {!isHub && (
@@ -26,7 +26,7 @@ export default function WritingLayout() {
         </div>
       )}
       <div
-        className="flex-1 min-h-0 overflow-y-auto flex flex-col"
+        className="writing-layout__content flex-1 min-h-0 overflow-y-auto flex flex-col"
         style={{ background: 'var(--bg-primary)' }}
       >
         <Outlet />

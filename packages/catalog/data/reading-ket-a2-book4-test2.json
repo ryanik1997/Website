@@ -1,0 +1,824 @@
+{
+  "id": "catalog-reading-ket-a2-book4-test2",
+  "title": "KET A2 Reading — Book 4 — Test 2",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] From 1 October, please do not enter the pool before you have used the shower."
+        },
+        {
+          "text": "[2] From:\nAmanda\nTo:\nGran\nSubject:\nHelp with a school project\nHi Gran,\nDo you have any old photos showing you in your uniform when you were at school? If you do, can you send me one for school?\nThanks,\nAmanda\nAmanda wants her grandmother to"
+        },
+        {
+          "text": "[3] Warning\nMemory full\nPlease delete files or click here to buy more memory.\nOK\nWhere might you see this text?"
+        },
+        {
+          "text": "[4] TOMORROW’S TRIP\nTime coach leaves school: 8:50.\nPlease arrive no later than 8:40.\nThe school gates will open at about 8:30.\nThank you.\nWhat time do pupils need to get to school tomorrow?"
+        },
+        {
+          "text": "[5] PLEASE NOTE EVERYBODY\nThere’s a lift if you need it. BUT use the stairs if you can.\nIt’s a great way to stay fit."
+        },
+        {
+          "text": "[6] Hounslow Cinema: Special Offer\nBuy tickets to four films and you don’t need to pay for the next one!\nEvery day until 5:30 p.m."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "From 1 October, please do not enter the pool before you have used the shower.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The pool is closed on October 1st."
+                },
+                {
+                  "id": "B",
+                  "label": "You need to wash before you swim."
+                },
+                {
+                  "id": "C",
+                  "label": "There will be a new shower at the pool."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "From:\nAmanda\nTo:\nGran\nSubject:\nHelp with a school project\nHi Gran,\nDo you have any old photos showing you in your uniform when you were at school? If you do, can you send me one for school?\nThanks,\nAmanda\nAmanda wants her grandmother to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "let her have a picture."
+                },
+                {
+                  "id": "B",
+                  "label": "lend her some clothes."
+                },
+                {
+                  "id": "C",
+                  "label": "describe her old uniform."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Warning\nMemory full\nPlease delete files or click here to buy more memory.\nOK\nWhere might you see this text?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "in a computer shop"
+                },
+                {
+                  "id": "B",
+                  "label": "on the screen of a computer"
+                },
+                {
+                  "id": "C",
+                  "label": "on the wall in the computer classroom"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "TOMORROW’S TRIP\nTime coach leaves school: 8:50.\nPlease arrive no later than 8:40.\nThe school gates will open at about 8:30.\nThank you.\nWhat time do pupils need to get to school tomorrow?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "about 8:30"
+                },
+                {
+                  "id": "B",
+                  "label": "by 8:40"
+                },
+                {
+                  "id": "C",
+                  "label": "at 8:50"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "PLEASE NOTE EVERYBODY\nThere’s a lift if you need it. BUT use the stairs if you can.\nIt’s a great way to stay fit.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Get the lift if you are in a hurry."
+                },
+                {
+                  "id": "B",
+                  "label": "Use the stairs if the lift is broken."
+                },
+                {
+                  "id": "C",
+                  "label": "Walking up and down stairs is better for you."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Hounslow Cinema: Special Offer\nBuy tickets to four films and you don’t need to pay for the next one!\nEvery day until 5:30 p.m.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You can watch up to four films for free."
+                },
+                {
+                  "id": "B",
+                  "label": "The fifth film you see during the daytime is free."
+                },
+                {
+                  "id": "C",
+                  "label": "Cheap tickets are available for groups of four in the evenings."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Damian",
+          "text": "Damian, 13\nI don’t mind doing homework, especially when I play some jazz (and not pop) on my phone. When I do, I’m able to think more carefully about what I’m doing. Sometimes I really enjoy doing my homework, especially when it’s maths and I understand it well. Or when one of my classmates comes to my place and we study together. I find it’s best if I let my parents and sister know I’m busy so they don’t come into my room and spend all evening talking to me!"
+        },
+        {
+          "label": "Louis",
+          "text": "Louis, 11\nWhen I started doing my homework in my room every morning, it wasn’t a great success. I always found something more interesting to do! But these days, I don’t have the same problem. I just go to my room in the evening, switch on the light, sit down at my desk and do it. I do love music, but if I put my MP3 player on, I start to think about the song and not the homework! So I don’t listen while I work. It’s the same problem if my mum or dad put music on in the next room. I turn my mobile off or put it away before I start. That helps too."
+        },
+        {
+          "label": "Jackson",
+          "text": "Jackson, 14\nI usually do most of my homework before I go to bed. And then I do a bit more as soon as I wake up. I’ve always found it easy to do that. I’ll maybe look at my German vocabulary for five minutes before breakfast. I tell my friends at school: ‘If you want to do your homework well, make sure your room is nice and bright. Otherwise, you’ll fall asleep!’"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Which person says it’s better not to look at his phone while he’s doing his homework?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Which person sometimes does homework with a friend?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Which person tells his family when he is working?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Which person says that there must be enough light in his room so he can work?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Which person thinks that listening to music helps with homework?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Which person works in the morning and evening?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Jackson"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Which person says it’s easier to do homework now than it was before?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Damian"
+                },
+                {
+                  "id": "B",
+                  "label": "Louis"
+                },
+                {
+                  "id": "C",
+                  "label": "Advice on doing homework Damian, 13 I don’t mind doing homework, especially when I play some jazz (and not pop) on my phone. When I do, I’m able to think more carefully about what I’m doing. Sometimes I really enjoy doing my homework, especially when it’s maths and I understand it well. Or when one of my classmates comes to my place and we study together. I find it’s best if I let my parents and sister know I’m busy so they don’t come into my room and spend all evening talking to me! Louis, 11 When I started doing my homework in my room every morning, it wasn’t a great success. I always found something more interesting to do! But these days, I don’t have the same problem. I just go to my room in the evening, switch on the light, sit down at my desk and do it. I do love music, but if I put my MP3 player on, I start to think about the song and not the homework! So I don’t listen while I work. It’s the same problem if my mum or dad put music on in the next room. I turn my mobile off or put it away before I start. That helps too. Jackson, 14 I usually do most of my homework before I go to bed. And then I do a bit more as soon as I wake up. I’ve always found it easy to do that. I’ll maybe look at my German vocabulary for five minutes before breakfast. I tell my friends at school: ‘If you want to do your homework well, make sure your room is nice and bright. Otherwise, you’ll fall asleep!’"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "Starting photography",
+      "passage": [
+        {
+          "text": "Starting photography"
+        },
+        {
+          "text": "By Mrs Howeels, Class 3D teacher\nHave you ever wanted to take better pictures of your family, of your dinner or of your cat? Well, I can help you. In fact, that’s what makes photography such a fantastic hobby. It doesn’t matter if you have a nice new camera or just use your phone. We photographers are always trying to improve. We want today’s to be more interesting than yesterday’s.\nIn my photography classes, I’ll show you how to find your own style, not just take the same photos as all your friends. But you’ll need to be out of bed early and take pictures in the best light, before it gets too bright. We’ll talk more about light in Week 1.\nActually, I’ve never read a book about photography, and I get bored watching videos on the net. I started to understand more about photography by looking at my own photos. I thought about what was wrong with them and decided how to do better next time. And in Week 2, I’ll ask you to do the same with photos you have taken.\nDo you want to know what I think? I don’t think there’s anyone who can’t take amazing photos. Not everyone wants to, and that’s cool. But if you do, come along to Room 4D on Wednesdays after lunch from 1:30 to 2:00."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Why does Mrs Howells enjoy photography?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She loves using her new camera."
+                },
+                {
+                  "id": "B",
+                  "label": "She likes taking photos of her family."
+                },
+                {
+                  "id": "C",
+                  "label": "She enjoys trying to take better pictures."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What advice does Mrs Howells give?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Take pictures with your friends."
+                },
+                {
+                  "id": "B",
+                  "label": "Don’t take photos if it is dark."
+                },
+                {
+                  "id": "C",
+                  "label": "Take photos early in the morning."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "How did Mrs Howells learn about photography?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "from books"
+                },
+                {
+                  "id": "B",
+                  "label": "from her mistakes"
+                },
+                {
+                  "id": "C",
+                  "label": "from videos on the web"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "Mrs Howells believes that",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "everybody should learn photography."
+                },
+                {
+                  "id": "B",
+                  "label": "photography is a great hobby for everyone."
+                },
+                {
+                  "id": "C",
+                  "label": "everybody can take good photos if they want to."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "Why has Mrs Howells written this text?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to ask pupils what they like photographing"
+                },
+                {
+                  "id": "B",
+                  "label": "to sell pupils about a photography course"
+                },
+                {
+                  "id": "C",
+                  "label": "to answer pupils’ questions about photography"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "The oldest university in the world",
+      "passage": [
+        {
+          "text": "The oldest university in the world"
+        },
+        {
+          "text": "Some people say University of Al Quaraouiyine in Morocco is the world’s oldest university because there has been a school in the same place (19) ……………… the year 859 AD. In other words, there has been one there (20) ……………… almost 1,100 years. The University has had many famous international students (21) ……………… the years including the great traveller, Ibn Khadun. The University was started by a woman, Fatima al-Fihri and (22) ……………… a long history of teaching women and activities for women’s education. Lecturer Hisham Mahmoud believes this helps female students concentrate during their studies. Before joining Al Quaraouiyine, Dr Mahmoud was a scientist, but he decided to (23) ……………… his career and work in education. The University’s students all do well. After finishing at the University, many students will continue their (24) ……………… at universities in America and Europe."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "since"
+                },
+                {
+                  "id": "B",
+                  "label": "between"
+                },
+                {
+                  "id": "C",
+                  "label": "after"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "since"
+                },
+                {
+                  "id": "B",
+                  "label": "during"
+                },
+                {
+                  "id": "C",
+                  "label": "for"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "under"
+                },
+                {
+                  "id": "B",
+                  "label": "over"
+                },
+                {
+                  "id": "C",
+                  "label": "until"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "has"
+                },
+                {
+                  "id": "B",
+                  "label": "makes"
+                },
+                {
+                  "id": "C",
+                  "label": "goes"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "give"
+                },
+                {
+                  "id": "B",
+                  "label": "change"
+                },
+                {
+                  "id": "C",
+                  "label": "take"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "marks"
+                },
+                {
+                  "id": "B",
+                  "label": "studies"
+                },
+                {
+                  "id": "C",
+                  "label": "information"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "text": "A school trip to the theatre\nLast week, everyone in my class (0) ……………… on a trip to the theatre. We travelled there (25) ……………… coach. The theatre is about 10 kilometres away from school, so it was much (26) ……………… far to walk. The play was\nRomeo and Juliet\nby William Shakespeare. In fact, it’s probably the (27) ……………… famous of all the plays that Shakespeare wrote. We’ve studied it at school, so I knew (28) ……………… it’s about. It’s a love story, but it’s also the saddest play I (29) ……………… ever seen. At the end, several (30) ……………… the people in my class were crying. But I loved it!"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "by",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "too",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "most",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "what",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "have",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "of",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "Read this email from your English friend Sam.\nFrom:\nSam\nTo:\nHelp! I’m bored!\nHi,\nI want to ask you something. I’m really bored. Can I borrow something to read from you? What do you think I will enjoy? And when would you like it back?\nI hope that’s OK. Cheers!\nSam\nWrite an email to Sam and answer his questions."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test2-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book4-test2/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test2-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test2-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book4-test2",
+  "catalogBase": "/catalog/reading/ket-a2-book4-test2"
+}

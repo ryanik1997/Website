@@ -8,8 +8,9 @@
     "dev:open": "pnpm --stream --parallel --filter server dev --filter web dev:open",
     "dev:web": "pnpm --filter web dev",
     "dev:web:open": "pnpm --filter web dev:open",
-    "build:catalog": "node scripts/build-catalog.mjs",
-    "build:catalog:if-present": "node scripts/build-catalog.mjs --if-present",
+    "build:catalog": "node scripts/build-catalog.mjs && node scripts/mode-c-pack-catalog.mjs",
+    "build:catalog:if-present": "node scripts/build-catalog.mjs --if-present && node scripts/mode-c-pack-catalog.mjs",
+    "mode-c:pack": "node scripts/mode-c-pack-catalog.mjs",
     "test:listening-media": "npx vite-node apps/web/scripts/test-listening-media-policy.mts",
     "test:listening-gap": "npx vite-node apps/web/scripts/test-listening-gap-answers.mts",
     "test:ket-part4": "npx vite-node apps/web/scripts/test-ket-part4-no-double-passage.mts",
@@ -50,11 +51,16 @@
     "db:push": "node scripts/db-push.mjs",
     "db:push:dry": "node scripts/db-push.mjs --dry-run",
     "db:repair:001": "supabase migration repair --status applied 001 --linked --yes",
+    "media:upload-private": "node scripts/upload-exam-media-private.mjs",
+    "media:upload-private:dry": "node scripts/upload-exam-media-private.mjs --dry-run",
+    "media:strip-dist": "node scripts/strip-public-media-from-dist.mjs",
+    "security:check": "node scripts/security-release-check.mjs",
     "deploy:web": "vercel deploy --prod --yes",
     "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes"
   },
   "devDependencies": {
     "@xmldom/xmldom": "^0.9.10",
+    "cmu-pronouncing-dictionary": "^3.0.0",
     "playwright": "1.49.0",
     "supabase": "^2.108.0"
   },

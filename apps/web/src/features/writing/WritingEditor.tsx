@@ -15,6 +15,7 @@ import {
   isCambridgeScore, isIELTSScore,
 } from '@ryan/core'
 import { getWritingUiConfig } from './writingUiConfig'
+import { findTidTaskForPrompt } from './promptBank/promptBank'
 import { useWritingStore } from './writingStore'
 import ScorePanel from './ScorePanel'
 import AiSettingsModal from './AiSettingsModal'
@@ -121,6 +122,27 @@ export default function WritingEditor({
 
   async function requestGuide() {
     if (!doc || !activeDocId || isGuideLoading) return
+
+    // Đề từ ngân hàng đề: dùng guide biên soạn sẵn, không bao giờ gọi AI
+    const bankTask = await findTidTaskForPrompt(doc.prompt)
+    if (bankTask) {
+      if (bankTask.guideHtml) {
+        setGuide(activeDocId, {
+          taskSummary: '',
+          outline: [],
+          keyPhrases: [],
+          tips: [],
+          sampleEssay: '',
+          sampleNote: '',
+          sourceHtml: bankTask.guideHtml,
+        })
+        setGuideError(null)
+      } else {
+        setGuideError('Đề này chưa có hướng dẫn biên soạn sẵn trong ngân hàng đề.')
+      }
+      setGuideOpen(true)
+      return
+    }
 
     if (!canRequestGuide()) {
       setGuideError('Cần nhập đề bài (Task 2) hoặc import ảnh (Task 1).')

@@ -13,6 +13,12 @@
   --color-primary: #6366f1;
   --color-on-primary: #ffffff;
   --color-accent:  #8b5cf6;
+  --color-danger:  #c2415d;
+  --reading-corner-bg: #b8d9f0;
+  --reading-corner-grid-line: rgba(255, 255, 255, 0.42);
+  --reading-ribbon-soft: #93c5fd;
+  --reading-ribbon-mid: #60a5fa;
+  --reading-ribbon-core: #2563eb;
   --exam-highlight-bg: #fff3a3;
   --exam-highlight-selection: color-mix(in srgb, #fff3a3 72%, transparent);
   /* Gạch sóng note (IELTS + Cambridge) — Light: vàng/cam cũ */
@@ -30,6 +36,12 @@
   --color-primary: #818cf8;
   --color-on-primary: #ffffff;
   --color-accent:  #a78bfa;
+  --color-danger:  #fb7185;
+  --reading-corner-bg: #101827;
+  --reading-corner-grid-line: rgba(148, 197, 255, 0.1);
+  --reading-ribbon-soft: #2d466d;
+  --reading-ribbon-mid: #315f9b;
+  --reading-ribbon-core: #3b82f6;
   /* Tô sáng / bôi chọn: cam (theme tối) — IELTS + Cambridge */
   --exam-highlight-bg: #fb923c;
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);
@@ -48,6 +60,12 @@
   --color-primary: #89b4fa;
   --color-on-primary: #ffffff;
   --color-accent:  #cba6f7;
+  --color-danger:  #f38ba8;
+  --reading-corner-bg: #1b2a3d;
+  --reading-corner-grid-line: rgba(186, 230, 253, 0.12);
+  --reading-ribbon-soft: #3f628d;
+  --reading-ribbon-mid: #477cb5;
+  --reading-ribbon-core: #5b8ff9;
   /* Tô sáng / bôi chọn: cam (theme tối vừa) — IELTS + Cambridge */
   --exam-highlight-bg: #fb923c;
   --exam-highlight-selection: color-mix(in srgb, #fb923c 72%, transparent);

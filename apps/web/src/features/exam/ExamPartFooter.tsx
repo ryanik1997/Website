@@ -121,8 +121,15 @@ export default function ExamPartFooter({
         >
           <ChevronRight size={16} />
         </button>
-        <button type="button" className="reading-test-submit" onClick={onSubmit}>
-          {submitLabel}
+        {/* Nộp bài — nút ✓ góc phải giống Listening TID */}
+        <button
+          type="button"
+          className="reading-test-footer__submit"
+          onClick={onSubmit}
+          title={submitLabel}
+          aria-label={submitLabel}
+        >
+          ✓
         </button>
       </div>
     </footer>

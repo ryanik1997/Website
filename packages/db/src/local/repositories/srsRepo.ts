@@ -1,11 +1,18 @@
+import { isSrsNew, isSrsReviewDue } from '@ryan/core'
 import { db } from '../schema'
 import type { Srs } from '../schema'
 
 const now = () => Date.now()
 
 export const srsRepo = {
+  /** Thẻ đến hạn ôn lại (đã học trước đó) — không gồm thẻ new seed. */
   dueByDeck: (deckId: string, limit = 50) =>
-    db.srs.where('deckId').equals(deckId).and(s => s.dueAt <= now()).limit(limit).toArray(),
+    db.srs
+      .where('deckId')
+      .equals(deckId)
+      .and(s => isSrsReviewDue(s, now()))
+      .limit(limit)
+      .toArray(),
 
   byDeck: (deckId: string) => db.srs.where('deckId').equals(deckId).toArray(),
 
@@ -18,8 +25,9 @@ export const srsRepo = {
 
   async stats(deckId: string) {
     const all = await db.srs.where('deckId').equals(deckId).toArray()
-    const due = all.filter(s => s.dueAt <= now()).length
-    const newCount = all.filter(s => s.state === 'new').length
+    const t = now()
+    const due = all.filter(s => isSrsReviewDue(s, t)).length
+    const newCount = all.filter(s => isSrsNew(s)).length
     return { total: all.length, due, new: newCount }
   },
 }

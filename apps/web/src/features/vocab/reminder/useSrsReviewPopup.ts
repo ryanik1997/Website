@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
+import { isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 import type { SyncState } from '../../auth/useSyncManager'
 
 export const SRS_POPUP_INTERVAL_MS = 30 * 60 * 1000
 const LAST_SHOWN_KEY = 'ryan-srs-reminder-last-shown-at'
 
+/** Chỉ thẻ đã ôn trước đó và đến hạn — không đếm ~30k thẻ seed "new". */
 async function countDueSrs(): Promise<number> {
-  return db.srs.where('dueAt').belowOrEqual(Date.now()).count()
+  const t = Date.now()
+  const rows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
+  return rows.filter(s => isSrsReviewDue(s, t)).length
 }
 
 function readLastShown(): number {

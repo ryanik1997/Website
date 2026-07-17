@@ -11,6 +11,8 @@ import { isPhraseCorrect, shuffle } from '../study/studyUtils'
 import StudyDoneActions from '../study/StudyDoneActions'
 import { useSpeechRecognition } from '../../listening/useSpeechRecognition'
 import WordDiffPanel from '../../listening/WordDiffPanel'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 type StudyCard = { card: Card; srs: Srs }
 
@@ -47,11 +49,14 @@ export default function SpeakingMode({
   const [stats, setStats] = useState({ ok: 0, fail: 0 })
   const { listening, transcript, supported, start, stop, reset } = useSpeechRecognition('en-US')
 
+  const unitKind = useVocabStore(s => s.unitKind)
+
   const load = useCallback(async () => {
-    const [cards, srsRows] = await Promise.all([
+    const [allCards, srsRows] = await Promise.all([
       db.cards.where('deckId').equals(deckId).toArray(),
       db.srs.where('deckId').equals(deckId).toArray(),
     ])
+    const cards = filterCardsByUnitKind(allCards, unitKind)
     const srsMap = new Map(srsRows.map(s => [s.cardId, s]))
     const now = Date.now()
     let due = cards
@@ -70,7 +75,7 @@ export default function SpeakingMode({
     setLastOk(null)
     setLoaded(true)
     reset()
-  }, [deckId, reset])
+  }, [deckId, reset, unitKind])
 
   useEffect(() => { void load() }, [load])
 

@@ -1,44 +1,32 @@
-import ketReading from '../data/reading-ket-a2-test1.json'
-import petReading from '../data/reading-pet-b1-test1.json'
-import fceReading from '../data/reading-fce-b2-test1.json'
-import caeReading from '../data/reading-cae-c1-test1.json'
-import cpeReading from '../data/reading-cpe-c2-test1.json'
-import ketListening from '../data/listening-ket-a2-test1.json'
-import petListening from '../data/listening-pet-b1-test1.json'
-import fceListening from '../data/listening-fce-b2-test1.json'
-import caeListening from '../data/listening-cae-c1-test1.json'
-import { GENERATED_IELTS_LISTENING_EXAMS } from './generatedIeltsListening'
-import { GENERATED_IELTS_READING_EXAMS } from './generatedIeltsReading'
+/**
+ * Mode C — catalog list metadata only (no questions/answers in the JS bundle).
+ * Full exam bodies live at catalog/exams/{listening|reading}/{id}.json
+ * and are loaded via protectedMedia + content-sign after login/plan check.
+ */
 import catalogManifest from '../data/manifest.json'
+import listeningMeta from '../data/catalog-listening-meta.json'
+import readingMeta from '../data/catalog-reading-meta.json'
 
-type WithCatalogMeta = {
-  catalogSlug?: string
-  catalogBase?: string
+export type CatalogExamStub = {
+  id: string
+  title: string
+  durationMinutes?: number
+  bandHint?: string
+  examType?: string
+  examMode?: string
+  examTrack?: string
+  cambridgeLevel?: string
+  bodyPath?: string
+  bodyRemote?: boolean
+  questionCount?: number
+  parts?: unknown[]
 }
 
-function stripCatalogMeta<T extends WithCatalogMeta>(exam: T): Omit<T, 'catalogSlug' | 'catalogBase'> {
-  const { catalogSlug: _s, catalogBase: _b, ...rest } = exam
-  return rest
-}
+/** Reading stubs for library list — hydrate body on open. */
+export const CATALOG_READING_EXAMS = readingMeta as CatalogExamStub[]
 
-/** Đề Reading ship cùng app — mọi user thấy sau deploy. */
-export const CATALOG_READING_EXAMS = [
-  stripCatalogMeta(ketReading),
-  stripCatalogMeta(petReading),
-  stripCatalogMeta(fceReading),
-  stripCatalogMeta(caeReading),
-  stripCatalogMeta(cpeReading),
-  ...GENERATED_IELTS_READING_EXAMS.map(exam => stripCatalogMeta(exam)),
-]
-
-/** Đề Listening ship cùng app — media tại /public/catalog/listening/ */
-export const CATALOG_LISTENING_EXAMS = [
-  stripCatalogMeta(ketListening),
-  stripCatalogMeta(petListening),
-  stripCatalogMeta(fceListening),
-  stripCatalogMeta(caeListening),
-  ...GENERATED_IELTS_LISTENING_EXAMS.map(exam => stripCatalogMeta(exam)),
-]
+/** Listening stubs for library list — hydrate body on open. */
+export const CATALOG_LISTENING_EXAMS = listeningMeta as CatalogExamStub[]
 
 export const CATALOG_EXAM_MANIFEST = catalogManifest
 
@@ -51,4 +39,9 @@ export function isCatalogReadingExamId(id: string): boolean {
 
 export function isCatalogListeningExamId(id: string): boolean {
   return id.startsWith('catalog-listening-')
+}
+
+export function catalogExamBodyPath(exam: { id: string; bodyPath?: string }, skill: 'listening' | 'reading'): string {
+  if (exam.bodyPath?.trim()) return exam.bodyPath.replace(/^\//, '')
+  return `catalog/exams/${skill}/${exam.id}.json`
 }

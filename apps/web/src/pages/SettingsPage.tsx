@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Palette, Bot, User, Mail, MessageCircle, ExternalLink, Check, Bell, Database, Download, Upload, Cloud, LoaderCircle, Headphones, Sparkles, Camera } from 'lucide-react'
+import { Palette, Bot, User, Mail, MessageCircle, ExternalLink, Check, Bell, Database, Download, Upload, Cloud, LoaderCircle, Headphones, Sparkles, Camera, Volume2, Loader2 } from 'lucide-react'
 import { useAuth } from '../features/auth/AuthContext'
+import UserAvatar from '../components/UserAvatar'
+import { resolveAuthAvatarUrl, resolveAuthDisplayName } from '../features/auth/userAvatar'
 import { db, examBackupRepo } from '@ryan/db'
 import { canUse, type Plan, type Feature } from '@ryan/core'
 import { THEMES, getTheme, setTheme, type Theme } from '../lib/theme'
@@ -24,6 +26,18 @@ import {
 
 import { useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
 import ListeningTtsStatusBadge from '../features/listening/ListeningTtsStatusBadge'
+import {
+  DEFAULT_VOICE_UK,
+  DEFAULT_VOICE_US,
+  formatVoiceOption,
+  getPreferredKokoroVoice,
+  KOKORO_PREVIEW_TEXT,
+  setPreferredKokoroVoice,
+  voicesForLang,
+  type KokoroLang,
+} from '../features/listening/kokoroVoices'
+import { speak, stop as stopTts } from '../features/listening/tts'
+import { LANGUAGES, useI18n, type Language } from '../lib/language'
 
 type Tab = 'appearance' | 'ai' | 'account'
 
@@ -81,6 +95,7 @@ function tabFromParam(value: string | null): Tab {
 }
 
 export default function SettingsPage() {
+  const { language, setLanguage, t } = useI18n()
   const [searchParams, setSearchParams] = useSearchParams()
   const [tab, setTab] = useState<Tab>(() => tabFromParam(searchParams.get('tab')))
   const [theme, setThemeState] = useState<Theme>(getTheme)
@@ -114,7 +129,7 @@ export default function SettingsPage() {
     : null
 
   return (
-    <div className="h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
+    <div className="app-page-surface h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-2xl mx-auto px-6 py-8">
         <header className="mb-6">
           <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Cài đặt</h1>
@@ -139,7 +154,7 @@ export default function SettingsPage() {
               }}
             >
               <Icon size={15} />
-              {label}
+              {id === 'appearance' ? t('settings.appearance') : id === 'account' ? t('settings.account') : t('settings.ai')}
             </button>
           ))}
         </div>
@@ -150,7 +165,7 @@ export default function SettingsPage() {
           style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
         >
           {tab === 'appearance' && (
-            <AppearanceTab theme={theme} onChange={handleThemeChange} />
+            <AppearanceTab theme={theme} onChange={handleThemeChange} language={language} onLanguageChange={setLanguage} />
           )}
           {tab === 'ai' && (
             <AiSettingsPanel />
@@ -171,7 +186,8 @@ export default function SettingsPage() {
   )
 }
 
-function AppearanceTab({ theme, onChange }: { theme: Theme; onChange: (t: Theme) => void }) {
+function AppearanceTab({ theme, onChange, language, onLanguageChange }: { theme: Theme; onChange: (t: Theme) => void; language: Language; onLanguageChange: (language: Language) => void }) {
+  const { t } = useI18n()
   const {
     permission,
     isSupported,
@@ -192,6 +208,18 @@ function AppearanceTab({ theme, onChange }: { theme: Theme; onChange: (t: Theme)
 
   return (
     <div className="flex flex-col gap-6">
+      <div>
+        <p className="text-sm font-medium mb-1" style={{ color: 'var(--text-primary)' }}>{t('settings.language')}</p>
+        <p className="text-xs mb-3" style={{ color: 'var(--text-muted)' }}>{t('settings.languageDesc')}</p>
+        <div className="grid grid-cols-2 gap-3">
+          {LANGUAGES.map(option => (
+            <button key={option.id} type="button" onClick={() => onLanguageChange(option.id)} className="rounded-xl border px-3 py-3 text-left transition-colors" style={{ borderColor: language === option.id ? 'var(--color-primary)' : 'var(--border-color)', background: language === option.id ? 'color-mix(in srgb, var(--color-primary) 8%, transparent)' : 'var(--bg-secondary)', color: 'var(--text-primary)' }}>
+              <span className="block text-sm font-medium">{option.nativeLabel}</span>
+              <span className="block text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{option.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
       <div>
         <p className="text-sm font-medium mb-1" style={{ color: 'var(--text-primary)' }}>Chủ đề giao diện</p>
         <p className="text-xs mb-4" style={{ color: 'var(--text-muted)' }}>
@@ -349,9 +377,9 @@ function AccountTab({
   const avatarInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    setDisplayName((user?.user_metadata?.full_name as string | undefined) ?? '')
-    setAvatarUrl((user?.user_metadata?.avatar_url as string | undefined) ?? '')
-  }, [user?.id, user?.user_metadata])
+    setDisplayName(user ? resolveAuthDisplayName(user) : '')
+    setAvatarUrl(resolveAuthAvatarUrl(user) ?? '')
+  }, [user?.id, user?.user_metadata, user])
 
   async function handleSaveProfile(overrides?: { displayName?: string; avatarUrl?: string }) {
     if (!user) return
@@ -426,20 +454,12 @@ function AccountTab({
       >
         <div className="flex items-center gap-4">
           <div className="relative shrink-0">
-            {(avatarUrl || user?.user_metadata?.avatar_url) ? (
-              <img
-                src={avatarUrl || String(user?.user_metadata?.avatar_url ?? '')}
-                className="w-16 h-16 rounded-full shrink-0 object-cover"
-                alt=""
-              />
-            ) : (
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold text-white shrink-0"
-                style={{ background: 'var(--color-primary)' }}
-              >
-                {((displayName || (user?.user_metadata?.full_name as string | undefined) || user?.email || '?')[0] ?? '?').toUpperCase()}
-              </div>
-            )}
+            <UserAvatar
+              user={user}
+              src={avatarUrl || null}
+              name={displayName || null}
+              size="xl"
+            />
             <button
               type="button"
               onClick={() => avatarInputRef.current?.click()}
@@ -467,7 +487,7 @@ function AccountTab({
           </div>
           <div className="min-w-0">
             <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-              {displayName.trim() || user?.user_metadata?.full_name || 'Người dùng'}
+              {displayName.trim() || (user ? resolveAuthDisplayName(user) : 'Người dùng')}
             </p>
             <p className="text-sm truncate" style={{ color: 'var(--text-muted)' }}>{user?.email}</p>
           </div>
@@ -537,19 +557,10 @@ function AccountTab({
 
       {/* User card */}
       <section className="flex items-center gap-4">
-        {user?.user_metadata?.avatar_url ? (
-          <img src={user.user_metadata.avatar_url} className="w-14 h-14 rounded-full shrink-0" alt="" />
-        ) : (
-          <div
-            className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-white shrink-0"
-            style={{ background: 'var(--color-primary)' }}
-          >
-            {(user?.user_metadata?.full_name ?? user?.email ?? '?')[0].toUpperCase()}
-          </div>
-        )}
+        <UserAvatar user={user} size="lg" />
         <div>
           <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-            {user?.user_metadata?.full_name ?? 'Người dùng'}
+            {user ? resolveAuthDisplayName(user) : 'Người dùng'}
           </p>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{user?.email}</p>
         </div>
@@ -941,6 +952,130 @@ function BackupSection() {
   )
 }
 
+function KokoroVoicePicker() {
+  const [voiceUs, setVoiceUs] = useState(() => getPreferredKokoroVoice('a'))
+  const [voiceUk, setVoiceUk] = useState(() => getPreferredKokoroVoice('b'))
+  const [previewing, setPreviewing] = useState<'a' | 'b' | null>(null)
+  const [previewErr, setPreviewErr] = useState<string | null>(null)
+
+  useEffect(() => {
+    const onChange = (e: Event) => {
+      const detail = (e as CustomEvent<{ lang: KokoroLang; voiceId: string }>).detail
+      if (!detail) return
+      if (detail.lang === 'a') setVoiceUs(detail.voiceId)
+      else setVoiceUk(detail.voiceId)
+    }
+    window.addEventListener('ryan-kokoro-voice-change', onChange)
+    return () => window.removeEventListener('ryan-kokoro-voice-change', onChange)
+  }, [])
+
+  function selectVoice(lang: KokoroLang, id: string) {
+    setPreferredKokoroVoice(lang, id)
+    if (lang === 'a') setVoiceUs(id)
+    else setVoiceUk(id)
+    setPreviewErr(null)
+  }
+
+  async function preview(lang: KokoroLang) {
+    const voice = lang === 'a' ? voiceUs : voiceUk
+    setPreviewing(lang)
+    setPreviewErr(null)
+    stopTts()
+    try {
+      await speak(KOKORO_PREVIEW_TEXT, {
+        speed: 1,
+        voice,
+        lang,
+      })
+    } catch (err) {
+      setPreviewErr(err instanceof Error ? err.message : 'Không phát được. Kiểm tra Kokoro đã bật chưa.')
+    } finally {
+      setPreviewing(null)
+    }
+  }
+
+  const rows: { lang: KokoroLang; title: string; value: string; flag: string }[] = [
+    { lang: 'a', title: 'Giọng Mỹ (US)', value: voiceUs, flag: '🇺🇸' },
+    { lang: 'b', title: 'Giọng Anh (UK)', value: voiceUk, flag: '🇬🇧' },
+  ]
+
+  return (
+    <div
+      className="rounded-xl p-4 flex flex-col gap-4"
+      style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+    >
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+          Chọn giọng đọc
+        </p>
+        <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+          Áp dụng cho Listening, Vocab (nút US/UK) và các chỗ dùng Kokoro. Lưu trên thiết bị này.
+          Mặc định: US <code>{DEFAULT_VOICE_US}</code>, UK <code>{DEFAULT_VOICE_UK}</code>.
+        </p>
+      </div>
+
+      {rows.map(row => (
+        <div key={row.lang} className="flex flex-col gap-2">
+          <label className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
+            {row.flag} {row.title}
+          </label>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <select
+              value={row.value}
+              onChange={e => selectVoice(row.lang, e.target.value)}
+              className="flex-1 min-w-0 px-3 py-2.5 rounded-xl border text-sm"
+              style={{
+                background: 'var(--bg-secondary)',
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-primary)',
+              }}
+            >
+              <optgroup label="Nữ">
+                {voicesForLang(row.lang)
+                  .filter(v => v.gender === 'f')
+                  .map(v => (
+                    <option key={v.id} value={v.id}>
+                      {formatVoiceOption(v)}
+                    </option>
+                  ))}
+              </optgroup>
+              <optgroup label="Nam">
+                {voicesForLang(row.lang)
+                  .filter(v => v.gender === 'm')
+                  .map(v => (
+                    <option key={v.id} value={v.id}>
+                      {formatVoiceOption(v)}
+                    </option>
+                  ))}
+              </optgroup>
+            </select>
+            <button
+              type="button"
+              onClick={() => void preview(row.lang)}
+              disabled={previewing !== null}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold shrink-0 transition-opacity hover:opacity-90 disabled:opacity-50"
+              style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
+            >
+              {previewing === row.lang ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <Volume2 size={16} />
+              )}
+              Thử nghe
+            </button>
+          </div>
+        </div>
+      ))}
+
+      {previewErr && (
+        <p className="text-xs leading-relaxed" style={{ color: 'var(--color-danger, #ef4444)' }}>
+          {previewErr}
+        </p>
+      )}
+    </div>
+  )
+}
+
 function KokoroSetupSection() {
   return (
     <section
@@ -962,10 +1097,12 @@ function KokoroSetupSection() {
             <ListeningTtsStatusBadge compact />
           </div>
           <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            Cài Kokoro trên máy để Listening có giọng đọc tự nhiên hơn. Nếu chưa cài, app vẫn chạy bình thường với giọng trình duyệt.
+            Chọn giọng bên dưới, rồi cài / bật Kokoro trên máy để nghe giọng tự nhiên. Nếu chưa bật, app dùng giọng trình duyệt.
           </p>
         </div>
       </div>
+
+      <KokoroVoicePicker />
 
       <div
         className="rounded-xl p-4"

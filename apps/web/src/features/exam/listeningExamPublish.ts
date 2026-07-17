@@ -4,6 +4,11 @@ import {
   listeningExamMissingPublicAudio,
   materializeListeningMediaForPublish,
 } from './listeningExamCloudMedia'
+import { stripExamAnswerFields } from './examAnswerSecurity'
+import {
+  deletePublishedExamVault,
+  uploadPublishedExamVault,
+} from './publishedExamVault'
 
 interface PublishedRow {
   id: string
@@ -54,7 +59,21 @@ export async function publishListeningExamToCloud(
 ): Promise<void> {
   // Import local chỉ có audioKey (Dexie) — phải upload Storage trước khi strip key
   const withCloudMedia = await materializeListeningMediaForPublish(exam)
-  const clean = stripLocalMediaKeys(withCloudMedia)
+  const complete = {
+    ...withCloudMedia,
+    parts: withCloudMedia.parts.map(part => {
+      if (part.transcript?.trim() || typeof window === 'undefined') return part
+      const transcript = window.localStorage
+        .getItem(`exam-listening-whisper:${withCloudMedia.id}:${part.partNumber}`)
+        ?.trim()
+      return transcript ? { ...part, transcript } : part
+    }),
+  }
+  await uploadPublishedExamVault(
+    complete as unknown as Record<string, unknown> & { id: string },
+    'listening',
+  )
+  const clean = stripLocalMediaKeys(stripExamAnswerFields(complete))
 
   if (listeningExamMissingPublicAudio(clean) && exam.parts.some(p => p.audioKey || p.audioUrl)) {
     console.warn(
@@ -128,4 +147,5 @@ export async function deletePublishedListeningExam(examId: string): Promise<void
     .delete()
     .eq('id', examId)
   if (error) throw new Error(error.message)
+  await deletePublishedExamVault(examId, 'listening')
 }

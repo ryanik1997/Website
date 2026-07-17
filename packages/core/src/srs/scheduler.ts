@@ -42,3 +42,31 @@ export function nextSrs(s: SrsState, rating: Rating, now = Date.now()): SrsState
 export function defaultSrs(cardId: string): SrsState & { cardId: string } {
   return { cardId, ease: 2.5, interval: 0, reps: 0, lapses: 0, dueAt: Date.now(), state: 'new' }
 }
+
+/**
+ * Thẻ mới (chưa bấm Quên/Nhớ/Khó/Dễ): seed gán dueAt=now để có thể học,
+ * nhưng KHÔNG tính là "cần ôn lại".
+ * "Ôn lại" = đã vào learning/review và đến hạn (dueAt ≤ now).
+ */
+export function isSrsNew(s: Pick<SrsState, 'state' | 'reps'>): boolean {
+  return s.state === 'new' && s.reps === 0
+}
+
+/** Đến hạn ôn thật (đã học trước đó, hoặc đang learning sau khi rating). */
+export function isSrsReviewDue(
+  s: Pick<SrsState, 'dueAt' | 'state' | 'reps'>,
+  now = Date.now(),
+): boolean {
+  if (s.dueAt > now) return false
+  if (isSrsNew(s)) return false
+  return true
+}
+
+/** Có thể học/ôn ngay: review due HOẶC thẻ mới chưa học. */
+export function isSrsStudyable(
+  s: Pick<SrsState, 'dueAt' | 'state' | 'reps'>,
+  now = Date.now(),
+): boolean {
+  if (s.dueAt > now) return false
+  return true
+}

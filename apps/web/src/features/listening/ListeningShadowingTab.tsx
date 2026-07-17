@@ -63,13 +63,13 @@ export default function ListeningShadowingTab({
     setDisplayFrames(refFrames)
     setStatusMsg('Đang phát mẫu...')
     try {
-      await playTts(sentence.text, 1)
+      await playTts(sentence.text, 1, { audioUrl: sentence.audioUrl })
       frameCache.current[sentenceIndex] = refFrames
       setStatusMsg('')
     } finally {
       setStatusMsg('')
     }
-  }, [sentence.text, sentenceIndex, playTts, stopRec, stopMic])
+  }, [sentence.text, sentence.audioUrl, sentenceIndex, playTts, stopRec, stopMic])
 
   async function toggleRead() {
     if (listening || capturing) {

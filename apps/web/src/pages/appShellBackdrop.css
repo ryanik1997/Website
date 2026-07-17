@@ -1,0 +1,139 @@
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--reading-corner-bg);
+}
+
+.app-shell__backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.app-shell__backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.app-shell__ribbon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 280vmax;
+  height: clamp(3.5rem, 9vh, 6rem);
+  border-radius: 999px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-image: linear-gradient(
+    90deg,
+    var(--reading-ribbon-soft) 0%,
+    var(--reading-ribbon-mid) 22%,
+    var(--reading-ribbon-core) 48%,
+    var(--reading-ribbon-mid) 72%,
+    var(--reading-ribbon-soft) 100%
+  );
+  background-size: 200% 100%;
+  box-shadow:
+    0 .5rem 1.75rem color-mix(in srgb, var(--reading-ribbon-core) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-on-primary) 35%, transparent);
+  opacity: .88;
+  will-change: background-position;
+  animation: app-shell-ribbon-flow 5s linear infinite;
+}
+
+.app-shell__ribbon--1 {
+  height: clamp(3rem, 8vh, 5.25rem);
+  margin-top: -22vh;
+  animation-duration: 5.5s;
+}
+
+.app-shell__ribbon--2 {
+  height: clamp(4rem, 10vh, 6.75rem);
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+  opacity: .78;
+}
+
+.app-shell__ribbon--3 {
+  height: clamp(2.75rem, 7.5vh, 4.875rem);
+  margin-top: 24vh;
+  animation-duration: 6s;
+  animation-delay: -1.2s;
+  opacity: .72;
+}
+
+.app-shell > aside,
+.app-shell__main {
+  position: relative;
+  z-index: 1;
+}
+
+.app-shell--backdrop .app-shell__main,
+.app-shell--backdrop .app-page-surface,
+.app-shell--backdrop .home-page,
+.app-shell--backdrop .writing-layout,
+.app-shell--backdrop .writing-layout__content,
+.app-shell--backdrop .writing-library,
+.app-shell--backdrop .cb-hub,
+.app-shell--backdrop .wd-page,
+.app-shell--backdrop .listening-library-page,
+.app-shell--backdrop .shadowing-shell,
+.app-shell--backdrop .shadowing-main,
+.app-shell--backdrop .shadowing-detail,
+.app-shell--backdrop .exam-home,
+.app-shell--backdrop .exam-hub-page,
+.app-shell--backdrop .exam-skill-picker,
+.app-shell--backdrop .ss-shell,
+.app-shell--backdrop .ss-list-page {
+  background: transparent !important;
+}
+
+.app-shell--grid .vocab-card-panel {
+  background: transparent !important;
+}
+
+.app-shell--grid .vocab-study-shell {
+  background:
+    linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px),
+    var(--reading-corner-bg) !important;
+  background-size: 32px 32px !important;
+}
+
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-hub,
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-workspace,
+.app-shell.app-shell--backdrop .app-shell__main .ss-list-page .ss-main {
+  background: transparent !important;
+}
+
+.app-shell--backdrop .home-page::before,
+.app-shell--backdrop .listening-library-page::before,
+.app-shell--backdrop .exam-home::before,
+.app-shell--backdrop .ss-shell::before,
+.app-shell--backdrop .ss-list-page::before {
+  display: none;
+}
+
+@keyframes app-shell-ribbon-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell__ribbon {
+    animation: none;
+  }
+}

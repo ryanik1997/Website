@@ -1,12 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 import { EXAM_TRACKS } from './examTracks'
+import {
+  MoonIllustration,
+  SunAnimationStyles,
+  SunIllustration,
+} from '../../pages/landing/LegacySunMascot'
 import './examHub.css'
 
 export default function ExamHome() {
   const navigate = useNavigate()
+  const hour = new Date().getHours()
+  const isNight = hour >= 18 || hour < 6
 
   return (
     <div className="exam-hub-page exam-home">
+      <SunAnimationStyles />
       <div className="exam-hub-page__inner exam-home__inner">
         <section className="exam-home__hero">
           <div className="exam-home__hero-copy">
@@ -15,7 +23,9 @@ export default function ExamHome() {
             <p className="exam-home__desc">Một không gian tập trung cho Reading và Listening — chọn đúng track, giữ nhịp học, tiến bộ rõ ràng.</p>
             <div className="exam-home__signal"><span className="exam-home__signal-dot" /> Hai lộ trình · một nhịp học</div>
           </div>
-          <div className="exam-home__orb" aria-hidden><span>FOCUS<br />/ 01</span></div>
+          <div className="exam-home__orb exam-home__orb--mascot" aria-hidden>
+            {isNight ? <MoonIllustration /> : <SunIllustration />}
+          </div>
         </section>
 
         <div className="exam-home__section-head">

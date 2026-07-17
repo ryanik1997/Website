@@ -18,6 +18,7 @@ function isBlockedSelection(el: Element | null): boolean {
   if (!el) return true
   if (el.closest('[data-no-copy-toolbar]')) return true
   if (el.closest('[data-reading-highlight-zone]')) return true
+  if (el.closest('[data-exam-highlight-zone]')) return true
   const tag = el.tagName
   if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true
   if ((el as HTMLElement).isContentEditable) return true

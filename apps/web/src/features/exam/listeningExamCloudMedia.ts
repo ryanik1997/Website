@@ -2,7 +2,9 @@ import { audioRepo } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
 import type { ListeningExam, ListeningPart, ListeningQuestion } from './listeningExamData'
 
-const BUCKET = 'listening-exam-media'
+/** Mode A private bucket — signed via content-sign (no public URL). */
+const BUCKET = 'exam-media'
+const PATH_PREFIX = 'catalog/listening-publish'
 
 function sanitizeExamId(examId: string): string {
   return examId.replace(/[^a-zA-Z0-9._-]+/g, '_')
@@ -21,6 +23,31 @@ function extFromBlob(blob: Blob, fallback: string): string {
   return fallback
 }
 
+async function assertAdminSessionForUpload(): Promise<void> {
+  const { data: userData, error: userError } = await supabase.auth.getUser()
+  if (userError || !userData.user) {
+    throw new Error(
+      'Upload media thất bại: chưa đăng nhập (session Supabase). Đăng nhập lại rồi thử publish.',
+    )
+  }
+
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('is_admin')
+    .eq('id', userData.user.id)
+    .maybeSingle()
+
+  if (profileError) {
+    throw new Error(`Upload media thất bại: không đọc được profile (${profileError.message})`)
+  }
+  if (profile?.is_admin !== true) {
+    throw new Error(
+      'Upload media thất bại: tài khoản không có quyền admin trên server (profiles.is_admin). ' +
+        'Chạy UPDATE profiles SET is_admin = true WHERE email = \'...\' rồi đăng xuất/đăng nhập lại.',
+    )
+  }
+}
+
 async function uploadBlob(
   examId: string,
   pathSuffix: string,
@@ -28,17 +55,37 @@ async function uploadBlob(
   fallbackExt: string,
 ): Promise<string> {
   const ext = extFromBlob(blob, fallbackExt)
-  const storagePath = `${sanitizeExamId(examId)}/${pathSuffix}.${ext}`
+  const objectPath = `${PATH_PREFIX}/${sanitizeExamId(examId)}/${pathSuffix}.${ext}`
   const contentType = blob.type || (fallbackExt === 'mp3' ? 'audio/mpeg' : 'application/octet-stream')
 
-  const { error } = await supabase.storage
+  const upload = supabase.storage
     .from(BUCKET)
-    .upload(storagePath, blob, { upsert: true, contentType })
+    .upload(objectPath, blob, { upsert: true, contentType })
+  const result = await Promise.race([
+    upload,
+    new Promise<never>((_, reject) => {
+      window.setTimeout(
+        () => reject(new Error(`Upload media timeout sau 120 giây (${objectPath})`)),
+        120_000,
+      )
+    }),
+  ])
+  const { error } = result
 
-  if (error) throw new Error(`Upload media thất bại (${storagePath}): ${error.message}`)
+  if (error) {
+    const msg = error.message || ''
+    if (/row-level security|rls/i.test(msg)) {
+      throw new Error(
+        `Upload media thất bại (${objectPath}): ${msg}. ` +
+          'Bucket exam-media chỉ cho admin upload; cần migration 023 (admin SELECT + upsert) ' +
+          'và profiles.is_admin = true. Chạy: pnpm db:push',
+      )
+    }
+    throw new Error(`Upload media thất bại (${objectPath}): ${msg}`)
+  }
 
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(storagePath)
-  return data.publicUrl
+  // App-relative path → resolvePlayableMediaUrl → content-sign
+  return `/${objectPath}`
 }
 
 async function uploadKeyIfPresent(
@@ -68,6 +115,19 @@ async function uploadKeyIfPresent(
 export async function materializeListeningMediaForPublish(
   exam: ListeningExam,
 ): Promise<ListeningExam> {
+  const needsUpload = exam.parts.some(
+    part =>
+      Boolean(part.audioKey?.trim())
+      || Boolean(part.partImageKey?.trim())
+      || part.questions.some(
+        q =>
+          Boolean(q.audioKey?.trim())
+          || Boolean(q.pictureImageKey?.trim())
+          || q.options.some(opt => Boolean(opt.imageKey?.trim())),
+      ),
+  )
+  if (needsUpload) await assertAdminSessionForUpload()
+
   const parts: ListeningPart[] = []
 
   for (const part of exam.parts) {

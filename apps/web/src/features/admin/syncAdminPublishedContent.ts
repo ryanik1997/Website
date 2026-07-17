@@ -8,7 +8,7 @@ import type {
   WritingDoc,
 } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
-import { dedupePresetDecks } from '../vocab/vocabSeedDecks'
+import { dedupePresetDecks, seedPresetCards } from '../vocab/vocabSeedDecks'
 import {
   ADMIN_PUBLISHED_VOCAB_VERSION_KEY,
   computePublishedVocabPrunePlan,
@@ -124,6 +124,8 @@ async function mergeVocab(payload: VocabPublishPayload | Record<string, unknown>
   if (deckIds.length) {
     await cardRepo.dedupeAllDecks(deckIds)
   }
+  // Bổ sung thẻ builtin seed nếu publish chỉ có deck rỗng / thiếu thẻ
+  await seedPresetCards()
 }
 
 async function mergeLessons(lessons: Lesson[]): Promise<void> {

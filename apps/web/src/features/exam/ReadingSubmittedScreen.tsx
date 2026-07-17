@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { Loader2 } from 'lucide-react'
 import ExamResult from './ExamResult'
 import FullMockStageResult from './FullMockStageResult'
 import { readingExamBackPath } from './examNavigation'
@@ -9,6 +10,7 @@ import {
   clearFullMockSession,
   patchFullMockSession,
 } from './fullMockSession'
+import { useExamWithAnswerKeys } from './useExamWithAnswerKeys'
 
 interface Props {
   exam: ReadingExam
@@ -22,7 +24,7 @@ interface Props {
 
 /** Màn hình sau Submit Reading — tách riêng, hooks parent luôn gọi đủ trước khi render. */
 export default function ReadingSubmittedScreen({
-  exam,
+  exam: examProp,
   answers,
   fullMockId,
   onRetry,
@@ -31,6 +33,16 @@ export default function ReadingSubmittedScreen({
 }: Props) {
   const navigate = useNavigate()
   const fullMock = fullMockId ? getFullMockTest(fullMockId) : null
+  const { exam, answersReady, answersError } = useExamWithAnswerKeys(examProp, 'reading', true)
+
+  if (!answersReady) {
+    return (
+      <div className="flex h-full items-center justify-center gap-2" style={{ background: 'var(--bg-primary)' }}>
+        <Loader2 size={20} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+        <span className="text-sm" style={{ color: 'var(--text-muted)' }}>Đang tải đáp án để chấm…</span>
+      </div>
+    )
+  }
 
   if (fullMock) {
     const questions = getScorableExamQuestions(exam)
@@ -60,13 +72,20 @@ export default function ReadingSubmittedScreen({
   }
 
   return (
-    <ExamResult
-      exam={exam}
-      answers={answers}
-      onRetry={onRetry}
-      onBack={() => navigate(readingExamBackPath(exam))}
-      onReviewWithPaper={onReviewWithPaper ?? (() => undefined)}
-      scopedPartIndex={scopedPartIndex}
-    />
+    <>
+      {answersError && (
+        <p className="px-4 py-2 text-xs text-center" style={{ color: 'var(--color-accent)' }}>
+          {answersError}
+        </p>
+      )}
+      <ExamResult
+        exam={exam}
+        answers={answers}
+        onRetry={onRetry}
+        onBack={() => navigate(readingExamBackPath(exam))}
+        onReviewWithPaper={onReviewWithPaper ?? (() => undefined)}
+        scopedPartIndex={scopedPartIndex}
+      />
+    </>
   )
 }

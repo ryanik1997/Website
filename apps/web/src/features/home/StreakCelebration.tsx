@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Flame } from 'lucide-react'
 import { useDailyGoal } from './useDailyGoal'
+import { useI18n } from '../../lib/language'
 
 function todayKey(): string {
   return new Date().toISOString().slice(0, 10)
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export default function StreakCelebration({ streak }: Props) {
+  const { t } = useI18n()
   const { allDone } = useDailyGoal()
   const [visible, setVisible] = useState(false)
 
@@ -103,10 +105,10 @@ export default function StreakCelebration({ streak }: Props) {
           {streak}
         </p>
         <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
-          Tuyệt vời!
+          {t('home.streakTitle')}
         </h3>
         <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
-          Bạn học {streak} ngày liên tiếp!
+          {t('home.streakMessage').replace('{count}', String(streak))}
         </p>
         <button
           type="button"

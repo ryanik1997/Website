@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { X, Eye, EyeOff, Check, Sparkles, ArrowRight, Volume2 } from 'lucide-react'
+import { X, Check, Sparkles, ArrowRight } from 'lucide-react'
 import { db, translationRepo } from '@ryan/db'
 import type { TranslationSentence } from '@ryan/db'
 import { useTranslationStore } from './translationStore'
@@ -13,11 +13,9 @@ import {
 } from './types'
 import {
   getChipUnlockStates,
-  maskChipLabel,
   parseTranslationChips,
-  type TranslationChip,
 } from './translationChips'
-import { speakPhrase } from '../vocab/study/speakPhrase'
+import HintChipBar from './HintChipBar'
 import './translationPractice.css'
 
 type Phase = 'translate' | 'result'
@@ -186,19 +184,20 @@ function SessionInner({
             {chips.length > 0 && (
               <div className="mb-6">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
-                  <span className="tp-section-label">Câu mẫu — nhớ đúng để mở từ</span>
+                  <span className="tp-section-label">Câu mẫu — bấm chip để hiện / ẩn từ</span>
                   <span className="tp-strict-pill flex items-center gap-1.5">
                     <span className="tp-meta-dot" />
-                    Strict hints: on
+                    Click toggle
                   </span>
                   <span className="tp-strict-pill">{chips.length} chip</span>
                 </div>
 
-                <ChipBar
+                <HintChipBar
                   chips={chips}
                   unlockStates={unlockStates}
                   revealAll={showAllChips || phase === 'result'}
-                  onToggleReveal={() => setShowAllChips(v => !v)}
+                  onToggleRevealAll={() => setShowAllChips(v => !v)}
+                  resetKey={`${current.id}-${idx}`}
                 />
               </div>
             )}
@@ -263,49 +262,6 @@ function SessionInner({
   )
 }
 
-function ChipBar({
-  chips, unlockStates, revealAll, onToggleReveal,
-}: {
-  chips: TranslationChip[]
-  unlockStates: boolean[]
-  revealAll: boolean
-  onToggleReveal: () => void
-}) {
-  return (
-    <div className="tp-chip-row">
-      {chips.map((chip, i) => {
-        const unlocked = revealAll || unlockStates[i]
-        return (
-          <span
-            key={`${chip.text}-${i}`}
-            className={`tp-chip ${unlocked ? 'tp-chip--unlocked' : 'tp-chip--locked'}`}
-          >
-            {unlocked ? (
-              <>
-                <span>{chip.text}</span>
-                <button
-                  type="button"
-                  className="tp-chip-speak"
-                  title="Nghe phát âm"
-                  onClick={() => void speakPhrase(chip.text)}
-                >
-                  <Volume2 size={13} />
-                </button>
-              </>
-            ) : (
-              <span>{maskChipLabel(chip.text)}</span>
-            )}
-          </span>
-        )
-      })}
-      <button type="button" className="tp-show-all" onClick={onToggleReveal}>
-        {revealAll ? <EyeOff size={13} /> : <Eye size={13} />}
-        {revealAll ? 'Ẩn gợi ý' : 'Hiện tất cả'}
-      </button>
-    </div>
-  )
-}
-
 function SmartSegmentPanel({
   result, allChipsUnlocked, hint, rated, onRate,
 }: {
@@ -337,8 +293,8 @@ function SmartSegmentPanel({
             </p>
             <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               {allChipsUnlocked
-                ? 'Tất cả các cụm từ đã được mở xanh. Bạn có thể bấm Chấm AI nếu muốn feedback sâu hơn.'
-                : 'Gõ đúng từng cụm trong bài dịch để mở chip xanh trước khi nộp.'}
+                ? 'Tất cả các cụm từ đã được mở. Bạn có thể bấm Chấm AI nếu muốn feedback sâu hơn.'
+                : 'Bấm chip để xem gợi ý, hoặc gõ đúng từ để chip tự mở xanh.'}
             </p>
             {hint && (
               <p

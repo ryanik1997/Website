@@ -4,6 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowRight } from 'lucide-react'
 import { db } from '@ryan/db'
 import { IELTS_TRACKS, typesForTrack } from '../features/writing/ieltsCatalog'
+import PromptBankBrowser from '../features/writing/promptBank/PromptBankBrowser'
 import '../features/writing/cambridgeHub.css'
 
 /** Bước 1: Chọn Task 1 / Task 2 / Viết tự do */
@@ -57,6 +58,8 @@ export default function WritingPracticePage() {
             </button>
           ))}
         </div>
+
+        <PromptBankBrowser />
       </div>
     </div>
   )

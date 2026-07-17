@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { X } from 'lucide-react'
+import { isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { useVocabStore } from '../vocabStore'
@@ -23,9 +24,11 @@ export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onC
 
   const decksWithDue = useLiveQuery(async (): Promise<DeckDue[]> => {
     if (!open) return []
-    const srsRows = await db.srs.where('dueAt').belowOrEqual(Date.now()).toArray()
+    const t = Date.now()
+    const srsRows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
     const countByDeck = new Map<string, number>()
     for (const s of srsRows) {
+      if (!isSrsReviewDue(s, t)) continue
       countByDeck.set(s.deckId, (countByDeck.get(s.deckId) ?? 0) + 1)
     }
     const deckIds = [...countByDeck.keys()]

@@ -7,6 +7,8 @@ import StudyDoneActions from '../study/StudyDoneActions'
 import { useStudyAnswerFeedback } from '../study/useStudyAnswerFeedback'
 import { shuffle } from '../study/studyUtils'
 import StudyFireworks from '../../../components/StudyFireworks'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 interface Question { card: Card; options: string[]; correct: string }
 
@@ -29,10 +31,13 @@ export default function QuizMode({ deckId, onDone }: { deckId: string; onDone: (
     setRunId(n => n + 1)
   }, [])
 
+  const unitKind = useVocabStore(s => s.unitKind)
+
   const load = useCallback(async () => {
-    const cards = await db.cards.where('deckId').equals(deckId).toArray()
+    const all = await db.cards.where('deckId').equals(deckId).toArray()
+    const cards = filterCardsByUnitKind(all, unitKind)
     if (cards.length < 2) {
-      setError('Cần ít nhất 2 từ để chơi trắc nghiệm.')
+      setError('Cần ít nhất 2 mục (cùng loại từ đơn/cụm) để chơi trắc nghiệm.')
       setLoaded(true)
       return
     }
@@ -51,7 +56,7 @@ export default function QuizMode({ deckId, onDone }: { deckId: string; onDone: (
     setScore(0)
     setAttempted(0)
     setLoaded(true)
-  }, [deckId])
+  }, [deckId, unitKind])
 
   useEffect(() => { void load() }, [load, runId])
 

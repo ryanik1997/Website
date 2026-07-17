@@ -99,6 +99,7 @@ export interface ListeningQuestion {
   audioKey?: string
   audioUrl?: string
   ttsText?: string
+  transcript?: string
   wordLimit?: number
   /** PET Part 2: "You will hear two friends talking about…" */
   context?: string
@@ -142,6 +143,14 @@ export interface ListeningPart {
   audioKey?: string
   audioUrl?: string
   ttsText?: string
+  transcript?: string
+  /**
+   * Khi nhiều part dùng chung 1 file full MP3 (chưa có partN.mp3):
+   * tua tới % này lúc bắt đầu part (0–100).
+   */
+  audioStartPct?: number
+  /** % kết thúc gợi ý (0–100); UI có thể dừng tại đây */
+  audioEndPct?: number
   /** Giới hạn số lần nghe khi examMode = exam */
   maxPlays?: number
   /** PET Part 3 / FCE Part 2: tiêu đề đoạn (vd. Spectacled Bears) */

@@ -3,8 +3,10 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { db, deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
-import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabSeedDecks'
+import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
+import { matchesUnitKind, type VocabUnitKind } from './vocabUnitKind'
 import './deckCards.css'
+import { useI18n } from '../../lib/language'
 
 const FILTERS = [
   { id: 'all', label: 'Tất cả' },
@@ -19,17 +21,44 @@ const FILTERS = [
 
 type FilterId = (typeof FILTERS)[number]['id']
 
+type DeckUnitStat = { count: number; mastered: number }
+
 function isPresetGroup(id: string): id is PresetGroupId {
   return (PRESET_GROUP_IDS as readonly string[]).includes(id)
 }
 
 interface Props {
+  unitKind: VocabUnitKind
   onSelectDeck: (id: string) => void
   onCreateDeck: (defaultGroupId?: string) => void
 }
 
-export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
+/**
+ * Một query gộp cho toàn bộ thẻ/SRS theo unitKind — tránh N× useLiveQuery
+ * (100+ deck) làm main thread treo → trang trắng/không phản hồi.
+ */
+function useDeckUnitStats(unitKind: VocabUnitKind): Record<string, DeckUnitStat> {
+  return (
+    useLiveQuery(async () => {
+      const [cards, srsRows] = await Promise.all([db.cards.toArray(), db.srs.toArray()])
+      const srsByCard = new Map(srsRows.map(s => [s.cardId, s]))
+      const out: Record<string, DeckUnitStat> = {}
+      for (const c of cards) {
+        if (!matchesUnitKind(c.phrase, unitKind, c.pos)) continue
+        const st = out[c.deckId] ?? (out[c.deckId] = { count: 0, mastered: 0 })
+        st.count++
+        const s = srsByCard.get(c.id)
+        if (s && s.reps >= 3) st.mastered++
+      }
+      return out
+    }, [unitKind]) ?? {}
+  )
+}
+
+export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props) {
+  const { t } = useI18n()
   const decks = useLiveQuery(() => db.decks.toArray(), []) ?? []
+  const statsByDeck = useDeckUnitStats(unitKind)
   const [filter, setFilter] = useState<FilterId>('all')
 
   const presetDecks = useMemo(
@@ -64,15 +93,16 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
   }, [filter, decks, presetDecks, userDefaultDecks])
 
   const createDefaultGroup = filter !== 'all' ? filter : undefined
+  const personalStat = personalDeck ? statsByDeck[personalDeck.id] : undefined
 
   async function handleDeleteDeck(deck: Deck) {
     if (deck.origin === 'preset') return
-    if (!confirm(`Xóa bộ thẻ "${deck.name}"? Tất cả từ trong bộ này sẽ bị xóa.`)) return
+    if (!confirm(t('vocab.deleteConfirm').replace('{name}', deck.name))) return
     try {
       await deckRepo.delete(deck.id)
     } catch (err) {
       console.error(err)
-      alert('Không thể xóa bộ thẻ này.')
+      alert(t('vocab.deleteError'))
     }
   }
 
@@ -93,7 +123,7 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
                 border: active ? 'none' : '1px solid var(--border-color)',
               }}
             >
-              {f.label}
+              {f.id === 'all' ? t('vocab.all') : f.id === 'default' ? t('vocab.mine') : f.label}
               <span className="ml-1.5 opacity-80">· {counts[f.id]}</span>
             </button>
           )
@@ -103,18 +133,26 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
       <div className="vocab-deck-grid">
         <PersonalDeckCard
           deck={personalDeck}
+          cardCount={personalStat?.count ?? 0}
+          masteredCount={personalStat?.mastered ?? 0}
           onSelect={() => (personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck('default'))}
           onCreate={() => onCreateDeck(createDefaultGroup)}
         />
 
-        {filteredDecks.map(deck => (
-          <DeckCard
-            key={deck.id}
-            deck={deck}
-            onSelect={() => onSelectDeck(deck.id)}
-            onDelete={() => handleDeleteDeck(deck)}
-          />
-        ))}
+        {filteredDecks.map(deck => {
+          const st = statsByDeck[deck.id]
+          return (
+            <DeckCard
+              key={deck.id}
+              deck={deck}
+              unitKind={unitKind}
+              cardCount={st?.count ?? 0}
+              masteredCount={st?.mastered ?? 0}
+              onSelect={() => onSelectDeck(deck.id)}
+              onDelete={() => handleDeleteDeck(deck)}
+            />
+          )
+        })}
       </div>
     </div>
   )
@@ -122,7 +160,7 @@ export default function DeckGrid({ onSelectDeck, onCreateDeck }: Props) {
 
 function deckGroupLabel(groupId: string): string {
   if (isPresetGroup(groupId)) return GROUP_LABELS[groupId]
-  if (groupId === 'default') return 'Của tôi'
+  if (groupId === 'default') return 'My'
   return groupId
 }
 
@@ -140,23 +178,25 @@ function DeckCardLayers() {
 
 function DeckCard({
   deck,
+  unitKind,
+  cardCount,
+  masteredCount,
   onSelect,
   onDelete,
 }: {
   deck: Deck
+  unitKind: VocabUnitKind
+  cardCount: number
+  masteredCount: number
   onSelect: () => void
   onDelete: () => void
 }) {
-  const cardCount = useLiveQuery(() => db.cards.where('deckId').equals(deck.id).count(), [deck.id]) ?? 0
-  const masteredCount = useLiveQuery(
-    () => db.srs.where('deckId').equals(deck.id).and(s => s.reps >= 3).count(),
-    [deck.id],
-  ) ?? 0
   const pct = cardCount > 0 ? Math.round((masteredCount / cardCount) * 100) : 0
   const color = deck.color ?? '#6366f1'
   const canDelete = deck.origin !== 'preset'
   const blurb = (deck.description ?? deck.book ?? '').trim()
   const icon = deck.icon?.trim() || (deck.origin === 'user' ? '📚' : '📖')
+  const unitLabel = unitKind === 'phrase' ? 'cụm' : 'từ'
 
   return (
     <div
@@ -170,7 +210,7 @@ function DeckCard({
         </span>
         <div className="vocab-deck-card__body">
           <p className="vocab-deck-card__meta">
-            {deckGroupLabel(deck.groupId)} · {cardCount} từ
+            {deckGroupLabel(deck.groupId)} · {cardCount} {unitLabel}
             {deck.origin === 'user' ? ' · Của tôi' : ''}
           </p>
           <h3 className="vocab-deck-card__title">{deck.name}</h3>
@@ -203,21 +243,17 @@ function DeckCard({
 
 function PersonalDeckCard({
   deck,
+  cardCount,
+  masteredCount,
   onSelect,
   onCreate,
 }: {
   deck: Deck | null
+  cardCount: number
+  masteredCount: number
   onSelect: () => void
   onCreate: () => void
 }) {
-  const cardCount = useLiveQuery(
-    () => (deck ? db.cards.where('deckId').equals(deck.id).count() : 0),
-    [deck?.id],
-  ) ?? 0
-  const masteredCount = useLiveQuery(
-    () => (deck ? db.srs.where('deckId').equals(deck.id).and(s => s.reps >= 3).count() : 0),
-    [deck?.id],
-  ) ?? 0
   const pct = cardCount > 0 ? Math.round((masteredCount / cardCount) * 100) : 0
 
   return (

@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { ImageIcon, Upload, X } from 'lucide-react'
+import { Upload, X } from 'lucide-react'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 
 interface Props {
@@ -30,51 +30,39 @@ export default function KetRwPassagePortrait({
   const src = useBlobMediaUrl(imageKey, imageUrl)
   const alt = personLabel ? `Photo — ${personLabel}` : 'Profile photo'
 
-  // User không edit và không có ảnh → không render gì
-  if (!src && !canEdit) return null
+  // Text-only Part 2 (practice web): không hiện ô Admin rỗng.
+  // Chỉ hiện khi đã có ảnh; Admin đổi/xóa trên ảnh sẵn có.
+  if (!src) return null
 
   return (
     <div className="ket-rw-portrait" data-highlight-skip>
-      {src ? (
-        <figure className="ket-rw-portrait__figure">
-          <img src={src} alt={alt} className="ket-rw-portrait__img" />
-          {canEdit && onPick && (
-            <div className="ket-rw-portrait__actions">
+      <figure className="ket-rw-portrait__figure">
+        <img src={src} alt={alt} className="ket-rw-portrait__img" />
+        {canEdit && onPick && (
+          <div className="ket-rw-portrait__actions">
+            <button
+              type="button"
+              className="ket-rw-portrait__btn"
+              onClick={() => inputRef.current?.click()}
+              title="Đổi ảnh"
+            >
+              <Upload size={11} />
+              Đổi
+            </button>
+            {onClear && (
               <button
                 type="button"
-                className="ket-rw-portrait__btn"
-                onClick={() => inputRef.current?.click()}
-                title="Đổi ảnh"
+                className="ket-rw-portrait__btn ket-rw-portrait__btn--muted"
+                onClick={onClear}
+                title="Xóa ảnh"
               >
-                <Upload size={11} />
-                Đổi
+                <X size={11} />
+                Xóa
               </button>
-              {onClear && (
-                <button
-                  type="button"
-                  className="ket-rw-portrait__btn ket-rw-portrait__btn--muted"
-                  onClick={onClear}
-                  title="Xóa ảnh"
-                >
-                  <X size={11} />
-                  Xóa
-                </button>
-              )}
-            </div>
-          )}
-        </figure>
-      ) : (
-        <button
-          type="button"
-          className="ket-rw-portrait__slot"
-          onClick={() => inputRef.current?.click()}
-          title={personLabel ? `Import ảnh ${personLabel} (Admin)` : 'Import ảnh (Admin)'}
-        >
-          <ImageIcon size={14} />
-          <span className="ket-rw-portrait__slot-label">Ảnh</span>
-          <span className="ket-rw-portrait__slot-hint">Admin</span>
-        </button>
-      )}
+            )}
+          </div>
+        )}
+      </figure>
       {canEdit && onPick && (
         <input
           ref={inputRef}

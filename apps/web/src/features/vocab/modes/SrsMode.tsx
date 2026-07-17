@@ -10,6 +10,7 @@ import SaveToNotebookButton from '../study/SaveToNotebookButton'
 import { useVocabStore } from '../vocabStore'
 import { isWeakWord } from '../study/weakWords'
 import { shuffle } from '../study/studyUtils'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 type Rating = 1 | 2 | 3 | 4
 type StudyCard = { card: Card; srs: Srs }
@@ -38,6 +39,7 @@ export default function SrsMode({
   const sessionSnapshotRef = useRef<StudyCard[]>([])
   const openDict = useDictStore(s => s.open)
   const studyFilter = useVocabStore(s => s.studyFilter)
+  const unitKind = useVocabStore(s => s.unitKind)
 
   const applyQueue = useCallback((result: StudyCard[]) => {
     sessionSnapshotRef.current = result
@@ -54,9 +56,9 @@ export default function SrsMode({
         db.srs.where('deckId').equals(deckId).toArray(),
       ])
       const srsMap = new Map(srsRows.map(s => [s.cardId, s]))
-      let cards = allCards
+      let cards = filterCardsByUnitKind(allCards, unitKind)
       if (studyFilter === 'weak') {
-        cards = allCards.filter(c => {
+        cards = cards.filter(c => {
           const srs = srsMap.get(c.id)
           return srs && isWeakWord(srs)
         })
@@ -73,15 +75,19 @@ export default function SrsMode({
         if (studyFilter === 'weak') return isWeakWord(s)
         return s.dueAt <= Date.now()
       })
-      .limit(50)
+      .limit(80)
       .toArray()
     const cards = await db.cards.bulkGet(srsRows.map(s => s.cardId))
     const result: StudyCard[] = []
     for (let i = 0; i < srsRows.length; i++) {
-      if (cards[i]) result.push({ card: cards[i]!, srs: srsRows[i] })
+      const card = cards[i]
+      if (card && filterCardsByUnitKind([card], unitKind).length) {
+        result.push({ card, srs: srsRows[i] })
+      }
+      if (result.length >= 50) break
     }
     return result
-  }, [deckId, studyFilter])
+  }, [deckId, studyFilter, unitKind])
 
   const load = useCallback(async (mode: 'due' | 'practice' = 'due') => {
     const result = await buildQueue(mode)
