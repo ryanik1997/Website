@@ -4,6 +4,7 @@ import { speak, stop as stopTts } from '../listening/tts'
 import { loadLatestSpeakingConversation, sendSpeakingTurn, type TutorTurn } from './speakingAiApi'
 import { useSpeakingRecorder } from './useSpeakingRecorder'
 import './speakingAi.css'
+import './speakingAiTranscript.css'
 
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1']
 const MODES = ['Free Conversation', 'Roleplay', 'Job Interview', 'Travel English', 'Daily English', 'Pronunciation Practice', 'Grammar Correction']
@@ -37,10 +38,11 @@ export default function SpeakingAiPanel({ onClose }: { onClose: () => void }) {
   }, [])
 
   async function submit() {
-    if (!recorder.audio) return
+    const transcript = recorder.transcript.trim()
+    if (!recorder.audio || transcript.length < 2) { setError('Chưa nhận dạng được lời nói. Hãy nói rõ hơn và thử lại.'); return }
     setStatus('processing'); setError(null)
     try {
-      const turn = await sendSpeakingTurn({ blob: recorder.audio.blob, durationSec: recorder.seconds, conversationId, level, topic, mode })
+      const turn = await sendSpeakingTurn({ transcript, durationSec: recorder.seconds, conversationId, level, topic, mode })
       setConversationId(turn.conversationId); setTurns(old => [...old, turn]); recorder.reset()
       setStatus('speaking')
       await speak(turn.reply, { speed, lang: 'a' })
@@ -56,7 +58,7 @@ export default function SpeakingAiPanel({ onClose }: { onClose: () => void }) {
   const micState = recorder.state === 'recording' ? 'Recording' : status === 'processing' ? 'Processing' : status === 'speaking' ? 'AI Speaking' : 'Ready'
   return <div className="speak-ai-backdrop" role="presentation" onMouseDown={e => e.target === e.currentTarget && onClose()}>
     <section className="speak-ai-panel" role="dialog" aria-modal="true" aria-label="Speaking AI">
-      <header><div><span className="speak-ai-kicker">Gemini · Push to talk</span><h2>Speaking AI</h2></div><button onClick={onClose} aria-label="Đóng Speaking AI"><X /></button></header>
+      <header><div><span className="speak-ai-kicker">DeepSeek · Browser speech</span><h2>Speaking AI</h2></div><button onClick={onClose} aria-label="Đóng Speaking AI"><X /></button></header>
       <div className="speak-ai-config">
         <label>Level<select value={level} onChange={e => setLevel(e.target.value)}>{LEVELS.map(x => <option key={x}>{x}</option>)}</select></label>
         <label>Chế độ<select value={mode} onChange={e => setMode(e.target.value)}>{MODES.map(x => <option key={x}>{x}</option>)}</select></label>
@@ -75,11 +77,12 @@ export default function SpeakingAiPanel({ onClose }: { onClose: () => void }) {
       </div>
       {(error || recorder.error) && <div className="speak-ai-error" role="alert">{error || recorder.error}<button onClick={() => setError(null)}>Thử lại</button></div>}
       <footer>
+        {(recorder.state === 'recording' || recorder.transcript) && <div className="speak-ai-transcript"><small>Trình duyệt nghe được</small>{recorder.transcript || 'Đang nghe…'}</div>}
         {recorder.audio && <audio controls src={recorder.audio.url} />}
         <div className="speak-ai-actions">
           <button title="Xóa lượt ghi" onClick={recorder.reset} disabled={!recorder.audio}><Trash2 /></button>
           <button className={`speak-ai-mic ${recorder.state === 'recording' ? 'is-recording' : ''}`} onClick={recorder.state === 'recording' ? recorder.stop : recorder.start} disabled={status !== 'ready'}>{recorder.state === 'recording' ? <Square /> : <Mic />}<span>{recorder.state === 'recording' ? `${recorder.seconds}s / 60s` : 'Bắt đầu nói'}</span></button>
-          <button title="Gửi đến AI" onClick={submit} disabled={!recorder.audio || status !== 'ready'}><Send /></button>
+          <button title="Gửi đến AI" onClick={submit} disabled={!recorder.audio || recorder.transcript.trim().length < 2 || status !== 'ready'}><Send /></button>
         </div>
         <div className="speak-ai-tools">
           <button onClick={() => { setShowTranslation(x => !x) }}><Languages/> {showTranslation ? 'Ẩn giải thích' : 'Hiển thị bản dịch'}</button>

@@ -19,22 +19,13 @@ interface StoredConversation {
   speaking_messages: Array<{ id: number; role: 'user' | 'assistant'; text: string; corrected_text?: string | null; feedback_json?: Record<string, unknown> }>
 }
 
-function blobToBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onerror = () => reject(reader.error)
-    reader.onload = () => resolve(String(reader.result).split(',')[1] ?? '')
-    reader.readAsDataURL(blob)
-  })
-}
-
-export async function sendSpeakingTurn(input: { blob: Blob; durationSec: number; conversationId?: string; level: string; topic: string; mode: string }): Promise<TutorTurn> {
+export async function sendSpeakingTurn(input: { transcript: string; durationSec: number; conversationId?: string; level: string; topic: string; mode: string }): Promise<TutorTurn> {
   const { data: { session } } = await supabase.auth.getSession()
   if (!session) throw new Error('Phiên đăng nhập đã hết hạn.')
   const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/speaking-ai`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${session.access_token}`, apikey: import.meta.env.VITE_SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ...input, audioData: await blobToBase64(input.blob), mimeType: input.blob.type }),
+    body: JSON.stringify(input),
   })
   const data = await response.json().catch(() => ({}))
   if (!response.ok) throw new Error(data.error ?? 'Speaking AI không phản hồi.')
