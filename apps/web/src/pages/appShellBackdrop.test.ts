@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { getAppShellBackdropMode } from './appShellBackdrop'
 
 describe('getAppShellBackdropMode', () => {
@@ -72,11 +74,21 @@ describe('getAppShellBackdropMode', () => {
     '/app/exam/track/cambridge/a1',
     '/app/exam/track/cambridge/c2/writing',
     '/app/shadowing/video-1/transcript',
-    '/app/writing/practice/task3',
-    '/app/writing/cambridge/a1',
-    '/app/writing/translate/unknown',
     '/app/sentence-structure/item-1',
   ])('does not cover focused or independently designed route %s', pathname => {
     expect(getAppShellBackdropMode(pathname)).toBe('none')
+  })
+
+  it.each([
+    '/app/writing/practice/task3',
+    '/app/writing/cambridge/a1',
+    '/app/writing/translate/unknown',
+  ])('uses the grid without ribbons on every Writing subpage, including future child routes: %s', pathname => {
+    expect(getAppShellBackdropMode(pathname)).toBe('grid')
+  })
+
+  it('keeps the Writing editor shell transparent so Writing subpages reveal the grid', () => {
+    const css = readFileSync(resolve(process.cwd(), 'src/pages/appShellBackdrop.css'), 'utf8')
+    expect(css).toContain('.app-shell--backdrop .writing-shell')
   })
 })

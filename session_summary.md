@@ -41,6 +41,12 @@
 - Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
 - Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
 
+## 2026-07-17 — Writing subpages: nền lưới đồng bộ
+
+- Mọi route con `/app/writing/*` dùng backdrop `grid`, không có ribbon; `/app/writing` hub giữ style ribbon hiện có.
+- Thêm `.writing-shell` vào CSS transparent layer của backdrop để editor Writing không che ô lưới xanh nhạt.
+- Verify: `appShellBackdrop.test.ts` 62/62 PASS; `pnpm --filter web exec -- tsc --noEmit` PASS.
+
 ## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
 
 - Entitlement/retention: admin + Pro còn hạn + Lifetime dùng Speaking AI không giới hạn; Free/Trial/Basic giữ quota 600 giây/ngày. API trả access metadata để UI hiện đúng quyền.
