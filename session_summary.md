@@ -53,13 +53,13 @@
 - Production backend: migration 026 đã push và Edge Function `speaking-ai` bản DeepSeek đã deploy lên project `ntcagvtkwxwsmlxlumfo`.
 - Frontend commit `cb8925de` đã deploy Vercel production Ready tại `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
 - Bản DeepSeek commit `2aa07056`, web v0.2.5 đã deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
-- Blocker: `.env.deploy` chưa có `DEEPSEEK_API_KEY`; cần đặt secret này trực tiếp trong Supabase trước khi deploy function. Frontend tuyệt đối không chứa key.
+- `DEEPSEEK_API_KEY` đã được đặt trong Supabase Secrets production (không lưu repo/frontend); request kiểm tra trực tiếp với `deepseek-v4-flash` PASS.
 - Verify bản DeepSeek: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production web build PASS + strip private media; full suite 120/121 PASS. Lỗi duy nhất ngoài patch vẫn là catalog Reading kỳ vọng 47 nhưng hiện có 48.
 - Migration `026_speaking_ai_deepseek.sql` đổi provider mặc định sang `deepseek`; client chỉ gửi transcript + metadata, không còn FileReader/base64/audioData.
 
 ### Next session start prompt
 
-Set Supabase secret `DEEPSEEK_API_KEY`, rồi smoke bằng Chrome/Edge: permission, record 5–10s, live transcript, reply, TTS, correction, close/reopen history và quota. Safari/Firefox có thể không hỗ trợ Web Speech API đầy đủ.
+Smoke Speaking AI bằng Chrome/Edge: permission, record 5–10s, live transcript, reply, TTS, correction, close/reopen history và quota. Safari/Firefox có thể không hỗ trợ Web Speech API đầy đủ.
 
 Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rồi test một alert có kiểm soát. Smoke signup email-confirmation + Google consent và kiểm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sửa baseline catalog test 47→48 sau khi xác nhận đề thứ 48 hợp lệ.
 
