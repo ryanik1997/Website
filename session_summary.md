@@ -46,6 +46,7 @@
 - Entitlement/retention: admin + Pro còn hạn + Lifetime dùng Speaking AI không giới hạn; Free/Trial/Basic giữ quota 600 giây/ngày. API trả access metadata để UI hiện đúng quyền.
 - Migration `027_speaking_ai_entitlements_retention.sql`: cron chạy hằng ngày, xóa message/usage quá 30 ngày và conversation rỗng; function dọn dữ liệu không cho anon/authenticated gọi trực tiếp.
 - UI Speaking AI hiển thị `Không giới hạn` cho Pro/admin và thông báo lịch sử tự xóa sau 30 ngày; web bump v0.2.6.
+- Production: migration 027 (kèm pg_cron) đã push, Edge Function đã deploy; commit `4948d481`; Vercel Ready tại `ryanenglishv2-cujd3xzkk-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
 - Verify entitlement/retention: scoped 6/6 PASS, `tsc --noEmit` PASS; full suite 130/131 PASS. Lỗi duy nhất ngoài feature vẫn là catalog Reading test hardcode 47 khi catalog có 48.
 - Fix tiếp: thêm i18n `nav.speakingAi` cho VI/EN để toolbar không hiện raw key; regression test 1/1 và `tsc --noEmit` PASS.
 - Thêm route riêng `/app/speaking-ai` trong sidebar AppShell; trang được lazy-load và dùng backdrop grid/ribbon chung.
