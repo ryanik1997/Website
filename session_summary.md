@@ -41,7 +41,22 @@
 - Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
 - Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
 
+## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
+
+- Thêm nút `Speaking AI` ở đầu sidebar AppShell; mở panel phải/modal lớn, không đổi route và lazy-load riêng.
+- Panel chọn level A1–C1, 7 mode, 6 topic; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
+- `useSpeakingRecorder`: MediaRecorder + getUserMedia, webm/opus ưu tiên, fallback mp4/webm, permission error rõ, stop/hủy/replay, giới hạn 60 giây và cleanup stream/object URL.
+- Edge Function mới `speaking-ai`: JWT user bắt buộc; Gemini stable `gemini-2.5-flash` audio input + structured JSON; timeout 25s; MIME allowlist; audio <=8MB/60s; conversation ownership check; không log/lộ API key.
+- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lưu lâu dài, audio không lưu; quota 600 giây/ngày/user.
+- Lịch sử phiên gần nhất được tải lại khi mở panel nên đóng/mở không mất ngữ cảnh. TTS dùng engine hiện có và fallback browser.
+- Production: migration 025 đã push; Edge Function `speaking-ai` đã deploy project `ntcagvtkwxwsmlxlumfo`.
+- Blocker: chưa có `GEMINI_API_KEY` trong Supabase secrets hoặc env local/deploy. Cho tới khi set, function trả 503 `Speaking AI chưa được cấu hình GEMINI_API_KEY`.
+- Verify: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; full suite 120/121 PASS. Lỗi duy nhất ngoài patch vẫn là catalog Reading kỳ vọng 47 nhưng hiện có 48.
+- Tài liệu Gemini chính thức xác nhận `gemini-2.5-flash` stable nhận audio input, text output và structured output; Gemini 2.0 đã shutdown.
+
 ### Next session start prompt
+
+Set Supabase secret `GEMINI_API_KEY`, redeploy `speaking-ai`, rồi smoke Chrome/mobile: permission, record 5–10s, transcript, reply, TTS, correction, close/reopen history và quota. Sau đó deploy frontend nếu chưa Ready.
 
 Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rồi test một alert có kiểm soát. Smoke signup email-confirmation + Google consent và kiểm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sửa baseline catalog test 47→48 sau khi xác nhận đề thứ 48 hợp lệ.
 

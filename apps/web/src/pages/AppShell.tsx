@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {
   BookOpen,
@@ -38,6 +39,8 @@ import LegalFooter from '../components/LegalFooter'
 import { LanguageProvider, useI18n } from '../lib/language'
 import { getAppShellBackdropMode } from './appShellBackdrop'
 import './appShellBackdrop.css'
+
+const SpeakingAiPanel = lazy(() => import('../features/speaking-ai/SpeakingAiPanel'))
 
 type NavLeaf = {
   kind: 'link'
@@ -112,6 +115,7 @@ function AppShellInner() {
   )
   const readingCornerActive = location.pathname.startsWith('/app/reading-corner')
   const [readingOpen, setReadingOpen] = useState(readingCornerActive)
+  const [speakingAiOpen, setSpeakingAiOpen] = useState(false)
   const navigate = useNavigate()
   const { user, signOut } = useAuth()
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
@@ -187,6 +191,15 @@ function AppShellInner() {
         </div>
 
         <nav className="flex-1 p-2.5 flex flex-col gap-0.5 overflow-y-auto">
+          <button
+            type="button"
+            onClick={() => setSpeakingAiOpen(true)}
+            className={`flex items-center px-2.5 py-2 mb-1 rounded-lg text-sm font-bold transition-colors text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] hover:bg-[color-mix(in_srgb,var(--color-primary)_16%,transparent)] ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}
+            title={sidebarCollapsed ? 'Speaking AI' : undefined}
+          >
+            <Mic2 size={17} className="shrink-0" />
+            {!sidebarCollapsed && <span className="flex-1 text-left">Speaking AI</span>}
+          </button>
           {NAV.map(item => {
             if (item.kind === 'group') {
               const Icon = item.icon
@@ -374,6 +387,9 @@ function AppShellInner() {
       </main>
 
       <GlobalCatalogSync />
+      {speakingAiOpen && !examPlayerMode && (
+        <Suspense fallback={null}><SpeakingAiPanel onClose={() => setSpeakingAiOpen(false)} /></Suspense>
+      )}
       {!examPlayerMode && (
         <>
           <DictionaryFAB />
