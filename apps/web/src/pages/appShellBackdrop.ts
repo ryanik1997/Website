@@ -23,8 +23,7 @@ const APP_GRID_ONLY_PATHS = new Set([
   '/app/writing/dashboard',
 ])
 
-const WRITING_GRID_ONLY_PATH =
-  /^\/app\/writing\/(?:translate(?:\/(?:grammar_basic|collocation|paragraph_65|paragraph_80|essay_full|mine))?|practice(?:\/(?:task1|task2|free))?|cambridge(?:\/(?:a2|b1|b2|c1|c2))?)$/
+const WRITING_GRID_ONLY_PATH = /^\/app\/writing\/.+/
 
 export type AppShellBackdropMode = 'none' | 'grid' | 'ribbon'
 
