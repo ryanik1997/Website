@@ -218,8 +218,8 @@ async function discoverPayloadReadingBundles() {
 }
 
 /**
- * KET A2 practice web tests published under Import Cambridge Books 4–7
- * (englishpracticetest.net practice 1–14 — does not touch Cam 1–3).
+ * KET A2 Reading under Import Cambridge Books 1–7
+ * (Cam 1–3 official bundles + Cam 4–7 englishpracticetest practice 1–14).
  * Layout: Tainguyen/Import Cambridge/KET_A2/Reading/KET A2_Cam {B}/Test {T}/
  */
 /**
@@ -339,8 +339,8 @@ async function discoverKetPracticeReadingBundles() {
   if (!existsSync(readingRoot)) return []
 
   const bundles = []
-  // Books 4–7 only (Cam 1–3 already live as user/catalog content)
-  for (const book of [4, 5, 6, 7]) {
+  // Books 1–7 (any Test N folder with exam.json)
+  for (const book of [1, 2, 3, 4, 5, 6, 7]) {
     const camDir = path.join(readingRoot, `KET A2_Cam ${book}`)
     if (!existsSync(camDir)) continue
     const entries = await fs.readdir(camDir, { withFileTypes: true })
@@ -918,7 +918,7 @@ async function main() {
 
   console.log(`\nIELTS listening: ${ieltsListeningBundles.length} đề`)
   console.log(`IELTS reading:   ${ieltsReadingBundles.length} đề (${payloadReadingBundles.length} từ out-reading)`)
-  console.log(`KET practice R:  ${ketPracticeReadingBundles.length} đề (Book 4–7)`)
+  console.log(`KET practice R:  ${ketPracticeReadingBundles.length} đề (Book 1–7)`)
   console.log(`PET practice L:  ${petPracticeListeningBundles.length} đề (Book 2+)`)
   console.log(`FCE practice L:  ${fcePracticeListeningBundles.length} đề (Book 2+)`)
   console.log('\nCatalog build complete.')

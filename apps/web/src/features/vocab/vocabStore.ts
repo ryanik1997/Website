@@ -4,7 +4,7 @@ import type { VocabUnitKind } from './vocabUnitKind'
 export type StudyMode =
   | 'srs' | 'quiz' | 'type' | 'listen' | 'speak'
   | 'weak' | 'review' | 'stats' | 'notebook'
-export type StudyFilter = 'all' | 'weak'
+export type StudyFilter = 'all' | 'weak' | 'review'
 
 interface VocabState {
   activeDeckId: string | null

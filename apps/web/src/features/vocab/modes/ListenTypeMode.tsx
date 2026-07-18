@@ -117,7 +117,7 @@ export default function ListenTypeMode({
     if (!srs) return
     const rating = ok ? 3 : 1
     const next = nextSrs(srs, rating)
-    await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId })
+    await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId, updatedAt: Date.now() })
     await db.reviewLog.add({ cardId: card.id, rating, mode: 'listen', at: Date.now() })
   }, [])
 

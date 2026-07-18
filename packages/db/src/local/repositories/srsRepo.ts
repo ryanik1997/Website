@@ -8,8 +8,8 @@ export const srsRepo = {
   /** Thẻ đến hạn ôn lại (đã học trước đó) — không gồm thẻ new seed. */
   dueByDeck: (deckId: string, limit = 50) =>
     db.srs
-      .where('deckId')
-      .equals(deckId)
+      .where('[deckId+dueAt]')
+      .between([deckId, 0], [deckId, now()])
       .and(s => isSrsReviewDue(s, now()))
       .limit(limit)
       .toArray(),
@@ -18,7 +18,7 @@ export const srsRepo = {
 
   get: (cardId: string) => db.srs.get(cardId),
 
-  update: (s: Srs) => db.srs.put(s),
+  update: (s: Srs) => db.srs.put({ ...s, updatedAt: now() }),
 
   log: (cardId: string, rating: number, mode: string) =>
     db.reviewLog.add({ cardId, rating, mode, at: now() }),

@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { isSrsReviewDue } from '@ryan/core'
 import { db, settingsRepo } from '@ryan/db'
+import { countValidDueSrs } from '../vocab/dueSrs'
 
 /** Modes that count as real vocab study (not check-in) */
 const VOCAB_STUDY_MODES = new Set([
@@ -14,7 +14,12 @@ const DEFAULT_GOAL_TRANSLATIONS = 5
 const DEFAULT_GOAL_DUE = 10
 
 function todayKey(): string {
-  return new Date().toISOString().slice(0, 10)
+  return localDayKey(Date.now())
+}
+
+function localDayKey(timestamp: number): string {
+  const date = new Date(timestamp)
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
 }
 
 function parseGoal(value: unknown, fallback: number): number {
@@ -39,26 +44,30 @@ export function useDailyGoal() {
 
   const reviewLogs = useLiveQuery(() => db.reviewLog.toArray(), []) ?? []
   const dueCount = useLiveQuery(async () => {
-    const t = Date.now()
-    const rows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
-    return rows.filter(s => isSrsReviewDue(s, t)).length
+    return countValidDueSrs()
   }, []) ?? 0
 
   const { wordsToday, translationsToday, dueReviewedToday } = useMemo(() => {
     const tk = todayKey()
     let words = 0
     let translations = 0
-    let dueReviewed = 0
+    const dueReviewedCardIds = new Set<string>()
     for (const log of reviewLogs) {
-      if (new Date(log.at).toISOString().slice(0, 10) !== tk) continue
+      if (localDayKey(log.at) !== tk) continue
       if (log.mode === 'checkin') continue
       if (log.mode === 'translation') translations++
       else if (VOCAB_STUDY_MODES.has(log.mode)) {
         words++
-        dueReviewed++
+        // Chỉ phiên SRS xử lý queue đến hạn; đếm mỗi thẻ một lần dù user bấm
+        // Quên/Khó và gặp lại cùng thẻ trong ngày.
+        if (log.mode === 'srs') dueReviewedCardIds.add(log.cardId)
       }
     }
-    return { wordsToday: words, translationsToday: translations, dueReviewedToday: dueReviewed }
+    return {
+      wordsToday: words,
+      translationsToday: translations,
+      dueReviewedToday: dueReviewedCardIds.size,
+    }
   }, [reviewLogs])
 
   // Due goal: reviewed enough today OR inbox empty after having studied

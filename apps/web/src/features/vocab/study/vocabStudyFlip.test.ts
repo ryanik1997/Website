@@ -2,48 +2,44 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-const css = readFileSync(
-  resolve(process.cwd(), 'src/features/vocab/study/vocabStudy.css'),
-  'utf8',
-)
-const paperCss = readFileSync(
-  resolve(process.cwd(), 'src/features/vocab/study/vocabStudyPaper.css'),
-  'utf8',
-)
+const css = readFileSync(resolve(process.cwd(), 'src/features/vocab/study/vocabStudy.css'), 'utf8')
+const srs = readFileSync(resolve(process.cwd(), 'src/features/vocab/modes/SrsMode.tsx'), 'utf8')
+const paperCss = readFileSync(resolve(process.cwd(), 'src/features/vocab/study/vocabStudyPaper.css'), 'utf8')
 
-describe('SRS flip card compositing', () => {
-  it('keeps the inactive face fully hidden on translucent dark themes', () => {
-    const innerRule = css.match(/\.vs-flip-inner\s*\{([^}]*)\}/s)?.[1] ?? ''
-    const faceRule = css.match(/\.vs-flip-face\s*\{([^}]*)\}/s)?.[1] ?? ''
-
-    expect(innerRule).toContain('transform-style: preserve-3d')
-    expect(innerRule).not.toContain('isolation:')
-    expect(faceRule).toContain('background-color: var(--bg-card)')
-    expect(faceRule).toContain('background-image: var(--vs-flashcard-bg)')
-    expect(faceRule).toContain('backdrop-filter: none')
-    expect(css).toMatch(/\.vs-flip-face-back\s*\{[^}]*visibility:\s*hidden/s)
-    expect(css).toMatch(
-      /\.vs-flip-inner\.is-flipped\s+\.vs-flip-face-front\s*\{[^}]*visibility:\s*hidden/s,
-    )
-    expect(css).toMatch(
-      /\.vs-flip-inner\.is-flipped\s+\.vs-flip-face-back\s*\{[^}]*visibility:\s*visible/s,
-    )
-  })
-})
-
-describe('SRS lesson-paper card', () => {
-  it('gives the 3D card its own flat paper surface and hard shadow', () => {
-    const cardRule = paperCss.match(/\.vocab-study-shell \.vs-flip-scene\s*\{([^}]*)\}/s)?.[1] ?? ''
-    expect(cardRule).toContain('background: var(--vs-paper-card)')
-    expect(cardRule).toContain('border: 2px solid var(--vs-paper-border)')
-    expect(cardRule).toContain('box-shadow: 5px 5px 0 var(--vs-paper-shadow)')
+describe('SRS fade-reveal card', () => {
+  it('uses theme tokens and a smooth background transition instead of a 3D rotation', () => {
+    expect(css).toContain('background-color: color-mix(in srgb, var(--color-primary) 15%, transparent)')
+    expect(css).toContain('background-color: color-mix(in srgb, var(--color-success) 15%, transparent)')
+    expect(css).toContain('transition: background-color 360ms ease-out')
+    expect(css).toContain('opacity: 0')
+    expect(css).toContain('.vs-fade-phonetic')
+    expect(css).toContain('70ms')
+    expect(css).toContain('140ms')
+    expect(paperCss).toMatch(/\.vocab-study-shell \.vs-flip-scene\s*\{[^}]*background:\s*transparent/s)
+    expect(paperCss).toContain('.vocab-study-shell .vs-quiz-card')
+    expect(paperCss).toContain('.vocab-study-shell .vs-game-card')
+    expect(paperCss).toContain('.vocab-study-shell .vs-lt-practice')
+    expect(paperCss).toContain('.vocab-study-shell .vs-speaking-card')
   })
 
-  it('keeps the front face typography readable on the light paper surface', () => {
-    const frontTextRule = paperCss.match(/\.vocab-study-shell \.vs-flip-face-front \.vs-card-word\s*\{([^}]*)\}/s)?.[1] ?? ''
-    const frontBadgeRule = paperCss.match(/\.vocab-study-shell \.vs-flip-face-front \.vs-tag-topic,\s*\n\.vocab-study-shell \.vs-flip-face-front \.vs-tag-due,\s*\n\.vocab-study-shell \.vs-flip-face-front \.vs-tag-reviewed\s*\{([^}]*)\}/s)?.[1] ?? ''
-    expect(frontTextRule).toContain('color: var(--text-primary)')
-    expect(frontBadgeRule).toContain('color: var(--text-primary)')
-    expect(frontBadgeRule).toContain('border-color: var(--text-primary)')
+  it('renders the original word, phonetic and translation in the revealed layer', () => {
+    expect(srs).toContain('vs-fade-word')
+    expect(srs).toContain('vs-fade-phonetic')
+    expect(srs).toContain('vs-card-meaning')
+    expect(srs).toContain('is-flipped')
+    expect(srs).toContain("disabled={!flipped || cardTransition !== 'idle'}")
+    expect(srs).toContain('vs-rating-row${flipped')
+    expect(css).toContain('position: sticky')
+    expect(css).toContain('.vs-rating-row.is-locked')
+    expect(css).toContain('@keyframes vs-card-pass-out')
+    expect(css).toContain('@keyframes vs-card-pass-in')
+    expect(css).toContain('transform: translateX(-12%)')
+    expect(css).toContain('transform: translateX(12%)')
+    expect(srs).toContain("cardTransition === 'exit'")
+    expect(srs).toContain("cardTransition === 'enter'")
+    expect(srs).toContain('nextRetryAt')
+    expect(srs).toContain("void load('due')")
+    expect(srs).toContain("studyFilter === 'review'")
+    expect(srs).toContain('isSrsReviewDue(s)')
   })
 })

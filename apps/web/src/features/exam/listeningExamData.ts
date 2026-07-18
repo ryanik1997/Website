@@ -1,6 +1,7 @@
 import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_LISTENING_SAMPLES } from './cambridgeListeningSamples'
 import { IELTS_LISTENING_SAMPLES } from './ieltsListeningSamples'
+import { normalizeImportedAnswer } from './examResultOption'
 
 export type ListeningExamMode = 'practice' | 'exam'
 export type ListeningExamType = 'ket' | 'ielts' | 'pet' | 'fce' | 'cae' | 'cpe'
@@ -280,10 +281,11 @@ export function getListeningExamQuestions(exam: ListeningExam): ListeningQuestio
 }
 
 export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer: string): boolean {
-  if (!userAnswer.trim()) return false
+  const safeUserAnswer = normalizeImportedAnswer(userAnswer)
+  if (!safeUserAnswer) return false
 
   if (question.type === 'gap-fill') {
-    const given = normalizeListeningAnswer(userAnswer)
+    const given = normalizeListeningAnswer(safeUserAnswer)
     if (!given) return false
     const variants = listeningAnswerVariants(question.answer, question.acceptableAnswers)
     if (variants.length === 0) return false
@@ -293,8 +295,9 @@ export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer
   }
 
   // MC / matching / picture — đáp án letter; vẫn hỗ trợ A/B (chọn một)
-  const given = userAnswer.trim().toUpperCase()
-  const expectedRaw = question.answer.trim()
+  const given = safeUserAnswer.toUpperCase()
+  const expectedRaw = normalizeImportedAnswer(question.answer)
+  if (!expectedRaw) return false
   if (/[/|]/.test(expectedRaw)) {
     const variants = expectedRaw.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
     return variants.includes(given)
@@ -306,31 +309,32 @@ export function formatListeningAnswer(
   question: ListeningQuestion,
   answerId: string,
 ): string {
-  if (!answerId.trim()) return '—'
+  const safeAnswerId = normalizeImportedAnswer(answerId)
+  if (!safeAnswerId) return '—'
 
   // Gap-fill: hiện "8 hoặc eight" (không coi slash là option A/B)
   if (question.type === 'gap-fill') {
     const variants = listeningAnswerVariants(
-      answerId === question.answer ? question.answer : answerId,
-      answerId === question.answer ? question.acceptableAnswers : undefined,
+      safeAnswerId === question.answer ? question.answer : safeAnswerId,
+      safeAnswerId === question.answer ? question.acceptableAnswers : undefined,
     )
     if (variants.length > 1) return variants.join(' hoặc ')
     if (variants.length === 1) return variants[0]!
-    return answerId
+    return safeAnswerId
   }
 
-  if (/[/|]/.test(answerId)) {
-    const letters = answerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
+  if (/[/|]/.test(safeAnswerId)) {
+    const letters = safeAnswerId.split(/[/|]/).map(s => s.trim().toUpperCase()).filter(Boolean)
     const parts = letters.map(id => {
-      const option = question.options.find(o => o.id.toUpperCase() === id)
-      return option ? `${option.id}. ${option.label}` : id
+      const option = question.options.find(o => String(o.id ?? '').toUpperCase() === id)
+      return option ? `${String(option.id ?? id)}. ${option.label}` : id
     })
-    return parts.length > 1 ? parts.join(' hoặc ') : parts[0] ?? answerId
+    return parts.length > 1 ? parts.join(' hoặc ') : parts[0] ?? safeAnswerId
   }
 
-  const option = question.options.find(o => o.id === answerId)
+  const option = question.options.find(o => String(o.id ?? '') === safeAnswerId)
   if (option) return `${option.id}. ${option.label}`
-  return answerId
+  return safeAnswerId
 }
 
 export function listeningExamAudioKey(examId: string, suffix: string): string {

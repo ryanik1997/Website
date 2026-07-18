@@ -12,6 +12,7 @@ import PanelHeader from '../../components/PanelHeader'
 import { PosBadge, StatusBadge } from './CardBadges'
 import { filterCardsByUnitKind, VOCAB_UNIT_KIND_LABELS } from './vocabUnitKind'
 import { speakPhrase } from './study/speakPhrase'
+import SaveToNotebookButton from './study/SaveToNotebookButton'
 import './vocabList.css'
 import './vocabLesson.css'
 import { useI18n } from '../../lib/language'
@@ -228,6 +229,7 @@ export default function CardPanel() {
                   >
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2 flex-wrap">
+                        <span className="vocab-lesson-index" aria-hidden="true">{i + 1}.</span>
                         <p className="font-medium" style={{ color: 'var(--text-primary)' }}>{card.phrase}</p>
                         <PosBadge phrase={card.phrase} pos={card.pos} />
                       </div>
@@ -242,12 +244,10 @@ export default function CardPanel() {
                       </div>
                     </td>
                     <td className="px-4 py-3" style={{ color: 'var(--text-primary)' }}>{card.meaning}</td>
-                    <td className="px-4 py-3 hidden md:table-cell">
-                      {card.example && (
-                        <p className="text-xs italic truncate max-w-xs" style={{ color: 'var(--text-muted)' }}>
-                          {card.example}
-                        </p>
-                      )}
+                    <td className="px-4 py-3">
+                      <p className="vocab-lesson-example" style={{ color: 'var(--text-primary)' }}>
+                        {card.example || 'Chưa có câu ví dụ.'}
+                      </p>
                     </td>
                     <td className="px-4 py-3 hidden sm:table-cell">
                       <StatusBadge srs={srsByCard.get(card.id)} />
@@ -264,6 +264,12 @@ export default function CardPanel() {
                         >
                           <Volume2 size={14} />
                         </button>
+                        <SaveToNotebookButton
+                          card={card}
+                          deckId={activeDeckId}
+                          compact
+                          className="vocab-word-audio p-1.5 rounded-md transition-colors hover:bg-[var(--bg-secondary)]"
+                        />
                         <button
                           onClick={() => setEditCard(card)}
                           className="p-1.5 rounded-md transition-colors hover:bg-[var(--bg-secondary)]"

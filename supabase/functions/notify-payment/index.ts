@@ -139,6 +139,15 @@ Deno.serve(async (req) => {
     serviceKey,
   )
 
+  const { data: profile } = await admin
+    .from('profiles')
+    .select('suspended_at')
+    .eq('id', userId)
+    .maybeSingle()
+  if (profile?.suspended_at) {
+    return jsonResponse({ error: 'Account suspended', code: 'ACCOUNT_SUSPENDED' }, 403)
+  }
+
   const { error: insertError } = await admin.from('payment_requests').insert({
     user_id: userId,
     user_email: userEmail,
@@ -160,6 +169,7 @@ Deno.serve(async (req) => {
   if (resendKey && adminEmail) {
     const emailRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
+      signal: AbortSignal.timeout(8_000),
       headers: {
         Authorization: `Bearer ${resendKey}`,
         'Content-Type': 'application/json',

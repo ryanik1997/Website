@@ -37,4 +37,37 @@ describe('security hardening phase 2', () => {
     expect(migration).toContain('emailClaimedAt')
     expect(migration).toContain('grant execute on function public.claim_content_security_alert_email')
   })
+
+  it('denies protected content APIs immediately after an account suspension', () => {
+    const migration = repoFile('supabase/migrations/028_suspend_compromised_accounts.sql')
+    const signer = repoFile('supabase/functions/content-sign/index.ts')
+    const speaking = repoFile('supabase/functions/speaking-ai/index.ts')
+    const payment = repoFile('supabase/functions/notify-payment/index.ts')
+
+    expect(migration).toContain('public.set_user_suspension')
+    expect(migration).toContain('user_suspended_at is not null then return false')
+    expect(signer).toContain("code: 'ACCOUNT_SUSPENDED'")
+    expect(speaking).toContain("code: 'ACCOUNT_SUSPENDED'")
+    expect(payment).toContain("code: 'ACCOUNT_SUSPENDED'")
+  })
+
+  it('lets an administrator suspend and restore a user from the admin screen', () => {
+    const adminPage = repoFile('apps/web/src/features/admin/AdminPage.tsx')
+    expect(adminPage).toContain("supabase.rpc('set_user_suspension'")
+    expect(adminPage).toContain('suspended_at')
+    expect(adminPage).toContain('Mở khóa')
+  })
+
+  it('makes all protected learning content a Pro entitlement', () => {
+    const migration = repoFile('supabase/migrations/029_pro_only_content_access.sql')
+    const signer = repoFile('supabase/functions/content-sign/index.ts')
+    const speaking = repoFile('supabase/functions/speaking-ai/index.ts')
+    const app = repoFile('apps/web/src/App.tsx')
+
+    expect(migration).toContain("user_plan = 'pro'")
+    expect(signer).toContain('function hasProAccess')
+    expect(signer).not.toContain('!isPaid(plan)')
+    expect(speaking).toContain("code: 'PRO_REQUIRED'")
+    expect(app).toContain('<ProOnlyRoute />')
+  })
 })

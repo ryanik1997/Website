@@ -306,6 +306,7 @@
  * tránh repaint mỗi frame gây giật.
  */
 .home-sun-mascot__float {
+  position: relative;
   flex-shrink: 0;
   will-change: transform;
   transform: translateZ(0);
@@ -335,6 +336,37 @@
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16));
 }
 
+.home-sun-mascot__cloud,
+.home-sun-mascot__moon {
+  position: absolute;
+  left: -0.65rem;
+  bottom: 0.1rem;
+  font-size: 1.55rem;
+  line-height: 1;
+  filter: drop-shadow(0 3px 4px color-mix(in srgb, var(--text-primary) 18%, transparent));
+  transform: rotate(-7deg);
+}
+
+.home-sun-mascot__moon {
+  display: none;
+}
+
+[data-theme="mid"] .home-sun-mascot__sun,
+[data-theme="dark"] .home-sun-mascot__sun {
+  visibility: hidden;
+}
+
+[data-theme="mid"] .home-sun-mascot__moon,
+[data-theme="dark"] .home-sun-mascot__moon {
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 72px;
+  font-size: 3.65rem;
+  text-align: center;
+  transform: none;
+}
+
 @keyframes home-sun-float {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
   50% { transform: translate3d(0, -5px, 0) rotate(-1.5deg); }
@@ -343,6 +375,13 @@
 @media (max-width: 720px) {
   .home-sun-mascot__bubble { display: none; }
   .home-sun-mascot__sun { width: 52px; height: 52px; }
+  .home-sun-mascot__cloud,
+  .home-sun-mascot__moon { font-size: 1.2rem; }
+  [data-theme="mid"] .home-sun-mascot__moon,
+  [data-theme="dark"] .home-sun-mascot__moon {
+    width: 52px;
+    font-size: 2.7rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

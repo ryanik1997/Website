@@ -5,6 +5,10 @@
  */
 import { db } from '@ryan/db'
 import { getMediaMode } from '../../lib/protectedMedia'
+import { supabase } from '../../lib/supabase'
+import { shouldShowFullExamCatalog } from './examCatalogVisibility'
+
+export { shouldShowFullExamCatalog } from './examCatalogVisibility'
 
 /** Align with Edge Function FREE_ALLOW_PREFIXES (demo ids). */
 export const FREE_DEMO_LISTENING_ID_HINTS = [
@@ -24,6 +28,33 @@ export const FREE_DEMO_READING_ID_HINTS = [
 type Plan = 'free' | 'trial' | 'basic' | 'pro' | 'lifetime' | string
 
 export async function getEffectivePlan(): Promise<Plan> {
+  // Production authorization must use the server profile. IndexedDB can be
+  // empty or stale on a new browser and previously made Admin/Pro look Free.
+  try {
+    const { data: sessionData } = await supabase.auth.getSession()
+    const userId = sessionData.session?.user.id
+    if (userId) {
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('plan, plan_expires_at, is_admin, suspended_at')
+        .eq('id', userId)
+        .maybeSingle()
+
+      if (!error && profile && !profile.suspended_at) {
+        if (profile.is_admin === true) return 'pro'
+        const plan = (profile.plan as Plan | null) ?? 'free'
+        if (plan === 'free' || plan === 'lifetime') return plan
+        if (
+          profile.plan_expires_at
+          && new Date(profile.plan_expires_at).getTime() < Date.now()
+        ) return 'free'
+        return plan
+      }
+    }
+  } catch {
+    // Offline/local fallback below.
+  }
+
   const [planRow, adminRow, expRow] = await Promise.all([
     db.settings.get('plan'),
     db.settings.get('is_admin'),
@@ -57,8 +88,9 @@ export async function filterExamsForPlan<T extends { id: string; title?: string 
   // Local DEV: show full library for authoring
   if (getMediaMode() === 'local') return exams
 
+  const { data: sessionData } = await supabase.auth.getSession()
   const plan = await getEffectivePlan()
-  if (isPaidPlan(plan)) return exams
+  if (shouldShowFullExamCatalog(Boolean(sessionData.session), plan)) return exams
 
   const hints = skill === 'listening' ? FREE_DEMO_LISTENING_ID_HINTS : FREE_DEMO_READING_ID_HINTS
   return exams.filter(e => {

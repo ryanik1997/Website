@@ -1,0 +1,786 @@
+{
+  "id": "catalog-reading-ket-a2-book1-test2",
+  "title": "KET A2 Reading — Book 1 — Test 2",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading — 5 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book1-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "Part 1 — Signs",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q5.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book1-test2/part1-q6.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test2-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Contact Louise if you want to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "improve the way the station looks."
+                },
+                {
+                  "id": "B",
+                  "label": "learn how to make a nice garden."
+                },
+                {
+                  "id": "C",
+                  "label": "travel to see some beautiful gardens."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Câu quảng cáo kêu gọi giúp làm đẹp ga tàu, nên chọn A.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Question 2",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Mrs Jones wants Chloe to do a different subject for her project."
+                },
+                {
+                  "id": "B",
+                  "label": "Mrs Jones thinks Chloe's idea for the project is too difficult."
+                },
+                {
+                  "id": "C",
+                  "label": "Mrs Jones wants Chloe to do her project with someone else."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Bà Jones đề xuất chủ đề khác 'Fashion' thay vì 'Local Transport'.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Question 3",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Jana's not sure which bus to catch to town this afternoon."
+                },
+                {
+                  "id": "B",
+                  "label": "It's not possible for Jana to go to the gym today."
+                },
+                {
+                  "id": "C",
+                  "label": "Kate will not see Jana at the bus stop later today."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Kate sẽ gặp Jana ở gym thay vì bus stop.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Question 4",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Ben wants to talk to people who have ideas for a new play."
+                },
+                {
+                  "id": "B",
+                  "label": "You can get further details about the play by talking to Ben."
+                },
+                {
+                  "id": "C",
+                  "label": "Ben is only interested in talking to people who have acted before."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Liên hệ Ben để biết thêm thông tin về vai diễn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is Mr Matthews doing in this message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "asking what time he can meet Ms Thomas"
+                },
+                {
+                  "id": "B",
+                  "label": "letting Ms Thomas know where she'll find the keys"
+                },
+                {
+                  "id": "C",
+                  "label": "telling Ms Thomas that she can book the holiday flat"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Ông Matthews hỏi khi nào Ms Thomas đến để giao chìa khóa.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Ria wants Kay's help with",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "inviting guests to the party."
+                },
+                {
+                  "id": "B",
+                  "label": "getting music for the party."
+                },
+                {
+                  "id": "C",
+                  "label": "finding a hall for the party."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Cần một ban nhạc cho tiệc.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [
+        {
+          "label": "Rafa",
+          "text": "The first time I saw Silver River was at my friend's house. It's the story of two families, which didn't sound very interesting to me, but actually I loved it. I saw it again last week, and I enjoyed it just as much. The actors are good and so is the story, but what I really love is the music – it's brilliant. When the film first came out, not many people went to see it, but it's a lot more popular now."
+        },
+        {
+          "label": "Dan",
+          "text": "For me, Forest Path is the best film ever. It's about a musician who leaves his home in Mexico and goes looking for adventure. He travels around the country for a year, playing his guitar everywhere he goes. At the end of the film, he meets the woman who becomes his wife. This actually happened in real life many years ago, which I didn't know when I first saw it. The acting is very good, especially the woman – she has more acting experience than the man."
+        },
+        {
+          "label": "Claudio",
+          "text": "I can't remember when or where I first saw Black Hole, but it's a film I like to watch at least once a year. It's about travelling through space, and to me the acting and the story are not important – it's the way it's filmed. It's like a dream and nothing seems real. At the time, this was a new way of making films and since then lots of people have copied the idea. The music is very beautiful, and the final moments always make me cry."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test2-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who thinks one of the actors in his favourite film is better than another?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Dan nói nữ diễn viên có kinh nghiệm hơn nam.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who says his favourite film wasn't very successful at the cinema?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Rafa nói lúc mới ra ít người xem.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who feels sad at the end of his favourite film?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Claudio khóc ở khoảnh khắc cuối.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who explains where he first saw his favourite film?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Rafa thấy lần đầu ở nhà bạn.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who explains what happens in his favourite film?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Dan kể cốt truyện chi tiết.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who says his favourite film is a true story?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Dan nói sự kiện dựa trên đời thực.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who tries to see his favourite film every twelve months?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Rafa"
+                },
+                {
+                  "id": "B",
+                  "label": "Dan"
+                },
+                {
+                  "id": "C",
+                  "label": "Claudio"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Claudio xem ít nhất một lần mỗi năm.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "My life as a tour guide",
+      "passageSubtitle": "Kerri Benson talks about the job she loves.",
+      "passage": [
+        {
+          "text": "I was looking for work after I finished university when a friend of mine told me about her fantastic job as a tour guide. She was able to help me get a job with her company and now, every two weeks, a driver and I take a group of tourists across five European countries by coach."
+        },
+        {
+          "text": "Before each tour, the driver takes the coach from the city where the last tour finished to the one where the next tour starts, but I fly there. When I get to the hotel, I make sure I have all the right forms and visas for the new group of tourists. It's important that I have everything."
+        },
+        {
+          "text": "I'm friendly towards the tourists, but I always remember that they're my customers. There's no boss to help with problems, which can be difficult, but I love it when our coach is full of happy people, excited about their trip."
+        },
+        {
+          "text": "The company has a website for all of the tour guides to share information. Some post information about journey times, but that changes so quickly it's not very useful. My posts are usually about interesting museums, castles and things like that. And I read other guides' ideas for restaurants to take customers to."
+        },
+        {
+          "text": "This is a job for people who enjoy travelling and planning. If you're thinking of doing it, go on a tour as a customer first. It's a good way to see what guides do. Just remember that guides don't get paid much. For me, that's not a problem, but it might be for some people."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test2-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does Kerri say about becoming a tour guide?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She took the job because she couldn't find anything better."
+                },
+                {
+                  "id": "B",
+                  "label": "She needed a job that she could do in her university holidays."
+                },
+                {
+                  "id": "C",
+                  "label": "She got the job because she knew someone at the company."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Bạn bè giới thiệu công việc.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Before each tour, Kerri",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "drives to the place where the tour will start."
+                },
+                {
+                  "id": "B",
+                  "label": "checks that she has the documents she needs."
+                },
+                {
+                  "id": "C",
+                  "label": "makes sure that enough hotel rooms are booked."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Kiểm tra giấy tờ và visa.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "What does Kerri enjoy about her job?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "seeing people having a good holiday"
+                },
+                {
+                  "id": "B",
+                  "label": "meeting people who become friends"
+                },
+                {
+                  "id": "C",
+                  "label": "helping people with problems"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Thích khi du khách hạnh phúc.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "Kerri gives other tour guides information about",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "where to eat."
+                },
+                {
+                  "id": "B",
+                  "label": "places to visit."
+                },
+                {
+                  "id": "C",
+                  "label": "traffic problems."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Đăng về bảo tàng, lâu đài.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "What advice does Kerri have for people who want to do her job?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Take a tour to see if you like it."
+                },
+                {
+                  "id": "B",
+                  "label": "Talk to people who are already guides."
+                },
+                {
+                  "id": "C",
+                  "label": "Find a company that pays guides well."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Nên đi tour như khách trước.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Part 4 — The Nobel Prize",
+      "passage": [
+        {
+          "text": "Every year, in October, a small number of very special people get a very important phone call. It is a call which can change the rest of their careers and almost (19) ........ they become famous. That is because this is the phone call (20) ........ them they have won a Nobel Prize.\n\nThere are five Nobel Prizes in (21) ........ , three of which are given to scientists. The prize is international and scientists from around the world have (22) ........ one. There are several (23) ........ why winning a Nobel Prize is important. First of all, it is a lot of money – about $1.1 million. (24) ........ , the most important thing about a Nobel Prize is that the scientist's work gets a lot of attention."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test2-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "(19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "early"
+                },
+                {
+                  "id": "B",
+                  "label": "immediately"
+                },
+                {
+                  "id": "C",
+                  "label": "exactly"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Nghe điện thoại là lập tức nổi tiếng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "(20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "speaking"
+                },
+                {
+                  "id": "B",
+                  "label": "telling"
+                },
+                {
+                  "id": "C",
+                  "label": "explaining"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Điện thoại thông báo họ thắng giải.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "(21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "part"
+                },
+                {
+                  "id": "B",
+                  "label": "variety"
+                },
+                {
+                  "id": "C",
+                  "label": "total"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Có 5 giải Nobel nói chung.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "(22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "received"
+                },
+                {
+                  "id": "B",
+                  "label": "taken"
+                },
+                {
+                  "id": "C",
+                  "label": "included"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Nhà khoa học nhận giải.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "(23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "instructions"
+                },
+                {
+                  "id": "B",
+                  "label": "reasons"
+                },
+                {
+                  "id": "C",
+                  "label": "differences"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Nhiều lý do quan trọng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "(24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Instead"
+                },
+                {
+                  "id": "B",
+                  "label": "However"
+                },
+                {
+                  "id": "C",
+                  "label": "Especially"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Tuy nhiên, điều quan trọng nhất là...",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book1-test2-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "From Erin to Lara",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Erin"
+        },
+        {
+          "label": "To",
+          "text": "Lara"
+        },
+        {
+          "text": "How (0) are you? I moved into a new house last month. It's a lot bigger (25) ........ my old house, and (26) ........ is a big garden at the back. I can't wait (27) ........ grow some vegetables in it!"
+        },
+        {
+          "text": "It's taken me and my parents (28) ........ long time to paint all the rooms, but we're going to finish them soon. So (29) ........ you like to come and stay with me next weekend? If the weather's good, Mum says we can have a barbecue. I can show (30) ........ some interesting places in my town too."
+        },
+        {
+          "text": "Write soon!"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book1-test2-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "than",
+              "explanation": "bigger than my old house — so sánh.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "there",
+              "explanation": "there is a big garden — cấu trúc there is.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "to",
+              "explanation": "can't wait to grow — wait to + V.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "a",
+              "explanation": "a long time — mạo từ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "would",
+              "explanation": "Would you like to come…? — lời mời lịch sự.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book1-test2-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "you",
+              "explanation": "show you some interesting places.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book1-test2",
+  "catalogBase": "/catalog/reading/ket-a2-book1-test2"
+}

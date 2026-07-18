@@ -6,6 +6,7 @@ import { isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind, type VocabUnitKind } from '../vocabUnitKind'
 import './srsReminder.css'
 
 interface Props {
@@ -13,11 +14,12 @@ interface Props {
   dueCount: number
   dueLoading?: boolean
   onClose: () => void
+  unitKind?: VocabUnitKind
 }
 
 type DeckDue = { deck: Deck; due: number }
 
-export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onClose }: Props) {
+export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onClose, unitKind }: Props) {
   const [step, setStep] = useState<'remind' | 'pick'>('remind')
   const navigate = useNavigate()
   const { setActiveDeck, startStudy } = useVocabStore()
@@ -26,9 +28,13 @@ export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onC
     if (!open) return []
     const t = Date.now()
     const srsRows = await db.srs.where('dueAt').belowOrEqual(t).toArray()
+    const cards = unitKind ? await db.cards.bulkGet(srsRows.map(s => s.cardId)) : []
+    const cardsById = new Map(cards.flatMap(card => card ? [[card.id, card] as const] : []))
     const countByDeck = new Map<string, number>()
     for (const s of srsRows) {
       if (!isSrsReviewDue(s, t)) continue
+      const card = cardsById.get(s.cardId)
+      if (unitKind && (!card || filterCardsByUnitKind([card], unitKind).length === 0)) continue
       countByDeck.set(s.deckId, (countByDeck.get(s.deckId) ?? 0) + 1)
     }
     const deckIds = [...countByDeck.keys()]
@@ -39,7 +45,7 @@ export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onC
       result.push({ deck, due: countByDeck.get(deck.id) ?? 0 })
     }
     return result.sort((a, b) => b.due - a.due)
-  }, [open]) ?? []
+  }, [open, unitKind]) ?? []
 
   if (!open) return null
   if (!dueLoading && dueCount <= 0) return null
@@ -51,7 +57,7 @@ export default function SrsReviewReminderModal({ open, dueCount, dueLoading, onC
 
   function startDeckReview(deckId: string) {
     setActiveDeck(deckId)
-    startStudy('srs')
+    startStudy('srs', 'review')
     navigate('/app/vocab')
     handleClose()
   }

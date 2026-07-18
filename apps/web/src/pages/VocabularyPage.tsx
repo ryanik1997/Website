@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
-import { ChevronLeft } from 'lucide-react'
+import { useLiveQuery } from 'dexie-react-hooks'
+import { ChevronLeft, RotateCcw } from 'lucide-react'
+import { isSrsReviewDue } from '@ryan/core'
+import { db } from '@ryan/db'
 import { useVocabStore } from '../features/vocab/vocabStore'
 import DeckGrid from '../features/vocab/DeckGrid'
 import CardPanel from '../features/vocab/CardPanel'
@@ -7,10 +10,11 @@ import StudySession from '../features/vocab/StudySession'
 import DeckEditorModal from '../features/vocab/DeckEditorModal'
 import {
   VOCAB_UNIT_KIND_LABELS,
+  filterCardsByUnitKind,
   type VocabUnitKind,
 } from '../features/vocab/vocabUnitKind'
 import { useI18n } from '../lib/language'
-import '../features/vocab/vocabLibrary.css'
+import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
 import '../features/vocab/vocabLibrary.css'
 
 const UNIT_TABS: { id: VocabUnitKind; label: string }[] = [
@@ -24,8 +28,27 @@ export default function VocabularyPage() {
   const [createState, setCreateState] = useState<{ open: boolean; groupId?: string }>({ open: false })
   const [repairBusy, setRepairBusy] = useState(false)
   const [repairMsg, setRepairMsg] = useState<string | null>(null)
+  const [reviseOpen, setReviseOpen] = useState(false)
+  const [dueClock, setDueClock] = useState(() => Date.now())
   // Force DeckGrid remount after repair
   const [gridKey, setGridKey] = useState(0)
+  const reviseDueCount = useLiveQuery(async () => {
+    const now = Date.now()
+    const [srsRows, cards] = await Promise.all([
+      db.srs.where('dueAt').belowOrEqual(now).toArray(),
+      db.cards.toArray(),
+    ])
+    const cardsById = new Map(cards.map(card => [card.id, card]))
+    return srsRows.filter(srs => {
+      const card = cardsById.get(srs.cardId)
+      return Boolean(card && isSrsReviewDue(srs, now) && card && filterCardsByUnitKind([card], unitKind).length)
+    }).length
+  }, [unitKind, dueClock])
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setDueClock(Date.now()), 15_000)
+    return () => window.clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     // Dynamic import: tránh kéo ~7MB JSON seed vào critical path của route /app/vocab
@@ -119,7 +142,8 @@ export default function VocabularyPage() {
           >
             {UNIT_TABS.map(tab => {
               const active = unitKind === tab.id
-              return (
+              const reviseReady = (reviseDueCount ?? 0) > 0
+              const tabButton = (
                 <button
                   key={tab.id}
                   type="button"
@@ -143,6 +167,35 @@ export default function VocabularyPage() {
                   </p>
                 </button>
               )
+
+              if (tab.id === 'single') return tabButton
+
+              return (
+                <div
+                  key={tab.id}
+                  className="grid grid-cols-2 gap-3"
+                >
+                  {tabButton}
+                  <button
+                    type="button"
+                    onClick={() => setReviseOpen(true)}
+                    disabled={reviseDueCount === 0}
+                    className={`vocab-library-kind-tab vocab-library-revise-card${reviseReady ? ' is-due' : ''} flex items-center justify-center gap-1.5 rounded-2xl px-4 py-3.5 text-sm font-bold border transition-all disabled:cursor-not-allowed disabled:opacity-45`}
+                    style={{
+                      color: reviseReady ? 'var(--color-primary)' : 'var(--text-primary)',
+                      background: reviseReady
+                        ? 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))'
+                        : 'var(--bg-card)',
+                      borderColor: reviseReady ? 'var(--color-primary)' : 'var(--border-color)',
+                      boxShadow: reviseReady ? '0 0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent)' : undefined,
+                    }}
+                    title={reviseDueCount === 0 ? 'Không có thẻ đến hạn' : `Ôn ${reviseDueCount} thẻ đến hạn`}
+                  >
+                    <RotateCcw size={14} />
+                    Revise{reviseDueCount ? ` · ${reviseDueCount}` : ''}
+                  </button>
+                </div>
+              )
             })}
           </div>
 
@@ -161,6 +214,13 @@ export default function VocabularyPage() {
           />
         )}
         {studyMode && <StudySession />}
+        <SrsReviewReminderModal
+          open={reviseOpen}
+          dueCount={reviseDueCount ?? 0}
+          dueLoading={reviseDueCount === undefined}
+          onClose={() => setReviseOpen(false)}
+          unitKind={unitKind}
+        />
       </div>
     )
   }

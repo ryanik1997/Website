@@ -33,7 +33,7 @@ export interface Card {
   createdAt: number
   updatedAt: number
 }
-export interface Srs        { cardId: string; deckId: string; ease: number; interval: number; reps: number; lapses: number; dueAt: number; lastReviewedAt?: number; state: 'new' | 'learning' | 'review' }
+export interface Srs        { cardId: string; deckId: string; ease: number; interval: number; reps: number; lapses: number; dueAt: number; lastReviewedAt?: number; updatedAt?: number; state: 'new' | 'learning' | 'review' }
 export interface ReviewLog  { id?: number; cardId: string; rating: number; mode: string; at: number }
 export interface DictEntry  { word: string; data: unknown; fetchedAt: number }
 export interface Lesson {
@@ -94,7 +94,13 @@ export interface TranslationSet {
   sentences: TranslationSentence[]
   createdAt: number
 }
-export interface AudioBlob  { key: string; blob: Blob }
+export interface AudioBlob  {
+  key: string
+  blob: Blob
+  bytes?: number
+  createdAt?: number
+  lastAccessedAt?: number
+}
 /** Phân loại bài viết — Cambridge + IELTS */
 export type WritingGenre =
   | 'email' | 'note' | 'story' | 'article' | 'essay' | 'letter' | 'editor_letter'
@@ -546,6 +552,39 @@ export class RyanDB extends Dexie {
       listeningExams:  '&id, examType, source, createdAt, updatedAt',
       notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
       examBackups:     '&id, skill, updatedAt, title',
+    })
+    // v16: compound hot-query indexes + bounded audio-cache LRU metadata.
+    this.version(16).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
+    }).upgrade(async tx => {
+      const now = Date.now()
+      await tx.table('audioBlobs').toCollection().modify((entry: AudioBlob) => {
+        entry.bytes = entry.blob?.size ?? 0
+        entry.createdAt ??= now
+        entry.lastAccessedAt ??= entry.createdAt
+      })
     })
   }
 }

@@ -33,6 +33,15 @@ function examHasAnyAudio(exam: ListeningExam): boolean {
   )
 }
 
+/**
+ * Các đề KET được khôi phục bằng script có ID cố định và media nằm trên kho
+ * private cloud. Bản IndexedDB cùng ID có thể là import cũ, chỉ còn audio ngắn
+ * hoặc thiếu ảnh; vì vậy cloud là nguồn chuẩn cho nhóm đề này.
+ */
+function isRestoredKetPracticeExam(examId: string): boolean {
+  return /^listening-import-ket-a2-practice-\d{2}$/.test(examId)
+}
+
 async function rehydrateImportedExamAudio(exam: ListeningExam): Promise<ListeningExam> {
   if (examHasAnyAudio(exam)) return exam
 
@@ -86,6 +95,19 @@ export async function resolveListeningExam(examId: string): Promise<ListeningExa
     } catch (err) {
       console.warn('[resolveListeningExam] catalog body hydrate failed', examId, err)
       throw err
+    }
+  }
+
+  // Do not let a stale browser import shadow the restored KET cloud media.
+  // Local remains the fallback so an offline user can still open the exam.
+  if (isRestoredKetPracticeExam(examId)) {
+    try {
+      const published = await getPublishedListeningExam(examId)
+      if (published) {
+        return finalizeListeningExam(normalizeListeningExamForDisplay(published))
+      }
+    } catch (err) {
+      console.warn('KhÃ´ng táº£i Ä‘Æ°á»£c Ä‘á» KET Listening restored:', err)
     }
   }
 

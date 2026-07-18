@@ -35,6 +35,17 @@
 .exam-home__orb--mascot { background: none; box-shadow: none; transform: none; overflow: visible; }
 .exam-home__orb--mascot svg { width: 108% !important; max-width: none !important; height: auto; }
 .exam-home__orb--mascot .sun-bubble { display: none; }
+.exam-home__tid-sun-stage { width: min(27rem, 70vw); aspect-ratio: 1; justify-self: end; display: grid; place-items: center; transform: translateX(2.5rem); }
+.tid-sun { position: relative; width: 100%; aspect-ratio: 1; transition: transform .5s cubic-bezier(.625,.05,0,1); }
+.tid-sun:hover { transform: scale(1.035) rotate(-1deg); }
+.tid-sun__body { display: block; width: 100%; height: 100%; animation: tid-sun-rotate .5s linear infinite; }
+.tid-sun__face { position: absolute; top: 50%; left: 50%; width: 25%; height: auto; transform: translate(-50%, -50%); }
+.tid-sun__eyes { position: absolute; top: 50%; left: 50%; width: 25%; aspect-ratio: 18 / 20; transform: translate(-50%, -50%); }
+.tid-sun__eye { position: absolute; width: 22.05%; aspect-ratio: 1; border-radius: 50%; background: var(--text-primary); animation: tid-sun-glance 4.8s cubic-bezier(.65,0,.35,1) infinite; }
+.tid-sun__eye--left { left: 0; top: 4.96%; }
+.tid-sun__eye--right { left: 65.06%; top: 0; }
+@keyframes tid-sun-rotate { to { transform: rotate(9deg); } }
+@keyframes tid-sun-glance { 0%, 18%, 100% { transform: translateX(0); } 28%, 43% { transform: translateX(-34%); } 55%, 70% { transform: translateX(34%); } 80%, 92% { transform: translateX(0); } }
 .exam-home__section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin: 3rem 0 1.5rem; padding-top: 2rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent); }
 .exam-home__section-head h2 { margin: .65rem 0 0; color: var(--text-primary); font-family: var(--font-app); font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 400; letter-spacing: -.05em; line-height: .92; }
 .exam-home__section-head > p { max-width: 16rem; margin: 0; color: var(--text-muted); font-size: .8rem; line-height: 1.6; }
@@ -54,7 +65,9 @@
 .exam-home__track-footer { display: flex; justify-content: space-between; margin-top: 1.5rem; padding-top: .9rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); color: var(--text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .exam-home__track-footer b { color: var(--color-primary); font-size: 1.2rem; line-height: .5; }
 .exam-home__footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 5rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); color: var(--text-muted); font-size: .58rem; font-weight: 800; letter-spacing: .16em; }
-@media (max-width: 767px) { .exam-home__hero { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; } .exam-home__orb { width: 13rem; justify-self: end; } .exam-home__section-head { display: block; margin-top: 2rem; } .exam-home__section-head > p { margin-top: 1rem; } .exam-home__tracks { grid-template-columns: 1fr; gap: 1rem; } .exam-home__track--cambridge { margin-top: 0; } .exam-home__footer { flex-wrap: wrap; margin-top: 3rem; } .exam-home__footer span:last-child { width: 100%; } }
+@media (max-width: 767px) { .exam-home__hero { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; } .exam-home__orb { width: 13rem; justify-self: end; } .exam-home__tid-sun-stage { width: 17rem; transform: none; } .exam-home__section-head { display: block; margin-top: 2rem; } .exam-home__section-head > p { margin-top: 1rem; } .exam-home__tracks { grid-template-columns: 1fr; gap: 1rem; } .exam-home__track--cambridge { margin-top: 0; } .exam-home__footer { flex-wrap: wrap; margin-top: 3rem; } .exam-home__footer span:last-child { width: 100%; } }
+
+@media (prefers-reduced-motion: reduce) { .tid-sun__body, .tid-sun__eye { animation: none; } }
 
 /* IELTS Listening archive: warm editorial library */
 .exam-hub-page--listening.exam-hub-page--ielts { background: radial-gradient(circle at 84% 4%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 22rem), var(--bg-primary); }

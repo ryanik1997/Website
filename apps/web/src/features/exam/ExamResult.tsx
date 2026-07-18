@@ -10,6 +10,7 @@ import {
 } from './examData'
 import ExamPracticeResultReport, { computeAnswerStats } from './ExamPracticeResultReport'
 import type { ExamAiQuestionItem } from './examResultAiAnalyze'
+import { formatExamResultOption } from './examResultOption'
 import CambridgeRwWritingGradePanel from './CambridgeRwWritingGradePanel'
 import AddExamMistakeButton from '../vocab/AddExamMistakeButton'
 import type { ExamMistakePayload } from '../vocab/AddExamMistakeButton'
@@ -76,7 +77,7 @@ export default function ExamResult({ exam, answers, onRetry, onBack, onReviewWit
       userAnswer: formatReadingAnswer(q, raw, ctx),
       correctAnswer: formatReadingAnswer(q, q.answer, ctx),
       explanation: q.explanation,
-      options: (q.options ?? []).map(o => `${o.id.toUpperCase()}. ${o.label}`),
+      options: (q.options ?? []).map(formatExamResultOption),
       status,
       partLabel,
     }]

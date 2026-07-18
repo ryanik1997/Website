@@ -3,6 +3,7 @@
  * Conflict resolution: last-write-wins by payload.updatedAt (ms).
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
+import { db, changedSince, createSyncWindow, SYNC_PAGE_SIZE } from '@ryan/db'
 import {
   LISTENING_DRAFT_PREFIX,
   READING_DRAFT_PREFIX,
@@ -102,9 +103,43 @@ export async function syncExamProgress(
   let pulled = 0
   let conflicts = 0
 
-  const { data: cloudRows, error: pullErr } = await supabase
-    .from('exam_progress')
-    .select('skill, exam_id, payload, updated_at')
+  const cursorKey = `cloud-sync-cursor:exam-progress:${userId}`
+  const localCursorKey = `local-sync-cursor:exam-progress:${userId}`
+  const localUpperBoundIso = new Date().toISOString()
+  const [cursorSetting, localCursorSetting, serverTime] = await Promise.all([
+    db.settings.get(cursorKey),
+    db.settings.get(localCursorKey),
+    supabase.rpc('sync_server_time'),
+  ])
+  if (serverTime.error) throw new Error(`sync_server_time: ${serverTime.error.message}`)
+  const window = createSyncWindow(
+    typeof cursorSetting?.value === 'string' ? cursorSetting.value : null,
+    typeof serverTime.data === 'string' ? serverTime.data : new Date().toISOString(),
+  )
+  const localWindow = createSyncWindow(
+    typeof localCursorSetting?.value === 'string' ? localCursorSetting.value : null,
+    localUpperBoundIso,
+  )
+
+  const cloudRows: CloudExamProgress[] = []
+  let pullErr: { message: string } | null = null
+  for (let from = 0; ; from += SYNC_PAGE_SIZE) {
+    let query = supabase
+      .from('exam_progress')
+      .select('skill, exam_id, payload, updated_at')
+      .eq('user_id', userId)
+      .lte('updated_at', window.upperBoundIso)
+      .order('updated_at', { ascending: true })
+      .order('skill', { ascending: true })
+      .order('exam_id', { ascending: true })
+      .range(from, from + SYNC_PAGE_SIZE - 1)
+    if (window.pullAfterIso) query = query.gt('updated_at', window.pullAfterIso)
+    const result = await query
+    if (result.error) { pullErr = result.error; break }
+    const page = (result.data ?? []) as CloudExamProgress[]
+    cloudRows.push(...page)
+    if (page.length < SYNC_PAGE_SIZE) break
+  }
 
   if (pullErr) {
     if (isMissingTableError(pullErr)) {
@@ -119,7 +154,7 @@ export async function syncExamProgress(
   }
 
   const cloudByKey = new Map<string, CloudExamProgress>()
-  for (const row of (cloudRows ?? []) as CloudExamProgress[]) {
+  for (const row of cloudRows) {
     cloudByKey.set(`${row.skill}:${row.exam_id}`, row)
   }
 
@@ -142,6 +177,7 @@ export async function syncExamProgress(
       const localTs = toMs(localPayload.updatedAt)
 
       if (!remote) {
+        if (!changedSince(localWindow, localTs)) continue
         rowsToUpsert.push({
           user_id: userId,
           skill,
@@ -179,7 +215,8 @@ export async function syncExamProgress(
     for (const [key, remote] of cloudByKey) {
       if (!key.startsWith(`${skill}:`)) continue
       const examId = key.slice(skill.length + 1)
-      if (localMap.has(examId)) continue
+      const localExisting = localMap.get(examId)
+      if (localExisting && changedSince(localWindow, toMs(localExisting.updatedAt))) continue
       const remotePayload =
         remote.payload && typeof remote.payload === 'object' && !Array.isArray(remote.payload)
           ? (remote.payload as Record<string, unknown>)
@@ -212,9 +249,15 @@ export async function syncExamProgress(
         }
         throw new Error(`exam_progress upsert: ${error.message}`)
       }
+      for (const row of chunk) {
+        writeLocalDraft(row.skill, row.exam_id, { ...row.payload, updatedAt: toMs(window.upperBoundIso) })
+      }
       pushed += chunk.length
     }
   }
+
+  await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
+  await db.settings.put({ key: localCursorKey, value: localWindow.upperBoundIso })
 
   if (localChanged) notifyExamDraftRevision()
 

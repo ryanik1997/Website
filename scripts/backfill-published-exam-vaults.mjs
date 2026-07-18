@@ -73,10 +73,24 @@ if (requestedSkill && !['reading', 'listening'].includes(requestedSkill)) {
 }
 
 const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-if (!url || !serviceKey) {
-  throw new Error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY')
+
+async function getServiceRoleKey() {
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) return process.env.SUPABASE_SERVICE_ROLE_KEY
+  const token = process.env.SUPABASE_ACCESS_TOKEN
+  if (!token || !url) throw new Error('Missing SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY / SUPABASE_ACCESS_TOKEN')
+  const projectRef = new URL(url).hostname.split('.')[0]
+  const response = await fetch(`https://api.supabase.com/v1/projects/${projectRef}/api-keys`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  if (!response.ok) throw new Error(`Management API keys failed: ${response.status}`)
+  const keys = await response.json()
+  const serviceRole = keys.find(key => key.name === 'service_role' || key.type === 'service_role')
+  if (!serviceRole?.api_key) throw new Error('service_role key not found in project api-keys')
+  return serviceRole.api_key
 }
+
+if (!url) throw new Error('Missing SUPABASE_URL')
+const serviceKey = await getServiceRoleKey()
 
 const supabase = createClient(url, serviceKey, {
   auth: { persistSession: false, autoRefreshToken: false },
@@ -173,15 +187,19 @@ async function processSkill(skill) {
 
       result.answers += answerCount
       if (!dryRun) {
-        const path = `catalog/exams/${skill}/${row.id}.answers.json`
-        const { error: uploadError } = await supabase.storage
-          .from(BUCKET)
-          .upload(path, JSON.stringify(vault), {
-            upsert: true,
-            contentType: 'application/json',
-            cacheControl: 'private, max-age=60',
-          })
-        if (uploadError) throw uploadError
+        // A previously hardened body legitimately contains zero answers.
+        // Never overwrite its existing private vault with an empty object.
+        if (answerCount > 0) {
+          const path = `catalog/exams/${skill}/${row.id}.answers.json`
+          const { error: uploadError } = await supabase.storage
+            .from(BUCKET)
+            .upload(path, JSON.stringify(vault), {
+              upsert: true,
+              contentType: 'application/json',
+              cacheControl: 'private, max-age=60',
+            })
+          if (uploadError) throw uploadError
+        }
 
         const { error: updateError } = await supabase
           .from(table)
@@ -194,7 +212,11 @@ async function processSkill(skill) {
       }
 
       result.updated += 1
-      console.log(`[${skill}] ${row.id}: ${answerCount} answers${dryRun ? ' (dry-run)' : ''}`)
+      console.log(
+        `[${skill}] ${row.id}: ${answerCount} answers`
+        + `${answerCount === 0 ? ' (existing vault preserved)' : ''}`
+        + `${dryRun ? ' (dry-run)' : ''}`,
+      )
     } catch (error) {
       result.failed += 1
       console.error(`[${skill}] ${row.id}: FAILED`, error instanceof Error ? error.message : error)

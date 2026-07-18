@@ -26,8 +26,12 @@ Deno.serve(async req => {
   const { data: auth } = await userClient.auth.getUser(token)
   if (!auth.user) return json({ error: 'Unauthorized' }, 401)
   const admin = createClient(url, service)
-  const { data: profile } = await admin.from('profiles').select('plan,plan_expires_at,is_admin').eq('id', auth.user.id).maybeSingle()
+  const { data: profile } = await admin.from('profiles').select('plan,plan_expires_at,is_admin,suspended_at').eq('id', auth.user.id).maybeSingle()
+  if (profile?.suspended_at) return json({ error: 'Account suspended', code: 'ACCOUNT_SUSPENDED' }, 403)
   const activePlan = effectivePlan(profile?.plan, profile?.plan_expires_at)
+  if (profile?.is_admin !== true && activePlan !== 'pro' && activePlan !== 'lifetime') {
+    return json({ error: 'Pro membership required', code: 'PRO_REQUIRED' }, 403)
+  }
   const unlimited = profile?.is_admin === true || activePlan === 'pro' || activePlan === 'lifetime'
   const access = { unlimited, dailyLimitSeconds: unlimited ? null : DAILY_SECONDS, retentionDays: 30 }
   const body = await req.json().catch(() => null) as Record<string, unknown> | null
@@ -58,7 +62,6 @@ Deno.serve(async req => {
     const { data: owned } = await admin.from('speaking_conversations').select('id').eq('id', conversationId).eq('user_id', auth.user.id).maybeSingle()
     if (!owned) return json({ error: 'Conversation not found.' }, 404)
   }
-  const { data: conversation } = await admin.from('speaking_conversations').select('total_duration').eq('id', conversationId).single()
   const { data: prior } = await admin.from('speaking_messages').select('role,text').eq('conversation_id', conversationId).order('created_at', { ascending: true }).limit(12)
   const system = `You are a friendly English speaking tutor for a Vietnamese learner. Student level: ${level}. Topic: ${topic}. Mode: ${mode}.
 Reply naturally in level-appropriate English and ask one follow-up question. Give concise correction, a more natural alternative, a short Vietnamese explanation, and one useful vocabulary item. Do not claim to score pronunciation because you only receive a browser transcript.
@@ -88,11 +91,20 @@ Return JSON only in exactly this shape: {"reply":"...","correction":{"original":
   const reply = String(result.reply ?? '').trim()
   if (!reply) return json({ error: 'AI chưa tạo được phản hồi. Vui lòng thử lại.' }, 502)
   const correction = result.correction as Record<string, unknown> | undefined
+  const { data: committedRows, error: commitError } = await admin.rpc('commit_speaking_usage', {
+    target_user_id: auth.user.id,
+    target_conversation_id: conversationId,
+    target_usage_date: today,
+    duration_seconds: durationSec,
+    daily_limit_seconds: DAILY_SECONDS,
+    unlimited_access: unlimited,
+  })
+  if (commitError) return json({ error: commitError.message }, 500)
+  const committed = Array.isArray(committedRows) ? committedRows[0] : committedRows
+  if (!committed?.allowed) return json({ error: 'Daily speaking limit reached.', code: 'DAILY_LIMIT' }, 429)
   await admin.from('speaking_messages').insert([
     { conversation_id: conversationId, role: 'user', text: transcript },
     { conversation_id: conversationId, role: 'assistant', text: reply, corrected_text: correction?.corrected ?? null, feedback_json: { correction: result.correction, vocabulary: result.vocabulary, followUpQuestion: result.follow_up_question } },
   ])
-  await admin.from('speaking_conversations').update({ total_duration: (conversation?.total_duration ?? 0) + durationSec }).eq('id', conversationId).eq('user_id', auth.user.id)
-  await admin.from('speaking_usage').upsert({ user_id: auth.user.id, usage_date: today, audio_seconds: (usage?.audio_seconds ?? 0) + durationSec, request_count: (usage?.request_count ?? 0) + 1 }, { onConflict: 'user_id,usage_date' })
-  return json({ conversationId, transcript, reply, correction: result.correction, vocabulary: result.vocabulary, followUpQuestion: result.follow_up_question, usedSeconds: (usage?.audio_seconds ?? 0) + durationSec, ...access })
+  return json({ conversationId, transcript, reply, correction: result.correction, vocabulary: result.vocabulary, followUpQuestion: result.follow_up_question, usedSeconds: committed.audio_seconds, ...access })
 })

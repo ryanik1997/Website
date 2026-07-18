@@ -1,5 +1,39 @@
 ﻿## 2026-07-17 — Fix RLS upload listening media (exam-media upsert)
 
+### Session 2026-07-18 — Hardening local-first sync cho tải 1000 user
+
+- Chuyển sync chính, exam progress và check-in sang pull incremental có watermark server, phân trang 500 bản ghi, thứ tự phụ ổn định và tombstone truyền xóa; cursor cloud/local chỉ tiến sau khi push thành công. Cursor local tách khỏi thời gian server để thiết bị lệch đồng hồ vẫn phát hiện thay đổi offline.
+- Batch upsert, timestamp LWW do Postgres ghi, trigger `updated_at`, retry full-jitter, login/reconnect jitter, debounce 4 giây và chu kỳ sync 5–6 phút; dọn timer retry/reconnect để tránh burst trùng.
+- Thêm migrations 031–034 cho index sync/RLS, tombstone, server time, atomic rate/usage counters; Edge Functions dùng RPC counter nguyên tử và timeout 8 giây cho Resend.
+- Dexie v16 thêm compound index SRS/review log, bulk/LRU audio cache có quota 400 MB hoặc 20% browser quota và bỏ qua blob đơn vượt ngân sách.
+- Thêm bộ k6 200→1000 VU, fixture token, script EXPLAIN sync và tài liệu chạy an toàn. Chưa chạy lên production và chưa push migration/deploy function.
+- Verify: typecheck PASS; hardening 14/14 PASS; full suite 157/158 PASS, lỗi baseline ngoài phạm vi vẫn là `catalogCamReading.test.ts` kỳ vọng 47 nhưng catalog hiện có 48. Production build đã qua TypeScript/Vite transform nhưng command tổng bị timeout khi render chunk sau bước rebuild catalog.
+
+### Session 2026-07-18 — SRS due label contrast on Light
+
+- Added the first complete in-app Notification Center: sidebar bell + unread badge, persistent local inbox (250-item cap), All/Unread filters, Vietnamese full-text search, mark-one/mark-all read, delete/clear-read, category icon/label, relative time and action links to the relevant screen. The notification event API covers review, goal, streak, exam, achievement, new content and system events with dedupe keys. Automatic real-data notifications now include due SRS cards, 20-card daily goal completion, 3+ day streak celebration/risk after 18:00, and a one-time onboarding notice. Existing browser SRS notifications remain supported. TypeScript passes; production Vite build reached chunk rendering but the command exceeded the 120-second tool timeout.
+- Fixed Notification Center overlap: render the drawer through a `document.body` portal at the global modal layer, above the sidebar, corner mascot and Dictionary FAB; opening it now also locks background body scrolling. TypeScript and diff checks pass.
+- Fixed stale SRS notification counts: progress notifications can now replace an existing deduped record, re-open it as unread only when the count/content changes, and remove the daily due notice when no cards remain; the inbox and SRS popup therefore converge on the same live Dexie due count instead of retaining an earlier snapshot (e.g. 14 vs 1).
+- Expanded app-wide continuation reminders from real synced exam drafts. The notification checker scans `exam-reading-draft:*` and `exam-listening-draft:*`, keeps up to 8 recently edited incomplete exams (30-day window), shows Reading/Listening title when locally available, current Part and answered-question count, and links directly back to the exact exam. Submitted, empty, old or displaced drafts have their resume notice removed automatically. TypeScript and diff checks pass.
+- Audited Home `Thẻ đến hạn (due: N)` and the `current/target` value. `due: N` now uses one shared valid-due query across Home, SRS popup and Notification Center, excluding orphan SRS rows whose card/deck no longer exists (a likely cause of 14 in the inbox vs 1 selectable card). The progress numerator no longer counts every vocab mode/duplicate retry; it counts unique card IDs reviewed in actual SRS mode. “Today” now follows local timezone instead of UTC. TypeScript and diff checks pass.
+- Updated the `/app/vocab` SRS `Due now` label to use the Light theme danger token instead of a fixed yellow, improving readability on a light background.
+- Mid and Dark retain the existing yellow through the theme-scoped `--vs-due-color` token.
+- Moved the 9-mode study switcher below the active study content, so the current session information and flashcard appear first.
+- Restyled the selected-deck vocabulary list as two-column lesson cards: pale-blue word area, mint example area, black outline and offset shadow, while keeping audio/edit/delete actions.
+- Added an icon-only Save to Notebook control immediately beside the audio control on each vocabulary card; it reuses the existing idempotent notebook save flow and reflects saved state.
+- Notebook entries saved from study now show source classification: the originating deck and its Book/Unit (or deck description) as topic chips.
+- Notebook now scales to large collections with full-text search (including deck/topic), deck and topic filters, and a live visible-result count; filters collapse cleanly on mobile.
+- Restored KET A2 Listening Books 3–14 from `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening`: all 44 published entries have 25 questions, per-part audio and Part 1 pictures. The initial all-at-once command hit a session timeout; idempotent batches 01–44 completed successfully.
+- Fixed the missing-media cause: the KET publish script had used the retired public `listening-exam-media` bucket. It now uploads private media to `exam-media/catalog/listening-publish/...` and stores signed-media paths understood by the app. Re-published tests 01–44.
+- Fixed the remaining KET media display issue: `resolveListeningExam` had prioritized a stale IndexedDB import over the restored cloud entry. For the stable restored KET practice IDs, it now uses the cloud record first (with local/offline fallback), so Part 1 images and the full per-part audio load.
+- Fixed localhost playback for restored KET media: `protectedMedia` previously treated every `/catalog/*` path as a Vite public file in dev. `catalog/listening-publish/*` is now marked storage-only and always resolved through `content-sign`, including on localhost; regression test added and passing.
+- Fixed production `/app/exam` empty/filtered data for Admin/Pro: `freePlanCatalogGate` previously trusted only IndexedDB plan state, which defaults to Free on a new or unsynced browser. It now reads the authenticated Supabase profile first and uses IndexedDB only as an offline fallback. Type-check and 9 scoped tests passed; deployed production `dpl_5b6cyNgNEKr5tM8j8aKTzs4WeXja` Ready and main alias updated.
+- Fixed production showing only the 53 published KET imports: a second Free fallback still removed the bundled catalog despite the user already passing `ProOnlyRoute`. Authenticated route sessions now keep the complete metadata catalog (179 Listening + 77 Reading); RLS/content-sign continue protecting bodies, answers and media. Added a pure visibility regression seam (12/12 scoped tests), deployed `dpl_C3rC4XuKi9pAX5EfJcDoyrQF7eWZ` Ready and updated the main alias.
+- Restored KET A2 Listening Cam/Book 1 Test 1–4, Book 2 Test 1–4 and Book 3 Test 1–2 from the 10 Tainguyen ZIP bundles. Eight legacy rows were updated in place; Book 1 Test 1 and Book 3 Test 1 were added. All 10 now use private `exam-media/catalog/listening-publish/...`, each has full shared audio, 5 Part 1 images, 25 questions and a 25-answer vault (250 total).
+- Hardened `backfill-published-exam-vaults.mjs`: zero-answer published bodies now preserve existing vault files instead of overwriting them with empty vaults. Restored and re-backfilled all 44 Book 3+ practice rows afterward; 1,100 existing answers were regenerated with zero failures while the new 250-answer Cam 1–3 vaults remained intact.
+- Fixed the SRS review reminder not repeating after the selected 5-minute interval. The old fixed interval was anchored to AppShell mount, so a dismissal between ticks could delay the reminder by almost another cycle. Scheduling now starts from the actual last show/dismiss timestamp and rechecks immediately when a throttled background tab becomes active. Added deterministic timing tests (3/3), TypeScript passes, and deployed production `dpl_6wa5d9JgrkR6ryFJZ2vJSeCJcpm9` Ready with the main alias updated.
+- Security follow-up: updated `backfill-published-exam-vaults.mjs` to obtain service role from deploy PAT when needed, then backfilled all 53 Listening rows. It extracted 1,100 answer records to private vaults and stripped answer fields from published bodies (0 failures), including after the media re-publish.
+
 - User: `Upload media thất bại (.../part1-audio.mp3): new row violates row-level security policy` khi publish Listening (route `/app/exam/track/cambridge/c1/listening`).
 - Nguyên nhân: publish upload lên private bucket `exam-media` với `upsert: true`, nhưng migration 019 chỉ có admin INSERT/UPDATE/DELETE — **không có SELECT**. Storage upsert cần SELECT để pre-check / return row → RLS fail.
 - Fix: migration `023_exam_media_admin_upsert.sql` — admin-only SELECT + re-assert INSERT/UPDATE/DELETE `to authenticated` + grant execute `is_current_user_admin`. **Đã push remote** (`pnpm db:push`).
@@ -69,6 +103,8 @@
 - Migration `026_speaking_ai_deepseek.sql` đổi provider mặc định sang `deepseek`; client chỉ gửi transcript + metadata, không còn FileReader/base64/audioData.
 
 ### Next session start prompt
+
+Review/chạy migrations 031–034 trên staging, chạy `scripts/load/explain-sync.sql`, sau đó k6 bằng 1000 token staging và kiểm tra p95/error/correctness trước production. Bổ sung transaction duy nhất cho Speaking AI usage + message persistence và lịch prune tombstone/rate counters.
 
 Smoke Speaking AI bằng Chrome/Edge: permission, record 5–10s, live transcript, reply, TTS, correction, close/reopen history và quota. Safari/Firefox có thể không hỗ trợ Web Speech API đầy đủ.
 
@@ -4818,3 +4854,183 @@ dưới 50MB và upload lại đúng path.
 ### Next session start prompt
 
 Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/app/listening/:lessonId` và `/app/writing`: bảo đảm card paper/Báo có tương phản chữ tốt, không còn shape hình học ở Writing và các thao tác học/SRS/Listening vẫn hoạt động. Các thay đổi UI hiện tại đã pass `pnpm --filter web exec -- tsc --noEmit`; working tree có thay đổi UI của user/session, không reset hoặc checkout.
+## 2026-07-18 — Emergency account-suspension circuit breaker
+
+- Added migration `028_suspend_compromised_accounts.sql`: admin-only `set_user_suspension(user_id, suspended, reason)`, suspension audit fields, and an entitlement check that denies suspended users all published exams, including free demos.
+- `content-sign`, `speaking-ai`, and `notify-payment` now check `profiles.suspended_at` for every request and return `ACCOUNT_SUSPENDED` (403); this overrides a still-valid JWT. New signed URLs stop immediately; a URL issued before suspension retains its existing 60-second TTL.
+- Client converts the signed-media denial to an account-suspended message. `phase2Hardening` 4/4 and web TypeScript check PASS.
+- To suspend a user after migration: `select public.set_user_suspension((select id from public.profiles where email = '<email>'), true, 'Suspected automated crawl');`. Reverse it with `false, null`.
+## 2026-07-18 — Admin self-service account suspension
+
+- `/app/admin` now lets an administrator search a user, give an optional reason, confirm **Khóa**, and later **Mở khóa**. Admin accounts cannot be suspended from this UI.
+- The action calls the production-safe `set_user_suspension` RPC; it preserves user data, downgrades a suspended account to Free, and immediately stops new protected-content/API access through the server checks from migration 028.
+- Verify: `phase2Hardening` includes the Admin RPC regression assertion; run TypeScript check before release.
+## 2026-07-18 — Pro-only content access
+
+- All learning/content routes under `/app` now require an active Pro, Lifetime, or Admin profile. Free, Trial, and Basic users are redirected to Settings to upgrade; Settings remains accessible for account/payment management.
+- Migration `029_pro_only_content_access.sql` removes free exam demos at the database entitlement layer. `content-sign` no longer signs any media for Free/Trial/Basic; Speaking AI also rejects those plans with `PRO_REQUIRED`.
+- Production: migration 029 pushed; `content-sign` and `speaking-ai` deployed. Vercel release is still intentionally pending because the working tree contains unrelated UI changes.
+- Verify: `phase2Hardening` 6/6 PASS, `pnpm --filter web exec tsc --noEmit` PASS, and `pnpm security:check` 9/9 PASS.
+## 2026-07-18 — Flashcard radial-reveal demo
+
+- Added standalone `flashcard-radial-reveal-demo.html` for direct browser testing: origin-based radial `clip-path` reveal, 1→1.02→1 depth settle, registered gradient-angle transition, staggered phonetic/translation, landing shadow and reverse-to-original-origin behavior.
+- The demo is vanilla HTML/CSS/JS; JS only records click coordinates, toggles state classes and sequences the reverse text fade. It includes keyboard access and `prefers-reduced-motion` support.
+## 2026-07-18 — Flashcard fade-reveal demo
+
+- Added standalone `flashcard-fade-reveal-demo.html`: a reusable vanilla card factory using one `.is-flipped` state class, smooth blue→green `background-color` transition, compacted word, staggered phonetic/translation reveal and clean hint replacement/reverse behavior.
+## 2026-07-18 — SRS flashcard Fade Reveal
+
+- Replaced the SRS card's 3D `rotateY` flip with a one-class Fade Reveal: theme-token blue→green `background-color` transition, compacted source word, staggered phonetic (70ms) and translation (140ms), clean hint fade and reverse, plus reduced-motion support.
+- SRS queue, audio, keyboard flip/rating, notebook save and scheduling behavior are unchanged.
+## 2026-07-18 — SRS Fade Reveal translucent surface
+
+- Changed the blue and green Fade Reveal surfaces to 50% `color-mix(..., transparent)`, letting the study paper/grid show through while retaining theme-token colors and readable foreground text.
+## 2026-07-18 — SRS transparency fix
+
+- Removed the opaque lesson-paper frame behind the SRS Fade Reveal card. The 50% tint now composites with the visible grid/paper backdrop rather than with an opaque inner surface.
+## 2026-07-18 — SRS Fade Reveal 30% tint
+
+- Reduced both front and revealed SRS tint layers from 50% to 30% so the paper-grid backdrop remains more prominent.
+## 2026-07-18 — SRS Fade Reveal 15% tint
+
+- Reduced both SRS Fade Reveal tint layers to 15%, making the underlying paper grid the dominant surface.
+## 2026-07-18 — Translucent vocab learning modes
+
+- Applied the same 15% transparent primary-tint surface to Quiz, Guess Meaning, Listen & Type, and Speaking. Inputs/options keep their own surfaces for readability; the main exercise panels now reveal the paper grid underneath.
+## 2026-07-18 — Persistent SRS rating controls
+
+- The four SRS rating controls are now sticky/pinned below the card instead of appearing only after reveal. They stay visibly locked until the answer is revealed, preventing accidental grades.
+- Replaced bright red/orange/green/purple gradients with darker, flat theme-token status tones and softer shadows.
+## 2026-07-18 — Light SRS rating tones
+
+- Reworked the persistent SRS rating controls to simple light/pastel status surfaces (14% tint), with readable theme-text foregrounds, subtle borders and no colored shadows.
+## 2026-07-18 — Mid SRS rating tones
+
+- Increased the rating controls to mid-strength tints: 24% for Hard/Good/Easy and 28% for the Forget/danger state, with correspondingly clearer borders.
+## 2026-07-18 — Normal SRS rating saturation
+
+- Raised SRS rating button fills to normal-strength flat colors: 60% status tint (64% Forget) with stronger matching borders; no gradients or colored shadows.
+## 2026-07-18 — High SRS rating saturation
+
+- Increased SRS rating fills by another 35 percentage points: 95% for Hard/Good/Easy and 99% for Forget, producing near-solid flat status colors.
+## 2026-07-18 — SRS contrast correction
+
+- Strengthened foreground contrast on the translucent main SRS card and switched the near-solid rating buttons to a light foreground plus high-contrast secondary text, restoring readability without changing the selected color strength.
+## 2026-07-18 — Light SRS back-face contrast
+
+- Strengthened the Light-theme SRS revealed face: meaning is extra-bold primary text; source word, phonetic and example use an 88% primary foreground; IPA sits on a higher-contrast light surface.
+
+## 2026-07-18 — Light SRS badge contrast
+
+- The revealed-card topic and part-of-speech badges now use primary text with a clearer translucent paper surface and border in Light theme, so long topic names and labels such as “Tính từ” remain legible.
+
+## 2026-07-18 — SRS horizontal next-card transition
+
+- After rating a revealed SRS card, the current card now passes left and the next card enters from the right (180ms out, 240ms in). Rating, flipping and keyboard input are briefly locked during the pass to prevent duplicate actions; reduced-motion users advance without the visible slide.
+- Verify: `vocabStudyFlip.test.ts` 2/2 PASS and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Phrase-library Revise entry point
+
+- Added a **Revise** control beside the Phrases tab. It shows the due-card count for the currently selected unit type, opens the existing deck picker, and starts SRS with the selected deck while preserving that unit filter. The control is visibly disabled when nothing is due.
+- Revise is a separate card beside Phrases, with the same background, border, radius and active-state treatment as the Phrases card.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Vocabulary library outer frame removal
+
+- Removed the desktop-only hard border, rounded frame and offset shadow that enclosed the entire Vocabulary library canvas. The grid-paper background and all individual tab/deck cards remain unchanged.
+
+## 2026-07-18 — Corrected vocabulary SRS rating schedule
+
+- Replaced the old day-only scheduler with the visible learning cadence: **Quên** returns in 1 minute, **Khó** in 10 minutes, consecutive **Nhớ** ratings schedule 1 day then 4 days, and **Dễ** schedules a new card for 4 days. Later intervals still grow from ease.
+- The active SRS session now remembers the earliest 1/10-minute retry and reloads its due queue when that time arrives, so a learner does not need to leave and reopen Revise to see the card again.
+- Added regression coverage in `srsScheduling.test.ts`; SRS scheduling + Fade Reveal tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise due-state refresh and signal
+
+- The Revise-card count now reevaluates every 15 seconds as well as on Dexie data updates, fixing the stale state where a 1-minute lapse became due but the card stayed disabled because no database write occurred at that exact minute.
+- Once a matching card is due, Revise changes to the primary-tint/border state and receives a restrained motion signal; reduced-motion users get the bright state without motion.
+- Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise enabled-state consistency
+
+- Corrected an inconsistent visual state: Revise previously inherited Phrases’ selected tint even with zero due cards, while remaining disabled. Revise now brightens only when its own due count is positive, which is the same condition that enables its click action.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise review-only queue
+
+- Added the `review` SRS filter. Opening a deck from the Revise popup now loads only cards that satisfy `isSrsReviewDue`; new cards remain available from the normal Lặp lại flow and cannot enter a Revise queue.
+- The SRS title/empty state identifies this as “Ôn thẻ đến hạn”. Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Mây nhỏ đi cùng Sunny
+
+- Gắn mây nhỏ ☁️ vào Sunny ở header Tổng quan và mascot góc phải của các trang chính.
+- Light hiển thị Sunny đi cùng mây nhỏ ☁️; Mid và Dark ẩn hoàn toàn mặt trời, thay bằng mặt trăng 🌙 nhưng vẫn giữ mây nhỏ đi cùng.
+- Mây/mặt trăng nằm cùng wrapper chuyển động nên luôn theo Sunny khi nhún, dạo chơi và trốn tìm; vẫn tôn trọng `prefers-reduced-motion` và thu nhỏ trên mobile.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
+
+## 2026-07-18 — Bird companion SVG mascot set
+
+- Tạo 5 SVG thuần, nhẹ tại `apps/web/public/mascots/`: idle, happy, sad/encourage, studying/thinking và flying/loading; mọi bộ phận chính có ID ổn định để animate từ React/CSS.
+- Bird dùng thân mint, cánh xanh, bụng kem, mỏ coral và nét viền nâu-đen mảnh; flying có wing-flap loop nội bộ và tôn trọng `prefers-reduced-motion`.
+- Thêm pose rộng `bird-with-sunny.svg` cho welcome/streak và demo độc lập `apps/web/public/demo/bird-mascot-states.html`; demo hiện các state cạnh nhau, happy bounce và flying flap hoạt động.
+- Bird SVG được giữ làm asset/demo tham khảo nhưng đã gỡ khỏi UI theo yêu cầu; app dùng Sunny + mây ☁️ ở Light, mặt trăng 🌙 + mây ☁️ ở Mid/Dark.
+
+## 2026-07-18 — Audit local-first cho tải 1000 user đồng thời
+
+- Audit read-only xác nhận `syncBidirectional`, `exam_progress` và `checkin_days` đang full-pull, không cursor/pagination; `supabase/config.toml` giới hạn `max_rows = 1000`, tạo rủi ro cắt dữ liệu im lặng cho user lớn.
+- Push chính đã batch/chunk; sync chạy khi login, online và mỗi 5 phút nhưng chưa có jitter/backoff. LWW vẫn dùng timestamp từ clock client trong khi một số bảng có trigger server `updated_at`, dẫn tới semantics không nhất quán.
+- Index user+updated_at đã có cho decks/cards/writing/mindmaps/exam_progress; thiếu đáng chú ý: `srs(user_id, updated_at)`, `content_access_log(ip, created_at)` và `payment_requests(user_id)`; Dexie thiếu compound `[deckId+dueAt]`, reviewLog mode index và audio cache quota/LRU metadata.
+- RLS own-row dùng `auth.uid()` trực tiếp và thường thiếu `to authenticated`; các helper admin/entitlement được gọi theo row, cần init-plan wrapper `(select ...)`. `speaking_messages` EXISTS có PK/index hỗ trợ nhưng vẫn cần EXPLAIN trên production data.
+- Runtime browser/Edge dùng Supabase HTTP Data API, không mở Postgres connection trực tiếp. Chuỗi tooling hiện có là Supavisor session port 5432; nếu sau này có serverless native Postgres client thì dùng transaction pooler 6543.
+- Chưa chạy EXPLAIN/load test production vì audit không được cấp phép tạo tải; cần migration incremental-sync + indexes trước, sau đó k6 bằng token riêng và SQL `EXPLAIN (ANALYZE, BUFFERS)` trên dữ liệu đại diện.
+## 2026-07-18 — Listening Practice event-driven input state
+
+- Chrome DevTools production baseline for `/`: LCP 544 ms, CLS 0.00, TTFB 35 ms; render-blocking CSS/font insight reported no estimated savings, so no speculative landing-page change was made.
+- Removed the 200 ms DOM polling loop from Listening Practice Boxes/Cloze. `BlankInputMode` now reports whether it contains input directly from its input event, preserving the Check-button behavior while eliminating five background DOM scans per second.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+## 2026-07-18 — Production web release v0.2.7
+
+- Bumped `apps/web` from v0.2.6 to v0.2.7 and deployed the current frontend snapshot to Vercel production without pushing the still-staging migrations 031–034.
+- Verify: `pnpm security:check` 9/9 PASS; local production build PASS (2,271 modules) and private media strip PASS; Vercel deployment `dpl_5mNFZgicB1SxPZwmxL3XSRByD1bF` reached READY.
+- Production alias `https://ryanenglishv2.vercel.app` updated to `ryanenglishv2-abwldfjbc-ryanenglish.vercel.app`. Chrome smoke: HTTP 200, landing rendered, zero console warnings/errors.
+## 2026-07-18 — Import YouTube URL vào Shadowing v0.2.8
+
+- `/app/shadowing` có form dán URL YouTube; hỗ trợ watch, youtu.be, Shorts, embed, live URL và video ID. Backend tự chọn caption tiếng Anh thủ công trước, fallback auto-generated, chuẩn hóa timestamp rồi mở ngay lesson với player/tua câu/tốc độ/ghi âm/chấm nói/dictation/quiz hiện có.
+- Thêm Edge Function `youtube-captions`: auth + Pro/Lifetime/Admin + suspension check, URL/video validation, 15s timeout, giới hạn video 2 giờ/2.000 cue, lỗi rõ cho private/live/no-caption/YouTube upstream. Không dùng API key/OAuth ở client.
+- Custom lesson cache local tối đa 20 video. Video phải public, cho phép embed và có caption tiếng Anh; caption của video bất kỳ không dùng được YouTube Data API chính thức vì captions list/download yêu cầu OAuth/quyền liên quan video.
+- Verify: URL parser 9/9 PASS; web TypeScript PASS; security 9/9 PASS; production build PASS (2.272 modules). Edge Function deployed to project `ntcagvtkwxwsmlxlumfo`.
+- Production web v0.2.8 deployment `dpl_9dkZRMmbRxWN9Edu7NNmZdHL2tAZ` READY and aliased to `https://ryanenglishv2.vercel.app`. Logged-out smoke confirms protected route redirects to login; authenticated end-to-end paste still needs a signed-in Pro smoke.
+
+## 2026-07-18 — Fix YouTube caption fetch bị chặn trên Supabase Edge
+
+- Tái hiện với video `_CwYFdjj63s`: URL/parser đúng và desktop request ngoài Edge trả HTTP 200, nhưng production báo `VIDEO_UNAVAILABLE` ngay tại request trang watch; nguyên nhân là nhánh cũ không có fallback và che mọi upstream non-2xx thành 404 chung.
+- `youtube-captions` nay thử `www.youtube.com/watch` trước rồi fallback sang `m.youtube.com/watch` với mobile User-Agent. Mobile watch đã được xác minh trả `ytInitialPlayerResponse` và `captionTracks` cho chính video lỗi.
+- Khi cả hai nguồn thất bại, function trả `YOUTUBE_BLOCKED` 502 và log chuỗi nguồn/status (`desktop:403`, `mobile:429`, v.v.) thay vì báo sai rằng video không tồn tại.
+- Regression test `youtubeCaptionsFallback.test.ts` 2/2 PASS; web TypeScript PASS; security release check 9/9 PASS; diff check PASS.
+- Edge Function `youtube-captions` đã deploy production lên project `ntcagvtkwxwsmlxlumfo`. Cần người dùng Pro dán lại đúng URL để smoke authenticated end-to-end; không cần redeploy frontend.
+
+### Follow-up — Supabase và Vercel đều bị bot checkpoint
+
+- Authenticated production retry xác nhận cả desktop/mobile YouTube watch đều bị chặn từ Supabase, trả `YOUTUBE_BLOCKED`.
+- Thêm Vercel Function nội bộ `/api/youtube-captions-relay`, chỉ nhận video ID hợp lệ, bảo vệ bằng `YOUTUBE_CAPTIONS_RELAY_SECRET`, giới hạn caption 5 MB và không nhận URL tùy ý. Relay tests + fallback tests 4/4 PASS; TypeScript PASS.
+- Secret relay yếu do PowerShell API không tương thích ở lần deploy đầu đã được xoay ngay bằng `RandomNumberGenerator.Create().GetBytes`; Vercel production deployment mới `dpl_BymHVAFqGL8iTe4NUMDSJ7nUZ9RJ` READY và Supabase secret/function đã redeploy.
+- Blocker hiện tại: Vercel Security Checkpoint trả 429 trước khi request tới Function; `vercel curl` cũng không tự bypass vì project chưa tạo Protection Bypass for Automation. Không tắt firewall.
+- Code Edge đã chuẩn bị header `x-vercel-protection-bypass` từ secret `VERCEL_AUTOMATION_BYPASS_SECRET`. User cần vào Vercel Project → Settings → Deployment Protection → Protection Bypass for Automation, tạo token; đặt cùng giá trị vào Supabase Edge Function secret `VERCEL_AUTOMATION_BYPASS_SECRET`, rồi retry/deploy-smoke.
+- User đã tạo automation bypass và Supabase secret, sau đó rotate vì token cũ lộ trong ảnh. Usage screenshot xác nhận quota không vượt (409 MB/100 GB, 28K/1M Edge Requests, CPU 4s/1h); nhận định quota là blocker đã được rút lại.
+- Redeploy production sau khi rotate token để deployment nhận bypass mới: `dpl_53GcojXeKPY8LfXgwSBC2K3VnbrW` READY, alias chính đã cập nhật. `vercel curl` của CLI 54 vẫn bị Security Checkpoint và không có Function log, nên cần retry authenticated từ app để xác nhận Edge dùng secret Supabase trực tiếp; CLI automation lookup không phải bằng chứng secret Supabase sai.
+## 2026-07-18 — Mặt trời TID cho Exam Hub
+
+- Thay minh họa lớn trong hero `/app/exam` bằng đúng hai lớp SVG thân/khuôn mặt được trích từ `https://theieltsdictionary.com/about-tid`; mascot dạo chơi toàn app không đổi.
+- Giữ interaction gốc: thân mặt trời quay 9 độ mỗi 0,5 giây, khuôn mặt đứng yên; responsive và tôn trọng reduced-motion.
+- Hai mắt được tách khỏi SVG mặt, giữ đúng tọa độ/hình dáng gốc và liếc trái–phải theo nhịp 4,8 giây; reduced-motion giữ mắt đứng yên.
+- Thu mặt trời desktop từ 29rem xuống 27rem và dịch sang phải 2,5rem để không overlap tiêu đề Luyện thi; mobile giữ trong viewport.
+- Asset public: `apps/web/public/mascots/tid/sun-body.svg` và `sun-face.svg`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
+## 2026-07-18 — Fix màn hình trắng sau submit Listening import
+
+- Chẩn đoán route `listening-import-ket-a2-practice-12`: màn kết quả gọi `.toUpperCase()` trực tiếp trên option ID của dữ liệu import, nên option thiếu ID/ID không phải chuỗi làm React crash và vùng Exam trắng.
+- Chuẩn hóa ID về string; nếu thiếu thì fallback A/B/C theo index. Luồng format đáp án nhiều lựa chọn cũng không còn gọi `.toUpperCase()` trên giá trị không chuẩn.
+- Regression test tái hiện lỗi trước fix và bao phủ cả ID thiếu lẫn ID dạng số.
+- Hardening tiếp sau khi Practice 12 vẫn trắng: loại bỏ `.toUpperCase()` trực tiếp còn sót ở AI source và chuẩn hóa `question.answer`/`userAnswer`; câu thiếu answer key giờ trả sai an toàn thay vì gọi `.trim()` trên `undefined` làm crash toàn báo cáo.
+- Root cause điểm 0/25 và review không có đáp án: localhost coi `catalog/exams/**/*.answers.json` là Vite public asset, trong khi vault của đề restored/published chỉ tồn tại ở private Supabase Storage. `mustUseSignedMedia` giờ luôn ký answer vault trên cả dev và production; regression security test bao phủ Listening/Reading.
+- Harden toàn bộ Luyện thi: Reading result dùng formatter option an toàn như Listening; normalize answer/option/headings chịu được dữ liệu import thiếu/sai kiểu. Cả Reading và Listening không còn chấm 0 giả khi vault lỗi—hiện màn báo tải đáp án thất bại và nút thử lại thay vì render report/review thiếu answer key.
+- Fix tiếp “Xem cùng đề bài” hiện `Đáp án đúng: —`: màn báo cáo đã dùng exam được merge answer vault nhưng khi chuyển về paper, component cha vẫn giữ DTO cũ đã strip đáp án. `promoteHydratedExamForReview` nay đồng bộ snapshot đã hydrate về DTO mà paper đang render trước khi bật review mode, áp dụng chung cho Listening và Reading. Regression test 1/1; toàn bộ test liên quan 8/8, TypeScript và diff check PASS.

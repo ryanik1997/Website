@@ -107,7 +107,7 @@ export default function SpeakingMode({
     const ok = isPhraseCorrect(transcript, target)
     const rating = scoreToRating(ok, transcript, target)
     const next = nextSrs(current.srs, rating)
-    await db.srs.put({ ...next, cardId: current.srs.cardId, deckId: current.srs.deckId })
+    await db.srs.put({ ...next, cardId: current.srs.cardId, deckId: current.srs.deckId, updatedAt: Date.now() })
     await db.reviewLog.add({
       cardId: current.srs.cardId,
       rating,
@@ -179,8 +179,8 @@ export default function SpeakingMode({
       </div>
 
       <div
-        className="rounded-2xl border p-6 mx-auto max-w-lg"
-        style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+        className="vs-speaking-card rounded-2xl border p-6 mx-auto max-w-lg"
+        style={{ borderColor: 'var(--border-color)' }}
       >
         <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--color-primary)' }}>
           Target phrase

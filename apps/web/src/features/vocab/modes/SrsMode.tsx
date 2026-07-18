@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, type MouseEvent } from 'react'
 import { Headphones, RefreshCw, Check, FlipHorizontal2, Sparkles } from 'lucide-react'
-import { nextSrs } from '@ryan/core'
+import { isSrsReviewDue, nextSrs } from '@ryan/core'
 import { db } from '@ryan/db'
 import type { Card, Deck, Srs } from '@ryan/db'
 import { useDictStore } from '../../dictionary/dictStore'
@@ -34,9 +34,12 @@ export default function SrsMode({
   const [queue, setQueue] = useState<StudyCard[]>([])
   const [idx, setIdx] = useState(0)
   const [flipped, setFlipped] = useState(false)
+  const [cardTransition, setCardTransition] = useState<'idle' | 'exit' | 'enter'>('idle')
+  const [nextRetryAt, setNextRetryAt] = useState<number | null>(null)
   const [stats, setStats] = useState({ again: 0, hard: 0, good: 0, easy: 0 })
   const [loaded, setLoaded] = useState(false)
   const sessionSnapshotRef = useRef<StudyCard[]>([])
+  const cardTransitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const openDict = useDictStore(s => s.open)
   const studyFilter = useVocabStore(s => s.studyFilter)
   const unitKind = useVocabStore(s => s.unitKind)
@@ -73,6 +76,7 @@ export default function SrsMode({
       .where('deckId').equals(deckId)
       .filter(s => {
         if (studyFilter === 'weak') return isWeakWord(s)
+        if (studyFilter === 'review') return isSrsReviewDue(s)
         return s.dueAt <= Date.now()
       })
       .limit(80)
@@ -96,6 +100,16 @@ export default function SrsMode({
 
   useEffect(() => { void load('due') }, [load])
 
+  useEffect(() => {
+    if (nextRetryAt === null) return
+    const wait = Math.max(0, nextRetryAt - Date.now())
+    const timer = window.setTimeout(() => {
+      setNextRetryAt(null)
+      void load('due')
+    }, wait)
+    return () => window.clearTimeout(timer)
+  }, [nextRetryAt, load])
+
   const replaySession = useCallback(async () => {
     const snap = sessionSnapshotRef.current
     if (snap.length > 0) {
@@ -115,28 +129,47 @@ export default function SrsMode({
       setIdx(0)
       setFlipped(false)
       setStats({ again: 0, hard: 0, good: 0, easy: 0 })
+      setNextRetryAt(null)
       return
     }
     setStats({ again: 0, hard: 0, good: 0, easy: 0 })
+    setNextRetryAt(null)
     await load('practice')
   }, [load])
 
+  useEffect(() => () => {
+    if (cardTransitionTimerRef.current) clearTimeout(cardTransitionTimerRef.current)
+  }, [])
+
   const rate = useCallback(async (r: Rating) => {
+    if (cardTransition !== 'idle') return
     const { srs } = queue[idx]
     const next = nextSrs(srs, r)
-    await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId })
+    await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId, updatedAt: Date.now() })
     await db.reviewLog.add({ cardId: srs.cardId, rating: r, mode: 'srs', at: Date.now() })
     const key = r === 1 ? 'again' : r === 2 ? 'hard' : r === 3 ? 'good' : 'easy'
     setStats(s => ({ ...s, [key]: s[key] + 1 }))
-    setFlipped(false)
-    setIdx(i => i + 1)
-  }, [queue, idx])
+    if (r === 1 || r === 2) {
+      setNextRetryAt(current => current === null ? next.dueAt : Math.min(current, next.dueAt))
+    }
+    const motionReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    const exitDuration = motionReduced ? 0 : 180
+
+    setCardTransition('exit')
+    cardTransitionTimerRef.current = setTimeout(() => {
+      setFlipped(false)
+      setIdx(i => i + 1)
+      setCardTransition('enter')
+      cardTransitionTimerRef.current = setTimeout(() => setCardTransition('idle'), motionReduced ? 0 : 240)
+    }, exitDuration)
+  }, [cardTransition, queue, idx])
 
   const doFlip = useCallback(() => {
+    if (cardTransition !== 'idle') return
     const phrase = queue[idx]?.card.phrase ?? ''
     if (phrase) void speakPhrase(phrase)
     setFlipped(f => !f)
-  }, [queue, idx])
+  }, [cardTransition, queue, idx])
 
   const onCardClick = useCallback((e: MouseEvent) => {
     const target = e.target as HTMLElement
@@ -177,6 +210,8 @@ export default function SrsMode({
           <p>
             {studyFilter === 'weak'
               ? 'Không còn từ yếu cần ôn trong bộ này.'
+              : studyFilter === 'review'
+                ? 'Không còn thẻ đến hạn trong bộ này.'
               : 'Không có thẻ nào cần ôn hôm nay.'}
           </p>
           <StudyDoneActions onDone={onDone} onRestart={() => void replaySession()} />
@@ -210,7 +245,7 @@ export default function SrsMode({
         <div className="vs-session-left">
           <div className="vs-session-counter font-mono">{idx}/{queue.length}</div>
           <div className="vs-session-info">
-            <h3>{studyFilter === 'weak' ? 'Ôn từ yếu (SRS)' : 'Lặp lại ngắt quãng'}</h3>
+            <h3>{studyFilter === 'weak' ? 'Ôn từ yếu (SRS)' : studyFilter === 'review' ? 'Ôn thẻ đến hạn' : 'Lặp lại ngắt quãng'}</h3>
             <div className="vs-session-meta">
               <span>Còn <b>{queue.length - idx}</b> thẻ trong phiên</span>
               <span className="dot" />
@@ -235,7 +270,7 @@ export default function SrsMode({
       <div className="vs-main">
         <div className="vs-wrap">
           <div
-            className="vs-flip-scene"
+            className={`vs-flip-scene${cardTransition === 'exit' ? ' is-card-exiting' : ''}${cardTransition === 'enter' ? ' is-card-entering' : ''}`}
             onClick={onCardClick}
             style={{ cursor: 'pointer' }}
           >
@@ -283,6 +318,10 @@ export default function SrsMode({
                 </div>
                 <div className="vs-card-body" style={{ userSelect: 'text' }}>
                   <p className="vs-card-lang">Tiếng Việt</p>
+                  <p className="vs-fade-word">{card.phrase}</p>
+                  {(card.ipaUS || card.ipaUK) && (
+                    <p className="vs-fade-phonetic">/{card.ipaUS || card.ipaUK}/</p>
+                  )}
                   <h1 className="vs-card-meaning">{card.meaning}</h1>
                   {(card.ipaUS || card.ipaUK) && (
                     <div className="vs-card-ipa">
@@ -349,10 +388,16 @@ export default function SrsMode({
             </button>
           </div>
 
-          {flipped && (
-            <div className="vs-rating-row">
+          <div className={`vs-rating-row${flipped ? '' : ' is-locked'}`} aria-label="Chọn mức độ ghi nhớ">
               {RATINGS.map(({ r, label, time, cls }) => (
-                <button key={r} type="button" className={`vs-rating-btn ${cls}`} onClick={() => rate(r)}>
+                <button
+                  key={r}
+                  type="button"
+                  className={`vs-rating-btn ${cls}`}
+                  onClick={() => rate(r)}
+                  disabled={!flipped || cardTransition !== 'idle'}
+                  title={flipped ? `${label}: ${time}` : 'Lật thẻ để chọn mức độ ghi nhớ'}
+                >
                   <span className="vs-rating-num">{r}</span>
                   <span className="vs-rating-text">
                     <span className="vs-rating-label">{label}</span>
@@ -360,8 +405,7 @@ export default function SrsMode({
                   </span>
                 </button>
               ))}
-            </div>
-          )}
+          </div>
 
           <div className="vs-kb-footer">
             <span className="vs-kb-key">Space</span> lật thẻ &nbsp;·&nbsp;

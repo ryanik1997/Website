@@ -1,6 +1,6 @@
 /**
  * Publish KET A2 practice Listening (Import_KET_A2_Listening) → Supabase:
- *   - Storage bucket `listening-exam-media`
+ *   - Private Storage bucket `exam-media` (signed by content-sign)
  *   - Table `listening_exam_published`
  *
  * So mọi user thấy đề trong Luyện thi (không cần import ZIP tay).
@@ -29,7 +29,8 @@ const { createClient } = require(supabaseJsPath)
 const DEFAULT_IMPORT_ROOT = 'D:\\App-English-Ryan\\Crawl\\Import_KET_A2_Listening'
 const IMPORT_ROOT = process.env.KET_IMPORT_ROOT || DEFAULT_IMPORT_ROOT
 const PROJECT_REF = 'ntcagvtkwxwsmlxlumfo'
-const BUCKET = 'listening-exam-media'
+const BUCKET = 'exam-media'
+const STORAGE_PREFIX = 'catalog/listening-publish'
 const SUPABASE_URL =
   process.env.VITE_SUPABASE_URL ||
   process.env.SUPABASE_URL ||
@@ -122,14 +123,13 @@ async function getServiceRoleKey() {
 
 async function uploadFile(supabase, examId, storageName, localPath) {
   const buf = readFileSync(localPath)
-  const storagePath = `${examId}/${storageName}`
+  const storagePath = `${STORAGE_PREFIX}/${examId}/${storageName}`
   const { error } = await supabase.storage.from(BUCKET).upload(storagePath, buf, {
     upsert: true,
     contentType: contentType(storageName),
   })
   if (error) throw new Error(`upload ${storagePath}: ${error.message}`)
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(storagePath)
-  return data.publicUrl
+  return `/${storagePath}`
 }
 
 function buildExamFromFolder(testNum, examJson, mediaUrls) {

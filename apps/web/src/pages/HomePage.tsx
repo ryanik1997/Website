@@ -91,6 +91,8 @@ export default function HomePage() {
               </div>
               <div className="home-sun-mascot__float">
                 <SunnyMascotSvg className="home-sun-mascot__sun" />
+                <span className="home-sun-mascot__cloud">☁️</span>
+                <span className="home-sun-mascot__moon">🌙</span>
               </div>
             </div>
             <CheckInButton compact />

@@ -30,6 +30,7 @@ interface Props {
   locked: boolean
   checked: boolean
   showLiveDiff?: boolean
+  onContentChange?: (hasContent: boolean) => void
   /** Gọi khi toàn bộ câu đã đúng (dùng với Hiện kết quả ngay → tự Kiểm tra) */
   onAllCorrect?: () => void
 }
@@ -69,6 +70,7 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
     locked,
     checked,
     showLiveDiff = false,
+    onContentChange,
     onAllCorrect,
   },
   ref,
@@ -93,6 +95,7 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
   const blankCountRef = useRef(blankCount)
   const sentenceTextRef = useRef(sentenceText)
   const onAllCorrectRef = useRef(onAllCorrect)
+  const onContentChangeRef = useRef(onContentChange)
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   wordsRef.current = words
@@ -103,6 +106,7 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
   blankCountRef.current = blankCount
   sentenceTextRef.current = sentenceText
   onAllCorrectRef.current = onAllCorrect
+  onContentChangeRef.current = onContentChange
 
   const [liveDraft, setLiveDraft] = useState('')
   const diffTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -198,6 +202,9 @@ const BlankInputMode = forwardRef<BlankInputHandle, Props>(function BlankInputMo
         clearAdvanceTimer()
         applyInputStatus(input, input.value, word)
         emitLiveDraft(wrap)
+        onContentChangeRef.current?.(
+          readValues(wrap, blankCountRef.current).some(value => value.trim().length > 0),
+        )
 
         const val = input.value.trim()
         if (val && normalizeWord(val) === normalizeWord(word)) {

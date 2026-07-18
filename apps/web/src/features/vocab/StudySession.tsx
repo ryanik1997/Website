@@ -61,7 +61,6 @@ export default function StudySession() {
   return (
     <div className="vocab-study-shell absolute inset-0 z-40 flex flex-col overflow-hidden">
       <DeckStatBar deck={deck} stats={stats} onExit={stopStudy} />
-      <StudyModeTabs active={studyMode} onChange={startStudy} />
       <div className="flex-1 overflow-y-auto">
         {studyMode === 'srs' && (
           <SrsMode key={`srs-${activeDeckId}`} deckId={activeDeckId} deck={deck} onDone={stopStudy} />
@@ -90,6 +89,7 @@ export default function StudySession() {
         {studyMode === 'notebook' && (
           <NotebookMode key={`notebook-${activeDeckId}`} />
         )}
+        <StudyModeTabs active={studyMode} onChange={startStudy} />
       </div>
     </div>
   )

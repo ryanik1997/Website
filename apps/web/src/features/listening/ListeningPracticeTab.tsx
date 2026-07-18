@@ -156,17 +156,6 @@ export default function ListeningPracticeTab({
     return () => clearAutoAdvance()
   }, [clearAutoAdvance])
 
-  const syncBlankCanCheck = useCallback(() => {
-    const has = blankRef.current?.hasContent() ?? false
-    setBlankCanCheck(prev => (prev === has ? prev : has))
-  }, [])
-
-  useEffect(() => {
-    if (mode !== 'boxes' && mode !== 'cloze') return
-    const id = window.setInterval(syncBlankCanCheck, 200)
-    return () => window.clearInterval(id)
-  }, [mode, blankResetKey, syncBlankCanCheck])
-
   const saveSrsAndAdvance = useCallback(async (skip = false) => {
     if (!skip && phase === 'result') {
       const rating = ratingFromAccuracy(pct)
@@ -453,6 +442,7 @@ export default function ListeningPracticeTab({
               locked={inputsLocked}
               checked={phase === 'result'}
               showLiveDiff={showResultImmediately && phase === 'listen'}
+              onContentChange={setBlankCanCheck}
               onAllCorrect={phase === 'listen' ? check : undefined}
             />
           )}

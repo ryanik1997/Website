@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ProtectedRoute from './features/auth/ProtectedRoute'
+import ProOnlyRoute from './features/auth/ProOnlyRoute'
 import PageFallback from './components/PageFallback'
 import TextSelectionToolbar from './components/TextSelectionToolbar'
 
@@ -100,6 +101,9 @@ export default function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="settings"  element={<SettingsPage />} />
+          <Route path="admin"     element={<AdminPage />} />
+          <Route element={<ProOnlyRoute />}>
           <Route index element={<Navigate to="/app/home" replace />} />
           <Route path="home"      element={<HomePage />} />
           <Route path="vocab"     element={<VocabularyPage />} />
@@ -148,8 +152,7 @@ export default function App() {
           <Route path="sentence-structure" element={<SentenceStructureListPage />} />
           <Route path="sentence-structure/history" element={<SentenceStructureHistoryPage />} />
           <Route path="sentence-structure/:structureId" element={<SentenceStructurePracticePage />} />
-          <Route path="settings"  element={<SettingsPage />} />
-          <Route path="admin"     element={<AdminPage />} />
+          </Route>
         </Route>
 
         {/* OAuth hash lạ (#access_token=...) — tránh màn trống */}

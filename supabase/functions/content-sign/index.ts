@@ -13,10 +13,8 @@ const corsHeaders = {
 
 const BUCKET = 'exam-media'
 const SIGN_TTL_SEC = 60
-const RATE_WINDOW_MS = 60_000
 const RATE_MAX_USER = 45
 const RATE_MAX_IP = 120
-const DAILY_WINDOW_MS = 24 * 60 * 60 * 1000
 const RATE_MAX_DAILY_USER = 400
 const ALERT_DAILY_USER = 300
 
@@ -114,8 +112,8 @@ function planActive(plan: string | null | undefined, expiresAt: string | null | 
   return p
 }
 
-function isPaid(plan: Plan): boolean {
-  return plan === 'trial' || plan === 'basic' || plan === 'pro' || plan === 'lifetime'
+function hasProAccess(plan: Plan): boolean {
+  return plan === 'pro' || plan === 'lifetime'
 }
 
 function freeAllowed(path: string): boolean {
@@ -154,6 +152,7 @@ async function sendSecurityAlertEmail(opts: {
   const adminLink = `${appOrigin}/app/admin?search=${encodeURIComponent(opts.email)}`
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
+    signal: AbortSignal.timeout(8_000),
     headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: 'Ryan English Security <onboarding@resend.dev>',
@@ -219,12 +218,17 @@ Deno.serve(async (req) => {
 
   const { data: profile } = await adminClient
     .from('profiles')
-    .select('plan, plan_expires_at, is_admin')
+    .select('plan, plan_expires_at, is_admin, suspended_at')
     .eq('id', user.id)
     .maybeSingle()
 
   const plan = planActive(profile?.plan, profile?.plan_expires_at)
   const isAdmin = profile?.is_admin === true
+
+  // Checked per request: a suspension takes effect even while an old JWT exists.
+  if (profile?.suspended_at) {
+    return jsonResponse({ error: 'Account suspended', code: 'ACCOUNT_SUSPENDED' }, 403)
+  }
 
   if (!isAdmin && ADMIN_ONLY_PREFIXES.some(prefix => path.startsWith(prefix))) {
     return jsonResponse({
@@ -233,7 +237,7 @@ Deno.serve(async (req) => {
     }, 403)
   }
 
-  if (!isAdmin && !isPaid(plan) && !freeAllowed(path)) {
+  if (!isAdmin && !hasProAccess(plan)) {
     return jsonResponse({
       error: 'Forbidden — upgrade plan to access this content',
       code: 'PLAN_REQUIRED',
@@ -241,41 +245,37 @@ Deno.serve(async (req) => {
     }, 403)
   }
 
-  const since = new Date(Date.now() - RATE_WINDOW_MS).toISOString()
   const ip = clientIp(req)
-
-  const { count: userCount } = await adminClient
-    .from('content_access_log')
-    .select('id', { count: 'exact', head: true })
-    .eq('user_id', user.id)
-    .gte('created_at', since)
-
-  if ((userCount ?? 0) >= RATE_MAX_USER) {
-    return jsonResponse({ error: 'Rate limit exceeded', code: 'RATE_LIMIT' }, 429)
+  const { data: rateRows, error: rateError } = await adminClient.rpc('claim_content_rate_limit', {
+    target_user_id: user.id,
+    target_ip: ip,
+    hourly_user_limit: RATE_MAX_USER,
+    hourly_ip_limit: RATE_MAX_IP,
+    daily_user_limit: RATE_MAX_DAILY_USER,
+  })
+  if (rateError) {
+    console.error('[content-sign] rate claim failed', rateError.message)
+    return jsonResponse({ error: 'Rate limiter unavailable', code: 'RATE_LIMIT_ERROR' }, 503)
   }
-
-  if (ip) {
-    const { count: ipCount } = await adminClient
-      .from('content_access_log')
-      .select('id', { count: 'exact', head: true })
-      .eq('ip', ip)
-      .gte('created_at', since)
-    if ((ipCount ?? 0) >= RATE_MAX_IP) {
-      return jsonResponse({ error: 'Rate limit exceeded (IP)', code: 'RATE_LIMIT_IP' }, 429)
+  const rate = Array.isArray(rateRows) ? rateRows[0] : rateRows
+  if (!rate?.allowed) {
+    if (rate?.denial_code === 'RATE_LIMIT_DAILY') {
+      return jsonResponse({
+        error: 'Daily content access quota exceeded',
+        code: 'RATE_LIMIT_DAILY',
+        retryAfterSec: 3600,
+      }, 429)
     }
-  }
-
-  const dailySince = new Date(Date.now() - DAILY_WINDOW_MS).toISOString()
-  const { count: dailyUserCount } = await adminClient
-    .from('content_access_log')
-    .select('id', { count: 'exact', head: true })
-    .eq('user_id', user.id)
-    .gte('created_at', dailySince)
-
-  if ((dailyUserCount ?? 0) >= RATE_MAX_DAILY_USER) {
+    if (rate?.denial_code === 'RATE_LIMIT_IP') {
+      return jsonResponse({
+        error: 'Content access rate limit exceeded (IP)',
+        code: 'RATE_LIMIT_IP',
+        retryAfterSec: 3600,
+      }, 429)
+    }
     return jsonResponse({
-      error: 'Daily content access quota exceeded',
-      code: 'RATE_LIMIT_DAILY',
+      error: 'Content access rate limit exceeded',
+      code: 'RATE_LIMIT',
       retryAfterSec: 3600,
     }, 429)
   }
@@ -302,7 +302,7 @@ Deno.serve(async (req) => {
     user_agent: ua,
   })
 
-  const nextDailyCount = (dailyUserCount ?? 0) + 1
+  const nextDailyCount = Number(rate.user_day_count ?? 1)
   if (nextDailyCount >= ALERT_DAILY_USER) {
     const metadata = { threshold: ALERT_DAILY_USER, lastPath: path, plan, ip }
     const { data: emailClaimed, error: claimError } = await adminClient.rpc(

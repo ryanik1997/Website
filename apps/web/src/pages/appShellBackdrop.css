@@ -90,12 +90,50 @@
   animation: app-corner-sun-bob 5.2s cubic-bezier(.37, 0, .63, 1) infinite;
 }
 
+.app-corner-sun__companions {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  animation: app-corner-sun-hide-seek 18s cubic-bezier(.45, .05, .55, .95) 30s infinite;
+}
+
 .app-corner-sun__mascot {
   display: block;
   width: 4rem;
   height: 4rem;
   filter: drop-shadow(0 .5rem .875rem color-mix(in srgb, var(--text-primary) 16%, transparent));
-  animation: app-corner-sun-hide-seek 18s cubic-bezier(.45, .05, .55, .95) 30s infinite;
+}
+
+.app-corner-sun__cloud,
+.app-corner-sun__moon {
+  position: absolute;
+  left: -.6rem;
+  bottom: -.15rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: drop-shadow(0 .2rem .25rem color-mix(in srgb, var(--text-primary) 18%, transparent));
+  transform: rotate(-7deg);
+}
+
+.app-corner-sun__moon {
+  display: none;
+}
+
+
+[data-theme="mid"] .app-corner-sun__mascot,
+[data-theme="dark"] .app-corner-sun__mascot {
+  display: none;
+}
+
+[data-theme="mid"] .app-corner-sun__moon,
+[data-theme="dark"] .app-corner-sun__moon {
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  font-size: 3.25rem;
+  text-align: center;
+  transform: none;
 }
 
 /* Shared primary-card surface: the bold outlined language from Reading Corner / Báo. */
@@ -271,7 +309,7 @@
 @media (prefers-reduced-motion: reduce) {
 .app-shell__ribbon,
   .app-corner-sun,
-  .app-corner-sun__mascot {
+  .app-corner-sun__companions {
     animation: none;
   }
 }

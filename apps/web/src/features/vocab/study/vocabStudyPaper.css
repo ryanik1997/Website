@@ -111,3 +111,76 @@
   .vocab-study-shell .vs-modebar { grid-template-columns: 1fr; }
   .vocab-study-shell .vs-mode-tab { min-height: 50px; }
 }
+
+/* Let the Fade Reveal parent own the blue-to-green surface in lesson-paper mode. */
+.vocab-study-shell .vs-flip-face,
+.vocab-study-shell .vs-flip-face-back {
+  background: transparent;
+  background-image: none;
+}
+
+/* The former paper-colour frame was opaque, so it prevented the 50% card tint
+   from ever blending with the visible grid behind the SRS card. */
+.vocab-study-shell .vs-flip-scene {
+  background: transparent;
+}
+
+/* Transparent SRS surfaces need an explicit high-contrast foreground. */
+.vocab-study-shell .vs-flip-face .vs-card-word,
+.vocab-study-shell .vs-flip-face .vs-card-meaning,
+.vocab-study-shell .vs-fade-word {
+  color: var(--text-primary);
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--bg-card) 72%, transparent);
+}
+
+.vocab-study-shell .vs-flip-face .vs-card-lang,
+.vocab-study-shell .vs-fade-phonetic,
+.vocab-study-shell .vs-flip-face .vs-card-example p,
+.vocab-study-shell .vs-flip-face .vs-flip-hint {
+  color: color-mix(in srgb, var(--text-primary) 82%, var(--bg-card));
+}
+
+/* Light theme: the revealed side needs stronger contrast over its 15% green tint. */
+:root .vocab-study-shell .vs-flip-face-back .vs-card-meaning,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-card-meaning {
+  color: var(--text-primary);
+  font-weight: 900;
+}
+
+:root .vocab-study-shell .vs-flip-face-back .vs-fade-word,
+:root .vocab-study-shell .vs-flip-face-back .vs-fade-phonetic,
+:root .vocab-study-shell .vs-flip-face-back .vs-card-example p,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-fade-word,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-fade-phonetic,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-card-example p {
+  color: color-mix(in srgb, var(--text-primary) 88%, var(--bg-card));
+}
+
+:root .vocab-study-shell .vs-flip-face-back .vs-card-ipa,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-card-ipa {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-card) 82%, transparent);
+  border-color: color-mix(in srgb, var(--text-primary) 34%, var(--border-color));
+}
+
+/* The topic and part-of-speech chips sit on the translucent answer surface. */
+:root .vocab-study-shell .vs-flip-face-back .vs-tag-topic,
+:root .vocab-study-shell .vs-flip-face-back .vs-tag-reviewed,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-tag-topic,
+[data-theme="light"] .vocab-study-shell .vs-flip-face-back .vs-tag-reviewed {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-card) 86%, transparent);
+  border-color: color-mix(in srgb, var(--text-primary) 38%, var(--border-color));
+}
+
+/* Shared translucent learning surfaces: Quiz, Guess Meaning, Listen & Type,
+   and Speaking keep the paper grid visible beneath a restrained 15% tint. */
+.vocab-study-shell .vs-quiz-card,
+.vocab-study-shell .vs-game-card,
+.vocab-study-shell .vs-lt-practice,
+.vocab-study-shell .vs-lt-guide,
+.vocab-study-shell .vs-lt-session,
+.vocab-study-shell .vs-speaking-card {
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  backdrop-filter: none;
+}

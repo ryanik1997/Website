@@ -76,7 +76,7 @@ export default function QuizMode({ deckId, onDone }: { deckId: string; onDone: (
       const srs = await db.srs.get(cardId)
       if (srs) {
         const next = nextSrs(srs, ok ? 3 : 1)
-        await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId })
+        await db.srs.put({ ...next, cardId: srs.cardId, deckId: srs.deckId, updatedAt: Date.now() })
       }
       await db.reviewLog.add({ cardId, rating: ok ? 3 : 1, mode: 'quiz', at: Date.now() })
     })()

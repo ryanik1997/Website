@@ -65,9 +65,9 @@ check(
 )
 check(
   'Critical security migrations present',
-  ['020_harden_published_exams.sql', '021_content_access_daily_quota.sql', '022_legal_consent.sql']
+  ['020_harden_published_exams.sql', '021_content_access_daily_quota.sql', '022_legal_consent.sql', '028_suspend_compromised_accounts.sql', '029_pro_only_content_access.sql']
     .every((name) => existsSync(join(root, 'supabase', 'migrations', name))),
-  'migrations 020-022 are required',
+  'migrations 020-022 and 028-029 are required',
 )
 
 const sourceFiles = [

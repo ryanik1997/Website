@@ -33,6 +33,7 @@ import DictionaryModal from '../features/dictionary/DictionaryModal'
 import { db } from '@ryan/db'
 import { getTheme, setTheme } from '../lib/theme'
 import { useNotifications } from '../features/notifications/useNotifications'
+import NotificationCenter from '../features/notifications/NotificationCenter'
 import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
 import GlobalCatalogSync from '../features/catalog/GlobalCatalogSync'
@@ -318,6 +319,10 @@ function AppShellInner() {
 
         <ThemeSwitcher compact={sidebarCollapsed} />
 
+        <div className="px-2.5 pb-2">
+          <NotificationCenter compact={sidebarCollapsed} />
+        </div>
+
         {user && (
           <SyncStatusIndicator
             syncState={syncState}
@@ -393,7 +398,11 @@ function AppShellInner() {
 
       {showCornerSun && (
         <div className="app-corner-sun" aria-hidden="true">
-          <SunnyMascotSvg className="app-corner-sun__mascot" />
+          <div className="app-corner-sun__companions">
+            <SunnyMascotSvg className="app-corner-sun__mascot" />
+            <span className="app-corner-sun__cloud">☁️</span>
+            <span className="app-corner-sun__moon">🌙</span>
+          </div>
         </div>
       )}
 

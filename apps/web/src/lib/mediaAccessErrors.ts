@@ -9,6 +9,7 @@ export type MediaAccessCode =
   | 'RATE_LIMIT'
   | 'RATE_LIMIT_IP'
   | 'RATE_LIMIT_DAILY'
+  | 'ACCOUNT_SUSPENDED'
   | 'SIGN_FAILED'
   | 'BAD_PATH'
   | 'UNKNOWN'
@@ -56,6 +57,8 @@ export function mediaAccessUserMessage(err: MediaAccessError): string {
       return 'Phiên đăng nhập hết hạn. Đăng nhập lại để nghe/xem đề.'
     case 'RATE_LIMIT_DAILY':
       return 'Bạn đã đạt giới hạn tải nội dung trong 24 giờ. Hãy thử lại sau hoặc liên hệ hỗ trợ nếu đây là nhu cầu học hợp lệ.'
+    case 'ACCOUNT_SUSPENDED':
+      return 'Tài khoản đã bị tạm khóa. Vui lòng liên hệ hỗ trợ.'
     case 'SIGN_FAILED':
       return 'Không tìm thấy file media trên server (chưa upload private bucket?).'
     case 'BAD_PATH':
