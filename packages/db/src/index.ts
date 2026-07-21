@@ -30,6 +30,8 @@ export {
 export type { SyncStats } from './cloud/sync'
 export { changedSince, createSyncWindow, SYNC_CURSOR_OVERLAP_MS, SYNC_PAGE_SIZE } from './cloud/syncCursor'
 export type { SyncWindow } from './cloud/syncCursor'
+export { getSyncServerTime, isMissingSyncSchemaError } from './cloud/syncServerTime'
+export type { SyncServerTime } from './cloud/syncServerTime'
 export { isPresetDeck, deckIdentityKey, normalizeDeckNameKey } from './cloud/presetDeck'
 export {
   clearLocalUserData,

@@ -1,5 +1,6 @@
 import { CATALOG_READING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_READING_SAMPLES } from './cambridgeReadingSamples'
+import { matchesReadingGapAnswer } from './readingAnswerMatching'
 
 export type ExamSkill = 'reading' | 'listening' | 'writing'
 
@@ -1074,9 +1075,7 @@ function readingGapAnswerVariants(answer: string): string[] {
 }
 
 function readingGapAnswersMatch(expected: string, given: string): boolean {
-  if (given === expected) return true
-  return given.split(/\s+/).length === 1 && expected.split(/\s+/).length === 1
-    && (given.includes(expected) || expected.includes(given))
+  return matchesReadingGapAnswer(expected, given)
 }
 
 export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: string): boolean {

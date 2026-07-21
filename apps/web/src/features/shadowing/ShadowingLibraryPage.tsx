@@ -1,6 +1,6 @@
-import { useMemo, useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Clock3, Headphones, Link2, LoaderCircle, Search } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Clock3, Headphones, Search } from 'lucide-react'
 import {
   MODE_TABS,
   SIDEBAR_CATEGORIES,
@@ -15,7 +15,6 @@ import type {
   ShadowingMode,
   ShadowingVideo,
 } from './types'
-import { importYoutubeShadowingLesson } from './customShadowing'
 import './shadowingLibrary.css'
 
 function categoryShortLabel(category: string): string {
@@ -57,30 +56,10 @@ function LessonCard({ video, mode }: { video: ShadowingVideo; mode: ShadowingMod
 }
 
 export default function ShadowingLibraryPage() {
-  const navigate = useNavigate()
   const [category, setCategory] = useState<ShadowingCategoryFilter>('all')
   const [level, setLevel] = useState<ShadowingLevelFilter>('all')
   const [mode, setMode] = useState<ShadowingMode>('shadowing')
   const [search, setSearch] = useState('')
-  const [youtubeUrl, setYoutubeUrl] = useState('')
-  const [importing, setImporting] = useState(false)
-  const [importError, setImportError] = useState('')
-
-  async function handleYoutubeImport(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    if (importing) return
-    setImportError('')
-    setImporting(true)
-    try {
-      const lesson = await importYoutubeShadowingLesson(youtubeUrl)
-      navigate(lessonHref(lesson.video, mode))
-    } catch (error) {
-      setImportError(error instanceof Error ? error.message : 'Không thể tạo bài Shadowing.')
-    } finally {
-      setImporting(false)
-    }
-  }
-
   const videos = useMemo(
     () => filterShadowingVideos({ category, level, search }),
     [category, level, search],
@@ -165,33 +144,6 @@ export default function ShadowingLibraryPage() {
           <h2>Luyện Shadowing</h2>
           <p>Chọn chủ đề để luyện kỹ năng nói một cách tự nhiên</p>
         </header>
-
-        <form className="shadowing-youtube-import" onSubmit={handleYoutubeImport}>
-          <div className="shadowing-youtube-import__intro">
-            <span className="shadowing-youtube-import__icon" aria-hidden><Link2 size={18} /></span>
-            <div>
-              <strong>Luyện với video YouTube của bạn</strong>
-              <span>Dán URL; hệ thống tự lấy phụ đề tiếng Anh và chia thành từng câu.</span>
-            </div>
-          </div>
-          <div className="shadowing-youtube-import__controls">
-            <input
-              type="url"
-              value={youtubeUrl}
-              onChange={event => setYoutubeUrl(event.target.value)}
-              placeholder="https://www.youtube.com/watch?v=..."
-              aria-label="URL video YouTube"
-              disabled={importing}
-              required
-            />
-            <button type="submit" disabled={importing || !youtubeUrl.trim()}>
-              {importing ? <LoaderCircle size={16} className="shadowing-youtube-import__spinner" /> : <Headphones size={16} />}
-              {importing ? 'Đang lấy phụ đề…' : 'Tạo bài luyện'}
-            </button>
-          </div>
-          {importError ? <p className="shadowing-youtube-import__error" role="alert">{importError}</p> : null}
-          <p className="shadowing-youtube-import__note">Video phải công khai, cho phép nhúng và có phụ đề tiếng Anh.</p>
-        </form>
 
         <div className="shadowing-mode-bar" role="tablist" aria-label="Chế độ luyện">
           {MODE_TABS.map(tab => (

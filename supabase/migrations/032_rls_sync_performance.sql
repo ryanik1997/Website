@@ -50,8 +50,8 @@ declare table_name text;
 begin
   foreach table_name in array array[
     'decks','cards','srs','writing_docs','ai_usage','mindmaps','exam_progress','checkin_days'
-  ] loop
-    execute format('drop policy if exists %L on public.%I', 'own ' || table_name, table_name);
+  ]  loop
+    execute format('drop policy if exists %I on public.%I', 'own ' || table_name, table_name);
     execute format(
       'create policy %I on public.%I for all to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id)',
       'own ' || table_name,

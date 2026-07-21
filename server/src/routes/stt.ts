@@ -24,6 +24,7 @@ function resolveWhisperPython(): string {
   if (fromEnv && fs.existsSync(fromEnv)) return fromEnv
   // Venv có sẵn faster-whisper từ app Electron cũ (Mp33covert / App English)
   const candidates = [
+    'C:\\Users\\lindv\\whisper\\.venv\\Scripts\\python.exe',
     'D:\\App-English-Ryan\\ProjectGitHub\\App English_P15.8.302\\dist\\win-unpacked\\resources\\whisper\\.venv\\Scripts\\python.exe',
     'D:\\App-English-Ryan\\ProjectGitHub\\App English_P15.8.302\\dist_admin_lifetime\\win-unpacked\\resources\\whisper\\.venv\\Scripts\\python.exe',
   ]

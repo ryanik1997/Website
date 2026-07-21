@@ -5,6 +5,7 @@ import ListeningSubmittedScreen from './ListeningSubmittedScreen'
 import ListeningTranscriptSidePanel from './ListeningTranscriptSidePanel'
 import ListeningPetGapFillPartView from './ListeningPetGapFillPartView'
 import ListeningPetMcPartView from './ListeningPetMcPartView'
+import ListeningKetPart1PictureView from './ListeningKetPart1PictureView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
 import {
@@ -511,13 +512,29 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
             currentPart.partNumber === 1
             && (currentQuestion.type === 'picture-mc' || Boolean(currentQuestion.pictureImageUrl || currentQuestion.pictureImageKey))
 
+          if (isPart1Picture) {
+            return (
+              <ListeningKetPart1PictureView
+                part={currentPart}
+                question={currentQuestion}
+                answer={answers[currentQuestion.id] ?? ''}
+                unsure={Boolean(unsure[currentQuestion.id])}
+                audioBar={audioBarProps}
+                onAnswer={value => { if (reviewMode) return; setAnswers(prev => ({ ...prev, [currentQuestion.id]: value })) }}
+                onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
+                reviewMode={reviewMode}
+                reviewStatus={reviewStatusMap[currentQuestion.id] ?? null}
+              />
+            )
+          }
+
           return (
-            <div className={`listening-ket-cambridge__stage${isPart1Picture ? ' listening-ket-cambridge__stage--p1-fit' : ''}`}>
+            <div className="listening-ket-cambridge__stage">
               <div className="listening-ket-cambridge__instruction-card">
                 <strong>{currentPart.rangeLabel}</strong>
                 {currentPart.instruction && <span>{currentPart.instruction}</span>}
               </div>
-              <div className={`listening-ket-cambridge__question${isPart1Picture ? ' listening-ket-cambridge__question--p1-fit' : ''}`}>
+              <div className="listening-ket-cambridge__question">
               <ListeningQuestionPromptPanel
                 question={currentQuestion}
                 partInstruction=""

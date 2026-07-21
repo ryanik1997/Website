@@ -20,7 +20,10 @@
 
 [data-theme='dark'] .reading-test-shell,
 [data-theme='mid'] .reading-test-shell {
-  --rt-passage-bg: color-mix(in srgb, var(--bg-secondary) 70%, #1a1814);
+  /* Passage panel rõ hơn bg-primary; phân biệt được với question panel (bg-card) */
+  --rt-passage-bg: color-mix(in srgb, var(--bg-card) 72%, var(--bg-secondary));
+  /* Pill idle sáng hơn bg-primary để nút câu hỏi không bị mất */
+  --rt-pill-idle: color-mix(in srgb, var(--bg-card) 55%, var(--bg-secondary));
 }
 
 .reading-test-header {
@@ -653,16 +656,16 @@ mark.reading-test-note {
   max-width: 9rem;
   padding: 0.15rem 0.35rem;
   font-size: 0.82rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 30%, var(--border-color));
   border-radius: 0.3rem;
-  background: var(--bg-primary);
+  background: var(--bg-card);
   color: var(--text-primary);
 }
 
 .reading-test-notes-box {
   margin: 0.75rem 0 0;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 20%, var(--border-color));
   border-radius: 0.5rem;
   background: color-mix(in srgb, var(--bg-secondary) 55%, var(--bg-card));
 }
@@ -736,9 +739,9 @@ mark.reading-test-note {
   max-width: 10rem;
   padding: 0.12rem 0.35rem;
   font-size: 0.82rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 30%, var(--border-color));
   border-radius: 0.3rem;
-  background: var(--bg-primary);
+  background: var(--bg-card);
   color: var(--text-primary);
 }
 
@@ -753,7 +756,7 @@ mark.reading-test-note {
   margin: 0.75rem 0 1rem;
   padding: 0.85rem 0.95rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 20%, var(--border-color));
   background: color-mix(in srgb, var(--bg-secondary) 55%, var(--bg-card));
 }
 
@@ -1142,7 +1145,7 @@ mark.reading-test-note {
 .reading-test-headings {
   margin: 0.75rem 0 1rem;
   padding: 0.75rem 0.9rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 20%, var(--border-color));
   border-radius: 0.4rem;
   background: var(--bg-secondary);
 }
@@ -1217,7 +1220,7 @@ mark.reading-test-note {
 .reading-test-features {
   margin: 0.75rem 0 1rem;
   padding: 0.75rem 0.9rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 20%, var(--border-color));
   border-radius: 0.4rem;
   background: var(--bg-secondary);
 }
@@ -1528,8 +1531,8 @@ mark.reading-test-note {
   width: 100%;
   max-width: 14rem;
   border-radius: 0.4rem;
-  border: 1px solid var(--border-color);
-  background: var(--bg-primary);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 30%, var(--border-color));
+  background: var(--bg-card);
   color: var(--text-primary);
   padding: 0.45rem 0.65rem;
   font-size: 0.95rem;
@@ -1544,7 +1547,7 @@ mark.reading-test-note {
   margin: 0.75rem 0 1rem;
   padding: 0.75rem 0.9rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid color-mix(in srgb, var(--text-muted) 20%, var(--border-color));
   background: color-mix(in srgb, var(--bg-secondary) 80%, var(--bg-card));
 }
 

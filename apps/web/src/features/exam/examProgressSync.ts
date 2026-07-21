@@ -3,7 +3,7 @@
  * Conflict resolution: last-write-wins by payload.updatedAt (ms).
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { db, changedSince, createSyncWindow, SYNC_PAGE_SIZE } from '@ryan/db'
+import { db, changedSince, createSyncWindow, getSyncServerTime, SYNC_PAGE_SIZE } from '@ryan/db'
 import {
   LISTENING_DRAFT_PREFIX,
   READING_DRAFT_PREFIX,
@@ -109,12 +109,11 @@ export async function syncExamProgress(
   const [cursorSetting, localCursorSetting, serverTime] = await Promise.all([
     db.settings.get(cursorKey),
     db.settings.get(localCursorKey),
-    supabase.rpc('sync_server_time'),
+    getSyncServerTime(supabase, localUpperBoundIso),
   ])
-  if (serverTime.error) throw new Error(`sync_server_time: ${serverTime.error.message}`)
   const window = createSyncWindow(
     typeof cursorSetting?.value === 'string' ? cursorSetting.value : null,
-    typeof serverTime.data === 'string' ? serverTime.data : new Date().toISOString(),
+    serverTime.iso,
   )
   const localWindow = createSyncWindow(
     typeof localCursorSetting?.value === 'string' ? localCursorSetting.value : null,
@@ -256,7 +255,9 @@ export async function syncExamProgress(
     }
   }
 
-  await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
+  if (serverTime.authoritative) {
+    await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
+  }
   await db.settings.put({ key: localCursorKey, value: localWindow.upperBoundIso })
 
   if (localChanged) notifyExamDraftRevision()

@@ -4,7 +4,7 @@
  * Merge is set-union by day_key (YYYY-MM-DD) — never delete local days.
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { db, createSyncWindow, SYNC_PAGE_SIZE } from '@ryan/db'
+import { db, createSyncWindow, getSyncServerTime, SYNC_PAGE_SIZE } from '@ryan/db'
 
 export const CHECKIN_CARD_ID = '__checkin__'
 export const CHECKIN_MODE = 'checkin' as const
@@ -132,12 +132,11 @@ export async function syncCheckInDays(
   const cursorKey = `cloud-sync-cursor:checkin:${userId}`
   const [cursorSetting, serverTime] = await Promise.all([
     db.settings.get(cursorKey),
-    supabase.rpc('sync_server_time'),
+    getSyncServerTime(supabase),
   ])
-  if (serverTime.error) throw new Error(`sync_server_time: ${serverTime.error.message}`)
   const window = createSyncWindow(
     typeof cursorSetting?.value === 'string' ? cursorSetting.value : null,
-    typeof serverTime.data === 'string' ? serverTime.data : new Date().toISOString(),
+    serverTime.iso,
   )
 
   const cloudRows: CloudCheckin[] = []
@@ -217,7 +216,9 @@ export async function syncCheckInDays(
     pushed += chunk.length
   }
 
-  await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
+  if (serverTime.authoritative) {
+    await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
+  }
 
   return { pushed, pulled }
 }

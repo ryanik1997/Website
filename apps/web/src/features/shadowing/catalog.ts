@@ -8,7 +8,6 @@ import type {
   ShadowingSubtitle,
   ShadowingVideo,
 } from './types'
-import { loadCustomShadowingLesson } from './customShadowing'
 
 export const SHADOWING_VIDEOS = rawVideos as ShadowingVideo[]
 
@@ -23,7 +22,7 @@ const VI_OVERRIDES = rawViOverrides as Record<string, Record<string, string>>
 
 export function getSubtitlesForYoutubeId(youtubeId: string): ShadowingSubtitle[] {
   const base = SUBTITLES.byYoutubeId[youtubeId] ?? []
-  if (!base.length) return loadCustomShadowingLesson(youtubeId)?.subtitles ?? []
+  if (!base.length) return []
   const ov = VI_OVERRIDES[youtubeId]
   if (!ov) return base
   return base.map(seg => {
@@ -65,7 +64,6 @@ export const MODE_TABS: Array<{ id: ShadowingMode; label: string }> = [
 
 export function getShadowingVideoByKey(key: string): ShadowingVideo | undefined {
   return SHADOWING_VIDEOS.find(v => v.id === key || v.youtubeId === key)
-    ?? loadCustomShadowingLesson(key)?.video
 }
 
 export function lessonHref(video: ShadowingVideo, mode: ShadowingMode = 'shadowing'): string {

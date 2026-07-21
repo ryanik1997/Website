@@ -12,7 +12,11 @@ const corsHeaders = {
 }
 
 const BUCKET = 'exam-media'
-const SIGN_TTL_SEC = 60
+// Audio files (e.g. KET A2 Listening) can be 25+ min; the <audio> element
+// streams via range requests that all share the same signed URL.
+// 60 s was far too short — audio freezes once the URL expires mid-play.
+// 1 800 s (30 min) covers the longest catalog MP3 with headroom.
+const SIGN_TTL_SEC = 1_800
 const RATE_MAX_USER = 45
 const RATE_MAX_IP = 120
 const RATE_MAX_DAILY_USER = 400

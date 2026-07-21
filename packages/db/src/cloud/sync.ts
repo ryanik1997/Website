@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import { db, type Deck, type Card, type Srs, type WritingDoc, type MindMap } from '../local/schema'
 import { deckIdentityKey, isPresetDeck } from './presetDeck'
 import { changedSince, createSyncWindow, SYNC_PAGE_SIZE, type SyncWindow } from './syncCursor'
+import { getSyncServerTime } from './syncServerTime'
 
 type CloudDeck = {
   id: string; group_name: string | null; name: string
@@ -36,6 +37,10 @@ type CloudTombstone = {
 const syncCursorKey = (userId: string) => `cloud-sync-cursor:${userId}`
 const localSyncCursorKey = (userId: string) => `local-sync-cursor:${userId}`
 
+export function incrementalPullTieBreaker(table: string): string {
+  return table === 'srs' ? 'card_id' : 'id'
+}
+
 async function pullIncrementalPages(
   supabase: SupabaseClient,
   table: string,
@@ -52,7 +57,7 @@ async function pullIncrementalPages(
       .eq('user_id', userId)
       .lte('updated_at', window.upperBoundIso)
       .order('updated_at', { ascending: true })
-      .order('id', { ascending: true })
+      .order(incrementalPullTieBreaker(table), { ascending: true })
       .range(from, from + SYNC_PAGE_SIZE - 1)
     if (window.pullAfterIso) query = query.gt('updated_at', window.pullAfterIso)
     if (opts?.liveOnly) query = query.is('deleted_at', null)
@@ -82,6 +87,7 @@ async function pullTombstonePages(
       .range(from, from + SYNC_PAGE_SIZE - 1)
     if (window.pullAfterIso) query = query.gt('deleted_at', window.pullAfterIso)
     const { data, error } = await query
+    if (isMissingTableError(error)) return []
     throwIfError(error, 'sync_tombstones incremental pull')
     const page = (data ?? []) as CloudTombstone[]
     rows.push(...page)
@@ -346,15 +352,12 @@ export async function syncBidirectional(
   const stats = emptyStats()
 
   const localUpperBoundIso = new Date().toISOString()
-  const [cursorSetting, localCursorSetting, serverTimeResult] = await Promise.all([
+  const [cursorSetting, localCursorSetting, serverTime] = await Promise.all([
     db.settings.get(syncCursorKey(userId)),
     db.settings.get(localSyncCursorKey(userId)),
-    supabase.rpc('sync_server_time'),
+    getSyncServerTime(supabase, localUpperBoundIso),
   ])
-  throwIfError(serverTimeResult.error, 'sync_server_time')
-  const upperBound = typeof serverTimeResult.data === 'string'
-    ? serverTimeResult.data
-    : new Date().toISOString()
+  const upperBound = serverTime.iso
   const cursorIso = typeof cursorSetting?.value === 'string' ? cursorSetting.value : null
   const syncWindow = createSyncWindow(cursorIso, upperBound)
   const localSyncWindow = createSyncWindow(
@@ -849,7 +852,9 @@ export async function syncBidirectional(
     throw new Error(pushErrors.join('; '))
   }
 
-  await db.settings.put({ key: syncCursorKey(userId), value: syncWindow.upperBoundIso })
+  if (serverTime.authoritative) {
+    await db.settings.put({ key: syncCursorKey(userId), value: syncWindow.upperBoundIso })
+  }
   await db.settings.put({ key: localSyncCursorKey(userId), value: localSyncWindow.upperBoundIso })
 
   return stats

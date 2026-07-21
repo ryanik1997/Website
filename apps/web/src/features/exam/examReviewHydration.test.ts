@@ -12,8 +12,16 @@ describe('promoteHydratedExamForReview', () => {
       parts: [{ questions: [{ id: 'q1', answer: 'B' }] }],
     }
 
+    const memoizedParts = original.parts
+    const memoizedQuestions = original.parts[0].questions
+    const memoizedQuestion = original.parts[0].questions[0]
+
     promoteHydratedExamForReview(original, hydrated)
 
     expect(original.parts[0].questions[0].answer).toBe('B')
+    expect(original.parts).toBe(memoizedParts)
+    expect(original.parts[0].questions).toBe(memoizedQuestions)
+    expect(original.parts[0].questions[0]).toBe(memoizedQuestion)
+    expect(memoizedQuestion.answer).toBe('B')
   })
 })

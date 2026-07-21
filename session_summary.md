@@ -1,4 +1,50 @@
-﻿## 2026-07-17 — Fix RLS upload listening media (exam-media upsert)
+﻿## 2026-07-20 — Upload part1.mp3 cho KET practice-16
+
+- Upload file `part1.mp3` (4.19 MB) từ `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lên Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` — upsert thay thế file cũ.
+- Dùng `scripts/publish-ket-practice-listening.mjs` làm reference: service role key qua SUPABASE_ACCESS_TOKEN, bucket `exam-media`, storage prefix `catalog/listening-publish`.
+- Verify: upload OK, không lỗi.
+- Cài Vercel CLI (`npm install -g vercel`), deploy production: alias `https://ryanenglishv2.vercel.app` Ready, DB up to date, build PASS, strip-media OK.
+
+## 2026-07-17 — Fix RLS upload listening media (exam-media upsert)
+
+### Session 2026-07-19 — Fix review paper vẫn hiện `Đáp án đúng: —`
+
+- Root cause còn sót sau bản vá hydrate trước: `Object.assign` thay toàn bộ `parts`, trong khi các màn Listening/Reading đã memo hóa danh sách/câu hỏi theo tham chiếu DTO cũ; báo cáo có answer key nhưng paper vẫn đọc object câu hỏi cũ có `answer` rỗng.
+- `promoteHydratedExamForReview` nay đồng bộ sâu tại chỗ, giữ nguyên tham chiếu object/array hiện hữu để mọi memoized question nhận answer key trước khi bật review mode.
+- Regression test xác nhận cả root exam lẫn các tham chiếu `parts`, `questions`, `question` đã capture đều thấy đáp án `B`. Test 1/1, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Fix Q9/Q10 KET Book 3 Test 1 nhập `1` vẫn đúng
+
+- Dữ liệu gốc đúng: Q9 = `8.15`/`eight fifteen`, Q10 = `10.50`; ID hai câu không trùng.
+- Root cause: matcher gap-fill cuối cùng dùng substring hai chiều, nên `8.15`.includes(`1`) và `10.50`.includes(`1`) đều trả true.
+- Tách matcher thuần để test không kéo catalog/DB; đáp án chứa chữ số nay chỉ khớp chính xác hoặc số nguyên tương đương (`8` = `08`), không chấp nhận chữ số con trong giờ/giá.
+- Feedback loop trước fix RED đúng triệu chứng; sau fix scoped tests 3/3, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Audit đồng bộ matcher toàn bộ Luyện thi
+
+- Audit các đường chấm tự động xác nhận Listening và Reading gap-fill/sentence-completion đều từng dùng substring hai chiều; không chỉ số `1`, fragment chữ như `a` cũng có thể khớp sai với `radio`. Multiple-choice, matching và TID Reading dùng exact comparison nên không mắc lỗi này.
+- Loại bỏ hoàn toàn fuzzy substring ở matcher Listening/Reading. Chỉ exact normalized answer, answer variants/`acceptableAnswers`, và số nguyên tương đương (`8` = `08`) được chấp nhận.
+- Tách pure matcher cho cả hai skill để regression test không kéo catalog/DB. Feedback loop trước fix RED ở cả Listening và Reading; sau fix exam scoped tests 14/14, TypeScript, scan không còn pattern substring và `git diff --check` PASS.
+
+### Session 2026-07-19 — Đồng bộ khung ảnh PET B1 Part 1 với KET A2
+
+- PET B1 Listening Part 1 không còn render qua prompt/answer panel generic; nhánh picture Part 1 nay dùng chung `ListeningKetPart1PictureView` với KET A2.
+- Composite image, ba ảnh rời, contain frame, radio, footer audio/unsure và responsive vì vậy có cùng layout; các Part PET khác giữ nguyên.
+- Verify: TypeScript PASS, scoped Listening tests 4/4 và `git diff --check` PASS.
+
+### Session 2026-07-19 — Sync tương thích khi migration 031 chưa được push
+
+- Root cause lỗi `sync_server_time ... schema cache`: frontend hardening đã gọi RPC từ migration 031, nhưng migrations 031–034 vẫn đang ở staging/chưa có trên database hiện tại.
+- Thêm `getSyncServerTime`: chỉ fallback sang timestamp local khi PostgREST báo đúng lỗi RPC/schema thiếu; lỗi mạng/quyền khác vẫn throw. Fallback được đánh dấu non-authoritative nên sync chính, exam progress và check-in không ghi tiến cloud cursor, tránh clock client làm bỏ sót dữ liệu.
+- Main sync cũng coi bảng `sync_tombstones` chưa tồn tại là danh sách rỗng để database pre-031 không làm chết toàn bộ sync; delete ledger đầy đủ sẽ tự hoạt động sau khi migration được áp.
+- Feedback loop trước fix RED đúng PGRST202; sau fix sync/scalability tests 7/7, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Chẩn đoán YouTube captions vẫn báo blocked
+
+- Feedback loop production xác nhận relay URL trả HTTP 429 + `X-Vercel-Mitigated: challenge`/Security Checkpoint; Vercel Function logs trống, nên request chưa tới `youtube-captions-relay` và thông báo hiện tại quy lỗi cho YouTube sai tầng.
+- Supabase remote có cả `VERCEL_AUTOMATION_BYPASS_SECRET` và `YOUTUBE_CAPTIONS_RELAY_SECRET`; Vercel project có relay secret production. Firewall có `Challenge Scrapers` và `Block AI Bots`; browser-like UA vẫn bị system challenge.
+- Project Hobby không hỗ trợ IP/System Bypass (`vercel firewall overview` trả unavailable). Không tự pause system mitigations vì đây là thay đổi bảo mật rộng 24 giờ.
+- Hướng xử lý cần quyền/chọn lựa: rotate + đồng bộ lại Automation Bypass secret Vercel→Supabase rồi smoke, hoặc tách relay sang endpoint/project riêng không bật checkpoint nhưng vẫn giữ `x-relay-secret`.
 
 ### Session 2026-07-18 — Hardening local-first sync cho tải 1000 user
 
@@ -5034,3 +5080,23 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Root cause điểm 0/25 và review không có đáp án: localhost coi `catalog/exams/**/*.answers.json` là Vite public asset, trong khi vault của đề restored/published chỉ tồn tại ở private Supabase Storage. `mustUseSignedMedia` giờ luôn ký answer vault trên cả dev và production; regression security test bao phủ Listening/Reading.
 - Harden toàn bộ Luyện thi: Reading result dùng formatter option an toàn như Listening; normalize answer/option/headings chịu được dữ liệu import thiếu/sai kiểu. Cả Reading và Listening không còn chấm 0 giả khi vault lỗi—hiện màn báo tải đáp án thất bại và nút thử lại thay vì render report/review thiếu answer key.
 - Fix tiếp “Xem cùng đề bài” hiện `Đáp án đúng: —`: màn báo cáo đã dùng exam được merge answer vault nhưng khi chuyển về paper, component cha vẫn giữ DTO cũ đã strip đáp án. `promoteHydratedExamForReview` nay đồng bộ snapshot đã hydrate về DTO mà paper đang render trước khi bật review mode, áp dụng chung cho Listening và Reading. Regression test 1/1; toàn bộ test liên quan 8/8, TypeScript và diff check PASS.
+### Session 2026-07-19 — Fix `srs incremental pull: column srs.id does not exist`
+
+- Root cause: helper phân trang incremental dùng `id` làm tie-breaker cho mọi bảng, nhưng khóa ổn định của bảng `srs` là `card_id` và bảng này không có cột `id`.
+- Query pull nay chọn `card_id` riêng cho `srs`, giữ `id` cho decks/cards/writing_docs/mindmaps; regression test khóa đúng mapping và test scalability được cập nhật theo query động.
+- Feedback loop trước fix RED đúng `id` thay vì `card_id`; sau fix scoped tests 6/6, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — YouTube caption relay hardening (datacenter IP blocker)
+
+- Tách relay Vercel thành project riêng `youtube-captions-relay.vercel.app`, bảo vệ bằng shared secret và bổ sung Android InnerTube Player API sau desktop/mobile watch page. Unit/regression tests 5/5 và TypeScript PASS.
+- Smoke production xác nhận relay riêng không còn bị Vercel Security Checkpoint, nhưng egress Vercel vẫn bị YouTube chặn: endpoint trả 502 dù Android InnerTube hoạt động từ máy local.
+- Tạo và deploy Cloudflare Worker giới hạn đúng POST + video ID 11 ký tự, secret header, timeout 15 giây và caption tối đa 5 MB tại `services/youtube-captions-worker`; Wrangler 4.112.0 types + deploy dry-run PASS. Endpoint: `ryan-youtube-captions-relay.ryan-license-worker.workers.dev`.
+- Relay secret đã xoay bằng CSPRNG, đặt vào Worker qua stdin và đồng bộ cùng URL vào Supabase; Edge Function `youtube-captions` đã redeploy.
+- Smoke production vẫn bị YouTube chặn từ Cloudflare: `desktop:429`, `mobile:429`, `innertube:LOGIN_REQUIRED`. Kết luận đây là chặn IP datacenter, không phải Vercel checkpoint hay lỗi parser. Cần residential proxy hoặc transcript API có key để hoàn tất; app hiện vẫn có thể báo YouTube chặn.
+- Verify: YouTube fallback/relay tests 5/5 PASS; web TypeScript PASS; `git diff --check` PASS.
+
+### Session 2026-07-19 — Gỡ nhập YouTube khỏi Shadowing
+
+- Gỡ form “Luyện với video YouTube của bạn”, toàn bộ state/import/cache client và fallback custom lesson; thư viện Shadowing dựng sẵn cùng trình phát của các bài có sẵn vẫn giữ nguyên.
+- Xoá source và tests của Supabase `youtube-captions`, Vercel relay và Cloudflare Worker. Production Edge Function, Vercel project, Cloudflare Worker cùng ba Supabase relay secrets đã được xoá.
+- Bump web lên v0.2.9. Verify: không còn reference tới import/relay YouTube trong app/backend source; web TypeScript PASS.

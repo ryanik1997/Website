@@ -200,7 +200,8 @@
 
 [data-theme='dark'] .listening-exam-prompt-pane,
 [data-theme='mid'] .listening-exam-prompt-pane {
-  background: color-mix(in srgb, var(--bg-secondary) 70%, #1a1814);
+  /* Khớp với readingTest: phân biệt rõ với answer-pane (bg-card) */
+  background: color-mix(in srgb, var(--bg-card) 72%, var(--bg-secondary));
 }
 
 .listening-exam-answer-pane {
@@ -4204,6 +4205,224 @@
   font-weight: 700;
 }
 
+/* ── KET Cambridge dark/mid theme: theme-aware overrides ── */
+[data-theme='dark'] .listening-ket-cambridge,
+[data-theme='mid'] .listening-ket-cambridge {
+  --ket-ui-bg: var(--bg-primary);
+  --ket-ui-line: var(--border-color);
+  --ket-ui-dark: var(--text-muted);
+  --ket-ui-teal: var(--color-primary);
+  --ket-ui-blue: color-mix(in srgb, var(--color-primary) 25%, var(--bg-card));
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__header,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__header {
+  background: var(--bg-primary);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__brand,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__candidate,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__brand,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__candidate {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__tools,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__tools {
+  color: var(--text-muted);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__exit,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__exit {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__exit:hover,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__exit:hover {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1 {
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__instruction,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__composite-frame,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card__frame,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card__radio,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__qbadge,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__instruction,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__composite-frame,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card__frame,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card__radio,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__qbadge {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__instruction,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__qrow,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__prompt,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__radio-btn,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__radio-letter,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__instruction,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__qrow,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__prompt,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__radio-btn,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__radio-letter {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__composite-img,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card__img,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__composite-img,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card__img {
+  background: var(--bg-card);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card__placeholder,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card__placeholder {
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__stage,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__question,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__stage,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__question {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__question .listening-exam-prompt-pane,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__question .listening-exam-answer-pane,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__question .listening-exam-prompt-pane,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__question .listening-exam-answer-pane {
+  background: var(--bg-card);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer {
+  background: var(--bg-card);
+  border-top-color: var(--border-color);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer-part.is-current,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer-part.is-current {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer-part strong,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer-part span,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer-part strong,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer-part span {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__side-mark,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__side-mark {
+  color: var(--text-muted);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__arrow,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__arrow {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p3__item,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p3__opt,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p3__item,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p3__opt {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-gapfill__input,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-gapfill__input {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-match__option,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-match__option {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* ── KET Cambridge dark/mid: extra color overrides ── */
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__instruction span,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__instruction strong,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1-card__placeholder span,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__footer-tools,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p1__unsure,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__instruction span,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__instruction strong,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1-card__placeholder span,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__footer-tools,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p1__unsure {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card span,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card p,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card span,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__instruction-card p {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer-part,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer-part {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__footer-part > button,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__footer-part > button {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-cambridge__qnav button,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-cambridge__qnav button {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p3__item-stem,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p3__opt-label,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-p3__opt-letter,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p3__item-stem,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p3__opt-label,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-p3__opt-letter {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-gapfill__instruction,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-gapfill__field-label,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-gapfill__instruction,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-gapfill__field-label {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-match__instruction,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-match__option-label,
+[data-theme='dark'] .listening-ket-cambridge .listening-ket-match__slot-text,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-match__instruction,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-match__option-label,
+[data-theme='mid'] .listening-ket-cambridge .listening-ket-match__slot-text {
+  color: var(--text-primary);
+}
+
 @media (max-width: 900px) {
   .listening-ket-cambridge__header {
     grid-template-columns: 1fr auto;
@@ -5272,9 +5491,9 @@
   align-items: flex-start;
   gap: 0.55rem;
   padding: 0.65rem 0.75rem;
-  border: 1px solid rgba(15, 35, 50, 0.06);
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
-  background: color-mix(in srgb, #0b72a0 2%, #fff);
+  background: color-mix(in srgb, var(--color-primary) 4%, var(--bg-card));
 }
 
 .listening-transcript-panel__num {
@@ -5294,7 +5513,7 @@
 
 .listening-transcript-panel__text {
   margin: 0;
-  color: #1a2530;
+  color: var(--text-primary);
   font-size: 0.92rem;
   line-height: 1.6;
   white-space: pre-line;
@@ -5353,7 +5572,7 @@
 
 .listening-transcript-panel__empty {
   margin: 0.5rem 0 0;
-  color: #5a6772;
+  color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.55;
 }
@@ -5363,9 +5582,9 @@
   flex-direction: column;
   gap: 0.4rem;
   padding: 0.75rem;
-  border: 1px dashed color-mix(in srgb, #0b72a0 30%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--color-primary) 35%, var(--border-color));
   border-radius: 0.75rem;
-  background: color-mix(in srgb, #0b72a0 3%, #fff);
+  background: color-mix(in srgb, var(--color-primary) 5%, var(--bg-card));
 }
 
 .listening-transcript-panel__ai-btn {
@@ -5391,14 +5610,14 @@
 
 .listening-transcript-panel__ai-note {
   margin: 0;
-  color: #5a6772;
+  color: var(--text-muted);
   font-size: 0.78rem;
   line-height: 1.45;
 }
 
 .listening-transcript-panel__ai-error {
   margin: 0;
-  color: #b91c1c;
+  color: var(--color-danger);
   font-size: 0.8rem;
   line-height: 1.45;
 }
@@ -5453,10 +5672,11 @@
   min-width: 5.5rem;
   max-width: 9rem;
   padding: 0 8px;
-  border: 1px solid #64748b; /* slate-500 */
+  /* Sử dụng token theme thay vì hardcode #fff / #0f172a */
+  border: 1px solid color-mix(in srgb, var(--text-muted) 40%, var(--border-color));
   border-radius: 0;
-  background: #fff;
-  color: #0f172a;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 500;
   font-family: inherit;
@@ -5494,15 +5714,17 @@
 }
 
 .listening-tid-gap.is-ok .listening-tid-gap__input {
-  border-color: #16a34a;
-  box-shadow: 0 0 0 1px #16a34a;
-  background: #f0fdf4;
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 1px var(--color-success);
+  /* Token-based: xanh nhạt ở light, tối vừa ở dark/mid */
+  background: color-mix(in srgb, var(--color-success) 12%, var(--bg-card));
 }
 
 .listening-tid-gap.is-bad .listening-tid-gap__input {
-  border-color: #dc2626;
-  box-shadow: 0 0 0 1px #dc2626;
-  background: #fef2f2;
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 1px var(--color-danger);
+  /* Token-based: đỏ nhạt ở light, tối vừa ở dark/mid */
+  background: color-mix(in srgb, var(--color-danger) 10%, var(--bg-card));
 }
 
 .listening-tid-gap--table .listening-tid-gap__input {

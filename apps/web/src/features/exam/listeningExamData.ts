@@ -2,6 +2,7 @@ import { CATALOG_LISTENING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_LISTENING_SAMPLES } from './cambridgeListeningSamples'
 import { IELTS_LISTENING_SAMPLES } from './ieltsListeningSamples'
 import { normalizeImportedAnswer } from './examResultOption'
+import { matchesListeningGapAnswer } from './listeningAnswerMatching'
 
 export type ListeningExamMode = 'practice' | 'exam'
 export type ListeningExamType = 'ket' | 'ielts' | 'pet' | 'fce' | 'cae' | 'cpe'
@@ -245,19 +246,7 @@ export function listeningGapAnswersMatch(
   given: string,
   wordLimit?: number,
 ): boolean {
-  if (!given || !expected) return false
-  if (given === expected) return true
-  const maxWords = wordLimit ?? 3
-  if (given.split(/\s+/).filter(Boolean).length > maxWords) return false
-  // Cho phép "eight" khớp "eights" ngắn / chứa số trong chuỗi dài hơn cẩn thận
-  if (given.length >= 1 && expected.length >= 1) {
-    if (given === expected) return true
-    // Số thuần: "8" vs "08"
-    if (/^\d+$/.test(given) && /^\d+$/.test(expected)) {
-      return Number(given) === Number(expected)
-    }
-  }
-  return given.includes(expected) || expected.includes(given)
+  return matchesListeningGapAnswer(expected, given, wordLimit)
 }
 
 export const LISTENING_EXAMS: ListeningExam[] = [
@@ -290,7 +279,7 @@ export function isListeningAnswerCorrect(question: ListeningQuestion, userAnswer
     const variants = listeningAnswerVariants(question.answer, question.acceptableAnswers)
     if (variants.length === 0) return false
     return variants.some(expected =>
-      listeningGapAnswersMatch(expected, given, question.wordLimit),
+      matchesListeningGapAnswer(expected, given, question.wordLimit),
     )
   }
 

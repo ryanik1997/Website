@@ -10,7 +10,7 @@ describe('1000-user scalability hardening', () => {
     expect(sync).toContain('SYNC_PAGE_SIZE')
     expect(sync).toContain(".eq('user_id', userId)")
     expect(sync).toContain(".range(from, from + SYNC_PAGE_SIZE - 1)")
-    expect(sync).toContain(".order('id', { ascending: true })")
+    expect(sync).toContain('.order(incrementalPullTieBreaker(table), { ascending: true })')
     expect(sync).toContain('localSyncCursorKey')
     expect(sync).toContain('pullTombstonePages')
     expect(sync.indexOf("throw new Error(pushErrors.join('; '))"))
