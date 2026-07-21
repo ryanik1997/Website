@@ -575,6 +575,7 @@
 /* Compact layout for short viewports (laptops, tablets) */
 @media (max-height: 750px) {
   .login-page {
+    align-items: flex-start;
     padding: .75rem;
   }
 

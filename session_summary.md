@@ -1,4 +1,4 @@
-﻿## 2026-07-20 — Upload part1.mp3 cho KET practice-16
+## 2026-07-20 — Upload part1.mp3 cho KET practice-16
 
 - Upload file `part1.mp3` (4.19 MB) từ `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lên Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` — upsert thay thế file cũ.
 - Dùng `scripts/publish-ket-practice-listening.mjs` làm reference: service role key qua SUPABASE_ACCESS_TOKEN, bucket `exam-media`, storage prefix `catalog/listening-publish`.
@@ -5100,3 +5100,61 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Gỡ form “Luyện với video YouTube của bạn”, toàn bộ state/import/cache client và fallback custom lesson; thư viện Shadowing dựng sẵn cùng trình phát của các bài có sẵn vẫn giữ nguyên.
 - Xoá source và tests của Supabase `youtube-captions`, Vercel relay và Cloudflare Worker. Production Edge Function, Vercel project, Cloudflare Worker cùng ba Supabase relay secrets đã được xoá.
 - Bump web lên v0.2.9. Verify: không còn reference tới import/relay YouTube trong app/backend source; web TypeScript PASS.
+## 2026-07-21 — Auto-sync Listening transcript và câu hỏi theo audio
+
+- `useExamQuestionAudio` nay expose `audioCurrentTime` và `audioDuration`, cập nhật cùng vòng `requestAnimationFrame` đang điều khiển progress bar.
+- Whisper local giữ backward-compatible plain text và lưu thêm segment timing đã validate tại `exam-listening-whisper-segments:{examId}:{partNumber}`. Transcript panel render từng segment, highlight/auto-scroll segment đang phát, bỏ highlight khi pause và quy đổi đúng thời gian tương đối khi Part dùng một MP3 chung.
+- Thêm `useAudioSync`: practice mode tự chọn/scroll câu theo Whisper segment hoặc tỷ lệ thời lượng; exam mode, submitted và review mode không auto-advance. Mọi pointer interaction trong runner tạm khóa auto-sync 3 giây để thao tác thủ công thắng.
+- Tích hợp KET, PET, FCE/CAE/CPE và IELTS runner. Mapping thuần xử lý cả audio riêng từng Part và shared-audio `startPct`/`endPct`.
+- Verify: scoped `useAudioSync` tests 4/4 PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS (2,277 modules, private media strip PASS); `git diff --check` PASS.
+- Lỗi còn tồn tại: chưa smoke tương tác có audio + Whisper thật trong browser đăng nhập; cần kiểm tra highlight, seek, đổi Part và manual override trên dữ liệu thực.
+- Next session start prompt: smoke Listening practice có Whisper segments trên KET/PET/FCE/IELTS; xác nhận segment highlight, question auto-scroll, seek và khóa manual 3 giây.
+### Follow-up 2026-07-21 — Hiện nút tạo segment timing cho transcript cũ
+
+- Root cause transcript mở ra nhưng không highlight: auto-question có fallback theo tỷ lệ duration nên vẫn chạy, còn transcript highlight bắt buộc có Whisper segments. Transcript plain/catalog hoặc Whisper tạo trước bản vá chỉ có text; đồng thời UI cũ ẩn nút Whisper khi `ttsText` đã đủ, khiến không thể tạo timestamps.
+- Panel nay hiện `Tạo đồng bộ transcript theo audio` bất cứ khi nào Part có audio URL nhưng chưa có segments, kể cả transcript text đã tồn tại. Chạy một lần sẽ ghi segment timing và bật highlight/auto-scroll.
+- Regression test khóa trạng thái plain transcript + zero segments. Verify: scoped tests 5/5, TypeScript và `git diff --check` PASS.
+## 2026-07-21 — Fix login bị cắt trên màn hình MacBook thấp
+
+- Repro Chrome tại `1024x640`: login card cao 697.5px nhưng `.login-page` fixed-height 640px vẫn `align-items: center`, đẩy card lên `y=-28.75px`; container không tạo vùng scroll hữu dụng nên đầu/cuối form bị cắt.
+- Breakpoint `max-height: 750px` nay dùng `align-items: flex-start`. Card bắt đầu dưới padding ở `y=12px`, login page có vùng cuộn 82px tại 1024x640; 1280x720 giữ card đầy đủ và chỉ có 2px overflow.
+- Verify trực tiếp Chrome DevTools tại 1024x640 và 1280x720; cuộn được tới footer. TypeScript và `git diff --check` PASS.
+- Next session start prompt: nếu cần, smoke thêm tab Đăng ký tại viewport thấp vì consent copy có thể làm card cao hơn login.
+## 2026-07-21 — Publish Whisper segment timestamps lên cloud
+
+- `ListeningPart` có field `transcriptSegments`; dữ liệu nằm trực tiếp trong JSON `listening_exam_published.parts`, không cần migration.
+- Pipeline publish hydrate cả plain transcript và segment timing từ localStorage trước khi strip/push. Segment cloud đã có được ưu tiên, không bị timing local cũ ghi đè.
+- Transcript panel và `useAudioSync` ưu tiên `part.transcriptSegments` từ cloud, chỉ fallback localStorage cho đề local/đề cũ. Vì vậy Vercel không cần chạy Whisper khi user học.
+- Đề đã publish trước đây cần Admin mở từng Part, chạy `Tạo đồng bộ transcript theo audio`, rồi publish/re-publish đề để timestamps lên cloud.
+- Verify: publish/runtime regression tests 8/8 PASS; TypeScript PASS; production build PASS (2,278 modules, strip private media PASS); `git diff --check` PASS.
+- Lỗi còn tồn tại: chưa re-publish dữ liệu production, nên các đề cloud hiện tại chưa tự có segments cho tới khi chạy quy trình generation + publish.
+- Next session start prompt: chọn một Listening exam, tạo timing cho mọi Part, re-publish, rồi smoke trên domain production/khác origin để xác nhận không gọi `/api/stt` nhưng highlight/scroll vẫn chạy.
+
+## 2026-07-21 — Lệnh batch tạo segment timestamps cho 54 đề KET
+
+- Thêm lệnh root `pnpm ket:segments -- --yes` để Claude chạy một lần cho toàn bộ KET A2 Listening đã publish. Script tải audio private từ `exam-media`, giữ một tiến trình `faster-whisper`/model duy nhất, ghi `transcript` + `transcriptSegments` vào `listening_exam_published.parts`, bỏ qua Part đã có timing và tiếp tục báo lỗi theo từng Part.
+- Lệnh tự đọc `.env.deploy`, lấy service role trực tiếp hoặc qua `SUPABASE_ACCESS_TOKEN`, đồng thời tự tìm venv Whisper có sẵn tại `C:\Users\lindv\whisper\.venv\Scripts\python.exe`. Có các tùy chọn `--list-only`, `--force`, `--limit`, `--only`, `--model`, `--python`; mọi thao tác ghi bắt buộc có `--yes`.
+- Read-only production check ban đầu xác nhận đúng 54 KET exams, mỗi đề 5 Parts, tổng 270 Parts và 0/270 Parts có timestamps.
+- User đã chạy batch ghi thật thành công: `Done: 54/54 exams updated, 270 Parts timed, 0 Parts failed.`
+- Caveat: 10 đề Cam/Book cũ có thể dùng một file audio chung cho cả 5 Parts. Batch tái sử dụng transcript/timestamps tuyệt đối của file chung; highlight theo audio hoạt động, nhưng panel có thể hiện transcript toàn bài và mapping câu hỏi chỉ gần đúng nếu Part không có mốc phần trăm thời gian.
+- Verify: CLI help PASS; Python compile PASS; venv `faster-whisper` 1.2.1 có sẵn; web TypeScript PASS; `git diff --check` PASS; production `--list-only` PASS.
+- Lỗi còn tồn tại: cần smoke production ít nhất một đề per-Part audio cùng một đề shared-audio; xác nhận transcript highlight/auto-scroll, seek, pause và khóa thao tác thủ công 3 giây.
+- Next session start prompt: smoke production đề “KET A2_Test 2 - Luyện Nghe Tiếng Anh A2 Có đáp án và dịch nghĩa”, sau đó kiểm tra thêm một đề KET practice dùng audio riêng từng Part.
+
+## 2026-07-21 — Production web release v0.2.10
+
+- Bump `apps/web` từ 0.2.9 lên 0.2.10 và deploy frontend auto-sync Listening, cloud transcript segments cùng fix login viewport thấp lên Vercel production.
+- 54/54 KET exams đã có timestamps, tổng 270 Parts, 0 Parts failed; không chạy migration trong release này.
+- Verify: Listening tests 8/8 PASS; TypeScript PASS; security release check 9/9 PASS; local production build PASS (2.278 modules, private media strip PASS); Vercel build READY.
+- Deployment `dpl_FRUibDr8KSK2Socb9n5WGej98seM` READY; alias chính `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke authenticated production đề KET A2_Test 2 và một KET practice; xác nhận transcript highlight/auto-scroll, seek, pause và manual override 3 giây.
+
+## 2026-07-21 — Fix auto-sync cho Cambridge shared audio
+
+- Root cause Cam 1 Test 3 không tự chuyển câu/Part: `useAudioSync` chỉ map audio vào câu của `currentPart`, trong khi 10 đề KET Book 1 Test 1 đến Book 3 Test 2 dùng một MP3 chung, không có `audioStartPct/audioEndPct`.
+- Hook chung nay tự nhận dạng theo cấu trúc dữ liệu: mọi Part cùng nguồn audio và không có range thì sync trên toàn bộ câu, đồng thời đổi `partIndex`; audio riêng từng Part hoặc shared audio có range tiếp tục sync trong Part hiện tại.
+- Áp dụng chung cho runner KET, PET, FCE/CAE/CPE và IELTS, nên các lần import Cambridge A2-C2 sau tự hỗ trợ cả kiểu một audio lẫn nhiều audio, không hardcode ID/Cam.
+- Audit production: `ket shared-unbounded = 10`, `ket per-part = 44`, `cae per-part = 1`; 10 shared gồm Book 1 Test 1–4, Book 2 Test 1–4 và Book 3 Test 1–2.
+- Regression tests bao phủ shared-unbounded, per-Part và shared-ranged. Verify: Listening tests 11/11 PASS; TypeScript PASS; `git diff --check` PASS.
+- Bump web lên v0.2.11; security check 9/9 và production build PASS. Deployment `dpl_8CBUerMTo2Ak559uiHLfiGFFgVB5` READY, alias `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke production Cam 1 Test 3 xuyên ranh giới Part 1→2 và một KET practice per-Part audio.

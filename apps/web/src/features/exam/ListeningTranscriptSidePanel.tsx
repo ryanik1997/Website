@@ -5,7 +5,7 @@
  * - Nguồn transcript: q.ttsText (Cambridge audioscript import) + AI map (localStorage — tạo 1 lần dùng mãi)
  * - Chưa có transcript → nút «Tạo transcript bằng AI» ngay trong panel
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FileText, Mic, X } from 'lucide-react'
 import type { ListeningExam, ListeningPart } from './listeningExamData'
 import {
@@ -20,6 +20,13 @@ import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
+import {
+  parseWhisperSegments,
+  resolveWhisperSegments,
+  shouldOfferWhisperTiming,
+  whisperSegmentsStorageKey,
+  type WhisperSegment,
+} from './audioSyncUtils'
 
 const WIDTH_KEY = 'listening-transcript-panel-width'
 const MIN_W = 280
@@ -30,9 +37,20 @@ interface Props {
   currentPart: ListeningPart | null
   open: boolean
   onClose: () => void
+  audioCurrentTime?: number
+  audioDuration?: number
+  playing?: boolean
 }
 
-export default function ListeningTranscriptSidePanel({ exam, currentPart, open, onClose }: Props) {
+function ListeningTranscriptSidePanel({
+  exam,
+  currentPart,
+  open,
+  onClose,
+  audioCurrentTime = 0,
+  audioDuration: _audioDuration = 0,
+  playing = false,
+}: Props) {
   const [width, setWidth] = useState(() => {
     const saved = Number(window.localStorage.getItem(WIDTH_KEY))
     return Number.isFinite(saved) && saved >= MIN_W && saved <= MAX_W ? saved : 380
@@ -40,6 +58,9 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
   const dragging = useRef(false)
   const [aiMap, setAiMap] = useState<ListeningTranscriptMap>({})
   const [whisperText, setWhisperText] = useState('')
+  const [whisperSegments, setWhisperSegments] = useState<WhisperSegment[]>([])
+  const [activeSegmentId, setActiveSegmentId] = useState<number | null>(null)
+  const segmentRefs = useRef(new Map<number, HTMLDivElement>())
   const [whisperLoading, setWhisperLoading] = useState(false)
   const [whisperError, setWhisperError] = useState<string | null>(null)
   const [selectedText, setSelectedText] = useState('')
@@ -60,8 +81,15 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
     } else {
       setAiMap(loadListeningTranscripts(exam.id) ?? {})
     }
-    const key = `exam-listening-whisper:${exam.id}:${currentPart?.partNumber ?? 0}`
+    const partNumber = currentPart?.partNumber ?? 0
+    const key = `exam-listening-whisper:${exam.id}:${partNumber}`
     setWhisperText(window.localStorage.getItem(key) ?? '')
+    setWhisperSegments(resolveWhisperSegments(
+      currentPart?.transcriptSegments,
+      exam.id,
+      partNumber,
+    ))
+    setActiveSegmentId(null)
     try {
       setMarkedText(JSON.parse(window.localStorage.getItem(`${key}:marks`) ?? '[]') as string[])
     } catch { setMarkedText([]) }
@@ -174,13 +202,24 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
         headers: { 'Content-Type': ct || 'audio/mpeg' },
         body: await audio.arrayBuffer(),
       })
-      const payload = await response.json() as { ok?: boolean; text?: string; message?: string }
+      const payload = await response.json() as {
+        ok?: boolean
+        text?: string
+        message?: string
+        segments?: unknown
+      }
       if (!response.ok || !payload.ok || !payload.text?.trim()) {
         throw new Error(payload.message || 'Whisper không trả về transcript.')
       }
       const text = payload.text.trim()
+      const segments = parseWhisperSegments(payload.segments)
       setWhisperText(text)
+      setWhisperSegments(segments)
       window.localStorage.setItem(`exam-listening-whisper:${exam.id}:${currentPart.partNumber}`, text)
+      window.localStorage.setItem(
+        whisperSegmentsStorageKey(exam.id, currentPart.partNumber),
+        JSON.stringify(segments),
+      )
     } catch (e) {
       setWhisperError(e instanceof Error ? e.message : 'Không tạo được transcript local.')
     } finally {
@@ -211,6 +250,44 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
       (p.questions ?? []).some(q => !aiMap[q.number]?.trim() && !q.ttsText?.trim()),
     )
   }, [aiMap, currentPart, exam.parts, open])
+
+  const transcriptCurrentTime = useMemo(() => {
+    if (!currentPart || _audioDuration <= 0) return audioCurrentTime
+    const source = resolveListeningAudioSource(exam, currentPart)
+    const partStart = source.startPct != null
+      ? (source.startPct / 100) * _audioDuration
+      : 0
+    return Math.max(0, audioCurrentTime - partStart)
+  }, [_audioDuration, audioCurrentTime, currentPart, exam])
+
+  useEffect(() => {
+    if (!open || !playing || whisperSegments.length === 0) {
+      setActiveSegmentId(null)
+      return
+    }
+    const segment = whisperSegments.find(item => (
+      item.start <= transcriptCurrentTime && transcriptCurrentTime < item.end
+    )) ?? null
+    const nextId = segment?.id ?? null
+    setActiveSegmentId(previous => {
+      if (previous === nextId) return previous
+      if (nextId != null) {
+        window.requestAnimationFrame(() => {
+          segmentRefs.current.get(nextId)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        })
+      }
+      return nextId
+    })
+  }, [open, playing, transcriptCurrentTime, whisperSegments])
+
+  const showWhisperAction = useMemo(() => {
+    const source = currentPart ? resolveListeningAudioSource(exam, currentPart) : null
+    return shouldOfferWhisperTiming({
+      hasAudioUrl: Boolean(source?.audioUrl),
+      partMissingTranscript: partMissing,
+      segmentCount: whisperSegments.length,
+    })
+  }, [currentPart, exam, partMissing, whisperSegments.length])
 
   const onPointerDown = useCallback((e: React.PointerEvent) => {
     dragging.current = true
@@ -275,7 +352,7 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
         </button>
       </header>
       <div className="listening-transcript-panel__body">
-        {partMissing && (
+        {showWhisperAction && (
           <div className="listening-transcript-panel__ai">
             <button
               type="button"
@@ -284,15 +361,41 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
               onClick={() => void runWhisper()}
             >
               <Mic size={14} />
-              {whisperLoading ? 'Whisper local đang chạy…' : 'Tạo transcript bằng Whisper local'}
+              {whisperLoading
+                ? 'Whisper local đang chạy…'
+                : whisperText || entries.length > 0
+                  ? 'Tạo đồng bộ transcript theo audio'
+                  : 'Tạo transcript bằng Whisper local'}
             </button>
             <p className="listening-transcript-panel__ai-note">
-              Dùng model base.en, lưu local theo từng Part; chỉ là transcript tham khảo.
+              Whisper tạo mốc thời gian theo từng đoạn để highlight và tự cuộn khi audio phát.
             </p>
             {whisperError && <p className="listening-transcript-panel__ai-error">{whisperError}</p>}
           </div>
         )}
-        {whisperText && (
+        {whisperSegments.length > 0 ? (
+          <div className="listening-transcript-panel__segments" aria-live="off">
+            {whisperSegments.map(segment => (
+              <div
+                key={segment.id}
+                ref={element => {
+                  if (element) segmentRefs.current.set(segment.id, element)
+                  else segmentRefs.current.delete(segment.id)
+                }}
+                className={`listening-transcript-panel__segment${activeSegmentId === segment.id ? ' is-speaking' : ''}`}
+                data-segment-id={segment.id}
+              >
+                <ReadingHighlightableText
+                  blockId={`whisper-${exam.id}-${currentPart?.partNumber ?? 0}-${segment.id}`}
+                  text={segment.text}
+                  highlights={officialHighlights}
+                  notes={officialNotes}
+                  className="listening-transcript-panel__text"
+                />
+              </div>
+            ))}
+          </div>
+        ) : whisperText && (
           <div className="listening-transcript-panel__entry">
             <span className="listening-transcript-panel__num">W</span>
             <ReadingHighlightableText
@@ -347,3 +450,5 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
     </aside>
   )
 }
+
+export default memo(ListeningTranscriptSidePanel)

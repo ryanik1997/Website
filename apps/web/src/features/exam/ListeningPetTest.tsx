@@ -34,6 +34,7 @@ import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
 import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useAudioSync } from './useAudioSync'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import {
@@ -106,6 +107,8 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     play,
     seekToPct,
     stopPlayback,
@@ -114,6 +117,20 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     speed,
     toggleSpeed,
   } = useExamQuestionAudio()
+
+  const { markManualInteraction } = useAudioSync({
+    audioCurrentTime,
+    audioDuration,
+    playing,
+    exam,
+    currentPart,
+    submitted,
+    reviewMode,
+    activeQuestionId,
+    onQuestionChange: setActiveQuestionId,
+    onPartChange: setPartIndex,
+    scrollRoot: bodyRef.current,
+  })
 
   const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
   const playKey = useMemo(() => {
@@ -359,7 +376,10 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
   }
 
   return (
-    <div className={`listening-exam-shell listening-ket-cambridge listening-pet-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+    <div
+      className={`listening-exam-shell listening-ket-cambridge listening-pet-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}
+      onPointerDownCapture={markManualInteraction}
+    >
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
           <span>Chế độ xem lại đề — pill xanh = đúng · đỏ = sai · vàng = bỏ qua</span>
@@ -637,6 +657,9 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
         currentPart={currentPart}
         open={transcriptPanelOpen}
         onClose={() => setTranscriptPanelOpen(false)}
+        audioCurrentTime={audioCurrentTime}
+        audioDuration={audioDuration}
+        playing={playing}
       />
 
       {confirmSubmit && (

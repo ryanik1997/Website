@@ -5496,6 +5496,24 @@
   background: color-mix(in srgb, var(--color-primary) 4%, var(--bg-card));
 }
 
+.listening-transcript-panel__segments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.listening-transcript-panel__segment {
+  padding: 0.35rem 0.45rem;
+  border-radius: 4px;
+  background: transparent;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.listening-transcript-panel__segment.is-speaking {
+  background: color-mix(in srgb, var(--color-primary) 16%, var(--bg-card));
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
 .listening-transcript-panel__num {
   flex-shrink: 0;
   display: inline-flex;
@@ -5774,4 +5792,3 @@
   overflow-x: hidden;
   box-sizing: border-box;
 }
-

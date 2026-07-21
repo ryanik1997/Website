@@ -3,6 +3,7 @@ import { CAMBRIDGE_LISTENING_SAMPLES } from './cambridgeListeningSamples'
 import { IELTS_LISTENING_SAMPLES } from './ieltsListeningSamples'
 import { normalizeImportedAnswer } from './examResultOption'
 import { matchesListeningGapAnswer } from './listeningAnswerMatching'
+import type { WhisperSegment } from './audioSyncUtils'
 
 export type ListeningExamMode = 'practice' | 'exam'
 export type ListeningExamType = 'ket' | 'ielts' | 'pet' | 'fce' | 'cae' | 'cpe'
@@ -146,6 +147,8 @@ export interface ListeningPart {
   audioUrl?: string
   ttsText?: string
   transcript?: string
+  /** Published Whisper timing for production transcript highlight/scroll. */
+  transcriptSegments?: WhisperSegment[]
   /**
    * Khi nhiều part dùng chung 1 file full MP3 (chưa có partN.mp3):
    * tua tới % này lúc bắt đầu part (0–100).

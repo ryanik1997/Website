@@ -27,6 +27,7 @@ import {
   sharedExamAudioSource,
 } from './listeningExamAudio'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useAudioSync } from './useAudioSync'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { scrollListeningToQuestion } from './listeningScrollUtils'
@@ -95,6 +96,8 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     play,
     seekToPct,
     stopPlayback,
@@ -103,6 +106,20 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
     speed,
     toggleSpeed,
   } = useExamQuestionAudio()
+
+  const { markManualInteraction } = useAudioSync({
+    audioCurrentTime,
+    audioDuration,
+    playing,
+    exam,
+    currentPart,
+    submitted,
+    reviewMode,
+    activeQuestionId,
+    onQuestionChange: setActiveQuestionId,
+    onPartChange: setPartIndex,
+    scrollRoot: bodyRef.current,
+  })
 
   // IELTS catalog: raw JSON hay share listening.mp3 nhưng disk có part1–4.mp3
   // → resolveListeningAudioSource rewrite; usesShared phải theo URL đã resolve.
@@ -373,7 +390,10 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
   }
 
   return (
-    <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+    <div
+      className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}
+      onPointerDownCapture={markManualInteraction}
+    >
       <header className="listening-exam-header">
         <ExamHeaderBack
           onClick={() => {
@@ -558,6 +578,9 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
         currentPart={currentPart}
         open={transcriptPanelOpen}
         onClose={() => setTranscriptPanelOpen(false)}
+        audioCurrentTime={audioCurrentTime}
+        audioDuration={audioDuration}
+        playing={playing}
       />
 
       {confirmSubmit && !reviewMode && (

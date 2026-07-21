@@ -91,12 +91,21 @@ function examAudioSourceId(source: ExamAudioSource): string {
   return `${source.audioKey ?? ''}\0${source.audioUrl ?? ''}\0${source.ttsText?.trim() ?? ''}\0${source.startPct ?? ''}\0${source.endPct ?? ''}`
 }
 
-function syncTimeUi(audio: HTMLAudioElement, setProgressPct: (n: number) => void, setTimeLabel: (s: string) => void) {
+function syncTimeUi(
+  audio: HTMLAudioElement,
+  setProgressPct: (n: number) => void,
+  setTimeLabel: (s: string) => void,
+  setAudioCurrentTime: (n: number) => void,
+  setAudioDuration: (n: number) => void,
+) {
   const duration = audio.duration
+  const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+  setAudioCurrentTime(currentTime)
+  setAudioDuration(Number.isFinite(duration) ? duration : 0)
   if (duration && Number.isFinite(duration)) {
-    const pct = Math.min(100, (audio.currentTime / duration) * 100)
+    const pct = Math.min(100, (currentTime / duration) * 100)
     setProgressPct(pct)
-    setTimeLabel(`${formatAudioTime(audio.currentTime)} / ${formatAudioTime(duration)}`)
+    setTimeLabel(`${formatAudioTime(currentTime)} / ${formatAudioTime(duration)}`)
   }
 }
 
@@ -105,6 +114,8 @@ export function useExamQuestionAudio() {
   const [buffering, setBuffering] = useState(false)
   const [progressPct, setProgressPct] = useState(0)
   const [timeLabel, setTimeLabel] = useState('0:00 / 0:00')
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0)
+  const [audioDuration, setAudioDuration] = useState(0)
   const [speed, setSpeed] = useState(1)
   const [playError, setPlayError] = useState<string | null>(null)
 
@@ -152,7 +163,7 @@ export function useExamQuestionAudio() {
 
     const tick = () => {
       if (!audioRef.current || audioRef.current !== audio) return
-      syncTimeUi(audio, setProgressPct, setTimeLabel)
+      syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
       if (!audio.paused && !audio.ended) {
         rafRef.current = requestAnimationFrame(tick)
       }
@@ -167,7 +178,7 @@ export function useExamQuestionAudio() {
     const audio = audioRef.current
     if (audio) {
       audio.pause()
-      syncTimeUi(audio, setProgressPct, setTimeLabel)
+      syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
     }
     stopTts()
     setPlaying(false)
@@ -290,7 +301,7 @@ export function useExamQuestionAudio() {
             audio.removeEventListener('timeupdate', onTime)
             cancelProgress()
             setPlaying(false)
-            syncTimeUi(audio, setProgressPct, setTimeLabel)
+            syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
           }
         }
         audio.addEventListener('timeupdate', onTime)
@@ -641,6 +652,8 @@ export function useExamQuestionAudio() {
     setBuffering(false)
     setProgressPct(0)
     setTimeLabel('0:00 / 0:00')
+    setAudioCurrentTime(0)
+    setAudioDuration(0)
   }, [stopCurrentAudio])
 
   const seekToPct = useCallback((pct: number, allowSeek = true) => {
@@ -687,6 +700,8 @@ export function useExamQuestionAudio() {
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     speed,
     playError,
     toggleSpeed,

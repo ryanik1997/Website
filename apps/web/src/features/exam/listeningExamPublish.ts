@@ -9,6 +9,10 @@ import {
   deletePublishedExamVault,
   uploadPublishedExamVault,
 } from './publishedExamVault'
+import {
+  preparePublishedWhisperData,
+  whisperSegmentsStorageKey,
+} from './audioSyncUtils'
 
 interface PublishedRow {
   id: string
@@ -53,22 +57,39 @@ function stripLocalMediaKeys(exam: ListeningExam): ListeningExam {
 }
 
 /** Admin publish đề Listening lên Supabase — mọi user thấy (kèm upload MP3/ảnh). */
+export function hydrateListeningTranscriptDataForPublish(
+  exam: ListeningExam,
+  getItem: (key: string) => string | null = key => (
+    typeof window === 'undefined' ? null : window.localStorage.getItem(key)
+  ),
+): ListeningExam {
+  return {
+    ...exam,
+    parts: exam.parts.map(part => {
+      const whisperData = preparePublishedWhisperData({
+        publishedTranscript: part.transcript,
+        storedTranscript: getItem(`exam-listening-whisper:${exam.id}:${part.partNumber}`),
+        publishedSegments: part.transcriptSegments,
+        storedSegmentsJson: getItem(
+          whisperSegmentsStorageKey(exam.id, part.partNumber),
+        ),
+      })
+
+      return {
+        ...part,
+        ...whisperData,
+      }
+    }),
+  }
+}
+
 export async function publishListeningExamToCloud(
   exam: ListeningExam,
   meta?: { source?: string; sourceFilename?: string },
 ): Promise<void> {
   // Import local chỉ có audioKey (Dexie) — phải upload Storage trước khi strip key
   const withCloudMedia = await materializeListeningMediaForPublish(exam)
-  const complete = {
-    ...withCloudMedia,
-    parts: withCloudMedia.parts.map(part => {
-      if (part.transcript?.trim() || typeof window === 'undefined') return part
-      const transcript = window.localStorage
-        .getItem(`exam-listening-whisper:${withCloudMedia.id}:${part.partNumber}`)
-        ?.trim()
-      return transcript ? { ...part, transcript } : part
-    }),
-  }
+  const complete = hydrateListeningTranscriptDataForPublish(withCloudMedia)
   await uploadPublishedExamVault(
     complete as unknown as Record<string, unknown> & { id: string },
     'listening',
