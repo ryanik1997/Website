@@ -150,9 +150,23 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
     try {
       const audio = await fetch(source.audioUrl)
       if (!audio.ok) throw new Error(`Không tải được audio (${audio.status}).`)
+
+      const ct = (audio.headers.get('content-type') || '').toLowerCase()
+      if (!ct.startsWith('audio/') && !ct.includes('octet-stream')) {
+        const snippet = `URL trả về ${ct} (${(await audio.clone().text()).slice(0, 120)})`
+        console.warn('[Whisper] audio URL không trả audio:', source.audioUrl, snippet)
+        const pathShort = source.audioUrl.includes('/exam-media/')
+          ? source.audioUrl.split('/exam-media/')[1] + (source.audioUrl.includes('token=') ? '?token=…(signed)' : '')
+          : source.audioUrl.slice(0, 100)
+        throw new Error(
+          `File audio không hợp lệ — server trả ${ct} thay vì audio. ` +
+          `Kiểm tra: "${pathShort}" có tồn tại trong Supabase Storage không.`,
+        )
+      }
+
       const response = await fetch(`${getTtsServiceUrl()}/api/stt`, {
         method: 'POST',
-        headers: { 'Content-Type': audio.headers.get('content-type') || 'audio/mpeg' },
+        headers: { 'Content-Type': ct || 'audio/mpeg' },
         body: await audio.arrayBuffer(),
       })
       const payload = await response.json() as { ok?: boolean; text?: string; message?: string }
