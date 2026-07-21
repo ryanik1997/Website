@@ -16,6 +16,7 @@ import {
 } from './examListeningTranscriptStorage'
 import { resolveListeningAudioSource } from './listeningExamAudio'
 import { getTtsServiceUrl } from '../listening/ttsConfig'
+import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
 import ReadingHighlightToolbar from './ReadingHighlightToolbar'
 import ReadingHighlightableText from './ReadingHighlightableText'
 import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
@@ -148,16 +149,20 @@ export default function ListeningTranscriptSidePanel({ exam, currentPart, open, 
     setWhisperLoading(true)
     setWhisperError(null)
     try {
-      const audio = await fetch(source.audioUrl)
+      // Storage path /catalog/listening-publish/... cần sign URL trước khi fetch
+      const signedUrl = await resolvePlayableMediaUrl(source.audioUrl)
+      if (!signedUrl) throw new Error('Không tạo được URL phát audio từ đường dẫn storage.')
+
+      const audio = await fetch(signedUrl)
       if (!audio.ok) throw new Error(`Không tải được audio (${audio.status}).`)
 
       const ct = (audio.headers.get('content-type') || '').toLowerCase()
       if (!ct.startsWith('audio/') && !ct.includes('octet-stream')) {
         const snippet = `URL trả về ${ct} (${(await audio.clone().text()).slice(0, 120)})`
-        console.warn('[Whisper] audio URL không trả audio:', source.audioUrl, snippet)
-        const pathShort = source.audioUrl.includes('/exam-media/')
-          ? source.audioUrl.split('/exam-media/')[1] + (source.audioUrl.includes('token=') ? '?token=…(signed)' : '')
-          : source.audioUrl.slice(0, 100)
+        console.warn('[Whisper] signed URL không trả audio:', signedUrl, 'storage path:', source.audioUrl, snippet)
+        const pathShort = source.audioUrl!.includes('/exam-media/')
+          ? source.audioUrl!.split('/exam-media/')[1] + (source.audioUrl!.includes('token=') ? '?token=…(signed)' : '')
+          : source.audioUrl!.slice(0, 100)
         throw new Error(
           `File audio không hợp lệ — server trả ${ct} thay vì audio. ` +
           `Kiểm tra: "${pathShort}" có tồn tại trong Supabase Storage không.`,
