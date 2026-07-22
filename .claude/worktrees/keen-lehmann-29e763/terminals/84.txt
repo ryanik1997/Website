@@ -1,0 +1,49 @@
+---
+pid: 40932
+cwd: "D:\App-English-Ryan\Website"
+command: "cd D:\\App-English-Ryan\\Website; pnpm --filter web dev"
+started_at: 2026-07-08T08:54:41.033Z
+running_for_ms: 6535011  
+---
+
+> web@0.2.0 dev D:\App-English-Ryan\Website\apps\web
+> vite
+
+
+  VITE v5.4.21  ready in 317 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+5:14:22 PM [vite] page reload src/features/vocab/CardEditorModal.tsx
+5:14:58 PM [vite] page reload src/features/vocab/CardEditorModal.tsx
+5:17:23 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:17:23 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:17:23 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:17:23 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:17:36 PM [vite] page reload src/features/vocab/CardEditorModal.tsx
+5:17:36 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:18:01 PM [vite] page reload src/features/vocab/CardEditorModal.tsx
+5:18:47 PM [vite] page reload src/features/vocab/CardEditorModal.tsx
+5:22:20 PM [vite] page reload src/features/vocab/CardPanel.tsx
+5:23:06 PM [vite] page reload src/features/vocab/importExport.ts
+5:23:23 PM [vite] page reload src/features/vocab/importExport.ts
+5:23:39 PM [vite] page reload src/features/vocab/importExport.ts
+5:23:57 PM [vite] page reload src/features/vocab/importExport.ts
+5:24:15 PM [vite] page reload src/features/vocab/ImportModal.tsx
+5:24:44 PM [vite] hmr update /src/features/dictionary/SaveToDeckModal.tsx, /src/styles/globals.css
+5:24:53 PM [vite] hmr update /src/features/dictionary/SaveToDeckModal.tsx, /src/styles/globals.css
+5:25:05 PM [vite] hmr update /src/features/dictionary/DictionaryModal.tsx, /src/styles/globals.css
+5:25:44 PM [vite] page reload src/features/vocab/modes/WeakWordsMode.tsx
+5:28:49 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:28:49 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:28:49 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:28:49 PM [vite] hmr update /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:30:27 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:34:28 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:34:35 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx, /src/features/exam/ieltsReadingWizard/WizardPassageStepPanel.tsx
+5:34:35 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css
+5:34:35 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+5:34:35 PM [vite] hmr update /src/features/exam/ExamTrackPage.tsx, /src/styles/globals.css, /src/features/exam/ieltsReadingWizard/IeltsReadingImportWizard.tsx
+D:\App-English-Ryan\Website\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  web@0.2.0 dev: `vite`
+Exit status 4294967295

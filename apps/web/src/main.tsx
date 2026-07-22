@@ -5,7 +5,6 @@ import { AuthProvider } from './features/auth/AuthContext'
 import App from './App'
 import './styles/globals.css'
 import { applyTheme, getAutoTheme, getThemePreference } from './lib/theme'
-import { hasOAuthCallbackInUrl, recoverOAuthSession, stripOAuthFromUrl } from './features/auth/recoverOAuthSession'
 
 applyTheme(getThemePreference() ?? getAutoTheme())
 
@@ -25,33 +24,12 @@ function scheduleAutoTheme() {
 
 scheduleAutoTheme()
 
-async function bootstrap() {
-  if (hasOAuthCallbackInUrl()) {
-    try {
-      await recoverOAuthSession()
-    } catch {
-      stripOAuthFromUrl('/')
-    }
-  }
-
-  createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-      <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </BrowserRouter>
-    </StrictMode>,
-  )
-}
-
-// SW chỉ cần trên production (push). Dev: unregister để tránh cache/HMR lạ.
-if ('serviceWorker' in navigator) {
-  if (import.meta.env.DEV) {
-    void navigator.serviceWorker.getRegistrations().then(regs => {
-      for (const reg of regs) void reg.unregister()
-    })
-  }
-}
-
-bootstrap()
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </StrictMode>,
+)

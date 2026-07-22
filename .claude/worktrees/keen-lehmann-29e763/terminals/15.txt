@@ -1,0 +1,19 @@
+---
+pid: 4552
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push:dry"
+started_at: 2026-06-30T15:46:21.633Z
+running_for_ms: 5230002  
+---
+
+> ryan-english@ db:push:dry D:\App-English-Ryan\Website
+> node scripts/db-push.mjs --dry-run
+
+→ Supabase db push (dry-run) — project ntcagvtkwxwsmlxlumfo
+Finished supabase link.
+Timeout while shutting down PostHog. Some events may not have been sent.
+Try rerunning the command with --debug to troubleshoot the error.
+DRY RUN: migrations will *not* be pushed to the database.
+Connecting to remote database...
+Remote database is up to date.
+✓ Dry-run xong — không có thay đổi trên database.

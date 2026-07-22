@@ -1,0 +1,47 @@
+{
+  "projects": {
+    "Website": {
+      "indexed_at": "2026-07-02T02:32:08.187Z",
+      "repo_path": "D:\\App-English-Ryan\\Website",
+      "index_mode": "moderate",
+      "traces": [],
+      "adrs": {
+        "content": "",
+        "sections": {}
+      },
+      "deleted": false
+    }
+  },
+  "claude_mem": {
+    "next_observation_id": 2,
+    "next_job_id": 1,
+    "observations": [
+      {
+        "id": 1,
+        "project": "ryan-english",
+        "kind": "feature",
+        "obs_type": null,
+        "content": "Implemented local claude-mem fallback runtime in Codex workspace.",
+        "metadata": {
+          "source": "codex"
+        },
+        "platformSource": "codex",
+        "created_at": "2026-07-02T02:18:09.500Z",
+        "serverSessionId": null
+      }
+    ],
+    "corpora": {
+      "workspace-mem": {
+        "name": "workspace-mem",
+        "description": "",
+        "project": "ryan-english",
+        "observation_ids": [
+          1
+        ],
+        "updated_at": "2026-07-02T02:18:09.503Z"
+      }
+    },
+    "primed_corpus": "workspace-mem",
+    "jobs": {}
+  }
+}

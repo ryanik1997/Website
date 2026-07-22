@@ -26,7 +26,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const PROJECT_REF = 'ntcagvtkwxwsmlxlumfo'
+const PROJECT_REF = 'afryrzlcmieedcndyeug'
 const BUCKET = 'exam-media'
 const DEFAULT_URL = `https://${PROJECT_REF}.supabase.co`
 const WORKER_PATH = path.join(ROOT, 'server', 'python', 'whisper_stt_batch.py')

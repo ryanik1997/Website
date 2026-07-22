@@ -1,0 +1,26 @@
+---
+pid: 48340
+cwd: "D:\App-English-Ryan\Website"
+command: "python \"D:\\App-English-Ryan\\Website\\scripts\\build-ielts-cam12-v2-listening.py\" 2>&1 | Select-String \"Test1_Cam12\"; cd \"D:\\App-English-Ryan\\Website\"; pnpm ielts:merge \"IELTS/Listening IELTS_Test1_Cam12\"; pnpm ielts:pack \"IELTS/Listening IELTS_Test1_Cam12\"; pnpm --filter web exec tsc --noEmit"
+started_at: 2026-07-05T07:19:32.187Z
+running_for_ms: 6545000  
+---
+
+  Listening IELTS_Test1_Cam12: 40 questions → exam.json
+
+> ryan-english@ ielts:merge D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts merge "IELTS/Listening IELTS_Test1_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12\exam.json
+  4 part(s) · 40 câu
+
+> ryan-english@ ielts:pack D:\App-English-Ryan\Website
+> npx vite-node scripts/ielts-listening-bundle.ts pack "IELTS/Listening IELTS_Test1_Cam12"
+
+📁 D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12
+✓ D:\App-English-Ryan\Website\Tainguyen\IELTS\Listening IELTS_Test1_Cam12.zip
+  2 files: exam.json, listening.mp3
+  → Luyện thi → IELTS → Import thủ công Listening → chọn ZIP
+
+

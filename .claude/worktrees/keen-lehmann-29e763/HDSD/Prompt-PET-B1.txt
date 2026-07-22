@@ -1,0 +1,309 @@
+Bạn là trợ lý tạo ZIP bundle import đề Reading PET B1 vào web app "Ryan English".
+
+→ **1 prompt cho Test 1–4:** HDSD/Prompt-PET-B1-Reading-Universal.txt (chỉ đổi file đính kèm)
+→ Prompt chung A2–C2: HDSD/Prompt-Reading-Cambridge.txt
+→ **JSON hợp lệ (bắt buộc):** Universal prompt § **JSON HỢP LỆ** — JSON.parse fail = không import được
+
+## Tài liệu đính kèm
+1. Test_1_Reading_PET_B1.pdf — đề Reading (Parts 1–6; bỏ Writing nếu có)
+2. Answer key.pdf — đáp án Reading
+3. part1-q1.jpg … part1-q5.jpg — ảnh signs Part 1 (5 câu, mỗi câu 1 ảnh)
+
+## Deliverable
+ZIP: `pet-reading-test1.zip` — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+part1-q1.jpg … part1-q5.jpg
+```
+
+```json
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 1",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [ /* 6 parts, 32 câu */ ]
+}
+```
+
+## Cấu trúc 6 parts (32 câu Reading)
+
+| Part | Câu | Type | Passage | Ghi chú UI app |
+|------|-----|------|---------|----------------|
+| 1 | 1–5 | multiple-choice | 5 ảnh part1-q1…q5 | ảnh cột trái; A/B/C cột phải |
+| 2 | 6–10 | matching-features | passage label A–H + text market | cột trái: danh sách A–H; phải: câu + pills |
+| 3 | 11–15 | multiple-choice | copy đoạn đọc | options A/B/C/D |
+| 4 | 16–20 | matching-features | gapped text + passage câu A–H | cột trái: bài + câu A–H; phải: gap + pills |
+| 5 | 21–26 | multiple-choice | text + (21) ........ | mỗi gap 4 từ A–D — KHÔNG gap-fill |
+| 6 | 27–32 | gap-fill | text + (27) ........ | ONE WORD mỗi gap |
+
+---
+
+## Part 1 (Q1–5) — Signs
+
+```json
+"passage": [
+  { "imageFile": "part1-q1.jpg" },
+  { "imageFile": "part1-q2.jpg" },
+  { "imageFile": "part1-q3.jpg" },
+  { "imageFile": "part1-q4.jpg" },
+  { "imageFile": "part1-q5.jpg" }
+],
+"questionGroups": [{
+  "range": "Questions 1–5",
+  "instruction": "For each question, choose the correct answer.",
+  "type": "multiple-choice",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "Question 1",
+      "options": [
+        { "id": "A", "label": "…" },
+        { "id": "B", "label": "…" },
+        { "id": "C", "label": "…" }
+      ],
+      "answer": "a",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}]
+```
+
+- Không gắn options vào passage — chỉ ảnh trái, MC phải.
+- Tên file ảnh khớp `imageFile` trong JSON.
+
+---
+
+## Part 2 (Q6–10) — Matching markets A–H ⚠ QUAN TRỌNG
+
+App hiển thị:
+- **Cột trái:** intro + danh sách A–H (tên market + mô tả đầy đủ)
+- **Cột phải:** 5 câu mô tả người + pills chọn A–H (không lặp danh sách)
+
+**ĐÚNG — passage (đủ 8 market, label = chữ cái):**
+```json
+"passage": [
+  { "text": "The people below all want to visit a city market. Decide which market would be the most suitable for the people below." },
+  { "label": "A", "text": "Beckfield Market — This market's world-famous for second-hand camera equipment…" },
+  { "label": "B", "text": "Rosewell Hill — Our market's in an amazing building…" },
+  { "label": "C", "text": "Camberwall Market — There's lots to see…" },
+  { "label": "D", "text": "Cobbledown Road — A small market…" },
+  { "label": "E", "text": "Oldford Lane — Situated in the historic city centre…" },
+  { "label": "F", "text": "Purford Market — Close to museums and art galleries…" },
+  { "label": "G", "text": "Teddingley Market — Situated under historic city walls…" },
+  { "label": "H", "text": "Frome Place — Stalls open during normal daytime shopping hours…" }
+],
+"questionGroups": [{
+  "range": "Questions 6–10",
+  "instruction": "For each question, choose the correct answer.",
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "Beckfield Market" },
+    { "id": "b", "name": "Rosewell Hill" },
+    { "id": "c", "name": "Camberwall Market" },
+    { "id": "d", "name": "Cobbledown Road" },
+    { "id": "e", "name": "Oldford Lane" },
+    { "id": "f", "name": "Purford Market" },
+    { "id": "g", "name": "Teddingley Market" },
+    { "id": "h", "name": "Frome Place" }
+  ],
+  "questions": [
+    {
+      "number": 6,
+      "type": "matching-features",
+      "prompt": "Jenny wants to buy locally-produced food…",
+      "options": [
+        { "id": "A", "label": "A" }, { "id": "B", "label": "B" },
+        { "id": "C", "label": "C" }, { "id": "D", "label": "D" },
+        { "id": "E", "label": "E" }, { "id": "F", "label": "F" },
+        { "id": "G", "label": "G" }, { "id": "H", "label": "H" }
+      ],
+      "answer": "f",
+      "explanation": "…"
+    }
+  ]
+}]
+```
+
+Quy tắc Part 2:
+- `passage[].label` = **một chữ** A–H (không dùng tên market làm label).
+- `passage[].text` = `Tên market — mô tả đầy đủ` (dùng em-dash — giữa tên và mô tả).
+- `features[]` = **chỉ tên ngắn** (cho pills) — KHÔNG copy full text vào features.
+- Phải đủ **8 market** A–H trong passage — không bỏ C/D/E/F.
+
+---
+
+## Part 3 (Q11–15) — Reading comprehension
+
+- `passage[]`: copy toàn bộ bài đọc (nhiều block `{ "text": "…" }` OK).
+- 5 câu MC, mỗi câu 4 options A/B/C/D.
+
+---
+
+## Part 4 (Q16–20) — Gapped text + câu A–H ⚠ QUAN TRỌNG
+
+App hiển thị:
+- **Cột trái:** bài có gap (16) ........ + block "Sentences" + câu A–H
+- **Cột phải:** Gap 16–20 + pills A–H (không lặp danh sách câu)
+
+```json
+"passage": [
+  { "text": "A new life" },
+  { "text": "I used to work as a college lecturer… (16) ........" },
+  { "text": "I'd always loved travelling… (17) ........ … (18) ........ …" },
+  { "text": "As soon as I got to the island… (19) ........ …" },
+  { "text": "In fact I loved it so much… (20) ........ However, …" },
+  { "text": "Sentences" },
+  { "label": "A", "text": "That's why I knew it was a terrible plan." },
+  { "label": "B", "text": "I had trained in icy water in the UK so the crystal clear warm water felt amazing." },
+  { "label": "C", "text": "They always ask lots of questions." },
+  { "label": "D", "text": "I work far harder than I used to." },
+  { "label": "E", "text": "I began joking to friends about sending in an application." },
+  { "label": "F", "text": "Afterwards, some people were surprised by my decision but I wasn't too worried." },
+  { "label": "G", "text": "I decided I needed a break." },
+  { "label": "H", "text": "I needed to explain that first." }
+],
+"questionGroups": [{
+  "type": "matching-features",
+  "features": [
+    { "id": "a", "name": "That's why I knew it was a terrible plan." },
+    { "id": "b", "name": "I had trained in icy water in the UK…" }
+  ],
+  "questions": [
+    {
+      "number": 16,
+      "type": "matching-features",
+      "prompt": "Gap (16)",
+      "options": [ /* A–H */ ],
+      "answer": "g",
+      "explanation": "…"
+    }
+  ]
+}]
+```
+
+Quy tắc Part 4:
+- `features[].name` = **chỉ nội dung câu** — không prefix "A." hay "A —".
+- Đủ **8 câu** A–H trong passage (3 câu thừa không dùng).
+- Giữ `(16) ........` … `(20) ........` (8 chấm) trong passage.
+
+---
+
+## Part 5 (Q21–26) — Multiple-choice cloze
+
+⚠ Đề gốc PET Part 5: mỗi gap chọn **1 trong 4 từ** (A–D) — KHÔNG gap-fill tự gõ.
+
+```json
+"passage": [
+  { "text": "The Coconut Tree" },
+  { "text": "The coconut tree is thought to be… (21) ........ … (22) ........ …" }
+],
+"questionGroups": [{
+  "type": "multiple-choice",
+  "questions": [
+    {
+      "number": 21,
+      "type": "multiple-choice",
+      "prompt": "Gap (21)",
+      "options": [
+        { "id": "A", "label": "temperature" },
+        { "id": "B", "label": "condition" },
+        { "id": "C", "label": "climate" },
+        { "id": "D", "label": "weather" }
+      ],
+      "answer": "c",
+      "explanation": "…"
+    }
+  ]
+}]
+```
+
+---
+
+## Part 6 (Q27–32) — Open cloze (ONE WORD)
+
+```json
+"questionGroups": [{
+  "range": "Questions 27–32",
+  "instruction": "Write ONE word for each gap.",
+  "type": "gap-fill",
+  "questions": [
+    {
+      "number": 27,
+      "type": "gap-fill",
+      "prompt": "Gap (27)",
+      "answer": "every",
+      "explanation": "every/each time I've visited."
+    }
+  ]
+}]
+```
+
+- Passage giữ `(27) ........` … `(32) ........` (8 chấm).
+- `answer`: một từ tiếng Anh, chữ thường.
+
+---
+
+## Quy tắc bắt buộc
+
+1. Đủ **32 câu** Reading (Q1–32), đánh số liên tục.
+2. Chỉ dùng PDF đề + Answer Key — **không bịa**.
+3. `passageTitle` mô tả: `"Part 2 — City markets"`, `"Part 4 — A new life"`…
+4. Part 2–6: `passage[].text` **bắt buộc** (Highlight).
+5. **Phân đoạn theo PDF:** mỗi đoạn văn PDF = 1 block `passage[]` — không gộp `\n\n`. Chi tiết: HDSD/Prompt-Reading-Cambridge.txt
+5. `answer`: matching → `a`–`h`; MC → `a`–`d`; gap-fill → một từ.
+6. `explanation`: giải thích ngắn tiếng Việt.
+7. Thiếu đáp án → `answer: ""` + `explanation: "⚠ Cần điền từ answer key"`.
+
+## Lỗi thường gặp — tránh
+
+| Lỗi | Cách đúng |
+|-----|-----------|
+| Part 2: `features[]` copy full text market | features = tên ngắn; full text trong passage label A–H |
+| Part 2: thiếu market C–F trong passage | Đủ 8 block label A–H |
+| Part 2: `label` = tên market thay vì A–H | `label`: `"A"` … `"H"` |
+| Part 4: câu A–H chỉ trong features, không có passage | Thêm passage label A–H sau block "Sentences" |
+| Part 4: `features[].name` = `"A. That's why…"` | Chỉ text câu, không prefix chữ cái |
+| Part 5: dùng `gap-fill` | Part 5 = `multiple-choice` + 4 options/gap |
+| Part 1: gắn đáp án vào passage | Chỉ ảnh; MC ở `questions[]` |
+| ZIP có thư mục con | `exam.json` + ảnh cùng cấp |
+
+## Việc làm theo thứ tự
+
+1. Đọc PDF Reading (bỏ Writing) → xác nhận 6 parts · 32 câu.
+2. Part 1: export 5 ảnh signs → `part1-q1.jpg` … `q5`.
+3. Part 2: 8 market passage label A–H + features tên ngắn.
+4. Part 4: gapped text + 8 câu passage label A–H.
+5. Part 3, 5, 6: copy passage + câu hỏi + options.
+6. Answer Key → `answer` + `explanation`.
+7. Validate: Part 2/4 đủ 8 mục A–H; Part 5 = MC (6 câu × 4 options).
+8. Xuất ZIP ≤ 40MB, UTF-8, không `__MACOSX`.
+9. Bảng tóm tắt parts.
+
+## Answer Key tham khảo — Test 1 (D245/01)
+
+| Part | Đáp án |
+|------|--------|
+| 1 | 1A 2C 3C 4B 5A |
+| 2 | 6F 7G 8B 9C 10H |
+| 3 | 11C 12C 13D 14A 15B |
+| 4 | 16G 17E 18F 19B 20D |
+| 5 | 21C 22A 23B 24A 25C 26D |
+| 6 | 27every 28if 29to 30so 31of 32your |
+
+Bundle mẫu đã kiểm tra: `Tainguyen/pet-reading-test1.zip`
+
+Bắt đầu xử lý file đính kèm.
+
+Cách dùng
+
+Đính kèm cho Claude/ChatGPT/DeepSeek (Reading):
+1. HDSD/Prompt-PET-B1-Reading-Universal.txt
+2. PDF đề Reading + Answer Key (1 test)
+3. Ảnh part1-q1.jpg … part1-q5.jpg
+
+Listening PET B1 (4 parts · 25 câu): dùng **HDSD/Prompt-PET-B1-Listening.txt**
+Bundle mẫu: `Tainguyen/pet-listening-test1.zip` — `pnpm pack:listening:pet`

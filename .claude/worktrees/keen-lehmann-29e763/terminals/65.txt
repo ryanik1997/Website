@@ -1,0 +1,9 @@
+---
+pid: 47460
+cwd: "D:\App-English-Ryan\Website"
+command: "cd \"D:\\App-English-Ryan\\Website\"; $failed = @(); $passed = @(); Get-ChildItem \"Tainguyen\\IELTS\" -Directory | ForEach-Object { $name = $_.Name; $out = pnpm ielts:validate \"IELTS/$name\" 2>&1 | Out-String; if ($LASTEXITCODE -eq 0) { $passed += $name } else { $failed += $name } }; Write-Host \"PASS: $($passed.Count)\"; Write-Host \"FAIL: $($failed.Count)\"; if ($failed.Count -gt 0 -and $failed.Count -le 20) { $failed }"
+started_at: 2026-07-04T15:57:40.505Z
+running_for_ms: 480009   
+---
+PASS: 48
+FAIL: 0

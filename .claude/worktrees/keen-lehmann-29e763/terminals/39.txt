@@ -1,0 +1,28 @@
+---
+pid: 4412
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"D:\\App-English-Ryan\\Website\"; pnpm dev"
+started_at: 2026-07-02T03:38:41.397Z
+running_for_ms: 30350008 
+---
+
+> ryan-english@ dev D:\App-English-Ryan\Website
+> pnpm run dev:open
+
+
+> ryan-english@ dev:open D:\App-English-Ryan\Website
+> pnpm --stream --parallel --filter server dev --filter web dev:open
+
+server dev$ tsx watch src/index.ts "--filter" "web" "dev:open"
+server dev: [local-tts] listening on http://localhost:8787
+server dev: [local-tts] health: http://localhost:8787/api/tts/health
+server dev: [local-tts] python: C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\python.exe
+server dev: [local-tts] cache: D:\App-English-Ryan\Website\server\.cache\tts
+server dev: [kokoro] Ryan English Kokoro TTS server running at http://127.0.0.1:8788
+server dev: [local-tts] kokoro target: http://127.0.0.1:8788
+server dev: [kokoro:err] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+server dev: [kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\rnn.py:1009: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+server dev:   super().__init__("LSTM", *args, **kwargs)
+server dev: [kokoro:err] C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\utils\weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+server dev:   WeightNorm.apply(module, name, dim)
+server dev: [kokoro] Ryan English Kokoro warmup OK: b

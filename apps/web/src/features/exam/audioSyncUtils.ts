@@ -11,21 +11,52 @@ export interface WhisperSegment {
  * The largest gap between consecutive segments is the "Now listen again" pause.
  */
 export function detectListenTwiceBoundary(segments: WhisperSegment[]): number | null {
-  if (segments.length < 5) return null
-  let maxGap = 0
-  let boundaryIdx = -1
+  if (segments.length < 2) return null
+
+  const cue = segments.find(segment =>
+    /\b(?:(?:now\s+)?listen\s+again|hear\b.*\bagain|second\s+time)\b/i.test(segment.text),
+  )
+  if (cue) return cue.start
+
+  const firstStart = segments[0]!.start
+  const lastEnd = segments[segments.length - 1]!.end
+  const duration = lastEnd - firstStart
+  if (duration <= 0) return null
+
+  const midpoint = firstStart + duration / 2
+  let bestBoundary: number | null = null
+  let bestGap = 0
   for (let i = 1; i < segments.length; i += 1) {
-    const gap = segments[i]!.start - segments[i - 1]!.end
-    if (gap > maxGap) {
-      maxGap = gap
-      boundaryIdx = i
+    const boundary = segments[i]!.start
+    const gap = boundary - segments[i - 1]!.end
+    const nearMiddle = Math.abs(boundary - midpoint) < duration / 3
+    if (nearMiddle && gap > bestGap) {
+      bestGap = gap
+      bestBoundary = boundary
     }
   }
-  // Gap > 3s → likely "Now listen again" pause
-  if (maxGap > 3 && boundaryIdx > 0) {
-    return segments[boundaryIdx]!.start
+
+  return bestGap > 2 ? bestBoundary : null
+}
+
+export function partIndexAtTime(starts: number[], currentTime: number): number {
+  if (starts.length === 0 || !Number.isFinite(currentTime)) return -1
+  // No timing data: all starts are 0 (except first which is always 0)
+  if (starts.slice(1).every(s => s <= 0)) return 0
+  for (let index = starts.length - 1; index >= 0; index -= 1) {
+    if (currentTime >= starts[index]!) return index
   }
-  return null
+  return 0
+}
+
+export function mapSecondPassToFirst(options: {
+  currentTime: number
+  partStart: number
+  listenAgainAt?: number | null
+}): number {
+  const { currentTime, partStart, listenAgainAt } = options
+  if (listenAgainAt == null || currentTime < listenAgainAt) return currentTime
+  return partStart + (currentTime - listenAgainAt)
 }
 
 export function whisperSegmentsStorageKey(examId: string, partNumber: number): string {
@@ -230,51 +261,42 @@ export function questionIndexAtAudioTime(options: {
   const startTime = Number.isFinite(startPct) ? (Math.max(0, startPct!) / 100) * audioDuration : 0
   const endTime = Number.isFinite(endPct) ? (Math.min(100, endPct!) / 100) * audioDuration : audioDuration
   const partDuration = Math.max(0.001, endTime - startTime)
-  const relativeTime = Math.max(0, Math.min(partDuration, audioCurrentTime - startTime))
+  const relativeTime = Math.max(0, audioCurrentTime - startTime)
 
-  // Detect KET "listen twice" pattern (Now listen again)
-  // Split segments at the longest gap (>3s) → first pass + second pass
-  const listenTwiceAt = detectListenTwiceBoundary(segments)
+  if (segments.length > 0) {
+    const listenAgainAt = detectListenTwiceBoundary(segments)
+    const timelineTime = mapSecondPassToFirst({
+      currentTime: relativeTime,
+      partStart: segments[0]!.start,
+      listenAgainAt,
+    })
+    const firstPass = listenAgainAt == null
+      ? segments
+      : segments.filter(segment => segment.start < listenAgainAt)
+    const spokenSegments = firstPass.filter(segment => segment.end > segment.start)
+    const totalSpoken = spokenSegments.reduce((total, segment) => total + segment.end - segment.start, 0)
 
-  if (listenTwiceAt != null && segments.length >= questionCount) {
-    // Split into first + second pass
-    const splitIdx = segments.findIndex(s => s.start >= listenTwiceAt)
-    const firstPass = splitIdx > 0 ? segments.slice(0, splitIdx) : segments
-    const secondPass = splitIdx > 0 ? segments.slice(splitIdx) : []
-
-    if (relativeTime < listenTwiceAt || secondPass.length < questionCount) {
-      // First pass or second pass too short — use first-pass segments
-      const segToQ = groupSegmentsByPause(firstPass, questionCount)
-      const activeSegIdx = firstPass.findIndex(s => relativeTime < s.end)
-      const segIdx = activeSegIdx >= 0 ? activeSegIdx : firstPass.length - 1
-      return Math.min(questionCount - 1, segToQ[segIdx] ?? 0)
-    }
-
-    // Second pass: wrap time to first-pass position
-    const secondPassStart = secondPass[0]!.start
-    const firstPassDuration = firstPass[firstPass.length - 1]!.end - firstPass[0]!.start
-    const offset = relativeTime - secondPassStart
-    if (offset > 0 && firstPassDuration > 0) {
-      const ratio = Math.min(1, offset / firstPassDuration)
-      // Map ratio within first pass to question index
-      const segToQ = groupSegmentsByPause(firstPass, questionCount)
-      const fpTime = firstPass[0]!.start + ratio * firstPassDuration
-      const fpSegIdx = firstPass.findIndex(s => fpTime < s.end)
-      const segIdx = fpSegIdx >= 0 ? fpSegIdx : firstPass.length - 1
-      return Math.min(questionCount - 1, segToQ[segIdx] ?? 0)
+    if (totalSpoken > 0) {
+      let spokenBefore = 0
+      for (const segment of spokenSegments) {
+        if (timelineTime >= segment.end) {
+          spokenBefore += segment.end - segment.start
+          continue
+        }
+        if (timelineTime > segment.start) spokenBefore += timelineTime - segment.start
+        break
+      }
+      return Math.min(
+        questionCount - 1,
+        Math.floor((spokenBefore / totalSpoken) * questionCount),
+      )
     }
   }
 
-  // Fallback: segment grouping for single-pass audio
-  if (segments.length >= questionCount) {
-    const segToQ = groupSegmentsByPause(segments, questionCount)
-    const activeSegIdx = segments.findIndex(s => relativeTime < s.end)
-    const segIdx = activeSegIdx >= 0 ? activeSegIdx : segments.length - 1
-    return Math.min(questionCount - 1, segToQ[segIdx] ?? 0)
-  }
-
-  // Last resort: audio time ratio
-  return Math.min(questionCount - 1, Math.floor((relativeTime / partDuration) * questionCount))
+  return Math.min(
+    questionCount - 1,
+    Math.floor((Math.min(relativeTime, partDuration) / partDuration) * questionCount),
+  )
 }
 
 export function shouldSyncWholeExamAudio(options: {
@@ -282,9 +304,9 @@ export function shouldSyncWholeExamAudio(options: {
   startPct?: number
   endPct?: number
 }): boolean {
-  // Shared audio (1 file for all parts): questions span multiple parts,
-  // need to sync across whole exam to detect part boundaries
-  return options.hasSharedAudio
+  if (!options.hasSharedAudio) return false
+  const hasExplicitPartRange = Number.isFinite(options.startPct) || Number.isFinite(options.endPct)
+  return !hasExplicitPartRange
 }
 
 export function audioSyncQuestionScope<T>(options: {

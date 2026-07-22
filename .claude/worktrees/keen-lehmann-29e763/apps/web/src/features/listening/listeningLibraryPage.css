@@ -1,0 +1,21 @@
+.listening-library-page { position: relative; isolation: isolate; background: radial-gradient(circle at 82% 4%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 28rem), var(--bg-primary) !important; }
+.listening-library-page::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .03; background-image: radial-gradient(var(--text-primary) .55px, transparent .55px); background-size: 5px 5px; }
+.listening-library-page__inner { max-width: 76rem; padding-top: clamp(2rem, 5vw, 5rem); }
+.listening-library-page__inner > header { position: relative; min-height: 17rem; margin-bottom: 3rem; padding: 2.4rem 2.5rem; overflow: hidden; border-radius: 2rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 9%, transparent); }
+.listening-library-page__inner > header::after { content: 'LISTEN\A / 01'; white-space: pre; position: absolute; right: 7%; bottom: 1.5rem; color: color-mix(in srgb, var(--color-primary) 35%, transparent); font-family: Georgia, serif; font-size: clamp(3rem, 8vw, 7rem); font-style: italic; line-height: .8; text-align: right; transform: rotate(-7deg); pointer-events: none; }
+.listening-library-page__inner > header h1,
+.listening-library-page__inner > header h2,
+.listening-library-page__inner > header > div { position: relative; z-index: 1; }
+.listening-library-page__inner > header h1,
+.listening-library-page__inner > header h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .92; }
+.listening-library-page__inner > header h2 { color: var(--color-primary) !important; }
+.listening-library-page__inner > header > div { margin-top: 1.2rem; }
+.listening-library-page__inner > div.mb-5 { gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
+.listening-library-page__inner .rounded-full { transition: transform 600ms cubic-bezier(.32,.72,0,1), background 600ms cubic-bezier(.32,.72,0,1), border-color 600ms cubic-bezier(.32,.72,0,1); }
+.listening-library-page__inner .rounded-full:hover { transform: translateY(-.15rem); }
+.listening-library-page__inner input[type='search'] { min-height: 1.4rem; }
+.listening-library-page__inner > div.flex.flex-col.gap-8 > section > h3 { margin-bottom: .9rem; color: var(--text-primary) !important; font-family: Georgia, serif; font-size: 1.2rem; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
+.listening-library-page__inner > div.flex.flex-col.gap-8 > section > div { gap: 1rem; }
+.listening-library-page__inner > div.flex.flex-col.gap-8 > section > div > * { border-radius: 1.4rem; transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
+.listening-library-page__inner > div.flex.flex-col.gap-8 > section > div > *:hover { transform: translateY(-.3rem); box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--color-primary) 9%, transparent); }
+@media (max-width: 640px) { .listening-library-page__inner { padding-top: 1.5rem; } .listening-library-page__inner > header { min-height: 15rem; margin-bottom: 2rem; padding: 1.5rem 1.25rem; } .listening-library-page__inner > header::after { right: 4%; bottom: 1rem; font-size: 3.5rem; } .listening-library-page__inner > div.mb-5 { padding-bottom: 1rem; } }

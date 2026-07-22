@@ -1,3 +1,34 @@
+## >>> TRẠNG THÁI GẦN NHẤT — Agent mới đọc phần này trước, không đọc hết file <<<
+
+**Ngày:** 2026-07-22
+
+### Đã hoàn thành
+- **Responsive trang đăng nhập MacBook:** Thu card từ 40.5rem xuống 36rem (34rem ở viewport cao ≤900px), dùng căn giữa an toàn, compact spacing/control cho màn laptop, giảm mascot mặt trời và ẩn ở 641–960px để không bị cắt/lấn form. Fixture Chrome xác nhận card + mặt trời nằm trọn ở 1280×800 và 1440×900; 960×800 ẩn mặt trời đúng thiết kế. `git diff --check` PASS. TypeScript/dev server chưa chạy được do node_modules hiện thiếu/sai package types (Rollup, Supabase, Testing Library, Node types), không liên quan CSS.
+- **Cloudflare R2:** Upload 751 MP3 files (4.19 GB). Public: `https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/...`
+- **protectedMedia.ts:** Thêm R2 routing cho catalog audio MP3 trong production.
+- **Supabase project mới:** `afryrzlcmieedcndyeug` (org `itpfkpnqnuhumdvhrkuh`). Push 34 migrations, Google OAuth, deploy `content-sign` Edge Function.
+- **Fix Google login:** Bỏ `recoverOAuthSession()` thủ công. Set `detectSessionInUrl: true`. SDK tự xử lý callback.
+- **Skills cài mới:** stitch (15), anthropic (17), ponytail (6) cho .claude + .codex. File `skills-inventory.xlsx`.
+- **Fix auto-sync listening jump bug:** `partIndexAtTime` khi partStarts = [0,0,0,0,0] luôn trả về Part 5. User yêu cầu tắt auto chuyển câu → `useAudioSync` useEffect now returns early. Deployed v0.2.12.
+- **Fix part jump:** `useAudioSync.ts` effect body replaced with early return. `audioSyncUtils.ts` thêm guard cho all-zeros starts.
+- **Xóa project cũ:** `ntcagvtkwxwsmlxlumfo` + `kxohkmeuyeiczqelrnbi` (org cũ lock quota).
+
+### Files changed
+- `apps/web/.env.local`, `src/lib/supabase.ts`, `src/main.tsx`, `src/features/auth/AuthContext.tsx`, `src/features/auth/AuthCallback.tsx`, `src/lib/protectedMedia.ts`
+
+### Lỗi còn tồn tại
+- Google login cần smoke production + localhost.
+- Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
+- Audio Supabase cũ đã mất (R2 đã có đủ).
+
+### Deploy rule (ghi nhớ cho các session sau)
+Khi user yêu cầu "deploy" sau khi làm tính năng/fix → **deploy lên Vercel production trước**, rồi **cập nhật session_summary.md** sau. Không làm ngược lại.
+
+### Next session start prompt
+Khôi phục node_modules (`pnpm install --ignore-scripts`), chạy app để smoke trang login responsive ở 1280×800/1440×900, rồi smoke authenticated production Google login + audio R2 + listening manual question navigation (auto-sync đã tắt).
+
+---
+EOF
 ## 2026-07-20 — Upload part1.mp3 cho KET practice-16
 
 - Upload file `part1.mp3` (4.19 MB) từ `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lên Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` — upsert thay thế file cũ.

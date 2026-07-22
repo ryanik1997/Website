@@ -13,7 +13,7 @@ const require = createRequire(import.meta.url)
 const { unzipSync } = require(require.resolve('fflate', { paths: [path.join(ROOT, 'apps', 'web')] }))
 const { createClient } = require(require.resolve('@supabase/supabase-js', { paths: [path.join(ROOT, 'apps', 'web')] }))
 
-const PROJECT_REF = 'ntcagvtkwxwsmlxlumfo'
+const PROJECT_REF = 'afryrzlcmieedcndyeug'
 const SUPABASE_URL = `https://${PROJECT_REF}.supabase.co`
 const BUCKET = 'exam-media'
 const STORAGE_PREFIX = 'catalog/listening-publish'

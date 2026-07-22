@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import {
   audioSyncQuestionScope,
+  detectListenTwiceBoundary,
+  mapSecondPassToFirst,
+  partIndexAtTime,
   parseWhisperSegments,
   questionIndexAtAudioTime,
   resolveWhisperSegments,
@@ -14,6 +17,37 @@ describe('audio question sync', () => {
       audioCurrentTime: 25,
       audioDuration: 100,
       questionCount: 4,
+    })).toBe(1)
+  })
+
+  it('detects shared-audio Part transitions from real timeline anchors', () => {
+    expect(partIndexAtTime([0, 31, 46, 68, 84], 45.9)).toBe(1)
+    expect(partIndexAtTime([0, 31, 46, 68, 84], 46)).toBe(2)
+  })
+
+  it('prefers a listen-again phrase over a hard-coded silence gap', () => {
+    const segments = parseWhisperSegments([
+      { start: 0, end: 1, text: 'Question one' },
+      { start: 1.2, end: 2, text: 'Answer' },
+      { start: 2.2, end: 3, text: 'Now listen again' },
+      { start: 3.2, end: 4, text: 'Question one' },
+      { start: 4.2, end: 5, text: 'Answer' },
+    ])
+    expect(detectListenTwiceBoundary(segments)).toBe(2.2)
+    expect(mapSecondPassToFirst({ currentTime: 4.2, partStart: 0, listenAgainAt: 2.2 })).toBe(2)
+  })
+
+  it('maps questions by spoken duration instead of silence-heavy wall-clock ratio', () => {
+    const segments = parseWhisperSegments([
+      { start: 0, end: 2, text: 'First recording' },
+      { start: 20, end: 22, text: 'Second recording' },
+      { start: 22, end: 24, text: 'Third recording' },
+    ])
+    expect(questionIndexAtAudioTime({
+      audioCurrentTime: 20,
+      audioDuration: 24,
+      questionCount: 3,
+      segments,
     })).toBe(1)
   })
 

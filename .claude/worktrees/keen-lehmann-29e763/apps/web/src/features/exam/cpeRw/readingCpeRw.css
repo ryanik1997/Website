@@ -1,0 +1,112 @@
+/* CPE C2 Reading & Writing — 9 parts + Part 8 essay texts + Part 9 choice */
+
+.cpe-rw-shell .ket-rw-footer__parts {
+  overflow-x: auto;
+}
+
+.cpe-rw-shell .ket-rw-footer-part {
+  min-width: 4.5rem;
+}
+
+.cpe-rw-section-block {
+  margin-bottom: 1rem;
+}
+
+.cpe-rw-section-block__heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cpe-rw-panel-title {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cpe-rw-essay-text {
+  margin-bottom: 1.25rem;
+}
+
+.cpe-rw-essay-text__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cpe-rw-writing-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cpe-rw-writing-choice__item {
+  padding: 0.75rem;
+  border: 1px solid var(--ket-pane-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.cpe-rw-writing-choice__item.is-selected {
+  border-color: var(--ket-accent);
+  background: color-mix(in srgb, var(--ket-accent) 8%, var(--ket-body-bg));
+}
+
+.cpe-rw-writing-choice__item h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ket-text);
+}
+
+.cpe-rw-writing-choice__item p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ket-text);
+  white-space: pre-wrap;
+}
+
+.cpe-rw-writing-choice--compact .cpe-rw-writing-choice__item {
+  padding: 0.55rem 0.75rem;
+}
+
+.cpe-rw-writing-choice--compact .cpe-rw-writing-choice__item h4 {
+  margin: 0;
+}
+
+.cpe-rw-writing-image-only {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cpe-rw-writing-image-only .pet-rw-page-image {
+  width: 100%;
+  height: auto;
+}
+
+.cpe-rw-transform-single {
+  max-width: 42rem;
+  margin: 0;
+  padding: 1rem 1.25rem 0;
+  text-align: left;
+}
+
+.cpe-rw-transform-single .cae-rw-transform {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+.cpe-rw-transform-single .cae-rw-transform.is-active {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}

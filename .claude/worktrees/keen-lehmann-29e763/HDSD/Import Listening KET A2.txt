@@ -1,0 +1,25 @@
+ZIP cần có:
+
+exam.json
+answer-key.txt   (hoặc answer-key.pdf)
+listening.mp3
+q1.jpg
+q2.jpg
+q3.jpg
+q4.jpg
+q5.jpg
+
+Tên file tự nhận: q1.jpg, part1-q1.jpg, hoặc khai báo rõ "imageFile": "q1.jpg".
+
+Việc bạn cần làm
+
+1. Crop từ PDF 5 ảnh (mỗi câu 1 khung có A+B+C) → đặt vào Tainguyen/ket-listening-test1/
+2. Chạy pnpm build:catalog (hoặc import ZIP mới)
+
+Không cần chụp màn hình từng tranh nhỏ — chỉ cần crop đúng 1 khung/câu từ PDF như trên đề in.
+
+Tương thích cũ
+
+Format cũ q1-a.jpg, q1-b.jpg, q1-c.jpg vẫn dùng được nếu bạn đã có sẵn bundle kiểu đó.
+
+exam.json KET và HDSD (Prompt-KET-A2-Listening.txt, Import De Thi.txt) đã được cập nhật theo format mới.

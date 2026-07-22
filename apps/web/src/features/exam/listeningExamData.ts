@@ -103,6 +103,8 @@ export interface ListeningQuestion {
   audioUrl?: string
   ttsText?: string
   transcript?: string
+  /** Optional transcript-derived start anchor for precise audio sync. */
+  audioAnchorSec?: number
   wordLimit?: number
   /** PET Part 2: "You will hear two friends talking about…" */
   context?: string
@@ -149,6 +151,11 @@ export interface ListeningPart {
   transcript?: string
   /** Published Whisper timing for production transcript highlight/scroll. */
   transcriptSegments?: WhisperSegment[]
+  /** Transcript-derived boundaries for Parts sharing one audio file. */
+  audioStartSec?: number
+  audioEndSec?: number
+  /** Start of the repeated second pass within this Part. */
+  listenAgainSec?: number
   /**
    * Khi nhiều part dùng chung 1 file full MP3 (chưa có partN.mp3):
    * tua tới % này lúc bắt đầu part (0–100).

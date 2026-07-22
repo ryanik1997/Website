@@ -1,0 +1,563 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Bell, Check, ChevronLeft, ChevronRight, Edit3, Menu, Wifi } from 'lucide-react'
+import { listeningExamBackPath } from './examNavigation'
+import ListeningSubmittedScreen from './ListeningSubmittedScreen'
+import ListeningFceGapFillPartView from './ListeningFceGapFillPartView'
+import ListeningFceMatchingPartView from './ListeningFceMatchingPartView'
+import ListeningFceMcPartView from './ListeningFceMcPartView'
+import ListeningDualLetterMatchingPartView from './ListeningDualLetterMatchingPartView'
+import { patchFullMockSession } from './fullMockSession'
+import { clearListeningDraft } from './examCompletion'
+import { ExamHighlightProvider } from './examHighlightContext'
+import ReadingHighlightToolbar from './ReadingHighlightToolbar'
+import { notifyExamDraftRevision } from './useExamDraftRevision'
+import { useExamDraftGate } from './useExamDraftGate'
+import { usePartHighlights } from './usePartHighlights'
+import ExamTimerControls from './ExamTimerControls'
+import { initialExamTimerSeconds } from './examTimer'
+import type { ListeningExam } from './listeningExamData'
+import { getListeningExamQuestions, getPartQuestions } from './listeningExamData'
+import { buildListeningReviewStatusMap, examReviewPillStyle, type ExamReviewStatus } from './examReviewUtils'
+import ListeningReviewActiveBar from './ListeningReviewActiveBar'
+import ListeningReviewTranscriptToolbar from './ListeningReviewTranscriptToolbar'
+import ExamReviewAiPanel from './ExamReviewAiPanel'
+import { useExamReviewAi } from './useExamReviewAi'
+import { useListeningReviewTranscript } from './useListeningReviewTranscript'
+import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useListeningPlayLimits } from './useListeningPlayLimits'
+import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
+import { hasExamAudioSource, resolveListeningAudioSource } from './listeningExamAudio'
+import { useListeningSplitPane } from './useListeningSplitPane'
+import { isDualLetterMatchingPart, isGroupedLetterMatchingPart } from './listeningMultiPartLayout'
+
+const STORAGE_PREFIX = 'exam-listening-draft:'
+
+interface Props {
+  exam: ListeningExam
+  sessionStarted?: boolean
+}
+
+export default function ListeningFceTest({ exam, sessionStarted = true }: Props) {
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const fullMockId = searchParams.get('fullMock')
+  const allQuestions = useMemo(() => getListeningExamQuestions(exam), [exam])
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const { isResizing } = useListeningSplitPane()
+
+  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [unsure, setUnsure] = useState<Record<string, boolean>>({})
+  const [timeLeft, setTimeLeft] = useState(initialExamTimerSeconds(exam.durationMinutes))
+  const [partIndex, setPartIndex] = useState(0)
+  const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
+  const [submitted, setSubmitted] = useState(false)
+  const [reviewMode, setReviewMode] = useState(false)
+  const [confirmSubmit, setConfirmSubmit] = useState(false)
+
+  const storageKey = `${STORAGE_PREFIX}${exam.id}`
+  const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
+  const currentPart = exam.parts[partIndex] ?? null
+  const {
+    highlights,
+    notes,
+    highlightsByPart,
+    notesByPart,
+    handleHighlightsChange,
+    handleNotesChange,
+    setAnnotationsByPart,
+    clearAllHighlights,
+  } = usePartHighlights(currentPart?.id)
+  const partQuestions = useMemo(
+    () => (currentPart ? getPartQuestions(currentPart) : []),
+    [currentPart],
+  )
+
+  const {
+    playing,
+    buffering,
+    progressPct,
+    timeLabel,
+    play,
+    seekToPct,
+    stopPlayback,
+    resetPlayback,
+    playError,
+  } = useExamQuestionAudio()
+
+  const audioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
+  const hasAudioFile = hasExamAudioSource(audioSource)
+  const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
+  const playKey = `exam-${exam.id}`
+  const maxPlays = exam.examMode === 'exam' ? 2 : undefined
+  const left = playsLeft(playKey, maxPlays)
+  const blocked = !canPlay(playKey, maxPlays)
+
+  const makePlayOpts = useCallback((rate: number) => ({
+    rate,
+    allowSeek: exam.examMode === 'practice',
+    beforePlay: () => canPlay(playKey, maxPlays),
+    onPlayCounted: () => recordPlay(playKey),
+  }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  useEffect(() => {
+    registerListeningAutoPlay(() => {
+      if (submitted || reviewMode) return
+      if (!hasAudioFile && !audioSource.ttsText?.trim()) return
+      return play(audioSource, makePlayOpts(1))
+    })
+    return () => registerListeningAutoPlay(null)
+  }, [audioSource, hasAudioFile, makePlayOpts, play, reviewMode, submitted])
+
+  useEffect(() => {
+    const savedRaw = window.localStorage.getItem(storageKey)
+    if (!savedRaw) {
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      markHydrated()
+      return
+    }
+    try {
+      const saved = JSON.parse(savedRaw) as {
+        answers?: Record<string, string>
+        unsure?: Record<string, boolean>
+        timeLeft?: number
+        partIndex?: number
+        activeQuestionId?: string | null
+        submitted?: boolean
+        highlightsByPart?: Record<string, import('./readingHighlightUtils').ReadingHighlight[]>
+        notesByPart?: Record<string, import('./readingHighlightUtils').TextNote[]>
+      }
+      setAnswers(saved.answers ?? {})
+      setUnsure(saved.unsure ?? {})
+      setTimeLeft(
+        typeof saved.timeLeft === 'number'
+          ? saved.timeLeft
+          : initialExamTimerSeconds(exam.durationMinutes),
+      )
+      setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
+      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setSubmitted(Boolean(saved.submitted))
+      setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
+    } catch {
+      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    }
+    markHydrated()
+  }, [exam, setAnnotationsByPart, storageKey, markHydrated])
+
+  useEffect(() => {
+    if (!isHydrated) return
+    try {
+    window.localStorage.setItem(storageKey, JSON.stringify({
+      answers,
+      unsure,
+      timeLeft,
+      partIndex,
+      activeQuestionId,
+      submitted,
+      highlightsByPart,
+      notesByPart,
+      updatedAt: Date.now(),
+    }))
+    notifyExamDraftRevision()
+    } catch {
+      /* quota */
+    }
+  }, [activeQuestionId, answers, highlightsByPart, notesByPart, partIndex, storageKey, submitted, timeLeft, unsure, isHydrated])
+
+  useEffect(() => {
+    if (!sessionStarted || submitted || reviewMode) return
+    if (timeLeft <= 0) {
+      setSubmitted(true)
+      return
+    }
+    const timer = window.setInterval(() => setTimeLeft(prev => Math.max(0, prev - 1)), 1000)
+    return () => window.clearInterval(timer)
+  }, [reviewMode, sessionStarted, submitted, timeLeft])
+
+  useEffect(() => {
+    if (!currentPart) return
+    if (!partQuestions.some(q => q.id === activeQuestionId)) {
+      setActiveQuestionId(partQuestions[0]?.id ?? null)
+    }
+  }, [activeQuestionId, currentPart, partQuestions])
+
+  const goToPart = useCallback((index: number) => {
+    if (index < 0 || index >= exam.parts.length) return
+    const qs = getPartQuestions(exam.parts[index])
+    setPartIndex(index)
+    setActiveQuestionId(qs[0]?.id ?? null)
+  }, [exam.parts])
+
+  const handleAnswer = useCallback((questionId: string, value: string) => {
+    if (reviewMode) return
+    setAnswers(prev => ({ ...prev, [questionId]: value }))
+    setActiveQuestionId(questionId)
+  }, [reviewMode])
+
+  const answeredInPart = useCallback((index: number) => {
+    return getPartQuestions(exam.parts[index]).filter(q => Boolean(answers[q.id])).length
+  }, [answers, exam.parts])
+
+  const goAdjacentQuestion = useCallback((delta: number) => {
+    if (!activeQuestionId) return
+    const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
+    const next = allQuestions[idx + delta]
+    if (!next) return
+
+    const nextPartIndex = exam.parts.findIndex(part =>
+      getPartQuestions(part).some(q => q.id === next.id),
+    )
+    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
+      setPartIndex(nextPartIndex)
+    }
+    setActiveQuestionId(next.id)
+  }, [activeQuestionId, allQuestions, exam.parts, partIndex])
+
+  const resetTimer = useCallback(() => {
+    setTimeLeft(initialExamTimerSeconds(exam.durationMinutes))
+  }, [exam.durationMinutes])
+
+  const handleRetry = useCallback(() => {
+    clearListeningDraft(exam.id)
+    clearAllHighlights()
+    resetPlayback()
+    resetPlayCounts()
+    setAnswers({})
+    setUnsure({})
+    setTimeLeft(initialExamTimerSeconds(exam.durationMinutes))
+    setPartIndex(0)
+    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setSubmitted(false)
+    setReviewMode(false)
+    if (fullMockId) {
+      patchFullMockSession({ stage: 'listening', listening: undefined })
+    }
+  }, [clearAllHighlights, exam.durationMinutes, exam.id, exam.parts, fullMockId, resetPlayCounts, resetPlayback])
+
+  const answeredCount = useMemo(
+    () => allQuestions.filter(q => Boolean(answers[q.id])).length,
+    [allQuestions, answers],
+  )
+  const activeQuestionIndex = activeQuestionId
+    ? allQuestions.findIndex(q => q.id === activeQuestionId)
+    : -1
+
+  const reviewStatusMap = useMemo((): Record<string, ExamReviewStatus> => {
+    if (!reviewMode) return {}
+    return buildListeningReviewStatusMap(exam, answers)
+  }, [answers, exam, reviewMode])
+
+  const { aiText: reviewAiText, hideAi: hideReviewAi } = useExamReviewAi(
+    exam.id,
+    'listening',
+    reviewMode,
+  )
+  const reviewActiveQuestionNumber = useMemo(() => {
+    if (!reviewMode || !activeQuestionId) return null
+    return allQuestions.find(q => q.id === activeQuestionId)?.number ?? null
+  }, [activeQuestionId, allQuestions, reviewMode])
+
+  const activeReviewQuestion = useMemo(
+    () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
+    [activeQuestionId, allQuestions],
+  )
+  const {
+    showToolbar: showTranscriptToolbar,
+    loading: transcriptLoading,
+    error: transcriptError,
+    aiCount: transcriptAiCount,
+    importedCount: transcriptImportedCount,
+    transcriptForActive,
+    runAi: runTranscriptAi,
+  } = useListeningReviewTranscript(exam, reviewMode, activeReviewQuestion)
+
+  if (submitted && !reviewMode) {
+    return (
+      <ListeningSubmittedScreen
+        exam={exam}
+        answers={answers}
+        unsure={unsure}
+        allQuestions={allQuestions}
+        fullMockId={fullMockId}
+        onRetry={handleRetry}
+        onReviewWithPaper={() => {
+          setReviewMode(true)
+          setPartIndex(0)
+          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+        }}
+      />
+    )
+  }
+
+  return (
+    <div className={`listening-exam-shell listening-ket-cambridge listening-fce-cambridge${exam.examType === 'cae' || exam.examType === 'cpe' ? ' listening-cae-cambridge' : ''}${exam.examType === 'cpe' ? ' listening-cpe-cambridge' : ''}${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+      {reviewMode && (
+        <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
+          <span>Chế độ xem lại đề — pill xanh = đúng · đỏ = sai · vàng = bỏ qua</span>
+          <button type="button" className="rounded-full px-3 py-1.5 text-xs font-bold" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }} onClick={() => setReviewMode(false)}>Về báo cáo</button>
+        </div>
+      )}
+      {showTranscriptToolbar && (
+        <ListeningReviewTranscriptToolbar
+          loading={transcriptLoading}
+          error={transcriptError}
+          aiCount={transcriptAiCount}
+          importedCount={transcriptImportedCount}
+          onRunAi={force => void runTranscriptAi(force)}
+          variant="cambridge"
+        />
+      )}
+      {reviewMode && (
+        <ListeningReviewActiveBar
+          question={activeReviewQuestion}
+          userAnswer={activeQuestionId ? (answers[activeQuestionId] ?? '') : ''}
+          status={activeQuestionId ? (reviewStatusMap[activeQuestionId] ?? null) : null}
+          transcriptOverride={transcriptForActive}
+        />
+      )}
+      {reviewMode && reviewAiText && (
+        <ExamReviewAiPanel
+          aiText={reviewAiText}
+          activeQuestionNumber={reviewActiveQuestionNumber}
+          onClose={hideReviewAi}
+        />
+      )}
+      <header className="listening-ket-cambridge__header">
+        <button
+          type="button"
+          className="listening-ket-cambridge__brand"
+          onClick={() => {
+            if (reviewMode) { setReviewMode(false); return }
+            navigate(listeningExamBackPath(exam))
+          }}
+          aria-label="Back to exam list"
+        >
+          <span className="listening-ket-cambridge__crest">C</span>
+          <span>
+            <strong>CAMBRIDGE</strong>
+            <em>English</em>
+          </span>
+        </button>
+        <div className="listening-ket-cambridge__candidate">
+          <strong>Candidate ID</strong>
+          <span>Audio is playing</span>
+        </div>
+        <div className="listening-ket-cambridge__tools" aria-label="Exam tools">
+          {!reviewMode && (
+            <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
+          )}
+          <Wifi size={19} />
+          <Bell size={19} />
+          <Menu size={22} />
+          <Edit3 size={19} />
+          <button
+            type="button"
+            className="listening-ket-cambridge__exit"
+            onClick={() => navigate(listeningExamBackPath(exam))}
+          >
+            Exit
+          </button>
+        </div>
+      </header>
+
+      <div
+        ref={bodyRef}
+        className="listening-exam-body listening-ket-cambridge__body"
+      >
+        {currentPart && (
+          <ReadingHighlightToolbar
+            rootRef={bodyRef}
+            highlights={highlights}
+            onHighlightsChange={handleHighlightsChange}
+            notes={notes}
+            onNotesChange={handleNotesChange}
+            resetKey={currentPart.id}
+          />
+        )}
+        <ExamHighlightProvider highlights={highlights} notes={notes}>
+          {currentPart && (() => {
+            const audioBarProps = {
+              source: audioSource,
+              playing,
+              buffering,
+              progressPct,
+              timeLabel,
+              hasAudioFile,
+              allowSeek: exam.examMode === 'practice',
+              playsLeft: left,
+              playBlocked: blocked,
+              playError,
+              onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
+              onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
+              onStop: stopPlayback,
+            }
+
+            if (currentPart.questions.every(question => question.type === 'gap-fill')) {
+              return (
+                <ListeningFceGapFillPartView
+                  part={currentPart}
+                  questions={partQuestions}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  audioBar={audioBarProps}
+                  resizer={null}
+                  onAnswer={handleAnswer}
+                  onSelectQuestion={setActiveQuestionId}
+                />
+              )
+            }
+
+            if (isDualLetterMatchingPart(currentPart)) {
+              return (
+                <ListeningDualLetterMatchingPartView
+                  part={currentPart}
+                  questions={partQuestions}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  audioBar={audioBarProps}
+                  resizer={null}
+                  onAnswer={handleAnswer}
+                  onSelectQuestion={setActiveQuestionId}
+                />
+              )
+            }
+
+            if (isGroupedLetterMatchingPart(currentPart)) {
+              return (
+                <ListeningFceMatchingPartView
+                  part={currentPart}
+                  questions={partQuestions}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  audioBar={audioBarProps}
+                  resizer={null}
+                  onAnswer={handleAnswer}
+                  onSelectQuestion={setActiveQuestionId}
+                />
+              )
+            }
+
+            return (
+                <ListeningFceMcPartView
+                  part={currentPart}
+                  questions={partQuestions}
+                  answers={answers}
+                  activeQuestionId={activeQuestionId}
+                  audioBar={audioBarProps}
+                  showAllQuestions={currentPart.partNumber === 4 || ((exam.examType === 'cae' || exam.examType === 'cpe') && currentPart.partNumber === 3)}
+                  resizer={null}
+                  onAnswer={handleAnswer}
+                  onSelectQuestion={setActiveQuestionId}
+                  reviewMode={reviewMode}
+                  reviewStatusMap={reviewStatusMap}
+              />
+            )
+          })()}
+        </ExamHighlightProvider>
+
+        <div className="listening-ket-cambridge__float-nav">
+          <button
+            type="button"
+            className="listening-ket-cambridge__arrow listening-ket-cambridge__arrow--back"
+            disabled={activeQuestionIndex <= 0}
+            onClick={() => goAdjacentQuestion(-1)}
+            aria-label="Previous question"
+          >
+            <ChevronLeft size={30} />
+          </button>
+          <button
+            type="button"
+            className="listening-ket-cambridge__arrow listening-ket-cambridge__arrow--next"
+            disabled={activeQuestionIndex >= allQuestions.length - 1}
+            onClick={() => goAdjacentQuestion(1)}
+            aria-label="Next question"
+          >
+            <ChevronRight size={30} />
+          </button>
+        </div>
+      </div>
+
+      <footer className="listening-ket-cambridge__footer">
+        <div className="listening-ket-cambridge__footer-parts">
+          {exam.parts.map((part, index) => {
+            const questions = getPartQuestions(part)
+            const answered = answeredInPart(index)
+            const isCurrent = index === partIndex
+            return (
+              <div
+                key={part.id}
+                className={`listening-ket-cambridge__footer-part${isCurrent ? ' is-current' : ''}`}
+              >
+                <button type="button" onClick={() => goToPart(index)}>
+                  <strong>Part {part.partNumber}</strong>
+                  {!isCurrent && <span>{answered} of {questions.length}</span>}
+                </button>
+                {isCurrent && (
+                  <div className="listening-ket-cambridge__qnav">
+                    {questions.map(question => {
+                      const isActive = activeQuestionId === question.id
+                      const rev = reviewMode ? (reviewStatusMap[question.id] ?? null) : null
+                      return (
+                        <button
+                          key={question.id}
+                          type="button"
+                          className={`${isActive ? ' is-current' : ''}${!rev && answers[question.id] ? ' is-answered' : ''}`}
+                          style={examReviewPillStyle(rev, isActive)}
+                          title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}
+                          onClick={() => setActiveQuestionId(question.id)}
+                        >
+                          {question.number}
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+        <button
+          type="button"
+          className="listening-ket-cambridge__submit"
+          onClick={() => {
+            if (reviewMode) { setReviewMode(false); return }
+            setConfirmSubmit(true)
+          }}
+          aria-label={reviewMode ? 'Back to report' : 'Submit test'}
+        >
+          <Check size={24} />
+        </button>
+      </footer>
+
+      {confirmSubmit && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'color-mix(in srgb, var(--bg-primary) 35%, transparent)' }}
+          onClick={() => setConfirmSubmit(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-xl border p-5 shadow-2xl"
+            style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>Submit Listening?</h3>
+            <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+              You have answered {answeredCount}/{allQuestions.length} questions.
+            </p>
+            <div className="mt-4 flex justify-end gap-2">
+              <button type="button" className="listening-exam-btn listening-exam-btn--ghost" onClick={() => setConfirmSubmit(false)}>
+                Continue
+              </button>
+              <button type="button" className="listening-exam-btn listening-exam-btn--primary" onClick={() => { setConfirmSubmit(false); setSubmitted(true) }}>
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

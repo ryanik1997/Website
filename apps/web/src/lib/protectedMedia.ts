@@ -16,6 +16,11 @@ const FAIL_CACHE = new Map<string, { at: number; err: MediaAccessError }>()
 const FAIL_TTL_MS = 8_000
 const STORAGE_ONLY_PREFIXES = ['catalog/listening-publish/']
 
+// Cloudflare R2 — public audio CDN (supersedes signed-url for catalog audio).
+const R2_BASE_URL = 'https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev'
+// Paths under /catalog/listening/ that have been uploaded to R2.
+const CATALOG_AUDIO_PREFIXES = ['catalog/listening/']
+
 export type MediaMode = 'local' | 'signed'
 
 export function getMediaMode(): MediaMode {
@@ -166,6 +171,19 @@ async function signPath(path: string): Promise<string> {
   return data.url
 }
 
+/** Check if a storage path is a catalog audio file served via R2. */
+function isCatalogAudioPath(path: string): boolean {
+  return path.endsWith('.mp3')
+    && CATALOG_AUDIO_PREFIXES.some(p => path.startsWith(p))
+}
+
+/** Resolve a catalog audio path to its R2 public URL (strip /catalog prefix). */
+function toR2Url(path: string): string {
+  // /catalog/listening/... → https://pub-...r2.dev/listening/...
+  const relative = path.replace(/^catalog\//, '')
+  return `${R2_BASE_URL}/${relative}`
+}
+
 /**
  * Resolve a catalog/data/http/blob reference to a browser-playable URL.
  */
@@ -183,6 +201,8 @@ export async function resolvePlayableMediaUrl(
     if (!path) return trimmed
     // our public catalog URL on same origin → protect in signed mode
     if (getMediaMode() === 'local' && !mustUseSignedMedia(path)) return trimmed
+    // If the URL already points to R2, return as-is
+    if (trimmed.startsWith(R2_BASE_URL)) return trimmed
     return signPath(path)
   }
 
@@ -190,6 +210,11 @@ export async function resolvePlayableMediaUrl(
   if (!path) {
     // non-protected relative asset (e.g. /images/logo.png)
     return resolveExamMediaUrl(trimmed)
+  }
+
+  // Catalog audio → serve from R2 (skip signed-url / local fallback).
+  if (isCatalogAudioPath(path) && import.meta.env.PROD) {
+    return toR2Url(path)
   }
 
   if (getMediaMode() === 'local' && !mustUseSignedMedia(path)) {

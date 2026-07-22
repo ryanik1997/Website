@@ -5,28 +5,66 @@ import { supabase } from '../../lib/supabase'
 export default function AuthCallback() {
   const navigate = useNavigate()
   const [error, setError] = useState<string | null>(null)
+  const [debug, setDebug] = useState<string>('')
 
   useEffect(() => {
     let cancelled = false
 
     async function finish() {
-      const params = new URLSearchParams(window.location.search)
-      const code = params.get('code')
+      try {
+        const url = new URL(window.location.href)
+        const code = url.searchParams.get('code')
+        const hashRaw = url.hash.slice(1)
+        const hashParams = hashRaw ? new URLSearchParams(hashRaw) : null
+        const accessToken = hashParams?.get('access_token')
+        const refreshToken = hashParams?.get('refresh_token')
 
-      if (code) {
-        const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
-        if (exchangeError) {
-          if (!cancelled) {
-            setError(exchangeError.message)
-            setTimeout(() => navigate('/', { replace: true }), 3000)
+        setDebug(`code=${!!code} hash=${!!hashRaw} at=${!!accessToken}`)
+
+        // 1. Try PKCE code exchange first
+        if (code) {
+          setDebug(prev => prev + ' → exchanging code...')
+          const { error: exchangeErr } = await supabase.auth.exchangeCodeForSession(code)
+          if (exchangeErr) {
+            setDebug(prev => prev + ` exchange FAIL: ${exchangeErr.message}`)
+            throw exchangeErr
           }
-          return
+          setDebug(prev => prev + ' code OK')
         }
-      }
 
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!cancelled) {
-        navigate(session ? '/app' : '/', { replace: true })
+        // 2. Try implicit hash tokens
+        if (accessToken && refreshToken) {
+          setDebug(prev => prev + ' → setting session from hash...')
+          const { error: setErr } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          })
+          if (setErr) {
+            setDebug(prev => prev + ` setSession FAIL: ${setErr.message}`)
+            throw setErr
+          }
+          setDebug(prev => prev + ' hash OK')
+        }
+
+        // 3. Check session
+        const { data: { session } } = await supabase.auth.getSession()
+        setDebug(prev => prev + ` session=${!!session}`)
+
+        if (!cancelled) {
+          if (session) {
+            // Clean URL and go to app
+            window.history.replaceState({}, '', '/app/vocab')
+            navigate('/app', { replace: true })
+          } else if (!code && !accessToken) {
+            setError('Không có thông tin xác thực. URL: ' + window.location.href.slice(0, 100))
+          }
+        }
+      } catch (err) {
+        if (!cancelled) {
+          const msg = err instanceof Error ? err.message : 'Lỗi xác thực'
+          setError(`${msg} (debug: ${debug})`)
+          setTimeout(() => navigate('/', { replace: true }), 5000)
+        }
       }
     }
 
@@ -41,8 +79,13 @@ export default function AuthCallback() {
         style={{ borderColor: 'var(--color-primary)', borderTopColor: 'transparent' }}
       />
       <p style={{ color: 'var(--text-muted)' }}>
-        {error ? `Lỗi xác thực: ${error}` : 'Đang xác thực…'}
+        {error ? `Lỗi: ${error}` : 'Đang xác thực…'}
       </p>
+      {debug && !error && (
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', maxWidth: 400, textAlign: 'center' }}>
+          {debug}
+        </p>
+      )}
     </div>
   )
 }

@@ -60,6 +60,7 @@
     "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1092.0",
     "@xmldom/xmldom": "^0.9.10",
     "cmu-pronouncing-dictionary": "^3.0.0",
     "playwright": "1.49.0",

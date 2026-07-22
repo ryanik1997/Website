@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState, useCallback, useRef, Re
 import type { Session, User } from '@supabase/supabase-js'
 import { clearLocalUserData, ensureLocalUserIsolation } from '@ryan/db'
 import { supabase } from '../../lib/supabase'
-import { hasOAuthCallbackInUrl, recoverOAuthSession } from './recoverOAuthSession'
 import { syncAuthProfile } from './syncAuthProfile'
 import { forgetPendingLegalConsent, LEGAL_TERMS_VERSION, recordPendingLegalConsent, rememberPendingLegalConsent } from './legalConsent'
 
@@ -34,7 +33,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
   const [authError, setAuthError] = useState<string | null>(null)
-  const recoveringRef = useRef(false)
 
   const isolateForUser = useCallback(async (userId: string | undefined) => {
     if (!userId) return
@@ -50,7 +48,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await syncAuthProfile(user)
     } catch (err) {
-      // Profile display data must not block login or local-first usage.
       console.error('[auth] syncAuthProfile failed', err)
     }
     try {
@@ -61,22 +58,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [isolateForUser])
 
   const bootstrap = useCallback(async () => {
-    recoveringRef.current = true
     setLoading(true)
-    try {
-      if (hasOAuthCallbackInUrl()) {
-        await recoverOAuthSession()
-      }
-    } catch (err) {
-      setAuthError(err instanceof Error ? err.message : 'Lỗi xác thực OAuth')
-    }
-
     const { data: { session: s } } = await supabase.auth.getSession()
     if (s?.user?.id) {
       await prepareUser(s.user)
     }
     setSession(s)
-    recoveringRef.current = false
     setLoading(false)
   }, [prepareUser])
 
@@ -105,18 +92,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           }
         }
         setSession(s)
-        if (!recoveringRef.current) setLoading(false)
+        setLoading(false)
       })()
     })
 
-    const onHashChange = () => {
-      if (hasOAuthCallbackInUrl()) bootstrap()
-    }
-    window.addEventListener('hashchange', onHashChange)
-
     return () => {
       subscription.unsubscribe()
-      window.removeEventListener('hashchange', onHashChange)
     }
   }, [bootstrap, prepareUser])
 
@@ -125,7 +106,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        // Luon quay ve callback cung origin hien tai de localhost va production dung chung.
         redirectTo: `${window.location.origin}/auth/callback`,
         queryParams: { access_type: 'offline', prompt: 'select_account' },
       },
