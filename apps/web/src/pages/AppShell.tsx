@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {
   BookOpen,
@@ -29,18 +29,20 @@ import SunnyMascotSvg from '../components/SunnyMascotSvg'
 import { SyncProvider, useSyncManager, formatSyncTime } from '../features/auth/useSyncManager'
 import { usePlanSync } from '../features/auth/usePlanSync'
 import DictionaryFAB from '../features/dictionary/DictionaryFAB'
-import DictionaryModal from '../features/dictionary/DictionaryModal'
+import { useDictStore } from '../features/dictionary/dictStore'
 import { db } from '@ryan/db'
 import { getTheme, setTheme } from '../lib/theme'
 import { useNotifications } from '../features/notifications/useNotifications'
 import NotificationCenter from '../features/notifications/NotificationCenter'
 import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
-import GlobalCatalogSync from '../features/catalog/GlobalCatalogSync'
 import LegalFooter from '../components/LegalFooter'
 import { LanguageProvider, useI18n } from '../lib/language'
 import { getAppShellBackdropMode } from './appShellBackdrop'
 import './appShellBackdrop.css'
+
+const DictionaryModal = lazy(() => import('../features/dictionary/DictionaryModal'))
+const GlobalCatalogSync = lazy(() => import('../features/catalog/GlobalCatalogSync'))
 
 type NavLeaf = {
   kind: 'link'
@@ -136,6 +138,7 @@ function AppShellInner() {
   usePlanSync()
   useNotifications()
   const srsPopup = useSrsReviewPopup(syncState)
+  const dictionaryOpen = useDictStore(s => s.isOpen)
   const isAdmin = useLiveQuery(
     () => db.settings.get('is_admin').then(s => s?.value as boolean ?? false),
     [],
@@ -406,11 +409,17 @@ function AppShellInner() {
         </div>
       )}
 
-      <GlobalCatalogSync />
+      <Suspense fallback={null}>
+        <GlobalCatalogSync />
+      </Suspense>
       {!examPlayerMode && (
         <>
           <DictionaryFAB />
-          <DictionaryModal />
+          {dictionaryOpen ? (
+            <Suspense fallback={null}>
+              <DictionaryModal />
+            </Suspense>
+          ) : null}
           <SrsReviewReminderModal
             open={srsPopup.open}
             dueCount={srsPopup.dueCount}
