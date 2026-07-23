@@ -230,3 +230,91 @@ main,
   max-width: 100%;
   overflow-x: hidden;
 }
+
+/* ── Responsive: Mobile sidebar drawer ── */
+@media (max-width: 767px) {
+  .sidebar-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .sidebar-drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(80vw, 18.5rem);
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .sidebar-drawer.open {
+    transform: translateX(0);
+  }
+}
+
+/* ── Responsive: typography scale ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+}
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+}
+@media (max-width: 375px) {
+  html { font-size: 13px; }
+}
+
+/* ── Responsive: hide desktop sidebar on mobile ── */
+@media (max-width: 767px) {
+  .desktop-sidebar { display: none; }
+  .mobile-sidebar-toggle { display: flex; }
+}
+@media (min-width: 768px) {
+  .sidebar-drawer { display: none; }
+  .mobile-sidebar-toggle { display: none; }
+}
+
+/* ── Responsive: safe-area padding for modals ── */
+.modal-safe-area {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ── Touch: min 44px tap targets ── */
+@media (pointer: coarse) {
+  .touch-target,
+  button, a, select, input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ── iOS overscroll prevention for modals/drawers ── */
+.modal-overflow-safe {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Prevent iOS zoom on input focus ── */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* ── Smooth momentum scrolling on iOS ── */
+.ios-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
