@@ -10,6 +10,8 @@ import LegalFooter from '../../components/LegalFooter'
 
 const VIDEO_SRC =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
+const VIDEO_POSTER_SRC = '/landing-video-poster.jpg'
+const VIDEO_LOAD_DELAY_MS = 3500
 
 const NAV_LINKS = [
   { id: 'home', label: 'Trang chủ', href: '#', active: true },
@@ -108,6 +110,7 @@ export default function LandingPage() {
   const [aboutOpen, setAboutOpen] = useState(false)
   /** Popup blog */
   const [blogOpen, setBlogOpen] = useState(false)
+  const [videoSrc, setVideoSrc] = useState<string | null>(null)
 
   const paymentPlan = paymentPlanId
     ? pricingPlans.find((p) => p.id === paymentPlanId) ?? null
@@ -124,6 +127,11 @@ export default function LandingPage() {
   useEffect(() => {
     if (user) navigate('/app', { replace: true })
   }, [user, navigate])
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setVideoSrc(VIDEO_SRC), VIDEO_LOAD_DELAY_MS)
+    return () => window.clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     if (!anyModalOpen) return
@@ -536,7 +544,9 @@ export default function LandingPage() {
       {/* Fullscreen background video */}
       <video
         className="absolute inset-0 z-0 h-full w-full object-cover"
-        src={VIDEO_SRC}
+        src={videoSrc ?? undefined}
+        poster={VIDEO_POSTER_SRC}
+        preload="none"
         autoPlay
         loop
         muted
