@@ -7,9 +7,11 @@
 import type { Card, Deck, Group } from '@ryan/db'
 import {
   PRESET_GROUP_IDS,
+} from './vocabConstants'
+import {
   stablePresetCardId,
   stablePresetDeckId,
-} from './vocabSeedDecks'
+} from './presetIds'
 
 const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
 

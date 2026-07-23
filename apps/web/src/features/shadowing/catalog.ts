@@ -1,6 +1,4 @@
 import rawVideos from './data/shadowingVideos.json'
-import rawSubtitles from './data/shadowingSubtitles.json'
-import rawViOverrides from './data/shadowingViOverrides.json'
 import type {
   ShadowingCategoryFilter,
   ShadowingLevelFilter,
@@ -16,14 +14,29 @@ type SubtitlesPayload = {
   byYoutubeId: Record<string, ShadowingSubtitle[]>
 }
 
-const SUBTITLES = rawSubtitles as SubtitlesPayload
-/** Offline bulk VI: { [youtubeId]: { [segmentId]: vi } } */
-const VI_OVERRIDES = rawViOverrides as Record<string, Record<string, string>>
+type SubtitleCatalogPayload = {
+  subtitles: SubtitlesPayload
+  viOverrides: Record<string, Record<string, string>>
+}
 
-export function getSubtitlesForYoutubeId(youtubeId: string): ShadowingSubtitle[] {
-  const base = SUBTITLES.byYoutubeId[youtubeId] ?? []
+let subtitleCatalogPromise: Promise<SubtitleCatalogPayload> | null = null
+
+function loadSubtitleCatalog(): Promise<SubtitleCatalogPayload> {
+  subtitleCatalogPromise ??= Promise.all([
+    import('./data/shadowingSubtitles.json'),
+    import('./data/shadowingViOverrides.json'),
+  ]).then(([subtitlesMod, viOverridesMod]) => ({
+    subtitles: subtitlesMod.default as SubtitlesPayload,
+    viOverrides: viOverridesMod.default as Record<string, Record<string, string>>,
+  }))
+  return subtitleCatalogPromise
+}
+
+export async function loadSubtitlesForYoutubeId(youtubeId: string): Promise<ShadowingSubtitle[]> {
+  const { subtitles, viOverrides } = await loadSubtitleCatalog()
+  const base = subtitles.byYoutubeId[youtubeId] ?? []
   if (!base.length) return []
-  const ov = VI_OVERRIDES[youtubeId]
+  const ov = viOverrides[youtubeId]
   if (!ov) return base
   return base.map(seg => {
     const vi = ov[seg.id]

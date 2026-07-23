@@ -21,7 +21,7 @@ import { useSpeechRecognition } from '../listening/useSpeechRecognition'
 import {
   MODE_TABS,
   getShadowingVideoByKey,
-  getSubtitlesForYoutubeId,
+  loadSubtitlesForYoutubeId,
   youtubeWatchUrl,
 } from './catalog'
 import {
@@ -137,14 +137,35 @@ export default function ShadowingLessonPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const mode = parseMode(searchParams.get('mode'))
   const video = getShadowingVideoByKey(decodeURIComponent(videoKey))
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [subtitles, setSubtitles] = useState<ShadowingSubtitle[]>([])
+  const [subtitlesLoading, setSubtitlesLoading] = useState(false)
 
-  const subtitles = useMemo(
-    () => (video ? getSubtitlesForYoutubeId(video.youtubeId) : []),
-    [video],
-  )
+  useEffect(() => {
+    if (!video) {
+      setSubtitles([])
+      setSubtitlesLoading(false)
+      return
+    }
+    let cancelled = false
+    setSubtitles([])
+    setSubtitlesLoading(true)
+    setActiveIndex(0)
+    void loadSubtitlesForYoutubeId(video.youtubeId)
+      .then(items => {
+        if (!cancelled) setSubtitles(items)
+      })
+      .catch(err => {
+        console.warn('[shadowing] load subtitles', err)
+        if (!cancelled) setSubtitles([])
+      })
+      .finally(() => {
+        if (!cancelled) setSubtitlesLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [video])
 
   const player = useYouTubePlayer(video?.youtubeId ?? '')
-  const [activeIndex, setActiveIndex] = useState(0)
   const [followPlayhead, setFollowPlayhead] = useState(true)
   const [showIpa, setShowIpa] = useState(false)
   const [showVi, setShowVi] = useState(false)
@@ -454,7 +475,12 @@ export default function ShadowingLessonPage() {
                 </div>
               </div>
 
-              {subtitles.length === 0 ? (
+              {subtitlesLoading ? (
+                <p className="shadowing-detail__note" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+                  <LoaderCircle size={16} className="animate-spin" />
+                  Đang tải transcript...
+                </p>
+              ) : subtitles.length === 0 ? (
                 <p className="shadowing-detail__note" style={{ padding: '1rem' }}>
                   Chưa có transcript cho video này.
                 </p>

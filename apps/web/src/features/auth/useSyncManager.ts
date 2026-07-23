@@ -6,7 +6,6 @@ import { useAuth } from './AuthContext'
 import { syncExamProgress } from '../exam/examProgressSync'
 import { syncCheckInDays } from '../home/checkInSync'
 import { syncAdminPublishedExams } from '../admin/syncAdminPublishedExams'
-import { seedPresetDecks } from '../vocab/vocabSeedDecks'
 import {
   loginSyncDelay,
   periodicSyncDelay,
@@ -18,6 +17,11 @@ import {
 export type SyncState = 'idle' | 'syncing' | 'done' | 'error'
 
 const LAST_SYNC_KEY = 'ryan-last-sync'
+
+async function seedPresetDecksForSync(): Promise<void> {
+  const { seedPresetDecks } = await import('../vocab/vocabSeedDecks')
+  await seedPresetDecks()
+}
 
 export interface SyncManagerValue {
   syncState: SyncState
@@ -176,7 +180,7 @@ function useSyncManagerImpl(): SyncManagerValue {
 
       // Seed + dedupe preset TRƯỚC sync — để nhận diện ghost UUID trên cloud (tránh double Bộ từ vựng)
       try {
-        await seedPresetDecks()
+        await seedPresetDecksForSync()
       } catch (seedErr) {
         console.warn('[sync] seedPresetDecks before', seedErr)
       }
@@ -186,7 +190,7 @@ function useSyncManagerImpl(): SyncManagerValue {
 
       // Sau pull: gộp lại deck/card trùng (preset vs ghost, phrase double)
       try {
-        await seedPresetDecks()
+        await seedPresetDecksForSync()
       } catch (seedErr) {
         console.warn('[sync] seedPresetDecks after', seedErr)
       }

@@ -1,8 +1,22 @@
 import { cardRepo, db, settingsRepo, type Card, type Deck } from '@ryan/db'
 import { PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
 import { PRESET_VOCAB_CARDS_VERSION, PRESET_VOCAB_SEED } from './seedData/presetVocabCards'
+import {
+  isStablePresetCardId,
+  isStablePresetDeckId,
+  phraseKeyForCard,
+  stablePresetCardId,
+  stablePresetDeckId,
+} from './presetIds'
 
 export { GROUP_LABELS, PRESET_GROUP_IDS } from './vocabConstants'
+export {
+  isStablePresetCardId,
+  isStablePresetDeckId,
+  phraseKeyForCard,
+  stablePresetCardId,
+  stablePresetDeckId,
+} from './presetIds'
 export type { PresetGroupId } from './vocabConstants'
 
 const PRESET_VOCAB_CARDS_VERSION_KEY = 'preset_vocab_cards_version'
@@ -207,59 +221,6 @@ export const SEED_GROUPS: SeedGroupDef[] = [
 ]
 
 const PRESET_GROUP_SET = new Set<string>(PRESET_GROUP_IDS)
-
-/** ID cố định cho bộ preset — tránh duplicate khi seed/sync chạy song song. */
-export function stablePresetDeckId(groupId: string, deckName: string): string {
-  const slug = deckName
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-  return `preset:${groupId}:${slug || 'deck'}`
-}
-
-/** Khóa so khớp phrase (publish + merge + dedupe) — NFD, trim, gộp space. */
-export function phraseKeyForCard(phrase: string): string {
-  return phrase
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[\u200B-\u200D\uFEFF]/g, '')
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-}
-
-/** Hash ổn định (FNV-1a × 2) — id thẻ không phụ thuộc UUID random khi Admin publish. */
-function hashPhraseKey(key: string): string {
-  let h1 = 0x811c9dc5
-  let h2 = 0x01000193
-  for (let i = 0; i < key.length; i++) {
-    const c = key.charCodeAt(i)
-    h1 = Math.imul(h1 ^ c, 0x01000193)
-    h2 = Math.imul(h2 ^ c, 0x811c9dc5)
-  }
-  return (h1 >>> 0).toString(36) + (h2 >>> 0).toString(36)
-}
-
-/**
- * ID thẻ preset ổn định theo deck + phrase.
- * Re-publish / re-import cùng từ → cùng id → bulkPut ghi đè, không double.
- */
-export function stablePresetCardId(deckId: string, phrase: string): string {
-  const key = phraseKeyForCard(phrase)
-  if (!key) return `pcard:${deckId}:empty`
-  return `pcard:${deckId}:${hashPhraseKey(key)}`
-}
-
-export function isStablePresetCardId(id: string): boolean {
-  return id.startsWith('pcard:')
-}
-
-export function isStablePresetDeckId(id: string): boolean {
-  return id.startsWith('preset:')
-}
 
 async function removeDeckRecord(deckId: string): Promise<void> {
   const cardIds = (await db.cards.where('deckId').equals(deckId).primaryKeys()) as string[]
