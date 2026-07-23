@@ -1,4 +1,757 @@
+## >>> TRẠNG THÁI GẦN NHẤT — Agent mới đọc phần này trước, không đọc hết file <<<
+
+**Ngày:** 2026-07-22
+
+### Đã hoàn thành
+- **Responsive trang đăng nhập MacBook:** Thu card từ 40.5rem xuống 36rem (34rem ở viewport cao ≤900px), dùng căn giữa an toàn, compact spacing/control cho màn laptop, giảm mascot mặt trời và ẩn ở 641–960px để không bị cắt/lấn form. Fixture Chrome xác nhận card + mặt trời nằm trọn ở 1280×800 và 1440×900; 960×800 ẩn mặt trời đúng thiết kế. `git diff --check` PASS. TypeScript/dev server chưa chạy được do node_modules hiện thiếu/sai package types (Rollup, Supabase, Testing Library, Node types), không liên quan CSS.
+- **Cloudflare R2:** Upload 751 MP3 files (4.19 GB). Public: `https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/...`
+- **protectedMedia.ts:** Thêm R2 routing cho catalog audio MP3 trong production.
+- **Supabase project mới:** `afryrzlcmieedcndyeug` (org `itpfkpnqnuhumdvhrkuh`). Push 34 migrations, Google OAuth, deploy `content-sign` Edge Function.
+- **Fix Google login:** Bỏ `recoverOAuthSession()` thủ công. Set `detectSessionInUrl: true`. SDK tự xử lý callback.
+- **Skills cài mới:** stitch (15), anthropic (17), ponytail (6) cho .claude + .codex. File `skills-inventory.xlsx`.
+- **Fix auto-sync listening jump bug:** `partIndexAtTime` khi partStarts = [0,0,0,0,0] luôn trả về Part 5. User yêu cầu tắt auto chuyển câu → `useAudioSync` useEffect now returns early. Deployed v0.2.12.
+- **Responsive Mobile Phase 1:** Thêm iOS meta tags (`viewport-fit=cover`, `apple-mobile-web-app-capable`, `theme-color`), safe-area-inset, `100dvh`, touch-action, hamburger menu + mobile sidebar drawer trên iPhone. globals.css responsive tokens + AppShell.tsx drawer overlay. Deployed v0.2.13.
+- **Responsive Mobile Phase 2:** Added `@media (max-width: 400px)` breakpoints across 40+ CSS files covering Writing screens (dashboard, library, study, cambridgeHub, promptBank), Vocab screens (deckCards, vocabLesson, vocabStudyPaper, srsReminder), Exam screens (shared, practiceResult, readingTest, listeningIeltsTid, readingFontPanel, ieltsListeningWizard, tidIeltsReading, ketRw, petRw, fceRw, caeRw, cpeRw), Home page & study grid, shadowingLibrary, listeningLibraryPage, speakingAiPage, structurePractice, translationPractice, and readingCorner. Fixed orphaned CSS in examPracticeResult.css.
+- **Responsive Mobile Phase 2+3:** LandingPage responsive (hero font, button, nav spacing), ExamHub iPhone <400px, Listening test small-screen rules, Vocab card fine-tune, touch targets `@media (pointer:coarse)`, iOS `overscroll-behavior`, `-webkit-overflow-scrolling`. Deployed v0.2.14.
+- **Fix part jump:** `useAudioSync.ts` effect body replaced with early return. `audioSyncUtils.ts` thêm guard cho all-zeros starts.
+- **Xóa project cũ:** `ntcagvtkwxwsmlxlumfo` + `kxohkmeuyeiczqelrnbi` (org cũ lock quota).
+
+### Files changed
+- `apps/web/.env.local`, `src/lib/supabase.ts`, `src/main.tsx`, `src/features/auth/AuthContext.tsx`, `src/features/auth/AuthCallback.tsx`, `src/lib/protectedMedia.ts`
+- `apps/web/index.html`, `apps/web/src/styles/globals.css`, `apps/web/src/pages/AppShell.tsx`, `apps/web/src/pages/landing/LandingPage.tsx`, `apps/web/src/features/exam/examHub.css`, `apps/web/src/features/exam/listeningTest.css`, `apps/web/src/features/exam/useAudioSync.ts`, `apps/web/src/features/exam/audioSyncUtils.ts`, `apps/web/src/features/vocab/vocabLibrary.css`
+
+### Lỗi còn tồn tại
+- Google login cần smoke production + localhost.
+- Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
+- Audio Supabase cũ đã mất (R2 đã có đủ).
+
+### Deploy rule (ghi nhớ cho các session sau)
+Khi user yêu cầu "deploy" sau khi làm tính năng/fix → **deploy lên Vercel production trước**, rồi **cập nhật session_summary.md** sau. Không làm ngược lại.
+
+### Next session start prompt
+Khôi phục node_modules (`pnpm install --ignore-scripts`), chạy app để smoke trang login responsive ở 1280×800/1440×900, rồi smoke authenticated production Google login + audio R2 + listening manual question navigation (auto-sync đã tắt).
+
+---
+## 2026-07-23 - Nen video nen landing page
+
+- Thay URL CloudFront cua video nen 14,142,575 bytes bang asset noi bo `apps/web/public/landing-video.mp4`, H.264 CRF 28, 1280x716, 755,492 bytes.
+- Giu nguyen poster, `preload="none"` va delayed-load 3.5 giay.
+- Production build PASS. Chrome QA PASS: autoplay dang chay, `readyState=4`, duration 12.0417 giay, khong co media error; screenshot luu tai `artifacts/landing-video-compression/landing-page-compressed-video.png`.
+- Next session start prompt: review Vercel preview cua ban nen video landing; chi promote production sau khi duoc phe duyet.
+
+EOF
+## 2026-07-20 — Upload part1.mp3 cho KET practice-16
+
+- Upload file `part1.mp3` (4.19 MB) từ `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lên Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` — upsert thay thế file cũ.
+- Dùng `scripts/publish-ket-practice-listening.mjs` làm reference: service role key qua SUPABASE_ACCESS_TOKEN, bucket `exam-media`, storage prefix `catalog/listening-publish`.
+- Verify: upload OK, không lỗi.
+- Cài Vercel CLI (`npm install -g vercel`), deploy production: alias `https://ryanenglishv2.vercel.app` Ready, DB up to date, build PASS, strip-media OK.
+
+## 2026-07-17 — Fix RLS upload listening media (exam-media upsert)
+
+### Session 2026-07-19 — Fix review paper vẫn hiện `Đáp án đúng: —`
+
+- Root cause còn sót sau bản vá hydrate trước: `Object.assign` thay toàn bộ `parts`, trong khi các màn Listening/Reading đã memo hóa danh sách/câu hỏi theo tham chiếu DTO cũ; báo cáo có answer key nhưng paper vẫn đọc object câu hỏi cũ có `answer` rỗng.
+- `promoteHydratedExamForReview` nay đồng bộ sâu tại chỗ, giữ nguyên tham chiếu object/array hiện hữu để mọi memoized question nhận answer key trước khi bật review mode.
+- Regression test xác nhận cả root exam lẫn các tham chiếu `parts`, `questions`, `question` đã capture đều thấy đáp án `B`. Test 1/1, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Fix Q9/Q10 KET Book 3 Test 1 nhập `1` vẫn đúng
+
+- Dữ liệu gốc đúng: Q9 = `8.15`/`eight fifteen`, Q10 = `10.50`; ID hai câu không trùng.
+- Root cause: matcher gap-fill cuối cùng dùng substring hai chiều, nên `8.15`.includes(`1`) và `10.50`.includes(`1`) đều trả true.
+- Tách matcher thuần để test không kéo catalog/DB; đáp án chứa chữ số nay chỉ khớp chính xác hoặc số nguyên tương đương (`8` = `08`), không chấp nhận chữ số con trong giờ/giá.
+- Feedback loop trước fix RED đúng triệu chứng; sau fix scoped tests 3/3, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Audit đồng bộ matcher toàn bộ Luyện thi
+
+- Audit các đường chấm tự động xác nhận Listening và Reading gap-fill/sentence-completion đều từng dùng substring hai chiều; không chỉ số `1`, fragment chữ như `a` cũng có thể khớp sai với `radio`. Multiple-choice, matching và TID Reading dùng exact comparison nên không mắc lỗi này.
+- Loại bỏ hoàn toàn fuzzy substring ở matcher Listening/Reading. Chỉ exact normalized answer, answer variants/`acceptableAnswers`, và số nguyên tương đương (`8` = `08`) được chấp nhận.
+- Tách pure matcher cho cả hai skill để regression test không kéo catalog/DB. Feedback loop trước fix RED ở cả Listening và Reading; sau fix exam scoped tests 14/14, TypeScript, scan không còn pattern substring và `git diff --check` PASS.
+
+### Session 2026-07-19 — Đồng bộ khung ảnh PET B1 Part 1 với KET A2
+
+- PET B1 Listening Part 1 không còn render qua prompt/answer panel generic; nhánh picture Part 1 nay dùng chung `ListeningKetPart1PictureView` với KET A2.
+- Composite image, ba ảnh rời, contain frame, radio, footer audio/unsure và responsive vì vậy có cùng layout; các Part PET khác giữ nguyên.
+- Verify: TypeScript PASS, scoped Listening tests 4/4 và `git diff --check` PASS.
+
+### Session 2026-07-19 — Sync tương thích khi migration 031 chưa được push
+
+- Root cause lỗi `sync_server_time ... schema cache`: frontend hardening đã gọi RPC từ migration 031, nhưng migrations 031–034 vẫn đang ở staging/chưa có trên database hiện tại.
+- Thêm `getSyncServerTime`: chỉ fallback sang timestamp local khi PostgREST báo đúng lỗi RPC/schema thiếu; lỗi mạng/quyền khác vẫn throw. Fallback được đánh dấu non-authoritative nên sync chính, exam progress và check-in không ghi tiến cloud cursor, tránh clock client làm bỏ sót dữ liệu.
+- Main sync cũng coi bảng `sync_tombstones` chưa tồn tại là danh sách rỗng để database pre-031 không làm chết toàn bộ sync; delete ledger đầy đủ sẽ tự hoạt động sau khi migration được áp.
+- Feedback loop trước fix RED đúng PGRST202; sau fix sync/scalability tests 7/7, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — Chẩn đoán YouTube captions vẫn báo blocked
+
+- Feedback loop production xác nhận relay URL trả HTTP 429 + `X-Vercel-Mitigated: challenge`/Security Checkpoint; Vercel Function logs trống, nên request chưa tới `youtube-captions-relay` và thông báo hiện tại quy lỗi cho YouTube sai tầng.
+- Supabase remote có cả `VERCEL_AUTOMATION_BYPASS_SECRET` và `YOUTUBE_CAPTIONS_RELAY_SECRET`; Vercel project có relay secret production. Firewall có `Challenge Scrapers` và `Block AI Bots`; browser-like UA vẫn bị system challenge.
+- Project Hobby không hỗ trợ IP/System Bypass (`vercel firewall overview` trả unavailable). Không tự pause system mitigations vì đây là thay đổi bảo mật rộng 24 giờ.
+- Hướng xử lý cần quyền/chọn lựa: rotate + đồng bộ lại Automation Bypass secret Vercel→Supabase rồi smoke, hoặc tách relay sang endpoint/project riêng không bật checkpoint nhưng vẫn giữ `x-relay-secret`.
+
+### Session 2026-07-18 — Hardening local-first sync cho tải 1000 user
+
+- Chuyển sync chính, exam progress và check-in sang pull incremental có watermark server, phân trang 500 bản ghi, thứ tự phụ ổn định và tombstone truyền xóa; cursor cloud/local chỉ tiến sau khi push thành công. Cursor local tách khỏi thời gian server để thiết bị lệch đồng hồ vẫn phát hiện thay đổi offline.
+- Batch upsert, timestamp LWW do Postgres ghi, trigger `updated_at`, retry full-jitter, login/reconnect jitter, debounce 4 giây và chu kỳ sync 5–6 phút; dọn timer retry/reconnect để tránh burst trùng.
+- Thêm migrations 031–034 cho index sync/RLS, tombstone, server time, atomic rate/usage counters; Edge Functions dùng RPC counter nguyên tử và timeout 8 giây cho Resend.
+- Dexie v16 thêm compound index SRS/review log, bulk/LRU audio cache có quota 400 MB hoặc 20% browser quota và bỏ qua blob đơn vượt ngân sách.
+- Thêm bộ k6 200→1000 VU, fixture token, script EXPLAIN sync và tài liệu chạy an toàn. Chưa chạy lên production và chưa push migration/deploy function.
+- Verify: typecheck PASS; hardening 14/14 PASS; full suite 157/158 PASS, lỗi baseline ngoài phạm vi vẫn là `catalogCamReading.test.ts` kỳ vọng 47 nhưng catalog hiện có 48. Production build đã qua TypeScript/Vite transform nhưng command tổng bị timeout khi render chunk sau bước rebuild catalog.
+
+### Session 2026-07-18 — SRS due label contrast on Light
+
+- Added the first complete in-app Notification Center: sidebar bell + unread badge, persistent local inbox (250-item cap), All/Unread filters, Vietnamese full-text search, mark-one/mark-all read, delete/clear-read, category icon/label, relative time and action links to the relevant screen. The notification event API covers review, goal, streak, exam, achievement, new content and system events with dedupe keys. Automatic real-data notifications now include due SRS cards, 20-card daily goal completion, 3+ day streak celebration/risk after 18:00, and a one-time onboarding notice. Existing browser SRS notifications remain supported. TypeScript passes; production Vite build reached chunk rendering but the command exceeded the 120-second tool timeout.
+- Fixed Notification Center overlap: render the drawer through a `document.body` portal at the global modal layer, above the sidebar, corner mascot and Dictionary FAB; opening it now also locks background body scrolling. TypeScript and diff checks pass.
+- Fixed stale SRS notification counts: progress notifications can now replace an existing deduped record, re-open it as unread only when the count/content changes, and remove the daily due notice when no cards remain; the inbox and SRS popup therefore converge on the same live Dexie due count instead of retaining an earlier snapshot (e.g. 14 vs 1).
+- Expanded app-wide continuation reminders from real synced exam drafts. The notification checker scans `exam-reading-draft:*` and `exam-listening-draft:*`, keeps up to 8 recently edited incomplete exams (30-day window), shows Reading/Listening title when locally available, current Part and answered-question count, and links directly back to the exact exam. Submitted, empty, old or displaced drafts have their resume notice removed automatically. TypeScript and diff checks pass.
+- Audited Home `Thẻ đến hạn (due: N)` and the `current/target` value. `due: N` now uses one shared valid-due query across Home, SRS popup and Notification Center, excluding orphan SRS rows whose card/deck no longer exists (a likely cause of 14 in the inbox vs 1 selectable card). The progress numerator no longer counts every vocab mode/duplicate retry; it counts unique card IDs reviewed in actual SRS mode. “Today” now follows local timezone instead of UTC. TypeScript and diff checks pass.
+- Updated the `/app/vocab` SRS `Due now` label to use the Light theme danger token instead of a fixed yellow, improving readability on a light background.
+- Mid and Dark retain the existing yellow through the theme-scoped `--vs-due-color` token.
+- Moved the 9-mode study switcher below the active study content, so the current session information and flashcard appear first.
+- Restyled the selected-deck vocabulary list as two-column lesson cards: pale-blue word area, mint example area, black outline and offset shadow, while keeping audio/edit/delete actions.
+- Added an icon-only Save to Notebook control immediately beside the audio control on each vocabulary card; it reuses the existing idempotent notebook save flow and reflects saved state.
+- Notebook entries saved from study now show source classification: the originating deck and its Book/Unit (or deck description) as topic chips.
+- Notebook now scales to large collections with full-text search (including deck/topic), deck and topic filters, and a live visible-result count; filters collapse cleanly on mobile.
+- Restored KET A2 Listening Books 3–14 from `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening`: all 44 published entries have 25 questions, per-part audio and Part 1 pictures. The initial all-at-once command hit a session timeout; idempotent batches 01–44 completed successfully.
+- Fixed the missing-media cause: the KET publish script had used the retired public `listening-exam-media` bucket. It now uploads private media to `exam-media/catalog/listening-publish/...` and stores signed-media paths understood by the app. Re-published tests 01–44.
+- Fixed the remaining KET media display issue: `resolveListeningExam` had prioritized a stale IndexedDB import over the restored cloud entry. For the stable restored KET practice IDs, it now uses the cloud record first (with local/offline fallback), so Part 1 images and the full per-part audio load.
+- Fixed localhost playback for restored KET media: `protectedMedia` previously treated every `/catalog/*` path as a Vite public file in dev. `catalog/listening-publish/*` is now marked storage-only and always resolved through `content-sign`, including on localhost; regression test added and passing.
+- Fixed production `/app/exam` empty/filtered data for Admin/Pro: `freePlanCatalogGate` previously trusted only IndexedDB plan state, which defaults to Free on a new or unsynced browser. It now reads the authenticated Supabase profile first and uses IndexedDB only as an offline fallback. Type-check and 9 scoped tests passed; deployed production `dpl_5b6cyNgNEKr5tM8j8aKTzs4WeXja` Ready and main alias updated.
+- Fixed production showing only the 53 published KET imports: a second Free fallback still removed the bundled catalog despite the user already passing `ProOnlyRoute`. Authenticated route sessions now keep the complete metadata catalog (179 Listening + 77 Reading); RLS/content-sign continue protecting bodies, answers and media. Added a pure visibility regression seam (12/12 scoped tests), deployed `dpl_C3rC4XuKi9pAX5EfJcDoyrQF7eWZ` Ready and updated the main alias.
+- Restored KET A2 Listening Cam/Book 1 Test 1–4, Book 2 Test 1–4 and Book 3 Test 1–2 from the 10 Tainguyen ZIP bundles. Eight legacy rows were updated in place; Book 1 Test 1 and Book 3 Test 1 were added. All 10 now use private `exam-media/catalog/listening-publish/...`, each has full shared audio, 5 Part 1 images, 25 questions and a 25-answer vault (250 total).
+- Hardened `backfill-published-exam-vaults.mjs`: zero-answer published bodies now preserve existing vault files instead of overwriting them with empty vaults. Restored and re-backfilled all 44 Book 3+ practice rows afterward; 1,100 existing answers were regenerated with zero failures while the new 250-answer Cam 1–3 vaults remained intact.
+- Fixed the SRS review reminder not repeating after the selected 5-minute interval. The old fixed interval was anchored to AppShell mount, so a dismissal between ticks could delay the reminder by almost another cycle. Scheduling now starts from the actual last show/dismiss timestamp and rechecks immediately when a throttled background tab becomes active. Added deterministic timing tests (3/3), TypeScript passes, and deployed production `dpl_6wa5d9JgrkR6ryFJZ2vJSeCJcpm9` Ready with the main alias updated.
+- Security follow-up: updated `backfill-published-exam-vaults.mjs` to obtain service role from deploy PAT when needed, then backfilled all 53 Listening rows. It extracted 1,100 answer records to private vaults and stripped answer fields from published bodies (0 failures), including after the media re-publish.
+
+- User: `Upload media thất bại (.../part1-audio.mp3): new row violates row-level security policy` khi publish Listening (route `/app/exam/track/cambridge/c1/listening`).
+- Nguyên nhân: publish upload lên private bucket `exam-media` với `upsert: true`, nhưng migration 019 chỉ có admin INSERT/UPDATE/DELETE — **không có SELECT**. Storage upsert cần SELECT để pre-check / return row → RLS fail.
+- Fix: migration `023_exam_media_admin_upsert.sql` — admin-only SELECT + re-assert INSERT/UPDATE/DELETE `to authenticated` + grant execute `is_current_user_admin`. **Đã push remote** (`pnpm db:push`).
+- Client: `listeningExamCloudMedia.ts` preflight session + `profiles.is_admin`; message lỗi RLS gợi ý migration 023.
+- Test: `phase1Hardening.test.ts` 4/4 PASS (thêm assert migration 023).
+- User action: hard refresh, publish lại đề; nếu vẫn lỗi admin → kiểm tra `profiles.is_admin = true` rồi logout/login.
+
+## 2026-07-17 — Deploy frontend security lên Vercel production
+
+- Vercel CLI login đúng `ryanik1997`; project liên kết `ryanenglishv2`.
+- Deploy đầu `dpl_959LwP33UBGWig26T327GSkx8pKz` lỗi do `.vercelignore` loại private `apps/web/public/catalog` nhưng `build-catalog.mjs --if-present` vẫn yêu cầu thư mục này để skip.
+- Fix `scripts/build-catalog.mjs`: Vercel dùng committed `packages/catalog/data/manifest.json` khi không có `Tainguyen`; private media không bị đưa lại vào deploy.
+- Verify: mô phỏng thiếu `Tainguyen` PASS; production build PASS + strip private media; `pnpm security:check` 9/9 PASS.
+- Production deploy `dpl_HTKAuSqTSYw6gntRLNkCTdvXXZ9D` Ready; alias `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Smoke `/`, `/terms`, `/privacy`: HTTP 200, CSP có mặt, `X-Frame-Options: DENY`.
+- Còn smoke browser: Turnstile login, Google OAuth, signed PDF/media và admin publish Listening MP3.
+
+## 2026-07-17 — Re-verify Security HIGH + production backend
+
+- Xác nhận code Security HIGH có đủ Phase 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, Phase 4 và migration 023.
+- Bộ verify được báo cáo: `phase1Hardening`, `phase2Hardening`, `phase4Legal`, `BookReaderPage` tổng 10/10 PASS; `tsc --noEmit` PASS.
+- Đối chiếu Git: working tree không hoàn toàn sạch vì còn `.claude/settings.local.json` untracked; HEAD thực tế lúc kiểm tra là `b1db15f7`, không phải `86e26916`.
+- Chạy lại `pnpm db:push` production: Supabase project `ntcagvtkwxwsmlxlumfo` trả `Remote database is up to date`; migrations 017–023 đã có trên remote.
+- Redeploy `content-sign` thành công lên project `ntcagvtkwxwsmlxlumfo`. CLI lần đầu thiếu token; lần hai chỉ nạp `SUPABASE_ACCESS_TOKEN` từ `.env.deploy` trong process, không ghi/in secret.
+- Không chạy lại backfill/upload: session trước đã audit production và ghi nhận 51 Listening rows được tách 1.275 answers vào vault; 2.011/2.012 private media đã upload, thiếu duy nhất CAE audio 82.94MB vượt giới hạn Supabase Free 50MB.
+- Frontend production đã deploy Ready ở `https://ryanenglishv2.vercel.app`; HTTP smoke `/`, `/terms`, `/privacy` PASS.
+- Còn ngoài code: smoke browser Turnstile/OAuth/signed media/admin publish; tạo và review Vercel Firewall draft; xử lý CAE audio >50MB; cấu hình kênh gửi security alert/PITR/legal review nếu cần.
+
+## 2026-07-17 — Signup legal consent + email security alerts
+
+- Biến tab `Đăng ký` từ trang trí thành signup email/password thật; dùng Turnstile hiện có, yêu cầu password >= 8 ký tự và bắt buộc `TermsConsentCheckbox`.
+- Consent version `2026-07-16` được gửi trong Auth metadata. Migration `024_signup_consent_and_security_email.sql` mở rộng `handle_new_user()` để ghi server timestamp vào `profiles` ngay cả khi bật email confirmation/chưa có session.
+- Với signup có session và Google OAuth signup, app lưu pending version ngắn hạn rồi gọi RPC `accept_legal_terms`; pending được xóa khi thành công hoặc signup lỗi để không ghi nhầm ở login sau.
+- Alert quota >=300 request/24h dùng Resend trong `content-sign`. RPC `claim_content_security_alert_email` claim nguyên tử một email/user/ngày; nếu Resend lỗi thì release claim để request sau retry. DB queue vẫn giữ nguyên.
+- Migration 024 đã push production; `content-sign` mới đã deploy production.
+- Frontend commit `3321c983` đã deploy Vercel production Ready tại deployment `ryanenglishv2-okqsjcn1x-ryanenglish.vercel.app`; alias chính giữ `https://ryanenglishv2.vercel.app`.
+- HEAD smoke vào alias chính trả HTTP 429 từ lớp Vercel, nên chưa xác nhận UI signup bằng production browser.
+- Blocker email production: Supabase project chưa có các secret `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`; `.env.deploy` cũng không có. Cho đến khi set secret, function chỉ cảnh báo log + lưu DB, chưa gửi email thật.
+- Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
+- Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
+
+## 2026-07-17 — Writing subpages: nền lưới đồng bộ
+
+- Mọi route con `/app/writing/*` dùng backdrop `grid`, không có ribbon; `/app/writing` hub giữ style ribbon hiện có.
+- Thêm `.writing-shell` vào CSS transparent layer của backdrop để editor Writing không che ô lưới xanh nhạt.
+- Verify: `appShellBackdrop.test.ts` 62/62 PASS; `pnpm --filter web exec -- tsc --noEmit` PASS.
+
+## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
+
+- Entitlement/retention: admin + Pro còn hạn + Lifetime dùng Speaking AI không giới hạn; Free/Trial/Basic giữ quota 600 giây/ngày. API trả access metadata để UI hiện đúng quyền.
+- Migration `027_speaking_ai_entitlements_retention.sql`: cron chạy hằng ngày, xóa message/usage quá 30 ngày và conversation rỗng; function dọn dữ liệu không cho anon/authenticated gọi trực tiếp.
+- UI Speaking AI hiển thị `Không giới hạn` cho Pro/admin và thông báo lịch sử tự xóa sau 30 ngày; web bump v0.2.6.
+- Production: migration 027 (kèm pg_cron) đã push, Edge Function đã deploy; commit `4948d481`; Vercel Ready tại `ryanenglishv2-cujd3xzkk-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
+- Verify entitlement/retention: scoped 6/6 PASS, `tsc --noEmit` PASS; full suite 130/131 PASS. Lỗi duy nhất ngoài feature vẫn là catalog Reading test hardcode 47 khi catalog có 48.
+- Fix tiếp: thêm i18n `nav.speakingAi` cho VI/EN để toolbar không hiện raw key; regression test 1/1 và `tsc --noEmit` PASS.
+- Thêm route riêng `/app/speaking-ai` trong sidebar AppShell; trang được lazy-load và dùng backdrop grid/ribbon chung.
+- Trang chọn level A1–C1, 7 mode, 6 topic và mở lại các phiên lịch sử đã lưu; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
+- `useSpeakingRecorder`: MediaRecorder giữ audio cục bộ để replay; Web Speech API (`SpeechRecognition`, `en-US`) tạo transcript trực tiếp trên Chrome/Edge; giới hạn 60 giây, permission error rõ và cleanup stream/object URL.
+- Edge Function `speaking-ai` chuyển sang DeepSeek Chat Completions JSON mode (`deepseek-v4-flash` mặc định): chỉ nhận transcript, không upload audio; JWT user bắt buộc, timeout 25s, conversation ownership check và không log/lộ API key.
+- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lưu tối đa 30 ngày, audio không lưu; quota mặc định 600 giây/ngày/user.
+- Tối đa 12 phiên gần nhất được tải và chọn lại trên trang. TTS dùng engine hiện có và fallback browser.
+- Production backend: migration 026 đã push và Edge Function `speaking-ai` bản DeepSeek đã deploy lên project `ntcagvtkwxwsmlxlumfo`.
+- Frontend commit `cb8925de` đã deploy Vercel production Ready tại `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
+- Bản DeepSeek commit `2aa07056`, web v0.2.5 đã deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
+- `DEEPSEEK_API_KEY` đã được đặt trong Supabase Secrets production (không lưu repo/frontend); request kiểm tra trực tiếp với `deepseek-v4-flash` PASS.
+- Verify bản DeepSeek: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production web build PASS + strip private media; full suite 120/121 PASS. Lỗi duy nhất ngoài patch vẫn là catalog Reading kỳ vọng 47 nhưng hiện có 48.
+- Migration `026_speaking_ai_deepseek.sql` đổi provider mặc định sang `deepseek`; client chỉ gửi transcript + metadata, không còn FileReader/base64/audioData.
+
+### Next session start prompt
+
+Review/chạy migrations 031–034 trên staging, chạy `scripts/load/explain-sync.sql`, sau đó k6 bằng 1000 token staging và kiểm tra p95/error/correctness trước production. Bổ sung transaction duy nhất cho Speaking AI usage + message persistence và lịch prune tombstone/rate counters.
+
+Smoke Speaking AI bằng Chrome/Edge: permission, record 5–10s, live transcript, reply, TTS, correction, close/reopen history và quota. Safari/Firefox có thể không hỗ trợ Web Speech API đầy đủ.
+
+Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rồi test một alert có kiểm soát. Smoke signup email-confirmation + Google consent và kiểm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sửa baseline catalog test 47→48 sau khi xác nhận đề thứ 48 hợp lệ.
+
+Smoke browser production tại `https://ryanenglishv2.vercel.app`, gồm Turnstile login, signed PDF/media và retry publish Listening MP3 admin. Sau đó tạo Vercel Firewall draft và review diff trước khi publish. Audio CAE 82.94MB vẫn cần nén dưới 50MB hoặc nâng Supabase Pro.
+
+## 2026-07-16 — Security audit + kế hoạch nâng bảo mật mức HIGH
+
+- Audit toàn bộ lớp bảo mật trước deploy Vercel: 19 migrations, `content-sign` edge function, `vercel.json`, `.vercelignore`, `strip-public-media-from-dist.mjs`, publish flow.
+- **2 lỗ hổng CRITICAL phát hiện, CHƯA VÁ — bắt buộc fix trước deploy:**
+  1. `reading_exam_published` / `listening_exam_published` có policy `for select using (true)` không giới hạn role → anon key (nằm trong bundle) crawl được toàn bộ đề **kèm đáp án** (`parts` jsonb chứa `answer` + `explanation`; publish flow chỉ strip `imageKey`).
+  2. `books/the-song-of-achilles.pdf` (sách có bản quyền) sẽ public trên Vercel — `.vercelignore` có dòng `!apps/web/public/**/*.pdf` re-include, strip script chỉ xóa `catalog/`+`data/`. Rủi ro DMCA. `ielts-wizard/` (8.4MB ảnh đề) cũng public tương tự.
+- Điểm mạnh xác nhận: Mode A Fortress đúng chuẩn (4.3GB catalog private Storage + signed URL 90s + plan gate + rate limit 45/user/phút), Mode D answer vault, RLS user-data đầy đủ (015), headers/CSP/robots tốt, BYOK không lộ key server.
+- **Kế hoạch chi tiết 6 phase đã ghi tại `Security/SECURITY_HARDENING_PLAN.txt`** — thứ tự thi công: Phase 1 (vá 2 lỗ trên: migration `020_harden_published_exams.sql` + strip answers khi publish + chuyển books/ielts-wizard vào signed flow) → Phase 5.1 (Vercel firewall) → Phase 2 (daily quota + Turnstile) → Phase 4 (Terms/copyright) → Phase 3 (UI, kèm ghi chú trung thực: layout/UI không chặn tuyệt đối được bằng kỹ thuật, chỉ bằng pháp lý + anti-bot).
+
+### Next session start prompt
+
+Thi công Phase 1 trong `Security/SECURITY_HARDENING_PLAN.txt`: (1) migration 020 scope policy `to authenticated` + strip `answer`/`explanation` trong `readingExamPublish.ts`/`listeningExamPublish.ts` + backfill script; (2) đưa `books/` + `ielts-wizard/` vào private Storage qua `content-sign` (thêm `books/` vào ALLOWED_ROOTS + `.pdf` vào ALLOWED_EXT + sửa `toStorageObjectPath` + `BookReaderPage` dùng `resolvePlayableMediaUrl`); (3) chạy checklist verify 1.4. KHÔNG deploy trước khi xong Phase 1.
+
+## 2026-07-16 — Rebuild PDF loading: fetch buffer thay vì PDF.js tự tải URL (fix lỗi 204)
+
+- User báo `Unexpected server response (204)` khi mở `/books/the-song-of-achilles.pdf` trong reader.
+- Chẩn đoán: file PDF hợp lệ (1MB, header `%PDF-1.4`), dev server trả 200 + 206 range đúng qua curl → lỗi nằm ở tầng transport của PDF.js trong browser. **User xác nhận nguyên nhân: Internet Download Manager bắt range request của PDF.js** (trùng pattern IDM đã ghi nhận session trước).
+- Rebuild theo yêu cầu user (thay thế thay vì vá): `BookReaderPage` giờ tự `fetch(pdfUrl, { cache: 'no-store' })` → kiểm tra `ok`/204/buffer rỗng → đưa `data: Uint8Array` cho `pdfjs.getDocument` thay vì `url`. PDF.js không còn tự mở network request nên không còn bị intercept.
+- Error message rõ ràng khi server trả lỗi: `Không tải được PDF (HTTP xxx).`
+- Test cập nhật: (1) fetch đúng URL + `getDocument` nhận `data` Uint8Array, không nhận `url`; (2) test mới: server trả 204 → hiện lỗi `HTTP 204`, không gọi `getDocument`.
+- Verify: 2/2 BookReaderPage tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Lỗi còn tồn tại: chưa verify bằng browser thật (browser automation không expose); nếu IDM vẫn bắt cả `fetch()` XHR thì cần user thêm `localhost` vào IDM exclusion list.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận không còn lỗi 204, trang 1 render trên canvas, bộ đếm `1 / 278`. Nếu vẫn lỗi → kiểm tra IDM: Options → File types → thêm `localhost` vào "Don't start downloading from the following sites".
+
+## 2026-07-16 — Import audio IELTS Listening theo Part (Desktop Dethi)
+
+- Nguồn: `C:\Users\ADMIN\OneDrive\Desktop\Dethi\Đề thi IELTS` — **188/192** file Section/Part MP3 (map Cam 9–20).
+- Đích app: `apps/web/public/catalog/listening/ielts-cam{B}-test{T}/part{N}.mp3`
+- Đích tài nguyên: `Tainguyen\IELTS\Listening\Listening IELTS_Test{T}_Cam{B}\part{N}.mp3`
+- Catalog JSON: `audioUrl` → `partN.mp3`; xóa segment fallback khi có file part.
+- **Thiếu:** Cam 20 Test 1 (không có file trong folder nguồn) — vẫn full `listening.mp3` + segment %.
+- Script: `scripts/import-ielts-part-audio-from-dethi.mjs`
+- App: đổi Part → auto play audio part; `resolveListeningAudioSource` ưu tiên per-part.
+
+## 2026-07-16 — Fix PDF Viewer 0/0 bằng PDF.js renderer
+
+- Ảnh user cho thấy iframe native PDF Viewer mở nhưng báo `0 trên 0`, vùng tài liệu trống.
+- CLI parser `unpdf/getDocumentProxy` đọc file thành **278 trang**, chứng minh file nguồn hợp lệ; native blob iframe là lớp gây lỗi trong môi trường hiện tại.
+- Loại bỏ hoàn toàn `blob:` iframe/native PDF Viewer khỏi `BookReaderPage`.
+- Reader mới: fetch `arrayBuffer` → `resolvePDFJSImport` → `getDocumentProxy` → `renderPageAsImage` trang hiện tại thành data URL.
+- Chỉ render một trang mỗi lần ở scale 1.6 để giữ hiệu năng cho 278 trang; thêm nút trang trước/sau, bộ đếm `page / 278`, loading/render/error states.
+- Cleanup abort fetch, hủy PDF proxy và bỏ kết quả render cũ khi đổi trang nhanh.
+- Regression test yêu cầu PDF.js render trang 1, ảnh data URL, bộ đếm `1 / 278` và tuyệt đối không có iframe; test đỏ trước fix → xanh.
+- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; live module có PDF.js renderer, không có native iframe; reader route 200.
+- Lỗi còn tồn tại: chưa kiểm tra ảnh trang thật bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận trang 1 hiển thị dưới dạng ảnh, bộ đếm `1 / 278`, nút trang sau render trang 2, không còn toolbar PDF `0/0` và không hiện IDM.
+
+## 2026-07-16 — Reader PDF nội bộ tránh IDM bắt download
+
+- Ảnh user xác nhận click đã hoạt động nhưng Internet Download Manager bắt URL `.pdf` và mở dialog download thay vì browser reader.
+- Regression test yêu cầu action “Đọc sách” trỏ route app `/app/reading-corner/sach/read/cv01`, không trỏ trực tiếp file PDF; test đỏ trước fix.
+- Thêm lazy route `reading-corner/sach/read/:bookId` và `BookReaderPage`.
+- Reader tìm metadata trong books catalog, `fetch()` PDF, tạo `blob:` URL bằng `URL.createObjectURL`, rồi gắn blob URL vào iframe PDF viewer; IDM không nhận direct `.pdf` navigation để chặn.
+- Reader có toolbar tên sách/tác giả, nút quay lại kệ, loading/error state, cleanup AbortController + revokeObjectURL.
+- Nút trong modal trỏ reader route `_self`; FLIP/pointer fixes giữ nguyên.
+- Thêm unit test reader: fetch đúng PDF, iframe dùng blob URL, cleanup revoke.
+- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; reader route 200; live module có createObjectURL; PDF endpoint 200 `application/pdf`.
+- Lỗi còn tồn tại: chưa render iframe PDF thật bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles và bấm “Đọc sách”; xác nhận chuyển tới `/app/reading-corner/sach/read/cv01`, không hiện IDM, PDF hiển thị trong iframe blob và nút “Kệ sách” quay lại đúng.
+
+## 2026-07-16 — Fix lần 2 hit-test nút Đọc sách trong không gian 3D
+
+- User xác nhận chỉ tắt pointer của bìa vẫn chưa click được; nguyên nhân tiếp theo được khóa bằng regression: `.book-inside` vẫn ở `translateZ(-1px)` và z1, nằm trên mặt phẳng 3D âm.
+- Khi modal open, nâng `.book-inside` lên `z-index: 3`, `translateZ(1px)`, giữ `pointer-events: auto`.
+- Chính `[data-book-preview-action]` có `position: relative`, `z-index: 5`, `pointer-events: auto`, `translateZ(8px)`; active state giữ translateZ khi scale.
+- Bìa open tiếp tục `pointer-events: none`; link PDF tiếp tục `_self`.
+- Regression CSS kiểm tra đủ cover pointer-none, inside pointer-auto/z3/Z+1 và action pointer-auto/z5/Z+8; test đỏ trước fix → xanh.
+- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS có đủ Z layers; PDF endpoint 200.
+- Lỗi còn tồn tại: chưa click thật bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, đợi animation xong và click “Đọc sách”; kiểm tra hover/click link trên Chrome/Electron và xác nhận chuyển tới PDF.
+
+## 2026-07-16 — Fix nút Đọc sách bị bìa 3D block click
+
+- Ảnh user cho thấy nút “Đọc sách” hiển thị nhưng không click được; regression CSS xác nhận bìa đã `rotateY(-150deg)` nhưng hitbox vẫn giữ `pointer-events`, nằm z2 trên trang trong z1.
+- Thêm `pointer-events: none` cho `.book-modal-content.is-open .book-cover`; khi bìa mở xong, lớp bìa không còn chặn click.
+- `.book-inside` vốn đã chuyển `pointer-events: auto` ở trạng thái open, nên link PDF nhận click trực tiếp sau fix.
+- Giữ link PDF `target="_self"` để không phụ thuộc popup/tab mới.
+- Regression test kiểm tra đồng thời cover open = pointer none và inside open = pointer auto; test đỏ trước fix → xanh sau fix.
+- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS có pointer override; PDF endpoint 200.
+- Lỗi còn tồn tại: chưa click thật bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, đợi bìa xoay mở rồi click “Đọc sách”; xác nhận nút nhận hover/click và tab hiện tại chuyển đến PDF.
+
+## 2026-07-16 — Fix lần 2 nút Đọc sách: điều hướng cùng tab
+
+- User xác nhận native anchor `target="_blank"` vẫn không mở trong môi trường hiện tại; kết luận môi trường chặn tab/cửa sổ mới, không phải lỗi PDF vì endpoint luôn 200 `application/pdf`.
+- Regression test đổi yêu cầu của action PDF sang `target="_self"`; test đỏ khi code còn `_blank`.
+- Nút “Đọc sách” vẫn là anchor native nhưng nay điều hướng cùng tab tới `/books/the-song-of-achilles.pdf`; không dùng popup, `window.open` hoặc tab mới.
+- Clone trong FLIP modal giữ nguyên `_self` và tabIndex 0; người dùng dùng nút Back của browser để quay lại kệ.
+- Verify: regression test đỏ → xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; PDF endpoint 200 `application/pdf`.
+- Lỗi còn tồn tại: chưa click navigation thật bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, click “Đọc sách”; xác nhận tab hiện tại chuyển thẳng đến PDF và nút Back quay lại kệ.
+
+## 2026-07-16 — Fix nút Đọc sách không mở PDF
+
+- User xác nhận click “Đọc sách” không mở gì dù PDF endpoint đã 200; nguyên nhân đáng tin cậy nhất là cơ chế `window.open()` bằng JS bị trình duyệt/in-app environment chặn.
+- Regression test yêu cầu action của sách đã import phải là `HTMLAnchorElement` native với `href`, `target="_blank"` và `rel="noopener noreferrer"`; test đỏ khi action còn là button.
+- `BilingualBooksPage` render `<a>` native cho sách có `pdfUrl`; sách chưa có PDF tiếp tục render `<button>` “Đọc thử”.
+- Preview controller chỉ gắn fallback handler “đang biên tập” cho `HTMLButtonElement`; anchor PDF được clone nguyên vẹn, tabIndex chuyển 0 và để trình duyệt xử lý navigation trực tiếp.
+- CSS action bổ sung inline-flex/center/text-decoration none để anchor giữ đúng giao diện nút cũ.
+- Verify: regression test đỏ → xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live module có native href; PDF endpoint tiếp tục 200.
+- Lỗi còn tồn tại: chưa click native anchor bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles và click “Đọc sách”; xác nhận browser mở `/books/the-song-of-achilles.pdf` ở tab mới. Nếu môi trường vẫn chặn tab mới, chuyển `target` sang `_self`.
+
+## 2026-07-16 — Import The Song of Achilles PDF vào kệ sách
+
+- Nguồn: `D:\App-English-Ryan\Tainguyen\Book\The Song of Achilles.pdf` (1,018,904 bytes).
+- Sao chép nguyên vẹn vào `apps/web/public/books/the-song-of-achilles.pdf`; SHA-256 nguồn/đích cùng `0C70B3FB6DD44BE73C036769A82127E0299E5D5F2904AF259609541D955C9F16`.
+- Catalog `cv01` vốn đã có bìa/title/author, nay thêm `pdfUrl: /books/the-song-of-achilles.pdf`.
+- `BookCover` hỗ trợ `pdfUrl`; preview của sách có PDF hiển thị nút “Đọc sách”, sách chưa có file vẫn là “Đọc thử”.
+- Preview controller đọc `data-book-preview-url` và mở PDF bằng tab mới với `noopener,noreferrer`; fallback “đang biên tập” giữ nguyên cho sách chưa import.
+- Thêm regression test catalog→DOM và test controller mở đúng PDF.
+- Verify: 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; Vite HEAD `/books/the-song-of-achilles.pdf` trả 200, `application/pdf`, đúng 1,018,904 bytes.
+- Lỗi còn tồn tại: chưa click PDF bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`, click “The Song of Achilles”, đợi animation mở sách, bấm “Đọc sách” và xác nhận PDF mở ở tab mới; smoke-test đóng modal/drag shelf vẫn bình thường.
+
+## 2026-07-16 — Fix StudySession grid làm xuyên bảng Vocabulary
+
+- Feedback ảnh xác nhận `.vocab-study-shell` transparent làm toàn bộ bảng từ, toolbar và chữ phía dưới xuyên qua màn hình học, gây chồng lớp.
+- Đổi study shell từ transparent sang background kín gồm màu `--reading-corner-bg` + hai linear-gradient grid 32px.
+- StudySession tiếp tục không có ribbon; nền grid riêng của overlay che sạch CardPanel phía dưới nhưng card học, stat bar, mode tabs và controls vẫn nằm phía trên.
+- Regression test đổi yêu cầu từ transparent sang opaque grid surface: phải có background color, grid line và background-size 32px; test đỏ trước fix → xanh sau fix.
+- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS có selector/màu/grid size; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered sau fix vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, mở SRS khi bảng deck đang hiện phía dưới; xác nhận chỉ thấy nền xanh grid + UI học, không còn hàng từ/toolbar xuyên qua, rồi smoke-test 8 mode còn lại và light/mid/dark.
+
+## 2026-07-16 — Grid cho toàn bộ chế độ học Vocabulary
+
+- Áp dụng ô lưới của `/app/vocab` cho cả 9 mode dùng chung `StudySession`: SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats và Notebook.
+- Nguyên nhân lớp grid bị che trong mode học: `.vocab-study-shell` là overlay `absolute inset-0 z-40` và có `background: var(--vs-shell-bg)`.
+- Trong `.app-shell--grid`, ép riêng `.vocab-study-shell` về transparent; stat bar, mode tabs, flashcard, quiz card, input, bảng thống kê và notebook card vẫn giữ surface riêng.
+- Không render ribbon vì `/app/vocab` tiếp tục ở backdrop mode `grid`.
+- Regression assertion đã đỏ trước fix vì thiếu selector study shell, sau fix xanh.
+- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS chứa selector mới; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`; mở lần lượt SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats, Notebook và xác nhận grid 32px hiện phía sau, không có ribbon, card/input/panel vẫn rõ ở light/mid/dark.
+
+## 2026-07-16 — Fix grid Vocabulary bị CardPanel che
+
+- Repro theo trạng thái `activeDeckId`: route `/app/vocab` đã đúng mode `grid`, nhưng `CardPanel` full-height vẫn phủ `var(--bg-primary)` nên người dùng không thấy ô lưới khi một deck đang được nhớ/mở.
+- Thêm hook `.vocab-card-panel` cho cả trạng thái deck đang tải/chưa có và trạng thái deck đã mở.
+- Trong `.app-shell--grid`, ép riêng `.vocab-card-panel` về `background: transparent !important`; header, bảng, card và modal bên trong giữ surface riêng.
+- Thêm regression test render CardPanel thật với store/query mock, đồng thời kiểm tra selector CSS grid-mode tồn tại.
+- Verify: regression loop đỏ 2/2 trước fix → xanh; tổng 63 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS/module PASS; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab` khi đang ở danh sách deck và khi một deck đã mở; xác nhận grid 32px đều hiện, không có ribbon, header/bảng/card vẫn dễ đọc ở light/mid/dark.
+
+## 2026-07-16 — Grid-only cho Writing subpages và Vocabulary
+
+- Tách backdrop AppShell thành 3 mode: `none`, `grid`, `ribbon`; mode `grid` render ô lưới nhưng không tạo ba phần tử ribbon.
+- Chuyển `/app/vocab` từ ribbon sang grid-only.
+- Bật grid-only cho Writing Translate hub + 6 track, Writing Practice hub + Task 1/Task 2/Free, Cambridge hub + A2/B1/B2/C1/C2 và Writing Dashboard.
+- Danh sách người dùng lặp B2 và thiếu C2; map thêm C2 theo cấu trúc Cambridge A2–C2 hiện có.
+- Dùng lớp chung `.app-shell--backdrop` để gỡ nền ngoài của Writing layout, `.cb-hub`, `.wd-page` và Vocabulary `.app-page-surface`; card/form/header bên trong vẫn giữ surface riêng.
+- Các trang backdrop cũ vẫn dùng mode `ribbon`; các route ngoài whitelist vẫn `none`.
+- Verify: 61 route mode tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 5 URL đại diện HTTP 200; diff-check PASS.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, `/app/writing/translate/grammar_basic`, `/app/writing/practice/task2`, `/app/writing/cambridge/c2`, `/app/writing/dashboard`; xác nhận chỉ có grid 32px, tuyệt đối không có ribbon, card/form vẫn rõ ở light/mid/dark.
+
+## 2026-07-16 — Grid + ribbon cho Exam Track, Shadowing lesson và Sentence catalog
+
+- Mở rộng `hasAppRibbonBackdrop()` cho đúng các route Exam Track IELTS/Cambridge được yêu cầu, gồm level A2–C2 và các trang Listening/Reading.
+- Bật backdrop cho route bài học Shadowing một cấp như `/app/shadowing/28EFRJaA2JQ`; query `?mode=shadowing` không ảnh hưởng vì AppShell match theo pathname.
+- Bật backdrop cho mọi Sentence Structure ID dạng `catalog:ss:*`, hỗ trợ cả dấu `:` trực tiếp và `%3A` URL-encoded.
+- Gỡ nền đặc chỉ ở container ngoài: `.exam-hub-page`, `.exam-skill-picker`, `.shadowing-detail`, `.ss-shell`; card, player, transcript và panel vẫn giữ surface riêng.
+- Tắt dot texture `ss-shell::before` để không chồng lên grid 32px dùng chung.
+- Verify: 41 matcher tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 4 URL đại diện HTTP 200; live Vite CSS chứa đủ selector mới.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này. `pnpm build` đã chạy `build:catalog` và làm mới các file catalog sinh tự động; giữ nguyên, không tự ý hoàn tác worktree.
+
+### Next session start prompt
+
+Hard refresh một route mỗi nhóm: `/app/exam/track/cambridge/c2/reading`, `/app/exam/track/ielts/listening`, `/app/shadowing/28EFRJaA2JQ?mode=shadowing`, và một `/app/sentence-structure/catalog:ss:*`; xác nhận grid/ribbon hiện sau nội dung, card/player vẫn rõ ở cả light/mid/dark.
+
+## 2026-07-16 — Thêm ô lưới cho các trang con Reading Corner
+
+- `/bao` và article reader giữ grid dùng chung `.snb-ribbon-grid` đã có.
+- `/sach` bổ sung `.library-camera::before`: grid 32×32px màu amber nhạt 14%, opacity .42, soft-light.
+- Grid sách nằm z2 trên ảnh nền nhưng dưới header/bookcase z4+, pointer-events none nên không che ảnh bìa hoặc chặn drag/click/FLIP.
+- Verify: child-grid assertion PASS; 4 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live CSS PASS; `/sach` và `/bao` HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach` và `/bao`; kiểm tra ô lưới 32px đủ nhẹ trên ảnh thư viện và rõ trên nền xanh, không che card/bookcase.
+
+## 2026-07-16 — Thêm nút Quay lại cho Reading Corner hub
+
+- `/app/reading-corner` thêm `Link.rc-hub-back` ở đầu nội dung, điều hướng về `/app/home`.
+- Nút có icon mũi tên trái, glass surface theo theme tokens, blur 10px, hover dịch trái nhẹ và focus-visible.
+- Nút nằm trong flow trước header nên không che tiêu đề trên mobile.
+- Thêm `ReadingCornerHub.test.tsx` xác nhận link “Quay lại” có `href=/app/home`.
+- Verify: 4 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live hub module PASS.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner`; kiểm tra nút Quay lại trên desktop/mobile và xác nhận điều hướng về `/app/home`.
+
+## 2026-07-16 — Gỡ mouse tilt, thay bằng ambient background drift
+
+- Xóa toàn bộ `sceneRef`, `cameraRef`, preview tilt refs, mousemove/mouseleave listeners, RAF lerp và CSS vars/rotateX/rotateY của camera.
+- `.library-camera` giữ lại làm wrapper tĩnh cho background/scene; `stage.is-preview-open` vẫn giữ vì chỉ khóa shelf khi FLIP modal mở.
+- `.library-bg` chạy `ambient-drift` độc lập: scale 1→1.03, 30s ease-in-out alternate infinite, transform-origin center bottom.
+- Không thêm scroll parallax/listener để tránh chi phí và xung đột drag shelf.
+- Reduced-motion tắt ambient animation, transform và will-change.
+- Xóa regression test camera tilt; giữ test không có RAF lúc render và toàn bộ drag/click/FLIP tests.
+- Verify: source assertion không mousemove/RAF/camera rotate PASS; 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live module không tilt + live ambient CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; xác nhận rê chuột không làm scene nghiêng, background zoom rất chậm 30s, hover/drag/FLIP vẫn hoạt động và reduced-motion tắt drift.
+
+## 2026-07-16 — Fix focus halo sát bìa + dải tối ngang hàng 2
+
+- Feedback loop đỏ xác nhận 3 vấn đề cùng tồn tại: bottom fade `position:fixed`, focus shadow áp trực tiếp lên `.book`, shelf occlusion dùng 88% shadow.
+- Focus halo chuyển sang `.book::before`, inset -8px và radius 8px; `:focus-visible` chỉ bật opacity. Ring dùng spread 6px 50% + glow 24px/4px 30%, tạo khoảng hở tự nhiên.
+- Focused book z11 để halo không bị shelf front z8 che; contact shadow tiếp tục dùng `.book::after`.
+- Bottom fade chuyển từ `.library-scene::before` fixed sang `.library-camera::after` absolute bottom, nên chỉ xuất hiện ở cuối thật của toàn bộ scene thay vì đáy viewport/hàng 2.
+- Shelf-front shadow và lower-row occlusion giảm 18→16px, shadow mix 88%→60% (effective khoảng 24% từ base rgba .4).
+- Verify: original red loop GREEN; 4 camera/drag/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live CSS fix PASS; route HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; Tab vào sách kiểm tra halo cách bìa ~8px, cuộn qua hàng 2 xác nhận không còn dải chữ nhật tối và kiểm tra fade chỉ xuất hiện ở cuối scene.
+
+## 2026-07-16 — Warm UI rings, glass pills và bottom fade
+
+- Chỉ sửa `readingCorner.css`; không đổi DOM/handlers/animation sách.
+- Book `:focus-visible` bỏ outline xanh/tím, dùng amber ring 3px 70% + glow 20px 40%; vẫn giữ keyboard accessibility.
+- Nút “Góc đọc” và “Đọc Báo Song Ngữ” dùng walnut glass 50%, blur 10px, amber border 30%, cream text và shadow 4px/12px.
+- Hover pill pha nhẹ `--library-accent`, selector có specificity cao hơn rule trắng legacy.
+- `.library-scene::before` tạo bottom fade fixed 100–150px, transparent → dark walnut 96% ở 90%; z850, pointer-events none. Grain tiếp tục ở `::after` z900.
+- Verify: 4 camera/hover/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; warm UI CSS assertion PASS; scoped diff-check PASS; live CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; dùng Tab kiểm tra amber focus ring, hover hai glass pill và cuộn xuống cuối để kiểm tra fade không che click/drag sách.
+
+## 2026-07-16 — Header depth + dust motes cho library scene
+
+- Thêm `.library-header-depth` cao 280–480px phía sau intro, `backdrop-filter: blur(2.5px) brightness(.85)` và mask fade xuống dưới; bookcase ngoài vùng này giữ nguyên nét.
+- `.library-intro::before` tạo overlay nâu đen feathered bằng linear-gradient + radial mask, không có card/border cứng.
+- `.library-intro::after` tạo warm radial glow vàng 15%, lớn hơn intro và blur 36px; content nằm z2 phía trên.
+- H1 dùng text-shadow 3 lớp: contact 2px/4px, ambient 8px/24px và rim light trắng 1px.
+- Thêm đúng 18 `.library-dust__particle` deterministic; size 2–4px, duration 8–15s, negative delay, drift riêng; animation chỉ transform/opacity.
+- Dust nằm trong `.library-camera`, cùng tilt với scene nhưng pointer-events none; reduced-motion tắt animation và will-change.
+- Mobile giữ vertical padding intro để mask/glow không bị cắt; thêm WebKit mask fallback.
+- Verify: 4 camera/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; header-depth assertion PASS; scoped diff-check PASS; live module/CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; kiểm tra header feather/glow, blur chỉ ở vùng trên, 18 dust motes, camera tilt và reduced-motion/mobile; xác nhận bookcase vẫn sắc nét.
+
+## 2026-07-16 — Camera tilt + spine depth tương tác
+
+- Thêm `.library-camera` bên trong `.library-scene`; scene giữ scroll/viewport ổn định, camera chứa background + intro + bookcase và nhận transform 3D.
+- Mousemove fine-pointer chuẩn hóa -1..1, target rotateX tối đa ±4°, rotateY ±6°; RAF lerp hệ số .08 và chỉ tiếp tục khi còn sai số, không có loop idle.
+- Touch/coarse pointer và `prefers-reduced-motion` không đăng ký tilt; CSS reduced-motion tắt transform/will-change camera.
+- Khi FLIP modal mở: `previewOpenRef`, class `.is-preview-open` và reset callback đưa target về 0; CSS ép camera 0° ngay để nội dung đọc ổn định.
+- Mỗi `.book` có `--book-cover-y` deterministic theo ID trong khoảng -6..6° và `--book-cover-image`.
+- Shelf `.book-cover` dùng preserve-3d/rotateY; `::before` tạo gáy 8–12px rotateY(90°), lấy chính ảnh bìa và brightness .7. Modal không kế thừa vars outer book nên vẫn mở phẳng.
+- Occlusion giữ shelf front z8 cao hơn book z7; shadow overlay tầng trên z10 tiếp tục che tự nhiên đầu sách tầng dưới.
+- Regression test mới kiểm tra RAF lerp, camera vars, preview reset class và toàn bộ cover angle range.
+- Verify: 4 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; interactive-depth assertion PASS; scoped diff-check PASS; live camera module/CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; rê chuột đến 4 góc, kiểm tra tilt ≤6°, drag shelf, hover sách, spine depth và camera reset khi modal mở; thử thêm touch/mobile/reduced-motion.
+
+## 2026-07-16 — Đồng chất ảnh thật và CSS bookcase
+
+- Root scene thêm class `.library-scene`; `::after` phủ SVG `feTurbulence` noise 180×180, opacity .05, blend overlay lên cả ảnh nền và bookcase.
+- `.bookcase-container` có color grade `saturate(.92) contrast(1.05) brightness(.98) sepia(.05)`, shadow blend lớn 100px/40px để mềm viền.
+- Container overlay kết hợp side vignette 30%, warm radial highlight ở giữa-trên và orange grade 8%→5%, `mix-blend-mode: soft-light`.
+- Bìa trên shelf dùng aging filter `saturate(.9) contrast(1.03) brightness(.97)` + wash vàng nâu 6% multiply.
+- Modal FLIP explicit `filter:none` và ẩn aging pseudo-layer, nên preview dùng ảnh bìa gốc sắc nét.
+- Contact shadow mỗi sách đổi thành dải 5px opacity .5 với box-shadow 2px/3px, sát mặt kệ; hover vẫn bù translate để bóng ở lại shelf.
+- Không đổi drag/open/close handlers hoặc transition transform của sách.
+- Verify: 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; compositing CSS assertion PASS; live CSS/module PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; kiểm tra warm grade/noise/vignette, cạnh bookcase hòa nền, contact shadow và độ sắc nét bìa trong modal trên desktop/mobile.
+
+## 2026-07-16 — Ghép ảnh thư viện thật phía sau CSS bookcase
+
+- Nguồn: `Crawl/Giaodien/library.jpg` (889,520 bytes); copy vào `apps/web/public/images/bilingual/library-bg.jpg`.
+- `BilingualBooksPage` thêm `.library-bg`, `.library-bg-overlay` và `.bookcase-container`; bookcase/shelf-row/book DOM bên trong giữ nguyên.
+- Background fixed/cover/center-bottom với fallback `#3d2b1f`, thay hoàn toàn nền grid xanh trên route `/reading-corner/sach`.
+- Overlay dùng radial vignette tối nhất ở trung tâm + gradient dọc để giảm chi tiết ảnh thật phía sau bookcase.
+- `bookcase-container` max-width 1180px, centered, shadow `0 20px 60px rgba(0,0,0,.6)` qua CSS variable; pseudo-elements tạo ambient depth và edge blending.
+- Intro chuyển sang text trắng/muted có text-shadow để đọc rõ trên ảnh nền.
+- Không bật mousemove parallax trong patch này để tránh tranh pointer với drag-to-scroll từng shelf và giữ hiệu năng ổn định.
+- Regression test bổ sung xác nhận 3 lớp background/container; 3 hover/click/FLIP tests vẫn PASS.
+- Verify: asset size PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live asset 889,520 bytes, CSS/module PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; kiểm tra ảnh cover trên desktop/mobile, vignette trung tâm, text contrast, shadow/blend bookcase và FLIP sau khi scroll ngang. Chỉ thêm parallax nếu drag shelf vẫn ổn.
+
+## 2026-07-16 — Tăng chiều sâu 3D CSS cho bookcase
+
+- Chỉ sửa `readingCorner.css`; không đổi component, drag handlers hay FLIP controller.
+- Side-left/right dùng clip-path hình thang và `perspective(800px) rotateY(±7deg)` với transform-origin ở mép ngoài, tạo cảm giác vách mở về phía người xem.
+- Shelf-top dùng mặt sáng `#c9946b`, highlight trên-trái, border-bottom tối và inset fold shadow; shelf-front dùng gradient xuống `#4a2f18` cùng repeating wood grain 2–6px.
+- Shelf front z8 và `::after` tạo bóng 18px xuống compartment kế tiếp; thêm overlay tương ứng trên đỉnh `.shelf-books` từ row thứ hai để bóng chạm phần đầu bìa.
+- Top/bottom/side frame có repeating-linear-gradient vân gỗ opacity thấp; rim light đồng nhất từ trên-trái, cạnh dưới/phải tối hơn.
+- Bỏ `filter: blur(5px)` khỏi shelf shadow; toàn bộ lớp mới là static transform/gradient/box-shadow, không thêm animation loop.
+- Verify: 3 hover/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; 3D CSS assertion PASS; live Vite CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; kiểm tra side panels xiên, đường gấp shelf-top/front, vân gỗ, bóng trên đầu sách tầng dưới và rim light trên-trái ở desktop/mobile.
+
+## 2026-07-16 — Nâng cấp các kệ rời thành bookcase hoàn chỉnh
+
+- Tham chiếu `Crawl/Giaodien/sheft.jpg`: tủ thư viện walnut tối, khung crown dày, back panel kín và ánh sáng ấm từ trên.
+- Bọc 3 shelf-row trong `.bookcase`; thêm `.bookcase-back`, top, bottom, side-left/right, light overlay và 2 divider dọc.
+- Frame dùng CSS variables walnut `#6f4729 / #5c3a21 / #3d2615`; top/bottom 32–40px, side 22–28px, highlight mép và shadow tạo khối.
+- Back panel `#4a3728` có vân dọc nhẹ, inset side shadow và bóng radial/linear riêng ở góc trên từng shelf-row.
+- Shelf front tăng lên 14–17px, kéo sát mép trong hai trụ; bỏ support rời của từng row để toàn bộ thanh ngang trở thành một phần của khung tủ.
+- Light overlay phủ interior từ sáng nhẹ phía trên xuống tối phía dưới; pointer-events none nên drag/click sách không bị ảnh hưởng.
+- Responsive dưới 700px: frame side 18px, top 30px, bottom 32px; ẩn divider để giữ diện tích sách và horizontal scroll.
+- Regression test bổ sung xác nhận back/top/bottom, 2 side và 2 divider; click/FLIP tests vẫn PASS.
+- Verify: 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live bookcase module/CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; đối chiếu `sheft.jpg`: kiểm tra crown frame, panel sau kín, shelf nối trụ, divider, ánh sáng top-down, horizontal scroll và FLIP trên desktop/mobile.
+
+## 2026-07-16 — Nâng cấp shelf bar thành kệ gỗ hai lớp
+
+- Chỉ sửa `readingCorner.css`, không đổi HTML/React/controller.
+- `.shelf-bar` là mặt trước 10–12px với gradient `#8b5e3c → #6b4423`; `::before` tạo mặt trên 7px với gradient `#d4a574 → #b8895a` và highlight be mảnh.
+- Giảm bo góc còn 2–4px; thêm shadow `0 8px 16px rgba(0,0,0,.25)` qua CSS variable.
+- `.shelf-row` có hai giá đỡ dọc 18×36px bằng layered background, cùng tone gỗ tối.
+- `.book::after` tạo bóng ellipse dưới từng cuốn; khi hover bóng bù `translateY` để nằm gần mặt kệ trong lúc bìa được rút lên.
+- Điều chỉnh stacking: sách z7, hover z9, shelf z6 để bóng nằm trên mặt gỗ nhưng kệ vẫn đỡ đúng đáy sách.
+- Verify: CSS assertion PASS; live Vite CSS PASS; scoped diff-check PASS; `pnpm --filter web exec tsc --noEmit` PASS; 3 click/FLIP tests PASS.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; kiểm tra mặt trên sáng, mặt trước tối, hai giá đỡ và bóng ellipse ở cả ba theme; xác nhận hover/click FLIP không đổi.
+
+## 2026-07-16 — Fix click sách trên kệ không mở FLIP preview
+
+- Root cause: drag-to-scroll gọi `setPointerCapture()` ngay từ `pointerdown`, khiến browser có thể retarget click từ `.book` sang `.shelf-track`; handler `openBook()` không chạy.
+- Fix: `pointerdown` chỉ lưu trạng thái; chỉ capture pointer và bật `is-dragging` sau khi di chuyển ngang vượt threshold 6px.
+- Click bình thường tiếp tục vào `bookPreviewController.openBook()`; kéo ngang vẫn giữ pointer sau khi xác định đúng gesture.
+- Regression test mới mô phỏng pointerdown trên sách, xác nhận chưa capture và click tạo `.book-preview-overlay`.
+- Verify: red test tái hiện đúng 1 lần capture ngoài ý muốn; sau fix 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200 và live click/FLIP module PASS.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach`; click trực tiếp bìa để kiểm tra FLIP + lật mở, sau đó kéo ngang trên cùng bìa để xác nhận không mở nhầm modal.
+
+## 2026-07-16 — Đổi coverflow thành kệ sách thư viện tại /reading-corner/sach
+
+- Bỏ hoàn toàn orbit 3D, `requestAnimationFrame`, góc quay tích lũy và auto-rotate; không còn transform định vị tuyệt đối từng sách.
+- Chia 27 cuốn thành 3 `.shelf-row`, mỗi hàng 9 cuốn; `.shelf-books` dùng Flexbox, đáy sách chạm `.shelf-bar`.
+- Thanh kệ dùng gradient/shadow theo CSS theme tokens; nền trang chuyển sang `--reading-corner-bg` và grid token nên hỗ trợ Sáng/Tối vừa/Tối.
+- 3/27 cuốn (11%) nghiêng deterministic 4–8 độ; hover rút riêng sách đang chọn lên 24px và scale 1.05 bằng transform.
+- Mỗi `.shelf-track` cuộn ngang riêng, ẩn scrollbar, có scroll-snap, drag-to-scroll bằng Pointer Events và Shift + wheel; threshold 6px tránh kéo nhầm thành click.
+- Khối text “Tính năng đang được cập nhật” chuyển thành intro phía trên toàn bộ kệ.
+- Giữ nguyên FLIP + lật bìa: controller tiếp tục lấy `getBoundingClientRect()` trực tiếp từ vị trí sách trên kệ và trả đúng về đó khi đóng.
+- Regression test `BilingualBooksPage.test.tsx`: 3 kệ, 3 shelf bar, 27 sách, 3 sách nghiêng và không khởi chạy auto-rotate.
+- Verify: 4 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200; live shelf module PASS; source assertion không còn orbit/rAF PASS.
+- Lỗi còn tồn tại: chưa smoke-test trực quan bằng browser automation vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Mở `/app/reading-corner/sach`, kiểm tra desktop/mobile: sách chạm kệ, hover không bị clip, kéo ngang không mở nhầm modal, FLIP đi/về đúng vị trí sau khi hàng đã scroll.
+
+## 2026-07-16 — Preview mở sách bằng FLIP tại Reading Corner /sach
+
+- Mỗi cuốn trong coverflow có cấu trúc `.book-modal-content` gồm `.book-cover` và `.book-inside`; phần trong dùng metadata thật từ catalog, có placeholder mô tả và nút “Đọc thử”.
+- Thêm controller DOM thuần `bookPreviewController.ts` với `openBook(bookElement)` / `closeBook()`: clone sách, overlay fixed + blur, FLIP transform về giữa màn hình, lật bìa `rotateY(-150deg)`, rồi đảo animation về đúng vị trí gốc.
+- Đóng được bằng nút X, click vùng tối hoặc Escape; khóa scroll, quản lý focus, hỗ trợ Enter/Space và `prefers-reduced-motion`.
+- Coverflow chuyển sang góc quay tích lũy để pause thật khi modal mở, không nhảy vị trí lúc resume.
+- Animation chỉ thay đổi `transform` và `opacity`; kích thước modal được xác lập một lần trước transition.
+- Regression test `bookPreviewController.test.ts` kiểm tra clone, mở ruột sách, khóa body và phục hồi source khi đóng.
+- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped `git diff --check` PASS; route HTTP 200 và live Vite module PASS.
+- Lỗi còn tồn tại: chưa kiểm tra click/screenshot bằng in-app Browser vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Smoke-test trực quan `/app/reading-corner/sach`: click nhiều vị trí trên vòng cung, kiểm tra FLIP đi/về, lật bìa, Escape/click ngoài và resume auto-rotate trên desktop/mobile.
+
+## 2026-07-16 — Fix nền/ribbon khi chuyển theme Tối và Tối vừa
+
+- Root cause: 5 token nền Reading Corner/ribbon chỉ được khai báo ở theme Sáng, nên theme `mid` và `dark` vẫn kế thừa nền xanh nhạt cùng ribbon sáng, gây sai tương phản.
+- Thêm palette riêng cho `--reading-corner-bg`, `--reading-corner-grid-line`, `--reading-ribbon-soft/mid/core` trong cả `[data-theme="mid"]` và `[data-theme="dark"]`.
+- Reading Corner `/app/reading-corner` và `/bao` dùng `var(--reading-corner-bg)` thay màu nền hardcode; tiêu đề, mô tả và eyebrow có override theme-aware để giữ độ đọc.
+- Thêm regression test `styles/themeBackdropTokens.test.ts`, bắt buộc theme Tối/Tối vừa khai báo đủ 5 token.
+- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS. `git diff --check` chỉ còn dòng trắng cuối `listeningTest.css` thuộc thay đổi có sẵn, không liên quan bản vá này.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Kiểm tra tiếp giao diện theme Sáng/Tối vừa/Tối trên Login, 9 AppShell hub, `/app/reading-corner` và `/app/reading-corner/bao`; các token nền/ribbon đã có regression test tại `apps/web/src/styles/themeBackdropTokens.test.ts`.
+
+## 2026-07-16 — Fix CTA Landing không còn mở Google OAuth trực tiếp
+
+- Root cause: `LandingPage.startFree()` vẫn gọi `signInWithGoogle()` khi user chưa đăng nhập, nên hai nút “Vào lớp học” / “Bắt đầu miễn phí” bỏ qua màn hình login custom.
+- Fix: mọi CTA miễn phí điều hướng tới `/app`; `ProtectedRoute` render `LoginPage` giống mockup khi chưa đăng nhập. Google OAuth chỉ chạy sau khi bấm nút đăng nhập bên trong `LoginPage`.
+- Tắt `VITE_DEV_AUTH_BYPASS` trong `apps/web/.env.local`; Vite dev đang phục vụ giá trị `"0"` nên `/app` không còn bỏ qua login.
+- Đồng thời bỏ màu hardcode còn sót trong `loginPage.css`, thay bằng CSS variables.
+- Verify: CTA source assertion PASS; `pnpm --filter web exec tsc --noEmit` PASS; localhost `5173` và `3000` đều HTTP 200.
+- Lưu ý: `localhost:3000` hiện là một app Next.js khác (`/_next/...`), không phải Vite app trong repo này; Ryan English Website dev chạy tại `http://localhost:5173`.
+
+## 2026-07-16 — Đưa mascot mặt trời Login ra ngoài card
+
+- Login tiếp tục dùng chung `SunnyMascotSvg` với trang Tổng quan.
+- Thêm `login-page__stage` và `login-page__sun-float`; chiều cao mascot được cộng vào layout trước card nên mặt trời nằm hoàn toàn bên ngoài, không overlap header.
+- Chuyển động nổi map theo mascot Tổng quan và hỗ trợ `prefers-reduced-motion`.
+- Verify: layout invariant PASS; live Vite CSS PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Login email/mật khẩu nhập được + đổi font
+
+- Root cause: hai ô Email/Mật khẩu trước đây là `<div aria-hidden>` trang trí, không phải form control.
+- Đổi thành `<form>` với input email/password thật, controlled state, autofill, validation, focus state và lỗi inline.
+- `AuthContext` thêm `signInWithPassword()` dùng Supabase Auth; nút “Đăng nhập ngay” submit email/mật khẩu, nút Google giữ OAuth riêng.
+- Typography trang Login đổi từ Instrument Serif sang `Segoe UI Variable Display` + `Segoe UI Variable`; thêm token `--color-danger` cho đủ light/mid/dark.
+- Regression test: `LoginPage.test.tsx` xác nhận nhập và submit đúng email/password.
+- Verify: 3 tests PASS; live Vite form PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Login dùng chung nền lưới với Reading Corner
+
+- Thêm token dùng chung `--reading-corner-bg` và `--reading-corner-grid-line` trong `globals.css`.
+- `rc-hub` và Login cùng dùng nền xanh nhạt, lưới trắng 32px; Login map thêm lớp noise nhẹ giống `rc-hub-ambient`.
+- Bỏ radial tím cũ ở Login để màu nền không lệch `/app/reading-corner`.
+- Verify: shared-token invariant PASS; live Vite CSS PASS; LoginPage test PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Login có ribbon như Reading Corner /bao
+
+- Thêm 3 ribbon chéo cố định phía sau card Login, map đúng geometry `280vmax`, góc 45°, offset, opacity và thời lượng animation từ `/app/reading-corner/bao`.
+- Tách palette ribbon thành token dùng chung `--reading-ribbon-soft/mid/core`; Reading Corner và Login cùng sử dụng.
+- `prefers-reduced-motion` tắt ribbon animation; form và mascot giữ z-index phía trên.
+- Regression test xác nhận Login render đủ 3 ribbon.
+- Verify: LoginPage test PASS; ribbon mapping invariant PASS; live Vite module PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Sau feedback, riêng ribbon Login đổi sang `rotate(-45deg)` để hướng từ trái dưới lên góc phải màn hình; live Vite CSS PASS.
+
+## 2026-07-16 — Nền xanh + ribbon cho 9 hub AppShell
+
+- Thêm backdrop chung tại `AppShell`: nền xanh Reading Corner, lưới trắng 32px, noise nhẹ và 3 ribbon `-45deg`.
+- Chỉ bật ở đúng route gốc: `/app/home`, `/app/vocab`, `/app/writing`, `/app/listening`, `/app/shadowing`, `/app/exam`, `/app/sentence-structure`, `/app/settings`, `/app/admin`.
+- Không bật ở Reading Corner vì có nền riêng; không bật ở bài học, bài luyện và exam player full-screen.
+- Làm trong suốt outer surface của Home, Vocab, Writing, Listening, Shadowing, Exam, Sentence Structure, Settings và Admin; card/sidebar/toolbars giữ nền riêng.
+- File mới: `pages/appShellBackdrop.ts`, `.css`, `.test.ts`; AppShell render backdrop theo pathname.
+- Verify: 17 tests PASS; shared-surface invariant PASS; live AppShell module PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Fix bổ sung `/app/writing`: `WritingLayout` có 2 wrapper inline background phủ backdrop; thêm class `writing-layout` / `writing-layout__content` và override trong suốt chỉ khi route hub active. Verify: 16 route tests PASS; live WritingLayout PASS; tsc PASS.
+
+## 2026-07-16 — Ribbon cho Reading Corner hub và /bao
+
+- Tách `ReadingRibbonBackdrop.tsx` dùng chung cho `/app/reading-corner` và `/app/reading-corner/bao`.
+- Hub Góc đọc thêm đủ 3 ribbon trên nền xanh lưới; outer `rc-hub--ribbon` chuyển transparent để backdrop hiện đúng.
+- Ribbon `/bao` đổi từ `rotate(45deg)` sang `rotate(-45deg)`, đồng nhất hướng trái dưới lên góc phải.
+- Article reader vẫn dùng chế độ grid-only, không ribbon.
+- Verify: live 2 route modules PASS; live Reading Corner CSS PASS; 16 route tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — IELTS Listening TID shell rewrite (gần 100% theieltsdictionary)
+
+- Viết lại `ListeningIeltsTidShell` + `listeningIeltsTid.css`: header logo/title/timer remaining/Kiểm Tra/font/fullscreen, part banner `#f1f2ec`, paper single-column, overlay Play đen, footer Part pills + ✓, float prev/next + audio.
+- `ListeningTest`: IELTS không dùng overlay/shell cũ — TidShell tự quản Play + layout.
+- Giữ catalog đề + map options + note form (`ListeningIeltsPartView`), draft/submit/review.
+- Ẩn audio-bar/split legacy trong CSS.
+- Verify: tsc PASS.
+
+## 2026-07-16 — Fix IELTS map Q16–20 + embed Tainguyen images
+
+- **Bug:** Cam19 Test1 Q16–20 (map label) `options: []` → select trống, không chọn được.
+- **Fix runtime:** `listeningLetterOptions.ts` + Map/Diagram blocks suy A–H từ instruction/answers.
+- **Fix data:** patch 14 catalog JSON map options; sync **19 ảnh** Tainguyen → `public/catalog/listening/ielts-cam*/` (map.jpg, diagram.jpg, Questions_*.jpg).
+- Matching block hiển thị `partImageUrl` khi có hình; `examMediaUrl` encode path segment.
+- Script: `scripts/sync-listening-images-from-tainguyen.mjs`
+- Verify: tsc PASS.
+
+## 2026-07-16 — Ship IELTS Listening TID shell (thay track UI)
+
+- Route `/app/exam/listening/:examId` (IELTS): dùng `ListeningIeltsTidShell` thay `ListeningIeltsTest`.
+- Layout TID: header logo + title + timer + **Kiểm Tra**, part banner `#f1f2ec`, footer part tabs; giữ PartView (note/map/MC/matching), draft, submit, review, audio local.
+- CSS: `listeningIeltsTid.css`; overlay Play đen kiểu real_test.
+- Data/audio sẵn: catalog Cam 9–20 + `public/catalog/listening/ielts-cam*/listening.mp3` (48 file).
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+- Track list vẫn `/app/exam/track/ielts` → skill listening; KET/PET/FCE không đổi.
+
+## 2026-07-16 — Fix CTA Landing vào đúng giao diện lớp học
+
+- Nút Landing “Vào lớp học” / “Bắt đầu miễn phí” gọi `/app`; route index `/app` đổi từ `/app/vocab` sang `/app/home`.
+- OAuth callback sau Google login đổi từ `/app/vocab` sang `/app`, để người dùng mới cũng vào đúng màn Tổng quan.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Rollback visual redesign Tổng quan
+
+- Gỡ các override `Premium dashboard layer` và `CTA landing destination` trong `homePage.css`; Tổng quan quay về layout Home cũ thay vì hero H1 quá lớn.
+- Không đổi route `/app` hoặc logic đa ngôn ngữ.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
 # Session Summary — Ryan English Website
+
+## 2026-07-16 — Login gate giống mockup TID
+
+- Khi user chưa đăng nhập và bấm CTA Landing vào `/app`, `ProtectedRoute` không redirect về Landing nữa mà render `LoginPage`.
+- Redesign `LoginPage` theo ảnh `Crawl/Giaodien/giao_dien.jpg`: nền grid, mascot mặt trời, header xanh, tab đăng nhập/đăng ký, form visual và nút Google.
+- File: `apps/web/src/features/auth/LoginPage.tsx`, `apps/web/src/features/auth/loginPage.css`, `ProtectedRoute.tsx`.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
 ## Thông tin dự án
 - **Thư mục:** `D:/App-English-Ryan/Website/`
@@ -6,18 +759,233 @@
 - **Supabase project:** `ntcagvtkwxwsmlxlumfo`
 - **Dev server:** `pnpm dev` → `http://localhost:5173`
 
+## 2026-07-15 — Listening playback speed
+
+- IELTS và Cambridge Listening dùng chung nút tốc độ cạnh nút Play.
+- Chu kỳ tốc độ: **1× → 0.75× → 0.5× → 1×**; thay đổi ngay trên audio đang phát.
+- Cập nhật `ListeningExamAudioBar.tsx`, `useExamQuestionAudio.ts`, các test IELTS/KET/PET/FCE và CSS.
+- Verify: `pnpm -C apps/web build` PASS.
+
+## 2026-07-15 — Fix publish loading vô hạn
+
+- Listening media upload trước đây không có timeout; nếu Supabase Storage không phản hồi, nút Publish giữ loading vô hạn.
+- Thêm timeout 120 giây cho từng upload media và reset progress khi bắt đầu Publish mục mới.
+- Verify: `pnpm -C apps/web build` PASS.
+
+## 2026-07-16 — Giai đoạn 1 đa ngôn ngữ giao diện
+
+- Thêm `apps/web/src/lib/language.tsx` với English + Tiếng Việt, `LanguageProvider`, `useI18n` và lưu preference vào localStorage + Dexie `settingsRepo`.
+- Thêm lựa chọn ngôn ngữ trong Settings → Giao diện.
+- AppShell tự cập nhật nhãn navigation theo ngôn ngữ đã chọn.
+- Nội dung bài học/đề thi chưa dịch; chỉ dịch khung giao diện chính trong giai đoạn 1.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Giai đoạn 2 mở rộng ngôn ngữ giao diện
+
+- Mở rộng `language.tsx` từ 2 lên đủ **17 ngôn ngữ**: English, Arabic, German, Greek, Spanish, Indonesian, Japanese, Korean, Malay, Portuguese, Russian, Thai, Turkish, Ukrainian, Vietnamese, Simplified Chinese, Traditional Chinese.
+- Thêm nhãn bản địa và bản dịch navigation + các nhãn chính của Settings cho từng ngôn ngữ.
+- Giữ cơ chế lưu preference localStorage + Dexie `settingsRepo`; ngôn ngữ chưa có bản dịch ở khu vực khác sẽ fallback về Vietnamese.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Giai đoạn 3 RTL và locale
+
+- Arabic tự đặt `dir="rtl"`; các ngôn ngữ còn lại dùng `dir="ltr"`.
+- Cập nhật `document.documentElement.lang` khi đổi ngôn ngữ.
+- Thêm `formatLocaleDate()` với locale tương ứng cho ngày tháng.
+- Tab Settings dùng nhãn dịch theo ngôn ngữ đã chọn.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS; `pnpm -C apps/web build` PASS.
+
+## 2026-07-16 — Giai đoạn 4 AppShell và Tổng quan
+
+- Thêm nhóm key dịch dùng chung cho trạng thái app và các hành động chính của Tổng quan.
+- Quick actions trên HomePage lấy nhãn từ i18n nên đổi theo ngôn ngữ: Vocabulary, Writing, Listening, Translate, MindMap.
+- Giữ nguyên dữ liệu thống kê, streak và nội dung học tập.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Bổ sung dịch text còn sót ở AppShell/Home
+
+- Chuyển thêm fallback user, đăng xuất, sidebar expand/collapse, trạng thái đồng bộ, theme label và lifetime plan sang i18n.
+- Chuyển nhãn thống kê Home và tiêu đề nhóm “Học ngay” sang i18n.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Map toàn bộ giao diện trang Tổng quan
+
+- Chuyển greeting, subtitle, mascot message, quick-action descriptions và thống kê Home sang i18n.
+- Chuyển StudyActivityGrid: tiêu đề, mô tả, legend, aria-label và active-day text.
+- Chuyển CheckInButton: điểm danh, streak điểm danh và trạng thái đã điểm danh.
+- Chuyển DailyGoalCard: mục tiêu, chỉnh sửa/lưu, các dòng goal và completion message.
+- Chuyển StreakCelebration: tiêu đề và thông báo streak.
+- Với ngôn ngữ chưa có bản dịch riêng cho key mới, fallback dùng English thay vì Vietnamese để tránh trộn ngôn ngữ.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Map giao diện Vocabulary
+
+- Chuyển trang `/app/vocab` sang i18n cho tiêu đề, sửa deck trùng, notebook, tạo deck, loại từ và trạng thái repair.
+- Chuyển DeckGrid cho bộ lọc, confirm/error xoá deck.
+- Chuyển CardPanel cho chọn deck, export/import, thêm từ và empty state.
+- Dữ liệu deck/card không thay đổi.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-16 — Bổ sung 120 guide Task 2 TID Writing
+
+- Thêm `scripts/fill-tid-task2-guides.mjs` để sinh guide HTML tĩnh theo 6 genre Task 2.
+- Bổ sung guide + outline + useful language + thesis direction + model answer cho **120/120** đề thiếu.
+- Cập nhật `apps/web/public/catalog/writing/tid/tasks.json`: **356/356** đề có `guideHtml`; Task 1 không thay đổi.
+- Không gọi AI/API.
+- Verify: validator missing guides = 0; `pnpm --filter web exec tsc --noEmit` PASS.
+
 ---
+
+## 2026-07-15 — Tổng quan: mascot mặt trời + bubble
+
+- Tách SVG mặt trời màn kết quả → `components/SunnyMascotSvg.tsx` (ExamPracticeResultReport tái dùng, UI không đổi).
+- Header `/app` (HomePage) hiện mascot + bubble lời thoại theo giờ/streak (`getMascotLine`); CSS `home-sun-mascot*` trong homePage.css; mobile ẩn bubble. Verify: web typecheck PASS.
+
+## 2026-07-15 — Fix undefined questions khi mở Import Listening
+
+- Preview modal dùng `Array.isArray(part.questions)` trước khi đọc `.length`.
+- Validator cũng chuẩn hóa `questions` thiếu thành mảng rỗng.
+- Verify: `pnpm -C apps/web build` PASS.
+
+## 2026-07-15 — ExamHome hero: mascot mặt trời/mặt trăng
+
+- Orb tím «FOCUS / 01» ở `/app/exam` → mascot **mặt trời** (ban ngày) / **mặt trăng** (18h–6h) tái dùng `LegacySunMascot` từ landing.
+- Ẩn speech bubble (text riêng của landing) qua `.exam-home__orb--mascot .sun-bubble { display:none }`.
+- File: `ExamHome.tsx`, `examHub.css`. Verify: web typecheck PASS.
+
+## 2026-07-15 — Fix crash Import ZIP IELTS/Cambridge Listening
+
+- `collectExpectedMediaFiles()` và diagnostics không còn dùng `part.questions` trực tiếp khi payload ZIP thiếu/không chuẩn mảng.
+- Dùng guard `Array.isArray(...)`, modal không còn crash với `TypeError: part.questions is not iterable`.
+- Verify: `pnpm -C apps/web build` PASS.
+
+## 2026-07-15 — Khôi phục KET A2 Listening sau lỗi prune
+
+- Nguyên nhân: `Publish mục mới` gọi batch có prune cloud, xóa các practice 02–44 không có local record trên máy Admin.
+- Fix: thêm `options.prune`; `Publish mục mới` dùng `{ prune: false }`, chỉ `Publish tất cả` mới prune.
+- Khôi phục cloud KET practice 02–44 từ nguồn `Crawl/Import_KET_A2_Listening` (đã publish thành công 02–44 qua các batch).
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Cấu trúc câu: 365 template khác nhau
+
+- Gộp `CORE` (~167) + `EXTRA` (~266) trong `packages/catalog/src/seeds/`.
+- Dedupe theo template (không clone ·02), ưu tiên core, cap **365** bản unique.
+- `GLOBAL_CATALOG_VERSION` → **32** (sync lại khi vào `/app`).
+- File: `sentenceStructures.extra.ts`, `sentenceStructures.expand.ts`, `sentenceStructures.ts`, `manifest.ts`.
+- Hard-refresh `/app/sentence-structure` để thấy đủ 365.
+
+## 2026-07-15 — Khôi phục nút Publish mục mới
+
+- Admin Publish có lại nút `Publish mục mới` cạnh `Publish tất cả`.
+- Nút gọi batch publish Reading/Listening local và kèm transcript Whisper đã lưu.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Publish transcript Whisper lên cloud
+
+- Thêm `ListeningPart.transcript` cho transcript toàn Part.
+- Admin publish tự lấy `exam-listening-whisper:{examId}:{partNumber}` từ localStorage và đưa vào `parts` JSONB của `listening_exam_published`.
+- User đọc đề published sẽ thấy transcript cloud trong panel; không thay đổi câu hỏi/đáp án.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Xóa toolbar Sao chép trùng trong Exam
+
+- Global `TextSelectionToolbar` không còn hiển thị trong vùng `[data-exam-highlight-zone]`.
+- Transcript/Exam chỉ còn một toolbar Reading/Exam với một nút `Sao chép`.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Fix toolbar transcript đè dòng trước
+
+- Toolbar nhận diện `.listening-transcript-panel` và ưu tiên đặt bên dưới vùng text được chọn.
+- Chỉ đặt phía trên khi gần cuối viewport để tránh bị cắt.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Fix toolbar overlap khi chọn transcript
+
+- `ReadingHighlightToolbar` tự chuyển xuống dưới đoạn chọn nếu đoạn chọn gần mép trên viewport.
+- Tránh toolbar Sao chép/Highlight đè lên dòng transcript.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Đồng bộ Highlight/Note transcript với Reading/Exam
+
+- Transcript panel dùng trực tiếp `ReadingHighlightToolbar` và `ReadingHighlightableText`.
+- Toolbar có Sao chép, Tô sáng, Note, Bỏ tô sáng và Xóa note giống Reading/Exam.
+- Annotation lưu local theo `examId + Part`, dùng đúng `readingHighlightUtils` và màu `var(--exam-highlight-bg)`.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Bỏ Highlight/Note transcript
+
+- Bấm trực tiếp vào đoạn highlight để bỏ highlight.
+- Mỗi note có nút `Bỏ note`.
+- Màu highlight dùng `var(--exam-highlight-bg)`, đồng bộ Reading/Exam.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Highlight/Note cho transcript có sẵn
+
+- Transcript từ `q.ttsText`/audioscript giờ cũng chọn được để Highlight hoặc Note, không chỉ transcript Whisper.
+- Dùng chung lưu trữ local theo đề/Part.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Note/Highlight transcript Whisper
+
+- Transcript Whisper trong Listening hỗ trợ bôi chọn đoạn văn.
+- `Highlight` tô vàng và lưu local theo `examId + Part`.
+- `Note` hỏi nội dung ghi chú, lưu local và hiển thị lại dưới transcript.
+- Verify: web typecheck PASS.
+
+## 2026-07-15 — Áp dụng Whisper transcript cho IELTS Listening
+
+- Mọi đề `examType: 'ielts'` không còn đọc transcript DeepSeek cũ trong localStorage.
+- IELTS Listening dùng chung nút Whisper `base.en`, transcript lưu theo `examId + partNumber`.
+- Câu hỏi và đáp án IELTS không bị thay đổi.
+
+## 2026-07-15 — Xóa transcript DeepSeek sai khỏi KET A2 catalog
+
+- `ListeningTranscriptSidePanel.tsx` tự xóa transcript map cũ trong localStorage với mọi `catalog-listening-*`.
+- KET A2 Test 1 không còn hiển thị transcript DeepSeek cũ; chỉ dùng `ttsText` chuẩn hoặc transcript Whisper local mới.
+- Verify: server typecheck PASS.
+
+## 2026-07-15 — Phase Whisper transcript theo Part
+
+- `ListeningTranscriptSidePanel.tsx`: thay nút tạo transcript AI bằng nút Whisper local `base.en`.
+- Gửi audio URL của Part hiện tại tới `POST /api/stt`, lưu transcript tại localStorage theo `examId + partNumber` và hiển thị lại khi mở panel.
+- Transcript Whisper chỉ là văn bản tham khảo toàn Part; không dùng để suy đoán câu hỏi/đáp án.
+- Server typecheck PASS. Web typecheck còn lỗi catalog type có sẵn ở `listeningExamCatalogMerge.ts`/`packages/catalog/src/builtinExams.ts`.
+
+## 2026-07-15 — Mount local STT router
+
+- `server/src/index.ts` import và mount `sttRouter` tại `/api/stt`.
+- Trang `/` công bố `ttsHealth`, `tts`, `sttHealth`, `stt`.
+- Verify: `pnpm --filter server typecheck` và `pnpm --filter web exec tsc --noEmit` đều pass.
+
+## 2026-07-15 — Đổi local Whisper transcript sang `base.en`
+
+- Server STT mặc định dùng `faster-whisper` `base.en` thay cho `tiny.en` để nhận dạng tốt hơn số, tên riêng và spelling trong Listening Cambridge A2–C2.
+- Có thể ghi đè bằng biến môi trường `WHISPER_MODEL`; không thay đổi việc tạo câu hỏi/đáp án.
+
+## 2026-07-15 — Khóa tạo đề KET A2 bằng AI
+
+- `ImportReadingPdfModal.tsx`: không cho chạy DeepSeek/OpenAI khi import PDF Cambridge A2; nút Phân tích bị khóa và hướng dẫn dùng ZIP chuẩn có `exam.json` + `answer-key`.
+- Lý do: Whisper `tiny.en` chỉ nhận dạng lời nói thành transcript, không thể dựng chính xác câu hỏi/đáp án/hình ảnh Cambridge; Test 1 KET A2 chuẩn đã có catalog.
+- IELTS và các luồng AI khác vẫn giữ nguyên.
+- Cần verify: `pnpm --filter web exec tsc --noEmit`.
 
 ## Trạng thái hiện tại
 
-- **Branch:** `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
-- **Phase:** Global catalog (hướng 3) — đề Reading/Listening ship cùng deploy, mọi user thấy
-- **Session:** **2026-07-12** — Cứu catalog IELTS + pilot Cam11 T1 Reading + **auto-backup đề** (Dexie v15 `examBackups` + OPFS + download)
-- **Session trước:** Vocab/sync + Cambridge; IELTS catalog từng bị xóa theo request “Xóa sạch 48 đề mẫu” (2026-07-04/05)
-- **Tạm hoãn:** Batch Reading IELTS còn lại (~39 đề chỉ PDF, chưa có `exam.json`)
-- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4** (IELTS catalog restore: 48 Listening + 9 Reading)
-- **Migrations Supabase:** 001–**016** (đã push trước); **017_checkin_days** — cần `pnpm db:push` (điểm danh cloud)
-- **Dev:** `pnpm dev` → `/app/exam/...` — hard refresh để `syncGlobalCatalog` v24 nạp lại đề
+- **Transcript AI lưu vĩnh viễn (2026-07-15):** `examListeningTranscriptStorage.ts` sessionStorage → **localStorage** (migrate tự động); panel transcript có nút «Tạo transcript bằng AI» (Sparkles) khi part thiếu transcript — merge với map cũ, tạo 1 lần không gọi lại. `tsc` pass
+- **Transcript split khi làm bài (2026-07-15):** `ListeningTranscriptSidePanel.tsx` mới — nút «Transcript» trên header 4 test runner (KET/PET/FCE-CAE-CPE/IELTS) mở panel fixed bên phải, kéo cạnh trái resize (280–720px, lưu localStorage), Esc đóng; nguồn: `q.ttsText` (Audioscript import) + AI map sessionStorage, lọc theo part hiện tại; CSS `.listening-transcript-panel*` trong listeningTest.css. `tsc` pass
+- **MS PET stack dọc (2026-07-15):** `.listening-pet-mc__question` bỏ grid 2 cột (câu trái / options phải) → flex column, options nằm dưới câu hỏi
+- **Bìa sách Cambridge library (2026-07-15):** `getCambridgeBrandBookCoverColor` (cambridgeLibraryGrouping.ts) — bỏ `color-mix` với base brand (ra toàn nâu); dùng `BOOK_PALETTE` 14 màu đa dạng như IELTS, offset theo brand; Book 1 giữ màu brand. `tsc` pass
+- **Auto-play part audio (2026-07-15):** đề Listening import chia `part1..part5.mp3` — bấm chuyển part trong `goToPart` tự phát audio part đó (KET/PET/FCE-CAE-CPE: helper `autoPlayPartAudio`; IELTS: inline, key `part-{id}`). Chỉ khi không dùng 1 MP3 shared, không ở review/submitted, tôn trọng play limits (exam mode); gọi trong click gesture nên không vướng autoplay policy. `tsc --noEmit` pass
+- **UI MS (2026-07-15):** redesign MS/MC listening trong `apps/web/src/features/exam/listeningTest.css` — KET A2 (`.listening-ket-p3__*`), PET B1 (`.listening-pet-mc__*`), FCE/CAE/CPE B2–C2 (`.listening-fce-mc__*`, `.listening-fce__num`), KET Part 4/fallback (`.listening-ket-cambridge__question .listening-exam-option*` + `__qnum`): card double-bezel/gradient, badge số pill gradient, custom radio spring (tham chiếu `Crawl/Giaodien/not.jpg`); components không đổi
+- **Branch:** `project_14726` / `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
+- **Phase:** Import batch **KET A2 Listening practice** (44 đề) — **published 02–44 cloud**
+- **Session:** **2026-07-15** — sentence-structure catalog **1670** (GLOBAL v28)
+- **Session trước:** vocab white-screen fix; essay_full / translate seeds
+- **Next:** Hard refresh `/app/sentence-structure` → list 1670 cấu trúc
+- **Vocab seed:** `seedData/presetVocabCards.ts` + `seedPresetCards()` (dynamic import, không chặn route)
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4**
+- **Migrations Supabase:** 001–**016** (đã push); **017–018** — cần `pnpm db:push` nếu chưa
+- **Dev:** `pnpm dev` → hard refresh để nạp `listening_exam_published`
 
 ### Bundle đề sẵn trong `Tainguyen/`
 | Kỹ năng | Level | File | Trạng thái |
@@ -26,6 +994,7 @@
 | Reading | B1 PET | `pet-reading-test1` | **Builtin** `catalog-reading-pet-b1-test1` |
 | Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
+| Listening | A2 KET practice 44 | `listening-import-ket-a2-practice-NN` | **ZIP 44/44** + **cloud publish 02–44** (B3T4…B14T2); test-01 local pilot B3T3 |
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
 | Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
@@ -97,6 +1066,47 @@ Website/
 ---
 
 ## Việc đã hoàn thành (session 2026-06-30)
+
+### Fix trang trắng `/app/vocab` (2026-07-15)
+- **Nguyên nhân:** (1) Vite dev serve `VocabularyPage.tsx` rỗng (Content-Length 0) → `React.lazy` render `undefined`; (2) UI import tĩnh `vocabSeedDecks` + ~7MB JSON seed; (3) `DeckGrid` N× `useLiveQuery` (100+ deck) dễ treo main thread
+- [x] Tách `GROUP_LABELS` → `vocabConstants` — DeckGrid/Editor không import seed JSON
+- [x] `VocabularyPage` dynamic-import seed + repair
+- [x] `DeckGrid` gộp 1 query stats theo `unitKind` (không còn hook per-card)
+- [x] Lazy VocabularyPage retry nếu module rỗng; tắt SW register ở DEV
+- [x] `examVocabDecks` bắt race Dexie ConstraintError (StrictMode)
+- [x] Verify Playwright mock-auth: có «Bộ từ vựng» + tabs; `tsc --noEmit` pass
+
+### Từ điển offline Part2–5 (2026-07-15)
+- [x] Nguồn: `samuraitruong/open-vn-en-dict` (MIT)
+- [x] P2–P4 6k each · **P5 +6k** (`build-dict-part5.mjs` → `offlinePart5.json`)
+- [x] Tổng raw ~**24.3k** (P1 300 + 24k); wire P1–P5 + cụm
+- [x] Popup true.jpg + enrichDictResult
+- [x] Hard refresh → offline; UI P2–P5
+
+### Vocab seed 100 từ đơn + 100 cụm + IPA/example (2026-07-15)
+- [x] singles + phrases (~31200 thẻ)
+- [x] `enrich-preset-vocab.mjs` — IPA US/UK (CMUdict) + example gắn phrase; seed **v4**
+- [x] `seedPresetCards` **patch** thẻ cũ (IPA/example thiếu hoặc generic)
+- [x] Hard refresh `/app/vocab` → thấy IPA + ví dụ đầy đủ
+
+### Vocab thêm bộ preset rỗng (2026-07-15)
+- [x] Lần 1–3: +6/nhóm mỗi lần → **26 bộ/nhóm** (156 preset)
+- [x] Mở `/app/vocab` → seed deck mới tự tạo (idempotent)
+
+### Vocab 2 cấu trúc: Từ đơn | Cụm từ (2026-07-15) — HOÀN THÀNH
+- [x] `vocabUnitKind.ts` — phân loại: có khoảng trắng / POS cụm → phrase; còn lại single
+- [x] Tab cấp 1 trên `/app/vocab`: **Từ vựng đơn lẻ** | **Cụm từ vựng**
+- [x] Lọc số đếm deck, danh sách thẻ, SRS/Quiz/Type/Nghe/Speak, stats/weak/review theo `unitKind`
+- [x] `tsc --noEmit` pass
+
+### Vocab preset seed 100 từ/nhóm (2026-07-15) — HOÀN THÀNH
+- [x] `scripts/gen-preset-vocab-seed.mjs` — sinh 600 thẻ (IELTS/Oxford/TOEIC/Academic/SAT/TOEFL × 100)
+- [x] `apps/web/src/features/vocab/seedData/presetVocabCards.ts` — data seed
+- [x] `seedPresetCards()` — stable `pcard:` + SRS; **không** skip khi admin publish (fix deck rỗng)
+- [x] Fix: `seedPresetDecks` trước đây return sớm nếu `admin_published_vocab_version > 0` → không nạp thẻ
+- [x] Prune publish **giữ** thẻ `sourceLabel` `preset-seed*`; sau `mergeVocab` gọi lại `seedPresetCards`
+- [x] `tsc --noEmit` pass
+- [ ] User: hard refresh `/app/vocab` → mở bộ (vd. IELTS → Môi trường) → ~12–13 từ/bộ
 
 ### Vocab Study UI — Premium redesign (Giaodien/*.html) — HOÀN THÀNH
 - [x] `study/vocabStudy.css` — dark gradient shell, stat bar, mode tabs, flashcard/quiz/game card
@@ -393,14 +1403,15 @@ pnpm --filter server typecheck
 
 - [x] Google OAuth flow end-to-end trên production — OK (2026-06-30)
 - [x] Deploy production Vercel — OK https://ryanenglishv2.vercel.app/
-- [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix (mất chữ "o" trong "do", ô trống, vòng tròn đỏ trùng WordDiff). Đã rewrite DOM thuần + tách `ListeningAudioBar`; **chờ user hard refresh production và xác nhận**
-- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar; bỏ `overflow-x-auto` tabs + debug observer
-- [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần tương tác người dùng trước (autoplay policy)
-- [ ] **IELTS Cam20 Listening UI** — fix `notePassage` + Choose TWO + **P1 bảng 4 cột** + **Part 2 segment UI**; **chờ user hard refresh + so sánh `Giaodien/a2` (bảng) + `a5–a10` + `Part2-Listening/a7,a10`**
-- [ ] Nếu user đã import ZIP Cam20 cũ vào Dexie → xóa đề cũ hoặc re-import `Listening IELTS_Test1_Cam20.zip` mới
-- [ ] `pnpm-workspace.yaml` bị hook tự động thêm `allowBuilds` — dùng `pnpm install --ignore-scripts` để tránh lỗi
-- [ ] `packages/db` cần `@supabase/supabase-js` là peerDependency (đã cấu hình)
-- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder (chưa ảnh Q58 riêng); xem mục Cambridge RW cuối file
+- [x] **KET Listening 5× part*.mp3 “Không tìm thấy file audio”** — fix 2026-07-14 (`resolveListeningAudioSource` + currentPart); user confirm OK
+- [ ] **KET A2 Listening practice test-02…44** — chờ user đủ media (~1h) → `node scripts/ket-practice-csv-to-exam.mjs 2-44` (hoặc `all`)
+- [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix; **chờ user hard refresh production và xác nhận**
+- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar
+- [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần gesture trước (autoplay policy)
+- [ ] **IELTS Cam20 Listening UI** — notePassage / Choose TWO / P1 bảng / Part 2 segment
+- [ ] Nếu user đã import ZIP Cam20 cũ → re-import ZIP mới
+- [ ] `pnpm install --ignore-scripts` khi hook esbuild lỗi
+- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder
 
 ---
 
@@ -3320,17 +4331,66 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 - Verify: sanitize `Test 1/exam.json` → Part 2 vẫn `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) vẫn coerce
 - User: hard refresh dev → **import lại** ZIP (hoặc mở lại đề) — không cần sửa JSON
 
-## Next session start prompt (cập nhật 2026-07-12)
+## 2026-07-15 — Offline dict multi-word: 2k PV + 3k idiom + 10k collocation
+
+### Đã làm
+- [x] `scripts/build-dict-multi.mjs` — generator A2–C2 multi-word
+- [x] Outputs:
+  - `apps/web/src/features/dictionary/data/offlinePhrasal.json` — **2000**
+  - `apps/web/src/features/dictionary/data/offlineIdioms.json` — **3000**
+  - `apps/web/src/features/dictionary/data/offlineCollocations.json` — **10000**
+- [x] Wire vào `offlineDictPack.ts` (import + add sau P1–P5; size helpers)
+- [x] `DictionaryModal` empty-state hiển thị PV / Idiom / Colloc counts
+- [x] **IPA US/UK** cho multi-word: `scripts/enrich-dict-multi-ipa.mjs` (CMUdict ARPABET→IPA + weak forms)
+  - Phrasal **2000/2000**, Idioms **3000/3000**, Colloc **~9985/10000** (còn ~15 Latin/kỹ thuật hiếm)
+  - Rebuild multi tự gọi enrich IPA ở cuối `build-dict-multi.mjs`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+
+### Nguồn
+- Phrasal: curated core + verb×particle expansion
+- Idioms: curated + baiango/english_idioms CSV + frames / similes / patterns
+- Collocations: adj-noun / verb-noun curated + open-vn-en-dict `goodWords` multi-keys (~10k)
+
+### Tổng offline (unique keys approx)
+- Singles P1–P5: ~24.3k
+- Multi: 2k + 3k + 10k
+- Unique gộp: **~39.3k** mục (dedup khi add)
+
+### Rebuild
+```bash
+node scripts/build-dict-multi.mjs          # generate + IPA enrich
+node scripts/enrich-dict-multi-ipa.mjs     # IPA only (nếu đã có JSON)
+```
+
+### Ghi chú chất lượng
+- Một phần idiom/collocation là pattern-generated (nghĩa VI generic) — đủ volume tra offline; có thể tinh chỉnh curated sau.
+- Bundle JSON lớn (~3 MB multi) — import Vite JSON OK; typecheck pass.
+
+## 2026-07-15 — Fix: popup “31k từ cần ôn lại” khi chưa rating
+
+**Nguyên nhân:** Seed gán mọi thẻ `dueAt = now`, `state = 'new'`. Code đếm `dueAt ≤ now` → ~30k thẻ “cần ôn lại”.
+
+**Fix:** `isSrsReviewDue` / `isSrsNew` trong `packages/core` — “ôn lại” chỉ thẻ đã learning/review + đến hạn. Popup, hub, deck badge, daily goal, notification dùng predicate này.
+
+## 2026-07-15 — Cài đặt: chọn giọng Kokoro TTS
+
+- [x] `apps/web/src/features/listening/kokoroVoices.ts` — 28 giọng EN (US/UK), localStorage US+UK
+- [x] `tts.ts` — `speak()` tự dùng giọng đã chọn theo lang `a`/`b`
+- [x] Settings → Tài khoản → **Giọng đọc Kokoro local** → dropdown US/UK + **Thử nghe**
+- Defaults: `af_heart` (US), `bf_emma` (UK)
+
+## Next session start prompt (cập nhật 2026-07-15 — Kokoro voice picker)
 
 ```
-Đọc session_summary.md (đầu file + mục "2026-07-12 — Cứu catalog IELTS").
-48 IELTS Listening đã restore builtin (GLOBAL_CATALOG_VERSION=24). Reading IELTS: 9/48 có exam.json.
-Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để sync catalog v24.
-Đọc session_summary.md (đầu file + mục "2026-07-11" fix KET Part 2 YNNG + check-in cloud).
+Đọc session_summary.md (mục Kokoro voice picker + multi-word dict).
 
-1) pnpm db:push — migration 017_checkin_days (bắt buộc trước khi streak cloud hoạt động)
-2) Đăng nhập → điểm danh → máy/browser khác login cùng account → Đồng bộ → streak điểm danh khôi phục
-3) Lưu ý: số lửa Home = streak HỌC (vocab), không phải điểm danh
+CONTEXT:
+- Cài đặt → Tài khoản → chọn giọng Kokoro US/UK (localStorage).
+- speak() inject preferred voice; cần Bat-Kokoro.bat để nghe Kokoro.
+
+NEXT (optional):
+1) Smoke Settings → Thử nghe (cần TTS gateway :8787)
+2) Deploy web nếu ship dict multi + voice picker
 ```
 
 ## 2026-07-11 — HDSD Universal: đề PDF **hoặc** TXT
@@ -3439,3 +4499,704 @@ Next: deploy prod; build exam.json cho 39 Reading còn lại; hard refresh để
 - Thêm `scripts/payload-to-catalog.mjs` và mở rộng `scripts/build-catalog.mjs` đọc `out-reading/`.
 - Fix layout câu hỏi: giữ prompt thật, table completion, title, rows và gap từ `reading_filtered.json`.
 - Verify: catalog test 47 đề/3 passages/40 câu PASS; `pnpm -C apps/web build` PASS.
+
+## 2026-07-14 — Fix avatar User trong Admin
+
+- **Root cause:** Admin đã render `profiles.avatar_url`, nhưng profile sync chỉ đọc `user_metadata.avatar_url`; một số Google identity chỉ có `picture`, và profile cũ chưa được backfill.
+- `syncAuthProfile.ts`: đồng bộ email/tên/avatar từ Auth vào `profiles` khi bootstrap/đăng nhập, hỗ trợ `avatar_url` + `picture`, không ghi `null` đè dữ liệu profile hiện có.
+- `018_profile_avatar_sync.sql`: cập nhật trigger Auth và backfill avatar/tên cho user cũ từ `auth.users`.
+- `AdminPage.tsx`: ảnh dùng `referrerPolicy="no-referrer"`; URL hỏng tự fallback sang avatar chữ cái.
+- Verify: `vitest run src/features/auth/syncAuthProfile.test.ts` — 2 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Deploy cần chạy `pnpm db:push` để áp migration 017–018 trước hoặc cùng lúc deploy web.
+
+## 2026-07-14 — KET A2 Listening practice 44 đề (pilot + multi-part audio)
+
+### Mục tiêu
+Import thêm ~44 đề KET Listening (crawl CSV + media) vào app, title theo Cambridge Book/Test (tiếp sau 10 đề sẵn).
+
+### Nguồn / layout
+- Root: `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\`
+- 44 folder `test-01`…`test-44` (đã scaffold + copy CSV)
+- Mỗi folder: `ket-a2-test-NN.csv` + `part1.mp3`…`part5.mp3` + `q1.jpg`…`q5.jpg`
+- `meta.json` (optional): `{ "book", "test" }` — test-01 = Book 3 Test 3
+- Mapping slot mặc định (KET_EXISTING_COUNT=10): test-01→B3T3, test-02→B3T4, test-03→B4T1, …
+
+### Đã làm
+- [x] Survey cơ chế import KET (ZIP `exam.json` + media; catalog 1 đề builtin)
+- [x] Scaffold 44 folder + README + STATUS.csv
+- [x] `scripts/ket-practice-csv-to-exam.mjs` — CSV→exam.json + audioscript + answer-key + ZIP flat
+- [x] Pilot **test-01**: title `KET A2 Listening — Book 3 — Test 3`
+  - ZIP: `Import_KET_A2_Listening\ket-practice-test-01.zip`
+  - 5 parts / 25 câu; audio per-part; picture-mc q1–q5
+- [x] **Bug fix multi-part audio:** `ListeningKetTest` / `ListeningPetTest` dùng `resolveListeningAudioSource(exam, currentPart)` thay `ketSharedExamAudioSource` (trước đây 5× part*.mp3 → "Không tìm thấy file audio")
+- [x] `ketSharedExamAudioSource` fallback part 0 (không source rỗng)
+- [x] User confirm: pilot **hoạt động tốt**
+- [x] Cập nhật session_summary
+
+### Convert + publish (2026-07-15)
+- [x] User báo đủ media test-01…44
+- [x] Verify: 44 folder = CSV + 5 mp3 + 5 jpg
+- [x] `node scripts/ket-practice-csv-to-exam.mjs all` → **44/44 OK**
+- [x] STATUS.csv cập nhật (ready=Y)
+- [x] **Publish cloud test-02…44** (skip test-01 đã import pilot)
+  - Script: `scripts/publish-ket-practice-listening.mjs`
+  - IDs: `listening-import-ket-a2-practice-02` … `44`
+  - Table `listening_exam_published` + Storage `listening-exam-media`
+- [ ] User hard refresh app → smoke Book 3 Test 4
+
+### Lưu ý
+- Không dùng id/slug chung `catalog-listening-ket-a2-test1` cho practice
+- App UI KET đã hỗ trợ 5 file part; published exams dùng `audioUrl` public per part
+- test-01 (Book 3 Test 3) vẫn bản local pilot `listening-import-*` timestamp — không đụng
+
+### Lệnh
+```bash
+node scripts/ket-practice-csv-to-exam.mjs all
+node scripts/publish-ket-practice-listening.mjs 2-44   # re-publish (upsert)
+```
+
+---
+
+## 2026-07-15 — grammar_basic 8×25 câu
+
+- `seedData/grammarBasic25.ts` — 8 genre: present simple/continuous/perfect/perfect continuous, uncountable, singular/plural, passive, comparison
+- Mỗi bộ id `tr-grammar-{genre}`, 25 câu VI→EN + hint
+- `seedTranslationPacks` v2 — auto upgrade (giữ SRS theo sentence id); xóa pack import trùng genre
+- Verify: vitest grammarBasic25 PASS; tsc PASS
+- User: hard refresh → `/app/writing/translate/grammar_basic` → từng chủ đề hiện **1 bộ · 25 câu**
+
+## 2026-07-15 — Seed Luyện dịch IELTS (Json Import)
+
+- Nguồn: `7. Json Import/1. Writing Master/2. Luyện dịch IELTS/`
+  - Present Continuous.json → **25 câu** (`grammar_basic` / `present_continuous`)
+  - Present Simple.json → **2 câu** (`grammar_basic` / `present_simple`)
+- Code:
+  - `importIeltsTranslationPack.ts` — parse `ielts_translation_pack`
+  - `seedData/ieltsTranslationPacks.json` + `seedTranslationPacks.ts` — upsert stable id `tr-import-…`
+  - Wire `ensureTranslationSeedData()` trên Hub / Genre / Practice pages
+- Verify: vitest import pack PASS; `tsc --noEmit` PASS
+- User: hard refresh `/app/writing/translate` → **Cấu trúc cơ bản** → Hiện tại tiếp diễn / Hiện tại đơn
+
+## 2026-07-15 — Fix avatar trắng (user + admin)
+
+- **Nguyên nhân:** Google OAuth dùng `picture` (không chỉ `avatar_url`); `<img>` thiếu `referrerPolicy="no-referrer"` → Google chặn → vòng tròn trắng; fallback chữ dùng `--bg-primary` dễ sai contrast.
+- **Fix:**
+  - `userAvatar.ts` — resolve `avatar_url` | `picture` | identity_data
+  - `UserAvatar.tsx` — component chung: `referrerPolicy`, `object-cover`, onError → chữ cái `--color-on-primary`
+  - Wire: AppShell, HomePage, SettingsPage, AdminPage
+  - `syncAuthProfile` — mirror `picture` → `user_metadata.avatar_url` + profiles
+- Verify: vitest userAvatar + syncAuthProfile PASS; `tsc --noEmit` PASS
+
+## 2026-07-15 — KET A2 Listening convert 44 ZIP + publish cloud
+
+- Media đủ + convert ZIP **44/44**
+- User: test-01 đã import; bắt đầu từ **Cam 3 Test 4** → publish **02–44** only
+- `node scripts/publish-ket-practice-listening.mjs 2-44` → **43/43 OK**
+- Verify: practice count 43; audio URL HTTP 200
+- Title range: Book 3 Test 4 … Book 14 Test 2
+- **User:** hard refresh (Ctrl+F5) → Luyện thi → Cambridge → A2 Key
+
+---
+## 2026-07-16 — Fix PDF.js báo file 0 byte
+
+- User gặp `The PDF file is empty, i.e. its size is zero bytes` trong reader mới.
+- Xác minh endpoint dev trả đúng `200`, `application/pdf`, `Content-Length: 1,018,904` và magic bytes `%PDF-1.4`; file vật lý không rỗng.
+- Root cause nằm ở pipeline browser `fetch → arrayBuffer → Uint8Array → getDocumentProxy`: PDF.js chuyển/detach backing buffer khi mở document, tạo đường lỗi 0-byte trong lifecycle reader.
+- Bỏ hoàn toàn fetch/arrayBuffer trung gian trong `BookReaderPage`; dùng PDF.js `getDocument({ url })` để thư viện tải trực tiếp URL PDF.
+- Bỏ helper `renderPageAsImage`; render `PDFPageProxy` trực tiếp lên `<canvas>`, có cleanup/cancel render task khi đổi trang hoặc unmount.
+- Regression test khóa yêu cầu: `getDocument` nhận URL, không gọi global fetch, render trang 1 lên canvas, không iframe.
+- Verify: endpoint 1,018,904 bytes; 8 Reading Corner tests PASS; `tsc --noEmit` PASS; production build PASS.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận trang 1 render lên canvas, bộ đếm `1 / 278`, nút trang sau mở trang 2 và không còn lỗi PDF file empty.
+## 2026-07-16 — Fix SRS flip card bị xuyên hai mặt ở dark theme
+
+- Ảnh user cho thấy sau khi lật, nội dung mặt trước bị soi gương/xuyên qua mặt sau.
+- Root cause: `.vs-flip-face` dùng gradient alpha + `backdrop-filter: blur(20px)` bên trong `preserve-3d`; Chrome compositing sai backface trên dark theme.
+- Mặt thẻ giờ có lớp nền kín `var(--bg-card)` dưới gradient theme, bỏ backdrop-filter khỏi chính hai mặt 3D.
+- Thêm visibility handoff tại nửa animation (0.275s): mặt trước ẩn cứng khi flipped, mặt sau chỉ hiện khi flipped; giữ `backface-visibility` cho hiệu ứng xoay.
+- Thêm stacking isolation cho `.vs-flip-inner`; không thay đổi handler lật/rating hoặc grid.
+- Regression test đỏ trước fix → xanh; 4 vocab CSS/backdrop tests PASS; `tsc --noEmit` PASS; production build PASS.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, mở Lặp lại ngắt quãng ở dark theme và lật nhiều thẻ; xác nhận chỉ thấy đúng một mặt, không còn chữ soi gương/xuyên lớp trong hoặc sau animation.
+## 2026-07-16 — Fix tiếp SRS: mặt sau biến mất sau bản vá xuyên mặt
+
+- Ảnh user cho thấy trạng thái flipped có rating buttons nhưng toàn bộ card trống.
+- Root cause chính xác: `isolation: isolate` được thêm cùng `.vs-flip-inner { transform-style: preserve-3d }`; isolation là grouping property khiến descendants bị flatten, nên backface của mặt sau bị loại bỏ.
+- Gỡ `isolation: isolate`, giữ `position: relative` và `preserve-3d`.
+- Giữ nguyên các phần đúng của bản vá trước: nền card kín, không backdrop-filter trên face, visibility handoff ở nửa vòng xoay.
+- Regression test yêu cầu flip inner có `preserve-3d` và tuyệt đối không có `isolation`.
+- Verify: test đỏ trước fix → xanh; 4 vocab tests PASS; `tsc --noEmit` PASS; production build PASS.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, lật SRS card ở dark theme; xác nhận mặt sau hiện nghĩa/IPA/example, mặt trước không xuyên qua, lật về mặt trước vẫn bình thường.
+## 2026-07-16 — Security HIGH: Phase 1 code hoàn tất, Phase 2 quota đang triển khai
+
+- Đọc toàn bộ `Security/SECURITY_HARDENING_PLAN.txt` và triển khai theo thứ tự.
+- Phase 1 code:
+  - Migration `020_harden_published_exams.sql`: anon không đọc được đề publish; authenticated qua `can_read_published_exam`, free chỉ 4 demo, paid/admin toàn bộ.
+  - `admin_published_modules` + `admin_publish_meta` chuyển từ public sang authenticated read.
+  - Admin publish Reading/Listening tách answer vault private trước, body ghi DB đã strip recursive `answer`, `explanation`, `acceptableAnswers`, `modelAnswer` và các key scoring khác.
+  - Script `backfill-published-exam-vaults.mjs` cho row cũ.
+  - `books/` paid-only; `catalog/ielts-wizard/` admin-only; content-sign hỗ trợ PDF/SVG.
+  - BookReader resolve signed URL trước khi fetch buffer.
+  - 99 wizard assets đã copy vào `public/catalog/ielts-wizard`; UI wizard resolve signed URL.
+  - strip build + `.vercelignore` loại `catalog`, `data`, `books`, `ielts-wizard`.
+  - Upload script hỗ trợ books/PDF/SVG và dry-run không cần credential.
+- Dry-run private upload PASS: 1 PDF (1,018,904 bytes) + 99 wizard assets (8,529,450 bytes).
+- Phase 2 code:
+  - Migration `021_content_access_daily_quota.sql`: admin-only security alert queue + anomaly scan hourly nếu pg_cron sẵn.
+  - content-sign TTL 60s, quota 400/user/24h, alert từ 300 request.
+- Tests scoped Phase 1/BookReader/answer-strip/protected paths PASS.
+- Production blocker: `.env.deploy` có access token nhưng chưa có `SUPABASE_SERVICE_ROLE_KEY`, nên chưa chạy upload/backfill production.
+- Phase 5.1 Turnstile Spin:
+  - Widget Managed đã tạo cho `localhost`, `127.0.0.1`, `ryanenglishv2.vercel.app`.
+  - Site key public: `0x4AAAAAAD3OvoKGgmLtnOJz`.
+  - Managed Worker đã deploy: `turnstile-siteverify-ryan-english` tại `https://turnstile-siteverify-ryan-english.ryan-license-worker.workers.dev`.
+  - Secret chỉ được truyền vào Worker qua `wrangler secret put`, không ghi vào repo.
+  - Form đăng nhập email được gate bằng `success === true`; Google OAuth giữ nguyên.
+  - CSP đã cho phép Turnstile script/frame và Worker endpoint.
+  - Validation end-to-end PASS: health, dummy token rejection, managed-worker metadata, hostname.
+- Scoped security tests PASS: 5 files / 11 tests.
+- Full `tsc` đang bị chặn bởi duplicate properties trong user-owned `reading-corner/catalog.ts`, không thuộc patch security.
+- Phase 4 code:
+  - Public routes `/terms` và `/privacy`.
+  - Copyright + legal links trên landing, login và app sidebar.
+  - Migration `022_legal_consent.sql`: versioned consent timestamps qua
+    `accept_legal_terms()`, protected server-controlled fields.
+  - Reusable `TermsConsentCheckbox` đã sẵn sàng; app chưa có signup handler
+    thực tế nên chưa wire checkbox vào luồng đăng ký.
+- Phase 3/6:
+  - `pnpm security:check` kiểm tra sourcemap, noindex, anti-frame, private media,
+    ignored secrets, migrations và cấm `VITE_*SERVICE_ROLE`.
+  - Runbook `Security/SECURITY_OPERATIONS.md`, PR/release template và quarterly
+    RLS/audit workflow.
+- Turnstile Spin bundle persisted tại `.claude/skills/turnstile-spin`.
+- Verify mới nhất: `security:check` 8/8 PASS; scoped security tests 6 files /
+  13 tests PASS; `git diff --check` PASS.
+- Production đã áp:
+  - Lấy service-role tạm qua Supabase Management API bằng PAT hiện có; key chỉ
+    tồn tại trong process, không ghi file/log.
+  - Upload private `exam-media`: 2.011/2.012 file thành công.
+  - Duy nhất `catalog/listening/cae-c1-test1/listening.mp3` (82.94MB) vượt giới
+    hạn 50MB của Supabase Free, bị bỏ qua và sẽ không khả dụng sau lockdown.
+  - Backfill 51 Listening published rows: tách 1.275 answer entries vào private
+    vault; body production không còn answer fields.
+  - Deploy Edge Function `content-sign`.
+  - Push migrations 018–022 lên production.
+  - Audit production PASS: anon đọc 0 rows ở reading/listening/admin publish
+    tables; answer leak false; `exam-media.public=false`; vault tồn tại;
+    content-sign thiếu JWT trả 401.
+- Gỡ duplicate aliases `media` và `housing` ở mapping `reading-corner/catalog.ts`
+  (giữ semantics runtime “last key wins”), mở khóa typecheck/build.
+- Full `tsc --noEmit` PASS; production build PASS và strip toàn bộ private media
+  khỏi dist; `security:check` 9/9 PASS.
+- CSP production đã bỏ `'unsafe-eval'` và script `'unsafe-inline'`.
+- Blocker còn lại:
+  - Vercel CLI token không hợp lệ: code web mới chưa deploy; chưa tạo/publish
+    Firewall rules hoặc kiểm tra production logs.
+  - Signup handler chưa tồn tại nên `TermsConsentCheckbox` chưa wire thực tế.
+  - Chưa có kênh email/Zalo gửi alert; hiện có queue + admin-only DB alerts.
+  - PITR, legal review/đăng ký bản quyền và xử lý file CAE >50MB là thao tác
+    dashboard/kinh doanh còn lại.
+
+### Next session start prompt
+
+User chạy `vercel login` để làm mới token, sau đó deploy production ngay (backend
+đã lockdown), smoke `/terms`, `/privacy`, login Turnstile, rồi tạo/publish
+Vercel Firewall draft. Xử lý audio CAE 82.94MB bằng nâng Supabase Pro hoặc nén
+dưới 50MB và upload lại đúng path.
+
+### Tạm dừng cuối ngày 2026-07-16
+
+- User yêu cầu dừng và tiếp tục vào ngày mai.
+- Không chạy lại upload, backfill hoặc migrations 018–022: tất cả đã áp dụng
+  production và audit PASS.
+- Việc đầu tiên ngày mai:
+  1. User chạy `vercel login` trong `D:\App-English-Ryan\Website`.
+  2. Xác minh bằng `vercel whoami`.
+  3. Deploy frontend production để đồng bộ với backend đã lockdown.
+  4. Smoke test `/terms`, `/privacy`, Turnstile login, sách và media đề thi.
+  5. Tạo Vercel Firewall draft, review `vercel firewall diff`, sau đó mới
+     publish.
+- Chưa xử lý:
+  - Audio `catalog/listening/cae-c1-test1/listening.mp3` 82.94MB vượt giới hạn
+    Supabase Free 50MB.
+  - Signup handler chưa tồn tại nên checkbox consent chưa được wire.
+  - Alert mới dừng ở DB queue; chưa gửi email/Zalo.
+  - PITR, legal review và đăng ký bản quyền cần thao tác dashboard/nghiệp vụ.
+
+### Session 2026-07-17 — Verify production + smoke test HIGH security
+
+- Xác minh code: migrations 019–023 trong repo; `pnpm db:push` remote up-to-date;
+  `content-sign` redeploy OK; security tests (phase1/2/4 + BookReaderPage)
+  10/10 PASS; `tsc --noEmit` PASS.
+- Smoke test production (https://ryanenglishv2.vercel.app) — ALL PASS:
+  - `/terms`, `/privacy` render đầy đủ (điều khoản cấm crawl, copyright footer)
+  - `/books/*.pdf` → SPA fallback (PDF binary đã strip khỏi dist)
+  - REST anon `reading/listening_exam_published` → `[]`
+  - `content-sign` không JWT → 401; storage `exam-media` public access → 400
+  - Login: Turnstile widget hiển thị, nút Đăng nhập disabled tới khi có token;
+    không lỗi CSP
+- **Audio CAE fix:** user đã nén mp3 <20MB và import lại vào app — hết blocker
+  50MB Supabase Free.
+- **Vercel Hobby note:** không có rate-limit rule (cần Pro). Mức Hobby dùng:
+  Attack Challenge Mode (bật khi bị crawl) + 1 custom WAF rule challenge/deny
+  theo UA bot (python-requests, scrapy, curl, wget, HeadlessChrome,
+  Go-http-client). Daily quota 400/user/24h ở content-sign là lớp rate-limit
+  chính — chỉ nâng Pro/Cloudflare khi có bằng chứng bị crawl
+  (theo dõi `content_access_log` + Vercel Analytics).
+- Còn lại (tay user): tạo 1 custom WAF rule UA-bot trên Vercel Dashboard;
+  login thật + admin publish 1 đề để confirm end-to-end.
+
+### Session 2026-07-17 — Speaking AI thành trang riêng, chat + thu âm
+
+- Speaking AI chuyển từ modal panel sang trang riêng `/app/speaking-ai`
+  (`features/speaking-ai/SpeakingAiPage.tsx` + `speakingAiPage.css`); xóa
+  `SpeakingAiPanel.tsx`, `speakingAi.css`, `speakingAiTranscript.css`.
+- Hỗ trợ song song gõ chat và thu âm micro: textarea + nút mic; transcript
+  nhận dạng ghép với text gõ tay; lượt gõ tay ước lượng `durationSec` theo số
+  từ (words/2, kẹp 1–60s) nên vẫn dùng edge function `speaking-ai` (DeepSeek)
+  hiện có, không đổi backend.
+- UI premium theo skill high-end-visual-design: hero eyebrow pill, console
+  double-bezel bo 2rem, bubble gradient, composer pill + nút send button-in-button,
+  motion cubic-bezier, tôn trọng prefers-reduced-motion; nền dùng grid xanh
+  nhạt sẵn có (`/app/speaking-ai` thêm vào `APP_GRID_ONLY_PATHS`).
+- Sidebar: bỏ nút mở modal ở đầu toolbar; thêm NavLink "Speaking AI"
+  (icon AudioLines) ngay dưới "Luyện Shadowing".
+- Test `speakingAiMvp.test.ts` cập nhật theo trang mới — 3/3 PASS;
+  `tsc --noEmit` PASS.
+- Chưa smoke UI trong trình duyệt (route cần đăng nhập, user chọn bỏ qua).
+
+### Session 2026-07-17 — Nền lưới Writing subpages
+
+- Mọi route con `/app/writing/*` dùng nền lưới xanh nhạt, không ribbon; trang
+  hub `/app/writing` giữ ribbon.
+- Bổ sung transparency cho `writing-shell`, cùng Translation Practice:
+  danh sách/chi tiết, empty state và màn hình luyện tập toàn trang (`tp-shell`)
+  đều để lộ backdrop lưới; card và input vẫn giữ nền riêng.
+- Verify: `appShellBackdrop.test.ts` 62/62 PASS; `tsc --noEmit` PASS.
+
+### Session 2026-07-17 — Translation: nhận diện câu đã dịch
+
+- Câu đã dịch có nền và viền màu primary rất nhẹ, đồng thời badge `Đã dịch` có
+  icon check để phân biệt nhanh với câu chưa dịch mà không làm mất độ dễ đọc.
+
+### Session 2026-07-17 — Sửa overlay phiên luyện dịch
+
+- `tp-shell` là lớp phủ toàn trang của phiên luyện dịch, nên không được làm
+  trong suốt theo backdrop grid. Đã bỏ override này; grid chỉ hiện ở màn hình
+  danh sách, còn phiên luyện tập có nền đặc và không còn lộ UI phía sau.
+- Regression check `appShellBackdrop.test.ts`: red trước sửa (1/62 fail vì
+  `tp-shell` bị transparent), green sau sửa.
+
+### Session 2026-07-17 — Lưới trong phiên luyện dịch
+
+- `tp-shell` có nền lưới xanh nhạt độc lập (opaque), vì vậy phiên luyện tập có
+  đúng visual grid mà không làm lộ UI danh sách phía sau.
+- Tăng độ nhận diện cho câu/badge `Đã dịch`: tint 11%, viền primary 45% và
+  badge 30% để trạng thái xanh nhìn thấy ngay ở light/mid/dark theme.
+
+### Session 2026-07-17 — Badge Đã dịch xanh lá
+
+- Thêm token `--color-success` cho cả light/dark/mid theme; chỉ badge check
+  `Đã dịch` dùng token này, để trạng thái hoàn thành được nhận diện bằng xanh lá.
+
+### Session 2026-07-17 — Trạng thái Sentence Structure
+
+- Danh sách `/app/sentence-structure` đọc completion history: cấu trúc đã hoàn
+  thành hiện badge xanh lá `✓ Đã học` và gợi ý `↻ Học lại`, click hàng vẫn mở
+  đúng phiên luyện tập hiện có.
+
+### Session 2026-07-17 — Font Sentence Structure practice
+
+- Bỏ style serif/editorial cũ chỉ còn ở route luyện cấu trúc: header `Điền trắc
+  nghiệm` trở về font ứng dụng chuẩn và không còn chữ trang trí `GRAMMAR ATLAS`
+  chồng lên màn hình.
+
+### Session 2026-07-17 — Sunny dạo chơi trên Home
+
+- Sau 30 giây ở `/app/home`, mascot Sunny chuyển sang animation “dạo chơi/trốn
+  tìm” nhẹ quanh bubble header; vẫn `pointer-events: none` và tắt hoàn toàn khi
+  người dùng bật `prefers-reduced-motion`.
+
+### Session 2026-07-17 — Sunny ở các trang chính
+
+- `AppShell` dùng một mascot góc phải trên cho Từ vựng, Viết, Nghe, Shadowing,
+  Speaking AI, mọi trang Góc đọc, Cấu trúc câu và Cài đặt. Mascot không nhận
+  pointer events, ẩn dưới 720px và tắt nhún khi giảm chuyển động.
+- Sau 30 giây, Sunny ở góc phải trên chơi trốn tìm: nép ra ngoài mép phải rồi
+  quay lại theo chu kỳ nhẹ.
+
+### Session 2026-07-17 — Card IELTS theo Góc đọc Báo
+
+- Hai card Listening/Reading ở `/app/exam/track/ielts` dùng variant riêng theo
+  surface của Góc đọc Báo: card sáng, viền đậm, bo lớn, offset shadow và hover
+  dịch chéo. Cambridge không thay đổi style.
+
+### Session 2026-07-17 — Surface card chung toàn app
+
+- Áp surface card lấy cảm hứng từ Góc đọc Báo cho card cấp một toàn app: Home,
+  Từ vựng, Writing/Translation, Shadowing, Exam, Sentence Structure và Prompt
+  Bank. Các card có viền primary text, nền theme, offset shadow, hover/focus rõ;
+  không áp vào question card, modal hoặc input để bảo toàn luồng học.
+- Bổ sung `study-heatmap` ("60 ngày học gần nhất") vào card surface chung.
+
+### Session 2026-07-17 — Light theme Writing Library contrast
+
+- Shared card surface làm nền Writing Library sáng, trong khi copy cũ là trắng.
+  Đã override title/description/CTA theo token theme để card luôn đọc được ở
+  Light, Mid và Dark.
+
+### Session 2026-07-17 — Card archive IELTS/Cambridge
+
+- Card sách, header sách và hàng đề trong mọi trang con Reading/Listening của
+  `/app/exam/track/ielts/*` và `/app/exam/track/cambridge/*` dùng surface card
+  Góc đọc Báo. Chỉ đổi archive/library UI, không ảnh hưởng màn hình làm bài.
+
+### Session 2026-07-17 — Light contrast Cambridge exam cards
+
+- Shared card surface đã thay gradient của card kỹ năng Cambridge nhưng copy cũ
+  vẫn màu trắng. Title, mô tả, icon chip và badge giờ dùng token theme, nên đọc
+  rõ ở Light (và vẫn đúng ở Mid/Dark).
+
+### Session 2026-07-17 — Typography chung theo Góc đọc Báo
+
+- Thống nhất font UI bằng stack native của `/app/reading-corner/bao` qua
+  `--font-app`; controls kế thừa đúng font. Các màn Writing, Vocab và paper
+  IELTS/KET không còn giữ Inter/Quicksand/Segoe riêng. Heading editorial dùng
+  `--font-editorial` (Georgia), tương ứng typography headline của Báo; font mono
+  cho IPA/code và lựa chọn font đọc đề của người dùng được giữ nguyên.
+
+### Session 2026-07-17 — Typography Tổng quan
+
+- `/app/home` còn override Cambria/Georgia ở tiêu đề, chỉ số và nhãn section
+  nên nhìn chưa đồng bộ. Ba phần này nay dùng `--font-app` như Góc đọc Báo.
+
+### Session 2026-07-17 — Audit typography toàn app
+
+- Rà toàn bộ CSS app và thay các font UI/decorative còn sót ở Reading Corner,
+  Exam hub, Listening library, Sentence Structure, Login và KET Listening về
+  `--font-app`. Ngoại lệ duy nhất giữ lại là text IPA/code và font reading do
+  học viên chọn trong trình làm đề; đây là dữ liệu/chức năng học, không phải
+  typography giao diện.
+- Landing và text trong mascot SVG cũng đã bỏ Inter/Instrument Serif để cùng
+  hệ font; export MindMap vốn đã dùng system font tương thích.
+
+### Session 2026-07-17 — Popup nhắc ôn tập theo card Báo
+
+- Restyle `SrsReviewReminderModal` theo surface card Góc đọc Báo: nền theo
+  theme, viền đậm, offset shadow, CTA/deck rows có haptic hover/focus và
+  animation transform/opacity. Logic nhắc, đóng popup, chọn deck và
+  `prefers-reduced-motion` giữ nguyên.
+
+### Session 2026-07-17 — Cài khoảng nhắc pop-up ôn tập
+
+- Cài đặt > Giao diện có lựa chọn 5 / 15 / 25 / 30 phút cho pop-up nhắc ôn
+  trong app. Giá trị được lưu local, phát event để AppShell đang mở nhận ngay;
+  mặc định tương thích ngược là 30 phút.
+
+### Session 2026-07-17 — Vocab library theo Nhai TOPIK (UI-only reference)
+
+- `/app/vocab` dùng grid-paper panel neo-brutalist, filter/tabs viền đậm và
+  card giáo trình 2 cột dạng bìa sách + metadata/progress. Giữ AppShell, dữ
+  liệu deck và luồng học Ryan; không dùng hay import dữ liệu từ website crawl.
+
+### Session 2026-07-17 — Vocab lesson theo Nhai TOPIK (UI-only reference)
+
+- Khi mở một deck, `/app/vocab` chuyển sang lesson canvas grid-paper với hard
+  border/shadow; danh sách từ trở thành 2-column word cards trên desktop và
+  một cột trên mobile. SRS/study modes hiện có vẫn là luồng flashcard thật của
+  Ryan, không đưa dữ liệu lesson từ crawl vào app.
+
+### Session 2026-07-17 — Đồng bộ 9 mode học vocab theo lesson grid-paper
+
+- `Lặp lại ngắt quãng`, `Trắc nghiệm`, `Đoán nghĩa`, `Nghe & Gõ`, `Speaking`, `Từ yếu`, `Ôn tập`, `Thống kê`, `Sổ ghi chú` dùng chung bề mặt paper-grid: viền đậm, hard-shadow, nút/card khối và màu xanh chọn như ảnh UI crawl.
+- Thanh 9 mode là mode card rõ ràng (3 cột desktop, 1 cột mobile); luồng học và dữ liệu không thay đổi.
+
+### Session 2026-07-17 — Phát âm trong danh sách từ
+
+- Mỗi thẻ từ ở lesson `/app/vocab` có nút loa, gọi TTS phrase hiện có và có nhãn trợ năng theo từ đang phát.
+
+### Session 2026-07-17 — Khung flashcard SRS paper-grid
+
+- Bổ sung hard-border/hard-shadow trực tiếp vào 3D flip scene và loại bỏ gradient/bóng lồng ở hai mặt thẻ; mặt trước/sau giờ cùng hệ paper-card với các mode vocab khác mà vẫn giữ cơ chế lật.
+- Nút `Lật thẻ` cạnh `Hỏi AI` cũng dùng surface paper-card, viền đậm và hard-shadow thay vì gradient cũ.
+- Mặt trước SRS ở light theme khóa foreground của từ, nhãn, ví dụ và gợi ý lật về `--text-primary` để tương phản rõ trên nền xanh paper-card.
+- Bổ sung tương phản cho các badge chủ đề/đến hạn và nút audio ở mặt trước; chúng không còn dùng chữ nhạt dành cho dark theme.
+
+### Session 2026-07-17 — Listening cards theo style Góc đọc Báo
+
+- Card Cambridge pack, lesson cá nhân và card Part bên trong `/app/listening` nay dùng nền theme, border rõ, offset hard-shadow và hover nâng nhẹ theo hệ card Báo; thao tác/list/grid/compact vẫn giữ nguyên.
+- Các route lesson `/app/listening/:lessonId` cũng dùng background grid-paper và cùng card family cho header, luyện tập, shadowing, transcript và sidebar.
+- Xóa lớp hình trang trí tròn/vuông khỏi card Listening: card/subcard ép surface sạch, không background image hay pseudo-element trang trí.
+
+### Session 2026-07-17 — Writing library surface sạch
+
+- `/app/writing` bỏ toàn bộ các hình tròn/vuông minh họa trong bốn card hub; card chuyển sang bố cục một cột, giữ gradient, nội dung và CTA.
+
+### Next session start prompt
+
+Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/app/listening/:lessonId` và `/app/writing`: bảo đảm card paper/Báo có tương phản chữ tốt, không còn shape hình học ở Writing và các thao tác học/SRS/Listening vẫn hoạt động. Các thay đổi UI hiện tại đã pass `pnpm --filter web exec -- tsc --noEmit`; working tree có thay đổi UI của user/session, không reset hoặc checkout.
+## 2026-07-18 — Emergency account-suspension circuit breaker
+
+- Added migration `028_suspend_compromised_accounts.sql`: admin-only `set_user_suspension(user_id, suspended, reason)`, suspension audit fields, and an entitlement check that denies suspended users all published exams, including free demos.
+- `content-sign`, `speaking-ai`, and `notify-payment` now check `profiles.suspended_at` for every request and return `ACCOUNT_SUSPENDED` (403); this overrides a still-valid JWT. New signed URLs stop immediately; a URL issued before suspension retains its existing 60-second TTL.
+- Client converts the signed-media denial to an account-suspended message. `phase2Hardening` 4/4 and web TypeScript check PASS.
+- To suspend a user after migration: `select public.set_user_suspension((select id from public.profiles where email = '<email>'), true, 'Suspected automated crawl');`. Reverse it with `false, null`.
+## 2026-07-18 — Admin self-service account suspension
+
+- `/app/admin` now lets an administrator search a user, give an optional reason, confirm **Khóa**, and later **Mở khóa**. Admin accounts cannot be suspended from this UI.
+- The action calls the production-safe `set_user_suspension` RPC; it preserves user data, downgrades a suspended account to Free, and immediately stops new protected-content/API access through the server checks from migration 028.
+- Verify: `phase2Hardening` includes the Admin RPC regression assertion; run TypeScript check before release.
+## 2026-07-18 — Pro-only content access
+
+- All learning/content routes under `/app` now require an active Pro, Lifetime, or Admin profile. Free, Trial, and Basic users are redirected to Settings to upgrade; Settings remains accessible for account/payment management.
+- Migration `029_pro_only_content_access.sql` removes free exam demos at the database entitlement layer. `content-sign` no longer signs any media for Free/Trial/Basic; Speaking AI also rejects those plans with `PRO_REQUIRED`.
+- Production: migration 029 pushed; `content-sign` and `speaking-ai` deployed. Vercel release is still intentionally pending because the working tree contains unrelated UI changes.
+- Verify: `phase2Hardening` 6/6 PASS, `pnpm --filter web exec tsc --noEmit` PASS, and `pnpm security:check` 9/9 PASS.
+## 2026-07-18 — Flashcard radial-reveal demo
+
+- Added standalone `flashcard-radial-reveal-demo.html` for direct browser testing: origin-based radial `clip-path` reveal, 1→1.02→1 depth settle, registered gradient-angle transition, staggered phonetic/translation, landing shadow and reverse-to-original-origin behavior.
+- The demo is vanilla HTML/CSS/JS; JS only records click coordinates, toggles state classes and sequences the reverse text fade. It includes keyboard access and `prefers-reduced-motion` support.
+## 2026-07-18 — Flashcard fade-reveal demo
+
+- Added standalone `flashcard-fade-reveal-demo.html`: a reusable vanilla card factory using one `.is-flipped` state class, smooth blue→green `background-color` transition, compacted word, staggered phonetic/translation reveal and clean hint replacement/reverse behavior.
+## 2026-07-18 — SRS flashcard Fade Reveal
+
+- Replaced the SRS card's 3D `rotateY` flip with a one-class Fade Reveal: theme-token blue→green `background-color` transition, compacted source word, staggered phonetic (70ms) and translation (140ms), clean hint fade and reverse, plus reduced-motion support.
+- SRS queue, audio, keyboard flip/rating, notebook save and scheduling behavior are unchanged.
+## 2026-07-18 — SRS Fade Reveal translucent surface
+
+- Changed the blue and green Fade Reveal surfaces to 50% `color-mix(..., transparent)`, letting the study paper/grid show through while retaining theme-token colors and readable foreground text.
+## 2026-07-18 — SRS transparency fix
+
+- Removed the opaque lesson-paper frame behind the SRS Fade Reveal card. The 50% tint now composites with the visible grid/paper backdrop rather than with an opaque inner surface.
+## 2026-07-18 — SRS Fade Reveal 30% tint
+
+- Reduced both front and revealed SRS tint layers from 50% to 30% so the paper-grid backdrop remains more prominent.
+## 2026-07-18 — SRS Fade Reveal 15% tint
+
+- Reduced both SRS Fade Reveal tint layers to 15%, making the underlying paper grid the dominant surface.
+## 2026-07-18 — Translucent vocab learning modes
+
+- Applied the same 15% transparent primary-tint surface to Quiz, Guess Meaning, Listen & Type, and Speaking. Inputs/options keep their own surfaces for readability; the main exercise panels now reveal the paper grid underneath.
+## 2026-07-18 — Persistent SRS rating controls
+
+- The four SRS rating controls are now sticky/pinned below the card instead of appearing only after reveal. They stay visibly locked until the answer is revealed, preventing accidental grades.
+- Replaced bright red/orange/green/purple gradients with darker, flat theme-token status tones and softer shadows.
+## 2026-07-18 — Light SRS rating tones
+
+- Reworked the persistent SRS rating controls to simple light/pastel status surfaces (14% tint), with readable theme-text foregrounds, subtle borders and no colored shadows.
+## 2026-07-18 — Mid SRS rating tones
+
+- Increased the rating controls to mid-strength tints: 24% for Hard/Good/Easy and 28% for the Forget/danger state, with correspondingly clearer borders.
+## 2026-07-18 — Normal SRS rating saturation
+
+- Raised SRS rating button fills to normal-strength flat colors: 60% status tint (64% Forget) with stronger matching borders; no gradients or colored shadows.
+## 2026-07-18 — High SRS rating saturation
+
+- Increased SRS rating fills by another 35 percentage points: 95% for Hard/Good/Easy and 99% for Forget, producing near-solid flat status colors.
+## 2026-07-18 — SRS contrast correction
+
+- Strengthened foreground contrast on the translucent main SRS card and switched the near-solid rating buttons to a light foreground plus high-contrast secondary text, restoring readability without changing the selected color strength.
+## 2026-07-18 — Light SRS back-face contrast
+
+- Strengthened the Light-theme SRS revealed face: meaning is extra-bold primary text; source word, phonetic and example use an 88% primary foreground; IPA sits on a higher-contrast light surface.
+
+## 2026-07-18 — Light SRS badge contrast
+
+- The revealed-card topic and part-of-speech badges now use primary text with a clearer translucent paper surface and border in Light theme, so long topic names and labels such as “Tính từ” remain legible.
+
+## 2026-07-18 — SRS horizontal next-card transition
+
+- After rating a revealed SRS card, the current card now passes left and the next card enters from the right (180ms out, 240ms in). Rating, flipping and keyboard input are briefly locked during the pass to prevent duplicate actions; reduced-motion users advance without the visible slide.
+- Verify: `vocabStudyFlip.test.ts` 2/2 PASS and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Phrase-library Revise entry point
+
+- Added a **Revise** control beside the Phrases tab. It shows the due-card count for the currently selected unit type, opens the existing deck picker, and starts SRS with the selected deck while preserving that unit filter. The control is visibly disabled when nothing is due.
+- Revise is a separate card beside Phrases, with the same background, border, radius and active-state treatment as the Phrases card.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Vocabulary library outer frame removal
+
+- Removed the desktop-only hard border, rounded frame and offset shadow that enclosed the entire Vocabulary library canvas. The grid-paper background and all individual tab/deck cards remain unchanged.
+
+## 2026-07-18 — Corrected vocabulary SRS rating schedule
+
+- Replaced the old day-only scheduler with the visible learning cadence: **Quên** returns in 1 minute, **Khó** in 10 minutes, consecutive **Nhớ** ratings schedule 1 day then 4 days, and **Dễ** schedules a new card for 4 days. Later intervals still grow from ease.
+- The active SRS session now remembers the earliest 1/10-minute retry and reloads its due queue when that time arrives, so a learner does not need to leave and reopen Revise to see the card again.
+- Added regression coverage in `srsScheduling.test.ts`; SRS scheduling + Fade Reveal tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise due-state refresh and signal
+
+- The Revise-card count now reevaluates every 15 seconds as well as on Dexie data updates, fixing the stale state where a 1-minute lapse became due but the card stayed disabled because no database write occurred at that exact minute.
+- Once a matching card is due, Revise changes to the primary-tint/border state and receives a restrained motion signal; reduced-motion users get the bright state without motion.
+- Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise enabled-state consistency
+
+- Corrected an inconsistent visual state: Revise previously inherited Phrases’ selected tint even with zero due cards, while remaining disabled. Revise now brightens only when its own due count is positive, which is the same condition that enables its click action.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Revise review-only queue
+
+- Added the `review` SRS filter. Opening a deck from the Revise popup now loads only cards that satisfy `isSrsReviewDue`; new cards remain available from the normal Lặp lại flow and cannot enter a Revise queue.
+- The SRS title/empty state identifies this as “Ôn thẻ đến hạn”. Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+
+## 2026-07-18 — Mây nhỏ đi cùng Sunny
+
+- Gắn mây nhỏ ☁️ vào Sunny ở header Tổng quan và mascot góc phải của các trang chính.
+- Light hiển thị Sunny đi cùng mây nhỏ ☁️; Mid và Dark ẩn hoàn toàn mặt trời, thay bằng mặt trăng 🌙 nhưng vẫn giữ mây nhỏ đi cùng.
+- Mây/mặt trăng nằm cùng wrapper chuyển động nên luôn theo Sunny khi nhún, dạo chơi và trốn tìm; vẫn tôn trọng `prefers-reduced-motion` và thu nhỏ trên mobile.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
+
+## 2026-07-18 — Bird companion SVG mascot set
+
+- Tạo 5 SVG thuần, nhẹ tại `apps/web/public/mascots/`: idle, happy, sad/encourage, studying/thinking và flying/loading; mọi bộ phận chính có ID ổn định để animate từ React/CSS.
+- Bird dùng thân mint, cánh xanh, bụng kem, mỏ coral và nét viền nâu-đen mảnh; flying có wing-flap loop nội bộ và tôn trọng `prefers-reduced-motion`.
+- Thêm pose rộng `bird-with-sunny.svg` cho welcome/streak và demo độc lập `apps/web/public/demo/bird-mascot-states.html`; demo hiện các state cạnh nhau, happy bounce và flying flap hoạt động.
+- Bird SVG được giữ làm asset/demo tham khảo nhưng đã gỡ khỏi UI theo yêu cầu; app dùng Sunny + mây ☁️ ở Light, mặt trăng 🌙 + mây ☁️ ở Mid/Dark.
+
+## 2026-07-18 — Audit local-first cho tải 1000 user đồng thời
+
+- Audit read-only xác nhận `syncBidirectional`, `exam_progress` và `checkin_days` đang full-pull, không cursor/pagination; `supabase/config.toml` giới hạn `max_rows = 1000`, tạo rủi ro cắt dữ liệu im lặng cho user lớn.
+- Push chính đã batch/chunk; sync chạy khi login, online và mỗi 5 phút nhưng chưa có jitter/backoff. LWW vẫn dùng timestamp từ clock client trong khi một số bảng có trigger server `updated_at`, dẫn tới semantics không nhất quán.
+- Index user+updated_at đã có cho decks/cards/writing/mindmaps/exam_progress; thiếu đáng chú ý: `srs(user_id, updated_at)`, `content_access_log(ip, created_at)` và `payment_requests(user_id)`; Dexie thiếu compound `[deckId+dueAt]`, reviewLog mode index và audio cache quota/LRU metadata.
+- RLS own-row dùng `auth.uid()` trực tiếp và thường thiếu `to authenticated`; các helper admin/entitlement được gọi theo row, cần init-plan wrapper `(select ...)`. `speaking_messages` EXISTS có PK/index hỗ trợ nhưng vẫn cần EXPLAIN trên production data.
+- Runtime browser/Edge dùng Supabase HTTP Data API, không mở Postgres connection trực tiếp. Chuỗi tooling hiện có là Supavisor session port 5432; nếu sau này có serverless native Postgres client thì dùng transaction pooler 6543.
+- Chưa chạy EXPLAIN/load test production vì audit không được cấp phép tạo tải; cần migration incremental-sync + indexes trước, sau đó k6 bằng token riêng và SQL `EXPLAIN (ANALYZE, BUFFERS)` trên dữ liệu đại diện.
+## 2026-07-18 — Listening Practice event-driven input state
+
+- Chrome DevTools production baseline for `/`: LCP 544 ms, CLS 0.00, TTFB 35 ms; render-blocking CSS/font insight reported no estimated savings, so no speculative landing-page change was made.
+- Removed the 200 ms DOM polling loop from Listening Practice Boxes/Cloze. `BlankInputMode` now reports whether it contains input directly from its input event, preserving the Check-button behavior while eliminating five background DOM scans per second.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
+## 2026-07-18 — Production web release v0.2.7
+
+- Bumped `apps/web` from v0.2.6 to v0.2.7 and deployed the current frontend snapshot to Vercel production without pushing the still-staging migrations 031–034.
+- Verify: `pnpm security:check` 9/9 PASS; local production build PASS (2,271 modules) and private media strip PASS; Vercel deployment `dpl_5mNFZgicB1SxPZwmxL3XSRByD1bF` reached READY.
+- Production alias `https://ryanenglishv2.vercel.app` updated to `ryanenglishv2-abwldfjbc-ryanenglish.vercel.app`. Chrome smoke: HTTP 200, landing rendered, zero console warnings/errors.
+## 2026-07-18 — Import YouTube URL vào Shadowing v0.2.8
+
+- `/app/shadowing` có form dán URL YouTube; hỗ trợ watch, youtu.be, Shorts, embed, live URL và video ID. Backend tự chọn caption tiếng Anh thủ công trước, fallback auto-generated, chuẩn hóa timestamp rồi mở ngay lesson với player/tua câu/tốc độ/ghi âm/chấm nói/dictation/quiz hiện có.
+- Thêm Edge Function `youtube-captions`: auth + Pro/Lifetime/Admin + suspension check, URL/video validation, 15s timeout, giới hạn video 2 giờ/2.000 cue, lỗi rõ cho private/live/no-caption/YouTube upstream. Không dùng API key/OAuth ở client.
+- Custom lesson cache local tối đa 20 video. Video phải public, cho phép embed và có caption tiếng Anh; caption của video bất kỳ không dùng được YouTube Data API chính thức vì captions list/download yêu cầu OAuth/quyền liên quan video.
+- Verify: URL parser 9/9 PASS; web TypeScript PASS; security 9/9 PASS; production build PASS (2.272 modules). Edge Function deployed to project `ntcagvtkwxwsmlxlumfo`.
+- Production web v0.2.8 deployment `dpl_9dkZRMmbRxWN9Edu7NNmZdHL2tAZ` READY and aliased to `https://ryanenglishv2.vercel.app`. Logged-out smoke confirms protected route redirects to login; authenticated end-to-end paste still needs a signed-in Pro smoke.
+
+## 2026-07-18 — Fix YouTube caption fetch bị chặn trên Supabase Edge
+
+- Tái hiện với video `_CwYFdjj63s`: URL/parser đúng và desktop request ngoài Edge trả HTTP 200, nhưng production báo `VIDEO_UNAVAILABLE` ngay tại request trang watch; nguyên nhân là nhánh cũ không có fallback và che mọi upstream non-2xx thành 404 chung.
+- `youtube-captions` nay thử `www.youtube.com/watch` trước rồi fallback sang `m.youtube.com/watch` với mobile User-Agent. Mobile watch đã được xác minh trả `ytInitialPlayerResponse` và `captionTracks` cho chính video lỗi.
+- Khi cả hai nguồn thất bại, function trả `YOUTUBE_BLOCKED` 502 và log chuỗi nguồn/status (`desktop:403`, `mobile:429`, v.v.) thay vì báo sai rằng video không tồn tại.
+- Regression test `youtubeCaptionsFallback.test.ts` 2/2 PASS; web TypeScript PASS; security release check 9/9 PASS; diff check PASS.
+- Edge Function `youtube-captions` đã deploy production lên project `ntcagvtkwxwsmlxlumfo`. Cần người dùng Pro dán lại đúng URL để smoke authenticated end-to-end; không cần redeploy frontend.
+
+### Follow-up — Supabase và Vercel đều bị bot checkpoint
+
+- Authenticated production retry xác nhận cả desktop/mobile YouTube watch đều bị chặn từ Supabase, trả `YOUTUBE_BLOCKED`.
+- Thêm Vercel Function nội bộ `/api/youtube-captions-relay`, chỉ nhận video ID hợp lệ, bảo vệ bằng `YOUTUBE_CAPTIONS_RELAY_SECRET`, giới hạn caption 5 MB và không nhận URL tùy ý. Relay tests + fallback tests 4/4 PASS; TypeScript PASS.
+- Secret relay yếu do PowerShell API không tương thích ở lần deploy đầu đã được xoay ngay bằng `RandomNumberGenerator.Create().GetBytes`; Vercel production deployment mới `dpl_BymHVAFqGL8iTe4NUMDSJ7nUZ9RJ` READY và Supabase secret/function đã redeploy.
+- Blocker hiện tại: Vercel Security Checkpoint trả 429 trước khi request tới Function; `vercel curl` cũng không tự bypass vì project chưa tạo Protection Bypass for Automation. Không tắt firewall.
+- Code Edge đã chuẩn bị header `x-vercel-protection-bypass` từ secret `VERCEL_AUTOMATION_BYPASS_SECRET`. User cần vào Vercel Project → Settings → Deployment Protection → Protection Bypass for Automation, tạo token; đặt cùng giá trị vào Supabase Edge Function secret `VERCEL_AUTOMATION_BYPASS_SECRET`, rồi retry/deploy-smoke.
+- User đã tạo automation bypass và Supabase secret, sau đó rotate vì token cũ lộ trong ảnh. Usage screenshot xác nhận quota không vượt (409 MB/100 GB, 28K/1M Edge Requests, CPU 4s/1h); nhận định quota là blocker đã được rút lại.
+- Redeploy production sau khi rotate token để deployment nhận bypass mới: `dpl_53GcojXeKPY8LfXgwSBC2K3VnbrW` READY, alias chính đã cập nhật. `vercel curl` của CLI 54 vẫn bị Security Checkpoint và không có Function log, nên cần retry authenticated từ app để xác nhận Edge dùng secret Supabase trực tiếp; CLI automation lookup không phải bằng chứng secret Supabase sai.
+## 2026-07-18 — Mặt trời TID cho Exam Hub
+
+- Thay minh họa lớn trong hero `/app/exam` bằng đúng hai lớp SVG thân/khuôn mặt được trích từ `https://theieltsdictionary.com/about-tid`; mascot dạo chơi toàn app không đổi.
+- Giữ interaction gốc: thân mặt trời quay 9 độ mỗi 0,5 giây, khuôn mặt đứng yên; responsive và tôn trọng reduced-motion.
+- Hai mắt được tách khỏi SVG mặt, giữ đúng tọa độ/hình dáng gốc và liếc trái–phải theo nhịp 4,8 giây; reduced-motion giữ mắt đứng yên.
+- Thu mặt trời desktop từ 29rem xuống 27rem và dịch sang phải 2,5rem để không overlap tiêu đề Luyện thi; mobile giữ trong viewport.
+- Asset public: `apps/web/public/mascots/tid/sun-body.svg` và `sun-face.svg`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
+## 2026-07-18 — Fix màn hình trắng sau submit Listening import
+
+- Chẩn đoán route `listening-import-ket-a2-practice-12`: màn kết quả gọi `.toUpperCase()` trực tiếp trên option ID của dữ liệu import, nên option thiếu ID/ID không phải chuỗi làm React crash và vùng Exam trắng.
+- Chuẩn hóa ID về string; nếu thiếu thì fallback A/B/C theo index. Luồng format đáp án nhiều lựa chọn cũng không còn gọi `.toUpperCase()` trên giá trị không chuẩn.
+- Regression test tái hiện lỗi trước fix và bao phủ cả ID thiếu lẫn ID dạng số.
+- Hardening tiếp sau khi Practice 12 vẫn trắng: loại bỏ `.toUpperCase()` trực tiếp còn sót ở AI source và chuẩn hóa `question.answer`/`userAnswer`; câu thiếu answer key giờ trả sai an toàn thay vì gọi `.trim()` trên `undefined` làm crash toàn báo cáo.
+- Root cause điểm 0/25 và review không có đáp án: localhost coi `catalog/exams/**/*.answers.json` là Vite public asset, trong khi vault của đề restored/published chỉ tồn tại ở private Supabase Storage. `mustUseSignedMedia` giờ luôn ký answer vault trên cả dev và production; regression security test bao phủ Listening/Reading.
+- Harden toàn bộ Luyện thi: Reading result dùng formatter option an toàn như Listening; normalize answer/option/headings chịu được dữ liệu import thiếu/sai kiểu. Cả Reading và Listening không còn chấm 0 giả khi vault lỗi—hiện màn báo tải đáp án thất bại và nút thử lại thay vì render report/review thiếu answer key.
+- Fix tiếp “Xem cùng đề bài” hiện `Đáp án đúng: —`: màn báo cáo đã dùng exam được merge answer vault nhưng khi chuyển về paper, component cha vẫn giữ DTO cũ đã strip đáp án. `promoteHydratedExamForReview` nay đồng bộ snapshot đã hydrate về DTO mà paper đang render trước khi bật review mode, áp dụng chung cho Listening và Reading. Regression test 1/1; toàn bộ test liên quan 8/8, TypeScript và diff check PASS.
+### Session 2026-07-19 — Fix `srs incremental pull: column srs.id does not exist`
+
+- Root cause: helper phân trang incremental dùng `id` làm tie-breaker cho mọi bảng, nhưng khóa ổn định của bảng `srs` là `card_id` và bảng này không có cột `id`.
+- Query pull nay chọn `card_id` riêng cho `srs`, giữ `id` cho decks/cards/writing_docs/mindmaps; regression test khóa đúng mapping và test scalability được cập nhật theo query động.
+- Feedback loop trước fix RED đúng `id` thay vì `card_id`; sau fix scoped tests 6/6, TypeScript và `git diff --check` PASS.
+
+### Session 2026-07-19 — YouTube caption relay hardening (datacenter IP blocker)
+
+- Tách relay Vercel thành project riêng `youtube-captions-relay.vercel.app`, bảo vệ bằng shared secret và bổ sung Android InnerTube Player API sau desktop/mobile watch page. Unit/regression tests 5/5 và TypeScript PASS.
+- Smoke production xác nhận relay riêng không còn bị Vercel Security Checkpoint, nhưng egress Vercel vẫn bị YouTube chặn: endpoint trả 502 dù Android InnerTube hoạt động từ máy local.
+- Tạo và deploy Cloudflare Worker giới hạn đúng POST + video ID 11 ký tự, secret header, timeout 15 giây và caption tối đa 5 MB tại `services/youtube-captions-worker`; Wrangler 4.112.0 types + deploy dry-run PASS. Endpoint: `ryan-youtube-captions-relay.ryan-license-worker.workers.dev`.
+- Relay secret đã xoay bằng CSPRNG, đặt vào Worker qua stdin và đồng bộ cùng URL vào Supabase; Edge Function `youtube-captions` đã redeploy.
+- Smoke production vẫn bị YouTube chặn từ Cloudflare: `desktop:429`, `mobile:429`, `innertube:LOGIN_REQUIRED`. Kết luận đây là chặn IP datacenter, không phải Vercel checkpoint hay lỗi parser. Cần residential proxy hoặc transcript API có key để hoàn tất; app hiện vẫn có thể báo YouTube chặn.
+- Verify: YouTube fallback/relay tests 5/5 PASS; web TypeScript PASS; `git diff --check` PASS.
+
+### Session 2026-07-19 — Gỡ nhập YouTube khỏi Shadowing
+
+- Gỡ form “Luyện với video YouTube của bạn”, toàn bộ state/import/cache client và fallback custom lesson; thư viện Shadowing dựng sẵn cùng trình phát của các bài có sẵn vẫn giữ nguyên.
+- Xoá source và tests của Supabase `youtube-captions`, Vercel relay và Cloudflare Worker. Production Edge Function, Vercel project, Cloudflare Worker cùng ba Supabase relay secrets đã được xoá.
+- Bump web lên v0.2.9. Verify: không còn reference tới import/relay YouTube trong app/backend source; web TypeScript PASS.
+## 2026-07-21 — Auto-sync Listening transcript và câu hỏi theo audio
+
+- `useExamQuestionAudio` nay expose `audioCurrentTime` và `audioDuration`, cập nhật cùng vòng `requestAnimationFrame` đang điều khiển progress bar.
+- Whisper local giữ backward-compatible plain text và lưu thêm segment timing đã validate tại `exam-listening-whisper-segments:{examId}:{partNumber}`. Transcript panel render từng segment, highlight/auto-scroll segment đang phát, bỏ highlight khi pause và quy đổi đúng thời gian tương đối khi Part dùng một MP3 chung.
+- Thêm `useAudioSync`: practice mode tự chọn/scroll câu theo Whisper segment hoặc tỷ lệ thời lượng; exam mode, submitted và review mode không auto-advance. Mọi pointer interaction trong runner tạm khóa auto-sync 3 giây để thao tác thủ công thắng.
+- Tích hợp KET, PET, FCE/CAE/CPE và IELTS runner. Mapping thuần xử lý cả audio riêng từng Part và shared-audio `startPct`/`endPct`.
+- Verify: scoped `useAudioSync` tests 4/4 PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS (2,277 modules, private media strip PASS); `git diff --check` PASS.
+- Lỗi còn tồn tại: chưa smoke tương tác có audio + Whisper thật trong browser đăng nhập; cần kiểm tra highlight, seek, đổi Part và manual override trên dữ liệu thực.
+- Next session start prompt: smoke Listening practice có Whisper segments trên KET/PET/FCE/IELTS; xác nhận segment highlight, question auto-scroll, seek và khóa manual 3 giây.
+### Follow-up 2026-07-21 — Hiện nút tạo segment timing cho transcript cũ
+
+- Root cause transcript mở ra nhưng không highlight: auto-question có fallback theo tỷ lệ duration nên vẫn chạy, còn transcript highlight bắt buộc có Whisper segments. Transcript plain/catalog hoặc Whisper tạo trước bản vá chỉ có text; đồng thời UI cũ ẩn nút Whisper khi `ttsText` đã đủ, khiến không thể tạo timestamps.
+- Panel nay hiện `Tạo đồng bộ transcript theo audio` bất cứ khi nào Part có audio URL nhưng chưa có segments, kể cả transcript text đã tồn tại. Chạy một lần sẽ ghi segment timing và bật highlight/auto-scroll.
+- Regression test khóa trạng thái plain transcript + zero segments. Verify: scoped tests 5/5, TypeScript và `git diff --check` PASS.
+## 2026-07-21 — Fix login bị cắt trên màn hình MacBook thấp
+
+- Repro Chrome tại `1024x640`: login card cao 697.5px nhưng `.login-page` fixed-height 640px vẫn `align-items: center`, đẩy card lên `y=-28.75px`; container không tạo vùng scroll hữu dụng nên đầu/cuối form bị cắt.
+- Breakpoint `max-height: 750px` nay dùng `align-items: flex-start`. Card bắt đầu dưới padding ở `y=12px`, login page có vùng cuộn 82px tại 1024x640; 1280x720 giữ card đầy đủ và chỉ có 2px overflow.
+- Verify trực tiếp Chrome DevTools tại 1024x640 và 1280x720; cuộn được tới footer. TypeScript và `git diff --check` PASS.
+- Next session start prompt: nếu cần, smoke thêm tab Đăng ký tại viewport thấp vì consent copy có thể làm card cao hơn login.
+## 2026-07-21 — Publish Whisper segment timestamps lên cloud
+
+- `ListeningPart` có field `transcriptSegments`; dữ liệu nằm trực tiếp trong JSON `listening_exam_published.parts`, không cần migration.
+- Pipeline publish hydrate cả plain transcript và segment timing từ localStorage trước khi strip/push. Segment cloud đã có được ưu tiên, không bị timing local cũ ghi đè.
+- Transcript panel và `useAudioSync` ưu tiên `part.transcriptSegments` từ cloud, chỉ fallback localStorage cho đề local/đề cũ. Vì vậy Vercel không cần chạy Whisper khi user học.
+- Đề đã publish trước đây cần Admin mở từng Part, chạy `Tạo đồng bộ transcript theo audio`, rồi publish/re-publish đề để timestamps lên cloud.
+- Verify: publish/runtime regression tests 8/8 PASS; TypeScript PASS; production build PASS (2,278 modules, strip private media PASS); `git diff --check` PASS.
+- Lỗi còn tồn tại: chưa re-publish dữ liệu production, nên các đề cloud hiện tại chưa tự có segments cho tới khi chạy quy trình generation + publish.
+- Next session start prompt: chọn một Listening exam, tạo timing cho mọi Part, re-publish, rồi smoke trên domain production/khác origin để xác nhận không gọi `/api/stt` nhưng highlight/scroll vẫn chạy.
+
+## 2026-07-21 — Lệnh batch tạo segment timestamps cho 54 đề KET
+
+- Thêm lệnh root `pnpm ket:segments -- --yes` để Claude chạy một lần cho toàn bộ KET A2 Listening đã publish. Script tải audio private từ `exam-media`, giữ một tiến trình `faster-whisper`/model duy nhất, ghi `transcript` + `transcriptSegments` vào `listening_exam_published.parts`, bỏ qua Part đã có timing và tiếp tục báo lỗi theo từng Part.
+- Lệnh tự đọc `.env.deploy`, lấy service role trực tiếp hoặc qua `SUPABASE_ACCESS_TOKEN`, đồng thời tự tìm venv Whisper có sẵn tại `C:\Users\lindv\whisper\.venv\Scripts\python.exe`. Có các tùy chọn `--list-only`, `--force`, `--limit`, `--only`, `--model`, `--python`; mọi thao tác ghi bắt buộc có `--yes`.
+- Read-only production check ban đầu xác nhận đúng 54 KET exams, mỗi đề 5 Parts, tổng 270 Parts và 0/270 Parts có timestamps.
+- User đã chạy batch ghi thật thành công: `Done: 54/54 exams updated, 270 Parts timed, 0 Parts failed.`
+- Caveat: 10 đề Cam/Book cũ có thể dùng một file audio chung cho cả 5 Parts. Batch tái sử dụng transcript/timestamps tuyệt đối của file chung; highlight theo audio hoạt động, nhưng panel có thể hiện transcript toàn bài và mapping câu hỏi chỉ gần đúng nếu Part không có mốc phần trăm thời gian.
+- Verify: CLI help PASS; Python compile PASS; venv `faster-whisper` 1.2.1 có sẵn; web TypeScript PASS; `git diff --check` PASS; production `--list-only` PASS.
+- Lỗi còn tồn tại: cần smoke production ít nhất một đề per-Part audio cùng một đề shared-audio; xác nhận transcript highlight/auto-scroll, seek, pause và khóa thao tác thủ công 3 giây.
+- Next session start prompt: smoke production đề “KET A2_Test 2 - Luyện Nghe Tiếng Anh A2 Có đáp án và dịch nghĩa”, sau đó kiểm tra thêm một đề KET practice dùng audio riêng từng Part.
+
+## 2026-07-21 — Production web release v0.2.10
+
+- Bump `apps/web` từ 0.2.9 lên 0.2.10 và deploy frontend auto-sync Listening, cloud transcript segments cùng fix login viewport thấp lên Vercel production.
+- 54/54 KET exams đã có timestamps, tổng 270 Parts, 0 Parts failed; không chạy migration trong release này.
+- Verify: Listening tests 8/8 PASS; TypeScript PASS; security release check 9/9 PASS; local production build PASS (2.278 modules, private media strip PASS); Vercel build READY.
+- Deployment `dpl_FRUibDr8KSK2Socb9n5WGej98seM` READY; alias chính `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke authenticated production đề KET A2_Test 2 và một KET practice; xác nhận transcript highlight/auto-scroll, seek, pause và manual override 3 giây.
+
+## 2026-07-21 — Fix auto-sync cho Cambridge shared audio
+
+- Root cause Cam 1 Test 3 không tự chuyển câu/Part: `useAudioSync` chỉ map audio vào câu của `currentPart`, trong khi 10 đề KET Book 1 Test 1 đến Book 3 Test 2 dùng một MP3 chung, không có `audioStartPct/audioEndPct`.
+- Hook chung nay tự nhận dạng theo cấu trúc dữ liệu: mọi Part cùng nguồn audio và không có range thì sync trên toàn bộ câu, đồng thời đổi `partIndex`; audio riêng từng Part hoặc shared audio có range tiếp tục sync trong Part hiện tại.
+- Áp dụng chung cho runner KET, PET, FCE/CAE/CPE và IELTS, nên các lần import Cambridge A2-C2 sau tự hỗ trợ cả kiểu một audio lẫn nhiều audio, không hardcode ID/Cam.
+- Audit production: `ket shared-unbounded = 10`, `ket per-part = 44`, `cae per-part = 1`; 10 shared gồm Book 1 Test 1–4, Book 2 Test 1–4 và Book 3 Test 1–2.
+- Regression tests bao phủ shared-unbounded, per-Part và shared-ranged. Verify: Listening tests 11/11 PASS; TypeScript PASS; `git diff --check` PASS.
+- Bump web lên v0.2.11; security check 9/9 và production build PASS. Deployment `dpl_8CBUerMTo2Ak559uiHLfiGFFgVB5` READY, alias `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke production Cam 1 Test 3 xuyên ranh giới Part 1→2 và một KET practice per-Part audio.
