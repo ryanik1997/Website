@@ -32,6 +32,13 @@ Khi user yêu cầu "deploy" sau khi làm tính năng/fix → **deploy lên Verc
 Khôi phục node_modules (`pnpm install --ignore-scripts`), chạy app để smoke trang login responsive ở 1280×800/1440×900, rồi smoke authenticated production Google login + audio R2 + listening manual question navigation (auto-sync đã tắt).
 
 ---
+## 2026-07-23 - Nen video nen landing page
+
+- Thay URL CloudFront cua video nen 14,142,575 bytes bang asset noi bo `apps/web/public/landing-video.mp4`, H.264 CRF 28, 1280x716, 755,492 bytes.
+- Giu nguyen poster, `preload="none"` va delayed-load 3.5 giay.
+- Production build PASS. Chrome QA PASS: autoplay dang chay, `readyState=4`, duration 12.0417 giay, khong co media error; screenshot luu tai `artifacts/landing-video-compression/landing-page-compressed-video.png`.
+- Next session start prompt: review Vercel preview cua ban nen video landing; chi promote production sau khi duoc phe duyet.
+
 EOF
 ## 2026-07-20 — Upload part1.mp3 cho KET practice-16
 
