@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
   Bell, Loader2, Maximize2, Minimize2, Wifi,
@@ -37,15 +37,7 @@ import { notifyExamDraftRevision } from './useExamDraftRevision'
 import { useExamDraftGate } from './useExamDraftGate'
 import { readingExamDurationMinutes } from './readingExamDuration'
 import { initialExamTimerSeconds } from './examTimer'
-import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
-import ReadingPetRwTest from './petRw/ReadingPetRwTest'
-import ReadingFceRwTest from './fceRw/ReadingFceRwTest'
-import ReadingCaeRwTest from './caeRw/ReadingCaeRwTest'
-import ReadingCpeRwTest from './cpeRw/ReadingCpeRwTest'
-import {
-  TidIeltsReadingExam,
-  loadTidReadingTestByExamId,
-} from './tidIeltsReading'
+import type { ReadingTest as TidReadingTest } from './tidIeltsReading/types'
 import {
   isCaeReadingWritingExam,
   isCpeReadingWritingExam,
@@ -59,6 +51,24 @@ import { parseReadingPart, readingDraftKey } from './readingPartMode'
 const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
+
+const ReadingKetRwTest = lazy(() => import('./ketRw/ReadingKetRwTest'))
+const ReadingPetRwTest = lazy(() => import('./petRw/ReadingPetRwTest'))
+const ReadingFceRwTest = lazy(() => import('./fceRw/ReadingFceRwTest'))
+const ReadingCaeRwTest = lazy(() => import('./caeRw/ReadingCaeRwTest'))
+const ReadingCpeRwTest = lazy(() => import('./cpeRw/ReadingCpeRwTest'))
+const TidIeltsReadingExam = lazy(async () => {
+  const mod = await import('./tidIeltsReading/TidIeltsReadingExam')
+  return { default: mod.ReadingExam }
+})
+
+function ReadingRouteFallback() {
+  return (
+    <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+      <Loader2 size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+    </div>
+  )
+}
 
 export default function ReadingTest() {
   const navigate = useNavigate()
@@ -103,6 +113,7 @@ export default function ReadingTest() {
   const useCaeRwShell = exam ? isCaeReadingWritingExam(exam) : false
   const useCpeRwShell = exam ? isCpeReadingWritingExam(exam) : false
 
+  const [tidTest, setTidTest] = useState<TidReadingTest | null | undefined>(undefined)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const singlePartMode = part !== null
   const examDurationMinutes = exam ? (singlePartMode ? Math.ceil(readingExamDurationMinutes(exam) / 3) : readingExamDurationMinutes(exam)) : 60
@@ -133,6 +144,23 @@ export default function ReadingTest() {
   const bodyRef = useRef<HTMLDivElement>(null)
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
+
+  useEffect(() => {
+    if (!examId || !isIeltsReading) {
+      setTidTest(null)
+      return
+    }
+    let cancelled = false
+    setTidTest(undefined)
+    void import('./tidIeltsReading/loadTidReadingTest')
+      .then(({ loadTidReadingTestByExamId }) => {
+        if (!cancelled) setTidTest(loadTidReadingTestByExamId(examId))
+      })
+      .catch(() => {
+        if (!cancelled) setTidTest(null)
+      })
+    return () => { cancelled = true }
+  }, [examId, isIeltsReading])
 
   const allExamQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
 
@@ -504,23 +532,43 @@ export default function ReadingTest() {
   )
 
   if (exam && useKetRwShell) {
-    return <ReadingKetRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingKetRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && usePetRwShell) {
-    return <ReadingPetRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingPetRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useFceRwShell) {
-    return <ReadingFceRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingFceRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useCaeRwShell) {
-    return <ReadingCaeRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingCaeRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useCpeRwShell) {
-    return <ReadingCpeRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingCpeRwTest />
+      </Suspense>
+    )
   }
 
   if (exam === undefined) {
@@ -543,14 +591,18 @@ export default function ReadingTest() {
 
   // IELTS Academic Reading (Cam 9–20) → TID practice shell + enriched data
   if (isIeltsReading) {
-    const tidTest = examId ? loadTidReadingTestByExamId(examId) : null
+    if (tidTest === undefined) {
+      return <ReadingRouteFallback />
+    }
     if (tidTest) {
       return (
-        <TidIeltsReadingExam
-          test={tidTest}
-          backTo={readingExamBackPath(exam)}
-          initialPartIndex={initialPartIndex}
-        />
+        <Suspense fallback={<ReadingRouteFallback />}>
+          <TidIeltsReadingExam
+            test={tidTest}
+            backTo={readingExamBackPath(exam)}
+            initialPartIndex={initialPartIndex}
+          />
+        </Suspense>
       )
     }
   }
