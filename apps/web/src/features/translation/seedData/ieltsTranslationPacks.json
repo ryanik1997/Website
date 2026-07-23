@@ -1,0 +1,461 @@
+[
+  {
+    "type": "ielts_translation_pack",
+    "version": "1.0",
+    "id": "my_ielts_translation_pack_002",
+    "title": "IELTS Translation Present Continuous Pack",
+    "description": "Gói mẫu cho Luyện dịch IELTS trong Writing Master.",
+    "steps": [
+      {
+        "id": "step_1_basic_sentence",
+        "step_no": 1,
+        "title": "Cấu trúc câu cơ bản",
+        "badge": "Bước 1",
+        "items": [
+          {
+            "id": "present_continuous_25",
+            "title": "Hiện tại tiếp diễn (Present Continuous)",
+            "level": "mixed",
+            "direction": "vi_en",
+            "description": "Present Continuous — 25 Sentences",
+            "sentences": [
+              {
+                "id": "pc_001",
+                "vi": "Tôi đang học tiếng Anh bây giờ.",
+                "reference_en": "I am studying English right now.",
+                "hints": [
+                  "I",
+                  "am studying",
+                  "English",
+                  "right now"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "basic"
+                ]
+              },
+              {
+                "id": "pc_002",
+                "vi": "Cô ấy đang dạy toán ở trường tiểu học.",
+                "reference_en": "She is teaching maths at a primary school.",
+                "hints": [
+                  "She",
+                  "is teaching",
+                  "maths",
+                  "primary school"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "school"
+                ]
+              },
+              {
+                "id": "pc_003",
+                "vi": "Trời đang mưa rất to.",
+                "reference_en": "It is raining heavily.",
+                "hints": [
+                  "It",
+                  "is raining",
+                  "heavily"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "weather"
+                ]
+              },
+              {
+                "id": "pc_004",
+                "vi": "Họ đang thảo luận về dự án mới trong phòng họp.",
+                "reference_en": "They are discussing the new project in the meeting room.",
+                "hints": [
+                  "They",
+                  "are discussing",
+                  "new project",
+                  "meeting room"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "work"
+                ]
+              },
+              {
+                "id": "pc_005",
+                "vi": "Chính phủ đang xây dựng một hệ thống tàu điện ngầm mới.",
+                "reference_en": "The government is building a new subway system.",
+                "hints": [
+                  "The government",
+                  "is building",
+                  "new subway system"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "society",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_006",
+                "vi": "Số lượng sinh viên du học đang tăng lên nhanh chóng.",
+                "reference_en": "The number of students studying abroad is increasing rapidly.",
+                "hints": [
+                  "The number of",
+                  "studying abroad",
+                  "is increasing",
+                  "rapidly"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "education",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_007",
+                "vi": "Nhiều loài động vật đang dần mất đi môi trường sống tự nhiên của chúng.",
+                "reference_en": "Many animal species are losing their natural habitats.",
+                "hints": [
+                  "Many animal species",
+                  "are losing",
+                  "natural habitats"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "environment",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_008",
+                "vi": "Trái đất đang nóng lên do hiệu ứng nhà kính.",
+                "reference_en": "The Earth is heating up due to the greenhouse effect.",
+                "hints": [
+                  "The Earth",
+                  "is heating up",
+                  "due to",
+                  "greenhouse effect"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "environment",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_009",
+                "vi": "Công nghệ hiện đại đang thay đổi cách chúng ta giao tiếp.",
+                "reference_en": "Modern technology is changing the way we communicate.",
+                "hints": [
+                  "Modern technology",
+                  "is changing",
+                  "the way we communicate"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "technology",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_010",
+                "vi": "Các thành phố lớn đang phải đối mặt với vấn đề ô nhiễm nghiêm trọng.",
+                "reference_en": "Major cities are facing severe pollution problems.",
+                "hints": [
+                  "Major cities",
+                  "are facing",
+                  "severe pollution problems"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "urban",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_011",
+                "vi": "Ngày càng có nhiều người chuyển từ nông thôn ra thành thị.",
+                "reference_en": "More and more people are moving from rural to urban areas.",
+                "hints": [
+                  "More and more people",
+                  "are moving",
+                  "rural to urban areas"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "population",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_012",
+                "vi": "Nền kinh tế toàn cầu đang phục hồi chậm sau khủng hoảng.",
+                "reference_en": "The global economy is recovering slowly after the crisis.",
+                "hints": [
+                  "The global economy",
+                  "is recovering",
+                  "slowly",
+                  "after the crisis"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "economy",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_013",
+                "vi": "Các nhà khoa học đang tìm kiếm các nguồn năng lượng thay thế.",
+                "reference_en": "Scientists are looking for alternative energy sources.",
+                "hints": [
+                  "Scientists",
+                  "are looking for",
+                  "alternative energy sources"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "science",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_014",
+                "vi": "Chi phí sinh hoạt ở các đô thị đang tăng cao hơn bao giờ hết.",
+                "reference_en": "The cost of living in urban areas is rising higher than ever.",
+                "hints": [
+                  "The cost of living",
+                  "urban areas",
+                  "is rising",
+                  "higher than ever"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "lifestyle",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_015",
+                "vi": "Hệ thống giáo dục đang trải qua những thay đổi lớn.",
+                "reference_en": "The education system is undergoing major changes.",
+                "hints": [
+                  "The education system",
+                  "is undergoing",
+                  "major changes"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "education",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_016",
+                "vi": "Tỷ lệ thất nghiệp ở giới trẻ đang giảm dần.",
+                "reference_en": "The youth unemployment rate is gradually decreasing.",
+                "hints": [
+                  "The youth unemployment rate",
+                  "is gradually decreasing"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "society",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_017",
+                "vi": "Người tiêu dùng đang ngày càng ưa chuộng các sản phẩm thân thiện với môi trường.",
+                "reference_en": "Consumers are increasingly preferring eco-friendly products.",
+                "hints": [
+                  "Consumers",
+                  "are increasingly preferring",
+                  "eco-friendly products"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "consumer",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_018",
+                "vi": "Các phương tiện truyền thông xã hội đang ảnh hưởng sâu sắc đến giới trẻ.",
+                "reference_en": "Social media platforms are profoundly influencing young people.",
+                "hints": [
+                  "Social media platforms",
+                  "are profoundly influencing",
+                  "young people"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "media",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_019",
+                "vi": "Tự động hóa đang thay thế nhiều công việc chân tay.",
+                "reference_en": "Automation is replacing many manual jobs.",
+                "hints": [
+                  "Automation",
+                  "is replacing",
+                  "manual jobs"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "technology",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_020",
+                "vi": "Các trường đại học đang cung cấp nhiều khóa học trực tuyến hơn.",
+                "reference_en": "Universities are offering more online courses.",
+                "hints": [
+                  "Universities",
+                  "are offering",
+                  "online courses"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "education",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_021",
+                "vi": "Tuổi thọ trung bình của con người đang tăng lên nhờ vào y học hiện đại.",
+                "reference_en": "Average life expectancy is increasing thanks to modern medicine.",
+                "hints": [
+                  "Average life expectancy",
+                  "is increasing",
+                  "thanks to modern medicine"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "health",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_022",
+                "vi": "Sự toàn cầu hóa đang làm lu mờ ranh giới văn hóa giữa các quốc gia.",
+                "reference_en": "Globalization is blurring the cultural boundaries between nations.",
+                "hints": [
+                  "Globalization",
+                  "is blurring",
+                  "cultural boundaries",
+                  "between nations"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "culture",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_023",
+                "vi": "Nhiều doanh nghiệp đang áp dụng mô hình làm việc từ xa.",
+                "reference_en": "Many businesses are adopting remote working models.",
+                "hints": [
+                  "Many businesses",
+                  "are adopting",
+                  "remote working models"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "work",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_024",
+                "vi": "Rác thải nhựa đang làm ô nhiễm nghiêm trọng các đại dương của chúng ta.",
+                "reference_en": "Plastic waste is severely polluting our oceans.",
+                "hints": [
+                  "Plastic waste",
+                  "is severely polluting",
+                  "our oceans"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "environment",
+                  "IELTS"
+                ]
+              },
+              {
+                "id": "pc_025",
+                "vi": "Các nhà phát triển đang thiết kế nhiều tòa nhà tiết kiệm năng lượng hơn.",
+                "reference_en": "Developers are designing more energy-efficient buildings.",
+                "hints": [
+                  "Developers",
+                  "are designing",
+                  "energy-efficient buildings"
+                ],
+                "tags": [
+                  "Present Continuous",
+                  "architecture",
+                  "IELTS"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ielts_translation_pack",
+    "version": "1.0",
+    "id": "my_ielts_translation_pack_001",
+    "title": "IELTS Translation Sample Pack",
+    "description": "Gói mẫu cho Luyện dịch IELTS trong Writing Master.",
+    "steps": [
+      {
+        "id": "step_1_basic_sentence",
+        "title": "Cấu trúc câu cơ bản",
+        "badge": "Bước 1",
+        "items": [
+          {
+            "id": "simple_present_25",
+            "title": "Hiện tại đơn (Present Simple)",
+            "level": "basic",
+            "direction": "vi_en",
+            "description": "Simple Present — 25 Sentences",
+            "sentences": [
+              {
+                "id": "sp_001",
+                "vi": "Tôi học tiếng Anh mỗi ngày.",
+                "reference_en": "I study English every day.",
+                "hints": [
+                  "I",
+                  "study",
+                  "English",
+                  "every day"
+                ],
+                "tags": [
+                  "Present Simple",
+                  "basic"
+                ]
+              },
+              {
+                "id": "sp_002",
+                "vi": "Cô ấy dạy toán ở trường tiểu học.",
+                "reference_en": "She teaches maths at a primary school.",
+                "hints": [
+                  "She",
+                  "teaches",
+                  "maths",
+                  "primary school"
+                ],
+                "tags": [
+                  "Present Simple",
+                  "school"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

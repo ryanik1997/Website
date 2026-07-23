@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowRight } from 'lucide-react'
@@ -10,6 +11,7 @@ import {
   type TranslationGenre,
   type TranslationTrackSlug,
 } from '../features/translation/translationCatalog'
+import { ensureTranslationSeedData } from '../features/translation/seedTranslationPacks'
 import '../features/writing/cambridgeHub.css'
 
 /** Bước 2: Chọn chủ đề trong từng track */
@@ -17,6 +19,12 @@ export default function TranslationGenrePage() {
   const { track: trackSlug } = useParams<{ track: string }>()
   const navigate = useNavigate()
   const track = getTranslationTrack(trackSlug)
+
+  useEffect(() => {
+    void ensureTranslationSeedData().catch(err =>
+      console.warn('[translation] seed failed', err),
+    )
+  }, [])
 
   const counts = useLiveQuery(async () => {
     if (!track) return new Map<TranslationGenre, number>()

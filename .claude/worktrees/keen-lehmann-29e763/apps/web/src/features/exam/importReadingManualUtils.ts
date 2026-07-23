@@ -1,0 +1,754 @@
+import { audioRepo } from '@ryan/db'
+import { uploadReadingExamCloudImage } from './readingExamCloudImages'
+import { resolvePlacementMediaFile } from './readingExamMediaSlots'
+import type {
+  ReadingExam,
+  ReadingExamTrack,
+  ReadingPart,
+  ReadingPassageBlock,
+  ReadingQuestion,
+  ReadingNotePassageBlock,
+  ReadingNoteTable,
+  ReadingQuestionGroup,
+  ReadingQuestionType,
+} from './examData'
+import type { CambridgeLevelSlug } from './cambridgeExamLevels'
+import {
+  cambridgeReadingImportTemplate,
+  cambridgeReadingPartGuides,
+} from './cambridgeReadingImportTemplates'
+import { normalizeReadingGroupType, sanitizeReadingExam } from './readingExamSanitize'
+import {
+  normalizeReadingImportNoteTables,
+  normalizeReadingNoteTable,
+  validateReadingNoteTable,
+} from './readingNoteTableUtils'
+
+import {
+  ensureImageFileMime,
+  isExamImportImageFile,
+  normalizeImportFileKey,
+  resolveImageMediaFile,
+  resolveImageMediaFileAny,
+} from './examImportImageFormats'
+
+export const READING_IMPORT_MAX_JSON_BYTES = 2 * 1024 * 1024
+export const READING_IMPORT_MAX_MEDIA_BYTES = 40 * 1024 * 1024
+
+const YNNG_IMPORT_OPTIONS = [
+  { id: 'yes', label: 'YES' },
+  { id: 'no', label: 'NO' },
+  { id: 'not-given', label: 'NOT GIVEN' },
+] as const
+
+const VALID_QUESTION_TYPES: ReadingQuestionType[] = [
+  'true-false-not-given',
+  'yes-no-not-given',
+  'multiple-choice',
+  'matching-paragraph',
+  'matching-headings',
+  'matching-features',
+  'gap-fill',
+  'summary-completion',
+  'sentence-completion',
+  'writing-task',
+]
+
+const VALID_GROUP_TYPES: ReadingQuestionGroup['type'][] = [
+  'tfng',
+  'ynng',
+  'matching-paragraph',
+  'matching-headings',
+  'matching-features',
+  'multiple-choice',
+  'gap-fill',
+  'summary-completion',
+  'sentence-completion',
+]
+
+export interface ReadingImportPassageBlockJson {
+  label?: string
+  text?: string
+  imageFile?: string
+}
+
+export interface ReadingImportQuestionJson {
+  number: number
+  type: ReadingQuestionType
+  prompt: string
+  options?: Array<{ id: string; label: string }>
+  answer: string
+  explanation?: string
+  minWords?: number
+}
+
+export interface ReadingImportQuestionGroupJson {
+  range: string
+  instruction: string
+  note?: string
+  /** Ảnh bảng / diagram cho nhóm (vd. Questions_9_13.jpg) */
+  imageFile?: string
+  /** Bảng table-completion — n cột × n dòng, gap trong ô */
+  noteTable?: ReadingNoteTable
+  /** Notes completion — bullets + gap inline */
+  notePassage?: ReadingNotePassageBlock[]
+  notesTitle?: string
+  type: ReadingQuestionGroup['type']
+  paragraphLetters?: string[]
+  headings?: Array<{ id: string; label: string }>
+  features?: Array<{ id: string; name: string }>
+  wordBank?: Array<{ id: string; label: string }>
+  questions: ReadingImportQuestionJson[]
+}
+
+export interface ReadingImportPartJson {
+  partNumber: number
+  rangeLabel: string
+  passageTitle: string
+  passageSubtitle?: string
+  passage: ReadingImportPassageBlockJson[]
+  questionGroups: ReadingImportQuestionGroupJson[]
+}
+
+export interface ReadingImportPayload {
+  version: 1
+  title: string
+  durationMinutes: number
+  bandHint?: string
+  examTrack?: ReadingExamTrack
+  cambridgeLevel?: CambridgeLevelSlug
+  parts: ReadingImportPartJson[]
+}
+
+function normalizeFileKey(name: string): string {
+  return normalizeImportFileKey(name)
+}
+
+function buildMediaMap(files: File[]): Map<string, File> {
+  const map = new Map<string, File>()
+  for (const file of files) {
+    const f = isExamImportImageFile(file) ? ensureImageFileMime(file) : file
+    map.set(normalizeFileKey(f.name), f)
+  }
+  return map
+}
+
+/** Ảnh: thử .jpg/.webp/… khi JSON ghi một đuôi nhưng ZIP là đuôi khác */
+function resolveMediaFile(map: Map<string, File>, filename?: string): File | null {
+  return resolveImageMediaFile(map, filename)
+}
+
+export function readingExamMediaKey(examId: string, suffix: string): string {
+  return `reading-exam:${examId}:${suffix}`
+}
+
+/** PET Part 2 — ảnh từng người Q6–10: part2-q6.jpg … part2-q10.jpg */
+export function petPart2PersonImageFilename(questionNumber: number): string {
+  return `part2-q${questionNumber}.jpg`
+}
+
+async function storePetPart2PersonImages(
+  examId: string,
+  partJson: ReadingImportPartJson,
+  mediaMap: Map<string, File>,
+): Promise<void> {
+  if (partJson.partNumber !== 2) return
+  const nums = new Set(
+    partJson.questionGroups.flatMap(g => g.questions.map(q => q.number)),
+  )
+  for (let n = 6; n <= 10; n += 1) {
+    if (!nums.has(n)) continue
+    const imgFile = resolveImageMediaFileAny(mediaMap, [
+      petPart2PersonImageFilename(n),
+      `part2-q${n}`,
+      `part2-person${n}`,
+    ])
+    if (!imgFile) continue
+    const imageKey = readingExamMediaKey(examId, petPart2PersonImageFilename(n))
+    await audioRepo.put(imageKey, imgFile)
+  }
+}
+
+function normalizeImportPart(raw: Record<string, unknown>): ReadingImportPartJson {
+  const partNumber = Number(raw.partNumber) || 1
+  const rawTitle = String(raw.passageTitle ?? raw.title ?? `Part ${partNumber}`).trim()
+  const rangeFromTitle = rawTitle.match(/questions?\s*(\d+)\s*[-–—]\s*(\d+)/i)
+  const rangeLabel = typeof raw.rangeLabel === 'string' && raw.rangeLabel.trim()
+    ? raw.rangeLabel.trim()
+    : rangeFromTitle
+      ? `Questions ${rangeFromTitle[1]}–${rangeFromTitle[2]}`
+      : rawTitle
+  const passageTitle = rawTitle.replace(/^part\s*\d+\s*[—\-–]\s*questions?\s*\d+\s*[-–—]\s*\d+\s*/i, '').trim()
+    || rawTitle
+
+  const partInstructions = typeof raw.instructions === 'string' ? raw.instructions.trim() : ''
+  const rawGroups = Array.isArray(raw.questionGroups) ? raw.questionGroups : []
+
+  const questionGroups: ReadingImportQuestionGroupJson[] = rawGroups.map(group => {
+    const g = group as Record<string, unknown>
+    const noteTable = normalizeReadingNoteTable(g.noteTable as ReadingImportQuestionGroupJson['noteTable'])
+    const preliminaryType = normalizeReadingGroupType(
+      typeof g.type === 'string' ? g.type : undefined,
+      {
+        noteTable: noteTable ?? undefined,
+        notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
+        note: typeof g.note === 'string' ? g.note : undefined,
+        questions: [],
+      },
+    )
+    const questionsRaw = Array.isArray(g.questions) ? g.questions : []
+    const questions: ReadingImportQuestionJson[] = questionsRaw.map(q => {
+      const item = q as Record<string, unknown>
+      const number = Number(item.number) || 0
+      const qType = (item.type as ReadingImportQuestionJson['type'])
+        ?? (preliminaryType === 'gap-fill' || preliminaryType === 'summary-completion' ? 'gap-fill'
+          : preliminaryType === 'ynng' ? 'yes-no-not-given'
+            : preliminaryType === 'matching-headings' ? 'matching-headings'
+              : 'multiple-choice')
+      const prompt = typeof item.prompt === 'string' ? item.prompt.trim() : ''
+      let options = Array.isArray(item.options) ? item.options as ReadingImportQuestionJson['options'] : undefined
+      if (preliminaryType === 'ynng' && qType === 'yes-no-not-given' && (!options || options.length < 3)) {
+        options = [...YNNG_IMPORT_OPTIONS]
+      }
+      return {
+        number,
+        type: qType,
+        prompt: prompt || (qType === 'gap-fill' ? `Gap (${number})` : `Question ${number}`),
+        options,
+        answer: String(item.answer ?? '').trim(),
+        explanation: typeof item.explanation === 'string' ? item.explanation : undefined,
+        minWords: typeof item.minWords === 'number' ? item.minWords : undefined,
+      }
+    })
+
+    const groupType = normalizeReadingGroupType(
+      typeof g.type === 'string' ? g.type : undefined,
+      {
+        noteTable: noteTable ?? undefined,
+        notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
+        note: typeof g.note === 'string' ? g.note : undefined,
+        questions,
+      },
+    )
+
+    return {
+      range: typeof g.range === 'string' && g.range.trim() ? g.range.trim() : rangeLabel,
+      instruction: typeof g.instruction === 'string' && g.instruction.trim()
+        ? g.instruction.trim()
+        : partInstructions || 'Choose the correct answer.',
+      note: typeof g.note === 'string' ? g.note : undefined,
+      imageFile: typeof g.imageFile === 'string' && g.imageFile.trim() ? g.imageFile.trim() : undefined,
+      noteTable,
+      notePassage: g.notePassage as ReadingImportQuestionGroupJson['notePassage'],
+      notesTitle: typeof g.notesTitle === 'string' ? g.notesTitle.trim() : undefined,
+      type: groupType,
+      paragraphLetters: g.paragraphLetters as ReadingImportQuestionGroupJson['paragraphLetters'],
+      headings: g.headings as ReadingImportQuestionGroupJson['headings'],
+      features: g.features as ReadingImportQuestionGroupJson['features'],
+      wordBank: g.wordBank as ReadingImportQuestionGroupJson['wordBank'],
+      questions,
+    }
+  })
+
+  return {
+    partNumber,
+    rangeLabel,
+    passageTitle,
+    passageSubtitle: typeof raw.passageSubtitle === 'string' ? raw.passageSubtitle : undefined,
+    passage: Array.isArray(raw.passage) ? raw.passage as ReadingImportPassageBlockJson[] : [],
+    questionGroups: normalizeReadingImportNoteTables(questionGroups),
+  }
+}
+
+/** Chuẩn hóa JSON từ Claude / tool ngoài (title→passageTitle, thêm type câu hỏi…). */
+export function normalizeReadingImportPayload(payload: ReadingImportPayload): ReadingImportPayload {
+  return {
+    ...payload,
+    parts: (payload.parts as unknown as Record<string, unknown>[]).map(normalizeImportPart),
+  }
+}
+
+export function parseReadingImportJson(text: string): ReadingImportPayload {
+  let raw: unknown
+  try {
+    raw = JSON.parse(text)
+  } catch {
+    throw new Error('File JSON không hợp lệ.')
+  }
+
+  if (!raw || typeof raw !== 'object') {
+    throw new Error('JSON phải là object.')
+  }
+
+  const obj = raw as Record<string, unknown>
+  if (obj.version !== 1) {
+    throw new Error('Chỉ hỗ trợ version 1.')
+  }
+  if (typeof obj.title !== 'string' || !obj.title.trim()) {
+    throw new Error('Thiếu title.')
+  }
+  if (!Array.isArray(obj.parts) || obj.parts.length === 0) {
+    throw new Error('parts phải là mảng có ít nhất 1 phần.')
+  }
+
+  const examTrack = obj.examTrack === 'cambridge' ? 'cambridge' : obj.examTrack === 'ielts' ? 'ielts' : undefined
+  const validLevels: CambridgeLevelSlug[] = ['a2', 'b1', 'b2', 'c1', 'c2']
+  const cambridgeLevel = typeof obj.cambridgeLevel === 'string' && validLevels.includes(obj.cambridgeLevel as CambridgeLevelSlug)
+    ? obj.cambridgeLevel as CambridgeLevelSlug
+    : undefined
+
+  return normalizeReadingImportPayload({
+    version: 1,
+    title: obj.title.trim(),
+    durationMinutes: typeof obj.durationMinutes === 'number' ? obj.durationMinutes : 60,
+    bandHint: typeof obj.bandHint === 'string' ? obj.bandHint : undefined,
+    examTrack,
+    cambridgeLevel,
+    parts: obj.parts as ReadingImportPartJson[],
+  })
+}
+
+export function validateReadingManualImport(payload: ReadingImportPayload): string[] {
+  const warnings: string[] = []
+  let totalQuestions = 0
+
+  const levelGuides = payload.cambridgeLevel
+    ? cambridgeReadingPartGuides(payload.cambridgeLevel)
+    : []
+
+  for (const part of payload.parts) {
+    if (!part.passageTitle?.trim()) {
+      warnings.push(`Part ${part.partNumber}: thiếu passageTitle.`)
+    }
+    if (!part.questionGroups?.length) {
+      warnings.push(`Part ${part.partNumber}: không có questionGroups.`)
+      continue
+    }
+
+    const hasPassageContent = (part.passage ?? []).some(
+      block => Boolean(block.text?.trim()) || Boolean(block.imageFile?.trim()),
+    )
+    if (!hasPassageContent) {
+      warnings.push(`Part ${part.partNumber}: passage trống — thêm text hoặc imageFile.`)
+    }
+
+    const guide = levelGuides.find(g => g.partNumber === part.partNumber)
+    if (guide?.groupType === 'multiple-choice' && part.questionGroups.some(g => g.type === 'gap-fill')) {
+      warnings.push(
+        `Part ${part.partNumber}: đề gốc là multiple-choice (${guide.title}) — không dùng gap-fill tự gõ.`,
+      )
+    }
+    if (guide?.wordChoiceMc) {
+      const bad = part.questionGroups.flatMap(g => g.questions).filter(
+        q => q.type === 'gap-fill' || (q.type === 'multiple-choice' && (!q.options || q.options.length < 2)),
+      )
+      if (bad.length > 0) {
+        warnings.push(
+          `Part ${part.partNumber}: mỗi câu cần đủ options MC (chọn từ) — không dùng gap-fill tự gõ.`,
+        )
+      }
+    }
+
+    for (const group of part.questionGroups) {
+      if (!VALID_GROUP_TYPES.includes(group.type)) {
+        warnings.push(`Part ${part.partNumber} — ${group.range}: type "${group.type}" không hợp lệ.`)
+      }
+      // Summary / notes — không cảnh báo thiếu noteTable
+      const isSummaryOrNotes = /complete the summary|summary below|complete the notes|notes below|complete the sentences/i
+        .test(group.instruction ?? '')
+      if (group.noteTable?.headers?.length && !isSummaryOrNotes) {
+        const gapNums = group.questions
+          .filter(q => q.type === 'gap-fill')
+          .map(q => q.number)
+        warnings.push(
+          ...validateReadingNoteTable(
+            group.noteTable,
+            gapNums,
+            `Part ${part.partNumber} — ${group.range}`,
+          ),
+        )
+      } else if (
+        group.type === 'gap-fill'
+        && group.questions.some(q => q.type === 'gap-fill' && /^gap\s*\(/i.test(q.prompt))
+        && !group.notePassage?.length
+        && !group.note?.includes('________')
+        && /complete the table|table below/i.test(group.instruction ?? '')
+      ) {
+        warnings.push(
+          `Part ${part.partNumber} — ${group.range}: table-completion cần noteTable (bảng n cột).`,
+        )
+      }
+      if (group.type === 'matching-headings') {
+        if (!group.headings?.length) {
+          warnings.push(`Part ${part.partNumber} — ${group.range}: matching-headings cần headings[].`)
+        }
+      }
+      if (group.type === 'ynng') {
+        const bad = group.questions?.filter(q => q.type !== 'yes-no-not-given') ?? []
+        if (bad.length > 0) {
+          warnings.push(`Part ${part.partNumber} — ${group.range}: ynng cần question type yes-no-not-given.`)
+        }
+      }
+      if (!group.questions?.length) {
+        warnings.push(`Part ${part.partNumber} — ${group.range}: không có câu hỏi.`)
+        continue
+      }
+
+      for (const q of group.questions) {
+        totalQuestions += 1
+        if (!q.prompt?.trim()) warnings.push(`Câu ${q.number}: thiếu prompt.`)
+        if (q.type !== 'writing-task' && !q.answer?.trim()) warnings.push(`Câu ${q.number}: thiếu answer.`)
+        if (!VALID_QUESTION_TYPES.includes(q.type)) {
+          warnings.push(`Câu ${q.number}: type "${q.type}" không hợp lệ.`)
+        }
+        if (q.type === 'writing-task') {
+          if (!q.minWords || q.minWords < 1) {
+            warnings.push(`Câu ${q.number}: writing-task cần minWords (vd 25 hoặc 35).`)
+          }
+        } else if (q.type === 'yes-no-not-given' && (!q.options || q.options.length < 3)) {
+          warnings.push(`Câu ${q.number}: YNNG cần 3 options (YES/NO/NOT GIVEN).`)
+        } else if (q.type === 'matching-headings') {
+          const headingIds = new Set((group.headings ?? []).map(h => h.id.toLowerCase()))
+          if (!headingIds.has(q.answer.toLowerCase())) {
+            warnings.push(`Câu ${q.number}: answer "${q.answer}" không khớp headings[].`)
+          }
+        } else if (q.type === 'multiple-choice' && (!q.options || q.options.length < 2)) {
+          warnings.push(`Câu ${q.number}: thiếu options.`)
+        }
+      }
+    }
+  }
+
+  if (totalQuestions === 0) warnings.push('Đề không có câu hỏi nào.')
+  return warnings
+}
+
+export function countReadingImportQuestions(payload: ReadingImportPayload): number {
+  return payload.parts.reduce(
+    (sum, part) => sum + part.questionGroups.reduce((gs, g) => gs + (g.questions?.length ?? 0), 0),
+    0,
+  )
+}
+
+export function buildImportedReadingManualId(): string {
+  return `reading-manual-${Date.now()}`
+}
+
+export function isReadingMediaFile(file: File): boolean {
+  return isExamImportImageFile(file)
+}
+
+export function isReadingJsonFile(file: File): boolean {
+  return file.name.toLowerCase().endsWith('.json')
+    && (file.type === 'application/json' || file.type === '' || file.type === 'text/json')
+}
+
+function defaultBandHint(payload: ReadingImportPayload): string {
+  if (payload.bandHint?.trim()) return payload.bandHint.trim()
+  if (payload.cambridgeLevel) {
+    const labels: Record<CambridgeLevelSlug, string> = {
+      a2: 'A2 Key',
+      b1: 'B1 Preliminary',
+      b2: 'B2 First',
+      c1: 'C1 Advanced',
+      c2: 'C2 Proficiency',
+    }
+    return `${labels[payload.cambridgeLevel]} Reading`
+  }
+  if (payload.examTrack === 'ielts') return 'IELTS Academic'
+  return 'Import thủ công'
+}
+
+export type ReadingImportMediaStorage = 'local' | 'cloud'
+
+export async function buildReadingExamFromImport(
+  payload: ReadingImportPayload,
+  mediaFiles: File[],
+  examId = buildImportedReadingManualId(),
+  options?: { mediaStorage?: ReadingImportMediaStorage },
+): Promise<ReadingExam> {
+  const useCloudMedia = options?.mediaStorage === 'cloud'
+  const mediaMap = buildMediaMap(mediaFiles)
+  const parts: ReadingPart[] = []
+
+  for (const partJson of payload.parts) {
+    const partId = `${examId}-part-${partJson.partNumber}`
+    const passage: ReadingPassageBlock[] = []
+
+    // Profile Part 2 (Angus/Frank/…) — đếm ảnh part2-p1.jpg theo block có label
+    let labeledPortraitOrdinal = 0
+
+    for (let blockIndex = 0; blockIndex < (partJson.passage ?? []).length; blockIndex += 1) {
+      const blockJson = partJson.passage[blockIndex]
+      let imageKey: string | undefined
+
+      const hasLabel = Boolean(blockJson.label?.trim())
+      if (hasLabel) labeledPortraitOrdinal += 1
+
+      const portraitAliases =
+        partJson.partNumber === 2 && hasLabel
+          ? [
+              `part2-p${labeledPortraitOrdinal}.jpg`,
+              `part2-p${labeledPortraitOrdinal}.jpeg`,
+              `part2-p${labeledPortraitOrdinal}.png`,
+              `part2-p${labeledPortraitOrdinal}.webp`,
+              `part2-person${labeledPortraitOrdinal}.jpg`,
+            ]
+          : []
+
+      const imgFile = resolveMediaFile(mediaMap, blockJson.imageFile)
+        ?? portraitAliases.map(n => resolveMediaFile(mediaMap, n)).find(Boolean)
+        // 1-based: part1-q1.jpg / part7-p1.jpg (hay dùng trong bundle KET)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.jpg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.jpeg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-q${blockIndex + 1}.png`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.jpg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.webp`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex + 1}.png`)
+        // legacy 0-based fallback
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.jpg`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.webp`)
+        ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-p${blockIndex}.png`)
+      let imageUrl: string | undefined
+      if (imgFile) {
+        if (useCloudMedia) {
+          const uploaded = await uploadReadingExamCloudImage(
+            examId,
+            partJson.partNumber,
+            'passage',
+            imgFile,
+            blockIndex,
+          )
+          imageUrl = uploaded.publicUrl
+        } else {
+          imageKey = readingExamMediaKey(examId, `part${partJson.partNumber}-img-${blockIndex}`)
+          await audioRepo.put(imageKey, imgFile)
+        }
+      }
+
+      passage.push({
+        label: blockJson.label,
+        text: blockJson.text ?? '',
+        imageKey,
+        imageUrl,
+      })
+    }
+
+    const questionGroups: ReadingQuestionGroup[] = await Promise.all(
+      partJson.questionGroups.map(async (groupJson, groupIndex) => {
+        const groupId = `${partId}-g${groupIndex}`
+        const questions: ReadingQuestion[] = groupJson.questions.map(qJson => ({
+          id: `${partId}-q${qJson.number}`,
+          number: qJson.number,
+          type: qJson.type,
+          prompt: qJson.prompt,
+          options: qJson.options ?? [],
+          answer: qJson.answer,
+          explanation: qJson.explanation ?? '',
+          answerConfidence: 'key',
+          ...(qJson.minWords ? { minWords: qJson.minWords } : {}),
+        }))
+
+        let imageKey: string | undefined
+        let groupImageUrl: string | undefined
+        const groupImgFile = resolveMediaFile(mediaMap, groupJson.imageFile)
+          ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-group-${groupIndex}.jpg`)
+          ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-group-${groupIndex}.png`)
+          ?? resolveMediaFile(mediaMap, `part${partJson.partNumber}-group-${groupIndex}.webp`)
+        if (groupImgFile) {
+          if (useCloudMedia) {
+            const uploaded = await uploadReadingExamCloudImage(
+              examId,
+              partJson.partNumber,
+              'group',
+              groupImgFile,
+              groupIndex,
+            )
+            groupImageUrl = uploaded.publicUrl
+          } else {
+            imageKey = readingExamMediaKey(examId, `part${partJson.partNumber}-group-img-${groupIndex}`)
+            await audioRepo.put(imageKey, groupImgFile)
+          }
+        }
+
+        return {
+          id: groupId,
+          range: groupJson.range,
+          instruction: groupJson.instruction,
+          note: groupJson.note,
+          imageKey,
+          imageUrl: groupImageUrl,
+          imageFile: groupJson.imageFile,
+          noteTable: groupJson.noteTable,
+          notePassage: groupJson.notePassage,
+          notesTitle: groupJson.notesTitle,
+          type: groupJson.type,
+          paragraphLetters: groupJson.paragraphLetters,
+          headings: groupJson.headings,
+          features: groupJson.features,
+          wordBank: groupJson.wordBank,
+          questions,
+        }
+      }),
+    )
+
+    await storePetPart2PersonImages(examId, partJson, mediaMap)
+
+    let topImageUrl: string | undefined
+    let bottomImageUrl: string | undefined
+    const topFile = resolvePlacementMediaFile(mediaMap, partJson.partNumber, 'top')
+    const bottomFile = resolvePlacementMediaFile(mediaMap, partJson.partNumber, 'bottom')
+    if (topFile) {
+      if (useCloudMedia) {
+        topImageUrl = (await uploadReadingExamCloudImage(examId, partJson.partNumber, 'top', topFile)).publicUrl
+      } else {
+        const key = readingExamMediaKey(examId, `part${partJson.partNumber}-top`)
+        await audioRepo.put(key, topFile)
+      }
+    }
+    if (bottomFile) {
+      if (useCloudMedia) {
+        bottomImageUrl = (await uploadReadingExamCloudImage(examId, partJson.partNumber, 'bottom', bottomFile)).publicUrl
+      } else {
+        const key = readingExamMediaKey(examId, `part${partJson.partNumber}-bottom`)
+        await audioRepo.put(key, bottomFile)
+      }
+    }
+
+    parts.push({
+      id: partId,
+      partNumber: partJson.partNumber,
+      rangeLabel: partJson.rangeLabel,
+      passageTitle: partJson.passageTitle,
+      passageSubtitle: partJson.passageSubtitle,
+      passage,
+      questionGroups,
+      topImageUrl,
+      bottomImageUrl,
+    })
+  }
+
+  const partCount = parts.length
+  const bandHint = defaultBandHint(payload)
+    + (partCount > 0 ? ` — ${partCount} part${partCount === 1 ? '' : 's'}` : '')
+
+  return sanitizeReadingExam({
+    id: examId,
+    title: payload.title,
+    durationMinutes: payload.durationMinutes,
+    bandHint,
+    parts,
+    examTrack: payload.examTrack,
+    cambridgeLevel: payload.cambridgeLevel,
+  })
+}
+
+export function readingImportTemplate(
+  examTrack: ReadingExamTrack = 'ielts',
+  cambridgeLevel?: CambridgeLevelSlug,
+): ReadingImportPayload {
+  if (cambridgeLevel && examTrack === 'cambridge') {
+    const tpl = cambridgeReadingImportTemplate(cambridgeLevel)
+    if (tpl) return tpl
+  }
+
+  const isIelts = examTrack === 'ielts'
+  const levelLabel = cambridgeLevel?.toUpperCase() ?? 'IELTS'
+
+  return {
+    version: 1,
+    title: isIelts
+      ? 'IELTS Reading — Đề import thủ công'
+      : `${levelLabel} Reading — Đề import thủ công`,
+    durationMinutes: 60,
+    bandHint: isIelts ? 'IELTS Academic' : `${levelLabel} Reading`,
+    examTrack,
+    cambridgeLevel,
+    parts: [
+      {
+        partNumber: 1,
+        rangeLabel: 'Read the text and answer questions 1–3.',
+        passageTitle: 'Sample passage title',
+        passageSubtitle: 'Optional subtitle',
+        passage: [
+          {
+            text: 'Paste your passage paragraph here. You can add multiple blocks.',
+          },
+          {
+            imageFile: 'part1-p1.jpg',
+          },
+          {
+            label: 'A',
+            text: 'Optional labelled paragraph (e.g. matching paragraph tasks).',
+          },
+        ],
+        questionGroups: [
+          {
+            range: 'Questions 1–3',
+            type: 'tfng',
+            instruction: 'Do the following statements agree with the information in the passage?',
+            questions: [
+              {
+                number: 1,
+                type: 'true-false-not-given',
+                prompt: 'The passage mentions a specific date.',
+                options: [
+                  { id: 'true', label: 'TRUE' },
+                  { id: 'false', label: 'FALSE' },
+                  { id: 'not-given', label: 'NOT GIVEN' },
+                ],
+                answer: 'true',
+                explanation: 'Explain why this is the correct answer.',
+              },
+              {
+                number: 2,
+                type: 'gap-fill',
+                prompt: 'The research was conducted in ______.',
+                answer: 'London',
+                explanation: 'ONE WORD ONLY from the passage.',
+              },
+              {
+                number: 3,
+                type: 'multiple-choice',
+                prompt: 'What is the main purpose of the passage?',
+                options: [
+                  { id: 'A', label: 'To describe a process' },
+                  { id: 'B', label: 'To argue a position' },
+                  { id: 'C', label: 'To report findings' },
+                  { id: 'D', label: 'To tell a story' },
+                ],
+                answer: 'C',
+                explanation: 'The passage reports research findings.',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }
+}
+
+export function isImportedReadingExamId(id: string): boolean {
+  return id.startsWith('reading-pdf-') || id.startsWith('reading-manual-')
+}
+
+/** Đề Reading hệ thống (catalog/sample). */
+export function isSystemReadingExamId(id: string): boolean {
+  return (
+    id.startsWith('catalog-')
+    || (id.startsWith('cambridge-') && id.includes('-sample-'))
+    || id.startsWith('ielts-reading-')
+    || id.includes('-reading-sample-')
+  )
+}
+
+/**
+ * User thường: chỉ xóa import/publish.
+ * Admin: xóa được mọi đề (kể cả catalog IELTS) — catalog bị ẩn + gỡ cloud.
+ */
+export function canDeleteReadingExamId(id: string, opts?: { isAdmin?: boolean }): boolean {
+  if (opts?.isAdmin === true) return true
+  if (isSystemReadingExamId(id)) return false
+  if (isImportedReadingExamId(id)) return true
+  return !id.startsWith('catalog-')
+}

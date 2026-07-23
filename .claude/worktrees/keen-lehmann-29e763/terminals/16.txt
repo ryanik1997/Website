@@ -1,0 +1,28 @@
+---
+pid: 32868
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website; pnpm db:push"
+started_at: 2026-06-30T15:47:52.080Z
+running_for_ms: 5140007  
+---
+
+> ryan-english@ db:push D:\App-English-Ryan\Website
+> node scripts/db-push.mjs
+
+→ Supabase db push (apply) — project ntcagvtkwxwsmlxlumfo
+Finished supabase link.
+Timeout while shutting down PostHog. Some events may not have been sent.
+Try rerunning the command with --debug to troubleshoot the error.
+Connecting to remote database...
+Do you want to push these migrations to the remote database?
+ • 007_writing_type_constraint_repair.sql
+
+ [Y/n] y
+Applying migration 007_writing_type_constraint_repair.sql...
+NOTICE (00000): constraint "writing_docs_type_check" of relation "writing_docs" does not exist, skipping
+NOTICE (42701): column "prompt_image" of relation "writing_docs" already exists, skipping
+Finished supabase db push.
+Warning: failed to cache migrations catalog: error exporting pg-delta catalog: failed to inspect docker image: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/images/public.ecr.aws/supabase/edge-runtime:v1.74.2/json": open //./pipe/docker_engine: The system cannot find the file specified.:
+
+✓ Migrations đã push — mọi user dùng schema mới.
+Docker Desktop is a prerequisite for local development. Follow the official docs to install: https://docs.docker.com/desktop

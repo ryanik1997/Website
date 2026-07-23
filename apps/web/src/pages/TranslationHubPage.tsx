@@ -1,14 +1,22 @@
 import type { CSSProperties } from 'react'
+import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowRight } from 'lucide-react'
 import { db } from '@ryan/db'
 import { TRANSLATION_TRACKS } from '../features/translation/translationCatalog'
+import { ensureTranslationSeedData } from '../features/translation/seedTranslationPacks'
 import '../features/writing/cambridgeHub.css'
 
 /** Bước 1: Chọn Task 1 / Task 2 / Daily / Của tôi */
 export default function TranslationHubPage() {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    void ensureTranslationSeedData().catch(err =>
+      console.warn('[translation] seed failed', err),
+    )
+  }, [])
 
   const counts = useLiveQuery(async () => {
     const all = await db.translationSets.toArray()

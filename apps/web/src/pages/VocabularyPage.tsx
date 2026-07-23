@@ -1,28 +1,64 @@
 import { useEffect, useState } from 'react'
-import { ChevronLeft } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
+import { ChevronLeft, RotateCcw } from 'lucide-react'
+import { isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
 import { useVocabStore } from '../features/vocab/vocabStore'
 import DeckGrid from '../features/vocab/DeckGrid'
 import CardPanel from '../features/vocab/CardPanel'
 import StudySession from '../features/vocab/StudySession'
 import DeckEditorModal from '../features/vocab/DeckEditorModal'
-import { repairVocabDuplicates, seedPresetDecks } from '../features/vocab/vocabSeedDecks'
-import { seedExamVocabDecks } from '../features/vocab/examVocabDecks'
+import {
+  VOCAB_UNIT_KIND_LABELS,
+  filterCardsByUnitKind,
+  type VocabUnitKind,
+} from '../features/vocab/vocabUnitKind'
+import { useI18n } from '../lib/language'
+import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
+import '../features/vocab/vocabLibrary.css'
+
+const UNIT_TABS: { id: VocabUnitKind; label: string }[] = [
+  { id: 'single', label: VOCAB_UNIT_KIND_LABELS.single },
+  { id: 'phrase', label: VOCAB_UNIT_KIND_LABELS.phrase },
+]
 
 export default function VocabularyPage() {
-  const { activeDeckId, setActiveDeck, studyMode, startStudy } = useVocabStore()
+  const { t } = useI18n()
+  const { activeDeckId, setActiveDeck, studyMode, startStudy, unitKind, setUnitKind } = useVocabStore()
   const [createState, setCreateState] = useState<{ open: boolean; groupId?: string }>({ open: false })
   const [repairBusy, setRepairBusy] = useState(false)
   const [repairMsg, setRepairMsg] = useState<string | null>(null)
+  const [reviseOpen, setReviseOpen] = useState(false)
+  const [dueClock, setDueClock] = useState(() => Date.now())
   // Force DeckGrid remount after repair
   const [gridKey, setGridKey] = useState(0)
-  const deckCount = useLiveQuery(() => db.decks.count(), [])
+  const reviseDueCount = useLiveQuery(async () => {
+    const now = Date.now()
+    const [srsRows, cards] = await Promise.all([
+      db.srs.where('dueAt').belowOrEqual(now).toArray(),
+      db.cards.toArray(),
+    ])
+    const cardsById = new Map(cards.map(card => [card.id, card]))
+    return srsRows.filter(srs => {
+      const card = cardsById.get(srs.cardId)
+      return Boolean(card && isSrsReviewDue(srs, now) && card && filterCardsByUnitKind([card], unitKind).length)
+    }).length
+  }, [unitKind, dueClock])
 
   useEffect(() => {
-    // seedPresetDecks: idempotent + dedupe deck/card (fix double "Công nghệ", …)
-    void seedPresetDecks().catch(err => console.warn('[vocab] seedPresetDecks failed', err))
-    void seedExamVocabDecks().catch(err => console.warn('[vocab] seedExamVocabDecks failed', err))
+    const timer = window.setInterval(() => setDueClock(Date.now()), 15_000)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    // Dynamic import: tránh kéo ~7MB JSON seed vào critical path của route /app/vocab
+    // (static import từng làm Vite/HMR serve module rỗng → React.lazy → trang trắng).
+    void import('../features/vocab/vocabSeedDecks')
+      .then(m => m.seedPresetDecks())
+      .catch(err => console.warn('[vocab] seedPresetDecks failed', err))
+    void import('../features/vocab/examVocabDecks')
+      .then(m => m.seedExamVocabDecks())
+      .catch(err => console.warn('[vocab] seedExamVocabDecks failed', err))
   }, [])
 
   async function handleRepairDuplicates() {
@@ -30,12 +66,13 @@ export default function VocabularyPage() {
     setRepairBusy(true)
     setRepairMsg(null)
     try {
+      const { repairVocabDuplicates } = await import('../features/vocab/vocabSeedDecks')
       const { decksRemoved } = await repairVocabDuplicates()
       setGridKey(k => k + 1)
       setRepairMsg(
         decksRemoved > 0
-          ? `Đã gộp ${decksRemoved} bộ trùng + dọn thẻ trùng phrase.`
-          : 'Đã dọn thẻ trùng phrase (không còn bộ ghost).',
+          ? `${decksRemoved} duplicate decks merged.`
+          : 'Duplicate phrases cleaned.',
       )
     } catch (e) {
       setRepairMsg(e instanceof Error ? e.message : 'Dọn thất bại')
@@ -46,17 +83,13 @@ export default function VocabularyPage() {
 
   if (activeDeckId === null) {
     return (
-      <div className="relative h-full overflow-y-auto" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="max-w-5xl mx-auto px-6 py-8">
-          <div className="mb-6 flex items-center justify-between gap-4">
+      <div className="app-page-surface vocab-library-page relative h-full overflow-y-auto">
+        <div className="vocab-library-page__panel max-w-5xl mx-auto px-6 py-8">
+          <div className="vocab-library-page__header mb-6 flex items-center justify-between gap-4">
             <div>
               <h1 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
-                Bộ từ vựng
+                {t('vocab.title')}
               </h1>
-              <p className="text-sm mt-0.5" style={{ color: 'var(--text-muted)' }}>
-                Chọn bộ từ để bắt đầu học
-                {typeof deckCount === 'number' ? ` · ${deckCount} bộ` : ''}
-              </p>
               {repairMsg && (
                 <p className="text-xs mt-1 font-medium" style={{ color: 'var(--color-primary)' }}>
                   {repairMsg}
@@ -74,9 +107,9 @@ export default function VocabularyPage() {
                   color: 'var(--text-secondary)',
                   background: 'var(--bg-card)',
                 }}
-                title="Gộp bộ preset trùng + thẻ cùng phrase trong một bộ"
+                title={t('vocab.repair')}
               >
-                {repairBusy ? 'Đang dọn…' : 'Dọn thẻ trùng'}
+                {repairBusy ? t('vocab.repairBusy') : t('vocab.repair')}
               </button>
               <button
                 type="button"
@@ -88,7 +121,7 @@ export default function VocabularyPage() {
                   background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)',
                 }}
               >
-                Sổ ghi chú
+                {t('vocab.notebook')}
               </button>
               <button
                 type="button"
@@ -96,13 +129,79 @@ export default function VocabularyPage() {
                 className="px-4 py-2 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
                 style={{ background: 'var(--color-primary)', color: 'var(--bg-primary)' }}
               >
-                + Tạo bộ thẻ
+                {t('vocab.create')}
               </button>
             </div>
           </div>
 
+          {/* Cấp 1: Từ đơn | Cụm từ */}
+          <div
+            className="vocab-library-kind-tabs mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3"
+            role="tablist"
+            aria-label={t('vocab.kind')}
+          >
+            {UNIT_TABS.map(tab => {
+              const active = unitKind === tab.id
+              const reviseReady = (reviseDueCount ?? 0) > 0
+              const tabButton = (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setUnitKind(tab.id)}
+                  className="vocab-library-kind-tab text-left rounded-2xl px-4 py-3.5 border transition-all"
+                  style={{
+                    background: active
+                      ? 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))'
+                      : 'var(--bg-card)',
+                    borderColor: active ? 'var(--color-primary)' : 'var(--border-color)',
+                    boxShadow: active ? '0 0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent)' : undefined,
+                  }}
+                >
+                  <p
+                    className="text-sm font-bold"
+                    style={{ color: active ? 'var(--color-primary)' : 'var(--text-primary)' }}
+                  >
+                    {tab.id === 'single' ? t('vocab.single') : t('vocab.phrase')}
+                  </p>
+                </button>
+              )
+
+              if (tab.id === 'single') return tabButton
+
+              return (
+                <div
+                  key={tab.id}
+                  className="grid grid-cols-2 gap-3"
+                >
+                  {tabButton}
+                  <button
+                    type="button"
+                    onClick={() => setReviseOpen(true)}
+                    disabled={reviseDueCount === 0}
+                    className={`vocab-library-kind-tab vocab-library-revise-card${reviseReady ? ' is-due' : ''} flex items-center justify-center gap-1.5 rounded-2xl px-4 py-3.5 text-sm font-bold border transition-all disabled:cursor-not-allowed disabled:opacity-45`}
+                    style={{
+                      color: reviseReady ? 'var(--color-primary)' : 'var(--text-primary)',
+                      background: reviseReady
+                        ? 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))'
+                        : 'var(--bg-card)',
+                      borderColor: reviseReady ? 'var(--color-primary)' : 'var(--border-color)',
+                      boxShadow: reviseReady ? '0 0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent)' : undefined,
+                    }}
+                    title={reviseDueCount === 0 ? 'Không có thẻ đến hạn' : `Ôn ${reviseDueCount} thẻ đến hạn`}
+                  >
+                    <RotateCcw size={14} />
+                    Revise{reviseDueCount ? ` · ${reviseDueCount}` : ''}
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+
           <DeckGrid
-            key={gridKey}
+            key={`${gridKey}-${unitKind}`}
+            unitKind={unitKind}
             onSelectDeck={id => setActiveDeck(id)}
             onCreateDeck={groupId => setCreateState({ open: true, groupId })}
           />
@@ -115,12 +214,19 @@ export default function VocabularyPage() {
           />
         )}
         {studyMode && <StudySession />}
+        <SrsReviewReminderModal
+          open={reviseOpen}
+          dueCount={reviseDueCount ?? 0}
+          dueLoading={reviseDueCount === undefined}
+          onClose={() => setReviseOpen(false)}
+          unitKind={unitKind}
+        />
       </div>
     )
   }
 
   return (
-    <div className="relative flex h-full overflow-hidden">
+    <div className="app-page-surface vocab-lesson-page relative flex h-full overflow-hidden">
       <div className="flex flex-col h-full w-full">
         <div
           className="px-6 py-3 border-b flex items-center gap-3 shrink-0"

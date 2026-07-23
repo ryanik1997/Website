@@ -25,20 +25,34 @@ export function getBuiltinReadingExam(examId: string): ReadingExam | null {
   return exam ? sanitizeReadingExam(exam) : null
 }
 
-/** Catalog cùng level + cùng số part (fill media khi publish/import id khác catalog). */
+/** Catalog donor: ưu tiên cùng id; không lấy lung tung đề khác (tránh Part 7 dính ảnh Test 1). */
 function findCatalogMediaDonor(exam: ReadingExam): ReadingExam | null {
   const exact = getBuiltinReadingExam(exam.id)
   if (exact) return exact
   if (!exam.cambridgeLevel) return null
-  return (
-    READING_EXAMS.find(
-      e =>
-        e.id.startsWith('catalog-')
-        && e.cambridgeLevel === exam.cambridgeLevel
-        && e.examTrack === (exam.examTrack ?? 'cambridge')
-        && e.parts.length === exam.parts.length,
-    ) ?? null
-  )
+
+  const testOf = (t: string) => t.toLowerCase().match(/\btest\s*(\d+)\b/)?.[1]
+  const bookOf = (t: string) => t.toLowerCase().match(/\bbook\s*(\d+)\b/)?.[1]
+  const wantTest = testOf(exam.title)
+  const wantBook = bookOf(exam.title)
+  const track = exam.examTrack ?? 'cambridge'
+
+  // Match Book + Test + level + part count (an toàn khi id local ≠ catalog)
+  if (wantTest) {
+    const matched = READING_EXAMS.find(e => {
+      if (!e.id.startsWith('catalog-')) return false
+      if (e.cambridgeLevel !== exam.cambridgeLevel) return false
+      if ((e.examTrack ?? 'cambridge') !== track) return false
+      if (e.parts.length !== exam.parts.length) return false
+      if (testOf(e.title) !== wantTest) return false
+      if (wantBook && bookOf(e.title) && bookOf(e.title) !== wantBook) return false
+      return true
+    })
+    if (matched) return matched
+  }
+
+  // Không fallback “đề catalog đầu tiên cùng level” — hay dính ket-a2-test1 / book4-test1
+  return null
 }
 
 export async function resolveReadingExam(examId: string): Promise<ReadingExam | null> {
@@ -54,7 +68,18 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
     console.warn('Không tải được đề Reading published:', err)
   }
 
-  const builtin = getBuiltinReadingExam(examId)
+  let builtin = getBuiltinReadingExam(examId)
+  // Mode C: hydrate catalog stub → full body (signed)
+  if (builtin && examId.startsWith('catalog-reading-')) {
+    try {
+      const { fetchCatalogExamBody } = await import('./catalogExamBody')
+      const full = await fetchCatalogExamBody(builtin, 'reading')
+      builtin = sanitizeReadingExam(full as ReadingExam)
+    } catch (err) {
+      console.warn('[resolveReadingExam] catalog body hydrate failed', examId, err)
+      throw err
+    }
+  }
 
   // Cùng id: ưu tiên nhiều part hơn (catalog 7-part / publish RW thắng local 5-part cũ)
   const candidates = [local, published, builtin].filter((e): e is ReadingExam => Boolean(e))
@@ -93,7 +118,9 @@ export async function listAllReadingExams(): Promise<ReadingExam[]> {
   // Dedupe sample/catalog/local cùng Test (vd. double "Test 1 · A2 Key Reading — 5 parts")
   const hidden = new Set(await listHiddenReadingCatalogIds())
   const all = dedupeExamsForLibraryDisplay([...byId.values(), ...localOnly])
-  return all.filter(e => !hidden.has(e.id))
+  const visible = all.filter(e => !hidden.has(e.id))
+  const { filterExamsForPlan } = await import('./freePlanCatalogGate')
+  return filterExamsForPlan(visible, 'reading')
 }
 
 export function examRecordFromReading(exam: ReadingExam, source: 'pdf' | 'manual', sourceFilename?: string) {

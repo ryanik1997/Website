@@ -18,3 +18,25 @@ supabase/.temp
 Tainguyen/
 Tainguyen
 _recover_wizard/
+
+# Bulk / local audio — do NOT push multi-GB media to GitHub
+*.mp3
+*.wav
+assets/audio/
+apps/web/public/catalog/listening/**/part*.mp3
+apps/web/public/catalog/listening/fce-b2-book*/
+apps/web/public/catalog/listening/pet-b1-book*/
+# Cxpak cache (local only)
+.cxpak/
+
+# Cache & temp
+.cxpak/
+
+# Debug artifacts
+Fixbug/
+.freebuff/
+artifacts/
+nul
+
+# Unused 78MB — xem docs/project-summary.md
+reading_passages.json

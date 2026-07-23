@@ -6,12 +6,22 @@ import { useAuth } from './AuthContext'
 import { syncExamProgress } from '../exam/examProgressSync'
 import { syncCheckInDays } from '../home/checkInSync'
 import { syncAdminPublishedExams } from '../admin/syncAdminPublishedExams'
-import { seedPresetDecks } from '../vocab/vocabSeedDecks'
+import {
+  loginSyncDelay,
+  periodicSyncDelay,
+  reconnectSyncDelay,
+  retrySyncDelay,
+  SYNC_CHANGE_DEBOUNCE_MS,
+} from './syncTiming'
 
 export type SyncState = 'idle' | 'syncing' | 'done' | 'error'
 
 const LAST_SYNC_KEY = 'ryan-last-sync'
-const SYNC_INTERVAL_MS = 5 * 60 * 1000
+
+async function seedPresetDecksForSync(): Promise<void> {
+  const { seedPresetDecks } = await import('../vocab/vocabSeedDecks')
+  await seedPresetDecks()
+}
 
 export interface SyncManagerValue {
   syncState: SyncState
@@ -147,11 +157,19 @@ function useSyncManagerImpl(): SyncManagerValue {
   const [lastSyncAt, setLastSyncAt] = useState<string | null>(() => readLastSyncAt())
   const [error, setError] = useState<string | null>(null)
   const isSyncing = useRef(false)
+  const syncAgain = useRef(false)
   const loginSynced = useRef<string | null>(null)
+  const retryAttempt = useRef(0)
+  const retryTimer = useRef<number | null>(null)
+  const manualTimer = useRef<number | null>(null)
+  const reconnectTimer = useRef<number | null>(null)
 
   const runSync = useCallback(async () => {
     if (!user) return
-    if (isSyncing.current) return
+    if (isSyncing.current) {
+      syncAgain.current = true
+      return
+    }
 
     isSyncing.current = true
     setSyncState('syncing')
@@ -162,7 +180,7 @@ function useSyncManagerImpl(): SyncManagerValue {
 
       // Seed + dedupe preset TRƯỚC sync — để nhận diện ghost UUID trên cloud (tránh double Bộ từ vựng)
       try {
-        await seedPresetDecks()
+        await seedPresetDecksForSync()
       } catch (seedErr) {
         console.warn('[sync] seedPresetDecks before', seedErr)
       }
@@ -172,7 +190,7 @@ function useSyncManagerImpl(): SyncManagerValue {
 
       // Sau pull: gộp lại deck/card trùng (preset vs ghost, phrase double)
       try {
-        await seedPresetDecks()
+        await seedPresetDecksForSync()
       } catch (seedErr) {
         console.warn('[sync] seedPresetDecks after', seedErr)
       }
@@ -224,18 +242,38 @@ function useSyncManagerImpl(): SyncManagerValue {
       writeLastSyncAt(now)
       setLastSyncAt(now)
       setSyncState('done')
+      retryAttempt.current = 0
+      if (retryTimer.current != null) {
+        window.clearTimeout(retryTimer.current)
+        retryTimer.current = null
+      }
     } catch (e) {
       const raw = e instanceof Error ? e.message : 'Đồng bộ thất bại'
       console.warn('[sync]', raw, e)
       setError(friendlySyncError(raw))
       setSyncState('error')
+      const delay = retrySyncDelay(retryAttempt.current)
+      if (delay != null && navigator.onLine) {
+        retryAttempt.current += 1
+        if (retryTimer.current != null) window.clearTimeout(retryTimer.current)
+        retryTimer.current = window.setTimeout(() => void runSync(), delay)
+      }
     } finally {
       isSyncing.current = false
+      if (syncAgain.current) {
+        syncAgain.current = false
+        if (retryTimer.current != null) {
+          window.clearTimeout(retryTimer.current)
+          retryTimer.current = null
+        }
+        window.setTimeout(() => void runSync(), 0)
+      }
     }
   }, [user])
 
   const triggerSync = useCallback(() => {
-    void runSync()
+    if (manualTimer.current != null) window.clearTimeout(manualTimer.current)
+    manualTimer.current = window.setTimeout(() => void runSync(), SYNC_CHANGE_DEBOUNCE_MS)
   }, [runSync])
 
   useEffect(() => {
@@ -249,25 +287,38 @@ function useSyncManagerImpl(): SyncManagerValue {
     // Đợi một nhịp sau login để session storage settle
     const t = window.setTimeout(() => {
       void runSync()
-    }, 400)
+    }, loginSyncDelay())
     return () => window.clearTimeout(t)
   }, [user?.id, runSync])
 
   useEffect(() => {
     if (!user) return
-    const interval = window.setInterval(() => {
-      if (navigator.onLine) void runSync()
-    }, SYNC_INTERVAL_MS)
-    return () => window.clearInterval(interval)
+    let timer: number | null = null
+    let cancelled = false
+    const schedule = () => {
+      timer = window.setTimeout(async () => {
+        if (!cancelled && navigator.onLine) await runSync()
+        if (!cancelled) schedule()
+      }, periodicSyncDelay())
+    }
+    schedule()
+    return () => {
+      cancelled = true
+      if (timer != null) window.clearTimeout(timer)
+    }
   }, [user, runSync])
 
   useEffect(() => {
     if (!user) return
     function onOnline() {
-      void runSync()
+      if (reconnectTimer.current != null) window.clearTimeout(reconnectTimer.current)
+      reconnectTimer.current = window.setTimeout(() => void runSync(), reconnectSyncDelay())
     }
     window.addEventListener('online', onOnline)
-    return () => window.removeEventListener('online', onOnline)
+    return () => {
+      window.removeEventListener('online', onOnline)
+      if (reconnectTimer.current != null) window.clearTimeout(reconnectTimer.current)
+    }
   }, [user, runSync])
 
   // Khi token refresh / token refreshed — retry sync nếu lần trước lỗi phiên
@@ -281,6 +332,12 @@ function useSyncManagerImpl(): SyncManagerValue {
     })
     return () => subscription.unsubscribe()
   }, [error, runSync])
+
+  useEffect(() => () => {
+    if (retryTimer.current != null) window.clearTimeout(retryTimer.current)
+    if (manualTimer.current != null) window.clearTimeout(manualTimer.current)
+    if (reconnectTimer.current != null) window.clearTimeout(reconnectTimer.current)
+  }, [])
 
   return { syncState, lastSyncAt, triggerSync, error }
 }

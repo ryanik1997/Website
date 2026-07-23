@@ -1,5 +1,6 @@
 import { CATALOG_READING_EXAMS } from '@ryan/catalog'
 import { CAMBRIDGE_READING_SAMPLES } from './cambridgeReadingSamples'
+import { matchesReadingGapAnswer } from './readingAnswerMatching'
 
 export type ExamSkill = 'reading' | 'listening' | 'writing'
 
@@ -1061,8 +1062,8 @@ export function getReadingExam(examId: string) {
   return READING_EXAMS.find(exam => exam.id === examId) ?? null
 }
 
-function normalizeReadingAnswer(value: string): string {
-  return value.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, ' ')
+function normalizeReadingAnswer(value: unknown): string {
+  return String(value ?? '').trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, ' ')
 }
 
 function readingGapAnswerVariants(answer: string): string[] {
@@ -1074,14 +1075,12 @@ function readingGapAnswerVariants(answer: string): string[] {
 }
 
 function readingGapAnswersMatch(expected: string, given: string): boolean {
-  if (given === expected) return true
-  return given.split(/\s+/).length === 1 && expected.split(/\s+/).length === 1
-    && (given.includes(expected) || expected.includes(given))
+  return matchesReadingGapAnswer(expected, given)
 }
 
 export function isReadingAnswerCorrect(question: ReadingQuestion, userAnswer: string): boolean {
   if (isWritingTaskQuestion(question)) return false
-  if (!userAnswer.trim()) return false
+  if (!String(userAnswer ?? '').trim()) return false
   const given = normalizeReadingAnswer(userAnswer)
   const answer = typeof question.answer === 'string' ? question.answer : ''
 
@@ -1102,20 +1101,21 @@ export function formatReadingAnswer(
   answerId: string,
   context?: { headings?: { id: string; label: string }[] },
 ): string {
-  if (!answerId) return 'Chưa trả lời'
-  const fromOption = question.options.find(
-    o => o.id.toLowerCase() === answerId.toLowerCase(),
+  const safeAnswerId = String(answerId ?? '').trim()
+  if (!safeAnswerId) return 'Chưa trả lời'
+  const fromOption = (question.options ?? []).find(
+    o => String(o.id ?? '').toLowerCase() === safeAnswerId.toLowerCase(),
   )
   if (fromOption) return fromOption.label
   if (question.type === 'matching-headings' && context?.headings?.length) {
-    const heading = context.headings.find(h => h.id.toLowerCase() === answerId.toLowerCase())
+    const heading = context.headings.find(h => String(h.id ?? '').toLowerCase() === safeAnswerId.toLowerCase())
     if (heading) return `${heading.id}. ${heading.label}`
   }
   if (question.type === 'gap-fill' || question.type === 'sentence-completion') {
-    if (/[/|]/.test(answerId)) {
-      return answerId.split(/[/|]/).map(s => s.trim()).filter(Boolean).join(' hoặc ')
+    if (/[/|]/.test(safeAnswerId)) {
+      return safeAnswerId.split(/[/|]/).map(s => s.trim()).filter(Boolean).join(' hoặc ')
     }
-    return answerId
+    return safeAnswerId
   }
-  return answerId.toUpperCase()
+  return safeAnswerId.toUpperCase()
 }

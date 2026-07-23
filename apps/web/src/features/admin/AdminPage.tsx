@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Shield, Search, X, Check, RefreshCw, ChevronDown } from 'lucide-react'
+import { Shield, ShieldCheck, ShieldOff, Search, X, Check, RefreshCw, ChevronDown } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { db } from '@ryan/db'
+import UserAvatar from '../../components/UserAvatar'
 import AdminPublishExamsPanel from './AdminPublishExamsPanel'
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -19,6 +20,10 @@ interface Profile {
   plan: Plan
   plan_expires_at: string | null
   is_admin: boolean
+  suspended_at: string | null
+  suspension_reason: string | null
+  /** From auth.users via admin_list_profiles RPC */
+  last_sign_in_at: string | null
 }
 
 interface PaymentRequest {
@@ -83,6 +88,24 @@ function fmtExpiry(isoStr: string | null): string {
 
 function isExpired(isoStr: string | null): boolean {
   return !!isoStr && new Date(isoStr) < new Date()
+}
+
+function fmtLastSignIn(isoStr: string | null | undefined): string {
+  if (!isoStr) return 'Chưa đăng nhập'
+  const d = new Date(isoStr)
+  if (Number.isNaN(d.getTime())) return '—'
+  return d.toLocaleString('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
+
+function normalizePlan(raw: string | null | undefined): Plan {
+  const valid: Plan[] = ['free', 'trial', 'basic', 'pro', 'lifetime']
+  return valid.includes(raw as Plan) ? (raw as Plan) : 'free'
 }
 
 // ── Upgrade Modal ──────────────────────────────────────────────────────────
@@ -247,6 +270,7 @@ export default function AdminPage() {
   const [query, setQuery]       = useState(() => searchParams.get('search') ?? '')
   const [upgrading, setUpgrading] = useState<Profile | null>(null)
   const [activatingId, setActivatingId] = useState<string | null>(null)
+  const [suspendingId, setSuspendingId] = useState<string | null>(null)
 
   useEffect(() => { fetchProfiles() }, [])
   useEffect(() => { fetchPaymentRequests() }, [])
@@ -261,12 +285,46 @@ export default function AdminPage() {
 
   async function fetchProfiles() {
     setLoading(true)
+    // Prefer RPC: joins auth.users.last_sign_in_at (admin-only security definer)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: rpcData, error: rpcError } = await (supabase as any).rpc('admin_list_profiles')
+    if (!rpcError && Array.isArray(rpcData)) {
+      setProfiles(
+        (rpcData as Array<Record<string, unknown>>).map(row => ({
+          id: String(row.id),
+          email: String(row.email ?? ''),
+          display_name: (row.display_name as string | null) ?? null,
+          avatar_url: (row.avatar_url as string | null) ?? null,
+          plan: normalizePlan(row.plan as string | null),
+          plan_expires_at: (row.plan_expires_at as string | null) ?? null,
+          is_admin: Boolean(row.is_admin),
+          suspended_at: (row.suspended_at as string | null) ?? null,
+          suspension_reason: (row.suspension_reason as string | null) ?? null,
+          last_sign_in_at: (row.last_sign_in_at as string | null) ?? null,
+        })),
+      )
+      setLoading(false)
+      return
+    }
+
+    // Fallback if migration not applied yet
+    if (rpcError) {
+      console.warn('[admin] admin_list_profiles failed, fallback to profiles:', rpcError.message)
+    }
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, email, display_name, avatar_url, plan, plan_expires_at, is_admin')
+      .select('id, email, display_name, avatar_url, plan, plan_expires_at, is_admin, suspended_at, suspension_reason')
       .order('created_at', { ascending: false })
     setLoading(false)
-    if (!error && data) setProfiles(data as unknown as Profile[])
+    if (!error && data) {
+      setProfiles(
+        (data as Array<Omit<Profile, 'last_sign_in_at' | 'plan'> & { plan: string }>).map(p => ({
+          ...p,
+          plan: normalizePlan(p.plan),
+          last_sign_in_at: null,
+        })),
+      )
+    }
   }
 
   async function fetchPaymentRequests() {
@@ -311,6 +369,46 @@ export default function AdminPage() {
     ))
   }
 
+  async function toggleSuspension(profile: Profile) {
+    if (profile.is_admin) {
+      alert('Không thể khóa tài khoản quản trị từ màn hình này.')
+      return
+    }
+
+    const suspend = !profile.suspended_at
+    let reason: string | null = null
+    if (suspend) {
+      reason = window.prompt('Lý do tạm khóa (không bắt buộc):', 'Nghi ngờ truy cập tự động')
+      if (reason === null) return
+    }
+    const message = suspend
+      ? `Tạm khóa ${profile.email}? Tài khoản sẽ không thể lấy nội dung bảo vệ ngay lập tức.`
+      : `Mở khóa ${profile.email}? Tài khoản sẽ có thể truy cập lại theo gói hiện tại.`
+    if (!window.confirm(message)) return
+
+    setSuspendingId(profile.id)
+    const { error } = await supabase.rpc('set_user_suspension', {
+      target_user_id: profile.id,
+      suspended: suspend,
+      reason,
+    })
+    setSuspendingId(null)
+    if (error) {
+      alert('Không thể cập nhật trạng thái tài khoản: ' + error.message)
+      return
+    }
+    setProfiles(items => items.map(item => item.id === profile.id
+      ? {
+          ...item,
+          suspended_at: suspend ? new Date().toISOString() : null,
+          suspension_reason: suspend ? reason?.trim() || null : null,
+          plan: suspend ? 'free' : item.plan,
+          plan_expires_at: suspend ? null : item.plan_expires_at,
+        }
+      : item,
+    ))
+  }
+
   const filtered = useMemo(() => {
     const q = query.toLowerCase()
     return q
@@ -337,7 +435,7 @@ export default function AdminPage() {
   // ── Access denied ──
   if (isAdmin === false) {
     return (
-      <div className="flex-1 flex items-center justify-center p-8" style={{ background: 'var(--bg-primary)' }}>
+      <div className="app-page-surface flex-1 flex items-center justify-center p-8" style={{ background: 'var(--bg-primary)' }}>
         <div className="text-center max-w-sm">
           <Shield size={44} className="mx-auto mb-4" style={{ color: 'var(--border-color)' }} />
           <p className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Không có quyền truy cập</p>
@@ -356,7 +454,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <div className="app-page-surface flex-1 flex flex-col overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       {/* Header */}
       <div
         className="px-6 py-4 border-b shrink-0"
@@ -529,10 +627,10 @@ export default function AdminPage() {
           <table className="w-full text-sm">
             <thead>
               <tr style={{ background: 'var(--bg-secondary)' }}>
-                {['Người dùng', 'Gói', 'Hết hạn', 'Hành động'].map((h, i) => (
+                {['Người dùng', 'Gói', 'Hết hạn', 'Đăng nhập lần cuối', 'Hành động'].map((h, i) => (
                   <th
                     key={h}
-                    className={`px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide ${i === 3 ? 'text-right' : ''}`}
+                    className={`px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide ${i === 4 ? 'text-right' : ''}`}
                     style={{ color: 'var(--text-muted)' }}
                   >
                     {h}
@@ -544,6 +642,7 @@ export default function AdminPage() {
               {filtered.map((profile, i) => {
                 const cfg = PLAN_CONFIG[profile.plan] ?? PLAN_CONFIG.free
                 const expired = isExpired(profile.plan_expires_at)
+                const suspended = Boolean(profile.suspended_at)
 
                 return (
                   <tr
@@ -554,16 +653,11 @@ export default function AdminPage() {
                     {/* User */}
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-3">
-                        {profile.avatar_url ? (
-                          <img src={profile.avatar_url} className="w-8 h-8 rounded-full shrink-0" alt="" />
-                        ) : (
-                          <div
-                            className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                            style={{ background: 'var(--color-primary)' }}
-                          >
-                            {(profile.display_name ?? profile.email ?? '?')[0].toUpperCase()}
-                          </div>
-                        )}
+                        <UserAvatar
+                          src={profile.avatar_url}
+                          name={profile.display_name ?? profile.email}
+                          size="sm"
+                        />
                         <div className="min-w-0">
                           <p className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>
                             {profile.display_name ?? '—'}
@@ -593,11 +687,29 @@ export default function AdminPage() {
                       {fmtExpiry(profile.plan_expires_at)}
                     </td>
 
+                    {/* Last sign-in (auth.users) */}
+                    <td className="px-5 py-3 text-xs whitespace-nowrap" style={{ color: 'var(--text-muted)' }} title={profile.last_sign_in_at ?? undefined}>
+                      {fmtLastSignIn(profile.last_sign_in_at)}
+                    </td>
+
                     {/* Actions */}
                     <td className="px-5 py-3 text-right">
+                      <div className="flex justify-end gap-2">
+                      <button
+                        type="button"
+                        onClick={() => void toggleSuspension(profile)}
+                        disabled={profile.is_admin || suspendingId === profile.id}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors disabled:opacity-45"
+                        style={{
+                          background: suspended ? 'color-mix(in srgb, var(--color-success) 14%, transparent)' : 'color-mix(in srgb, var(--color-danger) 12%, transparent)',
+                          color: suspended ? 'var(--color-success)' : 'var(--color-danger)',
+                        }}
+                      >
+                        {suspendingId === profile.id ? 'Đang cập nhật…' : suspended ? <><ShieldCheck size={12} /> Mở khóa</> : <><ShieldOff size={12} /> Khóa</>}
+                      </button>
                       <button
                         onClick={() => setUpgrading(profile)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ml-auto"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
                         style={{
                           background: 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
                           color: 'var(--color-primary)',
@@ -606,6 +718,7 @@ export default function AdminPage() {
                         Nâng cấp
                         <ChevronDown size={11} />
                       </button>
+                      </div>
                     </td>
                   </tr>
                 )

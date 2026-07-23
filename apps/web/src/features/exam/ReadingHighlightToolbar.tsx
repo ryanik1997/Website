@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
+import { createPortal } from 'react-dom'
 import { Check, Copy, Eraser, Highlighter, StickyNote, Trash2, X } from 'lucide-react'
 import { copyToClipboard } from '../../lib/copyToClipboard'
+/* Ensure toolbar CSS loads even when parent route did not import readingTest.css */
+import './readingTest.css'
 import {
   addHighlights,
   findNotesOverlappingRanges,
@@ -20,6 +23,7 @@ interface ToolbarState {
   text: string
   canRemove: boolean
   canEditNote: boolean
+  below: boolean
 }
 
 interface ReadingHighlightToolbarProps {
@@ -91,12 +95,28 @@ export default function ReadingHighlightToolbar({
     const ranges = selectionToHighlightRanges(selection, root)
     pendingRangesRef.current = ranges
 
+    // Transcript panel has its own fixed header/scroll area. Place its toolbar
+    // below the selection first so it never covers the preceding transcript line.
+    const inTranscriptPanel = Boolean(root.closest('.listening-transcript-panel'))
+    // Reading header ~56–72px; keep popup under selection if near top
+    const nearTop = rect.top < 100
+    const below =
+      (inTranscriptPanel && rect.bottom < window.innerHeight - 120) || nearTop
+
+    // Clamp to viewport so popup stays on-screen (Reading split panes + Listening TID)
+    const rawX = rect.left + rect.width / 2
+    const rawY = below ? rect.bottom + 8 : Math.max(12, rect.top - 10)
+    const pad = 12
+    const x = Math.min(window.innerWidth - pad, Math.max(pad, rawX))
+    const y = Math.min(window.innerHeight - pad, Math.max(pad, rawY))
+
     setToolbar({
-      x: rect.left + rect.width / 2,
-      y: Math.max(12, rect.top - 10),
+      x,
+      y,
       text,
       canRemove: selectionOverlapsHighlight(selection, root, highlights),
       canEditNote: Boolean(ranges?.length && onNotesChange),
+      below,
     })
     setCopied(false)
   }, [highlights, noteEditorOpen, onNotesChange, rootRef])
@@ -186,11 +206,13 @@ export default function ReadingHighlightToolbar({
     && findNotesOverlappingRanges(notes, pendingRangesRef.current).length,
   )
 
-  return (
+  // Portal to document.body so position:fixed is always viewport-relative
+  // (not clipped / rebased by overflow/transform parents in exam shells).
+  const node = (
     <div
       role="toolbar"
       aria-label="Công cụ tô sáng và ghi chú"
-      className={`reading-highlight-toolbar${noteEditorOpen ? ' reading-highlight-toolbar--note-open' : ''}`}
+      className={`reading-highlight-toolbar${noteEditorOpen ? ' reading-highlight-toolbar--note-open' : ''}${toolbar.below ? ' reading-highlight-toolbar--below' : ''}`}
       style={{ left: toolbar.x, top: toolbar.y }}
       onMouseDown={e => e.preventDefault()}
     >
@@ -281,4 +303,7 @@ export default function ReadingHighlightToolbar({
       )}
     </div>
   )
+
+  if (typeof document === 'undefined') return node
+  return createPortal(node, document.body)
 }

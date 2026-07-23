@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "claude-mem": {
+      "cwd": ".",
+      "command": "node",
+      "args": [
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
+        "claude-mem"
+      ]
+    },
+    "codebase-memory": {
+      "cwd": ".",
+      "command": "node",
+      "args": [
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
+        "codebase-memory"
+      ]
+    },
+    "codebase-memory-mcp": {
+      "cwd": ".",
+      "command": "node",
+      "args": [
+        "../../mcps/local-tool-bundles-mcp/server.mjs",
+        "codebase-memory-mcp"
+      ]
+    }
+  }
+}

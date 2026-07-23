@@ -63,13 +63,13 @@ export default function ListeningShadowingTab({
     setDisplayFrames(refFrames)
     setStatusMsg('Đang phát mẫu...')
     try {
-      await playTts(sentence.text, 1)
+      await playTts(sentence.text, 1, { audioUrl: sentence.audioUrl })
       frameCache.current[sentenceIndex] = refFrames
       setStatusMsg('')
     } finally {
       setStatusMsg('')
     }
-  }, [sentence.text, sentenceIndex, playTts, stopRec, stopMic])
+  }, [sentence.text, sentence.audioUrl, sentenceIndex, playTts, stopRec, stopMic])
 
   async function toggleRead() {
     if (listening || capturing) {
@@ -92,7 +92,7 @@ export default function ListeningShadowingTab({
 
   return (
     <div
-      className="rounded-2xl p-6 sm:p-8"
+      className="listening-bao-card rounded-2xl p-6 sm:p-8"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       <div className="flex items-center justify-center gap-2 mb-6">

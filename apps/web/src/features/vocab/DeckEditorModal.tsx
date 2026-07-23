@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 import { deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
-import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabSeedDecks'
+import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
 import './deckCards.css'
 
 interface Props {

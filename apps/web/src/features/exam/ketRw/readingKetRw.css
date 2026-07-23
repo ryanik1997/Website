@@ -28,7 +28,7 @@
   overflow: hidden;
   background: var(--ket-body-bg);
   color: var(--ket-text);
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 
 /* Nội dung đề theo font user chọn (không áp header/footer chrome) */
@@ -854,6 +854,18 @@
   height: auto;
   border: 1px solid var(--ket-pane-border);
   border-radius: 4px;
+}
+
+/* 1 ảnh part7-page.jpg (cả 3 khung trong 1 file) — full width, không co 46% */
+.ket-rw-pictures.is-single-strip {
+  flex-wrap: nowrap;
+}
+
+.ket-rw-pictures.is-single-strip img {
+  flex: 1 1 100%;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Footer */

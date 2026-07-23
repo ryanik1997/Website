@@ -61,12 +61,42 @@ function GapInlineCompact({
   const showKey = reviewMode && reviewStatus !== 'correct' && question.answer
   const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
 
+  const gapBox = (
+    <span
+      className={[
+        'listening-tid-gap',
+        isActive ? 'is-active' : '',
+        answer.trim() ? 'has-value' : '',
+        reviewStatus === 'correct' ? 'is-ok' : '',
+        reviewStatus === 'wrong' ? 'is-bad' : '',
+      ].filter(Boolean).join(' ')}
+      id={`listening-q-${question.id}`}
+      style={border && reviewMode ? { outline: `2px solid ${border}`, outlineOffset: 1 } : undefined}
+    >
+      <input
+        id={`ielts-gap-${question.id}`}
+        type="text"
+        autoComplete="off"
+        className="listening-tid-gap__input"
+        value={answer}
+        placeholder=""
+        aria-label={`Question ${question.number}`}
+        data-highlight-skip
+        readOnly={reviewMode}
+        onChange={e => onAnswer(e.target.value)}
+        onFocus={onSelect}
+      />
+      <span className="listening-tid-gap__num" aria-hidden>
+        {question.number}
+      </span>
+    </span>
+  )
+
   if (hasInline) {
     return (
       <label
         className={`listening-ielts-notes__inline-gap${isActive ? ' is-active' : ''}`}
         htmlFor={`ielts-gap-${question.id}`}
-        style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
       >
         {showLead && question.gapLead && (
           <ReadingHighlightableText
@@ -76,23 +106,7 @@ function GapInlineCompact({
             as="span"
           />
         )}
-        <span className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}>
-          <span className="listening-ielts-notes__gap-num" aria-hidden>
-            {question.number}
-          </span>
-          <input
-            id={`ielts-gap-${question.id}`}
-            type="text"
-            className="listening-ielts-notes__input listening-ielts-notes__input--inline"
-            value={answer}
-            placeholder=""
-            aria-label={`Question ${question.number}`}
-            data-highlight-skip
-            readOnly={reviewMode}
-            onChange={e => onAnswer(e.target.value)}
-            onFocus={onSelect}
-          />
-        </span>
+        {gapBox}
         {showTrail && question.gapTrail && (
           <ReadingHighlightableText
             blockId={`${question.id}-trail`}
@@ -112,33 +126,15 @@ function GapInlineCompact({
   }
 
   return (
-    <span
-      className={`listening-ielts-notes__gap-slot${isActive ? ' is-active' : ''}`}
-      id={`listening-q-${question.id}`}
-      style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
-    >
-      <span className="listening-ielts-notes__gap-num" aria-hidden>
-        {question.number}
-      </span>
-      <input
-        id={`ielts-gap-${question.id}`}
-        type="text"
-        className="listening-ielts-notes__input listening-ielts-notes__input--inline"
-        value={answer}
-        placeholder=""
-        aria-label={`Question ${question.number}`}
-        data-highlight-skip
-        readOnly={reviewMode}
-        onChange={e => onAnswer(e.target.value)}
-        onFocus={onSelect}
-      />
+    <>
+      {gapBox}
       {showKey && (
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginLeft: 6, fontWeight: 800, color: EXAM_REVIEW_COLORS.correct.bg, fontSize: '0.8rem' }}>
           <Check size={13} strokeWidth={3} />
           {question.answer}
         </span>
       )}
-    </span>
+    </>
   )
 }
 

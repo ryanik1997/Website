@@ -1,0 +1,241 @@
+Bạn là trợ lý tạo ZIP bundle import đề Listening CAE C1 vào web app "Ryan English".
+
+## Tài liệu đính kèm
+1. Test_1_Listening_CAE_C1.pdf — đề Listening (Parts 1–4)
+2. Answer Key.pdf — đáp án Listening
+3. listening.mp3 — file audio cả bài (~40 phút, nghe liên tục cho toàn test)
+
+## Deliverable
+ZIP: `cae-Listening-test1.zip` — file CÙNG CẤP, không thư mục con:
+```
+exam.json
+listening.mp3
+```
+
+```json
+{
+  "version": 1,
+  "title": "CAE C1 Listening — Test 1",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [ /* 4 parts, 30 câu */ ]
+}
+```
+
+## Cấu trúc 4 parts (30 câu Listening)
+
+| Part | Câu | Type | Ghi chú UI app |
+|------|-----|------|----------------|
+| 1 | 1–6 | multiple-choice | 3 extracts — MC A/B/C (2 câu/extract) |
+| 2 | 7–14 | gap-fill | `passageTitle`: TRIP TO SOUTH AFRICA |
+| 3 | 15–20 | multiple-choice | Phỏng vấn dài — MC **A/B/C/D** (4 đáp án) |
+| 4 | 21–30 | matching dual-task | Task One 21–25 + Task Two 26–30 (Giaodien/a10.jpg) |
+
+App render: `ListeningIeltsTest` (chung IELTS + FCE + CAE + CPE). Timer **40 phút**. Audio **không dừng** khi đổi Part.
+
+---
+
+## Audio
+
+- Một file MP3 cho cả bài → gắn `"audioFile": "listening.mp3"` vào **mỗi part**.
+- App tự dedupe — chỉ lưu 1 bản MP3 trong Dexie / catalog.
+
+---
+
+## Part 1 (Q1–6) — Three extracts + multiple choice
+
+Mỗi câu: ngữ cảnh extract + câu hỏi gộp trong `prompt` (copy từ PDF).
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–6",
+  "instruction": "You will hear three different extracts. For questions 1–6, choose the answer (A, B or C) which fits best according to what you hear. There are two questions for each extract.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "You hear two friends discussing the topic of marketing.\n\nWhich aspect of college publicity material do the friends disagree about?",
+      "options": [
+        { "id": "A", "label": "how useful the environmental rating system is" },
+        { "id": "B", "label": "how well the different courses are described" },
+        { "id": "C", "label": "how visually attractive the brochures are" }
+      ],
+      "answer": "A",
+      "explanation": "Giải thích ngắn tiếng Việt."
+    }
+  ]
+}
+```
+
+- **Không có ảnh** Part 1 CAE.
+- `answer`: A/B/C.
+
+---
+
+## Part 2 (Q7–14) — Sentence completion (gap-fill)
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 7–14",
+  "passageTitle": "TRIP TO SOUTH AFRICA",
+  "instruction": "You will hear a student called Josh Brady talking about visiting South Africa as part of his university course in botany. For questions 7–14, complete the sentences with a word or short phrase.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "As well as his research project, Josh planned to write a … for a website while he was in Africa.",
+      "options": [],
+      "answer": "report",
+      "explanation": "…",
+      "wordLimit": 3
+    }
+  ]
+}
+```
+
+- `passageTitle` = tiêu đề in đậm trên đề (vd. **TRIP TO SOUTH AFRICA**).
+- CAE Test 1 **không có ảnh** Part 2 — bỏ `imageFile`.
+- `answer`: một hoặc vài từ (answer key có thể ghi `(RED) TEA` → lưu `red tea`).
+
+---
+
+## Part 3 (Q15–20) — Long interview + multiple choice (4 options)
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 15–20",
+  "instruction": "You will hear an interview in which two journalists called Jenny Langdon and Peter Sharples are talking about their work. For questions 15–20, choose the answer (A, B, C or D) which fits best according to what you hear.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 15,
+      "type": "multiple-choice",
+      "prompt": "What does Jenny say about the story which made her name?",
+      "options": [
+        { "id": "A", "label": "She'd been on the lookout for just such a lucky break." },
+        { "id": "B", "label": "She resented colleagues trying to take the credit for it." },
+        { "id": "C", "label": "She wasn't actually responsible for the finished article." },
+        { "id": "D", "label": "She asked for a more prestigious job on the strength of it." }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- **4 đáp án A/B/C/D** — khác FCE Part 4 (chỉ 3 đáp án).
+
+---
+
+## Part 4 (Q21–30) — Dual matching (Task One + Task Two)
+
+Hai task song song, cùng 5 Speaker, **hai bảng A–H khác nhau**.
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "You will hear five short extracts in which people are talking about changing their jobs.",
+  "matchingDualTask": true,
+  "taskOneInstruction": "For questions 21 – 25, choose from the list (A – H) the reason each speaker gives for changing job.",
+  "taskTwoInstruction": "For questions 26 – 30, choose from the list (A – H) what each speaker feels about their new job.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 21,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "unfriendly colleagues" },
+        { "id": "B", "label": "poor holiday entitlement" },
+        { "id": "C", "label": "lacking a sense of purpose" },
+        { "id": "D", "label": "needing more of a challenge" },
+        { "id": "E", "label": "the workload" },
+        { "id": "F", "label": "disagreements with superiors" },
+        { "id": "G", "label": "no prospect of advancement" },
+        { "id": "H", "label": "the physical environment" }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    },
+    {
+      "number": 26,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "encouraged by early results" },
+        { "id": "B", "label": "hopeful about future success" },
+        { "id": "C", "label": "delighted by a change in lifestyle" },
+        { "id": "D", "label": "relieved the initial uncertainty is over" },
+        { "id": "E", "label": "glad to be helping other people" },
+        { "id": "F", "label": "grateful for an increase in salary" },
+        { "id": "G", "label": "happy to feel in control" },
+        { "id": "H", "label": "satisfied with the training received" }
+      ],
+      "answer": "D",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- UI: grid 2 cột **TASK ONE** | **TASK TWO** (Giaodien/a10.jpg).
+- Mỗi task: danh sách A–H + Speaker 1–5 + ô thả chữ cái + số câu.
+- Câu 21–25: options Task One (lý do đổi việc); câu 26–30: options Task Two (cảm xúc công việc mới).
+- `matchingDualTask: true` + `taskOneInstruction` + `taskTwoInstruction` **bắt buộc**.
+- Mỗi chữ cái chỉ dùng **một lần trong từng task** (không share giữa hai task).
+
+---
+
+## Đáp án Test 1 (Answer Key)
+
+| Part | Câu | Đáp án |
+|------|-----|--------|
+| 1 | 1–6 | A, B, C, A, C, A |
+| 2 | 7–14 | report, fire, (red) tea, safari truck, needle(s), (deep) orange, paradise, roof |
+| 3 | 15–20 | C, B, C, B, A, D |
+| 4 | 21–30 | C, D, A, G, E / D, C, E, B, G |
+
+---
+
+## Đóng gói ZIP
+
+```bash
+pnpm pack:listening:cae
+```
+
+Hoặc:
+```bash
+node scripts/pack-listening-bundle.mjs cae-Listening-test1
+```
+
+Thư mục nguồn: `Tainguyen/cae-Listening-test1/`
+Output: `Tainguyen/cae-Listening-test1.zip`
+
+Builtin catalog (sau deploy):
+```bash
+pnpm build:catalog
+```
+→ `catalog-listening-cae-c1-test1` tại `/catalog/listening/cae-c1-test1/`
+
+---
+
+## Import trên app
+
+1. Luyện thi → Cambridge → **C1** → **Import thủ công Listening**
+2. Upload `cae-Listening-test1.zip`
+3. Preview phải ✓ MP3 → **Lưu & làm bài**
+4. Hoặc dùng đề **builtin** sau `pnpm build:catalog` (không cần import)
+5. Timer **40 phút**; highlight tô sáng; audio không dừng khi đổi Part
+6. Part 4: làm **cả hai task** cùng lúc khi nghe
+
+Bundle mẫu: `Tainguyen/cae-Listening-test1/`
+Tham chiếu giao diện: `Giaodien/a10.jpg` (Part 4 dual-task)

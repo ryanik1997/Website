@@ -4,7 +4,7 @@
  * Merge is set-union by day_key (YYYY-MM-DD) — never delete local days.
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { db } from '@ryan/db'
+import { db, createSyncWindow, getSyncServerTime, SYNC_PAGE_SIZE } from '@ryan/db'
 
 export const CHECKIN_CARD_ID = '__checkin__'
 export const CHECKIN_MODE = 'checkin' as const
@@ -12,6 +12,7 @@ export const CHECKIN_MODE = 'checkin' as const
 type CloudCheckin = {
   day_key: string
   checked_at: string
+  updated_at: string
 }
 
 /** Calculate the current attendance streak from check-in review logs. */
@@ -61,7 +62,7 @@ function isValidDayKey(key: string): boolean {
 }
 
 async function loadLocalCheckinDays(): Promise<Map<string, number>> {
-  const logs = await db.reviewLog.filter(l => l.mode === CHECKIN_MODE).toArray()
+  const logs = await db.reviewLog.where('mode').equals(CHECKIN_MODE).toArray()
   const map = new Map<string, number>()
   for (const log of logs) {
     const key = checkInDateKey(new Date(log.at))
@@ -128,9 +129,34 @@ export async function syncCheckInDays(
   let pushed = 0
   let pulled = 0
 
-  const { data: cloudRows, error: pullErr } = await supabase
-    .from('checkin_days')
-    .select('day_key, checked_at')
+  const cursorKey = `cloud-sync-cursor:checkin:${userId}`
+  const [cursorSetting, serverTime] = await Promise.all([
+    db.settings.get(cursorKey),
+    getSyncServerTime(supabase),
+  ])
+  const window = createSyncWindow(
+    typeof cursorSetting?.value === 'string' ? cursorSetting.value : null,
+    serverTime.iso,
+  )
+
+  const cloudRows: CloudCheckin[] = []
+  let pullErr: { message: string } | null = null
+  for (let from = 0; ; from += SYNC_PAGE_SIZE) {
+    let query = supabase
+      .from('checkin_days')
+      .select('day_key, checked_at, updated_at')
+      .eq('user_id', userId)
+      .lte('updated_at', window.upperBoundIso)
+      .order('updated_at', { ascending: true })
+      .order('day_key', { ascending: true })
+      .range(from, from + SYNC_PAGE_SIZE - 1)
+    if (window.pullAfterIso) query = query.gt('updated_at', window.pullAfterIso)
+    const result = await query
+    if (result.error) { pullErr = result.error; break }
+    const page = (result.data ?? []) as CloudCheckin[]
+    cloudRows.push(...page)
+    if (page.length < SYNC_PAGE_SIZE) break
+  }
 
   if (pullErr) {
     if (isMissingTableError(pullErr)) {
@@ -144,7 +170,7 @@ export async function syncCheckInDays(
   }
 
   const cloudMap = new Map<string, number>()
-  for (const row of (cloudRows ?? []) as CloudCheckin[]) {
+  for (const row of cloudRows) {
     if (!row?.day_key || !isValidDayKey(row.day_key)) continue
     const t = new Date(row.checked_at).getTime()
     cloudMap.set(row.day_key, Number.isFinite(t) ? t : dayKeyToLocalMs(row.day_key))
@@ -188,6 +214,10 @@ export async function syncCheckInDays(
       throw new Error(`checkin_days upsert: ${error.message}`)
     }
     pushed += chunk.length
+  }
+
+  if (serverTime.authoritative) {
+    await db.settings.put({ key: cursorKey, value: window.upperBoundIso })
   }
 
   return { pushed, pulled }

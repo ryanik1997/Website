@@ -24,12 +24,19 @@ export function transcribeProviderLabel(provider: TranscribeProvider): string {
 }
 
 /** Speech-to-text via OpenAI / Groq Whisper-compatible API. */
+export interface TranscriptSegment {
+  id: number
+  start: number
+  end: number
+  text: string
+}
+
 export async function transcribeAudio(
   audio: Blob,
   apiKey: string,
   provider: TranscribeProvider,
   filename = 'audio.mp3',
-): Promise<{ text: string }> {
+): Promise<{ text: string; segments: TranscriptSegment[] }> {
   if (audio.size > TRANSCRIBE_MAX_BYTES) {
     throw new Error(`File quá lớn (tối đa ${Math.round(TRANSCRIBE_MAX_BYTES / 1024 / 1024)}MB).`)
   }
@@ -39,7 +46,8 @@ export async function transcribeAudio(
   form.append('file', audio, filename)
   form.append('model', cfg.model)
   form.append('language', 'en')
-  form.append('response_format', 'json')
+  form.append('response_format', 'verbose_json')
+  form.append('timestamp_granularities[]', 'segment')
 
   const res = await fetch(cfg.url, {
     method: 'POST',
@@ -52,10 +60,18 @@ export async function transcribeAudio(
     throw new Error(`Phiên âm lỗi ${res.status}: ${detail.slice(0, 280)}`)
   }
 
-  const data = (await res.json()) as { text?: string }
+  const data = (await res.json()) as { text?: string; segments?: TranscriptSegment[] }
   const text = (data.text ?? '').trim()
   if (!text) throw new Error('Không nhận được nội dung từ audio.')
-  return { text }
+  const segments = Array.isArray(data.segments)
+    ? data.segments.filter(segment =>
+        Number.isFinite(segment.start)
+        && Number.isFinite(segment.end)
+        && segment.end >= segment.start
+        && typeof segment.text === 'string',
+      )
+    : []
+  return { text, segments }
 }
 
 export interface TranscribeCredentials {

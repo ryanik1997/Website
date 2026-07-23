@@ -2,18 +2,6 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import '../features/writing/writingLibrary.css'
 
-function DecoArt() {
-  return (
-    <>
-      <span className="wr-deco wr-deco--1" aria-hidden />
-      <span className="wr-deco wr-deco--2" aria-hidden />
-      <span className="wr-deco wr-deco--3" aria-hidden />
-      <span className="wr-deco wr-deco--4" aria-hidden />
-      <span className="wr-deco wr-deco--5" aria-hidden />
-    </>
-  )
-}
-
 export default function WritingLibraryPage() {
   const navigate = useNavigate()
 
@@ -39,9 +27,6 @@ export default function WritingLibraryPage() {
                 Explore <ArrowRight size={14} />
               </span>
             </div>
-            <div className="writing-library-card-art" aria-hidden>
-              <DecoArt />
-            </div>
           </button>
 
           <button
@@ -58,9 +43,6 @@ export default function WritingLibraryPage() {
               <span className="writing-library-card-cta">
                 Explore <ArrowRight size={14} />
               </span>
-            </div>
-            <div className="writing-library-card-art" aria-hidden>
-              <DecoArt />
             </div>
           </button>
 
@@ -79,9 +61,6 @@ export default function WritingLibraryPage() {
                 Explore <ArrowRight size={14} />
               </span>
             </div>
-            <div className="writing-library-card-art" aria-hidden>
-              <DecoArt />
-            </div>
           </button>
 
           <button
@@ -97,9 +76,6 @@ export default function WritingLibraryPage() {
               <span className="writing-library-card-cta">
                 Explore <ArrowRight size={14} />
               </span>
-            </div>
-            <div className="writing-library-card-art" aria-hidden>
-              <DecoArt />
             </div>
           </button>
         </div>

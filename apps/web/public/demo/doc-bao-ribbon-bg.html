@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đọc Báo Song Ngữ — Ribbon background demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #1e3a5f;
+    }
+
+    /* 1. Fixed full-viewport background layer */
+    .ribbon-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #9ec9e8;
+    }
+    .ribbon-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .ribbon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 280vmax;
+      height: clamp(56px, 9vh, 96px);
+      border-radius: 999px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background-image: linear-gradient(
+        90deg,
+        #93c5fd 0%,
+        #60a5fa 22%,
+        #2563eb 48%,
+        #60a5fa 72%,
+        #93c5fd 100%
+      );
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+      animation: ribbon-flow 5s linear infinite;
+      box-shadow:
+        0 8px 28px rgba(37, 99, 235, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      will-change: background-position;
+      opacity: 0.88;
+    }
+    .ribbon--1 { margin-top: -22vh; height: clamp(48px, 8vh, 84px); animation-duration: 5.5s; }
+    .ribbon--2 { margin-top: 0; height: clamp(64px, 10vh, 108px); animation-duration: 4.5s; animation-direction: reverse; opacity: 0.78; }
+    .ribbon--3 { margin-top: 24vh; height: clamp(44px, 7.5vh, 78px); animation-duration: 6s; animation-delay: -1.2s; opacity: 0.72; }
+    @keyframes ribbon-flow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ribbon { animation: none; }
+    }
+
+    /* 2. Content layer */
+    .content {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      padding: 2rem 1.25rem 3rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.35rem;
+      box-shadow: 0 12px 32px rgba(30, 80, 140, 0.12);
+    }
+    .panel h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      margin: 0 0 0.75rem;
+    }
+    .panel p {
+      margin: 0;
+      line-height: 1.6;
+      color: rgba(30, 58, 95, 0.88);
+      font-weight: 500;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .card {
+      background: #fff;
+      border: 3px solid #111;
+      border-radius: 1.25rem;
+      padding: 1rem;
+      min-height: 120px;
+      font-weight: 800;
+      box-shadow: 6px 6px 0 #111;
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon-bg" aria-hidden="true">
+    <div class="ribbon-grid"></div>
+    <div class="ribbon ribbon--1"></div>
+    <div class="ribbon ribbon--2"></div>
+    <div class="ribbon ribbon--3"></div>
+  </div>
+
+  <main class="content">
+    <div class="panel">
+      <h1>Đọc Báo Song Ngữ</h1>
+      <p>
+        Demo background layer: 3 dải ruy băng chéo full-viewport, gradient xanh
+        dương chảy dọc thân dải (background-position). Nội dung nằm lớp z-index cao
+        với nền trắng mờ.
+      </p>
+      <div class="cards">
+        <div class="card">The Atlantic</div>
+        <div class="card">NYT</div>
+        <div class="card">Reuters</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

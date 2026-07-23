@@ -1,15 +1,22 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   BookOpen, PenLine, Headphones, GitBranch, Languages,
   Flame, BookMarked, FileText,
 } from 'lucide-react'
 import { useAuth } from '../features/auth/AuthContext'
+import UserAvatar from '../components/UserAvatar'
+import SunnyMascotSvg from '../components/SunnyMascotSvg'
 import { useHomeStats } from '../features/home/useHomeStats'
 import DailyGoalCard from '../features/home/DailyGoalCard'
 import StreakCelebration from '../features/home/StreakCelebration'
 import StudyActivityGrid from '../features/home/StudyActivityGrid'
 import CheckInButton from '../features/home/CheckInButton'
 import '../features/home/homePage.css'
+import { useI18n } from '../lib/language'
+
+const HOME_ACTION_KEYS = ['nav.vocab', 'nav.writing', 'nav.listening', 'home.translate', 'nav.mindmap'] as const
+const HOME_DESC_KEYS = ['home.vocabDesc', 'home.writingDesc', 'home.listeningDesc', 'home.translateDesc', 'home.mindmapDesc'] as const
 
 const QUICK_ACTIONS = [
   { to: '/app/vocab', icon: BookOpen, label: 'Từ vựng', desc: 'SRS & flashcard', color: 'var(--color-primary)' },
@@ -19,32 +26,49 @@ const QUICK_ACTIONS = [
   { to: '/app/mindmap', icon: GitBranch, label: 'MindMap', desc: 'AI expand', color: 'var(--color-primary)' },
 ]
 
-function getGreeting(): string {
+function getGreeting(t: (key: string) => string): string {
   const h = new Date().getHours()
-  if (h < 12) return 'Chào buổi sáng'
-  if (h < 18) return 'Chào buổi chiều'
-  return 'Chào buổi tối'
+  if (h < 12) return t('home.greetingMorning')
+  if (h < 18) return t('home.greetingAfternoon')
+  return t('home.greetingEvening')
 }
 
 function getSubtitle({
   streak,
   wordsStudied,
   onboardingDone,
+  t,
 }: {
   streak: number
   wordsStudied: number
   onboardingDone: number
+  t: (key: string) => string
 }): string {
-  if (onboardingDone < 2) return 'Hoàn thành checklist để bắt đầu hành trình'
-  if (streak >= 7) return `${streak} ngày liên tiếp — bạn đang rất đều!`
-  if (streak >= 3) return `Streak ${streak} ngày — tiếp tục phát huy!`
-  if (wordsStudied > 100) return `Đã học ${wordsStudied} từ — tiếp tục thôi!`
-  return 'Tiếp tục hành trình luyện thi của bạn'
+  if (onboardingDone < 2) return t('home.continue')
+  if (streak >= 7) return `${streak} ${t('home.streak')} — ${t('home.continue')}`
+  if (streak >= 3) return `${t('home.streak')} ${streak} — ${t('home.continue')}`
+  if (wordsStudied > 100) return `${t('home.wordsStudied')}: ${wordsStudied} — ${t('home.continue')}`
+  return t('home.continue')
+}
+
+function getMascotLine(streak: number, t: (key: string) => string): string {
+  const h = new Date().getHours()
+  if (streak >= 3) return t('home.streakLine').replace('{count}', String(streak))
+  if (h < 12) return t('home.morningLine')
+  if (h < 18) return t('home.afternoonLine')
+  return t('home.eveningLine')
 }
 
 export default function HomePage() {
+  const { t } = useI18n()
   const { user } = useAuth()
   const { wordsStudied, docCount, streak, onboardingDone } = useHomeStats()
+  const [sunExploring, setSunExploring] = useState(false)
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => setSunExploring(true), 30_000)
+    return () => window.clearTimeout(timeoutId)
+  }, [])
 
   const name = user?.user_metadata?.full_name?.split(' ')[0] ?? 'bạn'
 
@@ -54,22 +78,25 @@ export default function HomePage() {
         <header className="home-page-header">
           <div className="min-w-0">
             <p className="text-xs font-medium mb-1" style={{ color: 'var(--color-primary)' }}>
-              {getGreeting()}, {name}
+              {getGreeting(t)}, {name}
             </p>
             <h1 className="text-xl font-bold leading-snug" style={{ color: 'var(--text-primary)' }}>
-              {getSubtitle({ streak, wordsStudied, onboardingDone })}
+              {getSubtitle({ streak, wordsStudied, onboardingDone, t })}
             </h1>
           </div>
           <div className="home-page-header-actions">
+            <div className={`home-sun-mascot${sunExploring ? ' home-sun-mascot--exploring' : ''}`} aria-hidden>
+              <div className="home-sun-mascot__bubble">
+                {getMascotLine(streak, t)}
+              </div>
+              <div className="home-sun-mascot__float">
+                <SunnyMascotSvg className="home-sun-mascot__sun" />
+                <span className="home-sun-mascot__cloud">☁️</span>
+                <span className="home-sun-mascot__moon">🌙</span>
+              </div>
+            </div>
             <CheckInButton compact />
-            {user?.user_metadata?.avatar_url && (
-              <img
-                src={user.user_metadata.avatar_url}
-                className="w-10 h-10 rounded-full border-2 shrink-0"
-                style={{ borderColor: 'var(--border-color)' }}
-                alt=""
-              />
-            )}
+            {user && <UserAvatar user={user} size="md" bordered />}
           </div>
         </header>
 
@@ -80,19 +107,19 @@ export default function HomePage() {
               <StatCard
                 icon={BookMarked}
                 value={wordsStudied}
-                label="Từ đã học"
+                label={t('home.wordsStudied')}
                 color="var(--color-primary)"
               />
               <StatCard
                 icon={FileText}
                 value={docCount}
-                label="Bài viết"
+                label={t('home.writing')}
                 color="var(--color-accent)"
               />
               <StatCard
                 icon={Flame}
                 value={streak}
-                label="Ngày liên tiếp"
+                label={t('home.streak')}
                 color="var(--color-primary)"
                 showFlameBadge={streak >= 3}
               />
@@ -107,7 +134,7 @@ export default function HomePage() {
           <div className="home-page-col">
             <section>
               <div className="home-page-section-label">
-                <span>Học ngay</span>
+                <span>{t('home.learnNow')}</span>
               </div>
               <div className="home-page-quick-grid">
                 {QUICK_ACTIONS.map(({ to, icon: Icon, label, desc, color }, i) => (
@@ -123,8 +150,8 @@ export default function HomePage() {
                       <Icon size={20} style={{ color }} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{label}</p>
-                      <p className="text-xs truncate mt-0.5" style={{ color: 'var(--text-muted)' }}>{desc}</p>
+                      <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{t(HOME_ACTION_KEYS[i])}</p>
+                      <p className="text-xs truncate mt-0.5" style={{ color: 'var(--text-muted)' }}>{t(HOME_DESC_KEYS[i])}</p>
                     </div>
                   </Link>
                 ))}

@@ -1,0 +1,309 @@
+Bạn là trợ lý tạo ZIP bundle import đề **Listening** CAE C1 (Cambridge) vào web app "Ryan English".
+
+
+**Checklist trước ZIP:** HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt
+## Cách dùng — 1 prompt cho Test 1, 2, 3, 4…
+
+Mỗi lần chỉ đính kèm file của **1 test**:
+1. Test_{N}_Listening_CAE_C1.pdf — đề Listening (Parts 1–4)
+2. **answer-key.pdf** hoặc **answer-key.txt** — đáp án (+ Audioscript trong cùng file nếu có; `.txt` khuyến nghị)
+3. audioscript.txt — khuyến nghị nếu PDF scan
+4. listening.mp3 — file audio cả bài (~40 phút)
+
+→ Đọc **Book** từ thư mục: `CAE C1_Cam {B}`
+→ Xuất ZIP: `cae-Listening-test{N}.zip`
+
+Tham chiếu UI: `Giaodien/Taicautruc/Listening_CAE_C1/Part1.jpg` … `Part4.jpg`, `Giaodien/a10.jpg` (dual-task)
+Schema chung + transcript: **HDSD/Prompt-Listening-Cambridge.txt**
+
+---
+
+
+## ⚠ Nguồn đề: PDF hoặc TXT (DeepSeek)
+
+Có thể **không gửi PDF** — đính kèm **TXT UTF-8** thay thế:
+
+| File gửi AI | Bắt buộc? |
+|-------------|-----------|
+| Prompt Universal (file này) | Có |
+| `exam-text.txt` / `Test_N_Listening.txt` — toàn bộ Parts | Có (nếu không có PDF) |
+| `answer-key.txt` | Khuyến nghị |
+| `audioscript.txt` (hoặc section AUDIOSCRIPT trong TXT) | Khuyến nghị Cambridge |
+| `listening.mp3` | **Không** gửi AI — pack ZIP sau |
+| Ảnh `q1…` Part 1 | **Không** bắt buộc gửi AI — crop từ PDF/scan khi pack ZIP |
+
+**Context:** `Book {B} · Test {T} · examType … · audioFile listening.mp3 · nguồn: TXT`
+
+Chi tiết: **HDSD/Prompt-Listening-Cambridge.txt** § «Nguồn đề: PDF hoặc TXT».
+
+## Deliverable
+
+```
+exam.json
+listening.mp3
+answer-key.pdf          ← hoặc answer-key.txt (UTF-8)
+answer-key.txt          ← khuyến nghị nếu PDF scan
+audioscript.txt      ← nếu PDF scan
+```
+
+```json
+{
+  "version": 1,
+  "title": "CAE C1 Listening — Book {B} — Test {T}",
+  "durationMinutes": 40,
+  "bandHint": "C1 Advanced Listening · 4 parts · 30 câu",
+  "examType": "cae",
+  "examMode": "practice",
+  "parts": [ /* 4 parts, 30 câu */ ]
+}
+```
+
+**Không ảnh** bắt buộc (khác FCE Part 2).
+
+---
+
+## App UI — ListeningFceTest + listening-cae-cambridge
+
+- Header Cambridge + **Exit**
+- Footer **4 tab Part** · timer **40 phút**
+- **Xem lại đề:** Transcript từ Audioscript import **và/hoặc** nút **Hiện transcript (AI)**
+- Part 3: **tất cả** câu MC scroll một trang
+- Part 4: dual-task **dọc** Task One rồi Task Two
+
+| Part | Câu | Type | Đặc biệt |
+|------|-----|------|----------|
+| 1 | 1–6 | multiple-choice | 3 extracts, 2 câu/extract A/B/C |
+| 2 | 7–14 | gap-fill | `passageTitle` |
+| 3 | 15–20 | multiple-choice | **4 đáp án** A/B/C/D |
+| 4 | 21–30 | matching dual | `matchingDualTask` + 2 bảng A–H |
+
+Schema chung: **HDSD/Prompt-Listening-Cambridge.txt**
+
+---
+
+
+---
+
+## Answer Key + Audioscript (CAE)
+
+1. Phần đáp án theo Part (map đúng Q1–30).
+2. Phần **AUDIOSCRIPT** sau đáp án — mỗi câu một block số + thoại (marker: Audioscript / Tapescript / Transcript).
+3. Hoặc file riêng `audioscript.txt` cùng cấp ZIP (bắt buộc nếu PDF scan / không text layer).
+4. App import ZIP: tự gắn `ttsText` từng câu → hiện khi **Xem lại đề**; user có thể bấm **AI** để bổ sung/làm rõ (song song).
+5. Tuỳ chọn ghi sẵn `"ttsText"` trong exam.json cho từng câu.
+
+## Part 1 (Q1–6) — Three extracts + MC
+
+```json
+{
+  "partNumber": 1,
+  "rangeLabel": "Questions 1–6",
+  "instruction": "You will hear three different extracts. For questions 1–6, choose the answer (A, B or C)…",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "multiple-choice",
+      "prompt": "You hear two friends discussing the topic of marketing.\n\nWhich aspect of college publicity material do the friends disagree about?",
+      "options": [
+        { "id": "A", "label": "how useful the environmental rating system is" },
+        { "id": "B", "label": "how well the different courses are described" },
+        { "id": "C", "label": "how visually attractive the brochures are" }
+      ],
+      "answer": "A",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- 6 câu × 3 options — không ảnh
+
+---
+
+## Part 2 (Q7–14) — Sentence completion
+
+```json
+{
+  "partNumber": 2,
+  "rangeLabel": "Questions 7–14",
+  "passageTitle": "TRIP TO SOUTH AFRICA",
+  "instruction": "You will hear a student called Josh Brady… complete the sentences with a word or short phrase.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 7,
+      "type": "gap-fill",
+      "prompt": "As well as his research project, Josh planned to write a … for a website while he was in Africa.",
+      "options": [],
+      "answer": "report",
+      "wordLimit": 3,
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+- **8 câu** 7–14
+- Answer key `(RED) TEA` → `red tea`
+
+---
+
+## Part 3 (Q15–20) — Long interview + MC (4 options)
+
+```json
+{
+  "number": 15,
+  "type": "multiple-choice",
+  "prompt": "What does Jenny say about the story which made her name?",
+  "options": [
+    { "id": "A", "label": "She'd been on the lookout for just such a lucky break." },
+    { "id": "B", "label": "She resented colleagues trying to take the credit for it." },
+    { "id": "C", "label": "She wasn't actually responsible for the finished article." },
+    { "id": "D", "label": "She asked for a more prestigious job on the strength of it." }
+  ],
+  "answer": "C",
+  "explanation": "…"
+}
+```
+
+- **4 đáp án A/B/C/D** — khác FCE Part 4 (3 đáp án)
+
+---
+
+## Part 4 (Q21–30) — Dual matching ⚠
+
+Hai task song song: cùng 5 Speaker, **hai bảng A–H khác nhau**.
+
+```json
+{
+  "partNumber": 4,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "You will hear five short extracts in which people are talking about changing their jobs.",
+  "matchingDualTask": true,
+  "taskOneInstruction": "For questions 21 – 25, choose from the list (A – H) the reason each speaker gives for changing job.",
+  "taskTwoInstruction": "For questions 26 – 30, choose from the list (A – H) what each speaker feels about their new job.",
+  "audioFile": "listening.mp3",
+  "questions": [
+    {
+      "number": 21,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "unfriendly colleagues" },
+        { "id": "H", "label": "the physical environment" }
+      ],
+      "answer": "C",
+      "explanation": "…"
+    },
+    {
+      "number": 26,
+      "type": "matching",
+      "prompt": "Speaker 1",
+      "options": [
+        { "id": "A", "label": "encouraged by early results" },
+        { "id": "H", "label": "satisfied with the training received" }
+      ],
+      "answer": "D",
+      "explanation": "…"
+    }
+  ]
+}
+```
+
+Quy tắc Part 4:
+- `matchingDualTask: true` + `taskOneInstruction` + `taskTwoInstruction` **bắt buộc**
+- Câu 21–25: options Task One (lý do đổi việc)
+- Câu 26–30: options Task Two (cảm xúc công việc mới) — **khác** Task One
+- `prompt`: `Speaker 1` … `Speaker 5` cho mỗi task
+- Mỗi chữ A–H chỉ dùng **một lần trong từng task**
+
+---
+
+## Tự kiểm tra
+
+1. **4 parts · 30 câu** Q1–30
+2. Part 3: **4 options** mỗi câu
+3. Part 4: `matchingDualTask` + 2 instruction + 10 câu matching
+4. Câu 26–30: options **khác** câu 21–25
+5. `examType`: `"cae"` · `durationMinutes`: **40**
+
+7. Có `answer-key.pdf / answer-key.txt` (text) và/hoặc `audioscript.txt` + marker **AUDIOSCRIPT**
+8. Title đúng Book/Test — Library Archives gom quyển
+## Lỗi thường gặp
+
+| Lỗi | Đúng |
+|-----|------|
+| Chỉ có PDF scan Answer Key | Xuất **`answer-key.txt`** UTF-8 |
+| Quên file key trong ZIP | Thêm `answer-key.txt` hoặc `answer-key.pdf` |
+| Answer Key PDF scan, không transcript | Thêm `audioscript.txt` UTF-8 |
+| Không có block AUDIOSCRIPT | App không auto `ttsText` — dùng AI khi xem lại |
+| Part 4 một bảng A–H cho cả 30 câu | **Hai** bảng: 21–25 và 26–30 |
+| Thiếu matchingDualTask | Bắt buộc `true` + 2 task instruction |
+| Part 3 chỉ 3 options | CAE P3 = **A/B/C/D** |
+| Part 3 như FCE P3 matching | CAE P3 = MC interview |
+
+---
+
+## Answer Key — Test 1 mẫu
+
+| Part | Đáp án |
+|------|--------|
+| 1 | 1A 2B 3C 4A 5C 6A |
+| 2 | 7report 8fire 9(red) tea 10safari truck 11needle(s) 12(deep) orange 13paradise 14roof |
+| 3 | 15C 16B 17C 18B 19A 20D |
+| 4 | 21C 22D 23A 24G 25E / 26D 27C 28E 29B 30G |
+
+---
+
+
+## ⚠ App 2026-07 — Gap-fill đáp án kép + WebP
+
+Chi tiết đầy đủ: **HDSD/Prompt-Listening-Cambridge.txt** (§ Gap-fill · § Ảnh WebP).
+
+### Gap-fill — app chấm cả biến thể
+
+| Viết trong JSON | User gõ → đúng |
+|-----------------|----------------|
+| `"answer": "8/eight"` | `8` hoặc `eight` |
+| `"answer": "8", "acceptableAnswers": ["eight"]` | idem |
+| `"answer": "could/may"` | `could` hoặc `may` |
+| `"answer": "8 OR eight"` | idem |
+
+```json
+{
+  "number": 6,
+  "type": "gap-fill",
+  "prompt": "Time guests arrive:",
+  "answer": "8/eight",
+  "acceptableAnswers": ["8", "eight"],
+  "wordLimit": 1,
+  "explanation": "Theo Answer key: 8 / eight."
+}
+```
+
+- Bỏ ngoặc key: `"(August)"` → `"August"`; số `(19)` → `"19"` hoặc `"19/nineteen"`
+- **Không** `"answer": "B (best)"` — chỉ letter
+- Review hiện **「8 hoặc eight」**
+
+### Ảnh — WebP
+
+- File: `q1.webp`, `q2.png`, `part7-page.webp` … OK
+- JSON có thể ghi `"imageFile": "q1.jpg"` dù file là **q1.webp** (app map basename)
+- Part 1 composite: `q1.jpg|webp` … (KET 5 ảnh / PET 7 ảnh)
+
+### Audio import
+
+- `listening.mp3` trong ZIP gắn local blob — **không** bị đè audio catalog Test 1 khi title là Test 2/3/4
+- Title bắt buộc: `… Book {B} — Test {T}`
+
+## Việc làm
+
+1. Map 4 parts · 30 câu
+2. Part 4: 2 bảng options + dual-task fields
+3. JSON.parse PASS → ZIP
+
+**Bundle:** `Tainguyen/cae-Listening-test1/` · `catalog-listening-cae-c1-test1`
+**Pack:** `pnpm pack:listening:cae`
+
+Bắt đầu xử lý file đính kèm.

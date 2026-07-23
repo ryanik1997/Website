@@ -1,0 +1,563 @@
+{
+  "id": "catalog-cam-12-1-reading",
+  "title": "CAM 12 1",
+  "durationMinutes": 60,
+  "bandHint": "Cambridge Reading — 3 parts",
+  "parts": [
+    {
+      "id": "catalog-cam-12-1-reading-part-1",
+      "partNumber": 1,
+      "rangeLabel": "",
+      "passageTitle": "CORK",
+      "passage": [
+        {
+          "text": "Cork\nCork – the thick bark of the cork oak tree (Quercus suber) – is a remarkable material. It is tough, elastic, buoyant, and fire-resistant, and suitable for a wide range of purposes. It has also been used for millennia: the ancient Egyptians sealed their sarcophagi (stone coffins) with cork, while the ancient Greeks and Romans used it for anything from beehives to sandals.\nAnd the cork oak itself is an extraordinary tree. Its bark grows up to 20 cm in thickness, insulating the tree like a coat wrapped around the trunk and branches and keeping the inside at a constant 20oC all year round. Developed most probably as a defence against forest fires, the bark of the cork oak has a particular cellular structure – with about 40 million cells per cubic centimetre – that technology has never succeeded in replicating. The cells are filled with air, which is why cork is so buoyant. It also has an elasticity that means you can squash it and watch it spring back to its original size and shape when you release the pressure.\nCork oaks grow in a number of Mediterranean countries, including Portugal, Spain, Italy, Greece and Morocco. They flourish in warm, sunny climates where there is a minimum of 400 millimetres of rain per year, and not more than 800 millimetres. Like grape vines, the trees thrive in poor soil, putting down deep roots in search of moisture and nutrients. Southern Portugal’s Alentejo region meets all of these requirements, which explains why, by the early 20th century, this region had become the world’s largest producer of cork, and why today it accounts for roughly half of all cork production around the world.\nMost cork forests are family-owned. Many of these family businesses, and indeed many of the trees themselves, are around 200 years old. Cork production is, above all, an exercise in patience. From the planting of a cork sapling to the first harvest takes 25 years, and a gap of approximately a decade must separate harvests from an individual tree. And for top-quality cork, it’s necessary to wait a further 15 or 20 years. You even have to wait for the right kind of summer’s day to harvest cork. If the bark is stripped on a day when it’s too cold – or when the air is damp – the tree will be damaged.\nCork harvesting is a very specialised profession. No mechanical means of stripping cork bark has been invented, so the job is done by teams of highly skilled workers. First, they make vertical cuts down the bark using small sharp axes, then lever it away in pieces as large as they can manage. The most skilful cork-strippers prise away a semi-circular husk that runs the length of the trunk from just above ground level to the first branches. It is then dried on the ground for about four months, before being taken to factories, where it is boiled to kill any insects that might remain in the cork. Over 60% of cork then goes on to be made into traditional bottle stoppers, with most of the remainder being used in the construction trade. Corkboard and cork tiles are ideal for thermal and acoustic insulation, while granules of cork are used in the manufacture of concrete.\nRecent years have seen the end of the virtual monopoly of cork as the material for bottle stoppers, due to concerns about the effect it may have on the contents of the bottle. This is caused by a chemical compound called 2,4,6-trichloroanisole (TCA), which forms through the interaction of plant phenols, chlorine and mould. The tiniest concentrations – as little as three or four parts to a trillion – can spoil the taste of the product contained in the bottle. The result has been a gradual yet steady move first towards plastic stoppers and, more recently, to aluminium screw caps. These substitutes are cheaper to manufacture and, in the case of screw caps, more convenient for the user.\nThe classic cork stopper does have several advantages, however. Firstly, its traditional image is more in keeping with that of the type of high quality goods with which it has long been associated. Secondly – and very importantly – cork is a sustainable product that can be recycled without difficulty. Moreover, cork forests are a resource which support local biodiversity, and prevent desertification in the regions where they are planted. So, given the current concerns about environmental issues, the future of this ancient material once again looks promising."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-cam-12-1-reading-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 1–5 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
+          "type": "tfng",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q1",
+              "number": 1,
+              "type": "true-false-not-given",
+              "prompt": "The cork oak has the thickest bark of any living tree.",
+              "options": [],
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword\nthickest bark\n\nBước 2: Tìm đoạn\n\n\"Its bark grows up to 20 cm in thickness\"\n\nBước 3: Phân tích\n\nBài chỉ nói vỏ cây dày 20 cm, nhưng không nói dày nhất trong tất cả cây sống.\n\nCó so sánh → TRUE/FALSE\nKhông có thông tin so sánh → NOT GIVEN\n\n⇒ NOT GIVEN",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q2",
+              "number": 2,
+              "type": "true-false-not-given",
+              "prompt": "Scientists have developed a synthetic cork with the same cellular structures as natural cork.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword\nsynthetic cork + same cellular structure\n\nBước 2: Tìm đoạn\n\n\"technology has never succeeded in replicating\"\n\nBước 3: Phân tích\n\nNever succeeded = chưa từng thành công sao chép cấu trúc này.\n\nĐề: Scientists have developed...\n\nBài: chưa phát triển được\n\n⇒ FALSE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q3",
+              "number": 3,
+              "type": "true-false-not-given",
+              "prompt": "Individual cork oak trees must be left for 25 years between the first and second harvest.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword\n25 years between first and second harvest\n\nBước 2: Tìm đoạn\n\n\"From planting to the first harvest takes 25 years\"\n\n\"a gap of approximately a decade must separate harvests\"\n\nBước 3: Phân tích\n\nĐề nói:\n\nlần 1 → lần 2 = 25 năm\n\nNhưng bài nói:\n\ntrồng → thu hoạch đầu tiên = 25 năm\ncác lần thu hoạch cách nhau 10 năm\n\n⇒ Sai thông tin\n\n⇒ FALSE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q4",
+              "number": 4,
+              "type": "true-false-not-given",
+              "prompt": "Cork bark should be stripped in dry atmospheric conditions.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\ndry atmospheric conditions\n\nBước 2: Tìm đoạn\n\n\"when the air is damp – the tree will be damaged\"\n\nBước 3: Phân tích\n\ndamp = ẩm\n\nMuốn tránh hư cây → phải thu hoạch lúc không ẩm, tức điều kiện khô.\n\n⇒ TRUE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q5",
+              "number": 5,
+              "type": "true-false-not-given",
+              "prompt": "The only way to remove the bark from cork oak trees is by hand.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\nonly way remove bark\n\nBước 2: Tìm đoạn\n\n\"No mechanical means of stripping cork bark has been invented\"\n\nBước 3: Phân tích\n\nKhông có máy móc thực hiện được → chỉ có người làm bằng tay.\n\n⇒ TRUE",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-12-1-reading-part-1-g1",
+          "range": "Questions 6–13",
+          "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
+          "note": "**Advantages of aluminium screw caps**\n• do not affect the [6] of the bottle contents\n•  are [7] to produce\n•  are [8] to use\n**Advantages of cork bottle stoppers**\n•   suit the [9] of quality products\n•   made from a [10] material\n•   easily [11]\n•   cork forests aid [12]\n•   cork forests stop [13] happening",
+          "type": "gap-fill",
+          "notesTitle": "Comparison of aluminium screw caps and cork bottle stoppers",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q6",
+              "number": 6,
+              "type": "gap-fill",
+              "prompt": "do not affect the [taste] of the bottle contents",
+              "options": [],
+              "answer": "taste",
+              "explanation": "Bước 1: Keyword\ndo not affect\n\nBước 2: Tìm đoạn\n\n\"can spoil the taste of the product\"\n\nBước 3: Phân tích\n\nCork có thể làm hỏng taste, còn nắp nhôm không gặp vấn đề đó.\n\n⇒ Đáp án: taste",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q7",
+              "number": 7,
+              "type": "gap-fill",
+              "prompt": "are [cheaper] to produce",
+              "options": [],
+              "answer": "cheaper",
+              "explanation": "Bước 1: Keyword\nproduce\n\nBước 2: Tìm đoạn\n\n\"These substitutes are cheaper to manufacture\"\n\nBước 3: Phân tích\n\nmanufacture = produce\n\n⇒ Đáp án: cheaper",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q8",
+              "number": 8,
+              "type": "gap-fill",
+              "prompt": "are [convenient] to use",
+              "options": [],
+              "answer": "convenient",
+              "explanation": "Bước 1: Keyword\nuse\n\nBước 2: Tìm đoạn\n\n\"more convenient for the user\"\n\nBước 3: Phân tích\n\nconvenient for users = easy to use\n\n⇒ Đáp án: convenient",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q9",
+              "number": 9,
+              "type": "gap-fill",
+              "prompt": "suit the [image] of quality products",
+              "options": [],
+              "answer": "image",
+              "explanation": "Bước 1: Keyword\nquality products\n\nBước 2: Tìm đoạn\n\n\"its traditional image is more in keeping with...\"\n\nBước 3: Phân tích\n\nsuit = be in keeping with\n\n⇒ Đáp án: image",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q10",
+              "number": 10,
+              "type": "gap-fill",
+              "prompt": "made from a [sustainable] material",
+              "options": [],
+              "answer": "sustainable",
+              "explanation": "Bước 1: Keyword\nmaterial\n\nBước 2: Tìm đoạn\n\n\"cork is a sustainable product\"\n\nBước 3: Phân tích\n\n⇒ Đáp án: sustainable",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q11",
+              "number": 11,
+              "type": "gap-fill",
+              "prompt": "easily [recycled]",
+              "options": [],
+              "answer": "recycled",
+              "explanation": "Bước 1: Keyword\neasily\n\nBước 2: Tìm đoạn\n\n\"can be recycled without difficulty\"\n\nBước 3: Phân tích\n\nwithout difficulty = easily\n\n⇒ Đáp án: recycled",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q12",
+              "number": 12,
+              "type": "gap-fill",
+              "prompt": "cork forests aid [biodiversity]",
+              "options": [],
+              "answer": "biodiversity",
+              "explanation": "Bước 1: Keyword\naid\n\nBước 2: Tìm đoạn\n\n\"support local biodiversity\"\n\nBước 3: Phân tích\n\nsupport = aid\n\n⇒ Đáp án: biodiversity",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-1-q13",
+              "number": 13,
+              "type": "gap-fill",
+              "prompt": "cork forests stop [desertification] happening",
+              "options": [],
+              "answer": "desertification",
+              "explanation": "Bước 1: Keyword\nstop happening\n\nBước 2: Tìm đoạn\n\n\"prevent desertification\"\n\nBước 3: Phân tích\n\nprevent = stop happening\n\n⇒ Đáp án: desertification",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-cam-12-1-reading-part-2",
+      "partNumber": 2,
+      "rangeLabel": "",
+      "passageTitle": "COLLECTING AS A HOBBY",
+      "passage": [
+        {
+          "text": "Collecting as a hobby\nCollecting must be one of the most varied of human activities, and it’s one that many of us psychologists find fascinating. Many forms of collecting have been dignified with a technical name: an archtophilist collects teddy bears, a philatelist collects postage stamps, and a deltiologist collects postcards. Amassing hundreds or even thousands of postcards, chocolate wrappers or whatever, takes time, energy and money that could surely be put to much more productive use. And yet there are millions of collectors around the world. Why do they do it?\nThere are the people who collect because they want to make money – this could be called an instrumental reason for collecting; that is, collecting as a means to an end. They’ll look for, say, antiques that they can buy cheaply and expect to be able to sell at a profit. But there may well be a psychological element, too – buying cheap and selling dear can give the collector a sense of triumph. And as selling online is so easy, more and more people are joining in.\nMany collectors collect to develop their social life, attending meetings of a group of collectors and exchanging information on items. This is a variant on joining a bridge club or a gym, and similarly brings them into contact with like-minded people.\nAnother motive for collecting is the desire to find something special, or a particular example of the collected item, such as a rare early recording by a particular singer. Some may spend their whole lives in a hunt for this. Psychologically, this can give a purpose to a life that otherwise feels aimless. There is a danger, though, that if the individual is ever lucky enough to find what they’re looking for, rather than celebrating their success, they may feel empty, now that the goal that drove them on has gone.\nIf you think about collecting postage stamps, another potential reason for it – or, perhaps, a result of collecting – is its educational value. Stamp collecting opens a window to other countries, and to the plants, animals, or famous people shown on their stamps. Similarly, in the 19th century, many collectors amassed fossils, animals and plants from around the globe, and their collections provided a vast amount of information about the natural world. Without those collections, our understanding would be greatly inferior to what it is.\nIn the past – and nowadays, too, though to a lesser extent – a popular form of collecting, particularly among boys and men, was trainspotting. This might involve trying to see every locomotive of a particular type, using published data that identifies each one, and ticking off each engine as it is seen. Trainspotters exchange information, these days often by mobile phone, so they can work out where to go to, to see a particular engine. As a by-product, many practitioners of the hobby become very knowledgeable about railway operations, or the technical specifications of different engine types.\nSimilarly, people who collect dolls may go beyond simply enlarging their collection, and develop an interest in the way that dolls are made, or the materials that are used. These have changed over the centuries from the wood that was standard in 16th century Europe, through the wax and porcelain of later centuries, to the plastics of today’s dolls. Or collectors might be inspired to study how dolls reflect notions of what children like, or ought to like.\nNot all collectors are interested in learning from their hobby, though, so what we might call a psychological reason for collecting is the need for a sense of control, perhaps as a way of dealing with insecurity. Stamps collectors, for instance, arrange their stamps in albums, usually very neatly, organising their collection according to certain commonplace principles – perhaps by country in alphabetical order, or grouping stamps by what they depict – people, birds, maps, and so on.\nOne reason, conscious or not, for what someone chooses to collect is to show the collector’s individualism. These have changed over the centuries from the wood that was standard in 16th century Europe, through the wax and porcelain of later centuries,... the collector’s individualism. Someone who decides to collect something as unexpected as dog collars, for instance, may be conveying their belief that they must be interesting themselves. And believe it or not, there is at least one dog collar museum in existence, and it grew out of a personal collection.\nOf course, all hobbies give pleasure, but the common factor in collecting is usually passion: pleasure is putting it far too mildly. More than most other hobbies, collecting can be totally engrossing, and can give a strong sense of personal fulfilment. To non-collectors it may appear an eccentric, if harmless, way of spending time, but potentially, collecting has a lot going for it."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-cam-12-1-reading-part-2-g0",
+          "range": "Questions 14–21",
+          "instruction": "Complete the notes below.\nChoose ONE WORD ONLY from the passage for each answer.",
+          "note": "- The writer mentions collecting [14] as an example of collecting in order to make money.\n- Collectors may get a feeling of [15] from buying and selling items.\n- Collectors’ clubs provide opportunities to share [16]\n- Collectors’ clubs offer [17] with people who have similar interests.\n- Collecting sometimes involves a life-long [18] for a special item.\n- Searching for something particular may prevent people from feeling their life is completely [19].\n- Stamp collecting may be [20] because it provides facts about different countries.\n- [21] tends to be mostly a male hobby.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q14",
+              "number": 14,
+              "type": "gap-fill",
+              "prompt": "The writer mentions collecting [antiques] as an example of collecting in order to make money.",
+              "options": [],
+              "answer": "antiques",
+              "explanation": "Bước 1: Keyword\nmake money\n\nBước 2: Tìm và phân tích\n\n\"They’ll look for, say, antiques that they can buy cheaply and expect to be able to sell at a profit.\"\n\nTác giả lấy antiques làm ví dụ cho việc sưu tầm để kiếm lời.\n\n⇒ Đáp án: antiques",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q15",
+              "number": 15,
+              "type": "gap-fill",
+              "prompt": "Collectors may get a feeling of [triumph] from buying and selling items.",
+              "options": [],
+              "answer": "triumph",
+              "explanation": "Bước 1: Keyword\nfeeling / buying and selling\n\nBước 2: Tìm và phân tích\n\n\"can give the collector a sense of triumph\"\n\nsense of = feeling of\n\n⇒ Đáp án: triumph",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Collectors' clubs provide opportunities to share [information].",
+              "options": [],
+              "answer": "information",
+              "explanation": "Bước 1: Keyword\nshare\n\nBước 2: Tìm\n\n\"exchanging information\"\n\nexchange = share\n\n⇒ Đáp án: information",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Collectors' clubs offer [contact] with people who have similar interests.",
+              "options": [],
+              "answer": "contact",
+              "explanation": "Bước 1: Keyword\nsimilar interests\n\nBước 2: Tìm\n\n\"brings them into contact with like-minded people\"\n\nlike-minded = similar interests\n\n⇒ Đáp án: contact",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Collecting sometimes involves a life-long [hunt] for a special item.",
+              "options": [],
+              "answer": "hunt",
+              "explanation": "Bước 1: Keyword\nlife-long / special item\n\nBước 2: Tìm\n\n\"spend their whole lives in a hunt\"\n\nwhole lives = life-long\n\n⇒ Đáp án: hunt",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Searching for something particular may prevent people from feeling their life is completely [aimless].",
+              "options": [],
+              "answer": "aimless",
+              "explanation": "Bước 1: Keyword\nlife completely\n\nBước 2: Tìm\n\n\"a life that otherwise feels aimless\"\n\n⇒ Đáp án: aimless",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Stamp collecting may be [educational] because it provides facts about different countries.",
+              "options": [],
+              "answer": "educational",
+              "explanation": "Bước 1: Keyword\nfacts about countries\n\nBước 2: Tìm\n\n\"its educational value\"\n\n⇒ Đáp án: educational",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q21",
+              "number": 21,
+              "type": "gap-fill",
+              "prompt": "[trainspotting] tends to be mostly a male hobby.",
+              "options": [],
+              "answer": "trainspotting",
+              "explanation": "Bước 1: Keyword\nmale hobby\n\nBước 2: Tìm\n\n\"a popular form of collecting, particularly among boys and men, was trainspotting\"\n\n⇒ Đáp án: Trainspotting",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-12-1-reading-part-2-g1",
+          "range": "Questions 22–26",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage?\nIn boxes 22–26 on your answer sheet, write\nTRUE  if the statement agrees with the information\nFALSE  if the statement contradicts the information\nNOT GIVEN  if there is no information on this",
+          "type": "tfng",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q22",
+              "number": 22,
+              "type": "true-false-not-given",
+              "prompt": "The number of people buying dolls has grown over the centuries.",
+              "options": [],
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword\nnumber / dolls / grown\n\nBước 2: Phân tích\n\nBài chỉ nói về chất liệu búp bê thay đổi theo thời gian, không nói số người mua tăng.\n\n⇒ Đáp án: NOT GIVEN",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q23",
+              "number": 23,
+              "type": "true-false-not-given",
+              "prompt": "Sixteenth century European dolls were normally made of wax and porcelain.",
+              "options": [],
+              "answer": "FALSE",
+              "explanation": "Bước 1: Keyword\n16th century / wax / porcelain\n\nBước 2: Tìm và phân tích\n\n\"wood that was standard in 16th century Europe, through wax and porcelain of later centuries\"\n\nThế kỷ 16 dùng wood, còn wax và porcelain xuất hiện sau.\n\n⇒ Đáp án: FALSE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q24",
+              "number": 24,
+              "type": "true-false-not-given",
+              "prompt": "Arranging a stamp collection by the size of the stamps is less common than other methods.",
+              "options": [],
+              "answer": "NOT GIVEN",
+              "explanation": "Bước 1: Keyword\nsize of stamps\n\nBước 2: Phân tích\n\nBài chỉ nói:\n\n\"by country...\"\n\"people, birds, maps...\"\n\nKhông đề cập sắp xếp theo kích thước.\n\n⇒ Đáp án: NOT GIVEN",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q25",
+              "number": 25,
+              "type": "true-false-not-given",
+              "prompt": "Someone who collects unusual objects may want others to think he or she is also unusual.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\nunusual objects\n\nBước 2: Tìm và phân tích\n\n\"may be conveying their belief that they must be interesting themselves\"\n\nNgười sưu tập đồ lạ muốn người khác nghĩ họ cũng đặc biệt/thú vị.\n\n⇒ Đáp án: TRUE",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-2-q26",
+              "number": 26,
+              "type": "true-false-not-given",
+              "prompt": "Collecting gives a feeling that other hobbies are unlikely to inspire.",
+              "options": [],
+              "answer": "TRUE",
+              "explanation": "Bước 1: Keyword\nother hobbies / feeling\n\nBước 2: Tìm và phân tích\n\nĐoạn cuối:\n\n\"More than most other hobbies, collecting can be totally engrossing, and can give a strong sense of personal fulfilment.\"\n\nPhân tích:\n\nstrong sense of personal fulfilment = cảm giác thỏa mãn rất mạnh.\nMore than most other hobbies = nhiều hơn phần lớn sở thích khác.\n\nĐề:\n\n\"other hobbies are unlikely to inspire\"\n\n\"unlikely\" ở đây không có nghĩa là không thể, mà là ít có khả năng.\n\n→ Ý này phù hợp với more than most other hobbies (đa số sở thích khác ít tạo ra cảm giác này bằng việc sưu tầm).\n\n⇒ Đáp án đúng: TRUE",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-cam-12-1-reading-part-3",
+      "partNumber": 3,
+      "rangeLabel": "",
+      "passageTitle": "WHAT'S THE PURPOSE OF GAINING KNOWLEDGE?",
+      "passage": [
+        {
+          "text": "What’s the purpose of gaining knowledge?\nA\n‘I would found an institution where any person can find instruction in any subject.’ That was the founder’s motto for Cornell University, and it seems an apt characterization of the different university, also in the USA, where I currently teach philosophy. A student can prepare for a career in resort management, engineering, interior design, accounting, music, law enforcement, you name it. But what would the founders of these two institutions have thought of a surprising course title called ‘Arson for Profit’? I kid you not: we have it on the books. Any undergraduates who have met the academic requirements can sign up for the course in our program in ‘fire science’.\nB\nNaturally, the course is intended for prospective arson investigators, who can learn all the tricks of the trade for detecting whether a fire was deliberately set, discovering who did it, and establishing a chain of evidence for effective prosecution in a court of law. But wouldn’t this also be the perfect course for prospective arsonists to sign up for? My point is not to criticize academic programs in fire science: they are highly welcome as part of the increasing professionalization of this and many other occupations. However, it’s not unknown for a firefighter to torch a building. This example suggests how dishonest and illegal behavior, with the help of higher education, can creep into every aspect of public and business life.\nC\nI realized this anew when I was invited to speak before a class in marketing, which is another of our degree programs. The regular instructor is a colleague who appreciates the kind of ethical perspective. I can bring as a philosopher. There are endless ways I could have approached this assignment, but I took my cue from the title of the course: ‘Principles of Marketing’. It made me think to ask the students, ‘Is marketing principled?’ After all, a subject matter can have principles in the sense of being codified, having rules, as with football or chess, without being principled in the sense of being ethical. Many of the students immediately assumed that the answer to my question about marketing principles was obvious: no. Just look at the ways in which everything under the sun has been marketed; obviously it need to be done in a principled (=ethical) fashion.\nD\nIs that obvious? I made the suggestion, which may sound downright crazy in light of the evidence, that perhaps marketing is by definition principled. My inspiration for this judgement is the philosopher Immanuel Kant, who argued that any body of knowledge consists of an end (or purpose) and a means.\nE\nLet us apply both the terms ‘means’ and ‘end’ to marketing. The students have signed up for a course in order to learn how to market effectively. But to what end? There seem to be two main attitudes toward that question. One is that the answer is obvious: the purpose of marketing is to sell things and to make money. The other attitude is that the purpose of marketing is irrelevant: Each person comes to the program and course with his or her own plans, and these need not even concern the acquisition of marketing expertise as such. My proposal, which I believe would also be Kant’s, is that neither of these attitudes captures the significance of the end to the means for marketing. A field of knowledge or a professional endeavor is defined by both the means and the end; hence both deserve scrutiny. Students need to study both how to achieve X, and also what X is.\nF\nIt is at this point that ‘Arson for Profit’ becomes supremely relevant. That course is presumably all about means: how to detect and prosecute criminal activity. It is therefore assumed that the end is good in an ethical sense. When I ask fire science students to articulate the end, or purpose, of their field, they eventually generalize to something like, ‘The safety and welfare of society,’ which seems right. As we have seen, someone could use the very same knowledge of means to achieve a much less noble end such as personal profit via destructive, dangerous, reckless activity. But we would not call that firefighting. We have a separate word for it: arson. Similarly, if you employed the ‘principles of marketing’ is an unprincipled way, you would not be doing marketing. We have another term for it: fraud. Kant gives the example of a doctor and a poisoner, who use the identical knowledge to achieve their divergent ends. We would say that one is practicing medicine, the other, murder."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-cam-12-1-reading-part-3-g0",
+          "range": "Questions 27–32",
+          "instruction": "Reading Passage has paragraphs A–F. Choose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i–viii, in boxes 27–32 on your answer sheet.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q27",
+              "number": 27,
+              "type": "matching-headings",
+              "prompt": "Section A",
+              "options": [],
+              "answer": "vi",
+              "explanation": "Bước 1: Keyword\nsurprising title\n\nBước 2: Tìm đoạn\n\n\"a surprising course title called ‘Arson for Profit’\"\n\nBước 3: Phân tích\n\nĐoạn A giới thiệu tên khóa học gây bất ngờ.\n\n⇒ Đáp án: vi. A surprising course title",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q28",
+              "number": 28,
+              "type": "multiple-choice",
+              "prompt": "Section B",
+              "options": [],
+              "answer": "viii",
+              "explanation": "Bước 1: Keyword\nwrong students\n\nBước 2: Tìm đoạn\n\n\"wouldn't this also be the perfect course for prospective arsonists\"\n\nBước 3: Phân tích\n\nTác giả nói khóa học có thể thu hút cả người muốn đốt nhà.\n\n⇒ Đáp án: viii. The possibility of attracting the wrong kind of student",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q29",
+              "number": 29,
+              "type": "multiple-choice",
+              "prompt": "Section C",
+              "options": [],
+              "answer": "ii",
+              "explanation": "Bước 1: Keyword\ntwo meanings\n\nBước 2: Tìm đoạn\n\n\"principles in the sense of rules...\"\n\"principled in the sense of ethical\"\n\nBước 3: Phân tích\n\nTác giả phân tích một khái niệm theo hai nghĩa khác nhau.\n\n⇒ Đáp án: ii. A course title with two meanings",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q30",
+              "number": 30,
+              "type": "multiple-choice",
+              "prompt": "Section D",
+              "options": [],
+              "answer": "iv",
+              "explanation": "Bước 1: Keyword\nKant + marketing\n\nBước 2: Tìm đoạn\n\n\"My inspiration ... is the philosopher Immanuel Kant\"\n\nBước 3: Phân tích\n\nLý thuyết triết học của Kant được áp dụng vào marketing.\n\n⇒ Đáp án: iv. Applying a theory in an unexpected context",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q31",
+              "number": 31,
+              "type": "multiple-choice",
+              "prompt": "Section E",
+              "options": [],
+              "answer": "iii",
+              "explanation": "Bước 1: Keyword\nmeans and end\n\nBước 2: Tìm đoạn\n\n\"defined by both the means and the end\"\n\nBước 3: Phân tích\n\nHai yếu tố đều quan trọng như nhau.\n\n⇒ Đáp án: iii. The equal importance of two key issues",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q32",
+              "number": 32,
+              "type": "multiple-choice",
+              "prompt": "Section F",
+              "options": [],
+              "answer": "vii",
+              "explanation": "Bước 1: Keyword\ndifferent outcomes\n\nBước 2: Tìm đoạn\n\n\"firefighting... arson\"\n\"marketing... fraud\"\n\"medicine... murder\"\n\nBước 3: Phân tích\n\nCùng kiến thức nhưng mục đích khác nhau tạo kết quả khác nhau.\n\n⇒ Đáp án: vii. Different names for different outcomes",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-12-1-reading-part-3-g1",
+          "range": "Questions 33–36",
+          "instruction": "Complete the summary below.\nChoose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "note": "This is a university course intended for students who are undergraduates and who are studying [33]. The expectation is that they will become [34] specialising in arson. The course will help them to detect cases of arson and find [35] of criminal intent, leading to successful [36] in the courts.",
+          "type": "summary-completion",
+          "notesTitle": "The ‘Arson for Profit’ course",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q33",
+              "number": 33,
+              "type": "gap-fill",
+              "prompt": "This is a university course intended for students who are undergraduates and who are studying [fire science].",
+              "options": [],
+              "answer": "fire science",
+              "explanation": "Bước 1: Keyword\nundergraduates studying ...\n\nBước 2: Tìm đoạn\nĐoạn A:\n\n\"Any undergraduates ... can sign up for the course in our program in fire science.\"\n\nBước 3: Phân tích\n\nĐề hỏi sinh viên học ngành gì.\n\n⇒ Đáp án: fire science",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q34",
+              "number": 34,
+              "type": "gap-fill",
+              "prompt": "The expectation is that they will become [investigators] specialising in arson.",
+              "options": [],
+              "answer": "investigators",
+              "explanation": "Bước 1: Keyword\nbecome ... specialising in arson\n\nBước 2: Tìm đoạn\nĐoạn B:\n\n\"the course is intended for prospective arson investigators\"\n\nBước 3: Phân tích\n\nprospective = tương lai/sẽ trở thành\n\n⇒ become future investigators\n\n⇒ Đáp án: investigators",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q35",
+              "number": 35,
+              "type": "gap-fill",
+              "prompt": "The course will help them to detect cases of arson and find [evidence] of criminal intent.",
+              "options": [],
+              "answer": "evidence",
+              "explanation": "Bước 1: Keyword\nfind ... of criminal intent\n\nBước 2: Tìm đoạn\n\n\"establishing a chain of evidence\"\n\nBước 3: Phân tích\n\nfind evidence = tìm bằng chứng\n\n⇒ Đáp án: evidence",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q36",
+              "number": 36,
+              "type": "gap-fill",
+              "prompt": "...leading to successful [prosecution] in the courts.",
+              "options": [],
+              "answer": "prosecution",
+              "explanation": "Bước 1: Keyword\nsuccessful ... in courts\n\nBước 2: Tìm đoạn\n\n\"...for effective prosecution in a court of law\"\n\nBước 3: Phân tích\n\nsuccessful prosecution = truy tố thành công\n\n⇒ Đáp án: prosecution",
+              "answerConfidence": "key"
+            }
+          ]
+        },
+        {
+          "id": "catalog-cam-12-1-reading-part-3-g2",
+          "range": "Questions 37–40",
+          "instruction": "Do the following statements agree with the claims of the writer in the Reading Passage?\nIn boxes 37–40 on your answer sheet, write\nYES  if the statement agrees with the claims of the writer\nNO  if the statement contradicts the claims of the writer\nNOT GIVEN  if it is impossible to say what the writer thinks about this",
+          "type": "ynng",
+          "questions": [
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q37",
+              "number": 37,
+              "type": "yes-no-not-given",
+              "prompt": "It is difficult to attract students onto courses that do not focus on a career.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "NOT GIVEN",
+              "explanation": "Câu 37: It is difficult to attract students onto courses that do not focus on a career.\n\nBước 1: Keyword\ndifficult / attract students / career\n\nBước 2: Tìm đoạn\n\nKhông có đoạn nào nói về mức độ khó thu hút sinh viên.\n\nBước 3: Phân tích\n\nBài không đề cập.\n\n⇒ Đáp án: NOT GIVEN",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q38",
+              "number": 38,
+              "type": "yes-no-not-given",
+              "prompt": "The 'Arson for Profit' course would be useful for people intending to set fire to buildings.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "YES",
+              "explanation": "Bước 1: Keyword\nuseful / set fire\n\nBước 2: Tìm đoạn B\n\n\"wouldn't this also be the perfect course for prospective arsonists\"\n\nBước 3: Phân tích\n\nperfect course = rất hữu ích\n\nĐề và bài cùng ý.\n\n⇒ Đáp án: YES",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q39",
+              "number": 39,
+              "type": "yes-no-not-given",
+              "prompt": "Fire science courses are too academic to help people to be good at the job of firefighting.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "NO",
+              "explanation": "Bước 1: Keyword\ntoo academic\n\n**Bước 2: Tìm đoạn B\n\n\"they are highly welcome as part of increasing professionalisation\"\n\nBước 3: Phân tích\n\nTác giả nói tích cực về khóa học.\n\nĐề nói quá học thuật và không hữu ích → ngược ý.\n\n⇒ Đáp án: NO",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-cam-12-1-reading-part-3-q40",
+              "number": 40,
+              "type": "yes-no-not-given",
+              "prompt": "The writer's fire science students provided a detailed definition of the purpose of their studies.",
+              "options": [
+                {
+                  "id": "yes",
+                  "label": "YES"
+                },
+                {
+                  "id": "no",
+                  "label": "NO"
+                },
+                {
+                  "id": "not-given",
+                  "label": "NOT GIVEN"
+                }
+              ],
+              "answer": "NO",
+              "explanation": "Bước 1: Keyword\ndetailed definition\n\n**Bước 2: Tìm đoạn F\n\n\"they eventually generalize to something like 'The safety and welfare of society'\"\n\nBước 3: Phân tích\n\ngeneralize = khái quát\n\nĐề nói detailed (chi tiết) → trái nghĩa.\n\n⇒ Đáp án: NO",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "ielts",
+  "catalogSlug": "ielts-cam12-test1",
+  "catalogBase": "/catalog/reading/ielts-cam12-test1"
+}

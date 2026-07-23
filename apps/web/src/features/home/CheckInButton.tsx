@@ -1,7 +1,9 @@
 import { CalendarCheck, Check, Loader2 } from 'lucide-react'
 import { useCheckIn } from './useCheckIn'
+import { useI18n } from '../../lib/language'
 
 export default function CheckInButton({ compact = false }: { compact?: boolean }) {
+  const { t } = useI18n()
   const { checkedInToday, checkInStreak, checkIn, pending } = useCheckIn()
 
   async function handleClick() {
@@ -24,7 +26,7 @@ export default function CheckInButton({ compact = false }: { compact?: boolean }
         ) : (
           <CalendarCheck size={16} />
         )}
-        <span>{checkedInToday ? 'Đã điểm danh' : 'Điểm danh'}</span>
+        <span>{checkedInToday ? t('home.checkedIn') : t('home.checkin')}</span>
       </button>
     )
   }
@@ -32,11 +34,11 @@ export default function CheckInButton({ compact = false }: { compact?: boolean }
   return (
     <div className="home-checkin-card">
       <div className="home-checkin-card-text">
-        <p className="home-checkin-card-title">Điểm danh hôm nay</p>
+        <p className="home-checkin-card-title">{t('home.checkinTitle')}</p>
         <p className="home-checkin-card-sub">
           {checkedInToday
-            ? `Streak điểm danh: ${checkInStreak} ngày — quay lại ngày mai nhé!`
-            : 'Một cú bấm để giữ thói quen học mỗi ngày'}
+            ? t('home.checkinStreak').replace('{count}', String(checkInStreak))
+            : t('home.checkinHint')}
         </p>
       </div>
       <button
@@ -53,7 +55,7 @@ export default function CheckInButton({ compact = false }: { compact?: boolean }
         ) : (
           <CalendarCheck size={18} />
         )}
-        <span>{checkedInToday ? 'Đã điểm danh' : 'Điểm danh'}</span>
+        <span>{checkedInToday ? t('home.checkedIn') : t('home.checkin')}</span>
       </button>
     </div>
   )

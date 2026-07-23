@@ -1,0 +1,33 @@
+{
+  "name": "local-tool-bundles-mcp",
+  "version": "0.2.0",
+  "description": "Repo-local MCP plugin that exposes claude-mem and codebase-memory tool bundles through local stdio servers.",
+  "author": {
+    "name": "OpenAI Codex Workspace"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "mcp",
+    "codebase-memory",
+    "claude-mem",
+    "workspace"
+  ],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Local Tool Bundles MCP",
+    "shortDescription": "Local MCP wrappers for your imported tool bundles.",
+    "longDescription": "Exposes the repo-local claude-mem, codebase-memory, and codebase-memory-mcp descriptor bundles as usable Codex MCP servers backed by a heuristic local runtime.",
+    "developerName": "OpenAI Codex Workspace",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Search",
+      "Local MCP"
+    ],
+    "defaultPrompt": [
+      "Search this codebase with codebase-memory.",
+      "Show architecture for this workspace.",
+      "Trace callers of a function locally."
+    ]
+  }
+}

@@ -9,6 +9,7 @@ import {
 } from './listeningExamData'
 import ExamPracticeResultReport, { computeAnswerStats } from './ExamPracticeResultReport'
 import type { ExamAiQuestionItem } from './examResultAiAnalyze'
+import { formatExamResultOption } from './examResultOption'
 import { createPracticeFromWholeExam, createOrOpenPracticeFromExamPart } from '../listening/examListeningBridge'
 import './listeningTest.css'
 
@@ -84,7 +85,7 @@ export default function ListeningExamResult({
       userAnswer: formatListeningAnswer(q, raw),
       correctAnswer: formatListeningAnswer(q, q.answer),
       explanation: q.explanation,
-      options: (q.options ?? []).map(o => `${o.id.toUpperCase()}. ${o.label}`),
+      options: (q.options ?? []).map(formatExamResultOption),
       status,
       partLabel: part
         ? `Part ${part.partNumber}${part.passageTitle ? ` — ${part.passageTitle}` : ''}`
@@ -103,7 +104,7 @@ export default function ListeningExamResult({
       }).filter(Boolean).join('\n'))
     }
     const lines = qs.map(q => {
-      const opts = (q.options ?? []).map(o => `${o.id.toUpperCase()}. ${o.label}`).join(' | ')
+      const opts = (q.options ?? []).map(formatExamResultOption).join(' | ')
       return [
         `Q${q.number}: ${[q.context, q.prompt, q.gapLead, q.gapTrail].filter(Boolean).join(' ')}`,
         opts ? `Options: ${opts}` : '',

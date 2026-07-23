@@ -28,7 +28,7 @@ export default function ListeningUserLessonCard({
   if (viewMode === 'compact') {
     return (
       <div
-        className="group flex items-center gap-3 rounded-xl px-3 py-3 transition-shadow hover:shadow-sm"
+        className="listening-bao-card group flex items-center gap-3 rounded-xl px-3 py-3 transition-shadow hover:shadow-sm"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div
@@ -67,7 +67,7 @@ export default function ListeningUserLessonCard({
   if (viewMode === 'grid') {
     return (
       <div
-        className="group flex h-full flex-col rounded-[18px] p-4 transition-shadow hover:shadow-md"
+        className="listening-bao-card group flex h-full flex-col rounded-[18px] p-4 transition-shadow hover:shadow-md"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div className="mb-4 flex items-start justify-between gap-3">
@@ -155,7 +155,7 @@ export default function ListeningUserLessonCard({
 
   return (
     <div
-      className="group flex flex-wrap items-center gap-3 rounded-[14px] px-4 py-4 transition-shadow hover:shadow-md"
+      className="listening-bao-card group flex flex-wrap items-center gap-3 rounded-[14px] px-4 py-4 transition-shadow hover:shadow-md"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       <div

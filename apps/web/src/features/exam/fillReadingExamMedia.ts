@@ -14,19 +14,32 @@ function isHttpOrCatalogUrl(url: string | undefined): boolean {
   return /^https?:\/\//i.test(u) || u.startsWith('/') || u.startsWith('blob:')
 }
 
-/** Chuẩn hóa URL ảnh — bare filename → /catalog/... khi biết base */
+/** Chuẩn hóa URL ảnh — bare filename → catalog base (nếu có), không hardcode Test 1. */
 function normalizeImageUrl(
   raw: string | undefined,
   catalogFallback?: string,
-  catalogBase = '/catalog/reading/ket-a2-test1',
+  catalogBase?: string,
 ): string | undefined {
   const u = raw?.trim()
   if (u && isHttpOrCatalogUrl(u) && !u.startsWith('blob:')) return u
-  if (catalogFallback?.trim()) return catalogFallback.trim()
-  if (u && !u.includes('/') && !u.includes('\\')) {
+  if (catalogFallback?.trim() && isHttpOrCatalogUrl(catalogFallback.trim())) {
+    return catalogFallback.trim()
+  }
+  if (u && catalogBase && !u.includes('/') && !u.includes('\\')) {
     return `${catalogBase.replace(/\/$/, '')}/${u}`
   }
+  // bare filename + fallback bare/path
+  if (catalogFallback?.trim()) return catalogFallback.trim()
   return u || undefined
+}
+
+function extractCatalogBase(url: string | undefined): string | undefined {
+  const u = url?.trim()
+  if (!u || !u.startsWith('/catalog/')) return undefined
+  const parts = u.split('/')
+  // /catalog/reading/{slug}/file.jpg
+  if (parts.length >= 5) return parts.slice(0, 4).join('/')
+  return undefined
 }
 
 function findSourceBlock(
@@ -129,38 +142,63 @@ export function repairKetPart2Passage(
 }
 
 /**
- * KET A2 Part 7 — 3 ảnh story. Publish strip imageKey → broken placeholder.
- * Ưu tiên URL catalog public nếu block không có URL hợp lệ.
+ * KET A2 Part 7 — 1 ảnh full strip (part7-page.jpg) HOẶC 2–3 panel riêng.
+ * Không ép 3 slot, không hardcode ảnh Test 1.
  */
 export function repairKetPart7Passage(
   part: ReadingPart,
   source: ReadingPart,
 ): ReadingPart {
-  const count = Math.max(part.passage.length, source.passage.length, 3)
-  const passage: ReadingPassageBlock[] = []
+  const sourceImages = source.passage.filter(
+    b => hasPublicImage(b) || Boolean(b.imageKey?.trim()),
+  )
+  const partImages = part.passage.filter(
+    b => hasPublicImage(b) || Boolean(b.imageKey?.trim()),
+  )
+  const catalogBase =
+    extractCatalogBase(partImages[0]?.imageUrl)
+    ?? extractCatalogBase(sourceImages[0]?.imageUrl)
 
-  for (let i = 0; i < count; i += 1) {
-    const block = part.passage[i]
-    const src = source.passage[i]
-    const catalogUrl = src?.imageUrl?.trim()
-    const rawUrl = block?.imageUrl?.trim()
-    // URL cloud/catalog hợp lệ giữ; bare name / trống → catalog
-    let imageUrl = normalizeImageUrl(rawUrl, catalogUrl)
-    if (!imageUrl && catalogUrl) imageUrl = catalogUrl
-    // Fallback cứng KET test1 nếu catalog thiếu
-    if (!imageUrl) {
-      imageUrl = `/catalog/reading/ket-a2-test1/part7-p${i + 1}.jpg`
-    }
-
-    passage.push({
-      text: block?.text ?? src?.text ?? '',
-      imageUrl,
-      imageKey: undefined,
+  // Đề đã có ảnh: giữ số block (1 strip hoặc N panel), chỉ vá URL hỏng / bare name
+  if (partImages.length > 0 || part.passage.some(b => hasText(b))) {
+    const blocks = part.passage.length ? part.passage : partImages
+    const passage = blocks.map((block, i) => {
+      const src = source.passage[i] ?? sourceImages[i]
+      let imageUrl = normalizeImageUrl(
+        block.imageUrl?.trim(),
+        src?.imageUrl?.trim(),
+        catalogBase,
+      )
+      if (!imageUrl && src?.imageUrl?.trim()) {
+        imageUrl = normalizeImageUrl(undefined, src.imageUrl.trim(), catalogBase)
+      }
+      const imageKey = imageUrl ? undefined : (block.imageKey || src?.imageKey)
+      return {
+        text: block.text ?? src?.text ?? '',
+        imageUrl,
+        imageKey,
+      }
     })
+    // Bỏ block rỗng do pad 3-slot cũ (không ảnh, không text)
+    const cleaned = passage.filter(
+      b => hasPublicImage(b) || Boolean(b.imageKey?.trim()) || hasText(b),
+    )
+    return { ...part, passage: cleaned.length ? cleaned : passage }
   }
 
-  // Chỉ giữ tối đa số ảnh story (thường 3)
-  return { ...part, passage: passage.slice(0, Math.max(3, source.passage.length)) }
+  // Local trống → copy đúng ảnh từ source (cùng đề), không Test 1 cứng
+  if (sourceImages.length > 0) {
+    return {
+      ...part,
+      passage: sourceImages.map(b => ({
+        text: b.text ?? '',
+        imageUrl: normalizeImageUrl(b.imageUrl, undefined, catalogBase) ?? b.imageUrl,
+        imageKey: undefined,
+      })),
+    }
+  }
+
+  return part
 }
 
 function mergePart(part: ReadingPart, source: ReadingPart | undefined): ReadingPart {
@@ -239,20 +277,28 @@ export function fillMissingReadingMediaFromFallback(
   if (fallback.id !== exam.id) {
     const sameLevel = fallback.cambridgeLevel && fallback.cambridgeLevel === exam.cambridgeLevel
     const samePartCount = fallback.parts.length === exam.parts.length
-    // Cùng số Test trong title (tránh Test 2 import + catalog Test 1)
+    // Cùng Book + Test trong title (tránh Book 4 Test 1 ← Book 1 / Book 5 Test 1)
     const testOf = (t: string) => t.toLowerCase().match(/\btest\s*(\d+)\b/)?.[1]
+    const bookOf = (t: string) => t.toLowerCase().match(/\bbook\s*(\d+)\b/)?.[1]
     const sameTest =
       !testOf(exam.title)
       || !testOf(fallback.title)
       || testOf(exam.title) === testOf(fallback.title)
-    // KET A2: donor catalog cùng level + cùng Test (chỉ vá ảnh), không ghép passage đề khác
+    const sameBook =
+      !bookOf(exam.title)
+      || !bookOf(fallback.title)
+      || bookOf(exam.title) === bookOf(fallback.title)
+    // KET A2: donor catalog cùng level + cùng Book + cùng Test (chỉ vá ảnh)
     const ketLoose =
       exam.cambridgeLevel === 'a2'
       && fallback.cambridgeLevel === 'a2'
       && fallback.id.startsWith('catalog-')
       && sameTest
+      && sameBook
     if (!sameLevel || (!samePartCount && !ketLoose)) return exam
-    if (!sameTest && !samePartCount) return exam
+    if ((!sameTest || !sameBook) && !samePartCount) return exam
+    // Cùng số part nhưng khác Book/Test → không ghép media (tránh Part 7 dính ảnh đề khác)
+    if (samePartCount && (!sameTest || !sameBook) && fallback.id !== exam.id) return exam
   }
 
   const byPart = new Map(fallback.parts.map(p => [p.partNumber, p]))

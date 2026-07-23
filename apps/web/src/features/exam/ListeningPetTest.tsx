@@ -2,8 +2,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { listeningExamBackPath } from './examNavigation'
 import ListeningSubmittedScreen from './ListeningSubmittedScreen'
+import ListeningTranscriptSidePanel from './ListeningTranscriptSidePanel'
 import ListeningPetGapFillPartView from './ListeningPetGapFillPartView'
 import ListeningPetMcPartView from './ListeningPetMcPartView'
+import ListeningKetPart1PictureView from './ListeningKetPart1PictureView'
 import ListeningQuestionAnswerPanel from './ListeningQuestionAnswerPanel'
 import ListeningQuestionPromptPanel from './ListeningQuestionPromptPanel'
 import {
@@ -32,9 +34,14 @@ import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
 import { useListeningReviewTranscript } from './useListeningReviewTranscript'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useAudioSync } from './useAudioSync'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
-import { hasExamAudioSource, ketSharedExamAudioSource } from './listeningExamAudio'
+import {
+  hasExamAudioSource,
+  resolveListeningAudioSource,
+  sharedExamAudioSource,
+} from './listeningExamAudio'
 import { resetListeningSplitPanes } from './listeningScrollUtils'
 import { useListeningSplitPane } from './useListeningSplitPane'
 import { Bell, Check, ChevronLeft, ChevronRight, Edit3, Menu, Wifi } from 'lucide-react'
@@ -60,6 +67,7 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [transcriptPanelOpen, setTranscriptPanelOpen] = useState(false)
   const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
 
@@ -84,7 +92,10 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     () => allQuestions.find(q => q.id === activeQuestionId) ?? null,
     [activeQuestionId, allQuestions],
   )
-  const examAudioSource = useMemo(() => ketSharedExamAudioSource(exam), [exam])
+  const audioSource = useMemo(
+    () => resolveListeningAudioSource(exam, currentPart),
+    [exam, currentPart],
+  )
   const isPicturePart = Boolean(currentPart && isPetPicturePart(exam.examType, currentPart))
   const isExtractPart = Boolean(currentPart && isPetExtractPart(exam.examType, currentPart))
   const isGroupedGapFill = Boolean(currentPart && isPetGroupedGapFillPart(exam.examType, currentPart))
@@ -96,17 +107,38 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     play,
     seekToPct,
     stopPlayback,
     resetPlayback,
     playError,
+    speed,
+    toggleSpeed,
   } = useExamQuestionAudio()
 
+  const { markManualInteraction } = useAudioSync({
+    audioCurrentTime,
+    audioDuration,
+    playing,
+    exam,
+    currentPart,
+    submitted,
+    reviewMode,
+    activeQuestionId,
+    onQuestionChange: setActiveQuestionId,
+    onPartChange: setPartIndex,
+    scrollRoot: bodyRef.current,
+  })
+
   const { canPlay, playsLeft, recordPlay, resetPlayCounts } = useListeningPlayLimits(exam.examMode)
-  const playKey = `exam-${exam.id}`
+  const playKey = useMemo(() => {
+    if (sharedExamAudioSource(exam)) return `exam-${exam.id}`
+    if (currentPart) return `exam-${exam.id}-part-${currentPart.partNumber}`
+    return `exam-${exam.id}`
+  }, [exam, currentPart])
   const maxPlays = exam.examMode === 'exam' ? 2 : undefined
-  const audioSource = examAudioSource
   const hasAudioFile = hasExamAudioSource(audioSource)
   const left = playsLeft(playKey, maxPlays)
   const blocked = !canPlay(playKey, maxPlays)
@@ -117,6 +149,24 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     beforePlay: () => canPlay(playKey, maxPlays),
     onPlayCounted: () => recordPlay(playKey),
   }), [canPlay, exam.examMode, maxPlays, playKey, recordPlay])
+
+  /** Đề import nhiều part*.mp3: chuyển part → auto phát audio part đó. */
+  const autoPlayPartAudio = useCallback((index: number) => {
+    if (submitted || reviewMode || !sessionStarted) return
+    if (sharedExamAudioSource(exam)) return
+    const part = exam.parts[index]
+    if (!part) return
+    const source = resolveListeningAudioSource(exam, part)
+    if (!hasExamAudioSource(source)) return
+    const key = `exam-${exam.id}-part-${part.partNumber}`
+    if (!canPlay(key, maxPlays)) return
+    void play(source, {
+      rate: 1,
+      allowSeek: exam.examMode === 'practice',
+      beforePlay: () => canPlay(key, maxPlays),
+      onPlayCounted: () => recordPlay(key),
+    })
+  }, [canPlay, exam, maxPlays, play, recordPlay, reviewMode, sessionStarted, submitted])
 
   useEffect(() => {
     registerListeningAutoPlay(() => {
@@ -225,7 +275,8 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
     const qs = getPartQuestions(exam.parts[index])
     setPartIndex(index)
     setActiveQuestionId(qs[0]?.id ?? null)
-  }, [exam.parts])
+    autoPlayPartAudio(index)
+  }, [exam.parts, autoPlayPartAudio])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
     setActiveQuestionId(questionId)
@@ -325,7 +376,10 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
   }
 
   return (
-    <div className={`listening-exam-shell listening-ket-cambridge listening-pet-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+    <div
+      className={`listening-exam-shell listening-ket-cambridge listening-pet-cambridge${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}
+      onPointerDownCapture={markManualInteraction}
+    >
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
           <span>Chế độ xem lại đề — pill xanh = đúng · đỏ = sai · vàng = bỏ qua</span>
@@ -381,6 +435,15 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
           {!reviewMode && (
             <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
           )}
+          <button
+            type="button"
+            className={`listening-transcript-toggle${transcriptPanelOpen ? ' is-on' : ''}`}
+            onClick={() => setTranscriptPanelOpen(o => !o)}
+            title="Xem transcript (split màn hình)"
+          >
+            <Edit3 size={14} />
+            Transcript
+          </button>
           <Wifi size={19} />
           <Bell size={19} />
           <Menu size={22} />
@@ -424,6 +487,8 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
             playBlocked: blocked,
             playError,
             onPlayNormal: () => void play(audioSource, makePlayOpts(1)),
+            speed,
+            onToggleSpeed: toggleSpeed,
             onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
             onStop: stopPlayback,
           }
@@ -467,13 +532,29 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
             currentPart.partNumber === 1
             && (currentQuestion.type === 'picture-mc' || Boolean(currentQuestion.pictureImageUrl || currentQuestion.pictureImageKey))
 
+          if (isPart1Picture) {
+            return (
+              <ListeningKetPart1PictureView
+                part={currentPart}
+                question={currentQuestion}
+                answer={answers[currentQuestion.id] ?? ''}
+                unsure={Boolean(unsure[currentQuestion.id])}
+                audioBar={audioBarProps}
+                onAnswer={value => { if (reviewMode) return; setAnswers(prev => ({ ...prev, [currentQuestion.id]: value })) }}
+                onUnsureChange={value => setUnsure(prev => ({ ...prev, [currentQuestion.id]: value }))}
+                reviewMode={reviewMode}
+                reviewStatus={reviewStatusMap[currentQuestion.id] ?? null}
+              />
+            )
+          }
+
           return (
-            <div className={`listening-ket-cambridge__stage${isPart1Picture ? ' listening-ket-cambridge__stage--p1-fit' : ''}`}>
+            <div className="listening-ket-cambridge__stage">
               <div className="listening-ket-cambridge__instruction-card">
                 <strong>{currentPart.rangeLabel}</strong>
                 {currentPart.instruction && <span>{currentPart.instruction}</span>}
               </div>
-              <div className={`listening-ket-cambridge__question${isPart1Picture ? ' listening-ket-cambridge__question--p1-fit' : ''}`}>
+              <div className="listening-ket-cambridge__question">
               <ListeningQuestionPromptPanel
                 question={currentQuestion}
                 partInstruction=""
@@ -570,6 +651,16 @@ export default function ListeningPetTest({ exam, sessionStarted = true }: Props)
           <Check size={24} />
         </button>
       </footer>
+
+      <ListeningTranscriptSidePanel
+        exam={exam}
+        currentPart={currentPart}
+        open={transcriptPanelOpen}
+        onClose={() => setTranscriptPanelOpen(false)}
+        audioCurrentTime={audioCurrentTime}
+        audioDuration={audioDuration}
+        playing={playing}
+      />
 
       {confirmSubmit && (
         <div

@@ -119,6 +119,9 @@ function safeListeningRow(exam: ListeningExam, isAdmin: boolean): {
 } {
   try {
     const qCount = getListeningExamQuestions(exam).length
+      || (typeof (exam as { questionCount?: number }).questionCount === 'number'
+        ? (exam as { questionCount?: number }).questionCount!
+        : 0)
     const completion = readListeningDraftCompletion(exam)
     const parsed = exam.title.match(/Test\s*(\d+)/i)
     const sourceLabel = exam.id.startsWith('catalog-')
@@ -433,6 +436,7 @@ function ExamTrackPageInner() {
           readingCount={readingList.length}
           skills={skills}
           readingTitle={cambridgeLevel ? 'Reading - Writing' : 'Reading'}
+          ieltsCardStyle={isIeltsTrack}
           onPick={skill => navigate(`${skillBasePath}/${skill}`)}
         />
         {canImport && showImportListening && (

@@ -6,9 +6,11 @@ import { useAuth } from '../../features/auth/AuthContext'
 import LandingAboutContent from './LandingAboutContent'
 import LandingBlogContent from './LandingBlogContent'
 import LandingRoadmapContent from './LandingRoadmapContent'
+import LegalFooter from '../../components/LegalFooter'
 
-const VIDEO_SRC =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
+const VIDEO_SRC = '/landing-video.mp4'
+const VIDEO_POSTER_SRC = '/landing-video-poster.jpg'
+const VIDEO_LOAD_DELAY_MS = 3500
 
 const NAV_LINKS = [
   { id: 'home', label: 'Trang chủ', href: '#', active: true },
@@ -22,7 +24,7 @@ const NAV_ITEM_CLASS =
   'liquid-glass-hover inline-flex items-center rounded-full px-4 py-2 text-sm transition-all hover:text-foreground focus-visible:text-foreground'
 const NAV_BUTTON_CLASS = `${NAV_ITEM_CLASS} cursor-pointer border-0 bg-transparent`
 
-const SERIF: React.CSSProperties = { fontFamily: "'Instrument Serif', serif" }
+const SERIF: React.CSSProperties = { fontFamily: 'var(--font-app)' }
 
 /** QR thanh toán (copy từ Tainguyen/QR.jpg → public/) */
 const PAYMENT_QR_SRC = '/QR.jpg'
@@ -93,8 +95,7 @@ const pricingPlans = [
 
 export default function LandingPage() {
   const navigate = useNavigate()
-  const { user, signInWithGoogle, authError } = useAuth()
-  const [signingIn, setSigningIn] = useState(false)
+  const { user, authError } = useAuth()
   const [pricingOpen, setPricingOpen] = useState(false)
   /** Gói đang chọn trong popup — mặc định gói 3 tháng (phổ biến) */
   const [selectedPlanId, setSelectedPlanId] = useState('3-months')
@@ -108,6 +109,7 @@ export default function LandingPage() {
   const [aboutOpen, setAboutOpen] = useState(false)
   /** Popup blog */
   const [blogOpen, setBlogOpen] = useState(false)
+  const [videoSrc, setVideoSrc] = useState<string | null>(null)
 
   const paymentPlan = paymentPlanId
     ? pricingPlans.find((p) => p.id === paymentPlanId) ?? null
@@ -124,6 +126,11 @@ export default function LandingPage() {
   useEffect(() => {
     if (user) navigate('/app', { replace: true })
   }, [user, navigate])
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setVideoSrc(VIDEO_SRC), VIDEO_LOAD_DELAY_MS)
+    return () => window.clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     if (!anyModalOpen) return
@@ -160,18 +167,8 @@ export default function LandingPage() {
     }
   }, [anyModalOpen, paymentPlanId, contactOpen, roadmapOpen, aboutOpen, blogOpen])
 
-  const startFree = async () => {
-    if (user) {
-      navigate('/app')
-      return
-    }
-    if (signingIn) return
-    setSigningIn(true)
-    try {
-      await signInWithGoogle()
-    } finally {
-      setSigningIn(false)
-    }
+  const startFree = () => {
+    navigate('/app')
   }
 
   const togglePricing = () => {
@@ -539,14 +536,16 @@ export default function LandingPage() {
   return (
     <div
       className="landing-hero relative min-h-screen w-full overflow-x-hidden"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      style={{ fontFamily: 'var(--font-app)' }}
     >
       <style>{LANDING_CSS}</style>
 
       {/* Fullscreen background video */}
       <video
         className="absolute inset-0 z-0 h-full w-full object-cover"
-        src={VIDEO_SRC}
+        src={videoSrc ?? undefined}
+        poster={VIDEO_POSTER_SRC}
+        preload="none"
         autoPlay
         loop
         muted
@@ -554,7 +553,7 @@ export default function LandingPage() {
       />
 
       {/* Navigation */}
-      <nav className="relative z-20 mx-auto flex max-w-7xl flex-row items-center justify-between gap-4 px-4 py-6 sm:px-8">
+      <nav className="relative z-20 mx-auto flex max-w-7xl flex-row items-center justify-between gap-2 px-3 py-4 sm:px-8 sm:py-6">
         <a
           href="/"
           className="shrink-0 text-2xl tracking-tight text-foreground sm:text-3xl"
@@ -678,7 +677,7 @@ export default function LandingPage() {
         </span>
 
         <h1
-          className="landing-hero__content animate-fade-rise mt-6 max-w-6xl text-5xl font-normal leading-[0.98] text-foreground sm:text-7xl md:text-8xl"
+          className="landing-hero__content animate-fade-rise mt-6 max-w-6xl text-4xl font-normal leading-[0.98] text-foreground sm:text-5xl md:text-7xl lg:text-8xl"
           style={{ ...SERIF, letterSpacing: '-2.46px' }}
         >
           Where <em className="not-italic text-muted-foreground">fluency</em>{' '}
@@ -686,28 +685,27 @@ export default function LandingPage() {
           the practice.
         </h1>
 
-        <p className="landing-hero__content animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="landing-hero__content animate-fade-rise-delay mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:mt-8 sm:text-base sm:leading-relaxed md:text-lg">
           Chúng tôi xây dựng công cụ cho những người học đêm khuya và kiên trì
           âm thầm. Ryan English gom SRS, dictation, chấm viết AI và đề thi
           Cambridge vào một không gian tập trung — để bạn chỉ cần làm việc của
           mình: học.
         </p>
 
-        <div className="landing-hero__content animate-fade-rise-delay-2 mt-10 flex flex-col items-center gap-3 sm:mt-11 sm:flex-row sm:gap-3 md:mt-12 md:gap-4">
+        <div className="landing-hero__content animate-fade-rise-delay-2 mt-6 flex flex-col items-center gap-2 sm:mt-11 sm:flex-row sm:gap-3 md:mt-12 md:gap-4">
           <button
             type="button"
             onClick={startFree}
-            disabled={signingIn}
-            className="liquid-glass cursor-pointer rounded-full px-8 py-3.5 text-base text-foreground transition-transform hover:scale-[1.03] disabled:cursor-wait disabled:opacity-70 sm:px-9 md:px-10 md:py-4"
+            className="liquid-glass cursor-pointer rounded-full px-5 py-2.5 text-sm text-foreground transition-transform hover:scale-[1.03] sm:px-8 sm:py-3.5 sm:text-base md:px-10 md:py-4"
           >
-            {signingIn ? 'Đang mở Google…' : 'Bắt đầu miễn phí →'}
+            Bắt đầu miễn phí →
           </button>
           <button
             type="button"
             onClick={togglePricing}
             aria-expanded={pricingOpen}
             aria-controls="pricing-modal"
-            className="liquid-glass-hover landing-hero__surface cursor-pointer whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-medium text-[color:var(--muted-on-image)] transition-all hover:text-[color:var(--text-on-image)] sm:px-7 sm:text-[15px] md:px-8 md:py-4 md:text-base"
+            className="liquid-glass-hover landing-hero__surface cursor-pointer whitespace-nowrap rounded-full px-5 py-2.5 text-xs font-medium text-[color:var(--muted-on-image)] transition-all hover:text-[color:var(--text-on-image)] sm:px-7 sm:py-3.5 sm:text-[15px] md:px-8 md:py-4 md:text-base"
           >
             {pricingOpen ? 'Đóng học phí' : 'Xem học phí'}
           </button>
@@ -837,7 +835,6 @@ export default function LandingPage() {
                           }
                           openPaymentQr(plan.id)
                         }}
-                        disabled={plan.id === 'free' && signingIn}
                         className={[
                           'mt-auto inline-flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
                           selected
@@ -845,7 +842,7 @@ export default function LandingPage() {
                             : 'bg-gray-900 text-white hover:bg-black',
                         ].join(' ')}
                       >
-                        {plan.id === 'free' && signingIn ? 'Đang mở Google…' : plan.cta}
+                        {plan.cta}
                       </button>
                     </div>
                   )
@@ -861,6 +858,7 @@ export default function LandingPage() {
       {roadmapModal}
       {contactModal}
       {paymentModal}
+      <LegalFooter onImage />
     </div>
   )
 }
@@ -1032,7 +1030,7 @@ body .landing-payment-panel {
 }
 .landing-roadmap {
   color: #1a2e22;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-roadmap__hero {
   display: flex;
@@ -1372,7 +1370,7 @@ body .landing-payment-panel {
 }
 .landing-about {
   color: #1c1c1a;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-about__grid {
   display: grid;
@@ -1515,7 +1513,7 @@ body .landing-payment-panel {
 }
 .landing-blog {
   color: #1c1c1a;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-app);
 }
 .landing-blog__intro {
   margin-bottom: 1.15rem;

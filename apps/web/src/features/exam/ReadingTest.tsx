@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
   Bell, Loader2, Maximize2, Minimize2, Wifi,
@@ -17,7 +17,7 @@ import ReadingPassagePanel from './ReadingPassagePanel'
 import ReadingQuestionPanel from './ReadingQuestionPanel'
 import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
 import { useReadingFontSettings } from './useReadingFontSettings'
-import { getExamQuestions, getPartQuestions } from './examData'
+import { getExamQuestions, getPartQuestions, type ReadingExam } from './examData'
 import { buildReadingReviewStatusMap, type ExamReviewStatus } from './examReviewUtils'
 import ExamReviewAiPanel from './ExamReviewAiPanel'
 import { useExamReviewAi } from './useExamReviewAi'
@@ -25,7 +25,6 @@ import { useReviewEvidenceHighlights } from './useReviewEvidenceHighlights'
 import { buildReadingPassageHighlightBlocks } from './buildReadingPassageHighlightBlocks'
 import { resolveReadingExam } from './examLoader'
 import { useIsAdmin } from '../auth/useIsAdmin'
-import { resolveExamMediaUrl } from './examMediaUrl'
 import {
   deleteReadingExamCloudImage,
   mergeReadingCloudImages,
@@ -38,11 +37,7 @@ import { notifyExamDraftRevision } from './useExamDraftRevision'
 import { useExamDraftGate } from './useExamDraftGate'
 import { readingExamDurationMinutes } from './readingExamDuration'
 import { initialExamTimerSeconds } from './examTimer'
-import ReadingKetRwTest from './ketRw/ReadingKetRwTest'
-import ReadingPetRwTest from './petRw/ReadingPetRwTest'
-import ReadingFceRwTest from './fceRw/ReadingFceRwTest'
-import ReadingCaeRwTest from './caeRw/ReadingCaeRwTest'
-import ReadingCpeRwTest from './cpeRw/ReadingCpeRwTest'
+import type { ReadingTest as TidReadingTest } from './tidIeltsReading/types'
 import {
   isCaeReadingWritingExam,
   isCpeReadingWritingExam,
@@ -57,16 +52,52 @@ const SPLIT_STORAGE_KEY = 'exam-reading-split-pct'
 const SPLIT_MIN = 28
 const SPLIT_MAX = 72
 
+const ReadingKetRwTest = lazy(() => import('./ketRw/ReadingKetRwTest'))
+const ReadingPetRwTest = lazy(() => import('./petRw/ReadingPetRwTest'))
+const ReadingFceRwTest = lazy(() => import('./fceRw/ReadingFceRwTest'))
+const ReadingCaeRwTest = lazy(() => import('./caeRw/ReadingCaeRwTest'))
+const ReadingCpeRwTest = lazy(() => import('./cpeRw/ReadingCpeRwTest'))
+const TidIeltsReadingExam = lazy(async () => {
+  const mod = await import('./tidIeltsReading/TidIeltsReadingExam')
+  return { default: mod.ReadingExam }
+})
+
+function ReadingRouteFallback() {
+  return (
+    <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+      <Loader2 size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
+    </div>
+  )
+}
+
 export default function ReadingTest() {
   const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
   const requestedPart = parseReadingPart(searchParams.get('part'))
-  const exam = useLiveQuery(
-    () => (examId ? resolveReadingExam(examId) : null),
-    [examId],
-  )
+  const [exam, setExam] = useState<ReadingExam | null | undefined>(undefined)
+  const [examLoadError, setExamLoadError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    setExam(undefined)
+    setExamLoadError(null)
+    if (!examId) {
+      setExam(null)
+      return
+    }
+    void resolveReadingExam(examId)
+      .then(e => {
+        if (!cancelled) setExam(e)
+      })
+      .catch((err: unknown) => {
+        if (cancelled) return
+        setExam(null)
+        setExamLoadError(err instanceof Error ? err.message : 'Không tải được đề Reading.')
+      })
+    return () => { cancelled = true }
+  }, [examId])
   const isIeltsReading = Boolean(
     exam && (
       exam.examTrack === 'ielts'
@@ -82,6 +113,7 @@ export default function ReadingTest() {
   const useCaeRwShell = exam ? isCaeReadingWritingExam(exam) : false
   const useCpeRwShell = exam ? isCpeReadingWritingExam(exam) : false
 
+  const [tidTest, setTidTest] = useState<TidReadingTest | null | undefined>(undefined)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const singlePartMode = part !== null
   const examDurationMinutes = exam ? (singlePartMode ? Math.ceil(readingExamDurationMinutes(exam) / 3) : readingExamDurationMinutes(exam)) : 60
@@ -112,6 +144,23 @@ export default function ReadingTest() {
   const bodyRef = useRef<HTMLDivElement>(null)
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
+
+  useEffect(() => {
+    if (!examId || !isIeltsReading) {
+      setTidTest(null)
+      return
+    }
+    let cancelled = false
+    setTidTest(undefined)
+    void import('./tidIeltsReading/loadTidReadingTest')
+      .then(({ loadTidReadingTestByExamId }) => {
+        if (!cancelled) setTidTest(loadTidReadingTestByExamId(examId))
+      })
+      .catch(() => {
+        if (!cancelled) setTidTest(null)
+      })
+    return () => { cancelled = true }
+  }, [examId, isIeltsReading])
 
   const allExamQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
 
@@ -483,23 +532,43 @@ export default function ReadingTest() {
   )
 
   if (exam && useKetRwShell) {
-    return <ReadingKetRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingKetRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && usePetRwShell) {
-    return <ReadingPetRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingPetRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useFceRwShell) {
-    return <ReadingFceRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingFceRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useCaeRwShell) {
-    return <ReadingCaeRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingCaeRwTest />
+      </Suspense>
+    )
   }
 
   if (exam && useCpeRwShell) {
-    return <ReadingCpeRwTest />
+    return (
+      <Suspense fallback={<ReadingRouteFallback />}>
+        <ReadingCpeRwTest />
+      </Suspense>
+    )
   }
 
   if (exam === undefined) {
@@ -513,11 +582,29 @@ export default function ReadingTest() {
   if (!exam) {
     return (
       <div className="flex h-full items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
-        <div className="rounded-2xl border px-5 py-4 text-sm" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
-          Không tìm thấy bài Reading.
+        <div className="rounded-2xl border px-5 py-4 text-sm max-w-md text-center" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
+          {examLoadError || 'Không tìm thấy bài Reading.'}
         </div>
       </div>
     )
+  }
+
+  // IELTS Academic Reading (Cam 9–20) → TID practice shell + enriched data
+  if (isIeltsReading) {
+    if (tidTest === undefined) {
+      return <ReadingRouteFallback />
+    }
+    if (tidTest) {
+      return (
+        <Suspense fallback={<ReadingRouteFallback />}>
+          <TidIeltsReadingExam
+            test={tidTest}
+            backTo={readingExamBackPath(exam)}
+            initialPartIndex={initialPartIndex}
+          />
+        </Suspense>
+      )
+    }
   }
 
   // ── Hooks phải kết thúc trước nhánh submitted (Rules of Hooks) ──
@@ -566,19 +653,7 @@ export default function ReadingTest() {
 
         <div className="reading-test-header__actions">
           {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
-          {reviewMode ? (
-            <button
-              type="button"
-              className="reading-test-submit"
-              onClick={() => setReviewMode(false)}
-            >
-              Về báo cáo
-            </button>
-          ) : (
-            <button type="button" className="reading-test-submit" onClick={() => setConfirmSubmit(true)}>
-              Submit Test
-            </button>
-          )}
+          {/* Nộp bài chỉ qua nút ✓ footer (giống Listening) */}
           <ExamFontControls
             open={fontPanelOpen}
             fontSize={fontSize}
@@ -630,17 +705,6 @@ export default function ReadingTest() {
       )}
 
       <div ref={bodyRef} className="reading-test-body">
-        {currentPart && (
-          <ReadingHighlightToolbar
-            rootRef={bodyRef}
-            highlights={partHighlights}
-            onHighlightsChange={handlePartHighlightsChange}
-            notes={partNotes}
-            onNotesChange={handlePartNotesChange}
-            resetKey={currentPart.id}
-          />
-        )}
-
         <ExamHighlightProvider highlights={displayHighlights} notes={partNotes}>
         {currentPart && (
           <ReadingPassagePanel
@@ -650,7 +714,7 @@ export default function ReadingTest() {
             activeQuestionId={activeQuestionId}
             onSelectQuestion={handleSelectQuestion}
             partTopImageUrl={useIeltsReadingShell
-              ? resolveExamMediaUrl(currentPart.topImageUrl)
+              ? currentPart.topImageUrl
               : undefined}
             onPartTopImagePick={useIeltsReadingShell && isAdmin === true
               ? file => { void handlePartTopImagePick(currentPart.partNumber, file) }
@@ -659,7 +723,7 @@ export default function ReadingTest() {
               ? () => { void handlePartTopImageClear(currentPart.partNumber) }
               : undefined}
             partBottomImageUrl={useIeltsReadingShell
-              ? resolveExamMediaUrl(currentPart.bottomImageUrl)
+              ? currentPart.bottomImageUrl
               : undefined}
             onPartBottomImagePick={useIeltsReadingShell && isAdmin === true
               ? file => { void handlePartBottomImagePick(currentPart.partNumber, file) }
@@ -701,6 +765,18 @@ export default function ReadingTest() {
         </ExamHighlightProvider>
       </div>
 
+      {/* Outside scroll/split body — portal + fixed coords (same fix as Listening) */}
+      {currentPart && (
+        <ReadingHighlightToolbar
+          rootRef={bodyRef}
+          highlights={partHighlights}
+          onHighlightsChange={handlePartHighlightsChange}
+          notes={partNotes}
+          onNotesChange={handlePartNotesChange}
+          resetKey={currentPart.id}
+        />
+      )}
+
       <ExamPartFooter
         parts={singlePartMode ? [exam.parts[partIndex]] : exam.parts}
         partIndices={singlePartMode ? [partIndex] : undefined}
@@ -723,7 +799,7 @@ export default function ReadingTest() {
           }
           setConfirmSubmit(true)
         }}
-        submitLabel={reviewMode ? 'Về báo cáo' : 'Submit Test'}
+        submitLabel={reviewMode ? 'Về báo cáo' : 'Nộp bài'}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
       />

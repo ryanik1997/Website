@@ -1,0 +1,93 @@
+/* Curriculum-library surface inspired by the Nhai TOPIK layout reference. */
+.vocab-library-page {
+  background: var(--bg-secondary);
+  padding: .75rem;
+}
+
+.vocab-library-page__panel {
+  min-height: 100%;
+  background-color: var(--reading-corner-bg);
+  background-image:
+    linear-gradient(var(--reading-corner-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reading-corner-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.vocab-library-page__header h1 { font-family: var(--font-app); font-size: clamp(1.65rem, 4vw, 2.25rem); font-weight: 800; letter-spacing: -.04em; }
+.vocab-library-kind-tab,
+.vocab-library-filter { border: 2px solid var(--text-primary) !important; border-radius: .8rem !important; box-shadow: .16rem .16rem 0 var(--text-primary); }
+.vocab-library-kind-tab:hover,
+.vocab-library-filter:hover { transform: translate(-.1rem, -.1rem); box-shadow: .28rem .28rem 0 var(--text-primary); }
+.vocab-library-filter { color: var(--text-primary) !important; }
+
+.vocab-library-revise-card.is-due {
+  animation: vocab-library-revise-due 1.8s ease-in-out infinite;
+  box-shadow: .25rem .25rem 0 var(--text-primary), 0 0 0 .18rem color-mix(in srgb, var(--color-primary) 30%, transparent) !important;
+}
+
+@keyframes vocab-library-revise-due {
+  50% {
+    transform: translate(-.08rem, -.08rem);
+  }
+}
+
+.vocab-library-page .vocab-deck-grid { grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 700px) { .vocab-library-page .vocab-deck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.vocab-library-page .vocab-deck-card {
+  min-height: 9.5rem;
+  border: 3px solid var(--text-primary) !important;
+  border-radius: 1rem;
+  background: var(--bg-card);
+  box-shadow: .3rem .3rem 0 var(--text-primary) !important;
+  overflow: visible;
+}
+.vocab-library-page .vocab-deck-card:hover { transform: translate(-.18rem, -.18rem); box-shadow: .5rem .5rem 0 var(--text-primary) !important; }
+.vocab-library-page .vocab-deck-card__surface,
+.vocab-library-page .vocab-deck-card__orb,
+.vocab-library-page .vocab-deck-card__sheen,
+.vocab-library-page .vocab-deck-card__grain { display: none; }
+.vocab-library-page .vocab-deck-card__hit {
+  min-height: 9.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--text-primary);
+}
+.vocab-library-page .vocab-deck-card__icon {
+  position: static;
+  flex: 0 0 4.35rem;
+  width: 4.35rem;
+  height: 6rem;
+  border: 2px solid var(--text-primary);
+  border-radius: .5rem;
+  background: var(--deck-accent) !important;
+  color: var(--color-on-primary);
+  box-shadow: .17rem .17rem 0 var(--text-primary);
+  font-size: 1.7rem;
+}
+.vocab-library-page .vocab-deck-card__body { min-height: 6.5rem; padding-right: 0; }
+.vocab-library-page .vocab-deck-card__meta { color: var(--text-muted); font-size: .72rem; letter-spacing: .04em; }
+.vocab-library-page .vocab-deck-card__title { color: var(--text-primary); font-family: var(--font-app); font-size: 1.1rem; font-weight: 800; text-shadow: none; }
+.vocab-library-page .vocab-deck-card__desc { color: var(--text-muted); }
+.vocab-library-page .vocab-deck-card__track { background: var(--bg-secondary); border-color: var(--text-primary); }
+.vocab-library-page .vocab-deck-card__fill { background: var(--deck-accent); box-shadow: none; }
+.vocab-library-page .vocab-deck-card__pct { color: var(--text-muted); }
+.vocab-library-page .vocab-deck-card__delete { background: var(--bg-card); color: var(--text-primary); border: 2px solid var(--text-primary); box-shadow: .12rem .12rem 0 var(--text-primary); }
+
+@media (max-width: 699px) {
+  .vocab-library-page { padding: 0; }
+  .vocab-library-page__panel { min-height: 100%; border: 0; border-radius: 0; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vocab-library-revise-card.is-due { animation: none; }
+}
+
+/* iPhone small screen */
+@media (max-width: 400px) {
+  .vocab-library-page .vocab-deck-card__body { min-height: 5rem; }
+  .vocab-library-page .vocab-deck-card__title { font-size: 0.9rem; }
+  .vocab-library-page .vocab-deck-card { padding: 0.7rem; }
+}

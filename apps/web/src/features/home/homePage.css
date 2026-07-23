@@ -9,7 +9,7 @@
 .home-page::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .03; background-image: radial-gradient(var(--text-primary) .55px, transparent .55px); background-size: 5px 5px; }
 .home-page-inner { max-width: 76rem; padding: clamp(1rem, 2.5vw, 2rem) clamp(1rem, 4vw, 3rem) 2rem; }
 .home-page-header { align-items: flex-end; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent); }
-.home-page-header h1 { max-width: 38rem; font-family: Cambria, 'Source Serif Pro', Georgia, 'Times New Roman', serif; font-size: clamp(1.4rem, 2.6vw, 2.1rem); font-weight: 400; letter-spacing: -.02em; line-height: 1.2; }
+.home-page-header h1 { max-width: 38rem; font-family: var(--font-app); font-size: clamp(1.4rem, 2.6vw, 2.1rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }
 .home-page-header .text-xs { font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; }
 .home-page-header-actions { gap: .75rem; }
 .home-page-header-actions .home-checkin-btn--compact { border: none; background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-card)); transition: transform 600ms cubic-bezier(.32,.72,0,1), background 600ms cubic-bezier(.32,.72,0,1); }
@@ -20,10 +20,10 @@
 .home-stat-card { min-height: 9.5rem; padding: 1.1rem; border: none; border-radius: 1.5rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 9%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
 .home-stat-card:hover { transform: translateY(-.3rem); box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--color-primary) 9%, transparent); }
 .home-stat-card-accent { height: 2px; opacity: .7; }
-.home-stat-card .text-2xl { margin-top: 1.2rem; font-family: Cambria, 'Source Serif Pro', Georgia, serif; font-size: 2.2rem; font-weight: 400; letter-spacing: -.02em; }
+.home-stat-card .text-2xl { margin-top: 1.2rem; font-family: var(--font-app); font-size: 2.2rem; font-weight: 750; letter-spacing: -.03em; }
 .home-checkin-card { min-height: 7rem; padding: 1.25rem; border: none; border-radius: 1.5rem; background: color-mix(in srgb, var(--color-primary) 9%, var(--bg-card)); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-primary) 18%, transparent); }
 .home-page-section-label { margin-bottom: .85rem; }
-.home-page-section-label span { color: var(--text-primary); font-family: Cambria, 'Source Serif Pro', Georgia, serif; font-size: 1.35rem; font-weight: 400; letter-spacing: -.01em; text-transform: none; }
+.home-page-section-label span { color: var(--text-primary); font-family: var(--font-app); font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; text-transform: none; }
 .home-page-section-label::after { background: color-mix(in srgb, var(--border-color) 55%, transparent); }
 .home-page-quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 .home-quick-link { min-height: 6.75rem; padding: 1rem; border: none; border-radius: 1.35rem; background: color-mix(in srgb, var(--bg-card) 88%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-primary) 8%, transparent); transition: transform 650ms cubic-bezier(.32,.72,0,1), background 650ms cubic-bezier(.32,.72,0,1), box-shadow 650ms cubic-bezier(.32,.72,0,1); }
@@ -264,4 +264,127 @@
   .home-checkin-btn {
     width: 100%;
   }
+}
+
+/* ── Mascot mặt trời header Tổng quan (như màn kết quả bài thi) ── */
+.home-sun-mascot {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.home-sun-mascot__bubble {
+  max-width: 240px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 1.6rem;
+}
+
+.home-sun-mascot__bubble::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  bottom: 12px;
+  border: 7px solid transparent;
+  border-left-color: var(--bg-card);
+  border-right: 0;
+}
+
+/*
+ * Wrapper animate transform tách khỏi phần tử mang drop-shadow:
+ * filter chỉ rasterize 1 lần rồi được composite theo transform (GPU),
+ * tránh repaint mỗi frame gây giật.
+ */
+.home-sun-mascot__float {
+  position: relative;
+  flex-shrink: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  animation: home-sun-float 5.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+/* Sau 30 giây, Sunny đi dạo quanh bubble rồi nép vào để chơi trốn tìm. */
+.home-sun-mascot--exploring {
+  z-index: 2;
+  animation: home-sun-explore 18s cubic-bezier(.45, .05, .55, .95) infinite;
+}
+
+@keyframes home-sun-explore {
+  0%, 14% { transform: translate3d(0, 0, 0); }
+  28% { transform: translate3d(-1.8rem, .35rem, 0) rotate(-5deg); }
+  42% { transform: translate3d(-3.5rem, -.5rem, 0) rotate(3deg); }
+  54% { transform: translate3d(-1.3rem, -1rem, 0) rotate(-2deg); }
+  66% { transform: translate3d(-4.25rem, .15rem, 0) rotate(4deg); }
+  79% { transform: translate3d(-.7rem, -.25rem, 0) rotate(-2deg); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.home-sun-mascot__sun {
+  display: block;
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16));
+}
+
+.home-sun-mascot__cloud,
+.home-sun-mascot__moon {
+  position: absolute;
+  left: -0.65rem;
+  bottom: 0.1rem;
+  font-size: 1.55rem;
+  line-height: 1;
+  filter: drop-shadow(0 3px 4px color-mix(in srgb, var(--text-primary) 18%, transparent));
+  transform: rotate(-7deg);
+}
+
+.home-sun-mascot__moon {
+  display: none;
+}
+
+[data-theme="mid"] .home-sun-mascot__sun,
+[data-theme="dark"] .home-sun-mascot__sun {
+  visibility: hidden;
+}
+
+[data-theme="mid"] .home-sun-mascot__moon,
+[data-theme="dark"] .home-sun-mascot__moon {
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 72px;
+  font-size: 3.65rem;
+  text-align: center;
+  transform: none;
+}
+
+@keyframes home-sun-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -5px, 0) rotate(-1.5deg); }
+}
+
+@media (max-width: 720px) {
+  .home-sun-mascot__bubble { display: none; }
+  .home-sun-mascot__sun { width: 52px; height: 52px; }
+  .home-sun-mascot__cloud,
+  .home-sun-mascot__moon { font-size: 1.2rem; }
+  [data-theme="mid"] .home-sun-mascot__moon,
+  [data-theme="dark"] .home-sun-mascot__moon {
+    width: 52px;
+    font-size: 2.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-sun-mascot__float,
+  .home-sun-mascot--exploring { animation: none; }
 }

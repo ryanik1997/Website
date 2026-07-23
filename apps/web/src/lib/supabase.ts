@@ -12,8 +12,6 @@ export const supabase = createClient<Database>(url, key, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
-    // Supabase production redirect trả #access_token — recoverOAuthSession xử lý thủ công
-    flowType: 'implicit',
-    detectSessionInUrl: false,
+    detectSessionInUrl: true,
   },
 })

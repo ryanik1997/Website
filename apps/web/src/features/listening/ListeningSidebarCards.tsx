@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Headphones } from 'lucide-react'
 import CopyButton from '../../components/CopyButton'
 import type { LessonSentence } from './types'
@@ -9,17 +10,35 @@ interface Props {
   pronunciationRevealed: boolean
 }
 
+function maskDots(clean: string): string {
+  return '●'.repeat(Math.max(2, Math.min(clean.length || 2, 7)))
+}
+
 export default function ListeningSidebarCards({
   sentence,
   showTranslation,
   pronunciationRevealed,
 }: Props) {
   const words = sentence?.text.trim().split(/\s+/) ?? []
+  const [peeked, setPeeked] = useState<Set<number>>(() => new Set())
+
+  useEffect(() => {
+    setPeeked(new Set())
+  }, [sentence?.id, sentence?.text])
+
+  function togglePeek(i: number) {
+    setPeeked(prev => {
+      const next = new Set(prev)
+      if (next.has(i)) next.delete(i)
+      else next.add(i)
+      return next
+    })
+  }
 
   return (
     <div className="flex flex-col gap-4">
       <div
-        className="rounded-2xl p-5"
+        className="listening-bao-card rounded-2xl p-5"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div className="flex items-center gap-2 mb-3">
@@ -49,7 +68,7 @@ export default function ListeningSidebarCards({
       </div>
 
       <div
-        className="rounded-2xl p-5"
+        className="listening-bao-card rounded-2xl p-5"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
       >
         <div className="flex items-center gap-2 mb-2">
@@ -62,43 +81,53 @@ export default function ListeningSidebarCards({
           )}
         </div>
         <p className="text-xs mb-4 uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
-          {pronunciationRevealed ? 'Click vào từ để nghe đọc' : 'Hoàn thành câu để xem từ'}
+          {pronunciationRevealed
+            ? 'Click vào từ để nghe đọc'
+            : 'Bấm ●●● để mở chip từ · bấm lại để ẩn'}
         </p>
         {words.length > 0 ? (
           <div className="flex flex-wrap gap-2">
             {words.map((word, i) => {
               const clean = word.replace(/[^a-zA-Z0-9'-]/g, '')
               const punct = word.slice(clean.length)
-              if (!pronunciationRevealed) {
-                const dots = '●'.repeat(Math.max(2, Math.min(clean.length, 7)))
+
+              if (pronunciationRevealed) {
                 return (
-                  <span
+                  <button
                     key={`${word}-${i}`}
-                    className="px-2.5 py-1.5 rounded-lg text-sm font-medium"
-                    title="Hoàn thành câu để xem"
+                    type="button"
+                    onClick={() => void speak(clean, 0.82)}
+                    className="px-2.5 py-1.5 rounded-lg text-sm font-medium transition-opacity hover:opacity-80"
                     style={{
                       background: 'var(--bg-secondary)',
-                      color: 'var(--text-muted)',
+                      color: 'var(--text-primary)',
                       border: '1px solid var(--border-color)',
                     }}
                   >
-                    {dots}{punct}
-                  </span>
+                    {word}
+                  </button>
                 )
               }
+
+              const open = peeked.has(i)
               return (
                 <button
                   key={`${word}-${i}`}
                   type="button"
-                  onClick={() => void speak(clean, 0.82)}
+                  onClick={() => togglePeek(i)}
+                  title={open ? 'Bấm để ẩn' : 'Bấm để xem từ'}
                   className="px-2.5 py-1.5 rounded-lg text-sm font-medium transition-opacity hover:opacity-80"
                   style={{
-                    background: 'var(--bg-secondary)',
-                    color: 'var(--text-primary)',
-                    border: '1px solid var(--border-color)',
+                    background: open
+                      ? 'color-mix(in srgb, var(--color-primary) 12%, var(--bg-secondary))'
+                      : 'var(--bg-secondary)',
+                    color: open ? 'var(--text-primary)' : 'var(--text-muted)',
+                    border: open
+                      ? '1px solid color-mix(in srgb, var(--color-primary) 40%, var(--border-color))'
+                      : '1px solid var(--border-color)',
                   }}
                 >
-                  {word}
+                  {open ? word : `${maskDots(clean)}${punct}`}
                 </button>
               )
             })}

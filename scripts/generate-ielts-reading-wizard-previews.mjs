@@ -8,7 +8,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..')
-const OUT = join(ROOT, 'apps', 'web', 'public', 'ielts-wizard', 'reading')
+const OUT = join(ROOT, 'apps', 'web', 'public', 'catalog', 'ielts-wizard', 'reading')
 
 const W = 360
 const H = 480

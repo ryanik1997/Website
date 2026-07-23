@@ -1,0 +1,832 @@
+{
+  "id": "catalog-reading-ket-a2-book7-test1",
+  "title": "KET A2 Reading — Book 7 — Test 1",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] FOR RENT\n3-bedroomed house £750 per month, bills included\nQuiet\nlocation\nNo pets"
+        },
+        {
+          "text": "[2] Maisy,\nThe garage called and my car's ready. If you pick me up and take me there, I'll drive it home. About 5 p.m.?\nJerry"
+        },
+        {
+          "text": "[3] SALE!\n30% off all sports equipment\n15% off sports clothing\nOffer ends Tuesday"
+        },
+        {
+          "text": "[4] CLOSED\nWe're sorry to say because of illness we are closed until further notice."
+        },
+        {
+          "text": "[5] Justin,\nI've just gone to the shops. I've left a key under the bin. Go in and make yourself comfortable. Back in 30 minutes.\nFlo"
+        },
+        {
+          "text": "[6] To\n: Matilda\nFrom\n: Rod\nHi Matilda,\nIs there any chance you could work on Saturday? Timothy wants a day off. I can pay you double.\nRod"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "FOR RENT\n3-bedroomed house £750 per month, bills included\nQuiet\nlocation\nNo pets",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The cost of renting the house is more than £750 per month."
+                },
+                {
+                  "id": "B",
+                  "label": "You can't live in the house if you have a dog or a cat."
+                },
+                {
+                  "id": "C",
+                  "label": "You must be quiet to rent this house."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Maisy,\nThe garage called and my car's ready. If you pick me up and take me there, I'll drive it home. About 5 p.m.?\nJerry",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Jerry wants Maisy to give him a lift to the garage."
+                },
+                {
+                  "id": "B",
+                  "label": "Jerry wants Maisy to help him take his car to the garage."
+                },
+                {
+                  "id": "C",
+                  "label": "The garage wants Maisy to pick Jerry up."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "SALE!\n30% off all sports equipment\n15% off sports clothing\nOffer ends Tuesday",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "After Tuesday, sports equipment and sports clothing will be cheaper."
+                },
+                {
+                  "id": "B",
+                  "label": "You can save more on a basketball than on basketball shoes."
+                },
+                {
+                  "id": "C",
+                  "label": "On Tuesday, sports equipment and clothing will be more expensive."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "CLOSED\nWe're sorry to say because of illness we are closed until further notice.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The shop is closed and there is more information on another notice."
+                },
+                {
+                  "id": "B",
+                  "label": "The shop is closed because the owner is in hospital."
+                },
+                {
+                  "id": "C",
+                  "label": "The shop is closed and they will give more information in the future."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Justin,\nI've just gone to the shops. I've left a key under the bin. Go in and make yourself comfortable. Back in 30 minutes.\nFlo",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Justin is visiting Flo."
+                },
+                {
+                  "id": "B",
+                  "label": "Flo wants Justin to leave her key under the bin."
+                },
+                {
+                  "id": "C",
+                  "label": "Justin's key is under the bin."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "To\n: Matilda\nFrom\n: Rod\nHi Matilda,\nIs there any chance you could work on Saturday? Timothy wants a day off. I can pay you double.\nRod",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Matilda couldn't work on Saturday."
+                },
+                {
+                  "id": "B",
+                  "label": "Rod wants Timothy to have a day off."
+                },
+                {
+                  "id": "C",
+                  "label": "Rod wants Matilda to work instead of Timothy."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Lloyd",
+          "text": "I've worked as a full-time artist for five years. After leaving art college, I did some part-time jobs working as a waiter and washing dishes in a restaurant. But then I started to sell some paintings so I gave up my other jobs. Most of my paintings are of city street scenes - they are full of people just living their lives. People buy my paintings because they can see places they know in them."
+        },
+        {
+          "label": "Emma",
+          "text": "I'm still very early on in my career as an artist. I trained as a doctor and my art is slowly changing from a hobby to a job. I work with wood and metal. I'm interested in showing my feelings through my work. It's very personal to me. Maybe that's why I don't sell very much. I still work as a doctor two days a week. My parents are very proud of me, especially my mother, who draws a lot."
+        },
+        {
+          "label": "Amna",
+          "text": "My parents wanted me to be a doctor, like them, but I had no interest in studying medicine. I first became interested in art when I was at school. I came first in a competition and I was given a painting set. and I have never looked back! I was lucky enough to get a place at university on a course which helped me improve my painting skills. They're actually quite good now. I've managed to earn enough money from my art for the past two years, so I don't need to do other work."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who didn't study art?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who doesn't earn all their money from their art?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who won a prize for their art?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who has a family member who is also an artist?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Whose art shows everyday life?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who doesn't paint?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Amna"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who has been a full-time artist for the longest time?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lloyd"
+                },
+                {
+                  "id": "B",
+                  "label": "Emma"
+                },
+                {
+                  "id": "C",
+                  "label": "Young artists Lloyd I've worked as a full-time artist for five years. After leaving art college, I did some part-time jobs working as a waiter and washing dishes in a restaurant. But then I started to sell some paintings so I gave up my other jobs. Most of my paintings are of city street scenes - they are full of people just living their lives. People buy my paintings because they can see places they know in them. Emma I'm still very early on in my career as an artist. I trained as a doctor and my art is slowly changing from a hobby to a job. I work with wood and metal. I'm interested in showing my feelings through my work. It's very personal to me. Maybe that's why I don't sell very much. I still work as a doctor two days a week. My parents are very proud of me, especially my mother, who draws a lot. Amna My parents wanted me to be a doctor, like them, but I had no interest in studying medicine. I first became interested in art when I was at school. I came first in a competition and I was given a painting set. and I have never looked back! I was lucky enough to get a place at university on a course which helped me improve my painting skills. They're actually quite good now. I've managed to earn enough money from my art for the past two years, so I don't need to do other work."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "Little girl saves mother",
+      "passage": [
+        {
+          "text": "Little girl saves mother"
+        },
+        {
+          "text": "A little girl from Newton has become the most famous person in town. Frances Brown, who is starting school next year, called 999 when her mother, Lisa, fell down the stairs. The emergency services immediately sent an ambulance to her house.\n‘She’s an amazing little girl!’ said a doctor. ‘She knew that she had to call 999 to speak to someone who could help. She gave her name and her address, and she described what the problem was. She said her mother had just got out of bed and had fallen down the stairs. She said that her mum was sleeping, but there was something wrong. She looked after her mum until help arrived.’\nWhen the ambulance arrived at the Browns· house, they found out that Lisa, aged 30, is expecting her second child. The doctors kept Lisa in hospital for 24 hours to check that she was all right before allowing her to go home the next morning.\nWhen Lisa found out what her daughter did she told friends and family. Then the local newspaper heard the story. Frances’s father, Liam, aged 32 and a teacher at the local school, said: ‘Frances’s quick thinking saved her mother’s life. Lisa is careful around the house, but accidents happen.’\nLisa is going to have a baby in two months, and she thinks this is why she fell down the stairs. ‘I’m so big now that I can’t see my feet!’ she said. ‘I can't wait to give Frances a baby brother.’"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Frances",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "is still at school."
+                },
+                {
+                  "id": "B",
+                  "label": "has just started school."
+                },
+                {
+                  "id": "C",
+                  "label": "isn't old enough to go to school."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "On the telephone, Frances",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "told the emergency services where she lived."
+                },
+                {
+                  "id": "B",
+                  "label": "told the emergency services that she needed an ambulance."
+                },
+                {
+                  "id": "C",
+                  "label": "told the emergency services that her mother was in bed."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "Lisa",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "didn't stay in hospital."
+                },
+                {
+                  "id": "B",
+                  "label": "stayed in hospital for one night."
+                },
+                {
+                  "id": "C",
+                  "label": "went to hospital but returned home that night."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "Liam thinks",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Lisa might have died."
+                },
+                {
+                  "id": "B",
+                  "label": "Lisa should start thinking more quickly."
+                },
+                {
+                  "id": "C",
+                  "label": "Lisa should be more careful around the house."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "Frances",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "has two brothers."
+                },
+                {
+                  "id": "B",
+                  "label": "already has a brother."
+                },
+                {
+                  "id": "C",
+                  "label": "is going to have a brother soon."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Ella Fitzgerald",
+      "passage": [
+        {
+          "text": "Ella Fitzgerald"
+        },
+        {
+          "text": "Ella Fitzgerald, the great American jazz singer, was born in Virginia in 1917. She (19) ............. to New York when she was a young child.\nWhen Ella was fifteen her mother died, and she went to live with her aunt. This was a hard time in her life and she got into (20) ............. with the police. She (21) ............. money from singing on the street and people started to notice her.\nIn 1934 she won first prize in a competition, and she (22) ............. a well-known band. By 1938 she was famous and her songs were the best-selling recordings of the time.\nFitzgerald starred in films and appeared in many television shows. She also went on (23) ............. around the world. She died in 1996. In the (24) ............. of many people, she is the greatest ever jazz singer."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "kept"
+                },
+                {
+                  "id": "B",
+                  "label": "changed"
+                },
+                {
+                  "id": "C",
+                  "label": "moved"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "trouble"
+                },
+                {
+                  "id": "B",
+                  "label": "problem"
+                },
+                {
+                  "id": "C",
+                  "label": "danger"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "won"
+                },
+                {
+                  "id": "B",
+                  "label": "made"
+                },
+                {
+                  "id": "C",
+                  "label": "took"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "became"
+                },
+                {
+                  "id": "B",
+                  "label": "played"
+                },
+                {
+                  "id": "C",
+                  "label": "joined"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "tour"
+                },
+                {
+                  "id": "B",
+                  "label": "guide"
+                },
+                {
+                  "id": "C",
+                  "label": "concert"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "idea"
+                },
+                {
+                  "id": "B",
+                  "label": "opinion"
+                },
+                {
+                  "id": "C",
+                  "label": "thought"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Jonathan"
+        },
+        {
+          "label": "To",
+          "text": "Peter"
+        },
+        {
+          "text": "From:\nJonathan\nTo:\nPeter\nDear Peter,\nI hope (0) ............ are well. I am writing to tell you some news. Amanda and I are getting married in (25) ............ summer and we (26) ............ love you to come. We have lots of plans! The wedding (27) ............ be in June. We are (28) ............ to have a big party afterwards at my parents' house. We have invited hundreds (29) ............ guests. I know you live far away, but the house has a spare room and you can stay here for a few days.\nPlease (30) ............ me know if you can come.\nJonathan"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "the",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "would",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "will",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "going",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "of",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "let",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "You arranged a time to meet your English friend Mark at a cafe but you didn't go.\nWrite an email to your friend.\nIn your email:\n•   say you are sorry you didn't go.\n•   say why you missed the meeting.\n•   suggest a new time to meet."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book7-test1-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book7-test1/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book7-test1-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book7-test1-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book7-test1",
+  "catalogBase": "/catalog/reading/ket-a2-book7-test1"
+}

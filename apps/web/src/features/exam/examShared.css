@@ -3,21 +3,22 @@
   align-items: center;
   gap: 0.35rem;
   flex-shrink: 0;
-  padding: 0.35rem 0.65rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 0.4rem;
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  color: var(--text-muted);
-  font-size: 0.78rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  background: var(--bg-secondary, #f8fafc);
+  color: var(--text-muted, #64748b);
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
 }
 
 .exam-header-back:hover {
-  color: var(--text-primary);
-  border-color: color-mix(in srgb, var(--text-muted) 40%, var(--border-color));
-  background: var(--bg-card);
+  color: var(--text-primary, #0f172a);
+  border-color: color-mix(in srgb, var(--text-muted, #64748b) 40%, var(--border-color, #e2e8f0));
+  background: var(--bg-card, #fff);
 }
 
 .exam-timer-controls {

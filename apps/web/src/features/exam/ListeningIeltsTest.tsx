@@ -6,6 +6,7 @@ import ExamTimerControls from './ExamTimerControls'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import ListeningExamAudioBar from './ListeningExamAudioBar'
 import ListeningSubmittedScreen from './ListeningSubmittedScreen'
+import ListeningTranscriptSidePanel from './ListeningTranscriptSidePanel'
 import { patchFullMockSession } from './fullMockSession'
 import ListeningDualLetterMatchingPartView from './ListeningDualLetterMatchingPartView'
 import ListeningLetterMatchingPartView from './ListeningLetterMatchingPartView'
@@ -26,6 +27,7 @@ import {
   sharedExamAudioSource,
 } from './listeningExamAudio'
 import { useExamQuestionAudio } from './useExamQuestionAudio'
+import { useAudioSync } from './useAudioSync'
 import { useListeningPlayLimits } from './useListeningPlayLimits'
 import { registerListeningAutoPlay } from './listeningExamAutoPlayBridge'
 import { scrollListeningToQuestion } from './listeningScrollUtils'
@@ -57,6 +59,7 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
   const [partIndex, setPartIndex] = useState(0)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [transcriptPanelOpen, setTranscriptPanelOpen] = useState(false)
   const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -93,14 +96,44 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     play,
     seekToPct,
     stopPlayback,
     resetPlayback,
     playError,
+    speed,
+    toggleSpeed,
   } = useExamQuestionAudio()
 
-  const usesSharedExamAudio = useMemo(() => Boolean(sharedExamAudioSource(exam)), [exam])
+  const { markManualInteraction } = useAudioSync({
+    audioCurrentTime,
+    audioDuration,
+    playing,
+    exam,
+    currentPart,
+    submitted,
+    reviewMode,
+    activeQuestionId,
+    onQuestionChange: setActiveQuestionId,
+    onPartChange: setPartIndex,
+    scrollRoot: bodyRef.current,
+  })
+
+  // IELTS catalog: raw JSON hay share listening.mp3 nhưng disk có part1–4.mp3
+  // → resolveListeningAudioSource rewrite; usesShared phải theo URL đã resolve.
+  const usesSharedExamAudio = useMemo(() => {
+    if (exam.examType === 'ielts') {
+      const urls = exam.parts.map(p => {
+        const s = resolveListeningAudioSource(exam, p)
+        return s.audioKey || s.audioUrl || ''
+      }).filter(Boolean)
+      if (urls.length === 0) return Boolean(sharedExamAudioSource(exam))
+      return urls.every(u => u === urls[0])
+    }
+    return Boolean(sharedExamAudioSource(exam))
+  }, [exam])
   const activeAudioSource = useMemo(
     () => resolveListeningAudioSource(exam, currentPart),
     [exam, currentPart],
@@ -189,12 +222,36 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
     }
   }, [activeQuestionId, currentPart, partQuestions])
 
+  /** Phát audio đúng part sau khi đổi Part (partN.mp3). */
+  const autoPlayPartAt = useCallback((index: number) => {
+    if (submitted || reviewMode) return
+    const part = exam.parts[index]
+    if (!part) return
+    const source = resolveListeningAudioSource(exam, part)
+    if (!hasExamAudioFile(source)) return
+    // Shared full-only (1 file, 0 segment): không auto-restart mỗi part
+    if (usesSharedExamAudio && source.startPct == null) return
+    const key = usesSharedExamAudio ? `exam-${exam.id}` : `part-${part.id}`
+    const limit = usesSharedExamAudio ? maxPlays : part.maxPlays
+    if (!canPlay(key, limit)) return
+    // Click đổi part = user gesture → auto phát được; nuốt lỗi để không kẹt spinner
+    void play(source, {
+      rate: 1,
+      allowSeek: exam.examMode === 'practice',
+      beforePlay: () => canPlay(key, limit),
+      onPlayCounted: () => recordPlay(key),
+    }).catch(err => {
+      console.warn('[ielts] auto-play part failed', index, err)
+    })
+  }, [canPlay, exam, maxPlays, play, recordPlay, reviewMode, submitted, usesSharedExamAudio])
+
   const goToPart = useCallback((index: number) => {
     if (index < 0 || index >= exam.parts.length) return
     const qs = getPartQuestions(exam.parts[index])
     setPartIndex(index)
     setActiveQuestionId(qs[0]?.id ?? null)
-  }, [exam.parts])
+    autoPlayPartAt(index)
+  }, [autoPlayPartAt, exam.parts])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
     if (reviewMode) return
@@ -221,9 +278,10 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
     )
     if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
       setPartIndex(nextPartIndex)
+      autoPlayPartAt(nextPartIndex)
     }
     setActiveQuestionId(next.id)
-  }, [activeQuestionId, allQuestions, exam.parts, partIndex])
+  }, [activeQuestionId, allQuestions, autoPlayPartAt, exam.parts, partIndex])
 
   const makePlayOpts = useCallback((rate: number) => ({
     rate,
@@ -332,7 +390,10 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
   }
 
   return (
-    <div className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}>
+    <div
+      className={`listening-exam-shell listening-exam-shell--ielts${isResizing ? ' is-resizing' : ''}${reviewMode ? ' is-review' : ''}`}
+      onPointerDownCapture={markManualInteraction}
+    >
       <header className="listening-exam-header">
         <ExamHeaderBack
           onClick={() => {
@@ -347,6 +408,14 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
           {reviewMode ? 'Xem lại · ' : ''}{exam.title}
         </h1>
         {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
+        <button
+          type="button"
+          className={`listening-exam-btn listening-exam-btn--ghost${transcriptPanelOpen ? ' is-active' : ''}`}
+          onClick={() => setTranscriptPanelOpen(o => !o)}
+          title="Xem transcript (split màn hình)"
+        >
+          Transcript
+        </button>
         {reviewMode && (
           <button
             type="button"
@@ -424,6 +493,8 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
             playBlocked,
             playError,
             onPlayNormal: () => void play(activeAudioSource, makePlayOpts(1)),
+            speed,
+            onToggleSpeed: toggleSpeed,
             onSeek: (pct: number) => seekToPct(pct, exam.examMode === 'practice'),
             onStop: stopPlayback,
           }
@@ -500,6 +571,16 @@ export default function ListeningIeltsTest({ exam, sessionStarted = true }: Prop
         submitLabel={reviewMode ? 'Về báo cáo' : 'Submit'}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
+      />
+
+      <ListeningTranscriptSidePanel
+        exam={exam}
+        currentPart={currentPart}
+        open={transcriptPanelOpen}
+        onClose={() => setTranscriptPanelOpen(false)}
+        audioCurrentTime={audioCurrentTime}
+        audioDuration={audioDuration}
+        playing={playing}
       />
 
       {confirmSubmit && !reviewMode && (

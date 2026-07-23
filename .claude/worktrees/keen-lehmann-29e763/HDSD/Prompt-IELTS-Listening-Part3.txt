@@ -1,0 +1,263 @@
+Bạn là trợ lý tạo `exam.json` — **Part 3** (Questions 21–30) IELTS Listening cho web app "Ryan English".
+
+═══════════════════════════════════════════════════════════════
+PHẦN A — USER CẦN ĐÍNH KÈM KHI GỬI PROMPT NÀY
+═══════════════════════════════════════════════════════════════
+
+1. PDF đề Listening (hoặc ảnh/screenshot **Part 3 / Section 3**)
+2. Answer Key câu 21–30
+3. Ảnh tham chiếu UI — `Giaodien/Part3-Listening/`:
+   c1, c2, c3, c4, c5, c6, c7
+   + `Giaodien/two-choice.jpg` nếu có Choose TWO (Answer Key C/E, A/C…)
+4. **1 hoặc nhiều file JSON mẫu** (bắt buộc):
+   Tainguyen/templates/ielts-listening-p3-c1-template.json
+   … đến …
+   Tainguyen/templates/ielts-listening-p3-c7-template.json
+5. (Tuỳ chọn) User ghi sẵn từng đoạn thuộc dạng nào — Bảng B.
+
+═══════════════════════════════════════════════════════════════
+PHẦN B — NHẬN DẠNG DẠNG → FILE MẪU
+═══════════════════════════════════════════════════════════════
+
+| Nếu PDF Part 3 có…                                      | Dạng | File mẫu              |
+|---------------------------------------------------------|------|-----------------------|
+| MC 21–22 + điền câu 23–25 + notes 26–30                 | c1   | p3-c1-template.json   |
+| Notes 21–23 + bảng 24–28 + notes 29–30                  | c2   | p3-c2-template.json   |
+| Choose TWO 21–22 + 23–24 + MC 25–30 (Cam20 / Heyerdahl) | c3   | p3-c3-template.json   |
+| MC 21–25 + Matching A–G 26–30                           | c4   | p3-c4-template.json   |
+| Choose TWO ×2 (21–24) + Matching 25–30                  | c5   | p3-c5-template.json   |
+| MC 21–25 + Flow-chart 26–30                             | c6   | p3-c6-template.json   |
+| Bảng 21–24 + Matching 25–30                             | c7   | p3-c7-template.json   |
+
+**Tham chiếu builtin:**
+- Cam9 Test 1 P3 ≈ 10 câu MC (giống phần MC của c3/c4, không Choose TWO)
+- Cam20 Test 1 P3 ≈ c3/c5: Choose TWO 21–22, 23–24, 25–26 + MC 27–30
+
+**Đề trộn:** ghép nhiều mẫu — questions[] nối liên tiếp 21→30.
+
+═══════════════════════════════════════════════════════════════
+PHẦN C — QUY TẮC JSON (BẮT BUỘC)
+═══════════════════════════════════════════════════════════════
+
+## Schema Part 3
+
+```json
+{
+  "partNumber": 3,
+  "rangeLabel": "Questions 21–30",
+  "instruction": "…",
+  "passageTitle": "…",
+  "audioFile": "listening.mp3",
+  "notePassageLayout": "form",
+  "notePassageSections": [ /* c1, c2 — nhiều khối note */ ],
+  "noteTables": [ /* c2, c7 — bảng */ ],
+  "questions": [ /* 10 câu, thứ tự 21→30 */ ]
+}
+```
+
+## Thứ tự `questions[]` (app tách segment)
+
+```
+gap-fill → multiple-choice → matching → choose-two → flowchart
+```
+
+**Ví dụ c1:** MC 21–22 → gap 23–25 → gap 26–30  
+**Ví dụ c5:** Choose TWO 21–22 → Choose TWO 23–24 → matching 25–30  
+**Ví dụ c6:** MC 21–25 → flowchart matching 26–30
+
+## Section header (câu ĐẦU mỗi nhóm)
+
+```json
+"sectionRange": "Questions 21 – 22",
+"sectionInstruction": "Choose the correct letter A, B or C.",
+"sectionTitle": "THE LATER LIFE OF THOR HEYERDAHL"
+```
+
+## notePassageSections[] (c1, c2 — nhiều khối note tách)
+
+```json
+"notePassageSections": [
+  {
+    "gapNumbers": [23, 24, 25],
+    "instruction": "Complete the sentences below. Write ONE WORD ONLY for each answer.",
+    "blocks": [
+      { "type": "static", "text": "Kira says that lecturers are easier to" },
+      { "type": "gap", "number": 23 },
+      { "type": "static", "text": "than those in her home country." }
+    ]
+  },
+  {
+    "gapNumbers": [26, 27, 28, 29, 30],
+    "instruction": "Complete the notes below. Write NO MORE THAN THREE WORDS…",
+    "blocks": [ /* … */ ]
+  }
+]
+```
+
+- Mỗi section có `gapNumbers` khớp câu gap trong `questions`
+- Không trộn gap của 2 khối vào 1 `notePassage` dài (dùng sections)
+
+## noteTables[] (c2, c7)
+
+Giống Part 1/2 — `gapNumbers`, `headers`, `rows`, `instruction`, `title`.
+
+## Choose TWO — "Which TWO …?" (c3, c5)
+
+**Tham chiếu:** `Giaodien/two-choice.jpg` · mẫu `p3-c3-template.json`
+
+Trên Answer Key (Cam20 Test 1 P3) — **3 nhóm** Choose TWO:
+| Câu | Answer Key | exam.json (cả 2 câu nhóm) |
+|-----|------------|---------------------------|
+| 21–22 | 21 C/E, 22 C/E | `"answer": "C/E"` |
+| 23–24 | 23 A/C, 24 A/C | `"answer": "A/C"` |
+| 25–26 | 25 A/B, 26 A/B | `"answer": "A/B"` |
+| 27–30 | 27 A, 28 B… | MC — không Choose TWO |
+
+**UI app:** giống Part 2 — 5 options A–E + 2 ô, mỗi ô pill A B C D E.
+Mỗi ô đúng nếu chọn một trong hai chữ cái đúng. Thứ tự giữa 2 ô không bắt buộc.
+
+**KHÔNG** nhầm với letter matching (c4, c5, c7) — Choose TWO: prompt "Which TWO…",
+đáp án slash `"C/E"`; letter matching: prompt item ngắn, đáp án 1 chữ `"G"`.
+
+```json
+{
+  "number": 21,
+  "type": "matching",
+  "prompt": "Which TWO things do the students both believe are responsible for the increase in loneliness?",
+  "options": [
+    { "id": "A", "label": "…" },
+    { "id": "B", "label": "…" },
+    { "id": "C", "label": "…" },
+    { "id": "D", "label": "…" },
+    { "id": "E", "label": "…" }
+  ],
+  "answer": "C/E",
+  "explanation": "…",
+  "sectionRange": "Questions 21 – 22",
+  "sectionInstruction": "Choose TWO letters, A–E."
+},
+{
+  "number": 22,
+  "type": "matching",
+  "prompt": "Which TWO things do the students both believe are responsible for the increase in loneliness?",
+  "options": [ /* GIỐNG HỆT câu 21 */ ],
+  "answer": "C/E",
+  "explanation": "Cặp đáp án 21–22."
+}
+```
+
+Quy tắc:
+- **2 câu** `matching` **liên tiếp**, **cùng prompt**, **cùng options**
+- `answer` **giống nhau** trên cả 2 câu — đọc Answer Key (21 C/E → `"C/E"`)
+- c5 có **2 nhóm** Choose TWO (21–22, 23–24) trước letter matching 25–30
+- `options`: nhãn đầy đủ — KHÔNG `"label": "A"`
+
+## Letter matching (c4, c5, c7) — KHÁC Choose TWO
+
+Giống Part 2 — options A–G giống nhau, prompt = item ngắn.
+
+## Flow-chart (c6)
+
+```json
+{
+  "number": 26,
+  "type": "matching",
+  "prompt": "",
+  "options": [
+    { "id": "A", "label": "bullet points" },
+    { "id": "B", "label": "film" }
+  ],
+  "answer": "G",
+  "flowChart": true,
+  "flowChartEnd": "He'll write the complete paper.",
+  "gapLead": "He'll read",
+  "gapTrail": "and choose his topic.",
+  "sectionRange": "Questions 26 – 30",
+  "sectionInstruction": "Complete the flow-chart below…",
+  "sectionTitle": "How James will write his paper on the Vikings"
+}
+```
+
+- `flowChart: true` trên câu đầu nhóm (26)
+- `flowChartEnd` chỉ trên câu 26
+- Mỗi bước: `gapLead` + select + `gapTrail`
+- Câu 27–30: `flowChart: true`, cùng options A–G
+
+## multiple-choice
+
+```json
+{
+  "number": 21,
+  "type": "multiple-choice",
+  "prompt": "In her home country, Kira had",
+  "options": [
+    { "id": "A", "label": "completed a course." },
+    { "id": "B", "label": "done two years of a course." },
+    { "id": "C", "label": "found her course difficult." }
+  ],
+  "answer": "C"
+}
+```
+
+Cam9 P3 (10 MC): chỉ cần `sectionRange: "Questions 21 – 30"` trên câu 21.
+
+═══════════════════════════════════════════════════════════════
+PHẦN D — PROMPT MẪU (USER COPY DÁN VÀO CHATGPT)
+═══════════════════════════════════════════════════════════════
+
+```
+Đọc file HDSD/Prompt-IELTS-Listening-Part3.txt.
+
+Tạo object JSON `parts[2]` (partNumber: 3) cho IELTS Listening.
+
+## Đính kèm
+- [PDF / ảnh Part 3]
+- [Answer Key 21–30]
+- [Ảnh Giaodien/Part3-Listening/c?.jpg cho từng đoạn]
+- [Giaodien/two-choice.jpg — nếu có "Which TWO"]
+- [File mẫu: ielts-listening-p3-c?-template.json]
+
+## Part 3 đề này gồm (theo thứ tự câu):
+1. Questions 21–22: [MC / Choose TWO → c? — Answer Key 21 X/Y, 22 X/Y]
+2. Questions 23–24: [Choose TWO / gap / … → c?]
+3. Questions 25–30: [MC / matching / flow-chart / bảng → c?]
+
+## Yêu cầu
+1. Copy CẤU TRÚC từ file mẫu từng đoạn.
+2. questions[] đủ 10 câu (21–30), ĐÚNG THỨ TỰ trên đề.
+3. Mỗi nhóm: sectionRange + sectionInstruction (+ sectionTitle) trên câu đầu.
+4. Choose TWO (nếu có):
+   - 2 câu type "matching" liên tiếp, cùng prompt, cùng 5 options A–E
+   - Answer Key "21 C/E, 22 C/E" → CẢ 2 câu "answer": "C/E"
+   - Mỗi nhóm Choose TWO có answer riêng (Cam20: C/E, A/C, A/B)
+   - options nhãn đầy đủ — không "label": "A"
+   - KHÔNG nhầm với letter matching (đáp án 1 chữ)
+5. Nhiều khối note → notePassageSections[] (không 1 notePassage dài).
+6. Bảng → noteTables[] + notePassageLayout:"table".
+7. Flow-chart → flowChart + gapLead/gapTrail + flowChartEnd (c6).
+8. wordLimit theo đề; explanation tiếng Việt ngắn.
+9. audioFile: "listening.mp3".
+
+Xuất JSON thuần. Không markdown.
+```
+
+═══════════════════════════════════════════════════════════════
+PHẦN E — CHECKLIST TRƯỚC IMPORT
+═══════════════════════════════════════════════════════════════
+
+[ ] Đủ 10 câu (21–30), đúng thứ tự
+[ ] Mỗi nhóm có sectionRange / sectionInstruction
+[ ] Choose TWO: 2 câu matching liên tiếp, cùng prompt + options
+[ ] Choose TWO: answer "X/Y" GIỐNG NHAU trên cả 2 câu (khớp Answer Key)
+[ ] Choose TWO: options nhãn đầy đủ — không "A A"
+[ ] Letter matching ≠ Choose TWO (đáp án 1 chữ, không slash)
+[ ] notePassageSections: gapNumbers khớp từng khối
+[ ] Flow-chart: flowChart trên câu 26 (câu đầu nhóm)
+[ ] Bảng: mỗi gap có trong noteTables
+[ ] ZIP: exam.json + listening.mp3 cùng cấp
+
+Tham chiếu: HDSD/Import Listening IELTS.txt
+Hướng dẫn ChatGPT 4 parts: HDSD/ChatGPT-IELTS-Listening-4-Parts.txt
+Prompt cả đề: HDSD/Prompt-IELTS-Listening-Cam9-Cam20.txt
+
+Bắt đầu xử lý file đính kèm.

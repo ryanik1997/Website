@@ -1,0 +1,829 @@
+{
+  "id": "catalog-reading-ket-a2-book4-test3",
+  "title": "KET A2 Reading — Book 4 — Test 3",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] John,\nYou know I said that football practice will be on Wednesday … Well, it isn’t - it’s on Thursday. Sorry! See you there. Cheers, Adam\nWhy has Adam written this message?"
+        },
+        {
+          "text": "[2] SCHOOL FESTIVAL OF BOOKS\nMeet Ralph Sparks.\nHear how he got ideas for his books, including\nHistory of Exploring the New World.\nThurs 9 a.m. Room D31.\nPupils can"
+        },
+        {
+          "text": "[3] Science Museum trip next Friday\nTickets are available for $4 (for coach transport to the museum, and for museum entry).\nIf you’re interested, see Mr Goss."
+        },
+        {
+          "text": "[4] From:\nLizzie\nTo:\nJenny\nJenny,\nI think I left my scarf in your flat after the party. Have you seen it? Otherwise I’ll buy another one.\nLizzie\nWhy has Lizzie written this?"
+        },
+        {
+          "text": "[5] Hi Dave,\nI broke my tennis racket. Can I use yours? I’ll give it back in maths tomorrow. By the way, wasn’t the homework difficult?\nMike\nMike wants to"
+        },
+        {
+          "text": "[6] Mr Gregson is away today.\nClass 3, at 9 a.m., please go and join Class 4 in Room 7C for geography. Mr Gergson will be back tomorrow."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "John,\nYou know I said that football practice will be on Wednesday … Well, it isn’t - it’s on Thursday. Sorry! See you there. Cheers, Adam\nWhy has Adam written this message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to ask if John wants to play football"
+                },
+                {
+                  "id": "B",
+                  "label": "to tell John that Adam can’t play football"
+                },
+                {
+                  "id": "C",
+                  "label": "to let John know about a change of plan"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "SCHOOL FESTIVAL OF BOOKS\nMeet Ralph Sparks.\nHear how he got ideas for his books, including\nHistory of Exploring the New World.\nThurs 9 a.m. Room D31.\nPupils can",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "buy books."
+                },
+                {
+                  "id": "B",
+                  "label": "read about explorers."
+                },
+                {
+                  "id": "C",
+                  "label": "come and listen to a writer."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Science Museum trip next Friday\nTickets are available for $4 (for coach transport to the museum, and for museum entry).\nIf you’re interested, see Mr Goss.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You can now buy tickets for the museum trip."
+                },
+                {
+                  "id": "B",
+                  "label": "Tell Mr Goss how you want to travel to the museum."
+                },
+                {
+                  "id": "C",
+                  "label": "Mr Goss will tell you if you need a ticket to the museum."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "From:\nLizzie\nTo:\nJenny\nJenny,\nI think I left my scarf in your flat after the party. Have you seen it? Otherwise I’ll buy another one.\nLizzie\nWhy has Lizzie written this?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to invite Jenny to a party"
+                },
+                {
+                  "id": "B",
+                  "label": "to tell Jenny about a shopping trip"
+                },
+                {
+                  "id": "C",
+                  "label": "to ask about something that she’s lost"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Hi Dave,\nI broke my tennis racket. Can I use yours? I’ll give it back in maths tomorrow. By the way, wasn’t the homework difficult?\nMike\nMike wants to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "play tennis with Dave."
+                },
+                {
+                  "id": "B",
+                  "label": "borrow something from Dave."
+                },
+                {
+                  "id": "C",
+                  "label": "get help from Dave with the homework."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Mr Gregson is away today.\nClass 3, at 9 a.m., please go and join Class 4 in Room 7C for geography. Mr Gergson will be back tomorrow.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "There isn’t a geography lesson tomorrow."
+                },
+                {
+                  "id": "B",
+                  "label": "Class 4’s lesson is happening at a different time today."
+                },
+                {
+                  "id": "C",
+                  "label": "There will be more people in Room 7C than usual today."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Gaurika Singh",
+          "text": "Gaurika Singh, swimmer\nGaurika is from Nepal, and she was the only under-14-year-old to take part in the 2016 Olympics in Rio de Janeiro. She swam the 100 metres backstroke for Nepal. Home for Gaurika these days is in the UK, and she trains at the Copthall Swimming Club, where the coaches have trained other world-class swimmers. Her father, Paras Singh, travels with her around the world when she goes to a competition."
+        },
+        {
+          "label": "Tracy Austin",
+          "text": "Tracy Austin, tennis player\nWhen Tracy Austin was given a car as a prize in a tennis competition in Stuttgart, Germany, she was 15 and still too young to drive, but she was already a professional tennis player. Then, at the age of 17, the American became the youngest ever sports person to earn a million dollars. Before long, she was the world’s number one player. These days, she often appears on TV, talking about tennis matches at major competitions."
+        },
+        {
+          "label": "Nadia Comăneci",
+          "text": "Nadia Comăneci, gymnast\nWhen Romanian gymnast Nadia took part in the Olympic Games in Montreal, Canada, in 1976, she immediately became one of the most famous sports people in the world. She got perfect scores of 10.0 in seven different events. Everyone thought that nobody could do this and, in fact, 9.9 was the highest number that the score board could show. She did so well that she helped large numbers of people become interested in gymnastics."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Which sports person now works as a journalist?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Which sports person made her sport more popular?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Which sports person won something that she couldn’t use?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Which sports person became rich when she was young?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Which sports person was the youngest person in a competition?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Which sports person did something that people believed was not possible?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Nadia Comăneci"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Which sports person was born in one country and now lives in another?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Gaurika Singh"
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy Austin"
+                },
+                {
+                  "id": "C",
+                  "label": "Three teenage sports superstars Gaurika Singh, swimmer Gaurika is from Nepal, and she was the only under-14-year-old to take part in the 2016 Olympics in Rio de Janeiro. She swam the 100 metres backstroke for Nepal. Home for Gaurika these days is in the UK, and she trains at the Copthall Swimming Club, where the coaches have trained other world-class swimmers. Her father, Paras Singh, travels with her around the world when she goes to a competition. Tracy Austin, tennis player When Tracy Austin was given a car as a prize in a tennis competition in Stuttgart, Germany, she was 15 and still too young to drive, but she was already a professional tennis player. Then, at the age of 17, the American became the youngest ever sports person to earn a million dollars. Before long, she was the world’s number one player. These days, she often appears on TV, talking about tennis matches at major competitions. Nadia Com ăneci, gymnast When Romanian gymnast Nadia took part in the Olympic Games in Montreal, Canada, in 1976, she immediately became one of the most famous sports people in the world. She got perfect scores of 10.0 in seven different events. Everyone thought that nobody could do this and, in fact, 9.9 was the highest number that the score board could show. She did so well that she helped large numbers of people become interested in gymnastics."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "PART 3 — Reading comprehension",
+      "passage": [
+        {
+          "text": "Lots of people become good at something when they are young. And quite a lot of children know what career they want to follow when they are older. But not everyone opens their own company. This is exactly what Isabella Rose Taylor has done. She started designing clothes when she was eight years old.\nAt the time, she was a keen painter. She used a lot of reds, blues and yellows, and these colours helped her to think of new clothes which she could make.\nWhen she started designing and making clothes, Isabella just made clothes for fun. But people liked her designs, so soon she started selling them online. Now she has a business and takes part in fashion shows. She runs her business from the family home, where she has made one room into an office, and another into a studio where the clothes are made.\nIsabella has also found time to finish school and get a college degree. She’s intelligent, and she has thousands of followers online who love her stuff. It’s brilliant that she already has people who work for her. Above all, she really knows what is needed to succeed in the world of fashion. And I am sure that she will.\n‘The way I see it is I get to follow my dream and be a teenager at the same time. I think I’m pretty lucky,’ she says."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say is unusual about Isabella Rose Taylor?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She planned her future career when she was very young."
+                },
+                {
+                  "id": "B",
+                  "label": "She started her own business when she was very young."
+                },
+                {
+                  "id": "C",
+                  "label": "She got interested in fashion when she was very young."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What does Isabella say about painting and making clothes?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It is important to paint good pictures of clothes."
+                },
+                {
+                  "id": "B",
+                  "label": "The colours in her paintings gave her ideas for clothes to make."
+                },
+                {
+                  "id": "C",
+                  "label": "She uses paint to put her favourite colours on the clothes she makes."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "What do we learn about Isabella’s home?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Everything for her business is done in the same room at home."
+                },
+                {
+                  "id": "B",
+                  "label": "Her home is too small, so she’s looking for another one."
+                },
+                {
+                  "id": "C",
+                  "label": "She’s made changes to her home so that she can work there."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "Why does the writer think that Isabella will do well in the future?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She is already very popular online."
+                },
+                {
+                  "id": "B",
+                  "label": "She understands the fashion business."
+                },
+                {
+                  "id": "C",
+                  "label": "She has brilliant people who work for her."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "What is the best title for the article?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The girl who can’t wait to start working in fashion soon"
+                },
+                {
+                  "id": "B",
+                  "label": "The problem with working and studying"
+                },
+                {
+                  "id": "C",
+                  "label": "A hobby that is becoming a career"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Ferry to School",
+      "passage": [
+        {
+          "text": "Ferry to School"
+        },
+        {
+          "text": "Most pupils go to school each day on foot or by car, but Jordan Basford is different. He lives on the Scottish island of Egilsay. There, the school had to (19) ……………… because there weren’t any other pupils. The nearest school is in Rousay, across the sea. His family have a boat, but it is small, and they can (20) ……………… use it in good weather. A much larger boat is (21) ……………… in bad weather. So every day, Jordan has to (22) ……………… the ferry across the sea to go to school. He usually comes back home afterwards, but sometimes he phones home to say that he’s (23) ……………… the night at a friend’s house instead. ‘I know I have to travel a long (24) ……………… to school each day,’ he says. ‘But I don’t mind.’"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "close"
+                },
+                {
+                  "id": "B",
+                  "label": "complete"
+                },
+                {
+                  "id": "C",
+                  "label": "finish"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "almost"
+                },
+                {
+                  "id": "B",
+                  "label": "only"
+                },
+                {
+                  "id": "C",
+                  "label": "nearly"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "needed"
+                },
+                {
+                  "id": "B",
+                  "label": "liked"
+                },
+                {
+                  "id": "C",
+                  "label": "had"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "travel"
+                },
+                {
+                  "id": "B",
+                  "label": "make"
+                },
+                {
+                  "id": "C",
+                  "label": "catch"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "resting"
+                },
+                {
+                  "id": "B",
+                  "label": "staying"
+                },
+                {
+                  "id": "C",
+                  "label": "sleeping"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "way"
+                },
+                {
+                  "id": "B",
+                  "label": "transport"
+                },
+                {
+                  "id": "C",
+                  "label": "mile"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Jake"
+        },
+        {
+          "label": "To",
+          "text": "Hi guys!"
+        },
+        {
+          "text": "From:\nJake\nTo:\nHi guys!\nThis is (0) ……………… best holiday ever! Plakias is such (25) ……………… beautiful place. The meals in the hotel are fantastic. For breakfast, you can have as (26) ……………… as you want.\nI usually have yoghurt with lots of fruit. There’s lots for everyone in my family (27) ……………… do, so we’re all enjoying it. Tomorrow I’m going to try windsurfing (28) ……………… the first time. I’m really excited because I (29) ……………… never done it before, but Dad says it’s easy. In fact, I love it here so much that I (30) ……………… like to come back next year!\nSee you soon.\nJake"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "much",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "to",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "for",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "have",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "would",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "You are planning a party. Write an email to your English friend Malcolm.\nIn your email:\n●   tell\nMalcolm about your party\n●   ask\nif Malcolm wants to come\nsuggest\nwhat Malcolm should bring."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test3-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book4-test3/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test3-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test3-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book4-test3",
+  "catalogBase": "/catalog/reading/ket-a2-book4-test3"
+}

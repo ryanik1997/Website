@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { audioRepo } from '@ryan/db'
-import { resolveExamMediaUrl } from './examMediaUrl'
+import { resolvePlayableMediaUrl } from '../../lib/protectedMedia'
+import { mediaAccessUserMessage, parseMediaAccessError } from '../../lib/mediaAccessErrors'
 import { formatAudioTime } from '../listening/practiceUtils'
 import { mapRateToSpeed, speak, stop as stopTts } from '../listening/tts'
 
@@ -8,6 +9,9 @@ export interface ExamAudioSource {
   audioKey?: string
   audioUrl?: string
   ttsText?: string
+  /** Start position 0–100 when using a shared full-test MP3 for one part */
+  startPct?: number
+  endPct?: number
 }
 
 export interface ExamAudioPlayOptions {
@@ -28,6 +32,35 @@ async function blobAsAudio(blob: Blob, fallbackMime = 'audio/mpeg'): Promise<Blo
  * Catalog / URL tĩnh: fetch → blob URL (fallback khi stream trực tiếp lỗi).
  * Không phụ thuộc SW — SW không còn intercept /catalog/*.mp3 (Firefox NS_ERROR_INTERCEPTION_FAILED).
  */
+function sniffAudioMime(head: Uint8Array): string | null {
+  if (head.length < 4) return null
+  // ID3… or MPEG frame sync
+  const isId3 = head[0] === 0x49 && head[1] === 0x44 && head[2] === 0x33
+  const isMpeg = head[0] === 0xff && (head[1]! & 0xe0) === 0xe0
+  if (isId3 || isMpeg) return 'audio/mpeg'
+  // ISO BMFF (M4A/MP4): size(4) + 'ftyp'
+  // Cam20 catalog part*.mp3 are actually ftyp/M4A misnamed as .mp3
+  if (
+    head.length >= 8
+    && head[4] === 0x66 && head[5] === 0x74 && head[6] === 0x79 && head[7] === 0x70
+  ) {
+    return 'audio/mp4'
+  }
+  // RIFF….WAVE
+  if (
+    head.length >= 12
+    && head[0] === 0x52 && head[1] === 0x49 && head[2] === 0x46 && head[3] === 0x46
+    && head[8] === 0x57 && head[9] === 0x41 && head[10] === 0x56 && head[11] === 0x45
+  ) {
+    return 'audio/wav'
+  }
+  // OggS
+  if (head[0] === 0x4f && head[1] === 0x67 && head[2] === 0x67 && head[3] === 0x53) {
+    return 'audio/ogg'
+  }
+  return null
+}
+
 async function fetchUrlAsAudioBlobUrl(url: string): Promise<string> {
   const res = await fetch(url, { credentials: 'same-origin', cache: 'no-store' })
   if (!res.ok) {
@@ -35,35 +68,44 @@ async function fetchUrlAsAudioBlobUrl(url: string): Promise<string> {
   }
   const ct = (res.headers.get('content-type') || '').toLowerCase()
   if (ct.includes('text/html')) {
-    throw new Error(`Server trả HTML thay vì MP3 (sai path?): ${url.slice(0, 100)}`)
+    throw new Error(`Server trả HTML thay vì audio (sai path?): ${url.slice(0, 100)}`)
   }
   const raw = await res.blob()
   if (!raw.size) throw new Error(`File audio rỗng: ${url.slice(0, 100)}`)
   if (raw.size < 8_000) {
     throw new Error(`File audio quá nhỏ (${raw.size} bytes): ${url.slice(0, 100)}`)
   }
-  const head = new Uint8Array(await raw.slice(0, 4).arrayBuffer())
-  const isId3 = head[0] === 0x49 && head[1] === 0x44 && head[2] === 0x33
-  const isMpeg = head[0] === 0xff && (head[1] & 0xe0) === 0xe0
-  if (!isId3 && !isMpeg) {
+  const head = new Uint8Array(await raw.slice(0, 12).arrayBuffer())
+  const mime = sniffAudioMime(head)
+  if (!mime) {
     throw new Error(
-      `Không phải MP3 hợp lệ (header ${[...head].map(b => b.toString(16)).join(' ')}): ${url.slice(0, 80)}`,
+      `Không nhận dạng được audio (header ${[...head.slice(0, 8)].map(b => b.toString(16).padStart(2, '0')).join(' ')}): ${url.slice(0, 80)}`,
     )
   }
-  const typed = await blobAsAudio(raw, 'audio/mpeg')
+  const typed = await blobAsAudio(raw, mime)
   return URL.createObjectURL(typed)
 }
 
 function examAudioSourceId(source: ExamAudioSource): string {
-  return `${source.audioKey ?? ''}\0${source.audioUrl ?? ''}\0${source.ttsText?.trim() ?? ''}`
+  // Include segment so Part1/Part2 sharing one full file are different sources
+  return `${source.audioKey ?? ''}\0${source.audioUrl ?? ''}\0${source.ttsText?.trim() ?? ''}\0${source.startPct ?? ''}\0${source.endPct ?? ''}`
 }
 
-function syncTimeUi(audio: HTMLAudioElement, setProgressPct: (n: number) => void, setTimeLabel: (s: string) => void) {
+function syncTimeUi(
+  audio: HTMLAudioElement,
+  setProgressPct: (n: number) => void,
+  setTimeLabel: (s: string) => void,
+  setAudioCurrentTime: (n: number) => void,
+  setAudioDuration: (n: number) => void,
+) {
   const duration = audio.duration
+  const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+  setAudioCurrentTime(currentTime)
+  setAudioDuration(Number.isFinite(duration) ? duration : 0)
   if (duration && Number.isFinite(duration)) {
-    const pct = Math.min(100, (audio.currentTime / duration) * 100)
+    const pct = Math.min(100, (currentTime / duration) * 100)
     setProgressPct(pct)
-    setTimeLabel(`${formatAudioTime(audio.currentTime)} / ${formatAudioTime(duration)}`)
+    setTimeLabel(`${formatAudioTime(currentTime)} / ${formatAudioTime(duration)}`)
   }
 }
 
@@ -72,6 +114,8 @@ export function useExamQuestionAudio() {
   const [buffering, setBuffering] = useState(false)
   const [progressPct, setProgressPct] = useState(0)
   const [timeLabel, setTimeLabel] = useState('0:00 / 0:00')
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0)
+  const [audioDuration, setAudioDuration] = useState(0)
   const [speed, setSpeed] = useState(1)
   const [playError, setPlayError] = useState<string | null>(null)
 
@@ -119,7 +163,7 @@ export function useExamQuestionAudio() {
 
     const tick = () => {
       if (!audioRef.current || audioRef.current !== audio) return
-      syncTimeUi(audio, setProgressPct, setTimeLabel)
+      syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
       if (!audio.paused && !audio.ended) {
         rafRef.current = requestAnimationFrame(tick)
       }
@@ -134,14 +178,19 @@ export function useExamQuestionAudio() {
     const audio = audioRef.current
     if (audio) {
       audio.pause()
-      syncTimeUi(audio, setProgressPct, setTimeLabel)
+      syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
     }
     stopTts()
     setPlaying(false)
     setBuffering(false)
   }, [cancelProgress])
 
-  const playHtmlAudio = useCallback(async (src: string, rate: number, sourceId: string) => {
+  const playHtmlAudio = useCallback(async (
+    src: string,
+    rate: number,
+    sourceId: string,
+    segment?: { startPct?: number; endPct?: number },
+  ) => {
     // QUAN TRỌNG: không revoke `src` nếu đó là blob URL sắp phát
     stopCurrentAudio(src)
     if (src.startsWith('blob:')) {
@@ -208,8 +257,27 @@ export function useExamQuestionAudio() {
       audio.load()
     })
 
+    // Segment: jump to part start within full-test MP3 (TID-style multi-part)
+    const startPct = segment?.startPct
+    const endPct = segment?.endPct
+    if (
+      startPct != null
+      && Number.isFinite(startPct)
+      && audio.duration
+      && Number.isFinite(audio.duration)
+    ) {
+      const t = Math.max(0, Math.min(audio.duration - 0.05, (startPct / 100) * audio.duration))
+      try {
+        audio.currentTime = t
+      } catch { /* ignore */ }
+      setProgressPct(startPct)
+      setTimeLabel(`${formatAudioTime(audio.currentTime)} / ${formatAudioTime(audio.duration)}`)
+    } else {
+      setProgressPct(0)
+      setTimeLabel(`0:00 / ${formatAudioTime(audio.duration)}`)
+    }
+
     setBuffering(false)
-    setTimeLabel(`0:00 / ${formatAudioTime(audio.duration)}`)
     startProgressLoop(audio)
 
     audio.onended = () => {
@@ -217,6 +285,27 @@ export function useExamQuestionAudio() {
       setPlaying(false)
       setProgressPct(100)
       setTimeLabel(`${formatAudioTime(audio.duration)} / ${formatAudioTime(audio.duration)}`)
+    }
+
+    // Optional soft-stop near segment end
+    if (endPct != null && Number.isFinite(endPct) && endPct > (startPct ?? 0)) {
+      const endT =
+        audio.duration && Number.isFinite(audio.duration)
+          ? (endPct / 100) * audio.duration
+          : null
+      if (endT != null) {
+        const onTime = () => {
+          if (!audioRef.current || audioRef.current !== audio) return
+          if (audio.currentTime >= endT - 0.05) {
+            audio.pause()
+            audio.removeEventListener('timeupdate', onTime)
+            cancelProgress()
+            setPlaying(false)
+            syncTimeUi(audio, setProgressPct, setTimeLabel, setAudioCurrentTime, setAudioDuration)
+          }
+        }
+        audio.addEventListener('timeupdate', onTime)
+      }
     }
 
     try {
@@ -282,41 +371,74 @@ export function useExamQuestionAudio() {
       return
     }
 
-    // Pause giữa chừng (hoặc đã seek lùi sau khi hết bài) → resume từ currentTime
-    const nearEnd =
-      existing
-      && existing.duration
-      && Number.isFinite(existing.duration)
-      && existing.currentTime >= existing.duration - 0.2
-    if (
-      existing
+    // Pause / seek xong → luôn resume từ currentTime nếu cùng nguồn còn load
+    // (trước đây nearEnd + ended flag khiến bấm Phát sau tua bị rơi vào load lại / beforePlay chặn im lặng)
+    const hasLoadedSameSource =
+      Boolean(existing)
       && loadedSourceIdRef.current === sourceId
-      && existing.paused
-      && existing.src
-      && !nearEnd
-    ) {
+      && Boolean(existing!.src || loadedSrcRef.current)
+
+    if (hasLoadedSameSource && existing!.paused) {
+      const audio = existing!
+      const dur = audio.duration
+      const atEnd =
+        Boolean(dur && Number.isFinite(dur) && audio.currentTime >= dur - 0.12)
+
       setPlayError(null)
       setBuffering(false)
-      setPlaying(true)
-      existing.playbackRate = rate
-      startProgressLoop(existing)
       try {
-        await existing.play()
+        if (atEnd) {
+          audio.currentTime = 0
+        } else {
+          // Force clear "ended" trên một số browser sau khi seek
+          const t = audio.currentTime
+          audio.currentTime = Math.min(t, (dur && Number.isFinite(dur) ? dur : t) - 0.001)
+          if (Math.abs(audio.currentTime - t) > 0.5) {
+            audio.currentTime = t
+          }
+        }
+      } catch {
+        /* ignore seek quirks */
+      }
+
+      setPlaying(true)
+      audio.playbackRate = rate
+      startProgressLoop(audio)
+      try {
+        await audio.play()
+        return
       } catch (err) {
         console.warn('Exam audio resume failed', err)
         setPlaying(false)
         setPlayError('Không tiếp tục phát được. Thử bấm Phát lại.')
+        // fall through → load lại nguồn
       }
-      return
     }
 
     // Hết bài (ended) hoặc nguồn mới → phát mới (from 0, trừ khi user đã seek)
-    if (options.beforePlay && !options.beforePlay()) return
+    if (options.beforePlay && !options.beforePlay()) {
+      setPlayError('Đã hết lượt nghe hoặc không được phát thêm.')
+      setBuffering(false)
+      setPlaying(false)
+      return
+    }
 
     setPlayError(null)
     setBuffering(true)
 
-    const staticUrl = resolveExamMediaUrl(source.audioUrl)
+    let staticUrl: string | undefined
+    try {
+      // Mode A/B: /catalog/* signed in production; local public in DEV
+      staticUrl = await resolvePlayableMediaUrl(source.audioUrl)
+    } catch (resolveErr) {
+      const parsed = parseMediaAccessError(resolveErr)
+      const msg = mediaAccessUserMessage(parsed)
+      console.warn('[exam audio] resolvePlayableMediaUrl', parsed.code, resolveErr)
+      setPlayError(msg)
+      setBuffering(false)
+      setPlaying(false)
+      return
+    }
     const htmlSources: string[] = []
     const ownedBlobs: string[] = []
 
@@ -347,49 +469,81 @@ export function useExamQuestionAudio() {
     }
 
     // Catalog / static URL:
-    // - Chỉ khi không có blob local (audioKey), hoặc blob local rỗng/thiếu
-    // - Không push catalog song song với blob import — tránh fail blob → phát nhầm đề khác
+    // - Stream URL trước khi file là MPEG thật
+    // - Cam20 part*.mp3 thực chất là M4A (ftyp) → phải blob + audio/mp4 (stream audio/mpeg sẽ treo)
     if (staticUrl && htmlSources.length === 0) {
-      htmlSources.push(staticUrl)
+      let preferTypedBlob = false
       try {
-        const blobUrl = await fetchUrlAsAudioBlobUrl(staticUrl)
-        ownedBlobs.push(blobUrl)
-        htmlSources.push(blobUrl)
-      } catch (fetchErr) {
-        console.warn('[exam audio] fetch catalog blob fallback skipped', staticUrl, fetchErr)
+        const headRes = await fetch(staticUrl, {
+          credentials: 'same-origin',
+          headers: { Range: 'bytes=0-15' },
+          cache: 'force-cache',
+        })
+        if (headRes.ok || headRes.status === 206) {
+          const sniff = sniffAudioMime(new Uint8Array(await headRes.arrayBuffer()))
+          preferTypedBlob = sniff === 'audio/mp4' || sniff === 'audio/ogg' || sniff === 'audio/wav'
+        }
+      } catch {
+        /* ignore sniff errors — fall through stream */
       }
+
+      if (!preferTypedBlob) {
+        htmlSources.push(staticUrl)
+      } else {
+        try {
+          const blobUrl = await fetchUrlAsAudioBlobUrl(staticUrl)
+          ownedBlobs.push(blobUrl)
+          htmlSources.push(blobUrl)
+        } catch (e) {
+          console.warn('[exam audio] M4A/typed preload failed, try stream', staticUrl, e)
+          htmlSources.push(staticUrl)
+        }
+      }
+    }
+
+    const tryPlaySrc = async (src: string) => {
+      // Replay sau ended: giữ element, chỉ seek 0 nếu đã ended
+      if (
+        existing
+        && loadedSourceIdRef.current === sourceId
+        && loadedSrcRef.current === src
+        && existing.ended
+      ) {
+        const startPct = source.startPct
+        const t0 =
+          startPct != null && existing.duration && Number.isFinite(existing.duration)
+            ? (startPct / 100) * existing.duration
+            : 0
+        existing.currentTime = t0
+        existing.playbackRate = rate
+        setPlaying(true)
+        setBuffering(false)
+        setProgressPct(startPct ?? 0)
+        setTimeLabel(`${formatAudioTime(existing.currentTime)} / ${formatAudioTime(existing.duration)}`)
+        startProgressLoop(existing)
+        existing.onended = () => {
+          cancelProgress()
+          setPlaying(false)
+          setProgressPct(100)
+          setTimeLabel(`${formatAudioTime(existing.duration)} / ${formatAudioTime(existing.duration)}`)
+        }
+        await existing.play()
+        options.onPlayCounted?.()
+        return true
+      }
+
+      await playHtmlAudio(src, rate, sourceId, {
+        startPct: source.startPct,
+        endPct: source.endPct,
+      })
+      options.onPlayCounted?.()
+      return true
     }
 
     try {
       for (const src of htmlSources) {
         try {
-          // Replay sau ended: giữ element, chỉ seek 0 nếu đã ended
-          if (
-            existing
-            && loadedSourceIdRef.current === sourceId
-            && loadedSrcRef.current === src
-            && existing.ended
-          ) {
-            existing.currentTime = 0
-            existing.playbackRate = rate
-            setPlaying(true)
-            setBuffering(false)
-            setProgressPct(0)
-            setTimeLabel(`0:00 / ${formatAudioTime(existing.duration)}`)
-            startProgressLoop(existing)
-            existing.onended = () => {
-              cancelProgress()
-              setPlaying(false)
-              setProgressPct(100)
-              setTimeLabel(`${formatAudioTime(existing.duration)} / ${formatAudioTime(existing.duration)}`)
-            }
-            await existing.play()
-            options.onPlayCounted?.()
-            return
-          }
-
-          await playHtmlAudio(src, rate, sourceId)
-          options.onPlayCounted?.()
+          await tryPlaySrc(src)
           return
         } catch (attemptError) {
           const attemptMsg = attemptError instanceof Error ? attemptError.message : ''
@@ -401,6 +555,19 @@ export function useExamQuestionAudio() {
           if (src.startsWith('blob:') && objectUrlRef.current !== src) {
             URL.revokeObjectURL(src)
           }
+          stopCurrentAudio()
+        }
+      }
+
+      // Stream fail (thường do .mp3 thực chất là M4A + Content-Type audio/mpeg) → fetch + typed blob
+      if (staticUrl) {
+        try {
+          const blobUrl = await fetchUrlAsAudioBlobUrl(staticUrl)
+          ownedBlobs.push(blobUrl)
+          await tryPlaySrc(blobUrl)
+          return
+        } catch (fetchErr) {
+          console.warn('[exam audio] typed blob fallback failed', staticUrl, fetchErr)
           stopCurrentAudio()
         }
       }
@@ -418,7 +585,7 @@ export function useExamQuestionAudio() {
         return
       }
 
-      if (htmlSources.length === 0) {
+      if (htmlSources.length === 0 && !staticUrl) {
         console.warn('[exam audio] no playable source', {
           audioKey: source.audioKey ?? null,
           audioUrl: source.audioUrl ?? null,
@@ -426,6 +593,8 @@ export function useExamQuestionAudio() {
           sourceId,
         })
         setTimeLabel('— / —')
+        setPlaying(false)
+        setBuffering(false)
         setPlayError(
           source.audioKey
             ? `Không tìm thấy blob audio (key: ${source.audioKey}). Bài import/local đang thiếu blob trong Dexie.`
@@ -439,7 +608,7 @@ export function useExamQuestionAudio() {
       setBuffering(false)
       setPlayError(
         staticUrl
-          ? `Không phát được file: ${staticUrl}. Kiểm tra path catalog hoặc MP3 import.`
+          ? `Không phát được file: ${staticUrl}. Kiểm tra path catalog hoặc MP3 import (Cam20 part có thể là M4A).`
           : 'Không phát được audio. Kiểm tra blob local, audioUrl fallback, hoặc mapping part/question.',
       )
     } catch (error) {
@@ -483,21 +652,34 @@ export function useExamQuestionAudio() {
     setBuffering(false)
     setProgressPct(0)
     setTimeLabel('0:00 / 0:00')
+    setAudioCurrentTime(0)
+    setAudioDuration(0)
   }, [stopCurrentAudio])
 
   const seekToPct = useCallback((pct: number, allowSeek = true) => {
     if (!allowSeek) return
     const audio = audioRef.current
-    if (!audio?.duration || !Number.isFinite(audio.duration)) return
+    if (!audio?.duration || !Number.isFinite(audio.duration) || audio.duration <= 0) {
+      return
+    }
     const clamped = Math.max(0, Math.min(100, pct))
-    audio.currentTime = (clamped / 100) * audio.duration
-    // Nếu đã ended, seek lùi để có thể play tiếp từ vị trí mới
-    if (audio.ended && clamped < 100) {
-      // ended flag clears when currentTime set on most browsers
-      try { audio.currentTime = (clamped / 100) * audio.duration } catch { /* ignore */ }
+    // Tránh dính sát cuối (ended) — chừa 30ms để play() sau tua luôn resume được
+    const maxT = Math.max(0, audio.duration - 0.03)
+    const t = Math.min(maxT, (clamped / 100) * audio.duration)
+    try {
+      audio.currentTime = t
+      // Double-assign clears ended on stubborn engines after seek-from-end
+      if (audio.ended && clamped < 99.5) {
+        audio.currentTime = Math.max(0, t - 0.01)
+        audio.currentTime = t
+      }
+    } catch (err) {
+      console.warn('[exam audio] seek failed', err)
+      return
     }
     setProgressPct(clamped)
     setTimeLabel(`${formatAudioTime(audio.currentTime)} / ${formatAudioTime(audio.duration)}`)
+    setPlayError(null)
     if (!audio.paused && !audio.ended) {
       startProgressLoop(audio)
     }
@@ -505,7 +687,7 @@ export function useExamQuestionAudio() {
 
   const toggleSpeed = useCallback(() => {
     setSpeed(prev => {
-      const next = prev === 1 ? 0.75 : 1
+      const next = prev === 1 ? 0.75 : prev === 0.75 ? 0.5 : 1
       if (audioRef.current) {
         audioRef.current.playbackRate = next
       }
@@ -518,6 +700,8 @@ export function useExamQuestionAudio() {
     buffering,
     progressPct,
     timeLabel,
+    audioCurrentTime,
+    audioDuration,
     speed,
     playError,
     toggleSpeed,

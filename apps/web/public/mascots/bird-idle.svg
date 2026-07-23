@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Bird mascot standing happily</title>
+  <g id="bird-idle" class="bird state-idle" stroke="#3A3632" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path id="tail" d="M48 93 39 105 55 101 60 109 67 99" fill="#58B9D6"/>
+    <path id="leg-left" d="M52 96v10m-6 0h11" fill="none"/>
+    <path id="leg-right" d="M70 96v10m-5 0h11" fill="none"/>
+    <ellipse id="body" cx="61" cy="76" rx="28" ry="29" fill="#73D6B4"/>
+    <ellipse id="belly" cx="61" cy="81" rx="17" ry="19" fill="#FFF3C9" stroke="none"/>
+    <path id="wing-left" d="M36 66q-15 8-8 25 10-2 16-15" fill="#58B9D6"/>
+    <path id="wing-right" d="M86 66q15 8 8 25-10-2-16-15" fill="#58B9D6"/>
+    <circle id="head" cx="61" cy="42" r="31" fill="#73D6B4"/>
+    <path id="tuft" d="M50 14q8-9 12 1 8-9 11 2" fill="#73D6B4"/>
+    <circle id="eye-left" cx="50" cy="39" r="5.5" fill="#3A3632" stroke="none"/>
+    <circle id="eye-right" cx="72" cy="39" r="5.5" fill="#3A3632" stroke="none"/>
+    <circle id="eye-shine-left" cx="52" cy="37" r="1.7" fill="#FFFFFF" stroke="none"/>
+    <circle id="eye-shine-right" cx="74" cy="37" r="1.7" fill="#FFFFFF" stroke="none"/>
+    <path id="beak" d="m57 49 13 5-13 6Z" fill="#FF9B66"/>
+    <path id="smile" d="M58 61q4 3 8 0" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,783 @@
+{
+  "id": "catalog-reading-ket-a2-book3-test2",
+  "title": "KET A2 Reading — Book 3 — Test 2",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading — 5 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book3-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "Signs and messages",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q5.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book3-test2/part1-q6.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book3-test2-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What must visitors do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Pay $5 for a maximum of 4 hours."
+                },
+                {
+                  "id": "B",
+                  "label": "Pay at the machine and stay up to 4 hours."
+                },
+                {
+                  "id": "C",
+                  "label": "Get a permit from the entrance."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Visitors pay $5/hour, maximum 4 hours, at machine. A sai vì $5 là mỗi giờ, C sai vì permit chỉ dành cho resident.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Why did Tom write this message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "To ask Jack to return the book."
+                },
+                {
+                  "id": "B",
+                  "label": "To find out where the book is."
+                },
+                {
+                  "id": "C",
+                  "label": "To tell Jack he left the book at school."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Tom hỏi Jack có mang sách đến trường không, tức muốn biết vị trí cuốn sách.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What does the offer say?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Students get half-price on Saturdays."
+                },
+                {
+                  "id": "B",
+                  "label": "Students with an ID can get the discount."
+                },
+                {
+                  "id": "C",
+                  "label": "Everyone gets a discount on Saturday evening."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Có ghi '50% off for students', 'show student ID'. A sai vì không áp dụng tối thứ Bảy, C sai vì chỉ dành cho sinh viên.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What does Emma want Maria to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Bring the keys to the gym."
+                },
+                {
+                  "id": "B",
+                  "label": "Look for the keys in her bag."
+                },
+                {
+                  "id": "C",
+                  "label": "Let Emma into her house."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Emma nhờ Maria kiểm tra túi xem có chìa khóa không (Can you check?).",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What is true about the offer?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Any child can eat free on Mondays."
+                },
+                {
+                  "id": "B",
+                  "label": "Adults don't have to pay for their meal."
+                },
+                {
+                  "id": "C",
+                  "label": "An adult must buy a main course for a child to eat free."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Điều kiện: 'one free kids' meal with each adult main course' nên người lớn phải mua món chính cho trẻ được miễn phí.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Why is Lucy using a phone to message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "To tell her dad she is studying."
+                },
+                {
+                  "id": "B",
+                  "label": "To ask for a lift home."
+                },
+                {
+                  "id": "C",
+                  "label": "To say she is with Jane."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Mục đích chính là nhờ bố đón (Can you pick me up?), A và C chỉ là thông tin thêm.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book3-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "Young volunteers",
+      "passage": [
+        {
+          "label": "Amy",
+          "text": "I volunteer at an animal shelter every Saturday morning. I help to feed the dogs and clean their cages. It's hard work because some of the dogs are quite big and they need a lot of exercise, but I really love being with animals. I've learned so much about how to look after them properly, especially about their diet and health. My friends sometimes come with me, but they don't come every week because they have other activities. I think it's very important to help animals who have no home, and it makes me feel really good to know that I'm making a small difference in their lives."
+        },
+        {
+          "label": "Ben",
+          "text": "I work at a community garden near my house. We grow all kinds of vegetables and then give them to local families who need food. I really enjoy working outside and learning about different types of plants. My grandfather used to be a gardener, so he gives me lots of useful advice on what to plant and when. The best part is seeing the plants grow week by week and knowing that we are helping people in our area who don't have enough to eat. It's a very satisfying feeling, and I've made some good friends there too."
+        },
+        {
+          "label": "Chloe",
+          "text": "I help at a charity shop on Saturdays. I sort through clothes and books, and sometimes I work at the cash register. It's really fun because I meet so many different people and I love the friendly atmosphere. My older sister also volunteers there, so we always go together. I've made some new friends there, and we often have lunch together after work. I think it's a great way to spend my weekend because I'm doing something useful and I also get to socialize with nice people. I would recommend it to anyone."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book3-test2-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who works with a member of their family?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Chloe nói chị gái cũng làm tình nguyện cùng cô.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who says the work can be hard?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Amy nói 'It's hard work because some of the dogs are quite big'.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who gets advice from a relative?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Ben nói ông của anh ấy cho lời khuyên về trồng cây.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who has friends that sometimes help?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Amy nói bạn bè của cô thỉnh thoảng đi cùng.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who enjoys meeting new people?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Chloe nói cô gặp nhiều người khác nhau và thích không khí thân thiện.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who enjoys seeing the results of their work?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Ben nói điều tuyệt nhất là nhìn cây phát triển và biết mình đang giúp đỡ.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who says they learned something from volunteering?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Ben"
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Amy nói cô học được nhiều về cách chăm sóc động vật đúng cách.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book3-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "A young artist",
+      "passage": [
+        {
+          "text": "The Williams family is full of creative people. Mrs. Williams is an art teacher at a local school, and she also paints beautiful pictures in her free time. Her husband, Mr. Williams, is a professional photographer who takes pictures for magazines and newspapers. They both encourage their children to follow their artistic interests."
+        },
+        {
+          "text": "Their daughter, Sophie, started drawing when she was only four years old. She loved to draw animals and people, and she would spend hours with her coloured pencils. Now, at sixteen, she is already selling her paintings online and has won several competitions. She is also taking art classes every weekend to improve her skills."
+        },
+        {
+          "text": "Sophie's grandmother, who was also an artist, taught her how to mix colours and use different brushes. Sophie says, 'My grandmother is my biggest inspiration. She always tells me to follow my dreams and never give up, even when things get difficult.'"
+        },
+        {
+          "text": "Last month, Sophie had her first exhibition at a local gallery. Many people came to see her work, and she sold three paintings. Her parents were very proud of her. Mr. Williams took lots of photos of the event, and Mrs. Williams helped to arrange the exhibition. It was a very special day for the whole family."
+        },
+        {
+          "text": "'Sophie has a real talent,' says her grandmother. 'She works very hard and never gives up. I'm sure she will become a famous artist one day. I couldn't be happier for her, and I know she has a bright future ahead.'"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book3-test2-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What is Mrs. Williams' job?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She is a photographer."
+                },
+                {
+                  "id": "B",
+                  "label": "She is an art teacher."
+                },
+                {
+                  "id": "C",
+                  "label": "She is a painter."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Mrs. Williams là giáo viên mỹ thuật tại trường.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "When did Sophie start drawing?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "When she was four."
+                },
+                {
+                  "id": "B",
+                  "label": "When she was six."
+                },
+                {
+                  "id": "C",
+                  "label": "When she was sixteen."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Sophie bắt đầu vẽ từ năm 4 tuổi.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "Who taught Sophie how to mix colours?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Her mother."
+                },
+                {
+                  "id": "B",
+                  "label": "Her father."
+                },
+                {
+                  "id": "C",
+                  "label": "Her grandmother."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Bà của Sophie đã dạy cô cách pha màu.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "What happened at Sophie's exhibition?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She won a competition."
+                },
+                {
+                  "id": "B",
+                  "label": "She sold three paintings."
+                },
+                {
+                  "id": "C",
+                  "label": "Her grandmother gave a speech."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Sophie đã bán được ba bức tranh tại triển lãm.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "What does Sophie's grandmother say about her?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She works too hard."
+                },
+                {
+                  "id": "B",
+                  "label": "She will become a famous artist."
+                },
+                {
+                  "id": "C",
+                  "label": "She should give up drawing."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Bà nói Sophie sẽ trở thành một nghệ sĩ nổi tiếng.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book3-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "The history of chocolate",
+      "passage": [
+        {
+          "text": "Chocolate comes from the cacao tree. For centuries, people in Central America (19) ........ used cacao beans as money and to make a drink. The drink was bitter, not sweet like today. When the Spanish came, they (20) ........ sugar to it and took it to Europe. At first, only rich people could (21) ........ chocolate because it was expensive. Later, machines made it easier to (22) ........ chocolate bars. Now, chocolate is enjoyed all over the world. In many countries, people give chocolate as (23) ........ on special days like Valentine's Day. There are many different types, from dark to white. Some people say that chocolate is (24) ........ for your heart, but it's best to eat it in small amounts."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book3-test2-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "have"
+                },
+                {
+                  "id": "B",
+                  "label": "had"
+                },
+                {
+                  "id": "C",
+                  "label": "having"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Quá khứ: used cacao beans -> had.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "added"
+                },
+                {
+                  "id": "B",
+                  "label": "added to"
+                },
+                {
+                  "id": "C",
+                  "label": "add"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Thêm đường vào: added sugar.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "buy"
+                },
+                {
+                  "id": "B",
+                  "label": "sell"
+                },
+                {
+                  "id": "C",
+                  "label": "make"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Chỉ người giàu mới có thể mua sô-cô-la.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "produce"
+                },
+                {
+                  "id": "B",
+                  "label": "make"
+                },
+                {
+                  "id": "C",
+                  "label": "create"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Dễ dàng hơn để làm thanh sô-cô-la -> make.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "gifts"
+                },
+                {
+                  "id": "B",
+                  "label": "prizes"
+                },
+                {
+                  "id": "C",
+                  "label": "awards"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Tặng sô-cô-la làm quà -> gifts.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "good"
+                },
+                {
+                  "id": "B",
+                  "label": "bad"
+                },
+                {
+                  "id": "C",
+                  "label": "important"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Tốt cho tim -> good.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book3-test2-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "Email from Anna",
+      "passage": [
+        {
+          "text": "Hi Tom, How are you? I'm writing to tell you about my new hobby. I (25) ........ started learning to cook. It's really fun!"
+        },
+        {
+          "text": "Yesterday, I made a cake (26) ........ my mother's recipe. It was delicious. Next week, I want to make pizza. Do you want (27) ........ come and try it? We can cook together."
+        },
+        {
+          "text": "I also need (28) ........ buy some ingredients. Are you free on Saturday? We can go to the supermarket (29) ........ the morning."
+        },
+        {
+          "text": "Let me know. I (30) ........ see you soon."
+        },
+        {
+          "text": "Anna"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book3-test2-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "Write one word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "have",
+              "explanation": "I have started - thì hiện tại hoàn thành.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "from",
+              "explanation": "from my mother's recipe.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "to",
+              "explanation": "want to come.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "to",
+              "explanation": "need to buy.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "in",
+              "explanation": "in the morning.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book3-test2-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "will",
+              "explanation": "I will see you soon.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book3-test2",
+  "catalogBase": "/catalog/reading/ket-a2-book3-test2"
+}

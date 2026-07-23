@@ -183,6 +183,10 @@ export default function TranslationDetail() {
               rows={2}
               className="w-full px-3 py-2 rounded-lg text-sm border outline-none resize-none"
               style={inputStyle}
+              spellCheck={false}
+              autoCorrect="off"
+              autoCapitalize="off"
+              lang="en"
             />
             <input
               value={hint}
@@ -281,8 +285,15 @@ function SentenceRow({
         }
       }}
       title="Bấm để dịch câu này"
-      className="flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--bg-card))]"
-      style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+      className="flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-colors hover:bg-[color-mix(in_srgb,var(--color-primary)_9%,var(--bg-card))]"
+      style={{
+        background: translated
+          ? 'color-mix(in srgb, var(--color-primary) 11%, var(--bg-card))'
+          : 'var(--bg-card)',
+        border: `1px solid ${translated
+          ? 'color-mix(in srgb, var(--color-primary) 45%, var(--border-color))'
+          : 'var(--border-color)'}`,
+      }}
     >
       <span
         className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
@@ -309,14 +320,15 @@ function SentenceRow({
           {DIFFICULTY_LABELS[sentence.difficulty]}
         </span>
         <span
-          className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+          className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full"
           style={{
             background: translated
-              ? 'color-mix(in srgb, var(--color-primary) 18%, transparent)'
+              ? 'color-mix(in srgb, var(--color-success) 22%, transparent)'
               : 'color-mix(in srgb, var(--text-muted) 15%, transparent)',
-            color: translated ? 'var(--color-primary)' : 'var(--text-muted)',
+            color: translated ? 'var(--color-success)' : 'var(--text-muted)',
           }}
         >
+          {translated && <Check size={11} strokeWidth={2.5} aria-hidden="true" />}
           {translated ? 'Đã dịch' : 'Chưa dịch'}
         </span>
         {due && (

@@ -6,6 +6,7 @@ import {
   rememberKokoroStatus,
   rememberTtsServiceUrl,
 } from './ttsConfig'
+import { getPreferredKokoroVoice, type KokoroLang } from './kokoroVoices'
 
 export interface SpeakOptions {
   speed?: number
@@ -153,14 +154,28 @@ export function mapRateToSpeed(rate: number): number {
   return clampSpeed(rate)
 }
 
+function resolveLang(rateOrOptions?: number | SpeakOptions, lang?: string): KokoroLang {
+  if (typeof rateOrOptions === 'object' && rateOrOptions?.lang) return rateOrOptions.lang
+  if (lang === 'en-US' || lang === 'a') return 'a'
+  if (lang === 'en-GB' || lang === 'b') return 'b'
+  // speak(text, 0.85) defaults third arg en-US → American
+  if (typeof rateOrOptions === 'number') return lang === 'en-GB' ? 'b' : 'a'
+  return 'b'
+}
+
 function normalizeOptions(rateOrOptions?: number | SpeakOptions, lang?: string): SpeakOptions {
+  const langCode = resolveLang(rateOrOptions, lang)
   if (typeof rateOrOptions === 'number') {
-    return { speed: mapRateToSpeed(rateOrOptions), lang: lang === 'en-US' ? 'a' : 'b' }
+    return {
+      speed: mapRateToSpeed(rateOrOptions),
+      lang: langCode,
+      voice: getPreferredKokoroVoice(langCode),
+    }
   }
   return {
     speed: rateOrOptions?.speed ?? 1,
-    voice: rateOrOptions?.voice,
-    lang: rateOrOptions?.lang ?? 'b',
+    voice: rateOrOptions?.voice ?? getPreferredKokoroVoice(langCode),
+    lang: langCode,
     onPlaybackStart: rateOrOptions?.onPlaybackStart,
     onFallbackStart: rateOrOptions?.onFallbackStart,
     onTimeUpdate: rateOrOptions?.onTimeUpdate,
@@ -168,7 +183,7 @@ function normalizeOptions(rateOrOptions?: number | SpeakOptions, lang?: string):
 }
 
 function cacheKey(text: string, options: SpeakOptions): string {
-  return `${text.trim()}|${options.voice ?? 'default'}|${clampSpeed(options.speed ?? 1)}`
+  return `${text.trim()}|${options.voice ?? 'default'}|${clampSpeed(options.speed ?? 1)}|${options.lang ?? 'b'}`
 }
 
 function cleanupAudio() {
@@ -522,7 +537,99 @@ export async function speak(
 }
 
 export function playSlow(text: string, voice?: string): Promise<void> {
-  return speak(text, { speed: 0.6, voice, lang: 'b' })
+  return speak(text, {
+    speed: 0.6,
+    voice: voice ?? getPreferredKokoroVoice('b'),
+    lang: 'b',
+  })
+}
+
+export interface PlayAudioUrlOptions {
+  /** HTMLAudioElement.playbackRate (0.5–1.5) */
+  playbackRate?: number
+  /** Seek start (seconds) on the file */
+  startSec?: number
+  /** Stop at (seconds) on the file */
+  endSec?: number
+  onPlaybackStart?: (audio: HTMLAudioElement) => void
+}
+
+/** Play a real MP3/M4A URL (dictation clips). Does not use Kokoro/TTS. */
+export async function playAudioUrl(
+  url: string,
+  options: PlayAudioUrlOptions = {},
+): Promise<void> {
+  if (!url.trim()) throw new Error('Empty audio URL')
+
+  cleanupAudio()
+  stopWebSpeech()
+
+  const audio = new Audio(url)
+  audio.preload = 'auto'
+  const rate = options.playbackRate ?? 1
+  audio.playbackRate = Math.max(0.5, Math.min(1.5, rate))
+  currentAudio = audio
+  lastEngine = null
+
+  await new Promise<void>((resolve, reject) => {
+    const onMeta = () => {
+      audio.removeEventListener('error', onErr)
+      resolve()
+    }
+    const onErr = () => {
+      audio.removeEventListener('loadedmetadata', onMeta)
+      reject(new Error(`Audio load failed: ${url.slice(0, 80)}`))
+    }
+    if (audio.readyState >= 1) resolve()
+    else {
+      audio.addEventListener('loadedmetadata', onMeta, { once: true })
+      audio.addEventListener('error', onErr, { once: true })
+    }
+  })
+
+  if (options.startSec != null && Number.isFinite(options.startSec)) {
+    try {
+      audio.currentTime = Math.max(0, options.startSec)
+    } catch {
+      // ignore seek errors on some hosts
+    }
+  }
+
+  options.onPlaybackStart?.(audio)
+
+  return new Promise((resolve, reject) => {
+    let stopped = false
+    const finish = () => {
+      if (stopped) return
+      stopped = true
+      cleanupAudio()
+      resolve()
+    }
+
+    if (options.endSec != null && Number.isFinite(options.endSec)) {
+      const end = options.endSec
+      audio.ontimeupdate = () => {
+        if (audio.currentTime >= end) {
+          audio.pause()
+          finish()
+        }
+      }
+    }
+
+    audio.onended = finish
+    audio.onerror = () => {
+      if (stopped) return
+      stopped = true
+      cleanupAudio()
+      reject(new Error('Audio playback failed'))
+    }
+    void audio.play().catch(err => {
+      if (stopped) return
+      stopped = true
+      cleanupAudio()
+      reject(err)
+    })
+  })
 }
 
 export async function prefetch(text: string, options?: SpeakOptions): Promise<void> {

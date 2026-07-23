@@ -200,10 +200,10 @@ export function SunIllustration() {
         <g className="sun-bubble sun-bubble-layer sun-bubble-enter">
           <rect x="228" y="58" width="168" height="98" rx="18" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5" filter="url(#glow)" />
           <polygon points="242,156 260,156 248,174" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1" />
-          <text x="246" y="86" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Việc của bạn là tỏa sáng và</text>
-          <text x="246" y="102" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">tập trung, còn hệ thống và</text>
-          <text x="246" y="118" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
-          <text x="246" y="134" fontSize="11" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê!</text>
+          <text x="246" y="86" fontSize="11" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">Việc của bạn là tỏa sáng và</text>
+          <text x="246" y="102" fontSize="11" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">tập trung, còn hệ thống và</text>
+          <text x="246" y="118" fontSize="11" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">'thế giới' còn lại cứ để</text>
+          <text x="246" y="134" fontSize="11" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">Ryan bảo kê!</text>
         </g>
       </g>
     </svg>
@@ -271,10 +271,10 @@ export function MoonIllustration() {
         <path className="moon-smile" d="M 178 268 Q 200 282 222 268" stroke="#1a1a1a" strokeWidth="7" strokeLinecap="round" fill="none" />
         <g className="sun-bubble sun-bubble-layer sun-bubble-enter">
           <rect x="216" y="48" width="196" height="126" rx="22" fill="var(--bg-card)" stroke="var(--border-color)" strokeWidth="1.5" filter="url(#moonBlur)" />
-          <text x="234" y="80" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Đêm khuya cứ ngủ ngon giấc,</text>
-          <text x="234" y="100" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">còn hệ thống học tập và</text>
-          <text x="234" y="120" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">'thế giới' còn lại cứ để</text>
-          <text x="234" y="140" fontSize="12" fill="var(--text-primary)" fontFamily="Inter,sans-serif" fontWeight="500">Ryan bảo kê nhé!</text>
+          <text x="234" y="80" fontSize="12" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">Đêm khuya cứ ngủ ngon giấc,</text>
+          <text x="234" y="100" fontSize="12" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">còn hệ thống học tập và</text>
+          <text x="234" y="120" fontSize="12" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">'thế giới' còn lại cứ để</text>
+          <text x="234" y="140" fontSize="12" fill="var(--text-primary)" fontFamily="var(--font-app)" fontWeight="500">Ryan bảo kê nhé!</text>
         </g>
       </g>
     </svg>

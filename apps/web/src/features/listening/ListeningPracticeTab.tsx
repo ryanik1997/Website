@@ -15,7 +15,7 @@ import BlankInputMode, { type BlankInputHandle } from './BlankInputMode'
 import ListeningFireworks from './ListeningFireworks'
 import ListeningAudioBar from './ListeningAudioBar'
 import WordDiffPanel from './WordDiffPanel'
-import { getClozeEligibleCount, splitWords } from './practiceUtils'
+import { getClozeEligibleCount, isAnswerCorrect, splitWords } from './practiceUtils'
 import { useStudyAnswerFeedback } from '../vocab/study/useStudyAnswerFeedback'
 import { listeningPracticeMaxPlays, playsLeftLabel } from './listeningPlayLimits'
 import { splitIntoListenChunks } from './wordTimings'
@@ -45,7 +45,8 @@ interface Props {
   debugMode?: PracticeDebugMode
 }
 
-const AUTO_NEXT_DELAY_MS = 5000
+/** Sau khi gõ đúng 100% — đếm ngược rồi sang câu mới */
+const AUTO_NEXT_DELAY_MS = 10_000
 
 export default function ListeningPracticeTab({
   lessonId,
@@ -155,17 +156,6 @@ export default function ListeningPracticeTab({
     return () => clearAutoAdvance()
   }, [clearAutoAdvance])
 
-  const syncBlankCanCheck = useCallback(() => {
-    const has = blankRef.current?.hasContent() ?? false
-    setBlankCanCheck(prev => (prev === has ? prev : has))
-  }, [])
-
-  useEffect(() => {
-    if (mode !== 'boxes' && mode !== 'cloze') return
-    const id = window.setInterval(syncBlankCanCheck, 200)
-    return () => window.clearInterval(id)
-  }, [mode, blankResetKey, syncBlankCanCheck])
-
   const saveSrsAndAdvance = useCallback(async (skip = false) => {
     if (!skip && phase === 'result') {
       const rating = ratingFromAccuracy(pct)
@@ -223,34 +213,50 @@ export default function ListeningPracticeTab({
   }, [clearAutoAdvance, saveSrsAndAdvance])
 
   const check = useCallback(() => {
+    // Avoid double-fire from auto-check (type + blanks)
+    if (phase !== 'listen') return
+
     const answer = mode === 'type'
       ? input
       : (blankRef.current?.collectAnswer() ?? '')
     const result = compareWords(answer, sentence.text)
-    const acc = accuracy(result)
+    // Prefer full-sentence match (handles apostrophe / punctuation edge cases)
+    const perfect = isAnswerCorrect(answer, sentence.text)
+    const acc = perfect ? 100 : accuracy(result)
+    const displayComparison = perfect
+      ? result.map(w => ({ ...w, correct: true }))
+      : result
 
-    setComparison(result)
+    setComparison(displayComparison)
     setPct(acc)
     setPhase('result')
 
-    if (acc === 100) {
+    if (perfect) {
       onCorrect()
-      if (showResultImmediately) onSentenceComplete(sentence.id)
+      onSentenceComplete(sentence.id)
       scheduleAutoAdvance()
     } else {
       clearAutoAdvance()
     }
   }, [
+    phase,
     mode,
     input,
     sentence.text,
     sentence.id,
     onCorrect,
-    showResultImmediately,
     onSentenceComplete,
     scheduleAutoAdvance,
     clearAutoAdvance,
   ])
+
+  // Mode "Tự gõ": gõ đúng full câu → auto Kiểm tra
+  useEffect(() => {
+    if (phase !== 'listen' || mode !== 'type') return
+    if (!input.trim()) return
+    if (!isAnswerCorrect(input, sentence.text)) return
+    check()
+  }, [input, phase, mode, sentence.text, check])
 
   function recordPlay() {
     setPlayCounts(prev => ({ ...prev, [sentence.id]: (prev[sentence.id] ?? 0) + 1 }))
@@ -266,7 +272,10 @@ export default function ListeningPracticeTab({
     if (maxPlays != null && usedPlays + 1 >= maxPlays - 1) {
       setHint('Gần hết lượt — nên nghe chậm (0.5x) hoặc «Nghe chunk».')
     }
-    void playTts(sentence.text, speed)
+    // audioUrl is already a per-sentence clip (DailyDictation). t0/t1 map to full-track only.
+    void playTts(sentence.text, speed, {
+      audioUrl: sentence.audioUrl,
+    })
   }
 
   function playChunk() {
@@ -324,7 +333,7 @@ export default function ListeningPracticeTab({
 
   return (
     <div
-      className="min-w-0 overflow-hidden rounded-2xl p-5 sm:p-6"
+      className="listening-bao-card min-w-0 overflow-hidden rounded-2xl p-5 sm:p-6"
       style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       {burstId > 0 && (
@@ -433,9 +442,8 @@ export default function ListeningPracticeTab({
               locked={inputsLocked}
               checked={phase === 'result'}
               showLiveDiff={showResultImmediately && phase === 'listen'}
-              onAllCorrect={
-                showResultImmediately && phase === 'listen' ? check : undefined
-              }
+              onContentChange={setBlankCanCheck}
+              onAllCorrect={phase === 'listen' ? check : undefined}
             />
           )}
 
@@ -504,17 +512,36 @@ export default function ListeningPracticeTab({
                 ))}
               </div>
 
-              {showFullAnswer && (
-                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  <strong style={{ color: 'var(--text-primary)' }}>Đáp án:</strong> {sentence.text}
-                </p>
-              )}
-
               {isPerfect && autoNextLeft != null && sentenceIndex < total - 1 && (
                 <p className="mt-3 text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>
-                  Đúng hoàn toàn. Tự chuyển câu tiếp theo sau {autoNextLeft}s.
+                  Đúng hoàn toàn. Tự chuyển câu tiếp theo sau {autoNextLeft}s…
                 </p>
               )}
+              {isPerfect && sentenceIndex >= total - 1 && (
+                <p className="mt-3 text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>
+                  Đúng hoàn toàn. Đây là câu cuối của bài.
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Always show when toggled — not only after "Kiểm tra" */}
+          {showFullAnswer && (
+            <div
+              className="mb-4 rounded-xl px-4 py-3 text-sm leading-relaxed"
+              style={{
+                background: 'color-mix(in srgb, var(--color-primary) 8%, var(--bg-secondary))',
+                border: '1px solid var(--border-color)',
+                color: 'var(--text-primary)',
+              }}
+            >
+              <span
+                className="mb-1 block text-[10px] font-bold uppercase tracking-widest"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                Đáp án đầy đủ
+              </span>
+              {sentence.text}
             </div>
           )}
         </>

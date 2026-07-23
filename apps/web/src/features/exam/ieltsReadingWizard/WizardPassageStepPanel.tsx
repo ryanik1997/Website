@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { Loader2, ZoomIn } from 'lucide-react'
+import { resolvePlayableMediaUrl } from '../../../lib/protectedMedia'
 import type { IeltsReadingPassageNumber, IeltsReadingWizardTemplateKind } from './ieltsReadingWizardConfig'
 import { rangeLabelForPassage } from './ieltsReadingWizardConfig'
 import { templateOptionsForPassage } from './ieltsReadingTemplateCatalog'
@@ -15,6 +17,56 @@ interface Props {
   onOpenLightbox: (src: string, label: string) => void
 }
 
+function ProtectedTemplatePreview({
+  src,
+  label,
+  onOpen,
+}: {
+  src: string
+  label: string
+  onOpen: (src: string) => void
+}) {
+  const [resolvedSrc, setResolvedSrc] = useState<string>()
+
+  useEffect(() => {
+    let cancelled = false
+    setResolvedSrc(undefined)
+    void resolvePlayableMediaUrl(src)
+      .then(url => {
+        if (!cancelled) setResolvedSrc(url)
+      })
+      .catch(() => {
+        if (!cancelled) setResolvedSrc(undefined)
+      })
+    return () => { cancelled = true }
+  }, [src])
+
+  return (
+    <>
+      {resolvedSrc ? (
+        <img src={resolvedSrc} alt={label} loading="lazy" />
+      ) : (
+        <span className="flex h-full items-center justify-center" aria-label={`Đang tải ${label}`}>
+          <Loader2 size={18} className="animate-spin" />
+        </span>
+      )}
+      <button
+        type="button"
+        className="ielts-wizard-template-card__expand"
+        title="Xem ảnh lớn"
+        aria-label={`Xem ảnh lớn ${label}`}
+        disabled={!resolvedSrc}
+        onClick={event => {
+          event.stopPropagation()
+          if (resolvedSrc) onOpen(resolvedSrc)
+        }}
+      >
+        <ZoomIn size={14} />
+      </button>
+    </>
+  )
+}
+
 export default function WizardPassageStepPanel({
   passageNumber,
   templateKind,
@@ -27,7 +79,7 @@ export default function WizardPassageStepPanel({
   onOpenLightbox,
 }: Props) {
   const options = templateOptionsForPassage(passageNumber)
-  const selected = options.find(o => o.kind === templateKind)
+  const selected = options.find(option => option.kind === templateKind)
   const rangeLabel = rangeLabelForPassage(passageNumber)
 
   return (
@@ -45,27 +97,19 @@ export default function WizardPassageStepPanel({
             tabIndex={0}
             className={`ielts-wizard-template-card${templateKind === option.kind ? ' is-selected' : ''}`}
             onClick={() => onTemplateChange(option.kind)}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
+            onKeyDown={event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
                 onTemplateChange(option.kind)
               }
             }}
           >
             <div className="ielts-wizard-template-card__thumb">
-              <img src={option.previewUrl} alt={option.label} loading="lazy" />
-              <button
-                type="button"
-                className="ielts-wizard-template-card__expand"
-                title="Xem ảnh lớn"
-                aria-label={`Xem ảnh lớn ${option.label}`}
-                onClick={e => {
-                  e.stopPropagation()
-                  onOpenLightbox(option.previewUrl, `${option.code} — ${option.label}`)
-                }}
-              >
-                <ZoomIn size={14} />
-              </button>
+              <ProtectedTemplatePreview
+                src={option.previewUrl}
+                label={option.label}
+                onOpen={src => onOpenLightbox(src, `${option.code} — ${option.label}`)}
+              />
             </div>
             <span className="ielts-wizard-template-card__code">{option.code}</span>
             <span className="ielts-wizard-template-card__label">{option.label}</span>
@@ -88,7 +132,7 @@ export default function WizardPassageStepPanel({
           className="ielts-wizard-textarea"
           style={{ minHeight: '16rem' }}
           value={examText}
-          onChange={e => onExamTextChange(e.target.value)}
+          onChange={event => onExamTextChange(event.target.value)}
           placeholder={`READING PASSAGE ${passageNumber}\n…\n${rangeLabel}\nPaste passage + questions từ Word/PDF`}
         />
       </div>

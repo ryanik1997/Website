@@ -1,0 +1,832 @@
+{
+  "id": "catalog-reading-ket-a2-book4-test1",
+  "title": "KET A2 Reading — Book 4 — Test 1",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] Please note:\nthis afternoon’s football class will be tomorrow instead, as Mr Hall is away today."
+        },
+        {
+          "text": "[2] Hi Jane,\nHave you finished with that book I lent you? It’s just that my brother needs it for a school project.\nThanks,\nLouise"
+        },
+        {
+          "text": "[3] Picnic area\nNo ball games here - please use the other side of the park."
+        },
+        {
+          "text": "[4] Museum open from 12.\nChildren must be with an adult."
+        },
+        {
+          "text": "[5] From:\nMrs Monmouth, Head Teacher\nTo:\nAll Pupils and Parents\nHello,\nThis week, please don’t use the car to get to school. Coming on foot is healthy and doesn’t take much time.\nThanks\nMrs Monmouth\nWhy has Mrs Monmouth written this message?"
+        },
+        {
+          "text": "[6] Pedro’s Pizza Bar\nBuy two pizzas at the same time, and we’ll give you a third one for free! This offer is Mon-Fri only."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Please note:\nthis afternoon’s football class will be tomorrow instead, as Mr Hall is away today.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "There is no football class today."
+                },
+                {
+                  "id": "B",
+                  "label": "Mr Hall can’t come to the football class tomorrow."
+                },
+                {
+                  "id": "C",
+                  "label": "You can choose to go to the football class today or tomorrow."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Hi Jane,\nHave you finished with that book I lent you? It’s just that my brother needs it for a school project.\nThanks,\nLouise",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Louise is offering to lend Jane a book."
+                },
+                {
+                  "id": "B",
+                  "label": "Louise wants her book back from Jane."
+                },
+                {
+                  "id": "C",
+                  "label": "Louise’s brother has borrowed a book from Jane."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Picnic area\nNo ball games here - please use the other side of the park.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You can buy food somewhere else in the park."
+                },
+                {
+                  "id": "B",
+                  "label": "Please don’t eat while you are playing sport here."
+                },
+                {
+                  "id": "C",
+                  "label": "This is a place for eating and you can’t play football here."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Museum open from 12.\nChildren must be with an adult.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Adults can take children to the museum in the morning."
+                },
+                {
+                  "id": "B",
+                  "label": "Adults with children over 12 will enjoy the museum."
+                },
+                {
+                  "id": "C",
+                  "label": "Children can visit the museum if they are with an adult."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "From:\nMrs Monmouth, Head Teacher\nTo:\nAll Pupils and Parents\nHello,\nThis week, please don’t use the car to get to school. Coming on foot is healthy and doesn’t take much time.\nThanks\nMrs Monmouth\nWhy has Mrs Monmouth written this message?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to ask pupils to walk to school"
+                },
+                {
+                  "id": "B",
+                  "label": "to tell pupils to get to school on time"
+                },
+                {
+                  "id": "C",
+                  "label": "to explain about a health problem at school"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Pedro’s Pizza Bar\nBuy two pizzas at the same time, and we’ll give you a third one for free! This offer is Mon-Fri only.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Pedro’s Pizza Bar isn’t open at weekends"
+                },
+                {
+                  "id": "B",
+                  "label": "The third time you visit, you get a free pizza."
+                },
+                {
+                  "id": "C",
+                  "label": "Three pizzas cost the same as two."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Eureka!",
+          "text": "Eureka! is a complete hands-on experience, which means that visitors can actually pick up any object in the museum. It’s a great way for young visitors to learn about the world, the body, how things work and move. And when you buy an entry ticket, it allows you to come back as many times as you want for a whole year for no extra cost. As Eureka! is right next to Halifax train station, it’s very easy to get to from all over the country."
+        },
+        {
+          "label": "Museum of Museums",
+          "text": "Every time you visit the Museum of Museums, you’ll be able to see something different. And that’s because the things you see there are actually lent by other museums around the country. The museum always has lots of different vehicles, from ice-cream vans and old motorbikes to the different kinds of public transport people used to get to work many years ago. You can find out about all this and lots more."
+        },
+        {
+          "label": "Cinema Museum",
+          "text": "Ronald Grant, who opened the Cinema Museum in the 1960s, travelled round the country and bought things from cinemas which were closing down. This included old film posters and wooden cinema seating. At the museum, you can now see these and much more, including the uniforms that cinema staff once had to wear.\nPlease let us know by phone or email if you’d like to come. We’ll be happy to see you, but we need to arrange a guide, as it’s only possible to visit the museum on an organised tour."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Which museum has an exhibition of clothes?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Which museum is full of things which visitors can touch?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Which museum is a good place to learn about how people travelled in the past?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Which museum can you visit again for free after you pay once?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Which museum do you need to contact before you visit?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Which museum shows things that were borrowed from other places?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Cinema Museum"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Which museum has some furniture which wasn’t needed any more?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Eureka!"
+                },
+                {
+                  "id": "B",
+                  "label": "Museum of Museums"
+                },
+                {
+                  "id": "C",
+                  "label": "Three museums Eureka! Eureka! is a complete hands-on experience, which means that visitors can actually pick up any object in the museum. It’s a great way for young visitors to learn about the world, the body, how things work and move. And when you buy an entry ticket, it allows you to come back as many times as you want for a whole year for no extra cost. As Eureka! is right next to Halifax train station, it’s very easy to get to from all over the country. Museum of Museums Every time you visit the Museum of Museums, you’ll be able to see something different. And that’s because the things you see there are actually lent by other museums around the country. The museum always has lots of different vehicles, from ice-cream vans and old motorbikes to the different kinds of public transport people used to get to work many years ago. You can find out about all this and lots more. Cinema Museum Ronald Grant, who opened the Cinema Museum in the 1960s, travelled round the country and bought things from cinemas which were closing down. This included old film posters and wooden cinema seating. At the museum, you can now see these and much more, including the uniforms that cinema staff once had to wear. Please let us know by phone or email if you’d like to come. We’ll be happy to see you, but we need to arrange a guide, as it’s only possible to visit the museum on an organised tour."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "Will’s blog",
+      "passage": [
+        {
+          "text": "Will’s blog"
+        },
+        {
+          "text": "One day my dad said, ‘Why don’t we have a street party?’ This means that the street is closed so cars can’t use it, and people put tables and chairs out in the street, then have a party! Dad said there was one in 1977 and he still remembers it well. Everyone loved it! I couldn’t believe that since 1977 they never had another one. If it was so good, why not do it again?\nWe started to organise it, together with some other people. I helped to make the web page, so everyone on the street knew about the party and could post their old photos from the party in 1977. There were some pictures of my dad when he was a kid, together with his friends, who have moved away from the street now. It was interesting to see that the buildings on the street haven’t changed at all!\nMy mum was a bit worried about the party. 'But a lot of people on the street don’t really know each other', she said. 'What if they don’t have anything to talk about?' I just said, 'Relax, Mum. It’ll be great.'\nSo, what was the party like? It was fantastic! My friends and I really liked speaking to an old lady called Louisa. She’s 89 and was telling us about when she and her friends were our age. So now I always chat to her when I see her on the street. I didn’t know who she was before, so I’m glad we had the party."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Why was Will surprised?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "His father wanted to have a street party."
+                },
+                {
+                  "id": "B",
+                  "label": "There hasn’t been a street party for a long time."
+                },
+                {
+                  "id": "C",
+                  "label": "Many people remembered the last street party."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What did the photos from 1977 show?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The street still looks the same now."
+                },
+                {
+                  "id": "B",
+                  "label": "There are more children living in the street now."
+                },
+                {
+                  "id": "C",
+                  "label": "The same people still live on the street now."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "Why was Will’s mother worried?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She thought that the party was too expensive."
+                },
+                {
+                  "id": "B",
+                  "label": "She thought that people might not come to the party."
+                },
+                {
+                  "id": "C",
+                  "label": "She thought that the guests might not talk to each other."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "Will and his friends enjoyed",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "hearing Louisa’s stories."
+                },
+                {
+                  "id": "B",
+                  "label": "meeting Louisa’s friends."
+                },
+                {
+                  "id": "C",
+                  "label": "telling Louisa about their lives."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "What is the best title for the article?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Why I love street parties"
+                },
+                {
+                  "id": "B",
+                  "label": "The street party we had"
+                },
+                {
+                  "id": "C",
+                  "label": "How to have a street party"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Red pandas",
+      "passage": [
+        {
+          "text": "Red pandas"
+        },
+        {
+          "text": "Red pandas live in Nepal, Northern Myanmar, India and Bhutan, as (19) ……………… as in China. They (20) ……………… a lot of their time in trees and are very (21) ……………… at climbing. They are more active during the night than the day, and they usually (22) ……………… for food in the evening and early in the morning. Their favourite food is bamboo. In fact, a female red panda can eat 20,000 bamboo leaves in a day! But they also eat fruit, grass, eggs, insects and (23) ……………… small birds and animals. Scientists believe that the number of red pandas in the world is (24) ……………… because the forests where they live are getting smaller. But much is being done in countries around the world to help this amazing animal."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "soon"
+                },
+                {
+                  "id": "B",
+                  "label": "much"
+                },
+                {
+                  "id": "C",
+                  "label": "well"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "spend"
+                },
+                {
+                  "id": "B",
+                  "label": "live"
+                },
+                {
+                  "id": "C",
+                  "label": "take"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "nice"
+                },
+                {
+                  "id": "B",
+                  "label": "great"
+                },
+                {
+                  "id": "C",
+                  "label": "good"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "look"
+                },
+                {
+                  "id": "B",
+                  "label": "see"
+                },
+                {
+                  "id": "C",
+                  "label": "find"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "even"
+                },
+                {
+                  "id": "B",
+                  "label": "quite"
+                },
+                {
+                  "id": "C",
+                  "label": "still"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "little"
+                },
+                {
+                  "id": "B",
+                  "label": "low"
+                },
+                {
+                  "id": "C",
+                  "label": "short"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Giles"
+        },
+        {
+          "label": "To",
+          "text": "Aunt Nel"
+        },
+        {
+          "text": "From:\nGiles\nTo:\nAunt Nel\nDear Aunt Nel,\nThank you very (0) ……………… for the book you sent me. It was very kind (25) ……………… you. Actually,\nHistory of Space Travel\nsounds like (26) ……………… brilliant title. I’m really interested (27) ……………… that kind of thing - exploring space and learning about the moon. I’ll start it after I finish the one I’m reading now, (28) ……………… is about how cars are made.\nThe holidays are nearly finished now. I go back (29) ……………… school next week. Then I’ve only got two more years of school, so I need to decide (30) ……………… to do next!\nThanks again for the present.\nBest wishes,\nGiles"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "of",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "in",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "which",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "to",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "what",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "Read this email from your English friend, Francis.\nFrom:\nFrancis\nTo:\nSubject:\nThis weekend\nHi,\nIt’s great that you’re free to meet me this weekend. I have a few questions. Where is the best place in your town to meet? What would you like to do? And shall I bring anything?\nWrite soon!\nFrancis\nWrite an email to Francis and answer his questions."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book4-test1-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book4-test1/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book4-test1-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book4-test1-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book4-test1",
+  "catalogBase": "/catalog/reading/ket-a2-book4-test1"
+}

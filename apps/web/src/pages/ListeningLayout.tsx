@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { db, lessonRepo } from '@ryan/db'
 import { getStructuredCambridgePacks } from '../features/listening/cambridgePacks'
 import { isStructuredLesson } from '../features/listening/listeningMeta'
+import { patchTidDictationVietnamese, seedTidDictation } from '../features/listening/seedTidDictation'
 
 async function purgeLegacyCambridge() {
   const done = await db.settings.get('listening_legacy_purged')
@@ -40,6 +41,14 @@ async function seedCambridgePacks() {
 }
 
 export default function ListeningLayout() {
-  useEffect(() => { void seedCambridgePacks() }, [])
+  useEffect(() => {
+    void (async () => {
+      await seedCambridgePacks()
+      // Real TID dictation (459 lessons / ~28k sentences + clip URLs)
+      await seedTidDictation()
+      // Merge VI translations when seed JSON is updated (idempotent flag)
+      await patchTidDictationVietnamese()
+    })()
+  }, [])
   return <Outlet />
 }

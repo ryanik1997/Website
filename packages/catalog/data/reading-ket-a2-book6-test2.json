@@ -1,0 +1,832 @@
+{
+  "id": "catalog-reading-ket-a2-book6-test2",
+  "title": "KET A2 Reading — Book 6 — Test 2",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] From: Sofia\nTo: David\nHi from Oslo! I'm having such fun skiing in the mountains. Here are some photos I took.\nSee you on Saturday!"
+        },
+        {
+          "text": "[2] To\n: Paula\nFrom\n: Ian\nCall me this evening after your biology class. My mobile phone isn’t working, so here’s my landline: 067123456."
+        },
+        {
+          "text": "[3] Customers can apply to become gym members online.\nPlease collect ID cards from the gym."
+        },
+        {
+          "text": "[4] Hi George,\nThe new technology centre is opening this weekend. I wonder if it will have cool things. Let me know before Friday.\nKelly\nWhat does George need to do?"
+        },
+        {
+          "text": "[5] Sports store\nAll trainers half price!\nNew season football kit in!\nNew sports equipment!"
+        },
+        {
+          "text": "[6] Weekly meeting\nChange of day and time: Tuesday, not Monday.\nBe there at 9.30 a.m.!"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "From: Sofia\nTo: David\nHi from Oslo! I'm having such fun skiing in the mountains. Here are some photos I took.\nSee you on Saturday!",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Sofia is writing to tell David when she will see him."
+                },
+                {
+                  "id": "B",
+                  "label": "Sofia is writing to send David some pictures."
+                },
+                {
+                  "id": "C",
+                  "label": "Sofia is writing to tell David where she is going on holiday."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "To\n: Paula\nFrom\n: Ian\nCall me this evening after your biology class. My mobile phone isn’t working, so here’s my landline: 067123456.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Ian wants Paula to call him at home."
+                },
+                {
+                  "id": "B",
+                  "label": "Ian wants Paula to call him on his mobile."
+                },
+                {
+                  "id": "C",
+                  "label": "Ian wants Paula to call him after his biology class."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Customers can apply to become gym members online.\nPlease collect ID cards from the gym.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "People can get their gym ID cards online."
+                },
+                {
+                  "id": "B",
+                  "label": "People can apply to become members only on the internet."
+                },
+                {
+                  "id": "C",
+                  "label": "People can only apply for membership at the gym."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Hi George,\nThe new technology centre is opening this weekend. I wonder if it will have cool things. Let me know before Friday.\nKelly\nWhat does George need to do?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "visit the technology centre at the weekend"
+                },
+                {
+                  "id": "B",
+                  "label": "tell Kelly if the technology centre is open this weekend"
+                },
+                {
+                  "id": "C",
+                  "label": "tell Kelly if he can go to the technology centre this weekend"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Sports store\nAll trainers half price!\nNew season football kit in!\nNew sports equipment!",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You pay less for all clothes at the store."
+                },
+                {
+                  "id": "B",
+                  "label": "You can only buy trainers at the store."
+                },
+                {
+                  "id": "C",
+                  "label": "You can find clothes for different seasons at the store"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Weekly meeting\nChange of day and time: Tuesday, not Monday.\nBe there at 9.30 a.m.!",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The meeting is on Monday at 9.30 a.m."
+                },
+                {
+                  "id": "B",
+                  "label": "The meeting doesn't usually start at 9.30 a.m."
+                },
+                {
+                  "id": "C",
+                  "label": "There is a meeting every Tuesday morning."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Paul",
+          "text": "love of dancing\nPaul\nMy mum was a professional dancer, and I had my first ballet lesson when I was six. I hated it and never went again. Mum was disappointed, but then she suggested that I should try modern dance. It was a brilliant idea. I loved it. When I left school, I joined a modern dance company. Unfortunately, a few years later I had a bad accident. Now my right leg isn't strong enough for me to dance, but I'm training to be a dance teacher."
+        },
+        {
+          "label": "Mark",
+          "text": "My love for dance began when I was four. My big sister took ballet lessons, and when she practised at home, I watched and copied her. I asked my mum and dad if I could have ballet lessons too. They were surprised, but they agreed. Soon I was better than my sister. I studied ballet and modern dance, and when I left school I was offered a place in a modern dance company. One day I want to be a star and dance in musicals."
+        },
+        {
+          "label": "Samuel",
+          "text": "I became interested in dance when one of my friends started going to modern dance lessons. As a joke, I went to a class with him one day. To my surprise, I enjoyed it and the teacher said I was good. I started going to class three times a week, so I didn't have time for football anymore. Some people at school laughed at me. They aren't laughing now. I am a dancer with a famous dance company. Dance is my life."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who started dancing before he had lessons?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Who didn’t start dancing because of a family member?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who didn’t enjoy dancing at first?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Who already has a successful career as a dancer?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who couldn't continue dancing because he had a problem?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who studied two kinds of dance?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "Samuel"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who stopped doing a sport when he started dancing?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Paul"
+                },
+                {
+                  "id": "B",
+                  "label": "Mark"
+                },
+                {
+                  "id": "C",
+                  "label": "A love of dancing Paul My mum was a professional dancer, and I had my first ballet lesson when I was six. I hated it and never went again. Mum was disappointed, but then she suggested that I should try modern dance. It was a brilliant idea. I loved it. When I left school, I joined a modern dance company. Unfortunately, a few years later I had a bad accident. Now my right leg isn't strong enough for me to dance, but I'm training to be a dance teacher. Mark My love for dance began when I was four. My big sister took ballet lessons, and when she practised at home, I watched and copied her. I asked my mum and dad if I could have ballet lessons too. They were surprised, but they agreed. Soon I was better than my sister. I studied ballet and modern dance, and when I left school I was offered a place in a modern dance company. One day I want to be a star and dance in musicals. Samuel I became interested in dance when one of my friends started going to modern dance lessons. As a joke, I went to a class with him one day. To my surprise, I enjoyed it and the teacher said I was good. I started going to class three times a week, so I didn't have time for football anymore. Some people at school laughed at me. They aren't laughing now. I am a dancer with a famous dance company. Dance is my life."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "Copenhill",
+      "passage": [
+        {
+          "text": "Copenhill"
+        },
+        {
+          "text": "Most tourists to Copenhagen want to see its famous sights: the statue of the Little Mermaid in the harbour, the Tivoli Gardens, old palaces and museums. The Danish capital is also famous for its beautiful modern buildings, and in 2019 another building was completed in the city: the Amager Resource Centre (ARC), also known as Copenhill. It has many visitors, but it is unusual because it is not a hotel, a bank, an office block, a museum or a shopping centre. It is a waste resource centre. This means that 400,000 tons of rubbish are brought inside the building every year. There, it is burned to heat 150,000 homes and make electricity for 550,000 people.\nHowever, Bjarke Ingels, the architect who designed Copenhill, wanted the 90-metre-high building to do more than burn rubbish. It is the only place in the country where people can go skiing. The roof is like a mountain with a 400-metre ski slope. It is not white, but green: bright green in the middle and dark green at the sides. Ingels chose green because white would get dirty too quickly. Visitors can also go snowboarding, running or walking on Copenhill, and after an enjoyable day of activity they can relax in the cafe. The outside of the building also has the world's highest climbing wall: 85 metres! The idea that a building can have many very different uses is exciting, and it will be interesting to see what Copenhagen will offer visitors in the future."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "Which statement is true?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Old buildings in Copenhagen are not as beautiful as modern ones."
+                },
+                {
+                  "id": "B",
+                  "label": "Tourists prefer Copenhagen's old buildings to its modern ones."
+                },
+                {
+                  "id": "C",
+                  "label": "Visitors to Copenhagen can enjoy a variety of different sights."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Copenhill",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "is in the centre of the city."
+                },
+                {
+                  "id": "B",
+                  "label": "is near a shopping centre."
+                },
+                {
+                  "id": "C",
+                  "label": "is a popular place."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "The ski slope",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "is inside the Copenhill building."
+                },
+                {
+                  "id": "B",
+                  "label": "is 90 metres in length."
+                },
+                {
+                  "id": "C",
+                  "label": "is on the roof of the building."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "The ski slope isn’t white because",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "white is difficult to keep clean."
+                },
+                {
+                  "id": "B",
+                  "label": "green is Ingels’ favourite colour."
+                },
+                {
+                  "id": "C",
+                  "label": "bright green is used in the middle."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "Visitors to Copenhill",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "can enjoy different activities there in the future."
+                },
+                {
+                  "id": "B",
+                  "label": "can have something to drink there."
+                },
+                {
+                  "id": "C",
+                  "label": "can climb the highest building in the city."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Stonehenge",
+      "passage": [
+        {
+          "text": "Stonehenge"
+        },
+        {
+          "text": "Stonehenge is one of the world's most famous monuments. It is a circle of huge stones in the south of England. People started making it 5,000 years ago, but they took over 1,000 years to (19) ............ it. If you (20) ............ Stonehenge today, you will see many stones still standing, but it is a mystery how people (21) ............ them there. The stones are very (22) ............: the smaller stones are about 3,600 kilograms each, and the bigger ones are about 22,000 kilograms! Archeologists believe that people carried some stones 32 kilometres, but it is possible that the bigger ones came from 225 kilometres (23) ............ in Wales. They (24) ............ that people carried the stones to a river and put them on simple boats. They then took them to the stone circle."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "grow"
+                },
+                {
+                  "id": "B",
+                  "label": "build"
+                },
+                {
+                  "id": "C",
+                  "label": "have"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "return"
+                },
+                {
+                  "id": "B",
+                  "label": "miss"
+                },
+                {
+                  "id": "C",
+                  "label": "visit"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "brought"
+                },
+                {
+                  "id": "B",
+                  "label": "bought"
+                },
+                {
+                  "id": "C",
+                  "label": "became"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "high"
+                },
+                {
+                  "id": "B",
+                  "label": "hard"
+                },
+                {
+                  "id": "C",
+                  "label": "heavy"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "far"
+                },
+                {
+                  "id": "B",
+                  "label": "away"
+                },
+                {
+                  "id": "C",
+                  "label": "there"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "think"
+                },
+                {
+                  "id": "B",
+                  "label": "hope"
+                },
+                {
+                  "id": "C",
+                  "label": "wish"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Jade"
+        },
+        {
+          "label": "To",
+          "text": "Alex"
+        },
+        {
+          "text": "From:\nJade\nTo:\nAlex\nSorry I haven’t written for such a long time! I’ve just moved (0) ............ my new room at university and I only got my internet connection today. It's good (25) ............ be online again! My room is in (26) ............ large building and there are lots of other students here. I’ve already met a few of (27) ............. The people here (28) ............ really friendly.\nIn my room, there’s a bed, a wardrobe for my clothes, a chair (29) ............ a large desk for my computer. It's (30) ............ to the window, so I’ll have good light when I’m studying.\nI’ll write again with more news soon!"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "to",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "them",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "are",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "and",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "next/close",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "You are going to visit your new library on Wednesday with your English friend, Peter.\nWrite an email to Peter.\nIn your email:\n•   say where you want to meet.\n•   say what time you want to meet.\n•   say what books you would like to borrow from the library."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test2-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book6-test2/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test2-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test2-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book6-test2",
+  "catalogBase": "/catalog/reading/ket-a2-book6-test2"
+}

@@ -9,21 +9,41 @@ import { speakPhrase } from '../study/speakPhrase'
 
 export default function NotebookMode() {
   const entries = useLiveQuery(() => notebookRepo.all(), []) ?? []
+  const decks = useLiveQuery(() => db.decks.toArray(), []) ?? []
   const [q, setQ] = useState('')
+  const [deckFilter, setDeckFilter] = useState('')
+  const [topicFilter, setTopicFilter] = useState('')
   const [editingId, setEditingId] = useState<string | null>(null)
   const [noteDraft, setNoteDraft] = useState('')
   const [busyId, setBusyId] = useState<string | null>(null)
 
+  const deckById = useMemo(() => new Map(decks.map(deck => [deck.id, deck])), [decks])
+  const sourceDecks = useMemo(
+    () => decks.filter(deck => entries.some(entry => entry.sourceDeckId === deck.id)),
+    [decks, entries],
+  )
+  const topics = useMemo(() => Array.from(new Set(entries.flatMap(entry => {
+    const deck = entry.sourceDeckId ? deckById.get(entry.sourceDeckId) : undefined
+    const topic = deck ? [deck.book, deck.unit].filter(Boolean).join(' · ') || deck.description : undefined
+    return topic ? [topic] : []
+  }))).sort(), [deckById, entries])
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase()
-    if (!needle) return entries
-    return entries.filter(e =>
-      e.phrase.toLowerCase().includes(needle)
-      || e.meaning.toLowerCase().includes(needle)
-      || (e.note?.toLowerCase().includes(needle) ?? false)
-      || (e.example?.toLowerCase().includes(needle) ?? false),
-    )
-  }, [entries, q])
+    return entries.filter(entry => {
+      const deck = entry.sourceDeckId ? deckById.get(entry.sourceDeckId) : undefined
+      const topic = deck ? [deck.book, deck.unit].filter(Boolean).join(' · ') || deck.description : undefined
+      const matchesText = !needle
+        || entry.phrase.toLowerCase().includes(needle)
+        || entry.meaning.toLowerCase().includes(needle)
+        || (entry.note?.toLowerCase().includes(needle) ?? false)
+        || (entry.example?.toLowerCase().includes(needle) ?? false)
+        || (deck?.name.toLowerCase().includes(needle) ?? false)
+        || (topic?.toLowerCase().includes(needle) ?? false)
+      return matchesText
+        && (!deckFilter || entry.sourceDeckId === deckFilter)
+        && (!topicFilter || topic === topicFilter)
+    })
+  }, [deckById, deckFilter, entries, q, topicFilter])
 
   async function remove(id: string) {
     if (!window.confirm('Xóa từ này khỏi sổ ghi chú?')) return
@@ -68,7 +88,8 @@ export default function NotebookMode() {
       </div>
 
       {entries.length > 0 && (
-        <div className="vs-notebook-search">
+        <div className="vs-notebook-filters">
+          <div className="vs-notebook-search">
           <Search size={16} className="vs-notebook-search-icon" />
           <input
             type="search"
@@ -78,6 +99,16 @@ export default function NotebookMode() {
             className="vs-notebook-search-input"
             aria-label="Tìm trong sổ ghi chú"
           />
+          </div>
+          <select value={deckFilter} onChange={e => setDeckFilter(e.target.value)} aria-label="Lọc theo bộ thẻ" className="vs-notebook-filter-select">
+            <option value="">Tất cả bộ thẻ</option>
+            {sourceDecks.map(deck => <option key={deck.id} value={deck.id}>{deck.name}</option>)}
+          </select>
+          <select value={topicFilter} onChange={e => setTopicFilter(e.target.value)} aria-label="Lọc theo chủ đề" className="vs-notebook-filter-select">
+            <option value="">Tất cả chủ đề</option>
+            {topics.map(topic => <option key={topic} value={topic}>{topic}</option>)}
+          </select>
+          <p className="vs-notebook-result-count">Hiển thị {filtered.length} / {entries.length} từ</p>
         </div>
       )}
 
@@ -90,6 +121,10 @@ export default function NotebookMode() {
         <ul className="vs-notebook-list">
           {filtered.map(entry => {
             const editing = editingId === entry.id
+            const sourceDeck = entry.sourceDeckId ? deckById.get(entry.sourceDeckId) : undefined
+            const topic = sourceDeck
+              ? [sourceDeck.book, sourceDeck.unit].filter(Boolean).join(' · ') || sourceDeck.description
+              : undefined
             return (
               <li key={entry.id} className="vs-notebook-card">
                 <div className="vs-notebook-card-top">
@@ -105,6 +140,12 @@ export default function NotebookMode() {
                       </p>
                     )}
                     <p className="vs-notebook-meaning">{entry.meaning}</p>
+                    {sourceDeck && (
+                      <div className="vs-notebook-source" aria-label="Phân loại nguồn từ vựng">
+                        <span>Bộ thẻ: {sourceDeck.name}</span>
+                        {topic && <span>Chủ đề: {topic}</span>}
+                      </div>
+                    )}
                     {entry.example && (
                       <p className="vs-notebook-example">“{entry.example}”</p>
                     )}

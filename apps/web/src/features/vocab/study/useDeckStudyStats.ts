@@ -1,5 +1,8 @@
 import { useLiveQuery } from 'dexie-react-hooks'
+import { isSrsNew, isSrsReviewDue } from '@ryan/core'
 import { db } from '@ryan/db'
+import { useVocabStore } from '../vocabStore'
+import { filterCardsByUnitKind } from '../vocabUnitKind'
 
 export interface DeckStudyStats {
   total: number
@@ -23,20 +26,26 @@ function formatNextDue(ms: number): string {
 }
 
 export function useDeckStudyStats(deckId: string | null): DeckStudyStats | null {
+  const unitKind = useVocabStore(s => s.unitKind)
   return useLiveQuery(async (): Promise<DeckStudyStats | null> => {
     if (!deckId) return null
-    const [cards, srsRows] = await Promise.all([
+    const [allCards, srsRows] = await Promise.all([
       db.cards.where('deckId').equals(deckId).toArray(),
       db.srs.where('deckId').equals(deckId).toArray(),
     ])
+    const cards = filterCardsByUnitKind(allCards, unitKind)
+    const idSet = new Set(cards.map(c => c.id))
+    const scoped = srsRows.filter(s => idSet.has(s.cardId))
+    const t = Date.now()
     const total = cards.length
-    const learned = srsRows.filter(s => s.reps > 0).length
+    const learned = scoped.filter(s => s.reps > 0 || s.state !== 'new').length
     const progress = total ? Math.round((learned / total) * 100) : 0
-    const newCount = srsRows.filter(s => s.state === 'new').length
-    const dueNow = srsRows.filter(s => s.dueAt <= Date.now()).length
-    const scheduled = srsRows.filter(s => s.dueAt > Date.now()).length
-    const future = srsRows.filter(s => s.dueAt > Date.now()).map(s => s.dueAt)
+    const newCount = scoped.filter(s => isSrsNew(s)).length
+    // Chỉ thẻ đã học và đến hạn — không đếm thẻ new seed
+    const dueNow = scoped.filter(s => isSrsReviewDue(s, t)).length
+    const scheduled = scoped.filter(s => s.dueAt > t).length
+    const future = scoped.filter(s => s.dueAt > t).map(s => s.dueAt)
     const nextReviewLabel = future.length ? formatNextDue(Math.min(...future)) : null
     return { total, learned, progress, newCount, dueNow, scheduled, nextReviewLabel }
-  }, [deckId]) ?? null
+  }, [deckId, unitKind]) ?? null
 }

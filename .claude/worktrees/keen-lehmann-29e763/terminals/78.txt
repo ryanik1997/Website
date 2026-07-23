@@ -1,0 +1,11 @@
+---
+pid: 37040
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location \"C:\\Users\\ADMIN\\mcps\\chrome-devtools-mcp-main\\chrome-devtools-mcp-main\"; npm run build"
+started_at: 2026-07-08T04:02:24.032Z
+running_for_ms: 24060005 
+---
+
+> chrome-devtools-mcp@1.5.0 build
+> tsc && node scripts/post-build.ts
+

@@ -79,30 +79,42 @@ function TableGapInput({
   const showKey = reviewMode && reviewStatus !== 'correct' && question.answer
   const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
   return (
-    <span
-      className={`listening-ielts-notes__table-gap${isActive ? ' is-active' : ''}`}
-      style={border ? { outline: `2px solid ${border}`, borderRadius: 4, padding: 1 } : undefined}
-    >
-      <span className="listening-ielts-notes__num">{question.number}</span>
-      <input
-        id={`ielts-gap-${question.id}`}
-        type="text"
-        className="listening-ielts-notes__input listening-ielts-notes__input--table"
-        value={answer}
-        placeholder=""
-        aria-label={`Question ${question.number}`}
-        data-highlight-skip
-        readOnly={reviewMode}
-        onChange={e => onAnswer(e.target.value)}
-        onFocus={onSelect}
-      />
+    <>
+      <span
+        className={[
+          'listening-tid-gap',
+          'listening-tid-gap--table',
+          isActive ? 'is-active' : '',
+          answer.trim() ? 'has-value' : '',
+          reviewStatus === 'correct' ? 'is-ok' : '',
+          reviewStatus === 'wrong' ? 'is-bad' : '',
+        ].filter(Boolean).join(' ')}
+        style={border && reviewMode ? { outline: `2px solid ${border}`, outlineOffset: 1 } : undefined}
+      >
+        <input
+          id={`ielts-gap-${question.id}`}
+          type="text"
+          autoComplete="off"
+          className="listening-tid-gap__input"
+          value={answer}
+          placeholder=""
+          aria-label={`Question ${question.number}`}
+          data-highlight-skip
+          readOnly={reviewMode}
+          onChange={e => onAnswer(e.target.value)}
+          onFocus={onSelect}
+        />
+        <span className="listening-tid-gap__num" aria-hidden>
+          {question.number}
+        </span>
+      </span>
       {showKey && (
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, marginLeft: 4, fontWeight: 800, color: EXAM_REVIEW_COLORS.correct.bg, fontSize: '0.75rem', whiteSpace: 'nowrap' }}>
           <Check size={12} strokeWidth={3} />
           {question.answer}
         </span>
       )}
-    </span>
+    </>
   )
 }
 

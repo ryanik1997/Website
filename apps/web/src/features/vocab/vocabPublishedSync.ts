@@ -28,10 +28,12 @@ export function computePublishedVocabPrunePlan(
     .map(deck => deck.id)
   const staleDeckIdSet = new Set(staleDeckIds)
 
+  // Giữ thẻ builtin seed (sourceLabel preset-seed-v*) — admin publish rỗng không được xóa
   const staleCardIds = localCards
     .filter(card => localPresetDeckIds.has(card.deckId))
     .filter(card => !staleDeckIdSet.has(card.deckId))
     .filter(card => !publishedCardIds.has(card.id))
+    .filter(card => !String(card.sourceLabel ?? '').startsWith('preset-seed'))
     .map(card => card.id)
 
   return { staleDeckIds, staleCardIds }

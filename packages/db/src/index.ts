@@ -1,7 +1,7 @@
 export { db } from './local/schema'
 export type {
   Group, Deck, Card, Srs, ReviewLog, DictEntry,
-  Lesson, TranslationSet, TranslationSentence, TranslationGenre, CefrLevel,
+  Lesson, TranslationSet, TranslationSentence, TranslationGenre, TranslationCategory, CefrLevel,
   AudioBlob, WritingDoc, WritingGenre, CambridgeGenre, WritingHistory,
   ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord, ListeningExamRecord,
   NotebookEntry, ExamBackupRecord,
@@ -28,6 +28,10 @@ export {
   isCloudUuid,
 } from './cloud/sync'
 export type { SyncStats } from './cloud/sync'
+export { changedSince, createSyncWindow, SYNC_CURSOR_OVERLAP_MS, SYNC_PAGE_SIZE } from './cloud/syncCursor'
+export type { SyncWindow } from './cloud/syncCursor'
+export { getSyncServerTime, isMissingSyncSchemaError } from './cloud/syncServerTime'
+export type { SyncServerTime } from './cloud/syncServerTime'
 export { isPresetDeck, deckIdentityKey, normalizeDeckNameKey } from './cloud/presetDeck'
 export {
   clearLocalUserData,

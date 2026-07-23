@@ -2,6 +2,11 @@ export interface LessonSentence {
   id: string
   text: string
   vi?: string
+  /** Real dictation clip (remote or /media/...) — preferred over TTS when set */
+  audioUrl?: string
+  /** Optional segment on full-track audio (seconds) */
+  t0?: number
+  t1?: number
   ease: number
   interval: number
   reps: number
@@ -10,10 +15,19 @@ export interface LessonSentence {
   state: 'new' | 'learning' | 'review'
 }
 
-export function defaultSentence(text: string): LessonSentence {
+export function defaultSentence(
+  text: string,
+  // Second arg may be array index when used as `.map(defaultSentence)` — ignore numbers.
+  extra?: Partial<Pick<LessonSentence, 'id' | 'audioUrl' | 't0' | 't1' | 'vi'>> | number,
+): LessonSentence {
+  const meta = typeof extra === 'object' && extra != null ? extra : undefined
   return {
-    id: crypto.randomUUID(),
+    id: meta?.id ?? crypto.randomUUID(),
     text: text.trim(),
+    audioUrl: meta?.audioUrl,
+    t0: meta?.t0,
+    t1: meta?.t1,
+    vi: meta?.vi,
     ease: 2.5, interval: 0, reps: 0, lapses: 0,
     dueAt: Date.now(), state: 'new',
   }

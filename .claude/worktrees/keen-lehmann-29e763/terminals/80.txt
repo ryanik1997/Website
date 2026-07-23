@@ -1,0 +1,47 @@
+---
+pid: 46108
+cwd: "D:\App-English-Ryan\Website"
+command: "Set-Location D:\\App-English-Ryan\\Website\\apps\\web; npx vite build 2>&1 | Select-Object -Last 40"
+started_at: 2026-07-08T08:47:20.587Z
+running_for_ms: 6960003  
+---
+dist/assets/WritingMockTest-BhUeq0JJ.js                  5.93 kB │ gzip:   2.12 kB
+dist/assets/writingPrompt-BMsZXsVX.js                    6.04 kB │ gzip:   2.39 kB
+dist/assets/ListeningTtsStatusBadge-CwsIy0ci.js          6.42 kB │ gzip:   2.36 kB
+dist/assets/translationCatalog-By_qcq8X.js               6.73 kB │ gzip:   2.72 kB
+dist/assets/tts-C-5ybu4V.js                              7.21 kB │ gzip:   2.74 kB
+dist/assets/SentenceStructureListPage-DEjD5nZv.js        7.43 kB │ gzip:   2.74 kB
+dist/assets/browser-DYkhEV9j.js                          7.80 kB │ gzip:   3.80 kB
+dist/assets/vocabSeedDecks-BbcztJy4.js                   8.45 kB │ gzip:   3.86 kB
+dist/assets/ImportListeningWordModal-CWkjWI3l.js         9.00 kB │ gzip:   3.08 kB
+dist/assets/useNotifications-B_FmAUVM.js                 9.02 kB │ gzip:   3.60 kB
+dist/assets/WritingDashboardPage-DuHZdt7e.js            11.39 kB │ gzip:   3.56 kB
+dist/assets/listeningImportNormalize-iepiuNR6.js        12.86 kB │ gzip:   4.03 kB
+dist/assets/ieltsListeningDocxImport-Bh1NIFxl.js        16.16 kB │ gzip:   6.10 kB
+dist/assets/HomePage-DmGD4Er4.js                        17.01 kB │ gzip:   5.76 kB
+dist/assets/usePartHighlights-D5FgonnY.js               17.32 kB │ gzip:   5.87 kB
+dist/assets/ImportListeningModal-DP-scTB2.js            17.74 kB │ gzip:   5.25 kB
+dist/assets/AdminPage-BGGw-7Ov.js                       20.70 kB │ gzip:   6.19 kB
+dist/assets/MindmapPage-DXjYI3Or.js                     25.35 kB │ gzip:   9.25 kB
+dist/assets/importListeningUtils-Vnk2sm0f.js            30.13 kB │ gzip:   8.40 kB
+dist/assets/importReadingManualUtils-DZT_3maW.js        30.52 kB │ gzip:   9.27 kB
+dist/assets/ImportReadingManualModal-D59aFwnX.js        32.63 kB │ gzip:   8.59 kB
+dist/assets/SettingsPage-DMddRKoW.js                    33.13 kB │ gzip:   9.08 kB
+dist/assets/IeltsReadingImportWizard-BX4qhR8l.js        35.13 kB │ gzip:  11.78 kB
+dist/assets/AppShell-C0YKmFbE.js                        35.44 kB │ gzip:  10.94 kB
+dist/assets/TranslationPracticePage-BEfJvoyU.js         38.14 kB │ gzip:  11.69 kB
+dist/assets/IeltsListeningImportWizard-Dh2MlMZw.js      38.71 kB │ gzip:  13.18 kB
+dist/assets/ListeningLibraryPage-sz-scDB_.js            41.04 kB │ gzip:   9.73 kB
+dist/assets/WritingEditor-CZmuQsJ0.js                   41.78 kB │ gzip:  11.81 kB
+dist/assets/ListeningLessonPage-D0eG5Oji.js             44.04 kB │ gzip:  13.63 kB
+dist/assets/LandingPage-D1ZQ1p-U.js                     47.24 kB │ gzip:  12.12 kB
+dist/assets/ieltsListeningP4Templates-BMsPbIxq.js       50.62 kB │ gzip:  14.05 kB
+dist/assets/examCompletion-DYLXribI.js                  72.57 kB │ gzip:  24.97 kB
+dist/assets/VocabularyPage-p6X1Gzwm.js                  85.69 kB │ gzip:  22.71 kB
+dist/assets/ListeningTest-CdNYX6qR.js                   99.94 kB │ gzip:  22.99 kB
+dist/assets/schema-C0btmRro.js                         102.18 kB │ gzip:  32.88 kB
+dist/assets/ReadingTest-CTGg1eS2.js                    144.86 kB │ gzip:  28.85 kB
+dist/assets/ExamTrackPage-FQvw4dOa.js                  165.20 kB │ gzip:  51.92 kB
+dist/assets/listeningNotePassage-By58RYTi.js           231.75 kB │ gzip:  64.35 kB
+dist/assets/index-Cppfhbih.js                          400.10 kB │ gzip: 116.42 kB
+✓ built in 16.26s

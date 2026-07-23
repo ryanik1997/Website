@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcard — Radial Reveal demo</title>
+  <style>
+    @property --back-angle {
+      syntax: '<angle>';
+      inherits: false;
+      initial-value: 100deg;
+    }
+
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: #11221b;
+      color: #eaf8ef;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100dvh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 20% 10%, #284c3b 0, transparent 34rem),
+        #11221b;
+    }
+
+    .demo {
+      width: min(100%, 560px);
+      text-align: center;
+    }
+    .demo h1 { margin: 0 0 8px; font-size: clamp(1.2rem, 3vw, 1.65rem); }
+    .demo p { margin: 0 0 28px; color: #b7cfbf; font-size: .92rem; }
+
+    .flashcard {
+      --click-x: 50%;
+      --click-y: 50%;
+      --back-angle: 100deg;
+      --card-shadow: 0 18px 42px rgb(0 0 0 / .27);
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-height: 300px;
+      overflow: hidden;
+      border: 1px solid rgb(255 255 255 / .12);
+      border-radius: 28px;
+      box-shadow: var(--card-shadow);
+      cursor: pointer;
+      user-select: none;
+      transform: translateZ(0);
+      will-change: transform, box-shadow;
+      outline: none;
+    }
+    .flashcard:focus-visible { outline: 3px solid #d9ffe9; outline-offset: 5px; }
+    .flashcard.is-revealed,
+    .flashcard.is-hiding { animation: micro-depth 510ms cubic-bezier(.4, 0, .2, 1); }
+    .flashcard.is-settling { animation: shadow-settle 170ms ease-out; }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      padding: 38px;
+    }
+    .card-front {
+      z-index: 0;
+      color: #173e2d;
+      background: linear-gradient(145deg, #effff5, #dff9e9);
+    }
+    .front-kicker,
+    .back-kicker {
+      margin-bottom: 14px;
+      color: #527662;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .front-word {
+      margin: 0;
+      font-size: clamp(3.2rem, 13vw, 5.3rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      transition: transform 300ms cubic-bezier(.16, 1, .3, 1), opacity 220ms ease-out;
+      will-change: transform, opacity;
+    }
+    .flashcard.is-revealed .front-word {
+      transform: translateY(-15px) scale(.85);
+      opacity: .62;
+    }
+
+    .back-layer {
+      z-index: 1;
+      color: #113526;
+      background: linear-gradient(var(--back-angle), #8fe0b8, #6fd4a8);
+      clip-path: circle(0% at var(--click-x) var(--click-y));
+      transition:
+        clip-path 490ms cubic-bezier(.4, 0, .2, 1),
+        --back-angle 490ms cubic-bezier(.4, 0, .2, 1);
+      will-change: clip-path;
+    }
+    .flashcard.is-revealed .back-layer {
+      --back-angle: 135deg;
+      clip-path: circle(150% at var(--click-x) var(--click-y));
+    }
+
+    .back-content { width: min(100%, 390px); text-align: center; }
+    .back-word {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 9vw, 3.7rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      transform: translateY(-10px) scale(.85);
+      opacity: 0;
+      transition: opacity 220ms ease-out 40ms, transform 300ms cubic-bezier(.16, 1, .3, 1) 40ms;
+    }
+    .phonetic,
+    .translation {
+      margin: 0;
+      opacity: 0;
+      transform: translateY(8px);
+      will-change: opacity, transform;
+    }
+    .phonetic {
+      color: #4b7760;
+      font-size: 1.05rem;
+      font-style: italic;
+      transition: opacity 190ms ease-out 80ms, transform 190ms ease-out 80ms;
+    }
+    .translation {
+      margin-top: 10px;
+      font-size: clamp(1.35rem, 5vw, 1.8rem);
+      font-weight: 800;
+      transition: opacity 260ms cubic-bezier(.16, 1, .3, 1) 150ms, transform 260ms cubic-bezier(.16, 1, .3, 1) 150ms;
+    }
+    .flashcard.is-revealed .back-word,
+    .flashcard.is-revealed .phonetic,
+    .flashcard.is-revealed .translation {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* On reverse, text disappears before the radial mask starts contracting. */
+    .flashcard.is-hiding .back-word,
+    .flashcard.is-hiding .phonetic,
+    .flashcard.is-hiding .translation {
+      opacity: 0;
+      transform: translateY(5px) scale(.98);
+      transition-delay: 0ms;
+      transition-duration: 110ms;
+    }
+
+    .hint { margin-top: 18px !important; font-size: .78rem !important; opacity: .8; }
+    @keyframes micro-depth {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    @keyframes shadow-settle {
+      0% { box-shadow: 0 18px 42px rgb(0 0 0 / .27); }
+      45% { box-shadow: 0 26px 56px rgb(0 0 0 / .48); }
+      100% { box-shadow: 0 18px 42px rgb(0 0 0 / .27); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo">
+    <h1>Radial Reveal Flashcard</h1>
+    <p>Bấm vào vị trí bất kỳ trên thẻ. Lần bấm sau sẽ thu về đúng tâm của lần bấm đầu.</p>
+
+    <article class="flashcard" id="flashcard" tabindex="0" role="button" aria-pressed="false" aria-label="Lật flashcard từ vựng serendipity">
+      <section class="card-face card-front" aria-hidden="true">
+        <span class="front-kicker">Tap to reveal</span>
+        <h2 class="front-word">serendipity</h2>
+      </section>
+
+      <section class="card-face back-layer" aria-hidden="true">
+        <div class="back-content">
+          <span class="back-kicker">Vocabulary</span>
+          <h2 class="back-word">serendipity</h2>
+          <p class="phonetic">/ˌser.ənˈdɪp.ə.ti/</p>
+          <p class="translation">Sự tình cờ may mắn</p>
+        </div>
+      </section>
+    </article>
+    <p class="hint">Enter hoặc Space cũng hoạt động; hiệu ứng tôn trọng Reduce Motion.</p>
+  </main>
+
+  <script>
+    class RadialRevealFlashcard {
+      constructor(element) {
+        this.card = element;
+        this.isRevealed = false;
+        this.isBusy = false;
+        this.lastClick = { x: '50%', y: '50%' };
+        this.card.addEventListener('click', (event) => this.toggle(event));
+        this.card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            this.toggle(event);
+          }
+        });
+      }
+
+      setClickOrigin(event) {
+        const rect = this.card.getBoundingClientRect();
+        // Keyboard events have no client coordinate: use the card centre.
+        const clientX = typeof event.clientX === 'number' ? event.clientX : rect.left + rect.width / 2;
+        const clientY = typeof event.clientY === 'number' ? event.clientY : rect.top + rect.height / 2;
+        const x = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+        const y = Math.min(100, Math.max(0, ((clientY - rect.top) / rect.height) * 100));
+        this.lastClick = { x: `${x}%`, y: `${y}%` };
+        this.card.style.setProperty('--click-x', this.lastClick.x);
+        this.card.style.setProperty('--click-y', this.lastClick.y);
+      }
+
+      settle(afterMs) {
+        window.setTimeout(() => {
+          this.card.classList.add('is-settling');
+          window.setTimeout(() => this.card.classList.remove('is-settling'), 180);
+        }, afterMs);
+      }
+
+      toggle(event) {
+        if (this.isBusy) return;
+        this.isBusy = true;
+
+        if (!this.isRevealed) {
+          this.setClickOrigin(event);
+          this.card.classList.remove('is-hiding');
+          this.card.classList.add('is-revealed');
+          this.card.setAttribute('aria-pressed', 'true');
+          this.isRevealed = true;
+          this.settle(490);
+          window.setTimeout(() => { this.isBusy = false; }, 560);
+          return;
+        }
+
+        // Intentionally do not call setClickOrigin here: reverse uses the original origin.
+        this.card.classList.add('is-hiding');
+        window.setTimeout(() => {
+          this.card.classList.remove('is-revealed');
+          this.card.setAttribute('aria-pressed', 'false');
+          this.isRevealed = false;
+        }, 115); // let back text fade before the circle contracts
+        this.settle(600);
+        window.setTimeout(() => {
+          this.card.classList.remove('is-hiding');
+          this.isBusy = false;
+        }, 680);
+      }
+    }
+
+    new RadialRevealFlashcard(document.querySelector('#flashcard'));
+  </script>
+</body>
+</html>
