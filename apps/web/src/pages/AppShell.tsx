@@ -21,6 +21,8 @@ import {
   Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
+  Menu,
+  X,
 } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useAuth } from '../features/auth/AuthContext'
@@ -132,7 +134,13 @@ function AppShellInner() {
   )
   const readingCornerActive = location.pathname.startsWith('/app/reading-corner')
   const [readingOpen, setReadingOpen] = useState(readingCornerActive)
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
   const navigate = useNavigate()
+
+  // Close mobile drawer on navigation
+  useEffect(() => {
+    setMobileDrawerOpen(false)
+  }, [location.pathname])
   const { user, signOut } = useAuth()
   const { syncState, lastSyncAt, triggerSync, error } = useSyncManager()
   usePlanSync()
@@ -178,8 +186,30 @@ function AppShellInner() {
       }}
     >
       {appBackdropActive && <AppShellBackdrop withRibbon={appBackdropMode === 'ribbon'} />}
+      {/* Mobile hamburger */}
+      {!examPlayerMode && (
+        <button
+          type="button"
+          className="mobile-sidebar-toggle fixed top-3 left-3 z-30 w-10 h-10 rounded-lg items-center justify-center"
+          style={{ background: 'var(--bg-card)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}
+          onClick={() => setMobileDrawerOpen(v => !v)}
+          aria-label="Menu"
+        >
+          {mobileDrawerOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      )}
+
+      {/* Mobile drawer overlay */}
+      {!examPlayerMode && (
+        <div
+          className={`sidebar-drawer-overlay ${mobileDrawerOpen ? 'open' : ''}`}
+          onClick={() => setMobileDrawerOpen(false)}
+        />
+      )}
+
+      {/* Desktop sidebar */}
       {!examPlayerMode && <aside
-        className={`flex flex-col shrink-0 border-r transition-[width] duration-200 ${
+        className={`desktop-sidebar flex flex-col shrink-0 border-r transition-[width] duration-200 ${
           sidebarCollapsed ? 'w-20' : 'w-52'
         }`}
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
@@ -394,6 +424,146 @@ function AppShellInner() {
         </div>
         {!sidebarCollapsed && <LegalFooter compact />}
       </aside>}
+
+      {/* Mobile drawer sidebar (same content, different wrapper) */}
+      {!examPlayerMode && (
+        <aside
+          className={`sidebar-drawer flex flex-col ${mobileDrawerOpen ? 'open' : ''}`}
+          style={{ background: 'var(--bg-card)' }}
+        >
+          <nav className="flex-1 p-2.5 flex flex-col gap-0.5 overflow-y-auto pt-14">
+            {NAV.map(item => {
+              if (item.kind === 'group') {
+                const Icon = item.icon
+                const open = readingOpen || readingCornerActive
+                return (
+                  <div key={item.id} className="flex flex-col gap-0.5">
+                    <div
+                      className={`flex items-center rounded-lg transition-colors ${
+                        location.pathname === '/app/reading-corner' || location.pathname === '/app/reading-corner/'
+                          ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                          : readingCornerActive
+                            ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]'
+                            : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setReadingOpen(true)
+                          navigate('/app/reading-corner')
+                        }}
+                        className="flex flex-1 items-center gap-2.5 min-w-0 px-2.5 py-2 rounded-lg text-sm font-medium"
+                      >
+                        <Icon size={17} className="shrink-0" />
+                        <span className="flex-1 truncate text-left">{t(item.navKey) || item.label}</span>
+                      </button>
+                      <button
+                        type="button"
+                        aria-label={open ? 'Thu gọn Góc đọc' : 'Mở rộng Góc đọc'}
+                        onClick={() => setReadingOpen(v => !v)}
+                        className="shrink-0 p-2 mr-0.5 rounded-md text-[var(--text-muted)] hover:bg-[var(--bg-secondary)]"
+                      >
+                        <ChevronDown size={14} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+                      </button>
+                    </div>
+                    {open && (
+                      <div className="ml-3 pl-2 border-l flex flex-col gap-0.5" style={{ borderColor: 'var(--border-color)' }}>
+                        {item.children.map(child => {
+                          const ChildIcon = child.icon
+                          return (
+                            <NavLink
+                              key={child.to}
+                              to={child.to}
+                              className={({ isActive }) =>
+                                `flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                                  isActive
+                                    ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                                }`
+                              }
+                            >
+                              <ChildIcon size={14} className="shrink-0" />
+                              <span className="truncate">{t(child.navKey) || child.label}</span>
+                            </NavLink>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
+
+              const { to, icon: Icon, label, navKey } = item
+              return (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={to !== '/app/writing' && to !== '/app/shadowing'}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                        : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                    }`
+                  }
+                >
+                  <Icon size={17} className="shrink-0" />
+                  <span className="flex-1 truncate">{t(navKey) || label}</span>
+                </NavLink>
+              )
+            })}
+            {isAdmin && (
+              <NavLink
+                to="/app/admin"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm font-medium transition-colors mt-0.5 ${
+                    isActive
+                      ? 'text-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                  }`
+                }
+              >
+                <Shield size={17} className="shrink-0" />
+                <span className="flex-1">Admin</span>
+              </NavLink>
+            )}
+          </nav>
+
+          <div className="p-2.5 border-t" style={{ borderColor: 'var(--border-color)' }}>
+            <button
+              type="button"
+              onClick={() => navigate('/app/settings?tab=account')}
+              className="w-full px-1 mb-2 flex items-center gap-2.5 py-1.5 rounded-xl transition-colors hover:bg-[var(--bg-secondary)]"
+            >
+              <UserAvatar user={user} size="sm" />
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
+                  {user?.user_metadata?.full_name ?? t('app.user')}
+                </p>
+                <p className="text-[11px] truncate" style={{ color: 'var(--text-muted)' }}>
+                  {user?.email}
+                </p>
+              </div>
+            </button>
+
+            <div className="h-px mb-2 mx-1" style={{ background: 'var(--border-color)' }} />
+            <PlanStatus plan={plan ?? 'free'} expiresAt={planExpiresAt ?? null} />
+
+            <button
+              type="button"
+              onClick={signOut}
+              className="group flex items-center gap-1.5 px-2 py-1.5 rounded-lg w-full transition-colors mt-1 hover:bg-[color-mix(in_srgb,var(--color-accent)_10%,transparent)]"
+              style={{ color: 'var(--text-muted)' }}
+            >
+              <LogOut size={14} className="shrink-0" />
+              <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--color-accent)' }}>
+                {t('app.logout')}
+              </span>
+            </button>
+          </div>
+        </aside>
+      )}
 
       <main className="app-shell__main flex-1 min-h-0 flex flex-col overflow-hidden select-text">
         <Outlet />

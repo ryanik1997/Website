@@ -26,3 +26,14 @@ assets/audio/
 apps/web/public/catalog/listening/**/part*.mp3
 apps/web/public/catalog/listening/fce-b2-book*/
 apps/web/public/catalog/listening/pet-b1-book*/
+# Cxpak cache (local only)
+.cxpak/
+
+# Cache & temp
+.cxpak/
+
+# Debug artifacts
+Fixbug/
+.freebuff/
+artifacts/
+nul

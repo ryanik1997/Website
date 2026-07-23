@@ -1030,3 +1030,16 @@
   color: var(--text-primary);
   box-shadow: .2rem .2rem 0 var(--text-primary);
 }
+
+/* iPhone small screen fine-tuning */
+@media (max-width: 400px) {
+  .exam-home__hero { padding: 1.5rem 0 1rem; }
+  .exam-hub-page--listening .exam-hub-title,
+  .exam-hub-page--reading .exam-hub-title { font-size: 1.8rem; }
+  .exam-hub-page--listening .exam-full-mock-hero,
+  .exam-hub-page--reading .exam-full-mock-hero { min-height: 12rem; padding: 1rem; }
+  .exam-hub-page--listening .ielts-library-card,
+  .exam-hub-page--reading .ielts-library-card { min-height: 5.5rem; padding: 0.7rem; }
+  .ielts-library-card__title { font-size: 0.85rem; }
+  .exam-hub-page--cambridge-selector .exam-hub-track-card { min-height: 11rem; }
+}

@@ -5792,3 +5792,21 @@
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+/* iPhone small screen (≤400px) — giảm padding, font, gap */
+@media (max-width: 400px) {
+  .listening-exam-option { padding: 0.4rem 0.5rem; font-size: 0.85rem; }
+  .listening-exam-option__radio { width: 1rem; height: 1rem; }
+  .listening-exam-option + .listening-exam-option { margin-top: 0.35rem; }
+  .lsn-blank-input { min-width: 2rem; max-width: 5rem; font-size: 0.9rem; }
+  .lsn-blank-row { gap: 0.25rem; }
+  .listening-exam-start-overlay { padding: 0.8rem; }
+  .listening-exam-start-overlay__text { font-size: 0.8rem; }
+  .listening-exam__audio-controls { gap: 0.3rem; }
+  .listening-exam__audio-controls button { min-height: 2.2rem; min-width: 2.2rem; }
+  .listening-part-header { padding: 0.4rem 0.6rem; }
+  .listening-part-header__title { font-size: 0.85rem; }
+  .listening-part-header__instruction { font-size: 0.75rem; }
+  .listening-exam-card { padding: 0.5rem; }
+  .listening-exam-card__question-text { font-size: 0.9rem; }
+}

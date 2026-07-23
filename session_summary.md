@@ -10,11 +10,15 @@
 - **Fix Google login:** Bỏ `recoverOAuthSession()` thủ công. Set `detectSessionInUrl: true`. SDK tự xử lý callback.
 - **Skills cài mới:** stitch (15), anthropic (17), ponytail (6) cho .claude + .codex. File `skills-inventory.xlsx`.
 - **Fix auto-sync listening jump bug:** `partIndexAtTime` khi partStarts = [0,0,0,0,0] luôn trả về Part 5. User yêu cầu tắt auto chuyển câu → `useAudioSync` useEffect now returns early. Deployed v0.2.12.
+- **Responsive Mobile Phase 1:** Thêm iOS meta tags (`viewport-fit=cover`, `apple-mobile-web-app-capable`, `theme-color`), safe-area-inset, `100dvh`, touch-action, hamburger menu + mobile sidebar drawer trên iPhone. globals.css responsive tokens + AppShell.tsx drawer overlay. Deployed v0.2.13.
+- **Responsive Mobile Phase 2:** Added `@media (max-width: 400px)` breakpoints across 40+ CSS files covering Writing screens (dashboard, library, study, cambridgeHub, promptBank), Vocab screens (deckCards, vocabLesson, vocabStudyPaper, srsReminder), Exam screens (shared, practiceResult, readingTest, listeningIeltsTid, readingFontPanel, ieltsListeningWizard, tidIeltsReading, ketRw, petRw, fceRw, caeRw, cpeRw), Home page & study grid, shadowingLibrary, listeningLibraryPage, speakingAiPage, structurePractice, translationPractice, and readingCorner. Fixed orphaned CSS in examPracticeResult.css.
+- **Responsive Mobile Phase 2+3:** LandingPage responsive (hero font, button, nav spacing), ExamHub iPhone <400px, Listening test small-screen rules, Vocab card fine-tune, touch targets `@media (pointer:coarse)`, iOS `overscroll-behavior`, `-webkit-overflow-scrolling`. Deployed v0.2.14.
 - **Fix part jump:** `useAudioSync.ts` effect body replaced with early return. `audioSyncUtils.ts` thêm guard cho all-zeros starts.
 - **Xóa project cũ:** `ntcagvtkwxwsmlxlumfo` + `kxohkmeuyeiczqelrnbi` (org cũ lock quota).
 
 ### Files changed
 - `apps/web/.env.local`, `src/lib/supabase.ts`, `src/main.tsx`, `src/features/auth/AuthContext.tsx`, `src/features/auth/AuthCallback.tsx`, `src/lib/protectedMedia.ts`
+- `apps/web/index.html`, `apps/web/src/styles/globals.css`, `apps/web/src/pages/AppShell.tsx`, `apps/web/src/pages/landing/LandingPage.tsx`, `apps/web/src/features/exam/examHub.css`, `apps/web/src/features/exam/listeningTest.css`, `apps/web/src/features/exam/useAudioSync.ts`, `apps/web/src/features/exam/audioSyncUtils.ts`, `apps/web/src/features/vocab/vocabLibrary.css`
 
 ### Lỗi còn tồn tại
 - Google login cần smoke production + localhost.

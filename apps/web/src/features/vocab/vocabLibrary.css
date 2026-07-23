@@ -84,3 +84,10 @@
 @media (prefers-reduced-motion: reduce) {
   .vocab-library-revise-card.is-due { animation: none; }
 }
+
+/* iPhone small screen */
+@media (max-width: 400px) {
+  .vocab-library-page .vocab-deck-card__body { min-height: 5rem; }
+  .vocab-library-page .vocab-deck-card__title { font-size: 0.9rem; }
+  .vocab-library-page .vocab-deck-card { padding: 0.7rem; }
+}

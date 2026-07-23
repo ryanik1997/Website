@@ -554,7 +554,7 @@ export default function LandingPage() {
       />
 
       {/* Navigation */}
-      <nav className="relative z-20 mx-auto flex max-w-7xl flex-row items-center justify-between gap-4 px-4 py-6 sm:px-8">
+      <nav className="relative z-20 mx-auto flex max-w-7xl flex-row items-center justify-between gap-2 px-3 py-4 sm:px-8 sm:py-6">
         <a
           href="/"
           className="shrink-0 text-2xl tracking-tight text-foreground sm:text-3xl"
@@ -678,7 +678,7 @@ export default function LandingPage() {
         </span>
 
         <h1
-          className="landing-hero__content animate-fade-rise mt-6 max-w-6xl text-5xl font-normal leading-[0.98] text-foreground sm:text-7xl md:text-8xl"
+          className="landing-hero__content animate-fade-rise mt-6 max-w-6xl text-4xl font-normal leading-[0.98] text-foreground sm:text-5xl md:text-7xl lg:text-8xl"
           style={{ ...SERIF, letterSpacing: '-2.46px' }}
         >
           Where <em className="not-italic text-muted-foreground">fluency</em>{' '}
@@ -686,18 +686,18 @@ export default function LandingPage() {
           the practice.
         </h1>
 
-        <p className="landing-hero__content animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="landing-hero__content animate-fade-rise-delay mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:mt-8 sm:text-base sm:leading-relaxed md:text-lg">
           Chúng tôi xây dựng công cụ cho những người học đêm khuya và kiên trì
           âm thầm. Ryan English gom SRS, dictation, chấm viết AI và đề thi
           Cambridge vào một không gian tập trung — để bạn chỉ cần làm việc của
           mình: học.
         </p>
 
-        <div className="landing-hero__content animate-fade-rise-delay-2 mt-10 flex flex-col items-center gap-3 sm:mt-11 sm:flex-row sm:gap-3 md:mt-12 md:gap-4">
+        <div className="landing-hero__content animate-fade-rise-delay-2 mt-6 flex flex-col items-center gap-2 sm:mt-11 sm:flex-row sm:gap-3 md:mt-12 md:gap-4">
           <button
             type="button"
             onClick={startFree}
-            className="liquid-glass cursor-pointer rounded-full px-8 py-3.5 text-base text-foreground transition-transform hover:scale-[1.03] sm:px-9 md:px-10 md:py-4"
+            className="liquid-glass cursor-pointer rounded-full px-5 py-2.5 text-sm text-foreground transition-transform hover:scale-[1.03] sm:px-8 sm:py-3.5 sm:text-base md:px-10 md:py-4"
           >
             Bắt đầu miễn phí →
           </button>
@@ -706,7 +706,7 @@ export default function LandingPage() {
             onClick={togglePricing}
             aria-expanded={pricingOpen}
             aria-controls="pricing-modal"
-            className="liquid-glass-hover landing-hero__surface cursor-pointer whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-medium text-[color:var(--muted-on-image)] transition-all hover:text-[color:var(--text-on-image)] sm:px-7 sm:text-[15px] md:px-8 md:py-4 md:text-base"
+            className="liquid-glass-hover landing-hero__surface cursor-pointer whitespace-nowrap rounded-full px-5 py-2.5 text-xs font-medium text-[color:var(--muted-on-image)] transition-all hover:text-[color:var(--text-on-image)] sm:px-7 sm:py-3.5 sm:text-[15px] md:px-8 md:py-4 md:text-base"
           >
             {pricingOpen ? 'Đóng học phí' : 'Xem học phí'}
           </button>
