@@ -5230,3 +5230,13 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Semantics remain unchanged: mastered is `reps >= 3`; due uses `isSrsReviewDue`, so new unreviewed cards do not count. Regression tests verify the aggregate and that unit changes do not issue another query: 2/2 PASS.
 - Full web suite: 200/202 PASS with only the two known baseline failures. TypeScript and production build PASS. Local authenticated smoke: 161 decks, 162 rendered cards on All, 27 on IELTS, representative preset deck shows 100 single words and 100 phrases, Revise due is 0 for the local all-new dataset, and no console errors.
 - No deployment was made for Task 2 alone. Next step: Task 3, add `content-visibility: auto` mitigation.
+
+## 2026-07-24 — Vocab TBT optimization Task 3: virtualized deck grid
+
+- Added `@tanstack/react-virtual` and replaced the 162-card eager DOM grid with a measured virtual grid. It keeps the existing one-column mobile / two-column desktop layout, uses the existing `.vocab-library-page` scroll owner, five-item overscan, and dynamic card measurements.
+- Removed `unitKind` from the `DeckGrid` React key; the repair-only `gridKey` remains. Switching Single words/Phrases now preserves the grid instance instead of deleting and remounting every card.
+- `DeckCard` is memoized and receives stable select/delete handlers. Virtual item wrappers also use `content-visibility: auto` with a 184px intrinsic fallback.
+- Production build PASS. Full web suite remains 200/202 PASS with only the two confirmed baseline failures (signed URL TTL assertion and Cambridge catalog count).
+- Authenticated local Playwright smoke: All still reports 161 decks, while only 17 cards are mounted at a time; bottom index 161 renders without blank space, IELTS reports 26 decks and resets to index 0, tab changes preserve the same grid DOM node, and deck detail navigation works without console errors.
+- Internal Admin performance session for `/app/vocab` (9.24s with full scroll, IELTS/All, Single/Phrases, and deck-detail interactions): one long task, `longTaskTotalMs=58`, `maxLongTaskMs=58`, `inpMs=64`, below the requested 150ms target.
+- No deployment was made for Task 3 alone.

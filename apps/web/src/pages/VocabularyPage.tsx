@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, RotateCcw } from 'lucide-react'
 import { useVocabStore } from '../features/vocab/vocabStore'
 import DeckGrid from '../features/vocab/DeckGrid'
@@ -27,6 +27,7 @@ export default function VocabularyPage() {
   const [repairBusy, setRepairBusy] = useState(false)
   const [repairMsg, setRepairMsg] = useState<string | null>(null)
   const [reviseOpen, setReviseOpen] = useState(false)
+  const pageScrollRef = useRef<HTMLDivElement>(null)
   // Force DeckGrid remount after repair
   const [gridKey, setGridKey] = useState(0)
   const { statsMap, loading: deckAggregatesLoading, error: deckAggregatesError } = useDeckAggregates()
@@ -35,6 +36,11 @@ export default function VocabularyPage() {
     for (const stat of statsMap.values()) total += stat.dueCount
     return total
   }, [statsMap])
+  const handleSelectDeck = useCallback((id: string) => setActiveDeck(id), [setActiveDeck])
+  const handleCreateDeck = useCallback(
+    (groupId?: string) => setCreateState({ open: true, groupId }),
+    [],
+  )
 
   useEffect(() => {
     if (deckAggregatesError) {
@@ -73,7 +79,10 @@ export default function VocabularyPage() {
 
   if (activeDeckId === null) {
     return (
-      <div className="app-page-surface vocab-library-page relative h-full overflow-y-auto">
+      <div
+        ref={pageScrollRef}
+        className="app-page-surface vocab-library-page relative h-full overflow-y-auto"
+      >
         <div className="vocab-library-page__panel max-w-5xl mx-auto px-6 py-8">
           <div className="vocab-library-page__header mb-6 flex items-center justify-between gap-4">
             <div>
@@ -190,11 +199,12 @@ export default function VocabularyPage() {
           </div>
 
           <DeckGrid
-            key={`${gridKey}-${unitKind}`}
+            key={gridKey}
             unitKind={unitKind}
             statsMap={statsMap}
-            onSelectDeck={id => setActiveDeck(id)}
-            onCreateDeck={groupId => setCreateState({ open: true, groupId })}
+            scrollElementRef={pageScrollRef}
+            onSelectDeck={handleSelectDeck}
+            onCreateDeck={handleCreateDeck}
           />
         </div>
 
