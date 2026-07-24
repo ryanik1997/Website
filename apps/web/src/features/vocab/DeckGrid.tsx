@@ -4,7 +4,8 @@ import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { db, deckRepo } from '@ryan/db'
 import type { Deck } from '@ryan/db'
 import { GROUP_LABELS, PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
-import { matchesUnitKind, type VocabUnitKind } from './vocabUnitKind'
+import type { VocabUnitKind } from './vocabUnitKind'
+import type { DeckAggregate } from './hooks/useDeckAggregates'
 import './deckCards.css'
 import { useI18n } from '../../lib/language'
 
@@ -21,44 +22,20 @@ const FILTERS = [
 
 type FilterId = (typeof FILTERS)[number]['id']
 
-type DeckUnitStat = { count: number; mastered: number }
-
 function isPresetGroup(id: string): id is PresetGroupId {
   return (PRESET_GROUP_IDS as readonly string[]).includes(id)
 }
 
 interface Props {
   unitKind: VocabUnitKind
+  statsMap: Map<string, DeckAggregate>
   onSelectDeck: (id: string) => void
   onCreateDeck: (defaultGroupId?: string) => void
 }
 
-/**
- * Một query gộp cho toàn bộ thẻ/SRS theo unitKind — tránh N× useLiveQuery
- * (100+ deck) làm main thread treo → trang trắng/không phản hồi.
- */
-function useDeckUnitStats(unitKind: VocabUnitKind): Record<string, DeckUnitStat> {
-  return (
-    useLiveQuery(async () => {
-      const [cards, srsRows] = await Promise.all([db.cards.toArray(), db.srs.toArray()])
-      const srsByCard = new Map(srsRows.map(s => [s.cardId, s]))
-      const out: Record<string, DeckUnitStat> = {}
-      for (const c of cards) {
-        if (!matchesUnitKind(c.phrase, unitKind, c.pos)) continue
-        const st = out[c.deckId] ?? (out[c.deckId] = { count: 0, mastered: 0 })
-        st.count++
-        const s = srsByCard.get(c.id)
-        if (s && s.reps >= 3) st.mastered++
-      }
-      return out
-    }, [unitKind]) ?? {}
-  )
-}
-
-export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props) {
+export default function DeckGrid({ unitKind, statsMap, onSelectDeck, onCreateDeck }: Props) {
   const { t } = useI18n()
   const decks = useLiveQuery(() => db.decks.toArray(), []) ?? []
-  const statsByDeck = useDeckUnitStats(unitKind)
   const [filter, setFilter] = useState<FilterId>('all')
 
   const presetDecks = useMemo(
@@ -93,7 +70,7 @@ export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props
   }, [filter, decks, presetDecks, userDefaultDecks])
 
   const createDefaultGroup = filter !== 'all' ? filter : undefined
-  const personalStat = personalDeck ? statsByDeck[personalDeck.id] : undefined
+  const personalStat = personalDeck ? statsMap.get(personalDeck.id) : undefined
 
   async function handleDeleteDeck(deck: Deck) {
     if (deck.origin === 'preset') return
@@ -133,20 +110,20 @@ export default function DeckGrid({ unitKind, onSelectDeck, onCreateDeck }: Props
       <div className="vocab-deck-grid">
         <PersonalDeckCard
           deck={personalDeck}
-          cardCount={personalStat?.count ?? 0}
+          cardCount={personalStat?.total ?? 0}
           masteredCount={personalStat?.mastered ?? 0}
           onSelect={() => (personalDeck ? onSelectDeck(personalDeck.id) : onCreateDeck('default'))}
           onCreate={() => onCreateDeck(createDefaultGroup)}
         />
 
         {filteredDecks.map(deck => {
-          const st = statsByDeck[deck.id]
+          const st = statsMap.get(deck.id)
           return (
             <DeckCard
               key={deck.id}
               deck={deck}
               unitKind={unitKind}
-              cardCount={st?.count ?? 0}
+              cardCount={st?.total ?? 0}
               masteredCount={st?.mastered ?? 0}
               onSelect={() => onSelectDeck(deck.id)}
               onDelete={() => handleDeleteDeck(deck)}

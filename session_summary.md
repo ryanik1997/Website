@@ -5221,3 +5221,12 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Regression tests cover current, stale, and failed seed states: 3/3 PASS. TypeScript and production build PASS; output keeps `VocabularyPage` (~114 KB) separate from `vocabSeedDecks` (~6.4 MB).
 - Full web suite: 198/200 PASS. The same two pre-existing failures remain: signed URL TTL expects 60 vs current 1,800, and Cambridge catalog expects 47 vs current 48.
 - No deployment was made for Task 1 alone. Next step: Task 2, merge `reviseDueCount` and deck stats into one IndexedDB query/aggregation.
+
+## 2026-07-24 — Vocab TBT optimization Task 2: merged deck aggregates
+
+- Added `useDeckAggregates`: one `liveQuery` owner in `VocabularyPage` reads `cards` and `srs` together, caches the raw snapshot in a ref, and builds one `Map<deckId, { total, mastered, dueCount }>` for the active Single/Phrases unit kind.
+- Removed the independent `reviseDueCount` full-table query and `DeckGrid.useDeckUnitStats`. `VocabularyPage` now derives total due count from the shared map and passes the same map to `DeckGrid`.
+- Regular React rerenders, filter changes, 15-second due-clock updates, and Single/Phrases changes aggregate the cached snapshot in memory; IndexedDB re-runs only when Dexie observes an actual cards/SRS mutation.
+- Semantics remain unchanged: mastered is `reps >= 3`; due uses `isSrsReviewDue`, so new unreviewed cards do not count. Regression tests verify the aggregate and that unit changes do not issue another query: 2/2 PASS.
+- Full web suite: 200/202 PASS with only the two known baseline failures. TypeScript and production build PASS. Local authenticated smoke: 161 decks, 162 rendered cards on All, 27 on IELTS, representative preset deck shows 100 single words and 100 phrases, Revise due is 0 for the local all-new dataset, and no console errors.
+- No deployment was made for Task 2 alone. Next step: Task 3, add `content-visibility: auto` mitigation.

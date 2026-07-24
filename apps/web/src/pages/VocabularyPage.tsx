@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { useEffect, useMemo, useState } from 'react'
 import { ChevronLeft, RotateCcw } from 'lucide-react'
-import { isSrsReviewDue } from '@ryan/core'
-import { db } from '@ryan/db'
 import { useVocabStore } from '../features/vocab/vocabStore'
 import DeckGrid from '../features/vocab/DeckGrid'
 import CardPanel from '../features/vocab/CardPanel'
@@ -10,12 +7,12 @@ import StudySession from '../features/vocab/StudySession'
 import DeckEditorModal from '../features/vocab/DeckEditorModal'
 import {
   VOCAB_UNIT_KIND_LABELS,
-  filterCardsByUnitKind,
   type VocabUnitKind,
 } from '../features/vocab/vocabUnitKind'
 import { useI18n } from '../lib/language'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
 import { ensurePresetVocabSeed } from '../features/vocab/ensurePresetVocabSeed'
+import { useDeckAggregates } from '../features/vocab/hooks/useDeckAggregates'
 import '../features/vocab/vocabLibrary.css'
 
 const UNIT_TABS: { id: VocabUnitKind; label: string }[] = [
@@ -30,26 +27,20 @@ export default function VocabularyPage() {
   const [repairBusy, setRepairBusy] = useState(false)
   const [repairMsg, setRepairMsg] = useState<string | null>(null)
   const [reviseOpen, setReviseOpen] = useState(false)
-  const [dueClock, setDueClock] = useState(() => Date.now())
   // Force DeckGrid remount after repair
   const [gridKey, setGridKey] = useState(0)
-  const reviseDueCount = useLiveQuery(async () => {
-    const now = Date.now()
-    const [srsRows, cards] = await Promise.all([
-      db.srs.where('dueAt').belowOrEqual(now).toArray(),
-      db.cards.toArray(),
-    ])
-    const cardsById = new Map(cards.map(card => [card.id, card]))
-    return srsRows.filter(srs => {
-      const card = cardsById.get(srs.cardId)
-      return Boolean(card && isSrsReviewDue(srs, now) && card && filterCardsByUnitKind([card], unitKind).length)
-    }).length
-  }, [unitKind, dueClock])
+  const { statsMap, loading: deckAggregatesLoading, error: deckAggregatesError } = useDeckAggregates()
+  const reviseDueCount = useMemo(() => {
+    let total = 0
+    for (const stat of statsMap.values()) total += stat.dueCount
+    return total
+  }, [statsMap])
 
   useEffect(() => {
-    const timer = window.setInterval(() => setDueClock(Date.now()), 15_000)
-    return () => window.clearInterval(timer)
-  }, [])
+    if (deckAggregatesError) {
+      console.warn('[vocab] deck aggregates failed', deckAggregatesError)
+    }
+  }, [deckAggregatesError])
 
   useEffect(() => {
     // Check lightweight metadata before loading the ~6.4 MB decoded seed bundle.
@@ -201,6 +192,7 @@ export default function VocabularyPage() {
           <DeckGrid
             key={`${gridKey}-${unitKind}`}
             unitKind={unitKind}
+            statsMap={statsMap}
             onSelectDeck={id => setActiveDeck(id)}
             onCreateDeck={groupId => setCreateState({ open: true, groupId })}
           />
@@ -215,8 +207,8 @@ export default function VocabularyPage() {
         {studyMode && <StudySession />}
         <SrsReviewReminderModal
           open={reviseOpen}
-          dueCount={reviseDueCount ?? 0}
-          dueLoading={reviseDueCount === undefined}
+          dueCount={reviseDueCount}
+          dueLoading={deckAggregatesLoading}
           onClose={() => setReviseOpen(false)}
           unitKind={unitKind}
         />
