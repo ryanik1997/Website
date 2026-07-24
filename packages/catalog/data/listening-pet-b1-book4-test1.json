@@ -1,0 +1,538 @@
+{
+  "id": "catalog-listening-pet-b1-book4-test1",
+  "title": "PET B1 Listening — Book 4 — Test 1",
+  "durationMinutes": 30,
+  "bandHint": "B1 Preliminary Listening · 4 parts · 25 câu",
+  "examType": "pet",
+  "examMode": "practice",
+  "parts": [
+    {
+      "id": "catalog-listening-pet-b1-book4-test1-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–7",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book4-test1/part1.mp3",
+      "ttsText": "Man: Was there anything valuable in the bag that was stolen, Madam? Woman: Yes. It had my purse in it and my keys. Man: Anything else? Woman: Well, luckily I was wearing my glasses, so no, nothing else.",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-1",
+          "number": 1,
+          "type": "picture-mc",
+          "prompt": "What was in the woman's bag?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q1.jpg",
+          "ttsText": "Man: Was there anything valuable in the bag that was stolen, Madam? Woman: Yes. It had my purse in it and my keys. Man: Anything else? Woman: Well, luckily I was wearing my glasses, so no, nothing else."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-2",
+          "number": 2,
+          "type": "picture-mc",
+          "prompt": "Which film is the man talking about?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q2.jpg",
+          "ttsText": "Man: I'm sure I've seen this film before. That bit where she's standing on the bridge watching the sunset reminded me."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-3",
+          "number": 3,
+          "type": "picture-mc",
+          "prompt": "What should the woman do first?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q3.jpg",
+          "ttsText": "Woman 1: Well, you put the washing powder in the machine. Woman 2: Is that before or after you put the clothes in? Woman 1: Oh, it's after you put them in, and then remember to switch it on at the wall when you're ready."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-4",
+          "number": 4,
+          "type": "picture-mc",
+          "prompt": "What is David going to do this weekend?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q4.jpg",
+          "ttsText": "Man: Could you help me paint my flat this weekend, David? David: Oh, sorry, I'm going sailing. I decided to enjoy myself for a change. I spent last weekend helping my mum do her garden and I need to repair the car next weekend."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-5",
+          "number": 5,
+          "type": "picture-mc",
+          "prompt": "How did the man get to work today?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q5.jpg",
+          "ttsText": "Man: Sorry I'm late. I never know whether to take the underground or drive. I was held up in a traffic jam for half an hour, and then when I got to work the car park was full! I think I'll have to move nearer so I can walk or use my bike."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-6",
+          "number": 6,
+          "type": "picture-mc",
+          "prompt": "Which tie does the man choose?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q6.jpg",
+          "ttsText": "Man: Which tie shall I wear for the interview? D'you think my blue silk one would look all right? Woman: A bit boring! I'd wear something with a small pattern - squares or spots, something like that. Man: Oh, I don't know. I think I'll wear the plain one."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-7",
+          "number": 7,
+          "type": "picture-mc",
+          "prompt": "What time is the appointment?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Picture A"
+            },
+            {
+              "id": "B",
+              "label": "Picture B"
+            },
+            {
+              "id": "C",
+              "label": "Picture C"
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "pictureImageUrl": "/catalog/listening/pet-b1-book4-test1/q7.jpg",
+          "ttsText": "Woman: Dr Brown's Clinic. Can I help you? Man: Yes. Can I have an appointment to see the doctor, please? Woman: Well, he's free at quarter past eleven today or tomorrow at quarter past ten or five to two. Man: I'll come tomorrow afternoon. Thank you."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book4-test1-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 8–13",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book4-test1/part2.mp3",
+      "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ...",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-8",
+          "number": 8,
+          "type": "multiple-choice",
+          "prompt": "The Railway Princess is on television from",
+          "options": [
+            {
+              "id": "A",
+              "label": "9.00 to 10.00."
+            },
+            {
+              "id": "B",
+              "label": "9.00 to 10.30."
+            },
+            {
+              "id": "C",
+              "label": "9.30 to 11.00."
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-9",
+          "number": 9,
+          "type": "multiple-choice",
+          "prompt": "There is a music programme for teenagers",
+          "options": [
+            {
+              "id": "A",
+              "label": "early in the morning."
+            },
+            {
+              "id": "B",
+              "label": "before lunch."
+            },
+            {
+              "id": "C",
+              "label": "at lunchtime."
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-10",
+          "number": 10,
+          "type": "multiple-choice",
+          "prompt": "You can see a football match between",
+          "options": [
+            {
+              "id": "A",
+              "label": "Ireland and Spain."
+            },
+            {
+              "id": "B",
+              "label": "Brazil and Ireland."
+            },
+            {
+              "id": "C",
+              "label": "Spain and Italy."
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-11",
+          "number": 11,
+          "type": "multiple-choice",
+          "prompt": "If the weather is bad, there will be no",
+          "options": [
+            {
+              "id": "A",
+              "label": "cycling."
+            },
+            {
+              "id": "B",
+              "label": "skiing."
+            },
+            {
+              "id": "C",
+              "label": "tennis."
+            }
+          ],
+          "answer": "C",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-12",
+          "number": 12,
+          "type": "multiple-choice",
+          "prompt": "In the quiz programme, teams have to guess",
+          "options": [
+            {
+              "id": "A",
+              "label": "the year."
+            },
+            {
+              "id": "B",
+              "label": "the person."
+            },
+            {
+              "id": "C",
+              "label": "the place."
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-13",
+          "number": 13,
+          "type": "multiple-choice",
+          "prompt": "What kind of film is I Could Live Forever ?",
+          "options": [
+            {
+              "id": "A",
+              "label": "a comedy"
+            },
+            {
+              "id": "B",
+              "label": "a musical"
+            },
+            {
+              "id": "C",
+              "label": "a thriller"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Man: And that's the weather forecast. And now we know what the weather's going to be like, let's have a look at what we've got for you tomorrow on TV31. Most of the morning is taken up with children's television. As it's Saturday, we've got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess . It was first shown about six months ago and we've had lots of requests to show it again. The film is based on Jenny Johnson's best-selling children's book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There's something for everyone - animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers - Here and Now - our music programme with all the latest groups and singers, and the results of last week's competition. After lunch there's half an hour of news and that's followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week. Football is followed at 4 o'clock by tennis. We'll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we'll be going over early to Japan to see some of the skiing. Let's hope Angus Burns has recovered from yesterday's fall. At 5 o'clock we'll be bringing you the end of the Round Britain Cycle Race. At 6 o'clock it's time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was. That's followed by more news and at 7.00 it's time for our Saturday evening film I Could Live Forever , a sad story with a happy ending. You'll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there's some wonderful dancing. Our evening carries on with plenty of entertainment for all the family. At nine o'clock there's a chance to see ..."
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book4-test1-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–19",
+      "instruction": "For each question, write the correct answer in the gap. Write one or two words or a number or a date or a time.",
+      "audioUrl": "/catalog/listening/pet-b1-book4-test1/part3.mp3",
+      "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-14",
+          "number": 14,
+          "type": "gap-fill",
+          "prompt": "Plymouth Sea Life Centre - COST - Adults",
+          "options": [],
+          "answer": "£3.70",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-15",
+          "number": 15,
+          "type": "gap-fill",
+          "prompt": "and 26 December. - FOR CHILDREN - Special quiz. Animals are fed every",
+          "options": [],
+          "answer": "hour",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-16",
+          "number": 16,
+          "type": "gap-fill",
+          "prompt": "Special quiz. Animals are fed every (15) ... from 9.30 am. Slide and",
+          "options": [],
+          "answer": "video",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-17",
+          "number": 17,
+          "type": "gap-fill",
+          "prompt": "shows from 10.00 am. - GROUPS - Guided tours available - ask at the",
+          "options": [],
+          "answer": "information desk",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-18",
+          "number": 18,
+          "type": "gap-fill",
+          "prompt": "the (17) ... . - NEW ATTRACTION - Walk through the big",
+          "options": [],
+          "answer": "tunnel",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-19",
+          "number": 19,
+          "type": "gap-fill",
+          "prompt": "gh the big (18) ... made of glass. - REFRESHMENTS - Family area sells",
+          "options": [],
+          "answer": "snack",
+          "explanation": "",
+          "ttsText": "Man: ... and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary? Woman: Well, it's an extremely exciting place. There are so many things to see and everything is enjoyable as well as al. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It's open every day of the year except the 25th and 26th of December. Special attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest. Every morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you've seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive. The latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming - sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it's really amazing for adults too! When you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there's also a souvenir shop selling all kinds of things connected with the sea. I warmly recommend this visit; for more information phone 01743 564219.",
+          "wordLimit": 3
+        }
+      ]
+    },
+    {
+      "id": "catalog-listening-pet-b1-book4-test1-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 20–25",
+      "instruction": "For each question, choose the correct answer.",
+      "audioUrl": "/catalog/listening/pet-b1-book4-test1/part4.mp3",
+      "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list.",
+      "questions": [
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-20",
+          "number": 20,
+          "type": "multiple-choice",
+          "prompt": "This will be the Sanchez family's first trip to England",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-21",
+          "number": 21,
+          "type": "multiple-choice",
+          "prompt": "Michael suggests sightseeing in London",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-22",
+          "number": 22,
+          "type": "multiple-choice",
+          "prompt": "The Sanchez children are teenagers",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-23",
+          "number": 23,
+          "type": "multiple-choice",
+          "prompt": "Jane has been to the car museum",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "A",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-24",
+          "number": 24,
+          "type": "multiple-choice",
+          "prompt": "Michael thinks everyone enjoys visiting museums",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        },
+        {
+          "id": "catalog-listening-pet-b1-book4-test1-q-25",
+          "number": 25,
+          "type": "multiple-choice",
+          "prompt": "Jane and Michael have bought tickets for the tennis competition",
+          "options": [
+            {
+              "id": "A",
+              "label": "YES"
+            },
+            {
+              "id": "B",
+              "label": "NO"
+            }
+          ],
+          "answer": "B",
+          "explanation": "",
+          "ttsText": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year? Michael: Yeah, the Sanchez family. Jane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions? Michael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open top buses and see everything from there. Jane: That's a great idea. Do you think the children will like that? Michael: How old are they? Jane: One's 12 and the other's nine. Michael: That should be okay then. What about a trip to the car museum at Beaulieu on another day? Jane: Oh no, I found that car museum so boring. I don't think any of them would like that. Michael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it? Jane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something. Michael: I know, there's a big open air pop and jazz festival in Southampton. Do you think they'd like that? Jane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you? Michael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year. Jane: I'm sure we could, but I wonder if the family like tennis. Michael: I don't know ... so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything. Jane: Brilliant! Let's start the list."
+        }
+      ]
+    }
+  ],
+  "catalogSlug": "pet-b1-book4-test1",
+  "catalogBase": "/catalog/listening/pet-b1-book4-test1"
+}

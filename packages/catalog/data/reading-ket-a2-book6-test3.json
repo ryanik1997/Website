@@ -1,0 +1,832 @@
+{
+  "id": "catalog-reading-ket-a2-book6-test3",
+  "title": "KET A2 Reading — Book 6 — Test 3",
+  "durationMinutes": 60,
+  "bandHint": "A2 Key Reading & Writing — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–6",
+      "passageTitle": "PART 1 — Signs and messages",
+      "passage": [
+        {
+          "text": "[1] Hi Jon,\nSorry to hear you can't make today's meeting. Shall we try for tomorrow? What about after the business lunch at 3.00 p.m.?\nHank"
+        },
+        {
+          "text": "[2] DO NOT ENTER!\nStaff and business visitors only.\nNo customers past this sign."
+        },
+        {
+          "text": "[3] To\n: Janet\nFrom\n: Tina\nDear Janet,\nMichaers sick. Could you take notes at the meeting? I know you’re busy, so it's OK to say no.\nRegards,\nTina"
+        },
+        {
+          "text": "[4] FOR SALE: PIANO\nPerfect working order\nBeautiful sound\nSome small marks\nCall: 0777654321"
+        },
+        {
+          "text": "[5] Hi Sissie,\nGuess what! Cindy's coming back to town!\nShe's arriving at 5 and then we're getting something to eat. Want to join us?\nTracy"
+        },
+        {
+          "text": "[6] ZOO\nUnder 14s have to be with an adult. School groups must take guided tour."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-1-g0",
+          "range": "Questions 1–6",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Hi Jon,\nSorry to hear you can't make today's meeting. Shall we try for tomorrow? What about after the business lunch at 3.00 p.m.?\nHank",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hank is inviting Jon to a business lunch."
+                },
+                {
+                  "id": "B",
+                  "label": "Hank is busy today and wants to change the meeting time."
+                },
+                {
+                  "id": "C",
+                  "label": "Hank is suggesting a new time for the meeting."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "DO NOT ENTER!\nStaff and business visitors only.\nNo customers past this sign.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Nobody can enter here."
+                },
+                {
+                  "id": "B",
+                  "label": "Some people can enter here."
+                },
+                {
+                  "id": "C",
+                  "label": "Customers can go past this sign."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "To\n: Janet\nFrom\n: Tina\nDear Janet,\nMichaers sick. Could you take notes at the meeting? I know you’re busy, so it's OK to say no.\nRegards,\nTina",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Janet is busy and cannot take notes at the meeting."
+                },
+                {
+                  "id": "B",
+                  "label": "Michael is sick and cannot take notes at the meeting."
+                },
+                {
+                  "id": "C",
+                  "label": "Tina thinks Janet can take notes at the meeting."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "FOR SALE: PIANO\nPerfect working order\nBeautiful sound\nSome small marks\nCall: 0777654321",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The piano is nearly as good as new."
+                },
+                {
+                  "id": "B",
+                  "label": "The piano is as beautiful as a new one."
+                },
+                {
+                  "id": "C",
+                  "label": "Someone will deliver the piano if you call this number."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Hi Sissie,\nGuess what! Cindy's coming back to town!\nShe's arriving at 5 and then we're getting something to eat. Want to join us?\nTracy",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Cindy is coming to town for the first time."
+                },
+                {
+                  "id": "B",
+                  "label": "Tracy and Sissie are getting something to eat at five."
+                },
+                {
+                  "id": "C",
+                  "label": "Tracy is inviting Sissie for a meal."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "ZOO\nUnder 14s have to be with an adult. School groups must take guided tour.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A fourteen-year-old cannot go to the zoo without an adult."
+                },
+                {
+                  "id": "B",
+                  "label": "A school group cannot visit the zoo with a guide."
+                },
+                {
+                  "id": "C",
+                  "label": "A school group can only visit the zoo if they have a tour."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 7–13",
+      "passageTitle": "PART 2 — Matching",
+      "passage": [
+        {
+          "label": "Amy",
+          "text": "I live in New York and I love it! It has over eight million people who speak 800 different languages. 60 million visitors come here every year. My favourite way to get around is on foot, especially to places such as Times Square, one of the most famous and popular tourist sights. You get the feel of New York here. From there it's only a ten-minute walk to Hell's Kitchen, where you can get delicious food from all over the world."
+        },
+        {
+          "label": "Bao",
+          "text": "I'm from Shanghai, the biggest city in China. 24 million people live here. It's the second most popular city for tourists in China. The Bund is a great place to visit; you can see historical buildings and modern futuristic buildings, and you can enjoy the view if you take a boat tour along the river. I love going to Chenghuanmiao Old Street, where you can eat food prepared on the street. Both local people and visitors love it!"
+        },
+        {
+          "label": "Nigel",
+          "text": "I was born in London and I don't think I'll ever leave! It's the economic, shopping, cultural and financial centre of the UK, and millions of tourists come here every year. London is famous for its red buses and tourists love using them to get around. Many companies offer bus tours around the most interesting places to visit. You can also see the city if you take a boat tour through the centre of the city. My favourite place is Soho because there are lots of restaurants and exciting things to do and see there."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-2-g0",
+          "range": "Questions 7–13",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Who likes to eat food cooked outside?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Whose city is famous for its transport?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q9",
+              "number": 9,
+              "type": "multiple-choice",
+              "prompt": "Who describes a part of their city where you can see old and new things?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q10",
+              "number": 10,
+              "type": "multiple-choice",
+              "prompt": "Whose city is not the most popular in the country for tourists?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Who likes to eat dishes from different countries?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Who describes more than one way to see the sights in their city?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "Nigel"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-2-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "Who likes walking around their city?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Amy"
+                },
+                {
+                  "id": "B",
+                  "label": "Bao"
+                },
+                {
+                  "id": "C",
+                  "label": "My City Amy I live in New York and I love it! It has over eight million people who speak 800 different languages. 60 million visitors come here every year. My favourite way to get around is on foot, especially to places such as Times Square, one of the most famous and popular tourist sights. You get the feel of New York here. From there it's only a ten-minute walk to Hell's Kitchen, where you can get delicious food from all over the world. Bao I'm from Shanghai, the biggest city in China. 24 million people live here. It's the second most popular city for tourists in China. The Bund is a great place to visit; you can see historical buildings and modern futuristic buildings, and you can enjoy the view if you take a boat tour along the river. I love going to Chenghuanmiao Old Street, where you can eat food prepared on the street. Both local people and visitors love it! Nigel I was born in London and I don't think I'll ever leave! It's the economic, shopping, cultural and financial centre of the UK, and millions of tourists come here every year. London is famous for its red buses and tourists love using them to get around. Many companies offer bus tours around the most interesting places to visit. You can also see the city if you take a boat tour through the centre of the city. My favourite place is Soho because there are lots of restaurants and exciting things to do and see there."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 14–18",
+      "passageTitle": "Star makes Simon's restaurant the best in town",
+      "passage": [
+        {
+          "text": "Star makes Simon's restaurant the best in town"
+        },
+        {
+          "text": "One, two or even three Michelin stars are given to restaurants with exceptionally good food, and chef Simon Jones has just won one for his restaurant, The Tiger. It is the first time that a restaurant in Moreton has got a Michelin star and Simon is delighted. He is very proud of it, and he is having a party for friends, family and customers. Tm so pleased with the star,' Simon says. 'It shows how much we have improved in the past ten years since we started the business.'\nMichelin stars are not easy to win and Simon hopes it will help his business. The Tiger is a fish and seafood restaurant, which makes the star even more special. The restaurant is over 80 kilometres from the sea, so the fish and seafood have to travel a long way by train every day.\nSimon's wife, Angela, has been at the restaurant since its beginning. She and Simon met when she got a job doing the washing-up. Five years ago, she left the kitchen and now she takes bookings and shows customers to their tables.\n'It's great news, and not only for us!' Angela says. 'Hopefully, the Michelin star will bring a lot of new visitors into the area. If our business grows, there will be more jobs in the town for local people and they won't have to leave to find work.'\nSimon and Angela play an active part in local life, visiting schools to share their business experience and offering work experience to school children."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-3-g0",
+          "range": "Questions 14–18",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "The Tiger",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "is a place where stars like to eat."
+                },
+                {
+                  "id": "B",
+                  "label": "was the first restaurant in Moreton."
+                },
+                {
+                  "id": "C",
+                  "label": "is not a new restaurant."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "It was very difficult for Simon’s fish restaurant to win a star",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "because fish and seafood are not easy to cook."
+                },
+                {
+                  "id": "B",
+                  "label": "because he has to travel long distances."
+                },
+                {
+                  "id": "C",
+                  "label": "because it is so far from the sea."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-3-q16",
+              "number": 16,
+              "type": "multiple-choice",
+              "prompt": "Angela",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "worked in the kitchen when she started at the restaurant."
+                },
+                {
+                  "id": "B",
+                  "label": "got a job doing the washing-up five years ago."
+                },
+                {
+                  "id": "C",
+                  "label": "left the restaurant five years ago."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-3-q17",
+              "number": 17,
+              "type": "multiple-choice",
+              "prompt": "The star for the restaurant is good because",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "more local people will eat at the restaurant."
+                },
+                {
+                  "id": "B",
+                  "label": "a lot of visitors come to Moreton."
+                },
+                {
+                  "id": "C",
+                  "label": "it can help the business get bigger."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-3-q18",
+              "number": 18,
+              "type": "multiple-choice",
+              "prompt": "Simon and Angela",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "visit schools so that their business can grow."
+                },
+                {
+                  "id": "B",
+                  "label": "give opportunities to local children."
+                },
+                {
+                  "id": "C",
+                  "label": "play with local children."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 19–24",
+      "passageTitle": "Helen Keller",
+      "passage": [
+        {
+          "text": "Helen Keller"
+        },
+        {
+          "text": "Helen Keller was born in the USA in 1880. When she was nineteen months old she was very sick and nearly (19) ......... . She got better, but she lost the use of her eyes and ears, so she could not see or (20) ......... . Her (21) ......... life was very difficult. She couldn't go to school with other children, but her parents (22) ......... a teacher for her. When she was seven, she finally began learning to (23) ......... sign language, and her life changed.\nHelen studied hard and went to university. This was an amazing achievement for a person like Helen. As an adult, she spent a lot of time talking to people about her life.\nHelen became (24) ......... during her lifetime and there are many books and films about her."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-4-g0",
+          "range": "Questions 19–24",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q19",
+              "number": 19,
+              "type": "multiple-choice",
+              "prompt": "Gap (19)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "finished"
+                },
+                {
+                  "id": "B",
+                  "label": "passed"
+                },
+                {
+                  "id": "C",
+                  "label": "died"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q20",
+              "number": 20,
+              "type": "multiple-choice",
+              "prompt": "Gap (20)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "hear"
+                },
+                {
+                  "id": "B",
+                  "label": "listen"
+                },
+                {
+                  "id": "C",
+                  "label": "watch"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap (21)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "young"
+                },
+                {
+                  "id": "B",
+                  "label": "child"
+                },
+                {
+                  "id": "C",
+                  "label": "early"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap (22)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "found"
+                },
+                {
+                  "id": "B",
+                  "label": "looked"
+                },
+                {
+                  "id": "C",
+                  "label": "caught"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap (23)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "use"
+                },
+                {
+                  "id": "B",
+                  "label": "have"
+                },
+                {
+                  "id": "C",
+                  "label": "be"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-4-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap (24)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "favourite"
+                },
+                {
+                  "id": "B",
+                  "label": "famous"
+                },
+                {
+                  "id": "C",
+                  "label": "known"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "PART 5 — Open cloze",
+      "passage": [
+        {
+          "label": "From",
+          "text": "Molly"
+        },
+        {
+          "label": "To",
+          "text": "Michael"
+        },
+        {
+          "text": "From:\nMolly\nTo:\nMichael\nDear Michael,\n0\n) ............ am writing to say a big thank you. It was very kind of you and your wife to invite us (25) ............ your home. You have such (26) ............ lovely place! It was wonderful to meet your family. Our daughters loved playing football with your children (27) ........... . Saturday afternoon. The meal in (28) ............ evening was delicious.\nI would (29) ............ to invite you and your family to come and stay with us one weekend soon. We are very busy this month, but what about one weekend (30) ............ month?\nMolly"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-5-g0",
+          "range": "Questions 25–30",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "Gap (25)",
+              "options": [],
+              "answer": "to",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "Gap (26)",
+              "options": [],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap (27)",
+              "options": [],
+              "answer": "on",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap (28)",
+              "options": [],
+              "answer": "the",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap (29)",
+              "options": [],
+              "answer": "like",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-5-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap (30)",
+              "options": [],
+              "answer": "next",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Question 31",
+      "passageTitle": "PART 6 — Writing email",
+      "passage": [
+        {
+          "text": "You want to invite your English friend, Hannah, to your birthday party.\nWrite her an email.\nIn your email:\n•   invite Hannah to your birthday party\n•   say when and where it is\n•   tell her if she should bring anything."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-6-g0",
+          "range": "Question 31",
+          "instruction": "Write 25 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-6-q31",
+              "number": 31,
+              "type": "writing-task",
+              "prompt": "Write your email in the box on the right.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-ket-a2-book6-test3-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Question 32",
+      "passageTitle": "PART 7 — Writing story",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/ket-a2-book6-test3/part7-page.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-ket-a2-book6-test3-part-7-g0",
+          "range": "Question 32",
+          "instruction": "Write 35 words or more.",
+          "type": "sentence-completion",
+          "questions": [
+            {
+              "id": "catalog-reading-ket-a2-book6-test3-part-7-q32",
+              "number": 32,
+              "type": "writing-task",
+              "prompt": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+              "options": [],
+              "answer": "",
+              "explanation": "Writing — graded by AI.",
+              "answerConfidence": "key",
+              "minWords": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "a2",
+  "catalogSlug": "ket-a2-book6-test3",
+  "catalogBase": "/catalog/reading/ket-a2-book6-test3"
+}
