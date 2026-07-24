@@ -5243,6 +5243,7 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 
 ## 2026-07-24 — Vocab TBT optimization Task 4: preview verification
 
+- Task 4 verification/report commit: `8ef8aa8` (documentation only; no application code changed).
 - Verified branch HEAD `fff751f` with the three optimization commits `ec3082c`, `01081ca`, and `fff751f`. Final preview deployment `dpl_2322TaJke4fFELH8nBiRMkPvwFDU` is READY at `https://ryanenglishv2-56lvwfgh6-ryanenglish.vercel.app`.
 - Deployment Protection remained enabled. QA used the configured Vercel automation bypass; no protection setting was disabled.
 - Preview initially rendered a blank page because `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` existed only for Production. Both public Vite runtime values were added to the Preview environment, then the same source deployment was rebuilt successfully. No backend secret was copied.
