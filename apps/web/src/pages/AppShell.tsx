@@ -40,6 +40,7 @@ import { useSrsReviewPopup } from '../features/vocab/reminder/useSrsReviewPopup'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
 import LegalFooter from '../components/LegalFooter'
 import { LanguageProvider, useI18n } from '../lib/language'
+import { useAdminPerformanceTracking } from '../features/admin/useAdminPerformanceTracking'
 import { getAppShellBackdropMode } from './appShellBackdrop'
 import './appShellBackdrop.css'
 
@@ -151,6 +152,7 @@ function AppShellInner() {
     () => db.settings.get('is_admin').then(s => s?.value as boolean ?? false),
     [],
   )
+  useAdminPerformanceTracking(location.pathname, isAdmin === true)
   const plan = useLiveQuery(
     () => db.settings.get('plan').then(s => (s?.value as string) ?? 'free'),
     [],
