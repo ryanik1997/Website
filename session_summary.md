@@ -3,6 +3,8 @@
 **Ngày:** 2026-07-22
 
 ### Đã hoàn thành
+- **Khôi phục AppShell backdrop bị thiếu trên main:** Đối chiếu lịch sử `4e409f3` xác nhận nhánh hiện tại thiếu `appShellBackdrop.ts`, CSS và theme tokens dù summary cũ ghi đã có. Phục hồi grid 32px + 3 ribbon phát sáng cho Home/Writing/Listening/Exam/Sentence/Settings/Admin và grid-only cho Vocab/các Writing study route, ghép vào AppShell hiện tại mà không đụng dữ liệu. Audit bản Admin Performance xác nhận chỉ ghi key `sessionStorage`, không gọi clear/delete IndexedDB; TypeScript PASS, backdrop + performance tests 6/6 PASS, `git diff --check` PASS.
+- **Admin Performance Monitor:** Thêm tab `Đo hiệu năng` tại `/app/admin`, chỉ được mount/quan sát sau khi `is_admin = true`. Admin có thể bắt đầu phiên, chuyển qua các route bằng sidebar, quay lại dừng đo và sao chép JSON. Báo cáo lưu tạm trong `sessionStorage`, không upload server; gồm LCP/INP/CLS/FCP/TTFB, DOM/load timing, long tasks, resource count/transfer size và số liệu từng route. Đồng thời chặn fetch danh sách user/payment trước khi quyền Admin được xác nhận. TypeScript PASS, scoped tests 3/3 PASS, production build PASS; build baseline vẫn cảnh báo các chunk >500 kB (`index`, `pdfjs`, `builtinExams`).
 - **Responsive trang đăng nhập MacBook:** Thu card từ 40.5rem xuống 36rem (34rem ở viewport cao ≤900px), dùng căn giữa an toàn, compact spacing/control cho màn laptop, giảm mascot mặt trời và ẩn ở 641–960px để không bị cắt/lấn form. Fixture Chrome xác nhận card + mặt trời nằm trọn ở 1280×800 và 1440×900; 960×800 ẩn mặt trời đúng thiết kế. `git diff --check` PASS. TypeScript/dev server chưa chạy được do node_modules hiện thiếu/sai package types (Rollup, Supabase, Testing Library, Node types), không liên quan CSS.
 - **Cloudflare R2:** Upload 751 MP3 files (4.19 GB). Public: `https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/...`
 - **protectedMedia.ts:** Thêm R2 routing cho catalog audio MP3 trong production.
@@ -21,6 +23,8 @@
 - `apps/web/index.html`, `apps/web/src/styles/globals.css`, `apps/web/src/pages/AppShell.tsx`, `apps/web/src/pages/landing/LandingPage.tsx`, `apps/web/src/features/exam/examHub.css`, `apps/web/src/features/exam/listeningTest.css`, `apps/web/src/features/exam/useAudioSync.ts`, `apps/web/src/features/exam/audioSyncUtils.ts`, `apps/web/src/features/vocab/vocabLibrary.css`
 
 ### Lỗi còn tồn tại
+- User báo dữ liệu local không còn hiển thị. Bản vá Admin Performance không xóa dữ liệu; cần kiểm tra đang dùng đúng `http://localhost:5173` (không phải `127.0.0.1`/port khác) và đúng tài khoản. Code hiện hữu chỉ clear toàn bộ Dexie khi sign-out hoặc đổi sang user ID khác (`AuthContext.tsx` + `clearLocalUserData.ts`).
+- Cần Admin chạy phiên đo thực tế trên localhost/production và gửi JSON để xác định bottleneck; số liệu LCP/FCP chính xác nhất khi hard refresh trước khi bắt đầu phiên.
 - Google login cần smoke production + localhost.
 - Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
 - Audio Supabase cũ đã mất (R2 đã có đủ).
@@ -29,7 +33,7 @@
 Khi user yêu cầu "deploy" sau khi làm tính năng/fix → **deploy lên Vercel production trước**, rồi **cập nhật session_summary.md** sau. Không làm ngược lại.
 
 ### Next session start prompt
-Khôi phục node_modules (`pnpm install --ignore-scripts`), chạy app để smoke trang login responsive ở 1280×800/1440×900, rồi smoke authenticated production Google login + audio R2 + listening manual question navigation (auto-sync đã tắt).
+Mở `/app/admin` → `Đo hiệu năng`, hard refresh, bắt đầu đo rồi đi qua các route bị lag; quay lại dừng đo và gửi JSON. Phân tích số liệu cùng baseline build hiện có trước khi tối ưu chunk/query/render. Sau đó smoke authenticated production Google login + audio R2 + listening manual question navigation (auto-sync đã tắt).
 
 ---
 ## 2026-07-23 - Nen video nen landing page

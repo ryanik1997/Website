@@ -6,6 +6,7 @@ import { supabase } from '../../lib/supabase'
 import { db } from '@ryan/db'
 import UserAvatar from '../../components/UserAvatar'
 import AdminPublishExamsPanel from './AdminPublishExamsPanel'
+import AdminPerformancePanel from './AdminPerformancePanel'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -37,7 +38,7 @@ interface PaymentRequest {
   activated_at: string | null
 }
 
-type AdminTab = 'users' | 'requests' | 'exams'
+type AdminTab = 'users' | 'requests' | 'exams' | 'performance'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -483,6 +484,7 @@ export default function AdminPage() {
             { id: 'users' as const, label: 'Danh sách user' },
             { id: 'requests' as const, label: 'Yêu cầu kích hoạt', badge: pendingCount },
             { id: 'exams' as const, label: 'Publish nội dung' },
+            { id: 'performance' as const, label: 'Đo hiệu năng' },
           ]).map(t => (
             <button
               key={t.id}
@@ -547,7 +549,9 @@ export default function AdminPage() {
 
       {/* Table */}
       <div className="flex-1 overflow-y-auto">
-        {tab === 'exams' ? (
+        {tab === 'performance' ? (
+          <AdminPerformancePanel />
+        ) : tab === 'exams' ? (
           <AdminPublishExamsPanel />
         ) : tab === 'requests' ? (
           requestsLoading ? (

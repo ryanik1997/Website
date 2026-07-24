@@ -2,16 +2,14 @@
 
 ## ⚠️ Đọc trước khi làm bất cứ điều gì
 
-**Đọc `session_summary.md` ngay khi bắt đầu session — chỉ đọc phần đầu tiên (từ đầu đến dòng `---` đầu tiên).**
-
-File rất lớn (>5000 dòng), **không đọc hết**. Chỉ đọc phần `>>> TRẠNG THÁI GẦN NHẤT <<<` ở đầu file.
+**Đọc `session_summary.md` ngay khi bắt đầu session.**
 
 ```
-Read: session_summary.md (first 50 lines only — stop at the first `---`)
+Read: session_summary.md
 ```
 
-**Sau mỗi bản vá / tính năng hoàn chỉnh**, cập nhật phần `>>> TRẠNG THÁI GẦN NHẤT <<<` ở đầu `session_summary.md`:
-- Mục "Đã hoàn thành" → thêm việc mới
+**Sau mỗi bản vá / tính năng hoàn chỉnh**, cập nhật `session_summary.md`:
+- Mục "Việc đã hoàn thành" → thêm việc mới
 - Mục "Lỗi còn tồn tại" → bỏ lỗi đã fix, thêm lỗi mới
 - Mục "Next session start prompt" → cập nhật context mới nhất
 
@@ -52,7 +50,7 @@ pnpm deploy:prod                      # db:push + vercel deploy --prod
 3. **Không hardcode màu** (`#fff`, `#000`) — dùng biến
 4. **Bump version** trong package.json khi release
 5. **Cập nhật session_summary.md** sau mỗi session
-6. **Deploy rule:** Khi user nói "deploy" → deploy lên Vercel production trước, rồi update session_summary.md sau. Không làm ngược lại.
+6. **Default skill:** Use the i-have-adhd output style by default — lead with the next action, number multi-step tasks, no preamble/recap/closers.
 
 ---
 
