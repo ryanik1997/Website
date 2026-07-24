@@ -15,6 +15,7 @@ import {
 } from '../features/vocab/vocabUnitKind'
 import { useI18n } from '../lib/language'
 import SrsReviewReminderModal from '../features/vocab/reminder/SrsReviewReminderModal'
+import { ensurePresetVocabSeed } from '../features/vocab/ensurePresetVocabSeed'
 import '../features/vocab/vocabLibrary.css'
 
 const UNIT_TABS: { id: VocabUnitKind; label: string }[] = [
@@ -51,10 +52,8 @@ export default function VocabularyPage() {
   }, [])
 
   useEffect(() => {
-    // Dynamic import: tránh kéo ~7MB JSON seed vào critical path của route /app/vocab
-    // (static import từng làm Vite/HMR serve module rỗng → React.lazy → trang trắng).
-    void import('../features/vocab/vocabSeedDecks')
-      .then(m => m.seedPresetDecks())
+    // Check lightweight metadata before loading the ~6.4 MB decoded seed bundle.
+    void ensurePresetVocabSeed()
       .catch(err => console.warn('[vocab] seedPresetDecks failed', err))
     void import('../features/vocab/examVocabDecks')
       .then(m => m.seedExamVocabDecks())

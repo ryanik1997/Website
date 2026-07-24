@@ -5,6 +5,7 @@
  *   node scripts/gen-preset-phrase-100.mjs
  */
 import type { PresetGroupId } from '../vocabConstants'
+import { PRESET_VOCAB_SEED_VERSION } from '../vocabSeedVersion'
 import singles from './preset-singles.json'
 import phrases from './preset-phrases.json'
 
@@ -18,8 +19,8 @@ export type PresetSeedCard = {
   ipaUK?: string
 }
 
-/** Bump when seed content expands. */
-export const PRESET_VOCAB_CARDS_VERSION = 5
+/** @deprecated Use PRESET_VOCAB_SEED_VERSION from vocabSeedVersion. */
+export const PRESET_VOCAB_CARDS_VERSION = PRESET_VOCAB_SEED_VERSION
 
 function mergeGroup(a: PresetSeedCard[] = [], b: PresetSeedCard[] = []): PresetSeedCard[] {
   return [...a, ...b]

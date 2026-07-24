@@ -5213,3 +5213,11 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - New integration/regression tests: 7/7 PASS. Full web suite: 195/197 PASS; two unrelated baseline assertions remain stale (`SIGN_TTL_SEC` expects 60 vs current 1,800; Cambridge catalog expects 47 vs current 48). TypeScript and production build PASS.
 - Baseline A/B confirmed by stashing every Phase 3 file and rerunning only those two tests on the old code: both failed identically (TTL expected 60 vs 1,800; catalog expected 47 vs 48). They predate and are independent of the performance-tool fix; review them as separate maintenance issues.
 - Local authenticated Playwright smoke: 12 visits / 11 unique paths, all durations about 3.5–3.7 s; clipboard JSON and route-table screenshot captured. Production deployment `dpl_8gAmhPLgMY9JqzLhS6jyDxQMX4SZ` is READY and aliased to `https://ryanenglishv2.vercel.app`. Authenticated production hard-reload smoke confirmed 6 separate visits / 5 unique paths (`admin → home → vocab → writing → listening → admin`), with independent 4.2–7.1 s durations instead of cumulative timing; production screenshot captured at `artifacts/admin-performance-routes-production.png`.
+
+## 2026-07-24 — Vocab TBT optimization Task 1: lazy versioned seed
+
+- `/app/vocab` now reads the existing Dexie `settings` key `preset_vocab_cards_version` before importing preset data. Browsers already at seed version 5 skip the 6.4 MB decoded `vocabSeedDecks` bundle and all routine seed/dedupe work.
+- The version/key live in lightweight `vocabSeedVersion.ts`; stale or missing versions dynamically load `vocabSeedDecks`, complete seeding, then persist version 5. No new object store or Dexie schema bump was needed.
+- Regression tests cover current, stale, and failed seed states: 3/3 PASS. TypeScript and production build PASS; output keeps `VocabularyPage` (~114 KB) separate from `vocabSeedDecks` (~6.4 MB).
+- Full web suite: 198/200 PASS. The same two pre-existing failures remain: signed URL TTL expects 60 vs current 1,800, and Cambridge catalog expects 47 vs current 48.
+- No deployment was made for Task 1 alone. Next step: Task 2, merge `reviseDueCount` and deck stats into one IndexedDB query/aggregation.

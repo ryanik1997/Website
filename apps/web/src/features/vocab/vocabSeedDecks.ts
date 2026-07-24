@@ -1,6 +1,7 @@
 import { cardRepo, db, settingsRepo, type Card, type Deck } from '@ryan/db'
 import { PRESET_GROUP_IDS, type PresetGroupId } from './vocabConstants'
 import { PRESET_VOCAB_CARDS_VERSION, PRESET_VOCAB_SEED } from './seedData/presetVocabCards'
+import { PRESET_VOCAB_SEED_VERSION_KEY } from './vocabSeedVersion'
 import {
   isStablePresetCardId,
   isStablePresetDeckId,
@@ -18,8 +19,6 @@ export {
   stablePresetDeckId,
 } from './presetIds'
 export type { PresetGroupId } from './vocabConstants'
-
-const PRESET_VOCAB_CARDS_VERSION_KEY = 'preset_vocab_cards_version'
 
 export interface SeedDeckDef {
   name: string
@@ -628,7 +627,7 @@ export async function seedPresetCards(): Promise<{ added: number; patched: numbe
     }
   }
 
-  await settingsRepo.putSetting(PRESET_VOCAB_CARDS_VERSION_KEY, PRESET_VOCAB_CARDS_VERSION)
+  await settingsRepo.putSetting(PRESET_VOCAB_SEED_VERSION_KEY, PRESET_VOCAB_CARDS_VERSION)
   return { added: cardsToPut.length, patched: cardsToPatch.length }
 }
 
