@@ -33,16 +33,19 @@
 
 .vocab-library-page .vocab-deck-grid { grid-template-columns: 1fr; gap: 1rem; }
 @media (min-width: 700px) { .vocab-library-page .vocab-deck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.vocab-deck-virtual-list { width: 100%; }
 
 .vocab-library-page .vocab-deck-card {
-  min-height: 9.5rem;
+  height: 9.5rem;
   border: 3px solid var(--text-primary) !important;
   border-radius: 1rem;
   background: var(--bg-card);
-  box-shadow: .3rem .3rem 0 var(--text-primary) !important;
+  box-shadow: .1rem .1rem 0 var(--text-primary) !important;
   overflow: visible;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
-.vocab-library-page .vocab-deck-card:hover { transform: translate(-.18rem, -.18rem); box-shadow: .5rem .5rem 0 var(--text-primary) !important; }
+.vocab-library-page .vocab-deck-card:hover { transform: translate(-.08rem, -.08rem); box-shadow: .2rem .2rem 0 var(--text-primary) !important; }
 .vocab-library-page .vocab-deck-card__surface,
 .vocab-library-page .vocab-deck-card__orb,
 .vocab-library-page .vocab-deck-card__sheen,
