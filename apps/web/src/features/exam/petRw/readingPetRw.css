@@ -150,15 +150,12 @@
 .pet-rw-shell.is-part-1 .ket-rw-q-prompt {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 10px;
   margin: 0 0 8px;
   font-size: 16px;
   line-height: 18px;
   font-weight: 400;
-}
-
-.pet-rw-shell.is-part-1 .ket-rw-q-prompt > span:last-child {
-  display: none;
+  flex-wrap: wrap;
 }
 
 .pet-rw-shell.is-part-1 .ket-rw-q-num {

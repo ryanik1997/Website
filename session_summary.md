@@ -17,6 +17,8 @@ o-highlight-ranges) kèm oot, 	ext, collapsed, angeCount trong DEV mode.
 **NgÃ y:** 2026-07-25
 
 ### ÄÃ£ hoÃ n thÃ nh
+- **PET B1 Reading note/highlight:** ÄÃ£ báº­t/khÃ³a láº¡i kháº£ nÄƒng quÃ©t 1 tá»«/1 cá»¥m tá»« trÃªn PET Reading Ä‘á»ƒ má»Ÿ toolbar Note / Highlight. Sá»­a shell CSS Part 1 Ä‘á»ƒ prompt text khÃ´ng cÃ²n bá»‹ áº©n, nÃªn cÃ³ thá»ƒ bá»™i Ä‘en text cÃ¢u há»i vÃ  tÃ´ sÃ¡ng/ghi chÃº. ThÃªm test pps/web/src/features/exam/__tests__/petRwSelectionToolbar.test.tsx xÃ¡c nháº­n quÃ©t text prompt PET sẽ hiá»‡n toolbar vÃ  má»Ÿ note editor. pnpm --filter web exec tsc --noEmit PASS; scoped vitest PASS.
+
 - **PET B1 Reading shell fix navigation pills & state reset:** Sá»­a 4 bug chÃ­nh: (1) Fix `useEffect` reset loop báº±ng `prevPartIdRef` Ä‘á»ƒ chá»‰ validate khi Part thay Ä‘á»•i; (2) Fix `handleSelectQuestion` dÃ¹ng `useRef` thay vÃ¬ `activeQuestionId` trong deps; (3) Fix `goAdjacentQuestion` chá»‰ Ä‘iá»u hÆ°á»›ng trong Part hiá»‡n táº¡i (khÃ´ng nháº£y cross-Part); (4) Äá»•i `PetRwFooter` props tá»« `exam` sang `parts` Ä‘á»ƒ truyá»n Ä‘Ãºng dá»¯ liá»‡u Ä‘Ã£ sanitize. ThÃªm debug logs táº¡m, Phase 2 CSS cho mÃ n >=1700px (typography, pills, image, controls). Regression tests 12 tests (petRwFooter.test.tsx) dÃ¹ng fireEvent. TypeScript PASS.
 - **PET B1 Reading Part 4 two-way DnD verified:** Code da hoan chinh: Part4DragPayload type (bank/gap sources), writePart4DragPayload/readPart4DragPayload helpers, InlineGapDrop voi dragEnabled + canDragFilled + is-draggable + is-dragging, assignGapLetter voi prev clearing, part4DragPayload/isPart4BankDropActive state + clearPart4DragState, bank aside la drop target voi onDragOver/onDrop chi chap nhan gap-source. CSS: is-draggable cursor, is-dragging opacity, is-return-drop-active border highlight, review mode lock. **9/9 Part 4 tests pass, 56/56 petRw tests pass, TypeScript clean.**
 
@@ -5278,5 +5280,6 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Final production HEAD includes follow-up `a07a812` (`fix: reduce vocab card shadow offset, fix grid gap, fix virtual list width`). Deployment `dpl_E1z8baUYTowNmkKhBXtFTPSwzYKa` is READY and aliased to `https://ryanenglishv2.vercel.app`.
 - Authenticated production verification: virtual grid is active, only 15 cards mount in the measured desktop viewport, the `a07a812` 1.6 px shadow is present, and console/page errors are zero.
 - Final production Admin session on `/app/vocab` ran 15.01 seconds with gradual full-list scrolling plus IELTS/All and Single/Phrases changes: `longTaskCount=1`, `longTaskTotalMs=58`, `maxLongTaskMs=58`, and `inpMs=48`. This is below the accepted 200 ms limit, so the vocab optimization task is closed.
+
 
 
