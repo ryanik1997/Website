@@ -38,7 +38,24 @@ export default function CambridgeSelectionToolbar({
   if (!selection) return null
 
   const handleHighlight = () => {
-    onHighlightsChange(addHighlights(highlights, selection.ranges, 'yellow'))
+    if (!selection?.ranges.length) {
+      if (import.meta.env.DEV) {
+        console.error('[CambridgeSelectionToolbar] Missing ranges', selection)
+      }
+      return
+    }
+
+    const nextHighlights = addHighlights(highlights, selection.ranges, 'yellow')
+
+    if (import.meta.env.DEV) {
+      console.debug('[CambridgeSelectionToolbar] Highlight', {
+        ranges: selection.ranges,
+        previous: highlights,
+        next: nextHighlights,
+      })
+    }
+
+    onHighlightsChange(nextHighlights)
     setNoteEditorOpen(false)
     setNoteDraft('')
     onClose()
@@ -57,7 +74,24 @@ export default function CambridgeSelectionToolbar({
   }
 
   const handleSaveNote = () => {
-    onNotesChange(upsertNotesForRanges(notes, selection.ranges, noteDraft))
+    const text = noteDraft.trim()
+
+    if (!text || !selection?.ranges.length) {
+      return
+    }
+
+    const nextNotes = upsertNotesForRanges(notes, selection.ranges, text)
+
+    if (import.meta.env.DEV) {
+      console.debug('[CambridgeSelectionToolbar] Save note', {
+        ranges: selection.ranges,
+        text,
+        previous: notes,
+        next: nextNotes,
+      })
+    }
+
+    onNotesChange(nextNotes)
     setNoteEditorOpen(false)
     setNoteDraft('')
     onClose()
@@ -72,19 +106,27 @@ export default function CambridgeSelectionToolbar({
       }}
       role="toolbar"
       aria-label="Cong cu to sang va ghi chu"
-      onPointerDown={event => event.preventDefault()}
+      onPointerDown={event => event.stopPropagation()}
     >
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        onClick={handleOpenNote}
+        onPointerDown={event => event.stopPropagation()}
+        onClick={event => {
+          event.stopPropagation()
+          handleOpenNote()
+        }}
       >
         Note
       </button>
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        onClick={handleHighlight}
+        onPointerDown={event => event.stopPropagation()}
+        onClick={event => {
+          event.stopPropagation()
+          handleHighlight()
+        }}
       >
         Highlight
       </button>
@@ -100,6 +142,8 @@ export default function CambridgeSelectionToolbar({
             rows={3}
             value={noteDraft}
             placeholder="Nhap ghi chu..."
+            onPointerDown={event => event.stopPropagation()}
+            onClick={event => event.stopPropagation()}
             onChange={event => setNoteDraft(event.target.value)}
             autoFocus
           />
@@ -107,7 +151,11 @@ export default function CambridgeSelectionToolbar({
             <button
               type="button"
               className="cambridge-selection-toolbar__note-btn is-primary"
-              onClick={handleSaveNote}
+              onPointerDown={event => event.stopPropagation()}
+              onClick={event => {
+                event.stopPropagation()
+                handleSaveNote()
+              }}
             >
               Luu note
             </button>
@@ -115,7 +163,9 @@ export default function CambridgeSelectionToolbar({
               <button
                 type="button"
                 className="cambridge-selection-toolbar__note-btn"
-                onClick={() => {
+                onPointerDown={event => event.stopPropagation()}
+                onClick={event => {
+                  event.stopPropagation()
                   setNoteDraft('')
                   onNotesChange(upsertNotesForRanges(notes, selection.ranges, ''))
                   setNoteEditorOpen(false)
@@ -128,7 +178,9 @@ export default function CambridgeSelectionToolbar({
             <button
               type="button"
               className="cambridge-selection-toolbar__note-btn"
-              onClick={() => {
+              onPointerDown={event => event.stopPropagation()}
+              onClick={event => {
+                event.stopPropagation()
                 setNoteEditorOpen(false)
                 setNoteDraft('')
               }}
