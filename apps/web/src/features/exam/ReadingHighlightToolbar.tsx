@@ -78,38 +78,47 @@ export default function ReadingHighlightToolbar({
   const updateToolbar = useCallback(() => {
     const root = rootRef.current
     const selection = window.getSelection()
-    if (!root || !selection || selection.isCollapsed || selection.rangeCount === 0) {
+
+    const reject = (reason: string) => {
+      if (import.meta.env.DEV) {
+        console.debug('[ReadingHighlightToolbar] rejected', {
+          reason,
+          root: Boolean(root),
+          text: selection?.toString(),
+          collapsed: selection?.isCollapsed,
+          rangeCount: selection?.rangeCount,
+        })
+      }
       if (!noteEditorOpen) {
         setToolbar(null)
         setCopied(false)
       }
-      return
     }
 
+    if (!root) return reject('missing-root')
+    if (!selection) return reject('missing-selection')
+    if (selection.isCollapsed) return reject('collapsed')
+    if (selection.rangeCount === 0) return reject('no-range')
+
     const text = selection.toString().trim()
-    if (!text) {
-      if (!noteEditorOpen) setToolbar(null)
-      return
-    }
+    if (!text) return reject('empty-text')
 
     const anchorEl = selection.anchorNode?.parentElement
     const focusEl = selection.focusNode?.parentElement
     if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
-      if (!noteEditorOpen) setToolbar(null)
-      return
+      return reject('outside-zone')
     }
     if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) {
-      if (!noteEditorOpen) setToolbar(null)
-      return
+      return reject('outside-root')
     }
 
     const rect = selection.getRangeAt(0).getBoundingClientRect()
     if (rect.width === 0 && rect.height === 0) {
-      if (!noteEditorOpen) setToolbar(null)
-      return
+      return reject('zero-rect')
     }
 
     const ranges = selectionToHighlightRanges(selection, root)
+    if (!ranges?.length) return reject('no-highlight-ranges')
     pendingRangesRef.current = ranges
 
     // Transcript panel has its own fixed header/scroll area. Place its toolbar
@@ -139,10 +148,12 @@ export default function ReadingHighlightToolbar({
   }, [highlights, noteEditorOpen, onNotesChange, rootRef])
 
   useEffect(() => {
+    document.addEventListener('pointerup', updateToolbar)
     document.addEventListener('mouseup', updateToolbar)
     document.addEventListener('keyup', updateToolbar)
     document.addEventListener('selectionchange', updateToolbar)
     return () => {
+      document.removeEventListener('pointerup', updateToolbar)
       document.removeEventListener('mouseup', updateToolbar)
       document.removeEventListener('keyup', updateToolbar)
       document.removeEventListener('selectionchange', updateToolbar)
@@ -154,31 +165,23 @@ export default function ReadingHighlightToolbar({
   }, [resetKey, clearSelection])
 
   const applyHighlight = useCallback(() => {
-    const root = rootRef.current
-    const selection = window.getSelection()
-    if (!root || !selection) return
-
-    const ranges = selectionToHighlightRanges(selection, root)
-    if (!ranges) return
+    const ranges = pendingRangesRef.current
+    if (!ranges?.length) return
 
     onHighlightsChange(addHighlights(highlights, ranges))
     clearSelection()
-  }, [clearSelection, highlights, onHighlightsChange, rootRef])
+  }, [clearSelection, highlights, onHighlightsChange])
 
   const removeHighlight = useCallback(() => {
-    const root = rootRef.current
-    const selection = window.getSelection()
-    if (!root || !selection) return
-
-    const ranges = selectionToHighlightRanges(selection, root)
-    if (!ranges) return
+    const ranges = pendingRangesRef.current
+    if (!ranges?.length) return
 
     onHighlightsChange(removeHighlights(highlights, ranges))
     if (onNotesChange) {
       onNotesChange(removeNotesInRanges(notes, ranges))
     }
     clearSelection()
-  }, [clearSelection, highlights, notes, onHighlightsChange, onNotesChange, rootRef])
+  }, [clearSelection, highlights, notes, onHighlightsChange, onNotesChange])
 
   const openNoteEditor = useCallback(() => {
     if (!onNotesChange) return
@@ -246,11 +249,8 @@ export default function ReadingHighlightToolbar({
               aria-label={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
               title={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
               onClick={() => {
-                const root = rootRef.current
-                const selection = window.getSelection()
-                if (!root || !selection) return
-                const ranges = selectionToHighlightRanges(selection, root)
-                if (!ranges) return
+                const ranges = pendingRangesRef.current
+                if (!ranges?.length) return
                 onHighlightsChange(addHighlights(highlights, ranges, color.id))
                 clearSelection()
               }}

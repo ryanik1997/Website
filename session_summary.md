@@ -1,4 +1,18 @@
-﻿## >>> TRáº NG THÃI Gáº¦N NHáº¤T â€” Agent má»›i Ä‘á»c pháº§n nÃ y trÆ°á»›c, khÃ´ng Ä‘á»c háº¿t file <<<
+﻿## >>> TRẠNG THÁI GẦN NHẤT — Agent mới đọc phần này trước, không đọc hết file <<<
+
+**Ngày:** 2026-07-25
+
+### Đã hoàn thành
+- **Fix ReadingHighlightToolbar không hiển thị trên PET Reading:** Sửa 3 vấn đề core:
+  (1) **Thêm pointerup event** — toolbar nay lắng nghe pointerup ngoài mouseup/keyup/selectionchange, bắt đúng lúc kết thúc chọn text.
+  (2) **Dùng pendingRangesRef.current thay vì re-read window.getSelection()** — các button onClick (màu, remove, note) dùng ref snapshot đã lưu từ updateToolbar, tránh mất selection trước khi click.
+  (3) **Runtime debug logging** — mỗi lần toolbar bị reject, log chi tiết lý do (missing-root, missing-selection, collapsed, 
+o-range, empty-text, outside-zone, outside-root, zero-rect, 
+o-highlight-ranges) kèm oot, 	ext, collapsed, angeCount trong DEV mode.
+- **Component unit test 13 tests:** render component thật, mock selection, test toolbar hiển thị/ẩn đúng, từng button màu gọi onHighlightsChange với color đúng, remove highlight button, note editor open/save.
+- **Playwright E2E test:** pps/web/e2e/reading-highlight.spec.ts + playwright.config.ts — text selection → toolbar → 4 color buttons → click yellow → verify mark.reading-test-highlight--yellow → reload persistence.
+
+## >>> TRáº NG THÃI Gáº¦N NHáº¤T â€” Agent má»›i Ä‘á»c pháº§n nÃ y trÆ°á»›c, khÃ´ng Ä‘á»c háº¿t file <<<
 
 **NgÃ y:** 2026-07-25
 
@@ -5264,4 +5278,5 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Final production HEAD includes follow-up `a07a812` (`fix: reduce vocab card shadow offset, fix grid gap, fix virtual list width`). Deployment `dpl_E1z8baUYTowNmkKhBXtFTPSwzYKa` is READY and aliased to `https://ryanenglishv2.vercel.app`.
 - Authenticated production verification: virtual grid is active, only 15 cards mount in the measured desktop viewport, the `a07a812` 1.6 px shadow is present, and console/page errors are zero.
 - Final production Admin session on `/app/vocab` ran 15.01 seconds with gradual full-list scrolling plus IELTS/All and Single/Phrases changes: `longTaskCount=1`, `longTaskTotalMs=58`, `maxLongTaskMs=58`, and `inpMs=48`. This is below the accepted 200 ms limit, so the vocab optimization task is closed.
+
 

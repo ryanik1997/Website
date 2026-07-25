@@ -1,8 +1,23 @@
-import { describe, it, expect, afterEach, vi } from 'vitest'
-import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import { type ReadingHighlight, type TextNote, addHighlights, removeHighlights, upsertNotesForRanges, segmentsFromAnnotations, type HighlightColor } from '../readingHighlightUtils'
+import { describe, it, expect, afterEach, vi, beforeEach } from 'vitest'
+import { render, screen, cleanup, fireEvent, act } from '@testing-library/react'
+import { useRef } from 'react'
+import {
+  type ReadingHighlight,
+  type TextNote,
+  addHighlights,
+  removeHighlights,
+  upsertNotesForRanges,
+  segmentsFromAnnotations,
+  type HighlightColor,
+} from '../readingHighlightUtils'
+import ReadingHighlightToolbar from '../ReadingHighlightToolbar'
+import ExamHighlightZone from '../ExamHighlightZone'
+import ReadingHighlightableText from '../ReadingHighlightableText'
 
-afterEach(cleanup)
+afterEach(() => {
+  cleanup()
+  vi.restoreAllMocks()
+})
 
 describe('readingHighlightUtils — color support', () => {
   it('addHighlights preserves color', () => {
@@ -40,7 +55,6 @@ describe('readingHighlightUtils — color support', () => {
       { id: 'h1', blockId: 'b1', start: 0, end: 5, color: 'blue' },
     ]
     const result = addHighlights(a, [{ blockId: 'b1', start: 3, end: 8 }], 'pink')
-    // Should merge into one range 0-8 with color from one of the inputs
     expect(result).toHaveLength(1)
     expect(result[0].start).toBe(0)
     expect(result[0].end).toBe(8)
@@ -65,9 +79,276 @@ describe('TextNote — upsert and remove', () => {
   })
 })
 
+describe('ReadingHighlightToolbar — component', () => {
+  function setup() {
+    const highlights: ReadingHighlight[] = []
+    const notes: TextNote[] = []
+    const onHighlightsChange = vi.fn()
+    const onNotesChange = vi.fn()
+
+    function Harness() {
+      const rootRef = useRef<HTMLDivElement>(null)
+      return (
+        <div ref={rootRef} data-testid="harness-root">
+          <ReadingHighlightToolbar
+            rootRef={rootRef}
+            highlights={highlights}
+            onHighlightsChange={onHighlightsChange}
+            notes={notes}
+            onNotesChange={onNotesChange}
+            resetKey="part-1"
+          />
+          <ExamHighlightZone className="test-highlight-zone">
+            <ReadingHighlightableText
+              blockId="b1"
+              text="The cat sat on the mat and looked at the birds flying outside."
+              highlights={highlights}
+            />
+            <ReadingHighlightableText
+              blockId="b2"
+              text="It was a sunny day in the park."
+              highlights={highlights}
+            />
+          </ExamHighlightZone>
+        </div>
+      )
+    }
+
+    return { Harness, onHighlightsChange, onNotesChange, highlights, notes }
+  }
+
+  function makeMockRange(startNode: Node, startOffset: number, endNode: Node, endOffset: number) {
+    const range = {
+      startContainer: startNode,
+      startOffset,
+      endContainer: endNode,
+      endOffset,
+      collapsed: false,
+      commonAncestorContainer: startNode.parentElement ?? document.body,
+      getBoundingClientRect: () => ({
+        x: 100, y: 200, width: 300, height: 20,
+        top: 200, right: 400, bottom: 220, left: 100,
+        toJSON: () => ({}),
+      }),
+      getClientRects: () => [],
+      cloneRange: () => makeMockRange(startNode, startOffset, endNode, endOffset),
+      detach: () => {},
+      setStart: () => {},
+      setEnd: () => {},
+      selectNodeContents: () => {},
+    }
+    return range
+  }
+
+  function mockSelectionInBlock(blockEl: HTMLElement, startOffset: number, endOffset: number) {
+    const textNode = getTextNode(blockEl)
+    if (!textNode) return
+
+    const range = makeMockRange(textNode, startOffset, textNode, endOffset)
+
+    const mockSelection = {
+      rangeCount: 1,
+      isCollapsed: false,
+      anchorNode: textNode,
+      focusNode: textNode,
+      getRangeAt: (_i: number) => range,
+      toString: () => textNode.textContent?.slice(startOffset, endOffset) ?? '',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection
+
+    vi.spyOn(window, 'getSelection').mockReturnValue(mockSelection)
+    return mockSelection
+  }
+
+  function getTextNode(el: HTMLElement): Text | null {
+    for (const child of el.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) return child as Text
+      const found = getTextNode(child as HTMLElement)
+      if (found) return found
+    }
+    return null
+  }
+
+  it('renders toolbar after text selection', () => {
+    const { Harness, onHighlightsChange } = setup()
+    render(<Harness />)
+
+    const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
+    expect(blockEl).toBeTruthy()
+
+    mockSelectionInBlock(blockEl, 4, 11)
+
+    act(() => {
+      document.dispatchEvent(new Event('pointerup'))
+    })
+
+    const toolbar = screen.getByRole('toolbar')
+    expect(toolbar).toBeTruthy()
+
+    const yellowBtn = screen.getByLabelText('Tô màu Vàng')
+    expect(yellowBtn).toBeTruthy()
+    const blueBtn = screen.getByLabelText('Tô màu Xanh')
+    expect(blueBtn).toBeTruthy()
+    const greenBtn = screen.getByLabelText('Tô màu Xanh lá')
+    expect(greenBtn).toBeTruthy()
+    const pinkBtn = screen.getByLabelText('Tô màu Hồng')
+    expect(pinkBtn).toBeTruthy()
+
+    act(() => {
+      fireEvent.click(yellowBtn)
+    })
+
+    expect(onHighlightsChange).toHaveBeenCalledOnce()
+    const newHighlights = onHighlightsChange.mock.calls[0][0] as ReadingHighlight[]
+    expect(newHighlights).toHaveLength(1)
+    expect(newHighlights[0].color).toBe('yellow')
+    expect(newHighlights[0].blockId).toBe('b1')
+  })
+
+  it('applies highlight with each color button', () => {
+    const { Harness, onHighlightsChange } = setup()
+    render(<Harness />)
+
+    const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
+    mockSelectionInBlock(blockEl, 4, 11)
+
+    act(() => { document.dispatchEvent(new Event('pointerup')) })
+
+    const blueBtn = screen.getByLabelText('Tô màu Xanh')
+    act(() => { fireEvent.click(blueBtn) })
+    expect(onHighlightsChange).toHaveBeenCalledOnce()
+    expect(onHighlightsChange.mock.calls[0][0][0].color).toBe('blue')
+  })
+
+  it('does not render toolbar when selection is in non-highlight zone', () => {
+    function SeparateDiv() {
+      const rootRef = useRef<HTMLDivElement>(null)
+      return (
+        <div ref={rootRef}>
+          <ReadingHighlightToolbar
+            rootRef={rootRef}
+            highlights={[]}
+            onHighlightsChange={vi.fn()}
+            resetKey="part-1"
+          />
+          <div data-testid="outside-text">Text outside highlight zone</div>
+          <ExamHighlightZone className="test-highlight-zone">
+            <ReadingHighlightableText
+              blockId="b1"
+              text="Inside zone text"
+              highlights={[]}
+            />
+          </ExamHighlightZone>
+        </div>
+      )
+    }
+
+    render(<SeparateDiv />)
+
+    const outsideEl = screen.getByTestId('outside-text')
+    const textNode = getTextNode(outsideEl)
+    expect(textNode).toBeTruthy()
+
+    const mockRange = makeMockRange(textNode!, 0, textNode!, 1)
+    vi.spyOn(window, 'getSelection').mockReturnValue({
+      rangeCount: 1,
+      isCollapsed: false,
+      anchorNode: textNode,
+      focusNode: textNode,
+      getRangeAt: (_i: number) => mockRange,
+      toString: () => 'x',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection)
+
+    act(() => { document.dispatchEvent(new Event('pointerup')) })
+
+    expect(screen.queryByRole('toolbar')).toBeNull()
+  })
+
+  it('shows remove highlight button when selection overlaps existing highlight', () => {
+    function HarnessWithExistingHighlight() {
+      const rootRef = useRef<HTMLDivElement>(null)
+      const existingHighlights: ReadingHighlight[] = [
+        { id: 'hl-1', blockId: 'b1', start: 4, end: 11, color: 'yellow' },
+      ]
+      const onHighlightsChange = vi.fn()
+      return (
+        <div ref={rootRef} data-testid="harness-root">
+          <ReadingHighlightToolbar
+            rootRef={rootRef}
+            highlights={existingHighlights}
+            onHighlightsChange={onHighlightsChange}
+            notes={[]}
+            onNotesChange={vi.fn()}
+            resetKey="part-1"
+          />
+          <ExamHighlightZone className="test-highlight-zone">
+            <ReadingHighlightableText
+              blockId="b1"
+              text="The cat sat on the mat and looked at the birds flying outside."
+              highlights={existingHighlights}
+            />
+          </ExamHighlightZone>
+        </div>
+      )
+    }
+
+    render(<HarnessWithExistingHighlight />)
+
+    const markEl = document.querySelector('mark.reading-test-highlight--yellow') as HTMLElement
+    expect(markEl).toBeTruthy()
+    const markTextNode = getTextNode(markEl)
+    expect(markTextNode).toBeTruthy()
+
+    const range = makeMockRange(markTextNode!, 0, markTextNode!, 7)
+    vi.spyOn(window, 'getSelection').mockReturnValue({
+      rangeCount: 1,
+      isCollapsed: false,
+      anchorNode: markTextNode,
+      focusNode: markTextNode,
+      getRangeAt: (_i: number) => range,
+      toString: () => 'cat sat',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection)
+
+    act(() => { document.dispatchEvent(new Event('pointerup')) })
+
+    const removeBtn = screen.getByText('Bỏ tô sáng')
+    expect(removeBtn).toBeTruthy()
+  })
+
+  it('shows Note button and opens note editor', () => {
+    const { Harness, onNotesChange } = setup()
+    render(<Harness />)
+
+    const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
+    mockSelectionInBlock(blockEl, 4, 11)
+
+    act(() => { document.dispatchEvent(new Event('pointerup')) })
+
+    const noteBtn = screen.getByText('Note')
+    expect(noteBtn).toBeTruthy()
+
+    act(() => { fireEvent.click(noteBtn) })
+
+    const textarea = screen.getByPlaceholderText('Nhập ghi chú…')
+    expect(textarea).toBeTruthy()
+
+    fireEvent.change(textarea, { target: { value: 'This is my note' } })
+    expect(textarea as HTMLTextAreaElement).toHaveValue('This is my note')
+
+    const saveBtn = screen.getByText('Lưu note')
+    act(() => { fireEvent.click(saveBtn) })
+
+    expect(onNotesChange).toHaveBeenCalled()
+    const savedNotes = onNotesChange.mock.calls[0][0] as TextNote[]
+    expect(savedNotes).toHaveLength(1)
+    expect(savedNotes[0].text).toBe('This is my note')
+  })
+})
+
 describe('ReadingHighlightToolbar — color buttons', () => {
   it('the 4 color buttons are defined in constants', () => {
-    // This is a compile-time check that the HighlightColor type exists
     const colors: HighlightColor[] = ['yellow', 'blue', 'green', 'pink']
     expect(colors).toHaveLength(4)
   })
