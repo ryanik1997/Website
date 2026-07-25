@@ -72,6 +72,9 @@ export default function ReadingPetRwTest() {
     notesByPart,
     handleHighlightsChange,
     handleNotesChange,
+    applyHighlightRanges,
+    saveNoteRanges,
+    deleteNoteRanges,
     setAnnotationsByPart,
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
@@ -279,6 +282,26 @@ export default function ReadingPetRwTest() {
     clearSelection()
   }, [currentPart?.id, clearSelection])
 
+  /* DEV debug state */
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+
+    window.__PET_ANNOTATION_DEBUG__ = {
+      partId: currentPart?.id,
+      partNumber: currentPart?.partNumber,
+      selection,
+      highlights,
+      notes,
+      highlightsByPart,
+      notesByPart,
+      dom: {
+        marks: document.querySelectorAll('mark.reading-test-highlight').length,
+        yellowMarks: document.querySelectorAll('mark.reading-test-highlight--yellow').length,
+        noteMarks: document.querySelectorAll('.reading-test-note').length,
+      },
+    }
+  }, [currentPart?.id, currentPart?.partNumber, highlights, highlightsByPart, notes, notesByPart, selection])
+
   const activeQuestion = currentQuestions.find(q => q.id === activeQuestionId) ?? currentQuestions[0] ?? null
   const activeQuestionIndex = activeQuestion ? currentQuestions.findIndex(q => q.id === activeQuestion.id) : -1
 
@@ -341,7 +364,10 @@ export default function ReadingPetRwTest() {
       style={fontStyle}
       data-active-part-index={partIndex}
       data-active-part-number={currentPart?.partNumber ?? ''}
+      data-active-part-id={currentPart?.id ?? ''}
       data-active-question-id={activeQuestionId ?? ''}
+      data-highlight-count={highlights.length}
+      data-note-count={notes.length}
     >
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
@@ -412,10 +438,10 @@ export default function ReadingPetRwTest() {
 
         <CambridgeSelectionToolbar
           selection={selection}
-          highlights={highlights}
           notes={notes}
-          onHighlightsChange={handleHighlightsChange}
-          onNotesChange={handleNotesChange}
+          onApplyHighlight={applyHighlightRanges}
+          onSaveNote={saveNoteRanges}
+          onDeleteNote={deleteNoteRanges}
           onClose={clearSelection}
         />
       </main>

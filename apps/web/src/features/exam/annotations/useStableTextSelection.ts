@@ -24,6 +24,7 @@ interface UseStableTextSelectionOptions {
 declare global {
   interface Window {
     __RW_SELECTION_DEBUG__?: unknown
+    __PET_ANNOTATION_DEBUG__?: unknown
   }
 }
 

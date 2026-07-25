@@ -1,5 +1,13 @@
 import { useCallback, useState } from 'react'
-import type { ReadingHighlight, TextNote } from './readingHighlightUtils'
+import {
+  addHighlights,
+  removeNotesInRanges,
+  upsertNotesForRanges,
+  type HighlightColor,
+  type HighlightRange,
+  type ReadingHighlight,
+  type TextNote,
+} from './readingHighlightUtils'
 
 export function usePartHighlights(currentPartId: string | undefined) {
   const [highlightsByPart, setHighlightsByPart] = useState<Record<string, ReadingHighlight[]>>({})
@@ -31,6 +39,76 @@ export function usePartHighlights(currentPartId: string | undefined) {
     setNotesByPart(nextNotes)
   }, [])
 
+  /* ── Command API — functional update, captured currentPartId ── */
+  const applyHighlightRanges = useCallback(
+    (ranges: HighlightRange[], color: HighlightColor = 'yellow') => {
+      if (!currentPartId || ranges.length === 0) {
+        if (import.meta.env.DEV) {
+          console.error('[usePartHighlights] Cannot apply highlight', { currentPartId, ranges })
+        }
+        return false
+      }
+
+      setHighlightsByPart(prev => {
+        const current = prev[currentPartId] ?? []
+        const next = addHighlights(current, ranges, color)
+
+        if (import.meta.env.DEV) {
+          console.debug('[usePartHighlights] APPLY_HIGHLIGHT', { partId: currentPartId, ranges, color, before: current, after: next })
+        }
+
+        return { ...prev, [currentPartId]: next }
+      })
+
+      return true
+    },
+    [currentPartId],
+  )
+
+  const saveNoteRanges = useCallback(
+    (ranges: HighlightRange[], rawText: string) => {
+      const text = rawText.trim()
+
+      if (!currentPartId || ranges.length === 0 || !text) {
+        if (import.meta.env.DEV) {
+          console.error('[usePartHighlights] Cannot save note', { currentPartId, ranges, text })
+        }
+        return false
+      }
+
+      setNotesByPart(prev => {
+        const current = prev[currentPartId] ?? []
+        const next = upsertNotesForRanges(current, ranges, text)
+
+        if (import.meta.env.DEV) {
+          console.debug('[usePartHighlights] SAVE_NOTE', { partId: currentPartId, ranges, text, before: current, after: next })
+        }
+
+        return { ...prev, [currentPartId]: next }
+      })
+
+      return true
+    },
+    [currentPartId],
+  )
+
+  const deleteNoteRanges = useCallback(
+    (ranges: HighlightRange[]) => {
+      if (!currentPartId || ranges.length === 0) {
+        return false
+      }
+
+      setNotesByPart(prev => {
+        const current = prev[currentPartId] ?? []
+        const next = removeNotesInRanges(current, ranges)
+        return { ...prev, [currentPartId]: next }
+      })
+
+      return true
+    },
+    [currentPartId],
+  )
+
   return {
     highlights,
     notes,
@@ -38,6 +116,9 @@ export function usePartHighlights(currentPartId: string | undefined) {
     notesByPart,
     handleHighlightsChange,
     handleNotesChange,
+    applyHighlightRanges,
+    saveNoteRanges,
+    deleteNoteRanges,
     clearAllHighlights,
     setAnnotationsByPart,
   }

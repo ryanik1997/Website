@@ -157,10 +157,10 @@ describe('PET Reading note/highlight', () => {
 
           <CambridgeSelectionToolbar
             selection={selection}
-            highlights={[]}
             notes={[]}
-            onHighlightsChange={onHighlightsChange}
-            onNotesChange={onNotesChange}
+            onApplyHighlight={onHighlightsChange}
+            onSaveNote={onNotesChange}
+            onDeleteNote={vi.fn()}
             onClose={clearSelection}
           />
         </>
@@ -195,6 +195,6 @@ describe('PET Reading note/highlight', () => {
       fireEvent.pointerUp(delayedBlock)
     })
 
-    expect(await screen.findByLabelText('Cong cu to sang va ghi chu')).toBeTruthy()
+    expect(await screen.findByLabelText('Công cụ tô sáng và ghi chú')).toBeTruthy()
   })
 })

@@ -1,24 +1,68 @@
-import { createPortal } from 'react-dom'
-import { useMemo, useState } from 'react'
-import { addHighlights, upsertNotesForRanges, type ReadingHighlight, type TextNote } from '../readingHighlightUtils'
+import { createPortal, flushSync } from 'react-dom'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import type { HighlightColor, HighlightRange, TextNote } from '../readingHighlightUtils'
 import type { StableSelectionSnapshot } from './useStableTextSelection'
 import './cambridgeSelectionToolbar.css'
 
 interface CambridgeSelectionToolbarProps {
   selection: StableSelectionSnapshot | null
-  highlights: ReadingHighlight[]
   notes: TextNote[]
-  onHighlightsChange: (next: ReadingHighlight[]) => void
-  onNotesChange: (next: TextNote[]) => void
+
+  onApplyHighlight: (
+    ranges: HighlightRange[],
+    color: HighlightColor,
+  ) => boolean | void
+
+  onSaveNote: (
+    ranges: HighlightRange[],
+    text: string,
+  ) => boolean | void
+
+  onDeleteNote: (
+    ranges: HighlightRange[],
+  ) => boolean | void
+
   onClose: () => void
+}
+
+/**
+ * Pointer-safe action hook.
+ *
+ * Chuột → thực hiện action ngay tại pointerdown, không đợi click.
+ * Bàn phím → không có pointerdown, thực hiện tại click.
+ * Không double action.
+ */
+function usePointerSafeAction(action: () => void) {
+  const pointerActivatedRef = useRef(false)
+  const actionRef = useRef(action)
+  actionRef.current = action
+
+  const onPointerDown = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.button !== 0) return
+    event.preventDefault()
+    event.stopPropagation()
+    pointerActivatedRef.current = true
+    actionRef.current()
+  }, [])
+
+  const onClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation()
+    if (pointerActivatedRef.current) {
+      pointerActivatedRef.current = false
+      return
+    }
+    actionRef.current()
+  }, [])
+
+  return { onPointerDown, onClick }
 }
 
 export default function CambridgeSelectionToolbar({
   selection,
-  highlights,
   notes,
-  onHighlightsChange,
-  onNotesChange,
+  onApplyHighlight,
+  onSaveNote,
+  onDeleteNote,
   onClose,
 }: CambridgeSelectionToolbarProps) {
   const [noteEditorOpen, setNoteEditorOpen] = useState(false)
@@ -35,33 +79,44 @@ export default function CambridgeSelectionToolbar({
     )
   }, [notes, selection])
 
-  if (!selection) return null
+  /* Reset local editor khi selection đổi */
+  const selectionSignature = useMemo(() => {
+    if (!selection) return ''
+    return selection.ranges
+      .map(range => [range.blockId, range.start, range.end].join(':'))
+      .join('|')
+  }, [selection])
 
-  const handleHighlight = () => {
-    if (!selection?.ranges.length) {
+  useEffect(() => {
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+  }, [selectionSignature])
+
+  /* ── Actions (defined before early return to obey Rules of Hooks) ── */
+
+  const handleHighlight = useCallback(() => {
+    if (!selection || selection.ranges.length === 0) return
+
+    let committed = false
+    flushSync(() => {
+      committed = onApplyHighlight(selection.ranges, 'yellow') !== false
+    })
+
+    if (!committed) {
       if (import.meta.env.DEV) {
-        console.error('[CambridgeSelectionToolbar] Missing ranges', selection)
+        console.error('[CambridgeSelectionToolbar] Highlight command rejected', selection)
       }
       return
     }
 
-    const nextHighlights = addHighlights(highlights, selection.ranges, 'yellow')
-
-    if (import.meta.env.DEV) {
-      console.debug('[CambridgeSelectionToolbar] Highlight', {
-        ranges: selection.ranges,
-        previous: highlights,
-        next: nextHighlights,
-      })
-    }
-
-    onHighlightsChange(nextHighlights)
     setNoteEditorOpen(false)
     setNoteDraft('')
     onClose()
-  }
+  }, [onApplyHighlight, onClose, selection])
 
-  const handleOpenNote = () => {
+  const handleOpenNote = useCallback(() => {
+    if (!selection) return
+
     const overlapping = notes.find(note =>
       selection.ranges.some(range =>
         note.blockId === range.blockId
@@ -69,64 +124,75 @@ export default function CambridgeSelectionToolbar({
         && note.end > range.start,
       ),
     )
+
     setNoteDraft(overlapping?.text ?? '')
     setNoteEditorOpen(true)
-  }
+  }, [notes, selection])
 
-  const handleSaveNote = () => {
+  const handleSaveNote = useCallback(() => {
+    if (!selection) return
     const text = noteDraft.trim()
+    if (!text) return
 
-    if (!text || !selection?.ranges.length) {
-      return
-    }
+    let committed = false
+    flushSync(() => {
+      committed = onSaveNote(selection.ranges, text) !== false
+    })
 
-    const nextNotes = upsertNotesForRanges(notes, selection.ranges, text)
+    if (!committed) return
 
-    if (import.meta.env.DEV) {
-      console.debug('[CambridgeSelectionToolbar] Save note', {
-        ranges: selection.ranges,
-        text,
-        previous: notes,
-        next: nextNotes,
-      })
-    }
-
-    onNotesChange(nextNotes)
     setNoteEditorOpen(false)
     setNoteDraft('')
     onClose()
-  }
+  }, [noteDraft, onClose, onSaveNote, selection])
+
+  const handleDeleteNote = useCallback(() => {
+    if (!selection) return
+
+    let committed = false
+    flushSync(() => {
+      committed = onDeleteNote(selection.ranges) !== false
+    })
+
+    if (!committed) return
+
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onClose, onDeleteNote, selection])
+
+  const highlightAction = usePointerSafeAction(handleHighlight)
+  const noteAction = usePointerSafeAction(handleOpenNote)
+  const saveNoteAction = usePointerSafeAction(handleSaveNote)
+  const deleteNoteAction = usePointerSafeAction(handleDeleteNote)
+
+  /* ── Early return — all hooks already called above ── */
+  if (!selection) return null
 
   const toolbarNode = (
     <div
       className="cambridge-selection-toolbar"
+      data-cambridge-selection-toolbar
       style={{
         left: selection.rect.left + selection.rect.width / 2,
         top: selection.rect.top - 8,
       }}
       role="toolbar"
-      aria-label="Cong cu to sang va ghi chu"
-      onPointerDown={event => event.stopPropagation()}
+      aria-label="Công cụ tô sáng và ghi chú"
+      onPointerDownCapture={event => event.stopPropagation()}
+      onClick={event => event.stopPropagation()}
     >
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        onPointerDown={event => event.stopPropagation()}
-        onClick={event => {
-          event.stopPropagation()
-          handleOpenNote()
-        }}
+        {...noteAction}
       >
         Note
       </button>
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        onPointerDown={event => event.stopPropagation()}
-        onClick={event => {
-          event.stopPropagation()
-          handleHighlight()
-        }}
+        {...highlightAction}
       >
         Highlight
       </button>
@@ -151,11 +217,7 @@ export default function CambridgeSelectionToolbar({
             <button
               type="button"
               className="cambridge-selection-toolbar__note-btn is-primary"
-              onPointerDown={event => event.stopPropagation()}
-              onClick={event => {
-                event.stopPropagation()
-                handleSaveNote()
-              }}
+              {...saveNoteAction}
             >
               Luu note
             </button>
@@ -163,14 +225,7 @@ export default function CambridgeSelectionToolbar({
               <button
                 type="button"
                 className="cambridge-selection-toolbar__note-btn"
-                onPointerDown={event => event.stopPropagation()}
-                onClick={event => {
-                  event.stopPropagation()
-                  setNoteDraft('')
-                  onNotesChange(upsertNotesForRanges(notes, selection.ranges, ''))
-                  setNoteEditorOpen(false)
-                  onClose()
-                }}
+                {...deleteNoteAction}
               >
                 Xoa
               </button>
