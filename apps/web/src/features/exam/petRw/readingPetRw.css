@@ -1077,6 +1077,244 @@
   background: #eefcff;
 }
 
+/* ── Part 4 — Static two-column layout, no split bar, single scroll ── */
+.pet-rw-shell.is-part-4 .pet-rw-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: calc(100dvh - 72px - 52px);
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.pet-rw-shell.is-part-4 .ket-rw-main,
+.pet-rw-shell.is-part-4 .ket-rw-highlight-zone {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pet-rw-shell.is-part-4 .ket-rw-instruction {
+  grid-row: 1;
+  width: auto;
+  margin: 0 12px;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-body {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 14px 0 82px;
+  box-sizing: border-box;
+  background: #f4f8f9;
+}
+
+/* Article column */
+.pet-rw-shell.is-part-4 .pet-rw-part4-article {
+  min-width: 0;
+  padding: 0 96px 40px 14px;
+  box-sizing: border-box;
+}
+
+/* Bank column */
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank {
+  min-width: 0;
+  padding: 0 32px 40px 6px;
+  box-sizing: border-box;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  max-height: none;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Font — Arial only for body, not instruction */
+.pet-rw-shell.is-part-4 .pet-rw-part4-body,
+.pet-rw-shell.is-part-4 .pet-rw-part4-body button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-title {
+  margin: 0 0 14px;
+  color: #050505;
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-paragraph {
+  margin: 0;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-inline-passage,
+.pet-rw-shell.is-part-4 .ket-rw-inline-passage {
+  margin: 0 0 20px;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+  white-space: normal;
+}
+
+/* Empty gap — 265px, dashed blue border, number only */
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 265px;
+  min-width: 265px;
+  max-width: min(265px, 100%);
+  height: 23px;
+  min-height: 23px;
+  margin: 0 3px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border: 1px dashed #238ed0;
+  border-radius: 4px;
+  background: #fff;
+  color: #050505;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-inline-gap__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot-placeholder {
+  display: none;
+}
+
+/* Filled gap — yellow background, text only (no number, no letter) */
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline.is-filled {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  min-height: 24px;
+  justify-content: flex-start;
+  padding: 2px 5px;
+  border: 1px solid #c9b368;
+  background: #fff7cf;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline.is-filled .pet-rw-inline-gap__num {
+  display: none;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot-value {
+  flex: 0 1 auto;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+/* Bank cards — white, fit-content width */
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank-card {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  border: 1px solid #aeb2b4;
+  border-radius: 4px;
+  background: #fff;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  cursor: grab;
+  box-shadow: none;
+  user-select: none;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank-card.is-picked {
+  border-color: #238ed0;
+  background: #eef7fc;
+  box-shadow: none;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank-card.is-dragging {
+  opacity: 0.35;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank-card:active {
+  cursor: grabbing;
+}
+
+/* Adjacent nav */
+.pet-rw-shell.is-part-4 .pet-rw-adjacent-nav {
+  right: 14px;
+  bottom: 60px;
+  gap: 2px;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-adjacent-nav button {
+  width: 50px;
+  height: 50px;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-adjacent-nav button:first-child:not(:disabled) {
+  background: #737373;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-adjacent-nav button:last-child:not(:disabled) {
+  background: #00949a;
+}
+
+/* Footer overrides */
+.pet-rw-shell.is-part-4 .pet-rw-footer__part.is-current {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-footer__pill.is-active {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #1599a6;
+  background: #eefcff;
+}
+
+@media (max-width: 1024px) {
+  .pet-rw-shell.is-part-4 .pet-rw-part4-body {
+    grid-template-columns: 1fr;
+  }
+  .pet-rw-shell.is-part-4 .pet-rw-part4-article,
+  .pet-rw-shell.is-part-4 .pet-rw-part4-bank {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
 @media (max-width: 1100px) {
   .pet-rw-header__actions {
     gap: 12px;

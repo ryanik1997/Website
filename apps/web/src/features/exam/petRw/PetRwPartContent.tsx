@@ -120,6 +120,8 @@ function InlineGapDrop({
   pickedId,
   onAssign,
   onSelectQuestion,
+  showOptionId = true,
+  showEmptyPlaceholder = true,
 }: {
   number: number
   question: ReadingQuestion
@@ -128,6 +130,8 @@ function InlineGapDrop({
   pickedId: string | null
   onAssign: (questionId: string, optionId: string) => void
   onSelectQuestion: (id: string) => void
+  showOptionId?: boolean
+  showEmptyPlaceholder?: boolean
 }) {
   const item = bank.find(b => b.id.toLowerCase() === value.toLowerCase())
   return (
@@ -152,10 +156,13 @@ function InlineGapDrop({
       >
         <span className="pet-rw-inline-gap__num">{number}</span>
         {item ? (
-          <span className="pet-rw-drag__slot-value"><strong>{item.id}</strong> {item.label}</span>
-        ) : (
+          <span className="pet-rw-drag__slot-value">
+            {showOptionId ? <><strong>{item.id}</strong> </> : null}
+            {item.label}
+          </span>
+        ) : showEmptyPlaceholder ? (
           <span className="pet-rw-drag__slot-placeholder">…</span>
-        )}
+        ) : null}
       </button>
     </span>
   )
@@ -271,11 +278,15 @@ export default function PetRwPartContent({
     onSelectQuestion(questionId)
   }
 
+  const [draggingBankId, setDraggingBankId] = useState<string | null>(null)
+
   const renderPassageGapDrops = (
     passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
     bank: Array<{ id: string; label: string }>,
+    showOptionId = true,
+    showEmptyPlaceholder = true,
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -296,6 +307,8 @@ export default function PetRwPartContent({
               pickedId={pickedBankId}
               onAssign={assignGapLetter}
               onSelectQuestion={onSelectQuestion}
+              showOptionId={showOptionId}
+              showEmptyPlaceholder={showEmptyPlaceholder}
             />
           )
         })}
@@ -437,7 +450,42 @@ export default function PetRwPartContent({
   if (part.partNumber === 4) {
     const pageImage = partHasFullPageImage(part.passage)
     const bank = optionBankFromPassage(part.passage, group!, { partNumber: 4 })
+
+    // Clean title: ưu tiên subtitle, loại bỏ prefix "Part 4 –"
+    const rawTitle =
+      part.passageSubtitle?.trim()
+      || part.passageTitle
+        ?.replace(/^Part\s*4\s*[—–-]\s*/i, '')
+        .trim()
+      || ''
+
+    // Loại bỏ body block đầu nếu trùng title
+    const normalizeComparableText = (value?: string) =>
+      String(value ?? '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase()
+
     const bodyBlocks = getBodyTextBlocks(part.passage)
+      .filter((block, index) => {
+        if (index !== 0) return true
+        return (
+          normalizeComparableText(block.text)
+          !== normalizeComparableText(rawTitle)
+        )
+      })
+
+    // Options đã dùng biến mất khỏi bank
+    const usedOptionIds = new Set(
+      questions
+        .map(q => answers[q.id]?.toUpperCase())
+        .filter(Boolean),
+    )
+
+    const availableBank = bank.filter(
+      option => !usedOptionIds.has(option.id.toUpperCase()),
+    )
+
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
@@ -446,56 +494,55 @@ export default function PetRwPartContent({
             <PassageImage imageKey={pageImage.imageKey} imageUrl={pageImage.imageUrl} alt="Part 4" />
           </div>
         ) : (
-          <KetRwSplitPane
-            left={(
-              <>
-                <h2 className="ket-rw-passage-title">
-                  <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
-                </h2>
-                {bodyBlocks.map((block, idx) => (
-                  <div key={`p4b-${idx}`} className="ket-rw-paragraph">
-                    {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank)}
-                  </div>
-                ))}
-              </>
-            )}
-            right={(
-              <div className="pet-rw-drag__bank pet-rw-drag__bank--column">
-                {bank.map(option => {
-                  const isUsed = questions.some(
-                    q => answers[q.id]?.toUpperCase() === option.id.toUpperCase(),
-                  )
+          <div className="pet-rw-part4-body">
+            <section className="pet-rw-part4-article">
+              <h2 className="pet-rw-part4-title">
+                <RwHighlightText blockId={`${partId}-title`} text={rawTitle} />
+              </h2>
+
+              {bodyBlocks.map((block, idx) => (
+                <div key={`p4b-${idx}`} className="pet-rw-part4-paragraph">
+                  {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank, false, false)}
+                </div>
+              ))}
+            </section>
+
+            <aside className="pet-rw-part4-bank" aria-label="Sentence choices">
+              <div className="pet-rw-part4-bank-list">
+                {availableBank.map(option => {
                   const isPicked = pickedBankId === option.id
                   return (
                     <div
                       key={option.id}
-                      className={`pet-rw-drag__bank-card${isUsed ? ' is-used' : ''}${isPicked ? ' is-picked' : ''}`}
+                      className={[
+                        'pet-rw-part4-bank-card',
+                        isPicked ? 'is-picked' : '',
+                        draggingBankId === option.id ? 'is-dragging' : '',
+                      ].filter(Boolean).join(' ')}
                       data-highlight-skip
-                      draggable={!isUsed}
-                      onDragStart={e => {
-                        if (isUsed) return
-                        e.dataTransfer.setData('text/plain', option.id)
+                      draggable
+                      onDragStart={event => {
+                        setDraggingBankId(option.id)
+                        event.dataTransfer.setData('text/plain', option.id)
+                        event.dataTransfer.effectAllowed = 'move'
                       }}
+                      onDragEnd={() => setDraggingBankId(null)}
                       onClick={() => {
-                        if (isUsed) return
                         setPickedBankId(pickedBankId === option.id ? null : option.id)
                       }}
                       role="button"
-                      tabIndex={isUsed ? -1 : 0}
+                      tabIndex={0}
                     >
-                      <span className="pet-rw-drag__bank-letter">{option.id}</span>
-                      <p className="pet-rw-drag__bank-text">
-                        <RwHighlightText
-                          blockId={`${partId}-bank-${option.id}`}
-                          text={option.label}
-                        />
-                      </p>
+                      <RwHighlightText
+                        blockId={`${partId}-bank-${option.id}`}
+                        text={option.label}
+                      />
                     </div>
                   )
                 })}
               </div>
-            )}
-          />
+            </aside>
+          </div>
         )}
       </>
     )
