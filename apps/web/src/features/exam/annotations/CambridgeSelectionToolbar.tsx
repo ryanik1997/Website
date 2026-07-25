@@ -14,40 +14,33 @@ interface CambridgeSelectionToolbarProps {
   highlights: ReadingHighlight[]
   notes: TextNote[]
 
-  onApplyHighlight: (
+  onCommitHighlight: (
     ranges: HighlightRange[],
     color: HighlightColor,
-  ) => void
+  ) => ReadingHighlight[] | null
 
-  onSaveNote: (
+  onCommitNote: (
     ranges: HighlightRange[],
     text: string,
-  ) => void
+  ) => TextNote[] | null
 
-  onDeleteNote: (
+  onCommitDeleteNote: (
     ranges: HighlightRange[],
-  ) => void
+  ) => TextNote[] | null
 
   onClose: () => void
 }
 
-type PendingAnnotation =
-  | { type: 'highlight'; ranges: HighlightRange[] }
-  | { type: 'note'; ranges: HighlightRange[]; text: string }
-  | { type: 'delete'; ranges: HighlightRange[] }
-
 export default function CambridgeSelectionToolbar({
   selection,
-  highlights,
   notes,
-  onApplyHighlight,
-  onSaveNote,
-  onDeleteNote,
+  onCommitHighlight,
+  onCommitNote,
+  onCommitDeleteNote,
   onClose,
 }: CambridgeSelectionToolbarProps) {
   const [noteEditorOpen, setNoteEditorOpen] = useState(false)
   const [noteDraft, setNoteDraft] = useState('')
-  const [pendingAnnotation, setPendingAnnotation] = useState<PendingAnnotation | null>(null)
   const [saveError, setSaveError] = useState('')
 
   const hasExistingNote = useMemo(() => {
@@ -69,112 +62,34 @@ export default function CambridgeSelectionToolbar({
       .join('|')
   }, [selection])
 
+  /* Reset local editor khi selection đổi */
   useEffect(() => {
     setNoteEditorOpen(false)
     setNoteDraft('')
-    setPendingAnnotation(null)
     setSaveError('')
   }, [selectionSignature])
-
-  /* ── Commit checker helpers ── */
-
-  const rangeIsHighlighted = useCallback(
-    (range: HighlightRange) =>
-      highlights.some(h =>
-        h.blockId === range.blockId
-        && h.start <= range.start
-        && h.end >= range.end,
-      ),
-    [highlights],
-  )
-
-  const rangeHasNote = useCallback(
-    (range: HighlightRange, text: string) =>
-      notes.some(note =>
-        note.blockId === range.blockId
-        && note.start < range.end
-        && note.end > range.start
-        && note.text === text,
-      ),
-    [notes],
-  )
-
-  const rangeHasNoNote = useCallback(
-    (range: HighlightRange) =>
-      !notes.some(note =>
-        note.blockId === range.blockId
-        && note.start < range.end
-        && note.end > range.start,
-      ),
-    [notes],
-  )
-
-  /* ── Commit observer effects ── */
-
-  useEffect(() => {
-    if (pendingAnnotation?.type !== 'highlight') return
-    const committed = pendingAnnotation.ranges.every(r => rangeIsHighlighted(r))
-    if (!committed) return
-
-    setPendingAnnotation(null)
-    setSaveError('')
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [onClose, pendingAnnotation, rangeIsHighlighted])
-
-  useEffect(() => {
-    if (pendingAnnotation?.type !== 'note') return
-    const committed = pendingAnnotation.ranges.every(r =>
-      rangeHasNote(r, pendingAnnotation.text),
-    )
-    if (!committed) return
-
-    setPendingAnnotation(null)
-    setSaveError('')
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [onClose, pendingAnnotation, rangeHasNote])
-
-  useEffect(() => {
-    if (pendingAnnotation?.type !== 'delete') return
-    const committed = pendingAnnotation.ranges.every(r => rangeHasNoNote(r))
-    if (!committed) return
-
-    setPendingAnnotation(null)
-    setSaveError('')
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [onClose, pendingAnnotation, rangeHasNoNote])
-
-  /* Error timeout — nếu commit không xảy ra trong 1.2s thì hiển thị lỗi */
-  useEffect(() => {
-    if (!pendingAnnotation) return
-    const timer = window.setTimeout(() => {
-      setPendingAnnotation(null)
-      setSaveError(
-        pendingAnnotation.type === 'highlight'
-          ? 'Không lưu được highlight.'
-          : pendingAnnotation.type === 'note'
-            ? 'Không lưu được note.'
-            : 'Không xoá được note.',
-      )
-    }, 1200)
-    return () => window.clearTimeout(timer)
-  }, [pendingAnnotation])
 
   /* ── Actions ── */
 
   const handleHighlight = useCallback(() => {
-    if (!selection || selection.ranges.length === 0) return
+    if (!selection || selection.ranges.length === 0) {
+      setSaveError('Không có vùng chọn hợp lệ.')
+      return
+    }
 
     const ranges = selection.ranges.map(r => ({ ...r }))
     setSaveError('')
-    setPendingAnnotation({ type: 'highlight', ranges })
-    onApplyHighlight(ranges, 'yellow')
-  }, [onApplyHighlight, selection])
+
+    const next = onCommitHighlight(ranges, 'yellow')
+    if (!next) {
+      setSaveError('Không lưu được highlight.')
+      return
+    }
+
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onCommitHighlight, onClose, selection])
 
   const handleOpenNote = useCallback(() => {
     if (!selection) return
@@ -192,23 +107,47 @@ export default function CambridgeSelectionToolbar({
   }, [notes, selection])
 
   const handleSaveNote = useCallback(() => {
-    if (!selection) return
+    if (!selection) {
+      setSaveError('Không có vùng chọn hợp lệ.')
+      return
+    }
+
     const text = noteDraft.trim()
-    if (!text) return
+    if (!text) {
+      setSaveError('Vui lòng nhập nội dung note.')
+      return
+    }
 
     const ranges = selection.ranges.map(r => ({ ...r }))
     setSaveError('')
-    setPendingAnnotation({ type: 'note', ranges, text })
-    onSaveNote(ranges, text)
-  }, [noteDraft, onSaveNote, selection])
+
+    const next = onCommitNote(ranges, text)
+    if (!next) {
+      setSaveError('Không lưu được note.')
+      return
+    }
+
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [noteDraft, onCommitNote, onClose, selection])
 
   const handleDeleteNote = useCallback(() => {
     if (!selection) return
+
     const ranges = selection.ranges.map(r => ({ ...r }))
     setSaveError('')
-    setPendingAnnotation({ type: 'delete', ranges })
-    onDeleteNote(ranges)
-  }, [onDeleteNote, selection])
+
+    const next = onCommitDeleteNote(ranges)
+    if (!next) {
+      setSaveError('Không xoá được note.')
+      return
+    }
+
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onCommitDeleteNote, onClose, selection])
 
   /* ── Early return — all hooks already called above ── */
   if (!selection) return null
@@ -235,7 +174,6 @@ export default function CambridgeSelectionToolbar({
         type="button"
         className="cambridge-selection-toolbar__button"
         onClick={handleHighlight}
-        disabled={pendingAnnotation !== null}
       >
         Highlight
       </button>
@@ -259,16 +197,14 @@ export default function CambridgeSelectionToolbar({
               type="button"
               className="cambridge-selection-toolbar__note-btn is-primary"
               onClick={handleSaveNote}
-              disabled={pendingAnnotation !== null}
             >
-              {pendingAnnotation?.type === 'note' ? 'Dang luu...' : 'Luu note'}
+              Luu note
             </button>
             {hasExistingNote && (
               <button
                 type="button"
                 className="cambridge-selection-toolbar__note-btn"
                 onClick={handleDeleteNote}
-                disabled={pendingAnnotation !== null}
               >
                 Xoa
               </button>

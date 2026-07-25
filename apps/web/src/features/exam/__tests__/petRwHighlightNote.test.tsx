@@ -507,10 +507,10 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     },
   })
 
-  it('calls onApplyHighlight when Highlight button is clicked', () => {
-    const onApplyHighlight = vi.fn()
-    const onSaveNote = vi.fn()
-    const onDeleteNote = vi.fn()
+  it('calls onCommitHighlight when Highlight button is clicked', () => {
+    const onCommitHighlight = vi.fn(() => [])
+    const onCommitNote = vi.fn()
+    const onCommitDeleteNote = vi.fn()
     const onClose = vi.fn()
 
     render(
@@ -518,9 +518,9 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         selection={makeSelection()}
         highlights={[]}
         notes={[]}
-        onApplyHighlight={onApplyHighlight}
-        onSaveNote={onSaveNote}
-        onDeleteNote={onDeleteNote}
+        onCommitHighlight={onCommitHighlight}
+        onCommitNote={onCommitNote}
+        onCommitDeleteNote={onCommitDeleteNote}
         onClose={onClose}
       />,
     )
@@ -528,8 +528,8 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const highlightBtn = screen.getByRole('button', { name: 'Highlight' })
     fireEvent.click(highlightBtn)
 
-    expect(onApplyHighlight).toHaveBeenCalledOnce()
-    expect(onApplyHighlight).toHaveBeenCalledWith(
+    expect(onCommitHighlight).toHaveBeenCalledOnce()
+    expect(onCommitHighlight).toHaveBeenCalledWith(
       [{ blockId: 'pet-part-5-p5-0-seg-0', start: 73, end: 89 }],
       'yellow',
     )
@@ -541,9 +541,9 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         selection={makeSelection()}
         highlights={[]}
         notes={[]}
-        onApplyHighlight={vi.fn()}
-        onSaveNote={vi.fn()}
-        onDeleteNote={vi.fn()}
+        onCommitHighlight={vi.fn()}
+        onCommitNote={vi.fn()}
+        onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
       />,
     )
@@ -560,17 +560,17 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     })
   })
 
-  it('calls onSaveNote when note is saved', () => {
-    const onSaveNote = vi.fn()
+  it('calls onCommitNote when note is saved', () => {
+    const onCommitNote = vi.fn(() => [])
 
     render(
       <CambridgeSelectionToolbar
         selection={makeSelection()}
         highlights={[]}
         notes={[]}
-        onApplyHighlight={vi.fn()}
-        onSaveNote={onSaveNote}
-        onDeleteNote={vi.fn()}
+        onCommitHighlight={vi.fn()}
+        onCommitNote={onCommitNote}
+        onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
       />,
     )
@@ -584,8 +584,8 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const saveBtn = screen.getByRole('button', { name: 'Luu note' })
     fireEvent.click(saveBtn)
 
-    expect(onSaveNote).toHaveBeenCalledOnce()
-    expect(onSaveNote).toHaveBeenCalledWith(
+    expect(onCommitNote).toHaveBeenCalledOnce()
+    expect(onCommitNote).toHaveBeenCalledWith(
       [{ blockId: 'pet-part-5-p5-0-seg-0', start: 73, end: 89 }],
       'Important vocabulary',
     )
@@ -597,9 +597,9 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         selection={null}
         highlights={[]}
         notes={[]}
-        onApplyHighlight={vi.fn()}
-        onSaveNote={vi.fn()}
-        onDeleteNote={vi.fn()}
+        onCommitHighlight={vi.fn()}
+        onCommitNote={vi.fn()}
+        onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
       />,
     )
@@ -607,7 +607,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
   })
 
   it('fills note editor with existing note text', () => {
-    const notes: TextNote[] = [
+    const existingNotes: TextNote[] = [
       {
         id: 'n1',
         blockId: 'pet-part-5-p5-0-seg-0',
@@ -621,10 +621,10 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
       <CambridgeSelectionToolbar
         selection={makeSelection()}
         highlights={[]}
-        notes={notes}
-        onApplyHighlight={vi.fn()}
-        onSaveNote={vi.fn()}
-        onDeleteNote={vi.fn()}
+        notes={existingNotes}
+        onCommitHighlight={vi.fn()}
+        onCommitNote={vi.fn()}
+        onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
       />,
     )
@@ -642,13 +642,14 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const RANGE = { blockId: BLOCK_ID, start: 21, end: 37 }
 
     function StatefulHarness() {
-      const [highlights, setHighlights] = useState<ReadingHighlight[]>([])
-      const applyHighlightRanges = (
+      const [highlightState, setHighlightState] = useState<ReadingHighlight[]>([])
+      const handleCommitHighlight = (
         ranges: { blockId: string; start: number; end: number }[],
         color: HighlightColor = 'yellow',
       ) => {
-        const result = addHighlights(highlights, ranges, color)
-        setHighlights(result)
+        const result = addHighlights(highlightState, ranges, color)
+        setHighlightState(result)
+        return result
       }
 
       const selection = {
@@ -664,18 +665,18 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         <div>
           <CambridgeSelectionToolbar
             selection={selection}
-            highlights={highlights}
+            highlights={highlightState}
             notes={[]}
-            onApplyHighlight={applyHighlightRanges}
-            onSaveNote={vi.fn()}
-            onDeleteNote={vi.fn()}
+            onCommitHighlight={handleCommitHighlight}
+            onCommitNote={vi.fn()}
+            onCommitDeleteNote={vi.fn()}
             onClose={() => {}}
           />
           <ExamHighlightZone className="test-highlight-zone">
             <ReadingHighlightableText
               blockId={BLOCK_ID}
               text={PASSAGE_TEXT}
-              highlights={highlights}
+              highlights={highlightState}
             />
           </ExamHighlightZone>
         </div>
@@ -705,14 +706,15 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
 
     function StatefulHarness() {
       const [notesState, setNotes] = useState<TextNote[]>([])
-      const saveNoteRanges = (
+      const handleCommitNote = (
         ranges: { blockId: string; start: number; end: number }[],
         rawText: string,
       ) => {
         const text = rawText.trim()
-        if (!text || ranges.length === 0) return
+        if (!text || ranges.length === 0) return null
         const result = upsertNotesForRanges(notesState, ranges, text)
         setNotes(result)
+        return result
       }
 
       const selection = {
@@ -730,9 +732,9 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
             selection={selection}
             highlights={[]}
             notes={notesState}
-            onApplyHighlight={vi.fn()}
-            onSaveNote={saveNoteRanges}
-            onDeleteNote={vi.fn()}
+            onCommitHighlight={vi.fn()}
+            onCommitNote={handleCommitNote}
+            onCommitDeleteNote={vi.fn()}
             onClose={() => {}}
           />
           <ExamHighlightZone className="test-highlight-zone">
@@ -777,23 +779,25 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
 
     function StatefulHarness() {
       const [sel, setSel] = useState<typeof MOCK_SEL | null>(MOCK_SEL)
-      const [highlights, setHighlights] = useState<ReadingHighlight[]>([])
-      const applyHighlight = (ranges: HighlightRange[], color: HighlightColor) => {
-        setHighlights(addHighlights(highlights, ranges, color))
+      const [highlightState, setHighlightState] = useState<ReadingHighlight[]>([])
+      const handleCommitHighlight = (ranges: HighlightRange[], color: HighlightColor) => {
+        const result = addHighlights(highlightState, ranges, color)
+        setHighlightState(result)
+        return result
       }
       return (
         <div>
           <CambridgeSelectionToolbar
             selection={sel}
-            highlights={highlights}
+            highlights={highlightState}
             notes={[]}
-            onApplyHighlight={applyHighlight}
-            onSaveNote={vi.fn()}
-            onDeleteNote={vi.fn()}
+            onCommitHighlight={handleCommitHighlight}
+            onCommitNote={vi.fn()}
+            onCommitDeleteNote={vi.fn()}
             onClose={() => setSel(null)}
           />
           <ExamHighlightZone>
-            <ReadingHighlightableText blockId={BLOCK_ID} text={PASSAGE_TEXT} highlights={highlights} />
+            <ReadingHighlightableText blockId={BLOCK_ID} text={PASSAGE_TEXT} highlights={highlightState} />
           </ExamHighlightZone>
         </div>
       )

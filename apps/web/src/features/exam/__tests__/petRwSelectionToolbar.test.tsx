@@ -159,9 +159,9 @@ describe('PET Reading note/highlight', () => {
             selection={selection}
             highlights={[]}
             notes={[]}
-            onApplyHighlight={onHighlightsChange}
-            onSaveNote={onNotesChange}
-            onDeleteNote={vi.fn()}
+            onCommitHighlight={onHighlightsChange}
+            onCommitNote={onNotesChange}
+            onCommitDeleteNote={vi.fn()}
             onClose={clearSelection}
           />
         </>

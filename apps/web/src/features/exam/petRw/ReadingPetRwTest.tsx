@@ -72,9 +72,9 @@ export default function ReadingPetRwTest() {
     notesByPart,
     handleHighlightsChange,
     handleNotesChange,
-    applyHighlightRanges,
-    saveNoteRanges,
-    deleteNoteRanges,
+    commitHighlightRanges,
+    commitNoteRanges,
+    commitDeleteNoteRanges,
     setAnnotationsByPart,
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
@@ -440,9 +440,9 @@ export default function ReadingPetRwTest() {
           selection={selection}
           highlights={highlights}
           notes={notes}
-          onApplyHighlight={applyHighlightRanges}
-          onSaveNote={saveNoteRanges}
-          onDeleteNote={deleteNoteRanges}
+          onCommitHighlight={commitHighlightRanges}
+          onCommitNote={commitNoteRanges}
+          onCommitDeleteNote={commitDeleteNoteRanges}
           onClose={clearSelection}
         />
       </main>
