@@ -3,15 +3,23 @@
 **Ngày:** 2026-07-25
 
 ### Đã hoàn thành
+- **Fix bug "Không lưu được highlight" trên PET Reading với real auth — root cause + fix gốc:**
+  - **Nguyên nhân:** Supabase `reading_exam_published.parts` (JSONB) trả về mỗi part **thiếu field `id`**, trong khi catalog JSON tĩnh có đủ. Khi merge dữ liệu trong `resolveReadingExam()`, published source (thiếu id) thắng builtin (có id) qua tiebreaker → `currentPart.id = undefined` → blockId = `"undefined-instr-range"` → `commitHighlightRanges` trả null → toast "Không lưu được highlight."
+  - **Fix A — gốc:** `readingExamPublish.ts:rowToExam()` — map `row.parts` để đảm bảo mỗi part có `id` với fallback deterministic: `part.id || \`${row.id}-part-${part.partNumber ?? index + 1}\``
+  - **Fix B — lưới an toàn:** `PetRwPartContent.tsx` — fallback `part.id || \`${examId}-part-${part.partNumber}\`` cùng công thức với Fix A
+  - **Playwright 4 test case (A,B,C,D) với real auth:** ✅ **4/4 PASS** — partId = `"catalog-reading-pet-b1-test1-part-1"`, không còn toast lỗi
+  - **TypeScript:** `pnpm --filter web exec tsc --noEmit` ✅ PASS
+  - **Unit tests:** ✅ Không regression
+  - **Audit Listening:** phát hiện pattern tương tự ở `listeningExamPublish.ts:rowToExam()` — cần fix riêng
+  - **Deploy preview:** https://ryanenglishv2-91pdc38tv-ryanenglish.vercel.app ✅
+  - **Deploy production:** https://ryanenglishv2.vercel.app ✅ Ready
 - **Fix bug thật PET Reading note/highlight không hiện sau loading:** Sửa lifecycle của `useStableTextSelection` để listener luôn gắn từ trạng thái loading bằng `document` listeners và đọc `rootRef.current` động tại thời điểm event, thay vì bail out khi `rootRef.current === null` ở render đầu. Thêm clear selection khi đổi `currentPart` trong `ReadingPetRwTest`, portal `CambridgeSelectionToolbar` ra `document.body` để tránh bị clip trong `.pet-rw-main`, và thêm regression test delayed-root mount trong `apps/web/src/features/exam/__tests__/petRwSelectionToolbar.test.tsx`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; scoped vitest `petRwSelectionToolbar` + `petRwHighlightNote` PASS 17/17.
 - **Fix ReadingHighlightToolbar không hiển thị trên PET Reading:** Sửa 3 vấn đề core:
   (1) **Thêm pointerup event** — toolbar nay lắng nghe pointerup ngoài mouseup/keyup/selectionchange, bắt đúng lúc kết thúc chọn text.
   (2) **Dùng pendingRangesRef.current thay vì re-read window.getSelection()** — các button onClick (màu, remove, note) dùng ref snapshot đã lưu từ updateToolbar, tránh mất selection trước khi click.
-  (3) **Runtime debug logging** — mỗi lần toolbar bị reject, log chi tiết lý do (missing-root, missing-selection, collapsed, 
-o-range, empty-text, outside-zone, outside-root, zero-rect, 
-o-highlight-ranges) kèm oot, 	ext, collapsed, angeCount trong DEV mode.
+  (3) **Runtime debug logging** — mỗi lần toolbar bị reject, log chi tiết lý do (missing-root, missing-selection, collapsed, no-range, empty-text, outside-zone, outside-root, zero-rect, no-highlight-ranges) kèm root, text, collapsed, rangeCount trong DEV mode.
 - **Component unit test 13 tests:** render component thật, mock selection, test toolbar hiển thị/ẩn đúng, từng button màu gọi onHighlightsChange với color đúng, remove highlight button, note editor open/save.
-- **Playwright E2E test:** pps/web/e2e/reading-highlight.spec.ts + playwright.config.ts — text selection → toolbar → 4 color buttons → click yellow → verify mark.reading-test-highlight--yellow → reload persistence.
+- **Playwright E2E test:** apps/web/e2e/reading-highlight.spec.ts + playwright.config.ts — text selection → toolbar → 4 color buttons → click yellow → verify mark.reading-test-highlight--yellow → reload persistence.
 
 ## >>> TRáº NG THÃI Gáº¦N NHáº¤T â€” Agent má»›i Ä‘á»c pháº§n nÃ y trÆ°á»›c, khÃ´ng Ä‘á»c háº¿t file <<<
 
@@ -55,8 +63,7 @@ o-highlight-ranges) kèm oot, 	ext, collapsed, angeCount trong DEV mode.
 Khi user yÃªu cáº§u "deploy" sau khi lÃ m tÃ­nh nÄƒng/fix â†’ **deploy lÃªn Vercel production trÆ°á»›c**, rá»“i **cáº­p nháº­t session_summary.md** sau. KhÃ´ng lÃ m ngÆ°á»£c láº¡i.
 
 ### Next session start prompt
-Open a logged-in browser session at 1440x1000 on http://localhost:5173/app/exam/reading/catalog-reading-pet-b1-test1 and smoke the PET-specific note/highlight flow on real loaded data: drag-select text after the exam finishes loading, confirm the Cambridge toolbar appears, stays unclipped, clears on part change, and still works after navigating between parts. Then continue pixel-match comparison against D:\App-English-Ryan\Website\Fixbug\Bug_3\want.png one region at a time.
-
+Verify on production (https://ryanenglishv2.vercel.app) that PET B1 Reading highlight/note works with real Google OAuth login: bôi đen text → toolbar xuất hiện → click Highlight/Note → không còn toast "Không lưu được highlight." → reload trang → highlight vẫn còn. Nếu OK, sinh ticket riêng để fix `listeningExamPublish.ts:rowToExam()` với cùng pattern thiếu `id` field.
 
 ---
 ## 2026-07-23 - Nen video nen landing page

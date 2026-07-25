@@ -519,6 +519,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         highlights={[]}
         notes={[]}
         onCommitHighlight={onCommitHighlight}
+        onCommitDeleteHighlight={vi.fn()}
         onCommitNote={onCommitNote}
         onCommitDeleteNote={onCommitDeleteNote}
         onClose={onClose}
@@ -542,6 +543,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         highlights={[]}
         notes={[]}
         onCommitHighlight={vi.fn()}
+        onCommitDeleteHighlight={vi.fn()}
         onCommitNote={vi.fn()}
         onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
@@ -553,7 +555,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
       fireEvent.click(noteBtn)
     })
 
-    const textarea = screen.getByPlaceholderText('Nhap ghi chu...')
+    const textarea = screen.getByPlaceholderText('Nhập ghi chú...')
     expect(textarea).toBeTruthy()
     await waitFor(() => {
       expect(document.activeElement).toBe(textarea)
@@ -569,6 +571,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         highlights={[]}
         notes={[]}
         onCommitHighlight={vi.fn()}
+        onCommitDeleteHighlight={vi.fn()}
         onCommitNote={onCommitNote}
         onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
@@ -578,10 +581,10 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const noteBtn = screen.getByRole('button', { name: 'Note' })
     fireEvent.click(noteBtn)
 
-    const textarea = screen.getByPlaceholderText('Nhap ghi chu...')
+    const textarea = screen.getByPlaceholderText('Nhập ghi chú...')
     fireEvent.change(textarea, { target: { value: 'Important vocabulary' } })
 
-    const saveBtn = screen.getByRole('button', { name: 'Luu note' })
+    const saveBtn = screen.getByRole('button', { name: 'Lưu note' })
     fireEvent.click(saveBtn)
 
     expect(onCommitNote).toHaveBeenCalledOnce()
@@ -598,6 +601,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         highlights={[]}
         notes={[]}
         onCommitHighlight={vi.fn()}
+        onCommitDeleteHighlight={vi.fn()}
         onCommitNote={vi.fn()}
         onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
@@ -623,6 +627,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         highlights={[]}
         notes={existingNotes}
         onCommitHighlight={vi.fn()}
+        onCommitDeleteHighlight={vi.fn()}
         onCommitNote={vi.fn()}
         onCommitDeleteNote={vi.fn()}
         onClose={vi.fn()}
@@ -632,7 +637,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const noteBtn = screen.getByRole('button', { name: 'Note' })
     fireEvent.click(noteBtn)
 
-    const textarea = screen.getByPlaceholderText('Nhap ghi chu...') as HTMLTextAreaElement
+    const textarea = screen.getByPlaceholderText('Nhập ghi chú...') as HTMLTextAreaElement
     expect(textarea.value).toBe('Existing note content')
   })
 
@@ -668,6 +673,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
             highlights={highlightState}
             notes={[]}
             onCommitHighlight={handleCommitHighlight}
+            onCommitDeleteHighlight={vi.fn()}
             onCommitNote={vi.fn()}
             onCommitDeleteNote={vi.fn()}
             onClose={() => {}}
@@ -733,6 +739,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
             highlights={[]}
             notes={notesState}
             onCommitHighlight={vi.fn()}
+            onCommitDeleteHighlight={vi.fn()}
             onCommitNote={handleCommitNote}
             onCommitDeleteNote={vi.fn()}
             onClose={() => {}}
@@ -754,10 +761,10 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const noteBtn = screen.getByRole('button', { name: 'Note' })
     await act(async () => { fireEvent.click(noteBtn) })
 
-    const textarea = screen.getByPlaceholderText('Nhap ghi chu...')
+    const textarea = screen.getByPlaceholderText('Nhập ghi chú...')
     fireEvent.change(textarea, { target: { value: 'Important vocabulary' } })
 
-    const saveBtn = screen.getByRole('button', { name: 'Luu note' })
+    const saveBtn = screen.getByRole('button', { name: 'Lưu note' })
     await act(async () => { fireEvent.click(saveBtn) })
 
     await waitFor(() => {
@@ -792,6 +799,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
             highlights={highlightState}
             notes={[]}
             onCommitHighlight={handleCommitHighlight}
+            onCommitDeleteHighlight={vi.fn()}
             onCommitNote={vi.fn()}
             onCommitDeleteNote={vi.fn()}
             onClose={() => setSel(null)}

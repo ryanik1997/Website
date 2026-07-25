@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   addHighlights,
+  removeHighlights,
   removeNotesInRanges,
   upsertNotesForRanges,
   type HighlightColor,
@@ -180,6 +181,23 @@ export function usePartHighlights(currentPartId: string | undefined) {
     [currentPartId],
   )
 
+  const commitDeleteHighlightRanges = useCallback(
+    (ranges: HighlightRange[]): ReadingHighlight[] | null => {
+      if (!currentPartId || ranges.length === 0) {
+        return null
+      }
+
+      const previous = highlightsByPartRef.current[currentPartId] ?? []
+      const next = removeHighlights(previous, ranges)
+
+      highlightsByPartRef.current = { ...highlightsByPartRef.current, [currentPartId]: next }
+      setHighlightsByPart(highlightsByPartRef.current)
+
+      return next
+    },
+    [currentPartId],
+  )
+
   return {
     highlights,
     notes,
@@ -196,6 +214,7 @@ export function usePartHighlights(currentPartId: string | undefined) {
     commitHighlightRanges,
     commitNoteRanges,
     commitDeleteNoteRanges,
+    commitDeleteHighlightRanges,
 
     clearAllHighlights,
     setAnnotationsByPart,

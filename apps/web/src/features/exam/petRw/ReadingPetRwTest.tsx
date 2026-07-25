@@ -75,6 +75,7 @@ export default function ReadingPetRwTest() {
     commitHighlightRanges,
     commitNoteRanges,
     commitDeleteNoteRanges,
+    commitDeleteHighlightRanges,
     setAnnotationsByPart,
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
@@ -441,6 +442,7 @@ export default function ReadingPetRwTest() {
           highlights={highlights}
           notes={notes}
           onCommitHighlight={commitHighlightRanges}
+          onCommitDeleteHighlight={commitDeleteHighlightRanges}
           onCommitNote={commitNoteRanges}
           onCommitDeleteNote={commitDeleteNoteRanges}
           onClose={clearSelection}

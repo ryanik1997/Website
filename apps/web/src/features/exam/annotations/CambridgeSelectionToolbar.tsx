@@ -19,6 +19,10 @@ interface CambridgeSelectionToolbarProps {
     color: HighlightColor,
   ) => ReadingHighlight[] | null
 
+  onCommitDeleteHighlight: (
+    ranges: HighlightRange[],
+  ) => ReadingHighlight[] | null
+
   onCommitNote: (
     ranges: HighlightRange[],
     text: string,
@@ -33,8 +37,10 @@ interface CambridgeSelectionToolbarProps {
 
 export default function CambridgeSelectionToolbar({
   selection,
+  highlights,
   notes,
   onCommitHighlight,
+  onCommitDeleteHighlight,
   onCommitNote,
   onCommitDeleteNote,
   onClose,
@@ -53,6 +59,17 @@ export default function CambridgeSelectionToolbar({
       ),
     )
   }, [notes, selection])
+
+  const hasExistingHighlight = useMemo(() => {
+    if (!selection) return false
+    return highlights.some(h =>
+      selection.ranges.some(range =>
+        h.blockId === range.blockId
+        && h.start < range.end
+        && h.end > range.start,
+      ),
+    )
+  }, [highlights, selection])
 
   /* Reset local editor khi selection đổi */
   const selectionSignature = useMemo(() => {
@@ -132,6 +149,23 @@ export default function CambridgeSelectionToolbar({
     onClose()
   }, [noteDraft, onCommitNote, onClose, selection])
 
+  const handleDeleteHighlight = useCallback(() => {
+    if (!selection || selection.ranges.length === 0) return
+
+    const ranges = selection.ranges.map(r => ({ ...r }))
+    setSaveError('')
+
+    const next = onCommitDeleteHighlight(ranges)
+    if (!next) {
+      setSaveError('Không xoá được highlight.')
+      return
+    }
+
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onCommitDeleteHighlight, onClose, selection])
+
   const handleDeleteNote = useCallback(() => {
     if (!selection) return
 
@@ -170,25 +204,36 @@ export default function CambridgeSelectionToolbar({
       >
         Note
       </button>
-      <button
-        type="button"
-        className="cambridge-selection-toolbar__button"
-        onClick={handleHighlight}
-      >
-        Highlight
-      </button>
+      {hasExistingHighlight && (
+        <button
+          type="button"
+          className="cambridge-selection-toolbar__button cambridge-selection-toolbar__button--danger"
+          onClick={handleDeleteHighlight}
+        >
+          Bỏ tô sáng
+        </button>
+      )}
+      {!hasExistingHighlight && (
+        <button
+          type="button"
+          className="cambridge-selection-toolbar__button"
+          onClick={handleHighlight}
+        >
+          Highlight
+        </button>
+      )}
 
       {noteEditorOpen && (
         <div className="cambridge-selection-toolbar__note-panel">
           <label className="cambridge-selection-toolbar__note-label" htmlFor="pet-note-input">
-            Ghi chu cho doan da chon
+            Ghi chú cho đoạn đã chọn
           </label>
           <textarea
             id="pet-note-input"
             className="cambridge-selection-toolbar__note-input"
             rows={3}
             value={noteDraft}
-            placeholder="Nhap ghi chu..."
+            placeholder="Nhập ghi chú..."
             onChange={event => setNoteDraft(event.target.value)}
             autoFocus
           />
@@ -198,7 +243,7 @@ export default function CambridgeSelectionToolbar({
               className="cambridge-selection-toolbar__note-btn is-primary"
               onClick={handleSaveNote}
             >
-              Luu note
+              Lưu note
             </button>
             {hasExistingNote && (
               <button
@@ -206,7 +251,7 @@ export default function CambridgeSelectionToolbar({
                 className="cambridge-selection-toolbar__note-btn"
                 onClick={handleDeleteNote}
               >
-                Xoa
+                Xóa
               </button>
             )}
             <button
@@ -217,7 +262,7 @@ export default function CambridgeSelectionToolbar({
                 setNoteDraft('')
               }}
             >
-              Dong
+              Đóng
             </button>
           </div>
         </div>

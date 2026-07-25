@@ -366,7 +366,7 @@ export default function PetRwPartContent({
   personPhotoPreviewUrl,
 }: Props) {
   const questions = useMemo(() => getPartQuestions(part), [part])
-  const partId = part.id
+  const partId = part.id || `${examId}-part-${part.partNumber}`
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)

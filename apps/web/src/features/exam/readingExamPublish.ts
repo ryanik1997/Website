@@ -26,7 +26,15 @@ function rowToExam(row: PublishedRow): ReadingExam {
     title: row.title,
     durationMinutes: row.duration_minutes,
     bandHint: row.band_hint ?? '',
-    parts: row.parts,
+    parts: (row.parts as unknown[]).map((raw, index) => {
+      const part = raw as Record<string, unknown>
+      return {
+        ...part,
+        id: typeof part.id === 'string' && part.id.trim()
+          ? part.id.trim()
+          : `${row.id}-part-${(part.partNumber as number) ?? index + 1}`,
+      } as ReadingPart
+    }),
     examTrack: (row.exam_track as ReadingExam['examTrack']) ?? undefined,
     cambridgeLevel: (row.cambridge_level as ReadingExam['cambridgeLevel']) ?? undefined,
   }
