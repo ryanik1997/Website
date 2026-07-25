@@ -1322,6 +1322,159 @@
   background: #00949a;
 }
 
+/* ── Part 5 — Horizontal chooser gap (Cambridge style) ── */
+
+.pet-rw-shell.is-part-5 .pet-rw-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: calc(100dvh - 72px - 52px);
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f4f8f9;
+}
+
+.pet-rw-shell.is-part-5 .ket-rw-instruction {
+  grid-row: 1;
+  width: auto;
+  margin: 0 14px;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-body {
+  grid-row: 2;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 28px 14px 90px;
+  background: #f4f8f9;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-content {
+  color: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-title {
+  margin: 0 0 38px;
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #050505;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-paragraph {
+  margin: 0;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-inline-passage {
+  margin: 0 0 62px;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+  white-space: normal;
+}
+
+/* ── Part 5 gap ── */
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__field {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  min-width: 128px;
+  height: 22px;
+  min-height: 22px;
+  padding: 0 5px;
+  border: 1px solid #a7a7a7;
+  border-radius: 3px;
+  background: #fff;
+  color: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__number {
+  font-weight: 700;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__value {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap.is-open .pet-rw-part5-gap__field {
+  border-color: #238ed0;
+  box-shadow: 0 0 0 1px #238ed0;
+}
+
+/* ── Part 5 chooser (horizontal bar above gap) ── */
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__chooser {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 3px);
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: min(620px, calc(100vw - 32px));
+  z-index: 30;
+  border: 1px solid #238ed0;
+  background: #333;
+  color: #fff;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap.align-right .pet-rw-part5-gap__chooser {
+  left: auto;
+  right: 0;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__option,
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__close {
+  min-height: 25px;
+  padding: 2px 7px;
+  border: 0;
+  border-right: 1px solid #757575;
+  background: #333;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__close {
+  width: 27px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__option:hover,
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__close:hover {
+  background: #494949;
+}
+
+.pet-rw-shell.is-part-5 .pet-rw-part5-gap__option.is-selected {
+  background: #196ca8;
+}
+
+/* Review mode lock */
+.pet-rw-shell.is-part-5.is-review .pet-rw-part5-gap__field {
+  cursor: default;
+}
+
 /* Footer overrides */
 .pet-rw-shell.is-part-4 .pet-rw-footer__part.is-current {
   border: 0;
