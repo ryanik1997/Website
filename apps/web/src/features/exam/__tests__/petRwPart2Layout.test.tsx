@@ -170,7 +170,7 @@ describe('PetRwDragMatch — cambridge-part-2 variant', () => {
   const fiveSlots = makeDragMatchQuestions(5, 6)
   const eightBank = makeBankOptions(8)
 
-  it('renders KetRwSplitPane with is-split class', () => {
+  it('renders KetRwSplitPane with is-split and is-fixed-split classes', () => {
     render(
       <DragMatchHarness
         variant="cambridge-part-2"
@@ -178,7 +178,11 @@ describe('PetRwDragMatch — cambridge-part-2 variant', () => {
         bank={eightBank}
       />,
     )
-    expect(document.querySelector('.ket-rw-body.is-split')).toBeTruthy()
+    const splitBody = document.querySelector('.ket-rw-body.is-split')
+    expect(splitBody).toBeTruthy()
+    expect(splitBody?.classList.contains('is-fixed-split')).toBe(true)
+    // No resizer button rendered (fixedSplit)
+    expect(document.querySelector('.ket-rw-resizer')).toBeFalsy()
     expect(document.querySelector('.pet-rw-drag')).toBeFalsy()
   })
 

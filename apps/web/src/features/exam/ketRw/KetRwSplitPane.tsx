@@ -5,6 +5,7 @@ import { useSequentialPaneScroll } from './useSequentialPaneScroll'
 interface Props {
   left: ReactNode
   right: ReactNode
+  fixedSplit?: boolean
   sequentialScroll?: boolean
   initialSplitPct?: number
   scrollResetKey?: string
@@ -13,8 +14,9 @@ interface Props {
 export default function KetRwSplitPane({
   left,
   right,
+  fixedSplit = false,
   sequentialScroll = false,
-  initialSplitPct = 50,
+  initialSplitPct,
   scrollResetKey,
 }: Props) {
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -26,7 +28,7 @@ export default function KetRwSplitPane({
     onResizerPointerDown,
     onResizerPointerMove,
     onResizerPointerUp,
-  } = useKetRwSplitResize(bodyRef, initialSplitPct)
+  } = useKetRwSplitResize(bodyRef, fixedSplit ? undefined : initialSplitPct)
 
   useSequentialPaneScroll(sequentialScroll, bodyRef, leftPaneRef, rightPaneRef)
 
@@ -37,12 +39,20 @@ export default function KetRwSplitPane({
     if (rightPaneRef.current) rightPaneRef.current.scrollTop = 0
   }, [sequentialScroll, scrollResetKey])
 
+  const className = [
+    'ket-rw-body',
+    'is-split',
+    isResizing ? ' is-resizing' : '',
+    fixedSplit ? 'is-fixed-split' : '',
+  ].filter(Boolean).join(' ')
+
   return (
     <div
       ref={bodyRef}
-      className={`ket-rw-body is-split${isResizing ? ' is-resizing' : ''}`}
-      style={{ '--ket-split-pct': `${splitPct}%` } as CSSProperties}
+      className={className}
+      style={fixedSplit ? undefined : { '--ket-split-pct': `${splitPct}%` } as CSSProperties}
       data-sequential-scroll={sequentialScroll ? 'true' : undefined}
+      data-fixed-split={fixedSplit ? 'true' : undefined}
     >
       <div
         ref={leftPaneRef}
@@ -52,19 +62,21 @@ export default function KetRwSplitPane({
         {left}
       </div>
 
-      <button
-        type="button"
-        className={`ket-rw-resizer${isResizing ? ' is-dragging' : ''}`}
-        aria-label="Kéo để chỉnh độ rộng hai khung"
-        onPointerDown={onResizerPointerDown}
-        onPointerMove={onResizerPointerMove}
-        onPointerUp={onResizerPointerUp}
-        onPointerCancel={onResizerPointerUp}
-      >
-        <span className="ket-rw-resizer__grip" aria-hidden>
-          ↔
-        </span>
-      </button>
+      {!fixedSplit && (
+        <button
+          type="button"
+          className={`ket-rw-resizer${isResizing ? ' is-dragging' : ''}`}
+          aria-label="Kéo để chỉnh độ rộng hai khung"
+          onPointerDown={onResizerPointerDown}
+          onPointerMove={onResizerPointerMove}
+          onPointerUp={onResizerPointerUp}
+          onPointerCancel={onResizerPointerUp}
+        >
+          <span className="ket-rw-resizer__grip" aria-hidden>
+            ↔
+          </span>
+        </button>
+      )}
 
       <div
         ref={rightPaneRef}
