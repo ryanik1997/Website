@@ -1,9 +1,10 @@
 ﻿## >>> TRáº NG THÃI Gáº¦N NHáº¤T â€” Agent má»›i Ä‘á»c pháº§n nÃ y trÆ°á»›c, khÃ´ng Ä‘á»c háº¿t file <<<
 
-**NgÃ y:** 2026-07-24
+**NgÃ y:** 2026-07-25
 
 ### ÄÃ£ hoÃ n thÃ nh
 - **PET B1 Reading shell fix navigation pills & state reset:** Sá»­a 4 bug chÃ­nh: (1) Fix `useEffect` reset loop báº±ng `prevPartIdRef` Ä‘á»ƒ chá»‰ validate khi Part thay Ä‘á»•i; (2) Fix `handleSelectQuestion` dÃ¹ng `useRef` thay vÃ¬ `activeQuestionId` trong deps; (3) Fix `goAdjacentQuestion` chá»‰ Ä‘iá»u hÆ°á»›ng trong Part hiá»‡n táº¡i (khÃ´ng nháº£y cross-Part); (4) Äá»•i `PetRwFooter` props tá»« `exam` sang `parts` Ä‘á»ƒ truyá»n Ä‘Ãºng dá»¯ liá»‡u Ä‘Ã£ sanitize. ThÃªm debug logs táº¡m, Phase 2 CSS cho mÃ n >=1700px (typography, pills, image, controls). Regression tests 12 tests (petRwFooter.test.tsx) dÃ¹ng fireEvent. TypeScript PASS.
+- **PET B1 Reading Part 4 two-way DnD verified:** Code da hoan chinh: Part4DragPayload type (bank/gap sources), writePart4DragPayload/readPart4DragPayload helpers, InlineGapDrop voi dragEnabled + canDragFilled + is-draggable + is-dragging, assignGapLetter voi prev clearing, part4DragPayload/isPart4BankDropActive state + clearPart4DragState, bank aside la drop target voi onDragOver/onDrop chi chap nhan gap-source. CSS: is-draggable cursor, is-dragging opacity, is-return-drop-active border highlight, review mode lock. **9/9 Part 4 tests pass, 56/56 petRw tests pass, TypeScript clean.**
 
 - **PET B1 Reading shell pass theo plan pixel-match want.png:** ÄÃ£ Ä‘áº£o cÃ¡c quyáº¿t Ä‘á»‹nh shell sai trÆ°á»›c Ä‘Ã³ theo plan want.png: bá» title PET giá»¯a header, tráº£ Candidate ID vá» cáº¡nh logo, bá» Submit trÃªn header, thÃªm floating Previous/Next á»Ÿ gÃ³c pháº£i phÃ­a trÃªn footer, footer PET chuyá»ƒn sang layout 7 vÃ¹ng cÃ³ Ã´ check riÃªng bÃªn pháº£i, instruction card + Part 1 shell Ä‘Æ°á»£c káº¿o vá» hÆ°á»›ng want.png. TypeScript PASS. ChÆ°a chá»‘t pixel-match cuá»‘i vÃ¬ automation váº«n redirect login, nÃªn cÃ²n cáº§n browser logged-in 1440x1000 Ä‘á»ƒ overlay/compare.
 - **Táº¡o file cho ChatGPT web Ä‘á»c hiá»ƒu project:** ThÃªm CHATGPT_WEB_PROJECT_SUMMARY.md tá»•ng há»£p stack, kiáº¿n trÃºc, context bug PET Reading, file quan trá»ng vÃ  yÃªu cáº§u phÃ¢n tÃ­ch Ä‘á»ƒ dÃ¡n cho ChatGPT web.
