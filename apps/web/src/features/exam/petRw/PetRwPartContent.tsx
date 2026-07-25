@@ -93,10 +93,14 @@ type Part4DragPayload =
   | { source: 'gap'; optionId: string; sourceQuestionId: string }
 
 const PART4_DND_MIME = 'application/x-pet-reading-part4-option'
+const PART4_GAP_MIME = 'application/x-pet-part4-gap'
 
 function writePart4DragPayload(dataTransfer: DataTransfer, payload: Part4DragPayload) {
   dataTransfer.setData(PART4_DND_MIME, JSON.stringify(payload))
   dataTransfer.setData('text/plain', payload.optionId)
+  if (payload.source === 'gap') {
+    dataTransfer.setData(PART4_GAP_MIME, '1')
+  }
   dataTransfer.effectAllowed = 'move'
 }
 
@@ -611,15 +615,14 @@ export default function PetRwPartContent({
               aria-label="Sentence choices"
               onDragEnter={event => {
                 if (reviewMode) return
-                const payload = readPart4DragPayload(event.dataTransfer)
-                if (payload?.source !== 'gap') return
+                // .types always readable in dragenter/dragover — don't use getData()
+                if (!event.dataTransfer.types.includes(PART4_GAP_MIME)) return
                 event.preventDefault()
                 setIsPart4BankDropActive(true)
               }}
               onDragOver={event => {
                 if (reviewMode) return
-                const payload = readPart4DragPayload(event.dataTransfer)
-                if (payload?.source !== 'gap') return
+                if (!event.dataTransfer.types.includes(PART4_GAP_MIME)) return
                 event.preventDefault()
                 event.dataTransfer.dropEffect = 'move'
                 setIsPart4BankDropActive(true)
