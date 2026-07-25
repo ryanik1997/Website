@@ -313,9 +313,19 @@ export default function ReadingPetRwTest() {
 
   return (
     <div
-      className={`pet-rw-shell ket-rw-shell${reviewMode ? ' is-review' : ''}`}
+      className={[
+        'pet-rw-shell',
+        'ket-rw-shell',
+        currentPart
+          ? `is-part-${currentPart.partNumber}`
+          : '',
+        reviewMode
+          ? 'is-review'
+          : '',
+      ].filter(Boolean).join(' ')}
       style={fontStyle}
       data-active-part-index={partIndex}
+      data-active-part-number={currentPart?.partNumber ?? ''}
       data-active-question-id={activeQuestionId ?? ''}
     >
       {reviewMode && (

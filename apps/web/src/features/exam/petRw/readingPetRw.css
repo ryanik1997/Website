@@ -198,9 +198,12 @@
   line-height: 1.35;
 }
 
-.pet-rw-shell.is-part-1 .ket-rw-radio:hover,
+.pet-rw-shell.is-part-1 .ket-rw-radio:hover {
+  background: #e7e7e7;
+}
+
 .pet-rw-shell.is-part-1 .ket-rw-radio.is-selected {
-  background: #fff;
+  background: #eef6fb;
 }
 
 .pet-rw-shell.is-part-1 .ket-rw-radio input {
