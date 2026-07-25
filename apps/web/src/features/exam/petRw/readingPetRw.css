@@ -621,12 +621,24 @@
   cursor: pointer;
 }
 
-/* ── Part 2 — Cambridge-style split layout (People / City Markets) ── */
+/* ── Part 2 — Sequential split-pane scrolling (People / City Markets) ── */
 .pet-rw-shell.is-part-2 .pet-rw-main {
+  overflow: hidden;
   padding: 0;
 }
 
+.pet-rw-shell.is-part-2 .ket-rw-main {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pet-rw-shell.is-part-2 .ket-rw-highlight-zone {
+  min-height: 0;
+  overflow: hidden;
+}
+
 .pet-rw-shell.is-part-2 .ket-rw-instruction {
+  flex-shrink: 0;
   margin: 0 16px;
   width: auto;
 }
@@ -634,6 +646,7 @@
 .pet-rw-shell.is-part-2 .ket-rw-body.is-split {
   flex: 1;
   min-height: 0;
+  overflow: hidden;
   background: #f4f8f9;
 }
 
@@ -642,11 +655,25 @@
   margin: 0;
   background: #9fa2a3;
   border: 0;
+  align-self: stretch;
+  height: 100%;
 }
 
 .pet-rw-shell.is-part-2
 .ket-rw-resizer__grip {
   display: none;
+}
+
+/* Independent scrolling panes */
+.pet-rw-shell.is-part-2 .ket-rw-pane-left,
+.pet-rw-shell.is-part-2 .ket-rw-pane-right {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .pet-rw-shell.is-part-2
@@ -671,6 +698,12 @@
   font-size: 25px;
   line-height: 1.2;
   font-weight: 700;
+}
+
+/* Column containers fill the pane */
+.pet-rw-shell.is-part-2 .pet-rw-part2-column {
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
 /* People column */
@@ -759,9 +792,9 @@
   border-style: solid;
 }
 
-/* City Markets column */
+/* City Markets column — no nested scrollbar */
 .pet-rw-shell.is-part-2
-.pet-rw-drag__bank {
+.pet-rw-part2-column--markets .pet-rw-drag__bank {
   max-height: none;
   overflow: visible;
   padding: 0;

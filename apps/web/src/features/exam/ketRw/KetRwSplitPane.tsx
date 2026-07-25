@@ -1,28 +1,56 @@
-import { useRef, type CSSProperties, type ReactNode } from 'react'
+import { useLayoutEffect, useRef, type CSSProperties, type ReactNode } from 'react'
 import { useKetRwSplitResize } from './useKetRwSplitResize'
+import { useSequentialPaneScroll } from './useSequentialPaneScroll'
 
 interface Props {
   left: ReactNode
   right: ReactNode
+  sequentialScroll?: boolean
+  initialSplitPct?: number
+  scrollResetKey?: string
 }
 
-export default function KetRwSplitPane({ left, right }: Props) {
+export default function KetRwSplitPane({
+  left,
+  right,
+  sequentialScroll = false,
+  initialSplitPct = 50,
+  scrollResetKey,
+}: Props) {
   const bodyRef = useRef<HTMLDivElement>(null)
+  const leftPaneRef = useRef<HTMLDivElement>(null)
+  const rightPaneRef = useRef<HTMLDivElement>(null)
   const {
     splitPct,
     isResizing,
     onResizerPointerDown,
     onResizerPointerMove,
     onResizerPointerUp,
-  } = useKetRwSplitResize(bodyRef)
+  } = useKetRwSplitResize(bodyRef, initialSplitPct)
+
+  useSequentialPaneScroll(sequentialScroll, bodyRef, leftPaneRef, rightPaneRef)
+
+  // Reset scroll when part changes
+  useLayoutEffect(() => {
+    if (!sequentialScroll) return
+    if (leftPaneRef.current) leftPaneRef.current.scrollTop = 0
+    if (rightPaneRef.current) rightPaneRef.current.scrollTop = 0
+  }, [sequentialScroll, scrollResetKey])
 
   return (
     <div
       ref={bodyRef}
       className={`ket-rw-body is-split${isResizing ? ' is-resizing' : ''}`}
       style={{ '--ket-split-pct': `${splitPct}%` } as CSSProperties}
+      data-sequential-scroll={sequentialScroll ? 'true' : undefined}
     >
-      <div className="ket-rw-pane-left">{left}</div>
+      <div
+        ref={leftPaneRef}
+        className="ket-rw-pane-left"
+        data-scroll-pane="left"
+      >
+        {left}
+      </div>
 
       <button
         type="button"
@@ -38,7 +66,13 @@ export default function KetRwSplitPane({ left, right }: Props) {
         </span>
       </button>
 
-      <div className="ket-rw-pane-right">{right}</div>
+      <div
+        ref={rightPaneRef}
+        className="ket-rw-pane-right"
+        data-scroll-pane="right"
+      >
+        {right}
+      </div>
     </div>
   )
 }

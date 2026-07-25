@@ -214,6 +214,9 @@ export default function PetRwDragMatch({
   if (isCambridgePart2) {
     return (
       <KetRwSplitPane
+        sequentialScroll
+        initialSplitPct={50}
+        scrollResetKey={partId}
         left={(
           <section className="pet-rw-part2-column pet-rw-part2-column--people">
             <h2 className="pet-rw-part2-heading">People</h2>

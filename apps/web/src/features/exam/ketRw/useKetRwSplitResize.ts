@@ -12,14 +12,23 @@ const SPLIT_MIN = 28
 const SPLIT_MAX = 72
 const DEFAULT_SPLIT = 50
 
-function loadSplitPct(): number {
-  const raw = window.localStorage.getItem(SPLIT_STORAGE_KEY)
-  const n = raw ? Number(raw) : DEFAULT_SPLIT
-  return Number.isFinite(n) ? Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, n)) : DEFAULT_SPLIT
+function loadSplitPct(initialSplit?: number): number {
+  // Nếu initialSplit được truyền, ưu tiên nó (PET Part 2 luôn cần 50%)
+  // Nếu không, đọc từ localStorage (Parts 3/4/7 nhớ tỷ lệ người dùng kéo)
+  const valueToClamp = initialSplit ?? (() => {
+    const raw = window.localStorage.getItem(SPLIT_STORAGE_KEY)
+    return raw ? Number(raw) : DEFAULT_SPLIT
+  })()
+  return Number.isFinite(valueToClamp)
+    ? Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, valueToClamp))
+    : DEFAULT_SPLIT
 }
 
-export function useKetRwSplitResize(bodyRef: RefObject<HTMLElement | null>) {
-  const [splitPct, setSplitPct] = useState(loadSplitPct)
+export function useKetRwSplitResize(
+  bodyRef: RefObject<HTMLElement | null>,
+  initialSplitPct?: number,
+) {
+  const [splitPct, setSplitPct] = useState(() => loadSplitPct(initialSplitPct))
   const [isResizing, setIsResizing] = useState(false)
   const splitPctRef = useRef(splitPct)
   splitPctRef.current = splitPct
