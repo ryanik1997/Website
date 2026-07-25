@@ -2,51 +2,52 @@ import type { ReadingExam } from '../examData'
 import { getPartQuestions } from '../examData'
 import { examReviewPillStyle, type ExamReviewStatus } from '../examReviewUtils'
 
-interface Props {
-  exam: ReadingExam
-  partIndex: number
+interface PetRwFooterProps {
+  parts: ReadingExam['parts']
+  activePartIndex: number
   activeQuestionId: string | null
   answers: Record<string, string>
-  onGoToPart: (index: number) => void
-  onSelectQuestion: (id: string) => void
+  onSelectPart: (partIndex: number) => void
+  onSelectQuestion: (questionId: string) => void
   onSubmit: () => void
   reviewMode?: boolean
   getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
 }
 
 export default function PetRwFooter({
-  exam,
-  partIndex,
+  parts,
+  activePartIndex,
   activeQuestionId,
   answers,
-  onGoToPart,
+  onSelectPart,
   onSelectQuestion,
   onSubmit,
   reviewMode = false,
   getQuestionReviewStatus,
-}: Props) {
+}: PetRwFooterProps) {
   const answeredInPart = (index: number) => {
-    const questions = getPartQuestions(exam.parts[index])
+    const questions = getPartQuestions(parts[index])
     return questions.filter(question => Boolean(answers[question.id]?.trim())).length
   }
 
   return (
     <footer className={`pet-rw-footer${reviewMode ? ' is-review' : ''}`}>
       <div className="pet-rw-footer__parts">
-        {exam.parts.map((part, index) => {
+        {parts.map((part, index) => {
           const questions = getPartQuestions(part)
           const answered = answeredInPart(index)
-          const isCurrent = index === partIndex
+          const isCurrent = index === activePartIndex
 
           return (
             <div
               key={part.id}
               className={`pet-rw-footer__part${isCurrent ? ' is-current' : ''}`}
             >
+              {/* Part tab — navigate to another Part */}
               <button
                 type="button"
                 className="pet-rw-footer__part-tab"
-                onClick={() => onGoToPart(index)}
+                onClick={() => onSelectPart(index)}
               >
                 <span className="pet-rw-footer__part-label">Part {part.partNumber}</span>
                 {!isCurrent && (
@@ -56,8 +57,12 @@ export default function PetRwFooter({
                 )}
               </button>
 
+              {/* Question pills — only shown for current Part */}
               {isCurrent && (
-                <div className="pet-rw-footer__pills">
+                <nav
+                  className="pet-rw-footer__pills"
+                  aria-label={`Part ${part.partNumber} questions`}
+                >
                   {questions.map(question => {
                     const isActive = activeQuestionId === question.id
                     const isAnswered = Boolean(answers[question.id]?.trim())
@@ -77,6 +82,9 @@ export default function PetRwFooter({
                       <button
                         key={question.id}
                         type="button"
+                        data-question-id={question.id}
+                        aria-label={`Go to question ${question.number}`}
+                        aria-current={isActive ? 'true' : undefined}
                         className={`pet-rw-footer__pill${isActive ? ' is-active' : ''}${!reviewStatus && isAnswered ? ' is-answered' : ''}${reviewClass}`}
                         style={examReviewPillStyle(reviewStatus, isActive)}
                         data-review={reviewStatus ?? undefined}
@@ -87,7 +95,7 @@ export default function PetRwFooter({
                       </button>
                     )
                   })}
-                </div>
+                </nav>
               )}
             </div>
           )

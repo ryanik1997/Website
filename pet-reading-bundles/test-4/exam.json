@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 4",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Samira has not finished checking the whole report herself."
+                },
+                {
+                  "id": "B",
+                  "label": "Samira wants to know where the report has been left."
+                },
+                {
+                  "id": "C",
+                  "label": "Samira needs Mr Evans to approve the final pages."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Samira explains that she has checked most of the report but asks her colleague to look over the final two pages because she ran out of time. This tells us she did not complete the checking herself. Option B is not supported because Samira knows exactly where the report is; she left it on the desk and is simply informing her colleague. Option C misreads the situation, as Samira is asking her colleague to check the pages, not Mr Evans."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You should keep your belongings with you at all times for safety."
+                },
+                {
+                  "id": "B",
+                  "label": "You may leave small items on seats if the train is not crowded."
+                },
+                {
+                  "id": "C",
+                  "label": "You are not supposed to put bags on seats when the station is busy."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The notice politely requests passengers not to put luggage on seats during busy times, which means this is something they should avoid doing at those times. 'Are kindly asked not to' has the same force as 'are not supposed to.' Option A introduces the idea of safety, which is not mentioned anywhere in the notice. Option B goes against the text, because the rule applies to small items as well and makes no exception for quiet periods."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The speaking test has been moved to an earlier day."
+                },
+                {
+                  "id": "B",
+                  "label": "The time of the speaking test has also been changed."
+                },
+                {
+                  "id": "C",
+                  "label": "Only one part of the exam timetable has been altered."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The email states that only the speaking test has been moved and confirms that 'no other parts of your exam are affected.' This means just one element of the timetable has changed. Option A gets the direction wrong, as the test has moved from Thursday to Friday, which is later, not earlier. Option B is directly contradicted by the sentence 'the time remains the same.'"
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You should drink the juice within two days of opening it."
+                },
+                {
+                  "id": "B",
+                  "label": "The juice must be finished before the bottle is opened."
+                },
+                {
+                  "id": "C",
+                  "label": "The juice is unsafe for children."
+                }
+              ],
+              "answer": "a",
+              "explanation": "The instruction 'consume within 48 hours' means the juice should be drunk within two days of being opened. Option B does not make sense, as the juice is sealed before opening and does not need to be finished until it is opened. Option C stretches the warning too far; the label advises against giving the juice to infants under 12 months, but this does not mean it is unsafe for children in general."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The door code is the same every week."
+                },
+                {
+                  "id": "B",
+                  "label": "You need to make a purchase before you can use the toilet."
+                },
+                {
+                  "id": "C",
+                  "label": "You must ask a member of staff for permission to enter."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The sign tells customers to 'ask at the counter for the door code,' which means requesting permission or access from a staff member. Option A is the reverse of what the sign says, since the code changes every Monday. Option B may seem reasonable, but the sign states the facilities are for customers, which implies you need to be a customer, not that you must buy something extra on the spot."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "City Museum and Gardens"
+            },
+            {
+              "id": "B",
+              "label": "The Grand Hotel – Afternoon Tea"
+            },
+            {
+              "id": "C",
+              "label": "Riverside Gallery: Late Opening"
+            },
+            {
+              "id": "D",
+              "label": "Family Fun Farm"
+            },
+            {
+              "id": "E",
+              "label": "Northside Pool: Late Swim Sessions"
+            },
+            {
+              "id": "F",
+              "label": "Heritage Tram Tour"
+            },
+            {
+              "id": "G",
+              "label": "The Old Fire Station Café"
+            },
+            {
+              "id": "H",
+              "label": "Sunday Market and Street Food Fair"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Joshua has a free Saturday and wants to do something outdoors, but he is not particularly sporty. He enjoys learning about the past and would like to go somewhere he can walk around at his own pace. He will be travelling by bus, so he needs somewhere that is easy to reach from the town centre.",
+              "answer": "a",
+              "explanation": "Tariq wants an outdoor activity that is not sporty and involves history, and the City Museum and Gardens is an open-air attraction exploring two thousand years of local history. He can walk around at his own pace, which matches the description of following paths and reading information boards. He also needs public transport access, and the text confirms that buses stop outside. Option F is historical and does not require sportiness, but it is a guided tram tour with set departure times rather than a place to wander freely. Option D is outdoors but focused on animals and play rather than history."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Miriam wants to take her elderly mother out for afternoon tea. Her mother uses a walking frame and cannot manage stairs, so they need a ground-floor venue with level access. Miriam would prefer somewhere that feels a bit special rather than an everyday café, and she is happy to pay a little more for that.",
+              "answer": "b",
+              "explanation": "Miriam wants to take her mother for afternoon tea in a venue that feels special. The Grand Hotel serves afternoon tea in an elegant ground-floor lounge with no steps, which suits her mother's need for level access. The price of £22 per person is higher than an everyday café, but Miriam is happy to pay more for a nicer experience. Option G is a café but is informal and spread over two floors with stairs, which rules it out. Option H has food but is a busy market, not a quiet, special venue for tea."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Jay is visiting the area alone for work and has an evening to fill. He is not very talkative and does not want to sit in a bar making conversation with strangers. He would enjoy something cultural that he can experience quietly by himself. He finishes work at 6 p.m., so whatever he does needs to be open after that.",
+              "answer": "c",
+              "explanation": "Jay is after a cultural activity he can do alone in the evening, and the Riverside Gallery has late opening until 9 p.m. on Fridays and Saturdays. The exhibition of large landscape paintings suits his interest in something cultural and quiet, and the description emphasises quiet reflection and moving at one's own speed. Option A is cultural but closes at 5 p.m., which is too early. Option H is open on Sundays, but Jay needs something for an evening after 6 p.m., and a busy market is not a quiet experience."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Jill and her family are looking for a Sunday activity that will suit three generations: grandparents, parents, and a ten-year-old child. They want something that takes up most of the day and includes food, so they do not have to worry about bringing their own. They are on a budget and need good value for a group of five.",
+              "answer": "h",
+              "explanation": "The family wants a Sunday activity suitable for three generations that takes up most of the day and includes food. The Sunday Market and Street Food Fair runs from 10 a.m. to 4 p.m., has free entry, and offers a wide range of food at moderate prices, which suits their budget. The venue is accessible and easy to reach by public transport. Option D is a family farm and sounds appealing, but it is a forty-minute drive away with no public transport, and the family ticket covers two adults and three children, whereas this family has three generations. Option G is affordable and serves food but closes at 4 p.m. on Sundays and has stairs, which may not suit the grandparents."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Saskia is training for a swimming competition and needs to keep up her practice while she is staying in the city. She wants to swim lengths in a proper pool, not just splash around. Her training schedule means she can only go late in the evening. She has her own equipment, so she just needs pool access, not a lesson. ABCDEFGH A. City Museum and Gardens Set in the grounds of a former palace, this open-air museum explores two thousand years of local history. Visitors can follow marked paths through reconstructed homes, workshops and farms. There is a free audio guide, or you can simply wander and read the information boards. Buses stop directly outside, and the museum is a ten-minute ride from the central station. Open daily 10 a.m. – 5 p.m. Adults £9, children £5. B. The Grand Hotel – Afternoon Tea Served daily in the hotel's elegant ground-floor lounge, which overlooks a rose garden. The menu includes fresh sandwiches, warm scones with cream, and a selection of fine teas. Tables are well spaced, and there are no steps between the entrance and the lounge. Afternoon tea is served 2 p.m. – 5 p.m. £22 per person. Booking recommended. C. Riverside Gallery: Late Opening This modern art gallery stays open until 9 p.m. every Friday and Saturday, making it ideal for an evening visit. The current exhibition features large-scale landscape paintings by contemporary British artists. The space is designed for quiet reflection, and visitors are encouraged to move through at their own speed. Tickets £8. The gallery is a fifteen-minute walk from the city centre along the river path. D. Family Fun Farm A working farm that welcomes visitors every weekend. Children can feed the animals, ride a pony, and explore a hay bale maze. There is a large picnic area, and a café sells hot meals, snacks and drinks. A family ticket for two adults and up to three children costs £28, which includes entry to all activities. Open 10 a.m. – 5 p.m. Note: the farm is a forty-minute drive from the town centre, and public transport does not serve the area. E. Northside Pool: Late Swim Sessions A 25-metre indoor pool with dedicated lane swimming every Monday, Wednesday and Friday from 8 p.m. to 10:30 p.m. The late sessions are designed for serious swimmers who want to train without interruption. There is no music, and the lanes are divided by speed. Entry is £6, or £22 for a block of four visits. No need to book. F. Heritage Tram Tour Climb aboard a restored 1920s tram for a guided journey through the oldest parts of the city. The tour lasts about 90 minutes, and the guide tells stories about the buildings, people and events that shaped the area. Trams run every hour from 10 a.m., with the last departure at 3:30 p.m. Tickets £14 for adults, £9 for children. The tram stop is a five-minute walk from the bus station. G. The Old Fire Station Café A friendly, informal café on two floors of a converted fire station. The ground floor has sofas and small tables, while the upper floor has larger tables for groups. Simple food is served all day: soups, salads, sandwiches. Open Monday to Saturday 8 a.m. – 6 p.m., Sunday 10 a.m. – 4 p.m. No booking. Prices are moderate. The upper floor is accessed by stairs only. H. Sunday Market and Street Food Fair Every Sunday from 10 a.m. to 4 p.m., the old market hall fills with stalls selling local produce, handcrafted goods, and street food from around the world. There is live acoustic music throughout the afternoon, and plenty of shared seating. Entry is free, and dishes from the food stalls range from £4 to £8. The market hall is wheelchair accessible and is a five-minute walk from the bus and train stations. <div class=\"",
+              "answer": "e",
+              "explanation": "Saskia requires a proper pool for training late in the evening. Northside Pool offers dedicated lane swimming sessions from 8 p.m. to 10:30 p.m., which fits her schedule perfectly. The lanes are divided by speed and the sessions are designed for serious swimmers, which matches her need for uninterrupted training. She has her own equipment and does not need lessons, so pool access is all she requires. None of the other options offer late-evening swimming."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nThe Voice in the HallwayI grew up in a quiet household. My parents were kind and attentive, but neither of them was particularly musical. We had a small radio in the kitchen, and that was about it. So I cannot really explain where the urge to sing came from. It was simply there, from as early as I can remember.\n\nAt primary school, I was too shy to sing in front of anyone. I would mouth the words in assembly while the confident kids around me sang out loudly. At home, though, I sang all the time. I sang in the shower, I sang while doing my homework, and I sang into the mirror with a hairbrush as my microphone. My parents never told me to be quiet, which I now realise was an act of great patience on their part.\n\nWhen I turned thirteen, something shifted. A new music teacher arrived at my school. Her name was Mrs Okonkwo, and she was unlike any teacher I had known. She did not simply stand at the front and wave a baton. She walked around the classroom while we sang, listening to each voice individually. One afternoon, she stopped beside my desk and said, 'You have a lovely tone. Have you ever thought about joining the choir?'\n\nNo one had ever said anything like that to me before. I was so surprised that I did not know how to respond. I mumbled something about not being good enough, and she smiled and said, 'That is exactly why you should join. You have no idea what you can do yet.'\n\nI did join the choir, though I spent the first few rehearsals barely making a sound. But gradually, surrounded by other voices, I began to trust my own. Mrs Okonkwo never pushed me. She simply gave me opportunities. A small solo here, a duet there. Each time I said yes, I felt a little less afraid.\n\nLast month, fifteen years after I stood in that classroom and heard those words, I performed on a professional stage for the first time. The theatre was not huge, and the audience was modest, but the moment felt enormous. I thought about Mrs Okonkwo as I walked out into the lights. A single sentence, offered at the right moment, can change the direction of a life. I am living proof of that."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about her childhood home?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Her parents were often too busy to spend time with her."
+                },
+                {
+                  "id": "B",
+                  "label": "Music did not play a large part in family life."
+                },
+                {
+                  "id": "C",
+                  "label": "She was discouraged from singing by her parents."
+                },
+                {
+                  "id": "D",
+                  "label": "The family owned very few possessions apart from a radio."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The writer describes her household as quiet and says her parents were not musical, adding that they only had a small radio. This suggests music was not a significant part of daily life. Option A is incorrect because she describes her parents as kind and attentive, which contradicts the idea that they were too busy. Option C is incorrect because her parents never told her to stop singing, which she now views as an act of patience. Option D is incorrect because possessing few things is not mentioned; the radio is mentioned only to show the lack of music, not a lack of possessions in general."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "How did the writer feel when Mrs Okonkwo first spoke to her about her singing?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Proud that her talent had been recognised at last."
+                },
+                {
+                  "id": "B",
+                  "label": "Embarrassed because she had been caught singing alone."
+                },
+                {
+                  "id": "C",
+                  "label": "Unsure how to react because she had never received such a comment before."
+                },
+                {
+                  "id": "D",
+                  "label": "Annoyed that the teacher had interrupted her during the lesson."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The author mentions being so surprised she did not know how to respond and mumbled something about not being good enough. This shows she was uncertain how to take the comment. Option A is incorrect because she did not feel proud at that moment; she was caught off guard and doubted herself. Option B is incorrect because she was in a classroom with other students, not singing alone. Option D is incorrect because she was not annoyed; her reaction was one of surprise, not irritation."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about her early weeks in the choir?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She regretted joining and considered leaving."
+                },
+                {
+                  "id": "B",
+                  "label": "She was given a solo immediately to build her confidence."
+                },
+                {
+                  "id": "C",
+                  "label": "She relied on the presence of others to find her own voice."
+                },
+                {
+                  "id": "D",
+                  "label": "Mrs Okonkwo made her sing alone in front of the group."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The writer explains that she barely made a sound during the first rehearsals but gradually began to trust her own voice because she was surrounded by others. This matches the idea of relying on the group to find her confidence. Option A is incorrect because there is no mention of regret or wanting to leave. Option B is incorrect because Mrs Okonkwo did not give her a solo straight away; she offered small opportunities over time. Option D is incorrect because Mrs Okonkwo is described as never pushing her, and there is no mention of being forced to sing alone."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does the writer mean by saying 'the moment felt enormous' in the final paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The theatre was bigger than she had expected."
+                },
+                {
+                  "id": "B",
+                  "label": "The experience was personally very significant, regardless of the setting."
+                },
+                {
+                  "id": "C",
+                  "label": "She was disappointed by how few people had come to watch."
+                },
+                {
+                  "id": "D",
+                  "label": "She felt pressure to perform better than she ever had before."
+                }
+              ],
+              "answer": "b",
+              "explanation": "By saying the moment felt enormous, the writer is describing the personal importance of the performance, not the physical size of the theatre. She contrasts the modest theatre with the huge emotional significance of stepping onto a professional stage for the first time. Option A is incorrect because she says the theatre was not huge. Option C is incorrect because she describes the audience as modest, not disappointingly small. Option D is incorrect because she does not mention pressure; the focus is on the significance of the moment."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best captures what the writer took from her experience?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Talent is something you are born with, not something you can develop."
+                },
+                {
+                  "id": "B",
+                  "label": "A small piece of encouragement at the right time can have a lasting impact."
+                },
+                {
+                  "id": "C",
+                  "label": "Professional success is the only true measure of achievement."
+                },
+                {
+                  "id": "D",
+                  "label": "Teachers should push shy students harder to overcome their fears."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The text ends by reflecting that a single sentence spoken by Mrs Okonkwo changed the direction of her life. This captures the central idea that encouragement, even in small doses, can have a lasting effect. Option A is incorrect because the writer's story is about developing talent over time, not being born with it. Option C is incorrect because the writer values the personal journey, not just the professional outcome. Option D is incorrect because Mrs Okonkwo is praised for her gentle approach, not for pushing hard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — Unpacking Memories",
+      "passage": [
+        {
+          "text": "Unpacking MemoriesMy aunt Rosa never talked much about her past. She was a warm and generous person, but there were certain subjects she would gently steer the conversation away from. One of those subjects was the years she spent living abroad as a young woman. [GAP 16] She just preferred to focus on the present.\n\nLast winter, my aunt's health began to decline, and she moved into a smaller flat. My mother and I offered to clear out the old house. The attic was the last room we tackled. It was full of dusty boxes, old clothes, and furniture that had not been used for decades. [GAP 17] It was tucked behind a stack of paintings my aunt had done years ago.\n\nWe pulled the suitcase into the light and opened it. Inside, there was no jewellery or money. Instead, we found letters, dozens of them, all written in Italian and tied together with a blue ribbon. There were also black-and-white photographs of a young woman standing outside a café, a small notebook filled with handwritten recipes, and a scarf made of pale yellow silk. [GAP 18] She said my aunt had never mentioned a single detail about this part of her life to anyone in the family.\n\nI took the letters home with me. My Italian is not perfect, but with some patience and a dictionary, I began to piece together a story. The letters were from someone called Luca. He wrote about the weather in Rome, about his job in a bookshop, and about how much he missed the person he was writing to. [GAP 19] They were full of affection and everyday details that felt strangely intimate to read.\n\nI never got the chance to ask my aunt about Luca. She passed away a few weeks after we found the suitcase. But I think about those letters often. They reminded me that the people we love sometimes have whole chapters of their lives that we know nothing about. [GAP 20]"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "My mother was as surprised as I was."
+            },
+            {
+              "id": "B",
+              "label": "That does not mean those chapters did not matter."
+            },
+            {
+              "id": "C",
+              "label": "I asked her directly once, and she changed the topic almost immediately."
+            },
+            {
+              "id": "D",
+              "label": "They were not dramatic letters, and there were no great secrets in them."
+            },
+            {
+              "id": "E",
+              "label": "The suitcase itself was old and made of brown leather, with brass locks that had gone green."
+            },
+            {
+              "id": "F",
+              "label": "I had always imagined my aunt as someone who had never left our town, so this was hard to believe."
+            },
+            {
+              "id": "G",
+              "label": "Right at the back, under an old blanket, I spotted a small brown suitcase."
+            },
+            {
+              "id": "H",
+              "label": "My mother thought we should throw the letters away, but I refused."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "steer the conversation away from. One of those subjects was the years she spent living abroad as a young woman. 16 ABC<",
+              "answer": "c",
+              "explanation": "Before the gap we learn that Aunt Rosa avoided talking about her years abroad. Sentence C gives a concrete example of this: the writer asked once and her aunt changed the subject immediately. The following sentence, 'She just preferred to focus on the present,' flows naturally from this."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "last room we tackled. It was full of dusty boxes, old clothes, and furniture that had not been used for decades. 17 ABC<",
+              "answer": "g",
+              "explanation": "We get a brief description of the attic full of dusty boxes and old furniture. Sentence G introduces the suitcase hidden at the back under a blanket. The following sentence begins with 'It was tucked behind a stack of paintings,' which continues the description of where the suitcase was found and connects smoothly to G."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "standing outside a café, a small notebook filled with handwritten recipes, and a scarf made of pale yellow silk. 18 ABC<",
+              "answer": "a",
+              "explanation": "The contents of the suitcase are described before the gap. The sentence after the gap says the mother had never heard about this part of her aunt's life. Sentence A fits perfectly because it shows the mother was equally shocked by the discovery."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "out the weather in Rome, about his job in a bookshop, and about how much he missed the person he was writing to. 19 ABC<",
+              "answer": "d",
+              "explanation": "The focus shifts to what is in Luca's letters. Sentence D continues this by explaining what the letters were not: dramatic or full of secrets. The following sentence describes what the letters were, warm and full of everyday details, which contrasts well with D."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "hey reminded me that the people we love sometimes have whole chapters of their lives that we know nothing about. 20 ABC<",
+              "answer": "b",
+              "explanation": "The author finalizes with the idea how people we love have whole chapters of their lives we know nothing about. Sentence B completes this thought beautifully: not knowing about those chapters does not mean they were unimportant. This provides a satisfying and reflective ending to the text."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — The Wrong Address",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "here was nothing they could do. I felt frustrated, and I was not sure what to do ____ . The house at number 42 belonged to someone I had never met, and I did not feel comfortable knocking on a stranger's door. In the end, I decided to write a short note and post it through the letterbox. I explained the situation, apologised for the",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "next"
+                },
+                {
+                  "id": "B",
+                  "label": "after"
+                },
+                {
+                  "id": "C",
+                  "label": "then"
+                },
+                {
+                  "id": "D",
+                  "label": "later"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'What to do next' means what action to take after the current situation. It is a very common expression and fits naturally here because the writer has hit a dead end with the delivery company. 'What to do after' would require an object, such as 'what to do after that.' 'What to do then' is possible grammatically but is less natural than 'next' in this context. Finally, 'later' does not fit structurally into 'what to do later' when the writer means the immediate next step."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "and post it through the letterbox. I explained the situation, apologised for the ____ , and left my phone number. I tried to keep the tone friendly and polite. A few hours later, my phone rang. It was a woman called Pauline, who said she had the parcel and invited me to come and",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "trouble"
+                },
+                {
+                  "id": "B",
+                  "label": "effort"
+                },
+                {
+                  "id": "C",
+                  "label": "pressure"
+                },
+                {
+                  "id": "D",
+                  "label": "worry"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Sorry for the trouble' is a fixed expression used when you have caused an inconvenience to someone. It fits perfectly because the writer is apologising for the mistake that led to a stranger receiving the parcel. 'Sorry for the effort' is not a collocation. 'Pressure' refers to stress or urgency, not to an inconvenience. We don't use 'worry' here as it is an emotion, and the writer is apologising for causing an inconvenience, not for making the neighbour feel worried."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "s a woman called Pauline, who said she had the parcel and invited me to come and ____ it up whenever I liked. When I arrived, Pauline was waiting at the door. She handed me the parcel and asked what was inside. When I told her, she laughed and said she had done exactly the same thing herself the year before. We ended up having a cup of tea together, and we discovered that we had quite a lot",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "bring"
+                },
+                {
+                  "id": "B",
+                  "label": "pick"
+                },
+                {
+                  "id": "C",
+                  "label": "take"
+                },
+                {
+                  "id": "D",
+                  "label": "fetch"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The phrasal verb 'pick up' means to collect something. Pauline invited the writer to come and collect the parcel. This is the standard verb for collecting an item that has been left somewhere. To bring up means to mention a topic or to raise a child, neither of which fits. To take up means to start a hobby or to occupy space. We don't normally say 'to fetch up'."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "ended up having a cup of tea together, and we discovered that we had quite a lot ____ common. She had moved to the area only six months earlier and did not know many people yet. Since that day, Pauline and I have become good friends. We meet for coffee every couple of weeks, and she even came to my sister's birthday party later that summer. It is funny to think that a simple mistake brought someone new into my life. I suppose it shows that good things can sometimes come",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "in"
+                },
+                {
+                  "id": "B",
+                  "label": "on"
+                },
+                {
+                  "id": "C",
+                  "label": "for"
+                },
+                {
+                  "id": "D",
+                  "label": "with"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The phrase 'have a lot in common' is a fixed expression that means to share similar interests or experiences. The preposition 'in' is the only one that completes this phrase correctly. “On common” and “in common” are not right grammatically. Although 'with' can appear in such phrase, the expression is 'in common with someone,' and the gap here is after 'a lot,' so 'in' is the required preposition."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "someone new into my life. I suppose it shows that good things can sometimes come ____ problems. All it",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "out"
+                },
+                {
+                  "id": "B",
+                  "label": "from"
+                },
+                {
+                  "id": "C",
+                  "label": "along"
+                },
+                {
+                  "id": "D",
+                  "label": "across"
+                }
+              ],
+              "answer": "b",
+              "explanation": "When we say that something comes from problems, it means it originates from or is caused by problems. The writer is expressing that good things can grow out of difficult situations. Option A is incorrect because 'come out problems' is grammatically incomplete without 'of.' Option C is incorrect because 'come along' is a phrasal verb meaning to arrive or make progress, and it does not fit with 'problems.' Option D is incorrect because 'come across' means to find something by chance, and it is not used to mean 'originate from.'"
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "problems. All it ____ is a little bit of courage to knock on the door, or in my case, to write a note. <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "asked"
+                },
+                {
+                  "id": "B",
+                  "label": "needed"
+                },
+                {
+                  "id": "C",
+                  "label": "took"
+                },
+                {
+                  "id": "D",
+                  "label": "called"
+                }
+              ],
+              "answer": "c",
+              "explanation": "The expression 'all it took was' means the only thing that was required was. It is a very common fixed phrase in English, often used when reflecting on how a small action led to a bigger result. The writer is saying that a little courage was the only necessary ingredient. Option A is incorrect because 'all it asked' is not a natural collocation. Option B is incorrect because 'all it needed' is possible but 'all it needed was' is less common than the fixed phrase 'all it took was.' Option D is incorrect because 'all it called' does not make sense here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — A Book I Borrowed",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nA Book I BorrowedI am usually very careful with books. I do not bend the pages, I never write in the margins, and I certainly do not lend them to people I do not trust. So when my neighbour Daniel asked if he could borrow my favourite novel, I hesitated. He promised to look"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "it and return it within two weeks. Against my better judgement, I said yes. A month went by, and I heard nothing. I reminded him once in passing, and he said he had almost finished. Another month pass...",
+              "answer": "after",
+              "explanation": "The phrasal verb 'look after' means to take care of something. Daniel promised to take care of the book. The word 'for' would be incorrect here because 'look for' means to search for something, which does not fit the context of caring for a borrowed item."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "so long that I started to forget what the cover looked like. I began to think I would never see it again. Then, one Saturday morning, I found a package outside my front door. Inside was my book, wrapp...",
+              "answer": "for",
+              "explanation": "Here we use 'for' with a period of time to say how long something has lasted. The book had been gone for a long time. The word 'since' would be incorrect because 'since' is used with a specific starting point, not a duration."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "mistake. He apologised and said he hoped I had not been",
+              "answer": "by",
+              "explanation": "The phrase 'by mistake' is a fixed expression meaning accidentally or not on purpose. The book was packed into a box accidentally during the move. The word 'in' would be incorrect because 'in mistake' is not a correct phrase."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "angry with him. I was not angry at all. In fact, I was so pleased to have the book back that I sat down and started reading it again immediately. It was just",
+              "answer": "too",
+              "explanation": "'Too' here means more than is wanted or needed, and it is used before adjectives. Daniel hoped the writer had not been too angry. The word 'very' is possible but 'too' better captures the idea of anger to a degree that would cause a problem."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "good as I remembered. Sometimes losing something, even for a while, reminds you",
+              "answer": "as",
+              "explanation": "The structure 'as good as' is used to make a comparison of equality. The book was just as good as the writer remembered. The word 'so' would be incorrect here because 'so good as' is not the standard form in positive statements."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "much you value it.",
+              "answer": "how",
+              "explanation": "The word 'how' introduces a clause expressing the degree or extent of something. The writer is reminded how much she values the book. The word 'what' would be incorrect because it would require a different structure, such as 'what you value.'\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

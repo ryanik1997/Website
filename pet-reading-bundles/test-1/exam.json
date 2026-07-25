@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 1",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Anna will call you back as soon as her phone has more power."
+                },
+                {
+                  "id": "B",
+                  "label": "Anna wants you to send a written message if the matter is important."
+                },
+                {
+                  "id": "C",
+                  "label": "Anna prefers not to be disturbed for the next half an hour."
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Text me' is a shorter version of 'send me a text message'. Answer A is wrong because Anna's battery is at 1%, so she cannot call back soon. 'C' is wrong because she specifically says 'text me if it's urgent,' meaning it's okay to disturb her if it is something important."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The lift is available for use only in emergencies after 3 p.m."
+                },
+                {
+                  "id": "B",
+                  "label": "Residents cannot use the lift for the entire day."
+                },
+                {
+                  "id": "C",
+                  "label": "The lift should be operational again later this afternoon."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Answer C correctly paraphrases 'working again by 3 p.m.' as 'later this afternoon.' 'A' is not correct (it mixes up 'emergency repairs' with 'use in emergencies'). B doesn't fit here because it says 'entire day' but the notice says 'by 3 p.m. today.'"
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Mike wants you to hide the key in a safer place after using it."
+                },
+                {
+                  "id": "B",
+                  "label": "You can enter the house without Mike being there."
+                },
+                {
+                  "id": "C",
+                  "label": "Mike will arrive home before you get there."
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Let yourself in' is an invitation to go inside. Spare key is mentioned as well. 'A' is wrong; Tom says 'put it back' (same place), not 'hide it safer.' 'C' doesn't fit here &#8211; Tom left his keys behind, so he is not home."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The shop will close earlier than usual tomorrow."
+                },
+                {
+                  "id": "B",
+                  "label": "You cannot enter the shop before 11 a.m. tomorrow."
+                },
+                {
+                  "id": "C",
+                  "label": "The shop will open at 9 a.m. on Wednesday."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Answer B is a direct synonym for 'won't open until 11 a.m.'. Answer A is wrong &#8211; it opens late, but doesn't say it closes early. C is wrong; 'resume Wednesday' means the hours 9-5 resume, but the shop might be closed Wednesday (we have no information about this)."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Marco must change the time of the meeting in the calendar."
+                },
+                {
+                  "id": "B",
+                  "label": "Room 4 should remain available until midday."
+                },
+                {
+                  "id": "C",
+                  "label": "The meeting with the client will finish after 12 o'clock."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Answer B correctly interprets 'Don't let anyone book&#8230; before noon' as keeping it available until midday. 'A' is wrong; the writer has already updated the calendar. Answer C is wrong as well: 'we might need it later' means it could finish at 12, but not definitely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "City Botanic Gardens"
+            },
+            {
+              "id": "B",
+              "label": "Clip 'n Climb Indoor Centre"
+            },
+            {
+              "id": "C",
+              "label": "The Artisan Food Market"
+            },
+            {
+              "id": "D",
+              "label": "Riverside Gallery: Local Landscapes Exhibition"
+            },
+            {
+              "id": "E",
+              "label": "Saturday Morning Bootcamp"
+            },
+            {
+              "id": "F",
+              "label": "Lakeside Putt &#038; Play"
+            },
+            {
+              "id": "G",
+              "label": "Soft Play Village"
+            },
+            {
+              "id": "H",
+              "label": "Escape Hunt Experience"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Roberto is visiting the city for work and has Sunday morning free before his flight. He wants to do something relaxing outdoors but doesn't want to travel far from the city centre. He isn't really into history, but loves looking at plants and flowers.",
+              "answer": "a",
+              "explanation": "The Botanic Gardens are only 10 minutes from the Central Station. They have many species (different kinds) of plants and flowers. Option E is outdoors, but not very relaxing (sports oriented). Option F covers the outdoors aspect, but it is far from the city centre."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Nadia and her two young children (aged 5 and 7) are looking for something to do on a rainy Saturday. The children have lots of energy and need an activity where they can move around freely. Nadia would prefer somewhere she can sit and have a coffee while watching them.",
+              "answer": "g",
+              "explanation": "Soft Play Village offers a place for Nadia's children to play, coffee and a number of activities for younger visitors. Answer B offers climbing, but it is more suitable for teenagers. Answer F doesn't fit because it is located outdoors (and it is raining on that day)."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Carlos wants to do something active on Saturday afternoon with his 13-year-old son. They both enjoy a physical challenge and a bit of competition. They are not interested in team sports but want something where they can try to beat their own previous score.",
+              "answer": "b",
+              "explanation": "Clip N Climb centre is perfect for Carlos and his son. It offers physical challenge and a competitive element (you can try to beat your own best score). Answer E has physical activity, but involves team play which Carlos is not interested in."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Emily has a free Sunday afternoon and wants to go somewhere peaceful to read a book for a couple of hours. She doesn't want to sit in a noisy café or a busy park. She'll probably get hungry around 2:30 and would like to eat something proper, not just a snack or a drink.",
+              "answer": "d",
+              "explanation": "'Peaceful gallery' (quiet place to sit, the gallery part doesn't really matter here), 'café serving lunch until 3:30.'"
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Viktor and his girlfriend want to do something on Saturday night that feels like an event. They want to be somewhere with lots of people and a fun buzz. They plan to eat while they are there but they hate waiting for a waiter to bring a bill. They are happy to try new flavours. ABCDEFGH A. City Botanic Gardens Located just a 10-minute walk from Central Station. Famous for the Tropical Glasshouse with over 2,000 species. Open daily 9 a.m. – 4 p.m. Free entry. Note: The café is currently closed for renovation; only a small coffee cart is available at the main gate. B. Clip 'n Climb Indoor Centre A huge indoor climbing arena with walls designed with both teenagers and adults in mind. No experience needed. Perfect for burning off energy. Parents can watch from the mezzanine lounge which serves hot drinks and snacks. Electronic timing system lets you race against your own best time. C. The Artisan Food Market Every day 5 p.m. – 10 p.m. in the old Market Square. Over 30 street food vendors selling dishes from Korea, Mexico, Lebanon, and more. Live music from local bands. Casual seating on shared benches. No booking required. D. Riverside Gallery: Local Landscapes Exhibition A peaceful gallery on the river path (20-min walk from centre). Features watercolour paintings by 19th-century local artists. The gallery has a highly rated vegetarian café on the ground floor serving lunch until 3:30 p.m. Gift shop sells art supplies. E. Saturday Morning Bootcamp Free outdoor fitness class in Memorial Park. 9 a.m. sharp. High-intensity team games and relay races suitable for adults and teens. Bring water and a towel. Cancelled if raining. F. Lakeside Putt &#038; Play A 9-hole crazy golf course with a jungle theme located 15km outside the city (car or bus required). Suitable for all ages. Open Friday evening and all day Saturday/Sunday. Small kiosk sells ice cream and cold drinks only. G. Soft Play Village A large indoor play centre with slides, ball pools, and climbing frames. Dedicated zone for under-8s. Free Wi-Fi and a large seating area with a full café menu for adults. Open 9 a.m. – 6 p.m. every day. No pre-booking needed on Saturdays. H. Escape Hunt Experience Test your brain power in a themed room. You have 60 minutes to solve puzzles and find the key to get out. Great for families with older children (recommended 10+) or groups of friends. Requires advance booking online. Located in the basement of the Central Library. <div class=\"",
+              "answer": "c",
+              "explanation": "Shared benches are mentioned, which hints at the place being popular. They want to try new flavours, and the place offers lots of exotic cuisine options. Also keep in mind that in English, ‘Saturday night’ commonly refers to the evening period after around 6 p.m."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nA Holiday Job That Changed EverythingWhen I was sixteen, my parents announced that if I wanted to go on the school ski trip the following winter, I would have to pay for half of it myself. I was horrified. None of my friends had to work for their holidays. But my mum was firm: 'It'll be good for you,' she said.\n\nA neighbour mentioned that the old cinema in town was looking for weekend staff. The Grand was a beautiful building from the 1930s, but it had seen better days. The red velvet seats were worn thin in places, and the carpet smelled faintly of popcorn that had been dropped decades ago. Still, I needed the money, so I applied.\n\nMy first shift was a disaster. I was assigned to the concession stand, selling tickets and sweets. Within twenty minutes, I had given the wrong change to a customer, knocked over a display of chocolate bars, and somehow managed to tear the roll of tickets so badly that my supervisor, a patient woman named Rita, had to spend ten minutes fixing it. I went home that evening and told my mum I was going to quit. She listened, nodded, and said, 'Give it one more weekend. If you still hate it, you can leave.'\n\nThe following Saturday, something shifted. Rita asked me to help with a private screening for a local film club. Instead of standing behind the counter, I was inside the theatre itself, watching the faces of the audience as the lights went down. There was a man in the third row who smiled the moment the old Grand logo appeared on screen—the one with the lion roaring silently. Later, I learned he had come to this cinema every Saturday as a boy, fifty years ago. 'It looks exactly the same,' he told me afterwards. 'That's why I keep coming back.'\n\nAfter that, I started noticing things I'd missed before. The way Rita remembered which customers liked their popcorn lightly salted. Or the sound the heavy front doors made when they closed—a solid, satisfying thud. And even the fact that people didn't just come for the films; they came because this place mattered to them.\n\nI stayed at The Grand for two years. I earned enough for the ski trip, but that wasn't what I valued most by the end. When the cinema closed permanently three years later, I felt a genuine sense of loss. I'm thirty-two now, and I still think about that worn red carpet every time I walk into a modern multiplex with its plastic seats and digital screens. It taught me that a building isn't just a building if people have cared about it for long enough."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "How did the writer feel when her parents told her she had to pay for part of the ski trip?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Grateful that they were paying the other half."
+                },
+                {
+                  "id": "B",
+                  "label": "Annoyed that she had been treated differently from her friends."
+                },
+                {
+                  "id": "C",
+                  "label": "Worried that she wouldn't be able to find a job."
+                },
+                {
+                  "id": "D",
+                  "label": "Excited about the idea of earning her own money."
+                }
+              ],
+              "answer": "b",
+              "explanation": "'I was horrified. None of my friends had to work for their holidays.' This matches annoyed that she had been treated differently. Nothing about gratitude (being thankful) is in the text. Answer C is wrong — the job search comes later. The opposite of Answer D is in the text."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about The Grand cinema in the second paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It was in excellent condition despite being very old."
+                },
+                {
+                  "id": "B",
+                  "label": "The neighbour had given an inaccurate description of it."
+                },
+                {
+                  "id": "C",
+                  "label": "It showed clear signs of age and use."
+                },
+                {
+                  "id": "D",
+                  "label": "It had recently been cleaned thoroughly."
+                }
+              ],
+              "answer": "c",
+              "explanation": "From Paragraph 2: '… beautiful building&#8230; but it had seen better days. The red velvet seats were worn thin&#8230; carpet smelled faintly of popcorn dropped decades ago.' This description gives clear signs of age and use. The opposite of Answer A is stated. The neighbour didn't give much description of the place, just informed the writer about the job opportunity. The opposite of Answer D is implied."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the writer change after her conversation with the man in the third row?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She became more attentive to the visitors."
+                },
+                {
+                  "id": "B",
+                  "label": "She started to enjoy her job more."
+                },
+                {
+                  "id": "C",
+                  "label": "She began to see the cinema and its customers differently."
+                },
+                {
+                  "id": "D",
+                  "label": "She wished she had asked the man more questions about his childhood."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The man's comment makes her notice things she'd 'missed before'—like Rita's kindness and the sound of the doors. The next paragraph confirms she realised 'people didn't just come for the films.' This shows a change in the way she sees the place. Answer A is only a minor point. Answers B and D are not mentioned."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "After her second weekend, the writer began to understand that",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "the building had an importance beyond just showing films."
+                },
+                {
+                  "id": "B",
+                  "label": "Rita's job was much more difficult than it appeared."
+                },
+                {
+                  "id": "C",
+                  "label": "customers preferred the cinema to stay exactly as it was."
+                },
+                {
+                  "id": "D",
+                  "label": "private screenings were more profitable than regular showings."
+                }
+              ],
+              "answer": "a",
+              "explanation": "After the man's comment, she notices 'people didn't just come for the films; they came because this place mattered to them.' This matches importance beyond just showing films. Answer C is too specific, while Answers B and D are not mentioned in the text."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best describes what the writer learned from her experience at The Grand?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "That earning money for something you want makes it feel more valuable."
+                },
+                {
+                  "id": "B",
+                  "label": "That old buildings are rarely as impressive as they first appear."
+                },
+                {
+                  "id": "C",
+                  "label": "That places can hold meaning because of the memories people attach to them."
+                },
+                {
+                  "id": "D",
+                  "label": "That working in a team is more enjoyable than working alone."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The entire final paragraph and the man's comment about visiting for fifty years support this. The text is about sentimental value, not money (A) or teamwork (D). Answer B is the opposite of her view."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — Learning to Cook Late in Life",
+      "passage": [
+        {
+          "text": "Learning to Cook Late in LifeMy father retired from his job as an engineer at the age of sixty-five. For forty years, my mother had done all the cooking in our house. The only thing Dad could really make was toast. [GAP 16] Then, two months into his retirement, my mother fell and broke her wrist.\n\nSuddenly, Dad was in charge of the kitchen. I visited the day after the accident and found him staring at the refrigerator as if he didn't know how to use it. [GAP 17] He had written down step-by-step instructions for boiling water. I am not exaggerating.\n\nThe first few weeks were difficult. We ate a lot of scrambled eggs. [GAP 18] He had decided to learn properly. He checked out three cookbooks from the local library and watched countless videos online. Every evening, he would present a new dish to my mother, waiting nervously for her opinion.\n\n[GAP 19] My mother told me she had never seen him so focused on anything except his work. He started keeping a notebook filled with notes about what worked and what didn’t. 'Too much salt.' 'Needs five more minutes in the oven.' 'Ask your mother where she hides the good olive oil.'\n\nBy the time my mother's wrist had healed completely, something unexpected had happened. Dad announced that he would continue to cook three nights a week. [GAP 20] She told me later that she had spent forty years waiting for a break, and all it took was a broken bone."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "Very occasionally, he would make himself a sandwich if she was out."
+            },
+            {
+              "id": "B",
+              "label": "He explained that he had discovered he actually enjoyed the process."
+            },
+            {
+              "id": "C",
+              "label": "My mother, meanwhile, looked absolutely delighted with this arrangement."
+            },
+            {
+              "id": "D",
+              "label": "I offered to bring them some frozen meals, but he refused."
+            },
+            {
+              "id": "E",
+              "label": "On the kitchen counter next to him was a piece of paper."
+            },
+            {
+              "id": "F",
+              "label": "She had always insisted on doing everything herself, which now seemed like a mistake."
+            },
+            {
+              "id": "G",
+              "label": "But then, around day ten, something changed."
+            },
+            {
+              "id": "H",
+              "label": "His confidence grew rapidly after that first successful meal."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "or forty years, my mother had done all the cooking in our house. The only thing Dad could really make was toast. 16 ABC<",
+              "answer": "a",
+              "explanation": "The sentence before says: 'The only thing Dad could really make was toast.” So we expect more information about his very limited cooking ability. Sentence A continues this idea perfectly: mentioning toast and maybe a sandwich shows that he can cook almost nothing. We are still describing the past situation, one before the accident."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "visited the day after the accident and found him staring at the refrigerator as if he didn't know how to use it. 17 ABC<",
+              "answer": "e",
+              "explanation": "Sentence E mentions a piece of paper, which fits the context of him writing down step-by-step instructions."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "ns for boiling water. I am not exaggerating. The first few weeks were difficult. We ate a lot of scrambled eggs. 18 ABC<",
+              "answer": "g",
+              "explanation": "It is said that the first weeks were difficult. Sentence G introduces a contrast: 'something changed'. We then read how the father decided to take a different, more thorough approach to cooking."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "tless videos online. Every evening, he would present a new dish to my mother, waiting nervously for her opinion. 19 ABC<",
+              "answer": "h",
+              "explanation": "The sentence before tells about him learning and cooking every evening. Then we have this part: 'My mother told me she had never seen him so focused…”. So we need something that shows progress and improvement."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "completely, something unexpected had happened. Dad announced that he would continue to cook three nights a week. 20 ABC<",
+              "answer": "c",
+              "explanation": "The context before this gap talks about the father's decision to continue cooking. Then, sentence C tells how mother was 'delighted' (very happy) with this plan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — Cloze text",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "trip to a local farm. I wasn't very excited about it at first because I've never ____ much interest in animals. I grew up in a flat in the city centre, so the countryside feels like a foreign country to me. We arrived at about ten in the morning. The farmer, a friendly woman",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "got"
+                },
+                {
+                  "id": "B",
+                  "label": "made"
+                },
+                {
+                  "id": "C",
+                  "label": "had"
+                },
+                {
+                  "id": "D",
+                  "label": "done"
+                }
+              ],
+              "answer": "c",
+              "explanation": "'take/have an interest in something' are the correct fixed phrases. 'Made interest' and 'done interest' are not English collocations. 'Had' is correct here: 'I've never had much interest.'"
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "ntry to me. We arrived at about ten in the morning. The farmer, a friendly woman ____ Mrs Evans, met us at the gate. She explained that we would spend the morning helping with some of the daily jobs. My group was asked to collect eggs from the chicken house. It sounded simple, but the chickens clearly didn't want to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "named"
+                },
+                {
+                  "id": "B",
+                  "label": "called"
+                },
+                {
+                  "id": "C",
+                  "label": "known"
+                },
+                {
+                  "id": "D",
+                  "label": "said"
+                }
+              ],
+              "answer": "b",
+              "explanation": "When giving someone's name after their description, we use 'called' or 'named.' 'Called' is the more natural choice in this informal context. 'Named” makes more sense when you give somebody (like a newborn) or something a name. 'Known' would require 'known as.' 'Said' is incorrect."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "om the chicken house. It sounded simple, but the chickens clearly didn't want to ____ up their eggs without a fight. One of them pecked my finger, which made everyone laugh except me. After lunch, we went to see the lambs. They were only a few weeks old and",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "give"
+                },
+                {
+                  "id": "B",
+                  "label": "put"
+                },
+                {
+                  "id": "C",
+                  "label": "turn"
+                },
+                {
+                  "id": "D",
+                  "label": "hand"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Give up' means to surrender or hand over something you possess. 'Put up' means to tolerate. 'Turn up' means to arrive or increase volume. 'Hand up' is not a common phrasal verb. The chickens didn't want to surrender their eggs."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "pt me. After lunch, we went to see the lambs. They were only a few weeks old and ____ very noisy. Mrs Evans let us feed them with bottles of milk. I was surprised by how much I enjoyed it. There was one small lamb that kept coming back to me for more. Mrs Evans said that animals can",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "both"
+                },
+                {
+                  "id": "B",
+                  "label": "all"
+                },
+                {
+                  "id": "C",
+                  "label": "every"
+                },
+                {
+                  "id": "D",
+                  "label": "each"
+                }
+              ],
+              "answer": "b",
+              "explanation": "'All' is used for three or more items. The text says 'lambs' (plural, a group). 'Both' is for two. 'Every' and 'each' are followed by singular nouns ('every lamb'). The gap is followed by 'were' (plural), so 'all' is correct."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "small lamb that kept coming back to me for more. Mrs Evans said that animals can ____ when someone is a bit nervous, and they try to make that person feel comfortable. On the bus home, I realised that I had actually had a good day. I'm not saying I want to become a farmer, but I've decided that I",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "notice"
+                },
+                {
+                  "id": "B",
+                  "label": "watch"
+                },
+                {
+                  "id": "C",
+                  "label": "look"
+                },
+                {
+                  "id": "D",
+                  "label": "see"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Notice' means to become aware of something, often something that isn't obvious and difficult to spot (like nervousness). Animals here can notice how people feel around them. 'Watch' and 'look' are about using your eyes deliberately, with a certain purpose. 'See' is more passive."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "ad a good day. I'm not saying I want to become a farmer, but I've decided that I ____ animals' company more than I thought I did. <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "find"
+                },
+                {
+                  "id": "B",
+                  "label": "please"
+                },
+                {
+                  "id": "C",
+                  "label": "look"
+                },
+                {
+                  "id": "D",
+                  "label": "enjoy"
+                }
+              ],
+              "answer": "d",
+              "explanation": "If you enjoy somebody's company, then you like being with them. You can also be pleased by somebody's company (requires passive, answer B), find somebody's company enjoyable (answer A) or look for somebody's company (answer C). As you can see, all other options require certain additions or changes to work in this context."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — My Favourite Place to Study",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nMy Favourite Place to StudyI do most of my studying at home, but when I really need to concentrate, there is one place I always go"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": ". It's a small public library about ten minutes from where I live. The library is not very modern, and some people say it looks a",
+              "answer": "to",
+              "explanation": "The phrase 'go to' requires the preposition 'to' when followed by a place. 'Go somewhere' has no preposition, but 'go to a place' does. Here, 'there is one place I always go to' is correct. 'Go there' is correct, but the sentence structure is 'one place I always go __.' When 'place' is the object, the preposition 'to' is needed at the end of the relative clause."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "old-fashioned. However, that's exactly why I like it. It's always quiet, and the chairs are surprisingly comfortable. There is a large window",
+              "answer": "bit/little",
+              "explanation": "'A bit old-fashioned' or 'a little old-fashioned' are common fixed phrases meaning 'slightly' or 'somewhat.' Both are acceptable in the exam mark scheme."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "looks out onto a small garden, which is lovely in spring. Last year, the library was closed for three months",
+              "answer": "that/which",
+              "explanation": "The gap introduces a relative clause describing 'a large window.' 'That' and 'which' are both correct for referring to things. Don't use 'who', which is suitable for people but not objects."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "of repair work. I really missed it during that time. I tried studying in a café, but it was",
+              "answer": "because",
+              "explanation": "We show reason why the library is closed – because of the repairs taking place there. 'For repair work' makes sense in isolation ('closed for repairs'), but the gap is followed by 'of,' so 'because of' is the only correct collocation."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "noisy for me to focus properly. My friend suggested going to the university library instead, but that was too far",
+              "answer": "too",
+              "explanation": "The structure is 'too + adjective + for someone + to do something.' Here, 'too noisy for me to focus.' 'Very noisy for me to focus' is grammatically incorrect."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "my house. I'm so glad it reopened. It might not be perfect for everyone, but for me, it's the best place to get work done.",
+              "answer": "from",
+              "explanation": "The adjective 'far' is typically followed by the preposition 'from' when showing distance between two places. 'Too far from my house.' 'Far to my house' is incorrect.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

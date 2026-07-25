@@ -1,4 +1,5 @@
 .pet-rw-shell {
+  --pet-rw-ui-scale: 1;
   --pet-bg: #f4f8f9;
   --pet-header-border: #d2d7da;
   --pet-header-top: #238ed0;
@@ -668,5 +669,75 @@
 
   .pet-rw-footer {
     overflow-x: auto;
+  }
+}
+
+/* ── Phase 2: Tăng kích thước trên màn hình lớn (>= 1700px) ── */
+@media (min-width: 1700px) {
+  .pet-rw-shell {
+    --pet-rw-ui-scale: 1.1;
+  }
+
+  .pet-rw-shell .ket-rw-instruction__range,
+  .pet-rw-shell .ket-rw-instruction__text {
+    font-size: clamp(16px, 0.9vw, 18px);
+  }
+
+  .pet-rw-shell .pet-rw-candidate-id {
+    font-size: clamp(16px, 0.9vw, 18px);
+  }
+
+  .pet-rw-shell.is-part-1 .ket-rw-q-prompt {
+    font-size: clamp(16px, 0.9vw, 18px);
+  }
+
+  .pet-rw-shell.is-part-1 .ket-rw-radio {
+    font-size: clamp(16px, 0.88vw, 18px);
+    min-height: 48px;
+  }
+
+  .pet-rw-shell.is-part-1 .ket-rw-q-num {
+    width: 32px;
+    height: 30px;
+    font-size: 17px;
+  }
+
+  .pet-rw-shell.is-part-1 .pet-rw-page-image {
+    width: clamp(400px, 25vw, 520px);
+    height: auto;
+    max-width: 100%;
+  }
+
+  .pet-rw-shell.is-part-1 .ket-rw-radio-list {
+    width: calc(100% - 96px);
+    max-width: none;
+    margin-top: 8px;
+  }
+
+  /* Footer pills larger */
+  .pet-rw-footer__pill {
+    min-width: 27px;
+    height: 27px;
+    font-size: 16px;
+  }
+
+  .pet-rw-footer__pill.is-active {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+  }
+
+  .pet-rw-footer__pill {
+    font-size: clamp(15px, 0.82vw, 17px);
+  }
+
+  .pet-rw-footer__part-label,
+  .pet-rw-footer__part-count {
+    font-size: clamp(15px, 0.82vw, 17px);
+  }
+
+  .pet-rw-adjacent-nav button {
+    width: 58px;
+    height: 56px;
   }
 }

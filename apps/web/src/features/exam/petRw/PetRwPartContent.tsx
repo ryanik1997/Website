@@ -180,7 +180,15 @@ export default function PetRwPartContent({
   const [openGap, setOpenGap] = useState<number | null>(null)
   const [pickedBankId, setPickedBankId] = useState<string | null>(null)
 
-  const activeQuestion = questions.find(q => q.id === activeQuestionId) ?? questions[0]
+  const activeQuestion = questions.find(q => q.id === activeQuestionId)
+  // Trong development, log rõ khi ID không hợp lệ — không fallback im lặng
+  if (!activeQuestion && import.meta.env.DEV) {
+    console.error('[PET] Active question not found', {
+      activeQuestionId,
+      questionIds: questions.map(q => q.id),
+    })
+  }
+  const renderedQuestion = activeQuestion ?? questions[0]
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
 
@@ -295,28 +303,33 @@ export default function PetRwPartContent({
     )
   }
 
-  if (part.partNumber === 1 && activeQuestion) {
-    const imgIndex = activeQuestion.number - 1
+  if (part.partNumber === 1 && renderedQuestion) {
+    const imgIndex = renderedQuestion.number - 1
     const signBlock = part.passage[imgIndex]
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="ket-rw-body is-single">
           <div className="ket-rw-pane-full">
-            <PassageImage
-              imageKey={signBlock?.imageKey}
-              imageUrl={signBlock?.imageUrl}
-              alt={`Sign ${activeQuestion.number}`}
-            />
-            <RwMcRadioQuestion
-              partId={partId}
-              question={activeQuestion}
-              answers={answers}
-              onSelectQuestion={onSelectQuestion}
-              onAnswer={onAnswer}
-              reviewMode={reviewMode}
-              reviewStatus={reviewStatusMap?.[activeQuestion.id]}
-            />
+            <section
+              data-testid="pet-rw-active-question"
+              data-question-id={renderedQuestion.id}
+            >
+              <PassageImage
+                imageKey={signBlock?.imageKey}
+                imageUrl={signBlock?.imageUrl}
+                alt={`Sign ${renderedQuestion.number}`}
+              />
+              <RwMcRadioQuestion
+                partId={partId}
+                question={renderedQuestion}
+                answers={answers}
+                onSelectQuestion={onSelectQuestion}
+                onAnswer={onAnswer}
+                reviewMode={reviewMode}
+                reviewStatus={reviewStatusMap?.[renderedQuestion.id]}
+              />
+            </section>
           </div>
         </div>
       </>

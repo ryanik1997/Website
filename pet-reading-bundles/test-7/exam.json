@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 7",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Throw away the milk that expires tomorrow."
+                },
+                {
+                  "id": "B",
+                  "label": "Drink the fresh milk before it goes bad."
+                },
+                {
+                  "id": "C",
+                  "label": "Finish the older milk before opening the new one."
+                }
+              ],
+              "answer": "c",
+              "explanation": "Chloe warns about the older milk expiring tomorrow and says she bought a fresh bottle. She asks Tom to 'use the older one first'. This means finishing the older milk before opening the new one. Option A is wrong because she does not tell him to throw the milk away – she wants him to use it. Option B is wrong because she wants the older milk finished first, not the fresh one."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Hospital visitors."
+                },
+                {
+                  "id": "B",
+                  "label": "People who work at the hospital."
+                },
+                {
+                  "id": "C",
+                  "label": "Patients waiting to see a doctor."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The label clearly says 'For staff use only'. Staff means people who work at the hospital. Option A and C are wrong because the label tells patients and visitors to use the gel bottles at the reception desk instead."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Come back in 20 minutes."
+                },
+                {
+                  "id": "B",
+                  "label": "Phone the number provided."
+                },
+                {
+                  "id": "C",
+                  "label": "Wait at the door until someone returns."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The sign gives a phone number for urgent situations. If a customer cannot wait 20 minutes, they should call that number. Option C (Wait at the door until someone returns) is wrong because the customer cannot wait – that is the whole situation described in the question. The question says 'if they cannot wait', so waiting at the door is not an option."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "By using a credit or debit card."
+                },
+                {
+                  "id": "B",
+                  "label": "By inserting coins into the slot."
+                },
+                {
+                  "id": "C",
+                  "label": "By calling the number on the screen."
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Card payments only' means that only debit and credit cards are accepted. Option B is wrong because the machine does not accept coins or notes. Option C is wrong because the phone number is for refunds, not for buying items."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Show their ticket from Flight 442."
+                },
+                {
+                  "id": "B",
+                  "label": "Say what is inside the suitcase."
+                },
+                {
+                  "id": "C",
+                  "label": "Wait until 12 May to claim it."
+                }
+              ],
+              "answer": "b",
+              "explanation": "To collect the suitcase, someone must say what is inside. Option A is wrong because the label does not ask for a flight ticket – it asks for a description of the contents. Option C is incorrect – 12 May is when the suitcase was found, not a date to claim it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "City Farm Assistant"
+            },
+            {
+              "id": "B",
+              "label": "Furniture Repair Workshop"
+            },
+            {
+              "id": "C",
+              "label": "Reading Buddy for Adults"
+            },
+            {
+              "id": "D",
+              "label": "Saturday Park Clean-Up"
+            },
+            {
+              "id": "E",
+              "label": "After-School Sports Club"
+            },
+            {
+              "id": "F",
+              "label": "Museum Reception Volunteer"
+            },
+            {
+              "id": "G",
+              "label": "Community Garden Project"
+            },
+            {
+              "id": "H",
+              "label": "Homework Help Club"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Henrik is a retired carpenter who still has good strength. He wants to volunteer on weekday mornings, as he looks after his grandchildren every afternoon. He enjoys practical work and would like to help maintain buildings or furniture. He does not want to work with computers or answer phones. He cannot start before 8.30 am.",
+              "answer": "b",
+              "explanation": "Henrik wants practical work on weekday mornings, not with computers. Place 2 offers furniture repair on weekday mornings between 8 am and 12 pm, so he can start at 8.30 am. Place 7 is afternoons (he is busy then). Place 6 uses computers."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Mina is a university student studying biology. She needs a weekend role that does not require travel outside the city centre. She would like to work outdoors and learn something about plants or animals. She is free on Saturday mornings and all day Sunday.",
+              "answer": "a",
+              "explanation": "Mina wants weekend outdoor work with plants or animals, within the city centre. Place 1 is available on weekend mornings at a farm a ten-minute walk from the centre. Place 7 is weekdays. Place 4 is outdoors but not animal-related."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Pavel moved to the city six months ago and wants to improve his spoken English. He is available on Tuesday and Thursday evenings. He prefers a role where he talks with people individually rather than in large groups. He does not want to work with children.",
+              "answer": "c",
+              "explanation": "Pavel wants to improve his spoken English on Tuesday or Thursday evenings, one-to-one, no children. Place 3 is exactly that for adult learners. Place 8 involves children. Place 6 has computers."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Roxanne works full-time from Monday to Friday, 9 am to 5 pm. She wants a volunteer role on Saturday mornings that involves physical activity. She enjoys organising things and does not mind heavy lifting. She cannot commit to more than three hours per week.",
+              "answer": "d",
+              "explanation": "Roxanne is free Saturday mornings, wants physical activity, organising, under three hours. Place 4 runs Saturday 9–11 am and involves physical tasks with organised equipment. Place 1 is three hours exactly, but less organising. Place 6 is not physical."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Omar is seventeen years old and needs experience working with younger children for a future teaching application. He is free on Wednesday afternoons and Saturday mornings. He wants a role where he helps children learn something practical, not just watches them play. ABCDEFGH A. City Farm Assistant Help feed the goats and clean their shelters. Weekend mornings only, 9 am – 12 pm. Located a ten-minute walk from the city centre. No experience needed. Suitable for ages 16 and over. B. Furniture Repair Workshop Volunteers help fix wooden chairs and tables donated to families in need. Tools and training provided. Weekday shifts available between 8 am and 12 pm. Based in a large shed near the train station. Not suitable for people with back problems. C. Reading Buddy for Adults Spend one hour per week helping an adult learner practise reading and conversation. Evenings, Tuesday or Thursday, 6–7 pm. One-to-one sessions. Library location in the city centre. Volunteers must be patient and speak clearly. D. Saturday Park Clean-Up Collect litter, plant flowers, and maintain footpaths. Every Saturday, 9–11 am. Meet at the park entrance. Gloves and bags provided. All ages welcome. No training required. E. After-School Sports Club Assist a qualified coach with children aged 5–8. Activities include basic ball games and running. Wednesdays 3.30–5 pm. Volunteers should enjoy being active. Previous experience with children is helpful but not essential. F. Museum Reception Volunteer Welcome visitors, answer questions, and help with simple computer bookings. Shifts available on weekday afternoons (1–4 pm) or Saturday mornings (10 am – 1 pm). Training provided on the booking system. Must be comfortable using a screen. G. Community Garden Project Help plant vegetables and build raised beds. Work takes place on Tuesday and Thursday afternoons, 2–5 pm. The garden is a ten-minute walk from the city centre. Tasks include digging, carrying soil, and repairing wooden frames. H. Homework Help Club Support children aged 8–11 with their maths and reading homework. Wednesdays 4–5.30 pm. Volunteers work with small groups of three or four children. Based in a school near the central library. No teaching qualification required. <div class=\"",
+              "answer": "e",
+              "explanation": "Omar wants Wednesday afternoon experience helping younger children learn something practical. Place 5 takes places Wednesday 3.30–5 pm and involves assisting with sports. Place 8 is academic, not practical. Place 4 does not involve children."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nThe Free SandwichI only went for the sandwich. The leaflet said free carpet cleaning demonstration, Saturday afternoon, and everyone who attends gets a free lunch. I had no carpet. I lived in a rented room with wooden floors. But I had nothing else to do, and a free sandwich is a free sandwich.\n\nThe demonstration took place in a hotel conference room. There were seven of us there, mostly older couples from the area I lived in. A man named Derek stood at the front next to a dirty piece of carpet on a metal frame. He sprayed something onto it, wiped it, and the stain disappeared. We clapped politely. Then he did it again on a different stain. And again.\n\nAfter twenty minutes, I wanted to leave. But the sandwich had not arrived yet. So I stayed. Derek started telling stories. Not about cleaning. About his brother who ran a fish shop and once sold a single prawn to a famous actor. About the time he locked his keys in his van outside a funeral. About his wife who still cuts his hair even though she has no training. The other people laughed. I laughed too.\n\nTwo hours passed. Nobody checked their phone. Nobody asked about the price of the cleaning machine. Derek kept talking, and we kept listening. At the end, he handed out sandwiches wrapped in plastic. Cheese and pickle. Not great, but fine. Then he said something I did not expect. Thank you for staying, he said. Most people leave after the first stain. You did not. That means a lot.\n\nI walked home thinking about Derek. He was not a good salesman. A good salesman would have talked about the machine. Derek talked about prawns and funerals and haircuts. But I think he knew exactly what he was doing. He was not selling a carpet cleaner. He was selling an hour and a half of his time, and he gave it away for free.\n\nI still have the leaflet somewhere. I never bought the machine. But sometimes I wonder if Derek is still there, on a Saturday afternoon, telling stories to seven strangers. And I hope someone is staying to listen."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What was the writer's main reason for attending the demonstration?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He was hoping to buy a carpet for his room."
+                },
+                {
+                  "id": "B",
+                  "label": "He was curious what the salesman would try to sell to him."
+                },
+                {
+                  "id": "C",
+                  "label": "He had nothing else to do and wanted free food."
+                },
+                {
+                  "id": "D",
+                  "label": "He expected to meet new people from his neighbourhood."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The first sentence says 'I only went for the sandwich', and the writer adds 'I had no carpet' (so Option A doesn't work) and 'nothing else to do'. Option B doesn't fit &#8211; he shows no curiosity about the salesman. Option D is wrong because meeting people is not mentioned – just the fact that it was most elderly couples from the neighbourhood that showed up."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What did the writer think about leaving during the first part of the demonstration?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He decided to stay because the cleaning method was interesting."
+                },
+                {
+                  "id": "B",
+                  "label": "He felt embarrassed to leave before the other people."
+                },
+                {
+                  "id": "C",
+                  "label": "He stayed because he had not received his free sandwich yet."
+                },
+                {
+                  "id": "D",
+                  "label": "He thought Derek would be offended if he left."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The text directly says After twenty minutes, I wanted to leave. But the sandwich had not arrived yet. So I stayed. Options A, B, and D are not supported by the text."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about Derek's stories?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They made the audience forget about the cleaning machine completely."
+                },
+                {
+                  "id": "B",
+                  "label": "They did not make sense to most of the people in the room."
+                },
+                {
+                  "id": "C",
+                  "label": "They were clearly the same stories he told at every demonstration."
+                },
+                {
+                  "id": "D",
+                  "label": "They were more about his personal life than about the product."
+                }
+              ],
+              "answer": "d",
+              "explanation": "The writer says Derek told stories not about cleaning – about his brother, locking his keys in his van, and his wife cutting his hair. These are all personal life stories. Option A overstates – the audience did not forget the machine completely. Options B and C are not supported."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What does the writer suggest Derek valued most?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Making sure everyone understood how the product worked."
+                },
+                {
+                  "id": "B",
+                  "label": "Getting people to stay and listen to his stories."
+                },
+                {
+                  "id": "C",
+                  "label": "Selling as many cleaning machines as possible."
+                },
+                {
+                  "id": "D",
+                  "label": "Proving that his product was better than others."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Derek thanks the audience for staying and says it means a lot. The writer concludes Derek was selling an hour and a half of his time. This shows Derek valued having people stay and listen over selling the product. Options A, C, and D are the opposite of what the text suggests."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "By saying Derek \"knew exactly what he was doing\", what does the writer mean?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He was better at telling stories than at cleaning carpets."
+                },
+                {
+                  "id": "B",
+                  "label": "He succeeded in making the audience feel valued, not pressured."
+                },
+                {
+                  "id": "C",
+                  "label": "He accidentally made people stay longer than they wanted."
+                },
+                {
+                  "id": "D",
+                  "label": "He understood that free food was the only reason anyone came."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The writer says a good salesman would have talked about the machine, but Derek talked about personal stories. By saying Derek knew exactly what he was doing, the writer means Derek succeeded in making the audience feel valued and welcome, not pressured to buy. Option A is wrong because the writer does not compare story‑telling ability to carpet cleaning ability. Option C is wrong because people stayed because they wanted to – Derek did not trap them. Option D is wrong because Derek never suggests that free food was the only reason people came."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — Number in the Booth",
+      "passage": [
+        {
+          "text": "Number in the BoothThere is a public phone booth at the end of my street. Nobody uses it anymore, but the phone company hasn't removed it yet. One rainy afternoon, I stepped inside because of the pouring rain. On the metal shelf below the phone, someone had written a number in black pen. Not a full number – just six digits. [GAP 16]\n\nI almost did not call. But I was bored, and the rain was getting heavier. The phone still worked. It rang four times. Then a woman answered. Her voice sounded old, tired, friendly. I told her I had found her number in the phone booth. There was a long pause – and then the woman laughed. [GAP 17]\n\nMarta – that was her name – said she had written it there twenty years ago, when she was seventeen. Back then, she had been waiting for a boy who never called. She had almost forgotten about the number until my call. I asked what happened to the boy. [GAP 18] The memory clearly still hurt.\n\nWe spoke for forty minutes. Marta told me about the music she listened to as a teenager, her favourite movies, the job she took after school. I told her the few stories of my own life that were worth sharing. [GAP 19] Marta admitted it felt unusual, talking to a stranger in a phone booth decades later.\n\nWhen I got home, I did the maths. Twenty years ago, Marta was seventeen. That meant she would be thirty-seven now. But her voice on the phone had sounded much older. [GAP 20] I never called the number again. But sometimes I walk past the phone booth and wonder if Marta is still waiting, somewhere, for a call that already came."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "She said she had never received a call there."
+            },
+            {
+              "id": "B",
+              "label": "I looked at the phone and decided to try it."
+            },
+            {
+              "id": "C",
+              "label": "I felt as if we had known each other for years."
+            },
+            {
+              "id": "D",
+              "label": "The boy had moved away without saying goodbye."
+            },
+            {
+              "id": "E",
+              "label": "Then I realised – she had written the number twenty years ago, but she had not been seventeen then."
+            },
+            {
+              "id": "F",
+              "label": "She did not answer my question."
+            },
+            {
+              "id": "G",
+              "label": "The booth smelled of old rain and dust."
+            },
+            {
+              "id": "H",
+              "label": "She told me she had never told anyone that story before."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "the metal shelf below the phone, someone had written a number in black pen. Not a full number – just six digits. 16 ABC<",
+              "answer": "b",
+              "explanation": "The sentence before says someone had written a six‑digit number on the shelf. The sentence after says the writer almost did not call. Gap 16 needs a sentence that connects seeing the number to deciding whether to call. Option B ('I looked at the phone and decided to try it') fits perfectly. Option G describes the smell, which is not relevant here."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "ndly. I told her I had found her number in the phone booth. There was a long pause – and then the woman laughed. 17 ABC<",
+              "answer": "a",
+              "explanation": "The woman laughs after the writer explains how he found her number. Gap 17 needs a sentence that explains why she laughs – because she never received a call at that number. Option A (She said she had never received a call there) makes logical sense. Option H (She told me she had never told anyone that story before) is possible but does not explain the laugh."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "boy who never called. She had almost forgotten about the number until my call. I asked what happened to the boy. 18 ABC<",
+              "answer": "f",
+              "explanation": "The writer asks what happened to the boy. The sentence after says She did not want to talk about it. Gap 18 needs a sentence that shows she avoided answering. Option F (She did not answer my question) fits exactly. Option D (The boy had moved away without saying goodbye) gives a specific answer, but the text says she did not want to talk about it, we can't know this information."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "ourite movies, the job she took after school. I told her the few stories of my own life that were worth sharing. 19 ABC<",
+              "answer": "c",
+              "explanation": "The writer and the woman have spoken for forty minutes, sharing personal stories. Gap 19 needs a sentence that describes how this connection felt. Option C (I felt as if we had known each other for years) captures the unexpected closeness of the conversation. Option H could also fit here, but it is less specific to the feeling of the moment."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "arta was seventeen. That meant she would be thirty-seven now. But her voice on the phone had sounded much older. 20 ABC<",
+              "answer": "e",
+              "explanation": "The writer realises that a seventeen-year-old twenty years ago would now be thirty-seven, but the woman's voice sounded much older. Gap 20 needs a sentence that resolves this contradiction. Option E ('Then I realised – she had written the number twenty years ago, but she had not been seventeen then') explains the twist: she lied about her age, or the number was written earlier than she said."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — Walking to Work",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "answer. Walking to WorkI had a simple system of getting to work – and it was to ____ the bus. The journey was twenty minutes long, and I spent most of it mindlessly flicking through pictures on my phone or staring out of a dirty window. Then one morning the bus did not arrive. I was already late, so I there was no choice but to walk. It took forty minutes, and I arrived tired and slightly sweaty. But something felt different. The next day, I chose to walk again. During the first week, my legs ached every evening and I was about to give up. But by the second week, the aches had disappeared. I started to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "drive"
+                },
+                {
+                  "id": "B",
+                  "label": "choose"
+                },
+                {
+                  "id": "C",
+                  "label": "select"
+                },
+                {
+                  "id": "D",
+                  "label": "take"
+                }
+              ],
+              "answer": "d",
+              "explanation": "'Take the bus' is the standard collocation for using a bus as transport. 'Drive the bus'means to operate it as the driver. 'Choose the bus' is grammatically possible but not the natural expression here. To select the bus sounds too formal and unnatural."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "bout to give up. But by the second week, the aches had disappeared. I started to ____ the benefit. I arrived at work more awake. I left in the evening less stressed. After a month, I noticed other changes. I had the route more or less memorised. I knew",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "feel"
+                },
+                {
+                  "id": "B",
+                  "label": "take"
+                },
+                {
+                  "id": "C",
+                  "label": "get"
+                },
+                {
+                  "id": "D",
+                  "label": "make"
+                }
+              ],
+              "answer": "a",
+              "explanation": "'Feel the benefit' is the most natural collocation when describing noticing positive physical or emotional effects."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "a month, I noticed other changes. I had the route more or less memorised. I knew ____ gardens had flowers and even whether they had been watered. I said good morning to the same old man on the bench every day.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "where"
+                },
+                {
+                  "id": "B",
+                  "label": "what"
+                },
+                {
+                  "id": "C",
+                  "label": "when"
+                },
+                {
+                  "id": "D",
+                  "label": "which"
+                }
+              ],
+              "answer": "d",
+              "explanation": "Which is used when choosing from a known set – here, the gardens along the route. Option A (where) refers to places, but the sentence needs a word that works with gardens had flowers. Option B (what) is possible but less precise than which when the set is limited. Basically, the confusion between 'which' and 'what' is easy to avoid when you understand, that 'which' talks about particular things, while 'what' is more general."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "ad been watered. I said good morning to the same old man on the bench every day. ____ before long, he started waving first. Walking did not change my life overnight. But it did change my mornings. I stopped",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "So"
+                },
+                {
+                  "id": "B",
+                  "label": "Then"
+                },
+                {
+                  "id": "C",
+                  "label": "And"
+                },
+                {
+                  "id": "D",
+                  "label": "Even"
+                }
+              ],
+              "answer": "c",
+              "explanation": "'And before long' is a natural way to add another event in sequence. This is the only expression that fits."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "lking did not change my life overnight. But it did change my mornings. I stopped ____ at my phone during the walk. Instead, I listened to birds or just let my mind wander. By the end of the year, I could not imagine going back to the bus. I had",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "watching"
+                },
+                {
+                  "id": "B",
+                  "label": "looking"
+                },
+                {
+                  "id": "C",
+                  "label": "seeing"
+                },
+                {
+                  "id": "D",
+                  "label": "noticing"
+                }
+              ],
+              "answer": "b",
+              "explanation": "'Looking at' means directing your eyes towards something. 'Watching', 'seeing' and 'noticing' are incorrect, as none require the preposition 'at'."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "wander. By the end of the year, I could not imagine going back to the bus. I had ____ into a habit that cost nothing and gave me everything. <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "got"
+                },
+                {
+                  "id": "B",
+                  "label": "took"
+                },
+                {
+                  "id": "C",
+                  "label": "entered"
+                },
+                {
+                  "id": "D",
+                  "label": "stuck"
+                }
+              ],
+              "answer": "a",
+              "explanation": "If you get into a habit, it means you start doing it regularly. Other options do not form any established expressions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — The Tuesday Bowler",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nThe Tuesday BowlerI work behind the counter at a bowling alley on the edge of town. Most of our customers come in groups – birthday parties, work outings, families on rainy afternoons. But there is one man who always comes alone. He arrives"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Tuesday evenings at exactly 7 pm, pays for one game, and rents the same pair of shoes every time. He never speaks",
+              "answer": "on",
+              "explanation": "We use the preposition 'on' when referring to days. Note that 'every' is incorrect -it could work if we had 'Tuesday evening', singular."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "than necessary. Just a quiet \"thank you\" when I hand him the shoes. He bowls his game, puts the shoes back, and leaves. I have seen him do this more than fifty times. I do not even know his name. One ...",
+              "answer": "more",
+              "explanation": "'Never speaks more than necessary' means he says only what he needs to and nothing extra. This is a fixed comparative structure. A common wrong answer would be other (never speaks other than), but that would change the meaning to 'he only says thank you and nothing else' – possible but less precise. More is the best fit."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "he was putting his shoes back, he stopped. He looked at me and asked if I could help him improve his score. He said he had been bowling for years but never got better. I was surprised. He had always s...",
+              "answer": "as/while/when",
+              "explanation": "All listed words mean 'during the time that'. They show that the stopping happened at the same moment he was putting his shoes back. 'When' is admittedly less precise because the other two options better show the idea of one action happening during the other."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": ". I told him I was not a coach, but I had watched a lot of bowling. I pointed out",
+              "answer": "himself",
+              "explanation": "If you keep to yourself, it means that you are a quiet person who does not socialise much. The writer is surprised that this private person asked for help. A possible wrong answer is 'him' ('kept to him' – incorrect) or alone (which appeared in the original but was removed because it appears later in the text). Himself tests a useful reflexive pronoun in a fixed expression.."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "he was releasing the ball too early. He tried again, and his next shot knocked down eight pins – three more than his usual. He smiled. It was the first time I had seen him do that. Now he comes on Tue...",
+              "answer": "that",
+              "explanation": "'Pointed out that he was releasing the ball too early\"–'that' introduces a noun clause explaining what the writer observed."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "the game, he looks over and gives me a small wave. That is his way of saying thank you. And that is enough for me.",
+              "answer": "during",
+              "explanation": "'During the game' means at some point within the game. This is a preposition of time. A common wrong answer would be 'in' – while 'in the game' can work, 'during' is more natural for an action that happens repeatedly within an activity. Another wrong answer would be 'after', which would change the meaning to after the game finishes, but the text says 'during' because he waves while playing.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

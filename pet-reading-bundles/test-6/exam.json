@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "title": "PET B1 Reading — Test 6",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passage": [
+        {
+          "imageFile": "part1-q1.webp"
+        },
+        {
+          "imageFile": "part1-q2.webp"
+        },
+        {
+          "imageFile": "part1-q3.webp"
+        },
+        {
+          "imageFile": "part1-q4.webp"
+        },
+        {
+          "imageFile": "part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 1–5",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Keep it until the next morning."
+                },
+                {
+                  "id": "B",
+                  "label": "Bring it back by 10 minutes to closing."
+                },
+                {
+                  "id": "C",
+                  "label": "Leave it inside the study room."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Oscar says he is making pasta and lists what he needs by saying 'Can you grab some cheese? I've got everything else.' This tells us cheese is the only missing ingredient. Option B misses the point because Oscar does not ask for advice on cheese type. Option C is incorrect because Oscar is happy to cook alone; he just needs an ingredient brought home."
+            },
+            {
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He has moved it to a different place."
+                },
+                {
+                  "id": "B",
+                  "label": "He needs it back for the budget report."
+                },
+                {
+                  "id": "C",
+                  "label": "He found it near the window."
+                }
+              ],
+              "answer": "a",
+              "explanation": "Mark says 'I’ve put it on the shelf by the window', so he moved the folder to a new location. Mark doesn't say that he wants the folder back. Answer C: He found it on his desk, not near the window. The window is where he placed it afterwards."
+            },
+            {
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Thursday is a public holiday."
+                },
+                {
+                  "id": "B",
+                  "label": "The committee asked for a change."
+                },
+                {
+                  "id": "C",
+                  "label": "There is a holiday on Wednesday."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The change is because of a public holiday, and the collection moves from Wednesday to Thursday. That means the holiday is on Wednesday. Thursday is the new collection day, not the holiday itself. Answer C: The committee is informing residents, not asking for a change. The reason is the holiday, not a request."
+            },
+            {
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Opening the side panel too quickly."
+                },
+                {
+                  "id": "B",
+                  "label": "Using the front slot to remove stuck paper."
+                },
+                {
+                  "id": "C",
+                  "label": "Turning the green handle."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The label says Do not pull paper from the front slot. The user should avoid using the front slot to remove stuck paper. Answer A: 'slowly' refers to turning the handle, not opening the panel. Answer C: the opposite of this answer is said. Turning the green handle is exactly what the user should be doing to fix the problem."
+            },
+            {
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Someone to help organize the garden party."
+                },
+                {
+                  "id": "B",
+                  "label": "A table she can borrow temporarily."
+                },
+                {
+                  "id": "C",
+                  "label": "A place to hold a birthday party."
+                }
+              ],
+              "answer": "b",
+              "explanation": "Mr.s Hill wants to borrow a folding table temporarily (for some time). Answer A: She does not ask for help organizing. She only asks for a table. Answer C: She already has a garden (the party is in the garden), so she does not need a venue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 6–10",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "The Train Station"
+            },
+            {
+              "id": "B",
+              "label": "Sandwiches for a Week"
+            },
+            {
+              "id": "C",
+              "label": "The Village Does Not Forget"
+            },
+            {
+              "id": "D",
+              "label": "A Month in the City"
+            },
+            {
+              "id": "E",
+              "label": "The Last Five Minutes"
+            },
+            {
+              "id": "F",
+              "label": "Seven Short Stories"
+            },
+            {
+              "id": "G",
+              "label": "Run or Stay"
+            },
+            {
+              "id": "H",
+              "label": "The Vegetarian's Journey"
+            }
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Marco is learning English and wants to read his first full novel in English. He needs something short with everyday language, not too many difficult words. He likes stories about ordinary people, not fantasy or science fiction. He would also like a happy ending.",
+              "answer": "f",
+              "explanation": "Book F is written in simple English, has very short stories about daily topics like work and neighbours, includes happy endings ('end on a positive note'), and is only 120 pages. This matches all his requirements perfectly. Book B is also short but about growing food, not ordinary daily life, and does not mention happy endings. Book H is a novel with 300 pages, too long, and is fiction about family relationships rather than simple happy stories."
+            },
+            {
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Louisa loves historical stories, especially those set in the 20th century. She prefers books based on real events. She does not like romance as the main topic. She has a long train journey next week and wants something over 350 pages to last the whole trip.",
+              "answer": "a",
+              "explanation": "Book A is set in the 1940s, uses real letters and diaries, has 380 pages, and states there is no romance. This satisfies every requirement. Book D is also historical and long enough but is a love story with romance central to the plot, which Leila dislikes. Book 2 is a true story but only 210 pages, too short for her train journey."
+            },
+            {
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Tom enjoys crime novels but is tired of stories set in London or New York. He wants something set in a small town or village. He likes a main character who is not a police officer. He does not mind violence but dislikes very long chapters.",
+              "answer": "e",
+              "explanation": "Book E is a mystery novel set in a small seaside town. The main character is a retired nurse, not a police officer. The book has very short chapters and 240 pages. This matches all of Tom's preferences. Book C is also set in a small village and has short chapters, but the main character is a school teacher, which is fine. However, Book 3 is the correct answer for Raj, and Book E is a stronger match for Tom because the retired nurse is further from a police officer than a teacher might be. Book G is set in New York, a big city, and has very long chapters, which Tom dislikes."
+            },
+            {
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Sofia is a vegetarian and an animal lover. She wants a book that made the writer think deeply about food or nature. She enjoys beautiful descriptions of landscapes. She does not want a cookbook or a novel – she prefers true stories.",
+              "answer": "b",
+              "explanation": "Book B is a true story about a journalist eating home-grown food, with beautiful descriptions of fields, forests, and seasons. It is not a novel or a cookbook. This fits Sofia perfectly. Book H is a novel about a vegetarian, but Sofia does not want a novel. Book A is a true story but about a train station family, not about food or nature. Book B is the only non‑fiction option that directly addresses food, nature, and landscape description."
+            },
+            {
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Raj needs a book for a monthly reading group. The group has agreed on three rules: no more than 250 pages, must be published within the last five years, and should include a mystery or puzzle at the centre of the plot. ABCDEFGH A. The Train Station This book tells the true story of a family who ran a small train station in the Scottish Highlands during the 1940s. The writer used real letters and diaries from the family members. It is 380 pages long and focuses on hard work, loss, and community life. There is no romance in the story. B. Sandwiches for a Week A journalist spent one year eating only food that she grew herself or found nearby. This book describes her experience with beautiful details of fields, forests, and the changing seasons. It is a true story, not a novel or a cookbook. The book has 210 pages and was published in 2019. C. The Village Does Not Forget This crime story takes place in a small farming village in France, far from any big city. The main character is a local school teacher who tries to solve a disappearance. The chapters are short, which makes the book easy to pick up and put down. It was first published in 2022 and has 290 pages. D. A Month in the City Set in Berlin during the 1990s, this novel follows two architects who fall in love while working on a building project. The author based the story on her own experiences living in Germany after the wall came down. At 400 pages, it is a long read, and the romance is central to the plot. The ending is sad in parts. E. The Last Five Minutes In this mystery novel, a retired nurse moves to a small seaside town and uncovers a secret that local people have hidden for years. The main character is not a police officer or a private detective. Each chapter is very short, and the whole book is 240 pages. It was published in 2021. F. Seven Short Stories This collection contains nine very short stories written in simple, plain language. The stories are about ordinary situations like work, neighbours, and shopping. Each story includes a glossary of difficult words, and all of them end on a positive note. At only 120 pages long, this book should be accessible to even the most impatient reader. G. Run or Stay A young lawyer in New York discovers that her boss has been lying about an old court case. This thriller has very long chapters, some of them over forty pages. The book is 450 pages long and was published in 2020. The action never leaves the city. H. The Vegetarian's Journey This novel tells the story of a woman who decides to stop eating meat and moves to a farm in the countryside. It is fiction, not based on real events. The book focuses on her difficult relationships with her family rather than nature or food. It has 300 pages. <div class=\"",
+              "answer": "c",
+              "explanation": "Book C is a crime story (mystery) with 240 pages, published in 2022. This satisfies all three rules exactly. Book E also meets the page and publication rules, but Book E is a better match for Tom. Book F is under 250 pages and recently published but contains short stories about daily life, not a single mystery at the centre of the plot. Book B is under 250 pages and recent but is a true story about food, not a mystery. Only Book C and Book E have mysteries, and Book C is the correct choice for Raj because it leaves Book E for Tom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nFollowing the RouteThe coat had been hanging in the charity shop for weeks. Grey, heavy, slightly too large. I only bought it because my old jacket had lost a button and winter was arriving fast. That evening, I put my hand into the left pocket and found a folded piece of paper. It was a bus timetable, printed on thin card, yellowed at the edges. The name of the bus company had not existed for at least ten years.\n\nI almost threw it away. But something stopped me. The route number was 47, and the list of stops ran from the old market square out to a village called Lowden, then across to the reservoir, and finally back to the city. I had never heard of most of these places. I looked up Lowden on my phone. It was still there, just about, a scatter of houses twenty miles away. The bus service that went there now was different, faster, and ran only twice a day.\n\nI decided to follow the old timetable anyway. Not all at once, but one Saturday morning, I drove to the market square, parked my car, and walked to the stop where the number 47 used to begin. The shelter was still there, though the glass had been broken and repaired badly. I pulled out the timetable. The first bus of the day was supposed to leave at 8.47 am. I sat down and waited.\n\nNobody came. At 8.47 exactly, I stood up and started walking the route on foot. I followed the old road out of the city, past houses that had become offices, past a petrol station that was now a garden centre. At the edge of town, I met an old man walking his dog. He saw the paper in my hand and smiled. Following the 47? he asked. I said yes. He told me he used to drive it, thirty years ago. The reservoir stop was his favourite, he said, because the ducks would gather by the shelter every morning, waiting for the schoolchildren to feed them bread.\n\nI walked for four hours. When I reached the reservoir, the shelter was gone. A concrete base was all that remained, with weeds pushing through the cracks. But the ducks were still there, seven of them, standing quietly by the water's edge. I sat on a fallen tree and watched them for a while. One of them walked towards me, stopped, and tilted its head. I had no bread to give. Still, it stayed. I thought about the schoolchildren who used to come here every morning, the bus driver who remembered their names, the timetable that had been folded inside a stranger's coat for a decade. Then I folded the paper again, put it back in my pocket, and walked home."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 11–15",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What first made the writer keep the bus timetable instead of throwing it away?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He recognised the bus company's name."
+                },
+                {
+                  "id": "B",
+                  "label": "He felt a sudden curiosity about the places on it."
+                },
+                {
+                  "id": "C",
+                  "label": "He wanted to check if the bus still ran."
+                },
+                {
+                  "id": "D",
+                  "label": "He thought the paper looked valuable."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The writer almost threw the timetable away, but something stopped him. He then looked up Lowden on his phone and decided to follow the old route anyway. This shows he felt curiosity about the places listed. Option A is wrong because the bus company no longer existed, so he could not have recognised the name. Option C is wrong because he already knew the bus service had stopped – he was not checking if it still ran. Option D is wrong because the paper was just an old timetable, not valuable."
+            },
+            {
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about the village of Lowden?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It has grown into a much larger town."
+                },
+                {
+                  "id": "B",
+                  "label": "It is still possible to travel there by bus."
+                },
+                {
+                  "id": "C",
+                  "label": "It no longer appears on any map."
+                },
+                {
+                  "id": "D",
+                  "label": "It has the same name as a nearby reservoir."
+                }
+              ],
+              "answer": "b",
+              "explanation": "The writer looked up Lowden on his phone and found that it was still there, and that a different bus service now runs there twice a day. This means it is still possible to travel there by bus. Option A is wrong because the text describes Lowden as a scatter of houses, not a larger town. Option C is wrong because he found it on his phone, so it does appear on maps. Option D is wrong because the reservoir is a separate place mentioned later in the route."
+            },
+            {
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the writer travel the route of the number 47 bus?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He took a modern bus that followed the same road."
+                },
+                {
+                  "id": "B",
+                  "label": "He drove his own car from stop to stop."
+                },
+                {
+                  "id": "C",
+                  "label": "He walked along the old road."
+                },
+                {
+                  "id": "D",
+                  "label": "He cycled from the market square to the reservoir."
+                }
+              ],
+              "answer": "c",
+              "explanation": "The writer clearly states that he sat down and waited at the bus stop, then at 8.47 he stood up and started walking the route on foot. He mentions walking for four hours at the end. Option A is wrong because the old bus service no longer exists. Option B is wrong because he parked his car at the market square and left it there. Option D is wrong because there is no mention of a bicycle."
+            },
+            {
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What did the old man tell the writer about the reservoir stop?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Children used to feed the ducks there."
+                },
+                {
+                  "id": "B",
+                  "label": "He had never liked driving that part of the route."
+                },
+                {
+                  "id": "C",
+                  "label": "The bus shelter was removed many years ago."
+                },
+                {
+                  "id": "D",
+                  "label": "The schoolchildren waited there for the bus every afternoon."
+                }
+              ],
+              "answer": "a",
+              "explanation": "The old man who used to drive the bus says the reservoir stop was his favourite because the ducks would gather every morning, waiting for the schoolchildren to feed them bread. This directly matches option A. Option B is wrong because he says it was his favourite, so he liked it. Option C is wrong because the shelter was still there when the old man drove the bus; the text later says the shelter was gone when the writer arrived. Option D is wrong because the children fed the ducks, not the other way around, and they waited for the bus, not the shelter."
+            },
+            {
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What is the main message of this text?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Following old plans can lead to interesting discoveries."
+                },
+                {
+                  "id": "B",
+                  "label": "It is better to travel by car than by bus."
+                },
+                {
+                  "id": "C",
+                  "label": "Charity shops often contain surprising hidden objects."
+                },
+                {
+                  "id": "D",
+                  "label": "Walking is the only way to truly see the countryside."
+                }
+              ],
+              "answer": "a",
+              "explanation": "The writer finds an old, useless bus timetable and decides to follow it anyway, even though no bus exists. Along the way he meets an interesting person, sees how places have changed, and discovers that the ducks are still at the reservoir. The overall message is that following old plans, even impractical ones, can lead to unexpected and rewarding discoveries. Option B is wrong because the writer parked his car and walked. Option C is too narrow – the timetable was hidden in a coat, but the story is not mainly about charity shops. Option D is wrong because walking is just how he did it; the message is not that walking is superior to other forms of travel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — The Friday Request",
+      "passage": [
+        {
+          "text": "The Friday RequestWhen I agreed to host the Friday evening shift at our local community radio station, I expected empty studios and forgotten music. The station broadcast from a small room above a bakery, and most volunteers preferred weekday mornings. [GAP 16] My slot was 8 pm to midnight, and I played old jazz records from a dusty shelf.\n\nThe first few weeks were quiet. I announced the weather, read a local news bulletin about a lost cat, and watched the red light on the microphone flick on and off. [GAP 17] It arrived by post, handwritten on a plain white card. The song was \"Blue in Green\" by Miles Davis. I played it, said nothing about the request, and continued with the next record.\n\nThe following Friday, another card arrived. Different name at the bottom, but the same handwriting – small, tidy, with no mistakes. Different song this time, but still from the same album. [GAP 18] I started looking forward to Fridays. I would check the post before I went on air, and there it would be, like clockwork.\n\nAfter two months, I decided to find out who was sending them. The return address on each envelope was a post office box, not a home. I asked the station manager, who had worked there for fifteen years. [GAP 19] He said someone had been sending in requests every Friday for as long as he could remember, always jazz, always the same handwriting.\n\nOne evening, I stayed after my shift ended. I waited by the letterbox at the back of the bakery. At around 1 am, an elderly woman appeared. She did not see me. She slipped a card into the slot and walked away slowly, using a walking stick. [GAP 20] I never spoke to her. But every Friday, I play her song first, before any other request."
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 16–20",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "A",
+              "label": "He told me he had never noticed anything unusual about the requests."
+            },
+            {
+              "id": "B",
+              "label": "I began to notice a pattern."
+            },
+            {
+              "id": "C",
+              "label": "Then, on a Friday in late October, something changed."
+            },
+            {
+              "id": "D",
+              "label": "The station manager warned me that Friday nights were usually very quiet."
+            },
+            {
+              "id": "E",
+              "label": "Nobody wanted the late shift."
+            },
+            {
+              "id": "F",
+              "label": "It didn't help much."
+            },
+            {
+              "id": "G",
+              "label": "She stopped at the corner and looked back at the station window."
+            },
+            {
+              "id": "H",
+              "label": "The bakery downstairs closed at 6 pm every day."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "n music. The station broadcast from a small room above a bakery, and most volunteers preferred weekday mornings. 16 ABC<",
+              "answer": "e",
+              "explanation": "The sentence before says most volunteers preferred weekday mornings. The sentence after says the writer's slot was 8 pm to midnight. The missing sentence needs to explain why the writer ended up with that late shift. Sentence E fits perfectly between those two ideas. Sentence F introduces a friend that is never mentioned again. Sentence H doesn't fit as the bakery's closing time has no logical connection to why a radio shift was unpopular or why the writer took it."
+            },
+            {
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "ther, read a local news bulletin about a lost cat, and watched the red light on the microphone flick on and off. 17 ABC<",
+              "answer": "c",
+              "explanation": "The paragraph describes the first few weeks as quiet. Then a change happens. Sentence C says Then, on a Friday in late October, something changed. After this sentence, the text describes the first request card arriving. This creates a clear chronological break: quiet weeks, then a change, then the arrival of the card. Sentence B (I began to notice a pattern) cannot fit here because a pattern cannot be noticed after only one card. The pattern comes later, after several weeks of requests."
+            },
+            {
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "t the same handwriting – small, tidy, with no mistakes. Different song this time, but still from the same album. 18 ABC<",
+              "answer": "b",
+              "explanation": "The sentence before says a second card arrived with a different name but the same handwriting and a different song from the same album. The sentence after says the writer started looking forward to Fridays because the cards came like clockwork. Sentence B (I began to notice a pattern) directly follows from receiving two similar cards and leads naturally to looking forward to the next ones. Any other sentence would break this logical sequence."
+            },
+            {
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "envelope was a post office box, not a home. I asked the station manager, who had worked there for fifteen years. 19 ABC<",
+              "answer": "a",
+              "explanation": "The writer asks the station manager about the requests. The sentence after says the manager said someone had been sending requests every Friday for as long as he could remember. The missing sentence comes between the writer asking and the manager giving that information. Sentence A (He told me he had never noticed anything unusual about the requests) fits because the manager first says he never found them unusual, and then he adds the detail that he does remember them happening every Friday. This is a natural conversational sequence."
+            },
+            {
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "an appeared. She did not see me. She slipped a card into the slot and walked away slowly, using a walking stick. 20 ABC<",
+              "answer": "g",
+              "explanation": "The elderly woman slips the card into the letterbox and walks away slowly. The writer watches her. The sentence after says I never spoke to her. Sentence G fits naturally between her walking away and the writer never speaking to her. It adds a quiet, emotional moment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — New Skills Year",
+      "passage": [],
+      "questionGroups": [
+        {
+          "range": "Questions 21–26",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "ect answer. New Skills YearAt the start of last year, I made a decision. I would ____ a new skill every month. Not big things like learning a language or playing an instrument. Small, practical things. I began with bread baking, which sounded easy but turned out to be surprisingly difficult. My first loaf came",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "take up"
+                },
+                {
+                  "id": "B",
+                  "label": "take off"
+                },
+                {
+                  "id": "C",
+                  "label": "take over"
+                },
+                {
+                  "id": "D",
+                  "label": "take in"
+                }
+              ],
+              "answer": "a",
+              "explanation": "To take up a skill or hobby means to start doing it regularly. This is the correct collocation. 'Take off' means to leave the ground or to become successful quickly. 'Take over' is to take control of something. Finally, to take in is to absorb or understand, or to allow someone to stay in your home. None of these fit the meaning of starting a new skill."
+            },
+            {
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "ich sounded easy but turned out to be surprisingly difficult. My first loaf came ____ of the oven looking like a stone. I almost gave up completely. But I tried again the next weekend, and this time the bread actually rose. In February, I moved on to basic plumbing. My kitchen tap had been dripping for months, and I had always",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "away"
+                },
+                {
+                  "id": "B",
+                  "label": "from"
+                },
+                {
+                  "id": "C",
+                  "label": "off"
+                },
+                {
+                  "id": "D",
+                  "label": "out"
+                }
+              ],
+              "answer": "d",
+              "explanation": "'To come out 'here means to emerge from or be removed from a container or space. In cooking, we say a loaf comes out of the oven when the baking time is finished. This is a very common fixed expression. 'Came away' suggests something becoming separated, but not from an oven. 'Came from' indicates origin or source – the loaf did not originate inside the oven, it was placed there. Finally, to come off means to become detached from a surface, like a label coming off a bottle, which does not work for an oven."
+            },
+            {
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "to basic plumbing. My kitchen tap had been dripping for months, and I had always ____ for someone else to fix it. I watched three online videos, bought a small wrench, and fixed it in twenty minutes. The sense of satisfaction was huge. I realised that most skills are not about talent. They are about being willing to",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "waited"
+                },
+                {
+                  "id": "B",
+                  "label": "paid"
+                },
+                {
+                  "id": "C",
+                  "label": "asked"
+                },
+                {
+                  "id": "D",
+                  "label": "cared"
+                }
+              ],
+              "answer": "a",
+              "explanation": "The writer says the tap had been dripping for months, and they had always relied on someone else to fix it. Waited for someone means expecting them to do something. Paid for someone means giving them money. Asked for someone means requesting that person specifically. Cared for someone means looking after them. Only waited for fits the idea of depending on another person to take action."
+            },
+            {
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "realised that most skills are not about talent. They are about being willing to ____ a mistake and try again. By summer, I had learned how to sew a button, change a bicycle tyre, and write a simple thank-you note by hand. None of these things made me a different person. But",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "do"
+                },
+                {
+                  "id": "B",
+                  "label": "have"
+                },
+                {
+                  "id": "C",
+                  "label": "make"
+                },
+                {
+                  "id": "D",
+                  "label": "get"
+                }
+              ],
+              "answer": "c",
+              "explanation": "The fixed expression is 'make a mistake'. In English, we do not 'do', 'have' or 'get' a mistake. This is a common collocation that B1 learners need to recognise. The sentence says most skills are about being willing to make a mistake and try again."
+            },
+            {
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "ple thank-you note by hand. None of these things made me a different person. But ____ the end of the year, something had changed without me noticing. I stopped feeling helpless when something went wrong. I started believing that I could figure things out. And that, more than any single skill, was the real",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "at"
+                },
+                {
+                  "id": "B",
+                  "label": "by"
+                },
+                {
+                  "id": "C",
+                  "label": "on"
+                },
+                {
+                  "id": "D",
+                  "label": "in"
+                }
+              ],
+              "answer": "b",
+              "explanation": "The time expression 'by the end of the year' means at some point before or at the end of the year. It emphasises that a change happened gradually and was complete at that time. 'At the end' means exactly at that moment. 'On the end' is not used for time. 'In the end' means finally or after everything, but in the end of the year is incorrect. 'By' is the correct preposition here."
+            },
+            {
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "at I could figure things out. And that, more than any single skill, was the real ____ . <div class=\"",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "award"
+                },
+                {
+                  "id": "B",
+                  "label": "prize"
+                },
+                {
+                  "id": "C",
+                  "label": "reward"
+                },
+                {
+                  "id": "D",
+                  "label": "gift"
+                }
+              ],
+              "answer": "d",
+              "explanation": "'Lesson' is the best word here because the writer is talking about something they learned from their experience. A lesson is an understanding or piece of knowledge that you gain from doing something. The writer learned that believing in their own ability was more valuable than any single skill. That is a lesson. 'Thing' and 'result' are too general. 'Point' usually refers to the main reason for doing something or the most important detail."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — Stories Worth Sharing",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nStories Worth SharingSomehow, I really got into collecting stories from taxi drivers. Not the usual complaints about traffic or passengers who smell of cigarettes. Instead, I asked every driver the same question: what is the strangest thing someone has left"
+        }
+      ],
+      "questionGroups": [
+        {
+          "range": "Questions 27–32",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "your cab? The answers went into a small notebook that I kept in my coat pocket. The first answer came",
+              "answer": "in",
+              "explanation": "The preposition 'in' is used for enclosed spaces like a car, taxi, or room. When something is left inside a vehicle, we say 'left in your cab'. 'On' would be used for a bus or train (because you can walk around inside them) or for leaving something on the roof or seat surface, but for a standard taxi cab, in is the natural choice. 'At' refers to a location rather than an interior space. 'Into' suggests movement from outside to inside, but the object is already inside when it is left, so 'in' is correct."
+            },
+            {
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "a driver who had found a prosthetic leg. The passenger had not noticed until the next morning. By then, the leg was already in the lost property office. Another driver told me",
+              "answer": "from",
+              "explanation": "The first answer came from a driver. This is the standard preposition to show the origin or source of information. You receive an answer from a person. 'Of' would be incorrect here because answers do not come of someone. 'By' could be used for the author of a book, but 'came by a driver' is not correct English for receiving an answer."
+            },
+            {
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "a suitcase full of marbles. He said it made a terrible noise every time he turned a corner. I have filled three notebooks now. Most items are ordinary – phones, keys, a single shoe. But",
+              "answer": "about/of",
+              "explanation": "The verb 'told' can be followed by 'about' or 'of' when the speaker is giving information on a topic. 'Told me about a suitcase' means they described it. 'Told me of a suitcase' has a slightly more formal feel but is equally correct. 'From' would be wrong because the driver is the source, not the topic."
+            },
+            {
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "once, someone left a live parrot in a cage. The driver did not realise until the bird started speaking. It said \"left turn\" over and over,",
+              "answer": "once",
+              "explanation": "The expression 'but once' means 'on one occasion'. The text says most items are ordinary, but on one single occasion, someone left a parrot. 'But once' is a fixed phrase that fits naturally here. 'Never' would reverse the meaning. 'Even' would not create a complete expression."
+            },
+            {
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "if it had learned navigation from watching the driver. I never expected to learn anything about people from",
+              "answer": "as",
+              "explanation": "'As if' introduces a comparison with a situation that is imagined or not completely true. The parrot spoke 'as if it had learned navigation'. This is a standard conjunction for hypothetical comparisons. 'Like' is sometimes used similarly in informal English, but PET expects 'as if' in written texts. 'Even' does not fit. 'Just' would need 'as if' to complete the expression ('just as if' is possible but longer than one word)."
+            },
+            {
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "they forget. But reading back through the notebooks, I notice something. Nobody ever leaves the things that really matter. Only the things they can live without.",
+              "answer": "what",
+              "explanation": "The writer says they never expected to learn something from what people forget. 'What' here means the thing that. 'Which' would require a specific set of things already mentioned. 'That' could work in some contexts, but from that they forget is incomplete – you would need 'from that which' or 'from the things that'. 'What' is the cleanest and most natural choice.\n\nVocabularyThe vocabulary below is meant to help you with the more difficult words. If the word isn't on the list then you are either supposed to know it or it is too specific to be worth learning and you don't have to know it to answer the question. Symbols in brackets mean part of speech(see bottom of the list). Sentences in italics give examples of usage for some more complex words and phrases.\n\nAnd remember — you are not given a vocabulary list (or a dictionary) at your real exam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -44,7 +44,8 @@ export default function ReadingPetRwTest() {
   const examDurationMinutes = exam ? readingExamDurationMinutes(exam) : 45
   const [timeLeft, setTimeLeft] = useState(() => initialExamTimerSeconds(examDurationMinutes))
   const [partIndex, setPartIndex] = useState(0)
-  const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
+  // Track active question per Part — khi quay lại Part cũ vẫn nhớ câu đã chọn
+  const [activeQuestionByPart, setActiveQuestionByPart] = useState<Record<number, string>>({})
   const [submitted, setSubmitted] = useState(false)
   const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
@@ -52,11 +53,13 @@ export default function ReadingPetRwTest() {
     fontStyle,
   } = useReadingFontSettings()
   const [personPhotoPreviews, setPersonPhotoPreviews] = useState<Record<number, string>>({})
-  const personPhotoPreviewsRef = useRef(personPhotoPreviews)
-  personPhotoPreviewsRef.current = personPhotoPreviews
+  // Ref riêng cho cleanup — cần giá trị mới nhất khi unmount
+  const photoCleanupRef = useRef(personPhotoPreviews)
+  photoCleanupRef.current = personPhotoPreviews
 
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
   const currentPart = exam?.parts[partIndex] ?? null
+  const currentQuestions = useMemo(() => (currentPart ? getPartQuestions(currentPart) : []), [currentPart])
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
   const {
@@ -70,6 +73,14 @@ export default function ReadingPetRwTest() {
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
 
+  // Derived activeQuestionId — hoàn toàn từ state, không cần effect reset
+  const storedQuestionId = activeQuestionByPart[partIndex]
+  const activeQuestionId = useMemo(() => {
+    const storedIsValid = currentQuestions.some(q => q.id === storedQuestionId)
+    if (storedIsValid) return storedQuestionId
+    return currentQuestions[0]?.id ?? null
+  }, [currentQuestions, storedQuestionId])
+
   useEffect(() => {
     if (!exam) return
     const savedRaw = window.localStorage.getItem(storageKey)
@@ -77,7 +88,7 @@ export default function ReadingPetRwTest() {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setActiveQuestionByPart({})
       markHydrated()
       return
     }
@@ -87,7 +98,8 @@ export default function ReadingPetRwTest() {
         timeLeft?: number
         submitted?: boolean
         partIndex?: number
-        activeQuestionId?: string | null
+        activeQuestionByPart?: Record<number, string>
+        activeQuestionId?: string | null /* legacy */
       } & RwDraftAnnotationFields
       setAnswers(saved.answers ?? {})
       setTimeLeft(
@@ -98,24 +110,16 @@ export default function ReadingPetRwTest() {
       setSubmitted(Boolean(saved.submitted))
       setReviewMode(false)
       setPartIndex(typeof saved.partIndex === 'number' ? saved.partIndex : 0)
-      setActiveQuestionId(saved.activeQuestionId ?? getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setActiveQuestionByPart(saved.activeQuestionByPart ?? {})
       setAnnotationsByPart(saved.highlightsByPart ?? {}, saved.notesByPart ?? {})
     } catch {
       setAnswers({})
       setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
       setPartIndex(0)
-      setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+      setActiveQuestionByPart({})
     }
     markHydrated()
   }, [exam, setAnnotationsByPart, storageKey, markHydrated])
-
-  useEffect(() => {
-    if (!exam || !currentPart) return
-    const partQs = getPartQuestions(currentPart)
-    if (!partQs.some(q => q.id === activeQuestionId)) {
-      setActiveQuestionId(partQs[0]?.id ?? null)
-    }
-  }, [activeQuestionId, currentPart, exam])
 
   useEffect(() => {
     if (!exam) return
@@ -127,14 +131,14 @@ export default function ReadingPetRwTest() {
         timeLeft,
         submitted,
         partIndex,
-        activeQuestionId,
+        activeQuestionByPart,
       }, highlightsByPart, notesByPart),
     ))
     notifyExamDraftRevision()
     } catch {
       /* quota */
     }
-  }, [activeQuestionId, answers, exam, highlightsByPart, isHydrated, notesByPart, partIndex, storageKey, submitted, timeLeft])
+  }, [activeQuestionByPart, answers, exam, highlightsByPart, isHydrated, notesByPart, partIndex, storageKey, submitted, timeLeft])
 
   useEffect(() => {
     if (!exam || submitted || reviewMode) return
@@ -147,14 +151,25 @@ export default function ReadingPetRwTest() {
   }, [exam, reviewMode, submitted, timeLeft])
 
   const handleSelectQuestion = useCallback((questionId: string) => {
-    setActiveQuestionId(questionId)
-  }, [])
+    const isValid = currentQuestions.some(q => q.id === questionId)
+    if (!isValid) {
+      if (import.meta.env.DEV) {
+        console.error('[PET] Invalid question ID', {
+          questionId,
+          partIndex,
+          validIds: currentQuestions.map(q => q.id),
+        })
+      }
+      return
+    }
+    setActiveQuestionByPart(prev => ({ ...prev, [partIndex]: questionId }))
+  }, [currentQuestions, partIndex])
 
   const handleAnswer = useCallback((questionId: string, value: string) => {
     if (reviewMode) return
     setAnswers(prev => ({ ...prev, [questionId]: value }))
-    setActiveQuestionId(questionId)
-  }, [reviewMode])
+    setActiveQuestionByPart(prev => ({ ...prev, [partIndex]: questionId }))
+  }, [reviewMode, partIndex])
 
   const handlePersonPhotoUpload = useCallback(async (questionNumber: number, file: File) => {
     if (!exam) return
@@ -169,32 +184,25 @@ export default function ReadingPetRwTest() {
   }, [exam])
 
   useEffect(() => () => {
-    for (const url of Object.values(personPhotoPreviewsRef.current)) {
+    for (const url of Object.values(photoCleanupRef.current)) {
       URL.revokeObjectURL(url)
     }
   }, [])
 
   const goToPart = useCallback((index: number) => {
     if (!exam || index < 0 || index >= exam.parts.length) return
-    const first = getPartQuestions(exam.parts[index])[0]
-    if (!first) return
+    // Chỉ set partIndex — activeQuestionId được dẫn xuất tự động
+    // Nếu Part chưa có trong activeQuestionByPart, derived logic lấy Q1
     setPartIndex(index)
-    setActiveQuestionId(first.id)
   }, [exam])
 
-  const goAdjacentQuestion = useCallback((delta: number) => {
-    if (!activeQuestionId || !exam) return
-    const currentIndex = allQuestions.findIndex(question => question.id === activeQuestionId)
-    const nextQuestion = allQuestions[currentIndex + delta]
-    if (!nextQuestion) return
-    const nextPartIndex = exam.parts.findIndex(part =>
-      getPartQuestions(part).some(question => question.id === nextQuestion.id),
-    )
-    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
-      setPartIndex(nextPartIndex)
+  const goAdjacentQuestion = useCallback((offset: -1 | 1) => {
+    const currentIndex = currentQuestions.findIndex(q => q.id === activeQuestionId)
+    const nextQuestion = currentQuestions[currentIndex + offset]
+    if (nextQuestion) {
+      handleSelectQuestion(nextQuestion.id)
     }
-    setActiveQuestionId(nextQuestion.id)
-  }, [activeQuestionId, allQuestions, exam, partIndex])
+  }, [currentQuestions, activeQuestionId, handleSelectQuestion])
 
   const resetTimer = useCallback(() => {
     if (!exam) return
@@ -219,7 +227,7 @@ export default function ReadingPetRwTest() {
     setAnswers({})
     setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
     setPartIndex(0)
-    setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+    setActiveQuestionByPart({})
     setSubmitted(false)
     setReviewMode(false)
     if (fullMockId) patchFullMockSession({ stage: 'reading', reading: undefined })
@@ -256,9 +264,20 @@ export default function ReadingPetRwTest() {
     evidenceBlocks,
     highlights,
   )
-  const currentPartQuestions = currentPart ? getPartQuestions(currentPart) : []
-  const activeQuestion = currentPartQuestions.find(question => question.id === activeQuestionId) ?? currentPartQuestions[0] ?? null
-  const activeQuestionIndex = activeQuestion ? allQuestions.findIndex(question => question.id === activeQuestion.id) : -1
+  const activeQuestion = currentQuestions.find(q => q.id === activeQuestionId) ?? currentQuestions[0] ?? null
+  const activeQuestionIndex = activeQuestion ? currentQuestions.findIndex(q => q.id === activeQuestion.id) : -1
+
+  // Log câu hỏi sau sanitize để chẩn đoán runtime
+  if (import.meta.env.DEV && currentQuestions.length > 0) {
+    console.table(
+      currentQuestions.map((q, index) => ({
+        index,
+        id: q.id,
+        number: q.number,
+        prompt: String(q.prompt ?? '').slice(0, 50),
+      })),
+    )
+  }
 
   if (exam === undefined) {
     return (
@@ -286,14 +305,19 @@ export default function ReadingPetRwTest() {
         onReviewWithPaper={() => {
           setReviewMode(true)
           setPartIndex(0)
-          setActiveQuestionId(getPartQuestions(exam.parts[0])[0]?.id ?? null)
+          setActiveQuestionByPart({})
         }}
       />
     )
   }
 
   return (
-    <div className={`pet-rw-shell ket-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
+    <div
+      className={`pet-rw-shell ket-rw-shell${reviewMode ? ' is-review' : ''}`}
+      style={fontStyle}
+      data-active-part-index={partIndex}
+      data-active-question-id={activeQuestionId ?? ''}
+    >
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
           <span>Chế độ xem lại đề — đáp án đã khóa</span>
@@ -370,7 +394,7 @@ export default function ReadingPetRwTest() {
         </button>
         <button
           type="button"
-          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= allQuestions.length - 1}
+          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= currentQuestions.length - 1}
           onClick={() => goAdjacentQuestion(1)}
           aria-label="Next question"
         >
@@ -379,11 +403,11 @@ export default function ReadingPetRwTest() {
       </div>
 
       <PetRwFooter
-        exam={exam}
-        partIndex={partIndex}
+        parts={exam.parts}
+        activePartIndex={partIndex}
         activeQuestionId={activeQuestionId}
         answers={answers}
-        onGoToPart={goToPart}
+        onSelectPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
         onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
