@@ -621,6 +621,186 @@
   cursor: pointer;
 }
 
+/* ── Part 2 — Cambridge-style split layout (People / City Markets) ── */
+.pet-rw-shell.is-part-2 .pet-rw-main {
+  padding: 0;
+}
+
+.pet-rw-shell.is-part-2 .ket-rw-instruction {
+  margin: 0 16px;
+  width: auto;
+}
+
+.pet-rw-shell.is-part-2 .ket-rw-body.is-split {
+  flex: 1;
+  min-height: 0;
+  background: #f4f8f9;
+}
+
+.pet-rw-shell.is-part-2 .ket-rw-resizer {
+  width: 18px;
+  margin: 0;
+  background: #9fa2a3;
+  border: 0;
+}
+
+.pet-rw-shell.is-part-2
+.ket-rw-resizer__grip {
+  display: none;
+}
+
+.pet-rw-shell.is-part-2
+.ket-rw-body.is-split
+.ket-rw-pane-left {
+  padding: 8px 14px 32px;
+  background: #f4f8f9;
+}
+
+.pet-rw-shell.is-part-2
+.ket-rw-body.is-split
+.ket-rw-pane-right {
+  padding: 8px 36px 32px;
+  background: #f4f8f9;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-part2-heading {
+  margin: 0 0 20px;
+  color: #050505;
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* People column */
+.pet-rw-shell.is-part-2 .pet-rw-drag__slots {
+  gap: 28px;
+}
+
+.pet-rw-shell.is-part-2 .pet-rw-person {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person.is-active {
+  border: 0;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person__head {
+  display: block;
+  margin: 0;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person__photo-slot {
+  width: 128px;
+  height: 170px;
+  margin: 0 0 22px;
+  border: 0;
+  border-radius: 0;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person__prompt {
+  max-width: 860px;
+  margin: 0 0 20px;
+  color: #050505;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot {
+  width: 303px;
+  min-height: 24px;
+  height: 24px;
+  padding: 0 8px;
+  justify-content: center;
+  border: 1px dashed #929292;
+  border-radius: 4px;
+  background: #fff;
+  color: #050505;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-person.is-active
+.pet-rw-drag__slot {
+  border-color: #238ed0;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot-placeholder {
+  color: #050505;
+  opacity: 1;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__slot.is-filled {
+  height: auto;
+  min-height: 28px;
+  justify-content: flex-start;
+  border-style: solid;
+}
+
+/* City Markets column */
+.pet-rw-shell.is-part-2
+.pet-rw-drag__bank {
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  gap: 9px;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__bank-card {
+  padding: 3px 4px;
+  border: 1px solid #b6b8b9;
+  border-radius: 4px;
+  background: #fff;
+  color: #050505;
+  box-shadow: none;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__bank-heading {
+  display: inline;
+  margin: 0;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__bank-title {
+  font-weight: 700;
+}
+
+.pet-rw-shell.is-part-2
+.pet-rw-drag__bank-text {
+  display: inline;
+  margin: 0 0 0 4px;
+  color: #050505;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
 @media (max-width: 1100px) {
   .pet-rw-header__actions {
     gap: 12px;
@@ -635,6 +815,27 @@
 @media (max-width: 900px) {
   .pet-rw-drag {
     grid-template-columns: 1fr;
+  }
+
+  .pet-rw-shell.is-part-2
+  .ket-rw-body.is-split {
+    flex-direction: column;
+  }
+
+  .pet-rw-shell.is-part-2
+  .ket-rw-resizer {
+    display: none;
+  }
+
+  .pet-rw-shell.is-part-2
+  .ket-rw-pane-left {
+    width: 100% !important;
+  }
+
+  .pet-rw-shell.is-part-2
+  .pet-rw-drag__slot {
+    width: 100%;
+    max-width: 303px;
   }
 }
 

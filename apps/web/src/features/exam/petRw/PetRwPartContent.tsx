@@ -369,23 +369,22 @@ export default function PetRwPartContent({
             </div>
           </div>
         ) : (
-          <div className="ket-rw-body is-single">
-            <div className="ket-rw-pane-full">
-              <PetRwDragMatch
-                partId={partId}
-                slots={questions}
-                bank={bank}
-                answers={answers}
-                activeQuestionId={activeQuestionId}
-                slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
-                slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
-                allowPhotoUpload={allowPersonPhotoUpload}
-                onPhotoUpload={onPersonPhotoUpload}
-                onAnswer={onAnswer}
-                onSelectQuestion={onSelectQuestion}
-              />
-            </div>
-          </div>
+          <PetRwDragMatch
+            variant="cambridge-part-2"
+            partId={partId}
+            slots={questions}
+            bank={bank}
+            answers={answers}
+            activeQuestionId={activeQuestionId}
+            bankOnRight
+            showBankLetters={false}
+            slotImageKey={q => readingExamMediaKey(examId, personImageFileForQuestion(q.number))}
+            slotPhotoPreviewUrl={q => personPhotoPreviewUrl?.(q.number)}
+            allowPhotoUpload={allowPersonPhotoUpload}
+            onPhotoUpload={onPersonPhotoUpload}
+            onAnswer={onAnswer}
+            onSelectQuestion={onSelectQuestion}
+          />
         )}
       </>
     )
