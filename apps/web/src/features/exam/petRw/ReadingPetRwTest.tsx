@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { audioRepo } from '@ryan/db'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Bell, Loader2, Wifi } from 'lucide-react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { ArrowLeft, ArrowRight, Bell, Edit3, Loader2, Menu, Wifi } from 'lucide-react'
+import { useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
-import ExamFontControls from '../ExamFontControls'
 import { useReadingFontSettings } from '../useReadingFontSettings'
 import ReadingSubmittedScreen from '../ReadingSubmittedScreen'
 import { patchFullMockSession } from '../fullMockSession'
-import { readingExamBackPath } from '../examNavigation'
 import { getExamQuestions, getPartQuestions, isPetReadingWritingExam, type ReadingExam } from '../examData'
 import { buildReadingReviewStatusMap, type ExamReviewStatus } from '../examReviewUtils'
 import ExamReviewAiPanel from '../ExamReviewAiPanel'
@@ -21,7 +19,7 @@ import { notifyExamDraftRevision } from '../useExamDraftRevision'
 import { useExamDraftGate } from '../useExamDraftGate'
 import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
-import KetRwFooter from '../ketRw/KetRwFooter'
+import PetRwFooter from './PetRwFooter'
 import { readingExamMediaKey } from '../importReadingManualUtils'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
@@ -34,7 +32,6 @@ import './readingPetRw.css'
 const STORAGE_PREFIX = 'exam-reading-draft:'
 
 export default function ReadingPetRwTest() {
-  const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
@@ -52,12 +49,6 @@ export default function ReadingPetRwTest() {
   const [reviewMode, setReviewMode] = useState(false)
   const [confirmSubmit, setConfirmSubmit] = useState(false)
   const {
-    fontSize,
-    setFontSize,
-    fontFamilyId,
-    setFontFamilyId,
-    fontPanelOpen,
-    setFontPanelOpen,
     fontStyle,
   } = useReadingFontSettings()
   const [personPhotoPreviews, setPersonPhotoPreviews] = useState<Record<number, string>>({})
@@ -193,23 +184,22 @@ export default function ReadingPetRwTest() {
 
   const goAdjacentQuestion = useCallback((delta: number) => {
     if (!activeQuestionId || !exam) return
-    const idx = allQuestions.findIndex(q => q.id === activeQuestionId)
-    const next = allQuestions[idx + delta]
-    if (!next) return
-    const nextPartIndex = exam.parts.findIndex(p => getPartQuestions(p).some(q => q.id === next.id))
-    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) setPartIndex(nextPartIndex)
-    setActiveQuestionId(next.id)
+    const currentIndex = allQuestions.findIndex(question => question.id === activeQuestionId)
+    const nextQuestion = allQuestions[currentIndex + delta]
+    if (!nextQuestion) return
+    const nextPartIndex = exam.parts.findIndex(part =>
+      getPartQuestions(part).some(question => question.id === nextQuestion.id),
+    )
+    if (nextPartIndex >= 0 && nextPartIndex !== partIndex) {
+      setPartIndex(nextPartIndex)
+    }
+    setActiveQuestionId(nextQuestion.id)
   }, [activeQuestionId, allQuestions, exam, partIndex])
 
   const resetTimer = useCallback(() => {
     if (!exam) return
     setTimeLeft(initialExamTimerSeconds(readingExamDurationMinutes(exam)))
   }, [exam])
-
-  const handleExit = useCallback(() => {
-    if (!exam) return
-    navigate(readingExamBackPath(exam))
-  }, [exam, navigate])
 
   const answeredCount = useMemo(
     () => Object.values(answers).filter(v => v?.trim()).length,
@@ -266,8 +256,11 @@ export default function ReadingPetRwTest() {
     evidenceBlocks,
     highlights,
   )
+  const currentPartQuestions = currentPart ? getPartQuestions(currentPart) : []
+  const activeQuestion = currentPartQuestions.find(question => question.id === activeQuestionId) ?? currentPartQuestions[0] ?? null
+  const activeQuestionIndex = activeQuestion ? allQuestions.findIndex(question => question.id === activeQuestion.id) : -1
 
-    if (exam === undefined) {
+  if (exam === undefined) {
     return (
       <div className="flex h-full items-center justify-center">
         <Loader2 size={24} className="animate-spin" style={{ color: 'var(--color-primary)' }} />
@@ -300,7 +293,7 @@ export default function ReadingPetRwTest() {
   }
 
   return (
-    <div className={`ket-rw-shell pet-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
+    <div className={`pet-rw-shell ket-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
       {reviewMode && (
         <div className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold" style={{ background: 'color-mix(in srgb, var(--color-primary) 14%, var(--bg-card))', borderBottom: '1px solid var(--border-color)', color: 'var(--text-primary)' }}>
           <span>Chế độ xem lại đề — đáp án đã khóa</span>
@@ -314,77 +307,87 @@ export default function ReadingPetRwTest() {
           onClose={hideReviewAi}
         />
       )}
-      <header className="ket-rw-header">
-        <div className="ket-rw-header__brand">
-          <span className="ket-rw-header__shield" aria-hidden>CE</span>
-          <span>Cambridge English</span>
+      <header className="pet-rw-header">
+        <div className="pet-rw-header__identity">
+          <img src="/logo-ceq.png" alt="Cambridge English" className="pet-rw-header__logo" />
+          <strong className="pet-rw-candidate-id">Candidate ID</strong>
         </div>
-        <span className="ket-rw-header__candidate">Candidate ID</span>
-        <div className="ket-rw-header__actions">
-          {!reviewMode && <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />}
-          <button type="button" className="ket-rw-icon-btn" aria-label="Connection">
+        <div className="pet-rw-header__actions">
+          {!reviewMode && (
+            <div className="pet-rw-header__timer">
+              <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
+            </div>
+          )}
+          <button type="button" className="pet-rw-icon-btn" aria-label="Connection">
             <Wifi size={16} />
           </button>
-          <button type="button" className="ket-rw-icon-btn" aria-label="Notifications">
+          <button type="button" className="pet-rw-icon-btn" aria-label="Notifications">
             <Bell size={16} />
           </button>
-          <ExamFontControls
-            open={fontPanelOpen}
-            fontSize={fontSize}
-            fontFamilyId={fontFamilyId}
-            onToggle={() => setFontPanelOpen(v => !v)}
-            onClose={() => setFontPanelOpen(false)}
-            onFontSizeChange={setFontSize}
-            onFontFamilyChange={setFontFamilyId}
-          />
-          <button
-            type="button"
-            className="ket-rw-submit"
-            style={{ marginLeft: '0.35rem' }}
-            onClick={() => setConfirmSubmit(true)}
-          >
-            Submit
+          <button type="button" className="pet-rw-icon-btn" aria-label="Menu">
+            <Menu size={18} />
+          </button>
+          <button type="button" className="pet-rw-icon-btn" aria-label="Formatting">
+            <Edit3 size={16} />
           </button>
         </div>
       </header>
 
-      <RwExamMain
-        partId={currentPart?.id}
-        highlights={displayHighlights}
-        notes={notes}
-        onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
-        onNotesChange={handleNotesChange}
-      >
-        {currentPart && (
-          <PetRwPartContent
-            examId={exam.id}
-            part={currentPart}
-            answers={answers}
-            activeQuestionId={activeQuestionId}
-            onSelectQuestion={handleSelectQuestion}
-            onAnswer={handleAnswer}
-            allowPersonPhotoUpload={currentPart.partNumber === 2}
-            onPersonPhotoUpload={handlePersonPhotoUpload}
-            personPhotoPreviewUrl={n => personPhotoPreviews[n]}
-            reviewMode={reviewMode}
-            reviewStatusMap={reviewStatusMap}
-          />
-        )}
-      </RwExamMain>
+      <main className="pet-rw-main">
+        <RwExamMain
+          partId={currentPart?.id}
+          highlights={displayHighlights}
+          notes={notes}
+          onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
+          onNotesChange={handleNotesChange}
+        >
+          {currentPart && (
+            <PetRwPartContent
+              examId={exam.id}
+              part={currentPart}
+              answers={answers}
+              activeQuestionId={activeQuestionId}
+              onSelectQuestion={handleSelectQuestion}
+              onAnswer={handleAnswer}
+              allowPersonPhotoUpload={currentPart.partNumber === 2}
+              onPersonPhotoUpload={handlePersonPhotoUpload}
+              personPhotoPreviewUrl={n => personPhotoPreviews[n]}
+              reviewMode={reviewMode}
+              reviewStatusMap={reviewStatusMap}
+            />
+          )}
+        </RwExamMain>
+      </main>
 
-      <KetRwFooter
+      <div className="pet-rw-adjacent-nav" aria-label="Question navigation">
+        <button
+          type="button"
+          disabled={activeQuestionIndex <= 0}
+          onClick={() => goAdjacentQuestion(-1)}
+          aria-label="Previous question"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <button
+          type="button"
+          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= allQuestions.length - 1}
+          onClick={() => goAdjacentQuestion(1)}
+          aria-label="Next question"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
+      <PetRwFooter
         exam={exam}
         partIndex={partIndex}
         activeQuestionId={activeQuestionId}
         answers={answers}
-        allQuestions={allQuestions}
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
-        onAdjacentQuestion={goAdjacentQuestion}
-        onExit={reviewMode ? () => setReviewMode(false) : handleExit}
+        onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
-        exitLabel={reviewMode ? 'Về báo cáo' : undefined}
       />
 
       {confirmSubmit && (
