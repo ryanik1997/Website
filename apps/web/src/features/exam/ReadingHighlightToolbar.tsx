@@ -331,7 +331,7 @@ export default function ReadingHighlightToolbar({
       aria-label="Công cụ tô sáng và ghi chú"
       className={`reading-highlight-toolbar${noteEditorOpen ? ' reading-highlight-toolbar--note-open' : ''}${toolbar.below ? ' reading-highlight-toolbar--below' : ''}`}
       style={{ left: toolbar.x, top: toolbar.y }}
-      onMouseDown={e => e.preventDefault()}
+      onMouseDown={e => e.stopPropagation()}
     >
       {!readOnly && (
         <div className="reading-highlight-toolbar__colors">
@@ -342,7 +342,8 @@ export default function ReadingHighlightToolbar({
               className={`reading-highlight-toolbar__color ${color.className}`}
               aria-label={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
               title={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
                 const ranges = pendingRangesRef.current
                 if (!ranges?.length) return
                 onHighlightsChange(addHighlights(highlights, ranges, color.id))
@@ -359,7 +360,10 @@ export default function ReadingHighlightToolbar({
           <button
             type="button"
             className={`reading-highlight-toolbar__btn${noteEditorOpen ? ' is-active' : ''}`}
-            onClick={openNoteEditor}
+            onClick={e => {
+              e.stopPropagation()
+              openNoteEditor()
+            }}
           >
             <StickyNote size={14} />
             Note
@@ -369,7 +373,10 @@ export default function ReadingHighlightToolbar({
           <button
             type="button"
             className="reading-highlight-toolbar__btn"
-            onClick={removeHighlight}
+            onClick={e => {
+              e.stopPropagation()
+              removeHighlight()
+            }}
           >
             <Eraser size={14} />
             Bỏ tô sáng
@@ -378,7 +385,10 @@ export default function ReadingHighlightToolbar({
         <button
           type="button"
           className="reading-highlight-toolbar__btn"
-          onClick={() => void handleCopy()}
+          onClick={e => {
+            e.stopPropagation()
+            void handleCopy()
+          }}
         >
           {copied ? <Check size={14} /> : <Copy size={14} />}
           {copied ? 'Đã sao chép' : 'Sao chép'}
@@ -402,6 +412,7 @@ export default function ReadingHighlightToolbar({
             rows={3}
             value={noteDraft}
             placeholder="Nhập ghi chú…"
+            onMouseDown={e => e.stopPropagation()}
             onChange={e => setNoteDraft(e.target.value)}
             autoFocus
           />
@@ -409,7 +420,10 @@ export default function ReadingHighlightToolbar({
             <button
               type="button"
               className="reading-highlight-toolbar__btn reading-highlight-toolbar__btn--primary"
-              onClick={saveNote}
+              onClick={e => {
+                e.stopPropagation()
+                saveNote()
+              }}
             >
               Lưu note
             </button>
@@ -417,7 +431,10 @@ export default function ReadingHighlightToolbar({
               <button
                 type="button"
                 className="reading-highlight-toolbar__btn"
-                onClick={deleteNote}
+                onClick={e => {
+                  e.stopPropagation()
+                  deleteNote()
+                }}
               >
                 <Trash2 size={14} />
                 Xóa
@@ -426,7 +443,8 @@ export default function ReadingHighlightToolbar({
             <button
               type="button"
               className="reading-highlight-toolbar__btn"
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
                 setNoteEditorOpen(false)
                 setNoteDraft('')
               }}
