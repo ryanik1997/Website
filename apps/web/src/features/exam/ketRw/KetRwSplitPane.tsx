@@ -2,10 +2,12 @@ import { useLayoutEffect, useRef, type CSSProperties, type ReactNode } from 'rea
 import { useKetRwSplitResize } from './useKetRwSplitResize'
 import { useSequentialPaneScroll } from './useSequentialPaneScroll'
 
+export type SplitPaneVariant = 'resizable' | 'fixed-scrollbar' | 'fixed-divider'
+
 interface Props {
   left: ReactNode
   right: ReactNode
-  fixedSplit?: boolean
+  variant?: SplitPaneVariant
   sequentialScroll?: boolean
   initialSplitPct?: number
   scrollResetKey?: string
@@ -14,7 +16,7 @@ interface Props {
 export default function KetRwSplitPane({
   left,
   right,
-  fixedSplit = false,
+  variant = 'resizable',
   sequentialScroll = false,
   initialSplitPct,
   scrollResetKey,
@@ -22,37 +24,50 @@ export default function KetRwSplitPane({
   const bodyRef = useRef<HTMLDivElement>(null)
   const leftPaneRef = useRef<HTMLDivElement>(null)
   const rightPaneRef = useRef<HTMLDivElement>(null)
+  const isResizable = variant === 'resizable'
+
   const {
     splitPct,
     isResizing,
     onResizerPointerDown,
     onResizerPointerMove,
     onResizerPointerUp,
-  } = useKetRwSplitResize(bodyRef, fixedSplit ? undefined : initialSplitPct)
+  } = useKetRwSplitResize(bodyRef, isResizable ? initialSplitPct : undefined)
 
-  useSequentialPaneScroll(sequentialScroll, bodyRef, leftPaneRef, rightPaneRef)
+  // Sequential scroll only for fixed-scrollbar (Part 2)
+  useSequentialPaneScroll(
+    variant === 'fixed-scrollbar' && sequentialScroll,
+    bodyRef,
+    leftPaneRef,
+    rightPaneRef,
+  )
 
-  // Reset scroll when part changes
+  // Reset scroll when part changes (only for sequential mode)
   useLayoutEffect(() => {
-    if (!sequentialScroll) return
+    if (variant !== 'fixed-scrollbar' || !sequentialScroll) return
     if (leftPaneRef.current) leftPaneRef.current.scrollTop = 0
     if (rightPaneRef.current) rightPaneRef.current.scrollTop = 0
-  }, [sequentialScroll, scrollResetKey])
+  }, [variant, sequentialScroll, scrollResetKey])
 
   const className = [
     'ket-rw-body',
     'is-split',
-    isResizing ? ' is-resizing' : '',
-    fixedSplit ? 'is-fixed-split' : '',
+    `is-${variant}`,
+    isResizing && isResizable ? 'is-resizing' : '',
   ].filter(Boolean).join(' ')
 
   return (
     <div
       ref={bodyRef}
       className={className}
-      style={fixedSplit ? undefined : { '--ket-split-pct': `${splitPct}%` } as CSSProperties}
-      data-sequential-scroll={sequentialScroll ? 'true' : undefined}
-      data-fixed-split={fixedSplit ? 'true' : undefined}
+      style={
+        isResizable
+          ? ({ '--ket-split-pct': `${splitPct}%` } as CSSProperties)
+          : undefined
+      }
+      data-sequential-scroll={
+        variant === 'fixed-scrollbar' && sequentialScroll ? 'true' : undefined
+      }
     >
       <div
         ref={leftPaneRef}
@@ -62,7 +77,7 @@ export default function KetRwSplitPane({
         {left}
       </div>
 
-      {!fixedSplit && (
+      {isResizable && (
         <button
           type="button"
           className={`ket-rw-resizer${isResizing ? ' is-dragging' : ''}`}
@@ -76,6 +91,10 @@ export default function KetRwSplitPane({
             ↔
           </span>
         </button>
+      )}
+
+      {variant === 'fixed-divider' && (
+        <div className="ket-rw-fixed-divider" aria-hidden="true" />
       )}
 
       <div

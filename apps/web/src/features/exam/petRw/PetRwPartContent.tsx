@@ -391,20 +391,23 @@ export default function PetRwPartContent({
   }
 
   if (part.partNumber === 3) {
+    // Ưu tiên subtitle làm heading chính nếu có
+    const displayTitle =
+      part.passageSubtitle?.trim()
+        ? part.passageSubtitle
+        : part.passageTitle ?? ''
+
     return (
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
+          variant="fixed-divider"
+          scrollResetKey={partId}
           left={(
             <>
-              <h2 className="ket-rw-passage-title">
-                <RwHighlightText blockId={`${partId}-title`} text={part.passageTitle ?? ''} />
+              <h2 className="pet-rw-part3-title">
+                <RwHighlightText blockId={`${partId}-title`} text={displayTitle} />
               </h2>
-              {part.passageSubtitle && (
-                <p className="ket-rw-passage-subtitle">
-                  <RwHighlightText blockId={`${partId}-subtitle`} text={part.passageSubtitle} />
-                </p>
-              )}
               {getBodyTextBlocks(part.passage).map((block, idx) => (
                 <p key={`p3-${idx}`} className="ket-rw-paragraph">
                   <RwHighlightText blockId={`${partId}-p3-${idx}`} text={block.text ?? ''} />

@@ -214,7 +214,7 @@ export default function PetRwDragMatch({
   if (isCambridgePart2) {
     return (
       <KetRwSplitPane
-        fixedSplit
+        variant="fixed-scrollbar"
         sequentialScroll
         scrollResetKey={partId}
         left={(
