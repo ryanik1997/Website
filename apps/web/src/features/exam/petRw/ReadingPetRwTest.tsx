@@ -374,6 +374,7 @@ export default function ReadingPetRwTest() {
           notes={notes}
           onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
           onNotesChange={handleNotesChange}
+          readOnly={reviewMode}
         >
           {currentPart && (
             <PetRwPartContent

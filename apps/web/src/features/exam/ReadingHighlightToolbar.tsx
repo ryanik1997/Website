@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
-import { Check, Copy, Eraser, Highlighter, StickyNote, Trash2, X } from 'lucide-react'
+import { Check, Copy, Eraser, StickyNote, Trash2, X } from 'lucide-react'
 import { copyToClipboard } from '../../lib/copyToClipboard'
 /* Ensure toolbar CSS loads even when parent route did not import readingTest.css */
 import './readingTest.css'
@@ -13,6 +13,7 @@ import {
   selectionOverlapsHighlight,
   selectionToHighlightRanges,
   upsertNotesForRanges,
+  type HighlightColor,
   type ReadingHighlight,
   type TextNote,
 } from './readingHighlightUtils'
@@ -26,6 +27,13 @@ interface ToolbarState {
   below: boolean
 }
 
+const HIGHLIGHT_COLORS: { id: HighlightColor; label: string; className: string }[] = [
+  { id: 'yellow', label: '🟨', className: 'reading-highlight-toolbar__color--yellow' },
+  { id: 'blue', label: '🟦', className: 'reading-highlight-toolbar__color--blue' },
+  { id: 'green', label: '🟩', className: 'reading-highlight-toolbar__color--green' },
+  { id: 'pink', label: '🩷', className: 'reading-highlight-toolbar__color--pink' },
+]
+
 interface ReadingHighlightToolbarProps {
   rootRef: RefObject<HTMLElement | null>
   highlights: ReadingHighlight[]
@@ -33,6 +41,14 @@ interface ReadingHighlightToolbarProps {
   notes?: TextNote[]
   onNotesChange?: (notes: TextNote[]) => void
   resetKey?: string
+  readOnly?: boolean
+}
+
+const HIGHLIGHT_COLOR_NAMES: Record<HighlightColor, string> = {
+  yellow: 'Vàng',
+  blue: 'Xanh',
+  green: 'Xanh lá',
+  pink: 'Hồng',
 }
 
 export default function ReadingHighlightToolbar({
@@ -42,6 +58,7 @@ export default function ReadingHighlightToolbar({
   notes = [],
   onNotesChange,
   resetKey,
+  readOnly = false,
 }: ReadingHighlightToolbarProps) {
   const [toolbar, setToolbar] = useState<ToolbarState | null>(null)
   const [copied, setCopied] = useState(false)
@@ -157,8 +174,11 @@ export default function ReadingHighlightToolbar({
     if (!ranges) return
 
     onHighlightsChange(removeHighlights(highlights, ranges))
+    if (onNotesChange) {
+      onNotesChange(removeNotesInRanges(notes, ranges))
+    }
     clearSelection()
-  }, [clearSelection, highlights, onHighlightsChange, rootRef])
+  }, [clearSelection, highlights, notes, onHighlightsChange, onNotesChange, rootRef])
 
   const openNoteEditor = useCallback(() => {
     if (!onNotesChange) return
@@ -216,16 +236,32 @@ export default function ReadingHighlightToolbar({
       style={{ left: toolbar.x, top: toolbar.y }}
       onMouseDown={e => e.preventDefault()}
     >
+      {!readOnly && (
+        <div className="reading-highlight-toolbar__colors">
+          {HIGHLIGHT_COLORS.map(color => (
+            <button
+              key={color.id}
+              type="button"
+              className={`reading-highlight-toolbar__color ${color.className}`}
+              aria-label={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
+              title={`Tô màu ${HIGHLIGHT_COLOR_NAMES[color.id]}`}
+              onClick={() => {
+                const root = rootRef.current
+                const selection = window.getSelection()
+                if (!root || !selection) return
+                const ranges = selectionToHighlightRanges(selection, root)
+                if (!ranges) return
+                onHighlightsChange(addHighlights(highlights, ranges, color.id))
+                clearSelection()
+              }}
+            >
+              {color.label}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="reading-highlight-toolbar__actions">
-        <button
-          type="button"
-          className="reading-highlight-toolbar__btn"
-          onClick={applyHighlight}
-        >
-          <Highlighter size={14} />
-          Tô sáng
-        </button>
-        {toolbar.canEditNote && (
+        {!readOnly && toolbar.canEditNote && (
           <button
             type="button"
             className={`reading-highlight-toolbar__btn${noteEditorOpen ? ' is-active' : ''}`}
@@ -257,6 +293,12 @@ export default function ReadingHighlightToolbar({
 
       {noteEditorOpen && onNotesChange && (
         <div className="reading-highlight-toolbar__note-panel">
+          {toolbar.text && (
+            <div className="reading-highlight-toolbar__selected-text">
+              <span className="reading-highlight-toolbar__selected-text-label">Đoạn đã chọn:</span>
+              <q className="reading-highlight-toolbar__selected-text-quote">{toolbar.text}</q>
+            </div>
+          )}
           <label className="reading-highlight-toolbar__note-label" htmlFor="exam-text-note-input">
             Ghi chú cho đoạn đã chọn
           </label>

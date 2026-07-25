@@ -6,6 +6,8 @@ export function isInExamHighlightZone(el: Element | null | undefined): boolean {
 
 export type ReadingHighlightKind = 'user' | 'evidence'
 
+export type HighlightColor = 'yellow' | 'blue' | 'green' | 'pink'
+
 export interface ReadingHighlight {
   id: string
   blockId: string
@@ -13,6 +15,8 @@ export interface ReadingHighlight {
   end: number
   /** user = tô vàng thủ công; evidence = AI chỉ đoạn đáp án (cam) */
   kind?: ReadingHighlightKind
+  /** Màu highlight — default 'yellow' nếu không set */
+  color?: HighlightColor
 }
 
 export interface TextNote {
@@ -29,6 +33,8 @@ export interface TextAnnotationSegment {
   /** true khi đoạn thuộc bằng chứng AI (cam) */
   evidence?: boolean
   note?: string
+  /** Màu highlight của segment */
+  color?: HighlightColor
 }
 
 export interface HighlightRange {
@@ -59,6 +65,15 @@ export function mergeRanges(ranges: { start: number; end: number }[]): { start: 
     }
   }
   return merged
+}
+
+function bestColorForRange(
+  highlights: ReadingHighlight[],
+  start: number,
+  end: number,
+): HighlightColor | undefined {
+  const inRange = highlights.filter(h => h.start < end && h.end > start)
+  return inRange[0]?.color
 }
 
 function collectBlockBreakpoints(
@@ -113,6 +128,7 @@ export function segmentsFromAnnotations(
       highlighted,
       evidence: evidence || undefined,
       note: overlappingNote?.text,
+      color: highlighted ? bestColorForRange(overlapping, start, end) : undefined,
     })
   }
 
@@ -170,32 +186,65 @@ function subtractRange(
   return result
 }
 
-function rangesToHighlights(byBlock: Map<string, { start: number; end: number }[]>): ReadingHighlight[] {
+function findOverlappingColor(
+  blockId: string,
+  start: number,
+  end: number,
+  existingColors: Map<string, HighlightColor>,
+): HighlightColor | undefined {
+  // Tìm màu của highlight gốc overlap với range đã merge
+  for (const [key, color] of existingColors) {
+    const parts = key.split(':')
+    const keyBlock = parts.slice(0, -2).join(':') // blockId có thể chứa dấu :
+    const keyStart = Number(parts[parts.length - 2])
+    const keyEnd = Number(parts[parts.length - 1])
+    if (keyBlock === blockId && keyStart < end && keyEnd > start) {
+      return color
+    }
+  }
+  return undefined
+}
+
+function rangesToHighlights(
+  byBlock: Map<string, { start: number; end: number }[]>,
+  existingColors?: Map<string, HighlightColor>,
+): ReadingHighlight[] {
   const result: ReadingHighlight[] = []
   for (const [blockId, ranges] of byBlock) {
     for (const range of mergeRanges(ranges)) {
       if (range.start >= range.end) continue
+      const color = existingColors
+        ? findOverlappingColor(blockId, range.start, range.end, existingColors)
+        : undefined
       result.push({
         id: newHighlightId(),
         blockId,
         start: range.start,
         end: range.end,
+        color,
       })
     }
   }
   return result.sort((a, b) => a.blockId.localeCompare(b.blockId) || a.start - b.start)
 }
 
+function colorKey(h: ReadingHighlight): string {
+  return `${h.blockId}:${h.start}:${h.end}`
+}
+
 export function addHighlights(
   existing: ReadingHighlight[],
   newRanges: HighlightRange[],
+  color?: HighlightColor,
 ): ReadingHighlight[] {
   const byBlock = new Map<string, { start: number; end: number }[]>()
+  const existingColors = new Map<string, HighlightColor>()
 
   for (const h of existing) {
     const list = byBlock.get(h.blockId) ?? []
     list.push({ start: h.start, end: h.end })
     byBlock.set(h.blockId, list)
+    existingColors.set(colorKey(h), h.color ?? 'yellow')
   }
 
   for (const r of newRanges) {
@@ -203,9 +252,10 @@ export function addHighlights(
     const list = byBlock.get(r.blockId) ?? []
     list.push({ start: r.start, end: r.end })
     byBlock.set(r.blockId, list)
+    existingColors.set(`${r.blockId}:${r.start}:${r.end}`, color ?? 'yellow')
   }
 
-  return rangesToHighlights(byBlock)
+  return rangesToHighlights(byBlock, existingColors)
 }
 
 export function removeHighlights(
@@ -213,11 +263,13 @@ export function removeHighlights(
   removeRanges: HighlightRange[],
 ): ReadingHighlight[] {
   const byBlock = new Map<string, { start: number; end: number }[]>()
+  const existingColors = new Map<string, HighlightColor>()
 
   for (const h of existing) {
     const list = byBlock.get(h.blockId) ?? []
     list.push({ start: h.start, end: h.end })
     byBlock.set(h.blockId, list)
+    existingColors.set(colorKey(h), h.color ?? 'yellow')
   }
 
   for (const remove of removeRanges) {
@@ -227,7 +279,7 @@ export function removeHighlights(
     byBlock.set(remove.blockId, next)
   }
 
-  return rangesToHighlights(byBlock)
+  return rangesToHighlights(byBlock, existingColors)
 }
 
 function isSkippedNode(node: Node): boolean {

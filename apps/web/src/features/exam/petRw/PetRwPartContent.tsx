@@ -123,15 +123,40 @@ function readPart4DragPayload(dataTransfer: DataTransfer): Part4DragPayload | nu
   return legacy ? { source: 'bank', optionId: legacy } : null
 }
 
+type InlineGapTextVariant = 'default' | 'cambridge-box'
+
 function InlineGapText({
   number,
   value,
   onChange,
+  onFocus,
+  variant = 'default',
 }: {
   number: number
   value: string
   onChange: (v: string) => void
+  onFocus?: () => void
+  variant?: InlineGapTextVariant
 }) {
+  if (variant === 'cambridge-box') {
+    return (
+      <span className="pet-rw-part6-gap">
+        <input
+          type="text"
+          className="pet-rw-part6-gap__input"
+          value={value}
+          placeholder={String(number)}
+          aria-label={`Question ${number}`}
+          autoComplete="off"
+          spellCheck={false}
+          data-highlight-skip
+          onFocus={onFocus}
+          onChange={event => onChange(event.target.value)}
+        />
+      </span>
+    )
+  }
+
   return (
     <span className="ket-rw-gap-text">
       <span className="ket-rw-gap-text__num">{number}</span>
@@ -399,6 +424,7 @@ export default function PetRwPartContent({
     passageKey: string,
     text: string,
     gapQuestions: ReadingQuestion[],
+    gapVariant: InlineGapTextVariant = 'default',
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -414,6 +440,8 @@ export default function PetRwPartContent({
               key={`g-${seg.number}`}
               number={seg.number}
               value={answers[q.id] ?? ''}
+              variant={gapVariant}
+              onFocus={() => onSelectQuestion(q.id)}
               onChange={v => {
                 onSelectQuestion(q.id)
                 onAnswer(q.id, v)
@@ -912,7 +940,7 @@ export default function PetRwPartContent({
             </h2>
             {getBodyTextBlocks(part.passage).map((block, idx) => (
               <div key={`p6-${idx}`} className="ket-rw-paragraph">
-                {renderOpenGapPassage(`p6-${idx}`, block.text ?? '', questions)}
+                {renderOpenGapPassage(`p6-${idx}`, block.text ?? '', questions, 'cambridge-box')}
               </div>
             ))}
           </div>
