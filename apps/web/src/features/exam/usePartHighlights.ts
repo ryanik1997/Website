@@ -54,7 +54,7 @@ export function usePartHighlights(currentPartId: string | undefined) {
         const next = addHighlights(current, ranges, color)
 
         if (import.meta.env.DEV) {
-          console.debug('[usePartHighlights] APPLY_HIGHLIGHT', { partId: currentPartId, ranges, color, before: current, after: next })
+          console.info('[PET annotation] APPLY_HIGHLIGHT', { partId: currentPartId, ranges, color, before: current, after: next })
         }
 
         return { ...prev, [currentPartId]: next }
@@ -81,7 +81,7 @@ export function usePartHighlights(currentPartId: string | undefined) {
         const next = upsertNotesForRanges(current, ranges, text)
 
         if (import.meta.env.DEV) {
-          console.debug('[usePartHighlights] SAVE_NOTE', { partId: currentPartId, ranges, text, before: current, after: next })
+          console.info('[PET annotation] SAVE_NOTE', { partId: currentPartId, ranges, text, before: current, after: next })
         }
 
         return { ...prev, [currentPartId]: next }

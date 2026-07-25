@@ -9,11 +9,13 @@ import {
   upsertNotesForRanges,
   segmentsFromAnnotations,
   type HighlightColor,
+  type HighlightRange,
 } from '../readingHighlightUtils'
 import ReadingHighlightToolbar from '../ReadingHighlightToolbar'
 import ExamHighlightZone from '../ExamHighlightZone'
 import ReadingHighlightableText from '../ReadingHighlightableText'
 import CambridgeSelectionToolbar from '../annotations/CambridgeSelectionToolbar'
+import type { StableSelectionSnapshot } from '../annotations/useStableTextSelection'
 
 afterEach(() => {
   cleanup()
@@ -763,6 +765,101 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
       const noteSpan = document.querySelector('.reading-test-note')
       expect(noteSpan).toBeTruthy()
       expect(noteSpan?.getAttribute('title')).toBe('Important vocabulary')
+    })
+  })
+
+  it('executes Highlight on pointerdown', () => {
+    const onApplyHighlight = vi.fn(() => true)
+
+    render(
+      <CambridgeSelectionToolbar
+        selection={makeSelection()}
+        notes={[]}
+        onApplyHighlight={onApplyHighlight}
+        onSaveNote={vi.fn()}
+        onDeleteNote={vi.fn()}
+        onClose={vi.fn()}
+      />,
+    )
+
+    const button = screen.getByRole('button', { name: 'Highlight' })
+    fireEvent.pointerDown(button, { button: 0, pointerId: 1 })
+
+    expect(onApplyHighlight).toHaveBeenCalledOnce()
+  })
+
+  it('executes Save note on pointerdown', () => {
+    const onSaveNote = vi.fn(() => true)
+
+    render(
+      <CambridgeSelectionToolbar
+        selection={makeSelection()}
+        notes={[]}
+        onApplyHighlight={vi.fn()}
+        onSaveNote={onSaveNote}
+        onDeleteNote={vi.fn()}
+        onClose={vi.fn()}
+      />,
+    )
+
+    fireEvent.pointerDown(screen.getByRole('button', { name: 'Note' }), { button: 0, pointerId: 1 })
+    fireEvent.change(screen.getByPlaceholderText('Nhap ghi chu...'), { target: { value: 'new' } })
+    fireEvent.pointerDown(screen.getByRole('button', { name: 'Luu note' }), { button: 0, pointerId: 2 })
+
+    expect(onSaveNote).toHaveBeenCalledWith(
+      makeSelection().ranges,
+      'new',
+    )
+  })
+
+  it('stateful: Highlight closes toolbar via real onClose', async () => {
+    const PASSAGE_TEXT = 'The coconut tree was found by the sea where the sand meets the shore.'
+    const BLOCK_ID = 'pet-part-5-p5-0-seg-0'
+    const RANGE = { blockId: BLOCK_ID, start: 21, end: 37 }
+    const MOCK_SEL = {
+      text: 'found by the sea',
+      ranges: [RANGE],
+      rect: { left: 100, top: 200, right: 220, bottom: 220, width: 120, height: 20 },
+    }
+
+    function StatefulHarness() {
+      const [sel, setSel] = useState<typeof MOCK_SEL | null>(MOCK_SEL)
+      const [highlights, setHighlights] = useState<ReadingHighlight[]>([])
+      const applyHighlight = (ranges: HighlightRange[], color: HighlightColor) => {
+        setHighlights(addHighlights(highlights, ranges, color))
+        return true
+      }
+      return (
+        <div>
+          <CambridgeSelectionToolbar
+            selection={sel}
+            notes={[]}
+            onApplyHighlight={applyHighlight}
+            onSaveNote={vi.fn()}
+            onDeleteNote={vi.fn()}
+            onClose={() => setSel(null)}
+          />
+          <ExamHighlightZone>
+            <ReadingHighlightableText blockId={BLOCK_ID} text={PASSAGE_TEXT} highlights={highlights} />
+          </ExamHighlightZone>
+        </div>
+      )
+    }
+
+    render(<StatefulHarness />)
+
+    expect(screen.getByRole('toolbar')).toBeTruthy()
+
+    const button = screen.getByRole('button', { name: 'Highlight' })
+    await act(async () => { fireEvent.pointerDown(button, { button: 0, pointerId: 1 }) })
+
+    await waitFor(() => {
+      expect(screen.queryByRole('toolbar')).toBeNull()
+    })
+
+    await waitFor(() => {
+      const markEl = document.querySelector('mark.reading-test-highlight--yellow')
+      expect(markEl).toHaveTextContent('found by the sea')
     })
   })
 })

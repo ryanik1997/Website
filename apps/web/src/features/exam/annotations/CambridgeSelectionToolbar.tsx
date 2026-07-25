@@ -1,4 +1,4 @@
-import { createPortal, flushSync } from 'react-dom'
+import { createPortal } from 'react-dom'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { HighlightColor, HighlightRange, TextNote } from '../readingHighlightUtils'
 import type { StableSelectionSnapshot } from './useStableTextSelection'
@@ -97,15 +97,10 @@ export default function CambridgeSelectionToolbar({
   const handleHighlight = useCallback(() => {
     if (!selection || selection.ranges.length === 0) return
 
-    let committed = false
-    flushSync(() => {
-      committed = onApplyHighlight(selection.ranges, 'yellow') !== false
-    })
+    const accepted = onApplyHighlight(selection.ranges, 'yellow')
 
-    if (!committed) {
-      if (import.meta.env.DEV) {
-        console.error('[CambridgeSelectionToolbar] Highlight command rejected', selection)
-      }
+    if (accepted === false) {
+      console.error('[PET annotation] Highlight rejected', { ranges: selection.ranges })
       return
     }
 
@@ -134,12 +129,12 @@ export default function CambridgeSelectionToolbar({
     const text = noteDraft.trim()
     if (!text) return
 
-    let committed = false
-    flushSync(() => {
-      committed = onSaveNote(selection.ranges, text) !== false
-    })
+    const accepted = onSaveNote(selection.ranges, text)
 
-    if (!committed) return
+    if (accepted === false) {
+      console.error('[PET annotation] Save note rejected', { ranges: selection.ranges, text })
+      return
+    }
 
     setNoteEditorOpen(false)
     setNoteDraft('')
@@ -149,12 +144,8 @@ export default function CambridgeSelectionToolbar({
   const handleDeleteNote = useCallback(() => {
     if (!selection) return
 
-    let committed = false
-    flushSync(() => {
-      committed = onDeleteNote(selection.ranges) !== false
-    })
-
-    if (!committed) return
+    const accepted = onDeleteNote(selection.ranges)
+    if (accepted === false) return
 
     setNoteEditorOpen(false)
     setNoteDraft('')
@@ -179,8 +170,6 @@ export default function CambridgeSelectionToolbar({
       }}
       role="toolbar"
       aria-label="Công cụ tô sáng và ghi chú"
-      onPointerDownCapture={event => event.stopPropagation()}
-      onClick={event => event.stopPropagation()}
     >
       <button
         type="button"
@@ -209,7 +198,6 @@ export default function CambridgeSelectionToolbar({
             value={noteDraft}
             placeholder="Nhap ghi chu..."
             onPointerDown={event => event.stopPropagation()}
-            onClick={event => event.stopPropagation()}
             onChange={event => setNoteDraft(event.target.value)}
             autoFocus
           />
