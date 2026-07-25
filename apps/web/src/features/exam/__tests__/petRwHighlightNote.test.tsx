@@ -508,7 +508,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
   })
 
   it('calls onApplyHighlight when Highlight button is clicked', () => {
-    const onApplyHighlight = vi.fn(() => true)
+    const onApplyHighlight = vi.fn()
     const onSaveNote = vi.fn()
     const onDeleteNote = vi.fn()
     const onClose = vi.fn()
@@ -516,6 +516,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     render(
       <CambridgeSelectionToolbar
         selection={makeSelection()}
+        highlights={[]}
         notes={[]}
         onApplyHighlight={onApplyHighlight}
         onSaveNote={onSaveNote}
@@ -535,19 +536,15 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
   })
 
   it('textarea receives focus when Note editor opens', async () => {
-    const onApplyHighlight = vi.fn()
-    const onSaveNote = vi.fn()
-    const onDeleteNote = vi.fn()
-    const onClose = vi.fn()
-
     render(
       <CambridgeSelectionToolbar
         selection={makeSelection()}
+        highlights={[]}
         notes={[]}
-        onApplyHighlight={onApplyHighlight}
-        onSaveNote={onSaveNote}
-        onDeleteNote={onDeleteNote}
-        onClose={onClose}
+        onApplyHighlight={vi.fn()}
+        onSaveNote={vi.fn()}
+        onDeleteNote={vi.fn()}
+        onClose={vi.fn()}
       />,
     )
 
@@ -564,19 +561,17 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
   })
 
   it('calls onSaveNote when note is saved', () => {
-    const onApplyHighlight = vi.fn()
-    const onSaveNote = vi.fn(() => true)
-    const onDeleteNote = vi.fn()
-    const onClose = vi.fn()
+    const onSaveNote = vi.fn()
 
     render(
       <CambridgeSelectionToolbar
         selection={makeSelection()}
+        highlights={[]}
         notes={[]}
-        onApplyHighlight={onApplyHighlight}
+        onApplyHighlight={vi.fn()}
         onSaveNote={onSaveNote}
-        onDeleteNote={onDeleteNote}
-        onClose={onClose}
+        onDeleteNote={vi.fn()}
+        onClose={vi.fn()}
       />,
     )
 
@@ -600,6 +595,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     const { container } = render(
       <CambridgeSelectionToolbar
         selection={null}
+        highlights={[]}
         notes={[]}
         onApplyHighlight={vi.fn()}
         onSaveNote={vi.fn()}
@@ -624,6 +620,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     render(
       <CambridgeSelectionToolbar
         selection={makeSelection()}
+        highlights={[]}
         notes={notes}
         onApplyHighlight={vi.fn()}
         onSaveNote={vi.fn()}
@@ -652,7 +649,6 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
       ) => {
         const result = addHighlights(highlights, ranges, color)
         setHighlights(result)
-        return true
       }
 
       const selection = {
@@ -668,6 +664,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         <div>
           <CambridgeSelectionToolbar
             selection={selection}
+            highlights={highlights}
             notes={[]}
             onApplyHighlight={applyHighlightRanges}
             onSaveNote={vi.fn()}
@@ -713,10 +710,9 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         rawText: string,
       ) => {
         const text = rawText.trim()
-        if (!text || ranges.length === 0) return false
+        if (!text || ranges.length === 0) return
         const result = upsertNotesForRanges(notesState, ranges, text)
         setNotes(result)
-        return true
       }
 
       const selection = {
@@ -732,6 +728,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
         <div>
           <CambridgeSelectionToolbar
             selection={selection}
+            highlights={[]}
             notes={notesState}
             onApplyHighlight={vi.fn()}
             onSaveNote={saveNoteRanges}
@@ -768,50 +765,6 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     })
   })
 
-  it('executes Highlight on pointerdown', () => {
-    const onApplyHighlight = vi.fn(() => true)
-
-    render(
-      <CambridgeSelectionToolbar
-        selection={makeSelection()}
-        notes={[]}
-        onApplyHighlight={onApplyHighlight}
-        onSaveNote={vi.fn()}
-        onDeleteNote={vi.fn()}
-        onClose={vi.fn()}
-      />,
-    )
-
-    const button = screen.getByRole('button', { name: 'Highlight' })
-    fireEvent.pointerDown(button, { button: 0, pointerId: 1 })
-
-    expect(onApplyHighlight).toHaveBeenCalledOnce()
-  })
-
-  it('executes Save note on pointerdown', () => {
-    const onSaveNote = vi.fn(() => true)
-
-    render(
-      <CambridgeSelectionToolbar
-        selection={makeSelection()}
-        notes={[]}
-        onApplyHighlight={vi.fn()}
-        onSaveNote={onSaveNote}
-        onDeleteNote={vi.fn()}
-        onClose={vi.fn()}
-      />,
-    )
-
-    fireEvent.pointerDown(screen.getByRole('button', { name: 'Note' }), { button: 0, pointerId: 1 })
-    fireEvent.change(screen.getByPlaceholderText('Nhap ghi chu...'), { target: { value: 'new' } })
-    fireEvent.pointerDown(screen.getByRole('button', { name: 'Luu note' }), { button: 0, pointerId: 2 })
-
-    expect(onSaveNote).toHaveBeenCalledWith(
-      makeSelection().ranges,
-      'new',
-    )
-  })
-
   it('stateful: Highlight closes toolbar via real onClose', async () => {
     const PASSAGE_TEXT = 'The coconut tree was found by the sea where the sand meets the shore.'
     const BLOCK_ID = 'pet-part-5-p5-0-seg-0'
@@ -827,12 +780,12 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
       const [highlights, setHighlights] = useState<ReadingHighlight[]>([])
       const applyHighlight = (ranges: HighlightRange[], color: HighlightColor) => {
         setHighlights(addHighlights(highlights, ranges, color))
-        return true
       }
       return (
         <div>
           <CambridgeSelectionToolbar
             selection={sel}
+            highlights={highlights}
             notes={[]}
             onApplyHighlight={applyHighlight}
             onSaveNote={vi.fn()}
@@ -851,7 +804,7 @@ describe('CambridgeSelectionToolbar — PET-specific toolbar', () => {
     expect(screen.getByRole('toolbar')).toBeTruthy()
 
     const button = screen.getByRole('button', { name: 'Highlight' })
-    await act(async () => { fireEvent.pointerDown(button, { button: 0, pointerId: 1 }) })
+    await act(async () => { fireEvent.click(button) })
 
     await waitFor(() => {
       expect(screen.queryByRole('toolbar')).toBeNull()

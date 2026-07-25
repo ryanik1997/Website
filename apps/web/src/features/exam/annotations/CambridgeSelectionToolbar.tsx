@@ -1,64 +1,44 @@
 import { createPortal } from 'react-dom'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { HighlightColor, HighlightRange, TextNote } from '../readingHighlightUtils'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type {
+  HighlightColor,
+  HighlightRange,
+  ReadingHighlight,
+  TextNote,
+} from '../readingHighlightUtils'
 import type { StableSelectionSnapshot } from './useStableTextSelection'
 import './cambridgeSelectionToolbar.css'
 
 interface CambridgeSelectionToolbarProps {
   selection: StableSelectionSnapshot | null
+  highlights: ReadingHighlight[]
   notes: TextNote[]
 
   onApplyHighlight: (
     ranges: HighlightRange[],
     color: HighlightColor,
-  ) => boolean | void
+  ) => void
 
   onSaveNote: (
     ranges: HighlightRange[],
     text: string,
-  ) => boolean | void
+  ) => void
 
   onDeleteNote: (
     ranges: HighlightRange[],
-  ) => boolean | void
+  ) => void
 
   onClose: () => void
 }
 
-/**
- * Pointer-safe action hook.
- *
- * Chuột → thực hiện action ngay tại pointerdown, không đợi click.
- * Bàn phím → không có pointerdown, thực hiện tại click.
- * Không double action.
- */
-function usePointerSafeAction(action: () => void) {
-  const pointerActivatedRef = useRef(false)
-  const actionRef = useRef(action)
-  actionRef.current = action
-
-  const onPointerDown = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
-    if (event.button !== 0) return
-    event.preventDefault()
-    event.stopPropagation()
-    pointerActivatedRef.current = true
-    actionRef.current()
-  }, [])
-
-  const onClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation()
-    if (pointerActivatedRef.current) {
-      pointerActivatedRef.current = false
-      return
-    }
-    actionRef.current()
-  }, [])
-
-  return { onPointerDown, onClick }
-}
+type PendingAnnotation =
+  | { type: 'highlight'; ranges: HighlightRange[] }
+  | { type: 'note'; ranges: HighlightRange[]; text: string }
+  | { type: 'delete'; ranges: HighlightRange[] }
 
 export default function CambridgeSelectionToolbar({
   selection,
+  highlights,
   notes,
   onApplyHighlight,
   onSaveNote,
@@ -67,6 +47,8 @@ export default function CambridgeSelectionToolbar({
 }: CambridgeSelectionToolbarProps) {
   const [noteEditorOpen, setNoteEditorOpen] = useState(false)
   const [noteDraft, setNoteDraft] = useState('')
+  const [pendingAnnotation, setPendingAnnotation] = useState<PendingAnnotation | null>(null)
+  const [saveError, setSaveError] = useState('')
 
   const hasExistingNote = useMemo(() => {
     if (!selection) return false
@@ -90,24 +72,109 @@ export default function CambridgeSelectionToolbar({
   useEffect(() => {
     setNoteEditorOpen(false)
     setNoteDraft('')
+    setPendingAnnotation(null)
+    setSaveError('')
   }, [selectionSignature])
 
-  /* ── Actions (defined before early return to obey Rules of Hooks) ── */
+  /* ── Commit checker helpers ── */
+
+  const rangeIsHighlighted = useCallback(
+    (range: HighlightRange) =>
+      highlights.some(h =>
+        h.blockId === range.blockId
+        && h.start <= range.start
+        && h.end >= range.end,
+      ),
+    [highlights],
+  )
+
+  const rangeHasNote = useCallback(
+    (range: HighlightRange, text: string) =>
+      notes.some(note =>
+        note.blockId === range.blockId
+        && note.start < range.end
+        && note.end > range.start
+        && note.text === text,
+      ),
+    [notes],
+  )
+
+  const rangeHasNoNote = useCallback(
+    (range: HighlightRange) =>
+      !notes.some(note =>
+        note.blockId === range.blockId
+        && note.start < range.end
+        && note.end > range.start,
+      ),
+    [notes],
+  )
+
+  /* ── Commit observer effects ── */
+
+  useEffect(() => {
+    if (pendingAnnotation?.type !== 'highlight') return
+    const committed = pendingAnnotation.ranges.every(r => rangeIsHighlighted(r))
+    if (!committed) return
+
+    setPendingAnnotation(null)
+    setSaveError('')
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onClose, pendingAnnotation, rangeIsHighlighted])
+
+  useEffect(() => {
+    if (pendingAnnotation?.type !== 'note') return
+    const committed = pendingAnnotation.ranges.every(r =>
+      rangeHasNote(r, pendingAnnotation.text),
+    )
+    if (!committed) return
+
+    setPendingAnnotation(null)
+    setSaveError('')
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onClose, pendingAnnotation, rangeHasNote])
+
+  useEffect(() => {
+    if (pendingAnnotation?.type !== 'delete') return
+    const committed = pendingAnnotation.ranges.every(r => rangeHasNoNote(r))
+    if (!committed) return
+
+    setPendingAnnotation(null)
+    setSaveError('')
+    setNoteEditorOpen(false)
+    setNoteDraft('')
+    onClose()
+  }, [onClose, pendingAnnotation, rangeHasNoNote])
+
+  /* Error timeout — nếu commit không xảy ra trong 1.2s thì hiển thị lỗi */
+  useEffect(() => {
+    if (!pendingAnnotation) return
+    const timer = window.setTimeout(() => {
+      setPendingAnnotation(null)
+      setSaveError(
+        pendingAnnotation.type === 'highlight'
+          ? 'Không lưu được highlight.'
+          : pendingAnnotation.type === 'note'
+            ? 'Không lưu được note.'
+            : 'Không xoá được note.',
+      )
+    }, 1200)
+    return () => window.clearTimeout(timer)
+  }, [pendingAnnotation])
+
+  /* ── Actions ── */
 
   const handleHighlight = useCallback(() => {
     if (!selection || selection.ranges.length === 0) return
 
-    const accepted = onApplyHighlight(selection.ranges, 'yellow')
-
-    if (accepted === false) {
-      console.error('[PET annotation] Highlight rejected', { ranges: selection.ranges })
-      return
-    }
-
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [onApplyHighlight, onClose, selection])
+    const ranges = selection.ranges.map(r => ({ ...r }))
+    setSaveError('')
+    setPendingAnnotation({ type: 'highlight', ranges })
+    onApplyHighlight(ranges, 'yellow')
+  }, [onApplyHighlight, selection])
 
   const handleOpenNote = useCallback(() => {
     if (!selection) return
@@ -129,33 +196,19 @@ export default function CambridgeSelectionToolbar({
     const text = noteDraft.trim()
     if (!text) return
 
-    const accepted = onSaveNote(selection.ranges, text)
-
-    if (accepted === false) {
-      console.error('[PET annotation] Save note rejected', { ranges: selection.ranges, text })
-      return
-    }
-
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [noteDraft, onClose, onSaveNote, selection])
+    const ranges = selection.ranges.map(r => ({ ...r }))
+    setSaveError('')
+    setPendingAnnotation({ type: 'note', ranges, text })
+    onSaveNote(ranges, text)
+  }, [noteDraft, onSaveNote, selection])
 
   const handleDeleteNote = useCallback(() => {
     if (!selection) return
-
-    const accepted = onDeleteNote(selection.ranges)
-    if (accepted === false) return
-
-    setNoteEditorOpen(false)
-    setNoteDraft('')
-    onClose()
-  }, [onClose, onDeleteNote, selection])
-
-  const highlightAction = usePointerSafeAction(handleHighlight)
-  const noteAction = usePointerSafeAction(handleOpenNote)
-  const saveNoteAction = usePointerSafeAction(handleSaveNote)
-  const deleteNoteAction = usePointerSafeAction(handleDeleteNote)
+    const ranges = selection.ranges.map(r => ({ ...r }))
+    setSaveError('')
+    setPendingAnnotation({ type: 'delete', ranges })
+    onDeleteNote(ranges)
+  }, [onDeleteNote, selection])
 
   /* ── Early return — all hooks already called above ── */
   if (!selection) return null
@@ -174,14 +227,15 @@ export default function CambridgeSelectionToolbar({
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        {...noteAction}
+        onClick={handleOpenNote}
       >
         Note
       </button>
       <button
         type="button"
         className="cambridge-selection-toolbar__button"
-        {...highlightAction}
+        onClick={handleHighlight}
+        disabled={pendingAnnotation !== null}
       >
         Highlight
       </button>
@@ -197,7 +251,6 @@ export default function CambridgeSelectionToolbar({
             rows={3}
             value={noteDraft}
             placeholder="Nhap ghi chu..."
-            onPointerDown={event => event.stopPropagation()}
             onChange={event => setNoteDraft(event.target.value)}
             autoFocus
           />
@@ -205,15 +258,17 @@ export default function CambridgeSelectionToolbar({
             <button
               type="button"
               className="cambridge-selection-toolbar__note-btn is-primary"
-              {...saveNoteAction}
+              onClick={handleSaveNote}
+              disabled={pendingAnnotation !== null}
             >
-              Luu note
+              {pendingAnnotation?.type === 'note' ? 'Dang luu...' : 'Luu note'}
             </button>
             {hasExistingNote && (
               <button
                 type="button"
                 className="cambridge-selection-toolbar__note-btn"
-                {...deleteNoteAction}
+                onClick={handleDeleteNote}
+                disabled={pendingAnnotation !== null}
               >
                 Xoa
               </button>
@@ -221,9 +276,7 @@ export default function CambridgeSelectionToolbar({
             <button
               type="button"
               className="cambridge-selection-toolbar__note-btn"
-              onPointerDown={event => event.stopPropagation()}
-              onClick={event => {
-                event.stopPropagation()
+              onClick={() => {
                 setNoteEditorOpen(false)
                 setNoteDraft('')
               }}
@@ -231,6 +284,15 @@ export default function CambridgeSelectionToolbar({
               Dong
             </button>
           </div>
+        </div>
+      )}
+
+      {saveError && (
+        <div
+          className="cambridge-selection-toolbar__error"
+          role="alert"
+        >
+          {saveError}
         </div>
       )}
     </div>

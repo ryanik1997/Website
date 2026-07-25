@@ -157,6 +157,7 @@ describe('PET Reading note/highlight', () => {
 
           <CambridgeSelectionToolbar
             selection={selection}
+            highlights={[]}
             notes={[]}
             onApplyHighlight={onHighlightsChange}
             onSaveNote={onNotesChange}

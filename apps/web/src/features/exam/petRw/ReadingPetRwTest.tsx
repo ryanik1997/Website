@@ -438,6 +438,7 @@ export default function ReadingPetRwTest() {
 
         <CambridgeSelectionToolbar
           selection={selection}
+          highlights={highlights}
           notes={notes}
           onApplyHighlight={applyHighlightRanges}
           onSaveNote={saveNoteRanges}
