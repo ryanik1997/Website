@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom'
 import { useMemo, useState } from 'react'
 import { addHighlights, upsertNotesForRanges, type ReadingHighlight, type TextNote } from '../readingHighlightUtils'
 import type { StableSelectionSnapshot } from './useStableTextSelection'
@@ -62,7 +63,7 @@ export default function CambridgeSelectionToolbar({
     onClose()
   }
 
-  return (
+  const toolbarNode = (
     <div
       className="cambridge-selection-toolbar"
       style={{
@@ -71,7 +72,7 @@ export default function CambridgeSelectionToolbar({
       }}
       role="toolbar"
       aria-label="Cong cu to sang va ghi chu"
-      onMouseDown={event => event.preventDefault()}
+      onPointerDown={event => event.preventDefault()}
     >
       <button
         type="button"
@@ -139,4 +140,6 @@ export default function CambridgeSelectionToolbar({
       )}
     </div>
   )
+
+  return createPortal(toolbarNode, document.body)
 }

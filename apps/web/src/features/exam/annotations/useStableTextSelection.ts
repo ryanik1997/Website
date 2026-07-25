@@ -122,11 +122,16 @@ export function useStableTextSelection({
       return
     }
 
-    const root = rootRef.current
-    if (!root) return
+    const isInsideCurrentRoot = (target: EventTarget | null) => {
+      const root = rootRef.current
+      return Boolean(root && target instanceof Node && root.contains(target))
+    }
 
-    const handlePointerDown = () => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!isInsideCurrentRoot(event.target)) return
       pointerDownRef.current = true
+      latestValidSelectionRef.current = null
+      setVisibleSelection(null)
     }
 
     const handleSelectionChange = () => {
@@ -139,6 +144,7 @@ export function useStableTextSelection({
     }
 
     const handlePointerUp = () => {
+      if (!pointerDownRef.current) return
       pointerDownRef.current = false
       const liveSnapshot = captureSelection()
       const finalSnapshot = liveSnapshot ?? latestValidSelectionRef.current
@@ -150,13 +156,13 @@ export function useStableTextSelection({
       pointerDownRef.current = false
     }
 
-    root.addEventListener('pointerdown', handlePointerDown, true)
+    document.addEventListener('pointerdown', handlePointerDown, true)
     document.addEventListener('selectionchange', handleSelectionChange)
     document.addEventListener('pointerup', handlePointerUp, true)
     document.addEventListener('pointercancel', handlePointerCancel, true)
 
     return () => {
-      root.removeEventListener('pointerdown', handlePointerDown, true)
+      document.removeEventListener('pointerdown', handlePointerDown, true)
       document.removeEventListener('selectionchange', handleSelectionChange)
       document.removeEventListener('pointerup', handlePointerUp, true)
       document.removeEventListener('pointercancel', handlePointerCancel, true)

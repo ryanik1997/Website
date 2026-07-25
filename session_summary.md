@@ -3,6 +3,7 @@
 **Ngày:** 2026-07-25
 
 ### Đã hoàn thành
+- **Fix bug thật PET Reading note/highlight không hiện sau loading:** Sửa lifecycle của `useStableTextSelection` để listener luôn gắn từ trạng thái loading bằng `document` listeners và đọc `rootRef.current` động tại thời điểm event, thay vì bail out khi `rootRef.current === null` ở render đầu. Thêm clear selection khi đổi `currentPart` trong `ReadingPetRwTest`, portal `CambridgeSelectionToolbar` ra `document.body` để tránh bị clip trong `.pet-rw-main`, và thêm regression test delayed-root mount trong `apps/web/src/features/exam/__tests__/petRwSelectionToolbar.test.tsx`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; scoped vitest `petRwSelectionToolbar` + `petRwHighlightNote` PASS 17/17.
 - **Fix ReadingHighlightToolbar không hiển thị trên PET Reading:** Sửa 3 vấn đề core:
   (1) **Thêm pointerup event** — toolbar nay lắng nghe pointerup ngoài mouseup/keyup/selectionchange, bắt đúng lúc kết thúc chọn text.
   (2) **Dùng pendingRangesRef.current thay vì re-read window.getSelection()** — các button onClick (màu, remove, note) dùng ref snapshot đã lưu từ updateToolbar, tránh mất selection trước khi click.
@@ -54,7 +55,7 @@ o-highlight-ranges) kèm oot, 	ext, collapsed, angeCount trong DEV mode.
 Khi user yÃªu cáº§u "deploy" sau khi lÃ m tÃ­nh nÄƒng/fix â†’ **deploy lÃªn Vercel production trÆ°á»›c**, rá»“i **cáº­p nháº­t session_summary.md** sau. KhÃ´ng lÃ m ngÆ°á»£c láº¡i.
 
 ### Next session start prompt
-Open a logged-in browser session at 1440x1000 on http://localhost:5173/app/exam/reading/catalog-reading-pet-b1-test1, compare against D:\App-English-Ryan\Website\Fixbug\Bug_3\want.png with overlay, then fine-tune only one region at a time (header, instruction card, Part 1 image/question block, floating Previous/Next, footer).
+Open a logged-in browser session at 1440x1000 on http://localhost:5173/app/exam/reading/catalog-reading-pet-b1-test1 and smoke the PET-specific note/highlight flow on real loaded data: drag-select text after the exam finishes loading, confirm the Cambridge toolbar appears, stays unclipped, clears on part change, and still works after navigating between parts. Then continue pixel-match comparison against D:\App-English-Ryan\Website\Fixbug\Bug_3\want.png one region at a time.
 
 
 ---

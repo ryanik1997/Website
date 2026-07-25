@@ -274,6 +274,11 @@ export default function ReadingPetRwTest() {
     rootRef: petSelectionRootRef,
     disabled: reviewMode,
   })
+
+  useEffect(() => {
+    clearSelection()
+  }, [currentPart?.id, clearSelection])
+
   const activeQuestion = currentQuestions.find(q => q.id === activeQuestionId) ?? currentQuestions[0] ?? null
   const activeQuestionIndex = activeQuestion ? currentQuestions.findIndex(q => q.id === activeQuestion.id) : -1
 

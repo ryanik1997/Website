@@ -1,8 +1,10 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useRef, useState } from 'react'
 import type { ReadingQuestion } from '../examData'
 import type { ReadingHighlight, TextNote } from '../readingHighlightUtils'
+import CambridgeSelectionToolbar from '../annotations/CambridgeSelectionToolbar'
+import { useStableTextSelection } from '../annotations/useStableTextSelection'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
 
@@ -38,6 +40,11 @@ function getTextNode(el: HTMLElement): Text | null {
   }
   return null
 }
+
+afterEach(() => {
+  cleanup()
+  vi.restoreAllMocks()
+})
 
 describe('PET Reading note/highlight', () => {
   it('shows the selection toolbar for question prompt text', async () => {
@@ -117,5 +124,77 @@ describe('PET Reading note/highlight', () => {
     })
 
     expect(await screen.findByPlaceholderText('Nhập ghi chú…')).toBeTruthy()
+  })
+  it('still shows the toolbar when the highlight root mounts after loading', async () => {
+    const onHighlightsChange = vi.fn()
+    const onNotesChange = vi.fn()
+
+    function DelayedHarness({ ready }: { ready: boolean }) {
+      const rootRef = useRef<HTMLDivElement>(null)
+      const { selection, clearSelection } = useStableTextSelection({
+        rootRef,
+      })
+
+      return (
+        <>
+          {ready ? (
+            <RwExamMain
+              partId="pet-part-1"
+              highlights={[]}
+              notes={[]}
+              onHighlightsChange={onHighlightsChange}
+              onNotesChange={onNotesChange}
+              mainRef={rootRef}
+              selectionToolbar="none"
+            >
+              <div data-highlight-block data-block-id="delayed-block">
+                The coconut tree is valuable.
+              </div>
+            </RwExamMain>
+          ) : (
+            <div>Loading...</div>
+          )}
+
+          <CambridgeSelectionToolbar
+            selection={selection}
+            highlights={[]}
+            notes={[]}
+            onHighlightsChange={onHighlightsChange}
+            onNotesChange={onNotesChange}
+            onClose={clearSelection}
+          />
+        </>
+      )
+    }
+
+    const view = render(<DelayedHarness ready={false} />)
+    view.rerender(<DelayedHarness ready />)
+
+    const delayedBlock = screen.getByText('The coconut tree is valuable.')
+      .closest('[data-highlight-block]') as HTMLElement
+    expect(delayedBlock).toBeTruthy()
+
+    const textNode = getTextNode(delayedBlock)
+    expect(textNode).toBeTruthy()
+
+    const selectionRange = makeMockRange(textNode!, 4, textNode!, 16)
+
+    vi.spyOn(window, 'getSelection').mockReturnValue({
+      rangeCount: 1,
+      isCollapsed: false,
+      anchorNode: textNode,
+      focusNode: textNode,
+      getRangeAt: () => selectionRange,
+      toString: () => 'coconut tree',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection)
+
+    await act(async () => {
+      fireEvent.pointerDown(delayedBlock)
+      fireEvent(document, new Event('selectionchange'))
+      fireEvent.pointerUp(delayedBlock)
+    })
+
+    expect(await screen.findByLabelText('Cong cu to sang va ghi chu')).toBeTruthy()
   })
 })
