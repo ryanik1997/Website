@@ -29,7 +29,8 @@ export default function RwMcRadioQuestion({
   reviewMode = false,
   reviewStatus = null,
 }: Props) {
-  const selectionGestureRef = useRef(false)
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
+  const textSelectionGestureRef = useRef(false)
   const fmt = formatOptionLabel ?? ((label: string) => label)
   const userAns = answers[question.id] ?? ''
   const status = reviewMode
@@ -100,19 +101,32 @@ export default function RwMcRadioQuestion({
               key={opt.id}
               className={`ket-rw-radio${selected ? ' is-selected' : ''}${isKey ? ' is-review-key' : ''}`}
               style={optStyle}
-              onPointerDownCapture={() => { selectionGestureRef.current = false }}
-              onPointerMoveCapture={(e) => {
-                if (e.buttons & 1) selectionGestureRef.current = true
-              }}
-              onPointerUpCapture={() => {
-                // Selection flag was already set by onPointerMoveCapture
-              }}
-              onClickCapture={(e) => {
-                if (selectionGestureRef.current) {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  selectionGestureRef.current = false
+              onPointerDownCapture={event => {
+                pointerStartRef.current = {
+                  x: event.clientX,
+                  y: event.clientY,
                 }
+                textSelectionGestureRef.current = false
+              }}
+              onPointerUpCapture={event => {
+                const start = pointerStartRef.current
+                if (!start) return
+                const distance = Math.hypot(
+                  event.clientX - start.x,
+                  event.clientY - start.y,
+                )
+                const selectedText = window.getSelection()?.toString().trim()
+                if (distance > 3 && selectedText) {
+                  textSelectionGestureRef.current = true
+                }
+              }}
+              onClickCapture={event => {
+                if (!textSelectionGestureRef.current) {
+                  return
+                }
+                event.preventDefault()
+                event.stopPropagation()
+                textSelectionGestureRef.current = false
               }}
             >
               <input

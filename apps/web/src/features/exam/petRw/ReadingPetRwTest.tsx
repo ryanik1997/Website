@@ -21,6 +21,8 @@ import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
 import PetRwFooter from './PetRwFooter'
 import { readingExamMediaKey } from '../importReadingManualUtils'
+import CambridgeSelectionToolbar from '../annotations/CambridgeSelectionToolbar'
+import { useStableTextSelection } from '../annotations/useStableTextSelection'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
 import { usePartHighlights } from '../usePartHighlights'
@@ -52,6 +54,7 @@ export default function ReadingPetRwTest() {
   const {
     fontStyle,
   } = useReadingFontSettings()
+  const petSelectionRootRef = useRef<HTMLDivElement>(null)
   const [personPhotoPreviews, setPersonPhotoPreviews] = useState<Record<number, string>>({})
   // Ref riêng cho cleanup — cần giá trị mới nhất khi unmount
   const photoCleanupRef = useRef(personPhotoPreviews)
@@ -264,6 +267,13 @@ export default function ReadingPetRwTest() {
     evidenceBlocks,
     highlights,
   )
+  const {
+    selection,
+    clearSelection,
+  } = useStableTextSelection({
+    rootRef: petSelectionRootRef,
+    disabled: reviewMode,
+  })
   const activeQuestion = currentQuestions.find(q => q.id === activeQuestionId) ?? currentQuestions[0] ?? null
   const activeQuestionIndex = activeQuestion ? currentQuestions.findIndex(q => q.id === activeQuestion.id) : -1
 
@@ -374,7 +384,9 @@ export default function ReadingPetRwTest() {
           notes={notes}
           onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
           onNotesChange={handleNotesChange}
+          mainRef={petSelectionRootRef}
           readOnly={reviewMode}
+          selectionToolbar="none"
         >
           {currentPart && (
             <PetRwPartContent
@@ -392,6 +404,15 @@ export default function ReadingPetRwTest() {
             />
           )}
         </RwExamMain>
+
+        <CambridgeSelectionToolbar
+          selection={selection}
+          highlights={highlights}
+          notes={notes}
+          onHighlightsChange={handleHighlightsChange}
+          onNotesChange={handleNotesChange}
+          onClose={clearSelection}
+        />
       </main>
 
       <div className="pet-rw-adjacent-nav" aria-label="Question navigation">
