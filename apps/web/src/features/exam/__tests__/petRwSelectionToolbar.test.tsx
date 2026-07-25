@@ -106,6 +106,7 @@ describe('PET Reading note/highlight', () => {
 
     await act(async () => {
       fireEvent.pointerDown(main)
+      fireEvent(document, new Event('selectionchange'))
       fireEvent.pointerUp(main)
     })
 

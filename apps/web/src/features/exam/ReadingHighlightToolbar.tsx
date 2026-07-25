@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, Copy, Eraser, StickyNote, Trash2, X } from 'lucide-react'
 import { copyToClipboard } from '../../lib/copyToClipboard'
-/* Ensure toolbar CSS loads even when parent route did not import readingTest.css */
 import './readingTest.css'
 import {
   addHighlights,
@@ -11,10 +10,10 @@ import {
   removeHighlights,
   removeNotesInRanges,
   selectionNodeElement,
-  selectionOverlapsHighlight,
   selectionToHighlightRanges,
   upsertNotesForRanges,
   type HighlightColor,
+  type HighlightRange,
   type ReadingHighlight,
   type TextNote,
 } from './readingHighlightUtils'
@@ -26,6 +25,15 @@ interface ToolbarState {
   canRemove: boolean
   canEditNote: boolean
   below: boolean
+}
+
+interface SelectionSnapshot {
+  text: string
+  ranges: HighlightRange[]
+  rect: DOMRect
+  below: boolean
+  canRemove: boolean
+  canEditNote: boolean
 }
 
 const HIGHLIGHT_COLORS: { id: HighlightColor; label: string; className: string }[] = [
@@ -65,11 +73,17 @@ export default function ReadingHighlightToolbar({
   const [copied, setCopied] = useState(false)
   const [noteEditorOpen, setNoteEditorOpen] = useState(false)
   const [noteDraft, setNoteDraft] = useState('')
-  const pendingRangesRef = useRef<ReturnType<typeof selectionToHighlightRanges>>(null)
+  const pendingRangesRef = useRef<HighlightRange[] | null>(null)
   const pointerSelectingRef = useRef(false)
+  const lastValidSelectionRef = useRef<SelectionSnapshot | null>(null)
+  const highlightsRef = useRef(highlights)
+  highlightsRef.current = highlights
+  const onNotesChangeRef = useRef(onNotesChange)
+  onNotesChangeRef.current = onNotesChange
 
   const setDebugState = useCallback((reason: string, selection: Selection | null, root: HTMLElement | null) => {
     if (!import.meta.env.DEV) return
+    const snapshot = lastValidSelectionRef.current
     ;(window as Window & { __RW_SELECTION_DEBUG__?: unknown }).__RW_SELECTION_DEBUG__ = {
       reason,
       text: selection?.toString(),
@@ -90,7 +104,94 @@ export default function ReadingHighlightToolbar({
       insideRoot: Boolean(
         root?.contains(selectionNodeElement(selection?.anchorNode ?? null) ?? null),
       ),
+      hasSnapshot: Boolean(snapshot),
+      snapshotText: snapshot?.text,
+      snapshotRanges: snapshot?.ranges,
+      snapshotBelow: snapshot?.below,
+      snapshotCanRemove: snapshot?.canRemove,
+      snapshotCanEditNote: snapshot?.canEditNote,
     }
+  }, [])
+
+  const captureSelection = useCallback((): SelectionSnapshot | null => {
+    const root = rootRef.current
+    const selection = window.getSelection()
+
+    const reject = (reason: string) => {
+      setDebugState(reason, selection, root)
+      if (import.meta.env.DEV) {
+        console.debug('[ReadingHighlightToolbar] capture rejected', {
+          reason,
+          root: Boolean(root),
+          text: selection?.toString(),
+          collapsed: selection?.isCollapsed,
+          rangeCount: selection?.rangeCount,
+        })
+      }
+    }
+
+    if (!root) { reject('missing-root'); return null }
+    if (!selection) { reject('missing-selection'); return null }
+    if (selection.isCollapsed) { reject('collapsed'); return null }
+    if (selection.rangeCount === 0) { reject('no-range'); return null }
+
+    const text = selection.toString().trim()
+    if (!text) { reject('empty-text'); return null }
+
+    const anchorEl = selectionNodeElement(selection.anchorNode)
+    const focusEl = selectionNodeElement(selection.focusNode)
+    if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
+      reject('outside-zone')
+      return null
+    }
+    if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) {
+      reject('outside-root')
+      return null
+    }
+
+    const rect = selection.getRangeAt(0).getBoundingClientRect()
+    if (rect.width === 0 && rect.height === 0) {
+      reject('zero-rect')
+      return null
+    }
+
+    const ranges = selectionToHighlightRanges(selection, root)
+    if (!ranges?.length) { reject('no-highlight-ranges'); return null }
+
+    const inTranscriptPanel = Boolean(root.closest('.listening-transcript-panel'))
+    const nearTop = rect.top < 100
+    const below = (inTranscriptPanel && rect.bottom < window.innerHeight - 120) || nearTop
+
+    const canRemove = highlightsRef.current.some(h =>
+      ranges.some(r =>
+        r.blockId === h.blockId && r.start < h.end && r.end > h.start,
+      ),
+    )
+    const canEditNote = Boolean(ranges.length && onNotesChangeRef.current)
+
+    setDebugState('ok', selection, root)
+
+    return { text, ranges, rect, below, canRemove, canEditNote }
+  }, [rootRef, setDebugState])
+
+  const showToolbarFromSnapshot = useCallback((snapshot: SelectionSnapshot) => {
+    const pad = 12
+    const rawX = snapshot.rect.left + snapshot.rect.width / 2
+    const rawY = snapshot.below
+      ? snapshot.rect.bottom + 8
+      : Math.max(12, snapshot.rect.top - 10)
+    const x = Math.min(window.innerWidth - pad, Math.max(pad, rawX))
+    const y = Math.min(window.innerHeight - pad, Math.max(pad, rawY))
+
+    setToolbar({
+      x, y,
+      text: snapshot.text,
+      canRemove: snapshot.canRemove,
+      canEditNote: snapshot.canEditNote,
+      below: snapshot.below,
+    })
+    setCopied(false)
+    pendingRangesRef.current = snapshot.ranges
   }, [])
 
   const clearSelection = useCallback(() => {
@@ -100,124 +201,60 @@ export default function ReadingHighlightToolbar({
     setNoteEditorOpen(false)
     setNoteDraft('')
     pendingRangesRef.current = null
+    lastValidSelectionRef.current = null
   }, [])
 
-  const updateToolbar = useCallback(() => {
-    const root = rootRef.current
-    const selection = window.getSelection()
+  const handlePointerDown = useCallback(() => {
+    pointerSelectingRef.current = true
+    lastValidSelectionRef.current = null
+  }, [])
 
-    const reject = (reason: string) => {
-      setDebugState(reason, selection, root)
-      if (import.meta.env.DEV) {
-        console.debug('[ReadingHighlightToolbar] rejected', {
-          reason,
-          root: Boolean(root),
-          text: selection?.toString(),
-          collapsed: selection?.isCollapsed,
-          rangeCount: selection?.rangeCount,
-        })
-      }
-      if (!noteEditorOpen) {
-        setToolbar(null)
-        setCopied(false)
-      }
+  const handleSelectionChange = useCallback(() => {
+    const snapshot = captureSelection()
+    if (snapshot) {
+      lastValidSelectionRef.current = snapshot
     }
+  }, [captureSelection])
 
-    if (!root) return reject('missing-root')
-    if (!selection) return reject('missing-selection')
-    if (selection.isCollapsed) return reject('collapsed')
-    if (selection.rangeCount === 0) return reject('no-range')
-
-    const text = selection.toString().trim()
-    if (!text) return reject('empty-text')
-
-    const anchorEl = selectionNodeElement(selection.anchorNode)
-    const focusEl = selectionNodeElement(selection.focusNode)
-    if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
-      return reject('outside-zone')
+  const handlePointerUp = useCallback(() => {
+    pointerSelectingRef.current = false
+    const snapshot = lastValidSelectionRef.current
+    if (snapshot) {
+      showToolbarFromSnapshot(snapshot)
+      lastValidSelectionRef.current = null
     }
-    if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) {
-      return reject('outside-root')
+  }, [showToolbarFromSnapshot])
+
+  const handlePointerCancel = useCallback(() => {
+    pointerSelectingRef.current = false
+    lastValidSelectionRef.current = null
+  }, [])
+
+  const handleKeyUp = useCallback(() => {
+    const snapshot = captureSelection()
+    if (snapshot) {
+      showToolbarFromSnapshot(snapshot)
     }
-
-    const rect = selection.getRangeAt(0).getBoundingClientRect()
-    if (rect.width === 0 && rect.height === 0) {
-      return reject('zero-rect')
-    }
-
-    const ranges = selectionToHighlightRanges(selection, root)
-    if (!ranges?.length) return reject('no-highlight-ranges')
-    pendingRangesRef.current = ranges
-    setDebugState('ok', selection, root)
-
-    // Transcript panel has its own fixed header/scroll area. Place its toolbar
-    // below the selection first so it never covers the preceding transcript line.
-    const inTranscriptPanel = Boolean(root.closest('.listening-transcript-panel'))
-    // Reading header ~56–72px; keep popup under selection if near top
-    const nearTop = rect.top < 100
-    const below =
-      (inTranscriptPanel && rect.bottom < window.innerHeight - 120) || nearTop
-
-    // Clamp to viewport so popup stays on-screen (Reading split panes + Listening TID)
-    const rawX = rect.left + rect.width / 2
-    const rawY = below ? rect.bottom + 8 : Math.max(12, rect.top - 10)
-    const pad = 12
-    const x = Math.min(window.innerWidth - pad, Math.max(pad, rawX))
-    const y = Math.min(window.innerHeight - pad, Math.max(pad, rawY))
-
-    setToolbar({
-      x,
-      y,
-      text,
-      canRemove: selectionOverlapsHighlight(selection, root, highlights),
-      canEditNote: Boolean(ranges?.length && onNotesChange),
-      below,
-    })
-    setCopied(false)
-  }, [highlights, noteEditorOpen, onNotesChange, rootRef, setDebugState])
+  }, [captureSelection, showToolbarFromSnapshot])
 
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
 
-    let frame = 0
-
-    const scheduleUpdate = () => {
-      window.cancelAnimationFrame(frame)
-      frame = window.requestAnimationFrame(() => {
-        updateToolbar()
-      })
-    }
-
-    const handlePointerDown = () => {
-      pointerSelectingRef.current = true
-    }
-
-    const handlePointerUp = () => {
-      pointerSelectingRef.current = false
-      scheduleUpdate()
-    }
-
-    const handleSelectionChange = () => {
-      if (pointerSelectingRef.current) return
-      scheduleUpdate()
-    }
-
     root.addEventListener('pointerdown', handlePointerDown, true)
-    root.addEventListener('pointerup', handlePointerUp, true)
-    root.addEventListener('mouseup', scheduleUpdate, true)
-    document.addEventListener('keyup', scheduleUpdate, true)
+    document.addEventListener('pointerup', handlePointerUp, true)
+    document.addEventListener('pointercancel', handlePointerCancel, true)
     document.addEventListener('selectionchange', handleSelectionChange)
+    document.addEventListener('keyup', handleKeyUp, true)
 
     return () => {
-      window.cancelAnimationFrame(frame)
       root.removeEventListener('pointerdown', handlePointerDown, true)
-      root.removeEventListener('pointerup', handlePointerUp, true)
-      root.removeEventListener('mouseup', scheduleUpdate, true)
-      document.removeEventListener('keyup', scheduleUpdate, true)
+      document.removeEventListener('pointerup', handlePointerUp, true)
+      document.removeEventListener('pointercancel', handlePointerCancel, true)
       document.removeEventListener('selectionchange', handleSelectionChange)
+      document.removeEventListener('keyup', handleKeyUp, true)
     }
-  }, [rootRef, updateToolbar])
+  }, [rootRef, handlePointerDown, handlePointerUp, handlePointerCancel, handleSelectionChange, handleKeyUp])
 
   useEffect(() => {
     clearSelection()
@@ -288,8 +325,6 @@ export default function ReadingHighlightToolbar({
     && findNotesOverlappingRanges(notes, pendingRangesRef.current).length,
   )
 
-  // Portal to document.body so position:fixed is always viewport-relative
-  // (not clipped / rebased by overflow/transform parents in exam shells).
   const node = (
     <div
       role="toolbar"

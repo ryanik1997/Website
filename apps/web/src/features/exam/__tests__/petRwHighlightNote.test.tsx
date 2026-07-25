@@ -120,6 +120,7 @@ describe('ReadingHighlightToolbar — component', () => {
   async function flushSelectionOnRoot(root: HTMLElement) {
     await act(async () => {
       fireEvent.pointerDown(root)
+      fireEvent(document, new Event('selectionchange'))
       fireEvent.pointerUp(root)
     })
     await waitFor(() => {
@@ -352,6 +353,139 @@ describe('ReadingHighlightToolbar — component', () => {
     const savedNotes = onNotesChange.mock.calls[0][0] as TextNote[]
     expect(savedNotes).toHaveLength(1)
     expect(savedNotes[0].text).toBe('This is my note')
+  })
+})
+
+describe('ReadingHighlightToolbar — cached snapshot (collapsed-after-pointerup)', () => {
+  function setup() {
+    const highlights: ReadingHighlight[] = []
+    const notes: TextNote[] = []
+    const onHighlightsChange = vi.fn()
+    const onNotesChange = vi.fn()
+
+    function Harness() {
+      const rootRef = useRef<HTMLDivElement>(null)
+      return (
+        <div ref={rootRef} data-testid="harness-root">
+          <ReadingHighlightToolbar
+            rootRef={rootRef}
+            highlights={highlights}
+            onHighlightsChange={onHighlightsChange}
+            notes={notes}
+            onNotesChange={onNotesChange}
+            resetKey="part-1"
+          />
+          <ExamHighlightZone className="test-highlight-zone">
+            <ReadingHighlightableText
+              blockId="b1"
+              text="The cat sat on the mat and looked at the birds flying outside."
+              highlights={highlights}
+            />
+          </ExamHighlightZone>
+        </div>
+      )
+    }
+
+    return { Harness, onHighlightsChange, onNotesChange, highlights, notes }
+  }
+
+  function makeMockRange(startNode: Node, startOffset: number, endNode: Node, endOffset: number) {
+    return {
+      startContainer: startNode,
+      startOffset,
+      endContainer: endNode,
+      endOffset,
+      collapsed: false,
+      commonAncestorContainer: startNode.parentElement ?? document.body,
+      getBoundingClientRect: () => ({
+        x: 100, y: 200, width: 300, height: 20,
+        top: 200, right: 400, bottom: 220, left: 100,
+        toJSON: () => ({}),
+      }),
+      getClientRects: () => [],
+      cloneRange: () => makeMockRange(startNode, startOffset, endNode, endOffset),
+      detach: () => {},
+      setStart: () => {},
+      setEnd: () => {},
+      selectNodeContents: () => {},
+    }
+  }
+
+  function getTextNode(el: HTMLElement): Text | null {
+    for (const child of el.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) return child as Text
+      const found = getTextNode(child as HTMLElement)
+      if (found) return found
+    }
+    return null
+  }
+
+  it('shows toolbar from cached snapshot when selection collapses after pointerup', async () => {
+    const { Harness } = setup()
+    render(<Harness />)
+
+    const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
+    expect(blockEl).toBeTruthy()
+    const textNode = getTextNode(blockEl)
+    expect(textNode).toBeTruthy()
+
+    const range = makeMockRange(textNode!, 4, textNode!, 11)
+    const validMockSelection = {
+      rangeCount: 1,
+      isCollapsed: false,
+      anchorNode: textNode,
+      focusNode: textNode,
+      getRangeAt: (_i: number) => range,
+      toString: () => 'cat sat',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection
+
+    // Step 1: selectionchange captures the selection into the ref
+    vi.spyOn(window, 'getSelection').mockReturnValue(validMockSelection)
+    await act(async () => {
+      fireEvent(document, new Event('selectionchange'))
+    })
+
+    // Step 2: Now window.getSelection() returns collapsed/null (real bug scenario)
+    vi.spyOn(window, 'getSelection').mockReturnValue({
+      rangeCount: 0,
+      isCollapsed: true,
+      anchorNode: null,
+      focusNode: null,
+      getRangeAt: () => { throw new Error('no range') },
+      toString: () => '',
+      removeAllRanges: vi.fn(),
+    } as unknown as Selection)
+
+    // Step 3: pointerup fires with collapsed selection — toolbar should still show
+    // from cached snapshot
+    const root = screen.getByTestId('harness-root')
+    await act(async () => {
+      fireEvent.pointerUp(root)
+    })
+
+    const toolbar = await screen.findByRole('toolbar')
+    expect(toolbar).toBeTruthy()
+
+    // Verify the toolbar has the correct text from the cached snapshot
+    const yellowBtn = screen.getByLabelText('Tô màu Vàng')
+    expect(yellowBtn).toBeTruthy()
+  })
+
+  it('clears toolbar when pointerdown starts a new interaction without prior selection', async () => {
+    const { Harness } = setup()
+    render(<Harness />)
+
+    // Toolbar should not be visible initially
+    expect(screen.queryByRole('toolbar')).toBeNull()
+
+    // Dispatch pointerdown on root (new interaction)
+    await act(async () => {
+      fireEvent.pointerDown(screen.getByTestId('harness-root'))
+    })
+
+    // No toolbar after a simple click without selection
+    expect(screen.queryByRole('toolbar')).toBeNull()
   })
 })
 
