@@ -86,6 +86,39 @@ function InlineMcGap({
   )
 }
 
+// ── Part 4 two-way drag helpers ──
+
+type Part4DragPayload =
+  | { source: 'bank'; optionId: string }
+  | { source: 'gap'; optionId: string; sourceQuestionId: string }
+
+const PART4_DND_MIME = 'application/x-pet-reading-part4-option'
+
+function writePart4DragPayload(dataTransfer: DataTransfer, payload: Part4DragPayload) {
+  dataTransfer.setData(PART4_DND_MIME, JSON.stringify(payload))
+  dataTransfer.setData('text/plain', payload.optionId)
+  dataTransfer.effectAllowed = 'move'
+}
+
+function readPart4DragPayload(dataTransfer: DataTransfer): Part4DragPayload | null {
+  const raw = dataTransfer.getData(PART4_DND_MIME)
+  if (raw) {
+    try {
+      const v = JSON.parse(raw) as Partial<Part4DragPayload>
+      if (v.source === 'bank' && typeof v.optionId === 'string') {
+        return { source: 'bank', optionId: v.optionId }
+      }
+      if (v.source === 'gap' && typeof v.optionId === 'string' && typeof v.sourceQuestionId === 'string') {
+        return { source: 'gap', optionId: v.optionId, sourceQuestionId: v.sourceQuestionId }
+      }
+    } catch {
+      /* invalid JSON */
+    }
+  }
+  const legacy = dataTransfer.getData('text/plain')
+  return legacy ? { source: 'bank', optionId: legacy } : null
+}
+
 function InlineGapText({
   number,
   value,
@@ -122,6 +155,10 @@ function InlineGapDrop({
   onSelectQuestion,
   showOptionId = true,
   showEmptyPlaceholder = true,
+  dragEnabled = false,
+  part4Payload,
+  onFilledDragStart,
+  onFilledDragEnd,
 }: {
   number: number
   question: ReadingQuestion
@@ -132,13 +169,34 @@ function InlineGapDrop({
   onSelectQuestion: (id: string) => void
   showOptionId?: boolean
   showEmptyPlaceholder?: boolean
+  dragEnabled?: boolean
+  part4Payload?: Part4DragPayload | null
+  onFilledDragStart?: (
+    event: React.DragEvent<HTMLButtonElement>,
+    payload: { questionId: string; optionId: string },
+  ) => void
+  onFilledDragEnd?: () => void
 }) {
   const item = bank.find(b => b.id.toLowerCase() === value.toLowerCase())
+  const canDragFilled = dragEnabled && Boolean(item) && Boolean(value)
+  const isDraggingFrom =
+    part4Payload?.source === 'gap' &&
+    part4Payload.sourceQuestionId === question.id
+
   return (
     <span className="pet-rw-inline-gap">
       <button
         type="button"
-        className={`pet-rw-drag__slot pet-rw-drag__slot--inline${value ? ' is-filled' : ''}`}
+        className={[
+          'pet-rw-drag__slot',
+          'pet-rw-drag__slot--inline',
+          value ? 'is-filled' : '',
+          canDragFilled ? 'is-draggable' : '',
+          isDraggingFrom ? 'is-dragging' : '',
+        ].filter(Boolean).join(' ')}
+        draggable={canDragFilled}
+        data-question-id={question.id}
+        data-option-id={value || undefined}
         data-highlight-skip
         onClick={() => {
           if (pickedId) {
@@ -147,11 +205,26 @@ function InlineGapDrop({
           }
           onSelectQuestion(question.id)
         }}
+        onDragStart={event => {
+          if (!item || !value || !dragEnabled) {
+            event.preventDefault()
+            return
+          }
+          onFilledDragStart?.(event, {
+            questionId: question.id,
+            optionId: value,
+          })
+        }}
+        onDragEnd={onFilledDragEnd}
         onDragOver={e => e.preventDefault()}
-        onDrop={e => {
-          e.preventDefault()
-          const opt = e.dataTransfer.getData('text/plain')
-          if (opt) onAssign(question.id, opt)
+        onDrop={event => {
+          event.preventDefault()
+          if (!dragEnabled) return
+          const payload = readPart4DragPayload(event.dataTransfer)
+          if (!payload) return
+          // Drop on same gap → no-op
+          if (payload.source === 'gap' && payload.sourceQuestionId === question.id) return
+          onAssign(question.id, payload.optionId)
         }}
       >
         <span className="pet-rw-inline-gap__num">{number}</span>
@@ -278,7 +351,13 @@ export default function PetRwPartContent({
     onSelectQuestion(questionId)
   }
 
-  const [draggingBankId, setDraggingBankId] = useState<string | null>(null)
+  const [part4DragPayload, setPart4DragPayload] = useState<Part4DragPayload | null>(null)
+  const [isPart4BankDropActive, setIsPart4BankDropActive] = useState(false)
+
+  const clearPart4DragState = () => {
+    setPart4DragPayload(null)
+    setIsPart4BankDropActive(false)
+  }
 
   const renderPassageGapDrops = (
     passageKey: string,
@@ -287,6 +366,7 @@ export default function PetRwPartContent({
     bank: Array<{ id: string; label: string }>,
     showOptionId = true,
     showEmptyPlaceholder = true,
+    isPart4 = false,
   ) => {
     const gapNums = gapQuestions.map(q => q.number)
     const prepared = ensureGapDots(text, gapNums)
@@ -309,6 +389,22 @@ export default function PetRwPartContent({
               onSelectQuestion={onSelectQuestion}
               showOptionId={showOptionId}
               showEmptyPlaceholder={showEmptyPlaceholder}
+              dragEnabled={isPart4 && !reviewMode}
+              part4Payload={isPart4 ? part4DragPayload : undefined}
+              onFilledDragStart={
+                isPart4
+                  ? (event, { questionId, optionId }) => {
+                      const payload: Part4DragPayload = {
+                        source: 'gap',
+                        optionId,
+                        sourceQuestionId: questionId,
+                      }
+                      setPart4DragPayload(payload)
+                      writePart4DragPayload(event.dataTransfer, payload)
+                    }
+                  : undefined
+              }
+              onFilledDragEnd={isPart4 ? clearPart4DragState : undefined}
             />
           )
         })}
@@ -502,31 +598,88 @@ export default function PetRwPartContent({
 
               {bodyBlocks.map((block, idx) => (
                 <div key={`p4b-${idx}`} className="pet-rw-part4-paragraph">
-                  {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank, false, false)}
+                  {renderPassageGapDrops(`p4b-${idx}`, block.text ?? '', questions, bank, false, false, true)}
                 </div>
               ))}
             </section>
 
-            <aside className="pet-rw-part4-bank" aria-label="Sentence choices">
+            <aside
+              className={[
+                'pet-rw-part4-bank',
+                isPart4BankDropActive ? 'is-return-drop-active' : '',
+              ].filter(Boolean).join(' ')}
+              aria-label="Sentence choices"
+              onDragEnter={event => {
+                if (reviewMode) return
+                const payload = readPart4DragPayload(event.dataTransfer)
+                if (payload?.source !== 'gap') return
+                event.preventDefault()
+                setIsPart4BankDropActive(true)
+              }}
+              onDragOver={event => {
+                if (reviewMode) return
+                const payload = readPart4DragPayload(event.dataTransfer)
+                if (payload?.source !== 'gap') return
+                event.preventDefault()
+                event.dataTransfer.dropEffect = 'move'
+                setIsPart4BankDropActive(true)
+              }}
+              onDragLeave={event => {
+                const current = event.currentTarget
+                const next = event.relatedTarget as Node | null
+                if (!next || !current.contains(next)) {
+                  setIsPart4BankDropActive(false)
+                }
+              }}
+              onDrop={event => {
+                event.preventDefault()
+                if (reviewMode) {
+                  clearPart4DragState()
+                  return
+                }
+                const payload = readPart4DragPayload(event.dataTransfer)
+                if (!payload || payload.source !== 'gap') {
+                  clearPart4DragState()
+                  return
+                }
+                const currentValue = answers[payload.sourceQuestionId] ?? ''
+                if (currentValue.toLowerCase() !== payload.optionId.toLowerCase()) {
+                  clearPart4DragState()
+                  return
+                }
+                onAnswer(payload.sourceQuestionId, '')
+                onSelectQuestion(payload.sourceQuestionId)
+                setPickedBankId(null)
+                clearPart4DragState()
+              }}
+            >
               <div className="pet-rw-part4-bank-list">
                 {availableBank.map(option => {
                   const isPicked = pickedBankId === option.id
+                  const isDragging = part4DragPayload?.source === 'bank' && part4DragPayload.optionId === option.id
                   return (
                     <div
                       key={option.id}
                       className={[
                         'pet-rw-part4-bank-card',
                         isPicked ? 'is-picked' : '',
-                        draggingBankId === option.id ? 'is-dragging' : '',
+                        isDragging ? 'is-dragging' : '',
                       ].filter(Boolean).join(' ')}
                       data-highlight-skip
-                      draggable
+                      draggable={!reviewMode}
                       onDragStart={event => {
-                        setDraggingBankId(option.id)
-                        event.dataTransfer.setData('text/plain', option.id)
-                        event.dataTransfer.effectAllowed = 'move'
+                        if (reviewMode) {
+                          event.preventDefault()
+                          return
+                        }
+                        const payload: Part4DragPayload = {
+                          source: 'bank',
+                          optionId: option.id,
+                        }
+                        setPart4DragPayload(payload)
+                        writePart4DragPayload(event.dataTransfer, payload)
                       }}
-                      onDragEnd={() => setDraggingBankId(null)}
+                      onDragEnd={clearPart4DragState}
                       onClick={() => {
                         setPickedBankId(pickedBankId === option.id ? null : option.id)
                       }}

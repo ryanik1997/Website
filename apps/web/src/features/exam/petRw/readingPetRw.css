@@ -1234,6 +1234,39 @@
   font-weight: 400;
 }
 
+/* Draggable filled gap */
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline.is-filled.is-draggable {
+  cursor: grab;
+  user-select: none;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline.is-filled.is-draggable:active {
+  cursor: grabbing;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-drag__slot--inline.is-dragging {
+  opacity: 0.35;
+}
+
+/* Bank — drop target for gap returns */
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank {
+  min-height: 160px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.pet-rw-shell.is-part-4 .pet-rw-part4-bank.is-return-drop-active {
+  border-color: #238ed0;
+  background: rgba(35, 142, 208, 0.06);
+}
+
+/* Review mode — lock all drag */
+.pet-rw-shell.is-part-4.is-review .pet-rw-part4-bank-card,
+.pet-rw-shell.is-part-4.is-review .pet-rw-drag__slot--inline.is-filled {
+  cursor: default;
+}
+
 /* Bank cards — white, fit-content width */
 .pet-rw-shell.is-part-4 .pet-rw-part4-bank-card {
   display: inline-flex;
