@@ -1,5 +1,16 @@
 export const EXAM_HIGHLIGHT_ZONE_SELECTOR = '[data-exam-highlight-zone], [data-reading-highlight-zone]'
 
+export function selectionNodeElement(node: Node | null): Element | null {
+  if (!node) return null
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.parentElement
+  }
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    return node as Element
+  }
+  return null
+}
+
 export function isInExamHighlightZone(el: Element | null | undefined): boolean {
   return Boolean(el?.closest(EXAM_HIGHLIGHT_ZONE_SELECTOR))
 }
@@ -308,9 +319,39 @@ export function getBlockTextLength(blockEl: HTMLElement): number {
   return len
 }
 
-function findBlockEl(node: Node | null): HTMLElement | null {
-  const el = node?.nodeType === Node.TEXT_NODE ? node.parentElement : (node as Element | null)
-  return el?.closest<HTMLElement>('[data-highlight-block]') ?? null
+function blockIdOf(blockEl: HTMLElement | null): string | null {
+  return blockEl?.dataset.blockId ?? null
+}
+
+function findBoundaryChildAtOffset(node: Node, offset: number): Node | null {
+  if (node.nodeType !== Node.ELEMENT_NODE) return null
+  const children = node.childNodes
+  if (children.length === 0) return null
+  if (offset <= 0) return children[0] ?? null
+  if (offset >= children.length) return children[children.length - 1] ?? null
+  return children[offset] ?? children[offset - 1] ?? null
+}
+
+function nearestHighlightBlock(node: Node | null, offset?: number): HTMLElement | null {
+  const element = selectionNodeElement(node)
+
+  if (element?.matches('[data-highlight-block]')) {
+    return element as HTMLElement
+  }
+
+  const closest = element?.closest<HTMLElement>('[data-highlight-block]') ?? null
+  if (closest) return closest
+
+  if (node && typeof offset === 'number') {
+    const boundaryChild = findBoundaryChildAtOffset(node, offset)
+    const boundaryElement = selectionNodeElement(boundaryChild)
+    if (boundaryElement?.matches('[data-highlight-block]')) {
+      return boundaryElement as HTMLElement
+    }
+    return boundaryElement?.closest<HTMLElement>('[data-highlight-block]') ?? null
+  }
+
+  return null
 }
 
 function getTextOffsetInBlock(
@@ -367,20 +408,30 @@ export function selectionToHighlightRanges(
   const text = selection.toString().trim()
   if (!text) return null
 
-  const anchorEl = selection.anchorNode?.parentElement
-  const focusEl = selection.focusNode?.parentElement
+  const anchorEl = selectionNodeElement(selection.anchorNode)
+  const focusEl = selectionNodeElement(selection.focusNode)
   if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
     return null
   }
   if (!root.contains(anchorEl ?? null) || !root.contains(focusEl ?? null)) return null
 
   const range = selection.getRangeAt(0)
-  const startBlock = findBlockEl(range.startContainer)
-  const endBlock = findBlockEl(range.endContainer)
-  if (!startBlock || !endBlock) return null
+  const startBlock = nearestHighlightBlock(range.startContainer, range.startOffset)
+  const endBlock = nearestHighlightBlock(range.endContainer, range.endOffset)
+  if (!startBlock || !endBlock) {
+    if (import.meta.env.DEV) {
+      console.debug('[selectionToHighlightRanges] no-highlight-ranges', {
+        startContainer: range.startContainer?.nodeName,
+        endContainer: range.endContainer?.nodeName,
+        startBlock: blockIdOf(startBlock),
+        endBlock: blockIdOf(endBlock),
+      })
+    }
+    return null
+  }
 
-  const startBlockId = startBlock.dataset.blockId
-  const endBlockId = endBlock.dataset.blockId
+  const startBlockId = blockIdOf(startBlock)
+  const endBlockId = blockIdOf(endBlock)
   if (!startBlockId || !endBlockId) return null
 
   const startOffset = getTextOffsetInBlock(startBlock, range.startContainer, range.startOffset)

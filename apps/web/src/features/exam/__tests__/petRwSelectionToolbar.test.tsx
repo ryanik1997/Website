@@ -40,7 +40,7 @@ function getTextNode(el: HTMLElement): Text | null {
 }
 
 describe('PET Reading note/highlight', () => {
-  it('shows the selection toolbar for question prompt text', () => {
+  it('shows the selection toolbar for question prompt text', async () => {
     const question: ReadingQuestion = {
       id: 'q1',
       number: 1,
@@ -81,6 +81,7 @@ describe('PET Reading note/highlight', () => {
     }
 
     render(<Harness />)
+    const main = document.querySelector('.ket-rw-main') as HTMLElement
 
     const promptBlock = screen
       .getByText('What does the notice tell people to do?')
@@ -103,16 +104,17 @@ describe('PET Reading note/highlight', () => {
       removeAllRanges: vi.fn(),
     } as unknown as Selection)
 
-    act(() => {
-      document.dispatchEvent(new Event('pointerup'))
+    await act(async () => {
+      fireEvent.pointerDown(main)
+      fireEvent.pointerUp(main)
     })
 
-    expect(screen.getByRole('toolbar')).toBeTruthy()
+    expect(await screen.findByRole('toolbar')).toBeTruthy()
 
-    act(() => {
+    await act(async () => {
       fireEvent.click(screen.getByText('Note'))
     })
 
-    expect(screen.getByPlaceholderText('Nhập ghi chú…')).toBeTruthy()
+    expect(await screen.findByPlaceholderText('Nhập ghi chú…')).toBeTruthy()
   })
 })

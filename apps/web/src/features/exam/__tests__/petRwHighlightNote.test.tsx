@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi, beforeEach } from 'vitest'
-import { render, screen, cleanup, fireEvent, act } from '@testing-library/react'
+import { render, screen, cleanup, fireEvent, act, waitFor } from '@testing-library/react'
 import { useRef } from 'react'
 import {
   type ReadingHighlight,
@@ -117,6 +117,16 @@ describe('ReadingHighlightToolbar — component', () => {
     return { Harness, onHighlightsChange, onNotesChange, highlights, notes }
   }
 
+  async function flushSelectionOnRoot(root: HTMLElement) {
+    await act(async () => {
+      fireEvent.pointerDown(root)
+      fireEvent.pointerUp(root)
+    })
+    await waitFor(() => {
+      expect(window.getSelection).toBeTruthy()
+    })
+  }
+
   function makeMockRange(startNode: Node, startOffset: number, endNode: Node, endOffset: number) {
     const range = {
       startContainer: startNode,
@@ -169,7 +179,7 @@ describe('ReadingHighlightToolbar — component', () => {
     return null
   }
 
-  it('renders toolbar after text selection', () => {
+  it('renders toolbar after text selection', async () => {
     const { Harness, onHighlightsChange } = setup()
     render(<Harness />)
 
@@ -178,11 +188,9 @@ describe('ReadingHighlightToolbar — component', () => {
 
     mockSelectionInBlock(blockEl, 4, 11)
 
-    act(() => {
-      document.dispatchEvent(new Event('pointerup'))
-    })
+    await flushSelectionOnRoot(screen.getByTestId('harness-root'))
 
-    const toolbar = screen.getByRole('toolbar')
+    const toolbar = await screen.findByRole('toolbar')
     expect(toolbar).toBeTruthy()
 
     const yellowBtn = screen.getByLabelText('Tô màu Vàng')
@@ -205,22 +213,22 @@ describe('ReadingHighlightToolbar — component', () => {
     expect(newHighlights[0].blockId).toBe('b1')
   })
 
-  it('applies highlight with each color button', () => {
+  it('applies highlight with each color button', async () => {
     const { Harness, onHighlightsChange } = setup()
     render(<Harness />)
 
     const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
     mockSelectionInBlock(blockEl, 4, 11)
 
-    act(() => { document.dispatchEvent(new Event('pointerup')) })
+    await flushSelectionOnRoot(screen.getByTestId('harness-root'))
 
-    const blueBtn = screen.getByLabelText('Tô màu Xanh')
+    const blueBtn = await screen.findByLabelText('Tô màu Xanh')
     act(() => { fireEvent.click(blueBtn) })
     expect(onHighlightsChange).toHaveBeenCalledOnce()
     expect(onHighlightsChange.mock.calls[0][0][0].color).toBe('blue')
   })
 
-  it('does not render toolbar when selection is in non-highlight zone', () => {
+  it('does not render toolbar when selection is in non-highlight zone', async () => {
     function SeparateDiv() {
       const rootRef = useRef<HTMLDivElement>(null)
       return (
@@ -260,12 +268,12 @@ describe('ReadingHighlightToolbar — component', () => {
       removeAllRanges: vi.fn(),
     } as unknown as Selection)
 
-    act(() => { document.dispatchEvent(new Event('pointerup')) })
+    await flushSelectionOnRoot(document.body as HTMLElement)
 
     expect(screen.queryByRole('toolbar')).toBeNull()
   })
 
-  it('shows remove highlight button when selection overlaps existing highlight', () => {
+  it('shows remove highlight button when selection overlaps existing highlight', async () => {
     function HarnessWithExistingHighlight() {
       const rootRef = useRef<HTMLDivElement>(null)
       const existingHighlights: ReadingHighlight[] = [
@@ -311,22 +319,22 @@ describe('ReadingHighlightToolbar — component', () => {
       removeAllRanges: vi.fn(),
     } as unknown as Selection)
 
-    act(() => { document.dispatchEvent(new Event('pointerup')) })
+    await flushSelectionOnRoot(screen.getByTestId('harness-root'))
 
-    const removeBtn = screen.getByText('Bỏ tô sáng')
+    const removeBtn = await screen.findByText('Bỏ tô sáng')
     expect(removeBtn).toBeTruthy()
   })
 
-  it('shows Note button and opens note editor', () => {
+  it('shows Note button and opens note editor', async () => {
     const { Harness, onNotesChange } = setup()
     render(<Harness />)
 
     const blockEl = screen.getByText(/The cat sat/).closest('[data-highlight-block]') as HTMLElement
     mockSelectionInBlock(blockEl, 4, 11)
 
-    act(() => { document.dispatchEvent(new Event('pointerup')) })
+    await flushSelectionOnRoot(screen.getByTestId('harness-root'))
 
-    const noteBtn = screen.getByText('Note')
+    const noteBtn = await screen.findByText('Note')
     expect(noteBtn).toBeTruthy()
 
     act(() => { fireEvent.click(noteBtn) })

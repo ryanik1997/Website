@@ -10,6 +10,7 @@ import {
   isInExamHighlightZone,
   removeHighlights,
   removeNotesInRanges,
+  selectionNodeElement,
   selectionOverlapsHighlight,
   selectionToHighlightRanges,
   upsertNotesForRanges,
@@ -65,6 +66,32 @@ export default function ReadingHighlightToolbar({
   const [noteEditorOpen, setNoteEditorOpen] = useState(false)
   const [noteDraft, setNoteDraft] = useState('')
   const pendingRangesRef = useRef<ReturnType<typeof selectionToHighlightRanges>>(null)
+  const pointerSelectingRef = useRef(false)
+
+  const setDebugState = useCallback((reason: string, selection: Selection | null, root: HTMLElement | null) => {
+    if (!import.meta.env.DEV) return
+    ;(window as Window & { __RW_SELECTION_DEBUG__?: unknown }).__RW_SELECTION_DEBUG__ = {
+      reason,
+      text: selection?.toString(),
+      collapsed: selection?.isCollapsed,
+      rangeCount: selection?.rangeCount,
+      anchorNode: selection?.anchorNode?.nodeName,
+      focusNode: selection?.focusNode?.nodeName,
+      anchorBlock: selectionNodeElement(selection?.anchorNode ?? null)
+        ?.closest('[data-highlight-block]')
+        ?.getAttribute('data-block-id'),
+      focusBlock: selectionNodeElement(selection?.focusNode ?? null)
+        ?.closest('[data-highlight-block]')
+        ?.getAttribute('data-block-id'),
+      insideZone: Boolean(
+        selectionNodeElement(selection?.anchorNode ?? null)
+          ?.closest('[data-exam-highlight-zone]'),
+      ),
+      insideRoot: Boolean(
+        root?.contains(selectionNodeElement(selection?.anchorNode ?? null) ?? null),
+      ),
+    }
+  }, [])
 
   const clearSelection = useCallback(() => {
     window.getSelection()?.removeAllRanges()
@@ -80,6 +107,7 @@ export default function ReadingHighlightToolbar({
     const selection = window.getSelection()
 
     const reject = (reason: string) => {
+      setDebugState(reason, selection, root)
       if (import.meta.env.DEV) {
         console.debug('[ReadingHighlightToolbar] rejected', {
           reason,
@@ -103,8 +131,8 @@ export default function ReadingHighlightToolbar({
     const text = selection.toString().trim()
     if (!text) return reject('empty-text')
 
-    const anchorEl = selection.anchorNode?.parentElement
-    const focusEl = selection.focusNode?.parentElement
+    const anchorEl = selectionNodeElement(selection.anchorNode)
+    const focusEl = selectionNodeElement(selection.focusNode)
     if (!isInExamHighlightZone(anchorEl) || !isInExamHighlightZone(focusEl)) {
       return reject('outside-zone')
     }
@@ -120,6 +148,7 @@ export default function ReadingHighlightToolbar({
     const ranges = selectionToHighlightRanges(selection, root)
     if (!ranges?.length) return reject('no-highlight-ranges')
     pendingRangesRef.current = ranges
+    setDebugState('ok', selection, root)
 
     // Transcript panel has its own fixed header/scroll area. Place its toolbar
     // below the selection first so it never covers the preceding transcript line.
@@ -145,20 +174,50 @@ export default function ReadingHighlightToolbar({
       below,
     })
     setCopied(false)
-  }, [highlights, noteEditorOpen, onNotesChange, rootRef])
+  }, [highlights, noteEditorOpen, onNotesChange, rootRef, setDebugState])
 
   useEffect(() => {
-    document.addEventListener('pointerup', updateToolbar)
-    document.addEventListener('mouseup', updateToolbar)
-    document.addEventListener('keyup', updateToolbar)
-    document.addEventListener('selectionchange', updateToolbar)
-    return () => {
-      document.removeEventListener('pointerup', updateToolbar)
-      document.removeEventListener('mouseup', updateToolbar)
-      document.removeEventListener('keyup', updateToolbar)
-      document.removeEventListener('selectionchange', updateToolbar)
+    const root = rootRef.current
+    if (!root) return
+
+    let frame = 0
+
+    const scheduleUpdate = () => {
+      window.cancelAnimationFrame(frame)
+      frame = window.requestAnimationFrame(() => {
+        updateToolbar()
+      })
     }
-  }, [updateToolbar])
+
+    const handlePointerDown = () => {
+      pointerSelectingRef.current = true
+    }
+
+    const handlePointerUp = () => {
+      pointerSelectingRef.current = false
+      scheduleUpdate()
+    }
+
+    const handleSelectionChange = () => {
+      if (pointerSelectingRef.current) return
+      scheduleUpdate()
+    }
+
+    root.addEventListener('pointerdown', handlePointerDown, true)
+    root.addEventListener('pointerup', handlePointerUp, true)
+    root.addEventListener('mouseup', scheduleUpdate, true)
+    document.addEventListener('keyup', scheduleUpdate, true)
+    document.addEventListener('selectionchange', handleSelectionChange)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      root.removeEventListener('pointerdown', handlePointerDown, true)
+      root.removeEventListener('pointerup', handlePointerUp, true)
+      root.removeEventListener('mouseup', scheduleUpdate, true)
+      document.removeEventListener('keyup', scheduleUpdate, true)
+      document.removeEventListener('selectionchange', handleSelectionChange)
+    }
+  }, [rootRef, updateToolbar])
 
   useEffect(() => {
     clearSelection()

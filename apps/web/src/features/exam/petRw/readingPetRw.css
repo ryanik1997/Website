@@ -13,6 +13,26 @@
   color: var(--pet-text);
 }
 
+.pet-rw-shell [data-exam-highlight-zone] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.pet-rw-shell [data-highlight-block] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  cursor: text;
+}
+
+.pet-rw-shell [data-highlight-skip],
+.pet-rw-shell input,
+.pet-rw-shell textarea,
+.pet-rw-shell select,
+.pet-rw-shell button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .pet-rw-shell .ket-rw-main {
   min-height: 100%;
 }
