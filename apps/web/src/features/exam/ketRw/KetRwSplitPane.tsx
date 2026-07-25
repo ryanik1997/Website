@@ -11,6 +11,7 @@ interface Props {
   sequentialScroll?: boolean
   initialSplitPct?: number
   scrollResetKey?: string
+  splitStorageKey?: string
 }
 
 export default function KetRwSplitPane({
@@ -20,6 +21,7 @@ export default function KetRwSplitPane({
   sequentialScroll = false,
   initialSplitPct,
   scrollResetKey,
+  splitStorageKey,
 }: Props) {
   const bodyRef = useRef<HTMLDivElement>(null)
   const leftPaneRef = useRef<HTMLDivElement>(null)
@@ -32,7 +34,7 @@ export default function KetRwSplitPane({
     onResizerPointerDown,
     onResizerPointerMove,
     onResizerPointerUp,
-  } = useKetRwSplitResize(bodyRef, isResizable ? initialSplitPct : undefined)
+  } = useKetRwSplitResize(bodyRef, isResizable ? initialSplitPct : undefined, splitStorageKey)
 
   // Sequential scroll only for fixed-scrollbar (Part 2)
   useSequentialPaneScroll(

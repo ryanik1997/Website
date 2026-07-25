@@ -401,7 +401,9 @@ export default function PetRwPartContent({
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <KetRwSplitPane
-          variant="fixed-divider"
+          variant="resizable"
+          initialSplitPct={50}
+          splitStorageKey="pet-rw-part3-split-pct"
           scrollResetKey={partId}
           left={(
             <>

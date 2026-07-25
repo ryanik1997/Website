@@ -830,10 +830,19 @@
   line-height: 1.2;
 }
 
-/* ── Part 3 — Fixed divider 1fr 8px 1fr, no resizer, independent scroll ── */
+/* ── Part 3 — Resizable split with Cambridge split bar ── */
+.pet-rw-shell.is-part-3,
+.pet-rw-shell.is-part-3 .pet-rw-main,
+.pet-rw-shell.is-part-3 .pet-rw-main input,
+.pet-rw-shell.is-part-3 .pet-rw-main textarea,
+.pet-rw-shell.is-part-3 .pet-rw-main button {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .pet-rw-shell.is-part-3 .pet-rw-main {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
+  row-gap: 8px;
   height: calc(100dvh - 72px - 52px);
   min-height: 0;
   overflow: hidden;
@@ -852,13 +861,12 @@
 
 .pet-rw-shell.is-part-3 .ket-rw-instruction {
   grid-row: 1;
-  margin: 0 12px;
+  margin: 0 14px;
   width: auto;
 }
 
-.pet-rw-shell.is-part-3 .ket-rw-body.is-fixed-divider {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 8px minmax(0, 1fr);
+/* Use resizable flex layout */
+.pet-rw-shell.is-part-3 .ket-rw-body.is-resizable {
   grid-row: 2;
   width: 100%;
   height: 100%;
@@ -867,77 +875,134 @@
   background: #f3f7f8;
 }
 
-/* Divider element */
-.pet-rw-shell.is-part-3 .ket-rw-fixed-divider {
-  grid-column: 2;
-  width: 8px;
-  height: 100%;
-  min-height: 0;
+/* ── Cambridge-style split bar ── */
+/* Thin vertical line (2px) with draggable ↔ handle at center */
+.pet-rw-shell.is-part-3 .ket-rw-resizer {
+  width: 14px;
+  margin: 0 -6px;
+  flex-shrink: 0;
   align-self: stretch;
-  background: #9ea1a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border: 0;
-  pointer-events: none;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+  position: relative;
+  z-index: 5;
 }
 
-/* Panes — independent scroll, no nested scrollbars */
+.pet-rw-shell.is-part-3 .ket-rw-resizer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #8f9395;
+}
+
+.pet-rw-shell.is-part-3 .ket-rw-resizer:hover::before,
+.pet-rw-shell.is-part-3 .ket-rw-resizer.is-dragging::before {
+  width: 2px;
+  background: #777b7d;
+}
+
+.pet-rw-shell.is-part-3 .ket-rw-resizer__grip {
+  width: 30px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #707476;
+  border-radius: 0;
+  background: #fff;
+  color: #55595b;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  box-shadow: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* Panes — independent scroll */
 .pet-rw-shell.is-part-3 .ket-rw-pane-left {
-  padding: 18px 28px 40px 30px;
+  padding: 24px 20px 48px 14px;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-gutter: stable;
   background: #f3f7f8;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .pet-rw-shell.is-part-3 .ket-rw-pane-right {
-  padding: 18px 28px 80px 20px;
+  padding: 14px 48px 80px 18px;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-gutter: stable;
   background: #f3f7f8;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-/* Part 3 title (subtitle as heading) */
+/* Part 3 title */
 .pet-rw-shell.is-part-3 .pet-rw-part3-title {
-  margin: 14px 0 18px;
-  font-size: 21px;
+  margin: 0 0 18px;
+  color: #111;
+  font-size: 22px;
   line-height: 1.2;
   font-weight: 700;
-  color: #111;
 }
 
-/* Part 3 passage paragraphs */
+/* Passage paragraphs */
 .pet-rw-shell.is-part-3 .ket-rw-pane-left .ket-rw-paragraph {
   margin: 0 0 20px;
-  font-size: 15px;
-  line-height: 1.35;
   color: #111;
+  font-size: 16px;
+  line-height: 1.18;
+  font-weight: 400;
   white-space: normal;
 }
 
-/* Part 3 questions — compact */
+/* Questions */
 .pet-rw-shell.is-part-3 .ket-rw-pane-right .ket-rw-question {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   padding: 0;
 }
 
 .pet-rw-shell.is-part-3 .ket-rw-pane-right .ket-rw-q-prompt {
-  margin: 0 0 10px;
-  font-size: 15px;
-  line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 9px;
+  color: #111;
+  font-size: 16px;
+  line-height: 1.25;
   font-weight: 700;
 }
 
+/* Question number: black text inline, not purple circle */
 .pet-rw-shell.is-part-3 .ket-rw-pane-right .ket-rw-q-num {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  border-radius: 50%;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  margin: 0 8px 0 0;
   border: 0;
-  background: #646af2;
-  color: #fff;
-  font-size: 13px;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  font-size: 16px;
+  line-height: 1.25;
   font-weight: 700;
 }
 
@@ -947,15 +1012,20 @@
   background: transparent;
 }
 
+/* Option rows: 40px height, 16px font */
 .pet-rw-shell.is-part-3 .ket-rw-pane-right .ket-rw-radio {
-  min-height: 30px;
-  padding: 5px 10px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
   gap: 8px;
+  padding: 0 10px;
   border: 0;
-  border-bottom: 1px solid #edf0f1;
+  border-bottom: 1px solid #eef0f1;
   background: #fff;
-  font-size: 14px;
-  line-height: 1.25;
+  color: #111;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
 }
 
 .pet-rw-shell.is-part-3 .ket-rw-pane-right .ket-rw-radio:hover {
@@ -973,7 +1043,7 @@
   flex: 0 0 auto;
 }
 
-/* Part 3 adjacent nav */
+/* Adjacent nav */
 .pet-rw-shell.is-part-3 .pet-rw-adjacent-nav {
   right: 14px;
   bottom: 60px;

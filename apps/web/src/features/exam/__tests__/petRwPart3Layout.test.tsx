@@ -120,7 +120,7 @@ describe('KetRwSplitPane default variant', () => {
 // ── Part 3 layout via PetRwPartContent ──
 
 describe('Part 3 layout integration', () => {
-  it('renders fixed-divider split pane when partNumber is 3', () => {
+  it('renders Part 3 with resizable Cambridge split bar', () => {
     const { questions } = makePart3Data()
     const part3: ReadingPart = {
       id: 'part-3',
@@ -154,10 +154,11 @@ describe('Part 3 layout integration', () => {
       />,
     )
 
-    // Check split pane mode
-    expect(document.querySelector('.ket-rw-body.is-fixed-divider')).toBeTruthy()
-    expect(document.querySelector('.ket-rw-fixed-divider')).toBeTruthy()
-    expect(document.querySelector('.ket-rw-resizer')).toBeFalsy()
+    // Check resizable split pane with resizer
+    expect(document.querySelector('.ket-rw-body.is-resizable')).toBeTruthy()
+    expect(document.querySelector('.ket-rw-resizer')).toBeTruthy()
+    expect(document.querySelector('.ket-rw-resizer__grip')).toBeTruthy()
+    expect(document.querySelector('.ket-rw-fixed-divider')).toBeFalsy()
 
     // Check title uses subtitle (not full passageTitle)
     expect(
