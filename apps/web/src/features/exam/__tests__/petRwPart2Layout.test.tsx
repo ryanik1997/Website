@@ -386,6 +386,7 @@ describe('PetRwPartContent — Part 2 branch', () => {
 
   it('non-pageImage Part 2 renders split layout with headings', () => {
     const part2 = makePart(2)
+    part2.passageTitle = 'Weekend Events'
     part2.passage = [{ text: 'Some text about markets.' }]
     part2.questionGroups[0].questions = makeDragMatchQuestions(5, 6) as any
 
@@ -402,7 +403,7 @@ describe('PetRwPartContent — Part 2 branch', () => {
 
     expect(document.querySelector('.ket-rw-body.is-split')).toBeTruthy()
     expect(screen.getByText('People')).toBeTruthy()
-    expect(screen.getByText('City Markets')).toBeTruthy()
+    expect(screen.getByText('Weekend Events')).toBeTruthy()
   })
 
   it('pageImage Part 2 keeps old single layout', () => {

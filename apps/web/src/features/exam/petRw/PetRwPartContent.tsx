@@ -631,6 +631,7 @@ export default function PetRwPartContent({
             partId={partId}
             slots={questions}
             bank={bank}
+            bankTitle={part.passageTitle}
             answers={answers}
             activeQuestionId={activeQuestionId}
             bankOnRight

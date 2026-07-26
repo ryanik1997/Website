@@ -11,6 +11,7 @@ interface Props {
   partId: string
   slots: ReadingQuestion[]
   bank: PetRwBankOption[]
+  bankTitle?: string
   answers: Record<string, string>
   activeQuestionId: string | null
   bankOnRight?: boolean
@@ -29,6 +30,7 @@ export default function PetRwDragMatch({
   partId,
   slots,
   bank,
+  bankTitle,
   answers,
   activeQuestionId,
   bankOnRight = true,
@@ -225,7 +227,7 @@ export default function PetRwDragMatch({
         )}
         right={(
           <section className="pet-rw-part2-column pet-rw-part2-column--markets">
-            <h2 className="pet-rw-part2-heading">City Markets</h2>
+            <h2 className="pet-rw-part2-heading">{bankTitle?.trim() || 'City Markets'}</h2>
             {bankPanel}
           </section>
         )}

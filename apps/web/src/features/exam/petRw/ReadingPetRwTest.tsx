@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { audioRepo } from '@ryan/db'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, ArrowRight, Bell, Edit3, Loader2, Menu, Wifi } from 'lucide-react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
 import { useReadingFontSettings } from '../useReadingFontSettings'
 import ReadingSubmittedScreen from '../ReadingSubmittedScreen'
@@ -34,6 +34,7 @@ import './readingPetRw.css'
 const STORAGE_PREFIX = 'exam-reading-draft:'
 
 export default function ReadingPetRwTest() {
+  const navigate = useNavigate()
   const { examId } = useParams<{ examId: string }>()
   const [searchParams] = useSearchParams()
   const fullMockId = searchParams.get('fullMock')
@@ -227,6 +228,10 @@ export default function ReadingPetRwTest() {
     setReviewMode(false)
   }, [])
 
+  const handleExit = useCallback(() => {
+    navigate(-1)
+  }, [navigate])
+
   const handleRetry = useCallback(() => {
     if (!exam) return
     clearReadingDraft(exam.id)
@@ -385,6 +390,15 @@ export default function ReadingPetRwTest() {
       )}
       <header className="pet-rw-header">
         <div className="pet-rw-header__identity">
+          <button
+            type="button"
+            className="pet-rw-icon-btn"
+            aria-label="Exit"
+            title="Exit"
+            onClick={handleExit}
+          >
+            <ArrowLeft size={16} />
+          </button>
           <img src="/logo-ceq.png" alt="Cambridge English" className="pet-rw-header__logo" />
           <strong className="pet-rw-candidate-id">Candidate ID</strong>
         </div>
