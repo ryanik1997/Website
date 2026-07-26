@@ -356,6 +356,7 @@ export default function ReadingCpeRwTest() {
         onSelectQuestion={handleSelectQuestion}
         onAdjacentQuestion={goAdjacentQuestion}
         onExit={reviewMode ? () => setReviewMode(false) : handleExit}
+        onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
         exitLabel={reviewMode ? 'Về báo cáo' : undefined}

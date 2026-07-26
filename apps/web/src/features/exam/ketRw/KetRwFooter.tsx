@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ReadingExam } from '../examData'
 import { getPartQuestions } from '../examData'
 import { examReviewPillStyle, type ExamReviewStatus } from '../examReviewUtils'
@@ -13,6 +12,7 @@ interface Props {
   onSelectQuestion: (id: string) => void
   onAdjacentQuestion: (delta: number) => void
   onExit: () => void
+  onSubmit: () => void
   reviewMode?: boolean
   getQuestionReviewStatus?: (questionId: string) => ExamReviewStatus | null
   /** Review: nút về báo cáo thay Exit (optional label) */
@@ -24,19 +24,16 @@ export default function KetRwFooter({
   partIndex,
   activeQuestionId,
   answers,
-  allQuestions,
+  allQuestions: _allQuestions,
   onGoToPart,
   onSelectQuestion,
-  onAdjacentQuestion,
-  onExit,
+  onAdjacentQuestion: _onAdjacentQuestion,
+  onExit: _onExit,
+  onSubmit,
   reviewMode = false,
   getQuestionReviewStatus,
-  exitLabel,
+  exitLabel: _exitLabel,
 }: Props) {
-  const activeIndex = activeQuestionId
-    ? allQuestions.findIndex(q => q.id === activeQuestionId)
-    : -1
-
   const answeredInPart = (index: number) => {
     const qs = getPartQuestions(exam.parts[index])
     return qs.filter(q => Boolean(answers[q.id]?.trim())).length
@@ -49,83 +46,86 @@ export default function KetRwFooter({
           const questions = getPartQuestions(part)
           const answered = answeredInPart(index)
           const isCurrent = index === partIndex
+
           return (
-            <div
+            <section
               key={part.id}
-              className={`ket-rw-footer-part${isCurrent ? ' is-current' : ''}`}
+              className={`ket-rw-footer__part${isCurrent ? ' is-current' : ''}`}
             >
               <button
                 type="button"
-                className="ket-rw-footer-part__tab"
+                className="ket-rw-footer__part-tab"
                 onClick={() => onGoToPart(index)}
+                aria-current={isCurrent ? 'true' : undefined}
               >
-                <span className="ket-rw-footer-part__label">Part {part.partNumber}</span>
+                <span className="ket-rw-footer__part-label">
+                  Part {part.partNumber}
+                </span>
+
                 {!isCurrent && (
-                  <span className="ket-rw-footer-part__count">
+                  <span className="ket-rw-footer__part-count">
                     {answered} of {questions.length}
                   </span>
                 )}
               </button>
+
               {isCurrent && (
-                <div className="ket-rw-footer-part__pills">
+                <nav
+                  className="ket-rw-footer__pills"
+                  aria-label={`Part ${part.partNumber} questions`}
+                >
                   {questions.map(q => {
                     const isActive = activeQuestionId === q.id
                     const isAnswered = Boolean(answers[q.id]?.trim())
-                    const rev = reviewMode ? (getQuestionReviewStatus?.(q.id) ?? null) : null
-                    const revClass = rev === 'correct'
-                      ? ' is-review-ok'
-                      : rev === 'wrong'
-                        ? ' is-review-bad'
-                        : rev === 'skipped'
-                          ? ' is-review-skip'
-                          : ''
+                    const reviewStatus = reviewMode
+                      ? (getQuestionReviewStatus?.(q.id) ?? null)
+                      : null
+
+                    const reviewClass =
+                      reviewStatus === 'correct'
+                        ? ' is-review-ok'
+                        : reviewStatus === 'wrong'
+                          ? ' is-review-bad'
+                          : reviewStatus === 'skipped'
+                            ? ' is-review-skip'
+                            : ''
+
                     return (
                       <button
                         key={q.id}
                         type="button"
-                        className={`ket-rw-q-pill${isActive ? ' is-current' : ''}${!rev && isAnswered ? ' is-answered' : ''}${revClass}`}
-                        style={examReviewPillStyle(rev, isActive)}
-                        data-review={rev ?? undefined}
-                        title={rev === 'correct' ? 'Đúng' : rev === 'wrong' ? 'Sai' : rev === 'skipped' ? 'Bỏ qua' : undefined}
+                        data-question-id={q.id}
+                        aria-label={`Go to question ${q.number}`}
+                        aria-current={isActive ? 'true' : undefined}
+                        className={[
+                          'ket-rw-footer__pill',
+                          isActive ? 'is-active' : '',
+                          !reviewStatus && isAnswered ? 'is-answered' : '',
+                          reviewClass,
+                        ].filter(Boolean).join(' ')}
+                        style={examReviewPillStyle(reviewStatus, isActive)}
+                        data-review={reviewStatus ?? undefined}
                         onClick={() => onSelectQuestion(q.id)}
                       >
                         {q.number}
                       </button>
                     )
                   })}
-                </div>
+                </nav>
               )}
-            </div>
+            </section>
           )
         })}
       </div>
-      <div className="ket-rw-footer__controls">
-        <button
-          type="button"
-          className="ket-rw-exit-btn"
-          onClick={onExit}
-        >
-          {exitLabel ?? (reviewMode ? 'Về báo cáo' : 'Exit')}
-        </button>
-        <button
-          type="button"
-          className="ket-rw-nav-btn"
-          disabled={activeIndex <= 0}
-          onClick={() => onAdjacentQuestion(-1)}
-          aria-label="Previous"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          type="button"
-          className="ket-rw-nav-btn is-next"
-          disabled={activeIndex >= allQuestions.length - 1}
-          onClick={() => onAdjacentQuestion(1)}
-          aria-label="Next"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
+
+      <button
+        type="button"
+        className="ket-rw-footer__submit"
+        aria-label="Submit exam"
+        onClick={onSubmit}
+      >
+        ✓
+      </button>
     </footer>
   )
 }

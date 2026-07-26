@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { X } from 'lucide-react'
 import type { ReadingPart, ReadingPassageBlock, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions, isReadingAnswerCorrect } from '../examData'
@@ -98,19 +98,141 @@ function InlineMcGap({
   onClear?: () => void
   reviewMode?: boolean
   reviewStatus?: ExamReviewStatus | null
-  /** chips = Part4_New; dropdown = legacy */
-  variant?: 'chips' | 'dropdown'
+  /** chips = Part4_New; dropdown = legacy; pet-part5 = PET B1 Part 5 style */
+  variant?: 'chips' | 'dropdown' | 'pet-part5' | 'ket-part4-target'
 }) {
-  const selectedLabel = question?.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label
-  const keyLabel = question?.options.find(o => o.id.toLowerCase() === String(question.answer).toLowerCase())?.label
+  const selectedOption = question?.options.find(o =>
+    o.id.toLowerCase() === value.toLowerCase()
+    || o.label.toLowerCase() === value.toLowerCase()
+  )
+  const selectedLabel = selectedOption?.label
+  const keyLabel = question?.options.find(o =>
+    o.id.toLowerCase() === String(question.answer).toLowerCase()
+    || o.label.toLowerCase() === String(question.answer).toLowerCase()
+  )?.label
   const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
   const showChips = variant === 'chips' && open && question && !reviewMode
   const showMenu = variant === 'dropdown' && open && question && !reviewMode
+  const showPetPart5Chooser = variant === 'pet-part5' && open && question && !reviewMode
+
+  // ── ket-part4-target: white gap bar + dark inline chooser ──
+  if (variant === 'ket-part4-target') {
+    return (
+      <span
+        className={[
+          'ket-rw-gap-mc',
+          'ket-rw-gap-mc--part4',
+          open ? 'is-open' : '',
+          value ? 'is-filled' : '',
+        ].filter(Boolean).join(' ')}
+        data-highlight-skip
+      >
+        {open && question && !reviewMode && (
+          <span
+            className="ket-rw-gap-mc__dark-chooser"
+            role="listbox"
+            aria-label={`Options for question ${number}`}
+            data-highlight-skip
+          >
+            <button
+              type="button"
+              className="ket-rw-gap-mc__dark-close"
+              aria-label={value ? `Clear answer for question ${number}` : `Close options for question ${number}`}
+              data-highlight-skip
+              onClick={event => {
+                event.stopPropagation()
+                if (value && onClear) {
+                  onClear()
+                  return
+                }
+                onToggle()
+              }}
+            >
+              ×
+            </button>
+
+            {question.options.map(option => {
+              const optSelected =
+                value.toLowerCase() === option.id.toLowerCase()
+                || value.toLowerCase() === option.label.toLowerCase()
+
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  role="option"
+                  aria-selected={optSelected}
+                  className={[
+                    'ket-rw-gap-mc__dark-option',
+                    optSelected ? 'is-selected' : '',
+                  ].filter(Boolean).join(' ')}
+                  data-highlight-skip
+                  onClick={event => {
+                    event.stopPropagation()
+                    if (optSelected && onClear) {
+                      onClear()
+                      return
+                    }
+                    onSelect(option.id)
+                  }}
+                >
+                  {option.label}
+                </button>
+              )
+            })}
+          </span>
+        )}
+
+        <button
+          type="button"
+          className={[
+            'ket-rw-gap-mc__part4-bar',
+            open ? 'is-open' : '',
+            value ? 'is-filled' : '',
+          ].filter(Boolean).join(' ')}
+          data-highlight-skip
+          aria-expanded={open}
+          aria-label={
+            selectedLabel
+              ? `Question ${number}: ${selectedLabel}`
+              : `Question ${number}, choose answer`
+          }
+          onClick={event => {
+            event.stopPropagation()
+            if (reviewMode) return
+            onToggle()
+          }}
+        >
+          <span className="ket-rw-gap-mc__part4-number">
+            {number}
+          </span>
+
+          {selectedLabel && (
+            <span className="ket-rw-gap-mc__part4-word">
+              {selectedLabel}
+            </span>
+          )}
+
+          {reviewMode && reviewStatus === 'wrong' && keyLabel && (
+            <span className="ket-rw-gap-mc__value ket-rw-gap-mc__value--key">
+              → {keyLabel}
+            </span>
+          )}
+        </button>
+      </span>
+    )
+  }
 
   return (
     <span
-      className={`ket-rw-gap-mc${variant === 'chips' ? ' ket-rw-gap-mc--chips' : ''}${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
+      className={[
+        'ket-rw-gap-mc',
+        variant === 'pet-part5' ? 'ket-rw-gap-mc--pet-part5' : variant === 'chips' ? 'ket-rw-gap-mc--chips' : '',
+        open ? 'is-open' : '',
+        value ? 'is-filled' : '',
+      ].filter(Boolean).join(' ')}
       style={border ? { outline: `2px solid ${border}`, borderRadius: 8, padding: 2 } : undefined}
+      data-highlight-skip
     >
       {showChips && (
         <span className="ket-rw-gap-mc__chips" role="listbox" aria-label={`Options for ${number}`}>
@@ -146,9 +268,54 @@ function InlineMcGap({
         </span>
       )}
 
+      {showPetPart5Chooser && (
+        <span
+          className="ket-rw-gap-mc__pet-chooser"
+          role="listbox"
+          aria-label={`Options for question ${number}`}
+          data-highlight-skip
+        >
+          {question.options.map(option => {
+            const optSelected = value.toLowerCase() === option.id.toLowerCase()
+              || value.toLowerCase() === option.label.toLowerCase()
+
+            return (
+              <button
+                key={option.id}
+                type="button"
+                role="option"
+                aria-selected={optSelected}
+                className={[
+                  'ket-rw-gap-mc__pet-option',
+                  optSelected ? 'is-selected' : '',
+                ].filter(Boolean).join(' ')}
+                data-highlight-skip
+                onClick={event => {
+                  event.stopPropagation()
+                  if (optSelected && onClear) {
+                    onClear()
+                    return
+                  }
+                  onSelect(option.id)
+                }}
+              >
+                <span className="ket-rw-gap-mc__pet-option-id">
+                  {option.label}
+                </span>
+              </button>
+            )
+          })}
+        </span>
+      )}
+
       <button
         type="button"
-        className={`ket-rw-gap-mc__bar${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
+        className={[
+          'ket-rw-gap-mc__bar',
+          variant === 'pet-part5' ? 'ket-rw-gap-mc__bar--pet-part5' : '',
+          open ? 'is-open' : '',
+          value ? 'is-filled' : '',
+        ].filter(Boolean).join(' ')}
         data-highlight-skip
         aria-expanded={open}
         aria-label={
@@ -156,7 +323,8 @@ function InlineMcGap({
             ? `Question ${number}: ${selectedLabel}`
             : `Question ${number}, choose answer`
         }
-        onClick={() => {
+        onClick={event => {
+          event.stopPropagation()
           if (reviewMode) return
           onToggle()
         }}
@@ -171,7 +339,7 @@ function InlineMcGap({
           </>
         ) : (
           <>
-            <span>{number}</span>
+            <span className="ket-rw-gap-mc__bar-num">{number}</span>
             {selectedLabel && <span className="ket-rw-gap-mc__value">{selectedLabel}</span>}
           </>
         )}
@@ -243,6 +411,13 @@ function InlineGapText({
   )
 }
 
+/** Strip placeholder dots leading/trailing text segment (gap modes). */
+function stripPlaceholderDotsAroundGap(value: string) {
+  return value
+    .replace(/^[\s.·…]{3,}\s*/g, '')
+    .replace(/\s*[.·…]{3,}\s*$/g, '')
+}
+
 function renderGapPassage(
   partId: string,
   passageKey: string,
@@ -265,11 +440,14 @@ function renderGapPassage(
     <p className="ket-rw-inline-passage">
       {segments.map((seg, i) => {
         if (seg.kind === 'text') {
+          // Lược bỏ placeholder dots mà không mutate source
+          const textValue = mode === 'mc' || mode === 'input' ? stripPlaceholderDotsAroundGap(seg.value) : seg.value
+          if (!textValue) return null
           return (
             <RwHighlightText
               key={`t-${i}`}
               blockId={`${partId}-${passageKey}-seg-${i}`}
-              text={seg.value}
+              text={textValue}
             />
           )
         }
@@ -290,7 +468,7 @@ function renderGapPassage(
               open={openGap === seg.number}
               reviewMode={reviewMode}
               reviewStatus={st}
-              variant="chips"
+              variant="ket-part4-target"
               onToggle={() => {
                 onSelectQuestion(q.id)
                 setOpenGap(openGap === seg.number ? null : seg.number)
@@ -349,6 +527,21 @@ export default function KetRwPartContent({
 
   const instructionRange = group?.range ?? part.rangeLabel
   const instructionText = group?.instruction ?? ''
+
+  // Đóng chooser khi click ngoài pet-part5 gap
+  useEffect(() => {
+    if (openGap === null) return
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target
+      if (!(target instanceof Element)) return
+      if (target.closest('.ket-rw-gap-mc--pet-part5') || target.closest('.ket-rw-gap-mc--part4')) return
+      setOpenGap(null)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown, true)
+    return () => document.removeEventListener('pointerdown', handlePointerDown, true)
+  }, [openGap])
 
   const renderPassageBlocks = (blocks = part.passage) => blocks.map((block, idx) => {
     // Part 2 title (Making friends…)
