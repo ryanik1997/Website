@@ -151,6 +151,7 @@ function safeListeningRow(exam: ListeningExam, isAdmin: boolean): {
 }
 
 const ImportReadingManualModal = lazy(() => import('./ImportReadingManualModal'))
+const BatchReadingImportModal = lazy(() => import('./BatchReadingImportModal'))
 const ImportListeningModal = lazy(() => import('./ImportListeningModal'))
 const IeltsListeningImportWizard = lazy(() => import('./ieltsListeningWizard/IeltsListeningImportWizard'))
 const IeltsReadingImportWizard = lazy(() => import('./ieltsReadingWizard/IeltsReadingImportWizard'))
@@ -176,6 +177,7 @@ function ExamTrackPageInner() {
   const canImport = isAdmin === true
 
   const [showImportManual, setShowImportManual] = useState(false)
+  const [showBatchImportReading, setShowBatchImportReading] = useState(false)
   const [showImportListening, setShowImportListening] = useState(false)
   const [showIeltsWizard, setShowIeltsWizard] = useState(false)
   const [showReadingWizard, setShowReadingWizard] = useState(false)
@@ -501,6 +503,12 @@ function ExamTrackPageInner() {
                     Import thủ công Reading
                   </button>
                 )}
+                {showReadingArchive && (
+                  <button type="button" className="exam-hub-cta exam-hub-cta--ghost" onClick={() => setShowBatchImportReading(true)}>
+                    <FileJson size={14} />
+                    Import hàng loạt Reading
+                  </button>
+                )}
                 {track.id === 'ielts' && showReadingArchive && (
                   <button
                     type="button"
@@ -686,6 +694,17 @@ function ExamTrackPageInner() {
               setShowImportManual(false)
               navigate(`/app/exam/reading/${id}`)
             }}
+          />
+        </Suspense>
+      )}
+
+      {canImport && showBatchImportReading && (
+        <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center"><Loader2 className="animate-spin" /></div>}>
+          <BatchReadingImportModal
+            examTrack={track.id === 'ielts' ? 'ielts' : 'cambridge'}
+            cambridgeLevel={cambridgeLevel?.slug}
+            onClose={() => setShowBatchImportReading(false)}
+            onImported={() => setShowBatchImportReading(false)}
           />
         </Suspense>
       )}

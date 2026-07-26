@@ -2,7 +2,7 @@
   "id": "catalog-reading-pet-b1-test3",
   "title": "PET B1 Reading — Test 3",
   "durationMinutes": 45,
-  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "bandHint": "B1 Preliminary Reading — 6 parts",
   "parts": [
     {
       "id": "catalog-reading-pet-b1-test3-part-1",
@@ -152,14 +152,50 @@
       "id": "catalog-reading-pet-b1-test3-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 6–10",
-      "passageTitle": "Part 2 — Matching people",
+      "passageTitle": "Part 2 — Weekend Events",
       "passageSubtitle": "",
-      "passage": [],
+      "passage": [
+        {
+          "text": "The people below all want to go to a weekend event. Decide which event would be the most suitable for each person."
+        },
+        {
+          "label": "A",
+          "text": "Story Night at the Book Café — A quiet Saturday afternoon event in an accessible café, where local actors read short stories while guests sit at tables with drinks. The venue is small, calm and friendly, with staff helping wheelchair users. Tickets should be booked online because places are limited."
+        },
+        {
+          "label": "B",
+          "text": "Family Craft Fair — A Sunday morning fair with simple craft activities for children and adults working together. Families can make cards, paint wooden decorations and take everything home. It is indoors, inexpensive and suitable for young children, with a small café area for parents who need a break."
+        },
+        {
+          "label": "C",
+          "text": "Food and Jazz Evening — This lively Friday night event includes a three-course meal and live jazz from a popular local band. One ticket covers both food and music, so visitors do not need to buy things separately. It is open to people aged eighteen and over only."
+        },
+        {
+          "label": "D",
+          "text": "Town Orchestra Concert — The town orchestra performs well-known film music on Saturday afternoon in the main concert hall. Audience members sit throughout the performance, and the building has step-free access, wheelchair spaces and accessible toilets. Senior citizens can buy discounted tickets if they book in advance."
+        },
+        {
+          "label": "E",
+          "text": "Trail Run and Breakfast — Join a guided Sunday morning run through the hills above town. The route is challenging but not competitive, and runners finish at a lakeside café where breakfast is included in the entry price. It is best for people who already enjoy running outdoors."
+        },
+        {
+          "label": "F",
+          "text": "Lakeside Outdoor Cinema — Watch a classic film beside the lake on Friday evening. Visitors bring blankets or folding chairs and can buy snacks from food stalls nearby. The atmosphere is relaxed and social, but the event depends on dry weather and food is not included in the ticket."
+        },
+        {
+          "label": "G",
+          "text": "Community Choir Taster Evening — A free Friday session for anyone interested in singing with other local people. No experience is needed, and visitors can join in simple songs before having tea and biscuits. The evening is friendly and calm, but it is not a concert or a party."
+        },
+        {
+          "label": "H",
+          "text": "Weekend Market and Street Food — This busy Saturday market has stalls selling handmade gifts, local produce and hot street food. Musicians perform outside during the afternoon, and visitors can walk around freely. It is fun and informal, but it can be crowded and noisy at popular times."
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test3-part-2-g0",
           "range": "Questions 6–10",
-          "instruction": "Decide which option would be the most suitable.",
+          "instruction": "For each question, choose the correct answer.",
           "type": "matching-features",
           "features": [
             {
@@ -409,18 +445,30 @@
       "id": "catalog-reading-pet-b1-test3-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 11–15",
-      "passageTitle": "Part 3 — Reading passage",
+      "passageTitle": "Part 3 — The Photograph on the Wall",
       "passageSubtitle": "",
       "passage": [
         {
-          "text": "For each question choose the correct answer.\n\nThe Photograph on the WallWhen I was a child, my grandmother had a small black-and-white photograph hanging in her kitchen. It showed a young man standing beside a motorcycle on a country road, squinting into the sun. He looked happy, I always thought, but also a little unsure, as if someone had just called his name and he had turned around at the exact moment the picture was taken.\n\nI asked my grandmother about the photograph many times over the years. Her answer was always the same: 'That's your grandfather, before I met him.' Then she would change the subject. I learned not to ask again, but I never stopped being curious.\n\nMy grandfather died when I was six. I had only a few memories of him: the smell of oil and metal in his workshop, his laugh, and the way he could whistle through his teeth. The man in the photograph seemed younger and freer than the grandfather I remembered. I wanted to know his story, but my grandmother clearly preferred not to tell it.\n\nLast spring, my grandmother moved out of the house she had lived in for over fifty years. I helped her pack boxes in the kitchen, and when I took the photograph off the wall, she paused and looked at it for a long moment. Then she said, quietly, 'He rode that motorcycle all the way from the coast to come and find me.'\n\nShe sat down at the kitchen table and began to talk. She told me that my grandfather had been a delivery rider before the war, taking packages between villages on his motorcycle. One day he arrived at her parents' farm with a parcel and saw her in the garden. He came back the following week without any package to deliver. He just wanted to see her again.\n\nOver the next hour, she told me dozens of stories I had never heard. Some were funny, some were sad, and a few surprised me so much that I laughed out loud. It was as though the young man in the photograph had finally stepped out of the frame and become a real person. I learned that my grandfather loved dancing but was terrible at it, that he once tried to build a boat, and that he wrote my grandmother a letter every single week until she agreed to marry him.\n\nI had spent years wondering about that photograph. In the end, the person who knew him best just needed the right moment to share his story. I still have the photograph. It sits on my own kitchen wall now, and it makes me smile every time I look at it."
+          "text": "The Photograph on the Wall"
+        },
+        {
+          "text": "When I was a child, my grandmother had a small black-and-white photograph hanging in her kitchen. It showed a young man standing beside a motorcycle on a country road, squinting into the sun. He looked happy, I always thought, but also a little unsure, as if someone had just called his name and he had turned around at the exact moment the picture was taken. I asked my grandmother about the photograph many times over the years. Her answer was always the same: 'That's your grandfather, before I met him.' Then she would change the subject. I learned not to ask again, but I never stopped being curious."
+        },
+        {
+          "text": "My grandfather died when I was six. I had only a few memories of him: the smell of oil and metal in his workshop, his laugh, and the way he could whistle through his teeth. The man in the photograph seemed younger and freer than the grandfather I remembered. I wanted to know his story, but my grandmother clearly preferred not to tell it. Last spring, my grandmother moved out of the house she had lived in for over fifty years. I helped her pack boxes in the kitchen, and when I took the photograph off the wall, she paused and looked at it for a long moment. Then she said, quietly, 'He rode that motorcycle all the way from the coast to come and find me.'"
+        },
+        {
+          "text": "She sat down at the kitchen table and began to talk. She told me that my grandfather had been a delivery rider before the war, taking packages between villages on his motorcycle. One day he arrived at her parents' farm with a parcel and saw her in the garden. He came back the following week without any package to deliver. He just wanted to see her again."
+        },
+        {
+          "text": "Over the next hour, she told me dozens of stories I had never heard. Some were funny, some were sad, and a few surprised me so much that I laughed out loud. It was as though the young man in the photograph had finally stepped out of the frame and become a real person. I learned that my grandfather loved dancing but was terrible at it, that he once tried to build a boat, and that he wrote my grandmother a letter every single week until she agreed to marry him. I had spent years wondering about that photograph. In the end, the person who knew him best just needed the right moment to share his story. I still have the photograph. It sits on my own kitchen wall now, and it makes me smile every time I look at it."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test3-part-3-g0",
           "range": "Questions 11–15",
-          "instruction": "Choose the correct answer A, B, C, or D.",
+          "instruction": "For each question, choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
             {
@@ -560,14 +608,67 @@
       "passageSubtitle": "",
       "passage": [
         {
-          "text": "A Job Worth KeepingThe email arrived on a Tuesday morning, just as I was finishing my breakfast. It was from a company I had applied to weeks earlier, and I had already given up hope of hearing back. They were offering me an interview for a summer position at their city centre office. [GAP 16] The salary was better than anything my friends had found, and the role was exactly what I wanted.\n\nThe interview was set for Friday at ten. I spent the next three days preparing. I read the company website from top to bottom, practised answers to questions I thought they might ask, and even bought a new shirt. [GAP 17] I walked around the building three times before I found the right entrance, and by the time I reached reception I was sweating.\n\nSomehow, the interview went well. The manager was friendly and seemed genuinely interested in what I had to say. She told me I would hear back within a week. On the bus home, I replayed every answer in my head, wondering if I had said the right things. The waiting was worse than the interview itself. [GAP 18]\n\nThe following Thursday, my phone rang. It was the manager. She said they had been impressed and wanted to offer me the position. I accepted immediately, barely able to get the words out. Afterwards, I sat on my bed and stared at the wall. It felt like something had finally gone my way.\n\nThat summer job changed everything, but not because of the skills I learned or the money I earned. It changed me because it was the first time I had wanted something, worked for it, and actually got it. Before that, I had always assumed that success was for other people. [GAP 19] I still think about that feeling whenever I face something difficult.\n\nThe company closed its city centre branch two years ago, and the building now belongs to a bank. I walk past it sometimes, and it looks smaller than I remember. [GAP 20] That stays with you."
+          "text": "A Job Worth Keeping"
+        },
+        {
+          "text": "The email arrived on a Tuesday morning, just as I was finishing my breakfast. It was from a company I had applied to weeks earlier, and I had already given up hope of hearing back. They were offering me an interview for a summer position at their city centre office. (16) ........ The salary was better than anything my friends had found, and the role was exactly what I wanted."
+        },
+        {
+          "text": "The interview was set for Friday at ten. I spent the next three days preparing. I read the company website from top to bottom, practised answers to questions I thought they might ask, and even bought a new shirt. (17) ........ I walked around the building three times before I found the right entrance, and by the time I reached reception I was sweating."
+        },
+        {
+          "text": "Somehow, the interview went well. The manager was friendly and seemed genuinely interested in what I had to say. She told me I would hear back within a week. On the bus home, I replayed every answer in my head, wondering if I had said the right things. The waiting was worse than the interview itself. (18) ........"
+        },
+        {
+          "text": "The following Thursday, my phone rang. It was the manager. She said they had been impressed and wanted to offer me the position. I accepted immediately, barely able to get the words out. Afterwards, I sat on my bed and stared at the wall. It felt like something had finally gone my way."
+        },
+        {
+          "text": "That summer job changed everything, but not because of the skills I learned or the money I earned. It changed me because it was the first time I had wanted something, worked for it, and actually got it. Before that, I had always assumed that success was for other people. (19) ........ I still think about that feeling whenever I face something difficult."
+        },
+        {
+          "text": "The company closed its city centre branch two years ago, and the building now belongs to a bank. I walk past it sometimes, and it looks smaller than I remember. (20) ........ That stays with you."
+        },
+        {
+          "text": "Sentences"
+        },
+        {
+          "label": "A",
+          "text": "I never applied for another office job after that summer ended."
+        },
+        {
+          "label": "B",
+          "text": "I checked the email twice to make sure I had read it correctly."
+        },
+        {
+          "label": "C",
+          "text": "By Thursday evening, I had convinced myself they had chosen someone else."
+        },
+        {
+          "label": "D",
+          "text": "None of that stopped me from feeling nervous on the day, however."
+        },
+        {
+          "label": "E",
+          "text": "I told all my friends immediately, and they were delighted for me."
+        },
+        {
+          "label": "F",
+          "text": "That moment taught me that I could be one of those people too."
+        },
+        {
+          "label": "G",
+          "text": "The office itself was on the fifth floor, and the phone signal was poor once you stepped inside."
+        },
+        {
+          "label": "H",
+          "text": "But the confidence it gave me has never really gone away."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test3-part-4-g0",
           "range": "Questions 16–20",
-          "instruction": "Choose the correct sentence for each gap.",
+          "instruction": "Five sentences have been removed. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
           "type": "matching-features",
           "features": [
             {
@@ -819,12 +920,16 @@
       "rangeLabel": "Questions 21–26",
       "passageTitle": "Part 5 — The Watch",
       "passageSubtitle": "",
-      "passage": [],
+      "passage": [
+        {
+          "text": "The Watch\n\nMy grandfather's watch looked as if it might (21) ........ at any moment. Its leather strap was dry, and it had been (22) ........ behind for years. Still, to me it was (23) ........ more than any new watch in a shop. Objects like that (24) ........ you a connection with people and places you remember. I once found a (25) ........ watch online, but it felt completely different. It may have told the right (26) ........, but it did not carry any of the stories that made my grandfather's watch special."
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test3-part-5-g0",
           "range": "Questions 21–26",
-          "instruction": "Choose the correct option for each gap.",
+          "instruction": "For each question, choose the correct answer.",
           "type": "multiple-choice",
           "questions": [
             {
@@ -989,14 +1094,14 @@
       "passageSubtitle": "",
       "passage": [
         {
-          "text": "Write one word for each gap.\n\nMaking a DecisionOut of the blue, my friend Lena told me she decided to leave her job and go back to university. She was thirty-two and had been working in the same office"
+          "text": "Making a Decision\n\nOut of the blue, my friend Lena told me she had decided to leave her job and go back to university. She had worked in the same office (27) ........ she was twenty-two, but she said it was now (28) ........ never. I asked her (29) ........ advice when I was later offered a new opportunity. She told me that (30) ........ I waited too long, I would lose confidence. I remembered her words (31) ........ I had to choose, and it was the best decision I had (32) ........ made."
         }
       ],
       "questionGroups": [
         {
           "id": "catalog-reading-pet-b1-test3-part-6-g0",
           "range": "Questions 27–32",
-          "instruction": "Write ONE word for each gap.",
+          "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
           "type": "gap-fill",
           "questions": [
             {
@@ -1004,7 +1109,6 @@
               "number": 27,
               "type": "gap-fill",
               "prompt": "Gap 27",
-              "options": [],
               "answerConfidence": "key"
             },
             {
@@ -1012,7 +1116,6 @@
               "number": 28,
               "type": "gap-fill",
               "prompt": "Gap 28",
-              "options": [],
               "answerConfidence": "key"
             },
             {
@@ -1020,7 +1123,6 @@
               "number": 29,
               "type": "gap-fill",
               "prompt": "Gap 29",
-              "options": [],
               "answerConfidence": "key"
             },
             {
@@ -1028,7 +1130,6 @@
               "number": 30,
               "type": "gap-fill",
               "prompt": "Gap 30",
-              "options": [],
               "answerConfidence": "key"
             },
             {
@@ -1036,7 +1137,6 @@
               "number": 31,
               "type": "gap-fill",
               "prompt": "Gap 31",
-              "options": [],
               "answerConfidence": "key"
             },
             {
@@ -1044,7 +1144,6 @@
               "number": 32,
               "type": "gap-fill",
               "prompt": "Gap 32",
-              "options": [],
               "answerConfidence": "key"
             }
           ]

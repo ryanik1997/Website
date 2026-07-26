@@ -3,6 +3,14 @@
 **Ngày:** 2026-07-26
 
 ### Đã hoàn thành
+- **Admin-only Batch Reading ZIP Import (Library Archives / Reading):**
+  - Thêm nút `Import hàng loạt Reading` cạnh `Import thủ công Reading` trong `ExamTrackPage.tsx`, dùng đúng admin gate hiện có `useIsAdmin()` / `db.settings.is_admin`; non-admin không thấy nút và modal tự chặn nếu bị gọi trái phép.
+  - Thêm modal `BatchReadingImportModal.tsx`: chọn nhiều file `.zip`, dry-run validate trước, checkbox `Overwrite existing exams`, import thật, bảng kết quả theo file, `Copy report` và tải `report.json`.
+  - Thêm service `apps/web/src/features/exam/import/batchReadingZipImport.ts`: scan ZIP theo path thực tế `catalog/exams/reading/*.json`, `*.answers.json`, `catalog/reading/**`; validate body/answers/meta/assets; skip duplicate mặc định, overwrite khi bật option.
+  - Reuse persistence path của manual import Reading: merge answers vault vào body runtime rồi lưu qua `examRepo.create(examRecordFromReading(..., 'manual'))`, backup qua `backupReadingExam()`, và chỉ publish cloud khi đi theo luồng IELTS admin (`publishToCloud` option).
+  - Asset handling local: passage/group images trong ZIP được persist vào Dexie blob store qua `audioRepo.put()` + `readingExamMediaKey()`, rồi rewrite sang `imageKey` để runtime hiện ảnh ổn mà không cần ghi vào `public/`.
+  - Thêm unit test `batchReadingZipImport.test.ts` đủ 12 case bắt buộc: valid single/multi zip, thiếu body/answers, mismatch answers, duplicate skip/overwrite, non-zip, PET B1 31 câu, thiếu ảnh Part 1...
+  - Verify: `pnpm --filter web exec -- tsc --noEmit` PASS, `pnpm --filter web exec vitest run src/features/exam/__tests__/batchReadingZipImport.test.ts` PASS (12/12).
 - **KET A2 Reading — Tái cấu trúc layout toàn diện từ crawl (branch `ket-a2-layout-from-crawl`):**
   - **Bottom Part/Question navigation:** Refactor `KetRwFooter.tsx` sang layout Cambridge/Inspera gồm part tabs ngang, active part hiện question pills, inactive part hiện answered count, submit ✓ ở cell cuối. Floating Prev/Next buttons ở góc phải phía trên footer. Không dùng PET compact style.
   - **Part 4 MC gaps — nhiều iteration visual:** PET-style inline chooser → dark bar chooser với nút X → white/gray bar với selected word → cuối cùng là Cambridge target: ô trắng/xám #f8f8f8 viền xám #aeb4ba 1px, chữ đen, chỉ số câu + selected word, border xanh chỉ khi focus/open. Xử lý dots placeholder bằng `stripPlaceholderDotsAroundGap()`.
@@ -15,19 +23,24 @@
   - **Không sửa data đề, answer key, catalog, db, migrations, PET B1.**
 
 ### Files changed
+- `apps/web/src/features/exam/ExamTrackPage.tsx`
+- `apps/web/src/features/exam/BatchReadingImportModal.tsx`
+- `apps/web/src/features/exam/import/batchReadingZipImport.ts`
+- `apps/web/src/features/exam/__tests__/batchReadingZipImport.test.ts`
 - `apps/web/src/features/exam/ketRw/ReadingKetRwTest.tsx`
 - `apps/web/src/features/exam/ketRw/KetRwFooter.tsx`
 - `apps/web/src/features/exam/ketRw/KetRwPartContent.tsx`
 - `apps/web/src/features/exam/ketRw/readingKetRw.css`
 
 ### Lỗi còn tồn tại
+- Batch Reading ZIP import hiện đã persist chắc cho `passage.imageUrl` và `questionGroup.imageUrl`. Nếu một bundle tương lai dùng `topImageUrl` / `bottomImageUrl` local-only thì modal sẽ cảnh báo giữ nguyên URL; chưa có local blob slot riêng cho 2 field này.
 - (Giữ nguyên từ session trước)
 - User báo dữ liệu local không còn hiển thị. Bản vá Admin Performance không xóa dữ liệu; cần kiểm tra đang dùng đúng `http://localhost:5173` (không phải `127.0.0.1`/port khác) và đúng tài khoản.
 - Google login cần smoke production + localhost.
 - Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
 
 ### Next session start prompt
-Use `scripts/import-pet-b1-reading-crawl.mjs` as the import pipeline for PET B1 Reading raw crawl folders. Next practical step: audit one generated bundle such as `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-11\pet-b1-test11-import` against the real runtime schema, then copy/import `catalog-reading-pet-b1-test3..12` into the repo catalog and patch any remaining text-cleaning issues (mojibake, long cloze passage shaping, Part 2 passage text completeness) before wiring metadata into the app.
+Open `/app/exam/track/cambridge/b1/reading` as Admin and smoke the new `Import hàng loạt Reading` modal with real bundles from `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-3..12`. Focus on dry-run rows, duplicate skip/overwrite, Part 1 image rendering after import, and submit/review answer availability. If needed next, extend local asset persistence for `topImageUrl` / `bottomImageUrl`.
 
 ---
 ## 2026-07-23 - Nen video nen landing page
