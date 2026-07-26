@@ -1,0 +1,1108 @@
+{
+  "id": "catalog-reading-pet-b1-test2",
+  "title": "PET B1 Reading — Test 2",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading — 6 parts",
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test2-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1: Signs and Short Messages",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test2/part1-q1.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test2/part1-q2.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test2/part1-q3.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test2/part1-q4.jpg"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test2/part1-q5.jpg"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "What is Sarah being asked to do?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Buy a new microwave for the office kitchen."
+                },
+                {
+                  "id": "b",
+                  "label": "Clean the microwave after she uses it."
+                },
+                {
+                  "id": "c",
+                  "label": "Heat her lunch earlier than usual today."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "What rule applies at the swimming pool?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Young children must always have an adult with them in the pool."
+                },
+                {
+                  "id": "b",
+                  "label": "Children under 10 are not allowed to enter the building alone."
+                },
+                {
+                  "id": "c",
+                  "label": "Adults must supervise swimming lessons every weekend."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "What does Mark want his friend to do?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Go into the cinema without him because he is busy."
+                },
+                {
+                  "id": "b",
+                  "label": "Wait for him near the entrance because he is delayed."
+                },
+                {
+                  "id": "c",
+                  "label": "Change the meeting time to ten minutes later."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "What is special about the shop this weekend?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "All winter jackets are being sold at a 50% discount."
+                },
+                {
+                  "id": "b",
+                  "label": "The shop will remain open for the entire weekend."
+                },
+                {
+                  "id": "c",
+                  "label": "New winter clothes are arriving for sale."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "What must library users do before they finish using the computers?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "Turn off the computer screen completely."
+                },
+                {
+                  "id": "b",
+                  "label": "Copy their documents onto a USB drive."
+                },
+                {
+                  "id": "c",
+                  "label": "Ask a librarian to delete their temporary files."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test2-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Weekend Workshops",
+      "passageSubtitle": "The people below are all looking for a weekend workshop or class. Read the descriptions of eight workshops (A–H).",
+      "passage": [
+        {
+          "text": "The people below all want to join a weekend workshop. Decide which workshop would be the most suitable for each person."
+        },
+        {
+          "label": "A",
+          "text": "Clay Studio — This friendly class is ideal for complete beginners who want to try making pottery on a wheel. A teacher shows you each step, from shaping a simple bowl to adding glaze. Materials are included, and finished pieces can be collected the following week."
+        },
+        {
+          "label": "B",
+          "text": "Mountain Lens — Spend a weekend walking in the hills with a professional photographer. You will practise using your own camera to take clear landscape pictures in natural light. The group stops often, so there is plenty of time for advice and trying different views."
+        },
+        {
+          "label": "C",
+          "text": "The Rustic Oven — Learn how to prepare sourdough bread and bake it in a traditional outdoor stone oven. This workshop welcomes beginners and includes all ingredients. At lunchtime, everyone sits together to enjoy soup, salad, and warm bread made during the morning session."
+        },
+        {
+          "label": "D",
+          "text": "Wood & Craft — This practical carpentry course teaches beginners how to measure, cut, and join wood safely. You will build a small stool or chair to take home. The workshop provides safety equipment, wood, and professional hand tools, so you do not need to bring anything."
+        },
+        {
+          "label": "E",
+          "text": "Urban Sprout — Discover how to grow organic vegetables and useful herbs in small spaces such as balconies and patios. The tutor explains composting, seed planting, and choosing containers. You will leave with a tray of young plants and a simple plan for your own home garden."
+        },
+        {
+          "label": "F",
+          "text": "Silver Spoon — This advanced baking class is designed for confident home cooks who already know the basics. A professional pastry chef demonstrates cake decoration, delicate fillings, and presentation techniques. Participants should bring an apron and expect to work quickly throughout the afternoon."
+        },
+        {
+          "label": "G",
+          "text": "Green Earth Farm — Spend a day on a working organic farm and learn about large fields, crop rotation, and machinery. Visitors help with simple outdoor jobs and watch experienced farmers using tractors. This course is best for people interested in farming as a career."
+        },
+        {
+          "label": "H",
+          "text": "Canvas & Color — Join an open-air painting class beside the river. The tutor focuses on portraits and oil colours, helping creative hobbyists improve their technique. Some experience is useful, but all paints, brushes, and boards are provided for the day."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Clay Studio"
+            },
+            {
+              "id": "b",
+              "name": "Mountain Lens"
+            },
+            {
+              "id": "c",
+              "name": "The Rustic Oven"
+            },
+            {
+              "id": "d",
+              "name": "Wood & Craft"
+            },
+            {
+              "id": "e",
+              "name": "Urban Sprout"
+            },
+            {
+              "id": "f",
+              "name": "Silver Spoon"
+            },
+            {
+              "id": "g",
+              "name": "Green Earth Farm"
+            },
+            {
+              "id": "h",
+              "name": "Canvas & Color"
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Daniel wants to learn how to bake artisan bread in a traditional outdoor oven. He would prefer a weekend workshop where beginners are welcome, lunch is included, and he can taste the food he has helped to make.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Hannah is looking for an introductory pottery class where she can make something useful with her hands. She has never tried this activity before, so she needs a patient teacher, all the materials provided, and a finished piece to collect later.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Leo wants to improve his photography while spending time outdoors. He already owns a camera and would like a professional to show him how to take better pictures of hills, paths, and wide natural views during a weekend activity.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Maya has a small balcony at home and wants to grow vegetables and herbs without using chemicals. She is not interested in large farm machines, but she would like practical advice about containers, compost, and starting plants from seed.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Oliver is interested in learning a traditional craft and wants to make a piece of furniture he can keep. He needs a course for beginners where safety equipment, wood, and proper tools are all supplied by the organiser.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test2-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — My Life as a Weather Forecaster",
+      "passageSubtitle": "Read the text and questions below. For each question, choose the correct answer.",
+      "passage": [
+        {
+          "text": "A weather forecaster explains how a childhood interest became her career."
+        },
+        {
+          "text": "People often ask me why I chose a career in meteorology. Growing up in a windy coastal town, I spent hours watching massive storm clouds roll across the ocean. While other kids ran indoors when it started to pour, I stayed outside, fascinated by the sudden change in atmosphere. That childhood curiosity eventually led me to study physics and environmental science at university, turning my lifelong hobby into a professional job."
+        },
+        {
+          "text": "Working at the national weather center is never boring, but it requires keeping unusual hours. My alarm usually rings at 3:00 AM because I need to prepare the early morning broadcast before commuters head to work. When I arrive at the office, I analyze satellite maps, computer simulations, and wind speed data. Predicting the weather is like solving a complex puzzle where the pieces are constantly shifting."
+        },
+        {
+          "text": "The most stressful part of the job is forecasting unexpected weather events, such as sudden heavy snowstorms or summer heatwaves. A few years ago, computer models indicated that a mild weekend was approaching. However, by monitoring radar updates closely, I noticed a sudden change in pressure and warned local authorities about an incoming gale just hours before it struck. That accurate prediction prevented numerous accidents on coastal roads."
+        },
+        {
+          "text": "Despite the early mornings and high-pressure moments, I find immense satisfaction in helping people stay safe and prepared. There is nothing quite like looking out the window and seeing that your forecast has helped someone choose the right jacket or plan a safe journey. Meteorology has taught me to appreciate the incredible power of nature every single day."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "Why did the author become interested in the weather?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "She wanted a career that would allow her to study environmental science."
+                },
+                {
+                  "id": "b",
+                  "label": "She enjoyed observing storms near the sea when she was a child."
+                },
+                {
+                  "id": "c",
+                  "label": "Her teachers at school encouraged her to follow a scientific path."
+                },
+                {
+                  "id": "d",
+                  "label": "She wanted to understand why coastal towns experience heavy winds."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "What does the author say about her daily routine?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "She finds her office tasks repetitive and occasionally boring."
+                },
+                {
+                  "id": "b",
+                  "label": "She has to start work very early in the morning."
+                },
+                {
+                  "id": "c",
+                  "label": "She spends most of her time talking to commuters."
+                },
+                {
+                  "id": "d",
+                  "label": "She relies entirely on computer simulations without checking maps."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "What happened during the weekend she describes in paragraph 3?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "The computer models predicted the storm accurately from the start."
+                },
+                {
+                  "id": "b",
+                  "label": "She ignored the radar data because she thought the weather would be mild."
+                },
+                {
+                  "id": "c",
+                  "label": "Her warning helped stop accidents despite initial wrong computer forecasts."
+                },
+                {
+                  "id": "d",
+                  "label": "Local authorities failed to act on her warning about the gale."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "How does the author feel about her job overall?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "She is exhausted by the stressful moments and early hours."
+                },
+                {
+                  "id": "b",
+                  "label": "She wishes she had chosen a less unpredictable profession."
+                },
+                {
+                  "id": "c",
+                  "label": "She is proud and happy when her forecasts protect people."
+                },
+                {
+                  "id": "d",
+                  "label": "She feels that people do not appreciate her hard work enough."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "What would be a good introduction to this article?",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "How modern computer technology changed weather forecasting forever."
+                },
+                {
+                  "id": "b",
+                  "label": "A meteorologist shares how her childhood fascination turned into a rewarding career."
+                },
+                {
+                  "id": "c",
+                  "label": "The challenges of working night shifts at a national weather station."
+                },
+                {
+                  "id": "d",
+                  "label": "Why coastal towns experience the most dangerous storms in the country."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test2-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4: Missing Sentences",
+      "passageSubtitle": "Five sentences have been removed from the text below. Choose from the sentences A–H the one which fits each gap (16–20).",
+      "passage": [
+        {
+          "text": "My Life in a Tiny House\n\nThree years ago, I decided to leave my large, expensive suburban house and move into a self-built tiny home on wheels. For most of my adult life, I had accumulated boxes of unnecessary items that I rarely used. (16) ........ I wanted a simpler lifestyle that allowed me to spend my money on experiences rather than rent and utility bills.\n\nDesigning the layout was the most difficult part of the project. Every single centimeter counted, so furniture had to serve multiple purposes. My sofa folded out into a bed, and the staircase contained hidden storage drawers for my clothes. (17) ........ Building it took six months of hard work during my weekends and holidays.\n\nOnce the house was finished, parking it legally proved to be another challenge. (18) ........ Eventually, I found a friendly local farmer who agreed to rent me a small corner of his land overlooking a peaceful valley.\n\nLiving in a small space has completely changed my daily habits. Because I have very little room, I cannot buy things on impulse anymore. (19) ........ I also spend much more time outdoors walking in nature instead of watching television indoors.\n\nMoving into a tiny house was certainly a bold step, but I have never regretted it. (20) ........ It taught me that happiness does not come from owning a large property, but from living with purpose and freedom."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the correct sentence for each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Strict local council regulations mean you cannot simply park a mobile home anywhere you like."
+            },
+            {
+              "id": "b",
+              "name": "If something new enters my home, something old must usually be given away."
+            },
+            {
+              "id": "c",
+              "name": "My friends thought I was crazy to give up such a comfortable apartment."
+            },
+            {
+              "id": "d",
+              "name": "Realizing I needed a major change, I sold most of my belongings online."
+            },
+            {
+              "id": "e",
+              "name": "I hired professional architects to complete the construction work within a week."
+            },
+            {
+              "id": "f",
+              "name": "It gave me the freedom to travel across the country whenever I wanted."
+            },
+            {
+              "id": "g",
+              "name": "I even installed solar panels on the roof to generate my own electricity."
+            },
+            {
+              "id": "h",
+              "name": "The kitchen counter could also be lowered to double as a dining desk."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-4-q16",
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "Gap 16",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-4-q17",
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "Gap 17",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-4-q18",
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "Gap 18",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-4-q19",
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "Gap 19",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-4-q20",
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "Gap 20",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test2-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5: Multiple-Choice Cloze",
+      "passageSubtitle": "Read the text below and choose the correct word for each space.",
+      "passage": [
+        {
+          "text": "The Honeybee's Secret Language\n\nFor centuries, scientists have been amazed by the complex behavior of honeybees. When a worker bee discovers a rich source of nectar flowers, it returns to the hive to share the news. It performs a special circular movement known (21) ........ the waggle dance to communicate the exact location to other bees.\n\nThe dance tells the colony both the direction and the distance of the food flowers relative to the sun. Other bees watch the movements closely inside the dark hive before flying straight (22) ........ the target. This remarkable communication system ensures that the colony can gather food efficiently.\n\nHowever, honeybee populations face serious threats today due to habitat loss and pesticide use. Many environmental organizations are working hard to protect bees and encourage gardeners to plant flowers that provide vital (23) ........ for pollinators. Without bees, many fruits and vegetables we eat every day would simply (24) ........ to grow. Protecting these tiny insects is essential to maintaining a healthy ecosystem and ensuring a sustainable (25) ........ for our global food supply (26) ........."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "Choose the correct option for each gap.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap 21",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "called"
+                },
+                {
+                  "id": "b",
+                  "label": "known"
+                },
+                {
+                  "id": "c",
+                  "label": "named"
+                },
+                {
+                  "id": "d",
+                  "label": "referred"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap 22",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "toward"
+                },
+                {
+                  "id": "b",
+                  "label": "to"
+                },
+                {
+                  "id": "c",
+                  "label": "at"
+                },
+                {
+                  "id": "d",
+                  "label": "by"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap 23",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "nourishment"
+                },
+                {
+                  "id": "b",
+                  "label": "support"
+                },
+                {
+                  "id": "c",
+                  "label": "nutrition"
+                },
+                {
+                  "id": "d",
+                  "label": "sustenance"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap 24",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "stop"
+                },
+                {
+                  "id": "b",
+                  "label": "fail"
+                },
+                {
+                  "id": "c",
+                  "label": "cease"
+                },
+                {
+                  "id": "d",
+                  "label": "quit"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap 25",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "future"
+                },
+                {
+                  "id": "b",
+                  "label": "outlook"
+                },
+                {
+                  "id": "c",
+                  "label": "front"
+                },
+                {
+                  "id": "d",
+                  "label": "ahead"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap 26",
+              "options": [
+                {
+                  "id": "a",
+                  "label": "network"
+                },
+                {
+                  "id": "b",
+                  "label": "system"
+                },
+                {
+                  "id": "c",
+                  "label": "chain"
+                },
+                {
+                  "id": "d",
+                  "label": "grid"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test2-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6: Open Cloze",
+      "passageSubtitle": "Read the text below and think of the word which best fits each space. Use only one word in each space.",
+      "passage": [
+        {
+          "text": "Learning a New Language\n\nMany adults dream (27) ........ speaking a second language fluently, but they often believe it is too difficult to start later in life. However, modern research shows that learning a foreign language at any age brings wonderful cognitive benefits.\n\nThe secret to success is consistency rather (28) ........ studying for hours once a week. Practising a little bit (29) ........ single day helps your brain retain vocabulary much faster. Listening to podcasts, watching foreign films, or chatting with native speakers online are great ways to immerse yourself in the culture.\n\nRemember that making mistakes is a natural part (30) ........ the learning process. If you are afraid (31) ........ making errors, you will never speak fluently. Be patient with (32) ........ and enjoy the rewarding journey of communication."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test2-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap 27",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap 28",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap 29",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap 30",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap 31",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test2-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap 32",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

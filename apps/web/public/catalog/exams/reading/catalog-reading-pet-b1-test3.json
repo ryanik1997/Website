@@ -1,0 +1,1062 @@
+{
+  "id": "catalog-reading-pet-b1-test3",
+  "title": "PET B1 Reading — Test 3",
+  "durationMinutes": 45,
+  "bandHint": "B1 Preliminary Reading – 6 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-pet-b1-test3-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–5",
+      "passageTitle": "Part 1 — Signs and messages",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test3/part1-q1.webp"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test3/part1-q2.webp"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test3/part1-q3.webp"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test3/part1-q4.webp"
+        },
+        {
+          "text": "",
+          "imageUrl": "/catalog/reading/pet-b1-test3/part1-q5.webp"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-1-g0",
+          "range": "Questions 1–5",
+          "instruction": "For each question, choose the correct answer.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Question 1",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Chloe has bought cake for the person she is meeting."
+                },
+                {
+                  "id": "B",
+                  "label": "Chloe wants the person to arrive before the tea gets cold."
+                },
+                {
+                  "id": "C",
+                  "label": "Chloe expects the person to pay for their own order when they arrive."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Question 2",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The outdoor pool is only available when the indoor pool is closed."
+                },
+                {
+                  "id": "B",
+                  "label": "Guests cannot swim in the ground floor pool for three hours on Monday mornings."
+                },
+                {
+                  "id": "C",
+                  "label": "Both pools are unavailable to guests on Monday mornings."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Question 3",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "You cannot enter the museum if you are over sixteen."
+                },
+                {
+                  "id": "B",
+                  "label": "Young people should bring something that shows how old they are."
+                },
+                {
+                  "id": "C",
+                  "label": "The museum closes one hour after the last person enters."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Question 4",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Staff should remove all food from the fridge before Friday."
+                },
+                {
+                  "id": "B",
+                  "label": "The food will be kept until the owner asks for it back."
+                },
+                {
+                  "id": "C",
+                  "label": "Unlabelled food that is too old will not be stored any longer."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Question 5",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Richard wants guests to bring food to share with the group."
+                },
+                {
+                  "id": "B",
+                  "label": "The event will be cancelled if the weather is bad."
+                },
+                {
+                  "id": "C",
+                  "label": "Guests should not expect to find a chair ready for them when they arrive."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test3-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 6–10",
+      "passageTitle": "Part 2 — Matching people",
+      "passageSubtitle": "",
+      "passage": [],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-2-g0",
+          "range": "Questions 6–10",
+          "instruction": "Decide which option would be the most suitable.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Story Night at the Book Café"
+            },
+            {
+              "id": "b",
+              "name": "Family Craft Fair"
+            },
+            {
+              "id": "c",
+              "name": "Food and Jazz Evening"
+            },
+            {
+              "id": "d",
+              "name": "Town Orchestra Concert"
+            },
+            {
+              "id": "e",
+              "name": "Trail Run and Breakfast"
+            },
+            {
+              "id": "f",
+              "name": "Lakeside Outdoor Cinema"
+            },
+            {
+              "id": "g",
+              "name": "Community Choir Taster Evening"
+            },
+            {
+              "id": "h",
+              "name": "Weekend Market and Street Food"
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-2-q6",
+              "number": 6,
+              "type": "matching-features",
+              "prompt": "Isaac is visiting his grandparents in a small town this weekend. He wants to take them somewhere local on Saturday afternoon where they can sit comfortably and listen to something. His grandmother uses a wheelchair, so the venue must be easy to access. He doesn't mind paying for tickets in advance.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-2-q7",
+              "number": 7,
+              "type": "matching-features",
+              "prompt": "Zara has just finished her final exams and wants to celebrate with her friends on Friday night. She wants somewhere lively with music, but she also wants to eat. She and her friends are all eighteen, so the event must allow people their age. She would prefer to pay a single price that includes everything rather than buying things separately.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-2-q8",
+              "number": 8,
+              "type": "matching-features",
+              "prompt": "Kamil is a father of three young children. He wants a family activity for Sunday morning that will keep everyone busy for a couple of hours. He doesn't want to spend a lot on tickets because buying for five people adds up quickly. The children like making things with their hands, and he would enjoy getting involved too.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-2-q9",
+              "number": 9,
+              "type": "matching-features",
+              "prompt": "Rosa is new to the area and wants to meet people in a calm, relaxed setting. She is free on Saturday evenings and would like an event that happens regularly, so she can become a familiar face. She enjoys listening to people tell stories and would like somewhere she can have a hot drink while she listens.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-2-q10",
+              "number": 10,
+              "type": "matching-features",
+              "prompt": "Ben and his partner are keen runners. They want a Sunday event that is a physical challenge, but they also want to enjoy the scenery while they run. They are happy to travel a little way out of the city. They would like something that ends with a social gathering.",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test3-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 11–15",
+      "passageTitle": "Part 3 — Reading passage",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "For each question choose the correct answer.\n\nThe Photograph on the WallWhen I was a child, my grandmother had a small black-and-white photograph hanging in her kitchen. It showed a young man standing beside a motorcycle on a country road, squinting into the sun. He looked happy, I always thought, but also a little unsure, as if someone had just called his name and he had turned around at the exact moment the picture was taken.\n\nI asked my grandmother about the photograph many times over the years. Her answer was always the same: 'That's your grandfather, before I met him.' Then she would change the subject. I learned not to ask again, but I never stopped being curious.\n\nMy grandfather died when I was six. I had only a few memories of him: the smell of oil and metal in his workshop, his laugh, and the way he could whistle through his teeth. The man in the photograph seemed younger and freer than the grandfather I remembered. I wanted to know his story, but my grandmother clearly preferred not to tell it.\n\nLast spring, my grandmother moved out of the house she had lived in for over fifty years. I helped her pack boxes in the kitchen, and when I took the photograph off the wall, she paused and looked at it for a long moment. Then she said, quietly, 'He rode that motorcycle all the way from the coast to come and find me.'\n\nShe sat down at the kitchen table and began to talk. She told me that my grandfather had been a delivery rider before the war, taking packages between villages on his motorcycle. One day he arrived at her parents' farm with a parcel and saw her in the garden. He came back the following week without any package to deliver. He just wanted to see her again.\n\nOver the next hour, she told me dozens of stories I had never heard. Some were funny, some were sad, and a few surprised me so much that I laughed out loud. It was as though the young man in the photograph had finally stepped out of the frame and become a real person. I learned that my grandfather loved dancing but was terrible at it, that he once tried to build a boat, and that he wrote my grandmother a letter every single week until she agreed to marry him.\n\nI had spent years wondering about that photograph. In the end, the person who knew him best just needed the right moment to share his story. I still have the photograph. It sits on my own kitchen wall now, and it makes me smile every time I look at it."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-3-g0",
+          "range": "Questions 11–15",
+          "instruction": "Choose the correct answer A, B, C, or D.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-3-q11",
+              "number": 11,
+              "type": "multiple-choice",
+              "prompt": "What does the writer say about the photograph in her grandmother's kitchen?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "It was the only picture her grandmother owned."
+                },
+                {
+                  "id": "B",
+                  "label": "The young man in it appeared to be laughing at the camera."
+                },
+                {
+                  "id": "C",
+                  "label": "It had been taken before her grandparents met."
+                },
+                {
+                  "id": "D",
+                  "label": "The writer thought the man looked confident."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-3-q12",
+              "number": 12,
+              "type": "multiple-choice",
+              "prompt": "Why did the writer stop asking her grandmother about the photograph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She lost interest in it as she grew older."
+                },
+                {
+                  "id": "B",
+                  "label": "Her grandmother seemed unwilling to talk about it."
+                },
+                {
+                  "id": "C",
+                  "label": "Her mother told her not to mention it again."
+                },
+                {
+                  "id": "D",
+                  "label": "She was worried she would upset her grandfather."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-3-q13",
+              "number": 13,
+              "type": "multiple-choice",
+              "prompt": "How did the grandmother react when the writer took the photograph off the wall?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "She asked the writer to put it back where it had been."
+                },
+                {
+                  "id": "B",
+                  "label": "She took it from the writer's hands and held it herself."
+                },
+                {
+                  "id": "C",
+                  "label": "She looked at it briefly, then told the writer to carry on working."
+                },
+                {
+                  "id": "D",
+                  "label": "She stopped what she was doing and seemed lost in thought for a moment."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-3-q14",
+              "number": 14,
+              "type": "multiple-choice",
+              "prompt": "What did the writer discover about her grandfather during that conversation?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He had always wanted to become a professional dancer."
+                },
+                {
+                  "id": "B",
+                  "label": "He had first visited the farm for a work-related reason."
+                },
+                {
+                  "id": "C",
+                  "label": "He had been a soldier during the war."
+                },
+                {
+                  "id": "D",
+                  "label": "He had written to her grandmother before they ever met."
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-3-q15",
+              "number": 15,
+              "type": "multiple-choice",
+              "prompt": "Which of the following best captures what the writer learned from this experience?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "Old photographs rarely show what a person was really like."
+                },
+                {
+                  "id": "B",
+                  "label": "Sometimes people need time before they are ready to share memories."
+                },
+                {
+                  "id": "C",
+                  "label": "It is better to learn about family history from books than from relatives."
+                },
+                {
+                  "id": "D",
+                  "label": "You should always ask difficult questions while you still have the chance."
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test3-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 16–20",
+      "passageTitle": "Part 4 — A Job Worth Keeping",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "A Job Worth KeepingThe email arrived on a Tuesday morning, just as I was finishing my breakfast. It was from a company I had applied to weeks earlier, and I had already given up hope of hearing back. They were offering me an interview for a summer position at their city centre office. [GAP 16] The salary was better than anything my friends had found, and the role was exactly what I wanted.\n\nThe interview was set for Friday at ten. I spent the next three days preparing. I read the company website from top to bottom, practised answers to questions I thought they might ask, and even bought a new shirt. [GAP 17] I walked around the building three times before I found the right entrance, and by the time I reached reception I was sweating.\n\nSomehow, the interview went well. The manager was friendly and seemed genuinely interested in what I had to say. She told me I would hear back within a week. On the bus home, I replayed every answer in my head, wondering if I had said the right things. The waiting was worse than the interview itself. [GAP 18]\n\nThe following Thursday, my phone rang. It was the manager. She said they had been impressed and wanted to offer me the position. I accepted immediately, barely able to get the words out. Afterwards, I sat on my bed and stared at the wall. It felt like something had finally gone my way.\n\nThat summer job changed everything, but not because of the skills I learned or the money I earned. It changed me because it was the first time I had wanted something, worked for it, and actually got it. Before that, I had always assumed that success was for other people. [GAP 19] I still think about that feeling whenever I face something difficult.\n\nThe company closed its city centre branch two years ago, and the building now belongs to a bank. I walk past it sometimes, and it looks smaller than I remember. [GAP 20] That stays with you."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-4-g0",
+          "range": "Questions 16–20",
+          "instruction": "Choose the correct sentence for each gap.",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "I never applied for another office job after that summer ended."
+            },
+            {
+              "id": "b",
+              "name": "I checked the email twice to make sure I had read it correctly."
+            },
+            {
+              "id": "c",
+              "name": "By Thursday evening, I had convinced myself they had chosen someone else."
+            },
+            {
+              "id": "d",
+              "name": "None of that stopped me from feeling nervous on the day, however."
+            },
+            {
+              "id": "e",
+              "name": "I told all my friends immediately, and they were delighted for me."
+            },
+            {
+              "id": "f",
+              "name": "That moment taught me that I could be one of those people too."
+            },
+            {
+              "id": "g",
+              "name": "The office itself was on the fifth floor, and the phone signal was poor once you stepped inside."
+            },
+            {
+              "id": "h",
+              "name": "But the confidence it gave me has never really gone away."
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-4-q16",
+              "number": 16,
+              "type": "matching-features",
+              "prompt": "Gap 16",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-4-q17",
+              "number": 17,
+              "type": "matching-features",
+              "prompt": "Gap 17",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-4-q18",
+              "number": 18,
+              "type": "matching-features",
+              "prompt": "Gap 18",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-4-q19",
+              "number": 19,
+              "type": "matching-features",
+              "prompt": "Gap 19",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-4-q20",
+              "number": 20,
+              "type": "matching-features",
+              "prompt": "Gap 20",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                },
+                {
+                  "id": "H",
+                  "label": "H"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test3-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 21–26",
+      "passageTitle": "Part 5 — The Watch",
+      "passageSubtitle": "",
+      "passage": [],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-5-g0",
+          "range": "Questions 21–26",
+          "instruction": "Choose the correct option for each gap.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q21",
+              "number": 21,
+              "type": "multiple-choice",
+              "prompt": "Gap 21",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "fall apart"
+                },
+                {
+                  "id": "B",
+                  "label": "go out"
+                },
+                {
+                  "id": "C",
+                  "label": "come off"
+                },
+                {
+                  "id": "D",
+                  "label": "get away"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q22",
+              "number": 22,
+              "type": "multiple-choice",
+              "prompt": "Gap 22",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "running"
+                },
+                {
+                  "id": "B",
+                  "label": "going"
+                },
+                {
+                  "id": "C",
+                  "label": "staying"
+                },
+                {
+                  "id": "D",
+                  "label": "keeping"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q23",
+              "number": 23,
+              "type": "multiple-choice",
+              "prompt": "Gap 23",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "worth"
+                },
+                {
+                  "id": "B",
+                  "label": "cost"
+                },
+                {
+                  "id": "C",
+                  "label": "value"
+                },
+                {
+                  "id": "D",
+                  "label": "price"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q24",
+              "number": 24,
+              "type": "multiple-choice",
+              "prompt": "Gap 24",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "make"
+                },
+                {
+                  "id": "B",
+                  "label": "give"
+                },
+                {
+                  "id": "C",
+                  "label": "do"
+                },
+                {
+                  "id": "D",
+                  "label": "take"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q25",
+              "number": 25,
+              "type": "multiple-choice",
+              "prompt": "Gap 25",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "similar"
+                },
+                {
+                  "id": "B",
+                  "label": "same"
+                },
+                {
+                  "id": "C",
+                  "label": "equal"
+                },
+                {
+                  "id": "D",
+                  "label": "matching"
+                }
+              ],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-5-q26",
+              "number": 26,
+              "type": "multiple-choice",
+              "prompt": "Gap 26",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "moment"
+                },
+                {
+                  "id": "B",
+                  "label": "hour"
+                },
+                {
+                  "id": "C",
+                  "label": "time"
+                },
+                {
+                  "id": "D",
+                  "label": "watch"
+                }
+              ],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-pet-b1-test3-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 27–32",
+      "passageTitle": "Part 6 — Making a Decision",
+      "passageSubtitle": "",
+      "passage": [
+        {
+          "text": "Write one word for each gap.\n\nMaking a DecisionOut of the blue, my friend Lena told me she decided to leave her job and go back to university. She was thirty-two and had been working in the same office"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-pet-b1-test3-part-6-g0",
+          "range": "Questions 27–32",
+          "instruction": "Write ONE word for each gap.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "Gap 27",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "Gap 28",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "Gap 29",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "Gap 30",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q31",
+              "number": 31,
+              "type": "gap-fill",
+              "prompt": "Gap 31",
+              "options": [],
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-pet-b1-test3-part-6-q32",
+              "number": 32,
+              "type": "gap-fill",
+              "prompt": "Gap 32",
+              "options": [],
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examTrack": "cambridge",
+  "cambridgeLevel": "b1",
+  "catalogSlug": "pet-b1-test3",
+  "catalogBase": "/catalog/reading/pet-b1-test3",
+  "answersPath": "catalog/exams/reading/catalog-reading-pet-b1-test3.answers.json",
+  "answersRemote": true,
+  "bodyRemote": true
+}

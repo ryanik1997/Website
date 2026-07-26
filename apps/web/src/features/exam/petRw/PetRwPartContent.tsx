@@ -570,11 +570,13 @@ export default function PetRwPartContent({
               data-testid="pet-rw-active-question"
               data-question-id={renderedQuestion.id}
             >
-              <PassageImage
-                imageKey={signBlock?.imageKey}
-                imageUrl={signBlock?.imageUrl}
-                alt={`Sign ${renderedQuestion.number}`}
-              />
+              <div className="pet-rw-part1-image-frame">
+                <PassageImage
+                  imageKey={signBlock?.imageKey}
+                  imageUrl={signBlock?.imageUrl}
+                  alt={`Sign ${renderedQuestion.number}`}
+                />
+              </div>
               <RwMcRadioQuestion
                 partId={partId}
                 question={renderedQuestion}

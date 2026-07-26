@@ -1,69 +1,33 @@
 ﻿## >>> TRẠNG THÁI GẦN NHẤT — Agent mới đọc phần này trước, không đọc hết file <<<
 
-**Ngày:** 2026-07-25
+**Ngày:** 2026-07-26
 
 ### Đã hoàn thành
-- **Fix bug "Không lưu được highlight" trên PET Reading với real auth — root cause + fix gốc:**
-  - **Nguyên nhân:** Supabase `reading_exam_published.parts` (JSONB) trả về mỗi part **thiếu field `id`**, trong khi catalog JSON tĩnh có đủ. Khi merge dữ liệu trong `resolveReadingExam()`, published source (thiếu id) thắng builtin (có id) qua tiebreaker → `currentPart.id = undefined` → blockId = `"undefined-instr-range"` → `commitHighlightRanges` trả null → toast "Không lưu được highlight."
-  - **Fix A — gốc:** `readingExamPublish.ts:rowToExam()` — map `row.parts` để đảm bảo mỗi part có `id` với fallback deterministic: `part.id || \`${row.id}-part-${part.partNumber ?? index + 1}\``
-  - **Fix B — lưới an toàn:** `PetRwPartContent.tsx` — fallback `part.id || \`${examId}-part-${part.partNumber}\`` cùng công thức với Fix A
-  - **Playwright 4 test case (A,B,C,D) với real auth:** ✅ **4/4 PASS** — partId = `"catalog-reading-pet-b1-test1-part-1"`, không còn toast lỗi
-  - **TypeScript:** `pnpm --filter web exec tsc --noEmit` ✅ PASS
-  - **Unit tests:** ✅ Không regression
-  - **Audit Listening:** phát hiện pattern tương tự ở `listeningExamPublish.ts:rowToExam()` — cần fix riêng
-  - **Deploy preview:** https://ryanenglishv2-91pdc38tv-ryanenglish.vercel.app ✅
-  - **Deploy production:** https://ryanenglishv2.vercel.app ✅ Ready
-- **Fix bug thật PET Reading note/highlight không hiện sau loading:** Sửa lifecycle của `useStableTextSelection` để listener luôn gắn từ trạng thái loading bằng `document` listeners và đọc `rootRef.current` động tại thời điểm event, thay vì bail out khi `rootRef.current === null` ở render đầu. Thêm clear selection khi đổi `currentPart` trong `ReadingPetRwTest`, portal `CambridgeSelectionToolbar` ra `document.body` để tránh bị clip trong `.pet-rw-main`, và thêm regression test delayed-root mount trong `apps/web/src/features/exam/__tests__/petRwSelectionToolbar.test.tsx`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; scoped vitest `petRwSelectionToolbar` + `petRwHighlightNote` PASS 17/17.
-- **Fix ReadingHighlightToolbar không hiển thị trên PET Reading:** Sửa 3 vấn đề core:
-  (1) **Thêm pointerup event** — toolbar nay lắng nghe pointerup ngoài mouseup/keyup/selectionchange, bắt đúng lúc kết thúc chọn text.
-  (2) **Dùng pendingRangesRef.current thay vì re-read window.getSelection()** — các button onClick (màu, remove, note) dùng ref snapshot đã lưu từ updateToolbar, tránh mất selection trước khi click.
-  (3) **Runtime debug logging** — mỗi lần toolbar bị reject, log chi tiết lý do (missing-root, missing-selection, collapsed, no-range, empty-text, outside-zone, outside-root, zero-rect, no-highlight-ranges) kèm root, text, collapsed, rangeCount trong DEV mode.
-- **Component unit test 13 tests:** render component thật, mock selection, test toolbar hiển thị/ẩn đúng, từng button màu gọi onHighlightsChange với color đúng, remove highlight button, note editor open/save.
-- **Playwright E2E test:** apps/web/e2e/reading-highlight.spec.ts + playwright.config.ts — text selection → toolbar → 4 color buttons → click yellow → verify mark.reading-test-highlight--yellow → reload persistence.
-
-## >>> TRáº NG THÃI Gáº¦N NHáº¤T â€” Agent má»›i Ä‘á»c pháº§n nÃ y trÆ°á»›c, khÃ´ng Ä‘á»c háº¿t file <<<
-
-**NgÃ y:** 2026-07-25
-
-### ÄÃ£ hoÃ n thÃ nh
-- **PET B1 Reading note/highlight:** ÄÃ£ báº­t/khÃ³a láº¡i kháº£ nÄƒng quÃ©t 1 tá»«/1 cá»¥m tá»« trÃªn PET Reading Ä‘á»ƒ má»Ÿ toolbar Note / Highlight. Sá»­a shell CSS Part 1 Ä‘á»ƒ prompt text khÃ´ng cÃ²n bá»‹ áº©n, nÃªn cÃ³ thá»ƒ bá»™i Ä‘en text cÃ¢u há»i vÃ  tÃ´ sÃ¡ng/ghi chÃº. ThÃªm test pps/web/src/features/exam/__tests__/petRwSelectionToolbar.test.tsx xÃ¡c nháº­n quÃ©t text prompt PET sẽ hiá»‡n toolbar vÃ  má»Ÿ note editor. pnpm --filter web exec tsc --noEmit PASS; scoped vitest PASS.
-
-- **PET B1 Reading shell fix navigation pills & state reset:** Sá»­a 4 bug chÃ­nh: (1) Fix `useEffect` reset loop báº±ng `prevPartIdRef` Ä‘á»ƒ chá»‰ validate khi Part thay Ä‘á»•i; (2) Fix `handleSelectQuestion` dÃ¹ng `useRef` thay vÃ¬ `activeQuestionId` trong deps; (3) Fix `goAdjacentQuestion` chá»‰ Ä‘iá»u hÆ°á»›ng trong Part hiá»‡n táº¡i (khÃ´ng nháº£y cross-Part); (4) Äá»•i `PetRwFooter` props tá»« `exam` sang `parts` Ä‘á»ƒ truyá»n Ä‘Ãºng dá»¯ liá»‡u Ä‘Ã£ sanitize. ThÃªm debug logs táº¡m, Phase 2 CSS cho mÃ n >=1700px (typography, pills, image, controls). Regression tests 12 tests (petRwFooter.test.tsx) dÃ¹ng fireEvent. TypeScript PASS.
-- **PET B1 Reading Part 4 two-way DnD verified:** Code da hoan chinh: Part4DragPayload type (bank/gap sources), writePart4DragPayload/readPart4DragPayload helpers, InlineGapDrop voi dragEnabled + canDragFilled + is-draggable + is-dragging, assignGapLetter voi prev clearing, part4DragPayload/isPart4BankDropActive state + clearPart4DragState, bank aside la drop target voi onDragOver/onDrop chi chap nhan gap-source. CSS: is-draggable cursor, is-dragging opacity, is-return-drop-active border highlight, review mode lock. **9/9 Part 4 tests pass, 56/56 petRw tests pass, TypeScript clean.**
-
-- **PET B1 Reading shell pass theo plan pixel-match want.png:** ÄÃ£ Ä‘áº£o cÃ¡c quyáº¿t Ä‘á»‹nh shell sai trÆ°á»›c Ä‘Ã³ theo plan want.png: bá» title PET giá»¯a header, tráº£ Candidate ID vá» cáº¡nh logo, bá» Submit trÃªn header, thÃªm floating Previous/Next á»Ÿ gÃ³c pháº£i phÃ­a trÃªn footer, footer PET chuyá»ƒn sang layout 7 vÃ¹ng cÃ³ Ã´ check riÃªng bÃªn pháº£i, instruction card + Part 1 shell Ä‘Æ°á»£c káº¿o vá» hÆ°á»›ng want.png. TypeScript PASS. ChÆ°a chá»‘t pixel-match cuá»‘i vÃ¬ automation váº«n redirect login, nÃªn cÃ²n cáº§n browser logged-in 1440x1000 Ä‘á»ƒ overlay/compare.
-- **Táº¡o file cho ChatGPT web Ä‘á»c hiá»ƒu project:** ThÃªm CHATGPT_WEB_PROJECT_SUMMARY.md tá»•ng há»£p stack, kiáº¿n trÃºc, context bug PET Reading, file quan trá»ng vÃ  yÃªu cáº§u phÃ¢n tÃ­ch Ä‘á»ƒ dÃ¡n cho ChatGPT web.
-- **Mốc git an toÃ n Ä‘á»ƒ quay láº¡i khi agent khÃ¡c sá»­a sai:** HEAD hiá»‡n táº¡i trÆ°á»›c khi commit má»›i lÃ  9eb7069d8ad449f3936e9cb16ed9eaaf62f09ba7. ÄÃ¢y lÃ  commit tham chiáº¿u hiá»‡n táº¡i cá»§a repo; cÃ¡c thay Ä‘á»•i PET Reading shell vÃ  file tÃ³m táº¯t Ä‘ang chá»‰ nÆ°á»›c trong worktree, chÆ°a commit.
-- **KhÃ´i phá»¥c AppShell backdrop bá»‹ thiáº¿u trÃªn main:** Äá»‘i chiáº¿u lá»‹ch sá»­ `4e409f3` xÃ¡c nháº­n nhÃ¡nh hiá»‡n táº¡i thiáº¿u `appShellBackdrop.ts`, CSS vÃ  theme tokens dÃ¹ summary cÅ© ghi Ä‘Ã£ cÃ³. Phá»¥c há»“i grid 32px + 3 ribbon phÃ¡t sÃ¡ng cho Home/Writing/Listening/Exam/Sentence/Settings/Admin vÃ  grid-only cho Vocab/cÃ¡c Writing study route, ghÃ©p vÃ o AppShell hiá»‡n táº¡i mÃ  khÃ´ng Ä‘á»¥ng dá»¯ liá»‡u. Audit báº£n Admin Performance xÃ¡c nháº­n chá»‰ ghi key `sessionStorage`, khÃ´ng gá»i clear/delete IndexedDB; TypeScript PASS, backdrop + performance tests 6/6 PASS, `git diff --check` PASS.
-- **Admin Performance Monitor â€” Ä‘Ã£ fix hoÃ n toÃ n:** Runtime tracking nay Ä‘Æ°á»£c ná»‘i vÃ o React Router qua `AppShell`, tÃ¡ch Ä‘Ãºng tá»«ng SPA route báº±ng timestamp-window vÃ  khÃ´ng cÃ²n cá»™ng dá»“n má»i route vÃ o `/app/admin`. Observer chá»‰ cháº¡y cho admin, dÃ¹ng singleton an toÃ n vá»›i StrictMode; LCP/CLS/Long Task/Event cÃ³ `buffered: true`, Event Timing dÃ¹ng `durationThreshold: 16`. JSON tá»«ng route cÃ³ `lcpMs`, `fcpMs`, `cls`, `inpMs`; FCP chá»‰ cÃ³ á»Ÿ hard-navigation Ä‘áº§u tiÃªn. Playwright local xÃ¡c nháº­n 12 lÆ°á»£t/11 path riÃªng, duration 3,5â€“3,7 giÃ¢y; regression tests 7/7 PASS. Bug nÃ y Ä‘Ã£ Ä‘Ã³ng, khÃ´ng cÃ²n lÃ  viá»‡c tá»“n Ä‘á»ng.
-- **Responsive trang Ä‘Äƒng nháº­p MacBook:** Thu card tá»« 40.5rem xuá»‘ng 36rem (34rem á»Ÿ viewport cao â‰¤900px), dÃ¹ng cÄƒn giá»¯a an toÃ n, compact spacing/control cho mÃ n laptop, giáº£m mascot máº·t trá»i vÃ  áº©n á»Ÿ 641â€“960px Ä‘á»ƒ khÃ´ng bá»‹ cáº¯t/láº¥n form. Fixture Chrome xÃ¡c nháº­n card + máº·t trá»i náº±m trá»n á»Ÿ 1280Ã—800 vÃ  1440Ã—900; 960Ã—800 áº©n máº·t trá»i Ä‘Ãºng thiáº¿t káº¿. `git diff --check` PASS. TypeScript/dev server chÆ°a cháº¡y Ä‘Æ°á»£c do node_modules hiá»‡n thiáº¿u/sai package types (Rollup, Supabase, Testing Library, Node types), khÃ´ng liÃªn quan CSS.
-- **Cloudflare R2:** Upload 751 MP3 files (4.19 GB). Public: `https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/...`
-- **protectedMedia.ts:** ThÃªm R2 routing cho catalog audio MP3 trong production.
-- **Supabase project má»›i:** `afryrzlcmieedcndyeug` (org `itpfkpnqnuhumdvhrkuh`). Push 34 migrations, Google OAuth, deploy `content-sign` Edge Function.
-- **Fix Google login:** Bá» `recoverOAuthSession()` thá»§ cÃ´ng. Set `detectSessionInUrl: true`. SDK tá»± xá»­ lÃ½ callback.
-- **Skills cÃ i má»›i:** stitch (15), anthropic (17), ponytail (6) cho .claude + .codex. File `skills-inventory.xlsx`.
-- **Fix auto-sync listening jump bug:** `partIndexAtTime` khi partStarts = [0,0,0,0,0] luÃ´n tráº£ vá» Part 5. User yÃªu cáº§u táº¯t auto chuyá»ƒn cÃ¢u â†’ `useAudioSync` useEffect now returns early. Deployed v0.2.12.
-- **Responsive Mobile Phase 1:** ThÃªm iOS meta tags (`viewport-fit=cover`, `apple-mobile-web-app-capable`, `theme-color`), safe-area-inset, `100dvh`, touch-action, hamburger menu + mobile sidebar drawer trÃªn iPhone. globals.css responsive tokens + AppShell.tsx drawer overlay. Deployed v0.2.13.
-- **Responsive Mobile Phase 2:** Added `@media (max-width: 400px)` breakpoints across 40+ CSS files covering Writing screens (dashboard, library, study, cambridgeHub, promptBank), Vocab screens (deckCards, vocabLesson, vocabStudyPaper, srsReminder), Exam screens (shared, practiceResult, readingTest, listeningIeltsTid, readingFontPanel, ieltsListeningWizard, tidIeltsReading, ketRw, petRw, fceRw, caeRw, cpeRw), Home page & study grid, shadowingLibrary, listeningLibraryPage, speakingAiPage, structurePractice, translationPractice, and readingCorner. Fixed orphaned CSS in examPracticeResult.css.
-- **Responsive Mobile Phase 2+3:** LandingPage responsive (hero font, button, nav spacing), ExamHub iPhone <400px, Listening test small-screen rules, Vocab card fine-tune, touch targets `@media (pointer:coarse)`, iOS `overscroll-behavior`, `-webkit-overflow-scrolling`. Deployed v0.2.14.
-- **Fix part jump:** `useAudioSync.ts` effect body replaced with early return. `audioSyncUtils.ts` thÃªm guard cho all-zeros starts.
-- **XÃ³a project cÅ©:** `ntcagvtkwxwsmlxlumfo` + `kxohkmeuyeiczqelrnbi` (org cÅ© lock quota).
+- **KET A2 Reading — Tái cấu trúc layout toàn diện từ crawl (branch `ket-a2-layout-from-crawl`):**
+  - **Bottom Part/Question navigation:** Refactor `KetRwFooter.tsx` sang layout Cambridge/Inspera gồm part tabs ngang, active part hiện question pills, inactive part hiện answered count, submit ✓ ở cell cuối. Floating Prev/Next buttons ở góc phải phía trên footer. Không dùng PET compact style.
+  - **Part 4 MC gaps — nhiều iteration visual:** PET-style inline chooser → dark bar chooser với nút X → white/gray bar với selected word → cuối cùng là Cambridge target: ô trắng/xám #f8f8f8 viền xám #aeb4ba 1px, chữ đen, chỉ số câu + selected word, border xanh chỉ khi focus/open. Xử lý dots placeholder bằng `stripPlaceholderDotsAroundGap()`.
+  - **Part 5 input style:** Match Part 4 gray box style — solid box `height: 1.55rem`, `border: 1px solid #aeb4ba`, `background: #f8f8f8`, số câu + input trong một khối liền, focus-within viền xanh.
+  - **Part 6 writing area:** Điều chỉnh textarea: giảm width → giảm height → `aspect-ratio: 2/1` với `flex: 0 0 auto` để không bị flex kéo giãn.
+  - **Part 7 image container:** `max-width: 50%` giảm khung ảnh xuống ½.
+  - **Background tổng thể:** Đổi từ `var(--bg-primary)` → `#F4F7F6` qua biến `--ket-body-bg` trong `.ket-rw-shell`.
+  - **Chẩn đoán Part 4 click issue:** Sử dụng manual diagnosis kit (5 snippets) xác nhận programmatic click hoạt động, mouse click hoạt động, không có overlay/pointer-events/CSS issue. Root cause là stale bundle từ snippet diagnosis trước.
+  - **Tất cả typecheck:** `pnpm --filter web exec tsc --noEmit` ✅ 0 errors.
+  - **Không sửa data đề, answer key, catalog, db, migrations, PET B1.**
 
 ### Files changed
-- `apps/web/.env.local`, `src/lib/supabase.ts`, `src/main.tsx`, `src/features/auth/AuthContext.tsx`, `src/features/auth/AuthCallback.tsx`, `src/lib/protectedMedia.ts`
-- `apps/web/index.html`, `apps/web/src/styles/globals.css`, `apps/web/src/pages/AppShell.tsx`, `apps/web/src/pages/landing/LandingPage.tsx`, `apps/web/src/features/exam/examHub.css`, `apps/web/src/features/exam/listeningTest.css`, `apps/web/src/features/exam/useAudioSync.ts`, `apps/web/src/features/exam/audioSyncUtils.ts`, `apps/web/src/features/vocab/vocabLibrary.css`
+- `apps/web/src/features/exam/ketRw/ReadingKetRwTest.tsx`
+- `apps/web/src/features/exam/ketRw/KetRwFooter.tsx`
+- `apps/web/src/features/exam/ketRw/KetRwPartContent.tsx`
+- `apps/web/src/features/exam/ketRw/readingKetRw.css`
 
-### Lá»—i cÃ²n tá»“n táº¡i
-- User bÃ¡o dá»¯ liá»‡u local khÃ´ng cÃ²n hiá»ƒn thá»‹. Báº£n vÃ¡ Admin Performance khÃ´ng xÃ³a dá»¯ liá»‡u; cáº§n kiá»ƒm tra Ä‘ang dÃ¹ng Ä‘Ãºng `http://localhost:5173` (khÃ´ng pháº£i `127.0.0.1`/port khÃ¡c) vÃ  Ä‘Ãºng tÃ i khoáº£n. Code hiá»‡n há»¯u chá»‰ clear toÃ n bá»™ Dexie khi sign-out hoáº·c Ä‘á»•i sang user ID khÃ¡c (`AuthContext.tsx` + `clearLocalUserData.ts`).
-- Google login cáº§n smoke production + localhost.
-- Node_modules local thiáº¿u/sai dependency/type package: Vite khÃ´ng start vÃ¬ thiáº¿u Rollup; TypeScript lá»—i Supabase/Testing Library/Node types.
-- Audio Supabase cÅ© Ä‘Ã£ máº¥t (R2 Ä‘Ã£ cÃ³ Ä‘á»§).
-
-### Deploy rule (ghi nhá»› cho cÃ¡c session sau)
-Khi user yÃªu cáº§u "deploy" sau khi lÃ m tÃ­nh nÄƒng/fix â†’ **deploy lÃªn Vercel production trÆ°á»›c**, rá»“i **cáº­p nháº­t session_summary.md** sau. KhÃ´ng lÃ m ngÆ°á»£c láº¡i.
+### Lỗi còn tồn tại
+- (Giữ nguyên từ session trước)
+- User báo dữ liệu local không còn hiển thị. Bản vá Admin Performance không xóa dữ liệu; cần kiểm tra đang dùng đúng `http://localhost:5173` (không phải `127.0.0.1`/port khác) và đúng tài khoản.
+- Google login cần smoke production + localhost.
+- Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
 
 ### Next session start prompt
-Verify on production (https://ryanenglishv2.vercel.app) that PET B1 Reading highlight/note works with real Google OAuth login: bôi đen text → toolbar xuất hiện → click Highlight/Note → không còn toast "Không lưu được highlight." → reload trang → highlight vẫn còn. Nếu OK, sinh ticket riêng để fix `listeningExamPublish.ts:rowToExam()` với cùng pattern thiếu `id` field.
+Use `scripts/import-pet-b1-reading-crawl.mjs` as the import pipeline for PET B1 Reading raw crawl folders. Next practical step: audit one generated bundle such as `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-11\pet-b1-test11-import` against the real runtime schema, then copy/import `catalog-reading-pet-b1-test3..12` into the repo catalog and patch any remaining text-cleaning issues (mojibake, long cloze passage shaping, Part 2 passage text completeness) before wiring metadata into the app.
 
 ---
 ## 2026-07-23 - Nen video nen landing page
