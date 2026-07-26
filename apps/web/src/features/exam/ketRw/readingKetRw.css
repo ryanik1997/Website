@@ -2,7 +2,7 @@
 .ket-rw-shell {
   --ket-header-bg: var(--bg-card);
   --ket-header-border: var(--border-color);
-  --ket-body-bg: var(--bg-primary);
+  --ket-body-bg: #F4F7F6;
   --ket-pane-border: var(--border-color);
   --ket-text: var(--text-primary);
   --ket-muted: var(--text-muted);
@@ -1464,12 +1464,19 @@
 }
 
 .ket-rw-shell.is-part-6 .ket-rw-writing-area {
-  min-height: 14rem;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 2 / 1;
+  resize: none;
+  align-self: flex-start;
 }
 
 /* ── is-part-7: Writing story ── */
 .ket-rw-shell.is-part-7 .ket-rw-pictures {
   margin-bottom: 1rem;
+  max-width: 50%;
 }
 
 .ket-rw-shell.is-part-7 .ket-rw-writing-area {
