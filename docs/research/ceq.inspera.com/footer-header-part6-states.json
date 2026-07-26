@@ -1,0 +1,423 @@
+{
+  "footer_currentTab": {
+    "label": "tab Part6 (current)",
+    "cls": "footer__questionNo___3WNct \n                                ",
+    "rect": {
+      "x": 886,
+      "y": 833,
+      "w": 100,
+      "h": 50
+    },
+    "text": "Part 6",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "color": "rgb(83, 83, 83)",
+      "padding": "16px 20px",
+      "width": "100.475px",
+      "height": "50.4px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(83, 83, 83)",
+      "borderTop": "0px none rgb(83, 83, 83)",
+      "borderBottom": "0px none rgb(83, 83, 83)",
+      "borderLeft": "0px none rgb(83, 83, 83)",
+      "borderRight": "0px none rgb(83, 83, 83)",
+      "position": "relative",
+      "textAlign": "center",
+      "whiteSpace": "nowrap",
+      "overflow": "visible",
+      "cursor": "default",
+      "outline": "rgb(83, 83, 83) none 0px"
+    }
+  },
+  "footer_otherTab": {
+    "label": "tab Part1 (other)",
+    "cls": "footer__questionNo___3WNct \n                                ",
+    "rect": {
+      "x": 1,
+      "y": 833,
+      "w": 175,
+      "h": 50
+    },
+    "text": "Part 10 of 8Part 1. 0 of 8 questions attempted.",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(83, 83, 83)",
+      "padding": "16px 20px",
+      "width": "174.988px",
+      "height": "50.4px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(83, 83, 83)",
+      "borderTop": "0px none rgb(83, 83, 83)",
+      "borderBottom": "0px none rgb(83, 83, 83)",
+      "borderLeft": "0px none rgb(83, 83, 83)",
+      "borderRight": "0px none rgb(83, 83, 83)",
+      "textAlign": "center",
+      "overflow": "visible",
+      "cursor": "default",
+      "outline": "rgb(83, 83, 83) none 0px"
+    }
+  },
+  "footer_numbers": [
+    {
+      "label": "num0",
+      "cls": "nav-row perScorableItem",
+      "rect": {
+        "x": 0,
+        "y": 830,
+        "w": 1423,
+        "h": 53
+      },
+      "text": "Part 10 of 8Part 1. 0 of 8 questions attempted.Que",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(83, 83, 83)",
+        "width": "1423.2px",
+        "height": "52.8px",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "border": "0px none rgb(83, 83, 83)",
+        "borderTop": "0px none rgb(83, 83, 83)",
+        "borderBottom": "0px none rgb(83, 83, 83)",
+        "borderLeft": "0px none rgb(83, 83, 83)",
+        "borderRight": "0px none rgb(83, 83, 83)",
+        "textAlign": "start",
+        "overflow": "visible",
+        "outline": "rgb(83, 83, 83) none 2.4px"
+      }
+    },
+    {
+      "label": "num1",
+      "cls": "subQuestion scorable-item",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "text": "Question 11Not attempted",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(83, 83, 83)",
+        "padding": "2.4px 4px",
+        "margin": "auto 0px",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "borderRadius": "3px",
+        "border": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderTop": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderBottom": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderLeft": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderRight": "1.6px solid rgba(0, 0, 0, 0)",
+        "position": "relative",
+        "textAlign": "center",
+        "whiteSpace": "pre",
+        "overflow": "visible",
+        "cursor": "default",
+        "outline": "rgb(83, 83, 83) none 2.4px"
+      }
+    },
+    {
+      "label": "num2",
+      "cls": "subQuestion scorable-item",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "text": "Question 22Not attempted",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(83, 83, 83)",
+        "padding": "2.4px 4px",
+        "margin": "auto 0px",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "borderRadius": "3px",
+        "border": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderTop": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderBottom": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderLeft": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderRight": "1.6px solid rgba(0, 0, 0, 0)",
+        "position": "relative",
+        "textAlign": "center",
+        "whiteSpace": "pre",
+        "overflow": "visible",
+        "cursor": "default",
+        "outline": "rgb(83, 83, 83) none 2.4px"
+      }
+    },
+    {
+      "label": "num3",
+      "cls": "subQuestion scorable-item",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "text": "Question 33Not attempted",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(83, 83, 83)",
+        "padding": "2.4px 4px",
+        "margin": "auto 0px",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "borderRadius": "3px",
+        "border": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderTop": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderBottom": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderLeft": "1.6px solid rgba(0, 0, 0, 0)",
+        "borderRight": "1.6px solid rgba(0, 0, 0, 0)",
+        "position": "relative",
+        "textAlign": "center",
+        "whiteSpace": "pre",
+        "overflow": "visible",
+        "cursor": "default",
+        "outline": "rgb(83, 83, 83) none 2.4px"
+      }
+    }
+  ],
+  "footer_partWrapper": {
+    "label": "questionWrapper",
+    "cls": "footer__questionWrapper___1tZ46 multiple",
+    "rect": {
+      "x": 1,
+      "y": 830,
+      "w": 175,
+      "h": 53
+    },
+    "text": "Part 10 of 8Part 1. 0 of 8 questions attempted.Que",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(83, 83, 83)",
+      "backgroundColor": "rgb(239, 239, 239)",
+      "margin": "0px 1px",
+      "width": "174.988px",
+      "height": "50.4px",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "flexWrap": "nowrap",
+      "borderTop": "2.4px solid rgb(255, 255, 255)",
+      "borderBottom": "0px none rgb(83, 83, 83)",
+      "borderLeft": "0px none rgb(83, 83, 83)",
+      "borderRight": "0px none rgb(83, 83, 83)",
+      "position": "relative",
+      "textAlign": "center",
+      "overflow": "visible",
+      "outline": "rgb(83, 83, 83) none 2.4px"
+    }
+  },
+  "p6_container": {
+    "label": "gapMatch container",
+    "cls": "gapMatchInteraction__container___eTVB_ gapMatchInteraction__extendedRendering___-mQoN gap-multi-interaction-sc",
+    "rect": {
+      "x": 16,
+      "y": 193,
+      "w": 667,
+      "h": 648
+    },
+    "text": "Response area for Questions 37–42 Young Inventor S",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(0, 0, 0)",
+      "padding": "0px 64px 0px 0px",
+      "width": "586px",
+      "height": "631.2px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "borderLeft": "0px none rgb(0, 0, 0)",
+      "borderRight": "0px none rgb(0, 0, 0)",
+      "position": "relative",
+      "textAlign": "start",
+      "overflow": "scroll",
+      "outline": "rgb(0, 0, 0) none 2.4px"
+    }
+  },
+  "p6_tokensWrapper": {
+    "label": "tokens wrapper",
+    "cls": "gapMatchInteraction__gapChoiceContainerWrapper___lNHa8 gapMatchInteraction__extendedGapChoicesContainerWrapper",
+    "rect": {
+      "x": 683,
+      "y": 193,
+      "w": 603,
+      "h": 648
+    },
+    "text": "Token area for Questions 37–42So they began writin",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(0, 0, 0)",
+      "width": "586px",
+      "height": "631.2px",
+      "maxWidth": "1440px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "borderLeft": "0px none rgb(0, 0, 0)",
+      "borderRight": "0px none rgb(0, 0, 0)",
+      "textAlign": "start",
+      "overflow": "scroll",
+      "outline": "rgb(0, 0, 0) none 2.4px"
+    }
+  },
+  "p6_token": {
+    "label": "gapChoice token",
+    "cls": "gapMatchInteraction__gapChoice___3frWF draggable gapText  gapMatchInteraction__extendedTokens___1Ww1w",
+    "rect": {
+      "x": 720,
+      "y": 198,
+      "w": 528,
+      "h": 43
+    },
+    "text": "So they began writing to local universities to see",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "margin": "5px",
+      "width": "528px",
+      "height": "43.4px",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "flexWrap": "nowrap",
+      "borderRadius": "4px",
+      "border": "0.8px solid rgb(145, 145, 145)",
+      "borderTop": "0.8px solid rgb(145, 145, 145)",
+      "borderBottom": "0.8px solid rgb(145, 145, 145)",
+      "borderLeft": "0.8px solid rgb(145, 145, 145)",
+      "borderRight": "0.8px solid rgb(145, 145, 145)",
+      "position": "relative",
+      "textAlign": "start",
+      "whiteSpace": "nowrap",
+      "overflow": "visible",
+      "cursor": "move",
+      "outline": "rgb(0, 0, 0) none 0px"
+    }
+  },
+  "p6_dropZone": {
+    "label": "dropZone",
+    "cls": "gapMatchInteraction__dropZone___1yo6e gap active extendedGap",
+    "rect": {
+      "x": 277,
+      "y": 431,
+      "w": 300,
+      "h": 23
+    },
+    "text": "37",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "margin": "1px",
+      "width": "300px",
+      "height": "23.2px",
+      "minWidth": "300px",
+      "minHeight": "8.89844px",
+      "display": "inline-flex",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "flexWrap": "nowrap",
+      "borderRadius": "5px",
+      "border": "1.6px dashed rgb(65, 142, 200)",
+      "borderTop": "1.6px dashed rgb(65, 142, 200)",
+      "borderBottom": "1.6px dashed rgb(65, 142, 200)",
+      "borderLeft": "1.6px dashed rgb(65, 142, 200)",
+      "borderRight": "1.6px dashed rgb(65, 142, 200)",
+      "position": "relative",
+      "textAlign": "center",
+      "overflow": "visible",
+      "outline": "rgb(0, 0, 0) none 2.4px"
+    }
+  },
+  "header_logo": {
+    "label": "logo",
+    "cls": "header__logo___3xoBS",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 200,
+      "h": 72
+    },
+    "text": "",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "rgb(0, 0, 0)",
+      "padding": "14.4px 16px",
+      "width": "168.025px",
+      "height": "43.2px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "borderLeft": "0px none rgb(0, 0, 0)",
+      "borderRight": "0px none rgb(0, 0, 0)",
+      "textAlign": "start",
+      "overflow": "visible",
+      "outline": "rgb(0, 0, 0) none 2.4px"
+    }
+  },
+  "header_name": {
+    "label": "candidate name",
+    "cls": "header__name___1Cw2x",
+    "rect": {
+      "x": 216,
+      "y": 8,
+      "w": 98,
+      "h": 18
+    },
+    "text": "Candidate ID",
+    "styles": {
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "color": "rgb(0, 0, 0)",
+      "width": "97.8px",
+      "height": "18.4px",
+      "display": "block",
+      "flexDirection": "row",
+      "flexWrap": "nowrap",
+      "border": "0px none rgb(0, 0, 0)",
+      "borderTop": "0px none rgb(0, 0, 0)",
+      "borderBottom": "0px none rgb(0, 0, 0)",
+      "borderLeft": "0px none rgb(0, 0, 0)",
+      "borderRight": "0px none rgb(0, 0, 0)",
+      "textAlign": "start",
+      "overflow": "visible",
+      "outline": "rgb(0, 0, 0) none 2.4px"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - img "header.logo" [ref=e8]
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - status [ref=e12]: Connected
+            - generic [ref=e13]: 
+          - button "Messages" [ref=e15] [cursor=pointer]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: Messages
+              - generic [ref=e18]: 
+          - button "Options" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]:
+              - generic [ref=e21]: Options
+              - generic [ref=e22]: 
+          - button "Show notes" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]:
+              - generic [ref=e25]: Show notes
+              - generic [ref=e26]: 
+        - generic [ref=e27]: Candidate ID
+  - generic [ref=e34]:
+    - generic [ref=e36]:
+      - heading "Questions 1–8" [level=3] [ref=e37]
+      - paragraph [ref=e39]: For each question, choose the correct answer for each gap.
+    - main [ref=e41]:
+      - generic [ref=e42]:
+        - group [ref=e43]:
+          - generic [ref=e47]:
+            - heading "Ballet dancer by chance" [level=2] [ref=e48]
+            - paragraph [ref=e49]:
+              - text: After five years of karate lessons, Hans Jensen, 13, swapped his black belt for ballet shoes. Hans
+              - button "1 Flag question 1" [ref=e51]:
+                - button "1" [ref=e53] [cursor=pointer]:
+                  - text: "1"
+                  - listbox [ref=e170]:
+                    - option [ref=e171]
+                    - option "gave" [active] [ref=e172]
+                    - option "showed" [ref=e173]
+                    - option "put" [ref=e174]
+                    - option "passed" [ref=e175]
+                - button "Flag question 1"
+              - text: his first public performance only a year ago when he danced in ‘The Nutcracker’ with the local dance school. Hans’s mother said ‘He was actually helping
+              - button "2 Flag question 2" [ref=e56]:
+                - button "2" [ref=e58] [cursor=pointer]
+                - button "Flag question 2"
+              - text: his little sister. She was very shy on stage until her brother was given a small part as a soldier. Hans enjoyed it so much that he
+              - button "3 Flag question 3" [ref=e61]:
+                - button "3" [ref=e63] [cursor=pointer]
+                - button "Flag question 3"
+              - text: himself in ballet classes.’
+            - paragraph [ref=e65]:
+              - text: Hans has already
+              - button "4 Flag question 4" [ref=e67]:
+                - button "4" [ref=e69] [cursor=pointer]
+                - button "Flag question 4"
+              - text: attention in the ballet world and recently won a scholarship to join the Royal Ballet School. He loves it there and is working hard to increase his
+              - button "5 Flag question 5" [ref=e72]:
+                - button "5" [ref=e74] [cursor=pointer]
+                - button "Flag question 5"
+              - text: of dance steps. ‘I want to become stronger,
+              - button "6 Flag question 6" [ref=e77]:
+                - button "6" [ref=e79] [cursor=pointer]
+                - button "Flag question 6"
+              - text: experience and learn as much as I can,’ he said.
+            - paragraph [ref=e81]:
+              - text: His teacher, Yevgen Gregorevic, who has danced professionally in a variety of lead
+              - button "7 Flag question 7" [ref=e83]:
+                - button "7" [ref=e85] [cursor=pointer]
+                - button "Flag question 7"
+              - text: ", said, ‘Hans has natural ability and always works hard.’ Hans has"
+              - button [ref=e88]:
+                - button "8" [ref=e90] [cursor=pointer]
+              - text: himself the goal of one day dancing for the Bolshoi Ballet.
+        - generic [ref=e92]:
+          - button "Flag question 1" [ref=e93] [cursor=pointer]:
+            - generic: 
+          - text:       
+  - contentinfo [ref=e96]:
+    - navigation "Previous / next question" [ref=e97]:
+      - button "Previous" [disabled] [ref=e98] [cursor=pointer]:
+        - generic [ref=e99]: 
+      - button "Next" [ref=e100] [cursor=pointer]:
+        - generic [ref=e101]: 
+    - navigation "Questions" [ref=e102]:
+      - tablist [ref=e103]:
+        - tab [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: Part
+            - text: "1"
+        - generic [ref=e107]:
+          - button "Question 1 Not attempted Active" [ref=e108]:
+            - generic [ref=e109]: Question 1
+            - text: "1"
+            - generic [ref=e110]: Not attempted Active
+          - button "Question 2 Not attempted" [ref=e111]:
+            - generic [ref=e112]: Question 2
+            - text: "2"
+            - generic [ref=e113]: Not attempted
+          - button "Question 3 Not attempted" [ref=e114]:
+            - generic [ref=e115]: Question 3
+            - text: "3"
+            - generic [ref=e116]: Not attempted
+          - button "Question 4 Not attempted" [ref=e117]:
+            - generic [ref=e118]: Question 4
+            - text: "4"
+            - generic [ref=e119]: Not attempted
+          - button "Question 5 Not attempted" [ref=e120]:
+            - generic [ref=e121]: Question 5
+            - text: "5"
+            - generic [ref=e122]: Not attempted
+          - button "Question 6 Not attempted" [ref=e123]:
+            - generic [ref=e124]: Question 6
+            - text: "6"
+            - generic [ref=e125]: Not attempted
+          - button "Question 7 Not attempted" [ref=e126]:
+            - generic [ref=e127]: Question 7
+            - text: "7"
+            - generic [ref=e128]: Not attempted
+          - button "Question 8 Not attempted" [ref=e129]:
+            - generic [ref=e130]: Question 8
+            - text: "8"
+            - generic [ref=e131]: Not attempted
+      - tablist [ref=e132]:
+        - tab "Part 2. 0 of 8 questions attempted." [ref=e133]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: Part
+            - text: "2"
+            - generic [ref=e136]: 0 of 8
+            - generic [ref=e137]: Part 2. 0 of 8 questions attempted.
+      - tablist [ref=e138]:
+        - tab "Part 3. 0 of 8 questions attempted." [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]: Part
+            - text: "3"
+            - generic [ref=e142]: 0 of 8
+            - generic [ref=e143]: Part 3. 0 of 8 questions attempted.
+      - tablist [ref=e144]:
+        - tab "Part 4. 0 of 6 questions attempted." [ref=e145]:
+          - generic [ref=e146]:
+            - generic [ref=e147]: Part
+            - text: "4"
+            - generic [ref=e148]: 0 of 6
+            - generic [ref=e149]: Part 4. 0 of 6 questions attempted.
+      - tablist [ref=e150]:
+        - tab "Part 5. 0 of 6 questions attempted." [ref=e151]:
+          - generic [ref=e152]:
+            - generic [ref=e153]: Part
+            - text: "5"
+            - generic [ref=e154]: 0 of 6
+            - generic [ref=e155]: Part 5. 0 of 6 questions attempted.
+      - tablist [ref=e156]:
+        - tab "Part 6. 0 of 6 questions attempted." [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]: Part
+            - text: "6"
+            - generic [ref=e160]: 0 of 6
+            - generic [ref=e161]: Part 6. 0 of 6 questions attempted.
+      - tablist [ref=e162]:
+        - tab "Part 7. 0 of 10 questions attempted." [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]: Part
+            - text: "7"
+            - generic [ref=e166]: 0 of 10
+            - generic [ref=e167]: Part 7. 0 of 10 questions attempted.
+      - button "Review your answers" [ref=e168] [cursor=pointer]:
+        - generic [ref=e169]: 

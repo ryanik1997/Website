@@ -1,4 +1,5 @@
 import { useRef, type CSSProperties } from 'react'
+import { Bookmark } from 'lucide-react'
 import type { ReadingQuestion } from '../examData'
 import { isReadingAnswerCorrect } from '../examData'
 import {
@@ -17,6 +18,12 @@ interface Props {
   formatOptionLabel?: (label: string) => string
   reviewMode?: boolean
   reviewStatus?: ExamReviewStatus | null
+  /** Cambridge: câu đang chọn có khung số xanh */
+  isActive?: boolean
+  /** Cambridge: nút bookmark góc phải câu đang chọn */
+  showFlag?: boolean
+  flagged?: boolean
+  onToggleFlag?: () => void
 }
 
 export default function RwMcRadioQuestion({
@@ -28,6 +35,10 @@ export default function RwMcRadioQuestion({
   formatOptionLabel,
   reviewMode = false,
   reviewStatus = null,
+  isActive = false,
+  showFlag = false,
+  flagged = false,
+  onToggleFlag,
 }: Props) {
   const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
   const textSelectionGestureRef = useRef(false)
@@ -47,7 +58,7 @@ export default function RwMcRadioQuestion({
 
   return (
     <div
-      className={`ket-rw-question${status ? ` is-review-${status}` : ''}`}
+      className={`ket-rw-question${status ? ` is-review-${status}` : ''}${isActive ? ' is-active' : ''}`}
       id={`reading-q-${question.id}`}
       style={borderStyle}
     >
@@ -73,6 +84,19 @@ export default function RwMcRadioQuestion({
           blockId={`${partId}-q-${question.id}-prompt`}
           text={question.prompt}
         />
+        {showFlag && (
+          <button
+            type="button"
+            className={`ket-rw-q-flag${flagged ? ' is-flagged' : ''}`}
+            data-highlight-skip
+            aria-pressed={flagged}
+            aria-label={`Bookmark question ${question.number}`}
+            title="Bookmark"
+            onClick={() => onToggleFlag?.()}
+          >
+            <Bookmark size={16} strokeWidth={1.5} fill={flagged ? 'currentColor' : 'none'} />
+          </button>
+        )}
       </p>
       <div className="ket-rw-radio-list">
         {question.options.map(opt => {

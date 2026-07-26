@@ -1,0 +1,410 @@
+{
+  "url": "#/section/6704655553180/question/143495397/scorableItem/9/skipScroll",
+  "wrapperClasses": "QuestionDisplay__questionDisplayWrapper___1n_b0 question-wrapper current numbering-per-interaction wide-and-left-align multiple-inline-gap-match gap-match-multi-interaction-view",
+  "wrapperRect": {
+    "x": 0,
+    "y": 155,
+    "w": 1406,
+    "h": 361
+  },
+  "instructionText": "Questions 9–16For each question, write the correct answer. Write one word for each gap. Camels The most distinctive feature of a camel is the hump, or humps, on its back. In these humps camels store fat Flag question 9 is used as energy when they don’t have access to food. They can put Flag question 10 with very difficult conditions, drinking only a little Flag question 11 no water for up to seven",
+  "instructionStyles": {
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "color": "rgb(0, 0, 0)",
+    "width": "1423.2px",
+    "height": "758.4px",
+    "display": "flex",
+    "flexDirection": "row",
+    "border": "0px none rgb(0, 0, 0)",
+    "textAlign": "start",
+    "verticalAlign": "baseline",
+    "overflow": "visible",
+    "listStyle": "outside none disc",
+    "flex": "1 1 0%"
+  },
+  "allClasses": [
+    "QTIAssessmentItem__QTIAssessmentItemWrapper___3W6-C",
+    "QTIAssessmentItem__QTIAssessmentItem___cfGlV",
+    "QuestionDisplay__footer___1uARt",
+    "QuestionDisplay__hiddenFlag___m4NOE",
+    "QuestionDisplay__hiddenFocus___VyH0X",
+    "QuestionDisplay__mainQuestionWrapper___3P0CZ",
+    "QuestionDisplay__questionBody___ZOMJ7",
+    "QuestionDisplay__questionDisplayWrapper___1n_b0",
+    "QuestionDisplay__question___89pdZ",
+    "QuestionDisplay__txtButton___3AYy9",
+    "QuestionDisplay__visibleFlag___AmAom",
+    "active",
+    "container",
+    "current",
+    "desktop",
+    "double-line-spacing",
+    "fa",
+    "fa-bookmark-o",
+    "focus-visible",
+    "gap-match-multi-interaction-view",
+    "hidden-title",
+    "inlineTextEntry",
+    "interaction",
+    "interaction-container",
+    "multiple-inline-gap-match",
+    "no-title",
+    "numbering-per-interaction",
+    "preRender",
+    "question",
+    "question-margin",
+    "question-wrapper",
+    "right",
+    "screen",
+    "sr-only",
+    "textEntryInteractionValue",
+    "textEntry__textEntryInteraction___3-HXo",
+    "wide-and-left-align"
+  ],
+  "interactions": [
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 778,
+        "y": 235,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue active focus-visible",
+      "rect": {
+        "x": 782,
+        "y": 233,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(65, 142, 200)",
+        "boxShadow": "rgb(65, 142, 200) 0px 0px 0px 1px",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 225,
+        "y": 267,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue",
+      "rect": {
+        "x": 229,
+        "y": 265,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(148, 148, 148)",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 792,
+        "y": 267,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue",
+      "rect": {
+        "x": 796,
+        "y": 265,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(148, 148, 148)",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 446,
+        "y": 299,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue",
+      "rect": {
+        "x": 450,
+        "y": 297,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(148, 148, 148)",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 16,
+        "y": 331,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue",
+      "rect": {
+        "x": 20,
+        "y": 329,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(148, 148, 148)",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "textEntry__textEntryInteraction___3-HXo interaction ",
+      "rect": {
+        "x": 75,
+        "y": 379,
+        "w": 220,
+        "h": 18
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "color": "rgb(0, 0, 0)",
+        "maxWidth": "100%",
+        "display": "inline",
+        "flexDirection": "row",
+        "border": "0px none rgb(0, 0, 0)",
+        "position": "relative",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "visible",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      }
+    },
+    {
+      "tag": "input",
+      "cls": "textEntryInteractionValue",
+      "rect": {
+        "x": 79,
+        "y": 377,
+        "w": 212,
+        "h": 22
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "padding": "0px 8px",
+        "margin": "0.8px 4px -1.6px",
+        "width": "212px",
+        "height": "22.4px",
+        "maxWidth": "calc(100% - 26px)",
+        "display": "inline-block",
+        "flexDirection": "row",
+        "borderRadius": "3px",
+        "border": "0.8px solid rgb(148, 148, 148)",
+        "textAlign": "start",
+        "verticalAlign": "baseline",
+        "overflow": "clip",
+        "listStyle": "outside none disc",
+        "flex": "0 1 auto"
+      },
+      "text": ""
+    }
+  ]
+}

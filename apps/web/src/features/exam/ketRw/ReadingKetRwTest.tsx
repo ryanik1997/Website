@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Bell, Loader2, Wifi } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bell, Loader2, Menu, Wifi } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import ExamTimerControls from '../ExamTimerControls'
 import ExamFontControls from '../ExamFontControls'
@@ -21,6 +21,8 @@ import { notifyExamDraftRevision } from '../useExamDraftRevision'
 import { useExamDraftGate } from '../useExamDraftGate'
 import { readingExamDurationMinutes } from '../readingExamDuration'
 import { initialExamTimerSeconds } from '../examTimer'
+import CambridgeSelectionToolbar from '../annotations/CambridgeSelectionToolbar'
+import { useStableTextSelection } from '../annotations/useStableTextSelection'
 import RwExamMain from '../rwHighlight/RwExamMain'
 import { rwDraftWithAnnotations, type RwDraftAnnotationFields } from '../rwHighlight/rwDraftAnnotations'
 import { usePartHighlights } from '../usePartHighlights'
@@ -88,6 +90,9 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   }, [exam, cloudImages])
 
   const allQuestions = useMemo(() => (exam ? getExamQuestions(exam) : []), [exam])
+  const activeQuestionIndex = activeQuestionId
+    ? allQuestions.findIndex(q => q.id === activeQuestionId)
+    : -1
   const currentPart = displayExam?.parts[partIndex] ?? exam?.parts[partIndex] ?? null
   const storageKey = exam ? `${STORAGE_PREFIX}${exam.id}` : ''
   const { isHydrated, markHydrated } = useExamDraftGate(storageKey)
@@ -134,9 +139,24 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
     notesByPart,
     handleHighlightsChange,
     handleNotesChange,
+    commitHighlightRanges,
+    commitNoteRanges,
+    commitDeleteNoteRanges,
+    commitDeleteHighlightRanges,
     setAnnotationsByPart,
     clearAllHighlights,
   } = usePartHighlights(currentPart?.id)
+
+  /* Highlight / Note kiểu Cambridge — dùng chung cơ chế với PET B1 */
+  const ketSelectionRootRef = useRef<HTMLDivElement>(null)
+  const { selection, clearSelection } = useStableTextSelection({
+    rootRef: ketSelectionRootRef,
+    disabled: reviewMode,
+  })
+
+  useEffect(() => {
+    clearSelection()
+  }, [currentPart?.id, clearSelection])
 
   useEffect(() => {
     if (!exam) return
@@ -341,7 +361,15 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
   }
 
   return (
-    <div className={`ket-rw-shell${reviewMode ? ' is-review' : ''}`} style={fontStyle}>
+    <div
+      className={[
+        'ket-rw-shell',
+        'ket-a2-crawl',
+        reviewMode ? 'is-review' : '',
+        currentPart ? `is-part-${currentPart.partNumber}` : '',
+      ].filter(Boolean).join(' ')}
+      style={fontStyle}
+    >
       {reviewMode && (
         <div
           className="flex items-center justify-between gap-2 px-4 py-2 text-sm font-semibold"
@@ -370,11 +398,19 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         />
       )}
       <header className="ket-rw-header">
-        <div className="ket-rw-header__brand">
-          <span className="ket-rw-header__shield" aria-hidden>CE</span>
-          <span>Cambridge English</span>
+        <div className="ket-rw-header__identity">
+          <button
+            type="button"
+            className="ket-rw-icon-btn"
+            aria-label="Exit"
+            title="Exit"
+            onClick={reviewMode ? () => setReviewMode(false) : handleExit}
+          >
+            <ArrowLeft size={16} />
+          </button>
+          <img src="/logo-ceq.png" alt="Cambridge English" className="ket-rw-header__logo" />
+          <strong className="ket-rw-header__candidate">Candidate ID</strong>
         </div>
-        <span className="ket-rw-header__candidate">Candidate ID</span>
         <div className="ket-rw-header__actions">
           {!reviewMode && (
             <ExamTimerControls timeLeft={timeLeft} onReset={resetTimer} onChange={setTimeLeft} />
@@ -385,6 +421,9 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
           <button type="button" className="ket-rw-icon-btn" aria-label="Notifications">
             <Bell size={16} />
           </button>
+          <button type="button" className="ket-rw-icon-btn" aria-label="Menu">
+            <Menu size={18} />
+          </button>
           <ExamFontControls
             open={fontPanelOpen}
             fontSize={fontSize}
@@ -394,14 +433,6 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
             onFontSizeChange={setFontSize}
             onFontFamilyChange={setFontFamilyId}
           />
-          <button
-            type="button"
-            className="ket-rw-submit"
-            style={{ marginLeft: '0.35rem' }}
-            onClick={() => setConfirmSubmit(true)}
-          >
-            Submit
-          </button>
         </div>
       </header>
 
@@ -411,6 +442,9 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         notes={notes}
         onHighlightsChange={next => handleHighlightsChange(next.filter(h => h.kind !== 'evidence'))}
         onNotesChange={handleNotesChange}
+        mainRef={ketSelectionRootRef}
+        readOnly={reviewMode}
+        selectionToolbar="none"
       >
         {(imageError || cloudImagesError) && (
           <p
@@ -445,19 +479,46 @@ export default function ReadingKetRwTest({ fullPaper: _fullPaper }: Props) {
         )}
       </RwExamMain>
 
+      <CambridgeSelectionToolbar
+        selection={selection}
+        highlights={highlights}
+        notes={notes}
+        onCommitHighlight={commitHighlightRanges}
+        onCommitDeleteHighlight={commitDeleteHighlightRanges}
+        onCommitNote={commitNoteRanges}
+        onCommitDeleteNote={commitDeleteNoteRanges}
+        onClose={clearSelection}
+      />
+
+      <div className="ket-rw-adjacent-nav" aria-label="Question navigation">
+        <button
+          type="button"
+          disabled={activeQuestionIndex <= 0}
+          onClick={() => goAdjacentQuestion(-1)}
+          aria-label="Previous question"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <button
+          type="button"
+          disabled={activeQuestionIndex < 0 || activeQuestionIndex >= allQuestions.length - 1}
+          onClick={() => goAdjacentQuestion(1)}
+          aria-label="Next question"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
       <KetRwFooter
         exam={exam}
         partIndex={partIndex}
         activeQuestionId={activeQuestionId}
         answers={answers}
-        allQuestions={allQuestions}
         onGoToPart={goToPart}
         onSelectQuestion={handleSelectQuestion}
-        onAdjacentQuestion={goAdjacentQuestion}
-        onExit={reviewMode ? () => setReviewMode(false) : handleExit}
+        onSubmit={() => setConfirmSubmit(true)}
         reviewMode={reviewMode}
         getQuestionReviewStatus={getQuestionReviewStatus}
-        exitLabel={reviewMode ? 'Về báo cáo' : undefined}
       />
 
       {confirmSubmit && (

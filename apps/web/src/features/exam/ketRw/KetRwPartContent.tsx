@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { X } from 'lucide-react'
 import type { ReadingPart, ReadingPassageBlock, ReadingQuestion } from '../examData'
 import { countWords, getPartQuestions, isReadingAnswerCorrect } from '../examData'
 import {
@@ -10,6 +9,7 @@ import {
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import RwPart5McGap from '../rwHighlight/RwPart5McGap'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import { ensureGapDots, questionByNumber, splitKetGapText } from './ketRwGapUtils'
 import KetRwSplitPane from './KetRwSplitPane'
@@ -73,134 +73,6 @@ function PassageImage({
 }
 
 
-/**
- * Part 4 MC gap — Part4_New: thanh số đen + 3 pill ngang phía trên (không dropdown dọc).
- * Part4_Now (cũ): ô tím + menu dọc.
- */
-function InlineMcGap({
-  number,
-  question,
-  value,
-  open,
-  onToggle,
-  onSelect,
-  onClear,
-  reviewMode = false,
-  reviewStatus = null,
-  variant = 'chips',
-}: {
-  number: number
-  question?: ReadingQuestion
-  value: string
-  open: boolean
-  onToggle: () => void
-  onSelect: (optionId: string) => void
-  onClear?: () => void
-  reviewMode?: boolean
-  reviewStatus?: ExamReviewStatus | null
-  /** chips = Part4_New; dropdown = legacy */
-  variant?: 'chips' | 'dropdown'
-}) {
-  const selectedLabel = question?.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label
-  const keyLabel = question?.options.find(o => o.id.toLowerCase() === String(question.answer).toLowerCase())?.label
-  const border = reviewStatus ? EXAM_REVIEW_COLORS[reviewStatus].bg : undefined
-  const showChips = variant === 'chips' && open && question && !reviewMode
-  const showMenu = variant === 'dropdown' && open && question && !reviewMode
-
-  return (
-    <span
-      className={`ket-rw-gap-mc${variant === 'chips' ? ' ket-rw-gap-mc--chips' : ''}${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
-      style={border ? { outline: `2px solid ${border}`, borderRadius: 8, padding: 2 } : undefined}
-    >
-      {showChips && (
-        <span className="ket-rw-gap-mc__chips" role="listbox" aria-label={`Options for ${number}`}>
-          {question.options.map(opt => {
-            const selected = value.toLowerCase() === opt.id.toLowerCase()
-              || value.toLowerCase() === opt.label.toLowerCase()
-            return (
-              <button
-                key={opt.id}
-                type="button"
-                role="option"
-                aria-selected={selected}
-                className={`ket-rw-gap-mc__chip${selected ? ' is-selected' : ''}`}
-                data-highlight-skip
-                onClick={e => {
-                  e.stopPropagation()
-                  if (selected && onClear) {
-                    onClear()
-                    return
-                  }
-                  onSelect(opt.id)
-                }}
-              >
-                {selected && (
-                  <span className="ket-rw-gap-mc__chip-x" aria-hidden>
-                    <X size={12} strokeWidth={2.5} />
-                  </span>
-                )}
-                <span className="ket-rw-gap-mc__chip-label">{opt.label}</span>
-              </button>
-            )
-          })}
-        </span>
-      )}
-
-      <button
-        type="button"
-        className={`ket-rw-gap-mc__bar${open ? ' is-open' : ''}${value ? ' is-filled' : ''}`}
-        data-highlight-skip
-        aria-expanded={open}
-        aria-label={
-          selectedLabel
-            ? `Question ${number}: ${selectedLabel}`
-            : `Question ${number}, choose answer`
-        }
-        onClick={() => {
-          if (reviewMode) return
-          onToggle()
-        }}
-      >
-        {variant === 'chips' ? (
-          <>
-            <span className="ket-rw-gap-mc__bar-num">{number}</span>
-            {/* Đóng + đã chọn: hiện từ trên bar (mock New chỉ số khi mở chips) */}
-            {!open && selectedLabel && (
-              <span className="ket-rw-gap-mc__bar-word">{selectedLabel}</span>
-            )}
-          </>
-        ) : (
-          <>
-            <span>{number}</span>
-            {selectedLabel && <span className="ket-rw-gap-mc__value">{selectedLabel}</span>}
-          </>
-        )}
-        {reviewMode && reviewStatus === 'wrong' && keyLabel && (
-          <span className="ket-rw-gap-mc__value ket-rw-gap-mc__value--key">
-            → {keyLabel}
-          </span>
-        )}
-      </button>
-
-      {showMenu && (
-        <div className="ket-rw-gap-mc__menu" role="listbox">
-          {question.options.map(opt => (
-            <button
-              key={opt.id}
-              type="button"
-              role="option"
-              className={`ket-rw-gap-mc__option${value === opt.id ? ' is-selected' : ''}`}
-              onClick={() => onSelect(opt.id)}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </span>
-  )
-}
-
 function InlineGapText({
   number,
   value,
@@ -222,18 +94,20 @@ function InlineGapText({
       className="ket-rw-gap-text"
       style={border ? { outline: `2px solid ${border}`, borderRadius: 6, padding: 2 } : undefined}
     >
-      <span className="ket-rw-gap-text__num">{number}</span>
-      <input
-        type="text"
-        className="ket-rw-gap-input"
-        aria-label={`Gap ${number}`}
-        data-highlight-skip
-        value={value}
-        readOnly={reviewMode}
-        onChange={e => onChange(e.target.value)}
-        autoComplete="off"
-        spellCheck={false}
-      />
+      <span className="pet-rw-part6-gap">
+        <input
+          type="text"
+          className="pet-rw-part6-gap__input"
+          placeholder={String(number)}
+          aria-label={`Gap ${number}`}
+          data-highlight-skip
+          value={value}
+          readOnly={reviewMode}
+          onChange={e => onChange(e.target.value)}
+          autoComplete="off"
+          spellCheck={false}
+        />
+      </span>
       {reviewMode && reviewStatus === 'wrong' && correctAnswer && (
         <span style={{ marginLeft: 4, fontSize: '0.75rem', fontWeight: 700, color: EXAM_REVIEW_COLORS.correct.bg }}>
           → {correctAnswer}
@@ -281,28 +155,36 @@ function renderGapPassage(
             ?? examReviewStatus(ans, a => isReadingAnswerCorrect(q, a)))
           : null
         if (mode === 'mc') {
+          const keyLabel = q.options.find(
+            o => o.id.toLowerCase() === String(q.answer).toLowerCase(),
+          )?.label
           return (
-            <InlineMcGap
+            <span
               key={`g-${seg.number}`}
+              style={st ? { outline: `2px solid ${EXAM_REVIEW_COLORS[st].bg}`, borderRadius: 4 } : undefined}
+            >
+            <RwPart5McGap
               number={seg.number}
               question={q}
               value={ans}
               open={openGap === seg.number}
-              reviewMode={reviewMode}
-              reviewStatus={st}
-              variant="chips"
+              disabled={reviewMode}
               onToggle={() => {
+                if (reviewMode) return
                 onSelectQuestion(q.id)
                 setOpenGap(openGap === seg.number ? null : seg.number)
               }}
+              onClose={() => setOpenGap(null)}
               onSelect={optId => {
+                onSelectQuestion(q.id)
                 onAnswer(q.id, optId)
                 setOpenGap(null)
               }}
-              onClear={() => {
-                onAnswer(q.id, '')
-              }}
             />
+            {st === 'wrong' && keyLabel && (
+              <span className="ket-rw-gap-mc__value ket-rw-gap-mc__value--key"> → {keyLabel}</span>
+            )}
+            </span>
           )
         }
         return (
@@ -340,6 +222,8 @@ export default function KetRwPartContent({
   const partId = part.id
   const group = part.questionGroups[0]
   const [openGap, setOpenGap] = useState<number | null>(null)
+  /** Bookmark Cambridge (chỉ đánh dấu tạm trong phiên, không lưu vào đề) */
+  const [flagged, setFlagged] = useState<Record<string, boolean>>({})
 
   const activeQuestion = questions.find(q => q.id === activeQuestionId) ?? questions[0]
   const layout = part.partNumber <= 1 ? 'single-focus'
@@ -373,18 +257,20 @@ export default function KetRwPartContent({
             onClear={onPassagePortraitClear ? () => onPassagePortraitClear(idx) : undefined}
           />
           <div className="ket-rw-profile__body">
-            <p className="ket-rw-paragraph">
-              {block.label && (
+            {block.label && (
+              <p className="ket-rw-profile__name">
                 <RwHighlightText
                   blockId={`${partId}-lbl-${idx}`}
                   text={block.label}
                   className="ket-rw-paragraph__label"
                 />
-              )}
-              {block.text?.trim() ? (
+              </p>
+            )}
+            {block.text?.trim() ? (
+              <p className="ket-rw-paragraph">
                 <RwHighlightText blockId={`${partId}-txt-${idx}`} text={block.text} />
-              ) : null}
-            </p>
+              </p>
+            ) : null}
           </div>
         </div>
       )
@@ -593,6 +479,10 @@ export default function KetRwPartContent({
               onAnswer={onAnswer}
               reviewMode={reviewMode}
               reviewStatus={reviewStatusMap?.[q.id]}
+              isActive={q.id === activeQuestion?.id}
+              showFlag={q.id === activeQuestion?.id}
+              flagged={Boolean(flagged[q.id])}
+              onToggleFlag={() => setFlagged(prev => ({ ...prev, [q.id]: !prev[q.id] }))}
             />
           ))}
         />

@@ -6,6 +6,7 @@ import { readingExamMediaKey } from '../importReadingManualUtils'
 import RwHighlightText from '../rwHighlight/RwHighlightText'
 import RwInstruction from '../rwHighlight/RwInstruction'
 import RwMcRadioQuestion from '../rwHighlight/RwMcRadioQuestion'
+import RwPart5McGap from '../rwHighlight/RwPart5McGap'
 import { rwGapTextSegment } from '../rwHighlight/rwGapTextSegment'
 import { useBlobMediaUrl } from '../useBlobMediaUrl'
 import KetRwSplitPane from '../ketRw/KetRwSplitPane'
@@ -170,88 +171,6 @@ function InlineGapText({
         autoComplete="off"
         spellCheck={false}
       />
-    </span>
-  )
-}
-
-// ── Part 5 — Horizontal chooser gap ──
-
-function Part5InlineMcGap({
-  number,
-  question,
-  value,
-  open,
-  onToggle,
-  onClose,
-  onSelect,
-  disabled,
-}: {
-  number: number
-  question: ReadingQuestion
-  value: string
-  open: boolean
-  onToggle: () => void
-  onClose: () => void
-  onSelect: (optionId: string) => void
-  disabled?: boolean
-}) {
-  const alignRight = number === 22 || number === 24 || number === 26
-
-  return (
-    <span
-      className={[
-        'pet-rw-part5-gap',
-        open ? 'is-open' : '',
-        value ? 'is-filled' : '',
-        alignRight ? 'align-right' : '',
-      ].filter(Boolean).join(' ')}
-    >
-      {open && !disabled && (
-        <span
-          className="pet-rw-part5-gap__chooser"
-          role="listbox"
-          aria-label={`Question ${number} options`}
-        >
-          <button
-            type="button"
-            className="pet-rw-part5-gap__close"
-            aria-label="Close choices"
-            onClick={onClose}
-          >
-            ×
-          </button>
-          {question.options.map(option => (
-            <button
-              key={option.id}
-              type="button"
-              role="option"
-              aria-selected={value.toLowerCase() === option.id.toLowerCase()}
-              className={[
-                'pet-rw-part5-gap__option',
-                value.toLowerCase() === option.id.toLowerCase() ? 'is-selected' : '',
-              ].filter(Boolean).join(' ')}
-              onClick={() => onSelect(option.id)}
-            >
-              {option.label}
-            </button>
-          ))}
-        </span>
-      )}
-      <button
-        type="button"
-        className="pet-rw-part5-gap__field"
-        data-highlight-skip
-        disabled={disabled}
-        onClick={onToggle}
-      >
-        {value ? (
-          <span className="pet-rw-part5-gap__value">
-            {question.options.find(o => o.id.toLowerCase() === value.toLowerCase())?.label}
-          </span>
-        ) : (
-          <span className="pet-rw-part5-gap__number">{number}</span>
-        )}
-      </button>
     </span>
   )
 }
@@ -464,38 +383,6 @@ export default function PetRwPartContent({
     setPickedBankId(null)
     onSelectQuestion(questionId)
   }
-
-  const part5BodyRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (part.partNumber !== 5 || openGap === null) return
-
-    const handlePointerDown = (event: PointerEvent) => {
-      const target = event.target as Node
-      if (!part5BodyRef.current?.contains(target)) {
-        setOpenGap(null)
-        return
-      }
-      const gap = (target as Element).closest?.('.pet-rw-part5-gap')
-      if (!gap) {
-        setOpenGap(null)
-      }
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setOpenGap(null)
-      }
-    }
-
-    document.addEventListener('pointerdown', handlePointerDown)
-    window.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('pointerdown', handlePointerDown)
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [part.partNumber, openGap])
 
   const [part4DragPayload, setPart4DragPayload] = useState<Part4DragPayload | null>(null)
   const [isPart4BankDropActive, setIsPart4BankDropActive] = useState(false)
@@ -887,7 +774,7 @@ export default function PetRwPartContent({
             const q = questionByNumber(gapQuestions, seg.number)
             if (!q) return <span key={`g-${i}`}>({seg.number})</span>
             return (
-              <Part5InlineMcGap
+              <RwPart5McGap
                 key={`g-${seg.number}`}
                 number={seg.number}
                 question={q}
@@ -901,6 +788,7 @@ export default function PetRwPartContent({
                   }
                 }}
                 onClose={() => setOpenGap(null)}
+                alignRight={[22, 24, 26].includes(seg.number)}
                 onSelect={optionId => {
                   onSelectQuestion(q.id)
                   onAnswer(q.id, optionId)
@@ -917,7 +805,7 @@ export default function PetRwPartContent({
       <>
         <RwInstruction partId={partId} range={instructionRange} text={instructionText} />
         <div className="pet-rw-part5-body">
-          <div ref={part5BodyRef} className="pet-rw-part5-content">
+          <div className="pet-rw-part5-content">
             <h2 className="pet-rw-part5-title">
               <RwHighlightText blockId={`${partId}-title`} text={cleanTitle} />
             </h2>

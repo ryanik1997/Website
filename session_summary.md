@@ -2,7 +2,71 @@
 
 **Ngày:** 2026-07-26
 
+### Đã hoàn thành (mới nhất — FCE B2 Reading khớp Inspera CEQ 1:1)
+
+**Crawl bản gốc Cambridge** (skill `clone-website` + Playwright MCP qua Chrome debug port 9222)
+
+Nguồn: `ceq.inspera.com/player/?assessmentRunId=160272655` — B2 First Digital Sample Test 1, player release **3.51.0**.
+Artifacts trong `docs/research/ceq.inspera.com/`:
+- `PAGE_TOPOLOGY.md` — spec shell 3 tầng, bảng 7 parts, tokens
+- `global-tokens.json` — **~280 CSS variables** của theme `ceq-theme` (bảng màu gốc, không phải ước lượng)
+- `player.css` — 588 KB CSS gốc
+- `layout-regions.json`, `part1-gap-popup-open.json`, `part2.json`, `parts3-7.json`
+- `footer-header-part6-states.json` — computed style **theo từng trạng thái** (quan trọng: đo thật, không suy từ tên biến)
+
+Kiến trúc bản gốc: `App__app > App__mainScreen > App__contentContainer(y=72,h=758) > DisplayTypeContainer > QuestionDisplay`. Header 72px + footer 53px fixed, chỉ `contentContainer` cuộn.
+
+| Part | Interaction class | Bố cục |
+|---|---|---|
+| 1 | `inlineChoiceInteraction` `presentation-horizontalPopup` | 1 cột, popup ngang mở **lên trên** |
+| 2/3/4 | `textEntry` | 1 cột, `double-line-spacing` |
+| 5/7 | `choiceInteraction` `vertical` | 2 cột, câu hỏi phải x=739 w=628 |
+| 6 | `gapMatchInteraction` kéo–thả | `split-5050`, tokens bên phải |
+
+**Tái cấu trúc UI** — `readingFceRw.css` thêm layer Inspera scope trong `.fce-rw-shell`, map hệ `--ket-*` sang token gốc. KET/PET/CAE/CPE **không bị ảnh hưởng**.
+
+- Header 72px, `Candidate ID` sát trái + canh trên (x=216,y=8, weight 600), logo Cambridge English thật `168×43` tải từ CDN Inspera → `apps/web/public/exam/cambridge-english-logo.png`
+- Footer: ô part nền `#efefef`, part mở → **nền trắng + viền trên đen 2px** + chữ 600; số câu chọn = **viền `2px #2a6c96`, KHÔNG tô nền** (lần đầu làm sai vì suy từ tên biến `--footer--selected-question-no-bg`)
+- Part 6 kéo–thả: ô gap **300×23px** `2px dashed #418ec8` radius 5px; token **max 528px, min-h 43px, margin 5px** `1px solid #919191` radius 4px `cursor:move`; ẩn chữ cái A/B/C (Cambridge không hiện)
+- Cụm nút phải header cách rìa 16px (trước sát mép)
+
+**Tận dụng lại code có sẵn** (rà `ketRw` / `petRw` / `fceRw`)
+
+- `RwPart5McGap` — FCE tự viết `InlineMcGap` riêng trong khi component này đã tồn tại và làm **đúng pattern Inspera** (ô trắng → chooser đen ngang phía trên), KET P4 + PET P5 đang dùng. Xoá `InlineMcGap` + block CSS trùng: **−133 dòng**. FCE có thêm click-ngoài-đóng / Escape / `role=listbox` / `aria-selected` mà bản cũ không có.
+- Sửa `rwPart5McGap.css` sang số đo thật → **KET A2 P4 và PET B1 P5 cũng chính xác hơn theo**: 128→**144px**, font 15→**16px**, viền `#a7a7a7`→**`#949494`**, viền mở `#238ed0` 1px→**`#418ec8` 2px**, nền chooser `#333`→**`#404040`**, hover `#494949`→**`#2a6c96`**, ô khi mở thêm nền `#272727` chữ trắng.
+- `CambridgeSelectionToolbar` + `useStableTextSelection` — chuyển FCE từ `ReadingHighlightToolbar` (mặc định) sang bản PET. Verify browser: bôi đen → toolbar Note/Highlight hiện đúng.
+- **Không** tận dụng `PetRwDragMatch`: nó tự render `KetRwSplitPane` + slot dạng list, FCE cần gap inline trong bài đọc → phải thêm variant thứ ba, dài hơn ~35 dòng inline hiện có.
+
+**Part 6 kéo–thả — bổ sung 3 thứ thiếu + fix 1 bug**
+
+- Phản hồi khi rê qua ô (`is-over` → `#fa5101`, token `--gapmatch--dropzone-border-active`)
+- Nút `×` xoá đáp án (class có sẵn trong CSS PET, FCE chưa render)
+- Bàn phím: thẻ bank `div[role=button]` → `<button>` thật, Enter/Space chạy, không cần handler phím
+- **Bug có sẵn**: token đã đặt bị `disabled` → không nhấc sang gap khác được. Bỏ `disabled`, giữ `.is-used` chỉ để làm mờ.
+
+Test mới `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` (4 test) — chính test này bắt được bug trên.
+
+**Verify:** `tsc --noEmit` PASS · exam suite **161/162** (1 fail `catalogCamReading` đếm 47 đề IELTS — có sẵn từ trước, không liên quan) · `pnpm build` PASS.
+
+**Hạ tầng:** thêm MCP server `playwright` vào `.mcp.json` (CDP `localhost:9222`). Script mở Chrome debug profile riêng nằm ở scratchpad, không cần đóng Chrome đang dùng.
+
+### Đã hoàn thành (đồng bộ chrome KET ↔ PET)
+- **Footer KET A2 Reading = layout PET B1:** `KetRwFooter.tsx` bỏ Exit/Prev/Next khỏi footer, thêm ô Submit `✔` 77px ở cell cuối; part tab + question pills nằm cùng một hàng; part đang mở nền trắng (`flex: 0 1 auto` + `min-width: max-content`, căn trái, nhãn in đậm), các part còn lại chia đều. Pill là số trần, pill active = ô 22px viền `2px solid #111` nền trắng. Footer cao 52px, nền `--ket-footer-bg: #ebebeb`, ô submit `#e0e1e1`, `border-top: 3px solid #fff`.
+- Exit chuyển lên header (icon ArrowLeft), Prev/Next thành `.ket-rw-adjacent-nav` nổi (`right:32px bottom:88px`, teal `#008f95`, disabled `#ddd`) — giống PET.
+- Vì `KetRwFooter` dùng chung nên FCE/CAE/CPE Reading cũng được cập nhật cùng kiểu (header exit + nav nổi + submit ✔).
+- **KET A2 top = layout crawl Cambridge (giống PET B1):** shell KET thêm class `ket-a2-crawl`; header đổi sang logo `/logo-ceq.png` 43px + "Candidate ID" đậm, bên phải là timer + Wifi/Bell/Menu/`ExamFontControls` (bỏ nút Submit ở header — nộp bài qua ô ✔ footer). CSS mới cuối `readingKetRw.css` (scope `.ket-a2-crawl`, không đụng FCE/CAE/CPE): header 72px nền trắng viền trên `2px #238ed0`, main nền `#f4f8f9` padding 16px, ô instruction viền `#d2d7da` bo 5px, Part 1 sign-box khung trắng viền `#d9dee2`, số câu ô viền `2px #238ed0`, radio list hàng 44px viền `#edf0f1`, hover `#e7e7e7`, chọn `#cfe3f5`.
+- PET B1 giữ nguyên bản gốc (đã `git checkout` hoàn tác thử nghiệm đổi header PET).
+- **Fix dữ liệu KET A2 Part 2 Q13 — option C mất tên người:** option C của câu 13 (matching 3 người) chứa nguyên đoạn passage thay vì tên. Lỗi có ở **cả 14 đề book4–book7**, cả 2 bản `apps/web/public/catalog/exams/reading/*.json` và `packages/catalog/data/*.json`. Đã sửa hàng loạt bằng cách lấy `passage[2].label`; verify không còn option nào > 60 ký tự bất thường ở Part 2 (các option dài ở Part 1/3 là câu hoàn chỉnh, hợp lệ). Answer key dùng chữ cái A/B/C nên không ảnh hưởng.
+- **Cảnh báo regression:** `scripts/build-catalog.mjs` copy nguyên `qJson.options` từ nguồn Tainguyen (dòng 527, 693) → chạy `pnpm build:catalog` khi có Tainguyen sẽ ghi đè lại lỗi này. Cần sửa nguồn hoặc thêm guard trong build script.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS. Chưa smoke bằng browser đăng nhập (driver Playwright bị chặn ở Cloudflare login) — cần user reload trang xác nhận.
+
 ### Đã hoàn thành
+- **KET A2 Reading Part 2 (Q7–13) — layout Cambridge 1:1 (chỉ UI, không đụng dữ liệu đề):**
+  - `ReadingKetRwTest.tsx`: shell nhận thêm class `is-part-{partNumber}` (giống PET) để scope CSS theo part; header có nút Menu.
+  - `KetRwPartContent.tsx`: profile Part 2 tách tên riêng ra dòng tiêu đề `.ket-rw-profile__name` (thay vì label inline trong đoạn); giữ nguyên portrait admin và blockId highlight cũ. Thêm state bookmark tạm trong phiên (không ghi vào đề/draft).
+  - `RwMcRadioQuestion.tsx`: thêm prop tùy chọn `isActive` / `showFlag` / `flagged` / `onToggleFlag` (mặc định tắt → PET/FCE/CAE/CPE không đổi).
+  - `readingKetRw.css`: block mới `.ket-rw-shell.is-part-2` — hộp đề bài trắng viền xám nổi trên nền `#f4f7f6`, hai pane trắng, thanh chia đậm `#8f9395` 10px + tay kéo vuông trắng 30px, tiêu đề bài đọc 24px bold, tên riêng bold dòng riêng, số câu chữ đen (khung xanh `#238ed0` chỉ ở câu đang chọn), băng đáp án `#f8f8f8` cao 44px cách nhau bằng đường trắng 2px, bookmark góc phải câu đang chọn.
+  - Verify: `tsc --noEmit` không phát sinh lỗi mới ở `ketRw/` và `rwHighlight/` (chỉ còn lỗi môi trường sẵn có: `@types/node`, Testing Library, Supabase). **Chưa chạy được dev server / vitest** do node_modules thiếu Rollup + `@vitest/utils` → chưa smoke bằng mắt.
 - **Admin-only Batch Reading ZIP Import (Library Archives / Reading):**
   - Thêm nút `Import hàng loạt Reading` cạnh `Import thủ công Reading` trong `ExamTrackPage.tsx`, dùng đúng admin gate hiện có `useIsAdmin()` / `db.settings.is_admin`; non-admin không thấy nút và modal tự chặn nếu bị gọi trái phép.
   - Thêm modal `BatchReadingImportModal.tsx`: chọn nhiều file `.zip`, dry-run validate trước, checkbox `Overwrite existing exams`, import thật, bảng kết quả theo file, `Copy report` và tải `report.json`.
@@ -22,7 +86,17 @@
   - **Tất cả typecheck:** `pnpm --filter web exec tsc --noEmit` ✅ 0 errors.
   - **Không sửa data đề, answer key, catalog, db, migrations, PET B1.**
 
-### Files changed
+### Files changed (session FCE B2 ↔ Inspera)
+- `apps/web/src/features/exam/fceRw/ReadingFceRwTest.tsx` — logo thật, CambridgeSelectionToolbar, useStableTextSelection
+- `apps/web/src/features/exam/fceRw/FceRwPartContent.tsx` — dùng `RwPart5McGap`, xoá `InlineMcGap`, Part 6 drag (is-over / clear / keyboard)
+- `apps/web/src/features/exam/fceRw/readingFceRw.css` — layer Inspera scope `.fce-rw-shell`
+- `apps/web/src/features/exam/rwHighlight/rwPart5McGap.css` — số đo thật (**ảnh hưởng cả KET P4 + PET P5**)
+- `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` — mới
+- `apps/web/public/exam/cambridge-english-logo.png` — mới
+- `docs/research/ceq.inspera.com/*` , `docs/design-references/ceq.inspera.com/*` — artifacts crawl
+- `.mcp.json` — thêm server `playwright`
+
+### Files changed (session trước)
 - `apps/web/src/features/exam/ExamTrackPage.tsx`
 - `apps/web/src/features/exam/BatchReadingImportModal.tsx`
 - `apps/web/src/features/exam/import/batchReadingZipImport.ts`
@@ -33,6 +107,11 @@
 - `apps/web/src/features/exam/ketRw/readingKetRw.css`
 
 ### Lỗi còn tồn tại
+- **FCE B2 Reading khoá bảng màu sáng Inspera** → không đổi theo theme mid/dark, trái rule 2–3 trong CLAUDE.md. Đó là cái giá của "giống 100%". Chưa quyết có thêm nhánh `@media`/`[data-theme]` hay không.
+- **Cụm control phải header FCE** còn timer `− 00:00 + ↻`, `T` (font), `Submit` — Cambridge thật không có (chỉ 4 icon: wifi / chuông / ☰ / ✎). Đề xuất chờ duyệt: gom timer + font vào menu ☰, Submit dời xuống nút ✓ góc phải footer.
+- **`KetRwFooter` ↔ `PetRwFooter` trùng logic ~100 dòng** (khác mỗi tiền tố class `ket-rw-footer-part` vs `pet-rw-footer__part` và dấu tick ✔/✓). Gộp phải sửa cả `readingPetRw.css` 1375 dòng + `petRwFooter.test.tsx` → **khuyến nghị không làm** trừ khi sửa footer thường xuyên.
+- `catalogCamReading.test.ts` fail (kỳ vọng 47 đề IELTS seeded) — có từ trước, chưa điều tra.
+- Logo Cambridge thật hiện chỉ áp cho `fceRw`; KET/PET/CAE/CPE vẫn dùng shield `CE` cũ.
 - Batch Reading ZIP import hiện đã persist chắc cho `passage.imageUrl` và `questionGroup.imageUrl`. Nếu một bundle tương lai dùng `topImageUrl` / `bottomImageUrl` local-only thì modal sẽ cảnh báo giữ nguyên URL; chưa có local blob slot riêng cho 2 field này.
 - (Giữ nguyên từ session trước)
 - User báo dữ liệu local không còn hiển thị. Bản vá Admin Performance không xóa dữ liệu; cần kiểm tra đang dùng đúng `http://localhost:5173` (không phải `127.0.0.1`/port khác) và đúng tài khoản.
@@ -40,7 +119,21 @@
 - Node_modules local thiếu/sai dependency/type package: Vite không start vì thiếu Rollup; TypeScript lỗi Supabase/Testing Library/Node types.
 
 ### Next session start prompt
-Open `/app/exam/track/cambridge/b1/reading` as Admin and smoke the new `Import hàng loạt Reading` modal with real bundles from `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-3..12`. Focus on dry-run rows, duplicate skip/overwrite, Part 1 image rendering after import, and submit/review answer availability. If needed next, extend local asset persistence for `topImageUrl` / `bottomImageUrl`.
+
+FCE B2 Reading vừa được tái cấu trúc khớp Inspera CEQ 3.51.0. Spec gốc nằm ở `docs/research/ceq.inspera.com/PAGE_TOPOLOGY.md` + `global-tokens.json` — **đọc file đó trước khi chỉnh CSS FCE, đừng đoán màu từ tên biến** (session này đã sai một lần: `--footer--selected-question-no-bg: #2a6c96` gợi ý tô nền, nhưng render thật là viền).
+
+Muốn đo lại bản gốc: chạy script mở Chrome debug (port 9222, profile riêng ở scratchpad), đăng nhập Inspera, MCP `playwright` đã cấu hình sẵn trong `.mcp.json`.
+
+Việc tiếp theo còn treo, chờ user duyệt:
+1. Gom timer + font vào menu ☰, dời Submit xuống nút ✓ footer (giống Cambridge) — đổi hành vi UI, không chỉ CSS.
+2. Quyết định theme mid/dark cho FCE Reading.
+3. Áp logo Cambridge thật cho KET/PET/CAE/CPE (hiện chỉ FCE).
+
+Chưa QA visual ở 768px và 390px — mới đối chiếu 1440px.
+
+---
+
+**Việc cũ chưa xong:** Open `/app/exam/track/cambridge/b1/reading` as Admin and smoke the `Import hàng loạt Reading` modal with real bundles from `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-3..12`. Focus on dry-run rows, duplicate skip/overwrite, Part 1 image rendering after import, and submit/review answer availability. If needed next, extend local asset persistence for `topImageUrl` / `bottomImageUrl`.
 
 ---
 ## 2026-07-23 - Nen video nen landing page
