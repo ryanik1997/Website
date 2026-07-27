@@ -17,6 +17,8 @@ export function mapTaskFormToTask(testId: string, task: CambridgeWritingTaskForm
     instruction: task.instruction.trim(),
     promptText: task.promptText.trim() || undefined,
     promptHtml: task.promptHtml.trim() || undefined,
+    promptBlocks: task.promptBlocks?.length ? task.promptBlocks : undefined,
+    presentation: task.presentation,
     wordLimit: {
       min: task.minWords ?? undefined,
       max: task.maxWords ?? undefined,

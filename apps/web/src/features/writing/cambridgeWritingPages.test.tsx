@@ -264,4 +264,35 @@ describe('Cambridge Writing pages', () => {
     renderTaskPage('b1', 'missing-test', 'missing-task')
     await screen.findByText('Không tìm thấy task Writing.')
   })
+  it('advanced routes render B2/C1/C2 prompts and persist part 2 selection', async () => {
+    renderTaskPage('b2', 'b2-test-01', 'b2-test-01-task-01')
+    await screen.findByLabelText('Writing answer')
+    expect(screen.getByText(/140-190 words/i)).toBeInTheDocument()
+    expect(screen.queryByLabelText('Answering this question?')).not.toBeInTheDocument()
+
+    cleanup()
+    renderTaskPage('c1', 'c1-test-01', 'c1-test-01-task-01')
+    await screen.findByText('Some opinions expressed in the discussion:')
+    expect(screen.getByText(/220-260 words/i)).toBeInTheDocument()
+
+    cleanup()
+    renderTaskPage('c2', 'c2-test-01', 'c2-test-01-task-01')
+    await screen.findByText('Text 1:')
+    expect(screen.getByText('Shifting sands: behavioural change')).toBeInTheDocument()
+    expect(screen.getByText(/240-280 words/i)).toBeInTheDocument()
+
+    cleanup()
+    renderTaskPage('c2', 'c2-test-01', 'c2-test-01-task-02')
+    const selector = await screen.findByLabelText('Answering this question?')
+    fireEvent.change(selector, { target: { value: 'yes' } })
+    fireEvent.change(screen.getByLabelText('Writing answer'), { target: { value: 'A saved answer' } })
+
+    cleanup()
+    renderTaskPage('c2', 'c2-test-01', 'c2-test-01-task-02')
+    expect((await screen.findByLabelText('Answering this question?') as HTMLSelectElement).value).toBe('yes')
+    await waitFor(() => {
+      expect((screen.getByLabelText('Writing answer') as HTMLTextAreaElement).value).toContain('A saved answer')
+    })
+  })
 })
+

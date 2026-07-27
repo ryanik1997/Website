@@ -48,6 +48,61 @@ export const CambridgeWritingSampleAnswerSchema = z.object({
 })
 export type CambridgeWritingSampleAnswer = z.infer<typeof CambridgeWritingSampleAnswerSchema>
 
+export const CambridgeWritingPromptBlockSchema = z.discriminatedUnion('type', [
+  z.object({
+    id: z.string(),
+    type: z.literal('paragraph'),
+    text: z.string(),
+  }),
+  z.object({
+    id: z.string(),
+    type: z.literal('panel'),
+    variant: z.enum(['notes', 'announcement', 'opinions', 'generic']),
+    heading: z.string().optional(),
+    paragraphs: z.array(z.string()).optional(),
+    listItems: z.array(z.string()).optional(),
+    footer: z.string().optional(),
+  }),
+  z.object({
+    id: z.string(),
+    type: z.literal('email'),
+    from: z.string().optional(),
+    subject: z.string().optional(),
+    greeting: z.string().optional(),
+    paragraphs: z.array(z.string()),
+    closing: z.string().optional(),
+    sender: z.string().optional(),
+  }),
+  z.object({
+    id: z.string(),
+    type: z.literal('source-text'),
+    label: z.string(),
+    title: z.string().optional(),
+    text: z.string(),
+  }),
+  z.object({
+    id: z.string(),
+    type: z.literal('final-instruction'),
+    text: z.string(),
+  }),
+])
+export type CambridgeWritingPromptBlock = z.infer<typeof CambridgeWritingPromptBlockSchema>
+
+export const CambridgeWritingPresentationSchema = z.object({
+  template: z.enum([
+    'plain',
+    'essay-notes',
+    'essay-notes-opinions',
+    'announcement',
+    'email',
+    'source-texts',
+  ]),
+  optionalQuestionGroupId: z.string().optional(),
+  selectionRequired: z.number().int().positive().optional(),
+  headerInstruction: z.string().optional(),
+})
+export type CambridgeWritingPresentation = z.infer<typeof CambridgeWritingPresentationSchema>
+
 export const CambridgeWritingContentStatusSchema = z.enum(['draft', 'published', 'archived'])
 export type CambridgeWritingContentStatus = z.infer<typeof CambridgeWritingContentStatusSchema>
 
@@ -60,6 +115,8 @@ export const CambridgeWritingTaskSchema = z.object({
   instruction: z.string(),
   promptText: z.string().optional(),
   promptHtml: z.string().optional(),
+  promptBlocks: z.array(CambridgeWritingPromptBlockSchema).optional(),
+  presentation: CambridgeWritingPresentationSchema.optional(),
   choices: z.array(CambridgeWritingChoiceSchema).optional(),
   wordLimit: z.object({
     min: z.number().int().positive().optional(),

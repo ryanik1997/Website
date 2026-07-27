@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Navigate, useParams, Link } from 'react-router-dom'
+import { Navigate, useNavigate, useParams, Link } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, ArrowRight, Bookmark, Bell, Menu, PenLine, Wifi } from 'lucide-react'
 import { db, writingRepo } from '@ryan/db'
@@ -8,6 +8,8 @@ import type { CambridgeWritingTask, CambridgeWritingTest } from '@ryan/catalog'
 import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy'
 import { useWritingStore } from '../features/writing/writingStore'
 import KetRwSplitPane from '../features/exam/ketRw/KetRwSplitPane'
+import CambridgeAdvancedWritingTaskView from '../features/writing/exam/CambridgeAdvancedWritingTaskView'
+import { isAdvancedWritingLevel } from '../features/writing/exam/cambridgeWritingExamUiConfig'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingTask } from '../features/writing/useCambridgeWritingTests'
 import './writingCambridgeTaskPage.css'
@@ -378,6 +380,7 @@ function A2PromptShell({
 
 export default function WritingCambridgeTaskPage() {
   const { level: levelParam, testId, taskId } = useParams<{ level: string; testId: string; taskId: string }>()
+  const navigate = useNavigate()
   const level = getCambridgeRouteLevel(levelParam)
   const merged = useCambridgeWritingTask(level?.level ?? 'a2', testId, taskId)
   const test = merged?.test ?? null
@@ -463,6 +466,16 @@ export default function WritingCambridgeTaskPage() {
     return answerDocs.find(doc => doc.id === activeDocId) ?? answerDocs[0]
   }, [activeDocId, answerDocs])
 
+  function handleAnswerChange(value: string) {
+    if (!activeDoc?.id) return
+    void writingRepo.updateDoc(activeDoc.id, { text: value })
+  }
+
+  function handleOpenTask(nextTaskId: string) {
+    if (!level || !test) return
+    navigate(`/app/writing/cambridge/${level.level}/${test.id}/${nextTaskId}`)
+  }
+
   if (!level) return <Navigate to="/app/writing/cambridge" replace />
 
   if (!merged) {
@@ -496,23 +509,18 @@ export default function WritingCambridgeTaskPage() {
     return <B1PromptShell level={level} test={test} task={task} doc={activeDoc} promptDoc={promptDoc} />
   }
 
-  return (
-    <div className="relative flex h-full min-h-0 overflow-hidden flex-col">
-      <div className="shrink-0 flex flex-wrap items-center gap-2 px-4 py-2 border-b text-xs" style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
-        <Link to="/app/writing/cambridge" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>Cambridge</Link>
-        <span>/</span>
-        <Link to={`/app/writing/cambridge/${level.level}`} style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{level.displayName}</Link>
-        <span>/</span>
-        <Link to={`/app/writing/cambridge/${level.level}/${test.id}`} style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{test.title}</Link>
-        <span>/</span>
-        <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{task.title}</span>
-      </div>
-      <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-        <div style={{ maxWidth: 640, textAlign: 'center' }}>
-          <p style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>B2/C1/C2 đang dùng shell tạm.</p>
-          <p style={{ color: 'var(--text-muted)' }}>B1 đã tách layout riêng để bám ảnh crawl 1:1. A2 vừa nối theo Part 6/7 của KET. Các level còn lại sẽ nối theo cùng pattern khi có layout chuẩn tương ứng.</p>
-        </div>
-      </div>
-    </div>
-  )
+  if (isAdvancedWritingLevel(level.level)) {
+    return (
+      <CambridgeAdvancedWritingTaskView
+        level={level.level}
+        test={test}
+        task={task}
+        answer={activeDoc?.text ?? ''}
+        onAnswerChange={handleAnswerChange}
+        onOpenTask={handleOpenTask}
+      />
+    )
+  }
+
+  return <Navigate to="/app/writing/cambridge" replace />
 }

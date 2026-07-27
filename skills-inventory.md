@@ -2,1061 +2,1072 @@
 
 **Generated:** 2026-07-27
 **Source:** `.claude/skills/` (960 skills) & `.codex/skills/` (945 skills)
+Mỗi skill có mô tả tiếng Việt kèm theo.
 
 ---
 
 ## 1. .claude/skills/ — All 960 skills
 
 ### Anthropic Official
-- anthropic-algorithmic-art
-- anthropic-brand-guidelines
-- anthropic-canvas-design
-- anthropic-claude-api
-- anthropic-doc-coauthoring
-- anthropic-docx
-- anthropic-frontend-design
-- anthropic-internal-comms
-- anthropic-mcp-builder
-- anthropic-pdf
-- anthropic-pptx
-- anthropic-skill-creator
-- anthropic-slack-gif-creator
-- anthropic-theme-factory
-- anthropic-web-artifacts-builder
-- anthropic-webapp-testing
-- anthropic-xlsx
+
+- **anthropic-algorithmic-art**: Tạo nghệ thuật thuật toán (algorithmic art) với Claude
+- **anthropic-brand-guidelines**: Áp dụng nguyên tắc thương hiệu Anthropic vào thiết kế
+- **anthropic-canvas-design**: Thiết kế giao diện canvas với Claude, kèm thư viện font
+- **anthropic-claude-api**: Tra cứu và tích hợp Claude API — model, streaming, tool use, caching
+- **anthropic-doc-coauthoring**: Soạn thảo văn bản cộng tác với Claude
+- **anthropic-docx**: Tạo và chỉnh sửa file Word (.docx) với Claude
+- **anthropic-frontend-design**: Thiết kế giao diện frontend với Claude
+- **anthropic-internal-comms**: Soạn thảo truyền thông nội bộ với Claude
+- **anthropic-mcp-builder**: Xây dựng MCP server với Claude
+- **anthropic-pdf**: Tạo và xử lý file PDF với Claude
+- **anthropic-pptx**: Tạo và chỉnh sửa file PowerPoint với Claude
+- **anthropic-skill-creator**: Tạo skill mới cho Claude Code
+- **anthropic-slack-gif-creator**: Tạo GIF động cho Slack với Claude
+- **anthropic-theme-factory**: Tạo theme màu sắc cho Claude Code
+- **anthropic-web-artifacts-builder**: Xây dựng web artifact (HTML/CSS/JS) với Claude
+- **anthropic-webapp-testing**: Kiểm thử ứng dụng web với Claude
+- **anthropic-xlsx**: Tạo và chỉnh sửa file Excel với Claude, dùng openpyxl
 
 ### Document / Office
-- artifacts-builder
-- awesome-docx
-- awesome-pdf
-- awesome-pptx
-- awesome-xlsx
+
+- **artifacts-builder**: Tạo artifact HTML/React để xem trước trong Claude
+- **awesome-docx**: Công cụ mạnh mẽ tạo file Word với Claude
+- **awesome-pdf**: Công cụ mạnh mẽ tạo file PDF với Claude
+- **awesome-pptx**: Công cụ mạnh mẽ tạo file PowerPoint với Claude
+- **awesome-xlsx**: Công cụ mạnh mẽ tạo file Excel với Claude
 
 ### Brand / Design
-- brand-guidelines
-- brandkit
-- brutalist-skill
-- canvas-design
+
+- **brand-guidelines**: Áp dụng nguyên tắc thương hiệu vào thiết kế
+- **brandkit**: Quản lý bộ nhận diện thương hiệu (logo, màu, font)
+- **brutalist-skill**: Thiết kế giao diện theo phong cách Brutalist
+- **canvas-design**: Thiết kế canvas với Claude
+- **redesign-skill**: Thiết kế lại giao diện có sẵn
+- **theme-factory**: Tạo theme màu sắc tùy chỉnh
 
 ### Content / Marketing
-- changelog-generator
-- clone-website
-- competitive-ads-extractor
-- content-research-writer
-- image-enhancer
-- image-to-code-skill
-- imagegen-frontend-mobile
-- imagegen-frontend-web
+
+- **changelog-generator**: Tự động tạo changelog từ git commit
+- **clone-website**: Clone và phân tích cấu trúc website
+- **competitive-ads-extractor**: Trích xuất và phân tích quảng cáo đối thủ
+- **content-research-writer**: Nghiên cứu và viết nội dung chuyên sâu
+- **image-enhancer**: Nâng cao chất lượng ảnh
+- **image-to-code-skill**: Chuyển ảnh thiết kế thành code
+- **imagegen-frontend-mobile**: Tạo ảnh giao diện mobile bằng AI
+- **imagegen-frontend-web**: Tạo ảnh giao diện web bằng AI
+- **internal-comms**: Soạn thảo thông báo và truyền thông nội bộ
+- **lead-research-assistant**: Nghiên cứu khách hàng tiềm năng
+- **meeting-insights-analyzer**: Phân tích nội dung cuộc họp
+- **raffle-winner-picker**: Chọn người trúng thưởng ngẫu nhiên
+- **tailored-resume-generator**: Tạo CV tùy chỉnh theo yêu cầu
+- **twitter-algorithm-optimizer**: Tối ưu nội dung cho thuật toán Twitter
 
 ### Connect
-- connect
-- connect-apps
 
-### Composio Automations (~829 skills)
-- composio--21risk-automation
-- composio--2chat-automation
-- composio-ably-automation
-- composio-abstract-automation
-- composio-abuselpdb-automation
-- composio-abyssale-automation
-- composio-accelo-automation
-- composio-accredible-certificates-automation
-- composio-acculynx-automation
-- composio-active-campaign-automation
-- composio-addresszen-automation
-- composio-adobe-automation
-- composio-adrapid-automation
-- composio-adyntel-automation
-- composio-aero-workflow-automation
-- composio-aeroleads-automation
-- composio-affinda-automation
-- composio-affinity-automation
-- composio-agencyzoom-automation
-- composio-agent-mail-automation
-- composio-agentql-automation
-- composio-agenty-automation
-- composio-agiled-automation
-- composio-agility-cms-automation
-- composio-ahrefs-automation
-- composio-ai-ml-api-automation
-- composio-aivoov-automation
-- composio-alchemy-automation
-- composio-algodocs-automation
-- composio-algolia-automation
-- composio-all-images-ai-automation
-- composio-alpha-vantage-automation
-- composio-altoviz-automation
-- composio-alttext-ai-automation
-- composio-amara-automation
-- composio-amazon-automation
-- composio-ambee-automation
-- composio-ambient-weather-automation
-- composio-amcards-automation
-- composio-anchor-browser-automation
-- composio-anonyflow-automation
-- composio-anthropic-administrator-automation
-- composio-anthropic_administrator-automation
-- composio-apaleo-automation
-- composio-apex27-automation
-- composio-api-bible-automation
-- composio-api-labz-automation
-- composio-api-ninjas-automation
-- composio-api-sports-automation
-- composio-api2pdf-automation
-- composio-apiflash-automation
-- composio-apify-automation
-- composio-apilio-automation
-- composio-apipie-ai-automation
-- composio-apitemplate-io-automation
-- composio-apiverve-automation
-- composio-apollo-automation
-- composio-appcircle-automation
-- composio-appdrag-automation
-- composio-appointo-automation
-- composio-appsflyer-automation
-- composio-appveyor-automation
-- composio-aryn-automation
-- composio-ascora-automation
-- composio-ashby-automation
-- composio-asin-data-api-automation
-- composio-astica-ai-automation
-- composio-async-interview-automation
-- composio-atlassian-automation
-- composio-attio-automation
-- composio-auth0-automation
-- composio-autobound-automation
-- composio-autom-automation
-- composio-axonaut-automation
-- composio-ayrshare-automation
-- composio-backendless-automation
-- composio-bannerbear-automation
-- composio-bart-automation
-- composio-baselinker-automation
-- composio-baserow-automation
-- composio-basin-automation
-- composio-battlenet-automation
-- composio-beaconchain-automation
-- composio-beaconstac-automation
-- composio-beamer-automation
-- composio-beeminder-automation
-- composio-bench-automation
-- composio-benchmark-email-automation
-- composio-benzinga-automation
-- composio-bestbuy-automation
-- composio-better-proposals-automation
-- composio-better-stack-automation
-- composio-bidsketch-automation
-- composio-big-data-cloud-automation
-- composio-bigmailer-automation
-- composio-bigml-automation
-- composio-bigpicture-io-automation
-- composio-bitquery-automation
-- composio-bitwarden-automation
-- composio-blackbaud-automation
-- composio-blackboard-automation
-- composio-blocknative-automation
-- composio-boldsign-automation
-- composio-bolna-automation
-- composio-boloforms-automation
-- composio-bolt-iot-automation
-- composio-bonsai-automation
-- composio-bookingmood-automation
-- composio-booqable-automation
-- composio-borneo-automation
-- composio-botbaba-automation
-- composio-botpress-automation
-- composio-botsonic-automation
-- composio-botstar-automation
-- composio-bouncer-automation
-- composio-boxhero-automation
-- composio-braintree-automation
-- composio-brandfetch-automation
-- composio-breeze-automation
-- composio-breezy-hr-automation
-- composio-brex-automation
-- composio-brex-staging-automation
-- composio-brightdata-automation
-- composio-brightpearl-automation
-- composio-brilliant-directories-automation
-- composio-browseai-automation
-- composio-browser-tool-automation
-- composio-browserbase-tool-automation
-- composio-browserhub-automation
-- composio-browserless-automation
-- composio-btcpay-server-automation
-- composio-bubble-automation
-- composio-bugbug-automation
-- composio-bugherd-automation
-- composio-bugsnag-automation
-- composio-buildkite-automation
-- composio-builtwith-automation
-- composio-bunnycdn-automation
-- composio-byteforms-automation
-- composio-cabinpanda-automation
-- composio-cal-automation
-- composio-calendarhero-automation
-- composio-callerapi-automation
-- composio-callingly-automation
-- composio-callpage-automation
-- composio-campaign-cleaner-automation
-- composio-campayn-automation
-- composio-canny-automation
-- composio-canvas-automation
-- composio-capsule-crm-automation
-- composio-capsule_crm-automation
-- composio-carbone-automation
-- composio-cardly-automation
-- composio-castingwords-automation
-- composio-cats-automation
-- composio-cdr-platform-automation
-- composio-census-bureau-automation
-- composio-centralstationcrm-automation
-- composio-certifier-automation
-- composio-chaser-automation
-- composio-chatbotkit-automation
-- composio-chatfai-automation
-- composio-chatwork-automation
-- composio-chmeetings-automation
-- composio-cincopa-automation
-- composio-claid-ai-automation
-- composio-classmarker-automation
-- composio-clearout-automation
-- composio-clickmeeting-automation
-- composio-clockify-automation
-- composio-cloudcart-automation
-- composio-cloudconvert-automation
-- composio-cloudflare-api-key-automation
-- composio-cloudflare-automation
-- composio-cloudflare-browser-rendering-automation
-- composio-cloudinary-automation
-- composio-cloudlayer-automation
-- composio-cloudpress-automation
-- composio-coassemble-automation
-- composio-codacy-automation
-- composio-codeinterpreter-automation
-- composio-codereadr-automation
-- composio-coinbase-automation
-- composio-coinmarketcal-automation
-- composio-coinmarketcap-automation
-- composio-coinranking-automation
-- composio-college-football-data-automation
-- composio-composio-automation
-- composio-composio-search-automation
-- composio-connecteam-automation
-- composio-contentful-automation
-- composio-contentful-graphql-automation
-- composio-control-d-automation
-- composio-conversion-tools-automation
-- composio-convertapi-automation
-- composio-conveyor-automation
-- composio-convolo-ai-automation
-- composio-corrently-automation
-- composio-countdown-api-automation
-- composio-coupa-automation
-- composio-craftmypdf-automation
-- composio-crowdin-automation
-- composio-crustdata-automation
-- composio-cults-automation
-- composio-curated-automation
-- composio-currents-api-automation
-- composio-customerio-automation
-- composio-customgpt-automation
-- composio-customjs-automation
-- composio-cutt-ly-automation
-- composio-d2lbrightspace-automation
-- composio-dadata-ru-automation
-- composio-daffy-automation
-- composio-dailybot-automation
-- composio-datagma-automation
-- composio-datarobot-automation
-- composio-deadline-funnel-automation
-- composio-deel-automation
-- composio-deepgram-automation
-- composio-demio-automation
-- composio-desktime-automation
-- composio-detrack-automation
-- composio-dialmycalls-automation
-- composio-dialpad-automation
-- composio-dictionary-api-automation
-- composio-diffbot-automation
-- composio-digicert-automation
-- composio-digital-ocean-automation
-- composio-discordbot-automation
-- composio-dnsfilter-automation
-- composio-dock-certs-automation
-- composio-docker-hub-automation
-- composio-docker_hub-automation
-- composio-docmosis-automation
-- composio-docnify-automation
-- composio-docsbot-ai-automation
-- composio-docsumo-automation
-- composio-docugenerate-automation
-- composio-documenso-automation
-- composio-documint-automation
-- composio-docupilot-automation
-- composio-docupost-automation
-- composio-docuseal-automation
-- composio-doppler-marketing-automation-automation
-- composio-doppler-secretops-automation
-- composio-dotsimple-automation
-- composio-dovetail-automation
-- composio-dpd2-automation
-- composio-draftable-automation
-- composio-dreamstudio-automation
-- composio-drip-jobs-automation
-- composio-dripcel-automation
-- composio-dromo-automation
-- composio-dropbox-sign-automation
-- composio-dropcontact-automation
-- composio-dungeon-fighter-online-automation
-- composio-dynamics365-automation
-- composio-echtpost-automation
-- composio-elevenlabs-automation
-- composio-elorus-automation
-- composio-emailable-automation
-- composio-emaillistverify-automation
-- composio-emailoctopus-automation
-- composio-emelia-automation
-- composio-encodian-automation
-- composio-endorsal-automation
-- composio-enginemailer-automation
-- composio-enigma-automation
-- composio-entelligence-automation
-- composio-eodhd-apis-automation
-- composio-epic-games-automation
-- composio-esignatures-io-automation
-- composio-espocrm-automation
-- composio-esputnik-automation
-- composio-etermin-automation
-- composio-evenium-automation
-- composio-eventbrite-automation
-- composio-eventee-automation
-- composio-eventzilla-automation
-- composio-everhour-automation
-- composio-eversign-automation
-- composio-exa-automation
-- composio-excel-automation
-- composio-exist-automation
-- composio-expofp-automation
-- composio-extracta-ai-automation
-- composio-facebook-automation
-- composio-faceup-automation
-- composio-factorial-automation
-- composio-feathery-automation
-- composio-felt-automation
-- composio-fibery-automation
-- composio-fidel-api-automation
-- composio-files-com-automation
-- composio-fillout-forms-automation
-- composio-fillout_forms-automation
-- composio-finage-automation
-- composio-findymail-automation
-- composio-finerworks-automation
-- composio-fingertip-automation
-- composio-finmei-automation
-- composio-fireberry-automation
-- composio-firecrawl-automation
-- composio-fireflies-automation
-- composio-firmao-automation
-- composio-fitbit-automation
-- composio-fixer-automation
-- composio-fixer-io-automation
-- composio-flexisign-automation
-- composio-flowiseai-automation
-- composio-flutterwave-automation
-- composio-fluxguard-automation
-- composio-folk-automation
-- composio-fomo-automation
-- composio-forcemanager-automation
-- composio-formbricks-automation
-- composio-formcarry-automation
-- composio-formdesk-automation
-- composio-formsite-automation
-- composio-foursquare-automation
-- composio-fraudlabs-pro-automation
-- composio-freshbooks-automation
-- composio-front-automation
-- composio-fullenrich-automation
-- composio-gagelist-automation
-- composio-gamma-automation
-- composio-gan-ai-automation
-- composio-gatherup-automation
-- composio-gemini-automation
-- composio-gender-api-automation
-- composio-genderapi-io-automation
-- composio-genderize-automation
-- composio-geoapify-automation
-- composio-geocodio-automation
-- composio-geokeo-automation
-- composio-getform-automation
-- composio-gift-up-automation
-- composio-gigasheet-automation
-- composio-giphy-automation
-- composio-gist-automation
-- composio-givebutter-automation
-- composio-gladia-automation
-- composio-gleap-automation
-- composio-globalping-automation
-- composio-go-to-webinar-automation
-- composio-godial-automation
-- composio-gong-automation
-- composio-goodbits-automation
-- composio-goody-automation
-- composio-google-address-validation-automation
-- composio-google-admin-automation
-- composio-google-classroom-automation
-- composio-google-cloud-vision-automation
-- composio-google-maps-automation
-- composio-google-search-console-automation
-- composio-google_admin-automation
-- composio-google_classroom-automation
-- composio-google_maps-automation
-- composio-google_search_console-automation
-- composio-googleads-automation
-- composio-googlebigquery-automation
-- composio-googlecalendar-automation
-- composio-googledocs-automation
-- composio-googledrive-automation
-- composio-googlemeet-automation
-- composio-googlephotos-automation
-- composio-googleslides-automation
-- composio-googlesuper-automation
-- composio-googletasks-automation
-- composio-gorgias-automation
-- composio-gosquared-automation
-- composio-grafbase-automation
-- composio-graphhopper-automation
-- composio-griptape-automation
-- composio-grist-automation
-- composio-groqcloud-automation
-- composio-gumroad-automation
-- composio-habitica-automation
-- composio-hackernews-automation
-- composio-happy-scribe-automation
-- composio-harvest-automation
-- composio-hashnode-automation
-- composio-helcim-automation
-- composio-helloleads-automation
-- composio-helpwise-automation
-- composio-here-automation
-- composio-heygen-automation
-- composio-heyreach-automation
-- composio-heyzine-automation
-- composio-highergov-automation
-- composio-highlevel-automation
-- composio-honeybadger-automation
-- composio-honeyhive-automation
-- composio-hookdeck-automation
-- composio-hotspotsystem-automation
-- composio-html-to-image-automation
-- composio-humanitix-automation
-- composio-humanloop-automation
-- composio-hunter-automation
-- composio-hypeauditor-automation
-- composio-hyperbrowser-automation
-- composio-hyperise-automation
-- composio-hystruct-automation
-- composio-icims-talent-cloud-automation
-- composio-icypeas-automation
-- composio-idea-scale-automation
-- composio-identitycheck-automation
-- composio-ignisign-automation
-- composio-imagekit-io-automation
-- composio-imgbb-automation
-- composio-imgix-automation
-- composio-influxdb-cloud-automation
-- composio-insighto-ai-automation
-- composio-instacart-automation
-- composio-instantly-automation
-- composio-intelliprint-automation
-- composio-interzoid-automation
-- composio-ip2location-automation
-- composio-ip2location-io-automation
-- composio-ip2proxy-automation
-- composio-ip2whois-automation
-- composio-ipdata-co-automation
-- composio-ipinfo-io-automation
-- composio-iqair-airvisual-automation
-- composio-jigsawstack-automation
-- composio-jobnimbus-automation
-- composio-jotform-automation
-- composio-jumpcloud-automation
-- composio-junglescout-automation
-- composio-kadoa-automation
-- composio-kaggle-automation
-- composio-kaleido-automation
-- composio-keap-automation
-- composio-keen-io-automation
-- composio-kickbox-automation
-- composio-kit-automation
-- composio-klipfolio-automation
-- composio-ko-fi-automation
-- composio-kommo-automation
-- composio-kontent-ai-automation
-- composio-kraken-io-automation
-- composio-l2s-automation
-- composio-labs64-netlicensing-automation
-- composio-landbot-automation
-- composio-langbase-automation
-- composio-lastpass-automation
-- composio-launch-darkly-automation
-- composio-launch_darkly-automation
-- composio-leadfeeder-automation
-- composio-leadoku-automation
-- composio-leiga-automation
-- composio-lemlist-automation
-- composio-lemon-squeezy-automation
-- composio-lemon_squeezy-automation
-- composio-lessonspace-automation
-- composio-lever-automation
-- composio-lever-sandbox-automation
-- composio-leverly-automation
-- composio-lexoffice-automation
-- composio-linguapop-automation
-- composio-linkhut-automation
-- composio-linkup-automation
-- composio-listclean-automation
-- composio-listennotes-automation
-- composio-livesession-automation
-- composio-lmnt-automation
-- composio-lodgify-automation
-- composio-logo-dev-automation
-- composio-loomio-automation
-- composio-loyverse-automation
-- composio-magnetic-automation
-- composio-mailbluster-automation
-- composio-mailboxlayer-automation
-- composio-mailcheck-automation
-- composio-mailcoach-automation
-- composio-mailerlite-automation
-- composio-mailersend-automation
-- composio-mails-so-automation
-- composio-mailsoftly-automation
-- composio-maintainx-automation
-- composio-many-chat-automation
-- composio-many_chat-automation
-- composio-mapbox-automation
-- composio-mapulus-automation
-- composio-mboum-automation
-- composio-melo-automation
-- composio-mem-automation
-- composio-mem0-automation
-- composio-memberspot-automation
-- composio-memberstack-automation
-- composio-membervault-automation
-- composio-metaads-automation
-- composio-metaphor-automation
-- composio-mezmo-automation
-- composio-microsoft-clarity-automation
-- composio-microsoft-tenant-automation
-- composio-microsoft_clarity-automation
-- composio-minerstat-automation
-- composio-missive-automation
-- composio-mistral-ai-automation
-- composio-mistral_ai-automation
-- composio-mocean-automation
-- composio-moco-automation
-- composio-modelry-automation
-- composio-moneybird-automation
-- composio-moonclerk-automation
-- composio-moosend-automation
-- composio-mopinion-automation
-- composio-more-trees-automation
-- composio-moxie-automation
-- composio-moz-automation
-- composio-msg91-automation
-- composio-mural-automation
-- composio-mx-technologies-automation
-- composio-mx-toolbox-automation
-- composio-nango-automation
-- composio-nano-nets-automation
-- composio-nasa-automation
-- composio-nasdaq-automation
-- composio-ncscale-automation
-- composio-needle-automation
-- composio-neon-automation
-- composio-netsuite-automation
-- composio-neuronwriter-automation
-- composio-neutrino-automation
-- composio-neverbounce-automation
-- composio-new-relic-automation
-- composio-new_relic-automation
-- composio-news-api-automation
-- composio-nextdns-automation
-- composio-ngrok-automation
-- composio-ninox-automation
-- composio-nocrm-io-automation
-- composio-npm-automation
-- composio-ocr-web-service-automation
-- composio-ocrspace-automation
-- composio-omnisend-automation
-- composio-oncehub-automation
-- composio-onedesk-automation
-- composio-onepage-automation
-- composio-onesignal-rest-api-automation
-- composio-onesignal-user-auth-automation
-- composio-onesignal_rest_api-automation
-- composio-open-sea-automation
-- composio-openai-automation
-- composio-opencage-automation
-- composio-opengraph-io-automation
-- composio-openperplex-automation
-- composio-openrouter-automation
-- composio-openweather-api-automation
-- composio-optimoroute-automation
-- composio-owl-protocol-automation
-- composio-page-x-automation
-- composio-pandadoc-automation
-- composio-paradym-automation
-- composio-parallel-automation
-- composio-parma-automation
-- composio-parsehub-automation
-- composio-parsera-automation
-- composio-parseur-automation
-- composio-passcreator-automation
-- composio-passslot-automation
-- composio-payhip-automation
-- composio-pdf-api-io-automation
-- composio-pdf-co-automation
-- composio-pdf4me-automation
-- composio-pdfless-automation
-- composio-pdfmonkey-automation
-- composio-peopledatalabs-automation
-- composio-perigon-automation
-- composio-perplexityai-automation
-- composio-persistiq-automation
-- composio-pexels-automation
-- composio-phantombuster-automation
-- composio-piggy-automation
-- composio-piloterr-automation
-- composio-pilvio-automation
-- composio-pingdom-automation
-- composio-pipeline-crm-automation
-- composio-placekey-automation
-- composio-placid-automation
-- composio-plain-automation
-- composio-plasmic-automation
-- composio-platerecognizer-automation
-- composio-plisio-automation
-- composio-polygon-automation
-- composio-polygon-io-automation
-- composio-poptin-automation
-- composio-postgrid-automation
-- composio-postgrid-verify-automation
-- composio-precoro-automation
-- composio-prerender-automation
-- composio-printautopilot-automation
-- composio-prisma-automation
-- composio-prismic-automation
-- composio-process-street-automation
-- composio-procfu-automation
-- composio-productboard-automation
-- composio-productlane-automation
-- composio-project-bubble-automation
-- composio-proofly-automation
-- composio-proxiedmail-automation
-- composio-pushbullet-automation
-- composio-pushover-automation
-- composio-quaderno-automation
-- composio-qualaroo-automation
-- composio-quickbooks-automation
-- composio-radar-automation
-- composio-rafflys-automation
-- composio-ragic-automation
-- composio-raisely-automation
-- composio-ramp-automation
-- composio-ravenseotools-automation
-- composio-re-amaze-automation
-- composio-realphonevalidation-automation
-- composio-recallai-automation
-- composio-recruitee-automation
-- composio-refiner-automation
-- composio-remarkety-automation
-- composio-remote-retrieval-automation
-- composio-remove-bg-automation
-- composio-renderform-automation
-- composio-repairshopr-automation
-- composio-replicate-automation
-- composio-reply-automation
-- composio-reply-io-automation
-- composio-resend-automation
-- composio-respond-io-automation
-- composio-retailed-automation
-- composio-retellai-automation
-- composio-retently-automation
-- composio-rev-ai-automation
-- composio-revolt-automation
-- composio-ring-central-automation
-- composio-ring_central-automation
-- composio-rippling-automation
-- composio-ritekit-automation
-- composio-rkvst-automation
-- composio-rocketlane-automation
-- composio-rootly-automation
-- composio-rosette-text-analytics-automation
-- composio-route4me-automation
-- composio-safetyculture-automation
-- composio-sage-automation
-- composio-salesforce-marketing-cloud-automation
-- composio-salesforce-service-cloud-automation
-- composio-salesmate-automation
-- composio-sap-successfactors-automation
-- composio-satismeter-automation
-- composio-scrape-do-automation
-- composio-scrapegraph-ai-automation
-- composio-scrapfly-automation
-- composio-scrapingant-automation
-- composio-scrapingbee-automation
-- composio-screenshot-fyi-automation
-- composio-screenshotone-automation
-- composio-seat-geek-automation
-- composio-securitytrails-automation
-- composio-segmetrics-automation
-- composio-seismic-automation
-- composio-semanticscholar-automation
-- composio-semrush-automation
-- composio-sendbird-ai-chabot-automation
-- composio-sendbird-automation
-- composio-sendfox-automation
-- composio-sendlane-automation
-- composio-sendloop-automation
-- composio-sendspark-automation
-- composio-sensibo-automation
-- composio-seqera-automation
-- composio-serpapi-automation
-- composio-serpdog-automation
-- composio-serply-automation
-- composio-servicem8-automation
-- composio-sevdesk-automation
-- composio-share-point-automation
-- composio-share_point-automation
-- composio-shipengine-automation
-- composio-short-io-automation
-- composio-short-menu-automation
-- composio-shortcut-automation
-- composio-shorten-rest-automation
-- composio-shortpixel-automation
-- composio-shotstack-automation
-- composio-sidetracker-automation
-- composio-signaturely-automation
-- composio-signpath-automation
-- composio-signwell-automation
-- composio-similarweb-digitalrank-api-automation
-- composio-similarweb_digitalrank_api-automation
-- composio-simla-com-automation
-- composio-simple-analytics-automation
-- composio-simplesat-automation
-- composio-sitespeakai-automation
-- composio-skyfire-automation
-- composio-slackbot-automation
-- composio-smartproxy-automation
-- composio-smartrecruiters-automation
-- composio-sms-alert-automation
-- composio-smtp2go-automation
-- composio-smugmug-automation
-- composio-snowflake-automation
-- composio-sourcegraph-automation
-- composio-splitwise-automation
-- composio-spoki-automation
-- composio-spondyr-automation
-- composio-spotify-automation
-- composio-spotlightr-automation
-- composio-sslmate-cert-spotter-api-automation
-- composio-stack-exchange-automation
-- composio-stannp-automation
-- composio-starton-automation
-- composio-statuscake-automation
-- composio-storeganise-automation
-- composio-storerocket-automation
-- composio-stormglass-io-automation
-- composio-strava-automation
-- composio-streamtime-automation
-- composio-supadata-automation
-- composio-superchat-automation
-- composio-supportbee-automation
-- composio-supportivekoala-automation
-- composio-survey-monkey-automation
-- composio-survey_monkey-automation
-- composio-svix-automation
-- composio-sympla-automation
-- composio-synthflow-ai-automation
-- composio-taggun-automation
-- composio-talenthr-automation
-- composio-tally-automation
-- composio-tapfiliate-automation
-- composio-tapform-automation
-- composio-tavily-automation
-- composio-taxjar-automation
-- composio-teamcamp-automation
-- composio-telnyx-automation
-- composio-teltel-automation
-- composio-templated-automation
-- composio-test-app-automation
-- composio-text-to-pdf-automation
-- composio-textcortex-automation
-- composio-textit-automation
-- composio-textrazor-automation
-- composio-thanks-io-automation
-- composio-the-odds-api-automation
-- composio-ticketmaster-automation
-- composio-ticktick-automation
-- composio-timecamp-automation
-- composio-timekit-automation
-- composio-timelinesai-automation
-- composio-timelink-automation
-- composio-timely-automation
-- composio-tinyurl-automation
-- composio-tisane-automation
-- composio-toggl-automation
-- composio-token-metrics-automation
-- composio-tomba-automation
-- composio-tomtom-automation
-- composio-toneden-automation
-- composio-tpscheck-automation
-- composio-triggercmd-automation
-- composio-tripadvisor-content-api-automation
-- composio-turbot-pipes-automation
-- composio-turso-automation
-- composio-twelve-data-automation
-- composio-twitch-automation
-- composio-twocaptcha-automation
-- composio-typefully-automation
-- composio-typless-automation
-- composio-u301-automation
-- composio-unione-automation
-- composio-updown-io-automation
-- composio-uploadcare-automation
-- composio-uptimerobot-automation
-- composio-userlist-automation
-- composio-v0-automation
-- composio-venly-automation
-- composio-veo-automation
-- composio-verifiedemail-automation
-- composio-veriphone-automation
-- composio-vero-automation
-- composio-vestaboard-automation
-- composio-virustotal-automation
-- composio-visme-automation
-- composio-waboxapp-automation
-- composio-wachete-automation
-- composio-waiverfile-automation
-- composio-wakatime-automation
-- composio-wati-automation
-- composio-wave-accounting-automation
-- composio-wave_accounting-automation
-- composio-weathermap-automation
-- composio-webex-automation
-- composio-webscraping-ai-automation
-- composio-webvizio-automation
-- composio-whautomate-automation
-- composio-winston-ai-automation
-- composio-wit-ai-automation
-- composio-wiz-automation
-- composio-wolfram-alpha-api-automation
-- composio-woodpecker-co-automation
-- composio-workable-automation
-- composio-workday-automation
-- composio-workiom-automation
-- composio-worksnaps-automation
-- composio-writer-automation
-- composio-xero-automation
-- composio-y-gy-automation
-- composio-yandex-automation
-- composio-yelp-automation
-- composio-ynab-automation
-- composio-yousearch-automation
-- composio-zenrows-automation
-- composio-zenserp-automation
-- composio-zeplin-automation
-- composio-zerobounce-automation
-- composio-zoho-automation
-- composio-zoho-bigin-automation
-- composio-zoho-books-automation
-- composio-zoho-desk-automation
-- composio-zoho-inventory-automation
-- composio-zoho-invoice-automation
-- composio-zoho-mail-automation
-- composio-zoho_bigin-automation
-- composio-zoho_books-automation
-- composio-zoho_desk-automation
-- composio-zoho_inventory-automation
-- composio-zoho_invoice-automation
-- composio-zoho_mail-automation
-- composio-zoominfo-automation
-- composio-zylvie-automation
-- composio-zyte-api-automation
+- **connect**: Kết nối và đồng bộ dữ liệu giữa các dịch vụ
+- **connect-apps**: Kết nối ứng dụng bên thứ ba
 
 ### Development / Growth
-- developer-growth-analysis
-- domain-name-brainstormer
-- file-organizer
-- gpt-tasteskill
-- invoice-organizer
-- langsmith-fetch
-- lead-research-assistant
-- meeting-insights-analyzer
-- raffle-winner-picker
-- tailored-resume-generator
-- twitter-algorithm-optimizer
 
-### i-have-adhd (default output style for this project)
-- i-have-adhd
+- **developer-growth-analysis**: Phân tích lộ trình phát triển của lập trình viên
+- **domain-name-brainstormer**: Gợi ý tên miền cho dự án
+- **file-organizer**: Sắp xếp và phân loại file tự động
+- **gpt-tasteskill**: Skill đánh giá chất lượng (taste) cho GPT
+- **invoice-organizer**: Quản lý và sắp xếp hóa đơn
+- **langsmith-fetch**: Lấy và phân tích dữ liệu từ LangSmith
 
-### Internal Comms
-- internal-comms
+### Output Style
+
+- **i-have-adhd**: Định dạng output cho người ADHD: ngắn gọn, hành động trước, đánh số bước
+- **minimalist-skill**: Định dạng output tối giản, súc tích
+- **output-skill**: Tùy chỉnh định dạng output của Claude
+- **soft-skill**: Định dạng output nhẹ nhàng, thân thiện
 
 ### Matt Pocock Skills
-- matt-ask-matt
-- matt-batch-grill-me
-- matt-claude-handoff
-- matt-code-review
-- matt-codebase-design
-- matt-design-an-interface
-- matt-diagnosing-bugs
-- matt-domain-modeling
-- matt-edit-article
-- matt-git-guardrails-claude-code
-- matt-grill-me
-- matt-grill-with-docs
-- matt-grilling
-- matt-handoff
-- matt-implement
-- matt-improve-codebase-architecture
-- matt-loop-me
-- matt-migrate-to-shoehorn
-- matt-obsidian-vault
-- matt-prototype
-- matt-qa
-- matt-request-refactor-plan
-- matt-research
-- matt-resolving-merge-conflicts
-- matt-scaffold-exercises
-- matt-setup-matt-pocock-skills
-- matt-setup-pre-commit
-- matt-setup-ts-deep-modules
-- matt-tdd
-- matt-teach
-- matt-to-questionnaire
-- matt-to-spec
-- matt-to-tickets
-- matt-triage
-- matt-ubiquitous-language
-- matt-wayfinder
-- matt-wizard
-- matt-writing-beats
-- matt-writing-fragments
-- matt-writing-great-skills
-- matt-writing-shape
+
+- **matt-ask-matt**: Hỏi Matt Pocock về chuyên môn qua skill
+- **matt-batch-grill-me**: Kiểm tra batch nhiều file cùng lúc
+- **matt-claude-handoff**: Bàn giao công việc giữa Claude và người dùng
+- **matt-code-review**: Review code với Matt Pocock
+- **matt-codebase-design**: Thiết kế kiến trúc codebase
+- **matt-design-an-interface**: Thiết kế giao diện người dùng
+- **matt-diagnosing-bugs**: Chẩn đoán và sửa lỗi
+- **matt-domain-modeling**: Mô hình hóa domain (DDD)
+- **matt-edit-article**: Chỉnh sửa bài viết kỹ thuật
+- **matt-git-guardrails-claude-code**: Ràng buộc git an toàn cho Claude Code
+- **matt-grill-me**: Kiểm tra kiến thức chuyên sâu
+- **matt-grill-with-docs**: Kiểm tra kiến thức dựa trên tài liệu
+- **matt-grilling**: Kiểm tra chất lượng code liên tục
+- **matt-handoff**: Bàn giao công việc giữa các agent
+- **matt-implement**: Triển khai code từ spec
+- **matt-improve-codebase-architecture**: Cải thiện kiến trúc codebase
+- **matt-loop-me**: Chạy loop kiểm tra liên tục
+- **matt-migrate-to-shoehorn**: Di chuyển codebase sang Shoehorn pattern
+- **matt-obsidian-vault**: Quản lý vault Obsidian
+- **matt-prototype**: Tạo prototype nhanh
+- **matt-qa**: Kiểm tra chất lượng và QA
+- **matt-request-refactor-plan**: Lên kế hoạch refactor code
+- **matt-research**: Nghiên cứu kỹ thuật chuyên sâu
+- **matt-resolving-merge-conflicts**: Giải quyết xung đột merge
+- **matt-scaffold-exercises**: Tạo bài tập lập trình
+- **matt-setup-matt-pocock-skills**: Thiết lập toàn bộ Matt Pocock skills
+- **matt-setup-pre-commit**: Thiết lập pre-commit hooks
+- **matt-setup-ts-deep-modules**: Cấu hình TypeScript deep modules
+- **matt-tdd**: Phát triển theo TDD (Test-Driven Development)
+- **matt-teach**: Giảng dạy kiến thức lập trình
+- **matt-to-questionnaire**: Chuyển đổi yêu cầu thành câu hỏi khảo sát
+- **matt-to-spec**: Chuyển đổi yêu cầu thành spec kỹ thuật
+- **matt-to-tickets**: Chuyển đổi yêu cầu thành ticket
+- **matt-triage**: Phân loại và ưu tiên issue
+- **matt-ubiquitous-language**: Xây dựng ngôn ngữ chung (ubiquitous language)
+- **matt-wayfinder**: Định hướng kiến trúc cho dự án
+- **matt-wizard**: Hướng dẫn từng bước theo phong cách wizard
+- **matt-writing-beats**: Viết kịch bản theo cấu trúc beats
+- **matt-writing-fragments**: Viết đoạn văn ngắn, súc tích
+- **matt-writing-great-skills**: Viết skill Claude chất lượng cao
+- **matt-writing-shape**: Định hình cấu trúc bài viết
 
 ### MCP Builder
-- mcp-builder
 
-### Minimalist / Output / Soft
-- minimalist-skill
-- output-skill
-- soft-skill
+- **mcp-builder**: Xây dựng MCP (Model Context Protocol) server
 
 ### Ponytail Suite
-- ponytail
-- ponytail-audit
-- ponytail-debt
-- ponytail-gain
-- ponytail-help
-- ponytail-review
 
-### Redesign / Theme
-- redesign-skill
-- theme-factory
+- **ponytail**: Hỗ trợ ghi chú và quản lý kiến thức
+- **ponytail-audit**: Kiểm toán ghi chú Ponytail
+- **ponytail-debt**: Quản lý nợ kỹ thuật trong ghi chú
+- **ponytail-gain**: Tối ưu giá trị ghi chú
+- **ponytail-help**: Trợ giúp sử dụng Ponytail
+- **ponytail-review**: Review ghi chú Ponytail
 
 ### Skill Management
-- skill-creator
-- skill-share
+
+- **skill-creator**: Tạo skill mới cho Claude Code
+- **skill-share**: Chia sẻ skill với cộng đồng
+- **template-skill**: Template để tạo skill mới
 
 ### Slack
-- slack-gif-creator
+
+- **slack-gif-creator**: Tạo GIF động gửi Slack
 
 ### Stitch Skills
-- stitch-build-react-components
-- stitch-build-react-native
-- stitch-build-react-vite-dashboard
-- stitch-build-remotion
-- stitch-build-shadcn-ui
-- stitch-design-code-to-design
-- stitch-design-extract-design-md
-- stitch-design-extract-static-html
-- stitch-design-generate-design
-- stitch-design-manage-design-system
-- stitch-design-upload-to-stitch
-- stitch-skill
-- stitch-utilities-design-md
-- stitch-utilities-enhance-prompt
-- stitch-utilities-stitch-loop
-- stitch-utilities-taste-design
 
-### Taste / Template
-- taste-skill
-- taste-skill-v1
-- template-skill
+- **stitch-build-react-components**: Xây dựng React components với Google Stitch
+- **stitch-build-react-native**: Xây dựng React Native app với Stitch
+- **stitch-build-react-vite-dashboard**: Xây dựng dashboard React + Vite với Stitch
+- **stitch-build-remotion**: Xây dựng video với Remotion + Stitch
+- **stitch-build-shadcn-ui**: Xây dựng UI với shadcn/ui + Stitch
+- **stitch-design-code-to-design**: Chuyển code thành design spec cho Stitch
+- **stitch-design-extract-design-md**: Trích xuất design system thành file DESIGN.md
+- **stitch-design-extract-static-html**: Trích xuất thiết kế từ HTML tĩnh
+- **stitch-design-generate-design**: Tạo design system với Stitch
+- **stitch-design-manage-design-system**: Quản lý design system với Stitch
+- **stitch-design-upload-to-stitch**: Upload thiết kế lên Google Stitch
+- **stitch-skill**: Tích hợp Google Stitch tổng hợp
+- **stitch-utilities-design-md**: Tiện ích xử lý file DESIGN.md cho Stitch
+- **stitch-utilities-enhance-prompt**: Nâng cao prompt cho Stitch
+- **stitch-utilities-stitch-loop**: Vòng lặp tinh chỉnh thiết kế với Stitch
+- **stitch-utilities-taste-design**: Đánh giá chất lượng thiết kế Stitch
 
-### Turnstile / Video
-- turnstile-spin
-- video-downloader
+### Taste
+
+- **taste-skill**: Đánh giá và cải thiện chất lượng code
+- **taste-skill-v1**: Phiên bản 1 của skill đánh giá chất lượng
+
+### Media
+
+- **turnstile-spin**: Tạo spinner/xoay vòng nội dung
+- **video-downloader**: Tải video từ URL
 
 ### Web App Testing
-- webapp-testing
+
+- **webapp-testing**: Kiểm thử ứng dụng web tự động
+
+### Composio Automations (832 skills)
+
+- **composio--21risk-automation**: Tự động hóa 21Risk qua tích hợp Composio MCP
+- **composio--2chat-automation**: Tự động hóa 2Chat qua tích hợp Composio MCP
+- **composio-ably-automation**: Tự động hóa Ably qua tích hợp Composio MCP
+- **composio-abstract-automation**: Tự động hóa Abstract qua tích hợp Composio MCP
+- **composio-abuselpdb-automation**: Tự động hóa Abuselpdb qua tích hợp Composio MCP
+- **composio-abyssale-automation**: Tự động hóa Abyssale qua tích hợp Composio MCP
+- **composio-accelo-automation**: Tự động hóa Accelo qua tích hợp Composio MCP
+- **composio-accredible-certificates-automation**: Tự động hóa Accredible Certificates qua tích hợp Composio MCP
+- **composio-acculynx-automation**: Tự động hóa Acculynx qua tích hợp Composio MCP
+- **composio-active-campaign-automation**: Tự động hóa Active Campaign qua tích hợp Composio MCP
+- **composio-addresszen-automation**: Tự động hóa Addresszen qua tích hợp Composio MCP
+- **composio-adobe-automation**: Tự động hóa Adobe qua tích hợp Composio MCP
+- **composio-adrapid-automation**: Tự động hóa Adrapid qua tích hợp Composio MCP
+- **composio-adyntel-automation**: Tự động hóa Adyntel qua tích hợp Composio MCP
+- **composio-aero-workflow-automation**: Tự động hóa Aero Workflow qua tích hợp Composio MCP
+- **composio-aeroleads-automation**: Tự động hóa Aeroleads qua tích hợp Composio MCP
+- **composio-affinda-automation**: Tự động hóa Affinda qua tích hợp Composio MCP
+- **composio-affinity-automation**: Tự động hóa Affinity qua tích hợp Composio MCP
+- **composio-agencyzoom-automation**: Tự động hóa Agencyzoom qua tích hợp Composio MCP
+- **composio-agent-mail-automation**: Tự động hóa Agent Mail qua tích hợp Composio MCP
+- **composio-agentql-automation**: Tự động hóa Agentql qua tích hợp Composio MCP
+- **composio-agenty-automation**: Tự động hóa Agenty qua tích hợp Composio MCP
+- **composio-agiled-automation**: Tự động hóa Agiled qua tích hợp Composio MCP
+- **composio-agility-cms-automation**: Tự động hóa Agility Cms qua tích hợp Composio MCP
+- **composio-ahrefs-automation**: Tự động hóa Ahrefs qua tích hợp Composio MCP
+- **composio-ai-ml-api-automation**: Tự động hóa Ai Ml Api qua tích hợp Composio MCP
+- **composio-aivoov-automation**: Tự động hóa Aivoov qua tích hợp Composio MCP
+- **composio-alchemy-automation**: Tự động hóa Alchemy qua tích hợp Composio MCP
+- **composio-algodocs-automation**: Tự động hóa Algodocs qua tích hợp Composio MCP
+- **composio-algolia-automation**: Tự động hóa Algolia qua tích hợp Composio MCP
+- **composio-all-images-ai-automation**: Tự động hóa All Images Ai qua tích hợp Composio MCP
+- **composio-alpha-vantage-automation**: Tự động hóa Alpha Vantage qua tích hợp Composio MCP
+- **composio-altoviz-automation**: Tự động hóa Altoviz qua tích hợp Composio MCP
+- **composio-alttext-ai-automation**: Tự động hóa Alttext Ai qua tích hợp Composio MCP
+- **composio-amara-automation**: Tự động hóa Amara qua tích hợp Composio MCP
+- **composio-amazon-automation**: Tự động hóa Amazon qua tích hợp Composio MCP
+- **composio-ambee-automation**: Tự động hóa Ambee qua tích hợp Composio MCP
+- **composio-ambient-weather-automation**: Tự động hóa Ambient Weather qua tích hợp Composio MCP
+- **composio-amcards-automation**: Tự động hóa Amcards qua tích hợp Composio MCP
+- **composio-anchor-browser-automation**: Tự động hóa Anchor Browser qua tích hợp Composio MCP
+- **composio-anonyflow-automation**: Tự động hóa Anonyflow qua tích hợp Composio MCP
+- **composio-anthropic-administrator-automation**: Tự động hóa Anthropic Administrator qua tích hợp Composio MCP
+- **composio-anthropic_administrator-automation**: Tự động hóa Anthropic Administrator qua tích hợp Composio MCP
+- **composio-apaleo-automation**: Tự động hóa Apaleo qua tích hợp Composio MCP
+- **composio-apex27-automation**: Tự động hóa Apex27 qua tích hợp Composio MCP
+- **composio-api-bible-automation**: Tự động hóa Api Bible qua tích hợp Composio MCP
+- **composio-api-labz-automation**: Tự động hóa Api Labz qua tích hợp Composio MCP
+- **composio-api-ninjas-automation**: Tự động hóa Api Ninjas qua tích hợp Composio MCP
+- **composio-api-sports-automation**: Tự động hóa Api Sports qua tích hợp Composio MCP
+- **composio-api2pdf-automation**: Tự động hóa Api2Pdf qua tích hợp Composio MCP
+- **composio-apiflash-automation**: Tự động hóa Apiflash qua tích hợp Composio MCP
+- **composio-apify-automation**: Tự động hóa Apify qua tích hợp Composio MCP
+- **composio-apilio-automation**: Tự động hóa Apilio qua tích hợp Composio MCP
+- **composio-apipie-ai-automation**: Tự động hóa Apipie Ai qua tích hợp Composio MCP
+- **composio-apitemplate-io-automation**: Tự động hóa Apitemplate Io qua tích hợp Composio MCP
+- **composio-apiverve-automation**: Tự động hóa Apiverve qua tích hợp Composio MCP
+- **composio-apollo-automation**: Tự động hóa Apollo qua tích hợp Composio MCP
+- **composio-appcircle-automation**: Tự động hóa Appcircle qua tích hợp Composio MCP
+- **composio-appdrag-automation**: Tự động hóa Appdrag qua tích hợp Composio MCP
+- **composio-appointo-automation**: Tự động hóa Appointo qua tích hợp Composio MCP
+- **composio-appsflyer-automation**: Tự động hóa Appsflyer qua tích hợp Composio MCP
+- **composio-appveyor-automation**: Tự động hóa Appveyor qua tích hợp Composio MCP
+- **composio-aryn-automation**: Tự động hóa Aryn qua tích hợp Composio MCP
+- **composio-ascora-automation**: Tự động hóa Ascora qua tích hợp Composio MCP
+- **composio-ashby-automation**: Tự động hóa Ashby qua tích hợp Composio MCP
+- **composio-asin-data-api-automation**: Tự động hóa Asin Data Api qua tích hợp Composio MCP
+- **composio-astica-ai-automation**: Tự động hóa Astica Ai qua tích hợp Composio MCP
+- **composio-async-interview-automation**: Tự động hóa Async Interview qua tích hợp Composio MCP
+- **composio-atlassian-automation**: Tự động hóa Atlassian qua tích hợp Composio MCP
+- **composio-attio-automation**: Tự động hóa Attio qua tích hợp Composio MCP
+- **composio-auth0-automation**: Tự động hóa Auth0 qua tích hợp Composio MCP
+- **composio-autobound-automation**: Tự động hóa Autobound qua tích hợp Composio MCP
+- **composio-autom-automation**: Tự động hóa Autom qua tích hợp Composio MCP
+- **composio-axonaut-automation**: Tự động hóa Axonaut qua tích hợp Composio MCP
+- **composio-ayrshare-automation**: Tự động hóa Ayrshare qua tích hợp Composio MCP
+- **composio-backendless-automation**: Tự động hóa Backendless qua tích hợp Composio MCP
+- **composio-bannerbear-automation**: Tự động hóa Bannerbear qua tích hợp Composio MCP
+- **composio-bart-automation**: Tự động hóa Bart qua tích hợp Composio MCP
+- **composio-baselinker-automation**: Tự động hóa Baselinker qua tích hợp Composio MCP
+- **composio-baserow-automation**: Tự động hóa Baserow qua tích hợp Composio MCP
+- **composio-basin-automation**: Tự động hóa Basin qua tích hợp Composio MCP
+- **composio-battlenet-automation**: Tự động hóa Battlenet qua tích hợp Composio MCP
+- **composio-beaconchain-automation**: Tự động hóa Beaconchain qua tích hợp Composio MCP
+- **composio-beaconstac-automation**: Tự động hóa Beaconstac qua tích hợp Composio MCP
+- **composio-beamer-automation**: Tự động hóa Beamer qua tích hợp Composio MCP
+- **composio-beeminder-automation**: Tự động hóa Beeminder qua tích hợp Composio MCP
+- **composio-bench-automation**: Tự động hóa Bench qua tích hợp Composio MCP
+- **composio-benchmark-email-automation**: Tự động hóa Benchmark Email qua tích hợp Composio MCP
+- **composio-benzinga-automation**: Tự động hóa Benzinga qua tích hợp Composio MCP
+- **composio-bestbuy-automation**: Tự động hóa Bestbuy qua tích hợp Composio MCP
+- **composio-better-proposals-automation**: Tự động hóa Better Proposals qua tích hợp Composio MCP
+- **composio-better-stack-automation**: Tự động hóa Better Stack qua tích hợp Composio MCP
+- **composio-bidsketch-automation**: Tự động hóa Bidsketch qua tích hợp Composio MCP
+- **composio-big-data-cloud-automation**: Tự động hóa Big Data Cloud qua tích hợp Composio MCP
+- **composio-bigmailer-automation**: Tự động hóa Bigmailer qua tích hợp Composio MCP
+- **composio-bigml-automation**: Tự động hóa Bigml qua tích hợp Composio MCP
+- **composio-bigpicture-io-automation**: Tự động hóa Bigpicture Io qua tích hợp Composio MCP
+- **composio-bitquery-automation**: Tự động hóa Bitquery qua tích hợp Composio MCP
+- **composio-bitwarden-automation**: Tự động hóa Bitwarden qua tích hợp Composio MCP
+- **composio-blackbaud-automation**: Tự động hóa Blackbaud qua tích hợp Composio MCP
+- **composio-blackboard-automation**: Tự động hóa Blackboard qua tích hợp Composio MCP
+- **composio-blocknative-automation**: Tự động hóa Blocknative qua tích hợp Composio MCP
+- **composio-boldsign-automation**: Tự động hóa Boldsign qua tích hợp Composio MCP
+- **composio-bolna-automation**: Tự động hóa Bolna qua tích hợp Composio MCP
+- **composio-boloforms-automation**: Tự động hóa Boloforms qua tích hợp Composio MCP
+- **composio-bolt-iot-automation**: Tự động hóa Bolt Iot qua tích hợp Composio MCP
+- **composio-bonsai-automation**: Tự động hóa Bonsai qua tích hợp Composio MCP
+- **composio-bookingmood-automation**: Tự động hóa Bookingmood qua tích hợp Composio MCP
+- **composio-booqable-automation**: Tự động hóa Booqable qua tích hợp Composio MCP
+- **composio-borneo-automation**: Tự động hóa Borneo qua tích hợp Composio MCP
+- **composio-botbaba-automation**: Tự động hóa Botbaba qua tích hợp Composio MCP
+- **composio-botpress-automation**: Tự động hóa Botpress qua tích hợp Composio MCP
+- **composio-botsonic-automation**: Tự động hóa Botsonic qua tích hợp Composio MCP
+- **composio-botstar-automation**: Tự động hóa Botstar qua tích hợp Composio MCP
+- **composio-bouncer-automation**: Tự động hóa Bouncer qua tích hợp Composio MCP
+- **composio-boxhero-automation**: Tự động hóa Boxhero qua tích hợp Composio MCP
+- **composio-braintree-automation**: Tự động hóa Braintree qua tích hợp Composio MCP
+- **composio-brandfetch-automation**: Tự động hóa Brandfetch qua tích hợp Composio MCP
+- **composio-breeze-automation**: Tự động hóa Breeze qua tích hợp Composio MCP
+- **composio-breezy-hr-automation**: Tự động hóa Breezy Hr qua tích hợp Composio MCP
+- **composio-brex-automation**: Tự động hóa Brex qua tích hợp Composio MCP
+- **composio-brex-staging-automation**: Tự động hóa Brex Staging qua tích hợp Composio MCP
+- **composio-brightdata-automation**: Tự động hóa Brightdata qua tích hợp Composio MCP
+- **composio-brightpearl-automation**: Tự động hóa Brightpearl qua tích hợp Composio MCP
+- **composio-brilliant-directories-automation**: Tự động hóa Brilliant Directories qua tích hợp Composio MCP
+- **composio-browseai-automation**: Tự động hóa Browseai qua tích hợp Composio MCP
+- **composio-browser-tool-automation**: Tự động hóa Browser Tool qua tích hợp Composio MCP
+- **composio-browserbase-tool-automation**: Tự động hóa Browserbase Tool qua tích hợp Composio MCP
+- **composio-browserhub-automation**: Tự động hóa Browserhub qua tích hợp Composio MCP
+- **composio-browserless-automation**: Tự động hóa Browserless qua tích hợp Composio MCP
+- **composio-btcpay-server-automation**: Tự động hóa Btcpay Server qua tích hợp Composio MCP
+- **composio-bubble-automation**: Tự động hóa Bubble qua tích hợp Composio MCP
+- **composio-bugbug-automation**: Tự động hóa Bugbug qua tích hợp Composio MCP
+- **composio-bugherd-automation**: Tự động hóa Bugherd qua tích hợp Composio MCP
+- **composio-bugsnag-automation**: Tự động hóa Bugsnag qua tích hợp Composio MCP
+- **composio-buildkite-automation**: Tự động hóa Buildkite qua tích hợp Composio MCP
+- **composio-builtwith-automation**: Tự động hóa Builtwith qua tích hợp Composio MCP
+- **composio-bunnycdn-automation**: Tự động hóa Bunnycdn qua tích hợp Composio MCP
+- **composio-byteforms-automation**: Tự động hóa Byteforms qua tích hợp Composio MCP
+- **composio-cabinpanda-automation**: Tự động hóa Cabinpanda qua tích hợp Composio MCP
+- **composio-cal-automation**: Tự động hóa Cal qua tích hợp Composio MCP
+- **composio-calendarhero-automation**: Tự động hóa Calendarhero qua tích hợp Composio MCP
+- **composio-callerapi-automation**: Tự động hóa Callerapi qua tích hợp Composio MCP
+- **composio-callingly-automation**: Tự động hóa Callingly qua tích hợp Composio MCP
+- **composio-callpage-automation**: Tự động hóa Callpage qua tích hợp Composio MCP
+- **composio-campaign-cleaner-automation**: Tự động hóa Campaign Cleaner qua tích hợp Composio MCP
+- **composio-campayn-automation**: Tự động hóa Campayn qua tích hợp Composio MCP
+- **composio-canny-automation**: Tự động hóa Canny qua tích hợp Composio MCP
+- **composio-canvas-automation**: Tự động hóa Canvas qua tích hợp Composio MCP
+- **composio-capsule-crm-automation**: Tự động hóa Capsule Crm qua tích hợp Composio MCP
+- **composio-capsule_crm-automation**: Tự động hóa Capsule Crm qua tích hợp Composio MCP
+- **composio-carbone-automation**: Tự động hóa Carbone qua tích hợp Composio MCP
+- **composio-cardly-automation**: Tự động hóa Cardly qua tích hợp Composio MCP
+- **composio-castingwords-automation**: Tự động hóa Castingwords qua tích hợp Composio MCP
+- **composio-cats-automation**: Tự động hóa Cats qua tích hợp Composio MCP
+- **composio-cdr-platform-automation**: Tự động hóa Cdr Platform qua tích hợp Composio MCP
+- **composio-census-bureau-automation**: Tự động hóa Census Bureau qua tích hợp Composio MCP
+- **composio-centralstationcrm-automation**: Tự động hóa Centralstationcrm qua tích hợp Composio MCP
+- **composio-certifier-automation**: Tự động hóa Certifier qua tích hợp Composio MCP
+- **composio-chaser-automation**: Tự động hóa Chaser qua tích hợp Composio MCP
+- **composio-chatbotkit-automation**: Tự động hóa Chatbotkit qua tích hợp Composio MCP
+- **composio-chatfai-automation**: Tự động hóa Chatfai qua tích hợp Composio MCP
+- **composio-chatwork-automation**: Tự động hóa Chatwork qua tích hợp Composio MCP
+- **composio-chmeetings-automation**: Tự động hóa Chmeetings qua tích hợp Composio MCP
+- **composio-cincopa-automation**: Tự động hóa Cincopa qua tích hợp Composio MCP
+- **composio-claid-ai-automation**: Tự động hóa Claid Ai qua tích hợp Composio MCP
+- **composio-classmarker-automation**: Tự động hóa Classmarker qua tích hợp Composio MCP
+- **composio-clearout-automation**: Tự động hóa Clearout qua tích hợp Composio MCP
+- **composio-clickmeeting-automation**: Tự động hóa Clickmeeting qua tích hợp Composio MCP
+- **composio-clockify-automation**: Tự động hóa Clockify qua tích hợp Composio MCP
+- **composio-cloudcart-automation**: Tự động hóa Cloudcart qua tích hợp Composio MCP
+- **composio-cloudconvert-automation**: Tự động hóa Cloudconvert qua tích hợp Composio MCP
+- **composio-cloudflare-api-key-automation**: Tự động hóa Cloudflare Api Key qua tích hợp Composio MCP
+- **composio-cloudflare-automation**: Tự động hóa Cloudflare qua tích hợp Composio MCP
+- **composio-cloudflare-browser-rendering-automation**: Tự động hóa Cloudflare Browser Rendering qua tích hợp Composio MCP
+- **composio-cloudinary-automation**: Tự động hóa Cloudinary qua tích hợp Composio MCP
+- **composio-cloudlayer-automation**: Tự động hóa Cloudlayer qua tích hợp Composio MCP
+- **composio-cloudpress-automation**: Tự động hóa Cloudpress qua tích hợp Composio MCP
+- **composio-coassemble-automation**: Tự động hóa Coassemble qua tích hợp Composio MCP
+- **composio-codacy-automation**: Tự động hóa Codacy qua tích hợp Composio MCP
+- **composio-codeinterpreter-automation**: Tự động hóa Codeinterpreter qua tích hợp Composio MCP
+- **composio-codereadr-automation**: Tự động hóa Codereadr qua tích hợp Composio MCP
+- **composio-coinbase-automation**: Tự động hóa Coinbase qua tích hợp Composio MCP
+- **composio-coinmarketcal-automation**: Tự động hóa Coinmarketcal qua tích hợp Composio MCP
+- **composio-coinmarketcap-automation**: Tự động hóa Coinmarketcap qua tích hợp Composio MCP
+- **composio-coinranking-automation**: Tự động hóa Coinranking qua tích hợp Composio MCP
+- **composio-college-football-data-automation**: Tự động hóa College Football Data qua tích hợp Composio MCP
+- **composio-composio-automation**: Tự động hóa Automation qua tích hợp Composio MCP
+- **composio-composio-search-automation**: Tự động hóa Search qua tích hợp Composio MCP
+- **composio-connecteam-automation**: Tự động hóa Connecteam qua tích hợp Composio MCP
+- **composio-contentful-automation**: Tự động hóa Contentful qua tích hợp Composio MCP
+- **composio-contentful-graphql-automation**: Tự động hóa Contentful Graphql qua tích hợp Composio MCP
+- **composio-control-d-automation**: Tự động hóa Control D qua tích hợp Composio MCP
+- **composio-conversion-tools-automation**: Tự động hóa Conversion Tools qua tích hợp Composio MCP
+- **composio-convertapi-automation**: Tự động hóa Convertapi qua tích hợp Composio MCP
+- **composio-conveyor-automation**: Tự động hóa Conveyor qua tích hợp Composio MCP
+- **composio-convolo-ai-automation**: Tự động hóa Convolo Ai qua tích hợp Composio MCP
+- **composio-corrently-automation**: Tự động hóa Corrently qua tích hợp Composio MCP
+- **composio-countdown-api-automation**: Tự động hóa Countdown Api qua tích hợp Composio MCP
+- **composio-coupa-automation**: Tự động hóa Coupa qua tích hợp Composio MCP
+- **composio-craftmypdf-automation**: Tự động hóa Craftmypdf qua tích hợp Composio MCP
+- **composio-crowdin-automation**: Tự động hóa Crowdin qua tích hợp Composio MCP
+- **composio-crustdata-automation**: Tự động hóa Crustdata qua tích hợp Composio MCP
+- **composio-cults-automation**: Tự động hóa Cults qua tích hợp Composio MCP
+- **composio-curated-automation**: Tự động hóa Curated qua tích hợp Composio MCP
+- **composio-currents-api-automation**: Tự động hóa Currents Api qua tích hợp Composio MCP
+- **composio-customerio-automation**: Tự động hóa Customerio qua tích hợp Composio MCP
+- **composio-customgpt-automation**: Tự động hóa Customgpt qua tích hợp Composio MCP
+- **composio-customjs-automation**: Tự động hóa Customjs qua tích hợp Composio MCP
+- **composio-cutt-ly-automation**: Tự động hóa Cutt Ly qua tích hợp Composio MCP
+- **composio-d2lbrightspace-automation**: Tự động hóa D2Lbrightspace qua tích hợp Composio MCP
+- **composio-dadata-ru-automation**: Tự động hóa Dadata Ru qua tích hợp Composio MCP
+- **composio-daffy-automation**: Tự động hóa Daffy qua tích hợp Composio MCP
+- **composio-dailybot-automation**: Tự động hóa Dailybot qua tích hợp Composio MCP
+- **composio-datagma-automation**: Tự động hóa Datagma qua tích hợp Composio MCP
+- **composio-datarobot-automation**: Tự động hóa Datarobot qua tích hợp Composio MCP
+- **composio-deadline-funnel-automation**: Tự động hóa Deadline Funnel qua tích hợp Composio MCP
+- **composio-deel-automation**: Tự động hóa Deel qua tích hợp Composio MCP
+- **composio-deepgram-automation**: Tự động hóa Deepgram qua tích hợp Composio MCP
+- **composio-demio-automation**: Tự động hóa Demio qua tích hợp Composio MCP
+- **composio-desktime-automation**: Tự động hóa Desktime qua tích hợp Composio MCP
+- **composio-detrack-automation**: Tự động hóa Detrack qua tích hợp Composio MCP
+- **composio-dialmycalls-automation**: Tự động hóa Dialmycalls qua tích hợp Composio MCP
+- **composio-dialpad-automation**: Tự động hóa Dialpad qua tích hợp Composio MCP
+- **composio-dictionary-api-automation**: Tự động hóa Dictionary Api qua tích hợp Composio MCP
+- **composio-diffbot-automation**: Tự động hóa Diffbot qua tích hợp Composio MCP
+- **composio-digicert-automation**: Tự động hóa Digicert qua tích hợp Composio MCP
+- **composio-digital-ocean-automation**: Tự động hóa Digital Ocean qua tích hợp Composio MCP
+- **composio-discordbot-automation**: Tự động hóa Discordbot qua tích hợp Composio MCP
+- **composio-dnsfilter-automation**: Tự động hóa Dnsfilter qua tích hợp Composio MCP
+- **composio-dock-certs-automation**: Tự động hóa Dock Certs qua tích hợp Composio MCP
+- **composio-docker-hub-automation**: Tự động hóa Docker Hub qua tích hợp Composio MCP
+- **composio-docker_hub-automation**: Tự động hóa Docker Hub qua tích hợp Composio MCP
+- **composio-docmosis-automation**: Tự động hóa Docmosis qua tích hợp Composio MCP
+- **composio-docnify-automation**: Tự động hóa Docnify qua tích hợp Composio MCP
+- **composio-docsbot-ai-automation**: Tự động hóa Docsbot Ai qua tích hợp Composio MCP
+- **composio-docsumo-automation**: Tự động hóa Docsumo qua tích hợp Composio MCP
+- **composio-docugenerate-automation**: Tự động hóa Docugenerate qua tích hợp Composio MCP
+- **composio-documenso-automation**: Tự động hóa Documenso qua tích hợp Composio MCP
+- **composio-documint-automation**: Tự động hóa Documint qua tích hợp Composio MCP
+- **composio-docupilot-automation**: Tự động hóa Docupilot qua tích hợp Composio MCP
+- **composio-docupost-automation**: Tự động hóa Docupost qua tích hợp Composio MCP
+- **composio-docuseal-automation**: Tự động hóa Docuseal qua tích hợp Composio MCP
+- **composio-doppler-marketing-automation-automation**: Tự động hóa Doppler Marketing qua tích hợp Composio MCP
+- **composio-doppler-secretops-automation**: Tự động hóa Doppler Secretops qua tích hợp Composio MCP
+- **composio-dotsimple-automation**: Tự động hóa Dotsimple qua tích hợp Composio MCP
+- **composio-dovetail-automation**: Tự động hóa Dovetail qua tích hợp Composio MCP
+- **composio-dpd2-automation**: Tự động hóa Dpd2 qua tích hợp Composio MCP
+- **composio-draftable-automation**: Tự động hóa Draftable qua tích hợp Composio MCP
+- **composio-dreamstudio-automation**: Tự động hóa Dreamstudio qua tích hợp Composio MCP
+- **composio-drip-jobs-automation**: Tự động hóa Drip Jobs qua tích hợp Composio MCP
+- **composio-dripcel-automation**: Tự động hóa Dripcel qua tích hợp Composio MCP
+- **composio-dromo-automation**: Tự động hóa Dromo qua tích hợp Composio MCP
+- **composio-dropbox-sign-automation**: Tự động hóa Dropbox Sign qua tích hợp Composio MCP
+- **composio-dropcontact-automation**: Tự động hóa Dropcontact qua tích hợp Composio MCP
+- **composio-dungeon-fighter-online-automation**: Tự động hóa Dungeon Fighter Online qua tích hợp Composio MCP
+- **composio-dynamics365-automation**: Tự động hóa Dynamics365 qua tích hợp Composio MCP
+- **composio-echtpost-automation**: Tự động hóa Echtpost qua tích hợp Composio MCP
+- **composio-elevenlabs-automation**: Tự động hóa Elevenlabs qua tích hợp Composio MCP
+- **composio-elorus-automation**: Tự động hóa Elorus qua tích hợp Composio MCP
+- **composio-emailable-automation**: Tự động hóa Emailable qua tích hợp Composio MCP
+- **composio-emaillistverify-automation**: Tự động hóa Emaillistverify qua tích hợp Composio MCP
+- **composio-emailoctopus-automation**: Tự động hóa Emailoctopus qua tích hợp Composio MCP
+- **composio-emelia-automation**: Tự động hóa Emelia qua tích hợp Composio MCP
+- **composio-encodian-automation**: Tự động hóa Encodian qua tích hợp Composio MCP
+- **composio-endorsal-automation**: Tự động hóa Endorsal qua tích hợp Composio MCP
+- **composio-enginemailer-automation**: Tự động hóa Enginemailer qua tích hợp Composio MCP
+- **composio-enigma-automation**: Tự động hóa Enigma qua tích hợp Composio MCP
+- **composio-entelligence-automation**: Tự động hóa Entelligence qua tích hợp Composio MCP
+- **composio-eodhd-apis-automation**: Tự động hóa Eodhd Apis qua tích hợp Composio MCP
+- **composio-epic-games-automation**: Tự động hóa Epic Games qua tích hợp Composio MCP
+- **composio-esignatures-io-automation**: Tự động hóa Esignatures Io qua tích hợp Composio MCP
+- **composio-espocrm-automation**: Tự động hóa Espocrm qua tích hợp Composio MCP
+- **composio-esputnik-automation**: Tự động hóa Esputnik qua tích hợp Composio MCP
+- **composio-etermin-automation**: Tự động hóa Etermin qua tích hợp Composio MCP
+- **composio-evenium-automation**: Tự động hóa Evenium qua tích hợp Composio MCP
+- **composio-eventbrite-automation**: Tự động hóa Eventbrite qua tích hợp Composio MCP
+- **composio-eventee-automation**: Tự động hóa Eventee qua tích hợp Composio MCP
+- **composio-eventzilla-automation**: Tự động hóa Eventzilla qua tích hợp Composio MCP
+- **composio-everhour-automation**: Tự động hóa Everhour qua tích hợp Composio MCP
+- **composio-eversign-automation**: Tự động hóa Eversign qua tích hợp Composio MCP
+- **composio-exa-automation**: Tự động hóa Exa qua tích hợp Composio MCP
+- **composio-excel-automation**: Tự động hóa Excel qua tích hợp Composio MCP
+- **composio-exist-automation**: Tự động hóa Exist qua tích hợp Composio MCP
+- **composio-expofp-automation**: Tự động hóa Expofp qua tích hợp Composio MCP
+- **composio-extracta-ai-automation**: Tự động hóa Extracta Ai qua tích hợp Composio MCP
+- **composio-facebook-automation**: Tự động hóa Facebook qua tích hợp Composio MCP
+- **composio-faceup-automation**: Tự động hóa Faceup qua tích hợp Composio MCP
+- **composio-factorial-automation**: Tự động hóa Factorial qua tích hợp Composio MCP
+- **composio-feathery-automation**: Tự động hóa Feathery qua tích hợp Composio MCP
+- **composio-felt-automation**: Tự động hóa Felt qua tích hợp Composio MCP
+- **composio-fibery-automation**: Tự động hóa Fibery qua tích hợp Composio MCP
+- **composio-fidel-api-automation**: Tự động hóa Fidel Api qua tích hợp Composio MCP
+- **composio-files-com-automation**: Tự động hóa Files Com qua tích hợp Composio MCP
+- **composio-fillout-forms-automation**: Tự động hóa Fillout Forms qua tích hợp Composio MCP
+- **composio-fillout_forms-automation**: Tự động hóa Fillout Forms qua tích hợp Composio MCP
+- **composio-finage-automation**: Tự động hóa Finage qua tích hợp Composio MCP
+- **composio-findymail-automation**: Tự động hóa Findymail qua tích hợp Composio MCP
+- **composio-finerworks-automation**: Tự động hóa Finerworks qua tích hợp Composio MCP
+- **composio-fingertip-automation**: Tự động hóa Fingertip qua tích hợp Composio MCP
+- **composio-finmei-automation**: Tự động hóa Finmei qua tích hợp Composio MCP
+- **composio-fireberry-automation**: Tự động hóa Fireberry qua tích hợp Composio MCP
+- **composio-firecrawl-automation**: Tự động hóa Firecrawl qua tích hợp Composio MCP
+- **composio-fireflies-automation**: Tự động hóa Fireflies qua tích hợp Composio MCP
+- **composio-firmao-automation**: Tự động hóa Firmao qua tích hợp Composio MCP
+- **composio-fitbit-automation**: Tự động hóa Fitbit qua tích hợp Composio MCP
+- **composio-fixer-automation**: Tự động hóa Fixer qua tích hợp Composio MCP
+- **composio-fixer-io-automation**: Tự động hóa Fixer Io qua tích hợp Composio MCP
+- **composio-flexisign-automation**: Tự động hóa Flexisign qua tích hợp Composio MCP
+- **composio-flowiseai-automation**: Tự động hóa Flowiseai qua tích hợp Composio MCP
+- **composio-flutterwave-automation**: Tự động hóa Flutterwave qua tích hợp Composio MCP
+- **composio-fluxguard-automation**: Tự động hóa Fluxguard qua tích hợp Composio MCP
+- **composio-folk-automation**: Tự động hóa Folk qua tích hợp Composio MCP
+- **composio-fomo-automation**: Tự động hóa Fomo qua tích hợp Composio MCP
+- **composio-forcemanager-automation**: Tự động hóa Forcemanager qua tích hợp Composio MCP
+- **composio-formbricks-automation**: Tự động hóa Formbricks qua tích hợp Composio MCP
+- **composio-formcarry-automation**: Tự động hóa Formcarry qua tích hợp Composio MCP
+- **composio-formdesk-automation**: Tự động hóa Formdesk qua tích hợp Composio MCP
+- **composio-formsite-automation**: Tự động hóa Formsite qua tích hợp Composio MCP
+- **composio-foursquare-automation**: Tự động hóa Foursquare qua tích hợp Composio MCP
+- **composio-fraudlabs-pro-automation**: Tự động hóa Fraudlabs Pro qua tích hợp Composio MCP
+- **composio-freshbooks-automation**: Tự động hóa Freshbooks qua tích hợp Composio MCP
+- **composio-front-automation**: Tự động hóa Front qua tích hợp Composio MCP
+- **composio-fullenrich-automation**: Tự động hóa Fullenrich qua tích hợp Composio MCP
+- **composio-gagelist-automation**: Tự động hóa Gagelist qua tích hợp Composio MCP
+- **composio-gamma-automation**: Tự động hóa Gamma qua tích hợp Composio MCP
+- **composio-gan-ai-automation**: Tự động hóa Gan Ai qua tích hợp Composio MCP
+- **composio-gatherup-automation**: Tự động hóa Gatherup qua tích hợp Composio MCP
+- **composio-gemini-automation**: Tự động hóa Gemini qua tích hợp Composio MCP
+- **composio-gender-api-automation**: Tự động hóa Gender Api qua tích hợp Composio MCP
+- **composio-genderapi-io-automation**: Tự động hóa Genderapi Io qua tích hợp Composio MCP
+- **composio-genderize-automation**: Tự động hóa Genderize qua tích hợp Composio MCP
+- **composio-geoapify-automation**: Tự động hóa Geoapify qua tích hợp Composio MCP
+- **composio-geocodio-automation**: Tự động hóa Geocodio qua tích hợp Composio MCP
+- **composio-geokeo-automation**: Tự động hóa Geokeo qua tích hợp Composio MCP
+- **composio-getform-automation**: Tự động hóa Getform qua tích hợp Composio MCP
+- **composio-gift-up-automation**: Tự động hóa Gift Up qua tích hợp Composio MCP
+- **composio-gigasheet-automation**: Tự động hóa Gigasheet qua tích hợp Composio MCP
+- **composio-giphy-automation**: Tự động hóa Giphy qua tích hợp Composio MCP
+- **composio-gist-automation**: Tự động hóa Gist qua tích hợp Composio MCP
+- **composio-givebutter-automation**: Tự động hóa Givebutter qua tích hợp Composio MCP
+- **composio-gladia-automation**: Tự động hóa Gladia qua tích hợp Composio MCP
+- **composio-gleap-automation**: Tự động hóa Gleap qua tích hợp Composio MCP
+- **composio-globalping-automation**: Tự động hóa Globalping qua tích hợp Composio MCP
+- **composio-go-to-webinar-automation**: Tự động hóa Go To Webinar qua tích hợp Composio MCP
+- **composio-godial-automation**: Tự động hóa Godial qua tích hợp Composio MCP
+- **composio-gong-automation**: Tự động hóa Gong qua tích hợp Composio MCP
+- **composio-goodbits-automation**: Tự động hóa Goodbits qua tích hợp Composio MCP
+- **composio-goody-automation**: Tự động hóa Goody qua tích hợp Composio MCP
+- **composio-google-address-validation-automation**: Tự động hóa Google Address Validation qua tích hợp Composio MCP
+- **composio-google-admin-automation**: Tự động hóa Google Admin qua tích hợp Composio MCP
+- **composio-google-classroom-automation**: Tự động hóa Google Classroom qua tích hợp Composio MCP
+- **composio-google-cloud-vision-automation**: Tự động hóa Google Cloud Vision qua tích hợp Composio MCP
+- **composio-google-maps-automation**: Tự động hóa Google Maps qua tích hợp Composio MCP
+- **composio-google-search-console-automation**: Tự động hóa Google Search Console qua tích hợp Composio MCP
+- **composio-google_admin-automation**: Tự động hóa Google Admin qua tích hợp Composio MCP
+- **composio-google_classroom-automation**: Tự động hóa Google Classroom qua tích hợp Composio MCP
+- **composio-google_maps-automation**: Tự động hóa Google Maps qua tích hợp Composio MCP
+- **composio-google_search_console-automation**: Tự động hóa Google Search Console qua tích hợp Composio MCP
+- **composio-googleads-automation**: Tự động hóa Googleads qua tích hợp Composio MCP
+- **composio-googlebigquery-automation**: Tự động hóa Googlebigquery qua tích hợp Composio MCP
+- **composio-googlecalendar-automation**: Tự động hóa Googlecalendar qua tích hợp Composio MCP
+- **composio-googledocs-automation**: Tự động hóa Googledocs qua tích hợp Composio MCP
+- **composio-googledrive-automation**: Tự động hóa Googledrive qua tích hợp Composio MCP
+- **composio-googlemeet-automation**: Tự động hóa Googlemeet qua tích hợp Composio MCP
+- **composio-googlephotos-automation**: Tự động hóa Googlephotos qua tích hợp Composio MCP
+- **composio-googleslides-automation**: Tự động hóa Googleslides qua tích hợp Composio MCP
+- **composio-googlesuper-automation**: Tự động hóa Googlesuper qua tích hợp Composio MCP
+- **composio-googletasks-automation**: Tự động hóa Googletasks qua tích hợp Composio MCP
+- **composio-gorgias-automation**: Tự động hóa Gorgias qua tích hợp Composio MCP
+- **composio-gosquared-automation**: Tự động hóa Gosquared qua tích hợp Composio MCP
+- **composio-grafbase-automation**: Tự động hóa Grafbase qua tích hợp Composio MCP
+- **composio-graphhopper-automation**: Tự động hóa Graphhopper qua tích hợp Composio MCP
+- **composio-griptape-automation**: Tự động hóa Griptape qua tích hợp Composio MCP
+- **composio-grist-automation**: Tự động hóa Grist qua tích hợp Composio MCP
+- **composio-groqcloud-automation**: Tự động hóa Groqcloud qua tích hợp Composio MCP
+- **composio-gumroad-automation**: Tự động hóa Gumroad qua tích hợp Composio MCP
+- **composio-habitica-automation**: Tự động hóa Habitica qua tích hợp Composio MCP
+- **composio-hackernews-automation**: Tự động hóa Hackernews qua tích hợp Composio MCP
+- **composio-happy-scribe-automation**: Tự động hóa Happy Scribe qua tích hợp Composio MCP
+- **composio-harvest-automation**: Tự động hóa Harvest qua tích hợp Composio MCP
+- **composio-hashnode-automation**: Tự động hóa Hashnode qua tích hợp Composio MCP
+- **composio-helcim-automation**: Tự động hóa Helcim qua tích hợp Composio MCP
+- **composio-helloleads-automation**: Tự động hóa Helloleads qua tích hợp Composio MCP
+- **composio-helpwise-automation**: Tự động hóa Helpwise qua tích hợp Composio MCP
+- **composio-here-automation**: Tự động hóa Here qua tích hợp Composio MCP
+- **composio-heygen-automation**: Tự động hóa Heygen qua tích hợp Composio MCP
+- **composio-heyreach-automation**: Tự động hóa Heyreach qua tích hợp Composio MCP
+- **composio-heyzine-automation**: Tự động hóa Heyzine qua tích hợp Composio MCP
+- **composio-highergov-automation**: Tự động hóa Highergov qua tích hợp Composio MCP
+- **composio-highlevel-automation**: Tự động hóa Highlevel qua tích hợp Composio MCP
+- **composio-honeybadger-automation**: Tự động hóa Honeybadger qua tích hợp Composio MCP
+- **composio-honeyhive-automation**: Tự động hóa Honeyhive qua tích hợp Composio MCP
+- **composio-hookdeck-automation**: Tự động hóa Hookdeck qua tích hợp Composio MCP
+- **composio-hotspotsystem-automation**: Tự động hóa Hotspotsystem qua tích hợp Composio MCP
+- **composio-html-to-image-automation**: Tự động hóa Html To Image qua tích hợp Composio MCP
+- **composio-humanitix-automation**: Tự động hóa Humanitix qua tích hợp Composio MCP
+- **composio-humanloop-automation**: Tự động hóa Humanloop qua tích hợp Composio MCP
+- **composio-hunter-automation**: Tự động hóa Hunter qua tích hợp Composio MCP
+- **composio-hypeauditor-automation**: Tự động hóa Hypeauditor qua tích hợp Composio MCP
+- **composio-hyperbrowser-automation**: Tự động hóa Hyperbrowser qua tích hợp Composio MCP
+- **composio-hyperise-automation**: Tự động hóa Hyperise qua tích hợp Composio MCP
+- **composio-hystruct-automation**: Tự động hóa Hystruct qua tích hợp Composio MCP
+- **composio-icims-talent-cloud-automation**: Tự động hóa Icims Talent Cloud qua tích hợp Composio MCP
+- **composio-icypeas-automation**: Tự động hóa Icypeas qua tích hợp Composio MCP
+- **composio-idea-scale-automation**: Tự động hóa Idea Scale qua tích hợp Composio MCP
+- **composio-identitycheck-automation**: Tự động hóa Identitycheck qua tích hợp Composio MCP
+- **composio-ignisign-automation**: Tự động hóa Ignisign qua tích hợp Composio MCP
+- **composio-imagekit-io-automation**: Tự động hóa Imagekit Io qua tích hợp Composio MCP
+- **composio-imgbb-automation**: Tự động hóa Imgbb qua tích hợp Composio MCP
+- **composio-imgix-automation**: Tự động hóa Imgix qua tích hợp Composio MCP
+- **composio-influxdb-cloud-automation**: Tự động hóa Influxdb Cloud qua tích hợp Composio MCP
+- **composio-insighto-ai-automation**: Tự động hóa Insighto Ai qua tích hợp Composio MCP
+- **composio-instacart-automation**: Tự động hóa Instacart qua tích hợp Composio MCP
+- **composio-instantly-automation**: Tự động hóa Instantly qua tích hợp Composio MCP
+- **composio-intelliprint-automation**: Tự động hóa Intelliprint qua tích hợp Composio MCP
+- **composio-interzoid-automation**: Tự động hóa Interzoid qua tích hợp Composio MCP
+- **composio-ip2location-automation**: Tự động hóa Ip2Location qua tích hợp Composio MCP
+- **composio-ip2location-io-automation**: Tự động hóa Ip2Location Io qua tích hợp Composio MCP
+- **composio-ip2proxy-automation**: Tự động hóa Ip2Proxy qua tích hợp Composio MCP
+- **composio-ip2whois-automation**: Tự động hóa Ip2Whois qua tích hợp Composio MCP
+- **composio-ipdata-co-automation**: Tự động hóa Ipdata Co qua tích hợp Composio MCP
+- **composio-ipinfo-io-automation**: Tự động hóa Ipinfo Io qua tích hợp Composio MCP
+- **composio-iqair-airvisual-automation**: Tự động hóa Iqair Airvisual qua tích hợp Composio MCP
+- **composio-jigsawstack-automation**: Tự động hóa Jigsawstack qua tích hợp Composio MCP
+- **composio-jobnimbus-automation**: Tự động hóa Jobnimbus qua tích hợp Composio MCP
+- **composio-jotform-automation**: Tự động hóa Jotform qua tích hợp Composio MCP
+- **composio-jumpcloud-automation**: Tự động hóa Jumpcloud qua tích hợp Composio MCP
+- **composio-junglescout-automation**: Tự động hóa Junglescout qua tích hợp Composio MCP
+- **composio-kadoa-automation**: Tự động hóa Kadoa qua tích hợp Composio MCP
+- **composio-kaggle-automation**: Tự động hóa Kaggle qua tích hợp Composio MCP
+- **composio-kaleido-automation**: Tự động hóa Kaleido qua tích hợp Composio MCP
+- **composio-keap-automation**: Tự động hóa Keap qua tích hợp Composio MCP
+- **composio-keen-io-automation**: Tự động hóa Keen Io qua tích hợp Composio MCP
+- **composio-kickbox-automation**: Tự động hóa Kickbox qua tích hợp Composio MCP
+- **composio-kit-automation**: Tự động hóa Kit qua tích hợp Composio MCP
+- **composio-klipfolio-automation**: Tự động hóa Klipfolio qua tích hợp Composio MCP
+- **composio-ko-fi-automation**: Tự động hóa Ko Fi qua tích hợp Composio MCP
+- **composio-kommo-automation**: Tự động hóa Kommo qua tích hợp Composio MCP
+- **composio-kontent-ai-automation**: Tự động hóa Kontent Ai qua tích hợp Composio MCP
+- **composio-kraken-io-automation**: Tự động hóa Kraken Io qua tích hợp Composio MCP
+- **composio-l2s-automation**: Tự động hóa L2S qua tích hợp Composio MCP
+- **composio-labs64-netlicensing-automation**: Tự động hóa Labs64 Netlicensing qua tích hợp Composio MCP
+- **composio-landbot-automation**: Tự động hóa Landbot qua tích hợp Composio MCP
+- **composio-langbase-automation**: Tự động hóa Langbase qua tích hợp Composio MCP
+- **composio-lastpass-automation**: Tự động hóa Lastpass qua tích hợp Composio MCP
+- **composio-launch-darkly-automation**: Tự động hóa Launch Darkly qua tích hợp Composio MCP
+- **composio-launch_darkly-automation**: Tự động hóa Launch Darkly qua tích hợp Composio MCP
+- **composio-leadfeeder-automation**: Tự động hóa Leadfeeder qua tích hợp Composio MCP
+- **composio-leadoku-automation**: Tự động hóa Leadoku qua tích hợp Composio MCP
+- **composio-leiga-automation**: Tự động hóa Leiga qua tích hợp Composio MCP
+- **composio-lemlist-automation**: Tự động hóa Lemlist qua tích hợp Composio MCP
+- **composio-lemon-squeezy-automation**: Tự động hóa Lemon Squeezy qua tích hợp Composio MCP
+- **composio-lemon_squeezy-automation**: Tự động hóa Lemon Squeezy qua tích hợp Composio MCP
+- **composio-lessonspace-automation**: Tự động hóa Lessonspace qua tích hợp Composio MCP
+- **composio-lever-automation**: Tự động hóa Lever qua tích hợp Composio MCP
+- **composio-lever-sandbox-automation**: Tự động hóa Lever Sandbox qua tích hợp Composio MCP
+- **composio-leverly-automation**: Tự động hóa Leverly qua tích hợp Composio MCP
+- **composio-lexoffice-automation**: Tự động hóa Lexoffice qua tích hợp Composio MCP
+- **composio-linguapop-automation**: Tự động hóa Linguapop qua tích hợp Composio MCP
+- **composio-linkhut-automation**: Tự động hóa Linkhut qua tích hợp Composio MCP
+- **composio-linkup-automation**: Tự động hóa Linkup qua tích hợp Composio MCP
+- **composio-listclean-automation**: Tự động hóa Listclean qua tích hợp Composio MCP
+- **composio-listennotes-automation**: Tự động hóa Listennotes qua tích hợp Composio MCP
+- **composio-livesession-automation**: Tự động hóa Livesession qua tích hợp Composio MCP
+- **composio-lmnt-automation**: Tự động hóa Lmnt qua tích hợp Composio MCP
+- **composio-lodgify-automation**: Tự động hóa Lodgify qua tích hợp Composio MCP
+- **composio-logo-dev-automation**: Tự động hóa Logo Dev qua tích hợp Composio MCP
+- **composio-loomio-automation**: Tự động hóa Loomio qua tích hợp Composio MCP
+- **composio-loyverse-automation**: Tự động hóa Loyverse qua tích hợp Composio MCP
+- **composio-magnetic-automation**: Tự động hóa Magnetic qua tích hợp Composio MCP
+- **composio-mailbluster-automation**: Tự động hóa Mailbluster qua tích hợp Composio MCP
+- **composio-mailboxlayer-automation**: Tự động hóa Mailboxlayer qua tích hợp Composio MCP
+- **composio-mailcheck-automation**: Tự động hóa Mailcheck qua tích hợp Composio MCP
+- **composio-mailcoach-automation**: Tự động hóa Mailcoach qua tích hợp Composio MCP
+- **composio-mailerlite-automation**: Tự động hóa Mailerlite qua tích hợp Composio MCP
+- **composio-mailersend-automation**: Tự động hóa Mailersend qua tích hợp Composio MCP
+- **composio-mails-so-automation**: Tự động hóa Mails So qua tích hợp Composio MCP
+- **composio-mailsoftly-automation**: Tự động hóa Mailsoftly qua tích hợp Composio MCP
+- **composio-maintainx-automation**: Tự động hóa Maintainx qua tích hợp Composio MCP
+- **composio-many-chat-automation**: Tự động hóa Many Chat qua tích hợp Composio MCP
+- **composio-many_chat-automation**: Tự động hóa Many Chat qua tích hợp Composio MCP
+- **composio-mapbox-automation**: Tự động hóa Mapbox qua tích hợp Composio MCP
+- **composio-mapulus-automation**: Tự động hóa Mapulus qua tích hợp Composio MCP
+- **composio-mboum-automation**: Tự động hóa Mboum qua tích hợp Composio MCP
+- **composio-melo-automation**: Tự động hóa Melo qua tích hợp Composio MCP
+- **composio-mem-automation**: Tự động hóa Mem qua tích hợp Composio MCP
+- **composio-mem0-automation**: Tự động hóa Mem0 qua tích hợp Composio MCP
+- **composio-memberspot-automation**: Tự động hóa Memberspot qua tích hợp Composio MCP
+- **composio-memberstack-automation**: Tự động hóa Memberstack qua tích hợp Composio MCP
+- **composio-membervault-automation**: Tự động hóa Membervault qua tích hợp Composio MCP
+- **composio-metaads-automation**: Tự động hóa Metaads qua tích hợp Composio MCP
+- **composio-metaphor-automation**: Tự động hóa Metaphor qua tích hợp Composio MCP
+- **composio-mezmo-automation**: Tự động hóa Mezmo qua tích hợp Composio MCP
+- **composio-microsoft-clarity-automation**: Tự động hóa Microsoft Clarity qua tích hợp Composio MCP
+- **composio-microsoft-tenant-automation**: Tự động hóa Microsoft Tenant qua tích hợp Composio MCP
+- **composio-microsoft_clarity-automation**: Tự động hóa Microsoft Clarity qua tích hợp Composio MCP
+- **composio-minerstat-automation**: Tự động hóa Minerstat qua tích hợp Composio MCP
+- **composio-missive-automation**: Tự động hóa Missive qua tích hợp Composio MCP
+- **composio-mistral-ai-automation**: Tự động hóa Mistral Ai qua tích hợp Composio MCP
+- **composio-mistral_ai-automation**: Tự động hóa Mistral Ai qua tích hợp Composio MCP
+- **composio-mocean-automation**: Tự động hóa Mocean qua tích hợp Composio MCP
+- **composio-moco-automation**: Tự động hóa Moco qua tích hợp Composio MCP
+- **composio-modelry-automation**: Tự động hóa Modelry qua tích hợp Composio MCP
+- **composio-moneybird-automation**: Tự động hóa Moneybird qua tích hợp Composio MCP
+- **composio-moonclerk-automation**: Tự động hóa Moonclerk qua tích hợp Composio MCP
+- **composio-moosend-automation**: Tự động hóa Moosend qua tích hợp Composio MCP
+- **composio-mopinion-automation**: Tự động hóa Mopinion qua tích hợp Composio MCP
+- **composio-more-trees-automation**: Tự động hóa More Trees qua tích hợp Composio MCP
+- **composio-moxie-automation**: Tự động hóa Moxie qua tích hợp Composio MCP
+- **composio-moz-automation**: Tự động hóa Moz qua tích hợp Composio MCP
+- **composio-msg91-automation**: Tự động hóa Msg91 qua tích hợp Composio MCP
+- **composio-mural-automation**: Tự động hóa Mural qua tích hợp Composio MCP
+- **composio-mx-technologies-automation**: Tự động hóa Mx Technologies qua tích hợp Composio MCP
+- **composio-mx-toolbox-automation**: Tự động hóa Mx Toolbox qua tích hợp Composio MCP
+- **composio-nango-automation**: Tự động hóa Nango qua tích hợp Composio MCP
+- **composio-nano-nets-automation**: Tự động hóa Nano Nets qua tích hợp Composio MCP
+- **composio-nasa-automation**: Tự động hóa Nasa qua tích hợp Composio MCP
+- **composio-nasdaq-automation**: Tự động hóa Nasdaq qua tích hợp Composio MCP
+- **composio-ncscale-automation**: Tự động hóa Ncscale qua tích hợp Composio MCP
+- **composio-needle-automation**: Tự động hóa Needle qua tích hợp Composio MCP
+- **composio-neon-automation**: Tự động hóa Neon qua tích hợp Composio MCP
+- **composio-netsuite-automation**: Tự động hóa Netsuite qua tích hợp Composio MCP
+- **composio-neuronwriter-automation**: Tự động hóa Neuronwriter qua tích hợp Composio MCP
+- **composio-neutrino-automation**: Tự động hóa Neutrino qua tích hợp Composio MCP
+- **composio-neverbounce-automation**: Tự động hóa Neverbounce qua tích hợp Composio MCP
+- **composio-new-relic-automation**: Tự động hóa New Relic qua tích hợp Composio MCP
+- **composio-new_relic-automation**: Tự động hóa New Relic qua tích hợp Composio MCP
+- **composio-news-api-automation**: Tự động hóa News Api qua tích hợp Composio MCP
+- **composio-nextdns-automation**: Tự động hóa Nextdns qua tích hợp Composio MCP
+- **composio-ngrok-automation**: Tự động hóa Ngrok qua tích hợp Composio MCP
+- **composio-ninox-automation**: Tự động hóa Ninox qua tích hợp Composio MCP
+- **composio-nocrm-io-automation**: Tự động hóa Nocrm Io qua tích hợp Composio MCP
+- **composio-npm-automation**: Tự động hóa Npm qua tích hợp Composio MCP
+- **composio-ocr-web-service-automation**: Tự động hóa Ocr Web Service qua tích hợp Composio MCP
+- **composio-ocrspace-automation**: Tự động hóa Ocrspace qua tích hợp Composio MCP
+- **composio-omnisend-automation**: Tự động hóa Omnisend qua tích hợp Composio MCP
+- **composio-oncehub-automation**: Tự động hóa Oncehub qua tích hợp Composio MCP
+- **composio-onedesk-automation**: Tự động hóa Onedesk qua tích hợp Composio MCP
+- **composio-onepage-automation**: Tự động hóa Onepage qua tích hợp Composio MCP
+- **composio-onesignal-rest-api-automation**: Tự động hóa Onesignal Rest Api qua tích hợp Composio MCP
+- **composio-onesignal-user-auth-automation**: Tự động hóa Onesignal User Auth qua tích hợp Composio MCP
+- **composio-onesignal_rest_api-automation**: Tự động hóa Onesignal Rest Api qua tích hợp Composio MCP
+- **composio-open-sea-automation**: Tự động hóa Open Sea qua tích hợp Composio MCP
+- **composio-openai-automation**: Tự động hóa Openai qua tích hợp Composio MCP
+- **composio-opencage-automation**: Tự động hóa Opencage qua tích hợp Composio MCP
+- **composio-opengraph-io-automation**: Tự động hóa Opengraph Io qua tích hợp Composio MCP
+- **composio-openperplex-automation**: Tự động hóa Openperplex qua tích hợp Composio MCP
+- **composio-openrouter-automation**: Tự động hóa Openrouter qua tích hợp Composio MCP
+- **composio-openweather-api-automation**: Tự động hóa Openweather Api qua tích hợp Composio MCP
+- **composio-optimoroute-automation**: Tự động hóa Optimoroute qua tích hợp Composio MCP
+- **composio-owl-protocol-automation**: Tự động hóa Owl Protocol qua tích hợp Composio MCP
+- **composio-page-x-automation**: Tự động hóa Page X qua tích hợp Composio MCP
+- **composio-pandadoc-automation**: Tự động hóa Pandadoc qua tích hợp Composio MCP
+- **composio-paradym-automation**: Tự động hóa Paradym qua tích hợp Composio MCP
+- **composio-parallel-automation**: Tự động hóa Parallel qua tích hợp Composio MCP
+- **composio-parma-automation**: Tự động hóa Parma qua tích hợp Composio MCP
+- **composio-parsehub-automation**: Tự động hóa Parsehub qua tích hợp Composio MCP
+- **composio-parsera-automation**: Tự động hóa Parsera qua tích hợp Composio MCP
+- **composio-parseur-automation**: Tự động hóa Parseur qua tích hợp Composio MCP
+- **composio-passcreator-automation**: Tự động hóa Passcreator qua tích hợp Composio MCP
+- **composio-passslot-automation**: Tự động hóa Passslot qua tích hợp Composio MCP
+- **composio-payhip-automation**: Tự động hóa Payhip qua tích hợp Composio MCP
+- **composio-pdf-api-io-automation**: Tự động hóa Pdf Api Io qua tích hợp Composio MCP
+- **composio-pdf-co-automation**: Tự động hóa Pdf Co qua tích hợp Composio MCP
+- **composio-pdf4me-automation**: Tự động hóa Pdf4Me qua tích hợp Composio MCP
+- **composio-pdfless-automation**: Tự động hóa Pdfless qua tích hợp Composio MCP
+- **composio-pdfmonkey-automation**: Tự động hóa Pdfmonkey qua tích hợp Composio MCP
+- **composio-peopledatalabs-automation**: Tự động hóa Peopledatalabs qua tích hợp Composio MCP
+- **composio-perigon-automation**: Tự động hóa Perigon qua tích hợp Composio MCP
+- **composio-perplexityai-automation**: Tự động hóa Perplexityai qua tích hợp Composio MCP
+- **composio-persistiq-automation**: Tự động hóa Persistiq qua tích hợp Composio MCP
+- **composio-pexels-automation**: Tự động hóa Pexels qua tích hợp Composio MCP
+- **composio-phantombuster-automation**: Tự động hóa Phantombuster qua tích hợp Composio MCP
+- **composio-piggy-automation**: Tự động hóa Piggy qua tích hợp Composio MCP
+- **composio-piloterr-automation**: Tự động hóa Piloterr qua tích hợp Composio MCP
+- **composio-pilvio-automation**: Tự động hóa Pilvio qua tích hợp Composio MCP
+- **composio-pingdom-automation**: Tự động hóa Pingdom qua tích hợp Composio MCP
+- **composio-pipeline-crm-automation**: Tự động hóa Pipeline Crm qua tích hợp Composio MCP
+- **composio-placekey-automation**: Tự động hóa Placekey qua tích hợp Composio MCP
+- **composio-placid-automation**: Tự động hóa Placid qua tích hợp Composio MCP
+- **composio-plain-automation**: Tự động hóa Plain qua tích hợp Composio MCP
+- **composio-plasmic-automation**: Tự động hóa Plasmic qua tích hợp Composio MCP
+- **composio-platerecognizer-automation**: Tự động hóa Platerecognizer qua tích hợp Composio MCP
+- **composio-plisio-automation**: Tự động hóa Plisio qua tích hợp Composio MCP
+- **composio-polygon-automation**: Tự động hóa Polygon qua tích hợp Composio MCP
+- **composio-polygon-io-automation**: Tự động hóa Polygon Io qua tích hợp Composio MCP
+- **composio-poptin-automation**: Tự động hóa Poptin qua tích hợp Composio MCP
+- **composio-postgrid-automation**: Tự động hóa Postgrid qua tích hợp Composio MCP
+- **composio-postgrid-verify-automation**: Tự động hóa Postgrid Verify qua tích hợp Composio MCP
+- **composio-precoro-automation**: Tự động hóa Precoro qua tích hợp Composio MCP
+- **composio-prerender-automation**: Tự động hóa Prerender qua tích hợp Composio MCP
+- **composio-printautopilot-automation**: Tự động hóa Printautopilot qua tích hợp Composio MCP
+- **composio-prisma-automation**: Tự động hóa Prisma qua tích hợp Composio MCP
+- **composio-prismic-automation**: Tự động hóa Prismic qua tích hợp Composio MCP
+- **composio-process-street-automation**: Tự động hóa Process Street qua tích hợp Composio MCP
+- **composio-procfu-automation**: Tự động hóa Procfu qua tích hợp Composio MCP
+- **composio-productboard-automation**: Tự động hóa Productboard qua tích hợp Composio MCP
+- **composio-productlane-automation**: Tự động hóa Productlane qua tích hợp Composio MCP
+- **composio-project-bubble-automation**: Tự động hóa Project Bubble qua tích hợp Composio MCP
+- **composio-proofly-automation**: Tự động hóa Proofly qua tích hợp Composio MCP
+- **composio-proxiedmail-automation**: Tự động hóa Proxiedmail qua tích hợp Composio MCP
+- **composio-pushbullet-automation**: Tự động hóa Pushbullet qua tích hợp Composio MCP
+- **composio-pushover-automation**: Tự động hóa Pushover qua tích hợp Composio MCP
+- **composio-quaderno-automation**: Tự động hóa Quaderno qua tích hợp Composio MCP
+- **composio-qualaroo-automation**: Tự động hóa Qualaroo qua tích hợp Composio MCP
+- **composio-quickbooks-automation**: Tự động hóa Quickbooks qua tích hợp Composio MCP
+- **composio-radar-automation**: Tự động hóa Radar qua tích hợp Composio MCP
+- **composio-rafflys-automation**: Tự động hóa Rafflys qua tích hợp Composio MCP
+- **composio-ragic-automation**: Tự động hóa Ragic qua tích hợp Composio MCP
+- **composio-raisely-automation**: Tự động hóa Raisely qua tích hợp Composio MCP
+- **composio-ramp-automation**: Tự động hóa Ramp qua tích hợp Composio MCP
+- **composio-ravenseotools-automation**: Tự động hóa Ravenseotools qua tích hợp Composio MCP
+- **composio-re-amaze-automation**: Tự động hóa Re Amaze qua tích hợp Composio MCP
+- **composio-realphonevalidation-automation**: Tự động hóa Realphonevalidation qua tích hợp Composio MCP
+- **composio-recallai-automation**: Tự động hóa Recallai qua tích hợp Composio MCP
+- **composio-recruitee-automation**: Tự động hóa Recruitee qua tích hợp Composio MCP
+- **composio-refiner-automation**: Tự động hóa Refiner qua tích hợp Composio MCP
+- **composio-remarkety-automation**: Tự động hóa Remarkety qua tích hợp Composio MCP
+- **composio-remote-retrieval-automation**: Tự động hóa Remote Retrieval qua tích hợp Composio MCP
+- **composio-remove-bg-automation**: Tự động hóa Remove Bg qua tích hợp Composio MCP
+- **composio-renderform-automation**: Tự động hóa Renderform qua tích hợp Composio MCP
+- **composio-repairshopr-automation**: Tự động hóa Repairshopr qua tích hợp Composio MCP
+- **composio-replicate-automation**: Tự động hóa Replicate qua tích hợp Composio MCP
+- **composio-reply-automation**: Tự động hóa Reply qua tích hợp Composio MCP
+- **composio-reply-io-automation**: Tự động hóa Reply Io qua tích hợp Composio MCP
+- **composio-resend-automation**: Tự động hóa Resend qua tích hợp Composio MCP
+- **composio-respond-io-automation**: Tự động hóa Respond Io qua tích hợp Composio MCP
+- **composio-retailed-automation**: Tự động hóa Retailed qua tích hợp Composio MCP
+- **composio-retellai-automation**: Tự động hóa Retellai qua tích hợp Composio MCP
+- **composio-retently-automation**: Tự động hóa Retently qua tích hợp Composio MCP
+- **composio-rev-ai-automation**: Tự động hóa Rev Ai qua tích hợp Composio MCP
+- **composio-revolt-automation**: Tự động hóa Revolt qua tích hợp Composio MCP
+- **composio-ring-central-automation**: Tự động hóa Ring Central qua tích hợp Composio MCP
+- **composio-ring_central-automation**: Tự động hóa Ring Central qua tích hợp Composio MCP
+- **composio-rippling-automation**: Tự động hóa Rippling qua tích hợp Composio MCP
+- **composio-ritekit-automation**: Tự động hóa Ritekit qua tích hợp Composio MCP
+- **composio-rkvst-automation**: Tự động hóa Rkvst qua tích hợp Composio MCP
+- **composio-rocketlane-automation**: Tự động hóa Rocketlane qua tích hợp Composio MCP
+- **composio-rootly-automation**: Tự động hóa Rootly qua tích hợp Composio MCP
+- **composio-rosette-text-analytics-automation**: Tự động hóa Rosette Text Analytics qua tích hợp Composio MCP
+- **composio-route4me-automation**: Tự động hóa Route4Me qua tích hợp Composio MCP
+- **composio-safetyculture-automation**: Tự động hóa Safetyculture qua tích hợp Composio MCP
+- **composio-sage-automation**: Tự động hóa Sage qua tích hợp Composio MCP
+- **composio-salesforce-marketing-cloud-automation**: Tự động hóa Salesforce Marketing Cloud qua tích hợp Composio MCP
+- **composio-salesforce-service-cloud-automation**: Tự động hóa Salesforce Service Cloud qua tích hợp Composio MCP
+- **composio-salesmate-automation**: Tự động hóa Salesmate qua tích hợp Composio MCP
+- **composio-sap-successfactors-automation**: Tự động hóa Sap Successfactors qua tích hợp Composio MCP
+- **composio-satismeter-automation**: Tự động hóa Satismeter qua tích hợp Composio MCP
+- **composio-scrape-do-automation**: Tự động hóa Scrape Do qua tích hợp Composio MCP
+- **composio-scrapegraph-ai-automation**: Tự động hóa Scrapegraph Ai qua tích hợp Composio MCP
+- **composio-scrapfly-automation**: Tự động hóa Scrapfly qua tích hợp Composio MCP
+- **composio-scrapingant-automation**: Tự động hóa Scrapingant qua tích hợp Composio MCP
+- **composio-scrapingbee-automation**: Tự động hóa Scrapingbee qua tích hợp Composio MCP
+- **composio-screenshot-fyi-automation**: Tự động hóa Screenshot Fyi qua tích hợp Composio MCP
+- **composio-screenshotone-automation**: Tự động hóa Screenshotone qua tích hợp Composio MCP
+- **composio-seat-geek-automation**: Tự động hóa Seat Geek qua tích hợp Composio MCP
+- **composio-securitytrails-automation**: Tự động hóa Securitytrails qua tích hợp Composio MCP
+- **composio-segmetrics-automation**: Tự động hóa Segmetrics qua tích hợp Composio MCP
+- **composio-seismic-automation**: Tự động hóa Seismic qua tích hợp Composio MCP
+- **composio-semanticscholar-automation**: Tự động hóa Semanticscholar qua tích hợp Composio MCP
+- **composio-semrush-automation**: Tự động hóa Semrush qua tích hợp Composio MCP
+- **composio-sendbird-ai-chabot-automation**: Tự động hóa Sendbird Ai Chabot qua tích hợp Composio MCP
+- **composio-sendbird-automation**: Tự động hóa Sendbird qua tích hợp Composio MCP
+- **composio-sendfox-automation**: Tự động hóa Sendfox qua tích hợp Composio MCP
+- **composio-sendlane-automation**: Tự động hóa Sendlane qua tích hợp Composio MCP
+- **composio-sendloop-automation**: Tự động hóa Sendloop qua tích hợp Composio MCP
+- **composio-sendspark-automation**: Tự động hóa Sendspark qua tích hợp Composio MCP
+- **composio-sensibo-automation**: Tự động hóa Sensibo qua tích hợp Composio MCP
+- **composio-seqera-automation**: Tự động hóa Seqera qua tích hợp Composio MCP
+- **composio-serpapi-automation**: Tự động hóa Serpapi qua tích hợp Composio MCP
+- **composio-serpdog-automation**: Tự động hóa Serpdog qua tích hợp Composio MCP
+- **composio-serply-automation**: Tự động hóa Serply qua tích hợp Composio MCP
+- **composio-servicem8-automation**: Tự động hóa Servicem8 qua tích hợp Composio MCP
+- **composio-sevdesk-automation**: Tự động hóa Sevdesk qua tích hợp Composio MCP
+- **composio-share-point-automation**: Tự động hóa Share Point qua tích hợp Composio MCP
+- **composio-share_point-automation**: Tự động hóa Share Point qua tích hợp Composio MCP
+- **composio-shipengine-automation**: Tự động hóa Shipengine qua tích hợp Composio MCP
+- **composio-short-io-automation**: Tự động hóa Short Io qua tích hợp Composio MCP
+- **composio-short-menu-automation**: Tự động hóa Short Menu qua tích hợp Composio MCP
+- **composio-shortcut-automation**: Tự động hóa Shortcut qua tích hợp Composio MCP
+- **composio-shorten-rest-automation**: Tự động hóa Shorten Rest qua tích hợp Composio MCP
+- **composio-shortpixel-automation**: Tự động hóa Shortpixel qua tích hợp Composio MCP
+- **composio-shotstack-automation**: Tự động hóa Shotstack qua tích hợp Composio MCP
+- **composio-sidetracker-automation**: Tự động hóa Sidetracker qua tích hợp Composio MCP
+- **composio-signaturely-automation**: Tự động hóa Signaturely qua tích hợp Composio MCP
+- **composio-signpath-automation**: Tự động hóa Signpath qua tích hợp Composio MCP
+- **composio-signwell-automation**: Tự động hóa Signwell qua tích hợp Composio MCP
+- **composio-similarweb-digitalrank-api-automation**: Tự động hóa Similarweb Digitalrank Api qua tích hợp Composio MCP
+- **composio-similarweb_digitalrank_api-automation**: Tự động hóa Similarweb Digitalrank Api qua tích hợp Composio MCP
+- **composio-simla-com-automation**: Tự động hóa Simla Com qua tích hợp Composio MCP
+- **composio-simple-analytics-automation**: Tự động hóa Simple Analytics qua tích hợp Composio MCP
+- **composio-simplesat-automation**: Tự động hóa Simplesat qua tích hợp Composio MCP
+- **composio-sitespeakai-automation**: Tự động hóa Sitespeakai qua tích hợp Composio MCP
+- **composio-skyfire-automation**: Tự động hóa Skyfire qua tích hợp Composio MCP
+- **composio-slackbot-automation**: Tự động hóa Slackbot qua tích hợp Composio MCP
+- **composio-smartproxy-automation**: Tự động hóa Smartproxy qua tích hợp Composio MCP
+- **composio-smartrecruiters-automation**: Tự động hóa Smartrecruiters qua tích hợp Composio MCP
+- **composio-sms-alert-automation**: Tự động hóa Sms Alert qua tích hợp Composio MCP
+- **composio-smtp2go-automation**: Tự động hóa Smtp2Go qua tích hợp Composio MCP
+- **composio-smugmug-automation**: Tự động hóa Smugmug qua tích hợp Composio MCP
+- **composio-snowflake-automation**: Tự động hóa Snowflake qua tích hợp Composio MCP
+- **composio-sourcegraph-automation**: Tự động hóa Sourcegraph qua tích hợp Composio MCP
+- **composio-splitwise-automation**: Tự động hóa Splitwise qua tích hợp Composio MCP
+- **composio-spoki-automation**: Tự động hóa Spoki qua tích hợp Composio MCP
+- **composio-spondyr-automation**: Tự động hóa Spondyr qua tích hợp Composio MCP
+- **composio-spotify-automation**: Tự động hóa Spotify qua tích hợp Composio MCP
+- **composio-spotlightr-automation**: Tự động hóa Spotlightr qua tích hợp Composio MCP
+- **composio-sslmate-cert-spotter-api-automation**: Tự động hóa Sslmate Cert Spotter Api qua tích hợp Composio MCP
+- **composio-stack-exchange-automation**: Tự động hóa Stack Exchange qua tích hợp Composio MCP
+- **composio-stannp-automation**: Tự động hóa Stannp qua tích hợp Composio MCP
+- **composio-starton-automation**: Tự động hóa Starton qua tích hợp Composio MCP
+- **composio-statuscake-automation**: Tự động hóa Statuscake qua tích hợp Composio MCP
+- **composio-storeganise-automation**: Tự động hóa Storeganise qua tích hợp Composio MCP
+- **composio-storerocket-automation**: Tự động hóa Storerocket qua tích hợp Composio MCP
+- **composio-stormglass-io-automation**: Tự động hóa Stormglass Io qua tích hợp Composio MCP
+- **composio-strava-automation**: Tự động hóa Strava qua tích hợp Composio MCP
+- **composio-streamtime-automation**: Tự động hóa Streamtime qua tích hợp Composio MCP
+- **composio-supadata-automation**: Tự động hóa Supadata qua tích hợp Composio MCP
+- **composio-superchat-automation**: Tự động hóa Superchat qua tích hợp Composio MCP
+- **composio-supportbee-automation**: Tự động hóa Supportbee qua tích hợp Composio MCP
+- **composio-supportivekoala-automation**: Tự động hóa Supportivekoala qua tích hợp Composio MCP
+- **composio-survey-monkey-automation**: Tự động hóa Survey Monkey qua tích hợp Composio MCP
+- **composio-survey_monkey-automation**: Tự động hóa Survey Monkey qua tích hợp Composio MCP
+- **composio-svix-automation**: Tự động hóa Svix qua tích hợp Composio MCP
+- **composio-sympla-automation**: Tự động hóa Sympla qua tích hợp Composio MCP
+- **composio-synthflow-ai-automation**: Tự động hóa Synthflow Ai qua tích hợp Composio MCP
+- **composio-taggun-automation**: Tự động hóa Taggun qua tích hợp Composio MCP
+- **composio-talenthr-automation**: Tự động hóa Talenthr qua tích hợp Composio MCP
+- **composio-tally-automation**: Tự động hóa Tally qua tích hợp Composio MCP
+- **composio-tapfiliate-automation**: Tự động hóa Tapfiliate qua tích hợp Composio MCP
+- **composio-tapform-automation**: Tự động hóa Tapform qua tích hợp Composio MCP
+- **composio-tavily-automation**: Tự động hóa Tavily qua tích hợp Composio MCP
+- **composio-taxjar-automation**: Tự động hóa Taxjar qua tích hợp Composio MCP
+- **composio-teamcamp-automation**: Tự động hóa Teamcamp qua tích hợp Composio MCP
+- **composio-telnyx-automation**: Tự động hóa Telnyx qua tích hợp Composio MCP
+- **composio-teltel-automation**: Tự động hóa Teltel qua tích hợp Composio MCP
+- **composio-templated-automation**: Tự động hóa Templated qua tích hợp Composio MCP
+- **composio-test-app-automation**: Tự động hóa Test App qua tích hợp Composio MCP
+- **composio-text-to-pdf-automation**: Tự động hóa Text To Pdf qua tích hợp Composio MCP
+- **composio-textcortex-automation**: Tự động hóa Textcortex qua tích hợp Composio MCP
+- **composio-textit-automation**: Tự động hóa Textit qua tích hợp Composio MCP
+- **composio-textrazor-automation**: Tự động hóa Textrazor qua tích hợp Composio MCP
+- **composio-thanks-io-automation**: Tự động hóa Thanks Io qua tích hợp Composio MCP
+- **composio-the-odds-api-automation**: Tự động hóa The Odds Api qua tích hợp Composio MCP
+- **composio-ticketmaster-automation**: Tự động hóa Ticketmaster qua tích hợp Composio MCP
+- **composio-ticktick-automation**: Tự động hóa Ticktick qua tích hợp Composio MCP
+- **composio-timecamp-automation**: Tự động hóa Timecamp qua tích hợp Composio MCP
+- **composio-timekit-automation**: Tự động hóa Timekit qua tích hợp Composio MCP
+- **composio-timelinesai-automation**: Tự động hóa Timelinesai qua tích hợp Composio MCP
+- **composio-timelink-automation**: Tự động hóa Timelink qua tích hợp Composio MCP
+- **composio-timely-automation**: Tự động hóa Timely qua tích hợp Composio MCP
+- **composio-tinyurl-automation**: Tự động hóa Tinyurl qua tích hợp Composio MCP
+- **composio-tisane-automation**: Tự động hóa Tisane qua tích hợp Composio MCP
+- **composio-toggl-automation**: Tự động hóa Toggl qua tích hợp Composio MCP
+- **composio-token-metrics-automation**: Tự động hóa Token Metrics qua tích hợp Composio MCP
+- **composio-tomba-automation**: Tự động hóa Tomba qua tích hợp Composio MCP
+- **composio-tomtom-automation**: Tự động hóa Tomtom qua tích hợp Composio MCP
+- **composio-toneden-automation**: Tự động hóa Toneden qua tích hợp Composio MCP
+- **composio-tpscheck-automation**: Tự động hóa Tpscheck qua tích hợp Composio MCP
+- **composio-triggercmd-automation**: Tự động hóa Triggercmd qua tích hợp Composio MCP
+- **composio-tripadvisor-content-api-automation**: Tự động hóa Tripadvisor Content Api qua tích hợp Composio MCP
+- **composio-turbot-pipes-automation**: Tự động hóa Turbot Pipes qua tích hợp Composio MCP
+- **composio-turso-automation**: Tự động hóa Turso qua tích hợp Composio MCP
+- **composio-twelve-data-automation**: Tự động hóa Twelve Data qua tích hợp Composio MCP
+- **composio-twitch-automation**: Tự động hóa Twitch qua tích hợp Composio MCP
+- **composio-twocaptcha-automation**: Tự động hóa Twocaptcha qua tích hợp Composio MCP
+- **composio-typefully-automation**: Tự động hóa Typefully qua tích hợp Composio MCP
+- **composio-typless-automation**: Tự động hóa Typless qua tích hợp Composio MCP
+- **composio-u301-automation**: Tự động hóa U301 qua tích hợp Composio MCP
+- **composio-unione-automation**: Tự động hóa Unione qua tích hợp Composio MCP
+- **composio-updown-io-automation**: Tự động hóa Updown Io qua tích hợp Composio MCP
+- **composio-uploadcare-automation**: Tự động hóa Uploadcare qua tích hợp Composio MCP
+- **composio-uptimerobot-automation**: Tự động hóa Uptimerobot qua tích hợp Composio MCP
+- **composio-userlist-automation**: Tự động hóa Userlist qua tích hợp Composio MCP
+- **composio-v0-automation**: Tự động hóa V0 qua tích hợp Composio MCP
+- **composio-venly-automation**: Tự động hóa Venly qua tích hợp Composio MCP
+- **composio-veo-automation**: Tự động hóa Veo qua tích hợp Composio MCP
+- **composio-verifiedemail-automation**: Tự động hóa Verifiedemail qua tích hợp Composio MCP
+- **composio-veriphone-automation**: Tự động hóa Veriphone qua tích hợp Composio MCP
+- **composio-vero-automation**: Tự động hóa Vero qua tích hợp Composio MCP
+- **composio-vestaboard-automation**: Tự động hóa Vestaboard qua tích hợp Composio MCP
+- **composio-virustotal-automation**: Tự động hóa Virustotal qua tích hợp Composio MCP
+- **composio-visme-automation**: Tự động hóa Visme qua tích hợp Composio MCP
+- **composio-waboxapp-automation**: Tự động hóa Waboxapp qua tích hợp Composio MCP
+- **composio-wachete-automation**: Tự động hóa Wachete qua tích hợp Composio MCP
+- **composio-waiverfile-automation**: Tự động hóa Waiverfile qua tích hợp Composio MCP
+- **composio-wakatime-automation**: Tự động hóa Wakatime qua tích hợp Composio MCP
+- **composio-wati-automation**: Tự động hóa Wati qua tích hợp Composio MCP
+- **composio-wave-accounting-automation**: Tự động hóa Wave Accounting qua tích hợp Composio MCP
+- **composio-wave_accounting-automation**: Tự động hóa Wave Accounting qua tích hợp Composio MCP
+- **composio-weathermap-automation**: Tự động hóa Weathermap qua tích hợp Composio MCP
+- **composio-webex-automation**: Tự động hóa Webex qua tích hợp Composio MCP
+- **composio-webscraping-ai-automation**: Tự động hóa Webscraping Ai qua tích hợp Composio MCP
+- **composio-webvizio-automation**: Tự động hóa Webvizio qua tích hợp Composio MCP
+- **composio-whautomate-automation**: Tự động hóa Whautomate qua tích hợp Composio MCP
+- **composio-winston-ai-automation**: Tự động hóa Winston Ai qua tích hợp Composio MCP
+- **composio-wit-ai-automation**: Tự động hóa Wit Ai qua tích hợp Composio MCP
+- **composio-wiz-automation**: Tự động hóa Wiz qua tích hợp Composio MCP
+- **composio-wolfram-alpha-api-automation**: Tự động hóa Wolfram Alpha Api qua tích hợp Composio MCP
+- **composio-woodpecker-co-automation**: Tự động hóa Woodpecker Co qua tích hợp Composio MCP
+- **composio-workable-automation**: Tự động hóa Workable qua tích hợp Composio MCP
+- **composio-workday-automation**: Tự động hóa Workday qua tích hợp Composio MCP
+- **composio-workiom-automation**: Tự động hóa Workiom qua tích hợp Composio MCP
+- **composio-worksnaps-automation**: Tự động hóa Worksnaps qua tích hợp Composio MCP
+- **composio-writer-automation**: Tự động hóa Writer qua tích hợp Composio MCP
+- **composio-xero-automation**: Tự động hóa Xero qua tích hợp Composio MCP
+- **composio-y-gy-automation**: Tự động hóa Y Gy qua tích hợp Composio MCP
+- **composio-yandex-automation**: Tự động hóa Yandex qua tích hợp Composio MCP
+- **composio-yelp-automation**: Tự động hóa Yelp qua tích hợp Composio MCP
+- **composio-ynab-automation**: Tự động hóa Ynab qua tích hợp Composio MCP
+- **composio-yousearch-automation**: Tự động hóa Yousearch qua tích hợp Composio MCP
+- **composio-zenrows-automation**: Tự động hóa Zenrows qua tích hợp Composio MCP
+- **composio-zenserp-automation**: Tự động hóa Zenserp qua tích hợp Composio MCP
+- **composio-zeplin-automation**: Tự động hóa Zeplin qua tích hợp Composio MCP
+- **composio-zerobounce-automation**: Tự động hóa Zerobounce qua tích hợp Composio MCP
+- **composio-zoho-automation**: Tự động hóa Zoho qua tích hợp Composio MCP
+- **composio-zoho-bigin-automation**: Tự động hóa Zoho Bigin qua tích hợp Composio MCP
+- **composio-zoho-books-automation**: Tự động hóa Zoho Books qua tích hợp Composio MCP
+- **composio-zoho-desk-automation**: Tự động hóa Zoho Desk qua tích hợp Composio MCP
+- **composio-zoho-inventory-automation**: Tự động hóa Zoho Inventory qua tích hợp Composio MCP
+- **composio-zoho-invoice-automation**: Tự động hóa Zoho Invoice qua tích hợp Composio MCP
+- **composio-zoho-mail-automation**: Tự động hóa Zoho Mail qua tích hợp Composio MCP
+- **composio-zoho_bigin-automation**: Tự động hóa Zoho Bigin qua tích hợp Composio MCP
+- **composio-zoho_books-automation**: Tự động hóa Zoho Books qua tích hợp Composio MCP
+- **composio-zoho_desk-automation**: Tự động hóa Zoho Desk qua tích hợp Composio MCP
+- **composio-zoho_inventory-automation**: Tự động hóa Zoho Inventory qua tích hợp Composio MCP
+- **composio-zoho_invoice-automation**: Tự động hóa Zoho Invoice qua tích hợp Composio MCP
+- **composio-zoho_mail-automation**: Tự động hóa Zoho Mail qua tích hợp Composio MCP
+- **composio-zoominfo-automation**: Tự động hóa Zoominfo qua tích hợp Composio MCP
+- **composio-zylvie-automation**: Tự động hóa Zylvie qua tích hợp Composio MCP
+- **composio-zyte-api-automation**: Tự động hóa Zyte Api qua tích hợp Composio MCP
 
 ---
 
 ## 2. .codex/skills/ — 945 skills
 
-.codex/skills/ is nearly identical to .claude/skills/. All 945 skills in .codex are a subset of .claude's 960.
+Codex skills là subset của .claude skills. Xem danh sách đầy đủ ở mục 1.
+Codex `.config.toml` chỉ định nghĩa MCP servers, không có skill riêng.
 
-Codex `.config.toml` only defines MCP servers (claude-mem, codebase-memory, codebase-memory-mcp), no extra skills.
+### 15 skills chỉ có trong .claude, không có trong .codex:
 
-### 15 skills in .claude/skills/ that are NOT in .codex/skills/:
-1. brandkit
-2. brutalist-skill
-3. clone-website
-4. gpt-tasteskill
-5. imagegen-frontend-mobile
-6. imagegen-frontend-web
-7. image-to-code-skill
-8. minimalist-skill
-9. output-skill
-10. soft-skill
-11. stitch-skill
-12. taste-skill
-13. taste-skill-v1
-14. turnstile-spin
-15. video-downloader
-
----
-
-## 3. Built-in Bot Skills (not in .claude or .codex dirs, registered in Claude Code harness)
-
-These are registered by the runtime (not from local files):
-- anthropic-skills:consolidate-memory
-- anthropic-skills:docx
-- anthropic-skills:frontend-design
-- anthropic-skills:pdf
-- anthropic-skills:pdf-reading
-- anthropic-skills:pptx
-- anthropic-skills:schedule
-- anthropic-skills:setup-cowork
-- anthropic-skills:xlsx
-- dataviz
-- update-config
-- keybindings-help
-- simplify
-- fewer-permission-prompts
-- loop
-- claude-api
-- run
-- init
-- review
-- security-review
+1. **brandkit**: Quản lý bộ nhận diện thương hiệu (logo, màu, font)
+1. **brutalist-skill**: Thiết kế giao diện theo phong cách Brutalist
+1. **clone-website**: Clone và phân tích cấu trúc website
+1. **gpt-tasteskill**: Skill đánh giá chất lượng (taste) cho GPT
+1. **imagegen-frontend-mobile**: Tạo ảnh giao diện mobile bằng AI
+1. **imagegen-frontend-web**: Tạo ảnh giao diện web bằng AI
+1. **image-to-code-skill**: Chuyển ảnh thiết kế thành code
+1. **minimalist-skill**: Định dạng output tối giản, súc tích
+1. **output-skill**: Tùy chỉnh định dạng output của Claude
+1. **soft-skill**: Định dạng output nhẹ nhàng, thân thiện
+1. **stitch-skill**: Tích hợp Google Stitch tổng hợp
+1. **taste-skill**: Đánh giá và cải thiện chất lượng code
+1. **taste-skill-v1**: Phiên bản 1 của skill đánh giá chất lượng
+1. **turnstile-spin**: Tạo spinner/xoay vòng nội dung
+1. **video-downloader**: Tải video từ URL
 
 ---
 
-**Grand total:** 960 (.claude) + 0 unique (.codex) + 20 built-in = 980 unique skill entries.
+## 3. Built-in Bot Skills (Claude Code Harness)
+
+- **anthropic-skills:consolidate-memory**: Hợp nhất và tối ưu bộ nhớ Claude trong session
+- **anthropic-skills:docx**: Tạo và chỉnh sửa file Microsoft Word (.docx)
+- **anthropic-skills:frontend-design**: Thiết kế giao diện frontend với Claude
+- **anthropic-skills:pdf**: Tạo và xử lý file PDF
+- **anthropic-skills:pdf-reading**: Đọc và trích xuất nội dung từ PDF
+- **anthropic-skills:pptx**: Tạo và chỉnh sửa file PowerPoint (.pptx)
+- **anthropic-skills:schedule**: Lên lịch và quản lý tác vụ định kỳ
+- **anthropic-skills:setup-cowork**: Thiết lập môi trường làm việc cộng tác
+- **anthropic-skills:xlsx**: Tạo và chỉnh sửa file Excel (.xlsx)
+- **claude-api**: Tra cứu tài liệu Claude API — model, pricing, streaming, tool use, caching
+- **dataviz**: Tạo biểu đồ, dashboard, trực quan hóa dữ liệu chuyên nghiệp
+- **fewer-permission-prompts**: Giảm số lần xin phép bằng allowlist trong settings
+- **init**: Khởi tạo và cấu hình dự án mới
+- **keybindings-help**: Hướng dẫn tùy chỉnh phím tắt Claude Code
+- **loop**: Chạy lặp prompt hoặc slash command theo chu kỳ
+- **review**: Review code thay đổi theo standards và spec
+- **run**: Chạy ứng dụng để kiểm tra thay đổi
+- **security-review**: Review bảo mật cho toàn bộ codebase
+- **simplify**: Tối giản code — giảm phức tạp, tăng tái sử dụng
+- **update-config**: Cấu hình Claude Code harness (settings.json)
+
+---
+
+**Grand total:** 960 (.claude) + 0 unique (.codex) + 20 built-in = **980 unique skill entries**.

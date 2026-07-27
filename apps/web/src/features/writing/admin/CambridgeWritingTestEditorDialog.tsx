@@ -43,10 +43,10 @@ function mapExistingTestToForm(test: CambridgeWritingTest): CambridgeWritingTest
     testNumber: test.testNumber,
     title: test.title,
     sourceUrl: test.sourceUrl ?? '',
-    tasks: test.tasks.map(task => ({
-      clientId: crypto.randomUUID(),
-      partNumber: task.partNumber,
-      taskNumber: task.taskNumber,
+      tasks: test.tasks.map(task => ({
+        clientId: crypto.randomUUID(),
+        partNumber: task.partNumber,
+        taskNumber: task.taskNumber,
       title: task.title,
       genre: task.genre,
       instruction: task.instruction,
@@ -54,10 +54,12 @@ function mapExistingTestToForm(test: CambridgeWritingTest): CambridgeWritingTest
       promptHtml: task.promptHtml ?? '',
       minWords: task.wordLimit?.min ?? null,
       maxWords: task.wordLimit?.max ?? null,
-      wordLimitDisplayText: task.wordLimit?.displayText ?? '',
-      compulsory: task.metadata?.compulsory ?? true,
-      imageAssets: task.imageAssets ?? [],
-    })),
+        wordLimitDisplayText: task.wordLimit?.displayText ?? '',
+        compulsory: task.metadata?.compulsory ?? true,
+        imageAssets: task.imageAssets ?? [],
+        promptBlocks: task.promptBlocks,
+        presentation: task.presentation,
+      })),
   }
 }
 

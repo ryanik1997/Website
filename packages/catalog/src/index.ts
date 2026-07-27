@@ -32,6 +32,8 @@ export {
   CambridgeWritingChoiceSchema,
   CambridgeWritingAssetSchema,
   CambridgeWritingSampleAnswerSchema,
+  CambridgeWritingPromptBlockSchema,
+  CambridgeWritingPresentationSchema,
   CambridgeWritingManifestSchema,
 } from './cambridge/writing'
 export type {
@@ -41,6 +43,8 @@ export type {
   CambridgeWritingChoice,
   CambridgeWritingAsset,
   CambridgeWritingSampleAnswer,
+  CambridgeWritingPromptBlock,
+  CambridgeWritingPresentation,
   CambridgeWritingLevel,
   CambridgeWritingGenre,
   CambridgeWritingManifest,

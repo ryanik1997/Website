@@ -1,4 +1,10 @@
-import type { CambridgeWritingAsset, CambridgeWritingGenre, CambridgeWritingLevel } from '@ryan/catalog'
+import type {
+  CambridgeWritingAsset,
+  CambridgeWritingGenre,
+  CambridgeWritingLevel,
+  CambridgeWritingPresentation,
+  CambridgeWritingPromptBlock,
+} from '@ryan/catalog'
 
 export const EXAM_PREFIX = {
   a2: 'ket',
@@ -30,6 +36,8 @@ export type CambridgeWritingTaskFormValue = {
   wordLimitDisplayText: string
   compulsory: boolean
   imageAssets: CambridgeWritingAsset[]
+  promptBlocks?: CambridgeWritingPromptBlock[]
+  presentation?: CambridgeWritingPresentation
 }
 
 export type CambridgeWritingTestFormValue = {
@@ -82,6 +90,8 @@ export function createEmptyTask(nextTaskNumber = 1): CambridgeWritingTaskFormVal
     wordLimitDisplayText: '',
     compulsory: true,
     imageAssets: [],
+    promptBlocks: undefined,
+    presentation: undefined,
   }
 }
 

@@ -25,6 +25,8 @@ const baseValue: CambridgeWritingTestFormValue = {
       wordLimitDisplayText: ' about 100 words ',
       compulsory: true,
       imageAssets: [],
+      promptBlocks: undefined,
+      presentation: undefined,
     },
   ],
 }
@@ -66,5 +68,25 @@ describe('cambridgeWritingFormMapper', () => {
     }, 'cae-c1-writing-test-02')
     expect(mapped.id).toBe('cae-c1-writing-test-02')
     expect(mapped.tasks[0].id).toBe('cae-c1-writing-test-02-task-01')
+  })
+
+  it('preserves promptBlocks and presentation metadata', () => {
+    const mapped = mapFormToWritingTest('b2', {
+      ...baseValue,
+      tasks: [
+        {
+          ...baseValue.tasks[0],
+          promptBlocks: [
+            { id: 'notes', type: 'panel', variant: 'notes', heading: 'Notes', listItems: ['transport'] },
+          ],
+          presentation: { template: 'essay-notes' },
+        },
+      ],
+    })
+
+    expect(mapped.tasks[0].promptBlocks).toEqual([
+      { id: 'notes', type: 'panel', variant: 'notes', heading: 'Notes', listItems: ['transport'] },
+    ])
+    expect(mapped.tasks[0].presentation).toEqual({ template: 'essay-notes' })
   })
 })
