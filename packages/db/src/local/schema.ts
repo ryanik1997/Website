@@ -121,6 +121,15 @@ export interface WritingDoc {
   genre?: WritingGenre
   prompt: string
   text: string
+  sourceMeta?: {
+    examFamily?: 'cambridge'
+    level?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+    testId?: string
+    taskId?: string
+    genre?: WritingGenre
+    sourcePromptId?: string
+    docRole?: 'prompt_seed' | 'user_answer'
+  }
   /** Data URL ảnh đề (jpg/webp) — Task 1 chart hoặc minh họa */
   promptImage?: string
   updatedAt: number
@@ -585,6 +594,32 @@ export class RyanDB extends Dexie {
         entry.createdAt ??= now
         entry.lastAccessedAt ??= entry.createdAt
       })
+    })
+    // v17: WritingDoc.sourceMeta cho prompt seed Cambridge Writing
+    this.version(17).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
     })
   }
 }

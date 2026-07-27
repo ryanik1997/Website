@@ -163,7 +163,9 @@ function AppShellInner() {
   )
 
   // Full-bleed exam player (TID Listening / Reading paper) — hide app sidebar
-  const examPlayerMode = /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
+  const examPlayerMode =
+    /^\/app\/exam\/(listening|reading)\//.test(location.pathname)
+    || /^\/app\/writing\/cambridge\/[^/]+\/[^/]+\/[^/]+$/.test(location.pathname)
   const appBackdropMode = getAppShellBackdropMode(location.pathname)
   const appBackdropActive = appBackdropMode !== 'none'
   const showCornerSun = shouldShowCornerSun(location.pathname)

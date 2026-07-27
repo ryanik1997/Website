@@ -4,13 +4,14 @@ import { ArrowLeft } from 'lucide-react'
 export default function WritingLayout() {
   const { pathname } = useLocation()
   const isHub = pathname === '/app/writing' || pathname === '/app/writing/'
+  const isCambridgeFlow = pathname.startsWith('/app/writing/cambridge')
 
   return (
     <div
       className="writing-layout flex flex-col h-full min-h-0 overflow-hidden"
       style={{ background: 'var(--bg-primary)' }}
     >
-      {!isHub && (
+      {!isHub && !isCambridgeFlow && (
         <div
           className="shrink-0 flex items-center gap-2 px-4 py-2.5 border-b"
           style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
@@ -26,7 +27,7 @@ export default function WritingLayout() {
         </div>
       )}
       <div
-        className="writing-layout__content flex-1 min-h-0 overflow-y-auto flex flex-col"
+        className={`writing-layout__content flex-1 min-h-0 flex flex-col ${isCambridgeFlow ? 'overflow-hidden' : 'overflow-y-auto'}`}
         style={{ background: 'var(--bg-primary)' }}
       >
         <Outlet />

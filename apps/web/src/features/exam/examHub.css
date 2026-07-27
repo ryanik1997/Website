@@ -869,6 +869,12 @@
   }
 }
 
+@media (min-width: 960px) {
+  .exam-skill-picker__grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .exam-skill-card {
   position: relative;
   display: flex;
@@ -907,6 +913,15 @@
 
 .exam-skill-card--reading .exam-skill-card__mascot {
   color: #66bb6a;
+}
+
+.exam-skill-card--writing {
+  background: linear-gradient(165deg, #f59e0b 0%, #ea7a16 54%, #d35b10 100%);
+  color: #fff8ef;
+}
+
+.exam-skill-card--writing .exam-skill-card__mascot {
+  color: #f8b448;
 }
 
 .exam-skill-card__icons {

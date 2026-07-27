@@ -29,8 +29,9 @@ const WritingPracticePage  = lazy(() => import('./pages/WritingPracticePage'))
 const WritingIeltsGenrePage = lazy(() => import('./pages/WritingIeltsGenrePage'))
 const WritingIeltsPracticePage = lazy(() => import('./pages/WritingIeltsPracticePage'))
 const WritingCambridgePage = lazy(() => import('./pages/WritingCambridgePage'))
-const WritingCambridgeGenrePage = lazy(() => import('./pages/WritingCambridgeGenrePage'))
-const WritingCambridgePracticePage = lazy(() => import('./pages/WritingCambridgePracticePage'))
+const WritingCambridgeLevelPage = lazy(() => import('./pages/WritingCambridgeLevelPage'))
+const WritingCambridgeTestPage = lazy(() => import('./pages/WritingCambridgeTestPage'))
+const WritingCambridgeTaskPage = lazy(() => import('./pages/WritingCambridgeTaskPage'))
 const WritingDashboardPage = lazy(() => import('./pages/WritingDashboardPage'))
 const ListeningLayout      = lazy(() => import('./pages/ListeningLayout'))
 const ListeningLibraryPage = lazy(() => import('./features/listening/ListeningLibraryPage'))
@@ -113,8 +114,9 @@ export default function App() {
             <Route path="practice/:track" element={<WritingIeltsGenrePage />} />
             <Route path="practice/:track/:genre" element={<WritingIeltsPracticePage />} />
             <Route path="cambridge" element={<WritingCambridgePage />} />
-            <Route path="cambridge/:level" element={<WritingCambridgeGenrePage />} />
-            <Route path="cambridge/:level/:genre" element={<WritingCambridgePracticePage />} />
+            <Route path="cambridge/:level" element={<WritingCambridgeLevelPage />} />
+            <Route path="cambridge/:level/:testId" element={<WritingCambridgeTestPage />} />
+            <Route path="cambridge/:level/:testId/:taskId" element={<WritingCambridgeTaskPage />} />
             <Route path="dashboard" element={<WritingDashboardPage />} />
             <Route path="translate" element={<TranslationPage />} />
             <Route path="translate/:track" element={<TranslationGenrePage />} />

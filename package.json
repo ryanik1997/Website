@@ -44,6 +44,7 @@
     "ielts:reading:build-cam9-t1": "python scripts/build-ielts-reading-cam9-test1.py",
     "ielts:reading:build-cam9": "python scripts/build-ielts-reading-cam9-test1.py && python scripts/build-ielts-reading-cam9-tests-234.py",
     "ielts:reading:build-cam10": "python scripts/build-ielts-reading-cam10.py",
+    "import:cambridge-writing": "node scripts/import-cambridge-writing.ts",
     "gen:ielts-html": "python gen.py",
     "ielts:docx:bundle": "npx vite-node scripts/ielts-listening-docx-bundle.ts",
     "pack:reading:cae": "node scripts/pack-reading-bundle.mjs cae-Reading-test1",

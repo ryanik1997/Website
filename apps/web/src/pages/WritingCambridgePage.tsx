@@ -1,11 +1,9 @@
 import type { CSSProperties } from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Library } from 'lucide-react'
-import { db } from '@ryan/db'
-import { CAMBRIDGE_DOC_TYPES } from '../features/writing/writingTypes'
 import { CAMBRIDGE_LEVELS } from '../features/writing/cambridgeCatalog'
+import { CAMBRIDGE_WRITING_MANIFEST } from '@ryan/catalog'
 import {
   CAMBRIDGE_WRITING_MODEL_CATALOG,
   listModelAnswersByLevel,
@@ -13,21 +11,18 @@ import {
 } from '../features/exam/cambridgeWritingModelCatalog'
 import '../features/writing/cambridgeHub.css'
 
-/** Bước 1: Chọn cấp độ Cambridge A2–C2 */
 export default function WritingCambridgePage() {
   const navigate = useNavigate()
   const [catalogLevel, setCatalogLevel] = useState<CambridgeWritingLevel | 'all'>('all')
   const [catalogOpen, setCatalogOpen] = useState(false)
 
-  const counts = useLiveQuery(async () => {
-    const all = await db.writingDocs.toArray()
-    const cambridge = all.filter(d => CAMBRIDGE_DOC_TYPES.includes(d.type))
-    const map = new Map<string, number>()
-    for (const level of CAMBRIDGE_LEVELS) {
-      map.set(level.slug, cambridge.filter(d => d.type === level.type).length)
-    }
-    return map
-  }, [])
+  const counts = new Map<string, number>([
+    ['a2', 1],
+    ['b1', CAMBRIDGE_WRITING_MANIFEST.b1.testCount],
+    ['b2', CAMBRIDGE_WRITING_MANIFEST.b2.testCount],
+    ['c1', CAMBRIDGE_WRITING_MANIFEST.c1.testCount],
+    ['c2', CAMBRIDGE_WRITING_MANIFEST.c2.testCount],
+  ])
 
   const catalogEntries = catalogLevel === 'all'
     ? CAMBRIDGE_WRITING_MODEL_CATALOG
@@ -37,15 +32,13 @@ export default function WritingCambridgePage() {
     <div className="cb-hub">
       <div className="cb-inner">
         <nav className="cb-breadcrumb" aria-label="Breadcrumb">
-          <Link to="/app/writing">Thư viện Writing</Link>
-          <span className="cb-breadcrumb-sep">/</span>
-          <span className="cb-breadcrumb-current">Cambridge A2–C2</span>
+          <span className="cb-breadcrumb-current">Cambridge A2-C2</span>
         </nav>
 
-        <h1 className="cb-title">Luyện viết Cambridge A2–C2</h1>
+        <h1 className="cb-title">Luyen viet Cambridge A2-C2</h1>
         <p className="cb-sub">
-          Chọn cấp độ trước — mỗi level có các loại bài riêng (email, story, essay…).
-          Dễ tìm khi thư viện có hàng trăm đề.
+          Chon cap do truoc - moi level co cac loai bai rieng (email, story, essay...).
+          De tim khi thu vien co hang tram de.
         </p>
 
         <div className="cb-grid">
@@ -60,13 +53,13 @@ export default function WritingCambridgePage() {
               <div className="cb-card-top">
                 <span className="cb-card-badge">{level.exam}</span>
                 <span className="cb-card-count">
-                  {counts?.get(level.slug) ?? 0} bài
+                  {counts.get(level.slug) ?? 0} bai
                 </span>
               </div>
               <h2 className="cb-card-title">{level.label}</h2>
               <p className="cb-card-desc">{level.desc}</p>
               <span className="cb-card-meta" style={{ color: 'var(--color-primary)' }}>
-                Chọn loại bài
+                Open library
                 <ArrowRight size={14} />
               </span>
             </button>
@@ -95,7 +88,7 @@ export default function WritingCambridgePage() {
             <Library size={16} style={{ color: 'var(--color-primary)' }} />
             Model answer catalog ({CAMBRIDGE_WRITING_MODEL_CATALOG.length})
             <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>
-              {catalogOpen ? '— thu gọn' : '— mở'}
+              {catalogOpen ? '- thu gon' : '- mo'}
             </span>
           </button>
 
@@ -120,7 +113,7 @@ export default function WritingCambridgePage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {lv === 'all' ? 'Tất cả' : lv.toUpperCase()}
+                    {lv === 'all' ? 'Tat ca' : lv.toUpperCase()}
                   </button>
                 ))}
               </div>
@@ -144,17 +137,18 @@ export default function WritingCambridgePage() {
                     <p style={{ margin: '0.65rem 0 0.35rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                       {entry.prompt}
                     </p>
-                    <pre style={{
-                      margin: 0,
-                      whiteSpace: 'pre-wrap',
-                      fontFamily: 'inherit',
-                      fontSize: '0.8rem',
-                      lineHeight: 1.65,
-                      color: 'var(--text-primary)',
-                      background: 'var(--bg-secondary)',
-                      padding: '0.75rem',
-                      borderRadius: '0.5rem',
-                    }}
+                    <pre
+                      style={{
+                        margin: 0,
+                        whiteSpace: 'pre-wrap',
+                        fontFamily: 'inherit',
+                        fontSize: '0.8rem',
+                        lineHeight: 1.65,
+                        color: 'var(--text-primary)',
+                        background: 'var(--bg-secondary)',
+                        padding: '0.75rem',
+                        borderRadius: '0.5rem',
+                      }}
                     >
                       {entry.modelAnswer}
                     </pre>

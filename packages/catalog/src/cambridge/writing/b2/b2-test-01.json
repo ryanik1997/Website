@@ -1,0 +1,82 @@
+{
+  "id": "b2-test-01",
+  "level": "b2",
+  "testNumber": 1,
+  "title": "FCE B2 Digital Sample Test 1",
+  "sourceUrl": "https://ceq.inspera.com/player/?assessmentRunId=146732614&context=exam#/section/4060115584647/question/143372237",
+  "sourceFile": "docs/research/ceq.inspera.com/writing/b2.questions.json",
+  "tasks": [
+    {
+      "id": "b2-test-01-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Question 1",
+      "genre": "essay",
+      "instruction": "You must answer this question. Write 140–190 words in an appropriate style.",
+      "promptText": "In your English class you have been talking about the environment. Now, your English teacher has asked you to write an essay.\n\nWrite an essay using all the notes and giving reasons for your point of view.\n\nEvery country in the world has problems with pollution and damage to the environment. Do you think these problems can be solved?\n\nNotes\n\nWrite about:\n\n1. transport\n\n2. rivers and seas\n\n3. your own idea",
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "1"
+      }
+    },
+    {
+      "id": "b2-test-01-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Question 2",
+      "genre": "review",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement in your college English-language magazine.\nBook reviews wanted\nHave you read a book in which the main character behaved in a surprising way?\nWrite us a review of the book, explaining what the main character did and why it was surprising.\nTell us whether or not you would recommend this book to other people.\nThe best reviews will be published in the magazine.\nWrite your review.",
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "2"
+      }
+    },
+    {
+      "id": "b2-test-01-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Question 3",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You see this announcement on an English-language website.\nArticles wanted\nThe most useful thing I have ever learned\nWhat is the most useful thing you have learned?\nWho did you learn it from? Why is it useful?\nWrite us an article answering these questions.\nWe will publish the best articles on our website.\nWrite your article.",
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "3"
+      }
+    },
+    {
+      "id": "b2-test-01-task-04",
+      "partNumber": 2,
+      "taskNumber": 4,
+      "title": "Question 4",
+      "genre": "email",
+      "instruction": "Answer one of these questions. Write 140–190 words in an appropriate style.",
+      "promptText": "You have received this email from your English-speaking friend David.\nFrom: David\nSubject: touring holiday\nSome college friends of mine are visiting your area soon for a week’s touring holiday.\nThey would like to travel around and learn about your local area and its history.\nCan you tell me about some of the places they could visit? What’s the best way to travel around – car, bike or coach?\nThanks,\nDavid\nWrite your email.",
+      "wordLimit": {
+        "min": 140,
+        "max": 190,
+        "displayText": "140–190 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "4"
+      }
+    }
+  ]
+}

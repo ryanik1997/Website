@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-07-27T05:19:59.504Z",
+  "mode": "write",
+  "levels": {
+    "b1": {
+      "sourcePath": "D:\\App-English-Ryan\\Crawl\\Writing_Crawl\\B1",
+      "sourceFiles": [
+        "Question_1.png",
+        "Question_2.png",
+        "Question_3.png"
+      ],
+      "rawFile": "D:\\App-English-Ryan\\Website\\docs\\research\\ceq.inspera.com\\writing\\b1.questions.json",
+      "rawExists": true,
+      "testCount": 1,
+      "taskCount": 3,
+      "fileTypes": [
+        "json"
+      ],
+      "warnings": []
+    },
+    "b2": {
+      "sourcePath": "D:\\App-English-Ryan\\Crawl\\Writing_Crawl\\B2",
+      "sourceFiles": [],
+      "rawFile": "D:\\App-English-Ryan\\Website\\docs\\research\\ceq.inspera.com\\writing\\b2.questions.json",
+      "rawExists": true,
+      "testCount": 1,
+      "taskCount": 4,
+      "fileTypes": [
+        "json"
+      ],
+      "warnings": [
+        "Source crawl folder is empty; using Inspera seed captures from docs/research."
+      ]
+    },
+    "c1": {
+      "sourcePath": "D:\\App-English-Ryan\\Crawl\\Writing_Crawl\\C1",
+      "sourceFiles": [],
+      "rawFile": "D:\\App-English-Ryan\\Website\\docs\\research\\ceq.inspera.com\\writing\\c1.questions.json",
+      "rawExists": true,
+      "testCount": 1,
+      "taskCount": 4,
+      "fileTypes": [
+        "json"
+      ],
+      "warnings": [
+        "Source crawl folder is empty; using Inspera seed captures from docs/research."
+      ]
+    },
+    "c2": {
+      "sourcePath": "D:\\App-English-Ryan\\Crawl\\Writing_Crawl\\C2",
+      "sourceFiles": [],
+      "rawFile": "D:\\App-English-Ryan\\Website\\docs\\research\\ceq.inspera.com\\writing\\c2.questions.json",
+      "rawExists": true,
+      "testCount": 1,
+      "taskCount": 4,
+      "fileTypes": [
+        "json"
+      ],
+      "warnings": [
+        "Source crawl folder is empty; using Inspera seed captures from docs/research."
+      ]
+    }
+  }
+}

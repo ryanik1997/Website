@@ -92,7 +92,10 @@ async function collectSentenceStructures() {
 
 async function collectWritingPrompts() {
   const all = await db.writingDocs.toArray()
-  return all.filter(d => !d.text.trim())
+  return all.filter((doc) =>
+    doc.sourceMeta?.docRole === 'prompt_seed'
+    || (!doc.text.trim() && doc.sourceMeta?.docRole !== 'user_answer'),
+  )
 }
 
 async function collectMindmaps() {

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { AlertCircle, Check, CloudUpload, Loader2 } from 'lucide-react'
+import AdminWritingPromptImagePanel from './AdminWritingPromptImagePanel'
 import {
   countAdminPublishableContent,
   publishAllAdminContent,
@@ -115,6 +116,8 @@ export default function AdminPublishExamsPanel() {
 
   return (
     <div className="p-6 max-w-3xl mx-auto space-y-6">
+      <AdminWritingPromptImagePanel />
+
       <div
         className="rounded-xl border p-5"
         style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}

@@ -1,0 +1,64 @@
+{
+  "id": "b1-test-01",
+  "level": "b1",
+  "testNumber": 1,
+  "title": "PET B1 Digital Sample Test 1",
+  "sourceUrl": "https://ceq.inspera.com/player/?assessmentRunId=146726796&context=exam#/section/4128591741313/question/143865262",
+  "sourceFile": "docs/research/ceq.inspera.com/writing/b1.questions.json",
+  "tasks": [
+    {
+      "id": "b1-test-01-task-01",
+      "partNumber": 1,
+      "taskNumber": 1,
+      "title": "Question 1",
+      "genre": "email",
+      "instruction": "You must answer this question. Write your answer in about 100 words.",
+      "promptText": "Read this email from your English-speaking friend Sandy and the notes you have made.\n\nWrite your email to Sandy using all the notes.",
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": true,
+        "sourceQuestionNumber": "1"
+      }
+    },
+    {
+      "id": "b1-test-01-task-02",
+      "partNumber": 2,
+      "taskNumber": 2,
+      "title": "Question 2",
+      "genre": "article",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptText": "You see this notice on an English-language website.\nArticles wanted\nFILMS\nWhat kind of films do you enjoy?\nDo you prefer watching them at the cinema or at home? Why?\nWrite an article answering these questions and we will put it on our website!\nWrite your article.",
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "2"
+      }
+    },
+    {
+      "id": "b1-test-01-task-03",
+      "partNumber": 2,
+      "taskNumber": 3,
+      "title": "Question 3",
+      "genre": "story",
+      "instruction": "Answer one of these questions. Write your answer in about 100 words.",
+      "promptText": "Your English teacher has asked you to write a story.\nYour story must begin with this sentence.\nAs the plane flew lower, Lou saw the golden beaches of the island below.\nWrite your story.",
+      "wordLimit": {
+        "min": 100,
+        "max": 100,
+        "displayText": "about 100 words"
+      },
+      "metadata": {
+        "compulsory": false,
+        "sourceQuestionNumber": "3"
+      }
+    }
+  ]
+}

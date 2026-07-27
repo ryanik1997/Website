@@ -1,6 +1,6 @@
-import { ArrowLeft, BookOpen, Headphones } from 'lucide-react'
+import { ArrowLeft, BookOpen, Headphones, PenLine } from 'lucide-react'
 
-export type ExamSkillPick = 'listening' | 'reading'
+export type ExamSkillPick = 'listening' | 'reading' | 'writing'
 
 interface Props {
   /** IELTS Academic / KET A2 / … */
@@ -10,6 +10,7 @@ interface Props {
   onBack: () => void
   listeningCount: number
   readingCount: number
+  writingCount?: number
   onPick: (skill: ExamSkillPick) => void
   /** Ẩn skill không có trong level (hiếm) */
   skills?: ExamSkillPick[]
@@ -31,6 +32,7 @@ export default function ExamSkillPicker({
   onBack,
   listeningCount,
   readingCount,
+  writingCount = 0,
   onPick,
   skills = ['listening', 'reading'],
   readingTitle = 'Reading',
@@ -38,6 +40,7 @@ export default function ExamSkillPicker({
 }: Props) {
   const showListening = skills.includes('listening')
   const showReading = skills.includes('reading')
+  const showWriting = skills.includes('writing')
 
   return (
     <div className={`exam-skill-picker${ieltsCardStyle ? ' exam-skill-picker--ielts' : ''}`}>
@@ -55,7 +58,7 @@ export default function ExamSkillPicker({
           </p>
         </header>
 
-        <div className="exam-skill-picker__grid">
+        <div className={`exam-skill-picker__grid${showWriting ? ' exam-skill-picker__grid--three' : ''}`}>
           {showListening && (
             <button
               type="button"
@@ -121,6 +124,36 @@ export default function ExamSkillPicker({
                 </svg>
               </div>
               <span className="exam-skill-card__badge">{formatCount(readingCount)}</span>
+            </button>
+          )}
+
+          {showWriting && (
+            <button
+              type="button"
+              className="exam-skill-card exam-skill-card--writing"
+              onClick={() => onPick('writing')}
+            >
+              <div className="exam-skill-card__icons" aria-hidden>
+                <span className="exam-skill-card__chip">
+                  <PenLine size={18} strokeWidth={2.2} />
+                </span>
+                <span className="exam-skill-card__decor exam-skill-card__decor--spark">+</span>
+              </div>
+              <h2 className="exam-skill-card__title">Writing</h2>
+              <p className="exam-skill-card__desc">
+                Luyá»‡n viáº¿t theo Ä‘Ãºng cáº¥u trÃºc Ä‘á» Cambridge vá»›i Ä‘á» máº«u tháº­t vÃ  workspace cháº¥m AI hiá»‡n cÃ³.
+              </p>
+              <div className="exam-skill-card__mascot exam-skill-card__mascot--writing" aria-hidden>
+                <svg viewBox="0 0 200 160" className="exam-skill-card__svg">
+                  <rect x="52" y="28" width="96" height="110" rx="18" fill="currentColor" opacity="0.95" />
+                  <rect x="68" y="54" width="62" height="8" rx="4" fill="#25163a" opacity="0.9" />
+                  <rect x="68" y="74" width="54" height="8" rx="4" fill="#25163a" opacity="0.72" />
+                  <rect x="68" y="94" width="46" height="8" rx="4" fill="#25163a" opacity="0.56" />
+                  <path d="M132 108 160 80l12 12-28 28-18 6z" fill="#f8fafc" />
+                  <path d="M160 80l8-8c4-4 10-4 14 0l2 2c4 4 4 10 0 14l-8 8z" fill="#f59e0b" />
+                </svg>
+              </div>
+              <span className="exam-skill-card__badge">{formatCount(writingCount)}</span>
             </button>
           )}
         </div>
