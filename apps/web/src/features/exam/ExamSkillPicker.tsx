@@ -3,29 +3,38 @@ import { ArrowLeft, BookOpen, Headphones, PenLine } from 'lucide-react'
 export type ExamSkillPick = 'listening' | 'reading' | 'writing'
 
 interface Props {
-  /** IELTS Academic / KET A2 / … */
   brandTitle: string
-  /** Quay về: Luyện thi hoặc Cambridge levels */
   backLabel: string
   onBack: () => void
   listeningCount: number
   readingCount: number
   writingCount?: number
   onPick: (skill: ExamSkillPick) => void
-  /** Ẩn skill không có trong level (hiếm) */
   skills?: ExamSkillPick[]
-  /** Cambridge RW paper: "Reading - Writing"; IELTS mặc định "Reading" */
   readingTitle?: string
   ieltsCardStyle?: boolean
 }
 
+const COPY = {
+  comingSoon: 'S\u1eafp c\u00f3 \u0111\u1ec1',
+  hundredPlus: '100+ \u0111\u1ec1',
+  examsSuffix: '\u0111\u1ec1',
+  kicker: 'Luy\u1ec7n thi',
+  headerDesc: 'Ch\u1ecdn k\u1ef9 n\u0103ng \u0111\u1ec3 m\u1edf th\u01b0 vi\u1ec7n \u0111\u1ec1 \u2014 Library Archives.',
+  listeningDesc:
+    'Luy\u1ec7n nghe m\u1ed7i ng\u00e0y v\u1edbi 100+ \u0111o\u1ea1n h\u1ed9i tho\u1ea1i th\u1ef1c t\u1ebf, hi\u1ec3u t\u1ef1 nhi\u00ean nh\u01b0 ng\u01b0\u1eddi b\u1ea3n x\u1ee9.',
+  readingDesc:
+    '\u0110\u1ecdc hi\u1ec3u \u0111a d\u1ea1ng ch\u1ee7 \u0111\u1ec1 v\u1edbi 100+ b\u00e0i \u0111\u1ecdc ch\u1ecdn l\u1ecdc, n\u00e2ng cao v\u1ed1n t\u1eeb v\u00e0 t\u01b0 duy.',
+  writingDesc:
+    'Luy\u1ec7n vi\u1ebft theo \u0111\u00fang c\u1ea5u tr\u00fac \u0111\u1ec1 Cambridge v\u1edbi \u0111\u1ec1 m\u1eabu th\u1eadt v\u00e0 workspace ch\u1ea5m AI hi\u1ec7n c\u00f3.',
+} as const
+
 function formatCount(n: number): string {
-  if (n <= 0) return 'Sắp có đề'
-  if (n >= 100) return '100+ đề'
-  return `${n} đề`
+  if (n <= 0) return COPY.comingSoon
+  if (n >= 100) return COPY.hundredPlus
+  return `${n} ${COPY.examsSuffix}`
 }
 
-/** Giao diện Page1 — hai thẻ Listening / Reading. */
 export default function ExamSkillPicker({
   brandTitle,
   backLabel,
@@ -51,11 +60,9 @@ export default function ExamSkillPicker({
         </button>
 
         <header className="exam-skill-picker__header">
-          <p className="exam-skill-picker__kicker">Luyện thi</p>
+          <p className="exam-skill-picker__kicker">{COPY.kicker}</p>
           <h1 className="exam-skill-picker__title">{brandTitle}</h1>
-          <p className="exam-skill-picker__desc">
-            Chọn kỹ năng để mở thư viện đề — Library Archives.
-          </p>
+          <p className="exam-skill-picker__desc">{COPY.headerDesc}</p>
         </header>
 
         <div className={`exam-skill-picker__grid${showWriting ? ' exam-skill-picker__grid--three' : ''}`}>
@@ -72,9 +79,7 @@ export default function ExamSkillPicker({
                 <span className="exam-skill-card__decor exam-skill-card__decor--notes">♪</span>
               </div>
               <h2 className="exam-skill-card__title">Listening</h2>
-              <p className="exam-skill-card__desc">
-                Luyện nghe mỗi ngày với 100+ đoạn hội thoại thực tế, hiểu tự nhiên như người bản xứ.
-              </p>
+              <p className="exam-skill-card__desc">{COPY.listeningDesc}</p>
               <div className="exam-skill-card__mascot exam-skill-card__mascot--listening" aria-hidden>
                 <svg viewBox="0 0 200 160" className="exam-skill-card__svg">
                   <ellipse cx="100" cy="88" rx="72" ry="58" fill="currentColor" opacity="0.95" />
@@ -106,9 +111,7 @@ export default function ExamSkillPicker({
                 <span className="exam-skill-card__decor exam-skill-card__decor--sun">✦</span>
               </div>
               <h2 className="exam-skill-card__title">{readingTitle}</h2>
-              <p className="exam-skill-card__desc">
-                Đọc hiểu đa dạng chủ đề với 100+ bài đọc chọn lọc, nâng cao vốn từ và tư duy.
-              </p>
+              <p className="exam-skill-card__desc">{COPY.readingDesc}</p>
               <div className="exam-skill-card__mascot exam-skill-card__mascot--reading" aria-hidden>
                 <svg viewBox="0 0 200 160" className="exam-skill-card__svg">
                   <ellipse cx="100" cy="95" rx="70" ry="52" fill="currentColor" opacity="0.95" />
@@ -140,9 +143,7 @@ export default function ExamSkillPicker({
                 <span className="exam-skill-card__decor exam-skill-card__decor--spark">+</span>
               </div>
               <h2 className="exam-skill-card__title">Writing</h2>
-              <p className="exam-skill-card__desc">
-                Luyá»‡n viáº¿t theo Ä‘Ãºng cáº¥u trÃºc Ä‘á» Cambridge vá»›i Ä‘á» máº«u tháº­t vÃ  workspace cháº¥m AI hiá»‡n cÃ³.
-              </p>
+              <p className="exam-skill-card__desc">{COPY.writingDesc}</p>
               <div className="exam-skill-card__mascot exam-skill-card__mascot--writing" aria-hidden>
                 <svg viewBox="0 0 200 160" className="exam-skill-card__svg">
                   <rect x="52" y="28" width="96" height="110" rx="18" fill="currentColor" opacity="0.95" />
