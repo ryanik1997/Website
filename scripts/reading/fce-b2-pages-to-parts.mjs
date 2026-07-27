@@ -11,30 +11,34 @@ const PART_SPECS = {
   7: { rangeLabel: 'Questions 43–52', count: 10, type: 'matching-features' },
 }
 
-const QUESTION_COUNTS = Object.fromEntries(Object.entries(PART_SPECS).map(([k, v]) => [Number(k), v.count]))
 const PART_STARTS = { 1: 1, 2: 9, 3: 17, 4: 25, 5: 31, 6: 37, 7: 43 }
+const LETTERS = ['a', 'b', 'c', 'd']
+const FEATURE_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
-function stripHtml(input) {
-  return String(input ?? '')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>|<\/div>|<\/h\d>|<\/li>|<\/tr>|<\/td>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#8217;/g, '’')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8220;/g, '“')
-    .replace(/&#8221;/g, '”')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+\n/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/[ \t]{2,}/g, ' ')
-    .trim()
+function decodeHtmlEntities(value) {
+  const named = {
+    amp: '&',
+    apos: "'",
+    quot: '"',
+    lt: '<',
+    gt: '>',
+    nbsp: ' ',
+    rsquo: '’',
+    lsquo: '‘',
+    rdquo: '”',
+    ldquo: '“',
+    ndash: '–',
+    mdash: '—',
+    ellip: '…',
+  }
+  return String(value ?? '')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number.parseInt(dec, 10)))
+    .replace(/&([a-z]+);/gi, (match, name) => named[name.toLowerCase()] ?? match)
 }
 
 function normalizeText(input) {
-  return String(input ?? '')
+  return decodeHtmlEntities(String(input ?? ''))
     .replace(/\u00a0/g, ' ')
     .replace(/[ \t]+/g, ' ')
     .replace(/\r\n/g, '\n')
@@ -42,23 +46,82 @@ function normalizeText(input) {
     .trim()
 }
 
+function stripHtml(input) {
+  return normalizeText(
+    String(input ?? '')
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<\/p>|<\/div>|<\/h\d>|<\/li>|<\/tr>|<\/td>|<\/blockquote>/gi, '\n')
+      .replace(/<[^>]+>/g, ' '),
+  )
+}
+
 function htmlParagraphs(html) {
   const blocks = []
   const re = /<p[^>]*>([\s\S]*?)<\/p>/gi
   let m
   while ((m = re.exec(String(html ?? ''))) !== null) {
-    const text = normalizeText(stripHtml(m[1]))
+    const text = stripHtml(m[1])
     if (text) blocks.push({ text })
   }
   if (!blocks.length) {
-    const text = normalizeText(stripHtml(html))
+    const text = stripHtml(html)
     if (text) blocks.push({ text })
   }
   return blocks
 }
 
-function questionRange(partNumber) {
-  return PART_SPECS[partNumber]?.rangeLabel ?? `Questions ${PART_STARTS[partNumber]}`
+function htmlParagraphInnerHtml(html) {
+  const blocks = []
+  const re = /<p[^>]*>([\s\S]*?)<\/p>/gi
+  let m
+  while ((m = re.exec(String(html ?? ''))) !== null) {
+    blocks.push(m[1])
+  }
+  if (!blocks.length && String(html ?? '').trim()) {
+    blocks.push(String(html))
+  }
+  return blocks
+}
+
+function htmlToPlainWithGaps(html) {
+  return stripHtml(
+    String(html ?? '')
+      .replace(/<select[\s\S]*?<\/select>/gi, ' _____ ')
+      .replace(/<input[^>]*>/gi, ' _____ ')
+      .replace(/<span class="nowrap">/gi, '')
+      .replace(/<\/span>/gi, ' ')
+      .replace(/<a[^>]*><\/a>/gi, ' ')
+  )
+}
+
+function extractQuestionHtml(html, number) {
+  const re = new RegExp(
+    String.raw`<span class="nowrap">[\s\S]*?<strong>${number}</strong>[\s\S]*?<\/span><a[^>]*><\/a>`,
+    'i',
+  )
+  const match = String(html ?? '').match(re)
+  return match?.[0] ?? ''
+}
+
+function textWithInlineGap(html, number) {
+  const raw = extractQuestionHtml(html, number)
+  if (!raw) return `(${number}) .....`
+  const stripped = htmlToPlainWithGaps(raw)
+  return stripped.replace(new RegExp(`^${number}\\s*`, 'i'), `(${number}) `)
+}
+
+function parseQuestionOptions(q, letters = LETTERS) {
+  const options = Array.isArray(q.options) ? q.options : []
+  return options.map((opt, index) => {
+    const explicit = String(opt.key ?? opt.letter ?? opt.value ?? opt.id ?? '').trim()
+    const id = explicit && letters.includes(explicit.toLowerCase()) ? explicit.toLowerCase() : letters[index] ?? explicit.toLowerCase()
+    return {
+      id,
+      label: normalizeText(opt.text ?? opt.label ?? opt.title ?? ''),
+    }
+  })
 }
 
 function buildAnswerMap(answerPage) {
@@ -66,7 +129,6 @@ function buildAnswerMap(answerPage) {
   const groups = answerPage?.answers && typeof answerPage.answers === 'object'
     ? Object.values(answerPage.answers)
     : []
-
   for (const group of groups) {
     for (const item of Array.isArray(group) ? group : []) {
       const questionNumber = Number(item.questionNumber ?? item.number ?? item.question)
@@ -82,139 +144,297 @@ function buildAnswerMap(answerPage) {
       })
     }
   }
-
   return map
 }
 
-function classifyFcePage(page, pageNumber) {
-  const heading = [
-    page.title,
-    page.heading,
-    page.partTitle,
-    page.partTitle,
-    page.instructions,
-    page.passageTitle,
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .toLowerCase()
-
-  if (Number.isInteger(pageNumber) && pageNumber >= 1 && pageNumber <= 7) {
-    return `part-${pageNumber}`
-  }
-  if (Number.isInteger(Number(page.partNumber)) && page.partNumber >= 1 && page.partNumber <= 7) {
-    return `part-${page.partNumber}`
-  }
-  if (page.isAnswerPage || Array.isArray(page.answers) || /answer|answer key|correct answer|explanation/.test(heading)) {
-    return 'answers'
-  }
-  const match = heading.match(/part\s*(\d+)/)
-  if (match) return `part-${Number(match[1])}`
-  return `unknown-page-${pageNumber}`
+function questionRange(partNumber) {
+  return PART_SPECS[partNumber]?.rangeLabel ?? `Questions ${PART_STARTS[partNumber]}`
 }
 
-function parseQuestionOptions(q) {
-  if (!Array.isArray(q.options)) return []
-  return q.options.map(opt => {
-    const rawKey = opt.key ?? opt.letter ?? opt.value ?? opt.id ?? ''
-    const key = String(rawKey).trim()
-    const label = normalizeText(opt.text ?? opt.label ?? opt.title ?? key)
-    return { id: key || label, label }
-  })
-}
-
-function convertPageToPart(page, answerMap, appTestNumber) {
+function buildPartBase(page, appTestNumber, answerMap) {
   const partNumber = Number(page.partNumber)
-  if (!PART_SPECS[partNumber]) {
-    throw new Error(`Unsupported part number: ${page.partNumber}`)
-  }
-
-  const passageTitle = normalizeText(page.passageTitle ?? page.partTitle ?? `Part ${partNumber}`)
-  const passage = htmlParagraphs(page.passageTextHtml)
-  if (!passage.length) {
-    passage.push({ text: passageTitle })
-  }
-
+  const partId = `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}`
+  const passageTitle = normalizeText(page.passageTitle ?? `Part ${partNumber}`)
+  const start = PART_STARTS[partNumber]
   const questions = (page.questions ?? []).map(q => {
     const number = Number(q.number)
     const answerEntry = answerMap.get(number)
     if (!answerEntry) {
       throw new Error(`Missing answer for question ${number} in part ${partNumber}`)
     }
-    const prompt =
-      q.questionText
-      ?? q.prompt
-      ?? (partNumber === 5 ? `Question ${number}` : `Gap (${number})`)
-    const normalized = {
-      id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}-q${number}`,
+    return {
+      id: `${partId}-q${number}`,
       number,
-      type:
-        partNumber === 1 ? 'multiple-choice'
-          : partNumber === 2 || partNumber === 3 || partNumber === 4 ? 'gap-fill'
-            : partNumber === 5 ? 'multiple-choice'
-              : 'matching-features',
-      prompt: normalizeText(prompt),
-      options: parseQuestionOptions(q),
       answer: normalizeText(answerEntry.answer).toLowerCase(),
       explanation: normalizeText(answerEntry.explanation),
       answerConfidence: 'key',
+      rawQuestion: q,
     }
-    if (partNumber === 3) {
-      const baseWord = normalizeText(q.baseWord ?? q.wordStem ?? q.keyword ?? '')
-      if (baseWord) normalized.prompt = `${normalized.prompt} — ${baseWord}`
-    }
-    if (partNumber === 4) {
-      const keyword = normalizeText(q.keyword ?? '')
-      if (keyword) normalized.prompt = `${keyword} — ${normalized.prompt}`
-    }
-    return normalized
   })
-
-  const start = PART_STARTS[partNumber]
   const expectedNumbers = Array.from({ length: PART_SPECS[partNumber].count }, (_, i) => start + i)
   const seen = new Set(questions.map(q => q.number))
   for (const expected of expectedNumbers) {
-    if (!seen.has(expected)) {
-      throw new Error(`Part ${partNumber} missing question ${expected}`)
+    if (!seen.has(expected)) throw new Error(`Part ${partNumber} missing question ${expected}`)
+  }
+  return { partId, partNumber, passageTitle, questions }
+}
+
+function makeGenericPassageBlocks(html) {
+  return htmlParagraphs(html).map(block => ({ text: block.text }))
+}
+
+function convertPart1(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const partHtml = String(page.passageTextHtml ?? '')
+  const passage = htmlParagraphInnerHtml(partHtml).map(block => ({
+    text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....'),
+  })).filter(block => block.text)
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
+    const options = parseQuestionOptions(q, LETTERS)
+    const answer = question.answer.toUpperCase()
+    if (!options.some(opt => opt.id.toUpperCase() === answer)) {
+      throw new Error(`${question.id}: answer ${answer} not found in options`)
     }
-  }
-
-  const questionGroups = [
-    {
-      id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}-g0`,
-      range: questionRange(partNumber),
-      instruction: normalizeText(page.instructions ?? ''),
-      type: PART_SPECS[partNumber].type,
-      paragraphLetters: partNumber === 6 ? ['A', 'B', 'C', 'D', 'E', 'F', 'G'] : undefined,
-      features: partNumber === 7
-        ? [
-            { id: 'a', name: 'Section A' },
-            { id: 'b', name: 'Section B' },
-            { id: 'c', name: 'Section C' },
-            { id: 'd', name: 'Section D' },
-          ]
-        : undefined,
-      questions,
-    },
-  ]
-
-  if (partNumber === 5) {
-    questionGroups[0].instruction = normalizeText(page.instructions ?? 'Choose the correct answer.')
-  }
-  if (partNumber === 6) {
-    questionGroups[0].instruction = normalizeText(page.instructions ?? 'Choose from the paragraphs A–G.')
-  }
-  if (partNumber === 7) {
-    questionGroups[0].instruction = normalizeText(page.instructions ?? 'Choose from the sections A–D.')
-  }
-
+    return {
+      ...question,
+      type: 'multiple-choice',
+      prompt: `Gap (${question.number})`,
+      options,
+    }
+  })
   return {
-    id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}`,
-    partNumber,
-    rangeLabel: questionRange(partNumber),
-    passageTitle,
+    id: base.partId,
+    partNumber: 1,
+    rangeLabel: questionRange(1),
+    passageTitle: base.passageTitle,
     passage,
-    questionGroups,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(1),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'multiple-choice',
+      questions,
+    }],
+  }
+}
+
+function convertPart2(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
+    ...question,
+    type: 'gap-fill',
+    prompt: `Gap (${question.number})`,
+    size: q.size ?? 10,
+  }))
+  const passage = htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  return {
+    id: base.partId,
+    partNumber: 2,
+    rangeLabel: questionRange(2),
+    passageTitle: base.passageTitle,
+    passage,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(2),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'gap-fill',
+      questions,
+    }],
+  }
+}
+
+function convertPart3(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const wordStems = new Map()
+  for (const match of html.matchAll(/(\d+)\.\s*([A-Z]+)/g)) {
+    wordStems.set(Number(match[1]), match[2])
+  }
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
+    const stem = wordStems.get(question.number) ?? normalizeText(q.prompt ?? '')
+    return {
+      ...question,
+      type: 'gap-fill',
+      prompt: `Gap (${question.number}) — ${stem}`,
+      size: q.size ?? 10,
+    }
+  })
+  const passage = htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  return {
+    id: base.partId,
+    partNumber: 3,
+    rangeLabel: questionRange(3),
+    passageTitle: base.passageTitle,
+    passage,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(3),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'gap-fill',
+      questions,
+    }],
+  }
+}
+
+function parseTransformationParagraphs(html) {
+  const paragraphs = htmlParagraphs(html).map(block => block.text)
+  return paragraphs
+}
+
+function convertPart4(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const paragraphs = parseTransformationParagraphs(html)
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
+    const promptText = normalizeText(q.prompt ?? '')
+    const sentence1 = promptText.replace(/^[.]\s*/, '').trim()
+    return {
+      ...question,
+      type: 'gap-fill',
+      prompt: `${sentence1} ${q.keyword ?? ''} →`,
+      keyword: normalizeText(q.keyword ?? ''),
+      size: q.size ?? 40,
+    }
+  })
+  return {
+    id: base.partId,
+    partNumber: 4,
+    rangeLabel: questionRange(4),
+    passageTitle: base.passageTitle,
+    passage: paragraphs.map(text => ({ text })),
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(4),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'gap-fill',
+      questions,
+    }],
+  }
+}
+
+function convertPart5(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
+    const options = parseQuestionOptions(q, LETTERS)
+    const answer = question.answer.toUpperCase()
+    if (!options.some(opt => opt.id.toUpperCase() === answer)) {
+      throw new Error(`${question.id}: answer ${answer} not found in options`)
+    }
+    return {
+      ...question,
+      type: 'multiple-choice',
+      prompt: normalizeText(q.questionText ?? `Question ${question.number}`),
+      options,
+    }
+  })
+  const passage = htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  return {
+    id: base.partId,
+    partNumber: 5,
+    rangeLabel: questionRange(5),
+    passageTitle: base.passageTitle,
+    passage,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(5),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'multiple-choice',
+      questions,
+    }],
+  }
+}
+
+function convertPart6(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const featureMatches = [...html.matchAll(/<strong>\s*([A-G])\s*<\/strong>\s*([\s\S]*?)(?=<br\s*\/?>\s*<strong>|<\/p>\s*<div|$)/gi)]
+  const features = featureMatches.slice(0, 7).map(match => ({
+    id: match[1],
+    name: normalizeText(stripHtml(match[2])),
+  }))
+  const passageHtml = featureMatches.length
+    ? html.slice(0, featureMatches[0].index).trim()
+    : html
+  const passage = htmlParagraphInnerHtml(passageHtml).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
+    ...question,
+    type: 'matching-features',
+    prompt: normalizeText(q.questionText ?? `Gap (${question.number})`),
+    options: parseQuestionOptions(q, FEATURE_LETTERS),
+  }))
+  return {
+    id: base.partId,
+    partNumber: 6,
+    rangeLabel: questionRange(6),
+    passageTitle: base.passageTitle,
+    passage,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(6),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'matching-features',
+      paragraphLetters: FEATURE_LETTERS,
+      features,
+      questions,
+    }],
+  }
+}
+
+function convertPart7(page, answerMap, appTestNumber) {
+  const base = buildPartBase(page, appTestNumber, answerMap)
+  const html = String(page.passageTextHtml ?? '')
+  const featureSections = [...html.matchAll(/<strong>\s*([A-D])\s*<\/strong>\s*([\s\S]*?)(?=<br\s*\/?>\s*<strong>\s*[A-D]\s*<\/strong>|<\/p>\s*<div|$)/gi)]
+  const passage = featureSections.length
+    ? featureSections.map(match => ({ label: match[1], text: normalizeText(stripHtml(match[2])) }))
+    : htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block) }))
+  const questions = base.questions.map(({ rawQuestion: q, ...question }) => ({
+    ...question,
+    type: 'matching-features',
+    prompt: normalizeText(q.questionText ?? `Question ${question.number}`),
+    options: parseQuestionOptions(q, LETTERS),
+  }))
+  return {
+    id: base.partId,
+    partNumber: 7,
+    rangeLabel: questionRange(7),
+    passageTitle: base.passageTitle,
+    passage,
+    questionGroups: [{
+      id: `${base.partId}-g0`,
+      range: questionRange(7),
+      instruction: normalizeText(page.instructions ?? ''),
+      type: 'matching-features',
+      features: [
+        { id: 'a', name: 'A' },
+        { id: 'b', name: 'B' },
+        { id: 'c', name: 'C' },
+        { id: 'd', name: 'D' },
+      ],
+      questions,
+    }],
+  }
+}
+
+function convertPageToPart(page, answerMap, appTestNumber) {
+  switch (Number(page.partNumber)) {
+    case 1:
+      return convertPart1(page, answerMap, appTestNumber)
+    case 2:
+      return convertPart2(page, answerMap, appTestNumber)
+    case 3:
+      return convertPart3(page, answerMap, appTestNumber)
+    case 4:
+      return convertPart4(page, answerMap, appTestNumber)
+    case 5:
+      return convertPart5(page, answerMap, appTestNumber)
+    case 6:
+      return convertPart6(page, answerMap, appTestNumber)
+    case 7:
+      return convertPart7(page, answerMap, appTestNumber)
+    default:
+      throw new Error(`Unsupported FCE part: ${page.partNumber}`)
   }
 }
 
@@ -222,10 +442,7 @@ function buildExamBody(testNumber, parts) {
   const book = Math.ceil(testNumber / 4)
   return {
     id: `catalog-reading-fce-b2-test${testNumber}`,
-    title:
-      testNumber === 1
-        ? 'FCE B2 Reading — Test 1'
-        : `FCE B2 Reading — Book ${book} — Test ${testNumber}`,
+    title: testNumber === 1 ? 'FCE B2 Reading — Test 1' : `FCE B2 Reading — Book ${book} — Test ${testNumber}`,
     durationMinutes: 75,
     bandHint: 'B2 First Reading & Use of English — 7 parts',
     parts,
@@ -251,8 +468,8 @@ export function convertFcePagesToReadingExam(
   const inventory = []
 
   for (const page of partPages) {
-    const classification = classifyFcePage(page, Number(page.pageNumber))
     const pageNumber = Number(page.pageNumber)
+    const classification = `part-${Number(page.partNumber)}`
     inventory.push({
       pageNumber,
       file: `page-${pageNumber}.json`,
@@ -261,9 +478,6 @@ export function convertFcePagesToReadingExam(
       answers: 0,
       title: normalizeText(page.passageTitle ?? ''),
     })
-    if (!classification.startsWith('part-')) {
-      throw new Error(`Unknown page classification for source test ${sourceTestNumber} / app test ${appTestNumber} page ${pageNumber}: ${classification}`)
-    }
     parts.push(convertPageToPart(page, answerMap, appTestNumber))
   }
 
