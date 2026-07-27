@@ -276,6 +276,52 @@ async function discoverFcePracticeListeningBundles() {
 }
 
 /**
+ * FCE B2 practice Reading tests 2â€“26.
+ * Layout: Tainguyen/Import Cambridge/FCE_B2/Reading/fce-reading-test{N}/exam/exam.json
+ * Test 1 is reserved for the static official sample bundle.
+ */
+async function discoverFcePracticeReadingBundles() {
+  const readingRoot = path.join(
+    TAINGUYEN,
+    'Import Cambridge',
+    'FCE_B2',
+    'Reading',
+  )
+  if (!existsSync(readingRoot)) return []
+
+  const bundles = []
+  const entries = await fs.readdir(readingRoot, { withFileTypes: true })
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue
+    const match = entry.name.match(/^fce-reading-test(\d+)$/i)
+    if (!match) continue
+    const test = Number.parseInt(match[1], 10)
+    if (test <= 1) continue
+    const sourceDir = path.join(readingRoot, entry.name, 'exam')
+    const examJsonPath = path.join(sourceDir, 'exam.json')
+    if (!existsSync(examJsonPath)) continue
+    bundles.push({
+      kind: 'reading',
+      slug: `fce-b2-test${test}`,
+      examId: `catalog-reading-fce-b2-test${test}`,
+      sourceDir: path.join(
+        'Import Cambridge',
+        'FCE_B2',
+        'Reading',
+        entry.name,
+        'exam',
+      ),
+      cambridgeLevel: 'b2',
+      examTrack: 'cambridge',
+      test,
+    })
+  }
+
+  bundles.sort((a, b) => a.test - b.test)
+  return bundles
+}
+
+/**
  * PET B1 practice Listening Book 2+ (englishpracticetest practice tests).
  * Layout: Tainguyen/Import Cambridge/PET_B1/Listening/PET B1_Cam {B}/Test {T}/
  */
@@ -502,6 +548,8 @@ function mediaUrl(kind, slug, filename) {
 function transformReading(payload, bundle) {
   const { examId, slug, cambridgeLevel, examTrack } = bundle
   const base = catalogBase('reading', slug)
+  const book = typeof bundle.book === 'number' ? bundle.book : null
+  const test = typeof bundle.test === 'number' ? bundle.test : null
 
   const parts = (payload.parts ?? []).map(partJson => {
     const partId = `${examId}-part-${partJson.partNumber}`
@@ -566,10 +614,16 @@ function transformReading(payload, bundle) {
   const partCount = parts.length
   const bandHint = (payload.bandHint ?? 'Cambridge Reading')
     + (partCount > 0 ? ` — ${partCount} part${partCount === 1 ? '' : 's'}` : '')
+  const title =
+    cambridgeLevel === 'b2' && test != null
+      ? test === 1
+        ? 'FCE B2 Reading — Test 1'
+        : `FCE B2 Reading — Book ${book ?? Math.ceil(test / 4)} — Test ${test}`
+      : payload.title
 
   return {
     id: examId,
-    title: payload.title,
+    title,
     durationMinutes: payload.durationMinutes ?? 60,
     bandHint,
     parts,
@@ -838,6 +892,7 @@ async function main() {
   const ketPracticeReadingBundles = await discoverKetPracticeReadingBundles()
   const petPracticeListeningBundles = await discoverPetPracticeListeningBundles()
   const fcePracticeListeningBundles = await discoverFcePracticeListeningBundles()
+  const fcePracticeReadingBundles = await discoverFcePracticeReadingBundles()
   const payloadSlugs = new Set(payloadReadingBundles.map(bundle => bundle.slug))
   const ieltsReadingBundles = [
     ...discoveredReadingBundles.filter(bundle => !payloadSlugs.has(bundle.slug)),
@@ -848,6 +903,7 @@ async function main() {
     ...ketPracticeReadingBundles,
     ...petPracticeListeningBundles,
     ...fcePracticeListeningBundles,
+    ...fcePracticeReadingBundles,
     ...ieltsReadingBundles.filter(bundle => !bundle.payloadPath),
     ...ieltsListeningBundles,
   ]

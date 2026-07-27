@@ -1,3 +1,26 @@
+### Ðã hoàn thành (m?i nh?t — FCE B2 Reading bundle dã du?c sync vào app)
+
+- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` vào app.
+- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n dã có trong:
+  - `packages/catalog/data/reading-fce-b2-test1.json`
+  - `packages/catalog/data/catalog-reading-meta.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.answers.json`
+- `packages/catalog/data/manifest.json` du?c refresh `builtAt` theo l?n build m?i nh?t.
+
+### L?i còn t?n t?i
+
+- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i các file catalog JSON.
+- Git worktree còn m?t file t?m do môi tru?ng t?o ra: `~$skills-inventory.xlsx` dã b? builder ch?m t?i tr?ng thái xóa.
+
+### Next session start prompt
+
+FCE B2 Reading dã du?c sync vào app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
+1. `packages/catalog/data/manifest.json`
+2. `packages/catalog/data/catalog-reading-meta.json`
+3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
+
+N?u c?n m? r?ng thêm, import ti?p các bundle FCE B2 Reading khác t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
 ## >>> TR?NG THÁI G?N NH?T — Agent m?i d?c ph?n này tru?c, không d?c h?t file <<<
 
 **Ngày:** 2026-07-27
@@ -63,6 +86,29 @@ Vi?c ti?p theo h?p lý nh?t:
 2. Khi có file th?t cho B2/C1/C2, m? r?ng importer d? kéo ?nh/PDF assets vào schema thay vì ch? prompt text
 3. Cân nh?c thêm card/library/import flow cho Writing gi?ng Reading n?u mu?n admin publish seed thành catalog r?ng hon
 
+### Ðã hoàn thành (m?i nh?t — FCE B2 Reading bundle dã du?c sync vào app)
+
+- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` vào app.
+- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n dã có trong:
+  - `packages/catalog/data/reading-fce-b2-test1.json`
+  - `packages/catalog/data/catalog-reading-meta.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.answers.json`
+- `packages/catalog/data/manifest.json` du?c refresh `builtAt` theo l?n build m?i nh?t.
+
+### L?i còn t?n t?i
+
+- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i các file catalog JSON.
+- Git worktree còn m?t file t?m do môi tru?ng t?o ra: `~$skills-inventory.xlsx` dã b? builder ch?m t?i tr?ng thái xóa.
+
+### Next session start prompt
+
+FCE B2 Reading dã du?c sync vào app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
+1. `packages/catalog/data/manifest.json`
+2. `packages/catalog/data/catalog-reading-meta.json`
+3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
+
+N?u c?n m? r?ng thêm, import ti?p các bundle FCE B2 Reading khác t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
 ## >>> TR?NG THÁI G?N NH?T — Agent m?i d?c ph?n này tru?c, không d?c h?t file <<<
 
 **Ngày:** 2026-07-26
@@ -5471,3 +5517,4 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listening`, `/ap
 - Update 2026-07-27: `apps/web/src/pages/WritingCambridgeTaskPage.tsx` da route B2/C1/C2 sang advanced shell chung, trong khi A2/B1 giu nguyen flow hien tai. Answer van save vao `writingDocs` co san, khong tao route rieng cho B2/C1/C2.
 - Update 2026-07-27: admin mapper da duoc gia co de khong lam roi `promptBlocks` / `presentation` khi mo draft va luu lai (`cambridgeWritingFormSchema.ts`, `cambridgeWritingFormMapper.ts`, `CambridgeWritingTestEditorDialog.tsx`).
 - Update 2026-07-27: verify PASS `pnpm --filter web exec tsc --noEmit`. Test mapper moi PASS. Cac test writing/component/integration moi dang bi harness timeout khi chay Vitest, can dieu tra tiep o session sau.
+
