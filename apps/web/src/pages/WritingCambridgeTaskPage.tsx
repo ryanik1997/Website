@@ -271,9 +271,10 @@ function A2PromptShell({
     : Array.isArray((task.metadata as { ketImageUrls?: unknown } | undefined)?.ketImageUrls)
       ? ((task.metadata as { ketImageUrls?: string[] }).ketImageUrls ?? [])
       : []
+  const shellClassName = `b1-writing-screen a2-writing-screen is-part-${task.partNumber}`
 
   return (
-    <div className="b1-writing-screen">
+    <div className={shellClassName}>
       <header className="b1-writing-header">
         <div className="b1-writing-header__brand">
           <img src="/logo-ceq.png" alt="Cambridge English" className="b1-writing-header__logo" />
@@ -287,7 +288,7 @@ function A2PromptShell({
         </div>
       </header>
 
-      <div className="b1-writing-instruction">
+      <div className="b1-writing-instruction a2-writing-instruction">
         <strong>{task.title}</strong>
         <p>
           Write <strong>{minWords} words or more</strong>.
@@ -324,11 +325,11 @@ function A2PromptShell({
             )}
           />
         ) : (
-          <div className="ket-rw-body is-single">
-            <div className="ket-rw-pane-full">
+          <div className="ket-rw-body is-single a2-writing-body-single">
+            <div className="ket-rw-pane-full a2-writing-pane-full">
               <h3 className="ket-rw-passage-title">{task.title}</h3>
               {task.promptText && <p className="ket-rw-q-prompt">{task.promptText}</p>}
-              <div className={`ket-rw-pictures${imageUrls.length <= 1 ? ' is-single-strip' : ''}`}>
+              <div className={`ket-rw-pictures a2-writing-pictures${imageUrls.length <= 1 ? ' is-single-strip' : ''}`}>
                 {imageUrls.map((imageUrl, index) => (
                   <img
                     key={`${imageUrl}-${index}`}
@@ -340,11 +341,12 @@ function A2PromptShell({
               <textarea
                 value={text}
                 onChange={event => setText(event.target.value)}
-                className="ket-rw-writing-area b1-writing-textarea"
+                className="ket-rw-writing-area b1-writing-textarea a2-writing-textarea"
                 aria-label="Writing answer"
                 rows={10}
+                placeholder="Write your story here..."
               />
-              <p className="ket-rw-word-count">Words: {countWords(text)}</p>
+              <p className="ket-rw-word-count a2-writing-word-count">Words: {countWords(text)}</p>
             </div>
           </div>
         )}
