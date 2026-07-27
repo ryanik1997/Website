@@ -1,15 +1,32 @@
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { getCambridgeRouteLevel, getCambridgeRouteTest } from '../features/writing/cambridgeWritingRouteCatalog'
+import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
+import { useCambridgeWritingTest } from '../features/writing/useCambridgeWritingTests'
 import '../features/writing/cambridgeHub.css'
 
 export default function WritingCambridgeTestPage() {
   const { level: levelParam, testId } = useParams<{ level: string; testId: string }>()
   const navigate = useNavigate()
   const level = getCambridgeRouteLevel(levelParam)
-  const test = level && testId ? getCambridgeRouteTest(level.level, testId) : null
 
-  if (!level || !test) return <Navigate to="/app/writing/cambridge" replace />
+  if (!level) return <Navigate to="/app/writing/cambridge" replace />
+
+  const result = useCambridgeWritingTest(level.level, testId)
+  if (!result) {
+    return <div className="cb-hub"><div className="cb-inner" style={{ color: 'var(--text-muted)' }}>Loading test...</div></div>
+  }
+
+  const test = result.test
+  if (!test) {
+    return (
+      <div className="cb-hub">
+        <div className="cb-inner">
+          <p className="cb-title" style={{ fontSize: '1.5rem' }}>Không tìm thấy test Writing.</p>
+          <p className="cb-sub">Test này có thể là draft không dành cho user hoặc không còn tồn tại.</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="cb-hub">

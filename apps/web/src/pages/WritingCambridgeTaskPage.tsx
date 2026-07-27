@@ -4,13 +4,11 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, ArrowRight, Bookmark, Bell, Menu, PenLine, Wifi } from 'lucide-react'
 import { db, writingRepo } from '@ryan/db'
 import type { WritingDoc } from '@ryan/db'
+import type { CambridgeWritingTask, CambridgeWritingTest } from '@ryan/catalog'
 import { useWritingStore } from '../features/writing/writingStore'
 import KetRwSplitPane from '../features/exam/ketRw/KetRwSplitPane'
-import {
-  getCambridgeRouteLevel,
-  getCambridgeRouteTask,
-  getCambridgeRouteTest,
-} from '../features/writing/cambridgeWritingRouteCatalog'
+import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
+import { useCambridgeWritingTask } from '../features/writing/useCambridgeWritingTests'
 import './writingCambridgeTaskPage.css'
 import '../features/exam/ketRw/readingKetRw.css'
 
@@ -101,6 +99,9 @@ function getTaskOrderIndex(testTasks: readonly { id: string }[], taskId: string)
   return testTasks.findIndex(task => task.id === taskId)
 }
 
+type WritingShellTest = Pick<CambridgeWritingTest, 'id' | 'title' | 'tasks'>
+type WritingShellTask = CambridgeWritingTask
+
 function B1PromptShell({
   level,
   test,
@@ -109,8 +110,8 @@ function B1PromptShell({
   promptDoc,
 }: {
   level: NonNullable<ReturnType<typeof getCambridgeRouteLevel>>
-  test: NonNullable<ReturnType<typeof getCambridgeRouteTest>>
-  task: NonNullable<ReturnType<typeof getCambridgeRouteTask>>
+  test: WritingShellTest
+  task: WritingShellTask
   doc?: WritingDoc
   promptDoc?: WritingDoc
 }) {
@@ -237,8 +238,8 @@ function A2PromptShell({
   promptDoc,
 }: {
   level: NonNullable<ReturnType<typeof getCambridgeRouteLevel>>
-  test: NonNullable<ReturnType<typeof getCambridgeRouteTest>>
-  task: NonNullable<ReturnType<typeof getCambridgeRouteTask>>
+  test: WritingShellTest
+  task: WritingShellTask
   doc?: WritingDoc
   promptDoc?: WritingDoc
 }) {
@@ -375,8 +376,9 @@ function A2PromptShell({
 export default function WritingCambridgeTaskPage() {
   const { level: levelParam, testId, taskId } = useParams<{ level: string; testId: string; taskId: string }>()
   const level = getCambridgeRouteLevel(levelParam)
-  const test = level && testId ? getCambridgeRouteTest(level.level, testId) : null
-  const task = level && testId && taskId ? getCambridgeRouteTask(level.level, testId, taskId) : null
+  const merged = useCambridgeWritingTask(level?.level ?? 'a2', testId, taskId)
+  const test = merged?.test ?? null
+  const task = merged?.task ?? null
   const { activeDocId, setActiveDoc } = useWritingStore()
   const creatingRef = useRef<string | null>(null)
 
@@ -384,9 +386,15 @@ export default function WritingCambridgeTaskPage() {
     if (!level || !task) return []
     const all = await db.writingDocs.where('type').equals(level.type).toArray()
     return all
-      .filter(doc => doc.sourceMeta?.examFamily === 'cambridge' && doc.sourceMeta?.taskId === task.id)
+      .filter((doc) => (
+        doc.sourceMeta?.examFamily === 'cambridge'
+        && doc.sourceMeta?.level === level.level
+        && doc.sourceMeta?.testId === test?.id
+        && doc.sourceMeta?.taskId === task.id
+        && doc.sourceMeta?.sourcePromptId === task.id
+      ))
       .sort((a, b) => b.updatedAt - a.updatedAt)
-  }, [level?.type, task?.id])
+  }, [level?.type, task?.id, test?.id])
 
   const promptDoc = useMemo(
     () => docs?.find(doc => doc.sourceMeta?.docRole === 'prompt_seed' && !!doc.promptImage),
@@ -410,6 +418,20 @@ export default function WritingCambridgeTaskPage() {
     if (creatingRef.current === task.id) return
     creatingRef.current = task.id
     void (async () => {
+      const existingDocs = await db.writingDocs.where('type').equals(level.type).toArray()
+      const existingAnswerDoc = existingDocs.find((doc) => (
+        doc.sourceMeta?.examFamily === 'cambridge'
+        && doc.sourceMeta?.level === level.level
+        && doc.sourceMeta?.testId === test?.id
+        && doc.sourceMeta?.taskId === task.id
+        && doc.sourceMeta?.sourcePromptId === task.id
+        && doc.sourceMeta?.docRole === 'user_answer'
+      ))
+      if (existingAnswerDoc) {
+        if (!cancelled) setActiveDoc(existingAnswerDoc.id)
+        creatingRef.current = null
+        return
+      }
       const doc = await writingRepo.createDoc(
         level.type,
         buildPrompt(task),
@@ -428,7 +450,9 @@ export default function WritingCambridgeTaskPage() {
       if (!cancelled) setActiveDoc(doc.id)
       creatingRef.current = null
     })()
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+    }
   }, [activeDocId, answerDocs, docs, level, setActiveDoc, task, test?.id])
 
   const activeDoc = useMemo(() => {
@@ -436,7 +460,30 @@ export default function WritingCambridgeTaskPage() {
     return answerDocs.find(doc => doc.id === activeDocId) ?? answerDocs[0]
   }, [activeDocId, answerDocs])
 
-  if (!level || !test || !task) return <Navigate to="/app/writing/cambridge" replace />
+  if (!level) return <Navigate to="/app/writing/cambridge" replace />
+
+  if (!merged) {
+    return (
+      <div className="relative flex h-full min-h-0 overflow-hidden flex-col">
+        <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-muted)' }}>
+          Loading task...
+        </div>
+      </div>
+    )
+  }
+
+  if (!test || !task) {
+    return (
+      <div className="relative flex h-full min-h-0 overflow-hidden flex-col">
+        <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+          <div style={{ maxWidth: 640, textAlign: 'center' }}>
+            <p style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>Không tìm thấy task Writing.</p>
+            <p style={{ color: 'var(--text-muted)' }}>Task này có thể là draft không dành cho user hoặc không còn tồn tại.</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (level.level === 'a2') {
     return <A2PromptShell level={level} test={test} task={task} doc={activeDoc} promptDoc={promptDoc} />
