@@ -35,8 +35,7 @@ function ensureDir(d) {
 }
 
 function countQuestions(exam) {
-  const parts = Array.isArray(exam.parts) ? exam.parts : []
-  return parts.reduce((n, p) => n + (Array.isArray(p.questions) ? p.questions.length : 0), 0)
+  return iterQuestions(exam).length
 }
 
 function stripAnswerFields(obj) {

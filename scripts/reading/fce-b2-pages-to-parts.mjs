@@ -123,7 +123,7 @@ function parseQuestionOptions(q) {
   })
 }
 
-function convertPageToPart(page, answerMap) {
+function convertPageToPart(page, answerMap, appTestNumber) {
   const partNumber = Number(page.partNumber)
   if (!PART_SPECS[partNumber]) {
     throw new Error(`Unsupported part number: ${page.partNumber}`)
@@ -146,7 +146,7 @@ function convertPageToPart(page, answerMap) {
       ?? q.prompt
       ?? (partNumber === 5 ? `Question ${number}` : `Gap (${number})`)
     const normalized = {
-      id: `catalog-reading-fce-b2-test${page.testNumber}-part-${partNumber}-q${number}`,
+      id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}-q${number}`,
       number,
       type:
         partNumber === 1 ? 'multiple-choice'
@@ -181,7 +181,7 @@ function convertPageToPart(page, answerMap) {
 
   const questionGroups = [
     {
-      id: `catalog-reading-fce-b2-test${page.testNumber}-part-${partNumber}-g0`,
+      id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}-g0`,
       range: questionRange(partNumber),
       instruction: normalizeText(page.instructions ?? ''),
       type: PART_SPECS[partNumber].type,
@@ -209,7 +209,7 @@ function convertPageToPart(page, answerMap) {
   }
 
   return {
-    id: `catalog-reading-fce-b2-test${page.testNumber}-part-${partNumber}`,
+    id: `catalog-reading-fce-b2-test${appTestNumber}-part-${partNumber}`,
     partNumber,
     rangeLabel: questionRange(partNumber),
     passageTitle,
@@ -262,18 +262,18 @@ export function convertFcePagesToReadingExam(
       title: normalizeText(page.passageTitle ?? ''),
     })
     if (!classification.startsWith('part-')) {
-      throw new Error(`Unknown page classification for test ${testNumber} page ${pageNumber}: ${classification}`)
+      throw new Error(`Unknown page classification for source test ${sourceTestNumber} / app test ${appTestNumber} page ${pageNumber}: ${classification}`)
     }
-    parts.push(convertPageToPart(page, answerMap))
+    parts.push(convertPageToPart(page, answerMap, appTestNumber))
   }
 
   if (parts.length !== 7) {
-    throw new Error(`Test ${testNumber} must have 7 parts, got ${parts.length}`)
+    throw new Error(`Source test ${sourceTestNumber} / app test ${appTestNumber} must have 7 parts, got ${parts.length}`)
   }
   const partNumbers = parts.map(part => part.partNumber)
   for (let i = 0; i < partNumbers.length; i += 1) {
     if (partNumbers[i] !== i + 1) {
-      throw new Error(`Test ${testNumber} part order invalid: ${partNumbers.join(',')}`)
+      throw new Error(`Source test ${sourceTestNumber} / app test ${appTestNumber} part order invalid: ${partNumbers.join(',')}`)
     }
   }
 

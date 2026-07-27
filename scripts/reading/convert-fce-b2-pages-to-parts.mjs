@@ -25,7 +25,7 @@ function rangeFromArgs() {
     if (!Number.isInteger(test)) throw new Error(`Invalid --test value: ${testArg}`)
     return [test]
   }
-  const from = Number(readArg('from') ?? 2)
+  const from = Number(readArg('from') ?? 1)
   const to = Number(readArg('to') ?? 26)
   const tests = []
   for (let n = from; n <= to; n += 1) tests.push(n)

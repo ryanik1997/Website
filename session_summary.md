@@ -5594,3 +5594,50 @@ Route smoke:
 - `/app/exam/reading/catalog-reading-fce-b2-test13`
 - `/app/exam/reading/catalog-reading-fce-b2-test26`
 
+### Đã hoàn thành (mới nhất — FCE B2 Reading crawl 1–26 map vào app 2–27, nested IDs đã đồng bộ)
+
+- Sửa pipeline FCE B2 Reading để source crawl `fce-reading-test1..26` map vào app `catalog-reading-fce-b2-test2..27`, giữ `catalog-reading-fce-b2-test1` làm sample.
+- `scripts/reading/fce-b2-pages-to-parts.mjs` đã dùng `appTestNumber` cho toàn bộ nested IDs:
+  - `part.id`
+  - `questionGroup.id`
+  - `question.id`
+  - lỗi validate đã đổi sang nhắc cả `sourceTestNumber` / `appTestNumber`
+- `scripts/reading/convert-fce-b2-pages-to-parts.mjs` đã sửa default CLI về `--from=1 --to=26`.
+- `scripts/build-catalog.mjs` đã sửa sort bundle FCE B2 Reading theo `appTest`.
+- `scripts/mode-c-pack-catalog.mjs` đã sửa `questionCount` để đếm đúng câu Reading lồng trong `questionGroups`.
+- `scripts/validate-catalog-runtime.mjs` đã siết chặt validation cho đúng 27 đề FCE B2:
+  - mỗi exam đúng 7 parts / 52 questions / 52 answers
+  - `examId` của vault khớp body
+  - keys vault khớp toàn bộ question IDs
+  - part/group/question IDs đều prefix đúng theo `exam.id`
+  - không còn duplicate IDs xuyên suốt FCE B2 reading
+- Regression test `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts` đã được nâng cấp để bắt đúng mapping `test2`, `test10`, `test27`.
+
+### Verify mới nhất
+
+- `pnpm build:catalog` PASS
+- `pnpm --filter web exec -- tsc --noEmit` PASS
+- `pnpm --filter web test -- src/features/exam/__tests__/catalogRuntimeValidation.test.ts` PASS
+- Smoke route PASS:
+  - `/app/exam/reading/catalog-reading-fce-b2-test1`
+  - `/app/exam/reading/catalog-reading-fce-b2-test2`
+  - `/app/exam/reading/catalog-reading-fce-b2-test14`
+  - `/app/exam/reading/catalog-reading-fce-b2-test27`
+
+### Lỗi còn tồn tại
+
+- `node scripts/build-catalog.mjs` vẫn tạo nhiều warning CRLF khi ghi lại catalog JSON.
+- Git worktree còn một file tạm do môi trường tạo ra: `~$skills-inventory.xlsx` đã bị builder chạm tới trạng thái xóa.
+
+### Next session start prompt
+
+FCE B2 Reading crawl đã được import đúng map `1..26 -> 2..27` và nested IDs không còn lệch. Nếu cần kiểm tra tiếp, mở:
+1. `scripts/reading/fce-b2-pages-to-parts.mjs`
+2. `scripts/validate-catalog-runtime.mjs`
+3. `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`
+
+Smoke route:
+- `/app/exam/reading/catalog-reading-fce-b2-test1`
+- `/app/exam/reading/catalog-reading-fce-b2-test2`
+- `/app/exam/reading/catalog-reading-fce-b2-test14`
+- `/app/exam/reading/catalog-reading-fce-b2-test27`

@@ -7,7 +7,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "c1",
-    "questionCount": 0,
+    "questionCount": 58,
     "bodyPath": "catalog/exams/reading/catalog-reading-cae-c1-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-cae-c1-test1.answers.json",
     "bodyRemote": true,
@@ -83,7 +83,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "c2",
-    "questionCount": 0,
+    "questionCount": 57,
     "bodyPath": "catalog/exams/reading/catalog-reading-cpe-c2-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-cpe-c2-test1.answers.json",
     "bodyRemote": true,
@@ -153,7 +153,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
+    "questionCount": 52,
     "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test1.answers.json",
     "bodyRemote": true,
@@ -211,67 +211,9 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
+    "questionCount": 52,
     "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test10.json",
     "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test10.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test9-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test9-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test11",
-    "title": "FCE B2 Reading — Book 3 — Test 11",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test11.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test11.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -320,16 +262,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test12",
-    "title": "FCE B2 Reading — Book 3 — Test 12",
+    "id": "catalog-reading-fce-b2-test11",
+    "title": "FCE B2 Reading — Book 3 — Test 11",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test12.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test12.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test11.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test11.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -378,16 +320,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test13",
-    "title": "FCE B2 Reading — Book 4 — Test 13",
+    "id": "catalog-reading-fce-b2-test12",
+    "title": "FCE B2 Reading — Book 3 — Test 12",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test13.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test13.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test12.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test12.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -436,16 +378,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test14",
-    "title": "FCE B2 Reading — Book 4 — Test 14",
+    "id": "catalog-reading-fce-b2-test13",
+    "title": "FCE B2 Reading — Book 4 — Test 13",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test14.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test14.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test13.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test13.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -494,16 +436,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test15",
-    "title": "FCE B2 Reading — Book 4 — Test 15",
+    "id": "catalog-reading-fce-b2-test14",
+    "title": "FCE B2 Reading — Book 4 — Test 14",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test15.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test15.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test14.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test14.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -552,16 +494,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test16",
-    "title": "FCE B2 Reading — Book 4 — Test 16",
+    "id": "catalog-reading-fce-b2-test15",
+    "title": "FCE B2 Reading — Book 4 — Test 15",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test16.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test16.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test15.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test15.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -610,16 +552,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test17",
-    "title": "FCE B2 Reading — Book 5 — Test 17",
+    "id": "catalog-reading-fce-b2-test16",
+    "title": "FCE B2 Reading — Book 4 — Test 16",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test17.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test17.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test16.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test16.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -668,16 +610,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test18",
-    "title": "FCE B2 Reading — Book 5 — Test 18",
+    "id": "catalog-reading-fce-b2-test17",
+    "title": "FCE B2 Reading — Book 5 — Test 17",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test18.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test18.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test17.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test17.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -726,16 +668,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test19",
-    "title": "FCE B2 Reading — Book 5 — Test 19",
+    "id": "catalog-reading-fce-b2-test18",
+    "title": "FCE B2 Reading — Book 5 — Test 18",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test19.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test19.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test18.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test18.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -784,74 +726,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test2",
-    "title": "FCE B2 Reading — Book 1 — Test 2",
+    "id": "catalog-reading-fce-b2-test19",
+    "title": "FCE B2 Reading — Book 5 — Test 19",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test2.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test2.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test1-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test1-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test20",
-    "title": "FCE B2 Reading — Book 5 — Test 20",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test20.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test20.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test19.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test19.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -900,422 +784,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test21",
-    "title": "FCE B2 Reading — Book 6 — Test 21",
+    "id": "catalog-reading-fce-b2-test2",
+    "title": "FCE B2 Reading — Book 1 — Test 2",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test21.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test21.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test20-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test20-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test22",
-    "title": "FCE B2 Reading — Book 6 — Test 22",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test22.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test22.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test21-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test21-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test23",
-    "title": "FCE B2 Reading — Book 6 — Test 23",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test23.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test23.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test22-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test22-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test24",
-    "title": "FCE B2 Reading — Book 6 — Test 24",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test24.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test24.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test23-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test23-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test25",
-    "title": "FCE B2 Reading — Book 7 — Test 25",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test25.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test25.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test24-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test24-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test26",
-    "title": "FCE B2 Reading — Book 7 — Test 26",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test26.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test26.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test25-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test25-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test27",
-    "title": "FCE B2 Reading — Book 7 — Test 27",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test27.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test27.answers.json",
-    "bodyRemote": true,
-    "answersRemote": true,
-    "parts": [
-      {
-        "id": "catalog-reading-fce-b2-test26-part-1",
-        "partNumber": 1,
-        "rangeLabel": "Questions 1–8",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-2",
-        "partNumber": 2,
-        "rangeLabel": "Questions 9–16",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-3",
-        "partNumber": 3,
-        "rangeLabel": "Questions 17–24",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-4",
-        "partNumber": 4,
-        "rangeLabel": "Questions 25–30",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-5",
-        "partNumber": 5,
-        "rangeLabel": "Questions 31–36",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-6",
-        "partNumber": 6,
-        "rangeLabel": "Questions 37–42",
-        "questions": []
-      },
-      {
-        "id": "catalog-reading-fce-b2-test26-part-7",
-        "partNumber": 7,
-        "rangeLabel": "Questions 43–52",
-        "questions": []
-      }
-    ]
-  },
-  {
-    "id": "catalog-reading-fce-b2-test3",
-    "title": "FCE B2 Reading — Book 1 — Test 3",
-    "durationMinutes": 75,
-    "bandHint": "B2 First Reading & Use of English — 7 parts",
-    "examMode": "practice",
-    "examTrack": "cambridge",
-    "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test3.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test3.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test2.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test2.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1364,16 +842,480 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test4",
-    "title": "FCE B2 Reading — Book 1 — Test 4",
+    "id": "catalog-reading-fce-b2-test20",
+    "title": "FCE B2 Reading — Book 5 — Test 20",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test4.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test4.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test20.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test20.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test20-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test20-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test21",
+    "title": "FCE B2 Reading — Book 6 — Test 21",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test21.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test21.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test21-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test21-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test22",
+    "title": "FCE B2 Reading — Book 6 — Test 22",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test22.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test22.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test22-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test22-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test23",
+    "title": "FCE B2 Reading — Book 6 — Test 23",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test23.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test23.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test23-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test23-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test24",
+    "title": "FCE B2 Reading — Book 6 — Test 24",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test24.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test24.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test24-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test24-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test25",
+    "title": "FCE B2 Reading — Book 7 — Test 25",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test25.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test25.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test25-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test25-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test26",
+    "title": "FCE B2 Reading — Book 7 — Test 26",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test26.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test26.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test26-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test26-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test27",
+    "title": "FCE B2 Reading — Book 7 — Test 27",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test27.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test27.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test27-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test27-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
+    "id": "catalog-reading-fce-b2-test3",
+    "title": "FCE B2 Reading — Book 1 — Test 3",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test3.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test3.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1422,16 +1364,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test5",
-    "title": "FCE B2 Reading — Book 2 — Test 5",
+    "id": "catalog-reading-fce-b2-test4",
+    "title": "FCE B2 Reading — Book 1 — Test 4",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test5.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test5.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test4.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test4.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1480,16 +1422,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test6",
-    "title": "FCE B2 Reading — Book 2 — Test 6",
+    "id": "catalog-reading-fce-b2-test5",
+    "title": "FCE B2 Reading — Book 2 — Test 5",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test6.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test6.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test5.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test5.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1538,16 +1480,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test7",
-    "title": "FCE B2 Reading — Book 2 — Test 7",
+    "id": "catalog-reading-fce-b2-test6",
+    "title": "FCE B2 Reading — Book 2 — Test 6",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test7.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test7.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test6.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test6.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1596,16 +1538,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test8",
-    "title": "FCE B2 Reading — Book 2 — Test 8",
+    "id": "catalog-reading-fce-b2-test7",
+    "title": "FCE B2 Reading — Book 2 — Test 7",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test8.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test8.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test7.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test7.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1654,16 +1596,16 @@
     ]
   },
   {
-    "id": "catalog-reading-fce-b2-test9",
-    "title": "FCE B2 Reading — Book 3 — Test 9",
+    "id": "catalog-reading-fce-b2-test8",
+    "title": "FCE B2 Reading — Book 2 — Test 8",
     "durationMinutes": 75,
     "bandHint": "B2 First Reading & Use of English — 7 parts",
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b2",
-    "questionCount": 0,
-    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test9.json",
-    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test9.answers.json",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test8.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test8.answers.json",
     "bodyRemote": true,
     "answersRemote": true,
     "parts": [
@@ -1712,13 +1654,71 @@
     ]
   },
   {
+    "id": "catalog-reading-fce-b2-test9",
+    "title": "FCE B2 Reading — Book 3 — Test 9",
+    "durationMinutes": 75,
+    "bandHint": "B2 First Reading & Use of English — 7 parts",
+    "examMode": "practice",
+    "examTrack": "cambridge",
+    "cambridgeLevel": "b2",
+    "questionCount": 52,
+    "bodyPath": "catalog/exams/reading/catalog-reading-fce-b2-test9.json",
+    "answersPath": "catalog/exams/reading/catalog-reading-fce-b2-test9.answers.json",
+    "bodyRemote": true,
+    "answersRemote": true,
+    "parts": [
+      {
+        "id": "catalog-reading-fce-b2-test9-part-1",
+        "partNumber": 1,
+        "rangeLabel": "Questions 1–8",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-2",
+        "partNumber": 2,
+        "rangeLabel": "Questions 9–16",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-3",
+        "partNumber": 3,
+        "rangeLabel": "Questions 17–24",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-4",
+        "partNumber": 4,
+        "rangeLabel": "Questions 25–30",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-5",
+        "partNumber": 5,
+        "rangeLabel": "Questions 31–36",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-6",
+        "partNumber": 6,
+        "rangeLabel": "Questions 37–42",
+        "questions": []
+      },
+      {
+        "id": "catalog-reading-fce-b2-test9-part-7",
+        "partNumber": 7,
+        "rangeLabel": "Questions 43–52",
+        "questions": []
+      }
+    ]
+  },
+  {
     "id": "catalog-cam-10-1-reading",
     "title": "CAM 10 1",
     "durationMinutes": 60,
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-10-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-10-1-reading.answers.json",
     "bodyRemote": true,
@@ -1751,7 +1751,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-10-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-10-2-reading.answers.json",
     "bodyRemote": true,
@@ -1784,7 +1784,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-10-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-10-3-reading.answers.json",
     "bodyRemote": true,
@@ -1817,7 +1817,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-10-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-10-4-reading.answers.json",
     "bodyRemote": true,
@@ -1850,7 +1850,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-11-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-11-1-reading.answers.json",
     "bodyRemote": true,
@@ -1883,7 +1883,7 @@
     "bandHint": "Cam 11 Test 2",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-11-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-11-2-reading.answers.json",
     "bodyRemote": true,
@@ -1916,7 +1916,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-11-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-11-3-reading.answers.json",
     "bodyRemote": true,
@@ -1949,7 +1949,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-11-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-11-4-reading.answers.json",
     "bodyRemote": true,
@@ -1982,7 +1982,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-12-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-12-1-reading.answers.json",
     "bodyRemote": true,
@@ -2015,7 +2015,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-12-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-12-2-reading.answers.json",
     "bodyRemote": true,
@@ -2048,7 +2048,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-12-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-12-3-reading.answers.json",
     "bodyRemote": true,
@@ -2081,7 +2081,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-12-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-12-4-reading.answers.json",
     "bodyRemote": true,
@@ -2114,7 +2114,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-13-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-13-1-reading.answers.json",
     "bodyRemote": true,
@@ -2147,7 +2147,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-13-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-13-2-reading.answers.json",
     "bodyRemote": true,
@@ -2180,7 +2180,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-13-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-13-3-reading.answers.json",
     "bodyRemote": true,
@@ -2213,7 +2213,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-13-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-13-4-reading.answers.json",
     "bodyRemote": true,
@@ -2246,7 +2246,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-14-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-14-1-reading.answers.json",
     "bodyRemote": true,
@@ -2279,7 +2279,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-14-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-14-2-reading.answers.json",
     "bodyRemote": true,
@@ -2312,7 +2312,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-14-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-14-3-reading.answers.json",
     "bodyRemote": true,
@@ -2345,7 +2345,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-14-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-14-4-reading.answers.json",
     "bodyRemote": true,
@@ -2378,7 +2378,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-15-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-15-1-reading.answers.json",
     "bodyRemote": true,
@@ -2411,7 +2411,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-15-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-15-2-reading.answers.json",
     "bodyRemote": true,
@@ -2444,7 +2444,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-15-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-15-3-reading.answers.json",
     "bodyRemote": true,
@@ -2477,7 +2477,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-15-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-15-4-reading.answers.json",
     "bodyRemote": true,
@@ -2510,7 +2510,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-16-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-16-1-reading.answers.json",
     "bodyRemote": true,
@@ -2543,7 +2543,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-16-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-16-2-reading.answers.json",
     "bodyRemote": true,
@@ -2576,7 +2576,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-16-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-16-3-reading.answers.json",
     "bodyRemote": true,
@@ -2609,7 +2609,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-16-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-16-4-reading.answers.json",
     "bodyRemote": true,
@@ -2642,7 +2642,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-17-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-17-1-reading.answers.json",
     "bodyRemote": true,
@@ -2675,7 +2675,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-17-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-17-2-reading.answers.json",
     "bodyRemote": true,
@@ -2708,7 +2708,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-17-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-17-3-reading.answers.json",
     "bodyRemote": true,
@@ -2741,7 +2741,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-17-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-17-4-reading.answers.json",
     "bodyRemote": true,
@@ -2774,7 +2774,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-18-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-18-1-reading.answers.json",
     "bodyRemote": true,
@@ -2807,7 +2807,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-18-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-18-2-reading.answers.json",
     "bodyRemote": true,
@@ -2840,7 +2840,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-18-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-18-3-reading.answers.json",
     "bodyRemote": true,
@@ -2873,7 +2873,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-18-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-18-4-reading.answers.json",
     "bodyRemote": true,
@@ -2906,7 +2906,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-19-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-19-1-reading.answers.json",
     "bodyRemote": true,
@@ -2939,7 +2939,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-19-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-19-2-reading.answers.json",
     "bodyRemote": true,
@@ -2972,7 +2972,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-19-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-19-3-reading.answers.json",
     "bodyRemote": true,
@@ -3005,7 +3005,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-19-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-19-4-reading.answers.json",
     "bodyRemote": true,
@@ -3038,7 +3038,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-20-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-20-1-reading.answers.json",
     "bodyRemote": true,
@@ -3071,7 +3071,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-20-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-20-2-reading.answers.json",
     "bodyRemote": true,
@@ -3104,7 +3104,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-20-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-20-3-reading.answers.json",
     "bodyRemote": true,
@@ -3137,7 +3137,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-20-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-20-4-reading.answers.json",
     "bodyRemote": true,
@@ -3170,7 +3170,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-9-1-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-9-1-reading.answers.json",
     "bodyRemote": true,
@@ -3203,7 +3203,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-9-2-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-9-2-reading.answers.json",
     "bodyRemote": true,
@@ -3236,7 +3236,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-9-3-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-9-3-reading.answers.json",
     "bodyRemote": true,
@@ -3269,7 +3269,7 @@
     "bandHint": "Cambridge Reading — 3 parts",
     "examMode": "practice",
     "examTrack": "ielts",
-    "questionCount": 0,
+    "questionCount": 40,
     "bodyPath": "catalog/exams/reading/catalog-cam-9-4-reading.json",
     "answersPath": "catalog/exams/reading/catalog-cam-9-4-reading.answers.json",
     "bodyRemote": true,
@@ -3303,7 +3303,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test1.answers.json",
     "bodyRemote": true,
@@ -3361,7 +3361,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test2.answers.json",
     "bodyRemote": true,
@@ -3407,7 +3407,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test3.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test3.answers.json",
     "bodyRemote": true,
@@ -3453,7 +3453,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test4.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book1-test4.answers.json",
     "bodyRemote": true,
@@ -3499,7 +3499,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test1.answers.json",
     "bodyRemote": true,
@@ -3545,7 +3545,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test2.answers.json",
     "bodyRemote": true,
@@ -3591,7 +3591,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test3.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test3.answers.json",
     "bodyRemote": true,
@@ -3637,7 +3637,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test4.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book2-test4.answers.json",
     "bodyRemote": true,
@@ -3683,7 +3683,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book3-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book3-test1.answers.json",
     "bodyRemote": true,
@@ -3729,7 +3729,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book3-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book3-test2.answers.json",
     "bodyRemote": true,
@@ -3775,7 +3775,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test1.answers.json",
     "bodyRemote": true,
@@ -3833,7 +3833,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test2.answers.json",
     "bodyRemote": true,
@@ -3891,7 +3891,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test3.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test3.answers.json",
     "bodyRemote": true,
@@ -3949,7 +3949,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test4.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book4-test4.answers.json",
     "bodyRemote": true,
@@ -4007,7 +4007,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test1.answers.json",
     "bodyRemote": true,
@@ -4065,7 +4065,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test2.answers.json",
     "bodyRemote": true,
@@ -4123,7 +4123,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test3.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test3.answers.json",
     "bodyRemote": true,
@@ -4181,7 +4181,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test4.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book5-test4.answers.json",
     "bodyRemote": true,
@@ -4239,7 +4239,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test1.answers.json",
     "bodyRemote": true,
@@ -4297,7 +4297,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test2.answers.json",
     "bodyRemote": true,
@@ -4355,7 +4355,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test3.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test3.answers.json",
     "bodyRemote": true,
@@ -4413,7 +4413,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test4.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book6-test4.answers.json",
     "bodyRemote": true,
@@ -4471,7 +4471,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book7-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book7-test1.answers.json",
     "bodyRemote": true,
@@ -4529,7 +4529,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-book7-test2.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-book7-test2.answers.json",
     "bodyRemote": true,
@@ -4587,7 +4587,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "a2",
-    "questionCount": 0,
+    "questionCount": 30,
     "bodyPath": "catalog/exams/reading/catalog-reading-ket-a2-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-ket-a2-test1.answers.json",
     "bodyRemote": true,
@@ -4633,7 +4633,7 @@
     "examMode": "practice",
     "examTrack": "cambridge",
     "cambridgeLevel": "b1",
-    "questionCount": 0,
+    "questionCount": 32,
     "bodyPath": "catalog/exams/reading/catalog-reading-pet-b1-test1.json",
     "answersPath": "catalog/exams/reading/catalog-reading-pet-b1-test1.answers.json",
     "bodyRemote": true,

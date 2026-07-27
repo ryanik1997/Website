@@ -318,7 +318,7 @@ async function discoverFcePracticeReadingBundles() {
     })
   }
 
-  bundles.sort((a, b) => a.test - b.test)
+  bundles.sort((a, b) => a.appTest - b.appTest)
   return bundles
 }
 
