@@ -5553,3 +5553,44 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Update 2026-07-27: verify PASS `pnpm --filter web exec tsc --noEmit`. Test mapper moi PASS. Cac test writing/component/integration moi dang bi harness timeout khi chay Vitest, can dieu tra tiep o session sau.
 
 
+### Đã hoàn thành (mới nhất — FCE B2 Reading runtime packed + validated)
+
+- Đã chạy đúng pipeline `pnpm build:catalog` gồm:
+  - `scripts/build-catalog.mjs`
+  - `scripts/mode-c-pack-catalog.mjs`
+  - `scripts/validate-catalog-runtime.mjs`
+- Runtime/public FCE B2 Reading hiện đã có đủ:
+  - `packages/catalog/data/catalog-reading-meta.json` có `catalog-reading-fce-b2-test2..26`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.json` … `catalog-reading-fce-b2-test26.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.answers.json` … `catalog-reading-fce-b2-test26.answers.json`
+- Thêm validator `scripts/validate-catalog-runtime.mjs` và regression test:
+  - `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`
+- Verify hiện tại:
+  - `pnpm build:catalog` PASS
+  - `pnpm --filter web exec -- tsc --noEmit` PASS
+  - `pnpm --filter web test -- src/features/exam/__tests__/catalogRuntimeValidation.test.ts` PASS
+  - Smoke route `http://localhost:5173/app/exam/reading/catalog-reading-fce-b2-test2` trả `200`
+- Kết quả kiểm tra FCE runtime:
+  - `manifestCount`: 26
+  - `metaCount`: 26
+  - `bodyCount`: 26
+  - `answerVaultCount`: 104 (tất cả reading runtime, không chỉ FCE)
+
+### Lỗi còn tồn tại
+
+- `node scripts/build-catalog.mjs` vẫn tạo nhiều warning CRLF khi ghi lại catalog JSON.
+- Git worktree còn một file tạm do môi trường tạo ra: `~$skills-inventory.xlsx` đã bị builder chạm tới trạng thái xóa.
+
+### Next session start prompt
+
+FCE B2 Reading đã được pack sang runtime/public và validator đã khóa. Nếu cần làm tiếp, kiểm tra:
+1. `scripts/validate-catalog-runtime.mjs`
+2. `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`
+3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test13.json`
+
+Route smoke:
+- `/app/exam/track/cambridge/b2/reading`
+- `/app/exam/reading/catalog-reading-fce-b2-test2`
+- `/app/exam/reading/catalog-reading-fce-b2-test13`
+- `/app/exam/reading/catalog-reading-fce-b2-test26`
+

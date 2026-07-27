@@ -236,7 +236,10 @@ function buildExamBody(testNumber, parts) {
   }
 }
 
-export function convertFcePagesToReadingExam(rawExam, { testNumber = Number(rawExam?.testNumber) } = {}) {
+export function convertFcePagesToReadingExam(
+  rawExam,
+  { sourceTestNumber = Number(rawExam?.testNumber), appTestNumber = sourceTestNumber + 1 } = {},
+) {
   const pages = Array.isArray(rawExam?.pages) ? rawExam.pages : []
   const answerPage = pages.find(page => page?.isAnswerPage || Array.isArray(page?.answers))
   const answerMap = buildAnswerMap(answerPage)
@@ -274,7 +277,7 @@ export function convertFcePagesToReadingExam(rawExam, { testNumber = Number(rawE
     }
   }
 
-  const body = buildExamBody(testNumber, parts)
+  const body = buildExamBody(appTestNumber, parts)
   const totalQuestions = parts.reduce((sum, part) => sum + part.questionGroups.reduce((s, g) => s + g.questions.length, 0), 0)
   return {
     body,

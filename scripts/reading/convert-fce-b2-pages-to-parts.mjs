@@ -50,26 +50,31 @@ const failures = []
 for (const testNumber of tests) {
   try {
     const { raw } = await loadFceTestExamJson(testNumber, sourceRoot)
-    const result = convertFcePagesToReadingExam(raw, { testNumber })
+    const appTestNumber = testNumber + 1
+    const result = convertFcePagesToReadingExam(raw, { sourceTestNumber: testNumber, appTestNumber })
     inventory.push({
-      testNumber,
+      sourceTestNumber: testNumber,
+      appTestNumber,
       pages: result.inventory,
       answerPageNumber: result.answerPageNumber,
       answers: result.answerCount,
       questions: result.totalQuestions,
     })
     converted.push({
-      testNumber,
-      fileName: `reading-fce-b2-test${testNumber}.json`,
+      sourceTestNumber: testNumber,
+      appTestNumber,
+      fileName: `reading-fce-b2-test${appTestNumber}.json`,
       body: result.body,
     })
   } catch (error) {
     failures.push({
-      testNumber,
+      sourceTestNumber: testNumber,
+      appTestNumber: testNumber + 1,
       error: error instanceof Error ? error.message : String(error),
     })
     inventory.push({
-      testNumber,
+      sourceTestNumber: testNumber,
+      appTestNumber: testNumber + 1,
       error: error instanceof Error ? error.message : String(error),
       pages: [],
     })
@@ -136,4 +141,3 @@ if (!validateOnly && !dryRun) {
 }
 
 console.log(JSON.stringify(report, null, 2))
-

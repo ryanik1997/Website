@@ -277,7 +277,7 @@ async function discoverFcePracticeListeningBundles() {
 }
 
 /**
- * FCE B2 practice Reading tests 2â€“26.
+ * FCE B2 practice Reading tests 1â€“26 from crawl, mapped to app tests 2â€“27.
  * Layout: Tainguyen/Import Cambridge/FCE_B2/Reading/fce-reading-test{N}/exam/exam.json
  * Test 1 is reserved for the static official sample bundle.
  */
@@ -297,14 +297,15 @@ async function discoverFcePracticeReadingBundles() {
     const match = entry.name.match(/^fce-reading-test(\d+)$/i)
     if (!match) continue
     const test = Number.parseInt(match[1], 10)
-    if (test <= 1) continue
     const sourceDir = path.join(readingRoot, entry.name, 'exam')
     const examJsonPath = path.join(sourceDir, 'exam.json')
     if (!existsSync(examJsonPath)) continue
     bundles.push({
       kind: 'reading',
-      slug: `fce-b2-test${test}`,
-      examId: `catalog-reading-fce-b2-test${test}`,
+      sourceTest: test,
+      appTest: test + 1,
+      slug: `fce-b2-test${test + 1}`,
+      examId: `catalog-reading-fce-b2-test${test + 1}`,
       sourceDir: path.join(
         'Import Cambridge',
         'FCE_B2',
@@ -314,7 +315,6 @@ async function discoverFcePracticeReadingBundles() {
       ),
       cambridgeLevel: 'b2',
       examTrack: 'cambridge',
-      test,
     })
   }
 
@@ -637,10 +637,13 @@ function transformReading(payload, bundle) {
 
 async function transformFceB2Reading(bundle) {
   const { raw } = await loadFceTestExamJson(
-    bundle.test,
+    bundle.sourceTest,
     path.join(TAINGUYEN, 'Import Cambridge', 'FCE_B2', 'Reading'),
   )
-  return convertFcePagesToReadingExam(raw, { testNumber: bundle.test }).body
+  return convertFcePagesToReadingExam(raw, {
+    sourceTestNumber: bundle.sourceTest,
+    appTestNumber: bundle.appTest,
+  }).body
 }
 
 function enrichPayloadLayout(payload, sourceRows, cam, test) {
@@ -940,7 +943,7 @@ async function main() {
     let processed
     let outName
     if (bundle.kind === 'reading') {
-      if (bundle.cambridgeLevel === 'b2' && Number(bundle.test) > 1 && bundle.slug?.startsWith('fce-b2-test')) {
+      if (bundle.cambridgeLevel === 'b2' && Number.isInteger(bundle.sourceTest) && Number.isInteger(bundle.appTest)) {
         processed = await transformFceB2Reading(bundle)
       } else {
         processed = transformReading(raw, bundle)
