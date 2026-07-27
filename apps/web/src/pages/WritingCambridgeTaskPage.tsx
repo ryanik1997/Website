@@ -9,9 +9,11 @@ import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy
 import { useWritingStore } from '../features/writing/writingStore'
 import KetRwSplitPane from '../features/exam/ketRw/KetRwSplitPane'
 import CambridgeAdvancedWritingTaskView from '../features/writing/exam/CambridgeAdvancedWritingTaskView'
+import CambridgeWritingFeedbackDrawer from '../features/writing/exam/CambridgeWritingFeedbackDrawer'
 import { isAdvancedWritingLevel } from '../features/writing/exam/cambridgeWritingExamUiConfig'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingTask } from '../features/writing/useCambridgeWritingTests'
+import { useWritingGrading } from '../features/writing/useWritingGrading'
 import './writingCambridgeTaskPage.css'
 import '../features/exam/ketRw/readingKetRw.css'
 
@@ -109,36 +111,32 @@ function B1PromptShell({
   level,
   test,
   task,
-  doc,
   promptDoc,
+  text,
+  onTextChange,
+  onGrade,
+  isGrading,
+  hasScore,
 }: {
   level: NonNullable<ReturnType<typeof getCambridgeRouteLevel>>
   test: WritingShellTest
   task: WritingShellTask
-  doc?: WritingDoc
   promptDoc?: WritingDoc
+  text: string
+  onTextChange: (value: string) => void
+  onGrade: () => void
+  isGrading: boolean
+  hasScore: boolean
 }) {
-  const { activeDocId } = useWritingStore()
-  const [text, setText] = useState('')
-
-  useEffect(() => {
-    setText(doc?.text ?? '')
-  }, [doc?.id, doc?.text])
-
-  useEffect(() => {
-    if (!activeDocId || !doc || text === doc.text) return
-    const timer = window.setTimeout(() => {
-      void writingRepo.updateDoc(activeDocId, { text })
-    }, 500)
-    return () => window.clearTimeout(timer)
-  }, [activeDocId, doc, text])
-
   const taskIndex = getTaskOrderIndex(test.tasks, task.id)
   const prevTask = taskIndex > 0 ? test.tasks[taskIndex - 1] : null
   const nextTask = taskIndex >= 0 && taskIndex < test.tasks.length - 1 ? test.tasks[taskIndex + 1] : null
   const wordCount = countWords(text)
   const instructionLabel = task.partNumber === 1 ? 'You must answer this question.' : 'Answer one of these questions.'
   const questionLabel = task.partNumber === 1 ? 'Question 1' : 'Questions 2-3'
+  const part1Task = test.tasks.find((item) => item.partNumber === 1) ?? test.tasks[0]
+  const part2Tasks = test.tasks.filter((item) => item.partNumber === 2)
+  const part1Completed = task.partNumber === 1 && wordCount > 0 ? 1 : 0
 
   return (
     <div className="b1-writing-screen">
@@ -198,7 +196,7 @@ function B1PromptShell({
                 </button>
                 <textarea
                   value={text}
-                  onChange={event => setText(event.target.value)}
+                  onChange={event => onTextChange(event.target.value)}
                   className="b1-writing-textarea"
                   aria-label="Writing answer"
                 />
@@ -229,6 +227,45 @@ function B1PromptShell({
           </Link>
         )}
       </div>
+
+      <footer className="b1-writing-footer">
+        <Link
+          to={`/app/writing/cambridge/${level.level}/${test.id}/${part1Task.id}`}
+          className={`b1-writing-footer__part${task.partNumber === 1 ? ' is-active' : ''}`}
+        >
+          <strong>Part 1</strong>
+          {task.partNumber !== 1 ? <span>{part1Completed} of 1</span> : null}
+        </Link>
+
+        <div className={`b1-writing-footer__part${task.partNumber === 2 ? ' is-active' : ''}`}>
+          <strong>Part 2</strong>
+          {task.partNumber === 1 ? (
+            <span>0 of {part2Tasks.length}</span>
+          ) : (
+            <div className="b1-writing-footer__questions">
+              {part2Tasks.map((item) => (
+                <Link
+                  key={item.id}
+                  to={`/app/writing/cambridge/${level.level}/${test.id}/${item.id}`}
+                  className={`b1-writing-footer__question${item.id === task.id ? ' is-active' : ''}`}
+                >
+                  {item.taskNumber}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <button
+          type="button"
+          className={`b1-writing-footer__submit${hasScore ? ' has-score' : ''}`}
+          aria-label="Chấm bài AI"
+          onClick={onGrade}
+          disabled={isGrading}
+        >
+          {isGrading ? '...' : '✓'}
+        </button>
+      </footer>
     </div>
   )
 }
@@ -237,30 +274,23 @@ function A2PromptShell({
   level,
   test,
   task,
-  doc,
   promptDoc,
+  text,
+  onTextChange,
+  onGrade,
+  isGrading,
+  hasScore,
 }: {
   level: NonNullable<ReturnType<typeof getCambridgeRouteLevel>>
   test: WritingShellTest
   task: WritingShellTask
-  doc?: WritingDoc
   promptDoc?: WritingDoc
+  text: string
+  onTextChange: (value: string) => void
+  onGrade: () => void
+  isGrading: boolean
+  hasScore: boolean
 }) {
-  const { activeDocId } = useWritingStore()
-  const [text, setText] = useState('')
-
-  useEffect(() => {
-    setText(doc?.text ?? '')
-  }, [doc?.id, doc?.text])
-
-  useEffect(() => {
-    if (!activeDocId || !doc || text === doc.text) return
-    const timer = window.setTimeout(() => {
-      void writingRepo.updateDoc(activeDocId, { text })
-    }, 500)
-    return () => window.clearTimeout(timer)
-  }, [activeDocId, doc, text])
-
   const taskIndex = getTaskOrderIndex(test.tasks, task.id)
   const prevTask = taskIndex > 0 ? test.tasks[taskIndex - 1] : null
   const nextTask = taskIndex >= 0 && taskIndex < test.tasks.length - 1 ? test.tasks[taskIndex + 1] : null
@@ -317,7 +347,7 @@ function A2PromptShell({
               <section className="b1-writing-answer-pane">
                 <textarea
                   value={text}
-                  onChange={event => setText(event.target.value)}
+                  onChange={event => onTextChange(event.target.value)}
                   className="ket-rw-writing-area b1-writing-textarea"
                   aria-label="Writing answer"
                   rows={14}
@@ -342,7 +372,7 @@ function A2PromptShell({
               </div>
               <textarea
                 value={text}
-                onChange={event => setText(event.target.value)}
+                onChange={event => onTextChange(event.target.value)}
                 className="ket-rw-writing-area b1-writing-textarea a2-writing-textarea"
                 aria-label="Writing answer"
                 rows={10}
@@ -374,6 +404,21 @@ function A2PromptShell({
           </Link>
         )}
       </div>
+
+      <footer className="b1-writing-footer">
+        <div className="b1-writing-footer__part is-active">
+          <strong>{task.partNumber === 6 ? 'Part 6' : 'Part 7'}</strong>
+        </div>
+        <button
+          type="button"
+          className={`b1-writing-footer__submit${hasScore ? ' has-score' : ''}`}
+          aria-label="Chấm bài AI"
+          onClick={onGrade}
+          disabled={isGrading}
+        >
+          {isGrading ? '...' : '✓'}
+        </button>
+      </footer>
     </div>
   )
 }
@@ -387,6 +432,8 @@ export default function WritingCambridgeTaskPage() {
   const task = merged?.task ?? null
   const { activeDocId, setActiveDoc } = useWritingStore()
   const creatingRef = useRef<string | null>(null)
+  const [feedbackOpen, setFeedbackOpen] = useState(false)
+  const [currentText, setCurrentText] = useState('')
 
   const docs = useLiveQuery(async () => {
     if (!level || !task) return []
@@ -466,14 +513,46 @@ export default function WritingCambridgeTaskPage() {
     return answerDocs.find(doc => doc.id === activeDocId) ?? answerDocs[0]
   }, [activeDocId, answerDocs])
 
+  useEffect(() => {
+    setCurrentText(activeDoc?.text ?? '')
+  }, [activeDoc?.id, activeDoc?.text])
+
   function handleAnswerChange(value: string) {
-    if (!activeDoc?.id) return
-    void writingRepo.updateDoc(activeDoc.id, { text: value })
+    setCurrentText(value)
   }
 
   function handleOpenTask(nextTaskId: string) {
     if (!level || !test) return
     navigate(`/app/writing/cambridge/${level.level}/${test.id}/${nextTaskId}`)
+  }
+
+  const grading = useWritingGrading({
+    doc: activeDoc,
+    text: currentText,
+    minWords: task?.wordLimit?.min,
+    persistText: async (nextText) => {
+      if (!activeDoc?.id) return
+      await writingRepo.updateDoc(activeDoc.id, { text: nextText })
+    },
+  })
+
+  useEffect(() => {
+    if (!activeDoc?.id || currentText === activeDoc.text) return
+    const timer = window.setTimeout(() => {
+      void writingRepo.updateDoc(activeDoc.id, { text: currentText })
+    }, 500)
+    return () => window.clearTimeout(timer)
+  }, [activeDoc?.id, activeDoc?.text, currentText])
+
+  async function handleGrade() {
+    if (grading.score) {
+      setFeedbackOpen(true)
+      return
+    }
+    const result = await grading.grade()
+    if (result.kind !== 'blocked') {
+      setFeedbackOpen(true)
+    }
   }
 
   if (!level) return <Navigate to="/app/writing/cambridge" replace />
@@ -502,23 +581,92 @@ export default function WritingCambridgeTaskPage() {
   }
 
   if (level.level === 'a2') {
-    return <A2PromptShell level={level} test={test} task={task} doc={activeDoc} promptDoc={promptDoc} />
+    return (
+      <>
+        <A2PromptShell
+          level={level}
+          test={test}
+          task={task}
+          promptDoc={promptDoc}
+          text={currentText}
+          onTextChange={handleAnswerChange}
+          onGrade={() => void handleGrade()}
+          isGrading={grading.isGrading}
+          hasScore={Boolean(grading.score)}
+        />
+        {activeDoc ? (
+          <CambridgeWritingFeedbackDrawer
+            open={feedbackOpen}
+            onClose={() => setFeedbackOpen(false)}
+            score={grading.score}
+            docId={activeDoc.id}
+            docType={activeDoc.type}
+            isGrading={grading.isGrading}
+            gradingError={grading.gradingError}
+            onGrade={() => void handleGrade()}
+          />
+        ) : null}
+      </>
+    )
   }
 
   if (level.level === 'b1') {
-    return <B1PromptShell level={level} test={test} task={task} doc={activeDoc} promptDoc={promptDoc} />
+    return (
+      <>
+        <B1PromptShell
+          level={level}
+          test={test}
+          task={task}
+          promptDoc={promptDoc}
+          text={currentText}
+          onTextChange={handleAnswerChange}
+          onGrade={() => void handleGrade()}
+          isGrading={grading.isGrading}
+          hasScore={Boolean(grading.score)}
+        />
+        {activeDoc ? (
+          <CambridgeWritingFeedbackDrawer
+            open={feedbackOpen}
+            onClose={() => setFeedbackOpen(false)}
+            score={grading.score}
+            docId={activeDoc.id}
+            docType={activeDoc.type}
+            isGrading={grading.isGrading}
+            gradingError={grading.gradingError}
+            onGrade={() => void handleGrade()}
+          />
+        ) : null}
+      </>
+    )
   }
 
   if (isAdvancedWritingLevel(level.level)) {
     return (
-      <CambridgeAdvancedWritingTaskView
-        level={level.level}
-        test={test}
-        task={task}
-        answer={activeDoc?.text ?? ''}
-        onAnswerChange={handleAnswerChange}
-        onOpenTask={handleOpenTask}
-      />
+      <>
+        <CambridgeAdvancedWritingTaskView
+          level={level.level}
+          test={test}
+          task={task}
+          answer={currentText}
+          onAnswerChange={handleAnswerChange}
+          onOpenTask={handleOpenTask}
+          isGrading={grading.isGrading}
+          hasScore={Boolean(grading.score)}
+          onGrade={() => void handleGrade()}
+        />
+        {activeDoc ? (
+          <CambridgeWritingFeedbackDrawer
+            open={feedbackOpen}
+            onClose={() => setFeedbackOpen(false)}
+            score={grading.score}
+            docId={activeDoc.id}
+            docType={activeDoc.type}
+            isGrading={grading.isGrading}
+            gradingError={grading.gradingError}
+            onGrade={() => void handleGrade()}
+          />
+        ) : null}
+      </>
     )
   }
 

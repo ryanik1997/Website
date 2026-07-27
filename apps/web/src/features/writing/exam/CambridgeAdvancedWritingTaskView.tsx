@@ -34,6 +34,9 @@ export default function CambridgeAdvancedWritingTaskView({
   answer,
   onAnswerChange,
   onOpenTask,
+  isGrading,
+  hasScore,
+  onGrade,
 }: {
   level: AdvancedWritingLevel
   test: Pick<CambridgeWritingTest, 'id' | 'tasks' | 'title'>
@@ -41,6 +44,9 @@ export default function CambridgeAdvancedWritingTaskView({
   answer: string
   onAnswerChange: (value: string) => void
   onOpenTask: (taskId: string) => void
+  isGrading: boolean
+  hasScore: boolean
+  onGrade: () => void
 }) {
   const config = CAMBRIDGE_ADVANCED_WRITING_CONFIG[level]
   const part1Task = test.tasks.find((item) => item.partNumber === 1) ?? test.tasks[0]
@@ -182,8 +188,14 @@ export default function CambridgeAdvancedWritingTaskView({
           )}
         </div>
 
-        <button type="button" className="cw-footer-submit" aria-label="Finish test">
-          <Check size={18} />
+        <button
+          type="button"
+          className="cw-footer-submit"
+          aria-label="Chấm bài AI"
+          onClick={onGrade}
+          disabled={isGrading}
+        >
+          {isGrading ? '...' : <Check size={18} />}
         </button>
       </footer>
     </div>

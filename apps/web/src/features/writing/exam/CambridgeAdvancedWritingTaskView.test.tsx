@@ -43,6 +43,9 @@ describe('CambridgeAdvancedWritingTaskView', () => {
         answer=""
         onAnswerChange={() => {}}
         onOpenTask={() => {}}
+        isGrading={false}
+        hasScore={false}
+        onGrade={() => {}}
       />,
     )
 
@@ -70,6 +73,9 @@ describe('CambridgeAdvancedWritingTaskView', () => {
         answer=""
         onAnswerChange={() => {}}
         onOpenTask={() => {}}
+        isGrading={false}
+        hasScore={false}
+        onGrade={() => {}}
       />,
     )
 
@@ -119,6 +125,9 @@ describe('CambridgeAdvancedWritingTaskView', () => {
         answer=""
         onAnswerChange={() => {}}
         onOpenTask={() => {}}
+        isGrading={false}
+        hasScore={false}
+        onGrade={() => {}}
       />,
     )
 

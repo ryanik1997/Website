@@ -213,6 +213,7 @@ describe('Cambridge Writing pages', () => {
 
     expect(screen.getByText('Đang tải bài viết...')).toBeInTheDocument()
     const textarea = await screen.findByLabelText('Writing answer')
+    expect(screen.getByLabelText('Chấm bài AI')).toBeInTheDocument()
     expect(textarea).toBeInTheDocument()
     expect(screen.getByText('Question 1')).toBeInTheDocument()
     expect(document.querySelector('.ket-rw-body.is-split.is-resizable')).toBeTruthy()
@@ -267,8 +268,14 @@ describe('Cambridge Writing pages', () => {
   it('advanced routes render B2/C1/C2 prompts and persist part 2 selection', async () => {
     renderTaskPage('b2', 'b2-test-01', 'b2-test-01-task-01')
     await screen.findByLabelText('Writing answer')
+    expect(screen.getByLabelText('Chấm bài AI')).toBeInTheDocument()
     expect(screen.getByText(/140-190 words/i)).toBeInTheDocument()
     expect(screen.queryByLabelText('Answering this question?')).not.toBeInTheDocument()
+
+    cleanup()
+    renderTaskPage('a2', 'ket-a2-book4-test2', 'ket-a2-book4-test2-task-31')
+    await screen.findByLabelText('Writing answer')
+    expect(screen.getByLabelText('Chấm bài AI')).toBeInTheDocument()
 
     cleanup()
     renderTaskPage('c1', 'c1-test-01', 'c1-test-01-task-01')
