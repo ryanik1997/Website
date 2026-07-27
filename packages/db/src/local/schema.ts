@@ -235,6 +235,25 @@ export interface ExamBackupRecord {
   updatedAt: number
 }
 
+export type CambridgeWritingRecordLevel = 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
+export type CambridgeWritingRecordStatus = 'draft' | 'published' | 'archived'
+export type CambridgeWritingRecordSource = 'admin_local' | 'published_sync'
+
+export interface CambridgeWritingTestRecord {
+  id: string
+  contentKey: string
+  level: CambridgeWritingRecordLevel
+  testNumber: number
+  status: CambridgeWritingRecordStatus
+  source: CambridgeWritingRecordSource
+  version: number
+  payload: unknown
+  createdAt: number
+  updatedAt: number
+  publishedAt?: number
+  createdBy?: string
+}
+
 export class RyanDB extends Dexie {
   groups!:         Table<Group, string>
   decks!:          Table<Deck, string>
@@ -259,9 +278,10 @@ export class RyanDB extends Dexie {
   listeningExams!:    Table<ListeningExamRecord, string>
   notebookEntries!:   Table<NotebookEntry, string>
   examBackups!:       Table<ExamBackupRecord, string>
+  cambridgeWritingTests!: Table<CambridgeWritingTestRecord, string>
 
-  constructor() {
-    super('RyanEnglishDB')
+  constructor(name = 'RyanEnglishDB') {
+    super(name)
     this.version(1).stores({
       groups:          '&id, order',
       decks:           '&id, groupId, updatedAt',
@@ -620,6 +640,33 @@ export class RyanDB extends Dexie {
       listeningExams:  '&id, examType, source, createdAt, updatedAt',
       notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
       examBackups:     '&id, skill, updatedAt, title',
+    })
+    // v18: local Cambridge Writing admin/published records
+    this.version(18).stores({
+      groups:          '&id, order',
+      decks:           '&id, groupId, updatedAt',
+      cards:           '&id, deckId, phrase',
+      srs:             '&cardId, deckId, dueAt, state, [deckId+dueAt]',
+      reviewLog:       '++id, cardId, at, mode, [mode+at]',
+      dictionaryCache: '&word, fetchedAt',
+      lessons:         '&id, category, createdAt',
+      translationSets: '&id, category, genre, createdAt',
+      audioBlobs:      '&key, createdAt, lastAccessedAt',
+      writingDocs:     '&id, type, genre, updatedAt',
+      writingHistory:  '++id, docId, textHash, at',
+      errorBank:       '++id, &signature',
+      mindmaps:        '&id, updatedAt',
+      mindmapTombstones: '&id, deletedAt',
+      deckTombstones:  '&id, deletedAt',
+      cardTombstones:  '&id, deletedAt',
+      aiUsage:         '[day+feature], day',
+      settings:        '&key',
+      sentenceStructures: '&id, category, starred, updatedAt',
+      readingExams:    '&id, source, createdAt, updatedAt',
+      listeningExams:  '&id, examType, source, createdAt, updatedAt',
+      notebookEntries: '&id, &phraseKey, sourceCardId, sourceDeckId, createdAt',
+      examBackups:     '&id, skill, updatedAt, title',
+      cambridgeWritingTests: '&id, &contentKey, level, status, source, testNumber, updatedAt, [level+testNumber]',
     })
   }
 }

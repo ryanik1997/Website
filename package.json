@@ -58,7 +58,8 @@
     "media:strip-dist": "node scripts/strip-public-media-from-dist.mjs",
     "security:check": "node scripts/security-release-check.mjs",
     "deploy:web": "vercel deploy --prod --yes",
-    "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes"
+    "deploy:prod": "node scripts/db-push.mjs && vercel deploy --prod --yes",
+    "test": "pnpm --filter @ryan/db test && pnpm --filter web test"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.1092.0",

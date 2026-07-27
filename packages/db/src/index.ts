@@ -4,7 +4,8 @@ export type {
   Lesson, TranslationSet, TranslationSentence, TranslationGenre, TranslationCategory, CefrLevel,
   AudioBlob, WritingDoc, WritingGenre, CambridgeGenre, WritingHistory,
   ErrorBank, MindMap, AiUsage, Setting, SentenceStructure, ReadingExamRecord, ListeningExamRecord,
-  NotebookEntry, ExamBackupRecord,
+  NotebookEntry, ExamBackupRecord, CambridgeWritingRecordLevel, CambridgeWritingRecordStatus,
+  CambridgeWritingRecordSource, CambridgeWritingTestRecord,
 } from './local/schema'
 export { deckRepo } from './local/repositories/deckRepo'
 export { cardRepo } from './local/repositories/cardRepo'
@@ -20,6 +21,7 @@ export { sentenceStructureRepo } from './local/repositories/sentenceStructureRep
 export { examRepo } from './local/repositories/examRepo'
 export { examBackupRepo } from './local/repositories/examBackupRepo'
 export { listeningExamRepo } from './local/repositories/listeningExamRepo'
+export { cambridgeWritingTestLocalRepo } from './local/repositories/cambridgeWritingTestRepo'
 export { notebookRepo, phraseKeyOf } from './local/repositories/notebookRepo'
 export type { NotebookSaveInput } from './local/repositories/notebookRepo'
 export {
