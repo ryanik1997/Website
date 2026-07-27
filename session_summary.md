@@ -1,245 +1,285 @@
-﻿### Ðã hoàn thành (mới nhất — FCE B2 Reading crawl pages 2–26 đã normalize vào catalog)
+### �� ho�n th�nh / tr?ng th�i m?i nh?t � FCE B2 Reading semantic repair CHUA ho�n th�nh
 
-- Thêm converter riêng `scripts/reading/convert-fce-b2-pages-to-parts.mjs` + core module `scripts/reading/fce-b2-pages-to-parts.mjs` để chuyển crawl JSON `pages` của `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading\fce-reading-test2..26` sang schema `ReadingExam.parts`.
-- Converter đọc 25 test, ghép answer page theo `questionNumber`, validate 7 parts / 1300 câu, và xuất đủ report tạm:
+- �� d?c task `C:\Users\lindv\OneDrive\Desktop\task17_27626.txt` v� b?t d?u s?a semantic FCE B2 Reading sau commit `33d7d18c0eaac98a62ac77ceebd2c579ae69518b`.
+- �� th�m raw source semantic report generator:
+  - `scripts/reading/report-fce-b2-source-semantics.mjs`
+  - output d� t?o: `tmp/fce-b2-source-semantic-report.json`
+- �� chuy?n m?t ph?n converter `scripts/reading/fce-b2-pages-to-parts.mjs` sang HTML parser th?t b?ng `parse5` cho inline widgets Part 1/2/3 v� th�m assert marker.
+- �� m? r?ng `ReadingQuestion` v?i optional fields `baseWord`, `sourceSentence`, `keyword`, `targetSentence` v� renderer `FceRwPartContent.tsx` nay uu ti�n fields semantic cho Part 4.
+- �� th�m validator nghi�m ng?t:
+  - `scripts/reading/validate-fce-b2-semantics.mjs`
+  - validator hi?n FAIL nhu k? v?ng v� d? li?u/runtime v?n c�n l?i semantic.
+- �� th�m dependency root dev `parse5` trong `package.json` / `pnpm-lock.yaml`.
+
+### L?i c�n t?n t?i / blocker
+
+- CHUA HO�N TH�NH theo acceptance c?a task17.
+- `pnpm build:catalog` hi?n FAIL khi convert t?i source `fce-reading-test4` -> app `reading-fce-b2-test5`, Part 3: thi?u marker Q17 (`part markers 17-24: expected one marker for 17, got 0`).
+- Source crawl c?c b? b? thi?u/truncate ? nhi?u noi:
+  - Part 4 `passageTextHtml` c� test r?ng, ch? `rawHtmlSample` 2000 chars n�n kh�ng d? target sentence cho to�n b? Q25-30.
+  - Part 7 nhi?u test c� `passageTextHtml` r?ng v� `rawHtmlSample` b? truncate, chua parse du?c A-D sections / prompts th?t.
+- Semantic validator hi?n b�o r?t nhi?u l?i tr�n package/runtime cu, d?c bi?t Part 1/2/3 marker, Part 4 semantic fields, Part 6 markers/features, Part 7 labels/prompts.
+- L?n ch?y `pnpm build:catalog` th?t b?i d� ghi m?t ph?n generated files cho `reading-fce-b2-test2..4`; c?n regenerate clean ho?c restore tru?c khi ti?p t?c.
+
+### Verify m?i nh?t
+
+- `node scripts/reading/report-fce-b2-source-semantics.mjs` PASS, t?o `tmp/fce-b2-source-semantic-report.json`.
+- `pnpm --filter web exec -- tsc --noEmit` PASS sau schema/renderer changes.
+- `pnpm build:catalog` FAIL ? FCE B2 Reading Part 3 source test 4/app test 5.
+- `node scripts/reading/validate-fce-b2-semantics.mjs` FAIL, d�ng vai tr� acceptance gate; chua c� browser smoke/screenshot/submit evidence.
+
+### Next session start prompt
+
+Ti?p t?c task17 FCE B2 Reading semantic repair, nhung CHUA du?c b�o ho�n th�nh. B?t d?u t?:
+1. `tmp/fce-b2-source-semantic-report.json`
+2. `scripts/reading/fce-b2-pages-to-parts.mjs`
+3. `scripts/reading/validate-fce-b2-semantics.mjs`
+4. Source failing hi?n t?i: `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading\fce-reading-test4\exam\exam.json`, Part 3 thi?u input marker Q17 theo parser m?i.
+
+C?n quy?t d?nh strategy l?y source d?y d? cho Part 4/7: recrawl full HTML t? EngExam pages ho?c fetch/cache original pages theo URL t?ng test/part, v� local `rawHtmlSample` 2000 chars kh�ng d? d? kh�i ph?c semantic th?t.
+
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading crawl pages 2�26 d� normalize v�o catalog)
+
+- Th�m converter ri�ng `scripts/reading/convert-fce-b2-pages-to-parts.mjs` + core module `scripts/reading/fce-b2-pages-to-parts.mjs` d? chuy?n crawl JSON `pages` c?a `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading\fce-reading-test2..26` sang schema `ReadingExam.parts`.
+- Converter d?c 25 test, gh�p answer page theo `questionNumber`, validate 7 parts / 1300 c�u, v� xu?t d? report t?m:
   - `tmp/fce-b2-test1-schema.json`
   - `tmp/fce-b2-pages-inventory.json`
   - `tmp/fce-b2-conversion-report.json`
   - `tmp/fce-b2-conversion-report.md`
-- `scripts/build-catalog.mjs` nay gọi converter FCE B2 Reading cho test 2–26 thay vì đọc raw crawl pages trực tiếp, nên build lại không còn ghi shell `parts: []`.
-- Verify hiện tại:
+- `scripts/build-catalog.mjs` nay g?i converter FCE B2 Reading cho test 2�26 thay v� d?c raw crawl pages tr?c ti?p, n�n build l?i kh�ng c�n ghi shell `parts: []`.
+- Verify hi?n t?i:
   - `node scripts/reading/convert-fce-b2-pages-to-parts.mjs --from=2 --to=26` PASS
   - `node scripts/build-catalog.mjs` PASS
   - `pnpm --filter web exec tsc --noEmit` PASS
-- Kết quả data thật:
-  - `packages/catalog/data/reading-fce-b2-test2.json` … `reading-fce-b2-test26.json` đều có `parts.length === 7`
-  - title đã giữ đúng `FCE B2 Reading — Book X — Test N`
+- K?t qu? data th?t:
+  - `packages/catalog/data/reading-fce-b2-test2.json` � `reading-fce-b2-test26.json` d?u c� `parts.length === 7`
+  - title d� gi? d�ng `FCE B2 Reading � Book X � Test N`
 
-### Lỗi còn tồn tại
+### L?i c�n t?n t?i
 
-- `node scripts/build-catalog.mjs` vẫn tạo nhiều warning CRLF khi ghi lại catalog JSON.
-- Git worktree còn một file tạm do môi trường tạo ra: `~$skills-inventory.xlsx` đã bị builder chạm tới trạng thái xóa.
+- `node scripts/build-catalog.mjs` v?n t?o nhi?u warning CRLF khi ghi l?i catalog JSON.
+- Git worktree c�n m?t file t?m do m�i tru?ng t?o ra: `~$skills-inventory.xlsx` d� b? builder ch?m t?i tr?ng th�i x�a.
 
 ### Next session start prompt
 
-FCE B2 Reading crawl pages 2–26 đã được normalize và build lại thành catalog thật. Nếu cần làm tiếp, kiểm tra:
+FCE B2 Reading crawl pages 2�26 d� du?c normalize v� build l?i th�nh catalog th?t. N?u c?n l�m ti?p, ki?m tra:
 1. `packages/catalog/data/reading-fce-b2-test13.json`
 2. `packages/catalog/data/reading-fce-b2-test26.json`
 3. `tmp/fce-b2-conversion-report.json`
 
-Route để smoke:
+Route d? smoke:
 - `/app/exam/track/cambridge/b2/reading`
 - `/app/exam/reading/catalog-reading-fce-b2-test2`
 - `/app/exam/reading/catalog-reading-fce-b2-test13`
 - `/app/exam/reading/catalog-reading-fce-b2-test26`
-### Ðã hoàn thành (m?i nh?t — FCE B2 Reading bundle dã du?c sync vào app)
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading bundle d� du?c sync v�o app)
 
-- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` vào app.
-- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n dã có trong:
+- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` v�o app.
+- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n d� c� trong:
   - `packages/catalog/data/reading-fce-b2-test1.json`
   - `packages/catalog/data/catalog-reading-meta.json`
   - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
   - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.answers.json`
 - `packages/catalog/data/manifest.json` du?c refresh `builtAt` theo l?n build m?i nh?t.
 
-### L?i còn t?n t?i
+### L?i c�n t?n t?i
 
-- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i các file catalog JSON.
-- Git worktree còn m?t file t?m do môi tru?ng t?o ra: `~$skills-inventory.xlsx` dã b? builder ch?m t?i tr?ng thái xóa.
+- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i c�c file catalog JSON.
+- Git worktree c�n m?t file t?m do m�i tru?ng t?o ra: `~$skills-inventory.xlsx` d� b? builder ch?m t?i tr?ng th�i x�a.
 
 ### Next session start prompt
 
-FCE B2 Reading dã du?c sync vào app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
+FCE B2 Reading d� du?c sync v�o app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
 1. `packages/catalog/data/manifest.json`
 2. `packages/catalog/data/catalog-reading-meta.json`
 3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
 
-N?u c?n m? r?ng thêm, import ti?p các bundle FCE B2 Reading khác t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
-## >>> TR?NG THÁI G?N NH?T — Agent m?i d?c ph?n này tru?c, không d?c h?t file <<<
+N?u c?n m? r?ng th�m, import ti?p c�c bundle FCE B2 Reading kh�c t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
+## >>> TR?NG TH�I G?N NH?T � Agent m?i d?c ph?n n�y tru?c, kh�ng d?c h?t file <<<
 
-**Ngày:** 2026-07-27
+**Ng�y:** 2026-07-27
 
-### Ðã hoàn thành (m?i nh?t — Cambridge Writing seed library B1/C2 dã d?ng du?c)
+### �� ho�n th�nh (m?i nh?t � Cambridge Writing seed library B1/C2 d� d?ng du?c)
 
-- Dùng 4 seed Inspera th?t làm ngu?n kh?i d?ng cho Writing Cambridge:
+- D�ng 4 seed Inspera th?t l�m ngu?n kh?i d?ng cho Writing Cambridge:
   - B1: `assessmentRunId=146726796`
   - B2: `assessmentRunId=146732614`
   - C1: `assessmentRunId=415313797`
   - C2: `assessmentRunId=146745736`
-- Chu?n hóa schema/catalog m?i t?i `packages/catalog/src/cambridge/writing/`:
+- Chu?n h�a schema/catalog m?i t?i `packages/catalog/src/cambridge/writing/`:
   - `schema.ts` d?nh nghia `CambridgeWritingCollection/Test/Task/Choice/Asset/SampleAnswer/Manifest`
-  - `seedData.ts` ch?a prompt th?t dã crawl t? Inspera
+  - `seedData.ts` ch?a prompt th?t d� crawl t? Inspera
   - `manifest.json` + `b1|b2|c1|c2/index.json` + t?ng file test JSON du?c generate b?i script import
-- Thêm importer `scripts/import-cambridge-writing.ts` + script root `pnpm import:cambridge-writing --all`
-  - Verify ngày **2026-07-27**: importer ch?y xong:
+- Th�m importer `scripts/import-cambridge-writing.ts` + script root `pnpm import:cambridge-writing --all`
+  - Verify ng�y **2026-07-27**: importer ch?y xong:
     - `b1`: 1 test / 3 tasks
     - `b2`: 1 test / 4 tasks
     - `c1`: 1 test / 4 tasks
     - `c2`: 1 test / 4 tasks
   - Inventory ghi t?i `data-import/cambridge-writing-inventory.json`
-  - Ghi nh?n th?c t?: `D:\App-English-Ryan\Crawl\Writing_Crawl\B1` dang có `Question_1.png..Question_3.png`; `B2/C1/C2` còn r?ng nên hi?n dùng seed JSON t? `docs/research/ceq.inspera.com/writing/`
+  - Ghi nh?n th?c t?: `D:\App-English-Ryan\Crawl\Writing_Crawl\B1` dang c� `Question_1.png..Question_3.png`; `B2/C1/C2` c�n r?ng n�n hi?n d�ng seed JSON t? `docs/research/ceq.inspera.com/writing/`
 - M? route/library/workspace m?i cho Cambridge Writing:
   - `/app/writing/cambridge/:level`
   - `/app/writing/cambridge/:level/:testId`
   - `/app/writing/cambridge/:level/:testId/:taskId`
-- `ExamTrackPage` và `ExamSkillPicker` dã có card `Writing` cho Cambridge B1/B2/C1/C2; card l?y count t? manifest seed thay vì Dexie docs.
-- `writingRepo.createDoc()` nh?n thêm `sourceMeta`; `WritingDoc` có `sourceMeta` d? map ngu?c doc v?i `level/testId/taskId` t? seed route.
-- `WritingCambridgeTaskPage` t? tìm doc cu theo `sourceMeta.taskId`; n?u chua có thì auto-create doc m?i r?i m? `WritingEditor`.
+- `ExamTrackPage` v� `ExamSkillPicker` d� c� card `Writing` cho Cambridge B1/B2/C1/C2; card l?y count t? manifest seed thay v� Dexie docs.
+- `writingRepo.createDoc()` nh?n th�m `sourceMeta`; `WritingDoc` c� `sourceMeta` d? map ngu?c doc v?i `level/testId/taskId` t? seed route.
+- `WritingCambridgeTaskPage` t? t�m doc cu theo `sourceMeta.taskId`; n?u chua c� th� auto-create doc m?i r?i m? `WritingEditor`.
 - `apps/web/src/pages/WritingCambridgePage.tsx` chuy?n CTA seeded levels sang thu vi?n d? th?t; A2 v?n disabled.
-- Tài li?u bàn giao dã có:
+- T�i li?u b�n giao d� c�:
   - `docs/research/ceq.inspera.com/writing/WRITING_SAMPLE_SUMMARY.md`
   - `docs/cambridge-writing-integration.md`
 - Verify:
   - `pnpm import:cambridge-writing --all` PASS
-  - `pnpm --filter web build` ch?y h?t `tsc && vite build && strip-public-media`; log có `? built in 1m 39s`. L?n ch?y trong harness b? timeout sau khi build xong nên d?c theo log, không ph?i l?i compile/runtime.
+  - `pnpm --filter web build` ch?y h?t `tsc && vite build && strip-public-media`; log c� `? built in 1m 39s`. L?n ch?y trong harness b? timeout sau khi build xong n�n d?c theo log, kh�ng ph?i l?i compile/runtime.
 
-### L?i còn t?n t?i
-- Cambridge Writing hi?n m?i là **seed-first integration**:
-  - B1 có thêm 3 ?nh câu h?i trong `D:\App-English-Ryan\Crawl\Writing_Crawl\B1` nhung UI seed route chua render ?nh d? th?t
-  - B2/C1/C2 chua có b? file crawl th?t trong `D:\App-English-Ryan\Crawl\Writing_Crawl\*`, dang dùng prompt JSON dã chu?n hóa t? Inspera
-- `packages/catalog/src/cambridge/writing/index.ts` và `seedData.ts` dang dùng import duôi `.ts` d? script Node ESM ch?y tr?c ti?p. Build web v?n PASS; n?u sau này dóng gói package catalog riêng thì nh? ki?m tra l?i strategy export/runtime.
+### L?i c�n t?n t?i
+- Cambridge Writing hi?n m?i l� **seed-first integration**:
+  - B1 c� th�m 3 ?nh c�u h?i trong `D:\App-English-Ryan\Crawl\Writing_Crawl\B1` nhung UI seed route chua render ?nh d? th?t
+  - B2/C1/C2 chua c� b? file crawl th?t trong `D:\App-English-Ryan\Crawl\Writing_Crawl\*`, dang d�ng prompt JSON d� chu?n h�a t? Inspera
+- `packages/catalog/src/cambridge/writing/index.ts` v� `seedData.ts` dang d�ng import du�i `.ts` d? script Node ESM ch?y tr?c ti?p. Build web v?n PASS; n?u sau n�y d�ng g�i package catalog ri�ng th� nh? ki?m tra l?i strategy export/runtime.
 
 ### Next session start prompt
 
-Cambridge Writing seed integration dã d?ng du?c trên web b?ng 4 seed Inspera th?t. Tru?c khi s?a ti?p, d?c:
+Cambridge Writing seed integration d� d?ng du?c tr�n web b?ng 4 seed Inspera th?t. Tru?c khi s?a ti?p, d?c:
 1. `docs/cambridge-writing-integration.md`
 2. `packages/catalog/src/cambridge/writing/schema.ts`
 3. `apps/web/src/pages/WritingCambridgeTaskPage.tsx`
 
-Các route m?i:
+C�c route m?i:
 - `/app/writing/cambridge/:level`
 - `/app/writing/cambridge/:level/:testId`
 - `/app/writing/cambridge/:level/:testId/:taskId`
 
-M?c verify g?n nh?t ngày **2026-07-27**:
+M?c verify g?n nh?t ng�y **2026-07-27**:
 - `pnpm import:cambridge-writing --all` PASS
-- `pnpm --filter web build` build xong (`? built in 1m 39s`), nhung command b? harness timeout sau khi hoàn t?t log.
+- `pnpm --filter web build` build xong (`? built in 1m 39s`), nhung command b? harness timeout sau khi ho�n t?t log.
 
-Vi?c ti?p theo h?p lý nh?t:
+Vi?c ti?p theo h?p l� nh?t:
 1. Render ?nh prompt th?t cho B1 t? `D:\App-English-Ryan\Crawl\Writing_Crawl\B1\Question_1.png..3.png`
-2. Khi có file th?t cho B2/C1/C2, m? r?ng importer d? kéo ?nh/PDF assets vào schema thay vì ch? prompt text
-3. Cân nh?c thêm card/library/import flow cho Writing gi?ng Reading n?u mu?n admin publish seed thành catalog r?ng hon
+2. Khi c� file th?t cho B2/C1/C2, m? r?ng importer d? k�o ?nh/PDF assets v�o schema thay v� ch? prompt text
+3. C�n nh?c th�m card/library/import flow cho Writing gi?ng Reading n?u mu?n admin publish seed th�nh catalog r?ng hon
 
-### Ðã hoàn thành (m?i nh?t — FCE B2 Reading bundle dã du?c sync vào app)
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading bundle d� du?c sync v�o app)
 
-- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` vào app.
-- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n dã có trong:
+- Ch?y `node scripts/build-catalog.mjs` d? d?ng b? catalog t? `D:\App-English-Ryan\Tainguyen` v�o app.
+- FCE B2 Reading `catalog-reading-fce-b2-test1` hi?n d� c� trong:
   - `packages/catalog/data/reading-fce-b2-test1.json`
   - `packages/catalog/data/catalog-reading-meta.json`
   - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
   - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.answers.json`
 - `packages/catalog/data/manifest.json` du?c refresh `builtAt` theo l?n build m?i nh?t.
 
-### L?i còn t?n t?i
+### L?i c�n t?n t?i
 
-- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i các file catalog JSON.
-- Git worktree còn m?t file t?m do môi tru?ng t?o ra: `~$skills-inventory.xlsx` dã b? builder ch?m t?i tr?ng thái xóa.
+- `node scripts/build-catalog.mjs` hi?n v?n t?o r?t nhi?u warning CRLF khi ghi l?i c�c file catalog JSON.
+- Git worktree c�n m?t file t?m do m�i tru?ng t?o ra: `~$skills-inventory.xlsx` d� b? builder ch?m t?i tr?ng th�i x�a.
 
 ### Next session start prompt
 
-FCE B2 Reading dã du?c sync vào app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
+FCE B2 Reading d� du?c sync v�o app b?ng build-catalog. Tru?c khi s?a ti?p, ki?m tra:
 1. `packages/catalog/data/manifest.json`
 2. `packages/catalog/data/catalog-reading-meta.json`
 3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test1.json`
 
-N?u c?n m? r?ng thêm, import ti?p các bundle FCE B2 Reading khác t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
-## >>> TR?NG THÁI G?N NH?T — Agent m?i d?c ph?n này tru?c, không d?c h?t file <<<
+N?u c?n m? r?ng th�m, import ti?p c�c bundle FCE B2 Reading kh�c t? `D:\App-English-Ryan\Tainguyen\Import Cambridge\FCE_B2\Reading`.
+## >>> TR?NG TH�I G?N NH?T � Agent m?i d?c ph?n n�y tru?c, kh�ng d?c h?t file <<<
 
-**Ngày:** 2026-07-26
+**Ng�y:** 2026-07-26
 
-### Ðã hoàn thành (m?i nh?t — FCE B2 Reading kh?p Inspera CEQ 1:1)
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading kh?p Inspera CEQ 1:1)
 
 **Crawl b?n g?c Cambridge** (skill `clone-website` + Playwright MCP qua Chrome debug port 9222)
 
-Ngu?n: `ceq.inspera.com/player/?assessmentRunId=160272655` — B2 First Digital Sample Test 1, player release **3.51.0**.
+Ngu?n: `ceq.inspera.com/player/?assessmentRunId=160272655` � B2 First Digital Sample Test 1, player release **3.51.0**.
 Artifacts trong `docs/research/ceq.inspera.com/`:
-- `PAGE_TOPOLOGY.md` — spec shell 3 t?ng, b?ng 7 parts, tokens
-- `global-tokens.json` — **~280 CSS variables** c?a theme `ceq-theme` (b?ng màu g?c, không ph?i u?c lu?ng)
-- `player.css` — 588 KB CSS g?c
+- `PAGE_TOPOLOGY.md` � spec shell 3 t?ng, b?ng 7 parts, tokens
+- `global-tokens.json` � **~280 CSS variables** c?a theme `ceq-theme` (b?ng m�u g?c, kh�ng ph?i u?c lu?ng)
+- `player.css` � 588 KB CSS g?c
 - `layout-regions.json`, `part1-gap-popup-open.json`, `part2.json`, `parts3-7.json`
-- `footer-header-part6-states.json` — computed style **theo t?ng tr?ng thái** (quan tr?ng: do th?t, không suy t? tên bi?n)
+- `footer-header-part6-states.json` � computed style **theo t?ng tr?ng th�i** (quan tr?ng: do th?t, kh�ng suy t? t�n bi?n)
 
-Ki?n trúc b?n g?c: `App__app > App__mainScreen > App__contentContainer(y=72,h=758) > DisplayTypeContainer > QuestionDisplay`. Header 72px + footer 53px fixed, ch? `contentContainer` cu?n.
+Ki?n tr�c b?n g?c: `App__app > App__mainScreen > App__contentContainer(y=72,h=758) > DisplayTypeContainer > QuestionDisplay`. Header 72px + footer 53px fixed, ch? `contentContainer` cu?n.
 
 | Part | Interaction class | B? c?c |
 |---|---|---|
-| 1 | `inlineChoiceInteraction` `presentation-horizontalPopup` | 1 c?t, popup ngang m? **lên trên** |
+| 1 | `inlineChoiceInteraction` `presentation-horizontalPopup` | 1 c?t, popup ngang m? **l�n tr�n** |
 | 2/3/4 | `textEntry` | 1 c?t, `double-line-spacing` |
-| 5/7 | `choiceInteraction` `vertical` | 2 c?t, câu h?i ph?i x=739 w=628 |
-| 6 | `gapMatchInteraction` kéo–th? | `split-5050`, tokens bên ph?i |
+| 5/7 | `choiceInteraction` `vertical` | 2 c?t, c�u h?i ph?i x=739 w=628 |
+| 6 | `gapMatchInteraction` k�o�th? | `split-5050`, tokens b�n ph?i |
 
-**Tái c?u trúc UI** — `readingFceRw.css` thêm layer Inspera scope trong `.fce-rw-shell`, map h? `--ket-*` sang token g?c. KET/PET/CAE/CPE **không b? ?nh hu?ng**.
+**T�i c?u tr�c UI** � `readingFceRw.css` th�m layer Inspera scope trong `.fce-rw-shell`, map h? `--ket-*` sang token g?c. KET/PET/CAE/CPE **kh�ng b? ?nh hu?ng**.
 
-- Header 72px, `Candidate ID` sát trái + canh trên (x=216,y=8, weight 600), logo Cambridge English th?t `168×43` t?i t? CDN Inspera ? `apps/web/public/exam/cambridge-english-logo.png`
-- Footer: ô part n?n `#efefef`, part m? ? **n?n tr?ng + vi?n trên den 2px** + ch? 600; s? câu ch?n = **vi?n `2px #2a6c96`, KHÔNG tô n?n** (l?n d?u làm sai vì suy t? tên bi?n `--footer--selected-question-no-bg`)
-- Part 6 kéo–th?: ô gap **300×23px** `2px dashed #418ec8` radius 5px; token **max 528px, min-h 43px, margin 5px** `1px solid #919191` radius 4px `cursor:move`; ?n ch? cái A/B/C (Cambridge không hi?n)
-- C?m nút ph?i header cách rìa 16px (tru?c sát mép)
+- Header 72px, `Candidate ID` s�t tr�i + canh tr�n (x=216,y=8, weight 600), logo Cambridge English th?t `168�43` t?i t? CDN Inspera ? `apps/web/public/exam/cambridge-english-logo.png`
+- Footer: � part n?n `#efefef`, part m? ? **n?n tr?ng + vi?n tr�n den 2px** + ch? 600; s? c�u ch?n = **vi?n `2px #2a6c96`, KH�NG t� n?n** (l?n d?u l�m sai v� suy t? t�n bi?n `--footer--selected-question-no-bg`)
+- Part 6 k�o�th?: � gap **300�23px** `2px dashed #418ec8` radius 5px; token **max 528px, min-h 43px, margin 5px** `1px solid #919191` radius 4px `cursor:move`; ?n ch? c�i A/B/C (Cambridge kh�ng hi?n)
+- C?m n�t ph?i header c�ch r�a 16px (tru?c s�t m�p)
 
-**T?n d?ng l?i code có s?n** (rà `ketRw` / `petRw` / `fceRw`)
+**T?n d?ng l?i code c� s?n** (r� `ketRw` / `petRw` / `fceRw`)
 
-- `RwPart5McGap` — FCE t? vi?t `InlineMcGap` riêng trong khi component này dã t?n t?i và làm **dúng pattern Inspera** (ô tr?ng ? chooser den ngang phía trên), KET P4 + PET P5 dang dùng. Xoá `InlineMcGap` + block CSS trùng: **-133 dòng**. FCE có thêm click-ngoài-dóng / Escape / `role=listbox` / `aria-selected` mà b?n cu không có.
-- S?a `rwPart5McGap.css` sang s? do th?t ? **KET A2 P4 và PET B1 P5 cung chính xác hon theo**: 128?**144px**, font 15?**16px**, vi?n `#a7a7a7`?**`#949494`**, vi?n m? `#238ed0` 1px?**`#418ec8` 2px**, n?n chooser `#333`?**`#404040`**, hover `#494949`?**`#2a6c96`**, ô khi m? thêm n?n `#272727` ch? tr?ng.
-- `CambridgeSelectionToolbar` + `useStableTextSelection` — chuy?n FCE t? `ReadingHighlightToolbar` (m?c d?nh) sang b?n PET. Verify browser: bôi den ? toolbar Note/Highlight hi?n dúng.
-- **Không** t?n d?ng `PetRwDragMatch`: nó t? render `KetRwSplitPane` + slot d?ng list, FCE c?n gap inline trong bài d?c ? ph?i thêm variant th? ba, dài hon ~35 dòng inline hi?n có.
+- `RwPart5McGap` � FCE t? vi?t `InlineMcGap` ri�ng trong khi component n�y d� t?n t?i v� l�m **d�ng pattern Inspera** (� tr?ng ? chooser den ngang ph�a tr�n), KET P4 + PET P5 dang d�ng. Xo� `InlineMcGap` + block CSS tr�ng: **-133 d�ng**. FCE c� th�m click-ngo�i-d�ng / Escape / `role=listbox` / `aria-selected` m� b?n cu kh�ng c�.
+- S?a `rwPart5McGap.css` sang s? do th?t ? **KET A2 P4 v� PET B1 P5 cung ch�nh x�c hon theo**: 128?**144px**, font 15?**16px**, vi?n `#a7a7a7`?**`#949494`**, vi?n m? `#238ed0` 1px?**`#418ec8` 2px**, n?n chooser `#333`?**`#404040`**, hover `#494949`?**`#2a6c96`**, � khi m? th�m n?n `#272727` ch? tr?ng.
+- `CambridgeSelectionToolbar` + `useStableTextSelection` � chuy?n FCE t? `ReadingHighlightToolbar` (m?c d?nh) sang b?n PET. Verify browser: b�i den ? toolbar Note/Highlight hi?n d�ng.
+- **Kh�ng** t?n d?ng `PetRwDragMatch`: n� t? render `KetRwSplitPane` + slot d?ng list, FCE c?n gap inline trong b�i d?c ? ph?i th�m variant th? ba, d�i hon ~35 d�ng inline hi?n c�.
 
-**Part 6 kéo–th? — b? sung 3 th? thi?u + fix 1 bug**
+**Part 6 k�o�th? � b? sung 3 th? thi?u + fix 1 bug**
 
-- Ph?n h?i khi rê qua ô (`is-over` ? `#fa5101`, token `--gapmatch--dropzone-border-active`)
-- Nút `×` xoá dáp án (class có s?n trong CSS PET, FCE chua render)
-- Bàn phím: th? bank `div[role=button]` ? `<button>` th?t, Enter/Space ch?y, không c?n handler phím
-- **Bug có s?n**: token dã d?t b? `disabled` ? không nh?c sang gap khác du?c. B? `disabled`, gi? `.is-used` ch? d? làm m?.
+- Ph?n h?i khi r� qua � (`is-over` ? `#fa5101`, token `--gapmatch--dropzone-border-active`)
+- N�t `�` xo� d�p �n (class c� s?n trong CSS PET, FCE chua render)
+- B�n ph�m: th? bank `div[role=button]` ? `<button>` th?t, Enter/Space ch?y, kh�ng c?n handler ph�m
+- **Bug c� s?n**: token d� d?t b? `disabled` ? kh�ng nh?c sang gap kh�c du?c. B? `disabled`, gi? `.is-used` ch? d? l�m m?.
 
-Test m?i `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` (4 test) — chính test này b?t du?c bug trên.
+Test m?i `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` (4 test) � ch�nh test n�y b?t du?c bug tr�n.
 
-**Verify:** `tsc --noEmit` PASS · exam suite **161/162** (1 fail `catalogCamReading` d?m 47 d? IELTS — có s?n t? tru?c, không liên quan) · `pnpm build` PASS.
+**Verify:** `tsc --noEmit` PASS � exam suite **161/162** (1 fail `catalogCamReading` d?m 47 d? IELTS � c� s?n t? tru?c, kh�ng li�n quan) � `pnpm build` PASS.
 
-**H? t?ng:** thêm MCP server `playwright` vào `.mcp.json` (CDP `localhost:9222`). Script m? Chrome debug profile riêng n?m ? scratchpad, không c?n dóng Chrome dang dùng.
+**H? t?ng:** th�m MCP server `playwright` v�o `.mcp.json` (CDP `localhost:9222`). Script m? Chrome debug profile ri�ng n?m ? scratchpad, kh�ng c?n d�ng Chrome dang d�ng.
 
-### Ðã hoàn thành (d?ng b? chrome KET ? PET)
-- **Footer KET A2 Reading = layout PET B1:** `KetRwFooter.tsx` b? Exit/Prev/Next kh?i footer, thêm ô Submit `?` 77px ? cell cu?i; part tab + question pills n?m cùng m?t hàng; part dang m? n?n tr?ng (`flex: 0 1 auto` + `min-width: max-content`, can trái, nhãn in d?m), các part còn l?i chia d?u. Pill là s? tr?n, pill active = ô 22px vi?n `2px solid #111` n?n tr?ng. Footer cao 52px, n?n `--ket-footer-bg: #ebebeb`, ô submit `#e0e1e1`, `border-top: 3px solid #fff`.
-- Exit chuy?n lên header (icon ArrowLeft), Prev/Next thành `.ket-rw-adjacent-nav` n?i (`right:32px bottom:88px`, teal `#008f95`, disabled `#ddd`) — gi?ng PET.
-- Vì `KetRwFooter` dùng chung nên FCE/CAE/CPE Reading cung du?c c?p nh?t cùng ki?u (header exit + nav n?i + submit ?).
-- **KET A2 top = layout crawl Cambridge (gi?ng PET B1):** shell KET thêm class `ket-a2-crawl`; header d?i sang logo `/logo-ceq.png` 43px + "Candidate ID" d?m, bên ph?i là timer + Wifi/Bell/Menu/`ExamFontControls` (b? nút Submit ? header — n?p bài qua ô ? footer). CSS m?i cu?i `readingKetRw.css` (scope `.ket-a2-crawl`, không d?ng FCE/CAE/CPE): header 72px n?n tr?ng vi?n trên `2px #238ed0`, main n?n `#f4f8f9` padding 16px, ô instruction vi?n `#d2d7da` bo 5px, Part 1 sign-box khung tr?ng vi?n `#d9dee2`, s? câu ô vi?n `2px #238ed0`, radio list hàng 44px vi?n `#edf0f1`, hover `#e7e7e7`, ch?n `#cfe3f5`.
-- PET B1 gi? nguyên b?n g?c (dã `git checkout` hoàn tác th? nghi?m d?i header PET).
-- **Fix d? li?u KET A2 Part 2 Q13 — option C m?t tên ngu?i:** option C c?a câu 13 (matching 3 ngu?i) ch?a nguyên do?n passage thay vì tên. L?i có ? **c? 14 d? book4–book7**, c? 2 b?n `apps/web/public/catalog/exams/reading/*.json` và `packages/catalog/data/*.json`. Ðã s?a hàng lo?t b?ng cách l?y `passage[2].label`; verify không còn option nào > 60 ký t? b?t thu?ng ? Part 2 (các option dài ? Part 1/3 là câu hoàn ch?nh, h?p l?). Answer key dùng ch? cái A/B/C nên không ?nh hu?ng.
-- **C?nh báo regression:** `scripts/build-catalog.mjs` copy nguyên `qJson.options` t? ngu?n Tainguyen (dòng 527, 693) ? ch?y `pnpm build:catalog` khi có Tainguyen s? ghi dè l?i l?i này. C?n s?a ngu?n ho?c thêm guard trong build script.
-- Verify: `pnpm --filter web exec tsc --noEmit` PASS. Chua smoke b?ng browser dang nh?p (driver Playwright b? ch?n ? Cloudflare login) — c?n user reload trang xác nh?n.
+### �� ho�n th�nh (d?ng b? chrome KET ? PET)
+- **Footer KET A2 Reading = layout PET B1:** `KetRwFooter.tsx` b? Exit/Prev/Next kh?i footer, th�m � Submit `?` 77px ? cell cu?i; part tab + question pills n?m c�ng m?t h�ng; part dang m? n?n tr?ng (`flex: 0 1 auto` + `min-width: max-content`, can tr�i, nh�n in d?m), c�c part c�n l?i chia d?u. Pill l� s? tr?n, pill active = � 22px vi?n `2px solid #111` n?n tr?ng. Footer cao 52px, n?n `--ket-footer-bg: #ebebeb`, � submit `#e0e1e1`, `border-top: 3px solid #fff`.
+- Exit chuy?n l�n header (icon ArrowLeft), Prev/Next th�nh `.ket-rw-adjacent-nav` n?i (`right:32px bottom:88px`, teal `#008f95`, disabled `#ddd`) � gi?ng PET.
+- V� `KetRwFooter` d�ng chung n�n FCE/CAE/CPE Reading cung du?c c?p nh?t c�ng ki?u (header exit + nav n?i + submit ?).
+- **KET A2 top = layout crawl Cambridge (gi?ng PET B1):** shell KET th�m class `ket-a2-crawl`; header d?i sang logo `/logo-ceq.png` 43px + "Candidate ID" d?m, b�n ph?i l� timer + Wifi/Bell/Menu/`ExamFontControls` (b? n�t Submit ? header � n?p b�i qua � ? footer). CSS m?i cu?i `readingKetRw.css` (scope `.ket-a2-crawl`, kh�ng d?ng FCE/CAE/CPE): header 72px n?n tr?ng vi?n tr�n `2px #238ed0`, main n?n `#f4f8f9` padding 16px, � instruction vi?n `#d2d7da` bo 5px, Part 1 sign-box khung tr?ng vi?n `#d9dee2`, s? c�u � vi?n `2px #238ed0`, radio list h�ng 44px vi?n `#edf0f1`, hover `#e7e7e7`, ch?n `#cfe3f5`.
+- PET B1 gi? nguy�n b?n g?c (d� `git checkout` ho�n t�c th? nghi?m d?i header PET).
+- **Fix d? li?u KET A2 Part 2 Q13 � option C m?t t�n ngu?i:** option C c?a c�u 13 (matching 3 ngu?i) ch?a nguy�n do?n passage thay v� t�n. L?i c� ? **c? 14 d? book4�book7**, c? 2 b?n `apps/web/public/catalog/exams/reading/*.json` v� `packages/catalog/data/*.json`. �� s?a h�ng lo?t b?ng c�ch l?y `passage[2].label`; verify kh�ng c�n option n�o > 60 k� t? b?t thu?ng ? Part 2 (c�c option d�i ? Part 1/3 l� c�u ho�n ch?nh, h?p l?). Answer key d�ng ch? c�i A/B/C n�n kh�ng ?nh hu?ng.
+- **C?nh b�o regression:** `scripts/build-catalog.mjs` copy nguy�n `qJson.options` t? ngu?n Tainguyen (d�ng 527, 693) ? ch?y `pnpm build:catalog` khi c� Tainguyen s? ghi d� l?i l?i n�y. C?n s?a ngu?n ho?c th�m guard trong build script.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS. Chua smoke b?ng browser dang nh?p (driver Playwright b? ch?n ? Cloudflare login) � c?n user reload trang x�c nh?n.
 
-### Ðã hoàn thành
-- **KET A2 Reading Part 2 (Q7–13) — layout Cambridge 1:1 (ch? UI, không d?ng d? li?u d?):**
-  - `ReadingKetRwTest.tsx`: shell nh?n thêm class `is-part-{partNumber}` (gi?ng PET) d? scope CSS theo part; header có nút Menu.
-  - `KetRwPartContent.tsx`: profile Part 2 tách tên riêng ra dòng tiêu d? `.ket-rw-profile__name` (thay vì label inline trong do?n); gi? nguyên portrait admin và blockId highlight cu. Thêm state bookmark t?m trong phiên (không ghi vào d?/draft).
-  - `RwMcRadioQuestion.tsx`: thêm prop tùy ch?n `isActive` / `showFlag` / `flagged` / `onToggleFlag` (m?c d?nh t?t ? PET/FCE/CAE/CPE không d?i).
-  - `readingKetRw.css`: block m?i `.ket-rw-shell.is-part-2` — h?p d? bài tr?ng vi?n xám n?i trên n?n `#f4f7f6`, hai pane tr?ng, thanh chia d?m `#8f9395` 10px + tay kéo vuông tr?ng 30px, tiêu d? bài d?c 24px bold, tên riêng bold dòng riêng, s? câu ch? den (khung xanh `#238ed0` ch? ? câu dang ch?n), bang dáp án `#f8f8f8` cao 44px cách nhau b?ng du?ng tr?ng 2px, bookmark góc ph?i câu dang ch?n.
-  - Verify: `tsc --noEmit` không phát sinh l?i m?i ? `ketRw/` và `rwHighlight/` (ch? còn l?i môi tru?ng s?n có: `@types/node`, Testing Library, Supabase). **Chua ch?y du?c dev server / vitest** do node_modules thi?u Rollup + `@vitest/utils` ? chua smoke b?ng m?t.
+### �� ho�n th�nh
+- **KET A2 Reading Part 2 (Q7�13) � layout Cambridge 1:1 (ch? UI, kh�ng d?ng d? li?u d?):**
+  - `ReadingKetRwTest.tsx`: shell nh?n th�m class `is-part-{partNumber}` (gi?ng PET) d? scope CSS theo part; header c� n�t Menu.
+  - `KetRwPartContent.tsx`: profile Part 2 t�ch t�n ri�ng ra d�ng ti�u d? `.ket-rw-profile__name` (thay v� label inline trong do?n); gi? nguy�n portrait admin v� blockId highlight cu. Th�m state bookmark t?m trong phi�n (kh�ng ghi v�o d?/draft).
+  - `RwMcRadioQuestion.tsx`: th�m prop t�y ch?n `isActive` / `showFlag` / `flagged` / `onToggleFlag` (m?c d?nh t?t ? PET/FCE/CAE/CPE kh�ng d?i).
+  - `readingKetRw.css`: block m?i `.ket-rw-shell.is-part-2` � h?p d? b�i tr?ng vi?n x�m n?i tr�n n?n `#f4f7f6`, hai pane tr?ng, thanh chia d?m `#8f9395` 10px + tay k�o vu�ng tr?ng 30px, ti�u d? b�i d?c 24px bold, t�n ri�ng bold d�ng ri�ng, s? c�u ch? den (khung xanh `#238ed0` ch? ? c�u dang ch?n), bang d�p �n `#f8f8f8` cao 44px c�ch nhau b?ng du?ng tr?ng 2px, bookmark g�c ph?i c�u dang ch?n.
+  - Verify: `tsc --noEmit` kh�ng ph�t sinh l?i m?i ? `ketRw/` v� `rwHighlight/` (ch? c�n l?i m�i tru?ng s?n c�: `@types/node`, Testing Library, Supabase). **Chua ch?y du?c dev server / vitest** do node_modules thi?u Rollup + `@vitest/utils` ? chua smoke b?ng m?t.
 - **Admin-only Batch Reading ZIP Import (Library Archives / Reading):**
-  - Thêm nút `Import hàng lo?t Reading` c?nh `Import th? công Reading` trong `ExamTrackPage.tsx`, dùng dúng admin gate hi?n có `useIsAdmin()` / `db.settings.is_admin`; non-admin không th?y nút và modal t? ch?n n?u b? g?i trái phép.
-  - Thêm modal `BatchReadingImportModal.tsx`: ch?n nhi?u file `.zip`, dry-run validate tru?c, checkbox `Overwrite existing exams`, import th?t, b?ng k?t qu? theo file, `Copy report` và t?i `report.json`.
-  - Thêm service `apps/web/src/features/exam/import/batchReadingZipImport.ts`: scan ZIP theo path th?c t? `catalog/exams/reading/*.json`, `*.answers.json`, `catalog/reading/**`; validate body/answers/meta/assets; skip duplicate m?c d?nh, overwrite khi b?t option.
-  - Reuse persistence path c?a manual import Reading: merge answers vault vào body runtime r?i luu qua `examRepo.create(examRecordFromReading(..., 'manual'))`, backup qua `backupReadingExam()`, và ch? publish cloud khi di theo lu?ng IELTS admin (`publishToCloud` option).
-  - Asset handling local: passage/group images trong ZIP du?c persist vào Dexie blob store qua `audioRepo.put()` + `readingExamMediaKey()`, r?i rewrite sang `imageKey` d? runtime hi?n ?nh ?n mà không c?n ghi vào `public/`.
-  - Thêm unit test `batchReadingZipImport.test.ts` d? 12 case b?t bu?c: valid single/multi zip, thi?u body/answers, mismatch answers, duplicate skip/overwrite, non-zip, PET B1 31 câu, thi?u ?nh Part 1...
+  - Th�m n�t `Import h�ng lo?t Reading` c?nh `Import th? c�ng Reading` trong `ExamTrackPage.tsx`, d�ng d�ng admin gate hi?n c� `useIsAdmin()` / `db.settings.is_admin`; non-admin kh�ng th?y n�t v� modal t? ch?n n?u b? g?i tr�i ph�p.
+  - Th�m modal `BatchReadingImportModal.tsx`: ch?n nhi?u file `.zip`, dry-run validate tru?c, checkbox `Overwrite existing exams`, import th?t, b?ng k?t qu? theo file, `Copy report` v� t?i `report.json`.
+  - Th�m service `apps/web/src/features/exam/import/batchReadingZipImport.ts`: scan ZIP theo path th?c t? `catalog/exams/reading/*.json`, `*.answers.json`, `catalog/reading/**`; validate body/answers/meta/assets; skip duplicate m?c d?nh, overwrite khi b?t option.
+  - Reuse persistence path c?a manual import Reading: merge answers vault v�o body runtime r?i luu qua `examRepo.create(examRecordFromReading(..., 'manual'))`, backup qua `backupReadingExam()`, v� ch? publish cloud khi di theo lu?ng IELTS admin (`publishToCloud` option).
+  - Asset handling local: passage/group images trong ZIP du?c persist v�o Dexie blob store qua `audioRepo.put()` + `readingExamMediaKey()`, r?i rewrite sang `imageKey` d? runtime hi?n ?nh ?n m� kh�ng c?n ghi v�o `public/`.
+  - Th�m unit test `batchReadingZipImport.test.ts` d? 12 case b?t bu?c: valid single/multi zip, thi?u body/answers, mismatch answers, duplicate skip/overwrite, non-zip, PET B1 31 c�u, thi?u ?nh Part 1...
   - Verify: `pnpm --filter web exec -- tsc --noEmit` PASS, `pnpm --filter web exec vitest run src/features/exam/__tests__/batchReadingZipImport.test.ts` PASS (12/12).
-- **KET A2 Reading — Tái c?u trúc layout toàn di?n t? crawl (branch `ket-a2-layout-from-crawl`):**
-  - **Bottom Part/Question navigation:** Refactor `KetRwFooter.tsx` sang layout Cambridge/Inspera g?m part tabs ngang, active part hi?n question pills, inactive part hi?n answered count, submit ? ? cell cu?i. Floating Prev/Next buttons ? góc ph?i phía trên footer. Không dùng PET compact style.
-  - **Part 4 MC gaps — nhi?u iteration visual:** PET-style inline chooser ? dark bar chooser v?i nút X ? white/gray bar v?i selected word ? cu?i cùng là Cambridge target: ô tr?ng/xám #f8f8f8 vi?n xám #aeb4ba 1px, ch? den, ch? s? câu + selected word, border xanh ch? khi focus/open. X? lý dots placeholder b?ng `stripPlaceholderDotsAroundGap()`.
-  - **Part 5 input style:** Match Part 4 gray box style — solid box `height: 1.55rem`, `border: 1px solid #aeb4ba`, `background: #f8f8f8`, s? câu + input trong m?t kh?i li?n, focus-within vi?n xanh.
-  - **Part 6 writing area:** Ði?u ch?nh textarea: gi?m width ? gi?m height ? `aspect-ratio: 2/1` v?i `flex: 0 0 auto` d? không b? flex kéo giãn.
-  - **Part 7 image container:** `max-width: 50%` gi?m khung ?nh xu?ng ½.
-  - **Background t?ng th?:** Ð?i t? `var(--bg-primary)` ? `#F4F7F6` qua bi?n `--ket-body-bg` trong `.ket-rw-shell`.
-  - **Ch?n doán Part 4 click issue:** S? d?ng manual diagnosis kit (5 snippets) xác nh?n programmatic click ho?t d?ng, mouse click ho?t d?ng, không có overlay/pointer-events/CSS issue. Root cause là stale bundle t? snippet diagnosis tru?c.
+- **KET A2 Reading � T�i c?u tr�c layout to�n di?n t? crawl (branch `ket-a2-layout-from-crawl`):**
+  - **Bottom Part/Question navigation:** Refactor `KetRwFooter.tsx` sang layout Cambridge/Inspera g?m part tabs ngang, active part hi?n question pills, inactive part hi?n answered count, submit ? ? cell cu?i. Floating Prev/Next buttons ? g�c ph?i ph�a tr�n footer. Kh�ng d�ng PET compact style.
+  - **Part 4 MC gaps � nhi?u iteration visual:** PET-style inline chooser ? dark bar chooser v?i n�t X ? white/gray bar v?i selected word ? cu?i c�ng l� Cambridge target: � tr?ng/x�m #f8f8f8 vi?n x�m #aeb4ba 1px, ch? den, ch? s? c�u + selected word, border xanh ch? khi focus/open. X? l� dots placeholder b?ng `stripPlaceholderDotsAroundGap()`.
+  - **Part 5 input style:** Match Part 4 gray box style � solid box `height: 1.55rem`, `border: 1px solid #aeb4ba`, `background: #f8f8f8`, s? c�u + input trong m?t kh?i li?n, focus-within vi?n xanh.
+  - **Part 6 writing area:** �i?u ch?nh textarea: gi?m width ? gi?m height ? `aspect-ratio: 2/1` v?i `flex: 0 0 auto` d? kh�ng b? flex k�o gi�n.
+  - **Part 7 image container:** `max-width: 50%` gi?m khung ?nh xu?ng �.
+  - **Background t?ng th?:** �?i t? `var(--bg-primary)` ? `#F4F7F6` qua bi?n `--ket-body-bg` trong `.ket-rw-shell`.
+  - **Ch?n do�n Part 4 click issue:** S? d?ng manual diagnosis kit (5 snippets) x�c nh?n programmatic click ho?t d?ng, mouse click ho?t d?ng, kh�ng c� overlay/pointer-events/CSS issue. Root cause l� stale bundle t? snippet diagnosis tru?c.
   - **T?t c? typecheck:** `pnpm --filter web exec tsc --noEmit` ? 0 errors.
-  - **Không s?a data d?, answer key, catalog, db, migrations, PET B1.**
+  - **Kh�ng s?a data d?, answer key, catalog, db, migrations, PET B1.**
 
 ### Files changed (session FCE B2 ? Inspera)
-- `apps/web/src/features/exam/fceRw/ReadingFceRwTest.tsx` — logo th?t, CambridgeSelectionToolbar, useStableTextSelection
-- `apps/web/src/features/exam/fceRw/FceRwPartContent.tsx` — dùng `RwPart5McGap`, xoá `InlineMcGap`, Part 6 drag (is-over / clear / keyboard)
-- `apps/web/src/features/exam/fceRw/readingFceRw.css` — layer Inspera scope `.fce-rw-shell`
-- `apps/web/src/features/exam/rwHighlight/rwPart5McGap.css` — s? do th?t (**?nh hu?ng c? KET P4 + PET P5**)
-- `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` — m?i
-- `apps/web/public/exam/cambridge-english-logo.png` — m?i
-- `docs/research/ceq.inspera.com/*` , `docs/design-references/ceq.inspera.com/*` — artifacts crawl
-- `.mcp.json` — thêm server `playwright`
+- `apps/web/src/features/exam/fceRw/ReadingFceRwTest.tsx` � logo th?t, CambridgeSelectionToolbar, useStableTextSelection
+- `apps/web/src/features/exam/fceRw/FceRwPartContent.tsx` � d�ng `RwPart5McGap`, xo� `InlineMcGap`, Part 6 drag (is-over / clear / keyboard)
+- `apps/web/src/features/exam/fceRw/readingFceRw.css` � layer Inspera scope `.fce-rw-shell`
+- `apps/web/src/features/exam/rwHighlight/rwPart5McGap.css` � s? do th?t (**?nh hu?ng c? KET P4 + PET P5**)
+- `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` � m?i
+- `apps/web/public/exam/cambridge-english-logo.png` � m?i
+- `docs/research/ceq.inspera.com/*` , `docs/design-references/ceq.inspera.com/*` � artifacts crawl
+- `.mcp.json` � th�m server `playwright`
 
 ### Files changed (session tru?c)
 - `apps/web/src/features/exam/ExamTrackPage.tsx`
@@ -251,34 +291,34 @@ Test m?i `apps/web/src/features/exam/__tests__/fceRwPart6Drag.test.tsx` (4 test)
 - `apps/web/src/features/exam/ketRw/KetRwPartContent.tsx`
 - `apps/web/src/features/exam/ketRw/readingKetRw.css`
 
-### L?i còn t?n t?i
-- **FCE B2 Reading khoá b?ng màu sáng Inspera** ? không d?i theo theme mid/dark, trái rule 2–3 trong CLAUDE.md. Ðó là cái giá c?a "gi?ng 100%". Chua quy?t có thêm nhánh `@media`/`[data-theme]` hay không.
-- **C?m control ph?i header FCE** còn timer `- 00:00 + ?`, `T` (font), `Submit` — Cambridge th?t không có (ch? 4 icon: wifi / chuông / ? / ?). Ð? xu?t ch? duy?t: gom timer + font vào menu ?, Submit d?i xu?ng nút ? góc ph?i footer.
-- **`KetRwFooter` ? `PetRwFooter` trùng logic ~100 dòng** (khác m?i ti?n t? class `ket-rw-footer-part` vs `pet-rw-footer__part` và d?u tick ?/?). G?p ph?i s?a c? `readingPetRw.css` 1375 dòng + `petRwFooter.test.tsx` ? **khuy?n ngh? không làm** tr? khi s?a footer thu?ng xuyên.
-- `catalogCamReading.test.ts` fail (k? v?ng 47 d? IELTS seeded) — có t? tru?c, chua di?u tra.
-- Logo Cambridge th?t hi?n ch? áp cho `fceRw`; KET/PET/CAE/CPE v?n dùng shield `CE` cu.
-- Batch Reading ZIP import hi?n dã persist ch?c cho `passage.imageUrl` và `questionGroup.imageUrl`. N?u m?t bundle tuong lai dùng `topImageUrl` / `bottomImageUrl` local-only thì modal s? c?nh báo gi? nguyên URL; chua có local blob slot riêng cho 2 field này.
-- (Gi? nguyên t? session tru?c)
-- User báo d? li?u local không còn hi?n th?. B?n vá Admin Performance không xóa d? li?u; c?n ki?m tra dang dùng dúng `http://localhost:5173` (không ph?i `127.0.0.1`/port khác) và dúng tài kho?n.
+### L?i c�n t?n t?i
+- **FCE B2 Reading kho� b?ng m�u s�ng Inspera** ? kh�ng d?i theo theme mid/dark, tr�i rule 2�3 trong CLAUDE.md. �� l� c�i gi� c?a "gi?ng 100%". Chua quy?t c� th�m nh�nh `@media`/`[data-theme]` hay kh�ng.
+- **C?m control ph?i header FCE** c�n timer `- 00:00 + ?`, `T` (font), `Submit` � Cambridge th?t kh�ng c� (ch? 4 icon: wifi / chu�ng / ? / ?). �? xu?t ch? duy?t: gom timer + font v�o menu ?, Submit d?i xu?ng n�t ? g�c ph?i footer.
+- **`KetRwFooter` ? `PetRwFooter` tr�ng logic ~100 d�ng** (kh�c m?i ti?n t? class `ket-rw-footer-part` vs `pet-rw-footer__part` v� d?u tick ?/?). G?p ph?i s?a c? `readingPetRw.css` 1375 d�ng + `petRwFooter.test.tsx` ? **khuy?n ngh? kh�ng l�m** tr? khi s?a footer thu?ng xuy�n.
+- `catalogCamReading.test.ts` fail (k? v?ng 47 d? IELTS seeded) � c� t? tru?c, chua di?u tra.
+- Logo Cambridge th?t hi?n ch? �p cho `fceRw`; KET/PET/CAE/CPE v?n d�ng shield `CE` cu.
+- Batch Reading ZIP import hi?n d� persist ch?c cho `passage.imageUrl` v� `questionGroup.imageUrl`. N?u m?t bundle tuong lai d�ng `topImageUrl` / `bottomImageUrl` local-only th� modal s? c?nh b�o gi? nguy�n URL; chua c� local blob slot ri�ng cho 2 field n�y.
+- (Gi? nguy�n t? session tru?c)
+- User b�o d? li?u local kh�ng c�n hi?n th?. B?n v� Admin Performance kh�ng x�a d? li?u; c?n ki?m tra dang d�ng d�ng `http://localhost:5173` (kh�ng ph?i `127.0.0.1`/port kh�c) v� d�ng t�i kho?n.
 - Google login c?n smoke production + localhost.
-- Node_modules local thi?u/sai dependency/type package: Vite không start vì thi?u Rollup; TypeScript l?i Supabase/Testing Library/Node types.
+- Node_modules local thi?u/sai dependency/type package: Vite kh�ng start v� thi?u Rollup; TypeScript l?i Supabase/Testing Library/Node types.
 
 ### Next session start prompt
 
-FCE B2 Reading v?a du?c tái c?u trúc kh?p Inspera CEQ 3.51.0. Spec g?c n?m ? `docs/research/ceq.inspera.com/PAGE_TOPOLOGY.md` + `global-tokens.json` — **d?c file dó tru?c khi ch?nh CSS FCE, d?ng doán màu t? tên bi?n** (session này dã sai m?t l?n: `--footer--selected-question-no-bg: #2a6c96` g?i ý tô n?n, nhung render th?t là vi?n).
+FCE B2 Reading v?a du?c t�i c?u tr�c kh?p Inspera CEQ 3.51.0. Spec g?c n?m ? `docs/research/ceq.inspera.com/PAGE_TOPOLOGY.md` + `global-tokens.json` � **d?c file d� tru?c khi ch?nh CSS FCE, d?ng do�n m�u t? t�n bi?n** (session n�y d� sai m?t l?n: `--footer--selected-question-no-bg: #2a6c96` g?i � t� n?n, nhung render th?t l� vi?n).
 
-Mu?n do l?i b?n g?c: ch?y script m? Chrome debug (port 9222, profile riêng ? scratchpad), dang nh?p Inspera, MCP `playwright` dã c?u hình s?n trong `.mcp.json`.
+Mu?n do l?i b?n g?c: ch?y script m? Chrome debug (port 9222, profile ri�ng ? scratchpad), dang nh?p Inspera, MCP `playwright` d� c?u h�nh s?n trong `.mcp.json`.
 
-Vi?c ti?p theo còn treo, ch? user duy?t:
-1. Gom timer + font vào menu ?, d?i Submit xu?ng nút ? footer (gi?ng Cambridge) — d?i hành vi UI, không ch? CSS.
+Vi?c ti?p theo c�n treo, ch? user duy?t:
+1. Gom timer + font v�o menu ?, d?i Submit xu?ng n�t ? footer (gi?ng Cambridge) � d?i h�nh vi UI, kh�ng ch? CSS.
 2. Quy?t d?nh theme mid/dark cho FCE Reading.
-3. Áp logo Cambridge th?t cho KET/PET/CAE/CPE (hi?n ch? FCE).
+3. �p logo Cambridge th?t cho KET/PET/CAE/CPE (hi?n ch? FCE).
 
-Chua QA visual ? 768px và 390px — m?i d?i chi?u 1440px.
+Chua QA visual ? 768px v� 390px � m?i d?i chi?u 1440px.
 
 ---
 
-**Vi?c cu chua xong:** Open `/app/exam/track/cambridge/b1/reading` as Admin and smoke the `Import hàng lo?t Reading` modal with real bundles from `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-3..12`. Focus on dry-run rows, duplicate skip/overwrite, Part 1 image rendering after import, and submit/review answer availability. If needed next, extend local asset persistence for `topImageUrl` / `bottomImageUrl`.
+**Vi?c cu chua xong:** Open `/app/exam/track/cambridge/b1/reading` as Admin and smoke the `Import h�ng lo?t Reading` modal with real bundles from `D:\App-English-Ryan\Crawl\PET_B1_Reading\Tests\test-3..12`. Focus on dry-run rows, duplicate skip/overwrite, Part 1 image rendering after import, and submit/review answer availability. If needed next, extend local asset persistence for `topImageUrl` / `bottomImageUrl`.
 
 ---
 ## 2026-07-23 - Nen video nen landing page
@@ -289,70 +329,70 @@ Chua QA visual ? 768px và 390px — m?i d?i chi?u 1440px.
 - Next session start prompt: review Vercel preview cua ban nen video landing; chi promote production sau khi duoc phe duyet.
 
 EOF
-## 2026-07-20 â€” Upload part1.mp3 cho KET practice-16
+## 2026-07-20 — Upload part1.mp3 cho KET practice-16
 
-- Upload file `part1.mp3` (4.19 MB) tá»« `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lÃªn Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` â€” upsert thay tháº¿ file cÅ©.
-- DÃ¹ng `scripts/publish-ket-practice-listening.mjs` lÃ m reference: service role key qua SUPABASE_ACCESS_TOKEN, bucket `exam-media`, storage prefix `catalog/listening-publish`.
-- Verify: upload OK, khÃ´ng lá»—i.
-- CÃ i Vercel CLI (`npm install -g vercel`), deploy production: alias `https://ryanenglishv2.vercel.app` Ready, DB up to date, build PASS, strip-media OK.
+- Upload file `part1.mp3` (4.19 MB) từ `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\test-16\` lên Supabase storage `exam-media/catalog/listening-publish/listening-import-ket-a2-practice-16/part1-audio.mp3` — upsert thay thế file cũ.
+- Dùng `scripts/publish-ket-practice-listening.mjs` làm reference: service role key qua SUPABASE_ACCESS_TOKEN, bucket `exam-media`, storage prefix `catalog/listening-publish`.
+- Verify: upload OK, không lỗi.
+- Cài Vercel CLI (`npm install -g vercel`), deploy production: alias `https://ryanenglishv2.vercel.app` Ready, DB up to date, build PASS, strip-media OK.
 
-## 2026-07-17 â€” Fix RLS upload listening media (exam-media upsert)
+## 2026-07-17 — Fix RLS upload listening media (exam-media upsert)
 
-### Session 2026-07-19 â€” Fix review paper váº«n hiá»‡n `ÄÃ¡p Ã¡n Ä‘Ãºng: â€”`
+### Session 2026-07-19 — Fix review paper vẫn hiện `Đáp án đúng: —`
 
-- Root cause cÃ²n sÃ³t sau báº£n vÃ¡ hydrate trÆ°á»›c: `Object.assign` thay toÃ n bá»™ `parts`, trong khi cÃ¡c mÃ n Listening/Reading Ä‘Ã£ memo hÃ³a danh sÃ¡ch/cÃ¢u há»i theo tham chiáº¿u DTO cÅ©; bÃ¡o cÃ¡o cÃ³ answer key nhÆ°ng paper váº«n Ä‘á»c object cÃ¢u há»i cÅ© cÃ³ `answer` rá»—ng.
-- `promoteHydratedExamForReview` nay Ä‘á»“ng bá»™ sÃ¢u táº¡i chá»—, giá»¯ nguyÃªn tham chiáº¿u object/array hiá»‡n há»¯u Ä‘á»ƒ má»i memoized question nháº­n answer key trÆ°á»›c khi báº­t review mode.
-- Regression test xÃ¡c nháº­n cáº£ root exam láº«n cÃ¡c tham chiáº¿u `parts`, `questions`, `question` Ä‘Ã£ capture Ä‘á»u tháº¥y Ä‘Ã¡p Ã¡n `B`. Test 1/1, TypeScript vÃ  `git diff --check` PASS.
+- Root cause còn sót sau bản vá hydrate trước: `Object.assign` thay toàn bộ `parts`, trong khi các màn Listening/Reading đã memo hóa danh sách/câu hỏi theo tham chiếu DTO cũ; báo cáo có answer key nhưng paper vẫn đọc object câu hỏi cũ có `answer` rỗng.
+- `promoteHydratedExamForReview` nay đồng bộ sâu tại chỗ, giữ nguyên tham chiếu object/array hiện hữu để mọi memoized question nhận answer key trước khi bật review mode.
+- Regression test xác nhận cả root exam lẫn các tham chiếu `parts`, `questions`, `question` đã capture đều thấy đáp án `B`. Test 1/1, TypeScript và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Fix Q9/Q10 KET Book 3 Test 1 nháº­p `1` váº«n Ä‘Ãºng
+### Session 2026-07-19 — Fix Q9/Q10 KET Book 3 Test 1 nhập `1` vẫn đúng
 
-- Dá»¯ liá»‡u gá»‘c Ä‘Ãºng: Q9 = `8.15`/`eight fifteen`, Q10 = `10.50`; ID hai cÃ¢u khÃ´ng trÃ¹ng.
-- Root cause: matcher gap-fill cuá»‘i cÃ¹ng dÃ¹ng substring hai chiá»u, nÃªn `8.15`.includes(`1`) vÃ  `10.50`.includes(`1`) Ä‘á»u tráº£ true.
-- TÃ¡ch matcher thuáº§n Ä‘á»ƒ test khÃ´ng kÃ©o catalog/DB; Ä‘Ã¡p Ã¡n chá»©a chá»¯ sá»‘ nay chá»‰ khá»›p chÃ­nh xÃ¡c hoáº·c sá»‘ nguyÃªn tÆ°Æ¡ng Ä‘Æ°Æ¡ng (`8` = `08`), khÃ´ng cháº¥p nháº­n chá»¯ sá»‘ con trong giá»/giÃ¡.
-- Feedback loop trÆ°á»›c fix RED Ä‘Ãºng triá»‡u chá»©ng; sau fix scoped tests 3/3, TypeScript vÃ  `git diff --check` PASS.
+- Dữ liệu gốc đúng: Q9 = `8.15`/`eight fifteen`, Q10 = `10.50`; ID hai câu không trùng.
+- Root cause: matcher gap-fill cuối cùng dùng substring hai chiều, nên `8.15`.includes(`1`) và `10.50`.includes(`1`) đều trả true.
+- Tách matcher thuần để test không kéo catalog/DB; đáp án chứa chữ số nay chỉ khớp chính xác hoặc số nguyên tương đương (`8` = `08`), không chấp nhận chữ số con trong giờ/giá.
+- Feedback loop trước fix RED đúng triệu chứng; sau fix scoped tests 3/3, TypeScript và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Audit Ä‘á»“ng bá»™ matcher toÃ n bá»™ Luyá»‡n thi
+### Session 2026-07-19 — Audit đồng bộ matcher toàn bộ Luyện thi
 
-- Audit cÃ¡c Ä‘Æ°á»ng cháº¥m tá»± Ä‘á»™ng xÃ¡c nháº­n Listening vÃ  Reading gap-fill/sentence-completion Ä‘á»u tá»«ng dÃ¹ng substring hai chiá»u; khÃ´ng chá»‰ sá»‘ `1`, fragment chá»¯ nhÆ° `a` cÅ©ng cÃ³ thá»ƒ khá»›p sai vá»›i `radio`. Multiple-choice, matching vÃ  TID Reading dÃ¹ng exact comparison nÃªn khÃ´ng máº¯c lá»—i nÃ y.
-- Loáº¡i bá» hoÃ n toÃ n fuzzy substring á»Ÿ matcher Listening/Reading. Chá»‰ exact normalized answer, answer variants/`acceptableAnswers`, vÃ  sá»‘ nguyÃªn tÆ°Æ¡ng Ä‘Æ°Æ¡ng (`8` = `08`) Ä‘Æ°á»£c cháº¥p nháº­n.
-- TÃ¡ch pure matcher cho cáº£ hai skill Ä‘á»ƒ regression test khÃ´ng kÃ©o catalog/DB. Feedback loop trÆ°á»›c fix RED á»Ÿ cáº£ Listening vÃ  Reading; sau fix exam scoped tests 14/14, TypeScript, scan khÃ´ng cÃ²n pattern substring vÃ  `git diff --check` PASS.
+- Audit các đường chấm tự động xác nhận Listening và Reading gap-fill/sentence-completion đều từng dùng substring hai chiều; không chỉ số `1`, fragment chữ như `a` cũng có thể khớp sai với `radio`. Multiple-choice, matching và TID Reading dùng exact comparison nên không mắc lỗi này.
+- Loại bỏ hoàn toàn fuzzy substring ở matcher Listening/Reading. Chỉ exact normalized answer, answer variants/`acceptableAnswers`, và số nguyên tương đương (`8` = `08`) được chấp nhận.
+- Tách pure matcher cho cả hai skill để regression test không kéo catalog/DB. Feedback loop trước fix RED ở cả Listening và Reading; sau fix exam scoped tests 14/14, TypeScript, scan không còn pattern substring và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Äá»“ng bá»™ khung áº£nh PET B1 Part 1 vá»›i KET A2
+### Session 2026-07-19 — Đồng bộ khung ảnh PET B1 Part 1 với KET A2
 
-- PET B1 Listening Part 1 khÃ´ng cÃ²n render qua prompt/answer panel generic; nhÃ¡nh picture Part 1 nay dÃ¹ng chung `ListeningKetPart1PictureView` vá»›i KET A2.
-- Composite image, ba áº£nh rá»i, contain frame, radio, footer audio/unsure vÃ  responsive vÃ¬ váº­y cÃ³ cÃ¹ng layout; cÃ¡c Part PET khÃ¡c giá»¯ nguyÃªn.
-- Verify: TypeScript PASS, scoped Listening tests 4/4 vÃ  `git diff --check` PASS.
+- PET B1 Listening Part 1 không còn render qua prompt/answer panel generic; nhánh picture Part 1 nay dùng chung `ListeningKetPart1PictureView` với KET A2.
+- Composite image, ba ảnh rời, contain frame, radio, footer audio/unsure và responsive vì vậy có cùng layout; các Part PET khác giữ nguyên.
+- Verify: TypeScript PASS, scoped Listening tests 4/4 và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Sync tÆ°Æ¡ng thÃ­ch khi migration 031 chÆ°a Ä‘Æ°á»£c push
+### Session 2026-07-19 — Sync tương thích khi migration 031 chưa được push
 
-- Root cause lá»—i `sync_server_time ... schema cache`: frontend hardening Ä‘Ã£ gá»i RPC tá»« migration 031, nhÆ°ng migrations 031â€“034 váº«n Ä‘ang á»Ÿ staging/chÆ°a cÃ³ trÃªn database hiá»‡n táº¡i.
-- ThÃªm `getSyncServerTime`: chá»‰ fallback sang timestamp local khi PostgREST bÃ¡o Ä‘Ãºng lá»—i RPC/schema thiáº¿u; lá»—i máº¡ng/quyá»n khÃ¡c váº«n throw. Fallback Ä‘Æ°á»£c Ä‘Ã¡nh dáº¥u non-authoritative nÃªn sync chÃ­nh, exam progress vÃ  check-in khÃ´ng ghi tiáº¿n cloud cursor, trÃ¡nh clock client lÃ m bá» sÃ³t dá»¯ liá»‡u.
-- Main sync cÅ©ng coi báº£ng `sync_tombstones` chÆ°a tá»“n táº¡i lÃ  danh sÃ¡ch rá»—ng Ä‘á»ƒ database pre-031 khÃ´ng lÃ m cháº¿t toÃ n bá»™ sync; delete ledger Ä‘áº§y Ä‘á»§ sáº½ tá»± hoáº¡t Ä‘á»™ng sau khi migration Ä‘Æ°á»£c Ã¡p.
-- Feedback loop trÆ°á»›c fix RED Ä‘Ãºng PGRST202; sau fix sync/scalability tests 7/7, TypeScript vÃ  `git diff --check` PASS.
+- Root cause lỗi `sync_server_time ... schema cache`: frontend hardening đã gọi RPC từ migration 031, nhưng migrations 031–034 vẫn đang ở staging/chưa có trên database hiện tại.
+- Thêm `getSyncServerTime`: chỉ fallback sang timestamp local khi PostgREST báo đúng lỗi RPC/schema thiếu; lỗi mạng/quyền khác vẫn throw. Fallback được đánh dấu non-authoritative nên sync chính, exam progress và check-in không ghi tiến cloud cursor, tránh clock client làm bỏ sót dữ liệu.
+- Main sync cũng coi bảng `sync_tombstones` chưa tồn tại là danh sách rỗng để database pre-031 không làm chết toàn bộ sync; delete ledger đầy đủ sẽ tự hoạt động sau khi migration được áp.
+- Feedback loop trước fix RED đúng PGRST202; sau fix sync/scalability tests 7/7, TypeScript và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Cháº©n Ä‘oÃ¡n YouTube captions váº«n bÃ¡o blocked
+### Session 2026-07-19 — Chẩn đoán YouTube captions vẫn báo blocked
 
-- Feedback loop production xÃ¡c nháº­n relay URL tráº£ HTTP 429 + `X-Vercel-Mitigated: challenge`/Security Checkpoint; Vercel Function logs trá»‘ng, nÃªn request chÆ°a tá»›i `youtube-captions-relay` vÃ  thÃ´ng bÃ¡o hiá»‡n táº¡i quy lá»—i cho YouTube sai táº§ng.
-- Supabase remote cÃ³ cáº£ `VERCEL_AUTOMATION_BYPASS_SECRET` vÃ  `YOUTUBE_CAPTIONS_RELAY_SECRET`; Vercel project cÃ³ relay secret production. Firewall cÃ³ `Challenge Scrapers` vÃ  `Block AI Bots`; browser-like UA váº«n bá»‹ system challenge.
-- Project Hobby khÃ´ng há»— trá»£ IP/System Bypass (`vercel firewall overview` tráº£ unavailable). KhÃ´ng tá»± pause system mitigations vÃ¬ Ä‘Ã¢y lÃ  thay Ä‘á»•i báº£o máº­t rá»™ng 24 giá».
-- HÆ°á»›ng xá»­ lÃ½ cáº§n quyá»n/chá»n lá»±a: rotate + Ä‘á»“ng bá»™ láº¡i Automation Bypass secret Vercelâ†’Supabase rá»“i smoke, hoáº·c tÃ¡ch relay sang endpoint/project riÃªng khÃ´ng báº­t checkpoint nhÆ°ng váº«n giá»¯ `x-relay-secret`.
+- Feedback loop production xác nhận relay URL trả HTTP 429 + `X-Vercel-Mitigated: challenge`/Security Checkpoint; Vercel Function logs trống, nên request chưa tới `youtube-captions-relay` và thông báo hiện tại quy lỗi cho YouTube sai tầng.
+- Supabase remote có cả `VERCEL_AUTOMATION_BYPASS_SECRET` và `YOUTUBE_CAPTIONS_RELAY_SECRET`; Vercel project có relay secret production. Firewall có `Challenge Scrapers` và `Block AI Bots`; browser-like UA vẫn bị system challenge.
+- Project Hobby không hỗ trợ IP/System Bypass (`vercel firewall overview` trả unavailable). Không tự pause system mitigations vì đây là thay đổi bảo mật rộng 24 giờ.
+- Hướng xử lý cần quyền/chọn lựa: rotate + đồng bộ lại Automation Bypass secret Vercel→Supabase rồi smoke, hoặc tách relay sang endpoint/project riêng không bật checkpoint nhưng vẫn giữ `x-relay-secret`.
 
-### Session 2026-07-18 â€” Hardening local-first sync cho táº£i 1000 user
+### Session 2026-07-18 — Hardening local-first sync cho tải 1000 user
 
-- Chuyá»ƒn sync chÃ­nh, exam progress vÃ  check-in sang pull incremental cÃ³ watermark server, phÃ¢n trang 500 báº£n ghi, thá»© tá»± phá»¥ á»•n Ä‘á»‹nh vÃ  tombstone truyá»n xÃ³a; cursor cloud/local chá»‰ tiáº¿n sau khi push thÃ nh cÃ´ng. Cursor local tÃ¡ch khá»i thá»i gian server Ä‘á»ƒ thiáº¿t bá»‹ lá»‡ch Ä‘á»“ng há»“ váº«n phÃ¡t hiá»‡n thay Ä‘á»•i offline.
-- Batch upsert, timestamp LWW do Postgres ghi, trigger `updated_at`, retry full-jitter, login/reconnect jitter, debounce 4 giÃ¢y vÃ  chu ká»³ sync 5â€“6 phÃºt; dá»n timer retry/reconnect Ä‘á»ƒ trÃ¡nh burst trÃ¹ng.
-- ThÃªm migrations 031â€“034 cho index sync/RLS, tombstone, server time, atomic rate/usage counters; Edge Functions dÃ¹ng RPC counter nguyÃªn tá»­ vÃ  timeout 8 giÃ¢y cho Resend.
-- Dexie v16 thÃªm compound index SRS/review log, bulk/LRU audio cache cÃ³ quota 400 MB hoáº·c 20% browser quota vÃ  bá» qua blob Ä‘Æ¡n vÆ°á»£t ngÃ¢n sÃ¡ch.
-- ThÃªm bá»™ k6 200â†’1000 VU, fixture token, script EXPLAIN sync vÃ  tÃ i liá»‡u cháº¡y an toÃ n. ChÆ°a cháº¡y lÃªn production vÃ  chÆ°a push migration/deploy function.
-- Verify: typecheck PASS; hardening 14/14 PASS; full suite 157/158 PASS, lá»—i baseline ngoÃ i pháº¡m vi váº«n lÃ  `catalogCamReading.test.ts` ká»³ vá»ng 47 nhÆ°ng catalog hiá»‡n cÃ³ 48. Production build Ä‘Ã£ qua TypeScript/Vite transform nhÆ°ng command tá»•ng bá»‹ timeout khi render chunk sau bÆ°á»›c rebuild catalog.
+- Chuyển sync chính, exam progress và check-in sang pull incremental có watermark server, phân trang 500 bản ghi, thứ tự phụ ổn định và tombstone truyền xóa; cursor cloud/local chỉ tiến sau khi push thành công. Cursor local tách khỏi thời gian server để thiết bị lệch đồng hồ vẫn phát hiện thay đổi offline.
+- Batch upsert, timestamp LWW do Postgres ghi, trigger `updated_at`, retry full-jitter, login/reconnect jitter, debounce 4 giây và chu kỳ sync 5–6 phút; dọn timer retry/reconnect để tránh burst trùng.
+- Thêm migrations 031–034 cho index sync/RLS, tombstone, server time, atomic rate/usage counters; Edge Functions dùng RPC counter nguyên tử và timeout 8 giây cho Resend.
+- Dexie v16 thêm compound index SRS/review log, bulk/LRU audio cache có quota 400 MB hoặc 20% browser quota và bỏ qua blob đơn vượt ngân sách.
+- Thêm bộ k6 200→1000 VU, fixture token, script EXPLAIN sync và tài liệu chạy an toàn. Chưa chạy lên production và chưa push migration/deploy function.
+- Verify: typecheck PASS; hardening 14/14 PASS; full suite 157/158 PASS, lỗi baseline ngoài phạm vi vẫn là `catalogCamReading.test.ts` kỳ vọng 47 nhưng catalog hiện có 48. Production build đã qua TypeScript/Vite transform nhưng command tổng bị timeout khi render chunk sau bước rebuild catalog.
 
-### Session 2026-07-18 â€” SRS due label contrast on Light
+### Session 2026-07-18 — SRS due label contrast on Light
 
 - Added the first complete in-app Notification Center: sidebar bell + unread badge, persistent local inbox (250-item cap), All/Unread filters, Vietnamese full-text search, mark-one/mark-all read, delete/clear-read, category icon/label, relative time and action links to the relevant screen. The notification event API covers review, goal, streak, exam, achievement, new content and system events with dedupe keys. Automatic real-data notifications now include due SRS cards, 20-card daily goal completion, 3+ day streak celebration/risk after 18:00, and a one-time onboarding notice. Existing browser SRS notifications remain supported. TypeScript passes; production Vite build reached chunk rendering but the command exceeded the 120-second tool timeout.
 - Fixed Notification Center overlap: render the drawer through a `document.body` portal at the global modal layer, above the sidebar, corner mascot and Dictionary FAB; opening it now also locks background body scrolling. TypeScript and diff checks pass.
 - Fixed stale SRS notification counts: progress notifications can now replace an existing deduped record, re-open it as unread only when the count/content changes, and remove the daily due notice when no cards remain; the inbox and SRS popup therefore converge on the same live Dexie due count instead of retaining an earlier snapshot (e.g. 14 vs 1).
 - Expanded app-wide continuation reminders from real synced exam drafts. The notification checker scans `exam-reading-draft:*` and `exam-listening-draft:*`, keeps up to 8 recently edited incomplete exams (30-day window), shows Reading/Listening title when locally available, current Part and answered-question count, and links directly back to the exact exam. Submitted, empty, old or displaced drafts have their resume notice removed automatically. TypeScript and diff checks pass.
-- Audited Home `Tháº» Ä‘áº¿n háº¡n (due: N)` and the `current/target` value. `due: N` now uses one shared valid-due query across Home, SRS popup and Notification Center, excluding orphan SRS rows whose card/deck no longer exists (a likely cause of 14 in the inbox vs 1 selectable card). The progress numerator no longer counts every vocab mode/duplicate retry; it counts unique card IDs reviewed in actual SRS mode. â€œTodayâ€ now follows local timezone instead of UTC. TypeScript and diff checks pass.
+- Audited Home `Thẻ đến hạn (due: N)` and the `current/target` value. `due: N` now uses one shared valid-due query across Home, SRS popup and Notification Center, excluding orphan SRS rows whose card/deck no longer exists (a likely cause of 14 in the inbox vs 1 selectable card). The progress numerator no longer counts every vocab mode/duplicate retry; it counts unique card IDs reviewed in actual SRS mode. “Today” now follows local timezone instead of UTC. TypeScript and diff checks pass.
 - Updated the `/app/vocab` SRS `Due now` label to use the Light theme danger token instead of a fixed yellow, improving readability on a light background.
 - Mid and Dark retain the existing yellow through the theme-scoped `--vs-due-color` token.
 - Moved the 9-mode study switcher below the active study content, so the current session information and flashcard appear first.
@@ -360,925 +400,925 @@ EOF
 - Added an icon-only Save to Notebook control immediately beside the audio control on each vocabulary card; it reuses the existing idempotent notebook save flow and reflects saved state.
 - Notebook entries saved from study now show source classification: the originating deck and its Book/Unit (or deck description) as topic chips.
 - Notebook now scales to large collections with full-text search (including deck/topic), deck and topic filters, and a live visible-result count; filters collapse cleanly on mobile.
-- Restored KET A2 Listening Books 3â€“14 from `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening`: all 44 published entries have 25 questions, per-part audio and Part 1 pictures. The initial all-at-once command hit a session timeout; idempotent batches 01â€“44 completed successfully.
-- Fixed the missing-media cause: the KET publish script had used the retired public `listening-exam-media` bucket. It now uploads private media to `exam-media/catalog/listening-publish/...` and stores signed-media paths understood by the app. Re-published tests 01â€“44.
+- Restored KET A2 Listening Books 3–14 from `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening`: all 44 published entries have 25 questions, per-part audio and Part 1 pictures. The initial all-at-once command hit a session timeout; idempotent batches 01–44 completed successfully.
+- Fixed the missing-media cause: the KET publish script had used the retired public `listening-exam-media` bucket. It now uploads private media to `exam-media/catalog/listening-publish/...` and stores signed-media paths understood by the app. Re-published tests 01–44.
 - Fixed the remaining KET media display issue: `resolveListeningExam` had prioritized a stale IndexedDB import over the restored cloud entry. For the stable restored KET practice IDs, it now uses the cloud record first (with local/offline fallback), so Part 1 images and the full per-part audio load.
 - Fixed localhost playback for restored KET media: `protectedMedia` previously treated every `/catalog/*` path as a Vite public file in dev. `catalog/listening-publish/*` is now marked storage-only and always resolved through `content-sign`, including on localhost; regression test added and passing.
 - Fixed production `/app/exam` empty/filtered data for Admin/Pro: `freePlanCatalogGate` previously trusted only IndexedDB plan state, which defaults to Free on a new or unsynced browser. It now reads the authenticated Supabase profile first and uses IndexedDB only as an offline fallback. Type-check and 9 scoped tests passed; deployed production `dpl_5b6cyNgNEKr5tM8j8aKTzs4WeXja` Ready and main alias updated.
 - Fixed production showing only the 53 published KET imports: a second Free fallback still removed the bundled catalog despite the user already passing `ProOnlyRoute`. Authenticated route sessions now keep the complete metadata catalog (179 Listening + 77 Reading); RLS/content-sign continue protecting bodies, answers and media. Added a pure visibility regression seam (12/12 scoped tests), deployed `dpl_C3rC4XuKi9pAX5EfJcDoyrQF7eWZ` Ready and updated the main alias.
-- Restored KET A2 Listening Cam/Book 1 Test 1â€“4, Book 2 Test 1â€“4 and Book 3 Test 1â€“2 from the 10 Tainguyen ZIP bundles. Eight legacy rows were updated in place; Book 1 Test 1 and Book 3 Test 1 were added. All 10 now use private `exam-media/catalog/listening-publish/...`, each has full shared audio, 5 Part 1 images, 25 questions and a 25-answer vault (250 total).
-- Hardened `backfill-published-exam-vaults.mjs`: zero-answer published bodies now preserve existing vault files instead of overwriting them with empty vaults. Restored and re-backfilled all 44 Book 3+ practice rows afterward; 1,100 existing answers were regenerated with zero failures while the new 250-answer Cam 1â€“3 vaults remained intact.
+- Restored KET A2 Listening Cam/Book 1 Test 1–4, Book 2 Test 1–4 and Book 3 Test 1–2 from the 10 Tainguyen ZIP bundles. Eight legacy rows were updated in place; Book 1 Test 1 and Book 3 Test 1 were added. All 10 now use private `exam-media/catalog/listening-publish/...`, each has full shared audio, 5 Part 1 images, 25 questions and a 25-answer vault (250 total).
+- Hardened `backfill-published-exam-vaults.mjs`: zero-answer published bodies now preserve existing vault files instead of overwriting them with empty vaults. Restored and re-backfilled all 44 Book 3+ practice rows afterward; 1,100 existing answers were regenerated with zero failures while the new 250-answer Cam 1–3 vaults remained intact.
 - Fixed the SRS review reminder not repeating after the selected 5-minute interval. The old fixed interval was anchored to AppShell mount, so a dismissal between ticks could delay the reminder by almost another cycle. Scheduling now starts from the actual last show/dismiss timestamp and rechecks immediately when a throttled background tab becomes active. Added deterministic timing tests (3/3), TypeScript passes, and deployed production `dpl_6wa5d9JgrkR6ryFJZ2vJSeCJcpm9` Ready with the main alias updated.
 - Security follow-up: updated `backfill-published-exam-vaults.mjs` to obtain service role from deploy PAT when needed, then backfilled all 53 Listening rows. It extracted 1,100 answer records to private vaults and stripped answer fields from published bodies (0 failures), including after the media re-publish.
 
-- User: `Upload media tháº¥t báº¡i (.../part1-audio.mp3): new row violates row-level security policy` khi publish Listening (route `/app/exam/track/cambridge/c1/listening`).
-- NguyÃªn nhÃ¢n: publish upload lÃªn private bucket `exam-media` vá»›i `upsert: true`, nhÆ°ng migration 019 chá»‰ cÃ³ admin INSERT/UPDATE/DELETE â€” **khÃ´ng cÃ³ SELECT**. Storage upsert cáº§n SELECT Ä‘á»ƒ pre-check / return row â†’ RLS fail.
-- Fix: migration `023_exam_media_admin_upsert.sql` â€” admin-only SELECT + re-assert INSERT/UPDATE/DELETE `to authenticated` + grant execute `is_current_user_admin`. **ÄÃ£ push remote** (`pnpm db:push`).
-- Client: `listeningExamCloudMedia.ts` preflight session + `profiles.is_admin`; message lá»—i RLS gá»£i Ã½ migration 023.
-- Test: `phase1Hardening.test.ts` 4/4 PASS (thÃªm assert migration 023).
-- User action: hard refresh, publish láº¡i Ä‘á»; náº¿u váº«n lá»—i admin â†’ kiá»ƒm tra `profiles.is_admin = true` rá»“i logout/login.
+- User: `Upload media thất bại (.../part1-audio.mp3): new row violates row-level security policy` khi publish Listening (route `/app/exam/track/cambridge/c1/listening`).
+- Nguyên nhân: publish upload lên private bucket `exam-media` với `upsert: true`, nhưng migration 019 chỉ có admin INSERT/UPDATE/DELETE — **không có SELECT**. Storage upsert cần SELECT để pre-check / return row → RLS fail.
+- Fix: migration `023_exam_media_admin_upsert.sql` — admin-only SELECT + re-assert INSERT/UPDATE/DELETE `to authenticated` + grant execute `is_current_user_admin`. **Đã push remote** (`pnpm db:push`).
+- Client: `listeningExamCloudMedia.ts` preflight session + `profiles.is_admin`; message lỗi RLS gợi ý migration 023.
+- Test: `phase1Hardening.test.ts` 4/4 PASS (thêm assert migration 023).
+- User action: hard refresh, publish lại đề; nếu vẫn lỗi admin → kiểm tra `profiles.is_admin = true` rồi logout/login.
 
-## 2026-07-17 â€” Deploy frontend security lÃªn Vercel production
+## 2026-07-17 — Deploy frontend security lên Vercel production
 
-- Vercel CLI login Ä‘Ãºng `ryanik1997`; project liÃªn káº¿t `ryanenglishv2`.
-- Deploy Ä‘áº§u `dpl_959LwP33UBGWig26T327GSkx8pKz` lá»—i do `.vercelignore` loáº¡i private `apps/web/public/catalog` nhÆ°ng `build-catalog.mjs --if-present` váº«n yÃªu cáº§u thÆ° má»¥c nÃ y Ä‘á»ƒ skip.
-- Fix `scripts/build-catalog.mjs`: Vercel dÃ¹ng committed `packages/catalog/data/manifest.json` khi khÃ´ng cÃ³ `Tainguyen`; private media khÃ´ng bá»‹ Ä‘Æ°a láº¡i vÃ o deploy.
-- Verify: mÃ´ phá»ng thiáº¿u `Tainguyen` PASS; production build PASS + strip private media; `pnpm security:check` 9/9 PASS.
-- Production deploy `dpl_HTKAuSqTSYw6gntRLNkCTdvXXZ9D` Ready; alias `https://ryanenglishv2.vercel.app` Ä‘Ã£ cáº­p nháº­t.
-- Smoke `/`, `/terms`, `/privacy`: HTTP 200, CSP cÃ³ máº·t, `X-Frame-Options: DENY`.
-- CÃ²n smoke browser: Turnstile login, Google OAuth, signed PDF/media vÃ  admin publish Listening MP3.
+- Vercel CLI login đúng `ryanik1997`; project liên kết `ryanenglishv2`.
+- Deploy đầu `dpl_959LwP33UBGWig26T327GSkx8pKz` lỗi do `.vercelignore` loại private `apps/web/public/catalog` nhưng `build-catalog.mjs --if-present` vẫn yêu cầu thư mục này để skip.
+- Fix `scripts/build-catalog.mjs`: Vercel dùng committed `packages/catalog/data/manifest.json` khi không có `Tainguyen`; private media không bị đưa lại vào deploy.
+- Verify: mô phỏng thiếu `Tainguyen` PASS; production build PASS + strip private media; `pnpm security:check` 9/9 PASS.
+- Production deploy `dpl_HTKAuSqTSYw6gntRLNkCTdvXXZ9D` Ready; alias `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Smoke `/`, `/terms`, `/privacy`: HTTP 200, CSP có mặt, `X-Frame-Options: DENY`.
+- Còn smoke browser: Turnstile login, Google OAuth, signed PDF/media và admin publish Listening MP3.
 
-## 2026-07-17 â€” Re-verify Security HIGH + production backend
+## 2026-07-17 — Re-verify Security HIGH + production backend
 
-- XÃ¡c nháº­n code Security HIGH cÃ³ Ä‘á»§ Phase 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, Phase 4 vÃ  migration 023.
-- Bá»™ verify Ä‘Æ°á»£c bÃ¡o cÃ¡o: `phase1Hardening`, `phase2Hardening`, `phase4Legal`, `BookReaderPage` tá»•ng 10/10 PASS; `tsc --noEmit` PASS.
-- Äá»‘i chiáº¿u Git: working tree khÃ´ng hoÃ n toÃ n sáº¡ch vÃ¬ cÃ²n `.claude/settings.local.json` untracked; HEAD thá»±c táº¿ lÃºc kiá»ƒm tra lÃ  `b1db15f7`, khÃ´ng pháº£i `86e26916`.
-- Cháº¡y láº¡i `pnpm db:push` production: Supabase project `ntcagvtkwxwsmlxlumfo` tráº£ `Remote database is up to date`; migrations 017â€“023 Ä‘Ã£ cÃ³ trÃªn remote.
-- Redeploy `content-sign` thÃ nh cÃ´ng lÃªn project `ntcagvtkwxwsmlxlumfo`. CLI láº§n Ä‘áº§u thiáº¿u token; láº§n hai chá»‰ náº¡p `SUPABASE_ACCESS_TOKEN` tá»« `.env.deploy` trong process, khÃ´ng ghi/in secret.
-- KhÃ´ng cháº¡y láº¡i backfill/upload: session trÆ°á»›c Ä‘Ã£ audit production vÃ  ghi nháº­n 51 Listening rows Ä‘Æ°á»£c tÃ¡ch 1.275 answers vÃ o vault; 2.011/2.012 private media Ä‘Ã£ upload, thiáº¿u duy nháº¥t CAE audio 82.94MB vÆ°á»£t giá»›i háº¡n Supabase Free 50MB.
-- Frontend production Ä‘Ã£ deploy Ready á»Ÿ `https://ryanenglishv2.vercel.app`; HTTP smoke `/`, `/terms`, `/privacy` PASS.
-- CÃ²n ngoÃ i code: smoke browser Turnstile/OAuth/signed media/admin publish; táº¡o vÃ  review Vercel Firewall draft; xá»­ lÃ½ CAE audio >50MB; cáº¥u hÃ¬nh kÃªnh gá»­i security alert/PITR/legal review náº¿u cáº§n.
+- Xác nhận code Security HIGH có đủ Phase 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, Phase 4 và migration 023.
+- Bộ verify được báo cáo: `phase1Hardening`, `phase2Hardening`, `phase4Legal`, `BookReaderPage` tổng 10/10 PASS; `tsc --noEmit` PASS.
+- Đối chiếu Git: working tree không hoàn toàn sạch vì còn `.claude/settings.local.json` untracked; HEAD thực tế lúc kiểm tra là `b1db15f7`, không phải `86e26916`.
+- Chạy lại `pnpm db:push` production: Supabase project `ntcagvtkwxwsmlxlumfo` trả `Remote database is up to date`; migrations 017–023 đã có trên remote.
+- Redeploy `content-sign` thành công lên project `ntcagvtkwxwsmlxlumfo`. CLI lần đầu thiếu token; lần hai chỉ nạp `SUPABASE_ACCESS_TOKEN` từ `.env.deploy` trong process, không ghi/in secret.
+- Không chạy lại backfill/upload: session trước đã audit production và ghi nhận 51 Listening rows được tách 1.275 answers vào vault; 2.011/2.012 private media đã upload, thiếu duy nhất CAE audio 82.94MB vượt giới hạn Supabase Free 50MB.
+- Frontend production đã deploy Ready ở `https://ryanenglishv2.vercel.app`; HTTP smoke `/`, `/terms`, `/privacy` PASS.
+- Còn ngoài code: smoke browser Turnstile/OAuth/signed media/admin publish; tạo và review Vercel Firewall draft; xử lý CAE audio >50MB; cấu hình kênh gửi security alert/PITR/legal review nếu cần.
 
-## 2026-07-17 â€” Signup legal consent + email security alerts
+## 2026-07-17 — Signup legal consent + email security alerts
 
-- Biáº¿n tab `ÄÄƒng kÃ½` tá»« trang trÃ­ thÃ nh signup email/password tháº­t; dÃ¹ng Turnstile hiá»‡n cÃ³, yÃªu cáº§u password >= 8 kÃ½ tá»± vÃ  báº¯t buá»™c `TermsConsentCheckbox`.
-- Consent version `2026-07-16` Ä‘Æ°á»£c gá»­i trong Auth metadata. Migration `024_signup_consent_and_security_email.sql` má»Ÿ rá»™ng `handle_new_user()` Ä‘á»ƒ ghi server timestamp vÃ o `profiles` ngay cáº£ khi báº­t email confirmation/chÆ°a cÃ³ session.
-- Vá»›i signup cÃ³ session vÃ  Google OAuth signup, app lÆ°u pending version ngáº¯n háº¡n rá»“i gá»i RPC `accept_legal_terms`; pending Ä‘Æ°á»£c xÃ³a khi thÃ nh cÃ´ng hoáº·c signup lá»—i Ä‘á»ƒ khÃ´ng ghi nháº§m á»Ÿ login sau.
-- Alert quota >=300 request/24h dÃ¹ng Resend trong `content-sign`. RPC `claim_content_security_alert_email` claim nguyÃªn tá»­ má»™t email/user/ngÃ y; náº¿u Resend lá»—i thÃ¬ release claim Ä‘á»ƒ request sau retry. DB queue váº«n giá»¯ nguyÃªn.
-- Migration 024 Ä‘Ã£ push production; `content-sign` má»›i Ä‘Ã£ deploy production.
-- Frontend commit `3321c983` Ä‘Ã£ deploy Vercel production Ready táº¡i deployment `ryanenglishv2-okqsjcn1x-ryanenglish.vercel.app`; alias chÃ­nh giá»¯ `https://ryanenglishv2.vercel.app`.
-- HEAD smoke vÃ o alias chÃ­nh tráº£ HTTP 429 tá»« lá»›p Vercel, nÃªn chÆ°a xÃ¡c nháº­n UI signup báº±ng production browser.
-- Blocker email production: Supabase project chÆ°a cÃ³ cÃ¡c secret `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`; `.env.deploy` cÅ©ng khÃ´ng cÃ³. Cho Ä‘áº¿n khi set secret, function chá»‰ cáº£nh bÃ¡o log + lÆ°u DB, chÆ°a gá»­i email tháº­t.
+- Biến tab `Đăng ký` từ trang trí thành signup email/password thật; dùng Turnstile hiện có, yêu cầu password >= 8 ký tự và bắt buộc `TermsConsentCheckbox`.
+- Consent version `2026-07-16` được gửi trong Auth metadata. Migration `024_signup_consent_and_security_email.sql` mở rộng `handle_new_user()` để ghi server timestamp vào `profiles` ngay cả khi bật email confirmation/chưa có session.
+- Với signup có session và Google OAuth signup, app lưu pending version ngắn hạn rồi gọi RPC `accept_legal_terms`; pending được xóa khi thành công hoặc signup lỗi để không ghi nhầm ở login sau.
+- Alert quota >=300 request/24h dùng Resend trong `content-sign`. RPC `claim_content_security_alert_email` claim nguyên tử một email/user/ngày; nếu Resend lỗi thì release claim để request sau retry. DB queue vẫn giữ nguyên.
+- Migration 024 đã push production; `content-sign` mới đã deploy production.
+- Frontend commit `3321c983` đã deploy Vercel production Ready tại deployment `ryanenglishv2-okqsjcn1x-ryanenglish.vercel.app`; alias chính giữ `https://ryanenglishv2.vercel.app`.
+- HEAD smoke vào alias chính trả HTTP 429 từ lớp Vercel, nên chưa xác nhận UI signup bằng production browser.
+- Blocker email production: Supabase project chưa có các secret `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`; `.env.deploy` cũng không có. Cho đến khi set secret, function chỉ cảnh báo log + lưu DB, chưa gửi email thật.
 - Verify: scoped security/auth 13/13 PASS; `tsc --noEmit` PASS; production build PASS + strip private media; `git diff --check` PASS.
-- Full web suite: 117/118 PASS. Lá»—i duy nháº¥t ngoÃ i patch: `catalogCamReading.test.ts` hardcode 47 nhÆ°ng catalog hiá»‡n cÃ³ 48 Ä‘á».
+- Full web suite: 117/118 PASS. Lỗi duy nhất ngoài patch: `catalogCamReading.test.ts` hardcode 47 nhưng catalog hiện có 48 đề.
 
-## 2026-07-17 â€” Writing subpages: ná»n lÆ°á»›i Ä‘á»“ng bá»™
+## 2026-07-17 — Writing subpages: nền lưới đồng bộ
 
-- Má»i route con `/app/writing/*` dÃ¹ng backdrop `grid`, khÃ´ng cÃ³ ribbon; `/app/writing` hub giá»¯ style ribbon hiá»‡n cÃ³.
-- ThÃªm `.writing-shell` vÃ o CSS transparent layer cá»§a backdrop Ä‘á»ƒ editor Writing khÃ´ng che Ã´ lÆ°á»›i xanh nháº¡t.
+- Mọi route con `/app/writing/*` dùng backdrop `grid`, không có ribbon; `/app/writing` hub giữ style ribbon hiện có.
+- Thêm `.writing-shell` vào CSS transparent layer của backdrop để editor Writing không che ô lưới xanh nhạt.
 - Verify: `appShellBackdrop.test.ts` 62/62 PASS; `pnpm --filter web exec -- tsc --noEmit` PASS.
 
-## 2026-07-17 â€” Speaking AI MVP theo Plan/SpeakAI.txt
+## 2026-07-17 — Speaking AI MVP theo Plan/SpeakAI.txt
 
-- Entitlement/retention: admin + Pro cÃ²n háº¡n + Lifetime dÃ¹ng Speaking AI khÃ´ng giá»›i háº¡n; Free/Trial/Basic giá»¯ quota 600 giÃ¢y/ngÃ y. API tráº£ access metadata Ä‘á»ƒ UI hiá»‡n Ä‘Ãºng quyá»n.
-- Migration `027_speaking_ai_entitlements_retention.sql`: cron cháº¡y háº±ng ngÃ y, xÃ³a message/usage quÃ¡ 30 ngÃ y vÃ  conversation rá»—ng; function dá»n dá»¯ liá»‡u khÃ´ng cho anon/authenticated gá»i trá»±c tiáº¿p.
-- UI Speaking AI hiá»ƒn thá»‹ `KhÃ´ng giá»›i háº¡n` cho Pro/admin vÃ  thÃ´ng bÃ¡o lá»‹ch sá»­ tá»± xÃ³a sau 30 ngÃ y; web bump v0.2.6.
-- Production: migration 027 (kÃ¨m pg_cron) Ä‘Ã£ push, Edge Function Ä‘Ã£ deploy; commit `4948d481`; Vercel Ready táº¡i `ryanenglishv2-cujd3xzkk-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
-- Verify entitlement/retention: scoped 6/6 PASS, `tsc --noEmit` PASS; full suite 130/131 PASS. Lá»—i duy nháº¥t ngoÃ i feature váº«n lÃ  catalog Reading test hardcode 47 khi catalog cÃ³ 48.
-- Fix tiáº¿p: thÃªm i18n `nav.speakingAi` cho VI/EN Ä‘á»ƒ toolbar khÃ´ng hiá»‡n raw key; regression test 1/1 vÃ  `tsc --noEmit` PASS.
-- ThÃªm route riÃªng `/app/speaking-ai` trong sidebar AppShell; trang Ä‘Æ°á»£c lazy-load vÃ  dÃ¹ng backdrop grid/ribbon chung.
-- Trang chá»n level A1â€“C1, 7 mode, 6 topic vÃ  má»Ÿ láº¡i cÃ¡c phiÃªn lá»‹ch sá»­ Ä‘Ã£ lÆ°u; tráº¡ng thÃ¡i rÃµ `Ready â†’ Recording â†’ Processing â†’ AI Speaking`; cÃ³ transcript, correction, natural alternative, giáº£i thÃ­ch VI, vocabulary, replay, 0.75x/1x/1.25x, nÃ³i cháº­m vÃ  retry/error.
-- `useSpeakingRecorder`: MediaRecorder giá»¯ audio cá»¥c bá»™ Ä‘á»ƒ replay; Web Speech API (`SpeechRecognition`, `en-US`) táº¡o transcript trá»±c tiáº¿p trÃªn Chrome/Edge; giá»›i háº¡n 60 giÃ¢y, permission error rÃµ vÃ  cleanup stream/object URL.
-- Edge Function `speaking-ai` chuyá»ƒn sang DeepSeek Chat Completions JSON mode (`deepseek-v4-flash` máº·c Ä‘á»‹nh): chá»‰ nháº­n transcript, khÃ´ng upload audio; JWT user báº¯t buá»™c, timeout 25s, conversation ownership check vÃ  khÃ´ng log/lá»™ API key.
-- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lÆ°u tá»‘i Ä‘a 30 ngÃ y, audio khÃ´ng lÆ°u; quota máº·c Ä‘á»‹nh 600 giÃ¢y/ngÃ y/user.
-- Tá»‘i Ä‘a 12 phiÃªn gáº§n nháº¥t Ä‘Æ°á»£c táº£i vÃ  chá»n láº¡i trÃªn trang. TTS dÃ¹ng engine hiá»‡n cÃ³ vÃ  fallback browser.
-- Production backend: migration 026 Ä‘Ã£ push vÃ  Edge Function `speaking-ai` báº£n DeepSeek Ä‘Ã£ deploy lÃªn project `ntcagvtkwxwsmlxlumfo`.
-- Frontend commit `cb8925de` Ä‘Ã£ deploy Vercel production Ready táº¡i `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
-- Báº£n DeepSeek commit `2aa07056`, web v0.2.5 Ä‘Ã£ deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
-- `DEEPSEEK_API_KEY` Ä‘Ã£ Ä‘Æ°á»£c Ä‘áº·t trong Supabase Secrets production (khÃ´ng lÆ°u repo/frontend); request kiá»ƒm tra trá»±c tiáº¿p vá»›i `deepseek-v4-flash` PASS.
-- Verify báº£n DeepSeek: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production web build PASS + strip private media; full suite 120/121 PASS. Lá»—i duy nháº¥t ngoÃ i patch váº«n lÃ  catalog Reading ká»³ vá»ng 47 nhÆ°ng hiá»‡n cÃ³ 48.
-- Migration `026_speaking_ai_deepseek.sql` Ä‘á»•i provider máº·c Ä‘á»‹nh sang `deepseek`; client chá»‰ gá»­i transcript + metadata, khÃ´ng cÃ²n FileReader/base64/audioData.
-
-### Next session start prompt
-
-Review/cháº¡y migrations 031â€“034 trÃªn staging, cháº¡y `scripts/load/explain-sync.sql`, sau Ä‘Ã³ k6 báº±ng 1000 token staging vÃ  kiá»ƒm tra p95/error/correctness trÆ°á»›c production. Bá»• sung transaction duy nháº¥t cho Speaking AI usage + message persistence vÃ  lá»‹ch prune tombstone/rate counters.
-
-Smoke Speaking AI báº±ng Chrome/Edge: permission, record 5â€“10s, live transcript, reply, TTS, correction, close/reopen history vÃ  quota. Safari/Firefox cÃ³ thá»ƒ khÃ´ng há»— trá»£ Web Speech API Ä‘áº§y Ä‘á»§.
-
-Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rá»“i test má»™t alert cÃ³ kiá»ƒm soÃ¡t. Smoke signup email-confirmation + Google consent vÃ  kiá»ƒm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sá»­a baseline catalog test 47â†’48 sau khi xÃ¡c nháº­n Ä‘á» thá»© 48 há»£p lá»‡.
-
-Smoke browser production táº¡i `https://ryanenglishv2.vercel.app`, gá»“m Turnstile login, signed PDF/media vÃ  retry publish Listening MP3 admin. Sau Ä‘Ã³ táº¡o Vercel Firewall draft vÃ  review diff trÆ°á»›c khi publish. Audio CAE 82.94MB váº«n cáº§n nÃ©n dÆ°á»›i 50MB hoáº·c nÃ¢ng Supabase Pro.
-
-## 2026-07-16 â€” Security audit + káº¿ hoáº¡ch nÃ¢ng báº£o máº­t má»©c HIGH
-
-- Audit toÃ n bá»™ lá»›p báº£o máº­t trÆ°á»›c deploy Vercel: 19 migrations, `content-sign` edge function, `vercel.json`, `.vercelignore`, `strip-public-media-from-dist.mjs`, publish flow.
-- **2 lá»— há»•ng CRITICAL phÃ¡t hiá»‡n, CHÆ¯A VÃ â€” báº¯t buá»™c fix trÆ°á»›c deploy:**
-  1. `reading_exam_published` / `listening_exam_published` cÃ³ policy `for select using (true)` khÃ´ng giá»›i háº¡n role â†’ anon key (náº±m trong bundle) crawl Ä‘Æ°á»£c toÃ n bá»™ Ä‘á» **kÃ¨m Ä‘Ã¡p Ã¡n** (`parts` jsonb chá»©a `answer` + `explanation`; publish flow chá»‰ strip `imageKey`).
-  2. `books/the-song-of-achilles.pdf` (sÃ¡ch cÃ³ báº£n quyá»n) sáº½ public trÃªn Vercel â€” `.vercelignore` cÃ³ dÃ²ng `!apps/web/public/**/*.pdf` re-include, strip script chá»‰ xÃ³a `catalog/`+`data/`. Rá»§i ro DMCA. `ielts-wizard/` (8.4MB áº£nh Ä‘á») cÅ©ng public tÆ°Æ¡ng tá»±.
-- Äiá»ƒm máº¡nh xÃ¡c nháº­n: Mode A Fortress Ä‘Ãºng chuáº©n (4.3GB catalog private Storage + signed URL 90s + plan gate + rate limit 45/user/phÃºt), Mode D answer vault, RLS user-data Ä‘áº§y Ä‘á»§ (015), headers/CSP/robots tá»‘t, BYOK khÃ´ng lá»™ key server.
-- **Káº¿ hoáº¡ch chi tiáº¿t 6 phase Ä‘Ã£ ghi táº¡i `Security/SECURITY_HARDENING_PLAN.txt`** â€” thá»© tá»± thi cÃ´ng: Phase 1 (vÃ¡ 2 lá»— trÃªn: migration `020_harden_published_exams.sql` + strip answers khi publish + chuyá»ƒn books/ielts-wizard vÃ o signed flow) â†’ Phase 5.1 (Vercel firewall) â†’ Phase 2 (daily quota + Turnstile) â†’ Phase 4 (Terms/copyright) â†’ Phase 3 (UI, kÃ¨m ghi chÃº trung thá»±c: layout/UI khÃ´ng cháº·n tuyá»‡t Ä‘á»‘i Ä‘Æ°á»£c báº±ng ká»¹ thuáº­t, chá»‰ báº±ng phÃ¡p lÃ½ + anti-bot).
+- Entitlement/retention: admin + Pro còn hạn + Lifetime dùng Speaking AI không giới hạn; Free/Trial/Basic giữ quota 600 giây/ngày. API trả access metadata để UI hiện đúng quyền.
+- Migration `027_speaking_ai_entitlements_retention.sql`: cron chạy hằng ngày, xóa message/usage quá 30 ngày và conversation rỗng; function dọn dữ liệu không cho anon/authenticated gọi trực tiếp.
+- UI Speaking AI hiển thị `Không giới hạn` cho Pro/admin và thông báo lịch sử tự xóa sau 30 ngày; web bump v0.2.6.
+- Production: migration 027 (kèm pg_cron) đã push, Edge Function đã deploy; commit `4948d481`; Vercel Ready tại `ryanenglishv2-cujd3xzkk-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
+- Verify entitlement/retention: scoped 6/6 PASS, `tsc --noEmit` PASS; full suite 130/131 PASS. Lỗi duy nhất ngoài feature vẫn là catalog Reading test hardcode 47 khi catalog có 48.
+- Fix tiếp: thêm i18n `nav.speakingAi` cho VI/EN để toolbar không hiện raw key; regression test 1/1 và `tsc --noEmit` PASS.
+- Thêm route riêng `/app/speaking-ai` trong sidebar AppShell; trang được lazy-load và dùng backdrop grid/ribbon chung.
+- Trang chọn level A1–C1, 7 mode, 6 topic và mở lại các phiên lịch sử đã lưu; trạng thái rõ `Ready → Recording → Processing → AI Speaking`; có transcript, correction, natural alternative, giải thích VI, vocabulary, replay, 0.75x/1x/1.25x, nói chậm và retry/error.
+- `useSpeakingRecorder`: MediaRecorder giữ audio cục bộ để replay; Web Speech API (`SpeechRecognition`, `en-US`) tạo transcript trực tiếp trên Chrome/Edge; giới hạn 60 giây, permission error rõ và cleanup stream/object URL.
+- Edge Function `speaking-ai` chuyển sang DeepSeek Chat Completions JSON mode (`deepseek-v4-flash` mặc định): chỉ nhận transcript, không upload audio; JWT user bắt buộc, timeout 25s, conversation ownership check và không log/lộ API key.
+- Migration `025_speaking_ai_mvp.sql`: `speaking_conversations`, `speaking_messages`, `speaking_usage`; RLS own-read/delete; transcript/feedback lưu tối đa 30 ngày, audio không lưu; quota mặc định 600 giây/ngày/user.
+- Tối đa 12 phiên gần nhất được tải và chọn lại trên trang. TTS dùng engine hiện có và fallback browser.
+- Production backend: migration 026 đã push và Edge Function `speaking-ai` bản DeepSeek đã deploy lên project `ntcagvtkwxwsmlxlumfo`.
+- Frontend commit `cb8925de` đã deploy Vercel production Ready tại `ryanenglishv2-ott507of9-ryanenglish.vercel.app`.
+- Bản DeepSeek commit `2aa07056`, web v0.2.5 đã deploy production Ready: `ryanenglishv2-4n5yrjrw7-ryanenglish.vercel.app`, alias `https://ryanenglishv2.vercel.app`.
+- `DEEPSEEK_API_KEY` đã được đặt trong Supabase Secrets production (không lưu repo/frontend); request kiểm tra trực tiếp với `deepseek-v4-flash` PASS.
+- Verify bản DeepSeek: Speaking AI tests 3/3 PASS; `tsc --noEmit` PASS; production web build PASS + strip private media; full suite 120/121 PASS. Lỗi duy nhất ngoài patch vẫn là catalog Reading kỳ vọng 47 nhưng hiện có 48.
+- Migration `026_speaking_ai_deepseek.sql` đổi provider mặc định sang `deepseek`; client chỉ gửi transcript + metadata, không còn FileReader/base64/audioData.
 
 ### Next session start prompt
 
-Thi cÃ´ng Phase 1 trong `Security/SECURITY_HARDENING_PLAN.txt`: (1) migration 020 scope policy `to authenticated` + strip `answer`/`explanation` trong `readingExamPublish.ts`/`listeningExamPublish.ts` + backfill script; (2) Ä‘Æ°a `books/` + `ielts-wizard/` vÃ o private Storage qua `content-sign` (thÃªm `books/` vÃ o ALLOWED_ROOTS + `.pdf` vÃ o ALLOWED_EXT + sá»­a `toStorageObjectPath` + `BookReaderPage` dÃ¹ng `resolvePlayableMediaUrl`); (3) cháº¡y checklist verify 1.4. KHÃ”NG deploy trÆ°á»›c khi xong Phase 1.
+Review/chạy migrations 031–034 trên staging, chạy `scripts/load/explain-sync.sql`, sau đó k6 bằng 1000 token staging và kiểm tra p95/error/correctness trước production. Bổ sung transaction duy nhất cho Speaking AI usage + message persistence và lịch prune tombstone/rate counters.
 
-## 2026-07-16 â€” Rebuild PDF loading: fetch buffer thay vÃ¬ PDF.js tá»± táº£i URL (fix lá»—i 204)
+Smoke Speaking AI bằng Chrome/Edge: permission, record 5–10s, live transcript, reply, TTS, correction, close/reopen history và quota. Safari/Firefox có thể không hỗ trợ Web Speech API đầy đủ.
 
-- User bÃ¡o `Unexpected server response (204)` khi má»Ÿ `/books/the-song-of-achilles.pdf` trong reader.
-- Cháº©n Ä‘oÃ¡n: file PDF há»£p lá»‡ (1MB, header `%PDF-1.4`), dev server tráº£ 200 + 206 range Ä‘Ãºng qua curl â†’ lá»—i náº±m á»Ÿ táº§ng transport cá»§a PDF.js trong browser. **User xÃ¡c nháº­n nguyÃªn nhÃ¢n: Internet Download Manager báº¯t range request cá»§a PDF.js** (trÃ¹ng pattern IDM Ä‘Ã£ ghi nháº­n session trÆ°á»›c).
-- Rebuild theo yÃªu cáº§u user (thay tháº¿ thay vÃ¬ vÃ¡): `BookReaderPage` giá» tá»± `fetch(pdfUrl, { cache: 'no-store' })` â†’ kiá»ƒm tra `ok`/204/buffer rá»—ng â†’ Ä‘Æ°a `data: Uint8Array` cho `pdfjs.getDocument` thay vÃ¬ `url`. PDF.js khÃ´ng cÃ²n tá»± má»Ÿ network request nÃªn khÃ´ng cÃ²n bá»‹ intercept.
-- Error message rÃµ rÃ ng khi server tráº£ lá»—i: `KhÃ´ng táº£i Ä‘Æ°á»£c PDF (HTTP xxx).`
-- Test cáº­p nháº­t: (1) fetch Ä‘Ãºng URL + `getDocument` nháº­n `data` Uint8Array, khÃ´ng nháº­n `url`; (2) test má»›i: server tráº£ 204 â†’ hiá»‡n lá»—i `HTTP 204`, khÃ´ng gá»i `getDocument`.
+Set Supabase secrets `RESEND_API_KEY`, `ADMIN_EMAIL`, `APP_ORIGIN`, redeploy `content-sign`, rồi test một alert có kiểm soát. Smoke signup email-confirmation + Google consent và kiểm tra `profiles.terms_accepted_at/terms_version/privacy_accepted_at`. Sửa baseline catalog test 47→48 sau khi xác nhận đề thứ 48 hợp lệ.
+
+Smoke browser production tại `https://ryanenglishv2.vercel.app`, gồm Turnstile login, signed PDF/media và retry publish Listening MP3 admin. Sau đó tạo Vercel Firewall draft và review diff trước khi publish. Audio CAE 82.94MB vẫn cần nén dưới 50MB hoặc nâng Supabase Pro.
+
+## 2026-07-16 — Security audit + kế hoạch nâng bảo mật mức HIGH
+
+- Audit toàn bộ lớp bảo mật trước deploy Vercel: 19 migrations, `content-sign` edge function, `vercel.json`, `.vercelignore`, `strip-public-media-from-dist.mjs`, publish flow.
+- **2 lỗ hổng CRITICAL phát hiện, CHƯA VÁ — bắt buộc fix trước deploy:**
+  1. `reading_exam_published` / `listening_exam_published` có policy `for select using (true)` không giới hạn role → anon key (nằm trong bundle) crawl được toàn bộ đề **kèm đáp án** (`parts` jsonb chứa `answer` + `explanation`; publish flow chỉ strip `imageKey`).
+  2. `books/the-song-of-achilles.pdf` (sách có bản quyền) sẽ public trên Vercel — `.vercelignore` có dòng `!apps/web/public/**/*.pdf` re-include, strip script chỉ xóa `catalog/`+`data/`. Rủi ro DMCA. `ielts-wizard/` (8.4MB ảnh đề) cũng public tương tự.
+- Điểm mạnh xác nhận: Mode A Fortress đúng chuẩn (4.3GB catalog private Storage + signed URL 90s + plan gate + rate limit 45/user/phút), Mode D answer vault, RLS user-data đầy đủ (015), headers/CSP/robots tốt, BYOK không lộ key server.
+- **Kế hoạch chi tiết 6 phase đã ghi tại `Security/SECURITY_HARDENING_PLAN.txt`** — thứ tự thi công: Phase 1 (vá 2 lỗ trên: migration `020_harden_published_exams.sql` + strip answers khi publish + chuyển books/ielts-wizard vào signed flow) → Phase 5.1 (Vercel firewall) → Phase 2 (daily quota + Turnstile) → Phase 4 (Terms/copyright) → Phase 3 (UI, kèm ghi chú trung thực: layout/UI không chặn tuyệt đối được bằng kỹ thuật, chỉ bằng pháp lý + anti-bot).
+
+### Next session start prompt
+
+Thi công Phase 1 trong `Security/SECURITY_HARDENING_PLAN.txt`: (1) migration 020 scope policy `to authenticated` + strip `answer`/`explanation` trong `readingExamPublish.ts`/`listeningExamPublish.ts` + backfill script; (2) đưa `books/` + `ielts-wizard/` vào private Storage qua `content-sign` (thêm `books/` vào ALLOWED_ROOTS + `.pdf` vào ALLOWED_EXT + sửa `toStorageObjectPath` + `BookReaderPage` dùng `resolvePlayableMediaUrl`); (3) chạy checklist verify 1.4. KHÔNG deploy trước khi xong Phase 1.
+
+## 2026-07-16 — Rebuild PDF loading: fetch buffer thay vì PDF.js tự tải URL (fix lỗi 204)
+
+- User báo `Unexpected server response (204)` khi mở `/books/the-song-of-achilles.pdf` trong reader.
+- Chẩn đoán: file PDF hợp lệ (1MB, header `%PDF-1.4`), dev server trả 200 + 206 range đúng qua curl → lỗi nằm ở tầng transport của PDF.js trong browser. **User xác nhận nguyên nhân: Internet Download Manager bắt range request của PDF.js** (trùng pattern IDM đã ghi nhận session trước).
+- Rebuild theo yêu cầu user (thay thế thay vì vá): `BookReaderPage` giờ tự `fetch(pdfUrl, { cache: 'no-store' })` → kiểm tra `ok`/204/buffer rỗng → đưa `data: Uint8Array` cho `pdfjs.getDocument` thay vì `url`. PDF.js không còn tự mở network request nên không còn bị intercept.
+- Error message rõ ràng khi server trả lỗi: `Không tải được PDF (HTTP xxx).`
+- Test cập nhật: (1) fetch đúng URL + `getDocument` nhận `data` Uint8Array, không nhận `url`; (2) test mới: server trả 204 → hiện lỗi `HTTP 204`, không gọi `getDocument`.
 - Verify: 2/2 BookReaderPage tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a verify báº±ng browser tháº­t (browser automation khÃ´ng expose); náº¿u IDM váº«n báº¯t cáº£ `fetch()` XHR thÃ¬ cáº§n user thÃªm `localhost` vÃ o IDM exclusion list.
+- Lỗi còn tồn tại: chưa verify bằng browser thật (browser automation không expose); nếu IDM vẫn bắt cả `fetch()` XHR thì cần user thêm `localhost` vào IDM exclusion list.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach/read/cv01`; xÃ¡c nháº­n khÃ´ng cÃ²n lá»—i 204, trang 1 render trÃªn canvas, bá»™ Ä‘áº¿m `1 / 278`. Náº¿u váº«n lá»—i â†’ kiá»ƒm tra IDM: Options â†’ File types â†’ thÃªm `localhost` vÃ o "Don't start downloading from the following sites".
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận không còn lỗi 204, trang 1 render trên canvas, bộ đếm `1 / 278`. Nếu vẫn lỗi → kiểm tra IDM: Options → File types → thêm `localhost` vào "Don't start downloading from the following sites".
 
-## 2026-07-16 â€” Import audio IELTS Listening theo Part (Desktop Dethi)
+## 2026-07-16 — Import audio IELTS Listening theo Part (Desktop Dethi)
 
-- Nguá»“n: `C:\Users\ADMIN\OneDrive\Desktop\Dethi\Äá» thi IELTS` â€” **188/192** file Section/Part MP3 (map Cam 9â€“20).
-- ÄÃ­ch app: `apps/web/public/catalog/listening/ielts-cam{B}-test{T}/part{N}.mp3`
-- ÄÃ­ch tÃ i nguyÃªn: `Tainguyen\IELTS\Listening\Listening IELTS_Test{T}_Cam{B}\part{N}.mp3`
-- Catalog JSON: `audioUrl` â†’ `partN.mp3`; xÃ³a segment fallback khi cÃ³ file part.
-- **Thiáº¿u:** Cam 20 Test 1 (khÃ´ng cÃ³ file trong folder nguá»“n) â€” váº«n full `listening.mp3` + segment %.
+- Nguồn: `C:\Users\ADMIN\OneDrive\Desktop\Dethi\Đề thi IELTS` — **188/192** file Section/Part MP3 (map Cam 9–20).
+- Đích app: `apps/web/public/catalog/listening/ielts-cam{B}-test{T}/part{N}.mp3`
+- Đích tài nguyên: `Tainguyen\IELTS\Listening\Listening IELTS_Test{T}_Cam{B}\part{N}.mp3`
+- Catalog JSON: `audioUrl` → `partN.mp3`; xóa segment fallback khi có file part.
+- **Thiếu:** Cam 20 Test 1 (không có file trong folder nguồn) — vẫn full `listening.mp3` + segment %.
 - Script: `scripts/import-ielts-part-audio-from-dethi.mjs`
-- App: Ä‘á»•i Part â†’ auto play audio part; `resolveListeningAudioSource` Æ°u tiÃªn per-part.
+- App: đổi Part → auto play audio part; `resolveListeningAudioSource` ưu tiên per-part.
 
-## 2026-07-16 â€” Fix PDF Viewer 0/0 báº±ng PDF.js renderer
+## 2026-07-16 — Fix PDF Viewer 0/0 bằng PDF.js renderer
 
-- áº¢nh user cho tháº¥y iframe native PDF Viewer má»Ÿ nhÆ°ng bÃ¡o `0 trÃªn 0`, vÃ¹ng tÃ i liá»‡u trá»‘ng.
-- CLI parser `unpdf/getDocumentProxy` Ä‘á»c file thÃ nh **278 trang**, chá»©ng minh file nguá»“n há»£p lá»‡; native blob iframe lÃ  lá»›p gÃ¢y lá»—i trong mÃ´i trÆ°á»ng hiá»‡n táº¡i.
-- Loáº¡i bá» hoÃ n toÃ n `blob:` iframe/native PDF Viewer khá»i `BookReaderPage`.
-- Reader má»›i: fetch `arrayBuffer` â†’ `resolvePDFJSImport` â†’ `getDocumentProxy` â†’ `renderPageAsImage` trang hiá»‡n táº¡i thÃ nh data URL.
-- Chá»‰ render má»™t trang má»—i láº§n á»Ÿ scale 1.6 Ä‘á»ƒ giá»¯ hiá»‡u nÄƒng cho 278 trang; thÃªm nÃºt trang trÆ°á»›c/sau, bá»™ Ä‘áº¿m `page / 278`, loading/render/error states.
-- Cleanup abort fetch, há»§y PDF proxy vÃ  bá» káº¿t quáº£ render cÅ© khi Ä‘á»•i trang nhanh.
-- Regression test yÃªu cáº§u PDF.js render trang 1, áº£nh data URL, bá»™ Ä‘áº¿m `1 / 278` vÃ  tuyá»‡t Ä‘á»‘i khÃ´ng cÃ³ iframe; test Ä‘á» trÆ°á»›c fix â†’ xanh.
-- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; live module cÃ³ PDF.js renderer, khÃ´ng cÃ³ native iframe; reader route 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a kiá»ƒm tra áº£nh trang tháº­t báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/reading-corner/sach/read/cv01`; xÃ¡c nháº­n trang 1 hiá»ƒn thá»‹ dÆ°á»›i dáº¡ng áº£nh, bá»™ Ä‘áº¿m `1 / 278`, nÃºt trang sau render trang 2, khÃ´ng cÃ²n toolbar PDF `0/0` vÃ  khÃ´ng hiá»‡n IDM.
-
-## 2026-07-16 â€” Reader PDF ná»™i bá»™ trÃ¡nh IDM báº¯t download
-
-- áº¢nh user xÃ¡c nháº­n click Ä‘Ã£ hoáº¡t Ä‘á»™ng nhÆ°ng Internet Download Manager báº¯t URL `.pdf` vÃ  má»Ÿ dialog download thay vÃ¬ browser reader.
-- Regression test yÃªu cáº§u action â€œÄá»c sÃ¡châ€ trá» route app `/app/reading-corner/sach/read/cv01`, khÃ´ng trá» trá»±c tiáº¿p file PDF; test Ä‘á» trÆ°á»›c fix.
-- ThÃªm lazy route `reading-corner/sach/read/:bookId` vÃ  `BookReaderPage`.
-- Reader tÃ¬m metadata trong books catalog, `fetch()` PDF, táº¡o `blob:` URL báº±ng `URL.createObjectURL`, rá»“i gáº¯n blob URL vÃ o iframe PDF viewer; IDM khÃ´ng nháº­n direct `.pdf` navigation Ä‘á»ƒ cháº·n.
-- Reader cÃ³ toolbar tÃªn sÃ¡ch/tÃ¡c giáº£, nÃºt quay láº¡i ká»‡, loading/error state, cleanup AbortController + revokeObjectURL.
-- NÃºt trong modal trá» reader route `_self`; FLIP/pointer fixes giá»¯ nguyÃªn.
-- ThÃªm unit test reader: fetch Ä‘Ãºng PDF, iframe dÃ¹ng blob URL, cleanup revoke.
-- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; reader route 200; live module cÃ³ createObjectURL; PDF endpoint 200 `application/pdf`.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a render iframe PDF tháº­t báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Ảnh user cho thấy iframe native PDF Viewer mở nhưng báo `0 trên 0`, vùng tài liệu trống.
+- CLI parser `unpdf/getDocumentProxy` đọc file thành **278 trang**, chứng minh file nguồn hợp lệ; native blob iframe là lớp gây lỗi trong môi trường hiện tại.
+- Loại bỏ hoàn toàn `blob:` iframe/native PDF Viewer khỏi `BookReaderPage`.
+- Reader mới: fetch `arrayBuffer` → `resolvePDFJSImport` → `getDocumentProxy` → `renderPageAsImage` trang hiện tại thành data URL.
+- Chỉ render một trang mỗi lần ở scale 1.6 để giữ hiệu năng cho 278 trang; thêm nút trang trước/sau, bộ đếm `page / 278`, loading/render/error states.
+- Cleanup abort fetch, hủy PDF proxy và bỏ kết quả render cũ khi đổi trang nhanh.
+- Regression test yêu cầu PDF.js render trang 1, ảnh data URL, bộ đếm `1 / 278` và tuyệt đối không có iframe; test đỏ trước fix → xanh.
+- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; live module có PDF.js renderer, không có native iframe; reader route 200.
+- Lỗi còn tồn tại: chưa kiểm tra ảnh trang thật bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`, má»Ÿ The Song of Achilles vÃ  báº¥m â€œÄá»c sÃ¡châ€; xÃ¡c nháº­n chuyá»ƒn tá»›i `/app/reading-corner/sach/read/cv01`, khÃ´ng hiá»‡n IDM, PDF hiá»ƒn thá»‹ trong iframe blob vÃ  nÃºt â€œKá»‡ sÃ¡châ€ quay láº¡i Ä‘Ãºng.
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận trang 1 hiển thị dưới dạng ảnh, bộ đếm `1 / 278`, nút trang sau render trang 2, không còn toolbar PDF `0/0` và không hiện IDM.
 
-## 2026-07-16 â€” Fix láº§n 2 hit-test nÃºt Äá»c sÃ¡ch trong khÃ´ng gian 3D
+## 2026-07-16 — Reader PDF nội bộ tránh IDM bắt download
 
-- User xÃ¡c nháº­n chá»‰ táº¯t pointer cá»§a bÃ¬a váº«n chÆ°a click Ä‘Æ°á»£c; nguyÃªn nhÃ¢n tiáº¿p theo Ä‘Æ°á»£c khÃ³a báº±ng regression: `.book-inside` váº«n á»Ÿ `translateZ(-1px)` vÃ  z1, náº±m trÃªn máº·t pháº³ng 3D Ã¢m.
-- Khi modal open, nÃ¢ng `.book-inside` lÃªn `z-index: 3`, `translateZ(1px)`, giá»¯ `pointer-events: auto`.
-- ChÃ­nh `[data-book-preview-action]` cÃ³ `position: relative`, `z-index: 5`, `pointer-events: auto`, `translateZ(8px)`; active state giá»¯ translateZ khi scale.
-- BÃ¬a open tiáº¿p tá»¥c `pointer-events: none`; link PDF tiáº¿p tá»¥c `_self`.
-- Regression CSS kiá»ƒm tra Ä‘á»§ cover pointer-none, inside pointer-auto/z3/Z+1 vÃ  action pointer-auto/z5/Z+8; test Ä‘á» trÆ°á»›c fix â†’ xanh.
-- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS cÃ³ Ä‘á»§ Z layers; PDF endpoint 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a click tháº­t báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/reading-corner/sach`, má»Ÿ The Song of Achilles, Ä‘á»£i animation xong vÃ  click â€œÄá»c sÃ¡châ€; kiá»ƒm tra hover/click link trÃªn Chrome/Electron vÃ  xÃ¡c nháº­n chuyá»ƒn tá»›i PDF.
-
-## 2026-07-16 â€” Fix nÃºt Äá»c sÃ¡ch bá»‹ bÃ¬a 3D block click
-
-- áº¢nh user cho tháº¥y nÃºt â€œÄá»c sÃ¡châ€ hiá»ƒn thá»‹ nhÆ°ng khÃ´ng click Ä‘Æ°á»£c; regression CSS xÃ¡c nháº­n bÃ¬a Ä‘Ã£ `rotateY(-150deg)` nhÆ°ng hitbox váº«n giá»¯ `pointer-events`, náº±m z2 trÃªn trang trong z1.
-- ThÃªm `pointer-events: none` cho `.book-modal-content.is-open .book-cover`; khi bÃ¬a má»Ÿ xong, lá»›p bÃ¬a khÃ´ng cÃ²n cháº·n click.
-- `.book-inside` vá»‘n Ä‘Ã£ chuyá»ƒn `pointer-events: auto` á»Ÿ tráº¡ng thÃ¡i open, nÃªn link PDF nháº­n click trá»±c tiáº¿p sau fix.
-- Giá»¯ link PDF `target="_self"` Ä‘á»ƒ khÃ´ng phá»¥ thuá»™c popup/tab má»›i.
-- Regression test kiá»ƒm tra Ä‘á»“ng thá»i cover open = pointer none vÃ  inside open = pointer auto; test Ä‘á» trÆ°á»›c fix â†’ xanh sau fix.
-- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS cÃ³ pointer override; PDF endpoint 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a click tháº­t báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Ảnh user xác nhận click đã hoạt động nhưng Internet Download Manager bắt URL `.pdf` và mở dialog download thay vì browser reader.
+- Regression test yêu cầu action “Đọc sách” trỏ route app `/app/reading-corner/sach/read/cv01`, không trỏ trực tiếp file PDF; test đỏ trước fix.
+- Thêm lazy route `reading-corner/sach/read/:bookId` và `BookReaderPage`.
+- Reader tìm metadata trong books catalog, `fetch()` PDF, tạo `blob:` URL bằng `URL.createObjectURL`, rồi gắn blob URL vào iframe PDF viewer; IDM không nhận direct `.pdf` navigation để chặn.
+- Reader có toolbar tên sách/tác giả, nút quay lại kệ, loading/error state, cleanup AbortController + revokeObjectURL.
+- Nút trong modal trỏ reader route `_self`; FLIP/pointer fixes giữ nguyên.
+- Thêm unit test reader: fetch đúng PDF, iframe dùng blob URL, cleanup revoke.
+- Verify: 8 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; reader route 200; live module có createObjectURL; PDF endpoint 200 `application/pdf`.
+- Lỗi còn tồn tại: chưa render iframe PDF thật bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`, má»Ÿ The Song of Achilles, Ä‘á»£i bÃ¬a xoay má»Ÿ rá»“i click â€œÄá»c sÃ¡châ€; xÃ¡c nháº­n nÃºt nháº­n hover/click vÃ  tab hiá»‡n táº¡i chuyá»ƒn Ä‘áº¿n PDF.
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles và bấm “Đọc sách”; xác nhận chuyển tới `/app/reading-corner/sach/read/cv01`, không hiện IDM, PDF hiển thị trong iframe blob và nút “Kệ sách” quay lại đúng.
 
-## 2026-07-16 â€” Fix láº§n 2 nÃºt Äá»c sÃ¡ch: Ä‘iá»u hÆ°á»›ng cÃ¹ng tab
+## 2026-07-16 — Fix lần 2 hit-test nút Đọc sách trong không gian 3D
 
-- User xÃ¡c nháº­n native anchor `target="_blank"` váº«n khÃ´ng má»Ÿ trong mÃ´i trÆ°á»ng hiá»‡n táº¡i; káº¿t luáº­n mÃ´i trÆ°á»ng cháº·n tab/cá»­a sá»• má»›i, khÃ´ng pháº£i lá»—i PDF vÃ¬ endpoint luÃ´n 200 `application/pdf`.
-- Regression test Ä‘á»•i yÃªu cáº§u cá»§a action PDF sang `target="_self"`; test Ä‘á» khi code cÃ²n `_blank`.
-- NÃºt â€œÄá»c sÃ¡châ€ váº«n lÃ  anchor native nhÆ°ng nay Ä‘iá»u hÆ°á»›ng cÃ¹ng tab tá»›i `/books/the-song-of-achilles.pdf`; khÃ´ng dÃ¹ng popup, `window.open` hoáº·c tab má»›i.
-- Clone trong FLIP modal giá»¯ nguyÃªn `_self` vÃ  tabIndex 0; ngÆ°á»i dÃ¹ng dÃ¹ng nÃºt Back cá»§a browser Ä‘á»ƒ quay láº¡i ká»‡.
-- Verify: regression test Ä‘á» â†’ xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; PDF endpoint 200 `application/pdf`.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a click navigation tháº­t báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/reading-corner/sach`, má»Ÿ The Song of Achilles, click â€œÄá»c sÃ¡châ€; xÃ¡c nháº­n tab hiá»‡n táº¡i chuyá»ƒn tháº³ng Ä‘áº¿n PDF vÃ  nÃºt Back quay láº¡i ká»‡.
-
-## 2026-07-16 â€” Fix nÃºt Äá»c sÃ¡ch khÃ´ng má»Ÿ PDF
-
-- User xÃ¡c nháº­n click â€œÄá»c sÃ¡châ€ khÃ´ng má»Ÿ gÃ¬ dÃ¹ PDF endpoint Ä‘Ã£ 200; nguyÃªn nhÃ¢n Ä‘Ã¡ng tin cáº­y nháº¥t lÃ  cÆ¡ cháº¿ `window.open()` báº±ng JS bá»‹ trÃ¬nh duyá»‡t/in-app environment cháº·n.
-- Regression test yÃªu cáº§u action cá»§a sÃ¡ch Ä‘Ã£ import pháº£i lÃ  `HTMLAnchorElement` native vá»›i `href`, `target="_blank"` vÃ  `rel="noopener noreferrer"`; test Ä‘á» khi action cÃ²n lÃ  button.
-- `BilingualBooksPage` render `<a>` native cho sÃ¡ch cÃ³ `pdfUrl`; sÃ¡ch chÆ°a cÃ³ PDF tiáº¿p tá»¥c render `<button>` â€œÄá»c thá»­â€.
-- Preview controller chá»‰ gáº¯n fallback handler â€œÄ‘ang biÃªn táº­pâ€ cho `HTMLButtonElement`; anchor PDF Ä‘Æ°á»£c clone nguyÃªn váº¹n, tabIndex chuyá»ƒn 0 vÃ  Ä‘á»ƒ trÃ¬nh duyá»‡t xá»­ lÃ½ navigation trá»±c tiáº¿p.
-- CSS action bá»• sung inline-flex/center/text-decoration none Ä‘á»ƒ anchor giá»¯ Ä‘Ãºng giao diá»‡n nÃºt cÅ©.
-- Verify: regression test Ä‘á» â†’ xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live module cÃ³ native href; PDF endpoint tiáº¿p tá»¥c 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a click native anchor báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- User xác nhận chỉ tắt pointer của bìa vẫn chưa click được; nguyên nhân tiếp theo được khóa bằng regression: `.book-inside` vẫn ở `translateZ(-1px)` và z1, nằm trên mặt phẳng 3D âm.
+- Khi modal open, nâng `.book-inside` lên `z-index: 3`, `translateZ(1px)`, giữ `pointer-events: auto`.
+- Chính `[data-book-preview-action]` có `position: relative`, `z-index: 5`, `pointer-events: auto`, `translateZ(8px)`; active state giữ translateZ khi scale.
+- Bìa open tiếp tục `pointer-events: none`; link PDF tiếp tục `_self`.
+- Regression CSS kiểm tra đủ cover pointer-none, inside pointer-auto/z3/Z+1 và action pointer-auto/z5/Z+8; test đỏ trước fix → xanh.
+- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS có đủ Z layers; PDF endpoint 200.
+- Lỗi còn tồn tại: chưa click thật bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`, má»Ÿ The Song of Achilles vÃ  click â€œÄá»c sÃ¡châ€; xÃ¡c nháº­n browser má»Ÿ `/books/the-song-of-achilles.pdf` á»Ÿ tab má»›i. Náº¿u mÃ´i trÆ°á»ng váº«n cháº·n tab má»›i, chuyá»ƒn `target` sang `_self`.
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, đợi animation xong và click “Đọc sách”; kiểm tra hover/click link trên Chrome/Electron và xác nhận chuyển tới PDF.
 
-## 2026-07-16 â€” Import The Song of Achilles PDF vÃ o ká»‡ sÃ¡ch
+## 2026-07-16 — Fix nút Đọc sách bị bìa 3D block click
 
-- Nguá»“n: `D:\App-English-Ryan\Tainguyen\Book\The Song of Achilles.pdf` (1,018,904 bytes).
-- Sao chÃ©p nguyÃªn váº¹n vÃ o `apps/web/public/books/the-song-of-achilles.pdf`; SHA-256 nguá»“n/Ä‘Ã­ch cÃ¹ng `0C70B3FB6DD44BE73C036769A82127E0299E5D5F2904AF259609541D955C9F16`.
-- Catalog `cv01` vá»‘n Ä‘Ã£ cÃ³ bÃ¬a/title/author, nay thÃªm `pdfUrl: /books/the-song-of-achilles.pdf`.
-- `BookCover` há»— trá»£ `pdfUrl`; preview cá»§a sÃ¡ch cÃ³ PDF hiá»ƒn thá»‹ nÃºt â€œÄá»c sÃ¡châ€, sÃ¡ch chÆ°a cÃ³ file váº«n lÃ  â€œÄá»c thá»­â€.
-- Preview controller Ä‘á»c `data-book-preview-url` vÃ  má»Ÿ PDF báº±ng tab má»›i vá»›i `noopener,noreferrer`; fallback â€œÄ‘ang biÃªn táº­pâ€ giá»¯ nguyÃªn cho sÃ¡ch chÆ°a import.
-- ThÃªm regression test catalogâ†’DOM vÃ  test controller má»Ÿ Ä‘Ãºng PDF.
-- Verify: 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; Vite HEAD `/books/the-song-of-achilles.pdf` tráº£ 200, `application/pdf`, Ä‘Ãºng 1,018,904 bytes.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a click PDF báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/reading-corner/sach`, click â€œThe Song of Achillesâ€, Ä‘á»£i animation má»Ÿ sÃ¡ch, báº¥m â€œÄá»c sÃ¡châ€ vÃ  xÃ¡c nháº­n PDF má»Ÿ á»Ÿ tab má»›i; smoke-test Ä‘Ã³ng modal/drag shelf váº«n bÃ¬nh thÆ°á»ng.
-
-## 2026-07-16 â€” Fix StudySession grid lÃ m xuyÃªn báº£ng Vocabulary
-
-- Feedback áº£nh xÃ¡c nháº­n `.vocab-study-shell` transparent lÃ m toÃ n bá»™ báº£ng tá»«, toolbar vÃ  chá»¯ phÃ­a dÆ°á»›i xuyÃªn qua mÃ n hÃ¬nh há»c, gÃ¢y chá»“ng lá»›p.
-- Äá»•i study shell tá»« transparent sang background kÃ­n gá»“m mÃ u `--reading-corner-bg` + hai linear-gradient grid 32px.
-- StudySession tiáº¿p tá»¥c khÃ´ng cÃ³ ribbon; ná»n grid riÃªng cá»§a overlay che sáº¡ch CardPanel phÃ­a dÆ°á»›i nhÆ°ng card há»c, stat bar, mode tabs vÃ  controls váº«n náº±m phÃ­a trÃªn.
-- Regression test Ä‘á»•i yÃªu cáº§u tá»« transparent sang opaque grid surface: pháº£i cÃ³ background color, grid line vÃ  background-size 32px; test Ä‘á» trÆ°á»›c fix â†’ xanh sau fix.
-- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS cÃ³ selector/mÃ u/grid size; `/app/vocab` HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered sau fix vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Ảnh user cho thấy nút “Đọc sách” hiển thị nhưng không click được; regression CSS xác nhận bìa đã `rotateY(-150deg)` nhưng hitbox vẫn giữ `pointer-events`, nằm z2 trên trang trong z1.
+- Thêm `pointer-events: none` cho `.book-modal-content.is-open .book-cover`; khi bìa mở xong, lớp bìa không còn chặn click.
+- `.book-inside` vốn đã chuyển `pointer-events: auto` ở trạng thái open, nên link PDF nhận click trực tiếp sau fix.
+- Giữ link PDF `target="_self"` để không phụ thuộc popup/tab mới.
+- Regression test kiểm tra đồng thời cover open = pointer none và inside open = pointer auto; test đỏ trước fix → xanh sau fix.
+- Verify: 7 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live CSS có pointer override; PDF endpoint 200.
+- Lỗi còn tồn tại: chưa click thật bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/vocab`, má»Ÿ SRS khi báº£ng deck Ä‘ang hiá»‡n phÃ­a dÆ°á»›i; xÃ¡c nháº­n chá»‰ tháº¥y ná»n xanh grid + UI há»c, khÃ´ng cÃ²n hÃ ng tá»«/toolbar xuyÃªn qua, rá»“i smoke-test 8 mode cÃ²n láº¡i vÃ  light/mid/dark.
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, đợi bìa xoay mở rồi click “Đọc sách”; xác nhận nút nhận hover/click và tab hiện tại chuyển đến PDF.
 
-## 2026-07-16 â€” Grid cho toÃ n bá»™ cháº¿ Ä‘á»™ há»c Vocabulary
+## 2026-07-16 — Fix lần 2 nút Đọc sách: điều hướng cùng tab
 
-- Ãp dá»¥ng Ã´ lÆ°á»›i cá»§a `/app/vocab` cho cáº£ 9 mode dÃ¹ng chung `StudySession`: SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats vÃ  Notebook.
-- NguyÃªn nhÃ¢n lá»›p grid bá»‹ che trong mode há»c: `.vocab-study-shell` lÃ  overlay `absolute inset-0 z-40` vÃ  cÃ³ `background: var(--vs-shell-bg)`.
-- Trong `.app-shell--grid`, Ã©p riÃªng `.vocab-study-shell` vá» transparent; stat bar, mode tabs, flashcard, quiz card, input, báº£ng thá»‘ng kÃª vÃ  notebook card váº«n giá»¯ surface riÃªng.
-- KhÃ´ng render ribbon vÃ¬ `/app/vocab` tiáº¿p tá»¥c á»Ÿ backdrop mode `grid`.
-- Regression assertion Ä‘Ã£ Ä‘á» trÆ°á»›c fix vÃ¬ thiáº¿u selector study shell, sau fix xanh.
-- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS chá»©a selector má»›i; `/app/vocab` HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/vocab`; má»Ÿ láº§n lÆ°á»£t SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats, Notebook vÃ  xÃ¡c nháº­n grid 32px hiá»‡n phÃ­a sau, khÃ´ng cÃ³ ribbon, card/input/panel váº«n rÃµ á»Ÿ light/mid/dark.
-
-## 2026-07-16 â€” Fix grid Vocabulary bá»‹ CardPanel che
-
-- Repro theo tráº¡ng thÃ¡i `activeDeckId`: route `/app/vocab` Ä‘Ã£ Ä‘Ãºng mode `grid`, nhÆ°ng `CardPanel` full-height váº«n phá»§ `var(--bg-primary)` nÃªn ngÆ°á»i dÃ¹ng khÃ´ng tháº¥y Ã´ lÆ°á»›i khi má»™t deck Ä‘ang Ä‘Æ°á»£c nhá»›/má»Ÿ.
-- ThÃªm hook `.vocab-card-panel` cho cáº£ tráº¡ng thÃ¡i deck Ä‘ang táº£i/chÆ°a cÃ³ vÃ  tráº¡ng thÃ¡i deck Ä‘Ã£ má»Ÿ.
-- Trong `.app-shell--grid`, Ã©p riÃªng `.vocab-card-panel` vá» `background: transparent !important`; header, báº£ng, card vÃ  modal bÃªn trong giá»¯ surface riÃªng.
-- ThÃªm regression test render CardPanel tháº­t vá»›i store/query mock, Ä‘á»“ng thá»i kiá»ƒm tra selector CSS grid-mode tá»“n táº¡i.
-- Verify: regression loop Ä‘á» 2/2 trÆ°á»›c fix â†’ xanh; tá»•ng 63 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS/module PASS; `/app/vocab` HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- User xác nhận native anchor `target="_blank"` vẫn không mở trong môi trường hiện tại; kết luận môi trường chặn tab/cửa sổ mới, không phải lỗi PDF vì endpoint luôn 200 `application/pdf`.
+- Regression test đổi yêu cầu của action PDF sang `target="_self"`; test đỏ khi code còn `_blank`.
+- Nút “Đọc sách” vẫn là anchor native nhưng nay điều hướng cùng tab tới `/books/the-song-of-achilles.pdf`; không dùng popup, `window.open` hoặc tab mới.
+- Clone trong FLIP modal giữ nguyên `_self` và tabIndex 0; người dùng dùng nút Back của browser để quay lại kệ.
+- Verify: regression test đỏ → xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; PDF endpoint 200 `application/pdf`.
+- Lỗi còn tồn tại: chưa click navigation thật bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/vocab` khi Ä‘ang á»Ÿ danh sÃ¡ch deck vÃ  khi má»™t deck Ä‘Ã£ má»Ÿ; xÃ¡c nháº­n grid 32px Ä‘á»u hiá»‡n, khÃ´ng cÃ³ ribbon, header/báº£ng/card váº«n dá»… Ä‘á»c á»Ÿ light/mid/dark.
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles, click “Đọc sách”; xác nhận tab hiện tại chuyển thẳng đến PDF và nút Back quay lại kệ.
 
-## 2026-07-16 â€” Grid-only cho Writing subpages vÃ  Vocabulary
+## 2026-07-16 — Fix nút Đọc sách không mở PDF
 
-- TÃ¡ch backdrop AppShell thÃ nh 3 mode: `none`, `grid`, `ribbon`; mode `grid` render Ã´ lÆ°á»›i nhÆ°ng khÃ´ng táº¡o ba pháº§n tá»­ ribbon.
-- Chuyá»ƒn `/app/vocab` tá»« ribbon sang grid-only.
-- Báº­t grid-only cho Writing Translate hub + 6 track, Writing Practice hub + Task 1/Task 2/Free, Cambridge hub + A2/B1/B2/C1/C2 vÃ  Writing Dashboard.
-- Danh sÃ¡ch ngÆ°á»i dÃ¹ng láº·p B2 vÃ  thiáº¿u C2; map thÃªm C2 theo cáº¥u trÃºc Cambridge A2â€“C2 hiá»‡n cÃ³.
-- DÃ¹ng lá»›p chung `.app-shell--backdrop` Ä‘á»ƒ gá»¡ ná»n ngoÃ i cá»§a Writing layout, `.cb-hub`, `.wd-page` vÃ  Vocabulary `.app-page-surface`; card/form/header bÃªn trong váº«n giá»¯ surface riÃªng.
-- CÃ¡c trang backdrop cÅ© váº«n dÃ¹ng mode `ribbon`; cÃ¡c route ngoÃ i whitelist váº«n `none`.
-- Verify: 61 route mode tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 5 URL Ä‘áº¡i diá»‡n HTTP 200; diff-check PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Hard refresh `/app/vocab`, `/app/writing/translate/grammar_basic`, `/app/writing/practice/task2`, `/app/writing/cambridge/c2`, `/app/writing/dashboard`; xÃ¡c nháº­n chá»‰ cÃ³ grid 32px, tuyá»‡t Ä‘á»‘i khÃ´ng cÃ³ ribbon, card/form váº«n rÃµ á»Ÿ light/mid/dark.
-
-## 2026-07-16 â€” Grid + ribbon cho Exam Track, Shadowing lesson vÃ  Sentence catalog
-
-- Má»Ÿ rá»™ng `hasAppRibbonBackdrop()` cho Ä‘Ãºng cÃ¡c route Exam Track IELTS/Cambridge Ä‘Æ°á»£c yÃªu cáº§u, gá»“m level A2â€“C2 vÃ  cÃ¡c trang Listening/Reading.
-- Báº­t backdrop cho route bÃ i há»c Shadowing má»™t cáº¥p nhÆ° `/app/shadowing/28EFRJaA2JQ`; query `?mode=shadowing` khÃ´ng áº£nh hÆ°á»Ÿng vÃ¬ AppShell match theo pathname.
-- Báº­t backdrop cho má»i Sentence Structure ID dáº¡ng `catalog:ss:*`, há»— trá»£ cáº£ dáº¥u `:` trá»±c tiáº¿p vÃ  `%3A` URL-encoded.
-- Gá»¡ ná»n Ä‘áº·c chá»‰ á»Ÿ container ngoÃ i: `.exam-hub-page`, `.exam-skill-picker`, `.shadowing-detail`, `.ss-shell`; card, player, transcript vÃ  panel váº«n giá»¯ surface riÃªng.
-- Táº¯t dot texture `ss-shell::before` Ä‘á»ƒ khÃ´ng chá»“ng lÃªn grid 32px dÃ¹ng chung.
-- Verify: 41 matcher tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 4 URL Ä‘áº¡i diá»‡n HTTP 200; live Vite CSS chá»©a Ä‘á»§ selector má»›i.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y. `pnpm build` Ä‘Ã£ cháº¡y `build:catalog` vÃ  lÃ m má»›i cÃ¡c file catalog sinh tá»± Ä‘á»™ng; giá»¯ nguyÃªn, khÃ´ng tá»± Ã½ hoÃ n tÃ¡c worktree.
+- User xác nhận click “Đọc sách” không mở gì dù PDF endpoint đã 200; nguyên nhân đáng tin cậy nhất là cơ chế `window.open()` bằng JS bị trình duyệt/in-app environment chặn.
+- Regression test yêu cầu action của sách đã import phải là `HTMLAnchorElement` native với `href`, `target="_blank"` và `rel="noopener noreferrer"`; test đỏ khi action còn là button.
+- `BilingualBooksPage` render `<a>` native cho sách có `pdfUrl`; sách chưa có PDF tiếp tục render `<button>` “Đọc thử”.
+- Preview controller chỉ gắn fallback handler “đang biên tập” cho `HTMLButtonElement`; anchor PDF được clone nguyên vẹn, tabIndex chuyển 0 và để trình duyệt xử lý navigation trực tiếp.
+- CSS action bổ sung inline-flex/center/text-decoration none để anchor giữ đúng giao diện nút cũ.
+- Verify: regression test đỏ → xanh; 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live module có native href; PDF endpoint tiếp tục 200.
+- Lỗi còn tồn tại: chưa click native anchor bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh má»™t route má»—i nhÃ³m: `/app/exam/track/cambridge/c2/reading`, `/app/exam/track/ielts/listening`, `/app/shadowing/28EFRJaA2JQ?mode=shadowing`, vÃ  má»™t `/app/sentence-structure/catalog:ss:*`; xÃ¡c nháº­n grid/ribbon hiá»‡n sau ná»™i dung, card/player váº«n rÃµ á»Ÿ cáº£ light/mid/dark.
+Hard refresh `/app/reading-corner/sach`, mở The Song of Achilles và click “Đọc sách”; xác nhận browser mở `/books/the-song-of-achilles.pdf` ở tab mới. Nếu môi trường vẫn chặn tab mới, chuyển `target` sang `_self`.
 
-## 2026-07-16 â€” ThÃªm Ã´ lÆ°á»›i cho cÃ¡c trang con Reading Corner
+## 2026-07-16 — Import The Song of Achilles PDF vào kệ sách
 
-- `/bao` vÃ  article reader giá»¯ grid dÃ¹ng chung `.snb-ribbon-grid` Ä‘Ã£ cÃ³.
-- `/sach` bá»• sung `.library-camera::before`: grid 32Ã—32px mÃ u amber nháº¡t 14%, opacity .42, soft-light.
-- Grid sÃ¡ch náº±m z2 trÃªn áº£nh ná»n nhÆ°ng dÆ°á»›i header/bookcase z4+, pointer-events none nÃªn khÃ´ng che áº£nh bÃ¬a hoáº·c cháº·n drag/click/FLIP.
-- Verify: child-grid assertion PASS; 4 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live CSS PASS; `/sach` vÃ  `/bao` HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Nguồn: `D:\App-English-Ryan\Tainguyen\Book\The Song of Achilles.pdf` (1,018,904 bytes).
+- Sao chép nguyên vẹn vào `apps/web/public/books/the-song-of-achilles.pdf`; SHA-256 nguồn/đích cùng `0C70B3FB6DD44BE73C036769A82127E0299E5D5F2904AF259609541D955C9F16`.
+- Catalog `cv01` vốn đã có bìa/title/author, nay thêm `pdfUrl: /books/the-song-of-achilles.pdf`.
+- `BookCover` hỗ trợ `pdfUrl`; preview của sách có PDF hiển thị nút “Đọc sách”, sách chưa có file vẫn là “Đọc thử”.
+- Preview controller đọc `data-book-preview-url` và mở PDF bằng tab mới với `noopener,noreferrer`; fallback “đang biên tập” giữ nguyên cho sách chưa import.
+- Thêm regression test catalog→DOM và test controller mở đúng PDF.
+- Verify: 6 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; Vite HEAD `/books/the-song-of-achilles.pdf` trả 200, `application/pdf`, đúng 1,018,904 bytes.
+- Lỗi còn tồn tại: chưa click PDF bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach` vÃ  `/bao`; kiá»ƒm tra Ã´ lÆ°á»›i 32px Ä‘á»§ nháº¹ trÃªn áº£nh thÆ° viá»‡n vÃ  rÃµ trÃªn ná»n xanh, khÃ´ng che card/bookcase.
+Hard refresh `/app/reading-corner/sach`, click “The Song of Achilles”, đợi animation mở sách, bấm “Đọc sách” và xác nhận PDF mở ở tab mới; smoke-test đóng modal/drag shelf vẫn bình thường.
 
-## 2026-07-16 â€” ThÃªm nÃºt Quay láº¡i cho Reading Corner hub
+## 2026-07-16 — Fix StudySession grid làm xuyên bảng Vocabulary
 
-- `/app/reading-corner` thÃªm `Link.rc-hub-back` á»Ÿ Ä‘áº§u ná»™i dung, Ä‘iá»u hÆ°á»›ng vá» `/app/home`.
-- NÃºt cÃ³ icon mÅ©i tÃªn trÃ¡i, glass surface theo theme tokens, blur 10px, hover dá»‹ch trÃ¡i nháº¹ vÃ  focus-visible.
-- NÃºt náº±m trong flow trÆ°á»›c header nÃªn khÃ´ng che tiÃªu Ä‘á» trÃªn mobile.
-- ThÃªm `ReadingCornerHub.test.tsx` xÃ¡c nháº­n link â€œQuay láº¡iâ€ cÃ³ `href=/app/home`.
+- Feedback ảnh xác nhận `.vocab-study-shell` transparent làm toàn bộ bảng từ, toolbar và chữ phía dưới xuyên qua màn hình học, gây chồng lớp.
+- Đổi study shell từ transparent sang background kín gồm màu `--reading-corner-bg` + hai linear-gradient grid 32px.
+- StudySession tiếp tục không có ribbon; nền grid riêng của overlay che sạch CardPanel phía dưới nhưng card học, stat bar, mode tabs và controls vẫn nằm phía trên.
+- Regression test đổi yêu cầu từ transparent sang opaque grid surface: phải có background color, grid line và background-size 32px; test đỏ trước fix → xanh sau fix.
+- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS có selector/màu/grid size; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered sau fix vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, mở SRS khi bảng deck đang hiện phía dưới; xác nhận chỉ thấy nền xanh grid + UI học, không còn hàng từ/toolbar xuyên qua, rồi smoke-test 8 mode còn lại và light/mid/dark.
+
+## 2026-07-16 — Grid cho toàn bộ chế độ học Vocabulary
+
+- Áp dụng ô lưới của `/app/vocab` cho cả 9 mode dùng chung `StudySession`: SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats và Notebook.
+- Nguyên nhân lớp grid bị che trong mode học: `.vocab-study-shell` là overlay `absolute inset-0 z-40` và có `background: var(--vs-shell-bg)`.
+- Trong `.app-shell--grid`, ép riêng `.vocab-study-shell` về transparent; stat bar, mode tabs, flashcard, quiz card, input, bảng thống kê và notebook card vẫn giữ surface riêng.
+- Không render ribbon vì `/app/vocab` tiếp tục ở backdrop mode `grid`.
+- Regression assertion đã đỏ trước fix vì thiếu selector study shell, sau fix xanh.
+- Verify: 64 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS chứa selector mới; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`; mở lần lượt SRS, Quiz, Type, Listen & Type, Speaking, Weak Words, Review, Stats, Notebook và xác nhận grid 32px hiện phía sau, không có ribbon, card/input/panel vẫn rõ ở light/mid/dark.
+
+## 2026-07-16 — Fix grid Vocabulary bị CardPanel che
+
+- Repro theo trạng thái `activeDeckId`: route `/app/vocab` đã đúng mode `grid`, nhưng `CardPanel` full-height vẫn phủ `var(--bg-primary)` nên người dùng không thấy ô lưới khi một deck đang được nhớ/mở.
+- Thêm hook `.vocab-card-panel` cho cả trạng thái deck đang tải/chưa có và trạng thái deck đã mở.
+- Trong `.app-shell--grid`, ép riêng `.vocab-card-panel` về `background: transparent !important`; header, bảng, card và modal bên trong giữ surface riêng.
+- Thêm regression test render CardPanel thật với store/query mock, đồng thời kiểm tra selector CSS grid-mode tồn tại.
+- Verify: regression loop đỏ 2/2 trước fix → xanh; tổng 63 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; diff-check PASS; live Vite CSS/module PASS; `/app/vocab` HTTP 200.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab` khi đang ở danh sách deck và khi một deck đã mở; xác nhận grid 32px đều hiện, không có ribbon, header/bảng/card vẫn dễ đọc ở light/mid/dark.
+
+## 2026-07-16 — Grid-only cho Writing subpages và Vocabulary
+
+- Tách backdrop AppShell thành 3 mode: `none`, `grid`, `ribbon`; mode `grid` render ô lưới nhưng không tạo ba phần tử ribbon.
+- Chuyển `/app/vocab` từ ribbon sang grid-only.
+- Bật grid-only cho Writing Translate hub + 6 track, Writing Practice hub + Task 1/Task 2/Free, Cambridge hub + A2/B1/B2/C1/C2 và Writing Dashboard.
+- Danh sách người dùng lặp B2 và thiếu C2; map thêm C2 theo cấu trúc Cambridge A2–C2 hiện có.
+- Dùng lớp chung `.app-shell--backdrop` để gỡ nền ngoài của Writing layout, `.cb-hub`, `.wd-page` và Vocabulary `.app-page-surface`; card/form/header bên trong vẫn giữ surface riêng.
+- Các trang backdrop cũ vẫn dùng mode `ribbon`; các route ngoài whitelist vẫn `none`.
+- Verify: 61 route mode tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 5 URL đại diện HTTP 200; diff-check PASS.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, `/app/writing/translate/grammar_basic`, `/app/writing/practice/task2`, `/app/writing/cambridge/c2`, `/app/writing/dashboard`; xác nhận chỉ có grid 32px, tuyệt đối không có ribbon, card/form vẫn rõ ở light/mid/dark.
+
+## 2026-07-16 — Grid + ribbon cho Exam Track, Shadowing lesson và Sentence catalog
+
+- Mở rộng `hasAppRibbonBackdrop()` cho đúng các route Exam Track IELTS/Cambridge được yêu cầu, gồm level A2–C2 và các trang Listening/Reading.
+- Bật backdrop cho route bài học Shadowing một cấp như `/app/shadowing/28EFRJaA2JQ`; query `?mode=shadowing` không ảnh hưởng vì AppShell match theo pathname.
+- Bật backdrop cho mọi Sentence Structure ID dạng `catalog:ss:*`, hỗ trợ cả dấu `:` trực tiếp và `%3A` URL-encoded.
+- Gỡ nền đặc chỉ ở container ngoài: `.exam-hub-page`, `.exam-skill-picker`, `.shadowing-detail`, `.ss-shell`; card, player, transcript và panel vẫn giữ surface riêng.
+- Tắt dot texture `ss-shell::before` để không chồng lên grid 32px dùng chung.
+- Verify: 41 matcher tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS; 4 URL đại diện HTTP 200; live Vite CSS chứa đủ selector mới.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này. `pnpm build` đã chạy `build:catalog` và làm mới các file catalog sinh tự động; giữ nguyên, không tự ý hoàn tác worktree.
+
+### Next session start prompt
+
+Hard refresh một route mỗi nhóm: `/app/exam/track/cambridge/c2/reading`, `/app/exam/track/ielts/listening`, `/app/shadowing/28EFRJaA2JQ?mode=shadowing`, và một `/app/sentence-structure/catalog:ss:*`; xác nhận grid/ribbon hiện sau nội dung, card/player vẫn rõ ở cả light/mid/dark.
+
+## 2026-07-16 — Thêm ô lưới cho các trang con Reading Corner
+
+- `/bao` và article reader giữ grid dùng chung `.snb-ribbon-grid` đã có.
+- `/sach` bổ sung `.library-camera::before`: grid 32×32px màu amber nhạt 14%, opacity .42, soft-light.
+- Grid sách nằm z2 trên ảnh nền nhưng dưới header/bookcase z4+, pointer-events none nên không che ảnh bìa hoặc chặn drag/click/FLIP.
+- Verify: child-grid assertion PASS; 4 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live CSS PASS; `/sach` và `/bao` HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Hard refresh `/app/reading-corner/sach` và `/bao`; kiểm tra ô lưới 32px đủ nhẹ trên ảnh thư viện và rõ trên nền xanh, không che card/bookcase.
+
+## 2026-07-16 — Thêm nút Quay lại cho Reading Corner hub
+
+- `/app/reading-corner` thêm `Link.rc-hub-back` ở đầu nội dung, điều hướng về `/app/home`.
+- Nút có icon mũi tên trái, glass surface theo theme tokens, blur 10px, hover dịch trái nhẹ và focus-visible.
+- Nút nằm trong flow trước header nên không che tiêu đề trên mobile.
+- Thêm `ReadingCornerHub.test.tsx` xác nhận link “Quay lại” có `href=/app/home`.
 - Verify: 4 Reading Corner tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live hub module PASS.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner`; kiá»ƒm tra nÃºt Quay láº¡i trÃªn desktop/mobile vÃ  xÃ¡c nháº­n Ä‘iá»u hÆ°á»›ng vá» `/app/home`.
+Hard refresh `/app/reading-corner`; kiểm tra nút Quay lại trên desktop/mobile và xác nhận điều hướng về `/app/home`.
 
-## 2026-07-16 â€” Gá»¡ mouse tilt, thay báº±ng ambient background drift
+## 2026-07-16 — Gỡ mouse tilt, thay bằng ambient background drift
 
-- XÃ³a toÃ n bá»™ `sceneRef`, `cameraRef`, preview tilt refs, mousemove/mouseleave listeners, RAF lerp vÃ  CSS vars/rotateX/rotateY cá»§a camera.
-- `.library-camera` giá»¯ láº¡i lÃ m wrapper tÄ©nh cho background/scene; `stage.is-preview-open` váº«n giá»¯ vÃ¬ chá»‰ khÃ³a shelf khi FLIP modal má»Ÿ.
-- `.library-bg` cháº¡y `ambient-drift` Ä‘á»™c láº­p: scale 1â†’1.03, 30s ease-in-out alternate infinite, transform-origin center bottom.
-- KhÃ´ng thÃªm scroll parallax/listener Ä‘á»ƒ trÃ¡nh chi phÃ­ vÃ  xung Ä‘á»™t drag shelf.
-- Reduced-motion táº¯t ambient animation, transform vÃ  will-change.
-- XÃ³a regression test camera tilt; giá»¯ test khÃ´ng cÃ³ RAF lÃºc render vÃ  toÃ n bá»™ drag/click/FLIP tests.
-- Verify: source assertion khÃ´ng mousemove/RAF/camera rotate PASS; 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live module khÃ´ng tilt + live ambient CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Xóa toàn bộ `sceneRef`, `cameraRef`, preview tilt refs, mousemove/mouseleave listeners, RAF lerp và CSS vars/rotateX/rotateY của camera.
+- `.library-camera` giữ lại làm wrapper tĩnh cho background/scene; `stage.is-preview-open` vẫn giữ vì chỉ khóa shelf khi FLIP modal mở.
+- `.library-bg` chạy `ambient-drift` độc lập: scale 1→1.03, 30s ease-in-out alternate infinite, transform-origin center bottom.
+- Không thêm scroll parallax/listener để tránh chi phí và xung đột drag shelf.
+- Reduced-motion tắt ambient animation, transform và will-change.
+- Xóa regression test camera tilt; giữ test không có RAF lúc render và toàn bộ drag/click/FLIP tests.
+- Verify: source assertion không mousemove/RAF/camera rotate PASS; 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live module không tilt + live ambient CSS PASS; route HTTP 200.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; xÃ¡c nháº­n rÃª chuá»™t khÃ´ng lÃ m scene nghiÃªng, background zoom ráº¥t cháº­m 30s, hover/drag/FLIP váº«n hoáº¡t Ä‘á»™ng vÃ  reduced-motion táº¯t drift.
+Hard refresh `/app/reading-corner/sach`; xác nhận rê chuột không làm scene nghiêng, background zoom rất chậm 30s, hover/drag/FLIP vẫn hoạt động và reduced-motion tắt drift.
 
-## 2026-07-16 â€” Fix focus halo sÃ¡t bÃ¬a + dáº£i tá»‘i ngang hÃ ng 2
+## 2026-07-16 — Fix focus halo sát bìa + dải tối ngang hàng 2
 
-- Feedback loop Ä‘á» xÃ¡c nháº­n 3 váº¥n Ä‘á» cÃ¹ng tá»“n táº¡i: bottom fade `position:fixed`, focus shadow Ã¡p trá»±c tiáº¿p lÃªn `.book`, shelf occlusion dÃ¹ng 88% shadow.
-- Focus halo chuyá»ƒn sang `.book::before`, inset -8px vÃ  radius 8px; `:focus-visible` chá»‰ báº­t opacity. Ring dÃ¹ng spread 6px 50% + glow 24px/4px 30%, táº¡o khoáº£ng há»Ÿ tá»± nhiÃªn.
-- Focused book z11 Ä‘á»ƒ halo khÃ´ng bá»‹ shelf front z8 che; contact shadow tiáº¿p tá»¥c dÃ¹ng `.book::after`.
-- Bottom fade chuyá»ƒn tá»« `.library-scene::before` fixed sang `.library-camera::after` absolute bottom, nÃªn chá»‰ xuáº¥t hiá»‡n á»Ÿ cuá»‘i tháº­t cá»§a toÃ n bá»™ scene thay vÃ¬ Ä‘Ã¡y viewport/hÃ ng 2.
-- Shelf-front shadow vÃ  lower-row occlusion giáº£m 18â†’16px, shadow mix 88%â†’60% (effective khoáº£ng 24% tá»« base rgba .4).
+- Feedback loop đỏ xác nhận 3 vấn đề cùng tồn tại: bottom fade `position:fixed`, focus shadow áp trực tiếp lên `.book`, shelf occlusion dùng 88% shadow.
+- Focus halo chuyển sang `.book::before`, inset -8px và radius 8px; `:focus-visible` chỉ bật opacity. Ring dùng spread 6px 50% + glow 24px/4px 30%, tạo khoảng hở tự nhiên.
+- Focused book z11 để halo không bị shelf front z8 che; contact shadow tiếp tục dùng `.book::after`.
+- Bottom fade chuyển từ `.library-scene::before` fixed sang `.library-camera::after` absolute bottom, nên chỉ xuất hiện ở cuối thật của toàn bộ scene thay vì đáy viewport/hàng 2.
+- Shelf-front shadow và lower-row occlusion giảm 18→16px, shadow mix 88%→60% (effective khoảng 24% từ base rgba .4).
 - Verify: original red loop GREEN; 4 camera/drag/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live CSS fix PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; Tab vÃ o sÃ¡ch kiá»ƒm tra halo cÃ¡ch bÃ¬a ~8px, cuá»™n qua hÃ ng 2 xÃ¡c nháº­n khÃ´ng cÃ²n dáº£i chá»¯ nháº­t tá»‘i vÃ  kiá»ƒm tra fade chá»‰ xuáº¥t hiá»‡n á»Ÿ cuá»‘i scene.
+Hard refresh `/app/reading-corner/sach`; Tab vào sách kiểm tra halo cách bìa ~8px, cuộn qua hàng 2 xác nhận không còn dải chữ nhật tối và kiểm tra fade chỉ xuất hiện ở cuối scene.
 
-## 2026-07-16 â€” Warm UI rings, glass pills vÃ  bottom fade
+## 2026-07-16 — Warm UI rings, glass pills và bottom fade
 
-- Chá»‰ sá»­a `readingCorner.css`; khÃ´ng Ä‘á»•i DOM/handlers/animation sÃ¡ch.
-- Book `:focus-visible` bá» outline xanh/tÃ­m, dÃ¹ng amber ring 3px 70% + glow 20px 40%; váº«n giá»¯ keyboard accessibility.
-- NÃºt â€œGÃ³c Ä‘á»câ€ vÃ  â€œÄá»c BÃ¡o Song Ngá»¯â€ dÃ¹ng walnut glass 50%, blur 10px, amber border 30%, cream text vÃ  shadow 4px/12px.
-- Hover pill pha nháº¹ `--library-accent`, selector cÃ³ specificity cao hÆ¡n rule tráº¯ng legacy.
-- `.library-scene::before` táº¡o bottom fade fixed 100â€“150px, transparent â†’ dark walnut 96% á»Ÿ 90%; z850, pointer-events none. Grain tiáº¿p tá»¥c á»Ÿ `::after` z900.
+- Chỉ sửa `readingCorner.css`; không đổi DOM/handlers/animation sách.
+- Book `:focus-visible` bỏ outline xanh/tím, dùng amber ring 3px 70% + glow 20px 40%; vẫn giữ keyboard accessibility.
+- Nút “Góc đọc” và “Đọc Báo Song Ngữ” dùng walnut glass 50%, blur 10px, amber border 30%, cream text và shadow 4px/12px.
+- Hover pill pha nhẹ `--library-accent`, selector có specificity cao hơn rule trắng legacy.
+- `.library-scene::before` tạo bottom fade fixed 100–150px, transparent → dark walnut 96% ở 90%; z850, pointer-events none. Grain tiếp tục ở `::after` z900.
 - Verify: 4 camera/hover/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; warm UI CSS assertion PASS; scoped diff-check PASS; live CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; dÃ¹ng Tab kiá»ƒm tra amber focus ring, hover hai glass pill vÃ  cuá»™n xuá»‘ng cuá»‘i Ä‘á»ƒ kiá»ƒm tra fade khÃ´ng che click/drag sÃ¡ch.
+Hard refresh `/app/reading-corner/sach`; dùng Tab kiểm tra amber focus ring, hover hai glass pill và cuộn xuống cuối để kiểm tra fade không che click/drag sách.
 
-## 2026-07-16 â€” Header depth + dust motes cho library scene
+## 2026-07-16 — Header depth + dust motes cho library scene
 
-- ThÃªm `.library-header-depth` cao 280â€“480px phÃ­a sau intro, `backdrop-filter: blur(2.5px) brightness(.85)` vÃ  mask fade xuá»‘ng dÆ°á»›i; bookcase ngoÃ i vÃ¹ng nÃ y giá»¯ nguyÃªn nÃ©t.
-- `.library-intro::before` táº¡o overlay nÃ¢u Ä‘en feathered báº±ng linear-gradient + radial mask, khÃ´ng cÃ³ card/border cá»©ng.
-- `.library-intro::after` táº¡o warm radial glow vÃ ng 15%, lá»›n hÆ¡n intro vÃ  blur 36px; content náº±m z2 phÃ­a trÃªn.
-- H1 dÃ¹ng text-shadow 3 lá»›p: contact 2px/4px, ambient 8px/24px vÃ  rim light tráº¯ng 1px.
-- ThÃªm Ä‘Ãºng 18 `.library-dust__particle` deterministic; size 2â€“4px, duration 8â€“15s, negative delay, drift riÃªng; animation chá»‰ transform/opacity.
-- Dust náº±m trong `.library-camera`, cÃ¹ng tilt vá»›i scene nhÆ°ng pointer-events none; reduced-motion táº¯t animation vÃ  will-change.
-- Mobile giá»¯ vertical padding intro Ä‘á»ƒ mask/glow khÃ´ng bá»‹ cáº¯t; thÃªm WebKit mask fallback.
+- Thêm `.library-header-depth` cao 280–480px phía sau intro, `backdrop-filter: blur(2.5px) brightness(.85)` và mask fade xuống dưới; bookcase ngoài vùng này giữ nguyên nét.
+- `.library-intro::before` tạo overlay nâu đen feathered bằng linear-gradient + radial mask, không có card/border cứng.
+- `.library-intro::after` tạo warm radial glow vàng 15%, lớn hơn intro và blur 36px; content nằm z2 phía trên.
+- H1 dùng text-shadow 3 lớp: contact 2px/4px, ambient 8px/24px và rim light trắng 1px.
+- Thêm đúng 18 `.library-dust__particle` deterministic; size 2–4px, duration 8–15s, negative delay, drift riêng; animation chỉ transform/opacity.
+- Dust nằm trong `.library-camera`, cùng tilt với scene nhưng pointer-events none; reduced-motion tắt animation và will-change.
+- Mobile giữ vertical padding intro để mask/glow không bị cắt; thêm WebKit mask fallback.
 - Verify: 4 camera/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; header-depth assertion PASS; scoped diff-check PASS; live module/CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; kiá»ƒm tra header feather/glow, blur chá»‰ á»Ÿ vÃ¹ng trÃªn, 18 dust motes, camera tilt vÃ  reduced-motion/mobile; xÃ¡c nháº­n bookcase váº«n sáº¯c nÃ©t.
+Hard refresh `/app/reading-corner/sach`; kiểm tra header feather/glow, blur chỉ ở vùng trên, 18 dust motes, camera tilt và reduced-motion/mobile; xác nhận bookcase vẫn sắc nét.
 
-## 2026-07-16 â€” Camera tilt + spine depth tÆ°Æ¡ng tÃ¡c
+## 2026-07-16 — Camera tilt + spine depth tương tác
 
-- ThÃªm `.library-camera` bÃªn trong `.library-scene`; scene giá»¯ scroll/viewport á»•n Ä‘á»‹nh, camera chá»©a background + intro + bookcase vÃ  nháº­n transform 3D.
-- Mousemove fine-pointer chuáº©n hÃ³a -1..1, target rotateX tá»‘i Ä‘a Â±4Â°, rotateY Â±6Â°; RAF lerp há»‡ sá»‘ .08 vÃ  chá»‰ tiáº¿p tá»¥c khi cÃ²n sai sá»‘, khÃ´ng cÃ³ loop idle.
-- Touch/coarse pointer vÃ  `prefers-reduced-motion` khÃ´ng Ä‘Äƒng kÃ½ tilt; CSS reduced-motion táº¯t transform/will-change camera.
-- Khi FLIP modal má»Ÿ: `previewOpenRef`, class `.is-preview-open` vÃ  reset callback Ä‘Æ°a target vá» 0; CSS Ã©p camera 0Â° ngay Ä‘á»ƒ ná»™i dung Ä‘á»c á»•n Ä‘á»‹nh.
-- Má»—i `.book` cÃ³ `--book-cover-y` deterministic theo ID trong khoáº£ng -6..6Â° vÃ  `--book-cover-image`.
-- Shelf `.book-cover` dÃ¹ng preserve-3d/rotateY; `::before` táº¡o gÃ¡y 8â€“12px rotateY(90Â°), láº¥y chÃ­nh áº£nh bÃ¬a vÃ  brightness .7. Modal khÃ´ng káº¿ thá»«a vars outer book nÃªn váº«n má»Ÿ pháº³ng.
-- Occlusion giá»¯ shelf front z8 cao hÆ¡n book z7; shadow overlay táº§ng trÃªn z10 tiáº¿p tá»¥c che tá»± nhiÃªn Ä‘áº§u sÃ¡ch táº§ng dÆ°á»›i.
-- Regression test má»›i kiá»ƒm tra RAF lerp, camera vars, preview reset class vÃ  toÃ n bá»™ cover angle range.
+- Thêm `.library-camera` bên trong `.library-scene`; scene giữ scroll/viewport ổn định, camera chứa background + intro + bookcase và nhận transform 3D.
+- Mousemove fine-pointer chuẩn hóa -1..1, target rotateX tối đa ±4°, rotateY ±6°; RAF lerp hệ số .08 và chỉ tiếp tục khi còn sai số, không có loop idle.
+- Touch/coarse pointer và `prefers-reduced-motion` không đăng ký tilt; CSS reduced-motion tắt transform/will-change camera.
+- Khi FLIP modal mở: `previewOpenRef`, class `.is-preview-open` và reset callback đưa target về 0; CSS ép camera 0° ngay để nội dung đọc ổn định.
+- Mỗi `.book` có `--book-cover-y` deterministic theo ID trong khoảng -6..6° và `--book-cover-image`.
+- Shelf `.book-cover` dùng preserve-3d/rotateY; `::before` tạo gáy 8–12px rotateY(90°), lấy chính ảnh bìa và brightness .7. Modal không kế thừa vars outer book nên vẫn mở phẳng.
+- Occlusion giữ shelf front z8 cao hơn book z7; shadow overlay tầng trên z10 tiếp tục che tự nhiên đầu sách tầng dưới.
+- Regression test mới kiểm tra RAF lerp, camera vars, preview reset class và toàn bộ cover angle range.
 - Verify: 4 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; interactive-depth assertion PASS; scoped diff-check PASS; live camera module/CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; rÃª chuá»™t Ä‘áº¿n 4 gÃ³c, kiá»ƒm tra tilt â‰¤6Â°, drag shelf, hover sÃ¡ch, spine depth vÃ  camera reset khi modal má»Ÿ; thá»­ thÃªm touch/mobile/reduced-motion.
+Hard refresh `/app/reading-corner/sach`; rê chuột đến 4 góc, kiểm tra tilt ≤6°, drag shelf, hover sách, spine depth và camera reset khi modal mở; thử thêm touch/mobile/reduced-motion.
 
-## 2026-07-16 â€” Äá»“ng cháº¥t áº£nh tháº­t vÃ  CSS bookcase
+## 2026-07-16 — Đồng chất ảnh thật và CSS bookcase
 
-- Root scene thÃªm class `.library-scene`; `::after` phá»§ SVG `feTurbulence` noise 180Ã—180, opacity .05, blend overlay lÃªn cáº£ áº£nh ná»n vÃ  bookcase.
-- `.bookcase-container` cÃ³ color grade `saturate(.92) contrast(1.05) brightness(.98) sepia(.05)`, shadow blend lá»›n 100px/40px Ä‘á»ƒ má»m viá»n.
-- Container overlay káº¿t há»£p side vignette 30%, warm radial highlight á»Ÿ giá»¯a-trÃªn vÃ  orange grade 8%â†’5%, `mix-blend-mode: soft-light`.
-- BÃ¬a trÃªn shelf dÃ¹ng aging filter `saturate(.9) contrast(1.03) brightness(.97)` + wash vÃ ng nÃ¢u 6% multiply.
-- Modal FLIP explicit `filter:none` vÃ  áº©n aging pseudo-layer, nÃªn preview dÃ¹ng áº£nh bÃ¬a gá»‘c sáº¯c nÃ©t.
-- Contact shadow má»—i sÃ¡ch Ä‘á»•i thÃ nh dáº£i 5px opacity .5 vá»›i box-shadow 2px/3px, sÃ¡t máº·t ká»‡; hover váº«n bÃ¹ translate Ä‘á»ƒ bÃ³ng á»Ÿ láº¡i shelf.
-- KhÃ´ng Ä‘á»•i drag/open/close handlers hoáº·c transition transform cá»§a sÃ¡ch.
+- Root scene thêm class `.library-scene`; `::after` phủ SVG `feTurbulence` noise 180×180, opacity .05, blend overlay lên cả ảnh nền và bookcase.
+- `.bookcase-container` có color grade `saturate(.92) contrast(1.05) brightness(.98) sepia(.05)`, shadow blend lớn 100px/40px để mềm viền.
+- Container overlay kết hợp side vignette 30%, warm radial highlight ở giữa-trên và orange grade 8%→5%, `mix-blend-mode: soft-light`.
+- Bìa trên shelf dùng aging filter `saturate(.9) contrast(1.03) brightness(.97)` + wash vàng nâu 6% multiply.
+- Modal FLIP explicit `filter:none` và ẩn aging pseudo-layer, nên preview dùng ảnh bìa gốc sắc nét.
+- Contact shadow mỗi sách đổi thành dải 5px opacity .5 với box-shadow 2px/3px, sát mặt kệ; hover vẫn bù translate để bóng ở lại shelf.
+- Không đổi drag/open/close handlers hoặc transition transform của sách.
 - Verify: 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; compositing CSS assertion PASS; live CSS/module PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; kiá»ƒm tra warm grade/noise/vignette, cáº¡nh bookcase hÃ²a ná»n, contact shadow vÃ  Ä‘á»™ sáº¯c nÃ©t bÃ¬a trong modal trÃªn desktop/mobile.
+Hard refresh `/app/reading-corner/sach`; kiểm tra warm grade/noise/vignette, cạnh bookcase hòa nền, contact shadow và độ sắc nét bìa trong modal trên desktop/mobile.
 
-## 2026-07-16 â€” GhÃ©p áº£nh thÆ° viá»‡n tháº­t phÃ­a sau CSS bookcase
+## 2026-07-16 — Ghép ảnh thư viện thật phía sau CSS bookcase
 
-- Nguá»“n: `Crawl/Giaodien/library.jpg` (889,520 bytes); copy vÃ o `apps/web/public/images/bilingual/library-bg.jpg`.
-- `BilingualBooksPage` thÃªm `.library-bg`, `.library-bg-overlay` vÃ  `.bookcase-container`; bookcase/shelf-row/book DOM bÃªn trong giá»¯ nguyÃªn.
-- Background fixed/cover/center-bottom vá»›i fallback `#3d2b1f`, thay hoÃ n toÃ n ná»n grid xanh trÃªn route `/reading-corner/sach`.
-- Overlay dÃ¹ng radial vignette tá»‘i nháº¥t á»Ÿ trung tÃ¢m + gradient dá»c Ä‘á»ƒ giáº£m chi tiáº¿t áº£nh tháº­t phÃ­a sau bookcase.
-- `bookcase-container` max-width 1180px, centered, shadow `0 20px 60px rgba(0,0,0,.6)` qua CSS variable; pseudo-elements táº¡o ambient depth vÃ  edge blending.
-- Intro chuyá»ƒn sang text tráº¯ng/muted cÃ³ text-shadow Ä‘á»ƒ Ä‘á»c rÃµ trÃªn áº£nh ná»n.
-- KhÃ´ng báº­t mousemove parallax trong patch nÃ y Ä‘á»ƒ trÃ¡nh tranh pointer vá»›i drag-to-scroll tá»«ng shelf vÃ  giá»¯ hiá»‡u nÄƒng á»•n Ä‘á»‹nh.
-- Regression test bá»• sung xÃ¡c nháº­n 3 lá»›p background/container; 3 hover/click/FLIP tests váº«n PASS.
+- Nguồn: `Crawl/Giaodien/library.jpg` (889,520 bytes); copy vào `apps/web/public/images/bilingual/library-bg.jpg`.
+- `BilingualBooksPage` thêm `.library-bg`, `.library-bg-overlay` và `.bookcase-container`; bookcase/shelf-row/book DOM bên trong giữ nguyên.
+- Background fixed/cover/center-bottom với fallback `#3d2b1f`, thay hoàn toàn nền grid xanh trên route `/reading-corner/sach`.
+- Overlay dùng radial vignette tối nhất ở trung tâm + gradient dọc để giảm chi tiết ảnh thật phía sau bookcase.
+- `bookcase-container` max-width 1180px, centered, shadow `0 20px 60px rgba(0,0,0,.6)` qua CSS variable; pseudo-elements tạo ambient depth và edge blending.
+- Intro chuyển sang text trắng/muted có text-shadow để đọc rõ trên ảnh nền.
+- Không bật mousemove parallax trong patch này để tránh tranh pointer với drag-to-scroll từng shelf và giữ hiệu năng ổn định.
+- Regression test bổ sung xác nhận 3 lớp background/container; 3 hover/click/FLIP tests vẫn PASS.
 - Verify: asset size PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live asset 889,520 bytes, CSS/module PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; kiá»ƒm tra áº£nh cover trÃªn desktop/mobile, vignette trung tÃ¢m, text contrast, shadow/blend bookcase vÃ  FLIP sau khi scroll ngang. Chá»‰ thÃªm parallax náº¿u drag shelf váº«n á»•n.
+Hard refresh `/app/reading-corner/sach`; kiểm tra ảnh cover trên desktop/mobile, vignette trung tâm, text contrast, shadow/blend bookcase và FLIP sau khi scroll ngang. Chỉ thêm parallax nếu drag shelf vẫn ổn.
 
-## 2026-07-16 â€” TÄƒng chiá»u sÃ¢u 3D CSS cho bookcase
+## 2026-07-16 — Tăng chiều sâu 3D CSS cho bookcase
 
-- Chá»‰ sá»­a `readingCorner.css`; khÃ´ng Ä‘á»•i component, drag handlers hay FLIP controller.
-- Side-left/right dÃ¹ng clip-path hÃ¬nh thang vÃ  `perspective(800px) rotateY(Â±7deg)` vá»›i transform-origin á»Ÿ mÃ©p ngoÃ i, táº¡o cáº£m giÃ¡c vÃ¡ch má»Ÿ vá» phÃ­a ngÆ°á»i xem.
-- Shelf-top dÃ¹ng máº·t sÃ¡ng `#c9946b`, highlight trÃªn-trÃ¡i, border-bottom tá»‘i vÃ  inset fold shadow; shelf-front dÃ¹ng gradient xuá»‘ng `#4a2f18` cÃ¹ng repeating wood grain 2â€“6px.
-- Shelf front z8 vÃ  `::after` táº¡o bÃ³ng 18px xuá»‘ng compartment káº¿ tiáº¿p; thÃªm overlay tÆ°Æ¡ng á»©ng trÃªn Ä‘á»‰nh `.shelf-books` tá»« row thá»© hai Ä‘á»ƒ bÃ³ng cháº¡m pháº§n Ä‘áº§u bÃ¬a.
-- Top/bottom/side frame cÃ³ repeating-linear-gradient vÃ¢n gá»— opacity tháº¥p; rim light Ä‘á»“ng nháº¥t tá»« trÃªn-trÃ¡i, cáº¡nh dÆ°á»›i/pháº£i tá»‘i hÆ¡n.
-- Bá» `filter: blur(5px)` khá»i shelf shadow; toÃ n bá»™ lá»›p má»›i lÃ  static transform/gradient/box-shadow, khÃ´ng thÃªm animation loop.
+- Chỉ sửa `readingCorner.css`; không đổi component, drag handlers hay FLIP controller.
+- Side-left/right dùng clip-path hình thang và `perspective(800px) rotateY(±7deg)` với transform-origin ở mép ngoài, tạo cảm giác vách mở về phía người xem.
+- Shelf-top dùng mặt sáng `#c9946b`, highlight trên-trái, border-bottom tối và inset fold shadow; shelf-front dùng gradient xuống `#4a2f18` cùng repeating wood grain 2–6px.
+- Shelf front z8 và `::after` tạo bóng 18px xuống compartment kế tiếp; thêm overlay tương ứng trên đỉnh `.shelf-books` từ row thứ hai để bóng chạm phần đầu bìa.
+- Top/bottom/side frame có repeating-linear-gradient vân gỗ opacity thấp; rim light đồng nhất từ trên-trái, cạnh dưới/phải tối hơn.
+- Bỏ `filter: blur(5px)` khỏi shelf shadow; toàn bộ lớp mới là static transform/gradient/box-shadow, không thêm animation loop.
 - Verify: 3 hover/click/FLIP tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; 3D CSS assertion PASS; live Vite CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; kiá»ƒm tra side panels xiÃªn, Ä‘Æ°á»ng gáº¥p shelf-top/front, vÃ¢n gá»—, bÃ³ng trÃªn Ä‘áº§u sÃ¡ch táº§ng dÆ°á»›i vÃ  rim light trÃªn-trÃ¡i á»Ÿ desktop/mobile.
+Hard refresh `/app/reading-corner/sach`; kiểm tra side panels xiên, đường gấp shelf-top/front, vân gỗ, bóng trên đầu sách tầng dưới và rim light trên-trái ở desktop/mobile.
 
-## 2026-07-16 â€” NÃ¢ng cáº¥p cÃ¡c ká»‡ rá»i thÃ nh bookcase hoÃ n chá»‰nh
+## 2026-07-16 — Nâng cấp các kệ rời thành bookcase hoàn chỉnh
 
-- Tham chiáº¿u `Crawl/Giaodien/sheft.jpg`: tá»§ thÆ° viá»‡n walnut tá»‘i, khung crown dÃ y, back panel kÃ­n vÃ  Ã¡nh sÃ¡ng áº¥m tá»« trÃªn.
-- Bá»c 3 shelf-row trong `.bookcase`; thÃªm `.bookcase-back`, top, bottom, side-left/right, light overlay vÃ  2 divider dá»c.
-- Frame dÃ¹ng CSS variables walnut `#6f4729 / #5c3a21 / #3d2615`; top/bottom 32â€“40px, side 22â€“28px, highlight mÃ©p vÃ  shadow táº¡o khá»‘i.
-- Back panel `#4a3728` cÃ³ vÃ¢n dá»c nháº¹, inset side shadow vÃ  bÃ³ng radial/linear riÃªng á»Ÿ gÃ³c trÃªn tá»«ng shelf-row.
-- Shelf front tÄƒng lÃªn 14â€“17px, kÃ©o sÃ¡t mÃ©p trong hai trá»¥; bá» support rá»i cá»§a tá»«ng row Ä‘á»ƒ toÃ n bá»™ thanh ngang trá»Ÿ thÃ nh má»™t pháº§n cá»§a khung tá»§.
-- Light overlay phá»§ interior tá»« sÃ¡ng nháº¹ phÃ­a trÃªn xuá»‘ng tá»‘i phÃ­a dÆ°á»›i; pointer-events none nÃªn drag/click sÃ¡ch khÃ´ng bá»‹ áº£nh hÆ°á»Ÿng.
-- Responsive dÆ°á»›i 700px: frame side 18px, top 30px, bottom 32px; áº©n divider Ä‘á»ƒ giá»¯ diá»‡n tÃ­ch sÃ¡ch vÃ  horizontal scroll.
-- Regression test bá»• sung xÃ¡c nháº­n back/top/bottom, 2 side vÃ  2 divider; click/FLIP tests váº«n PASS.
+- Tham chiếu `Crawl/Giaodien/sheft.jpg`: tủ thư viện walnut tối, khung crown dày, back panel kín và ánh sáng ấm từ trên.
+- Bọc 3 shelf-row trong `.bookcase`; thêm `.bookcase-back`, top, bottom, side-left/right, light overlay và 2 divider dọc.
+- Frame dùng CSS variables walnut `#6f4729 / #5c3a21 / #3d2615`; top/bottom 32–40px, side 22–28px, highlight mép và shadow tạo khối.
+- Back panel `#4a3728` có vân dọc nhẹ, inset side shadow và bóng radial/linear riêng ở góc trên từng shelf-row.
+- Shelf front tăng lên 14–17px, kéo sát mép trong hai trụ; bỏ support rời của từng row để toàn bộ thanh ngang trở thành một phần của khung tủ.
+- Light overlay phủ interior từ sáng nhẹ phía trên xuống tối phía dưới; pointer-events none nên drag/click sách không bị ảnh hưởng.
+- Responsive dưới 700px: frame side 18px, top 30px, bottom 32px; ẩn divider để giữ diện tích sách và horizontal scroll.
+- Regression test bổ sung xác nhận back/top/bottom, 2 side và 2 divider; click/FLIP tests vẫn PASS.
 - Verify: 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; live bookcase module/CSS PASS; route HTTP 200.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a cÃ³ screenshot rendered tá»± Ä‘á»™ng vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Lỗi còn tồn tại: chưa có screenshot rendered tự động vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; Ä‘á»‘i chiáº¿u `sheft.jpg`: kiá»ƒm tra crown frame, panel sau kÃ­n, shelf ná»‘i trá»¥, divider, Ã¡nh sÃ¡ng top-down, horizontal scroll vÃ  FLIP trÃªn desktop/mobile.
+Hard refresh `/app/reading-corner/sach`; đối chiếu `sheft.jpg`: kiểm tra crown frame, panel sau kín, shelf nối trụ, divider, ánh sáng top-down, horizontal scroll và FLIP trên desktop/mobile.
 
-## 2026-07-16 â€” NÃ¢ng cáº¥p shelf bar thÃ nh ká»‡ gá»— hai lá»›p
+## 2026-07-16 — Nâng cấp shelf bar thành kệ gỗ hai lớp
 
-- Chá»‰ sá»­a `readingCorner.css`, khÃ´ng Ä‘á»•i HTML/React/controller.
-- `.shelf-bar` lÃ  máº·t trÆ°á»›c 10â€“12px vá»›i gradient `#8b5e3c â†’ #6b4423`; `::before` táº¡o máº·t trÃªn 7px vá»›i gradient `#d4a574 â†’ #b8895a` vÃ  highlight be máº£nh.
-- Giáº£m bo gÃ³c cÃ²n 2â€“4px; thÃªm shadow `0 8px 16px rgba(0,0,0,.25)` qua CSS variable.
-- `.shelf-row` cÃ³ hai giÃ¡ Ä‘á»¡ dá»c 18Ã—36px báº±ng layered background, cÃ¹ng tone gá»— tá»‘i.
-- `.book::after` táº¡o bÃ³ng ellipse dÆ°á»›i tá»«ng cuá»‘n; khi hover bÃ³ng bÃ¹ `translateY` Ä‘á»ƒ náº±m gáº§n máº·t ká»‡ trong lÃºc bÃ¬a Ä‘Æ°á»£c rÃºt lÃªn.
-- Äiá»u chá»‰nh stacking: sÃ¡ch z7, hover z9, shelf z6 Ä‘á»ƒ bÃ³ng náº±m trÃªn máº·t gá»— nhÆ°ng ká»‡ váº«n Ä‘á»¡ Ä‘Ãºng Ä‘Ã¡y sÃ¡ch.
+- Chỉ sửa `readingCorner.css`, không đổi HTML/React/controller.
+- `.shelf-bar` là mặt trước 10–12px với gradient `#8b5e3c → #6b4423`; `::before` tạo mặt trên 7px với gradient `#d4a574 → #b8895a` và highlight be mảnh.
+- Giảm bo góc còn 2–4px; thêm shadow `0 8px 16px rgba(0,0,0,.25)` qua CSS variable.
+- `.shelf-row` có hai giá đỡ dọc 18×36px bằng layered background, cùng tone gỗ tối.
+- `.book::after` tạo bóng ellipse dưới từng cuốn; khi hover bóng bù `translateY` để nằm gần mặt kệ trong lúc bìa được rút lên.
+- Điều chỉnh stacking: sách z7, hover z9, shelf z6 để bóng nằm trên mặt gỗ nhưng kệ vẫn đỡ đúng đáy sách.
 - Verify: CSS assertion PASS; live Vite CSS PASS; scoped diff-check PASS; `pnpm --filter web exec tsc --noEmit` PASS; 3 click/FLIP tests PASS.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach`; kiá»ƒm tra máº·t trÃªn sÃ¡ng, máº·t trÆ°á»›c tá»‘i, hai giÃ¡ Ä‘á»¡ vÃ  bÃ³ng ellipse á»Ÿ cáº£ ba theme; xÃ¡c nháº­n hover/click FLIP khÃ´ng Ä‘á»•i.
+Hard refresh `/app/reading-corner/sach`; kiểm tra mặt trên sáng, mặt trước tối, hai giá đỡ và bóng ellipse ở cả ba theme; xác nhận hover/click FLIP không đổi.
 
-## 2026-07-16 â€” Fix click sÃ¡ch trÃªn ká»‡ khÃ´ng má»Ÿ FLIP preview
+## 2026-07-16 — Fix click sách trên kệ không mở FLIP preview
 
-- Root cause: drag-to-scroll gá»i `setPointerCapture()` ngay tá»« `pointerdown`, khiáº¿n browser cÃ³ thá»ƒ retarget click tá»« `.book` sang `.shelf-track`; handler `openBook()` khÃ´ng cháº¡y.
-- Fix: `pointerdown` chá»‰ lÆ°u tráº¡ng thÃ¡i; chá»‰ capture pointer vÃ  báº­t `is-dragging` sau khi di chuyá»ƒn ngang vÆ°á»£t threshold 6px.
-- Click bÃ¬nh thÆ°á»ng tiáº¿p tá»¥c vÃ o `bookPreviewController.openBook()`; kÃ©o ngang váº«n giá»¯ pointer sau khi xÃ¡c Ä‘á»‹nh Ä‘Ãºng gesture.
-- Regression test má»›i mÃ´ phá»ng pointerdown trÃªn sÃ¡ch, xÃ¡c nháº­n chÆ°a capture vÃ  click táº¡o `.book-preview-overlay`.
-- Verify: red test tÃ¡i hiá»‡n Ä‘Ãºng 1 láº§n capture ngoÃ i Ã½ muá»‘n; sau fix 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200 vÃ  live click/FLIP module PASS.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
-
-### Next session start prompt
-
-Hard refresh `/app/reading-corner/sach`; click trá»±c tiáº¿p bÃ¬a Ä‘á»ƒ kiá»ƒm tra FLIP + láº­t má»Ÿ, sau Ä‘Ã³ kÃ©o ngang trÃªn cÃ¹ng bÃ¬a Ä‘á»ƒ xÃ¡c nháº­n khÃ´ng má»Ÿ nháº§m modal.
-
-## 2026-07-16 â€” Äá»•i coverflow thÃ nh ká»‡ sÃ¡ch thÆ° viá»‡n táº¡i /reading-corner/sach
-
-- Bá» hoÃ n toÃ n orbit 3D, `requestAnimationFrame`, gÃ³c quay tÃ­ch lÅ©y vÃ  auto-rotate; khÃ´ng cÃ²n transform Ä‘á»‹nh vá»‹ tuyá»‡t Ä‘á»‘i tá»«ng sÃ¡ch.
-- Chia 27 cuá»‘n thÃ nh 3 `.shelf-row`, má»—i hÃ ng 9 cuá»‘n; `.shelf-books` dÃ¹ng Flexbox, Ä‘Ã¡y sÃ¡ch cháº¡m `.shelf-bar`.
-- Thanh ká»‡ dÃ¹ng gradient/shadow theo CSS theme tokens; ná»n trang chuyá»ƒn sang `--reading-corner-bg` vÃ  grid token nÃªn há»— trá»£ SÃ¡ng/Tá»‘i vá»«a/Tá»‘i.
-- 3/27 cuá»‘n (11%) nghiÃªng deterministic 4â€“8 Ä‘á»™; hover rÃºt riÃªng sÃ¡ch Ä‘ang chá»n lÃªn 24px vÃ  scale 1.05 báº±ng transform.
-- Má»—i `.shelf-track` cuá»™n ngang riÃªng, áº©n scrollbar, cÃ³ scroll-snap, drag-to-scroll báº±ng Pointer Events vÃ  Shift + wheel; threshold 6px trÃ¡nh kÃ©o nháº§m thÃ nh click.
-- Khá»‘i text â€œTÃ­nh nÄƒng Ä‘ang Ä‘Æ°á»£c cáº­p nháº­tâ€ chuyá»ƒn thÃ nh intro phÃ­a trÃªn toÃ n bá»™ ká»‡.
-- Giá»¯ nguyÃªn FLIP + láº­t bÃ¬a: controller tiáº¿p tá»¥c láº¥y `getBoundingClientRect()` trá»±c tiáº¿p tá»« vá»‹ trÃ­ sÃ¡ch trÃªn ká»‡ vÃ  tráº£ Ä‘Ãºng vá» Ä‘Ã³ khi Ä‘Ã³ng.
-- Regression test `BilingualBooksPage.test.tsx`: 3 ká»‡, 3 shelf bar, 27 sÃ¡ch, 3 sÃ¡ch nghiÃªng vÃ  khÃ´ng khá»Ÿi cháº¡y auto-rotate.
-- Verify: 4 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200; live shelf module PASS; source assertion khÃ´ng cÃ²n orbit/rAF PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a smoke-test trá»±c quan báº±ng browser automation vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
+- Root cause: drag-to-scroll gọi `setPointerCapture()` ngay từ `pointerdown`, khiến browser có thể retarget click từ `.book` sang `.shelf-track`; handler `openBook()` không chạy.
+- Fix: `pointerdown` chỉ lưu trạng thái; chỉ capture pointer và bật `is-dragging` sau khi di chuyển ngang vượt threshold 6px.
+- Click bình thường tiếp tục vào `bookPreviewController.openBook()`; kéo ngang vẫn giữ pointer sau khi xác định đúng gesture.
+- Regression test mới mô phỏng pointerdown trên sách, xác nhận chưa capture và click tạo `.book-preview-overlay`.
+- Verify: red test tái hiện đúng 1 lần capture ngoài ý muốn; sau fix 3 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200 và live click/FLIP module PASS.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
 
 ### Next session start prompt
 
-Má»Ÿ `/app/reading-corner/sach`, kiá»ƒm tra desktop/mobile: sÃ¡ch cháº¡m ká»‡, hover khÃ´ng bá»‹ clip, kÃ©o ngang khÃ´ng má»Ÿ nháº§m modal, FLIP Ä‘i/vá» Ä‘Ãºng vá»‹ trÃ­ sau khi hÃ ng Ä‘Ã£ scroll.
+Hard refresh `/app/reading-corner/sach`; click trực tiếp bìa để kiểm tra FLIP + lật mở, sau đó kéo ngang trên cùng bìa để xác nhận không mở nhầm modal.
 
-## 2026-07-16 â€” Preview má»Ÿ sÃ¡ch báº±ng FLIP táº¡i Reading Corner /sach
+## 2026-07-16 — Đổi coverflow thành kệ sách thư viện tại /reading-corner/sach
 
-- Má»—i cuá»‘n trong coverflow cÃ³ cáº¥u trÃºc `.book-modal-content` gá»“m `.book-cover` vÃ  `.book-inside`; pháº§n trong dÃ¹ng metadata tháº­t tá»« catalog, cÃ³ placeholder mÃ´ táº£ vÃ  nÃºt â€œÄá»c thá»­â€.
-- ThÃªm controller DOM thuáº§n `bookPreviewController.ts` vá»›i `openBook(bookElement)` / `closeBook()`: clone sÃ¡ch, overlay fixed + blur, FLIP transform vá» giá»¯a mÃ n hÃ¬nh, láº­t bÃ¬a `rotateY(-150deg)`, rá»“i Ä‘áº£o animation vá» Ä‘Ãºng vá»‹ trÃ­ gá»‘c.
-- ÄÃ³ng Ä‘Æ°á»£c báº±ng nÃºt X, click vÃ¹ng tá»‘i hoáº·c Escape; khÃ³a scroll, quáº£n lÃ½ focus, há»— trá»£ Enter/Space vÃ  `prefers-reduced-motion`.
-- Coverflow chuyá»ƒn sang gÃ³c quay tÃ­ch lÅ©y Ä‘á»ƒ pause tháº­t khi modal má»Ÿ, khÃ´ng nháº£y vá»‹ trÃ­ lÃºc resume.
-- Animation chá»‰ thay Ä‘á»•i `transform` vÃ  `opacity`; kÃ­ch thÆ°á»›c modal Ä‘Æ°á»£c xÃ¡c láº­p má»™t láº§n trÆ°á»›c transition.
-- Regression test `bookPreviewController.test.ts` kiá»ƒm tra clone, má»Ÿ ruá»™t sÃ¡ch, khÃ³a body vÃ  phá»¥c há»“i source khi Ä‘Ã³ng.
-- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped `git diff --check` PASS; route HTTP 200 vÃ  live Vite module PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a kiá»ƒm tra click/screenshot báº±ng in-app Browser vÃ¬ browser control khÃ´ng Ä‘Æ°á»£c expose trong phiÃªn nÃ y.
-
-### Next session start prompt
-
-Smoke-test trá»±c quan `/app/reading-corner/sach`: click nhiá»u vá»‹ trÃ­ trÃªn vÃ²ng cung, kiá»ƒm tra FLIP Ä‘i/vá», láº­t bÃ¬a, Escape/click ngoÃ i vÃ  resume auto-rotate trÃªn desktop/mobile.
-
-## 2026-07-16 â€” Fix ná»n/ribbon khi chuyá»ƒn theme Tá»‘i vÃ  Tá»‘i vá»«a
-
-- Root cause: 5 token ná»n Reading Corner/ribbon chá»‰ Ä‘Æ°á»£c khai bÃ¡o á»Ÿ theme SÃ¡ng, nÃªn theme `mid` vÃ  `dark` váº«n káº¿ thá»«a ná»n xanh nháº¡t cÃ¹ng ribbon sÃ¡ng, gÃ¢y sai tÆ°Æ¡ng pháº£n.
-- ThÃªm palette riÃªng cho `--reading-corner-bg`, `--reading-corner-grid-line`, `--reading-ribbon-soft/mid/core` trong cáº£ `[data-theme="mid"]` vÃ  `[data-theme="dark"]`.
-- Reading Corner `/app/reading-corner` vÃ  `/bao` dÃ¹ng `var(--reading-corner-bg)` thay mÃ u ná»n hardcode; tiÃªu Ä‘á», mÃ´ táº£ vÃ  eyebrow cÃ³ override theme-aware Ä‘á»ƒ giá»¯ Ä‘á»™ Ä‘á»c.
-- ThÃªm regression test `styles/themeBackdropTokens.test.ts`, báº¯t buá»™c theme Tá»‘i/Tá»‘i vá»«a khai bÃ¡o Ä‘á»§ 5 token.
-- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS. `git diff --check` chá»‰ cÃ²n dÃ²ng tráº¯ng cuá»‘i `listeningTest.css` thuá»™c thay Ä‘á»•i cÃ³ sáºµn, khÃ´ng liÃªn quan báº£n vÃ¡ nÃ y.
-- Lá»—i cÃ²n tá»“n táº¡i liÃªn quan báº£n vÃ¡: chÆ°a ghi nháº­n.
+- Bỏ hoàn toàn orbit 3D, `requestAnimationFrame`, góc quay tích lũy và auto-rotate; không còn transform định vị tuyệt đối từng sách.
+- Chia 27 cuốn thành 3 `.shelf-row`, mỗi hàng 9 cuốn; `.shelf-books` dùng Flexbox, đáy sách chạm `.shelf-bar`.
+- Thanh kệ dùng gradient/shadow theo CSS theme tokens; nền trang chuyển sang `--reading-corner-bg` và grid token nên hỗ trợ Sáng/Tối vừa/Tối.
+- 3/27 cuốn (11%) nghiêng deterministic 4–8 độ; hover rút riêng sách đang chọn lên 24px và scale 1.05 bằng transform.
+- Mỗi `.shelf-track` cuộn ngang riêng, ẩn scrollbar, có scroll-snap, drag-to-scroll bằng Pointer Events và Shift + wheel; threshold 6px tránh kéo nhầm thành click.
+- Khối text “Tính năng đang được cập nhật” chuyển thành intro phía trên toàn bộ kệ.
+- Giữ nguyên FLIP + lật bìa: controller tiếp tục lấy `getBoundingClientRect()` trực tiếp từ vị trí sách trên kệ và trả đúng về đó khi đóng.
+- Regression test `BilingualBooksPage.test.tsx`: 3 kệ, 3 shelf bar, 27 sách, 3 sách nghiêng và không khởi chạy auto-rotate.
+- Verify: 4 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped diff-check PASS; route HTTP 200; live shelf module PASS; source assertion không còn orbit/rAF PASS.
+- Lỗi còn tồn tại: chưa smoke-test trực quan bằng browser automation vì browser control không được expose trong phiên này.
 
 ### Next session start prompt
 
-Kiá»ƒm tra tiáº¿p giao diá»‡n theme SÃ¡ng/Tá»‘i vá»«a/Tá»‘i trÃªn Login, 9 AppShell hub, `/app/reading-corner` vÃ  `/app/reading-corner/bao`; cÃ¡c token ná»n/ribbon Ä‘Ã£ cÃ³ regression test táº¡i `apps/web/src/styles/themeBackdropTokens.test.ts`.
+Mở `/app/reading-corner/sach`, kiểm tra desktop/mobile: sách chạm kệ, hover không bị clip, kéo ngang không mở nhầm modal, FLIP đi/về đúng vị trí sau khi hàng đã scroll.
 
-## 2026-07-16 â€” Fix CTA Landing khÃ´ng cÃ²n má»Ÿ Google OAuth trá»±c tiáº¿p
+## 2026-07-16 — Preview mở sách bằng FLIP tại Reading Corner /sach
 
-- Root cause: `LandingPage.startFree()` váº«n gá»i `signInWithGoogle()` khi user chÆ°a Ä‘Äƒng nháº­p, nÃªn hai nÃºt â€œVÃ o lá»›p há»câ€ / â€œBáº¯t Ä‘áº§u miá»…n phÃ­â€ bá» qua mÃ n hÃ¬nh login custom.
-- Fix: má»i CTA miá»…n phÃ­ Ä‘iá»u hÆ°á»›ng tá»›i `/app`; `ProtectedRoute` render `LoginPage` giá»‘ng mockup khi chÆ°a Ä‘Äƒng nháº­p. Google OAuth chá»‰ cháº¡y sau khi báº¥m nÃºt Ä‘Äƒng nháº­p bÃªn trong `LoginPage`.
-- Táº¯t `VITE_DEV_AUTH_BYPASS` trong `apps/web/.env.local`; Vite dev Ä‘ang phá»¥c vá»¥ giÃ¡ trá»‹ `"0"` nÃªn `/app` khÃ´ng cÃ²n bá» qua login.
-- Äá»“ng thá»i bá» mÃ u hardcode cÃ²n sÃ³t trong `loginPage.css`, thay báº±ng CSS variables.
-- Verify: CTA source assertion PASS; `pnpm --filter web exec tsc --noEmit` PASS; localhost `5173` vÃ  `3000` Ä‘á»u HTTP 200.
-- LÆ°u Ã½: `localhost:3000` hiá»‡n lÃ  má»™t app Next.js khÃ¡c (`/_next/...`), khÃ´ng pháº£i Vite app trong repo nÃ y; Ryan English Website dev cháº¡y táº¡i `http://localhost:5173`.
+- Mỗi cuốn trong coverflow có cấu trúc `.book-modal-content` gồm `.book-cover` và `.book-inside`; phần trong dùng metadata thật từ catalog, có placeholder mô tả và nút “Đọc thử”.
+- Thêm controller DOM thuần `bookPreviewController.ts` với `openBook(bookElement)` / `closeBook()`: clone sách, overlay fixed + blur, FLIP transform về giữa màn hình, lật bìa `rotateY(-150deg)`, rồi đảo animation về đúng vị trí gốc.
+- Đóng được bằng nút X, click vùng tối hoặc Escape; khóa scroll, quản lý focus, hỗ trợ Enter/Space và `prefers-reduced-motion`.
+- Coverflow chuyển sang góc quay tích lũy để pause thật khi modal mở, không nhảy vị trí lúc resume.
+- Animation chỉ thay đổi `transform` và `opacity`; kích thước modal được xác lập một lần trước transition.
+- Regression test `bookPreviewController.test.ts` kiểm tra clone, mở ruột sách, khóa body và phục hồi source khi đóng.
+- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS; scoped `git diff --check` PASS; route HTTP 200 và live Vite module PASS.
+- Lỗi còn tồn tại: chưa kiểm tra click/screenshot bằng in-app Browser vì browser control không được expose trong phiên này.
 
-## 2026-07-16 â€” ÄÆ°a mascot máº·t trá»i Login ra ngoÃ i card
+### Next session start prompt
 
-- Login tiáº¿p tá»¥c dÃ¹ng chung `SunnyMascotSvg` vá»›i trang Tá»•ng quan.
-- ThÃªm `login-page__stage` vÃ  `login-page__sun-float`; chiá»u cao mascot Ä‘Æ°á»£c cá»™ng vÃ o layout trÆ°á»›c card nÃªn máº·t trá»i náº±m hoÃ n toÃ n bÃªn ngoÃ i, khÃ´ng overlap header.
-- Chuyá»ƒn Ä‘á»™ng ná»•i map theo mascot Tá»•ng quan vÃ  há»— trá»£ `prefers-reduced-motion`.
+Smoke-test trực quan `/app/reading-corner/sach`: click nhiều vị trí trên vòng cung, kiểm tra FLIP đi/về, lật bìa, Escape/click ngoài và resume auto-rotate trên desktop/mobile.
+
+## 2026-07-16 — Fix nền/ribbon khi chuyển theme Tối và Tối vừa
+
+- Root cause: 5 token nền Reading Corner/ribbon chỉ được khai báo ở theme Sáng, nên theme `mid` và `dark` vẫn kế thừa nền xanh nhạt cùng ribbon sáng, gây sai tương phản.
+- Thêm palette riêng cho `--reading-corner-bg`, `--reading-corner-grid-line`, `--reading-ribbon-soft/mid/core` trong cả `[data-theme="mid"]` và `[data-theme="dark"]`.
+- Reading Corner `/app/reading-corner` và `/bao` dùng `var(--reading-corner-bg)` thay màu nền hardcode; tiêu đề, mô tả và eyebrow có override theme-aware để giữ độ đọc.
+- Thêm regression test `styles/themeBackdropTokens.test.ts`, bắt buộc theme Tối/Tối vừa khai báo đủ 5 token.
+- Verify: 19 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS. `git diff --check` chỉ còn dòng trắng cuối `listeningTest.css` thuộc thay đổi có sẵn, không liên quan bản vá này.
+- Lỗi còn tồn tại liên quan bản vá: chưa ghi nhận.
+
+### Next session start prompt
+
+Kiểm tra tiếp giao diện theme Sáng/Tối vừa/Tối trên Login, 9 AppShell hub, `/app/reading-corner` và `/app/reading-corner/bao`; các token nền/ribbon đã có regression test tại `apps/web/src/styles/themeBackdropTokens.test.ts`.
+
+## 2026-07-16 — Fix CTA Landing không còn mở Google OAuth trực tiếp
+
+- Root cause: `LandingPage.startFree()` vẫn gọi `signInWithGoogle()` khi user chưa đăng nhập, nên hai nút “Vào lớp học” / “Bắt đầu miễn phí” bỏ qua màn hình login custom.
+- Fix: mọi CTA miễn phí điều hướng tới `/app`; `ProtectedRoute` render `LoginPage` giống mockup khi chưa đăng nhập. Google OAuth chỉ chạy sau khi bấm nút đăng nhập bên trong `LoginPage`.
+- Tắt `VITE_DEV_AUTH_BYPASS` trong `apps/web/.env.local`; Vite dev đang phục vụ giá trị `"0"` nên `/app` không còn bỏ qua login.
+- Đồng thời bỏ màu hardcode còn sót trong `loginPage.css`, thay bằng CSS variables.
+- Verify: CTA source assertion PASS; `pnpm --filter web exec tsc --noEmit` PASS; localhost `5173` và `3000` đều HTTP 200.
+- Lưu ý: `localhost:3000` hiện là một app Next.js khác (`/_next/...`), không phải Vite app trong repo này; Ryan English Website dev chạy tại `http://localhost:5173`.
+
+## 2026-07-16 — Đưa mascot mặt trời Login ra ngoài card
+
+- Login tiếp tục dùng chung `SunnyMascotSvg` với trang Tổng quan.
+- Thêm `login-page__stage` và `login-page__sun-float`; chiều cao mascot được cộng vào layout trước card nên mặt trời nằm hoàn toàn bên ngoài, không overlap header.
+- Chuyển động nổi map theo mascot Tổng quan và hỗ trợ `prefers-reduced-motion`.
 - Verify: layout invariant PASS; live Vite CSS PASS; `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Login email/máº­t kháº©u nháº­p Ä‘Æ°á»£c + Ä‘á»•i font
+## 2026-07-16 — Login email/mật khẩu nhập được + đổi font
 
-- Root cause: hai Ã´ Email/Máº­t kháº©u trÆ°á»›c Ä‘Ã¢y lÃ  `<div aria-hidden>` trang trÃ­, khÃ´ng pháº£i form control.
-- Äá»•i thÃ nh `<form>` vá»›i input email/password tháº­t, controlled state, autofill, validation, focus state vÃ  lá»—i inline.
-- `AuthContext` thÃªm `signInWithPassword()` dÃ¹ng Supabase Auth; nÃºt â€œÄÄƒng nháº­p ngayâ€ submit email/máº­t kháº©u, nÃºt Google giá»¯ OAuth riÃªng.
-- Typography trang Login Ä‘á»•i tá»« Instrument Serif sang `Segoe UI Variable Display` + `Segoe UI Variable`; thÃªm token `--color-danger` cho Ä‘á»§ light/mid/dark.
-- Regression test: `LoginPage.test.tsx` xÃ¡c nháº­n nháº­p vÃ  submit Ä‘Ãºng email/password.
+- Root cause: hai ô Email/Mật khẩu trước đây là `<div aria-hidden>` trang trí, không phải form control.
+- Đổi thành `<form>` với input email/password thật, controlled state, autofill, validation, focus state và lỗi inline.
+- `AuthContext` thêm `signInWithPassword()` dùng Supabase Auth; nút “Đăng nhập ngay” submit email/mật khẩu, nút Google giữ OAuth riêng.
+- Typography trang Login đổi từ Instrument Serif sang `Segoe UI Variable Display` + `Segoe UI Variable`; thêm token `--color-danger` cho đủ light/mid/dark.
+- Regression test: `LoginPage.test.tsx` xác nhận nhập và submit đúng email/password.
 - Verify: 3 tests PASS; live Vite form PASS; `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Login dÃ¹ng chung ná»n lÆ°á»›i vá»›i Reading Corner
+## 2026-07-16 — Login dùng chung nền lưới với Reading Corner
 
-- ThÃªm token dÃ¹ng chung `--reading-corner-bg` vÃ  `--reading-corner-grid-line` trong `globals.css`.
-- `rc-hub` vÃ  Login cÃ¹ng dÃ¹ng ná»n xanh nháº¡t, lÆ°á»›i tráº¯ng 32px; Login map thÃªm lá»›p noise nháº¹ giá»‘ng `rc-hub-ambient`.
-- Bá» radial tÃ­m cÅ© á»Ÿ Login Ä‘á»ƒ mÃ u ná»n khÃ´ng lá»‡ch `/app/reading-corner`.
+- Thêm token dùng chung `--reading-corner-bg` và `--reading-corner-grid-line` trong `globals.css`.
+- `rc-hub` và Login cùng dùng nền xanh nhạt, lưới trắng 32px; Login map thêm lớp noise nhẹ giống `rc-hub-ambient`.
+- Bỏ radial tím cũ ở Login để màu nền không lệch `/app/reading-corner`.
 - Verify: shared-token invariant PASS; live Vite CSS PASS; LoginPage test PASS; `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Login cÃ³ ribbon nhÆ° Reading Corner /bao
+## 2026-07-16 — Login có ribbon như Reading Corner /bao
 
-- ThÃªm 3 ribbon chÃ©o cá»‘ Ä‘á»‹nh phÃ­a sau card Login, map Ä‘Ãºng geometry `280vmax`, gÃ³c 45Â°, offset, opacity vÃ  thá»i lÆ°á»£ng animation tá»« `/app/reading-corner/bao`.
-- TÃ¡ch palette ribbon thÃ nh token dÃ¹ng chung `--reading-ribbon-soft/mid/core`; Reading Corner vÃ  Login cÃ¹ng sá»­ dá»¥ng.
-- `prefers-reduced-motion` táº¯t ribbon animation; form vÃ  mascot giá»¯ z-index phÃ­a trÃªn.
-- Regression test xÃ¡c nháº­n Login render Ä‘á»§ 3 ribbon.
+- Thêm 3 ribbon chéo cố định phía sau card Login, map đúng geometry `280vmax`, góc 45°, offset, opacity và thời lượng animation từ `/app/reading-corner/bao`.
+- Tách palette ribbon thành token dùng chung `--reading-ribbon-soft/mid/core`; Reading Corner và Login cùng sử dụng.
+- `prefers-reduced-motion` tắt ribbon animation; form và mascot giữ z-index phía trên.
+- Regression test xác nhận Login render đủ 3 ribbon.
 - Verify: LoginPage test PASS; ribbon mapping invariant PASS; live Vite module PASS; `pnpm --filter web exec tsc --noEmit` PASS.
-- Sau feedback, riÃªng ribbon Login Ä‘á»•i sang `rotate(-45deg)` Ä‘á»ƒ hÆ°á»›ng tá»« trÃ¡i dÆ°á»›i lÃªn gÃ³c pháº£i mÃ n hÃ¬nh; live Vite CSS PASS.
+- Sau feedback, riêng ribbon Login đổi sang `rotate(-45deg)` để hướng từ trái dưới lên góc phải màn hình; live Vite CSS PASS.
 
-## 2026-07-16 â€” Ná»n xanh + ribbon cho 9 hub AppShell
+## 2026-07-16 — Nền xanh + ribbon cho 9 hub AppShell
 
-- ThÃªm backdrop chung táº¡i `AppShell`: ná»n xanh Reading Corner, lÆ°á»›i tráº¯ng 32px, noise nháº¹ vÃ  3 ribbon `-45deg`.
-- Chá»‰ báº­t á»Ÿ Ä‘Ãºng route gá»‘c: `/app/home`, `/app/vocab`, `/app/writing`, `/app/listening`, `/app/shadowing`, `/app/exam`, `/app/sentence-structure`, `/app/settings`, `/app/admin`.
-- KhÃ´ng báº­t á»Ÿ Reading Corner vÃ¬ cÃ³ ná»n riÃªng; khÃ´ng báº­t á»Ÿ bÃ i há»c, bÃ i luyá»‡n vÃ  exam player full-screen.
-- LÃ m trong suá»‘t outer surface cá»§a Home, Vocab, Writing, Listening, Shadowing, Exam, Sentence Structure, Settings vÃ  Admin; card/sidebar/toolbars giá»¯ ná»n riÃªng.
-- File má»›i: `pages/appShellBackdrop.ts`, `.css`, `.test.ts`; AppShell render backdrop theo pathname.
+- Thêm backdrop chung tại `AppShell`: nền xanh Reading Corner, lưới trắng 32px, noise nhẹ và 3 ribbon `-45deg`.
+- Chỉ bật ở đúng route gốc: `/app/home`, `/app/vocab`, `/app/writing`, `/app/listening`, `/app/shadowing`, `/app/exam`, `/app/sentence-structure`, `/app/settings`, `/app/admin`.
+- Không bật ở Reading Corner vì có nền riêng; không bật ở bài học, bài luyện và exam player full-screen.
+- Làm trong suốt outer surface của Home, Vocab, Writing, Listening, Shadowing, Exam, Sentence Structure, Settings và Admin; card/sidebar/toolbars giữ nền riêng.
+- File mới: `pages/appShellBackdrop.ts`, `.css`, `.test.ts`; AppShell render backdrop theo pathname.
 - Verify: 17 tests PASS; shared-surface invariant PASS; live AppShell module PASS; `pnpm --filter web exec tsc --noEmit` PASS.
-- Fix bá»• sung `/app/writing`: `WritingLayout` cÃ³ 2 wrapper inline background phá»§ backdrop; thÃªm class `writing-layout` / `writing-layout__content` vÃ  override trong suá»‘t chá»‰ khi route hub active. Verify: 16 route tests PASS; live WritingLayout PASS; tsc PASS.
+- Fix bổ sung `/app/writing`: `WritingLayout` có 2 wrapper inline background phủ backdrop; thêm class `writing-layout` / `writing-layout__content` và override trong suốt chỉ khi route hub active. Verify: 16 route tests PASS; live WritingLayout PASS; tsc PASS.
 
-## 2026-07-16 â€” Ribbon cho Reading Corner hub vÃ  /bao
+## 2026-07-16 — Ribbon cho Reading Corner hub và /bao
 
-- TÃ¡ch `ReadingRibbonBackdrop.tsx` dÃ¹ng chung cho `/app/reading-corner` vÃ  `/app/reading-corner/bao`.
-- Hub GÃ³c Ä‘á»c thÃªm Ä‘á»§ 3 ribbon trÃªn ná»n xanh lÆ°á»›i; outer `rc-hub--ribbon` chuyá»ƒn transparent Ä‘á»ƒ backdrop hiá»‡n Ä‘Ãºng.
-- Ribbon `/bao` Ä‘á»•i tá»« `rotate(45deg)` sang `rotate(-45deg)`, Ä‘á»“ng nháº¥t hÆ°á»›ng trÃ¡i dÆ°á»›i lÃªn gÃ³c pháº£i.
-- Article reader váº«n dÃ¹ng cháº¿ Ä‘á»™ grid-only, khÃ´ng ribbon.
+- Tách `ReadingRibbonBackdrop.tsx` dùng chung cho `/app/reading-corner` và `/app/reading-corner/bao`.
+- Hub Góc đọc thêm đủ 3 ribbon trên nền xanh lưới; outer `rc-hub--ribbon` chuyển transparent để backdrop hiện đúng.
+- Ribbon `/bao` đổi từ `rotate(45deg)` sang `rotate(-45deg)`, đồng nhất hướng trái dưới lên góc phải.
+- Article reader vẫn dùng chế độ grid-only, không ribbon.
 - Verify: live 2 route modules PASS; live Reading Corner CSS PASS; 16 route tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” IELTS Listening TID shell rewrite (gáº§n 100% theieltsdictionary)
+## 2026-07-16 — IELTS Listening TID shell rewrite (gần 100% theieltsdictionary)
 
-- Viáº¿t láº¡i `ListeningIeltsTidShell` + `listeningIeltsTid.css`: header logo/title/timer remaining/Kiá»ƒm Tra/font/fullscreen, part banner `#f1f2ec`, paper single-column, overlay Play Ä‘en, footer Part pills + âœ“, float prev/next + audio.
-- `ListeningTest`: IELTS khÃ´ng dÃ¹ng overlay/shell cÅ© â€” TidShell tá»± quáº£n Play + layout.
-- Giá»¯ catalog Ä‘á» + map options + note form (`ListeningIeltsPartView`), draft/submit/review.
-- áº¨n audio-bar/split legacy trong CSS.
+- Viết lại `ListeningIeltsTidShell` + `listeningIeltsTid.css`: header logo/title/timer remaining/Kiểm Tra/font/fullscreen, part banner `#f1f2ec`, paper single-column, overlay Play đen, footer Part pills + ✓, float prev/next + audio.
+- `ListeningTest`: IELTS không dùng overlay/shell cũ — TidShell tự quản Play + layout.
+- Giữ catalog đề + map options + note form (`ListeningIeltsPartView`), draft/submit/review.
+- Ẩn audio-bar/split legacy trong CSS.
 - Verify: tsc PASS.
 
-## 2026-07-16 â€” Fix IELTS map Q16â€“20 + embed Tainguyen images
+## 2026-07-16 — Fix IELTS map Q16–20 + embed Tainguyen images
 
-- **Bug:** Cam19 Test1 Q16â€“20 (map label) `options: []` â†’ select trá»‘ng, khÃ´ng chá»n Ä‘Æ°á»£c.
-- **Fix runtime:** `listeningLetterOptions.ts` + Map/Diagram blocks suy Aâ€“H tá»« instruction/answers.
-- **Fix data:** patch 14 catalog JSON map options; sync **19 áº£nh** Tainguyen â†’ `public/catalog/listening/ielts-cam*/` (map.jpg, diagram.jpg, Questions_*.jpg).
-- Matching block hiá»ƒn thá»‹ `partImageUrl` khi cÃ³ hÃ¬nh; `examMediaUrl` encode path segment.
+- **Bug:** Cam19 Test1 Q16–20 (map label) `options: []` → select trống, không chọn được.
+- **Fix runtime:** `listeningLetterOptions.ts` + Map/Diagram blocks suy A–H từ instruction/answers.
+- **Fix data:** patch 14 catalog JSON map options; sync **19 ảnh** Tainguyen → `public/catalog/listening/ielts-cam*/` (map.jpg, diagram.jpg, Questions_*.jpg).
+- Matching block hiển thị `partImageUrl` khi có hình; `examMediaUrl` encode path segment.
 - Script: `scripts/sync-listening-images-from-tainguyen.mjs`
 - Verify: tsc PASS.
 
-## 2026-07-16 â€” Ship IELTS Listening TID shell (thay track UI)
+## 2026-07-16 — Ship IELTS Listening TID shell (thay track UI)
 
-- Route `/app/exam/listening/:examId` (IELTS): dÃ¹ng `ListeningIeltsTidShell` thay `ListeningIeltsTest`.
-- Layout TID: header logo + title + timer + **Kiá»ƒm Tra**, part banner `#f1f2ec`, footer part tabs; giá»¯ PartView (note/map/MC/matching), draft, submit, review, audio local.
-- CSS: `listeningIeltsTid.css`; overlay Play Ä‘en kiá»ƒu real_test.
-- Data/audio sáºµn: catalog Cam 9â€“20 + `public/catalog/listening/ielts-cam*/listening.mp3` (48 file).
+- Route `/app/exam/listening/:examId` (IELTS): dùng `ListeningIeltsTidShell` thay `ListeningIeltsTest`.
+- Layout TID: header logo + title + timer + **Kiểm Tra**, part banner `#f1f2ec`, footer part tabs; giữ PartView (note/map/MC/matching), draft, submit, review, audio local.
+- CSS: `listeningIeltsTid.css`; overlay Play đen kiểu real_test.
+- Data/audio sẵn: catalog Cam 9–20 + `public/catalog/listening/ielts-cam*/listening.mp3` (48 file).
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
-- Track list váº«n `/app/exam/track/ielts` â†’ skill listening; KET/PET/FCE khÃ´ng Ä‘á»•i.
+- Track list vẫn `/app/exam/track/ielts` → skill listening; KET/PET/FCE không đổi.
 
-## 2026-07-16 â€” Fix CTA Landing vÃ o Ä‘Ãºng giao diá»‡n lá»›p há»c
+## 2026-07-16 — Fix CTA Landing vào đúng giao diện lớp học
 
-- NÃºt Landing â€œVÃ o lá»›p há»câ€ / â€œBáº¯t Ä‘áº§u miá»…n phÃ­â€ gá»i `/app`; route index `/app` Ä‘á»•i tá»« `/app/vocab` sang `/app/home`.
-- OAuth callback sau Google login Ä‘á»•i tá»« `/app/vocab` sang `/app`, Ä‘á»ƒ ngÆ°á»i dÃ¹ng má»›i cÅ©ng vÃ o Ä‘Ãºng mÃ n Tá»•ng quan.
-- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
-
-## 2026-07-16 â€” Rollback visual redesign Tá»•ng quan
-
-- Gá»¡ cÃ¡c override `Premium dashboard layer` vÃ  `CTA landing destination` trong `homePage.css`; Tá»•ng quan quay vá» layout Home cÅ© thay vÃ¬ hero H1 quÃ¡ lá»›n.
-- KhÃ´ng Ä‘á»•i route `/app` hoáº·c logic Ä‘a ngÃ´n ngá»¯.
+- Nút Landing “Vào lớp học” / “Bắt đầu miễn phí” gọi `/app`; route index `/app` đổi từ `/app/vocab` sang `/app/home`.
+- OAuth callback sau Google login đổi từ `/app/vocab` sang `/app`, để người dùng mới cũng vào đúng màn Tổng quan.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-# Session Summary â€” Ryan English Website
+## 2026-07-16 — Rollback visual redesign Tổng quan
 
-## 2026-07-16 â€” Login gate giá»‘ng mockup TID
+- Gỡ các override `Premium dashboard layer` và `CTA landing destination` trong `homePage.css`; Tổng quan quay về layout Home cũ thay vì hero H1 quá lớn.
+- Không đổi route `/app` hoặc logic đa ngôn ngữ.
+- Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-- Khi user chÆ°a Ä‘Äƒng nháº­p vÃ  báº¥m CTA Landing vÃ o `/app`, `ProtectedRoute` khÃ´ng redirect vá» Landing ná»¯a mÃ  render `LoginPage`.
-- Redesign `LoginPage` theo áº£nh `Crawl/Giaodien/giao_dien.jpg`: ná»n grid, mascot máº·t trá»i, header xanh, tab Ä‘Äƒng nháº­p/Ä‘Äƒng kÃ½, form visual vÃ  nÃºt Google.
+# Session Summary — Ryan English Website
+
+## 2026-07-16 — Login gate giống mockup TID
+
+- Khi user chưa đăng nhập và bấm CTA Landing vào `/app`, `ProtectedRoute` không redirect về Landing nữa mà render `LoginPage`.
+- Redesign `LoginPage` theo ảnh `Crawl/Giaodien/giao_dien.jpg`: nền grid, mascot mặt trời, header xanh, tab đăng nhập/đăng ký, form visual và nút Google.
 - File: `apps/web/src/features/auth/LoginPage.tsx`, `apps/web/src/features/auth/loginPage.css`, `ProtectedRoute.tsx`.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## ThÃ´ng tin dá»± Ã¡n
-- **ThÆ° má»¥c:** `D:/App-English-Ryan/Website/`
+## Thông tin dự án
+- **Thư mục:** `D:/App-English-Ryan/Website/`
 - **Stack:** Vite + React + TypeScript + Tailwind + pnpm workspaces
 - **Supabase project:** `ntcagvtkwxwsmlxlumfo`
-- **Dev server:** `pnpm dev` â†’ `http://localhost:5173`
+- **Dev server:** `pnpm dev` → `http://localhost:5173`
 
-## 2026-07-15 â€” Listening playback speed
+## 2026-07-15 — Listening playback speed
 
-- IELTS vÃ  Cambridge Listening dÃ¹ng chung nÃºt tá»‘c Ä‘á»™ cáº¡nh nÃºt Play.
-- Chu ká»³ tá»‘c Ä‘á»™: **1Ã— â†’ 0.75Ã— â†’ 0.5Ã— â†’ 1Ã—**; thay Ä‘á»•i ngay trÃªn audio Ä‘ang phÃ¡t.
-- Cáº­p nháº­t `ListeningExamAudioBar.tsx`, `useExamQuestionAudio.ts`, cÃ¡c test IELTS/KET/PET/FCE vÃ  CSS.
+- IELTS và Cambridge Listening dùng chung nút tốc độ cạnh nút Play.
+- Chu kỳ tốc độ: **1× → 0.75× → 0.5× → 1×**; thay đổi ngay trên audio đang phát.
+- Cập nhật `ListeningExamAudioBar.tsx`, `useExamQuestionAudio.ts`, các test IELTS/KET/PET/FCE và CSS.
 - Verify: `pnpm -C apps/web build` PASS.
 
-## 2026-07-15 â€” Fix publish loading vÃ´ háº¡n
+## 2026-07-15 — Fix publish loading vô hạn
 
-- Listening media upload trÆ°á»›c Ä‘Ã¢y khÃ´ng cÃ³ timeout; náº¿u Supabase Storage khÃ´ng pháº£n há»“i, nÃºt Publish giá»¯ loading vÃ´ háº¡n.
-- ThÃªm timeout 120 giÃ¢y cho tá»«ng upload media vÃ  reset progress khi báº¯t Ä‘áº§u Publish má»¥c má»›i.
+- Listening media upload trước đây không có timeout; nếu Supabase Storage không phản hồi, nút Publish giữ loading vô hạn.
+- Thêm timeout 120 giây cho từng upload media và reset progress khi bắt đầu Publish mục mới.
 - Verify: `pnpm -C apps/web build` PASS.
 
-## 2026-07-16 â€” Giai Ä‘oáº¡n 1 Ä‘a ngÃ´n ngá»¯ giao diá»‡n
+## 2026-07-16 — Giai đoạn 1 đa ngôn ngữ giao diện
 
-- ThÃªm `apps/web/src/lib/language.tsx` vá»›i English + Tiáº¿ng Viá»‡t, `LanguageProvider`, `useI18n` vÃ  lÆ°u preference vÃ o localStorage + Dexie `settingsRepo`.
-- ThÃªm lá»±a chá»n ngÃ´n ngá»¯ trong Settings â†’ Giao diá»‡n.
-- AppShell tá»± cáº­p nháº­t nhÃ£n navigation theo ngÃ´n ngá»¯ Ä‘Ã£ chá»n.
-- Ná»™i dung bÃ i há»c/Ä‘á» thi chÆ°a dá»‹ch; chá»‰ dá»‹ch khung giao diá»‡n chÃ­nh trong giai Ä‘oáº¡n 1.
+- Thêm `apps/web/src/lib/language.tsx` với English + Tiếng Việt, `LanguageProvider`, `useI18n` và lưu preference vào localStorage + Dexie `settingsRepo`.
+- Thêm lựa chọn ngôn ngữ trong Settings → Giao diện.
+- AppShell tự cập nhật nhãn navigation theo ngôn ngữ đã chọn.
+- Nội dung bài học/đề thi chưa dịch; chỉ dịch khung giao diện chính trong giai đoạn 1.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Giai Ä‘oáº¡n 2 má»Ÿ rá»™ng ngÃ´n ngá»¯ giao diá»‡n
+## 2026-07-16 — Giai đoạn 2 mở rộng ngôn ngữ giao diện
 
-- Má»Ÿ rá»™ng `language.tsx` tá»« 2 lÃªn Ä‘á»§ **17 ngÃ´n ngá»¯**: English, Arabic, German, Greek, Spanish, Indonesian, Japanese, Korean, Malay, Portuguese, Russian, Thai, Turkish, Ukrainian, Vietnamese, Simplified Chinese, Traditional Chinese.
-- ThÃªm nhÃ£n báº£n Ä‘á»‹a vÃ  báº£n dá»‹ch navigation + cÃ¡c nhÃ£n chÃ­nh cá»§a Settings cho tá»«ng ngÃ´n ngá»¯.
-- Giá»¯ cÆ¡ cháº¿ lÆ°u preference localStorage + Dexie `settingsRepo`; ngÃ´n ngá»¯ chÆ°a cÃ³ báº£n dá»‹ch á»Ÿ khu vá»±c khÃ¡c sáº½ fallback vá» Vietnamese.
+- Mở rộng `language.tsx` từ 2 lên đủ **17 ngôn ngữ**: English, Arabic, German, Greek, Spanish, Indonesian, Japanese, Korean, Malay, Portuguese, Russian, Thai, Turkish, Ukrainian, Vietnamese, Simplified Chinese, Traditional Chinese.
+- Thêm nhãn bản địa và bản dịch navigation + các nhãn chính của Settings cho từng ngôn ngữ.
+- Giữ cơ chế lưu preference localStorage + Dexie `settingsRepo`; ngôn ngữ chưa có bản dịch ở khu vực khác sẽ fallback về Vietnamese.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Giai Ä‘oáº¡n 3 RTL vÃ  locale
+## 2026-07-16 — Giai đoạn 3 RTL và locale
 
-- Arabic tá»± Ä‘áº·t `dir="rtl"`; cÃ¡c ngÃ´n ngá»¯ cÃ²n láº¡i dÃ¹ng `dir="ltr"`.
-- Cáº­p nháº­t `document.documentElement.lang` khi Ä‘á»•i ngÃ´n ngá»¯.
-- ThÃªm `formatLocaleDate()` vá»›i locale tÆ°Æ¡ng á»©ng cho ngÃ y thÃ¡ng.
-- Tab Settings dÃ¹ng nhÃ£n dá»‹ch theo ngÃ´n ngá»¯ Ä‘Ã£ chá»n.
+- Arabic tự đặt `dir="rtl"`; các ngôn ngữ còn lại dùng `dir="ltr"`.
+- Cập nhật `document.documentElement.lang` khi đổi ngôn ngữ.
+- Thêm `formatLocaleDate()` với locale tương ứng cho ngày tháng.
+- Tab Settings dùng nhãn dịch theo ngôn ngữ đã chọn.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS; `pnpm -C apps/web build` PASS.
 
-## 2026-07-16 â€” Giai Ä‘oáº¡n 4 AppShell vÃ  Tá»•ng quan
+## 2026-07-16 — Giai đoạn 4 AppShell và Tổng quan
 
-- ThÃªm nhÃ³m key dá»‹ch dÃ¹ng chung cho tráº¡ng thÃ¡i app vÃ  cÃ¡c hÃ nh Ä‘á»™ng chÃ­nh cá»§a Tá»•ng quan.
-- Quick actions trÃªn HomePage láº¥y nhÃ£n tá»« i18n nÃªn Ä‘á»•i theo ngÃ´n ngá»¯: Vocabulary, Writing, Listening, Translate, MindMap.
-- Giá»¯ nguyÃªn dá»¯ liá»‡u thá»‘ng kÃª, streak vÃ  ná»™i dung há»c táº­p.
+- Thêm nhóm key dịch dùng chung cho trạng thái app và các hành động chính của Tổng quan.
+- Quick actions trên HomePage lấy nhãn từ i18n nên đổi theo ngôn ngữ: Vocabulary, Writing, Listening, Translate, MindMap.
+- Giữ nguyên dữ liệu thống kê, streak và nội dung học tập.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Bá»• sung dá»‹ch text cÃ²n sÃ³t á»Ÿ AppShell/Home
+## 2026-07-16 — Bổ sung dịch text còn sót ở AppShell/Home
 
-- Chuyá»ƒn thÃªm fallback user, Ä‘Äƒng xuáº¥t, sidebar expand/collapse, tráº¡ng thÃ¡i Ä‘á»“ng bá»™, theme label vÃ  lifetime plan sang i18n.
-- Chuyá»ƒn nhÃ£n thá»‘ng kÃª Home vÃ  tiÃªu Ä‘á» nhÃ³m â€œHá»c ngayâ€ sang i18n.
+- Chuyển thêm fallback user, đăng xuất, sidebar expand/collapse, trạng thái đồng bộ, theme label và lifetime plan sang i18n.
+- Chuyển nhãn thống kê Home và tiêu đề nhóm “Học ngay” sang i18n.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Map toÃ n bá»™ giao diá»‡n trang Tá»•ng quan
+## 2026-07-16 — Map toàn bộ giao diện trang Tổng quan
 
-- Chuyá»ƒn greeting, subtitle, mascot message, quick-action descriptions vÃ  thá»‘ng kÃª Home sang i18n.
-- Chuyá»ƒn StudyActivityGrid: tiÃªu Ä‘á», mÃ´ táº£, legend, aria-label vÃ  active-day text.
-- Chuyá»ƒn CheckInButton: Ä‘iá»ƒm danh, streak Ä‘iá»ƒm danh vÃ  tráº¡ng thÃ¡i Ä‘Ã£ Ä‘iá»ƒm danh.
-- Chuyá»ƒn DailyGoalCard: má»¥c tiÃªu, chá»‰nh sá»­a/lÆ°u, cÃ¡c dÃ²ng goal vÃ  completion message.
-- Chuyá»ƒn StreakCelebration: tiÃªu Ä‘á» vÃ  thÃ´ng bÃ¡o streak.
-- Vá»›i ngÃ´n ngá»¯ chÆ°a cÃ³ báº£n dá»‹ch riÃªng cho key má»›i, fallback dÃ¹ng English thay vÃ¬ Vietnamese Ä‘á»ƒ trÃ¡nh trá»™n ngÃ´n ngá»¯.
+- Chuyển greeting, subtitle, mascot message, quick-action descriptions và thống kê Home sang i18n.
+- Chuyển StudyActivityGrid: tiêu đề, mô tả, legend, aria-label và active-day text.
+- Chuyển CheckInButton: điểm danh, streak điểm danh và trạng thái đã điểm danh.
+- Chuyển DailyGoalCard: mục tiêu, chỉnh sửa/lưu, các dòng goal và completion message.
+- Chuyển StreakCelebration: tiêu đề và thông báo streak.
+- Với ngôn ngữ chưa có bản dịch riêng cho key mới, fallback dùng English thay vì Vietnamese để tránh trộn ngôn ngữ.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Map giao diá»‡n Vocabulary
+## 2026-07-16 — Map giao diện Vocabulary
 
-- Chuyá»ƒn trang `/app/vocab` sang i18n cho tiÃªu Ä‘á», sá»­a deck trÃ¹ng, notebook, táº¡o deck, loáº¡i tá»« vÃ  tráº¡ng thÃ¡i repair.
-- Chuyá»ƒn DeckGrid cho bá»™ lá»c, confirm/error xoÃ¡ deck.
-- Chuyá»ƒn CardPanel cho chá»n deck, export/import, thÃªm tá»« vÃ  empty state.
-- Dá»¯ liá»‡u deck/card khÃ´ng thay Ä‘á»•i.
+- Chuyển trang `/app/vocab` sang i18n cho tiêu đề, sửa deck trùng, notebook, tạo deck, loại từ và trạng thái repair.
+- Chuyển DeckGrid cho bộ lọc, confirm/error xoá deck.
+- Chuyển CardPanel cho chọn deck, export/import, thêm từ và empty state.
+- Dữ liệu deck/card không thay đổi.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-16 â€” Bá»• sung 120 guide Task 2 TID Writing
+## 2026-07-16 — Bổ sung 120 guide Task 2 TID Writing
 
-- ThÃªm `scripts/fill-tid-task2-guides.mjs` Ä‘á»ƒ sinh guide HTML tÄ©nh theo 6 genre Task 2.
-- Bá»• sung guide + outline + useful language + thesis direction + model answer cho **120/120** Ä‘á» thiáº¿u.
-- Cáº­p nháº­t `apps/web/public/catalog/writing/tid/tasks.json`: **356/356** Ä‘á» cÃ³ `guideHtml`; Task 1 khÃ´ng thay Ä‘á»•i.
-- KhÃ´ng gá»i AI/API.
+- Thêm `scripts/fill-tid-task2-guides.mjs` để sinh guide HTML tĩnh theo 6 genre Task 2.
+- Bổ sung guide + outline + useful language + thesis direction + model answer cho **120/120** đề thiếu.
+- Cập nhật `apps/web/public/catalog/writing/tid/tasks.json`: **356/356** đề có `guideHtml`; Task 1 không thay đổi.
+- Không gọi AI/API.
 - Verify: validator missing guides = 0; `pnpm --filter web exec tsc --noEmit` PASS.
 
 ---
 
-## 2026-07-15 â€” Tá»•ng quan: mascot máº·t trá»i + bubble
+## 2026-07-15 — Tổng quan: mascot mặt trời + bubble
 
-- TÃ¡ch SVG máº·t trá»i mÃ n káº¿t quáº£ â†’ `components/SunnyMascotSvg.tsx` (ExamPracticeResultReport tÃ¡i dÃ¹ng, UI khÃ´ng Ä‘á»•i).
-- Header `/app` (HomePage) hiá»‡n mascot + bubble lá»i thoáº¡i theo giá»/streak (`getMascotLine`); CSS `home-sun-mascot*` trong homePage.css; mobile áº©n bubble. Verify: web typecheck PASS.
+- Tách SVG mặt trời màn kết quả → `components/SunnyMascotSvg.tsx` (ExamPracticeResultReport tái dùng, UI không đổi).
+- Header `/app` (HomePage) hiện mascot + bubble lời thoại theo giờ/streak (`getMascotLine`); CSS `home-sun-mascot*` trong homePage.css; mobile ẩn bubble. Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Fix undefined questions khi má»Ÿ Import Listening
+## 2026-07-15 — Fix undefined questions khi mở Import Listening
 
-- Preview modal dÃ¹ng `Array.isArray(part.questions)` trÆ°á»›c khi Ä‘á»c `.length`.
-- Validator cÅ©ng chuáº©n hÃ³a `questions` thiáº¿u thÃ nh máº£ng rá»—ng.
+- Preview modal dùng `Array.isArray(part.questions)` trước khi đọc `.length`.
+- Validator cũng chuẩn hóa `questions` thiếu thành mảng rỗng.
 - Verify: `pnpm -C apps/web build` PASS.
 
-## 2026-07-15 â€” ExamHome hero: mascot máº·t trá»i/máº·t trÄƒng
+## 2026-07-15 — ExamHome hero: mascot mặt trời/mặt trăng
 
-- Orb tÃ­m Â«FOCUS / 01Â» á»Ÿ `/app/exam` â†’ mascot **máº·t trá»i** (ban ngÃ y) / **máº·t trÄƒng** (18hâ€“6h) tÃ¡i dÃ¹ng `LegacySunMascot` tá»« landing.
-- áº¨n speech bubble (text riÃªng cá»§a landing) qua `.exam-home__orb--mascot .sun-bubble { display:none }`.
+- Orb tím «FOCUS / 01» ở `/app/exam` → mascot **mặt trời** (ban ngày) / **mặt trăng** (18h–6h) tái dùng `LegacySunMascot` từ landing.
+- Ẩn speech bubble (text riêng của landing) qua `.exam-home__orb--mascot .sun-bubble { display:none }`.
 - File: `ExamHome.tsx`, `examHub.css`. Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Fix crash Import ZIP IELTS/Cambridge Listening
+## 2026-07-15 — Fix crash Import ZIP IELTS/Cambridge Listening
 
-- `collectExpectedMediaFiles()` vÃ  diagnostics khÃ´ng cÃ²n dÃ¹ng `part.questions` trá»±c tiáº¿p khi payload ZIP thiáº¿u/khÃ´ng chuáº©n máº£ng.
-- DÃ¹ng guard `Array.isArray(...)`, modal khÃ´ng cÃ²n crash vá»›i `TypeError: part.questions is not iterable`.
+- `collectExpectedMediaFiles()` và diagnostics không còn dùng `part.questions` trực tiếp khi payload ZIP thiếu/không chuẩn mảng.
+- Dùng guard `Array.isArray(...)`, modal không còn crash với `TypeError: part.questions is not iterable`.
 - Verify: `pnpm -C apps/web build` PASS.
 
-## 2026-07-15 â€” KhÃ´i phá»¥c KET A2 Listening sau lá»—i prune
+## 2026-07-15 — Khôi phục KET A2 Listening sau lỗi prune
 
-- NguyÃªn nhÃ¢n: `Publish má»¥c má»›i` gá»i batch cÃ³ prune cloud, xÃ³a cÃ¡c practice 02â€“44 khÃ´ng cÃ³ local record trÃªn mÃ¡y Admin.
-- Fix: thÃªm `options.prune`; `Publish má»¥c má»›i` dÃ¹ng `{ prune: false }`, chá»‰ `Publish táº¥t cáº£` má»›i prune.
-- KhÃ´i phá»¥c cloud KET practice 02â€“44 tá»« nguá»“n `Crawl/Import_KET_A2_Listening` (Ä‘Ã£ publish thÃ nh cÃ´ng 02â€“44 qua cÃ¡c batch).
+- Nguyên nhân: `Publish mục mới` gọi batch có prune cloud, xóa các practice 02–44 không có local record trên máy Admin.
+- Fix: thêm `options.prune`; `Publish mục mới` dùng `{ prune: false }`, chỉ `Publish tất cả` mới prune.
+- Khôi phục cloud KET practice 02–44 từ nguồn `Crawl/Import_KET_A2_Listening` (đã publish thành công 02–44 qua các batch).
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Cáº¥u trÃºc cÃ¢u: 365 template khÃ¡c nhau
+## 2026-07-15 — Cấu trúc câu: 365 template khác nhau
 
-- Gá»™p `CORE` (~167) + `EXTRA` (~266) trong `packages/catalog/src/seeds/`.
-- Dedupe theo template (khÃ´ng clone Â·02), Æ°u tiÃªn core, cap **365** báº£n unique.
-- `GLOBAL_CATALOG_VERSION` â†’ **32** (sync láº¡i khi vÃ o `/app`).
+- Gộp `CORE` (~167) + `EXTRA` (~266) trong `packages/catalog/src/seeds/`.
+- Dedupe theo template (không clone ·02), ưu tiên core, cap **365** bản unique.
+- `GLOBAL_CATALOG_VERSION` → **32** (sync lại khi vào `/app`).
 - File: `sentenceStructures.extra.ts`, `sentenceStructures.expand.ts`, `sentenceStructures.ts`, `manifest.ts`.
-- Hard-refresh `/app/sentence-structure` Ä‘á»ƒ tháº¥y Ä‘á»§ 365.
+- Hard-refresh `/app/sentence-structure` để thấy đủ 365.
 
-## 2026-07-15 â€” KhÃ´i phá»¥c nÃºt Publish má»¥c má»›i
+## 2026-07-15 — Khôi phục nút Publish mục mới
 
-- Admin Publish cÃ³ láº¡i nÃºt `Publish má»¥c má»›i` cáº¡nh `Publish táº¥t cáº£`.
-- NÃºt gá»i batch publish Reading/Listening local vÃ  kÃ¨m transcript Whisper Ä‘Ã£ lÆ°u.
+- Admin Publish có lại nút `Publish mục mới` cạnh `Publish tất cả`.
+- Nút gọi batch publish Reading/Listening local và kèm transcript Whisper đã lưu.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Publish transcript Whisper lÃªn cloud
+## 2026-07-15 — Publish transcript Whisper lên cloud
 
-- ThÃªm `ListeningPart.transcript` cho transcript toÃ n Part.
-- Admin publish tá»± láº¥y `exam-listening-whisper:{examId}:{partNumber}` tá»« localStorage vÃ  Ä‘Æ°a vÃ o `parts` JSONB cá»§a `listening_exam_published`.
-- User Ä‘á»c Ä‘á» published sáº½ tháº¥y transcript cloud trong panel; khÃ´ng thay Ä‘á»•i cÃ¢u há»i/Ä‘Ã¡p Ã¡n.
+- Thêm `ListeningPart.transcript` cho transcript toàn Part.
+- Admin publish tự lấy `exam-listening-whisper:{examId}:{partNumber}` từ localStorage và đưa vào `parts` JSONB của `listening_exam_published`.
+- User đọc đề published sẽ thấy transcript cloud trong panel; không thay đổi câu hỏi/đáp án.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” XÃ³a toolbar Sao chÃ©p trÃ¹ng trong Exam
+## 2026-07-15 — Xóa toolbar Sao chép trùng trong Exam
 
-- Global `TextSelectionToolbar` khÃ´ng cÃ²n hiá»ƒn thá»‹ trong vÃ¹ng `[data-exam-highlight-zone]`.
-- Transcript/Exam chá»‰ cÃ²n má»™t toolbar Reading/Exam vá»›i má»™t nÃºt `Sao chÃ©p`.
+- Global `TextSelectionToolbar` không còn hiển thị trong vùng `[data-exam-highlight-zone]`.
+- Transcript/Exam chỉ còn một toolbar Reading/Exam với một nút `Sao chép`.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Fix toolbar transcript Ä‘Ã¨ dÃ²ng trÆ°á»›c
+## 2026-07-15 — Fix toolbar transcript đè dòng trước
 
-- Toolbar nháº­n diá»‡n `.listening-transcript-panel` vÃ  Æ°u tiÃªn Ä‘áº·t bÃªn dÆ°á»›i vÃ¹ng text Ä‘Æ°á»£c chá»n.
-- Chá»‰ Ä‘áº·t phÃ­a trÃªn khi gáº§n cuá»‘i viewport Ä‘á»ƒ trÃ¡nh bá»‹ cáº¯t.
+- Toolbar nhận diện `.listening-transcript-panel` và ưu tiên đặt bên dưới vùng text được chọn.
+- Chỉ đặt phía trên khi gần cuối viewport để tránh bị cắt.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Fix toolbar overlap khi chá»n transcript
+## 2026-07-15 — Fix toolbar overlap khi chọn transcript
 
-- `ReadingHighlightToolbar` tá»± chuyá»ƒn xuá»‘ng dÆ°á»›i Ä‘oáº¡n chá»n náº¿u Ä‘oáº¡n chá»n gáº§n mÃ©p trÃªn viewport.
-- TrÃ¡nh toolbar Sao chÃ©p/Highlight Ä‘Ã¨ lÃªn dÃ²ng transcript.
+- `ReadingHighlightToolbar` tự chuyển xuống dưới đoạn chọn nếu đoạn chọn gần mép trên viewport.
+- Tránh toolbar Sao chép/Highlight đè lên dòng transcript.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Äá»“ng bá»™ Highlight/Note transcript vá»›i Reading/Exam
+## 2026-07-15 — Đồng bộ Highlight/Note transcript với Reading/Exam
 
-- Transcript panel dÃ¹ng trá»±c tiáº¿p `ReadingHighlightToolbar` vÃ  `ReadingHighlightableText`.
-- Toolbar cÃ³ Sao chÃ©p, TÃ´ sÃ¡ng, Note, Bá» tÃ´ sÃ¡ng vÃ  XÃ³a note giá»‘ng Reading/Exam.
-- Annotation lÆ°u local theo `examId + Part`, dÃ¹ng Ä‘Ãºng `readingHighlightUtils` vÃ  mÃ u `var(--exam-highlight-bg)`.
+- Transcript panel dùng trực tiếp `ReadingHighlightToolbar` và `ReadingHighlightableText`.
+- Toolbar có Sao chép, Tô sáng, Note, Bỏ tô sáng và Xóa note giống Reading/Exam.
+- Annotation lưu local theo `examId + Part`, dùng đúng `readingHighlightUtils` và màu `var(--exam-highlight-bg)`.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Bá» Highlight/Note transcript
+## 2026-07-15 — Bỏ Highlight/Note transcript
 
-- Báº¥m trá»±c tiáº¿p vÃ o Ä‘oáº¡n highlight Ä‘á»ƒ bá» highlight.
-- Má»—i note cÃ³ nÃºt `Bá» note`.
-- MÃ u highlight dÃ¹ng `var(--exam-highlight-bg)`, Ä‘á»“ng bá»™ Reading/Exam.
+- Bấm trực tiếp vào đoạn highlight để bỏ highlight.
+- Mỗi note có nút `Bỏ note`.
+- Màu highlight dùng `var(--exam-highlight-bg)`, đồng bộ Reading/Exam.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Highlight/Note cho transcript cÃ³ sáºµn
+## 2026-07-15 — Highlight/Note cho transcript có sẵn
 
-- Transcript tá»« `q.ttsText`/audioscript giá» cÅ©ng chá»n Ä‘Æ°á»£c Ä‘á»ƒ Highlight hoáº·c Note, khÃ´ng chá»‰ transcript Whisper.
-- DÃ¹ng chung lÆ°u trá»¯ local theo Ä‘á»/Part.
+- Transcript từ `q.ttsText`/audioscript giờ cũng chọn được để Highlight hoặc Note, không chỉ transcript Whisper.
+- Dùng chung lưu trữ local theo đề/Part.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Note/Highlight transcript Whisper
+## 2026-07-15 — Note/Highlight transcript Whisper
 
-- Transcript Whisper trong Listening há»— trá»£ bÃ´i chá»n Ä‘oáº¡n vÄƒn.
-- `Highlight` tÃ´ vÃ ng vÃ  lÆ°u local theo `examId + Part`.
-- `Note` há»i ná»™i dung ghi chÃº, lÆ°u local vÃ  hiá»ƒn thá»‹ láº¡i dÆ°á»›i transcript.
+- Transcript Whisper trong Listening hỗ trợ bôi chọn đoạn văn.
+- `Highlight` tô vàng và lưu local theo `examId + Part`.
+- `Note` hỏi nội dung ghi chú, lưu local và hiển thị lại dưới transcript.
 - Verify: web typecheck PASS.
 
-## 2026-07-15 â€” Ãp dá»¥ng Whisper transcript cho IELTS Listening
+## 2026-07-15 — Áp dụng Whisper transcript cho IELTS Listening
 
-- Má»i Ä‘á» `examType: 'ielts'` khÃ´ng cÃ²n Ä‘á»c transcript DeepSeek cÅ© trong localStorage.
-- IELTS Listening dÃ¹ng chung nÃºt Whisper `base.en`, transcript lÆ°u theo `examId + partNumber`.
-- CÃ¢u há»i vÃ  Ä‘Ã¡p Ã¡n IELTS khÃ´ng bá»‹ thay Ä‘á»•i.
+- Mọi đề `examType: 'ielts'` không còn đọc transcript DeepSeek cũ trong localStorage.
+- IELTS Listening dùng chung nút Whisper `base.en`, transcript lưu theo `examId + partNumber`.
+- Câu hỏi và đáp án IELTS không bị thay đổi.
 
-## 2026-07-15 â€” XÃ³a transcript DeepSeek sai khá»i KET A2 catalog
+## 2026-07-15 — Xóa transcript DeepSeek sai khỏi KET A2 catalog
 
-- `ListeningTranscriptSidePanel.tsx` tá»± xÃ³a transcript map cÅ© trong localStorage vá»›i má»i `catalog-listening-*`.
-- KET A2 Test 1 khÃ´ng cÃ²n hiá»ƒn thá»‹ transcript DeepSeek cÅ©; chá»‰ dÃ¹ng `ttsText` chuáº©n hoáº·c transcript Whisper local má»›i.
+- `ListeningTranscriptSidePanel.tsx` tự xóa transcript map cũ trong localStorage với mọi `catalog-listening-*`.
+- KET A2 Test 1 không còn hiển thị transcript DeepSeek cũ; chỉ dùng `ttsText` chuẩn hoặc transcript Whisper local mới.
 - Verify: server typecheck PASS.
 
-## 2026-07-15 â€” Phase Whisper transcript theo Part
+## 2026-07-15 — Phase Whisper transcript theo Part
 
-- `ListeningTranscriptSidePanel.tsx`: thay nÃºt táº¡o transcript AI báº±ng nÃºt Whisper local `base.en`.
-- Gá»­i audio URL cá»§a Part hiá»‡n táº¡i tá»›i `POST /api/stt`, lÆ°u transcript táº¡i localStorage theo `examId + partNumber` vÃ  hiá»ƒn thá»‹ láº¡i khi má»Ÿ panel.
-- Transcript Whisper chá»‰ lÃ  vÄƒn báº£n tham kháº£o toÃ n Part; khÃ´ng dÃ¹ng Ä‘á»ƒ suy Ä‘oÃ¡n cÃ¢u há»i/Ä‘Ã¡p Ã¡n.
-- Server typecheck PASS. Web typecheck cÃ²n lá»—i catalog type cÃ³ sáºµn á»Ÿ `listeningExamCatalogMerge.ts`/`packages/catalog/src/builtinExams.ts`.
+- `ListeningTranscriptSidePanel.tsx`: thay nút tạo transcript AI bằng nút Whisper local `base.en`.
+- Gửi audio URL của Part hiện tại tới `POST /api/stt`, lưu transcript tại localStorage theo `examId + partNumber` và hiển thị lại khi mở panel.
+- Transcript Whisper chỉ là văn bản tham khảo toàn Part; không dùng để suy đoán câu hỏi/đáp án.
+- Server typecheck PASS. Web typecheck còn lỗi catalog type có sẵn ở `listeningExamCatalogMerge.ts`/`packages/catalog/src/builtinExams.ts`.
 
-## 2026-07-15 â€” Mount local STT router
+## 2026-07-15 — Mount local STT router
 
-- `server/src/index.ts` import vÃ  mount `sttRouter` táº¡i `/api/stt`.
-- Trang `/` cÃ´ng bá»‘ `ttsHealth`, `tts`, `sttHealth`, `stt`.
-- Verify: `pnpm --filter server typecheck` vÃ  `pnpm --filter web exec tsc --noEmit` Ä‘á»u pass.
+- `server/src/index.ts` import và mount `sttRouter` tại `/api/stt`.
+- Trang `/` công bố `ttsHealth`, `tts`, `sttHealth`, `stt`.
+- Verify: `pnpm --filter server typecheck` và `pnpm --filter web exec tsc --noEmit` đều pass.
 
-## 2026-07-15 â€” Äá»•i local Whisper transcript sang `base.en`
+## 2026-07-15 — Đổi local Whisper transcript sang `base.en`
 
-- Server STT máº·c Ä‘á»‹nh dÃ¹ng `faster-whisper` `base.en` thay cho `tiny.en` Ä‘á»ƒ nháº­n dáº¡ng tá»‘t hÆ¡n sá»‘, tÃªn riÃªng vÃ  spelling trong Listening Cambridge A2â€“C2.
-- CÃ³ thá»ƒ ghi Ä‘Ã¨ báº±ng biáº¿n mÃ´i trÆ°á»ng `WHISPER_MODEL`; khÃ´ng thay Ä‘á»•i viá»‡c táº¡o cÃ¢u há»i/Ä‘Ã¡p Ã¡n.
+- Server STT mặc định dùng `faster-whisper` `base.en` thay cho `tiny.en` để nhận dạng tốt hơn số, tên riêng và spelling trong Listening Cambridge A2–C2.
+- Có thể ghi đè bằng biến môi trường `WHISPER_MODEL`; không thay đổi việc tạo câu hỏi/đáp án.
 
-## 2026-07-15 â€” KhÃ³a táº¡o Ä‘á» KET A2 báº±ng AI
+## 2026-07-15 — Khóa tạo đề KET A2 bằng AI
 
-- `ImportReadingPdfModal.tsx`: khÃ´ng cho cháº¡y DeepSeek/OpenAI khi import PDF Cambridge A2; nÃºt PhÃ¢n tÃ­ch bá»‹ khÃ³a vÃ  hÆ°á»›ng dáº«n dÃ¹ng ZIP chuáº©n cÃ³ `exam.json` + `answer-key`.
-- LÃ½ do: Whisper `tiny.en` chá»‰ nháº­n dáº¡ng lá»i nÃ³i thÃ nh transcript, khÃ´ng thá»ƒ dá»±ng chÃ­nh xÃ¡c cÃ¢u há»i/Ä‘Ã¡p Ã¡n/hÃ¬nh áº£nh Cambridge; Test 1 KET A2 chuáº©n Ä‘Ã£ cÃ³ catalog.
-- IELTS vÃ  cÃ¡c luá»“ng AI khÃ¡c váº«n giá»¯ nguyÃªn.
-- Cáº§n verify: `pnpm --filter web exec tsc --noEmit`.
+- `ImportReadingPdfModal.tsx`: không cho chạy DeepSeek/OpenAI khi import PDF Cambridge A2; nút Phân tích bị khóa và hướng dẫn dùng ZIP chuẩn có `exam.json` + `answer-key`.
+- Lý do: Whisper `tiny.en` chỉ nhận dạng lời nói thành transcript, không thể dựng chính xác câu hỏi/đáp án/hình ảnh Cambridge; Test 1 KET A2 chuẩn đã có catalog.
+- IELTS và các luồng AI khác vẫn giữ nguyên.
+- Cần verify: `pnpm --filter web exec tsc --noEmit`.
 
-## Tráº¡ng thÃ¡i hiá»‡n táº¡i
+## Trạng thái hiện tại
 
-- **Transcript AI lÆ°u vÄ©nh viá»…n (2026-07-15):** `examListeningTranscriptStorage.ts` sessionStorage â†’ **localStorage** (migrate tá»± Ä‘á»™ng); panel transcript cÃ³ nÃºt Â«Táº¡o transcript báº±ng AIÂ» (Sparkles) khi part thiáº¿u transcript â€” merge vá»›i map cÅ©, táº¡o 1 láº§n khÃ´ng gá»i láº¡i. `tsc` pass
-- **Transcript split khi lÃ m bÃ i (2026-07-15):** `ListeningTranscriptSidePanel.tsx` má»›i â€” nÃºt Â«TranscriptÂ» trÃªn header 4 test runner (KET/PET/FCE-CAE-CPE/IELTS) má»Ÿ panel fixed bÃªn pháº£i, kÃ©o cáº¡nh trÃ¡i resize (280â€“720px, lÆ°u localStorage), Esc Ä‘Ã³ng; nguá»“n: `q.ttsText` (Audioscript import) + AI map sessionStorage, lá»c theo part hiá»‡n táº¡i; CSS `.listening-transcript-panel*` trong listeningTest.css. `tsc` pass
-- **MS PET stack dá»c (2026-07-15):** `.listening-pet-mc__question` bá» grid 2 cá»™t (cÃ¢u trÃ¡i / options pháº£i) â†’ flex column, options náº±m dÆ°á»›i cÃ¢u há»i
-- **BÃ¬a sÃ¡ch Cambridge library (2026-07-15):** `getCambridgeBrandBookCoverColor` (cambridgeLibraryGrouping.ts) â€” bá» `color-mix` vá»›i base brand (ra toÃ n nÃ¢u); dÃ¹ng `BOOK_PALETTE` 14 mÃ u Ä‘a dáº¡ng nhÆ° IELTS, offset theo brand; Book 1 giá»¯ mÃ u brand. `tsc` pass
-- **Auto-play part audio (2026-07-15):** Ä‘á» Listening import chia `part1..part5.mp3` â€” báº¥m chuyá»ƒn part trong `goToPart` tá»± phÃ¡t audio part Ä‘Ã³ (KET/PET/FCE-CAE-CPE: helper `autoPlayPartAudio`; IELTS: inline, key `part-{id}`). Chá»‰ khi khÃ´ng dÃ¹ng 1 MP3 shared, khÃ´ng á»Ÿ review/submitted, tÃ´n trá»ng play limits (exam mode); gá»i trong click gesture nÃªn khÃ´ng vÆ°á»›ng autoplay policy. `tsc --noEmit` pass
-- **UI MS (2026-07-15):** redesign MS/MC listening trong `apps/web/src/features/exam/listeningTest.css` â€” KET A2 (`.listening-ket-p3__*`), PET B1 (`.listening-pet-mc__*`), FCE/CAE/CPE B2â€“C2 (`.listening-fce-mc__*`, `.listening-fce__num`), KET Part 4/fallback (`.listening-ket-cambridge__question .listening-exam-option*` + `__qnum`): card double-bezel/gradient, badge sá»‘ pill gradient, custom radio spring (tham chiáº¿u `Crawl/Giaodien/not.jpg`); components khÃ´ng Ä‘á»•i
+- **Transcript AI lưu vĩnh viễn (2026-07-15):** `examListeningTranscriptStorage.ts` sessionStorage → **localStorage** (migrate tự động); panel transcript có nút «Tạo transcript bằng AI» (Sparkles) khi part thiếu transcript — merge với map cũ, tạo 1 lần không gọi lại. `tsc` pass
+- **Transcript split khi làm bài (2026-07-15):** `ListeningTranscriptSidePanel.tsx` mới — nút «Transcript» trên header 4 test runner (KET/PET/FCE-CAE-CPE/IELTS) mở panel fixed bên phải, kéo cạnh trái resize (280–720px, lưu localStorage), Esc đóng; nguồn: `q.ttsText` (Audioscript import) + AI map sessionStorage, lọc theo part hiện tại; CSS `.listening-transcript-panel*` trong listeningTest.css. `tsc` pass
+- **MS PET stack dọc (2026-07-15):** `.listening-pet-mc__question` bỏ grid 2 cột (câu trái / options phải) → flex column, options nằm dưới câu hỏi
+- **Bìa sách Cambridge library (2026-07-15):** `getCambridgeBrandBookCoverColor` (cambridgeLibraryGrouping.ts) — bỏ `color-mix` với base brand (ra toàn nâu); dùng `BOOK_PALETTE` 14 màu đa dạng như IELTS, offset theo brand; Book 1 giữ màu brand. `tsc` pass
+- **Auto-play part audio (2026-07-15):** đề Listening import chia `part1..part5.mp3` — bấm chuyển part trong `goToPart` tự phát audio part đó (KET/PET/FCE-CAE-CPE: helper `autoPlayPartAudio`; IELTS: inline, key `part-{id}`). Chỉ khi không dùng 1 MP3 shared, không ở review/submitted, tôn trọng play limits (exam mode); gọi trong click gesture nên không vướng autoplay policy. `tsc --noEmit` pass
+- **UI MS (2026-07-15):** redesign MS/MC listening trong `apps/web/src/features/exam/listeningTest.css` — KET A2 (`.listening-ket-p3__*`), PET B1 (`.listening-pet-mc__*`), FCE/CAE/CPE B2–C2 (`.listening-fce-mc__*`, `.listening-fce__num`), KET Part 4/fallback (`.listening-ket-cambridge__question .listening-exam-option*` + `__qnum`): card double-bezel/gradient, badge số pill gradient, custom radio spring (tham chiếu `Crawl/Giaodien/not.jpg`); components không đổi
 - **Branch:** `project_14726` / `feat/reading-part-picker` (git repo `D:/App-English-Ryan/Website`)
-- **Phase:** Import batch **KET A2 Listening practice** (44 Ä‘á») â€” **published 02â€“44 cloud**
-- **Session:** **2026-07-15** â€” sentence-structure catalog **1670** (GLOBAL v28)
-- **Session trÆ°á»›c:** vocab white-screen fix; essay_full / translate seeds
-- **Next:** Hard refresh `/app/sentence-structure` â†’ list 1670 cáº¥u trÃºc
-- **Vocab seed:** `seedData/presetVocabCards.ts` + `seedPresetCards()` (dynamic import, khÃ´ng cháº·n route)
-- **Production:** https://ryanenglishv2.vercel.app â€” **deployed v0.2.4**
-- **Migrations Supabase:** 001â€“**016** (Ä‘Ã£ push); **017â€“018** â€” cáº§n `pnpm db:push` náº¿u chÆ°a
-- **Dev:** `pnpm dev` â†’ hard refresh Ä‘á»ƒ náº¡p `listening_exam_published`
+- **Phase:** Import batch **KET A2 Listening practice** (44 đề) — **published 02–44 cloud**
+- **Session:** **2026-07-15** — sentence-structure catalog **1670** (GLOBAL v28)
+- **Session trước:** vocab white-screen fix; essay_full / translate seeds
+- **Next:** Hard refresh `/app/sentence-structure` → list 1670 cấu trúc
+- **Vocab seed:** `seedData/presetVocabCards.ts` + `seedPresetCards()` (dynamic import, không chặn route)
+- **Production:** https://ryanenglishv2.vercel.app — **deployed v0.2.4**
+- **Migrations Supabase:** 001–**016** (đã push); **017–018** — cần `pnpm db:push` nếu chưa
+- **Dev:** `pnpm dev` → hard refresh để nạp `listening_exam_published`
 
-### Bundle Ä‘á» sáºµn trong `Tainguyen/`
-| Ká»¹ nÄƒng | Level | File | Tráº¡ng thÃ¡i |
+### Bundle đề sẵn trong `Tainguyen/`
+| Kỹ năng | Level | File | Trạng thái |
 |---------|-------|------|------------|
 | Reading | A2 KET | `ket-reading-test1` | **Builtin** `catalog-reading-ket-a2-test1` |
 | Reading | B1 PET | `pet-reading-test1` | **Builtin** `catalog-reading-pet-b1-test1` |
 | Reading | B2 FCE | `fce-reading-test1` | **Builtin** `catalog-reading-fce-b2-test1` |
 | Listening | A2 KET | `ket-listening-test1` | **Builtin** `catalog-listening-ket-a2-test1` |
-| Listening | A2 KET practice 44 | `listening-import-ket-a2-practice-NN` | **ZIP 44/44** + **cloud publish 02â€“44** (B3T4â€¦B14T2); test-01 local pilot B3T3 |
+| Listening | A2 KET practice 44 | `listening-import-ket-a2-practice-NN` | **ZIP 44/44** + **cloud publish 02–44** (B3T4…B14T2); test-01 local pilot B3T3 |
 | Listening | B1 PET | `pet-listening-test1` | **Builtin** `catalog-listening-pet-b1-test1` |
 | Listening | B2 FCE | `fce-Listening-test1` | **Builtin** `catalog-listening-fce-b2-test1` |
-| Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` â€” **10 parts RW** (P1â€“8 Reading + P9â€“10 Writing, 120 phÃºt) |
-| Reading | C2 CPE | `cpe-Reading-test1` | **Builtin** `catalog-reading-cpe-c2-test1` â€” **9 parts RW** (P1â€“7 Reading + P8â€“9 Writing, 120 phÃºt) |
+| Reading | C1 CAE | `cae-Reading-test1` | **Builtin** `catalog-reading-cae-c1-test1` — **10 parts RW** (P1–8 Reading + P9–10 Writing, 120 phút) |
+| Reading | C2 CPE | `cpe-Reading-test1` | **Builtin** `catalog-reading-cpe-c2-test1` — **9 parts RW** (P1–7 Reading + P8–9 Writing, 120 phút) |
 | Listening | C1 CAE | `cae-Listening-test1` | **Builtin** `catalog-listening-cae-c1-test1` |
-| Listening | IELTS Cam 9â€“20 | `IELTS/Listening/Listening IELTS_Test*_Cam*` (48 Ä‘á») | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` â€” restored 2026-07-12 |
-| Reading | IELTS Cam 9â€“11 (má»™t pháº§n) | `IELTS/Reading IELTS_Test*_Cam*` | **Builtin 9 Ä‘á»** cÃ³ `exam.json` (Cam9 T1â€“4, Cam10 T1â€“4, Cam11 T3); 39 folder cÃ²n PDF/scaffold |
+| Listening | IELTS Cam 9–20 | `IELTS/Listening/Listening IELTS_Test*_Cam*` (48 đề) | **Builtin** `catalog-listening-ielts-cam{X}-test{Y}` — restored 2026-07-12 |
+| Reading | IELTS Cam 9–11 (một phần) | `IELTS/Reading IELTS_Test*_Cam*` | **Builtin 9 đề** có `exam.json` (Cam9 T1–4, Cam10 T1–4, Cam11 T3); 39 folder còn PDF/scaffold |
 
 ---
 
-## Session 2026-07-12 â€” Cá»©u catalog IELTS 48 Listening + 9 Reading
+## Session 2026-07-12 — Cứu catalog IELTS 48 Listening + 9 Reading
 
-### NguyÃªn nhÃ¢n â€œmáº¥tâ€
-- 2026-07-04/05: user request â€œXÃ³a sáº¡ch 48 Ä‘á» máº«uâ€ â†’ disable `discoverIeltsListeningBundles`, empty `generatedIeltsListening.ts`, xÃ³a 48 JSON catalog.
-- **Nguá»“n Tainguyen + MP3 public váº«n cÃ²n** â€” khÃ´ng máº¥t file gá»‘c.
+### Nguyên nhân “mất”
+- 2026-07-04/05: user request “Xóa sạch 48 đề mẫu” → disable `discoverIeltsListeningBundles`, empty `generatedIeltsListening.ts`, xóa 48 JSON catalog.
+- **Nguồn Tainguyen + MP3 public vẫn còn** — không mất file gốc.
 
-### ÄÃ£ lÃ m
+### Đã làm
 - [x] Restore 48 JSON `packages/catalog/data/listening-ielts-cam*.json` + `generatedIeltsListening.ts` (git `ded4557` + rebuild)
-- [x] Báº­t láº¡i discover Listening: `Tainguyen/IELTS/Listening/` (+ fallback flat `IELTS/`)
-- [x] Discover Reading IELTS chá»‰ folder cÃ³ `exam.json` â†’ **9 Ä‘á»** + `generatedIeltsReading.ts`
-- [x] `pnpm`/`node scripts/build-catalog.mjs` â€” 48 listening + 9 reading IELTS + Cambridge static
-- [x] Wire `GENERATED_IELTS_READING_EXAMS` vÃ o `builtinExams.ts`
-- [x] Bump `GLOBAL_CATALOG_VERSION` **23 â†’ 24** (Dexie re-sync catalog)
+- [x] Bật lại discover Listening: `Tainguyen/IELTS/Listening/` (+ fallback flat `IELTS/`)
+- [x] Discover Reading IELTS chỉ folder có `exam.json` → **9 đề** + `generatedIeltsReading.ts`
+- [x] `pnpm`/`node scripts/build-catalog.mjs` — 48 listening + 9 reading IELTS + Cambridge static
+- [x] Wire `GENERATED_IELTS_READING_EXAMS` vào `builtinExams.ts`
+- [x] Bump `GLOBAL_CATALOG_VERSION` **23 → 24** (Dexie re-sync catalog)
 - [x] Fix TS: `listeningExamCatalogMerge` cast `examType as ListeningExamType` (JSON widen)
-- [x] `npx tsc --noEmit` (apps/web) â€” pass
+- [x] `npx tsc --noEmit` (apps/web) — pass
 
-### CÃ²n láº¡i
-- [x] Deploy production **v0.2.4** â€” `pnpm deploy:web` â†’ https://ryanenglishv2.vercel.app (commit `e0f0581`)
+### Còn lại
+- [x] Deploy production **v0.2.4** — `pnpm deploy:web` → https://ryanenglishv2.vercel.app (commit `e0f0581`)
 - [x] Push branch `feat/reading-part-picker`
-- [x] **Auto-backup Ä‘á»** (2026-07-12): Dexie `examBackups` v15, OPFS, auto-download JSON khi LÆ°u Wizard/Import; Settings toggle; full app backup v4 gá»“m examBackups
-- [x] Pilot Cam11 Reading T1 + fix white screen (`features` string â†’ `{id,name}`)
-- [ ] Build `exam.json` cho ~38 Reading IELTS cÃ²n láº¡i (PDF trong folder scaffold)
-- [ ] User: hard refresh production Ä‘á»ƒ catalog v24 náº¡p láº¡i
+- [x] **Auto-backup đề** (2026-07-12): Dexie `examBackups` v15, OPFS, auto-download JSON khi Lưu Wizard/Import; Settings toggle; full app backup v4 gồm examBackups
+- [x] Pilot Cam11 Reading T1 + fix white screen (`features` string → `{id,name}`)
+- [ ] Build `exam.json` cho ~38 Reading IELTS còn lại (PDF trong folder scaffold)
+- [ ] User: hard refresh production để catalog v24 nạp lại
 
-### Lá»‡nh verify
+### Lệnh verify
 ```bash
 node scripts/build-catalog.mjs   # IELTS listening: 48, reading: 9
 # apps/web: npx tsc --noEmit
@@ -1286,840 +1326,840 @@ node scripts/build-catalog.mjs   # IELTS listening: 48, reading: 9
 
 ---
 
-## Cáº¥u trÃºc monorepo
+## Cấu trúc monorepo
 
 ```
 Website/
-â”œâ”€â”€ apps/web/               â† Vite + React app chÃ­nh
-â”‚   â”œâ”€â”€ src/
-â”‚   â”‚   â”œâ”€â”€ App.tsx         â† Routes: / (landing) + /app/* (protected)
-â”‚   â”‚   â”œâ”€â”€ main.tsx        â† AuthProvider wrap
-â”‚   â”‚   â”œâ”€â”€ features/auth/  â† AuthContext, LoginPage, ProtectedRoute, AuthCallback, useSync
-â”‚   â”‚   â”œâ”€â”€ lib/            â† supabase.ts, database.types.ts
-â”‚   â”‚   â”œâ”€â”€ pages/
-â”‚   â”‚   â”‚   â”œâ”€â”€ landing/LandingPage.tsx  â† Trang chá»§ public + animated sun
-â”‚   â”‚   â”‚   â””â”€â”€ AppShell.tsx            â† Sidebar + nav /app/*
-â”‚   â”‚   â””â”€â”€ styles/globals.css          â† 3 theme: light / mid / dark
-â”‚   â”œâ”€â”€ .env.local          â† VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY (Ä‘Ã£ Ä‘iá»n)
-â”‚   â””â”€â”€ tailwind.config.js
-â”œâ”€â”€ packages/
-â”‚   â”œâ”€â”€ core/               â† SRS scheduler (SM-2) + License plans (TS thuáº§n)
-â”‚   â”œâ”€â”€ db/                 â† Dexie schema (14 báº£ng) + sync cloudâ†”local
-â”‚   â””â”€â”€ ui/                 â† Button, Card components
-â”œâ”€â”€ server/                 â† Local TTS Kokoro gateway â€” `pnpm dev:server` â†’ :8787
-â”œâ”€â”€ supabase/
-â”‚   â””â”€â”€ migrations/001_initial_schema.sql  â† ÄÃƒ CHáº Y trÃªn Supabase
-â””â”€â”€ pnpm-workspace.yaml
+├── apps/web/               ← Vite + React app chính
+│   ├── src/
+│   │   ├── App.tsx         ← Routes: / (landing) + /app/* (protected)
+│   │   ├── main.tsx        ← AuthProvider wrap
+│   │   ├── features/auth/  ← AuthContext, LoginPage, ProtectedRoute, AuthCallback, useSync
+│   │   ├── lib/            ← supabase.ts, database.types.ts
+│   │   ├── pages/
+│   │   │   ├── landing/LandingPage.tsx  ← Trang chủ public + animated sun
+│   │   │   └── AppShell.tsx            ← Sidebar + nav /app/*
+│   │   └── styles/globals.css          ← 3 theme: light / mid / dark
+│   ├── .env.local          ← VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY (đã điền)
+│   └── tailwind.config.js
+├── packages/
+│   ├── core/               ← SRS scheduler (SM-2) + License plans (TS thuần)
+│   ├── db/                 ← Dexie schema (14 bảng) + sync cloud↔local
+│   └── ui/                 ← Button, Card components
+├── server/                 ← Local TTS Kokoro gateway — `pnpm dev:server` → :8787
+├── supabase/
+│   └── migrations/001_initial_schema.sql  ← ĐÃ CHẠY trên Supabase
+└── pnpm-workspace.yaml
 ```
 
 ---
 
-## Viá»‡c Ä‘Ã£ hoÃ n thÃ nh (session 2026-06-30)
+## Việc đã hoàn thành (session 2026-06-30)
 
-### Fix trang tráº¯ng `/app/vocab` (2026-07-15)
-- **NguyÃªn nhÃ¢n:** (1) Vite dev serve `VocabularyPage.tsx` rá»—ng (Content-Length 0) â†’ `React.lazy` render `undefined`; (2) UI import tÄ©nh `vocabSeedDecks` + ~7MB JSON seed; (3) `DeckGrid` NÃ— `useLiveQuery` (100+ deck) dá»… treo main thread
-- [x] TÃ¡ch `GROUP_LABELS` â†’ `vocabConstants` â€” DeckGrid/Editor khÃ´ng import seed JSON
+### Fix trang trắng `/app/vocab` (2026-07-15)
+- **Nguyên nhân:** (1) Vite dev serve `VocabularyPage.tsx` rỗng (Content-Length 0) → `React.lazy` render `undefined`; (2) UI import tĩnh `vocabSeedDecks` + ~7MB JSON seed; (3) `DeckGrid` N× `useLiveQuery` (100+ deck) dễ treo main thread
+- [x] Tách `GROUP_LABELS` → `vocabConstants` — DeckGrid/Editor không import seed JSON
 - [x] `VocabularyPage` dynamic-import seed + repair
-- [x] `DeckGrid` gá»™p 1 query stats theo `unitKind` (khÃ´ng cÃ²n hook per-card)
-- [x] Lazy VocabularyPage retry náº¿u module rá»—ng; táº¯t SW register á»Ÿ DEV
-- [x] `examVocabDecks` báº¯t race Dexie ConstraintError (StrictMode)
-- [x] Verify Playwright mock-auth: cÃ³ Â«Bá»™ tá»« vá»±ngÂ» + tabs; `tsc --noEmit` pass
+- [x] `DeckGrid` gộp 1 query stats theo `unitKind` (không còn hook per-card)
+- [x] Lazy VocabularyPage retry nếu module rỗng; tắt SW register ở DEV
+- [x] `examVocabDecks` bắt race Dexie ConstraintError (StrictMode)
+- [x] Verify Playwright mock-auth: có «Bộ từ vựng» + tabs; `tsc --noEmit` pass
 
-### Tá»« Ä‘iá»ƒn offline Part2â€“5 (2026-07-15)
-- [x] Nguá»“n: `samuraitruong/open-vn-en-dict` (MIT)
-- [x] P2â€“P4 6k each Â· **P5 +6k** (`build-dict-part5.mjs` â†’ `offlinePart5.json`)
-- [x] Tá»•ng raw ~**24.3k** (P1 300 + 24k); wire P1â€“P5 + cá»¥m
+### Từ điển offline Part2–5 (2026-07-15)
+- [x] Nguồn: `samuraitruong/open-vn-en-dict` (MIT)
+- [x] P2–P4 6k each · **P5 +6k** (`build-dict-part5.mjs` → `offlinePart5.json`)
+- [x] Tổng raw ~**24.3k** (P1 300 + 24k); wire P1–P5 + cụm
 - [x] Popup true.jpg + enrichDictResult
-- [x] Hard refresh â†’ offline; UI P2â€“P5
+- [x] Hard refresh → offline; UI P2–P5
 
-### Vocab seed 100 tá»« Ä‘Æ¡n + 100 cá»¥m + IPA/example (2026-07-15)
-- [x] singles + phrases (~31200 tháº»)
-- [x] `enrich-preset-vocab.mjs` â€” IPA US/UK (CMUdict) + example gáº¯n phrase; seed **v4**
-- [x] `seedPresetCards` **patch** tháº» cÅ© (IPA/example thiáº¿u hoáº·c generic)
-- [x] Hard refresh `/app/vocab` â†’ tháº¥y IPA + vÃ­ dá»¥ Ä‘áº§y Ä‘á»§
+### Vocab seed 100 từ đơn + 100 cụm + IPA/example (2026-07-15)
+- [x] singles + phrases (~31200 thẻ)
+- [x] `enrich-preset-vocab.mjs` — IPA US/UK (CMUdict) + example gắn phrase; seed **v4**
+- [x] `seedPresetCards` **patch** thẻ cũ (IPA/example thiếu hoặc generic)
+- [x] Hard refresh `/app/vocab` → thấy IPA + ví dụ đầy đủ
 
-### Vocab thÃªm bá»™ preset rá»—ng (2026-07-15)
-- [x] Láº§n 1â€“3: +6/nhÃ³m má»—i láº§n â†’ **26 bá»™/nhÃ³m** (156 preset)
-- [x] Má»Ÿ `/app/vocab` â†’ seed deck má»›i tá»± táº¡o (idempotent)
+### Vocab thêm bộ preset rỗng (2026-07-15)
+- [x] Lần 1–3: +6/nhóm mỗi lần → **26 bộ/nhóm** (156 preset)
+- [x] Mở `/app/vocab` → seed deck mới tự tạo (idempotent)
 
-### Vocab 2 cáº¥u trÃºc: Tá»« Ä‘Æ¡n | Cá»¥m tá»« (2026-07-15) â€” HOÃ€N THÃ€NH
-- [x] `vocabUnitKind.ts` â€” phÃ¢n loáº¡i: cÃ³ khoáº£ng tráº¯ng / POS cá»¥m â†’ phrase; cÃ²n láº¡i single
-- [x] Tab cáº¥p 1 trÃªn `/app/vocab`: **Tá»« vá»±ng Ä‘Æ¡n láº»** | **Cá»¥m tá»« vá»±ng**
-- [x] Lá»c sá»‘ Ä‘áº¿m deck, danh sÃ¡ch tháº», SRS/Quiz/Type/Nghe/Speak, stats/weak/review theo `unitKind`
+### Vocab 2 cấu trúc: Từ đơn | Cụm từ (2026-07-15) — HOÀN THÀNH
+- [x] `vocabUnitKind.ts` — phân loại: có khoảng trắng / POS cụm → phrase; còn lại single
+- [x] Tab cấp 1 trên `/app/vocab`: **Từ vựng đơn lẻ** | **Cụm từ vựng**
+- [x] Lọc số đếm deck, danh sách thẻ, SRS/Quiz/Type/Nghe/Speak, stats/weak/review theo `unitKind`
 - [x] `tsc --noEmit` pass
 
-### Vocab preset seed 100 tá»«/nhÃ³m (2026-07-15) â€” HOÃ€N THÃ€NH
-- [x] `scripts/gen-preset-vocab-seed.mjs` â€” sinh 600 tháº» (IELTS/Oxford/TOEIC/Academic/SAT/TOEFL Ã— 100)
-- [x] `apps/web/src/features/vocab/seedData/presetVocabCards.ts` â€” data seed
-- [x] `seedPresetCards()` â€” stable `pcard:` + SRS; **khÃ´ng** skip khi admin publish (fix deck rá»—ng)
-- [x] Fix: `seedPresetDecks` trÆ°á»›c Ä‘Ã¢y return sá»›m náº¿u `admin_published_vocab_version > 0` â†’ khÃ´ng náº¡p tháº»
-- [x] Prune publish **giá»¯** tháº» `sourceLabel` `preset-seed*`; sau `mergeVocab` gá»i láº¡i `seedPresetCards`
+### Vocab preset seed 100 từ/nhóm (2026-07-15) — HOÀN THÀNH
+- [x] `scripts/gen-preset-vocab-seed.mjs` — sinh 600 thẻ (IELTS/Oxford/TOEIC/Academic/SAT/TOEFL × 100)
+- [x] `apps/web/src/features/vocab/seedData/presetVocabCards.ts` — data seed
+- [x] `seedPresetCards()` — stable `pcard:` + SRS; **không** skip khi admin publish (fix deck rỗng)
+- [x] Fix: `seedPresetDecks` trước đây return sớm nếu `admin_published_vocab_version > 0` → không nạp thẻ
+- [x] Prune publish **giữ** thẻ `sourceLabel` `preset-seed*`; sau `mergeVocab` gọi lại `seedPresetCards`
 - [x] `tsc --noEmit` pass
-- [ ] User: hard refresh `/app/vocab` â†’ má»Ÿ bá»™ (vd. IELTS â†’ MÃ´i trÆ°á»ng) â†’ ~12â€“13 tá»«/bá»™
+- [ ] User: hard refresh `/app/vocab` → mở bộ (vd. IELTS → Môi trường) → ~12–13 từ/bộ
 
-### Vocab Study UI â€” Premium redesign (Giaodien/*.html) â€” HOÃ€N THÃ€NH
-- [x] `study/vocabStudy.css` â€” dark gradient shell, stat bar, mode tabs, flashcard/quiz/game card
-- [x] `study/DeckStatBar.tsx` â€” Total/Leared/Progress/Tá»« má»›i/Cáº§n Ã´n/ÄÃ£ vÃ o lá»‹ch/Láº§n Ã´n káº¿ tiáº¿p
-- [x] `study/StudyModeTabs.tsx` â€” 3 mode active + placeholder tabs (Listening, Tá»« yáº¿uâ€¦)
-- [x] `study/useDeckStudyStats.ts` â€” live stats tá»« Dexie SRS
-- [x] `study/speakPhrase.ts` â€” Kokoro local TTS (lang `a` US); fallback Web Speech; SRS auto-phÃ¡t khi láº­t vá» máº·t trÆ°á»›c
-- [x] `StudySession.tsx` â€” wire shell + stat bar + mode tabs
-- [x] `SrsMode.tsx` â€” flashcard Láº·p láº¡i: tags, flip Space, rating gradient 1â€“4, Há»i AI, phÃ¡t Ã¢m
-- [x] `QuizMode.tsx` â€” Tráº¯c nghiá»‡m: 2Ã—2 options, gradient word, example + voice, keyboard 1â€“4
-- [x] `TypeMode.tsx` â€” ÄoÃ¡n nghÄ©a: nhÃ¬n VI â†’ gÃµ EN, letter pills, blank example, Gá»£i Ã½/KhÃ´ng biáº¿t/Kiá»ƒm tra, SRS update
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [x] `vocabStudy.css` theme-aware â€” ná»n/text/card theo `data-theme` light/mid/dark (dÃ¹ng `--bg-*`, `--text-*`, `--color-*`)
-- [x] Danh sÃ¡ch tá»« (`CardPanel`) â€” cá»™t **Tráº¡ng thÃ¡i** (Tá»« má»›i / Cáº§n Ã´n / ÄÃ£ há»c) + badge **tá»« loáº¡i** (Danh tá»«, Äá»™ng tá»«â€¦)
-- [x] **Nghe & GÃµ** (`ListenTypeMode`) â€” mode má»›i theo `Giaodien/Nghe & GÃµ láº¡i tá»« vá»±ng.html`: TTS + tá»‘c Ä‘á»™, gÃµ láº¡i, gá»£i Ã½/bá» qua/xem Ä‘Ã¡p Ã¡n, panel hÆ°á»›ng dáº«n + tiáº¿n Ä‘á»™
-- [x] **SRS popup nháº¯c Ã´n** â€” `SrsReviewReminderModal`: chim animated, Ä‘áº¿m tá»« due, chá»n deck â†’ SRS; hiá»‡n khi vÃ o `/app` (F5/login) + má»—i 30 phÃºt
-- [x] Fix popup sau F5: `useSrsReviewPopup` dÃ¹ng `useLiveQuery` + re-check sau `syncState === 'done'`
-- [x] Import tá»± gÃ¡n `pos` qua `posLabels.ts` (infer + chuáº©n hÃ³a noun/verb/adj â†’ tiáº¿ng Viá»‡t)
-- [x] **Há»c láº¡i** â€” `StudyDoneActions` trÃªn mÃ n hÃ¬nh hoÃ n thÃ nh (SRS/Quiz/Type/Listen): nÃºt Há»c láº¡i + Quay láº¡i/Xong
-- [x] **SRS flip 3D** â€” Space/click láº­t tháº» vá»›i animation `rotateY` (`.vs-flip-scene` / `.vs-flip-inner.is-flipped`)
-- [x] **Tá»« yáº¿u** (`WeakWordsMode`) â€” báº£ng tá»« yáº¿u (lapses/ease), nÃºt Ã”n SRS tá»« yáº¿u; `isWeakWord()` + `studyFilter: 'weak'`
-- [x] **Ã”n táº­p** (`ReviewHubMode`) â€” hero Ä‘áº¿n giá» Ã´n, stat pills, lá»‹ch Ã´n sáº¯p tá»›i, cháº¿ Ä‘á»™ Ã´n nhanh
-- [x] **Thá»‘ng kÃª** (`StatsMode`) â€” bento dashboard: hoáº¡t Ä‘á»™ng 14 ngÃ y, phÃ¢n bá»‘ rating/mode/tráº¡ng thÃ¡i, top tá»« yáº¿u
-- [x] `StudyModeTabs` â€” 7 tab active (khÃ´ng cÃ²n placeholder disabled); `CardPanel` thÃªm nÃºt Ã”n táº­p / Tá»« yáº¿u / Thá»‘ng kÃª
+### Vocab Study UI — Premium redesign (Giaodien/*.html) — HOÀN THÀNH
+- [x] `study/vocabStudy.css` — dark gradient shell, stat bar, mode tabs, flashcard/quiz/game card
+- [x] `study/DeckStatBar.tsx` — Total/Leared/Progress/Từ mới/Cần ôn/Đã vào lịch/Lần ôn kế tiếp
+- [x] `study/StudyModeTabs.tsx` — 3 mode active + placeholder tabs (Listening, Từ yếu…)
+- [x] `study/useDeckStudyStats.ts` — live stats từ Dexie SRS
+- [x] `study/speakPhrase.ts` — Kokoro local TTS (lang `a` US); fallback Web Speech; SRS auto-phát khi lật về mặt trước
+- [x] `StudySession.tsx` — wire shell + stat bar + mode tabs
+- [x] `SrsMode.tsx` — flashcard Lặp lại: tags, flip Space, rating gradient 1–4, Hỏi AI, phát âm
+- [x] `QuizMode.tsx` — Trắc nghiệm: 2×2 options, gradient word, example + voice, keyboard 1–4
+- [x] `TypeMode.tsx` — Đoán nghĩa: nhìn VI → gõ EN, letter pills, blank example, Gợi ý/Không biết/Kiểm tra, SRS update
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] `vocabStudy.css` theme-aware — nền/text/card theo `data-theme` light/mid/dark (dùng `--bg-*`, `--text-*`, `--color-*`)
+- [x] Danh sách từ (`CardPanel`) — cột **Trạng thái** (Từ mới / Cần ôn / Đã học) + badge **từ loại** (Danh từ, Động từ…)
+- [x] **Nghe & Gõ** (`ListenTypeMode`) — mode mới theo `Giaodien/Nghe & Gõ lại từ vựng.html`: TTS + tốc độ, gõ lại, gợi ý/bỏ qua/xem đáp án, panel hướng dẫn + tiến độ
+- [x] **SRS popup nhắc ôn** — `SrsReviewReminderModal`: chim animated, đếm từ due, chọn deck → SRS; hiện khi vào `/app` (F5/login) + mỗi 30 phút
+- [x] Fix popup sau F5: `useSrsReviewPopup` dùng `useLiveQuery` + re-check sau `syncState === 'done'`
+- [x] Import tự gán `pos` qua `posLabels.ts` (infer + chuẩn hóa noun/verb/adj → tiếng Việt)
+- [x] **Học lại** — `StudyDoneActions` trên màn hình hoàn thành (SRS/Quiz/Type/Listen): nút Học lại + Quay lại/Xong
+- [x] **SRS flip 3D** — Space/click lật thẻ với animation `rotateY` (`.vs-flip-scene` / `.vs-flip-inner.is-flipped`)
+- [x] **Từ yếu** (`WeakWordsMode`) — bảng từ yếu (lapses/ease), nút Ôn SRS từ yếu; `isWeakWord()` + `studyFilter: 'weak'`
+- [x] **Ôn tập** (`ReviewHubMode`) — hero đến giờ ôn, stat pills, lịch ôn sắp tới, chế độ ôn nhanh
+- [x] **Thống kê** (`StatsMode`) — bento dashboard: hoạt động 14 ngày, phân bố rating/mode/trạng thái, top từ yếu
+- [x] `StudyModeTabs` — 7 tab active (không còn placeholder disabled); `CardPanel` thêm nút Ôn tập / Từ yếu / Thống kê
 
-### Listening â€” Cáº¥u trÃºc Test/Part + ThÃªm cÃ¢u/vÄƒn báº£n (Giaodien/8.jpg) â€” HOÃ€N THÃ€NH
+### Listening — Cấu trúc Test/Part + Thêm câu/văn bản (Giaodien/8.jpg) — HOÀN THÀNH
 - [x] `Lesson` metadata: `book`, `bookNum`, `test`, `part`, `topic`, `source` (Dexie v4)
-- [x] `listeningMeta.ts` â€” nhÃ³m Cambridge theo sÃ¡ch â†’ Test â†’ Part
-- [x] `cambridgePacks.ts` â€” seed Cambridge 20 (Test 1 Parts 1â€“4, Test 2 Part 1) + KET A2
-- [x] `ListeningTopicAccordion.tsx` â€” UI accordion nhÆ° hÃ¬nh 8 (Dictation, Báº¯t Ä‘áº§u, + ThÃªm cÃ¢u, + VÄƒn báº£n)
-- [x] `ListeningUserLessonCard.tsx` â€” My Lessons: + ThÃªm cÃ¢u, + VÄƒn báº£n
-- [x] `AppendSentencesModal.tsx` â€” thÃªm 1 cÃ¢u hoáº·c dÃ¡n vÄƒn báº£n (tÃ¡ch cÃ¢u tá»± Ä‘á»™ng)
-- [x] `lessonRepo.appendSentences()` â€” append vÃ o bÃ i Ä‘Ã£ cÃ³
-- [x] Seed `listening_seed_v2` â€” bá»• sung bÃ i cÃ³ cáº¥u trÃºc Test/Part
-- [x] XÃ³a/áº©n **BÃ i Cambridge (cÅ©)** â€” `purgeLegacyCambridge()` xÃ³a bÃ i flat khá»i DB, UI chá»‰ hiá»‡n bÃ i cÃ³ `book/test/part`
+- [x] `listeningMeta.ts` — nhóm Cambridge theo sách → Test → Part
+- [x] `cambridgePacks.ts` — seed Cambridge 20 (Test 1 Parts 1–4, Test 2 Part 1) + KET A2
+- [x] `ListeningTopicAccordion.tsx` — UI accordion như hình 8 (Dictation, Bắt đầu, + Thêm câu, + Văn bản)
+- [x] `ListeningUserLessonCard.tsx` — My Lessons: + Thêm câu, + Văn bản
+- [x] `AppendSentencesModal.tsx` — thêm 1 câu hoặc dán văn bản (tách câu tự động)
+- [x] `lessonRepo.appendSentences()` — append vào bài đã có
+- [x] Seed `listening_seed_v2` — bổ sung bài có cấu trúc Test/Part
+- [x] Xóa/ẩn **Bài Cambridge (cũ)** — `purgeLegacyCambridge()` xóa bài flat khỏi DB, UI chỉ hiện bài có `book/test/part`
 
-### Listening â€” Import & PhiÃªn Ã¢m (MP3 â†’ text) â€” HOÃ€N THÃ€NH
-- [x] `packages/core/src/ai/transcribeAudio.ts` â€” Whisper API (OpenAI `whisper-1` / Groq `whisper-large-v3`), dÃ¹ng API key tá»« CÃ i Ä‘áº·t AI
-- [x] `packages/db/audioRepo.ts` â€” lÆ°u blob MP3 local (`lesson:{id}`)
-- [x] `ImportAudioModal.tsx` â€” upload MP3 (â‰¤25MB) â†’ phiÃªn Ã¢m â†’ preview cÃ¢u â†’ táº¡o bÃ i user
-- [x] `ListeningLibraryPage` â€” nÃºt **Import & PhiÃªn Ã¢m** má»Ÿ modal, sau táº¡o redirect vÃ o bÃ i má»›i
-- [x] Cáº§n API key **Groq** hoáº·c **OpenAI** (DeepSeek/Gemini chÆ°a há»— trá»£ STT)
+### Listening — Import & Phiên âm (MP3 → text) — HOÀN THÀNH
+- [x] `packages/core/src/ai/transcribeAudio.ts` — Whisper API (OpenAI `whisper-1` / Groq `whisper-large-v3`), dùng API key từ Cài đặt AI
+- [x] `packages/db/audioRepo.ts` — lưu blob MP3 local (`lesson:{id}`)
+- [x] `ImportAudioModal.tsx` — upload MP3 (≤25MB) → phiên âm → preview câu → tạo bài user
+- [x] `ListeningLibraryPage` — nút **Import & Phiên âm** mở modal, sau tạo redirect vào bài mới
+- [x] Cần API key **Groq** hoặc **OpenAI** (DeepSeek/Gemini chưa hỗ trợ STT)
 
-### Copy text trong app â€” HOÃ€N THÃ€NH
-- [x] `lib/copyToClipboard.ts` â€” Clipboard API + `execCommand` fallback
-- [x] `components/TextSelectionToolbar.tsx` â€” toolbar "Copy" khi bÃ´i Ä‘en text (toÃ n app, trá»« input/textarea)
-- [x] `components/CopyButton.tsx` â€” nÃºt copy tÃ¡i sá»­ dá»¥ng
-- [x] `App.tsx` â€” mount `TextSelectionToolbar` global
-- [x] `globals.css` + `AppShell` main â€” `user-select: text` cho ná»™i dung
-- [x] `ListeningTranscriptTab` â€” text chá»n Ä‘Æ°á»£c + nÃºt Copy/Sá»­a (khÃ´ng bá»c trong `<button>`)
-- [x] `ListeningSidebarCards` â€” Copy báº£n dá»‹ch + cÃ¢u gá»‘c
-- [x] `SrsMode` â€” cho phÃ©p chá»n text khi Ä‘Ã£ láº­t tháº»
-- [x] `DictionaryModal` â€” Copy toÃ n bá»™ káº¿t quáº£ tra tá»«
+### Copy text trong app — HOÀN THÀNH
+- [x] `lib/copyToClipboard.ts` — Clipboard API + `execCommand` fallback
+- [x] `components/TextSelectionToolbar.tsx` — toolbar "Copy" khi bôi đen text (toàn app, trừ input/textarea)
+- [x] `components/CopyButton.tsx` — nút copy tái sử dụng
+- [x] `App.tsx` — mount `TextSelectionToolbar` global
+- [x] `globals.css` + `AppShell` main — `user-select: text` cho nội dung
+- [x] `ListeningTranscriptTab` — text chọn được + nút Copy/Sửa (không bọc trong `<button>`)
+- [x] `ListeningSidebarCards` — Copy bản dịch + câu gốc
+- [x] `SrsMode` — cho phép chọn text khi đã lật thẻ
+- [x] `DictionaryModal` — Copy toàn bộ kết quả tra từ
 
-### Local TTS â†’ Frontend Listening â€” BÆ¯á»šC 3 HOÃ€N THÃ€NH
-- [x] `apps/web/src/features/listening/tts.ts` â€” wrapper gá»i `POST /api/tts`, `HTMLAudioElement`, prefetch, fallback Web Speech API
-- [x] `ttsConfig.ts` â€” `VITE_TTS_SERVICE_URL` (default `http://localhost:8787`)
-- [x] `useListeningPlayback.ts` â€” progress bar theo audio tháº­t khi Kokoro active (RAF 60fps, `scaleX`, buffering state)
-- [x] `LessonDetail.tsx`, `DictationSession.tsx` â€” dÃ¹ng wrapper + hiá»‡n cáº£nh bÃ¡o khi TTS local chÆ°a sáºµn sÃ ng
-- [x] `ListeningSidebarCards.tsx` â€” **xÃ³a badge `ListeningTtsStatusBadge` ("Kokoro local")** á»Ÿ card "Luyá»‡n phÃ¡t Ã¢m" (theo `Giaodien/7.jpg`)
-- [x] `server/src/index.ts` â€” CORS cho dev frontend `:5173`
-- [x] `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` â€” pass
+### Local TTS → Frontend Listening — BƯỚC 3 HOÀN THÀNH
+- [x] `apps/web/src/features/listening/tts.ts` — wrapper gọi `POST /api/tts`, `HTMLAudioElement`, prefetch, fallback Web Speech API
+- [x] `ttsConfig.ts` — `VITE_TTS_SERVICE_URL` (default `http://localhost:8787`)
+- [x] `useListeningPlayback.ts` — progress bar theo audio thật khi Kokoro active (RAF 60fps, `scaleX`, buffering state)
+- [x] `LessonDetail.tsx`, `DictationSession.tsx` — dùng wrapper + hiện cảnh báo khi TTS local chưa sẵn sàng
+- [x] `ListeningSidebarCards.tsx` — **xóa badge `ListeningTtsStatusBadge` ("Kokoro local")** ở card "Luyện phát âm" (theo `Giaodien/7.jpg`)
+- [x] `server/src/index.ts` — CORS cho dev frontend `:5173`
+- [x] `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` — pass
 
 #### Dev flow Listening + Kokoro:
 ```bash
-pnpm dev:server    # terminal 1 â€” :8787
-pnpm dev           # terminal 2 â€” :5173
+pnpm dev:server    # terminal 1 — :8787
+pnpm dev           # terminal 2 — :5173
 # Optional: VITE_TTS_SERVICE_URL=http://localhost:8787 in apps/web/.env.local
 ```
 
 ---
 
-### Local TTS Service (Kokoro) â€” BÆ¯á»šC 1 + 2 HOÃ€N THÃ€NH
-- [x] **BÆ°á»›c 1:** Express + TypeScript gateway (`pnpm dev:server` â†’ :8787)
-- [x] **BÆ°á»›c 2:** Kokoro engine tháº­t qua Python child process (:8788)
-- [x] `GET /api/tts/health` â€” Node + Kokoro status (available/ready/deps/cache dir)
-- [x] `POST /api/tts` â€” tráº£ `audio/wav` tháº­t, filesystem cache SHA-256 (text+voice+speed)
+### Local TTS Service (Kokoro) — BƯỚC 1 + 2 HOÀN THÀNH
+- [x] **Bước 1:** Express + TypeScript gateway (`pnpm dev:server` → :8787)
+- [x] **Bước 2:** Kokoro engine thật qua Python child process (:8788)
+- [x] `GET /api/tts/health` — Node + Kokoro status (available/ready/deps/cache dir)
+- [x] `POST /api/tts` — trả `audio/wav` thật, filesystem cache SHA-256 (text+voice+speed)
 - [x] `server/python/kokoro_server.py` + `requirements.txt` + `scripts/setup-kokoro.ps1`
-- [x] Graceful 503 JSON khi Kokoro chÆ°a ready; Node khÃ´ng crash
-- [x] ChÆ°a Ä‘á»¥ng `apps/web` Listening / `tts.ts`
-- [x] Verified: health OK, synth WAV OK (first run cháº­m do táº£i model HF), cache HIT OK
+- [x] Graceful 503 JSON khi Kokoro chưa ready; Node không crash
+- [x] Chưa đụng `apps/web` Listening / `tts.ts`
+- [x] Verified: health OK, synth WAV OK (first run chậm do tải model HF), cache HIT OK
 
-#### Cháº¡y TTS service:
+#### Chạy TTS service:
 ```bash
 pnpm install --ignore-scripts
-powershell -ExecutionPolicy Bypass -File server/scripts/setup-kokoro.ps1   # láº§n Ä‘áº§u
+powershell -ExecutionPolicy Bypass -File server/scripts/setup-kokoro.ps1   # lần đầu
 pnpm dev:server          # http://localhost:8787
 pnpm --filter server typecheck
 ```
 
 ---
 
-### Supabase â€” ÄÃƒ SETUP XONG
-- [x] SQL migration cháº¡y thÃ nh cÃ´ng (6 báº£ng + RLS + triggers)
+### Supabase — ĐÃ SETUP XONG
+- [x] SQL migration chạy thành công (6 bảng + RLS + triggers)
   - `profiles`, `decks`, `cards`, `srs`, `writing_docs`, `ai_usage`
-  - Row Level Security: má»—i user chá»‰ tháº¥y data cá»§a mÃ¬nh
-  - Trigger `handle_new_user`: tá»± táº¡o profile khi user Ä‘Äƒng nháº­p láº§n Ä‘áº§u
-- [x] Google OAuth báº­t â€” Client ID/Secret Ä‘Ã£ Ä‘iá»n
+  - Row Level Security: mỗi user chỉ thấy data của mình
+  - Trigger `handle_new_user`: tự tạo profile khi user đăng nhập lần đầu
+- [x] Google OAuth bật — Client ID/Secret đã điền
 - [x] Redirect URL: `http://localhost:5173/auth/callback`
 - [x] Site URL: `http://localhost:5173`
 
-### Code Ä‘Ã£ viáº¿t
+### Code đã viết
 - [x] Monorepo skeleton (pnpm workspaces, 5 packages)
 - [x] AuthContext + Google OAuth flow
-- [x] Landing page (`/`) â€” public, cÃ³ animated sun (xoay + ná»•i + chá»›p máº¯t)
-- [x] Protected routes (`/app/*`) â€” redirect vá» `/` náº¿u chÆ°a login
-- [x] AppShell sidebar vá»›i user info + logout + theme switcher
-- [x] Dexie schema Ä‘áº§y Ä‘á»§ (local-first)
+- [x] Landing page (`/`) — public, có animated sun (xoay + nổi + chớp mắt)
+- [x] Protected routes (`/app/*`) — redirect về `/` nếu chưa login
+- [x] AppShell sidebar với user info + logout + theme switcher
+- [x] Dexie schema đầy đủ (local-first)
 - [x] Sync layer: `syncLocalToCloud` + `syncCloudToLocal`
 - [x] `packages/core`: SRS scheduler (SM-2) + License plans
 
 ### Landing page details
-- Header: logo + chuÃ´ng + nÃºt KhÃ¡ch (dropdown: ÄÄƒng nháº­p / Táº¡o tÃ i khoáº£n)
-- Hero: "Luyá»‡n thi / IELTS/ CAMBRIDGE" + animated sun mascot
-- Sun animation: xoay tia (12s), ná»•i lÃªn xuá»‘ng (4s), chá»›p máº¯t, láº¯c smile, chat bubble "báº¡n cá»© viá»‡c focus... Ä‘Ã£ cÃ³ Ryan lo!"
+- Header: logo + chuông + nút Khách (dropdown: Đăng nhập / Tạo tài khoản)
+- Hero: "Luyện thi / IELTS/ CAMBRIDGE" + animated sun mascot
+- Sun animation: xoay tia (12s), nổi lên xuống (4s), chớp mắt, lắc smile, chat bubble "bạn cứ việc focus... đã có Ryan lo!"
 - Features section: 6 cards (Vocab SRS, Writing AI, Listening, MindMap, Dictionary, Offline-first)
-- Pricing section: tab switcher (Free 0Ä‘ / Pro 99k / Lifetime 599k) + 3 cá»™t desktop / 1 card mobile
-- PaymentModal: QR chuyá»ƒn khoáº£n (`public/images/qr-payment.jpg`) khi CTA Pro/Lifetime; mailto kÃ­ch hoáº¡t
-- Footer: brand + liÃªn há»‡ email + anchor links (#features, #pricing)
-- ToÃ n bá»™ UI dÃ¹ng CSS variables (khÃ´ng hardcode gray/indigo)
+- Pricing section: tab switcher (Free 0đ / Pro 99k / Lifetime 599k) + 3 cột desktop / 1 card mobile
+- PaymentModal: QR chuyển khoản (`public/images/qr-payment.jpg`) khi CTA Pro/Lifetime; mailto kích hoạt
+- Footer: brand + liên hệ email + anchor links (#features, #pricing)
+- Toàn bộ UI dùng CSS variables (không hardcode gray/indigo)
 
-### Plan Management + Admin Page â€” HOÃ€N THÃ€NH (session 2026-06-30)
+### Plan Management + Admin Page — HOÀN THÀNH (session 2026-06-30)
 
-#### Kiáº¿n trÃºc (HÆ°á»›ng B â€” Supabase-based):
-- Schema `profiles` Ä‘Ã£ cÃ³ sáºµn `plan` + `plan_expires_at` tá»« migration 001
-- Migration 002 chá»‰ cáº§n thÃªm `is_admin` + admin RLS policies
+#### Kiến trúc (Hướng B — Supabase-based):
+- Schema `profiles` đã có sẵn `plan` + `plan_expires_at` từ migration 001
+- Migration 002 chỉ cần thêm `is_admin` + admin RLS policies
 
 **Files:**
-- [x] `supabase/migrations/002_admin_plan.sql` â€” ADD COLUMN is_admin + is_current_user_admin() function + 2 RLS policies (admin read all / admin update plan)
-- [x] `features/auth/usePlanSync.ts` â€” hook Ä‘á»c plan+is_admin tá»« Supabase sau login â†’ lÆ°u vÃ o db.settings
-- [x] `features/admin/AdminPage.tsx` â€” trang quáº£n lÃ½ user: stats 4 Ã´ + search + báº£ng users + UpgradeModal
-- [x] `App.tsx` â€” route `/app/admin`
-- [x] `AppShell.tsx` â€” gá»i `usePlanSync()` + nav item Admin (chá»‰ hiá»‡n náº¿u is_admin=true)
+- [x] `supabase/migrations/002_admin_plan.sql` — ADD COLUMN is_admin + is_current_user_admin() function + 2 RLS policies (admin read all / admin update plan)
+- [x] `features/auth/usePlanSync.ts` — hook đọc plan+is_admin từ Supabase sau login → lưu vào db.settings
+- [x] `features/admin/AdminPage.tsx` — trang quản lý user: stats 4 ô + search + bảng users + UpgradeModal
+- [x] `App.tsx` — route `/app/admin`
+- [x] `AppShell.tsx` — gọi `usePlanSync()` + nav item Admin (chỉ hiện nếu is_admin=true)
 
-#### Notes quan trá»ng:
-- `usePlanSync` cháº¡y 1 láº§n sau login, lÆ°u plan vÃ o db.settings â†’ `canUse(plan, feature)` dÃ¹ng ngay
-- is_admin Ä‘Æ°á»£c set THá»¦ CÃ”NG trong Supabase SQL Editor: `UPDATE profiles SET is_admin=true WHERE email='...'`
-- Admin page: search theo email/display_name, UpgradeModal cho chá»n plan + thá»i háº¡n (1m/3m/12m/lifetime)
-- calcExpiry: free/lifetime â†’ null, cÃ¡c gÃ³i khÃ¡c â†’ now + months
-- TypeScript cast `supabase as any` cho update plan (database.types.ts chÆ°a include cá»™t má»›i)
-- RLS helper function `is_current_user_admin()` dÃ¹ng SECURITY DEFINER Ä‘á»ƒ trÃ¡nh recursion
+#### Notes quan trọng:
+- `usePlanSync` chạy 1 lần sau login, lưu plan vào db.settings → `canUse(plan, feature)` dùng ngay
+- is_admin được set THỦ CÔNG trong Supabase SQL Editor: `UPDATE profiles SET is_admin=true WHERE email='...'`
+- Admin page: search theo email/display_name, UpgradeModal cho chọn plan + thời hạn (1m/3m/12m/lifetime)
+- calcExpiry: free/lifetime → null, các gói khác → now + months
+- TypeScript cast `supabase as any` cho update plan (database.types.ts chưa include cột mới)
+- RLS helper function `is_current_user_admin()` dùng SECURITY DEFINER để tránh recursion
 
-#### CÃ¡ch dÃ¹ng (Flow):
-1. Cháº¡y `002_admin_plan.sql` trong Supabase SQL Editor
-2. Cháº¡y `UPDATE profiles SET is_admin=true WHERE email='your@gmail.com'`
-3. ÄÄƒng xuáº¥t + Ä‘Äƒng nháº­p láº¡i â†’ nav Admin xuáº¥t hiá»‡n
-4. VÃ o Admin â†’ tÃ¬m user â†’ "NÃ¢ng cáº¥p" â†’ chá»n gÃ³i + thá»i háº¡n â†’ LÆ°u
-5. User Ä‘Äƒng xuáº¥t + Ä‘Äƒng nháº­p láº¡i â†’ plan má»›i cÃ³ hiá»‡u lá»±c
+#### Cách dùng (Flow):
+1. Chạy `002_admin_plan.sql` trong Supabase SQL Editor
+2. Chạy `UPDATE profiles SET is_admin=true WHERE email='your@gmail.com'`
+3. Đăng xuất + đăng nhập lại → nav Admin xuất hiện
+4. Vào Admin → tìm user → "Nâng cấp" → chọn gói + thời hạn → Lưu
+5. User đăng xuất + đăng nhập lại → plan mới có hiệu lực
 
-### Module MindMap â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `packages/core/src/ai/mindmapPrompt.ts` â€” buildMindmapExpandPrompt â†’ JSON {children:[]}
-- [x] `packages/db/src/local/repositories/mindmapRepo.ts` â€” CRUD mindmaps (create/saveTree/rename/delete)
-- [x] `features/mindmap/types.ts` â€” MindNode type + createNode/flattenNodes/updateNode/appendChildren/removeNode + **radialLayout** algorithm (depth 0-3, dynamic R1, spread angle per branch)
-- [x] `mindmapStore.ts` â€” Zustand (activeMapId)
-- [x] `MindmapListPanel.tsx` â€” danh sÃ¡ch mindmap + node count + xÃ³a
-- [x] `NewMindmapModal.tsx` â€” nháº­p tá»« trung tÃ¢m â†’ táº¡o root node
-- [x] `MindmapCanvas.tsx` â€” custom SVG canvas: dot grid + bezier lines + positioned pill nodes + action toolbar (AI Expand / Add / Rename / Delete / Collapse)
-- [x] `MindmapPage.tsx` â€” layout 2 panel
-- [x] `App.tsx` â€” thÃªm route `/app/mindmap`
-- [x] `AppShell.tsx` â€” thÃªm nav item MindMap + GitBranch icon
+### Module MindMap — HOÀN THÀNH (session 2026-06-30)
+- [x] `packages/core/src/ai/mindmapPrompt.ts` — buildMindmapExpandPrompt → JSON {children:[]}
+- [x] `packages/db/src/local/repositories/mindmapRepo.ts` — CRUD mindmaps (create/saveTree/rename/delete)
+- [x] `features/mindmap/types.ts` — MindNode type + createNode/flattenNodes/updateNode/appendChildren/removeNode + **radialLayout** algorithm (depth 0-3, dynamic R1, spread angle per branch)
+- [x] `mindmapStore.ts` — Zustand (activeMapId)
+- [x] `MindmapListPanel.tsx` — danh sách mindmap + node count + xóa
+- [x] `NewMindmapModal.tsx` — nhập từ trung tâm → tạo root node
+- [x] `MindmapCanvas.tsx` — custom SVG canvas: dot grid + bezier lines + positioned pill nodes + action toolbar (AI Expand / Add / Rename / Delete / Collapse)
+- [x] `MindmapPage.tsx` — layout 2 panel
+- [x] `App.tsx` — thêm route `/app/mindmap`
+- [x] `AppShell.tsx` — thêm nav item MindMap + GitBranch icon
 
-#### Notes quan trá»ng MindMap:
-- Layout thuáº§n custom: SVG bezier lines + absolutely positioned divs (khÃ´ng dÃ¹ng React Flow)
+#### Notes quan trọng MindMap:
+- Layout thuần custom: SVG bezier lines + absolutely positioned divs (không dùng React Flow)
 - radialLayout: Level 1 R1=max(180, n*38), Level 2 R2=145 spread 75%, Level 3 R3=110
-- Node interaction: click=select, double-click=rename inline, toolbar bÃªn dÆ°á»›i node Ä‘Æ°á»£c chá»n
-- AI Expand: PRO gate (canUse plan 'mindmap_ai') â†’ gá»i AI â†’ parse JSON â†’ appendChildren â†’ save
-- Collapse: toggle node.collapsed â†’ layout bá» qua subtree Ä‘Ã³
+- Node interaction: click=select, double-click=rename inline, toolbar bên dưới node được chọn
+- AI Expand: PRO gate (canUse plan 'mindmap_ai') → gọi AI → parse JSON → appendChildren → save
+- Collapse: toggle node.collapsed → layout bỏ qua subtree đó
 - Dot grid: SVG pattern repeating circle r=1
-- MÃ u sáº¯c: 8 mÃ u BRANCH_COLORS, level 1 má»—i nhÃ¡nh 1 mÃ u, level 2+ inherit
+- Màu sắc: 8 màu BRANCH_COLORS, level 1 mỗi nhánh 1 màu, level 2+ inherit
 
-### Module Dictionary â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `packages/core/src/ai/dictionaryPrompt.ts` â€” DictResult type, DictDefinition, buildDictionaryPrompt
-- [x] `packages/db/src/local/repositories/dictRepo.ts` â€” get/save/isFresh (TTL 30 ngÃ y)/recent
-- [x] `apps/web/src/features/dictionary/dictStore.ts` â€” Zustand (isOpen, initialQuery, open/close)
-- [x] `DictionaryFAB.tsx` â€” FAB cá»‘ Ä‘á»‹nh bottom-right, detect text selection khi click
-- [x] `DictionaryModal.tsx` â€” search bar + cache lookup + AI call + result (IPA/POS/Level/Definitions/Collocations/Synonyms/TTS)
-- [x] `SaveToDeckModal.tsx` â€” chá»n deck + inline táº¡o deck má»›i + thÃªm card + success state
-- [x] `AppShell.tsx` â€” gáº¯n FAB + Modal vÃ o layout chÃ­nh (available toÃ n bá»™ /app pages)
+### Module Dictionary — HOÀN THÀNH (session 2026-06-30)
+- [x] `packages/core/src/ai/dictionaryPrompt.ts` — DictResult type, DictDefinition, buildDictionaryPrompt
+- [x] `packages/db/src/local/repositories/dictRepo.ts` — get/save/isFresh (TTL 30 ngày)/recent
+- [x] `apps/web/src/features/dictionary/dictStore.ts` — Zustand (isOpen, initialQuery, open/close)
+- [x] `DictionaryFAB.tsx` — FAB cố định bottom-right, detect text selection khi click
+- [x] `DictionaryModal.tsx` — search bar + cache lookup + AI call + result (IPA/POS/Level/Definitions/Collocations/Synonyms/TTS)
+- [x] `SaveToDeckModal.tsx` — chọn deck + inline tạo deck mới + thêm card + success state
+- [x] `AppShell.tsx` — gắn FAB + Modal vào layout chính (available toàn bộ /app pages)
 
-#### Notes quan trá»ng Dictionary:
-- FAB detect window.getSelection() â†’ pre-fill query khi cÃ³ text Ä‘ang chá»n
-- Cache: isFresh() check TTL 30 ngÃ y trÆ°á»›c khi gá»i AI
-- API key/provider láº¥y tá»« db.settings (dÃ¹ng chung vá»›i Writing module)
-- SaveToDeckModal: z-[60] (trÃªn DictionaryModal z-50), inline create deck khÃ´ng cáº§n modal con
-- Collocations + Synonyms Ä‘á»u clickable â†’ tra tiáº¿p tá»« liÃªn quan
-- TTS: speechSynthesis.speak() inline (khÃ´ng import tá»« listening module)
+#### Notes quan trọng Dictionary:
+- FAB detect window.getSelection() → pre-fill query khi có text đang chọn
+- Cache: isFresh() check TTL 30 ngày trước khi gọi AI
+- API key/provider lấy từ db.settings (dùng chung với Writing module)
+- SaveToDeckModal: z-[60] (trên DictionaryModal z-50), inline create deck không cần modal con
+- Collocations + Synonyms đều clickable → tra tiếp từ liên quan
+- TTS: speechSynthesis.speak() inline (không import từ listening module)
 
-### Module Writing â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `packages/core/src/ai/provider.ts` â€” callAI, AI_PROVIDERS (OpenAI/DeepSeek/Groq/Gemini), AIMessage, AIResult
-- [x] `packages/core/src/ai/writingPrompt.ts` â€” IELTSScore type, buildIELTSTask2Prompt, buildIELTSTask1Prompt, buildMasterPrompt
-- [x] `packages/core/src/index.ts` â€” export ai layer
-- [x] `packages/db` â€” WritingDoc.type má»Ÿ rá»™ng: 'ielts_task1'|'ielts_task2'|'master' (+ backward compat 'ielts')
-- [x] `writingRepo.ts` â€” CRUD docs, hashText cache (SHA-256), aiUsage tracking, settings CRUD
-- [x] `writingStore.ts` â€” Zustand (activeDocId, score, isGrading, gradingError)
-- [x] `DocListPanel.tsx` â€” danh sÃ¡ch bÃ i, badge loáº¡i/tá»« sá»‘
-- [x] `NewDocModal.tsx` â€” chá»n Task 1/Task 2/Free + nháº­p Ä‘á» bÃ i
-- [x] `AiSettingsModal.tsx` â€” chá»n provider, nháº­p API key (áº©n/hiá»‡n), chá»n plan, xem usage hÃ´m nay
-- [x] `ScorePanel.tsx` â€” Overall band (lá»›n) + 4 tiÃªu chÃ­ + Strengths/Improvements + history chips
-- [x] `WritingEditor.tsx` â€” textarea vá»›i auto-save 1.5s debounce + word count bar + grade flow Ä‘áº§y Ä‘á»§
-- [x] `WritingPage.tsx` â€” layout 2 panel
+### Module Writing — HOÀN THÀNH (session 2026-06-30)
+- [x] `packages/core/src/ai/provider.ts` — callAI, AI_PROVIDERS (OpenAI/DeepSeek/Groq/Gemini), AIMessage, AIResult
+- [x] `packages/core/src/ai/writingPrompt.ts` — IELTSScore type, buildIELTSTask2Prompt, buildIELTSTask1Prompt, buildMasterPrompt
+- [x] `packages/core/src/index.ts` — export ai layer
+- [x] `packages/db` — WritingDoc.type mở rộng: 'ielts_task1'|'ielts_task2'|'master' (+ backward compat 'ielts')
+- [x] `writingRepo.ts` — CRUD docs, hashText cache (SHA-256), aiUsage tracking, settings CRUD
+- [x] `writingStore.ts` — Zustand (activeDocId, score, isGrading, gradingError)
+- [x] `DocListPanel.tsx` — danh sách bài, badge loại/từ số
+- [x] `NewDocModal.tsx` — chọn Task 1/Task 2/Free + nhập đề bài
+- [x] `AiSettingsModal.tsx` — chọn provider, nhập API key (ẩn/hiện), chọn plan, xem usage hôm nay
+- [x] `ScorePanel.tsx` — Overall band (lớn) + 4 tiêu chí + Strengths/Improvements + history chips
+- [x] `WritingEditor.tsx` — textarea với auto-save 1.5s debounce + word count bar + grade flow đầy đủ
+- [x] `WritingPage.tsx` — layout 2 panel
 
-#### Notes quan trá»ng Writing:
-- Grade flow: check API key â†’ check plan â†’ check rate limit â†’ check cache (SHA-256 hash) â†’ call AI â†’ save history â†’ recordUsage
-- Cache: cÃ¹ng text â†’ tráº£ ngay tá»« writingHistory.textHash, khÃ´ng gá»i AI láº§n 2
-- Rate limit: Free/Basic=0, Trial=5/ngÃ y, Pro=20/ngÃ y, Lifetime=âˆž
-- Plan default: 'pro' (tá»± chá»n trong AiSettings, dÃ¹ng thá»­ chá»© khÃ´ng enforce)
-- Táº¥t cáº£ 4 providers dÃ¹ng OpenAI-compatible API format
-- response_format: { type: 'json_object' } â€” AI buá»™c tráº£ JSON
-- Feedback viáº¿t báº±ng tiáº¿ng Viá»‡t (system prompt chá»‰ Ä‘á»‹nh)
+#### Notes quan trọng Writing:
+- Grade flow: check API key → check plan → check rate limit → check cache (SHA-256 hash) → call AI → save history → recordUsage
+- Cache: cùng text → trả ngay từ writingHistory.textHash, không gọi AI lần 2
+- Rate limit: Free/Basic=0, Trial=5/ngày, Pro=20/ngày, Lifetime=∞
+- Plan default: 'pro' (tự chọn trong AiSettings, dùng thử chứ không enforce)
+- Tất cả 4 providers dùng OpenAI-compatible API format
+- response_format: { type: 'json_object' } — AI buộc trả JSON
+- Feedback viết bằng tiếng Việt (system prompt chỉ định)
 
-### Module Listening â€” HOÃ€N THÃ€NH + PORT Tá»ª P15.8.302 (session 2026-06-30)
-- [x] `types.ts` â€” LessonSentence, defaultSentence, splitIntoSentences, compareWords, accuracy, ratingFromAccuracy
-- [x] `tts.ts` â€” Web Speech API wrapper (speak/stop/playSlow)
-- [x] `cambridgePacks.ts` â€” 4 Cambridge packs mock (28 cÃ¢u), seeded vÃ o DB khi vÃ o trang láº§n Ä‘áº§u
-- [x] `lessonRepo.ts` trong `packages/db` â€” CRUD lessons
-- [x] `listeningStore.ts` â€” Zustand (activeLessonId, studying, tab)
-- [x] `ListeningLibraryPage.tsx` â€” thÆ° viá»‡n bÃ i nghe (LIBRARY ARCHIVES UI)
-- [x] `ListeningLessonPage.tsx` â€” chi tiáº¿t bÃ i: 3 tab Practice/Transcript/Shadowing + sidebar
-- [x] `ListeningPracticeTab.tsx` â€” Ã” chá»¯/Cloze per-word inputs, audio progress bar, word diff live, cloze count +/âˆ’
-- [x] `ListeningShadowingTab.tsx` â€” pitch contour canvas, Web Speech recognition, mic YIN capture
-- [x] `practiceUtils.ts`, `BlankInputMode.tsx`, `WordDiffPanel.tsx` â€” logic blank/cloze/diff port tá»« reference
-- [x] `useListeningPlayback.ts` â€” TTS + progress bar Æ°á»›c lÆ°á»£ng theo tá»‘c Ä‘á»™ Ä‘á»c
-- [x] `pitchContour.ts`, `PitchContourCanvas.tsx`, `useMicPitchCapture.ts` â€” YIN pitch + canvas
-- [x] `useSpeechRecognition.ts` â€” Web Speech API wrapper shadowing
-- [x] `ListeningSidebarCards.tsx` â€” dá»‹ch nghÄ©a + phÃ¡t Ã¢m (dots locked Ä‘áº¿n khi hoÃ n thÃ nh cÃ¢u)
+### Module Listening — HOÀN THÀNH + PORT TỪ P15.8.302 (session 2026-06-30)
+- [x] `types.ts` — LessonSentence, defaultSentence, splitIntoSentences, compareWords, accuracy, ratingFromAccuracy
+- [x] `tts.ts` — Web Speech API wrapper (speak/stop/playSlow)
+- [x] `cambridgePacks.ts` — 4 Cambridge packs mock (28 câu), seeded vào DB khi vào trang lần đầu
+- [x] `lessonRepo.ts` trong `packages/db` — CRUD lessons
+- [x] `listeningStore.ts` — Zustand (activeLessonId, studying, tab)
+- [x] `ListeningLibraryPage.tsx` — thư viện bài nghe (LIBRARY ARCHIVES UI)
+- [x] `ListeningLessonPage.tsx` — chi tiết bài: 3 tab Practice/Transcript/Shadowing + sidebar
+- [x] `ListeningPracticeTab.tsx` — Ô chữ/Cloze per-word inputs, audio progress bar, word diff live, cloze count +/−
+- [x] `ListeningShadowingTab.tsx` — pitch contour canvas, Web Speech recognition, mic YIN capture
+- [x] `practiceUtils.ts`, `BlankInputMode.tsx`, `WordDiffPanel.tsx` — logic blank/cloze/diff port từ reference
+- [x] `useListeningPlayback.ts` — TTS + progress bar ước lượng theo tốc độ đọc
+- [x] `pitchContour.ts`, `PitchContourCanvas.tsx`, `useMicPitchCapture.ts` — YIN pitch + canvas
+- [x] `useSpeechRecognition.ts` — Web Speech API wrapper shadowing
+- [x] `ListeningSidebarCards.tsx` — dịch nghĩa + phát âm (dots locked đến khi hoàn thành câu)
 - [x] `CreateLessonModal.tsx`, `DictationSession.tsx` (legacy overlay)
 - [x] Route `/app/listening/:lessonId` + `ListeningLayout.tsx` seed Cambridge packs
 
-#### Notes quan trá»ng Listening:
-- TTS: Web Speech API (khÃ´ng cáº§n server). `speak(text, rate=0.85)`, cháº­m `rate=0.6`
-- Audio progress bar: Æ°á»›c lÆ°á»£ng duration (khÃ´ng cÃ³ HTMLAudioElement nhÆ° Electron app cÅ©)
-- Pitch contour "Nghe máº«u": synthetic reference contour; "Báº¯t Ä‘áº§u Ä‘á»c": mic YIN tháº­t
-- Cloze: `clozeCount=0` = áº©n táº¥t cáº£ tá»« eligible; +/- Ä‘iá»u chá»‰nh sá»‘ Ã´ trá»‘ng
-- SRS sentences Ä‘Æ°á»£c lÆ°u embedded trong `lesson.sentences[]` (khÃ´ng dÃ¹ng báº£ng `srs`)
-- Cambridge packs chá»‰ seed 1 láº§n (check `count > 0` trÆ°á»›c)
-- Accuracy â†’ rating: â‰¥90%=4, â‰¥70%=3, â‰¥40%=2, <40%=1
-- `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` â€” pass
+#### Notes quan trọng Listening:
+- TTS: Web Speech API (không cần server). `speak(text, rate=0.85)`, chậm `rate=0.6`
+- Audio progress bar: ước lượng duration (không có HTMLAudioElement như Electron app cũ)
+- Pitch contour "Nghe mẫu": synthetic reference contour; "Bắt đầu đọc": mic YIN thật
+- Cloze: `clozeCount=0` = ẩn tất cả từ eligible; +/- điều chỉnh số ô trống
+- SRS sentences được lưu embedded trong `lesson.sentences[]` (không dùng bảng `srs`)
+- Cambridge packs chỉ seed 1 lần (check `count > 0` trước)
+- Accuracy → rating: ≥90%=4, ≥70%=3, ≥40%=2, <40%=1
+- `pnpm --filter web exec tsc --noEmit` + `pnpm --filter web build` — pass
 
-### Module Vocabulary â€” HOÃ€N THÃ€NH (session 2026-06-30)
+### Module Vocabulary — HOÀN THÀNH (session 2026-06-30)
 - [x] Repository layer: `deckRepo`, `cardRepo`, `srsRepo` trong `packages/db/src/local/repositories/`
-- [x] `packages/db/src/index.ts` export Ä‘áº§y Ä‘á»§ repos
-- [x] `vocabStore` (Zustand) â€” activeDeckId + studyMode state
-- [x] `DeckPanel` â€” danh sÃ¡ch deck (live query), táº¡o/xÃ³a deck, badge "X Ã´n"
-- [x] `CardPanel` â€” báº£ng tá»« (live query), thÃªm/sá»­a/xÃ³a tá»«, 3 nÃºt há»c
-- [x] `DeckEditorModal` â€” táº¡o/sá»­a bá»™ tháº»
-- [x] `CardEditorModal` â€” thÃªm/sá»­a tá»« (phrase/meaning/example/IPA), "ThÃªm & tiáº¿p"
-- [x] `StudySession` â€” overlay toÃ n mÃ n hÃ¬nh, tab chuyá»ƒn cháº¿ Ä‘á»™
-- [x] `SrsMode` â€” flip card + rate 1-4 (SM-2), progress bar, thá»‘ng kÃª cuá»‘i
-- [x] `QuizMode` â€” 4 Ä‘Ã¡p Ã¡n, shuffle, highlight Ä‘Ãºng/sai, Ä‘iá»ƒm %
-- [x] `TypeMode` â€” gÃµ nghÄ©a, fuzzy match variants, Ä‘Ã¡p Ã¡n khi sai
-- [x] `VocabularyPage` â€” layout 2 panel + StudySession overlay
-- [x] Build production thÃ nh cÃ´ng (tsc + vite build sáº¡ch)
+- [x] `packages/db/src/index.ts` export đầy đủ repos
+- [x] `vocabStore` (Zustand) — activeDeckId + studyMode state
+- [x] `DeckPanel` — danh sách deck (live query), tạo/xóa deck, badge "X ôn"
+- [x] `CardPanel` — bảng từ (live query), thêm/sửa/xóa từ, 3 nút học
+- [x] `DeckEditorModal` — tạo/sửa bộ thẻ
+- [x] `CardEditorModal` — thêm/sửa từ (phrase/meaning/example/IPA), "Thêm & tiếp"
+- [x] `StudySession` — overlay toàn màn hình, tab chuyển chế độ
+- [x] `SrsMode` — flip card + rate 1-4 (SM-2), progress bar, thống kê cuối
+- [x] `QuizMode` — 4 đáp án, shuffle, highlight đúng/sai, điểm %
+- [x] `TypeMode` — gõ nghĩa, fuzzy match variants, đáp án khi sai
+- [x] `VocabularyPage` — layout 2 panel + StudySession overlay
+- [x] Build production thành công (tsc + vite build sạch)
 
-#### Notes quan trá»ng:
-- `cardRepo.add()` tá»± init SRS state (dueAt = now â†’ all new cards immediately due)
-- `deckRepo.delete()` cascade xÃ³a cards + srs + reviewLog
-- StudySession dÃ¹ng `absolute inset-0` â†’ VocabularyPage cáº§n `relative h-full`
+#### Notes quan trọng:
+- `cardRepo.add()` tự init SRS state (dueAt = now → all new cards immediately due)
+- `deckRepo.delete()` cascade xóa cards + srs + reviewLog
+- StudySession dùng `absolute inset-0` → VocabularyPage cần `relative h-full`
 
 ---
 
-### Vercel Deploy Prep â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `apps/web/vercel.json` â€” SPA rewrite: táº¥t cáº£ route (trá»« `/assets/*`) â†’ `index.html`
-- [x] `apps/web/vite.config.ts` â€” `base: '/'`, `build.outDir: 'dist'` (explicit)
-- [x] `apps/web/public/_redirects` â€” Netlify fallback: `/* /index.html 200`
-- [x] `apps/web/.env.example` â€” template env vars (khÃ´ng cÃ³ giÃ¡ trá»‹ tháº­t)
-- [x] `pnpm --filter web build` â€” sáº¡ch (tsc + vite build)
+### Vercel Deploy Prep — HOÀN THÀNH (session 2026-06-30)
+- [x] `apps/web/vercel.json` — SPA rewrite: tất cả route (trừ `/assets/*`) → `index.html`
+- [x] `apps/web/vite.config.ts` — `base: '/'`, `build.outDir: 'dist'` (explicit)
+- [x] `apps/web/public/_redirects` — Netlify fallback: `/* /index.html 200`
+- [x] `apps/web/.env.example` — template env vars (không có giá trị thật)
+- [x] `pnpm --filter web build` — sạch (tsc + vite build)
 
 #### Vercel setup notes:
 - **Deployed:** https://ryanenglishv2.vercel.app/
-- **Root Directory: Äá»‚ TRá»NG** (repo root `Website/`) â€” KHÃ”NG Ä‘áº·t `apps/web`
-  - Monorepo cáº§n `packages/*` + `pnpm-workspace.yaml` á»Ÿ root Ä‘á»ƒ build
-  - Lá»—i `" apps/web" does not exist` = Root Directory cÃ³ **space thá»«a** hoáº·c sai path
-- `vercel.json` (repo root) â€” build + output `apps/web/dist` + SPA routes
-- `apps/web/spa.vercel.json` â€” Vite plugin copy vÃ o `dist/vercel.json` má»—i láº§n build
-- **Output Directory:** `apps/web/dist` (root trá»‘ng) hoáº·c `dist` (root = apps/web) â€” KHÃ”NG Ä‘áº·t `public`
-- **QUAN TRá»ŒNG:** `cleanUrls: false` â€” `cleanUrls: true` lÃ m rewrite `/index.html` bá»‹ ignore â†’ 404 SPA
-- DÃ¹ng `routes` + `filesystem` handle thay vÃ¬ `rewrites` Ä‘Æ¡n giáº£n (Ä‘Ã¡ng tin hÆ¡n cho Vite SPA)
-- Env vars (báº¯t buá»™c): `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
-- Supabase â†’ Auth â†’ URL Configuration:
+- **Root Directory: ĐỂ TRỐNG** (repo root `Website/`) — KHÔNG đặt `apps/web`
+  - Monorepo cần `packages/*` + `pnpm-workspace.yaml` ở root để build
+  - Lỗi `" apps/web" does not exist` = Root Directory có **space thừa** hoặc sai path
+- `vercel.json` (repo root) — build + output `apps/web/dist` + SPA routes
+- `apps/web/spa.vercel.json` — Vite plugin copy vào `dist/vercel.json` mỗi lần build
+- **Output Directory:** `apps/web/dist` (root trống) hoặc `dist` (root = apps/web) — KHÔNG đặt `public`
+- **QUAN TRỌNG:** `cleanUrls: false` — `cleanUrls: true` làm rewrite `/index.html` bị ignore → 404 SPA
+- Dùng `routes` + `filesystem` handle thay vì `rewrites` đơn giản (đáng tin hơn cho Vite SPA)
+- Env vars (bắt buộc): `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+- Supabase → Auth → URL Configuration:
   - Site URL: `https://ryanenglishv2.vercel.app`
   - Redirect URLs: `https://ryanenglishv2.vercel.app/` + `http://localhost:5173/`
-- **BrowserRouter** (2026 fix login) â€” OAuth `#access_token` khÃ´ng cÃ²n phÃ¡ route; `recoverOAuthSession` cháº¡y trong `main.tsx` trÆ°á»›c khi render
-- OAuth redirect vá» `/` (khÃ´ng dÃ¹ng `/auth/callback`) â€” trÃ¡nh 404 Vercel static
-- `AuthContext` xá»­ lÃ½ `?code=` PKCE ngay khi app load
-- Production deploy 2026-06-30: bundle `index-BQV91eba.js` (Ä‘Ã£ verify redirectTo = origin + `/`)
-- **OAuth production: HOáº T Äá»˜NG** â€” Ä‘Äƒng nháº­p Gmail OK trÃªn https://ryanenglishv2.vercel.app/
-- **OAuth fix:** Supabase redirect `#access_token=...` â†’ `recoverOAuthSession` (trÆ°á»›c React render) â†’ `setSession` â†’ URL `/app/vocab`. ÄÄƒng xuáº¥t â†’ `location.replace('/')`.
-- Vite build copy `index.html` â†’ má»i route path + `404.html` (fallback khi rewrites khÃ´ng apply)
-- **Commit `vercel.json` á»Ÿ repo root vÃ o Git** náº¿u deploy qua GitHub
+- **BrowserRouter** (2026 fix login) — OAuth `#access_token` không còn phá route; `recoverOAuthSession` chạy trong `main.tsx` trước khi render
+- OAuth redirect về `/` (không dùng `/auth/callback`) — tránh 404 Vercel static
+- `AuthContext` xử lý `?code=` PKCE ngay khi app load
+- Production deploy 2026-06-30: bundle `index-BQV91eba.js` (đã verify redirectTo = origin + `/`)
+- **OAuth production: HOẠT ĐỘNG** — đăng nhập Gmail OK trên https://ryanenglishv2.vercel.app/
+- **OAuth fix:** Supabase redirect `#access_token=...` → `recoverOAuthSession` (trước React render) → `setSession` → URL `/app/vocab`. Đăng xuất → `location.replace('/')`.
+- Vite build copy `index.html` → mọi route path + `404.html` (fallback khi rewrites không apply)
+- **Commit `vercel.json` ở repo root vào Git** nếu deploy qua GitHub
 
 ---
 
-## Lá»—i cÃ²n tá»“n táº¡i / ChÆ°a test
+## Lỗi còn tồn tại / Chưa test
 
-- [x] Google OAuth flow end-to-end trÃªn production â€” OK (2026-06-30)
-- [x] Deploy production Vercel â€” OK https://ryanenglishv2.vercel.app/
-- [x] **KET Listening 5Ã— part*.mp3 â€œKhÃ´ng tÃ¬m tháº¥y file audioâ€** â€” fix 2026-07-14 (`resolveListeningAudioSource` + currentPart); user confirm OK
-- [ ] **KET A2 Listening practice test-02â€¦44** â€” chá» user Ä‘á»§ media (~1h) â†’ `node scripts/ket-practice-csv-to-exam.mjs 2-44` (hoáº·c `all`)
-- [ ] **Listening Ã” CHá»® trÃªn mobile iOS** â€” user tá»«ng bÃ¡o ~75% fix; **chá» user hard refresh production vÃ  xÃ¡c nháº­n**
-- [x] **Listening thanh cuá»™n ngang/dá»c thá»«a** (dÆ°á»›i tabs) â€” fix layout shell + áº©n scrollbar
-- [ ] **Web Audio trÃªn iOS** â€” chime/buzz/phÃ¡o hoa cÃ³ thá»ƒ cáº§n gesture trÆ°á»›c (autoplay policy)
-- [ ] **IELTS Cam20 Listening UI** â€” notePassage / Choose TWO / P1 báº£ng / Part 2 segment
-- [ ] Náº¿u user Ä‘Ã£ import ZIP Cam20 cÅ© â†’ re-import ZIP má»›i
-- [ ] `pnpm install --ignore-scripts` khi hook esbuild lá»—i
-- [ ] **CAE C1 RW Part 10** â€” `part10-page.jpg` placeholder
+- [x] Google OAuth flow end-to-end trên production — OK (2026-06-30)
+- [x] Deploy production Vercel — OK https://ryanenglishv2.vercel.app/
+- [x] **KET Listening 5× part*.mp3 “Không tìm thấy file audio”** — fix 2026-07-14 (`resolveListeningAudioSource` + currentPart); user confirm OK
+- [ ] **KET A2 Listening practice test-02…44** — chờ user đủ media (~1h) → `node scripts/ket-practice-csv-to-exam.mjs 2-44` (hoặc `all`)
+- [ ] **Listening Ô CHỮ trên mobile iOS** — user từng báo ~75% fix; **chờ user hard refresh production và xác nhận**
+- [x] **Listening thanh cuộn ngang/dọc thừa** (dưới tabs) — fix layout shell + ẩn scrollbar
+- [ ] **Web Audio trên iOS** — chime/buzz/pháo hoa có thể cần gesture trước (autoplay policy)
+- [ ] **IELTS Cam20 Listening UI** — notePassage / Choose TWO / P1 bảng / Part 2 segment
+- [ ] Nếu user đã import ZIP Cam20 cũ → re-import ZIP mới
+- [ ] `pnpm install --ignore-scripts` khi hook esbuild lỗi
+- [ ] **CAE C1 RW Part 10** — `part10-page.jpg` placeholder
 
 ---
 
-### Module Settings + Code Splitting â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `lib/theme.ts` â€” getTheme/setTheme + THEMES preview config (dÃ¹ng chung AppShell + Settings)
-- [x] `features/settings/useAiSettings.ts` â€” hook load/save/test AI settings (tÃ¡ch tá»« AiSettingsModal)
-- [x] `features/settings/AiSettingsPanel.tsx` â€” provider grid + API key + test káº¿t ná»‘i + usage
-- [x] `SettingsPage.tsx` â€” 3 tab: Giao diá»‡n (theme preview cards), AI (shared panel), TÃ i khoáº£n (plan + features + contact)
-- [x] `AiSettingsModal.tsx` â€” refactor dÃ¹ng AiSettingsPanel (DRY)
-- [x] `App.tsx` â€” React.lazy() + Suspense cho táº¥t cáº£ route pages
-- [x] `components/PageFallback.tsx` â€” spinner loading khi lazy load chunk
-- [x] Build production thÃ nh cÃ´ng â€” main chunk ~384KB (tá»« 588KB), pages tÃ¡ch riÃªng (Vocab 28KB, Writing 22KB...)
+### Module Settings + Code Splitting — HOÀN THÀNH (session 2026-06-30)
+- [x] `lib/theme.ts` — getTheme/setTheme + THEMES preview config (dùng chung AppShell + Settings)
+- [x] `features/settings/useAiSettings.ts` — hook load/save/test AI settings (tách từ AiSettingsModal)
+- [x] `features/settings/AiSettingsPanel.tsx` — provider grid + API key + test kết nối + usage
+- [x] `SettingsPage.tsx` — 3 tab: Giao diện (theme preview cards), AI (shared panel), Tài khoản (plan + features + contact)
+- [x] `AiSettingsModal.tsx` — refactor dùng AiSettingsPanel (DRY)
+- [x] `App.tsx` — React.lazy() + Suspense cho tất cả route pages
+- [x] `components/PageFallback.tsx` — spinner loading khi lazy load chunk
+- [x] Build production thành công — main chunk ~384KB (từ 588KB), pages tách riêng (Vocab 28KB, Writing 22KB...)
 
-#### Notes quan trá»ng Settings:
-- Theme: 3 cháº¿ Ä‘á»™ light/mid/dark, lÆ°u localStorage `ryan-theme`, preview card mini UI
-- AI tab: tÃ¡i dÃ¹ng logic AiSettingsModal, thÃªm nÃºt "Kiá»ƒm tra káº¿t ná»‘i" (callAI test JSON)
-- Account tab: plan tá»« db.settings (sync Supabase qua usePlanSync), hiá»ƒn thá»‹ features enabled qua canUse()
-- Contact: email ryanik1997@gmail.com + hÆ°á»›ng dáº«n nÃ¢ng cáº¥p qua admin
-- Plan selector trong AI settings Ä‘Ã£ bá» (plan giá» sync tá»« Supabase, khÃ´ng override thá»§ cÃ´ng)
-- Deep link tab: `/app/settings?tab=ai` hoáº·c `?tab=account` (HashRouter)
+#### Notes quan trọng Settings:
+- Theme: 3 chế độ light/mid/dark, lưu localStorage `ryan-theme`, preview card mini UI
+- AI tab: tái dùng logic AiSettingsModal, thêm nút "Kiểm tra kết nối" (callAI test JSON)
+- Account tab: plan từ db.settings (sync Supabase qua usePlanSync), hiển thị features enabled qua canUse()
+- Contact: email ryanik1997@gmail.com + hướng dẫn nâng cấp qua admin
+- Plan selector trong AI settings đã bỏ (plan giờ sync từ Supabase, không override thủ công)
+- Deep link tab: `/app/settings?tab=ai` hoặc `?tab=account` (HashRouter)
 
-### SRS Push Reminder (local SW) â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `public/sw.js` â€” push + notificationclick â†’ `/app/vocab`; **+ cache-first catalog audio** (2026-07-07)
-- [x] `features/notifications/useNotifications.ts` â€” local schedule, Dexie due count, localStorage
-- [x] `SettingsPage` tab Giao diá»‡n â€” section "Nháº¯c nhá»Ÿ Ã´n tá»« hÃ ng ngÃ y"
-- [x] `App.tsx` â€” Ä‘Äƒng kÃ½ SW on load; `AppShell` â€” `useNotifications()` interval
-- Best-effort: chá»‰ cháº¡y khi tab má»Ÿ, khÃ´ng cáº§n VAPID/server
+### SRS Push Reminder (local SW) — HOÀN THÀNH (session 2026-06-30)
+- [x] `public/sw.js` — push + notificationclick → `/app/vocab`; **+ cache-first catalog audio** (2026-07-07)
+- [x] `features/notifications/useNotifications.ts` — local schedule, Dexie due count, localStorage
+- [x] `SettingsPage` tab Giao diện — section "Nhắc nhở ôn từ hàng ngày"
+- [x] `App.tsx` — đăng ký SW on load; `AppShell` — `useNotifications()` interval
+- Best-effort: chỉ chạy khi tab mở, không cần VAPID/server
 
-### AppShell Sidebar Polish â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] Logo mark gradient R + tagline IELTS Â· AI Â· SRS
-- [x] Nav badges Ã´n tá»« (vocab SRS + listening dueAt) real-time
+### AppShell Sidebar Polish — HOÀN THÀNH (session 2026-06-30)
+- [x] Logo mark gradient R + tagline IELTS · AI · SRS
+- [x] Nav badges ôn từ (vocab SRS + listening dueAt) real-time
 - [x] ThemeSwitcher 3 dot swatches + active ring
 - [x] User area: avatar w-8, divider, logout hover text
 - [x] Sidebar `w-52`
 
-### License Backend (Payment notify) â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] Edge Function `notify-payment` â€” Resend email admin + lÆ°u `payment_requests`
-- [x] `004_payment_requests.sql` â€” báº£ng + RLS (user read own, admin all)
-- [x] `PaymentModal` â€” nÃºt "ThÃ´ng bÃ¡o Ä‘Ã£ chuyá»ƒn" (chá»‰ khi Ä‘Ã£ login)
-- [x] `AdminPage` â€” tab "YÃªu cáº§u kÃ­ch hoáº¡t", badge pending, 1-click KÃ­ch hoáº¡t
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### License Backend (Payment notify) — HOÀN THÀNH (session 2026-06-30)
+- [x] Edge Function `notify-payment` — Resend email admin + lưu `payment_requests`
+- [x] `004_payment_requests.sql` — bảng + RLS (user read own, admin all)
+- [x] `PaymentModal` — nút "Thông báo đã chuyển" (chỉ khi đã login)
+- [x] `AdminPage` — tab "Yêu cầu kích hoạt", badge pending, 1-click Kích hoạt
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
 #### Deploy Edge Function:
 ```bash
 npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 ```
-Secrets: `RESEND_API_KEY`, `ADMIN_EMAIL` (tuá»³ chá»n `APP_ORIGIN`)
-Cháº¡y `004_payment_requests.sql` trong Supabase SQL Editor trÆ°á»›c khi test.
+Secrets: `RESEND_API_KEY`, `ADMIN_EMAIL` (tuỳ chọn `APP_ORIGIN`)
+Chạy `004_payment_requests.sql` trong Supabase SQL Editor trước khi test.
 
-### Supabase Cloud Sync â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `sync.ts` má»Ÿ rá»™ng â€” writingDocs + mindmaps push/pull, `isLocalEmpty()`, error handling
-- [x] `003_writing_mindmap_sync.sql` â€” mindmaps table + writing_docs type constraint
-- [x] `useSyncManager.ts` + `SyncProvider` â€” login/auto 5min/online/manual sync
-- [x] `SyncOnLogin.tsx` â€” toast khÃ´i phá»¥c / Ä‘á»“ng bá»™ xong
-- [x] `AppShell` â€” sync indicator sidebar; Settings tab TÃ i khoáº£n â€” "Äá»“ng bá»™ Ä‘Ã¡m mÃ¢y"
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Supabase Cloud Sync — HOÀN THÀNH (session 2026-06-30)
+- [x] `sync.ts` mở rộng — writingDocs + mindmaps push/pull, `isLocalEmpty()`, error handling
+- [x] `003_writing_mindmap_sync.sql` — mindmaps table + writing_docs type constraint
+- [x] `useSyncManager.ts` + `SyncProvider` — login/auto 5min/online/manual sync
+- [x] `SyncOnLogin.tsx` — toast khôi phục / đồng bộ xong
+- [x] `AppShell` — sync indicator sidebar; Settings tab Tài khoản — "Đồng bộ đám mây"
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Cloud Sync:
-- Thiáº¿t bá»‹ má»›i (local trá»‘ng) â†’ `syncCloudToLocal`; cÃ³ data â†’ `syncLocalToCloud`
+#### Notes quan trọng Cloud Sync:
+- Thiết bị mới (local trống) → `syncCloudToLocal`; có data → `syncLocalToCloud`
 - `ryan-last-sync` trong localStorage
-- **Cháº¡y `003_writing_mindmap_sync.sql` trÃªn Supabase trÆ°á»›c khi test**
+- **Chạy `003_writing_mindmap_sync.sql` trên Supabase trước khi test**
 
-### Daily Goal + Streak Celebration â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `settingsRepo.ts` â€” getSetting / putSetting, export tá»« `@ryan/db`
-- [x] `useDailyGoal.ts` â€” goal words/translations, progress tá»« reviewLog hÃ´m nay
-- [x] `DailyGoalCard.tsx` â€” progress bars, inline edit target (âš™)
-- [x] `StreakCelebration.tsx` â€” overlay confetti, 1 láº§n/ngÃ y (localStorage)
-- [x] `HomePage` â€” DailyGoalCard, StreakCelebration, Translation quick action, flame badge streakâ‰¥3
-- [x] `PracticeSession` â€” ghi reviewLog mode `translation` khi rate
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Daily Goal + Streak Celebration — HOÀN THÀNH (session 2026-06-30)
+- [x] `settingsRepo.ts` — getSetting / putSetting, export từ `@ryan/db`
+- [x] `useDailyGoal.ts` — goal words/translations, progress từ reviewLog hôm nay
+- [x] `DailyGoalCard.tsx` — progress bars, inline edit target (⚙)
+- [x] `StreakCelebration.tsx` — overlay confetti, 1 lần/ngày (localStorage)
+- [x] `HomePage` — DailyGoalCard, StreakCelebration, Translation quick action, flame badge streak≥3
+- [x] `PracticeSession` — ghi reviewLog mode `translation` khi rate
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Daily Goal:
+#### Notes quan trọng Daily Goal:
 - Settings keys: `daily_goal_words` (10), `daily_goal_translations` (5)
 - Vocab count: reviewLog mode srs/quiz/type; translation: mode `translation`
 - Celebrate key: `ryan-streak-celebrated-YYYY-MM-DD`
 
-### Backup/Restore toÃ n bá»™ data â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `features/settings/backupRestore.ts` â€” exportBackup, importBackup (bulkPut merge), estimateBackupSize
-- [x] `ConfirmRestoreModal.tsx` â€” xÃ¡c nháº­n merge, loading, success summary, error
-- [x] `SettingsPage` tab TÃ i khoáº£n â€” section "Dá»¯ liá»‡u & Backup" (xuáº¥t/nháº­p JSON)
-- [x] Format backup v1: 13 báº£ng (khÃ´ng audioBlobs, khÃ´ng dictionaryCache)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Backup/Restore toàn bộ data — HOÀN THÀNH (session 2026-06-30)
+- [x] `features/settings/backupRestore.ts` — exportBackup, importBackup (bulkPut merge), estimateBackupSize
+- [x] `ConfirmRestoreModal.tsx` — xác nhận merge, loading, success summary, error
+- [x] `SettingsPage` tab Tài khoản — section "Dữ liệu & Backup" (xuất/nhập JSON)
+- [x] Format backup v1: 13 bảng (không audioBlobs, không dictionaryCache)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Backup:
+#### Notes quan trọng Backup:
 - File: `ryan-english-backup-YYYY-MM-DD.json`
-- Restore MERGE qua `bulkPut` â€” khÃ´ng xÃ³a data cÅ©
-- Æ¯á»›c tÃ­nh size: ~750 bytes/record
+- Restore MERGE qua `bulkPut` — không xóa data cũ
+- Ước tính size: ~750 bytes/record
 
-### Translation Practice â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] Dexie schema v2: `TranslationSet` + `TranslationSentence` (SRS nhÃºng trong sentence)
-- [x] `translationRepo.ts` â€” CRUD + addSentence/deleteSentence/updateSrsState
-- [x] `sampleSets.ts` â€” 3 bá»™ máº«u seed (IELTS T2Ã—10, IELTS T1Ã—8, DailyÃ—10)
-- [x] `translationStore.ts` â€” activeSetId, practicing
-- [x] `TranslationListPanel` â€” sidebar + badge category + due count + xÃ³a (user only)
-- [x] `NewSetModal` â€” táº¡o bá»™ cÃ¢u rá»—ng
-- [x] `TranslationDetail` â€” danh sÃ¡ch cÃ¢u + thÃªm/xÃ³a inline
-- [x] `PracticeSession` â€” overlay luyá»‡n dá»‹ch, fuzzy compare, highlight, SRS rating
-- [x] `TranslationPage` â€” layout 2 panel + seed on mount
-- [x] Route `/app/translation` + nav "Dá»‹ch cÃ¢u" (Languages icon, giá»¯a Nghe vÃ  MindMap)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Translation Practice — HOÀN THÀNH (session 2026-06-30)
+- [x] Dexie schema v2: `TranslationSet` + `TranslationSentence` (SRS nhúng trong sentence)
+- [x] `translationRepo.ts` — CRUD + addSentence/deleteSentence/updateSrsState
+- [x] `sampleSets.ts` — 3 bộ mẫu seed (IELTS T2×10, IELTS T1×8, Daily×10)
+- [x] `translationStore.ts` — activeSetId, practicing
+- [x] `TranslationListPanel` — sidebar + badge category + due count + xóa (user only)
+- [x] `NewSetModal` — tạo bộ câu rỗng
+- [x] `TranslationDetail` — danh sách câu + thêm/xóa inline
+- [x] `PracticeSession` — overlay luyện dịch, fuzzy compare, highlight, SRS rating
+- [x] `TranslationPage` — layout 2 panel + seed on mount
+- [x] Route `/app/translation` + nav "Dịch câu" (Languages icon, giữa Nghe và MindMap)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Translation:
-- Fuzzy compare: normalize lowercase, bá» dáº¥u cÃ¢u, match tá»« (cho phÃ©p lá»‡ch 1 kÃ½ tá»±)
-- Highlight: Ä‘Ãºng = `--color-primary`, thiáº¿u = `--color-accent`, thá»«a = `--text-muted`
-- SRS Ä‘Æ¡n giáº£n: Dá»… +3 ngÃ y, á»”n +1 ngÃ y, KhÃ³ Ã´n láº¡i ngay
-- Seed check `translationRepo.count() > 0` trÆ°á»›c khi insert máº«u
+#### Notes quan trọng Translation:
+- Fuzzy compare: normalize lowercase, bỏ dấu câu, match từ (cho phép lệch 1 ký tự)
+- Highlight: đúng = `--color-primary`, thiếu = `--color-accent`, thừa = `--text-muted`
+- SRS đơn giản: Dễ +3 ngày, Ổn +1 ngày, Khó ôn lại ngay
+- Seed check `translationRepo.count() > 0` trước khi insert mẫu
 
-### Import/Export tá»« vá»±ng â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `features/vocab/importExport.ts` â€” export CSV/JSON (RFC 4180), parse CSV/JSON (version 1), template CSV
-- [x] `features/vocab/ImportModal.tsx` â€” drop zone, preview 5 dÃ²ng, import qua `cardRepo.add()`, cáº£nh bÃ¡o >500 tá»«
-- [x] `CardPanel.tsx` â€” nÃºt **Xuáº¥t** (dropdown CSV/JSON, disabled khi rá»—ng) + **Nháº­p** (má»Ÿ ImportModal)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Import/Export từ vựng — HOÀN THÀNH (session 2026-06-30)
+- [x] `features/vocab/importExport.ts` — export CSV/JSON (RFC 4180), parse CSV/JSON (version 1), template CSV
+- [x] `features/vocab/ImportModal.tsx` — drop zone, preview 5 dòng, import qua `cardRepo.add()`, cảnh báo >500 từ
+- [x] `CardPanel.tsx` — nút **Xuất** (dropdown CSV/JSON, disabled khi rỗng) + **Nhập** (mở ImportModal)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Import/Export:
-- CSV header: `phrase,meaning,example,ipaUS,pos` â€” `phrase` + `meaning` báº¯t buá»™c
+#### Notes quan trọng Import/Export:
+- CSV header: `phrase,meaning,example,ipaUS,pos` — `phrase` + `meaning` bắt buộc
 - JSON format: `{ version: 1, deck: { name, book, unit }, cards: [...] }`
-- Import chá»‰ thÃªm vÃ o deck hiá»‡n táº¡i (khÃ´ng táº¡o deck má»›i tá»« JSON)
-- UI dÃ¹ng CSS variables, khÃ´ng hardcode mÃ u
+- Import chỉ thêm vào deck hiện tại (không tạo deck mới từ JSON)
+- UI dùng CSS variables, không hardcode màu
 
-### Module Pages Äá»“ng Nháº¥t (PanelHeader + PanelEmpty) â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `components/PanelHeader.tsx` â€” header chuáº©n cho left/right panel (title, subtitle, actions slot, border)
-- [x] `components/PanelEmpty.tsx` â€” empty state chuáº©n (icon, message, optional action)
-- [x] Ãp dá»¥ng PanelHeader: `DeckPanel`, `CardPanel`, `LessonPanel`, `DocListPanel`, `MindmapListPanel`, `TranslationListPanel`
-- [x] Ãp dá»¥ng PanelEmpty: `DeckPanel`, `LessonPanel`, `DocListPanel`, `MindmapListPanel`, `TranslationListPanel`
-- [x] Äá»“ng nháº¥t left panel width â†’ `w-60` (240px) â€” LessonPanel + TranslationListPanel tá»« `w-64` â†’ `w-60`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Module Pages Đồng Nhất (PanelHeader + PanelEmpty) — HOÀN THÀNH (session 2026-06-30)
+- [x] `components/PanelHeader.tsx` — header chuẩn cho left/right panel (title, subtitle, actions slot, border)
+- [x] `components/PanelEmpty.tsx` — empty state chuẩn (icon, message, optional action)
+- [x] Áp dụng PanelHeader: `DeckPanel`, `CardPanel`, `LessonPanel`, `DocListPanel`, `MindmapListPanel`, `TranslationListPanel`
+- [x] Áp dụng PanelEmpty: `DeckPanel`, `LessonPanel`, `DocListPanel`, `MindmapListPanel`, `TranslationListPanel`
+- [x] Đồng nhất left panel width → `w-60` (240px) — LessonPanel + TranslationListPanel từ `w-64` → `w-60`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Notes quan trá»ng Panel unify:
+#### Notes quan trọng Panel unify:
 - Header: `px-4 py-3.5`, `text-sm` title, `text-xs` subtitle, CSS variables only
-- CardPanel header dÃ¹ng PanelHeader nhÆ°ng giá»¯ nguyÃªn study/export/import/thÃªm tá»« trong `actions`
-- Right panel detail headers (LessonDetail, TranslationDetail...) chÆ°a Ä‘á»•i â€” chá»‰ left list panels + CardPanel
+- CardPanel header dùng PanelHeader nhưng giữ nguyên study/export/import/thêm từ trong `actions`
+- Right panel detail headers (LessonDetail, TranslationDetail...) chưa đổi — chỉ left list panels + CardPanel
 
-### HomePage Dashboard Polish â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] Dynamic greeting/subtitle theo giá» + streak
+### HomePage Dashboard Polish — HOÀN THÀNH (session 2026-06-30)
+- [x] Dynamic greeting/subtitle theo giờ + streak
 - [x] StatCard accent bar + quick actions grid
 - [x] Onboarding checklist shimmer animation (`globals.css` `.progress-shimmer`)
-- [x] **StudyActivityGrid** â€” thay checklist "Báº¯t Ä‘áº§u vá»›i Ryan English" báº±ng lÆ°á»›i 60 ngÃ y há»c (`reviewLog`, 10Ã—6 Ã´, Ä‘áº­m/nháº¡t theo lÆ°á»£t há»c)
+- [x] **StudyActivityGrid** — thay checklist "Bắt đầu với Ryan English" bằng lưới 60 ngày học (`reviewLog`, 10×6 ô, đậm/nhạt theo lượt học)
 
-### Onboarding Empty States â€” HOÃ€N THÃ€NH (session 2026-06-30)
-- [x] `components/EmptyStateCard.tsx` â€” welcome card dÃ¹ng chung (icon, CTA, tip, footer link)
-- [x] `VocabularyPage.tsx` â€” khi chÆ°a cÃ³ deck: welcome + nÃºt "Táº¡o bá»™ tháº» ngay" â†’ DeckEditorModal
-- [x] `WritingPage.tsx` â€” khi chÆ°a cÃ³ bÃ i: welcome + "Táº¡o bÃ i viáº¿t Ä‘áº§u tiÃªn" â†’ NewDocModal; link Settings > AI
-- [x] `features/home/useHomeStats.ts` â€” stats tá»« Dexie: wordsStudied, docCount, streak (reviewLog), onboarding 5 bÆ°á»›c
-- [x] `HomePage.tsx` â€” dashboard: 3 stat cards + 4 quick actions + checklist onboarding (hiá»‡n khi < 5/5)
-- [x] Build production thÃ nh cÃ´ng (tsc + vite build sáº¡ch)
+### Onboarding Empty States — HOÀN THÀNH (session 2026-06-30)
+- [x] `components/EmptyStateCard.tsx` — welcome card dùng chung (icon, CTA, tip, footer link)
+- [x] `VocabularyPage.tsx` — khi chưa có deck: welcome + nút "Tạo bộ thẻ ngay" → DeckEditorModal
+- [x] `WritingPage.tsx` — khi chưa có bài: welcome + "Tạo bài viết đầu tiên" → NewDocModal; link Settings > AI
+- [x] `features/home/useHomeStats.ts` — stats từ Dexie: wordsStudied, docCount, streak (reviewLog), onboarding 5 bước
+- [x] `HomePage.tsx` — dashboard: 3 stat cards + 4 quick actions + checklist onboarding (hiện khi < 5/5)
+- [x] Build production thành công (tsc + vite build sạch)
 
-#### Notes quan trá»ng Onboarding:
-- Empty state chá»‰ render khi `useLiveQuery` tráº£ vá» máº£ng rá»—ng (khÃ´ng flash loading)
-- Streak tÃ­nh tá»« `reviewLog` â€” ngÃ y liÃªn tiáº¿p cÃ³ Ã´n táº­p SRS
-- Onboarding 5 bÆ°á»›c: táº¡o deck â†’ 10 tá»« â†’ SRS review â†’ writing doc â†’ API key
-- Writing empty state áº©n DocListPanel; Vocabulary empty state áº©n DeckPanel/CardPanel
-- Táº¥t cáº£ UI dÃ¹ng CSS variables (`--bg-card`, `--color-primary`...)
+#### Notes quan trọng Onboarding:
+- Empty state chỉ render khi `useLiveQuery` trả về mảng rỗng (không flash loading)
+- Streak tính từ `reviewLog` — ngày liên tiếp có ôn tập SRS
+- Onboarding 5 bước: tạo deck → 10 từ → SRS review → writing doc → API key
+- Writing empty state ẩn DocListPanel; Vocabulary empty state ẩn DeckPanel/CardPanel
+- Tất cả UI dùng CSS variables (`--bg-card`, `--color-primary`...)
 
-### Writing UI â€” Giaodien redesign + import áº£nh (session 2026-06-30)
-- [x] `writingStudy.css` â€” layout Focus & Precision, theme-aware (light/mid/dark)
-- [x] `WritingEditor.tsx` â€” 2 cá»™t: Ä‘á» bÃ i (trÃ¡i) + editor (pháº£i), timer, action bar, AI feedback drawer
-- [x] `WritingTopicPanel.tsx` â€” badge, áº£nh Ä‘á», prompt glass box, hÆ°á»›ng dáº«n
-- [x] Import JPG/WEBP â€” `writingImage.ts` (nÃ©n, validate), modal táº¡o bÃ i + panel Ä‘á»
+### Writing UI — Giaodien redesign + import ảnh (session 2026-06-30)
+- [x] `writingStudy.css` — layout Focus & Precision, theme-aware (light/mid/dark)
+- [x] `WritingEditor.tsx` — 2 cột: đề bài (trái) + editor (phải), timer, action bar, AI feedback drawer
+- [x] `WritingTopicPanel.tsx` — badge, ảnh đề, prompt glass box, hướng dẫn
+- [x] Import JPG/WEBP — `writingImage.ts` (nén, validate), modal tạo bài + panel đề
 - [x] Dexie v5 `promptImage` + sync `prompt_image` + migration `005_writing_prompt_image.sql`
 
-### Writing â€” Cambridge A2â€“C2 track (session 2026-06-30)
-- [x] `writingUiConfig.ts` â€” nhÃ£n UI riÃªng Cambridge (kicker, title, placeholder, submit) vs IELTS
-- [x] `writingPrompt.ts` â€” `CambridgeScore` 4 tiÃªu chÃ­ (Content, Communicative Achievement, Organisation, Language, 0â€“5); `buildCambridgePrompt` / `buildWritingGradePrompt`
-- [x] `ScorePanel.tsx` â€” hiá»ƒn thá»‹ Ä‘iá»ƒm Cambridge (0â€“5 + level) hoáº·c band IELTS tÃ¹y loáº¡i bÃ i
-- [x] `WritingCambridgePage` + `WritingLibraryPage` â€” route `/app/writing/cambridge`
-- [x] Fix nhÃ£n IELTS trÃªn trang Cambridge: `DocListPanel` auto-chá»n bÃ i Ä‘Ãºng track; `WritingEditor` prop `allowedTypes`
-- [x] Fix tsc: `WritingEditor` framework merge; `useWritingDashboard` `getCriterionBand` cho cáº£ 2 framework
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [x] Fix Dashboard thá»‘ng kÃª trá»‘ng: layout `AppShell`/`WritingLayout` + `wd-page` height; empty state cÃ³ UI Ä‘áº§y Ä‘á»§; `parseScore` legacy; errorBank sort in-memory
-- [x] Supabase migrations push: `006_cambridge_writing_types.sql` + `007_writing_type_constraint_repair.sql` (fix writing_docs type check + prompt_image); cáº­p nháº­t `friendlySyncError`
-- [x] **Cáº¥u trÃºc cÃ¢u** â€” sidebar `/app/sentence-structure`: danh sÃ¡ch + Ä‘iá»n A/B, láº­t tháº», kiá»ƒm tra; seed 6 máº«u; Dexie v7 `sentenceStructures`
-- [x] Cambridge hub 3 bÆ°á»›c: `/cambridge` (chá»n A2â€“C2) â†’ `/cambridge/:level` (email/story/â€¦) â†’ `/cambridge/:level/:genre` (editor + tÃ¬m kiáº¿m); field `genre` Dexie v6 + migration `008_writing_genre.sql`
-- [x] IELTS hub 3 bÆ°á»›c: `/practice` (Task 1/2/Free) â†’ `/practice/:track` (line graph, opinionâ€¦) â†’ `/practice/:track/:genre` (editor); `ieltsCatalog.ts` + `WritingGenre` má»Ÿ rá»™ng
-- [x] **Luyá»‡n dá»‹ch IELTS hub 3 bÆ°á»›c** â€” `/translate` â†’ `/translate/:track` â†’ `/translate/:track/:genre`; `translationCatalog.ts`; Dexie v8 genre + v9 category
-- [x] **Translation tracks má»›i:** Cáº¥u trÃºc cÆ¡ báº£n (8 grammar), Collocations & Vocab (15 chá»§ Ä‘á»), Dá»‹ch Ä‘oáº¡n Band 6.5 (15), Band 8.0 (10), Essay hoÃ n chá»‰nh (15), Cá»§a tÃ´i
+### Writing — Cambridge A2–C2 track (session 2026-06-30)
+- [x] `writingUiConfig.ts` — nhãn UI riêng Cambridge (kicker, title, placeholder, submit) vs IELTS
+- [x] `writingPrompt.ts` — `CambridgeScore` 4 tiêu chí (Content, Communicative Achievement, Organisation, Language, 0–5); `buildCambridgePrompt` / `buildWritingGradePrompt`
+- [x] `ScorePanel.tsx` — hiển thị điểm Cambridge (0–5 + level) hoặc band IELTS tùy loại bài
+- [x] `WritingCambridgePage` + `WritingLibraryPage` — route `/app/writing/cambridge`
+- [x] Fix nhãn IELTS trên trang Cambridge: `DocListPanel` auto-chọn bài đúng track; `WritingEditor` prop `allowedTypes`
+- [x] Fix tsc: `WritingEditor` framework merge; `useWritingDashboard` `getCriterionBand` cho cả 2 framework
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] Fix Dashboard thống kê trống: layout `AppShell`/`WritingLayout` + `wd-page` height; empty state có UI đầy đủ; `parseScore` legacy; errorBank sort in-memory
+- [x] Supabase migrations push: `006_cambridge_writing_types.sql` + `007_writing_type_constraint_repair.sql` (fix writing_docs type check + prompt_image); cập nhật `friendlySyncError`
+- [x] **Cấu trúc câu** — sidebar `/app/sentence-structure`: danh sách + điền A/B, lật thẻ, kiểm tra; seed 6 mẫu; Dexie v7 `sentenceStructures`
+- [x] Cambridge hub 3 bước: `/cambridge` (chọn A2–C2) → `/cambridge/:level` (email/story/…) → `/cambridge/:level/:genre` (editor + tìm kiếm); field `genre` Dexie v6 + migration `008_writing_genre.sql`
+- [x] IELTS hub 3 bước: `/practice` (Task 1/2/Free) → `/practice/:track` (line graph, opinion…) → `/practice/:track/:genre` (editor); `ieltsCatalog.ts` + `WritingGenre` mở rộng
+- [x] **Luyện dịch IELTS hub 3 bước** — `/translate` → `/translate/:track` → `/translate/:track/:genre`; `translationCatalog.ts`; Dexie v8 genre + v9 category
+- [x] **Translation tracks mới:** Cấu trúc cơ bản (8 grammar), Collocations & Vocab (15 chủ đề), Dịch đoạn Band 6.5 (15), Band 8.0 (10), Essay hoàn chỉnh (15), Của tôi
 
-### Translation â€” label ÄÃ£ dá»‹ch / ChÆ°a dá»‹ch + báº¥m cÃ¢u Ä‘á»ƒ dá»‹ch (session 2026-06-30)
-- [x] `TranslationSentence.srsState.translatedAt` â€” Ä‘Ã¡nh dáº¥u khi user báº¥m Kiá»ƒm tra trong `PracticeSession`
+### Translation — label Đã dịch / Chưa dịch + bấm câu để dịch (session 2026-06-30)
+- [x] `TranslationSentence.srsState.translatedAt` — đánh dấu khi user bấm Kiểm tra trong `PracticeSession`
 - [x] `translationRepo.markTranslated()` + `isSentenceTranslated()` helper
-- [x] `SentenceRow` â€” badge cáº¡nh Dá»…/TB/KhÃ³: **ÄÃ£ dá»‹ch** (primary) / **ChÆ°a dá»‹ch** (muted)
-- [x] `applyPracticeRating` giá»¯ `translatedAt` khi rate SRS
-- [x] Báº¥m báº¥t ká»³ cÃ¢u nÃ o trong danh sÃ¡ch â†’ `startPracticeSentence(id)` má»Ÿ luyá»‡n dá»‹ch 1 cÃ¢u
-- [x] NÃºt **Luyá»‡n táº­p** váº«n cháº¡y phiÃªn Ä‘áº§y Ä‘á»§ (Æ°u tiÃªn cÃ¢u cáº§n Ã´n)
-- [x] **Practice UI redesign** (`translationPractice.css`) â€” badge VNâ†’English, cÃ¢u VI lá»›n, chip áº©n tá»«
-- [x] `translationChips.ts` â€” má»—i tá»« trong Ä‘Ã¡p Ã¡n EN = 1 chip; má»Ÿ theo thá»© tá»± khi gÃµ Ä‘Ãºng tá»« (live, ká»ƒ cáº£ tá»« láº·p)
-- [x] Chip khÃ³a hiá»‡n `â—â—â—` / `N tá»«`; má»Ÿ xanh + nÃºt nghe TTS; **Hiá»‡n táº¥t cáº£** / **áº¨n gá»£i Ã½**
-- [x] Smart Segment panel sau kiá»ƒm tra; Enter Ä‘á»ƒ ná»™p; Cháº¥m AI riÃªng (placeholder)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `SentenceRow` — badge cạnh Dễ/TB/Khó: **Đã dịch** (primary) / **Chưa dịch** (muted)
+- [x] `applyPracticeRating` giữ `translatedAt` khi rate SRS
+- [x] Bấm bất kỳ câu nào trong danh sách → `startPracticeSentence(id)` mở luyện dịch 1 câu
+- [x] Nút **Luyện tập** vẫn chạy phiên đầy đủ (ưu tiên câu cần ôn)
+- [x] **Practice UI redesign** (`translationPractice.css`) — badge VN→English, câu VI lớn, chip ẩn từ
+- [x] `translationChips.ts` — mỗi từ trong đáp án EN = 1 chip; mở theo thứ tự khi gõ đúng từ (live, kể cả từ lặp)
+- [x] Chip khóa hiện `●●●` / `N từ`; mở xanh + nút nghe TTS; **Hiện tất cả** / **Ẩn gợi ý**
+- [x] Smart Segment panel sau kiểm tra; Enter để nộp; Chấm AI riêng (placeholder)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Session 2026-06-30 â†’ 2026-07-01 â€” Listening Ã” CHá»® + pháº£n há»“i Ã¢m thanh/phÃ¡o hoa
+### Session 2026-06-30 → 2026-07-01 — Listening Ô CHỮ + phản hồi âm thanh/pháo hoa
 
-#### Listening Ã” CHá»® â€” fix máº¥t chá»¯ khi gÃµ
-- [x] `BlankInputMode.tsx` â€” input DOM thuáº§n (port P15.8.302), `forwardRef` + `collectAnswer()` Ä‘á»c DOM
-- [x] `ListeningAudioBar.tsx` â€” tÃ¡ch progress TTS, trÃ¡nh re-render 60fps lÃ m máº¥t kÃ½ tá»±
-- [x] `practiceUtils.collectBlankAnswer` (boxes) â€” `join(' ')` trá»±c tiáº¿p, bá» placeholder `â€¦`
-- [x] `globals.css` â€” width px Ä‘á»™ng; `readOnly` khi khÃ³a (khÃ´ng `disabled`)
-- [x] WordDiff live: 1 panel trong `BlankInputMode` khi báº­t "Hiá»‡n káº¿t quáº£ ngay"
+#### Listening Ô CHỮ — fix mất chữ khi gõ
+- [x] `BlankInputMode.tsx` — input DOM thuần (port P15.8.302), `forwardRef` + `collectAnswer()` đọc DOM
+- [x] `ListeningAudioBar.tsx` — tách progress TTS, tránh re-render 60fps làm mất ký tự
+- [x] `practiceUtils.collectBlankAnswer` (boxes) — `join(' ')` trực tiếp, bỏ placeholder `…`
+- [x] `globals.css` — width px động; `readOnly` khi khóa (không `disabled`)
+- [x] WordDiff live: 1 panel trong `BlankInputMode` khi bật "Hiện kết quả ngay"
 
-#### Listening â€” celebrate khi Ä‘Ãºng 100%
-- [x] `lib/studyFeedback.ts` + `components/StudyFireworks.tsx` (tÃ¡ch dÃ¹ng chung)
-- [x] `ListeningPracticeTab` â€” Kiá»ƒm tra â†’ 100% â†’ chime + phÃ¡o hoa
+#### Listening — celebrate khi đúng 100%
+- [x] `lib/studyFeedback.ts` + `components/StudyFireworks.tsx` (tách dùng chung)
+- [x] `ListeningPracticeTab` — Kiểm tra → 100% → chime + pháo hoa
 
-#### Vocab â€” Ã¢m thanh Ä‘Ãºng/sai
-- [x] `useStudyAnswerFeedback.ts` â€” hook Quiz / Type / Nghe & GÃµ
-- [x] ÄÃºng â†’ chime + phÃ¡o hoa; Sai / Bá» qua / KhÃ´ng biáº¿t â†’ buzz
-- [x] SRS **khÃ´ng** cÃ³ (cháº¿ Ä‘á»™ rating 1â€“4, khÃ´ng Ä‘Ãºng/sai nhá»‹ phÃ¢n)
+#### Vocab — âm thanh đúng/sai
+- [x] `useStudyAnswerFeedback.ts` — hook Quiz / Type / Nghe & Gõ
+- [x] Đúng → chime + pháo hoa; Sai / Bỏ qua / Không biết → buzz
+- [x] SRS **không** có (chế độ rating 1–4, không đúng/sai nhị phân)
 
-#### SRS â€” Space phÃ¡t audio
-- [x] `SrsMode.doFlip` â€” má»—i láº§n Space/láº­t tháº» Ä‘á»u `speakPhrase(card.phrase)` (trÆ°á»›c chá»‰ phÃ¡t khi quay vá» máº·t trÆ°á»›c)
+#### SRS — Space phát audio
+- [x] `SrsMode.doFlip` — mỗi lần Space/lật thẻ đều `speakPhrase(card.phrase)` (trước chỉ phát khi quay về mặt trước)
 
 #### Deploy
-- [x] Nhiá»u láº§n `pnpm deploy:prod` â€” production OK **https://ryanenglishv2.vercel.app**
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] Nhiều lần `pnpm deploy:prod` — production OK **https://ryanenglishv2.vercel.app**
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Key files session nÃ y
-| File | Vai trÃ² |
+#### Key files session này
+| File | Vai trò |
 |------|---------|
-| `features/listening/BlankInputMode.tsx` | Input DOM thuáº§n, `collectAnswer()` |
-| `features/listening/ListeningAudioBar.tsx` | TÃ¡ch progress TTS, trÃ¡nh re-render input |
+| `features/listening/BlankInputMode.tsx` | Input DOM thuần, `collectAnswer()` |
+| `features/listening/ListeningAudioBar.tsx` | Tách progress TTS, tránh re-render input |
 | `features/listening/ListeningPracticeTab.tsx` | Practice + celebrate 100% |
 | `features/listening/practiceUtils.ts` | `collectBlankAnswer`, word diff |
-| `lib/studyFeedback.ts` | Chime, buzz, fireworks dÃ¹ng chung |
-| `components/StudyFireworks.tsx` | Canvas phÃ¡o hoa ~2.8s |
-| `features/vocab/study/useStudyAnswerFeedback.ts` | Hook pháº£n há»“i Quiz/Type/Nghe&GÃµ |
-| `features/vocab/modes/SrsMode.tsx` | Space â†’ phÃ¡t audio má»—i láº§n láº­t |
+| `lib/studyFeedback.ts` | Chime, buzz, fireworks dùng chung |
+| `components/StudyFireworks.tsx` | Canvas pháo hoa ~2.8s |
+| `features/vocab/study/useStudyAnswerFeedback.ts` | Hook phản hồi Quiz/Type/Nghe&Gõ |
+| `features/vocab/modes/SrsMode.tsx` | Space → phát audio mỗi lần lật |
 
-#### Reference (Electron cÅ©)
-- `D:\App-English-Ryan\ProjectGitHub\App English_P15.8.302\assets\chunks\ryan-v24-13-script-172-listening-dictation-core.js` â€” `.ry-lsn-blank` DOM, `collectBlankAnswer()` join values
+#### Reference (Electron cũ)
+- `D:\App-English-Ryan\ProjectGitHub\App English_P15.8.302\assets\chunks\ryan-v24-13-script-172-listening-dictation-core.js` — `.ry-lsn-blank` DOM, `collectBlankAnswer()` join values
 
-#### Cáº§n test láº¡i (user chÆ°a confirm 100%)
-- [ ] Listening Ã” CHá»® trÃªn **mobile iOS** â€” hard refresh production, test gÃµ "do" vÃ  cÃ¢u dÃ i
-- [ ] Ã‚m thanh Web Audio trÃªn iOS sau tÆ°Æ¡ng tÃ¡c Ä‘áº§u tiÃªn (autoplay policy)
+#### Cần test lại (user chưa confirm 100%)
+- [ ] Listening Ô CHỮ trên **mobile iOS** — hard refresh production, test gõ "do" và câu dài
+- [ ] Âm thanh Web Audio trên iOS sau tương tác đầu tiên (autoplay policy)
 
-### Luyá»‡n thi Reading â€” IELTS UI (session 2026-07-01)
-- [x] `examData.ts` â€” 3 parts (kÄkÄpÅ / elms / sleep), TFNG + matching paragraph + matching features + MC
-- [x] `readingTest.css` â€” split-pane IELTS shell (passage trÃ¡i, cÃ¢u há»i pháº£i, footer Part pills)
-- [x] `ReadingTest.tsx` â€” header timer + Submit, bottom nav, lÆ°u draft localStorage
-- [x] `ReadingQuestionPanel.tsx` â€” TRUE/FALSE/NOT GIVEN, matching Aâ€“G, features Aâ€“C
-- [x] `ExamResult.tsx` + `ExamHome.tsx` â€” cáº­p nháº­t theo schema má»›i
+### Luyện thi Reading — IELTS UI (session 2026-07-01)
+- [x] `examData.ts` — 3 parts (kākāpō / elms / sleep), TFNG + matching paragraph + matching features + MC
+- [x] `readingTest.css` — split-pane IELTS shell (passage trái, câu hỏi phải, footer Part pills)
+- [x] `ReadingTest.tsx` — header timer + Submit, bottom nav, lưu draft localStorage
+- [x] `ReadingQuestionPanel.tsx` — TRUE/FALSE/NOT GIVEN, matching A–G, features A–C
+- [x] `ExamResult.tsx` + `ExamHome.tsx` — cập nhật theo schema mới
 - [x] Route: `/app/exam/reading/ielts-reading-01`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Session 2026-07-01 â€” Listening fix thanh cuá»™n thá»«a
+### Session 2026-07-01 — Listening fix thanh cuộn thừa
 
-- [x] `globals.css` â€” `.listening-lesson-shell` + `.listening-lesson-scroll` (overflow-x hidden, scrollbar áº©n)
-- [x] `ListeningLessonPage` â€” bá» debug MutationObserver/inline style; shell 2 lá»›p (hidden + scroll)
-- [x] `ListeningTabs` â€” `overflow-hidden` + `flex-wrap` (khÃ´ng cÃ²n `overflow-x-auto`)
-- [x] `ListeningPracticeTab` â€” `min-w-0 overflow-hidden` card + textarea
-- [x] `ListeningLibraryPage` â€” dÃ¹ng chung scroll shell
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `globals.css` — `.listening-lesson-shell` + `.listening-lesson-scroll` (overflow-x hidden, scrollbar ẩn)
+- [x] `ListeningLessonPage` — bỏ debug MutationObserver/inline style; shell 2 lớp (hidden + scroll)
+- [x] `ListeningTabs` — `overflow-hidden` + `flex-wrap` (không còn `overflow-x-auto`)
+- [x] `ListeningPracticeTab` — `min-w-0 overflow-hidden` card + textarea
+- [x] `ListeningLibraryPage` — dùng chung scroll shell
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Luyá»‡n thi â€” chá»‰ Reading + Listening (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] IELTS + Cambridge track: bá» Writing khá»i hub (Writing á»Ÿ module Viáº¿t); bá» nÃºt Full Mock IELTS trÃªn `ExamTrackPage`
-- [x] Cambridge: Reading thay Writing; import PDF gáº¯n `cambridgeLevel`
+### Luyện thi — chỉ Reading + Listening (session 2026-07-01) — HOÀN THÀNH
+- [x] IELTS + Cambridge track: bỏ Writing khỏi hub (Writing ở module Viết); bỏ nút Full Mock IELTS trên `ExamTrackPage`
+- [x] Cambridge: Reading thay Writing; import PDF gắn `cambridgeLevel`
 
-### IELTS â€” Ä‘á» máº«u Listening 4Ã—10 (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `ieltsExamFormats.ts` â€” metadata 4 parts Â· 40 cÃ¢u Â· ~30 phÃºt Â· Academic & GT Â· gÃµ khi nghe
-- [x] `ielts-listening-sample-01` â€” Part1 form (10 gap) Â· Part2 monologue (5 MC+5 matching) Â· Part3 academic (6 gap+4 MC) Â· Part4 lecture (6 gap+4 MC)
-- [x] Hiá»‡n trÃªn `/app/exam/track/ielts`; `bandHint` hiá»ƒn thá»‹ cáº¥u trÃºc Ä‘á»
+### IELTS — đề mẫu Listening 4×10 (session 2026-07-01) — HOÀN THÀNH
+- [x] `ieltsExamFormats.ts` — metadata 4 parts · 40 câu · ~30 phút · Academic & GT · gõ khi nghe
+- [x] `ielts-listening-sample-01` — Part1 form (10 gap) · Part2 monologue (5 MC+5 matching) · Part3 academic (6 gap+4 MC) · Part4 lecture (6 gap+4 MC)
+- [x] Hiện trên `/app/exam/track/ielts`; `bandHint` hiển thị cấu trúc đề
 
-### Cambridge â€” Ä‘á» máº«u theo format thi tháº­t A2â€“C2 (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `cambridgeExamFormats.ts` â€” metadata parts/cÃ¢u/phÃºt/% theo KET/PET/FCE/CAE/CPE
-- [x] `cambridgeSampleBuilders.ts` â€” helpers táº¡o Part + cÃ¢u há»i
-- [x] `cambridgeReadingSamples.ts` â€” Reading Ä‘Ãºng sá»‘ Part (A2:5, B1:6, B2:7, C1:8, C2:7); bandHint `Sample X/Y cÃ¢u`
-- [x] `cambridgeListeningSamples.ts` â€” Listening Ä‘Ãºng sá»‘ Part (A2:5Ã—25, B1:4Ã—25, B2â€“C2:4Ã—30 cÃ¢u)
-- [x] `cambridgeExamLevels.ts` â€” mÃ´ táº£ format thi trÃªn hub; ExamTrackPage hiá»‡n `bandHint`
+### Cambridge — đề mẫu theo format thi thật A2–C2 (session 2026-07-01) — HOÀN THÀNH
+- [x] `cambridgeExamFormats.ts` — metadata parts/câu/phút/% theo KET/PET/FCE/CAE/CPE
+- [x] `cambridgeSampleBuilders.ts` — helpers tạo Part + câu hỏi
+- [x] `cambridgeReadingSamples.ts` — Reading đúng số Part (A2:5, B1:6, B2:7, C1:8, C2:7); bandHint `Sample X/Y câu`
+- [x] `cambridgeListeningSamples.ts` — Listening đúng số Part (A2:5×25, B1:4×25, B2–C2:4×30 câu)
+- [x] `cambridgeExamLevels.ts` — mô tả format thi trên hub; ExamTrackPage hiện `bandHint`
 
-### Cambridge A2â€“C2 â€” Luyá»‡n thi (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `cambridgeExamLevels.ts` â€” 5 cáº¥p A2 (KET) â†’ C2 (CPE), skills Reading + Listening (Writing á»Ÿ module Viáº¿t)
-- [x] `examTracks.ts` â€” hub 2 track: IELTS + Cambridge A2â€“C2 (bá» KET riÃªng, redirect `/track/ket` â†’ `/track/cambridge/a2`)
-- [x] `ExamTrackPage` â€” `/app/exam/track/cambridge` chá»n level; `/cambridge/:level` Ä‘á» + import + link Writing
-- [x] `ListeningExamType` má»Ÿ rá»™ng: `pet` | `fce` | `cae` | `cpe` (B1â€“C2 dÃ¹ng UI multi-part nhÆ° IELTS)
-- [x] `ImportListeningModal` â€” template JSON theo `defaultExamType` tá»«ng level
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Cambridge A2–C2 — Luyện thi (session 2026-07-01) — HOÀN THÀNH
+- [x] `cambridgeExamLevels.ts` — 5 cấp A2 (KET) → C2 (CPE), skills Reading + Listening (Writing ở module Viết)
+- [x] `examTracks.ts` — hub 2 track: IELTS + Cambridge A2–C2 (bỏ KET riêng, redirect `/track/ket` → `/track/cambridge/a2`)
+- [x] `ExamTrackPage` — `/app/exam/track/cambridge` chọn level; `/cambridge/:level` đề + import + link Writing
+- [x] `ListeningExamType` mở rộng: `pet` | `fce` | `cae` | `cpe` (B1–C2 dùng UI multi-part như IELTS)
+- [x] `ImportListeningModal` — template JSON theo `defaultExamType` từng level
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Listening Phase 3 â€” hub + ZIP + Full Mock (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `examTracks.ts` + `ExamHome` hub 2 track (IELTS / Cambridge A2â€“C2)
-- [x] `ExamTrackPage` â€” `/app/exam/track/:trackId/:level?`, Full Mock + import + danh sÃ¡ch Ä‘á»
-- [x] `importListeningZip.ts` + `fflate` â€” import ZIP bundle (exam.json + MP3/áº£nh)
-- [x] `fullMockData` + `fullMockSession` â€” Full Test IELTS `ielts-mock-01`
-- [x] `FullMockIntro` â†’ Reading â†’ Listening â†’ `WritingMockTest` â†’ `FullMockSummary`
-- [x] Reading/Listening ná»™p trong Full Mock hiá»‡n `FullMockStageResult` + chuyá»ƒn ká»¹ nÄƒng
-- [x] `WritingMockTest` â€” Task 1 + Task 2 (Ä‘áº¿m tá»«, timer, chÆ°a cháº¥m AI)
+### Listening Phase 3 — hub + ZIP + Full Mock (session 2026-07-01) — HOÀN THÀNH
+- [x] `examTracks.ts` + `ExamHome` hub 2 track (IELTS / Cambridge A2–C2)
+- [x] `ExamTrackPage` — `/app/exam/track/:trackId/:level?`, Full Mock + import + danh sách đề
+- [x] `importListeningZip.ts` + `fflate` — import ZIP bundle (exam.json + MP3/ảnh)
+- [x] `fullMockData` + `fullMockSession` — Full Test IELTS `ielts-mock-01`
+- [x] `FullMockIntro` → Reading → Listening → `WritingMockTest` → `FullMockSummary`
+- [x] Reading/Listening nộp trong Full Mock hiện `FullMockStageResult` + chuyển kỹ năng
+- [x] `WritingMockTest` — Task 1 + Task 2 (đếm từ, timer, chưa chấm AI)
 - [x] Routes: `/app/exam/full/:mockId`, `/summary`, `/writing/:mockId`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Listening Phase 2 â€” import + IELTS + Dexie (session 2026-07-01) â€” HOÃ€N THÃ€NH
+### Listening Phase 2 — import + IELTS + Dexie (session 2026-07-01) — HOÀN THÀNH
 - [x] Dexie v11 `listeningExams` + `listeningExamRepo`
-- [x] `ImportListeningModal` â€” JSON + MP3/áº£nh (q1.mp3, q1-a.jpg, part1.mp3), template táº£i vá»
-- [x] `importListeningUtils.ts` â€” parse, validate, lÆ°u blob `audioRepo`
-- [x] `ListeningIeltsTest` â€” audio sticky theo Part, gap-fill/MC/matching, giá»›i háº¡n lÆ°á»£t nghe (exam mode)
-- [x] `ListeningKetTest` â€” tÃ¡ch tá»« shell Phase 1, há»— trá»£ `examMode`
-- [x] Äá» builtin `ielts-listening-sample-01` (Part 1â€“2)
-- [x] Backup v3 gá»“m `listeningExams`
-- [x] `ExamHome` â€” Import Listening + xÃ³a Ä‘á» import
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `ImportListeningModal` — JSON + MP3/ảnh (q1.mp3, q1-a.jpg, part1.mp3), template tải về
+- [x] `importListeningUtils.ts` — parse, validate, lưu blob `audioRepo`
+- [x] `ListeningIeltsTest` — audio sticky theo Part, gap-fill/MC/matching, giới hạn lượt nghe (exam mode)
+- [x] `ListeningKetTest` — tách từ shell Phase 1, hỗ trợ `examMode`
+- [x] Đề builtin `ielts-listening-sample-01` (Part 1–2)
+- [x] Backup v3 gồm `listeningExams`
+- [x] `ExamHome` — Import Listening + xóa đề import
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Listening KET Phase 1 â€” card UI (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `listeningExamData.ts` â€” schema + Ä‘á» máº«u `ket-listening-sample-01` (6 cÃ¢u, `audioKey`/`audioUrl`/`imageUrl` optional)
-- [x] `useExamQuestionAudio.ts` â€” MP3 tá»« `audioRepo` hoáº·c URL, fallback TTS `ttsText`
-- [x] `ListeningQuestionCard` + `ListeningExamAudioBar` â€” PhÃ¡t / PhÃ¡t cháº­m, picture MC placeholder
-- [x] `ListeningTest.tsx` â€” header timer, ChÆ°a cháº¯c cháº¯n, Submit/Next, dots nav, draft localStorage
-- [x] `ListeningExamResult.tsx` â€” cháº¥m Ä‘iá»ƒm + giáº£i thÃ­ch
+### Listening KET Phase 1 — card UI (session 2026-07-01) — HOÀN THÀNH
+- [x] `listeningExamData.ts` — schema + đề mẫu `ket-listening-sample-01` (6 câu, `audioKey`/`audioUrl`/`imageUrl` optional)
+- [x] `useExamQuestionAudio.ts` — MP3 từ `audioRepo` hoặc URL, fallback TTS `ttsText`
+- [x] `ListeningQuestionCard` + `ListeningExamAudioBar` — Phát / Phát chậm, picture MC placeholder
+- [x] `ListeningTest.tsx` — header timer, Chưa chắc chắn, Submit/Next, dots nav, draft localStorage
+- [x] `ListeningExamResult.tsx` — chấm điểm + giải thích
 - [x] Route `/app/exam/listening/:examId` + `ExamHome` section Listening
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Reading â€” Highlight passage khi lÃ m bÃ i (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `readingHighlightUtils.ts` â€” offset-based highlights theo `blockId`, merge/trá»« range, parse Selection
-- [x] `ReadingHighlightableText.tsx` â€” render `<mark>` cho tá»«ng khá»‘i text
-- [x] `ReadingHighlightToolbar.tsx` â€” toolbar chung Highlight / Bá» highlight / Copy (passage + cÃ¢u há»i)
-- [x] `ReadingPassagePanel.tsx` + `ReadingQuestionPanel.tsx` â€” highlight passage vÃ  panel cÃ¢u há»i/Ä‘Ã¡p Ã¡n
-- [x] `ReadingTest.tsx` â€” `highlightsByPart` chá»‰ trong session (khÃ´ng lÆ°u localStorage); máº¥t khi thoÃ¡t/F5
-- [x] `readingTest.css` â€” `.reading-test-highlight` theme-aware; `user-select: text` passage + questions
-- [x] `TextSelectionToolbar` â€” bá» qua `[data-reading-highlight-zone]` (trÃ¡nh toolbar trÃ¹ng)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Reading — Highlight passage khi làm bài (session 2026-07-01) — HOÀN THÀNH
+- [x] `readingHighlightUtils.ts` — offset-based highlights theo `blockId`, merge/trừ range, parse Selection
+- [x] `ReadingHighlightableText.tsx` — render `<mark>` cho từng khối text
+- [x] `ReadingHighlightToolbar.tsx` — toolbar chung Highlight / Bỏ highlight / Copy (passage + câu hỏi)
+- [x] `ReadingPassagePanel.tsx` + `ReadingQuestionPanel.tsx` — highlight passage và panel câu hỏi/đáp án
+- [x] `ReadingTest.tsx` — `highlightsByPart` chỉ trong session (không lưu localStorage); mất khi thoát/F5
+- [x] `readingTest.css` — `.reading-test-highlight` theme-aware; `user-select: text` passage + questions
+- [x] `TextSelectionToolbar` — bỏ qua `[data-reading-highlight-zone]` (tránh toolbar trùng)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Import PDF Reading â€” Sprint 1â€“3 (session 2026-07-01) â€” HOÃ€N THÃ€NH
+### Import PDF Reading — Sprint 1–3 (session 2026-07-01) — HOÀN THÀNH
 
-**Sprint 1 â€” Tin cáº­y**
-- [x] Backup v2 â€” `readingExams` trong `backupRestore.ts` (import v1+v2)
-- [x] `answerConfidence: 'key' | 'inferred'` â€” badge "ÄoÃ¡n" preview + ExamResult
-- [x] `parseReadingPdfFull()` â€” thá»­ full trÆ°á»›c, fallback parse tá»«ng part + progress UI
-- [x] `readingPdfValidate.ts` â€” score tin cáº­y %, warnings trÆ°á»›c khi lÆ°u
+**Sprint 1 — Tin cậy**
+- [x] Backup v2 — `readingExams` trong `backupRestore.ts` (import v1+v2)
+- [x] `answerConfidence: 'key' | 'inferred'` — badge "Đoán" preview + ExamResult
+- [x] `parseReadingPdfFull()` — thử full trước, fallback parse từng part + progress UI
+- [x] `readingPdfValidate.ts` — score tin cậy %, warnings trước khi lưu
 
-**Sprint 2 â€” Äá»™ phá»§ IELTS**
-- [x] Dáº¡ng cÃ¢u má»›i: `gap-fill`, `summary-completion`, `sentence-completion`
-- [x] `ReadingQuestionPanel` â€” input ONE WORD + word bank pills
-- [x] `isReadingAnswerCorrect()` â€” cháº¥m gap-fill fuzzy
+**Sprint 2 — Độ phủ IELTS**
+- [x] Dạng câu mới: `gap-fill`, `summary-completion`, `sentence-completion`
+- [x] `ReadingQuestionPanel` — input ONE WORD + word bank pills
+- [x] `isReadingAnswerCorrect()` — chấm gap-fill fuzzy
 
-**Sprint 3 â€” Scan PDF + performance**
-- [x] Hybrid `pdfContent.ts` â€” text layer trÆ°á»›c, Vision OCR (OpenAI/Gemini) náº¿u scan
-- [x] `pdfVision.ts` â€” render trang â†’ batch Vision OCR
-- [x] Lazy-load `ImportReadingPdfModal` + dynamic `pdfjs-dist` â€” ExamHome ~7KB (tÃ¡ch chunk pdf ~477KB)
+**Sprint 3 — Scan PDF + performance**
+- [x] Hybrid `pdfContent.ts` — text layer trước, Vision OCR (OpenAI/Gemini) nếu scan
+- [x] `pdfVision.ts` — render trang → batch Vision OCR
+- [x] Lazy-load `ImportReadingPdfModal` + dynamic `pdfjs-dist` — ExamHome ~7KB (tách chunk pdf ~477KB)
 
 #### Flow Import PDF Reading
-1. Luyá»‡n thi â†’ **Import PDF Reading**
-2. Upload PDF (â‰¤12MB) â€” text layer hoáº·c scan (Vision OCR tá»± Ä‘á»™ng)
-3. API key CÃ i Ä‘áº·t â†’ AI (OpenAI/Gemini khuyáº¿n nghá»‹ full test + scan)
-4. Parse Part 1â€“3 â†’ score tin cáº­y + preview (lá»c cÃ¢u Ä‘Ã¡p Ã¡n Ä‘oÃ¡n) â†’ **LÆ°u & lÃ m bÃ i**
-5. Backup v2 gá»“m `readingExams`
+1. Luyện thi → **Import PDF Reading**
+2. Upload PDF (≤12MB) — text layer hoặc scan (Vision OCR tự động)
+3. API key Cài đặt → AI (OpenAI/Gemini khuyến nghị full test + scan)
+4. Parse Part 1–3 → score tin cậy + preview (lọc câu đáp án đoán) → **Lưu & làm bài**
+5. Backup v2 gồm `readingExams`
 
-#### Giá»›i háº¡n cÃ²n láº¡i
-- Vision OCR tá»‘n token/cháº­m (~20 trang max); cháº¥t lÆ°á»£ng phá»¥ thuá»™c áº£nh scan
-- Groq khÃ´ng Vision â€” scan cáº§n Ä‘á»•i OpenAI/Gemini
-- ChÆ°a sync `readingExams` lÃªn Supabase cloud
-- ChÆ°a cÃ³ UI sá»­a Ä‘á» import sau khi lÆ°u
+#### Giới hạn còn lại
+- Vision OCR tốn token/chậm (~20 trang max); chất lượng phụ thuộc ảnh scan
+- Groq không Vision — scan cần đổi OpenAI/Gemini
+- Chưa sync `readingExams` lên Supabase cloud
+- Chưa có UI sửa đề import sau khi lưu
 
-### Import PDF Reading â€” KET A2 parser (session 2026-07-01)
-- [x] `readingPdfKetPrompt.ts` â€” prompt 5 parts KET, `splitPdfTextForKetParts()`, parse full + fallback tá»«ng part
-- [x] `parseReadingPdfFull(..., { format: 'ket-a2' })` â€” tá»± chá»n parser KET khi import tá»« Cambridge A2
-- [x] `validateReadingImport(parts, 'ket-a2')` â€” validation 5 parts (Q1â€“6, 7â€“13, 14â€“18, 19â€“24, 25â€“30)
-- [x] `ImportReadingPdfModal` â€” UI 5 parts khi `cambridgeLevel === 'a2'`
-- [x] `ParsedReadingPart.partNumber` â†’ `number` (há»— trá»£ part 4â€“5)
+### Import PDF Reading — KET A2 parser (session 2026-07-01)
+- [x] `readingPdfKetPrompt.ts` — prompt 5 parts KET, `splitPdfTextForKetParts()`, parse full + fallback từng part
+- [x] `parseReadingPdfFull(..., { format: 'ket-a2' })` — tự chọn parser KET khi import từ Cambridge A2
+- [x] `validateReadingImport(parts, 'ket-a2')` — validation 5 parts (Q1–6, 7–13, 14–18, 19–24, 25–30)
+- [x] `ImportReadingPdfModal` — UI 5 parts khi `cambridgeLevel === 'a2'`
+- [x] `ParsedReadingPart.partNumber` → `number` (hỗ trợ part 4–5)
 
-### Fix KET split â€” cáº¯t nháº§m Part 5 (session 2026-07-01)
-- [x] `splitPdfTextForKetParts` â€” bá» regex `writing\s+part` (khá»›p nháº§m footer "Reading and Writing PART 5" â†’ máº¥t Part 5)
-- [x] Chá»‰ cáº¯t PDF khi cÃ³ Writing Part 6+ (`part 7`â€¦)
+### Fix KET split — cắt nhầm Part 5 (session 2026-07-01)
+- [x] `splitPdfTextForKetParts` — bỏ regex `writing\s+part` (khớp nhầm footer "Reading and Writing PART 5" → mất Part 5)
+- [x] Chỉ cắt PDF khi có Writing Part 6+ (`part 7`…)
 
-### Import PDF Reading â€” PET B1 parser (session 2026-07-01)
-- [x] `readingPdfPetPrompt.ts` â€” prompt 6 parts PET, `splitPdfTextForPetParts()`, parse full + fallback tá»«ng part
-- [x] `parseReadingPdfFull(..., { format: 'pet-b1' })` â€” tá»± chá»n khi import tá»« Cambridge B1
-- [x] `validateReadingImport(parts, 'pet-b1')` â€” validation 6 parts Â· 32 cÃ¢u (Q1â€“5, 6â€“10, 11â€“15, 16â€“20, 21â€“26, 27â€“32)
-- [x] `readingPdfFormatForLevel()` / `expectedReadingPartsForLevel()` â€” map a2â†’ket, b1â†’pet
+### Import PDF Reading — PET B1 parser (session 2026-07-01)
+- [x] `readingPdfPetPrompt.ts` — prompt 6 parts PET, `splitPdfTextForPetParts()`, parse full + fallback từng part
+- [x] `parseReadingPdfFull(..., { format: 'pet-b1' })` — tự chọn khi import từ Cambridge B1
+- [x] `validateReadingImport(parts, 'pet-b1')` — validation 6 parts · 32 câu (Q1–5, 6–10, 11–15, 16–20, 21–26, 27–32)
+- [x] `readingPdfFormatForLevel()` / `expectedReadingPartsForLevel()` — map a2→ket, b1→pet
 
-### Gá»¡ Import PDF/OCR Reading (session 2026-07-01)
-- [x] Bá» nÃºt **Import PDF Reading** khá»i `ExamTrackPage` â€” chá»‰ cÃ²n **Import thá»§ cÃ´ng**
-- [x] JSON máº«u KET A2: 5 parts Â· 30 cÃ¢u + hÆ°á»›ng dáº«n trong modal
-- [x] HÆ°á»›ng dáº«n import trong modal Reading + Listening
+### Gỡ Import PDF/OCR Reading (session 2026-07-01)
+- [x] Bỏ nút **Import PDF Reading** khỏi `ExamTrackPage` — chỉ còn **Import thủ công**
+- [x] JSON mẫu KET A2: 5 parts · 30 câu + hướng dẫn trong modal
+- [x] Hướng dẫn import trong modal Reading + Listening
 
-### Import PDF OCR â€” giá»¯ áº£nh trang/passage (session 2026-07-01) â€” ÄÃƒ Gá»  KHá»ŽI UI
-- [x] `pdfContent.ts` â€” `ExtractPdfResult.pages[]` (text + `dataUrl`); `preservePageImages` cho KET/PET
-- [x] `pdfVision.ts` â€” OCR **tá»«ng trang** (detail high), giá»¯ áº£nh gá»‘c â€” khÃ´ng cÃ²n plain-text-only batch
-- [x] `pdfExtract.ts` â€” `extractTextFromPdfPerPage()`
-- [x] `readingPdfPageImages.ts` â€” detect partâ†’pages (KET/PET markers), lÆ°u blob `reading-exam:{id}:page-N`, gáº¯n `imageKey` passage fallback
-- [x] `ImportReadingPdfModal` â€” lÆ°u áº£nh khi save; KET Part 1 luÃ´n gáº¯n áº£nh trang khi cÃ³
-- [x] `ReadingPassagePanel` â€” KET Part 1 hiá»‡n áº£nh passage trÆ°á»›c signs
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Import PDF OCR — giữ ảnh trang/passage (session 2026-07-01) — ĐÃ GỠ KHỎI UI
+- [x] `pdfContent.ts` — `ExtractPdfResult.pages[]` (text + `dataUrl`); `preservePageImages` cho KET/PET
+- [x] `pdfVision.ts` — OCR **từng trang** (detail high), giữ ảnh gốc — không còn plain-text-only batch
+- [x] `pdfExtract.ts` — `extractTextFromPdfPerPage()`
+- [x] `readingPdfPageImages.ts` — detect part→pages (KET/PET markers), lưu blob `reading-exam:{id}:page-N`, gắn `imageKey` passage fallback
+- [x] `ImportReadingPdfModal` — lưu ảnh khi save; KET Part 1 luôn gắn ảnh trang khi có
+- [x] `ReadingPassagePanel` — KET Part 1 hiện ảnh passage trước signs
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### HÃ nh vi má»›i
-- PDF scan KET A2: Vision OCR tá»«ng trang â†’ AI parse cÃ¢u há»i â†’ áº£nh trang gáº¯n vÃ o passage khi text yáº¿u
-- Part 1 KET: Æ°u tiÃªn áº£nh trang (signs) dÃ¹ passage text cÃ³ hay khÃ´ng
-- Part 2â€“5: fallback `passage: [{ imageKey }]` khi passage < 80 kÃ½ tá»±
+#### Hành vi mới
+- PDF scan KET A2: Vision OCR từng trang → AI parse câu hỏi → ảnh trang gắn vào passage khi text yếu
+- Part 1 KET: ưu tiên ảnh trang (signs) dù passage text có hay không
+- Part 2–5: fallback `passage: [{ imageKey }]` khi passage < 80 ký tự
 
-### Import thá»§ cÃ´ng Reading + Listening (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `importReadingManualUtils.ts` â€” parse/validate JSON Ä‘á» Reading, lÆ°u áº£nh Ä‘oáº¡n vÄƒn vÃ o `audioRepo`
-- [x] `importReadingZip.ts` â€” ZIP bundle (exam.json + áº£nh)
-- [x] `ImportReadingManualModal.tsx` â€” upload JSON/ZIP + áº£nh, preview, lÆ°u Dexie (`source: manual`)
-- [x] `ReadingPassageBlock.imageKey` + `ReadingPassagePanel` hiá»ƒn thá»‹ áº£nh Ä‘oáº¡n vÄƒn
-- [x] `ExamTrackPage` â€” nÃºt **Import thá»§ cÃ´ng Reading** (JSON + áº£nh) + **Import thá»§ cÃ´ng Listening** (Ä‘Ã£ cÃ³ JSON/ZIP)
-- [x] XÃ³a Ä‘á» import: `reading-pdf-*` + `reading-manual-*`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Import thủ công Reading + Listening (session 2026-07-01) — HOÀN THÀNH
+- [x] `importReadingManualUtils.ts` — parse/validate JSON đề Reading, lưu ảnh đoạn văn vào `audioRepo`
+- [x] `importReadingZip.ts` — ZIP bundle (exam.json + ảnh)
+- [x] `ImportReadingManualModal.tsx` — upload JSON/ZIP + ảnh, preview, lưu Dexie (`source: manual`)
+- [x] `ReadingPassageBlock.imageKey` + `ReadingPassagePanel` hiển thị ảnh đoạn văn
+- [x] `ExamTrackPage` — nút **Import thủ công Reading** (JSON + ảnh) + **Import thủ công Listening** (đã có JSON/ZIP)
+- [x] Xóa đề import: `reading-pdf-*` + `reading-manual-*`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-#### Flow Import thá»§ cÃ´ng Reading
-1. Luyá»‡n thi â†’ track IELTS/Cambridge â†’ **Import thá»§ cÃ´ng Reading**
-2. Táº£i JSON máº«u â†’ Ä‘iá»n passage (text + `imageFile`) + questionGroups
-3. Upload áº£nh (`part1-p1.jpg`â€¦) hoáº·c ZIP bundle
-4. Preview â†’ **LÆ°u & lÃ m bÃ i** â€” áº£nh hiá»ƒn thá»‹ trong panel passage trÃ¡i
+#### Flow Import thủ công Reading
+1. Luyện thi → track IELTS/Cambridge → **Import thủ công Reading**
+2. Tải JSON mẫu → điền passage (text + `imageFile`) + questionGroups
+3. Upload ảnh (`part1-p1.jpg`…) hoặc ZIP bundle
+4. Preview → **Lưu & làm bài** — ảnh hiển thị trong panel passage trái
 
-#### Import Reading Cambridge A2â€“C2 â€” template + prompt chuáº©n (session 2026-07-01)
-- [x] `cambridgeReadingImportTemplates.ts` â€” LEVEL_PARTS Ä‘á»§ A2â€“C2; A2 Part 4 = MC chá»n tá»« (khÃ´ng gap-fill)
-- [x] JSON máº«u táº£i trong modal theo level â€” Ä‘á»§ sá»‘ cÃ¢u má»—i part (khÃ´ng chá»‰ 2 cÃ¢u máº«u)
-- [x] `cambridgeImportGuideLines()` â€” báº£ng parts trong modal Import Reading
-- [x] `validateReadingManualImport` â€” cáº£nh bÃ¡o A2 Part 4 sai type
-- [x] `HDSD/Prompt-Reading-Cambridge.txt` â€” prompt AI cho A2â€“C2
-- [x] `HDSD/Prompt.txt` + `HDSD/Import De Thi.txt` â€” cáº­p nháº­t Part 4 KET = MC
+#### Import Reading Cambridge A2–C2 — template + prompt chuẩn (session 2026-07-01)
+- [x] `cambridgeReadingImportTemplates.ts` — LEVEL_PARTS đủ A2–C2; A2 Part 4 = MC chọn từ (không gap-fill)
+- [x] JSON mẫu tải trong modal theo level — đủ số câu mỗi part (không chỉ 2 câu mẫu)
+- [x] `cambridgeImportGuideLines()` — bảng parts trong modal Import Reading
+- [x] `validateReadingManualImport` — cảnh báo A2 Part 4 sai type
+- [x] `HDSD/Prompt-Reading-Cambridge.txt` — prompt AI cho A2–C2
+- [x] `HDSD/Prompt.txt` + `HDSD/Import De Thi.txt` — cập nhật Part 4 KET = MC
 
-#### Bundle KET A2 Reading Test 1 (Claude â†’ ZIP) â€” Cáº¦N Sá»¬A PART 4
-- [x] Claude tráº£ folder `C:\Users\ADMIN\Downloads\ket-reading-test1` â€” 5 parts Â· 30 cÃ¢u Â· 6 áº£nh Part 1
-- [x] `exam.json` Ä‘Ã£ chuáº©n schema (`passageTitle`, `type`, `passage[].text` Part 2â€“5)
+#### Bundle KET A2 Reading Test 1 (Claude → ZIP) — CẦN SỬA PART 4
+- [x] Claude trả folder `C:\Users\ADMIN\Downloads\ket-reading-test1` — 5 parts · 30 câu · 6 ảnh Part 1
+- [x] `exam.json` đã chuẩn schema (`passageTitle`, `type`, `passage[].text` Part 2–5)
 - [x] ZIP: `C:\Users\ADMIN\Downloads\ket-reading-test1.zip` (~348 KB)
-- [x] Copy vÃ o repo: `Tainguyen/ket-reading-test1/` + `Tainguyen/ket-reading-test1.zip`
-- [ ] User import trÃªn app â†’ xÃ¡c nháº­n Part 1 áº£nh + Part 2â€“5 highlight
+- [x] Copy vào repo: `Tainguyen/ket-reading-test1/` + `Tainguyen/ket-reading-test1.zip`
+- [ ] User import trên app → xác nhận Part 1 ảnh + Part 2–5 highlight
 
-#### Fix PET B1 Reading Test 1 â€” láº·p cá»™t + Ä‘Ã¡p Ã¡n (session 2026-07-01)
-- [x] `ReadingPassagePanel` â€” B1 Part 2/4: áº©n block `Danh sÃ¡ch Aâ€“H` cá»™t trÃ¡i (passage Ä‘Ã£ cÃ³ Ä‘á»§ ná»™i dung)
-- [x] `ReadingQuestionPanel` â€” B1 matching: áº©n `List of features/sentences` cá»™t pháº£i (chá»‰ cÃ¢u há»i + pills Aâ€“H)
-- [x] `scripts/build-pet-b1-test1.py` â€” Part 2: passage `label` Aâ€“H + `features[]` tÃªn ngáº¯n; Part 4: cÃ¢u Aâ€“H trong passage + `features[]` chá»‰ text cÃ¢u (khÃ´ng prefix chá»¯ cÃ¡i)
-- [x] Regenerate `Tainguyen/pet-reading-test1.zip` + `exam.json` (6 parts Â· 32 cÃ¢u)
-- [x] `cambridgeReadingImportTemplates.ts` â€” B1 Part 2/4: máº«u features ngáº¯n (full text â†’ passage[])
-- [ ] User **xÃ³a Ä‘á» cÅ©** + import láº¡i `pet-reading-test1.zip` â†’ xÃ¡c nháº­n Part 2/4 khÃ´ng láº·p (a8/a9)
+#### Fix PET B1 Reading Test 1 — lặp cột + đáp án (session 2026-07-01)
+- [x] `ReadingPassagePanel` — B1 Part 2/4: ẩn block `Danh sách A–H` cột trái (passage đã có đủ nội dung)
+- [x] `ReadingQuestionPanel` — B1 matching: ẩn `List of features/sentences` cột phải (chỉ câu hỏi + pills A–H)
+- [x] `scripts/build-pet-b1-test1.py` — Part 2: passage `label` A–H + `features[]` tên ngắn; Part 4: câu A–H trong passage + `features[]` chỉ text câu (không prefix chữ cái)
+- [x] Regenerate `Tainguyen/pet-reading-test1.zip` + `exam.json` (6 parts · 32 câu)
+- [x] `cambridgeReadingImportTemplates.ts` — B1 Part 2/4: mẫu features ngắn (full text → passage[])
+- [ ] User **xóa đề cũ** + import lại `pet-reading-test1.zip` → xác nhận Part 2/4 không lặp (a8/a9)
 
-#### Flow Import thá»§ cÃ´ng Listening (Ä‘Ã£ cÃ³)
-1. **Import thá»§ cÃ´ng Listening** â†’ JSON/ZIP + MP3/áº£nh cÃ¢u há»i
-2. TÃªn file: `q1.mp3`, `q1-a.jpg`, `part1.mp3`â€¦
+#### Flow Import thủ công Listening (đã có)
+1. **Import thủ công Listening** → JSON/ZIP + MP3/ảnh câu hỏi
+2. Tên file: `q1.mp3`, `q1-a.jpg`, `part1.mp3`…
 
-### Fix Import PDF káº¹t / timeout "Äá»c PDF quÃ¡ lÃ¢u" (session 2026-07-01)
-- [x] `pdfExtract.ts` â€” worker cá»‘ Ä‘á»‹nh `/pdf.worker.min.mjs`; khÃ´ng `await task.destroy()` (fire-and-forget 2s â€” trÃ¡nh treo 45s)
-- [x] Timeout theo bÆ°á»›c: má»Ÿ PDF 30s, má»—i trang 20s, tá»•ng 120s; `useWorkerFetch: false`
-- [x] `vite.config.ts` â€” plugin copy `pdf.worker.min.mjs` â†’ `public/`; `optimizeDeps.exclude: pdfjs-dist`
-- [x] Tiáº¿n trÃ¬nh: táº£i pdf.js â†’ má»Ÿ file â†’ trang X/Y; `preloadPdfJs()` khi má»Ÿ modal
-- [x] `ImportReadingPdfModal` â€” nÃºt **PhÃ¢n tÃ­ch**; label AI sau extract
-- [x] `pnpm --filter web build` â€” pass
-
----
-
-### Mindmap â€” connector polish (session 2026-06-30)
-- [x] `connectors.ts` â€” anchor theo layout: Tree/Fishbone (trÃ¡iâ†”pháº£i), Treeâ†“ (trÃªnâ†”dÆ°á»›i), Round (bezier theo hÆ°á»›ng ra/vÃ o)
-- [x] Tree/Fishbone/Treeâ†“ dÃ¹ng Ä‘Æ°á»ng elbow (khÃ´ng cáº¯t ngang qua pill)
-- [x] TÄƒng `EDGE_PAD`/`LINE_GAP`, `strokeLinecap: butt` â€” trÃ¡nh nÃ©t trÃ²n xuyÃªn vÃ o chá»¯
-- [x] Node pill: ná»n Ä‘áº·c hÆ¡n + `overflow-hidden` + `isolation`
+### Fix Import PDF kẹt / timeout "Đọc PDF quá lâu" (session 2026-07-01)
+- [x] `pdfExtract.ts` — worker cố định `/pdf.worker.min.mjs`; không `await task.destroy()` (fire-and-forget 2s — tránh treo 45s)
+- [x] Timeout theo bước: mở PDF 30s, mỗi trang 20s, tổng 120s; `useWorkerFetch: false`
+- [x] `vite.config.ts` — plugin copy `pdf.worker.min.mjs` → `public/`; `optimizeDeps.exclude: pdfjs-dist`
+- [x] Tiến trình: tải pdf.js → mở file → trang X/Y; `preloadPdfJs()` khi mở modal
+- [x] `ImportReadingPdfModal` — nút **Phân tích**; label AI sau extract
+- [x] `pnpm --filter web build` — pass
 
 ---
 
-## Modules chÆ°a build / cÃ²n láº¡i
+### Mindmap — connector polish (session 2026-06-30)
+- [x] `connectors.ts` — anchor theo layout: Tree/Fishbone (trái↔phải), Tree↓ (trên↔dưới), Round (bezier theo hướng ra/vào)
+- [x] Tree/Fishbone/Tree↓ dùng đường elbow (không cắt ngang qua pill)
+- [x] Tăng `EDGE_PAD`/`LINE_GAP`, `strokeLinecap: butt` — tránh nét tròn xuyên vào chữ
+- [x] Node pill: nền đặc hơn + `overflow-hidden` + `isolation`
 
-1. ~~**Vocabulary**~~ âœ… DONE
-2. ~~**Listening**~~ âœ… DONE
-3. ~~**Writing**~~ âœ… DONE
-4. ~~**MindMap**~~ âœ… DONE
-5. ~~**Dictionary**~~ âœ… DONE
-6. ~~**Settings**~~ âœ… DONE
-7. ~~**Translation Practice**~~ âœ… DONE
-8. ~~**Supabase Cloud Sync**~~ âœ… DONE (cáº§n cháº¡y migration 003 trÃªn Supabase)
-9. **License/Plan** â€” Edge Function notify-payment âœ… code xong; deploy + migration 004
+---
+
+## Modules chưa build / còn lại
+
+1. ~~**Vocabulary**~~ ✅ DONE
+2. ~~**Listening**~~ ✅ DONE
+3. ~~**Writing**~~ ✅ DONE
+4. ~~**MindMap**~~ ✅ DONE
+5. ~~**Dictionary**~~ ✅ DONE
+6. ~~**Settings**~~ ✅ DONE
+7. ~~**Translation Practice**~~ ✅ DONE
+8. ~~**Supabase Cloud Sync**~~ ✅ DONE (cần chạy migration 003 trên Supabase)
+9. **License/Plan** — Edge Function notify-payment ✅ code xong; deploy + migration 004
 10. **(Optional)** PanelHeader cho right panel detail headers
 
 ---
 
-## Credentials (KHÃ”NG commit)
+## Credentials (KHÔNG commit)
 
 - Supabase URL: `https://ntcagvtkwxwsmlxlumfo.supabase.co`
 - Anon key: trong `apps/web/.env.local`
@@ -2130,524 +2170,524 @@ Cháº¡y `004_payment_requests.sql` trong Supabase SQL Editor trÆ°á»›c kh
 ## Deploy
 
 - **Production URL:** https://ryanenglishv2.vercel.app
-- **User yÃªu cáº§u auto deploy** sau má»—i láº§n code xong â€” agent cháº¡y `pnpm deploy:prod` khi hoÃ n thÃ nh tÃ­nh nÄƒng
+- **User yêu cầu auto deploy** sau mỗi lần code xong — agent chạy `pnpm deploy:prod` khi hoàn thành tính năng
 
-### Quy trÃ¬nh deploy (cÃ³ `supabase db push`)
+### Quy trình deploy (có `supabase db push`)
 
-Migrations cháº¡y **má»™t láº§n cho cáº£ há»‡ thá»‘ng** â€” khÃ´ng per-user.
+Migrations chạy **một lần cho cả hệ thống** — không per-user.
 
 ```bash
-# Láº§n Ä‘áº§u: copy .env.deploy.example â†’ .env.deploy, Ä‘iá»n:
+# Lần đầu: copy .env.deploy.example → .env.deploy, điền:
 #   SUPABASE_ACCESS_TOKEN  (dashboard/account/tokens)
-#   SUPABASE_DB_PASSWORD   (Project Settings â†’ Database)
+#   SUPABASE_DB_PASSWORD   (Project Settings → Database)
 
-pnpm db:push          # push supabase/migrations/*.sql lÃªn remote
-pnpm db:push:dry      # xem trÆ°á»›c migrations sáº½ apply (khÃ´ng ghi DB)
-pnpm deploy:prod      # db:push â†’ build â†’ vercel deploy --prod
+pnpm db:push          # push supabase/migrations/*.sql lên remote
+pnpm db:push:dry      # xem trước migrations sẽ apply (không ghi DB)
+pnpm deploy:prod      # db:push → build → vercel deploy --prod
 ```
 
-- Script: `scripts/db-push.mjs` â€” project ref `ntcagvtkwxwsmlxlumfo`
-- CI (tuá»³ chá»n): `.github/workflows/deploy.yml` â€” cáº§n secrets GitHub
-- Edge Function (riÃªng): `npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo`
+- Script: `scripts/db-push.mjs` — project ref `ntcagvtkwxwsmlxlumfo`
+- CI (tuỳ chọn): `.github/workflows/deploy.yml` — cần secrets GitHub
+- Edge Function (riêng): `npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo`
 
 ---
 
-### Import thá»§ cÃ´ng Listening KET A2 Test 1 (session 2026-07-01) â€” HOÃ€N THÃ€NH
-- [x] `ListeningQuestionCard.tsx` â€” gap-fill input + matching pills Aâ€“H; part instruction + part audio fallback
-- [x] `ListeningKetTest.tsx` â€” truyá»n `partInstruction` + `partAudioSource` cho card
-- [x] `importListeningUtils.ts` â€” dedupe MP3/áº£nh trÃ¹ng tÃªn (1 file `listening.mp3` cho 5 parts)
-- [x] `scripts/build-ket-a2-listening-test1.py` â€” 5 parts Â· 25 cÃ¢u + copy `listening.mp3`
+### Import thủ công Listening KET A2 Test 1 (session 2026-07-01) — HOÀN THÀNH
+- [x] `ListeningQuestionCard.tsx` — gap-fill input + matching pills A–H; part instruction + part audio fallback
+- [x] `ListeningKetTest.tsx` — truyền `partInstruction` + `partAudioSource` cho card
+- [x] `importListeningUtils.ts` — dedupe MP3/ảnh trùng tên (1 file `listening.mp3` cho 5 parts)
+- [x] `scripts/build-ket-a2-listening-test1.py` — 5 parts · 25 câu + copy `listening.mp3`
 - [x] Bundle: `Tainguyen/ket-listening-test1.zip` (~12 MB) + OneDrive `ket-listening-test1.zip`
-- [x] `HDSD/Prompt-KET-A2-Listening.txt` + cáº­p nháº­t `Import De Thi.txt`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [ ] User import ZIP â†’ xÃ¡c nháº­n Part 2 gap-fill + Part 5 matching + audio phÃ¡t OK
-- [ ] (Tuá»³ chá»n) Extract áº£nh Part 1 tá»« PDF â†’ `q1-a.jpg` â€¦ `q5-c.jpg`
+- [x] `HDSD/Prompt-KET-A2-Listening.txt` + cập nhật `Import De Thi.txt`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [ ] User import ZIP → xác nhận Part 2 gap-fill + Part 5 matching + audio phát OK
+- [ ] (Tuỳ chọn) Extract ảnh Part 1 từ PDF → `q1-a.jpg` … `q5-c.jpg`
 
 #### Flow Import Listening KET A2
-1. Luyá»‡n thi â†’ Cambridge â†’ A2 â†’ **Import thá»§ cÃ´ng Listening**
+1. Luyện thi → Cambridge → A2 → **Import thủ công Listening**
 2. Upload `ket-listening-test1.zip` (exam.json + listening.mp3)
-3. Preview â†’ LÆ°u & lÃ m bÃ i â€” UI KET 1 cÃ¢u/mÃ n, há»— trá»£ picture-mc / gap-fill / MC / matching
+3. Preview → Lưu & làm bài — UI KET 1 câu/màn, hỗ trợ picture-mc / gap-fill / MC / matching
 
 ---
 
-### Global Catalog â€” hÆ°á»›ng 3 (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `packages/catalog/` â€” manifest `GLOBAL_CATALOG_VERSION`, builtin exams, `syncGlobalCatalog()`
-- [x] `scripts/build-catalog.mjs` â€” Tainguyen â†’ `public/catalog/` + `packages/catalog/data/`
-- [x] Builtin Ä‘á»: KET/PET/FCE Reading + KET Listening (ID `catalog-*`) â€” má»i user sau deploy
-- [x] `GlobalCatalogSync` trong `AppShell` â€” upsert Cáº¥u trÃºc cÃ¢u catalog (ID cá»‘ Ä‘á»‹nh `catalog:ss:*`)
-- [x] `pnpm build:catalog` cháº¡y trÆ°á»›c `pnpm build`; web `v0.2.0`
-- [x] `packages/catalog/README.md` â€” quy trÃ¬nh admin cáº­p nháº­t + deploy
-- [ ] TODO sau: vocab decks/cards, writing prompts, translation, listening lessons â†’ `syncGlobalCatalog`
+### Global Catalog — hướng 3 (session 2026-07-02) — HOÀN THÀNH
+- [x] `packages/catalog/` — manifest `GLOBAL_CATALOG_VERSION`, builtin exams, `syncGlobalCatalog()`
+- [x] `scripts/build-catalog.mjs` — Tainguyen → `public/catalog/` + `packages/catalog/data/`
+- [x] Builtin đề: KET/PET/FCE Reading + KET Listening (ID `catalog-*`) — mọi user sau deploy
+- [x] `GlobalCatalogSync` trong `AppShell` — upsert Cấu trúc câu catalog (ID cố định `catalog:ss:*`)
+- [x] `pnpm build:catalog` chạy trước `pnpm build`; web `v0.2.0`
+- [x] `packages/catalog/README.md` — quy trình admin cập nhật + deploy
+- [ ] TODO sau: vocab decks/cards, writing prompts, translation, listening lessons → `syncGlobalCatalog`
 
-#### Admin cáº­p nháº­t ná»™i dung cho má»i user (khÃ´ng import tay)
-1. Sá»­a `Tainguyen/.../exam.json` (+ media) hoáº·c seed trong `packages/catalog/src/seeds/`
-2. `pnpm build:catalog` (Ä‘á» thi) + bump `GLOBAL_CATALOG_VERSION` (Dexie seeds)
+#### Admin cập nhật nội dung cho mọi user (không import tay)
+1. Sửa `Tainguyen/.../exam.json` (+ media) hoặc seed trong `packages/catalog/src/seeds/`
+2. `pnpm build:catalog` (đề thi) + bump `GLOBAL_CATALOG_VERSION` (Dexie seeds)
 3. `pnpm deploy:prod`
 
 ---
 
-### Listening picture-mc â€” áº£nh composite A2â€“C2 (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] Part 1 `picture-mc`: **1 áº£nh/cÃ¢u** (`q1.jpg` chá»©a A+B+C) thay vÃ¬ 3 file riÃªng
-- [x] `ListeningPictureBoard` + `ListeningPictureChoiceRow` â€” tranh trÃ¡i, nÃºt A/B/C pháº£i
-- [x] Import + `build-catalog` + legacy `q1-a.jpg` váº«n há»— trá»£
-- [x] `exam.json` KET + HDSD cáº­p nháº­t
+### Listening picture-mc — ảnh composite A2–C2 (session 2026-07-02) — HOÀN THÀNH
+- [x] Part 1 `picture-mc`: **1 ảnh/câu** (`q1.jpg` chứa A+B+C) thay vì 3 file riêng
+- [x] `ListeningPictureBoard` + `ListeningPictureChoiceRow` — tranh trái, nút A/B/C phải
+- [x] Import + `build-catalog` + legacy `q1-a.jpg` vẫn hỗ trợ
+- [x] `exam.json` KET + HDSD cập nhật
 
-### KET Listening â€” Part 2 gap-fill + Part 5 drag-drop (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `ListeningKetGapFillPartView` â€” Part 2 (cÃ¢u 6â€“10): Ä‘á» + audio trÃ¡i, táº¥t cáº£ Ã´ Ä‘iá»n chá»— trá»‘ng gá»™p cá»™t pháº£i
-- [x] `ListeningKetMatchingPartView` â€” Part 5 (cÃ¢u 21â€“25): tÃªn + Ã´ vuÃ´ng kÃ©o tháº£ trÃ¡i (theo `Giaodien/a1.jpg`), bank Aâ€“H pháº£i
-- [x] KÃ©o tháº£ hoáº·c chá»n Ä‘Ã¡p Ã¡n â†’ báº¥m Ã´; má»—i chá»¯ cÃ¡i dÃ¹ng má»™t láº§n; nÃºt Ã— xÃ³a Ã´
-- [x] `listeningKetPartLayout.ts` â€” detect part gap-fill / matching
+### KET Listening — Part 2 gap-fill + Part 5 drag-drop (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningKetGapFillPartView` — Part 2 (câu 6–10): đề + audio trái, tất cả ô điền chỗ trống gộp cột phải
+- [x] `ListeningKetMatchingPartView` — Part 5 (câu 21–25): tên + ô vuông kéo thả trái (theo `Giaodien/a1.jpg`), bank A–H phải
+- [x] Kéo thả hoặc chọn đáp án → bấm ô; mỗi chữ cái dùng một lần; nút × xóa ô
+- [x] `listeningKetPartLayout.ts` — detect part gap-fill / matching
 
-### Listening Luyá»‡n thi â€” audio khÃ´ng dá»«ng khi Ä‘á»•i Part (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `ListeningKetTest` / `ListeningIeltsTest` â€” bá» `stopPlayback()` khi `partIndex` Ä‘á»•i (KET + IELTS + Cambridge PET/FCE/CAE/CPE)
-- [x] `ListeningQuestionCard` â€” bá» dá»«ng audio khi Ä‘á»•i cÃ¢u
-- [x] KET timer cá»‘ Ä‘á»‹nh **25 phÃºt** (`KET_LISTENING_DURATION_MINUTES`)
+### Listening Luyện thi — audio không dừng khi đổi Part (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningKetTest` / `ListeningIeltsTest` — bỏ `stopPlayback()` khi `partIndex` đổi (KET + IELTS + Cambridge PET/FCE/CAE/CPE)
+- [x] `ListeningQuestionCard` — bỏ dừng audio khi đổi câu
+- [x] KET timer cố định **25 phút** (`KET_LISTENING_DURATION_MINUTES`)
 
-### Listening KET â€” fix audio khÃ´ng phÃ¡t (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `useExamQuestionAudio` â€” thá»­ láº§n lÆ°á»£t blob Dexie â†’ `audioUrl` catalog; blob rá»—ng/há»ng khÃ´ng cháº·n fallback
-- [x] `listeningExamCatalogMerge` â€” luÃ´n bá»• sung `audioUrl` tá»« builtin khi import thiáº¿u
-- [x] `listeningExamLoader` â€” má»i Ä‘á» `source: import` Ä‘á»u merge media catalog (match title/examType)
-- [x] `playHtmlAudio` â€” `preload` + `canplay`; log URL khi lá»—i
-- [x] Verify local: `GET /catalog/listening/ket-a2-test1/listening.mp3` â†’ 200 (~21MB)
+### Listening KET — fix audio không phát (session 2026-07-02) — HOÀN THÀNH
+- [x] `useExamQuestionAudio` — thử lần lượt blob Dexie → `audioUrl` catalog; blob rỗng/hỏng không chặn fallback
+- [x] `listeningExamCatalogMerge` — luôn bổ sung `audioUrl` từ builtin khi import thiếu
+- [x] `listeningExamLoader` — mọi đề `source: import` đều merge media catalog (match title/examType)
+- [x] `playHtmlAudio` — `preload` + `canplay`; log URL khi lỗi
+- [x] Verify local: `GET /catalog/listening/ket-a2-test1/listening.mp3` → 200 (~21MB)
 
-### PET B1 Listening â€” UI + bundle + prompt HDSD (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `ListeningPetTest` â€” 4 Part, 25 cÃ¢u, timer **30 phÃºt**, audio liÃªn tá»¥c khi Ä‘á»•i Part
-- [x] `ListeningPetMcPartView` â€” Part 2 (context + prompt) & Part 4 (audioIntro + MC)
-- [x] `ListeningPetGapFillPartView` â€” Part 3 (`passageTitle` + `gapLead`/`gapTrail`)
-- [x] Part 1: **7 cÃ¢u** picture-mc (`q1.jpg` â€¦ `q7.jpg` composite A+B+C)
-- [x] `Tainguyen/pet-listening-test1/exam.json` + ZIP (~21 MB) â€” Ä‘Ã¡p Ã¡n Answer Key chÃ­nh thá»©c
-- [x] `pnpm pack:listening:pet` â€” Ä‘Ã³ng gÃ³i bundle
-- [x] HDSD: `Prompt-PET-B1-Listening.txt`, `Import Listening PET B1.txt`, cáº­p nháº­t `Import De Thi.txt` + `Prompt-PET-B1.txt`
-- [x] `Prompt-KET-A2-Listening.txt` â€” `durationMinutes` 25, hÆ°á»›ng dáº«n pack/import
+### PET B1 Listening — UI + bundle + prompt HDSD (session 2026-07-02) — HOÀN THÀNH
+- [x] `ListeningPetTest` — 4 Part, 25 câu, timer **30 phút**, audio liên tục khi đổi Part
+- [x] `ListeningPetMcPartView` — Part 2 (context + prompt) & Part 4 (audioIntro + MC)
+- [x] `ListeningPetGapFillPartView` — Part 3 (`passageTitle` + `gapLead`/`gapTrail`)
+- [x] Part 1: **7 câu** picture-mc (`q1.jpg` … `q7.jpg` composite A+B+C)
+- [x] `Tainguyen/pet-listening-test1/exam.json` + ZIP (~21 MB) — đáp án Answer Key chính thức
+- [x] `pnpm pack:listening:pet` — đóng gói bundle
+- [x] HDSD: `Prompt-PET-B1-Listening.txt`, `Import Listening PET B1.txt`, cập nhật `Import De Thi.txt` + `Prompt-PET-B1.txt`
+- [x] `Prompt-KET-A2-Listening.txt` — `durationMinutes` 25, hướng dẫn pack/import
 
-### Luyá»‡n thi â€” LÃ m láº¡i + Quay láº¡i + Reading KET 30 phÃºt (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `FullMockStageResult` + `handleRetry` â€” nÃºt **LÃ m láº¡i** sau submit (Reading/Listening/Writing/Full Mock)
-- [x] `ExamHeaderBack` + `examNavigation.ts` â€” nÃºt **Quay láº¡i** khi Ä‘ang lÃ m bÃ i (má»i cháº¿ Ä‘á»™)
-- [x] `KET_READING_DURATION_MINUTES = 30` â€” Reading A2 cá»‘ Ä‘á»‹nh 30 phÃºt
+### Luyện thi — Làm lại + Quay lại + Reading KET 30 phút (session 2026-07-02) — HOÀN THÀNH
+- [x] `FullMockStageResult` + `handleRetry` — nút **Làm lại** sau submit (Reading/Listening/Writing/Full Mock)
+- [x] `ExamHeaderBack` + `examNavigation.ts` — nút **Quay lại** khi đang làm bài (mọi chế độ)
+- [x] `KET_READING_DURATION_MINUTES = 30` — Reading A2 cố định 30 phút
 
-### Luyá»‡n thi â€” FCE B2 Listening Test 1 builtin (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `Tainguyen/fce-Listening-test1/exam.json` â€” 4 parts Â· 30 cÃ¢u (Part 1 MC, Part 2 gap-fill Spectacled Bears, Part 3 matching, Part 4 MC)
-- [x] Part 2: `passageTitle` + `imageFile: q2.jpg` â†’ `ListeningPartImageHeader` (má»™t áº£nh gáº¥u nhÆ° Giaodien/a7.jpg)
-- [x] Catalog builtin `catalog-listening-fce-b2-test1` + `pnpm pack:listening:fce` â†’ ZIP import
-- [x] `build-catalog.mjs` + `builtinExams.ts` â€” ship media `listening.mp3` + `q2.jpg`
-- [x] FCE Part 3 matching (a9.jpg) â€” `ListeningLetterMatchingPartView`: Aâ€“H bÃªn trÃ¡i, kÃ©o/tháº£ chá»¯ cÃ¡i vÃ o Ã´ Speaker 19â€“23
-- [x] HDSD FCE B2 Listening â€” `Prompt-FCE-B2-Listening.txt`, `Import Listening FCE B2.txt`, cáº­p nháº­t `Import De Thi.txt` + `Prompt-FCE-B2.txt`
+### Luyện thi — FCE B2 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] `Tainguyen/fce-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC, Part 2 gap-fill Spectacled Bears, Part 3 matching, Part 4 MC)
+- [x] Part 2: `passageTitle` + `imageFile: q2.jpg` → `ListeningPartImageHeader` (một ảnh gấu như Giaodien/a7.jpg)
+- [x] Catalog builtin `catalog-listening-fce-b2-test1` + `pnpm pack:listening:fce` → ZIP import
+- [x] `build-catalog.mjs` + `builtinExams.ts` — ship media `listening.mp3` + `q2.jpg`
+- [x] FCE Part 3 matching (a9.jpg) — `ListeningLetterMatchingPartView`: A–H bên trái, kéo/thả chữ cái vào ô Speaker 19–23
+- [x] HDSD FCE B2 Listening — `Prompt-FCE-B2-Listening.txt`, `Import Listening FCE B2.txt`, cập nhật `Import De Thi.txt` + `Prompt-FCE-B2.txt`
 
-### Luyá»‡n thi â€” CAE C1 Reading Test 1 builtin (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] Nguá»“n: `Tainguyen/cae-Reading-test1/` (PDF `Test_1_Reading_CAE_C1.pdf` + `answer keys.pdf`) â†’ `scripts/build-cae-reading-test1.py`
-- [x] `exam.json` ban Ä‘áº§u â€” 8 parts Â· **56 cÃ¢u** Â· 90 phÃºt (Part 1â€“4 Use of English, Part 5â€“8 Reading)
-- [x] **Cáº­p nháº­t 2026-07-06:** â†’ **10 parts Â· 58 má»¥c Â· 120 phÃºt** (P9 Q57 + P10 Q58 Writing) â€” xem má»¥c **CAE C1 Reading & Writing** cuá»‘i file
+### Luyện thi — CAE C1 Reading Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] Nguồn: `Tainguyen/cae-Reading-test1/` (PDF `Test_1_Reading_CAE_C1.pdf` + `answer keys.pdf`) → `scripts/build-cae-reading-test1.py`
+- [x] `exam.json` ban đầu — 8 parts · **56 câu** · 90 phút (Part 1–4 Use of English, Part 5–8 Reading)
+- [x] **Cập nhật 2026-07-06:** → **10 parts · 58 mục · 120 phút** (P9 Q57 + P10 Q58 Writing) — xem mục **CAE C1 Reading & Writing** cuối file
 - [x] Catalog builtin `catalog-reading-cae-c1-test1` + `build-catalog.mjs` + `builtinExams.ts`
-- [x] `cambridgeReadingImportTemplates.ts` â€” C1 Part 6: 37â€“40 cross-text, Part 7: 41â€“46 gapped text, Part 8: 47â€“56 multiple matching
-- [x] `pnpm pack:reading:cae` â†’ `Tainguyen/cae-Reading-test1.zip` (exam.json only â€” khÃ´ng áº£nh)
-- [x] HDSD: `Prompt-CAE-C1-Reading.txt`, `Import Reading CAE C1.txt`, cáº­p nháº­t `Import De Thi.txt`
-- [x] UI Reading: áº©n danh sÃ¡ch features trÃ¹ng khi passage Ä‘Ã£ cÃ³ label Aâ€“G (B2/C1 Part 6â€“8); placeholder Part 4 = `3â€“6 words`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `cambridgeReadingImportTemplates.ts` — C1 Part 6: 37–40 cross-text, Part 7: 41–46 gapped text, Part 8: 47–56 multiple matching
+- [x] `pnpm pack:reading:cae` → `Tainguyen/cae-Reading-test1.zip` (exam.json only — không ảnh)
+- [x] HDSD: `Prompt-CAE-C1-Reading.txt`, `Import Reading CAE C1.txt`, cập nhật `Import De Thi.txt`
+- [x] UI Reading: ẩn danh sách features trùng khi passage đã có label A–G (B2/C1 Part 6–8); placeholder Part 4 = `3–6 words`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Luyá»‡n thi â€” IELTS Listening Cam 9 + Cam 20 Test 1 builtin (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] Nguá»“n: `Tainguyen/IELTS/Listening IELTS_Test1_Cam9|Cam20/` (PDF + Answer Key + MP3)
-- [x] `scripts/build-ielts-listening-tests.py` â€” 2Ã— exam.json Â· 40 cÃ¢u Â· 4 parts Â· `listening.mp3`
-- [x] **Fix Cam 9 Test 1 ná»™i dung Ä‘Ãºng** (JOB INQUIRY / SPORTS WORLD / Spirosâ€“Hiroko / Whales) â€” trÆ°á»›c Ä‘Ã³ nháº§m Ä‘á» khÃ¡c
-- [x] `ListeningIeltsPartView` â€” UI má»™t cá»™t theo `Giaodien/a1â€“a4`: note-completion inline (`gapLead`/`gapTrail`), MC dá»c, Choose TWO
-- [x] ZIP import: `pnpm pack:listening:ielts-cam9` â†’ **flat** `exam.json` + `listening.mp3` (khÃ´ng thÆ° má»¥c con/PDF); `importListeningZip` bá» qua PDF
+### Luyện thi — IELTS Listening Cam 9 + Cam 20 Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] Nguồn: `Tainguyen/IELTS/Listening IELTS_Test1_Cam9|Cam20/` (PDF + Answer Key + MP3)
+- [x] `scripts/build-ielts-listening-tests.py` — 2× exam.json · 40 câu · 4 parts · `listening.mp3`
+- [x] **Fix Cam 9 Test 1 nội dung đúng** (JOB INQUIRY / SPORTS WORLD / Spiros–Hiroko / Whales) — trước đó nhầm đề khác
+- [x] `ListeningIeltsPartView` — UI một cột theo `Giaodien/a1–a4`: note-completion inline (`gapLead`/`gapTrail`), MC dọc, Choose TWO
+- [x] ZIP import: `pnpm pack:listening:ielts-cam9` → **flat** `exam.json` + `listening.mp3` (không thư mục con/PDF); `importListeningZip` bỏ qua PDF
 - [x] Catalog: `catalog-listening-ielts-cam9-test1` + `catalog-listening-ielts-cam20-test1`
-- [x] `isListeningAnswerCorrect` â€” Ä‘Ã¡p Ã¡n thay tháº¿ `A/E` (Choose TWO) + gap-fill `/` variants
+- [x] `isListeningAnswerCorrect` — đáp án thay thế `A/E` (Choose TWO) + gap-fill `/` variants
 - [x] `pnpm pack:listening:ielts-cam9` / `ielts-cam20` + `pnpm build:ielts-listening`
 - [x] HDSD: `Prompt-IELTS-Listening-Cam9-Cam20.txt`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [x] **`notePassage` system** â€” `static` | `section` | `gap` trÃªn `ListeningPart`; render `ListeningIeltsNotePassageBox.tsx` + `listeningNotePassage.ts`; validation import IELTS; catalog merge pass-through
-- [x] **Fix Cam 9 static lines** â€” P1 (12 hours, refereesâ€¦), P4 (Several other theories, Cape Cod, Thurstonâ€¦) trong `build-ielts-listening-tests.py`
-- [x] **Fix Cam 20 Ä‘Ã¡p Ã¡n thiáº¿u** (`Giaodien/a5â€“a10`): `notePassage` P1/P4 Ä‘áº§y Ä‘á»§ static + `gapLead`/`gapTrail`; Choose TWO P2â€“P3 `choose_two()` nhÃ£n Ä‘áº§y Ä‘á»§ (khÃ´ng cÃ²n "A A"); rebuild catalog + ZIP
-- [x] Rebuild: `python scripts/build-ielts-listening-tests.py` â†’ `pnpm build:catalog` â†’ `pnpm pack:listening:ielts-cam9` / `ielts-cam20` â€” `tsc` pass
-- [x] **Cam20 P1 table layout** â€” `notePassageLayout: table` + `noteTable` (4 cá»™t nhÆ° Ä‘á» giáº¥y); `ListeningIeltsNoteTable.tsx`; so `Giaodien/a2` giá»‘ng `a1` (báº£ng cÃ³ viá»n, Ã´ trá»‘ng inline)
-- [x] **IELTS import templates** â€” modal 5 nÃºt (full / P1 form a3 / table a2 / mixed a4 / mixed a5); `noteTables[]` cho Part 1 báº£ng+Choose TWO+báº£ng; `ieltsListeningImportTemplates.ts`; `HDSD/Import Listening IELTS.txt` + Prompt IELTS; `Tainguyen/templates/ielts-listening-*.json`
-- [x] **IELTS Listening Part 2 UI** (`Giaodien/Part2-Listening/a6â€“a14`) â€” segment: gaps / MC / matching / choose-two / diagram / map; `ListeningIeltsSectionHeader`, `ListeningIeltsMatchingBlock`, `ListeningIeltsMapBlock`, `ListeningIeltsDiagramBlock`; `sectionRange`/`sectionInstruction`/`sectionTitle`/`mapLabel`/`diagramLabel`; CSS `listeningTest.css`
-- [x] **Part 2 import templates** â€” modal 9 nÃºt (a6â€“a14); `ieltsListeningP2Templates.ts`; `Tainguyen/templates/ielts-listening-p2-a*.json`; export `pnpm export:ielts-p2` (`scripts/export-ielts-p2-templates.ts`, ngoÃ i `tsc` web)
-- [x] **Cam9/Cam20 P2 catalog** â€” `build-ielts-listening-tests.py`: gapLead `â€¢`, section meta Cam9 SPORTS WORLD + Cam20 Pottery; rebuild catalog
-- [x] **IELTS Listening Part 3 UI** (`Giaodien/Part3-Listening/c1â€“c7`) â€” `notePassageSections[]`, `ListeningIeltsFlowChartBlock` (c6), segment flowchart; templates `ieltsListeningP3Templates.ts`; modal 7 nÃºt; `pnpm export:ielts-p3`; Cam9 P3 section meta + Cam20 P3 Choose TWOÃ—3 + MC section headers
-- [x] **HDSD prompt ChatGPT Part 1/2/3** â€” `HDSD/Prompt-IELTS-Listening-Part1.txt`, `Part2.txt`, `Part3.txt` (báº£ng nháº­n dáº¡ng a/c, quy táº¯c JSON, prompt máº«u copy-dÃ¡n, checklist); cáº­p nháº­t `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
-- [x] **IELTS Listening Part 4** â€” lecture notes d1â€“d3 (Cam9 Whales, Cam20 Rivers, generic); `ieltsListeningP4Templates.ts`; modal 3 nÃºt; `pnpm export:ielts-p4`; `HDSD/Prompt-IELTS-Listening-Part4.txt`
-- [x] **HDSD ChatGPT tá»•ng 4 parts** â€” `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` (workflow A/B, nháº­n dáº¡ng a/c/d, prompt copy-dÃ¡n, ghÃ©p exam.json, checklist); cáº­p nháº­t `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
-- [x] **Choose TWO A/E** â€” tÃ i liá»‡u `Giaodien/two-choice.jpg`; `ChooseTwoBlock` clickable (chá»n 2 Ä‘Ã¡p Ã¡n trÃªn list Aâ€“E); `isChooseTwoGroup` nháº­n dáº¡ng má»i "Which TWO" / answer slash; Ã¡p dá»¥ng tá»•ng quÃ¡t Part 1â€“3 qua `ListeningIeltsPartView`
-- [x] **IELTS bundle pipeline (pilot Cam9 Test 2)** â€” `meta.json` + `exam_partN.json`; `pnpm ielts:merge|validate|pack|bundle`; `ieltsListeningBundle.ts`; pilot `Listening IELTS_Test2_Cam9` (**HOÃ€N CHá»ˆNH** Â· 4 parts Â· 40 cÃ¢u Â· `pnpm ielts:bundle`)
-- [x] **Cam9 Test 2 Part 2** â€” `exam_part2.json` (a6: báº£ng Parks + MC Longfield + map Hinchingbrooke); `map.jpg` tá»« PDF; Ä‘Ã¡p Ã¡n Key: trees, friday, farm, C, B, A, A, I, F, E
-- [x] **Cam9 Test 2 Part 3** â€” `exam_part3.json` (MC 21â€“24 Self-Access Centre + notes 25â€“30); meta `p3-mc4+notes6`; Key: C, B, B, C, reading, CD, workbooks, timetable/schedule, alarm, email/emails
-- [x] **Cam9 Test 2 Part 4** â€” `exam_part4.json` (d1: Business Cultures â€” Power/Role/Task culture, ONE WORD); Key: central, conversation, effectively, risk, levels, description, technical, change, responsibility, flexible
-- [x] Cam9 Test 2 completely removed from builtin samples (per user: "xÃ³a sáº¡ch Ä‘á» máº«u"). User will import manually from Tainguyen/IELTS/Listening IELTS_Test2_Cam9/ (P1 = ACCOMMODATION FORM â€“ STUDENT INFORMATION). Updated generatedIeltsListening.ts, manifest.json, removed forces in loader.
-- [x] **Cam9 Test 4 bundle** â€” `Listening IELTS_Test4_Cam9` (**HOÃ€N CHá»ˆNH** Â· 4 parts Â· 40 cÃ¢u Â· `pnpm ielts:bundle`); P4 Q37â€“40 báº£ng 3 cá»™t khá»›p `Questions 37_40.jpg` (bullets + break, "urban areas", "when in cities", "Large survey starting soon"); P2 Q19â€“20 notes Ä‘Ãºng PDF (park + pizza + museum)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] **`notePassage` system** — `static` | `section` | `gap` trên `ListeningPart`; render `ListeningIeltsNotePassageBox.tsx` + `listeningNotePassage.ts`; validation import IELTS; catalog merge pass-through
+- [x] **Fix Cam 9 static lines** — P1 (12 hours, referees…), P4 (Several other theories, Cape Cod, Thurston…) trong `build-ielts-listening-tests.py`
+- [x] **Fix Cam 20 đáp án thiếu** (`Giaodien/a5–a10`): `notePassage` P1/P4 đầy đủ static + `gapLead`/`gapTrail`; Choose TWO P2–P3 `choose_two()` nhãn đầy đủ (không còn "A A"); rebuild catalog + ZIP
+- [x] Rebuild: `python scripts/build-ielts-listening-tests.py` → `pnpm build:catalog` → `pnpm pack:listening:ielts-cam9` / `ielts-cam20` — `tsc` pass
+- [x] **Cam20 P1 table layout** — `notePassageLayout: table` + `noteTable` (4 cột như đề giấy); `ListeningIeltsNoteTable.tsx`; so `Giaodien/a2` giống `a1` (bảng có viền, ô trống inline)
+- [x] **IELTS import templates** — modal 5 nút (full / P1 form a3 / table a2 / mixed a4 / mixed a5); `noteTables[]` cho Part 1 bảng+Choose TWO+bảng; `ieltsListeningImportTemplates.ts`; `HDSD/Import Listening IELTS.txt` + Prompt IELTS; `Tainguyen/templates/ielts-listening-*.json`
+- [x] **IELTS Listening Part 2 UI** (`Giaodien/Part2-Listening/a6–a14`) — segment: gaps / MC / matching / choose-two / diagram / map; `ListeningIeltsSectionHeader`, `ListeningIeltsMatchingBlock`, `ListeningIeltsMapBlock`, `ListeningIeltsDiagramBlock`; `sectionRange`/`sectionInstruction`/`sectionTitle`/`mapLabel`/`diagramLabel`; CSS `listeningTest.css`
+- [x] **Part 2 import templates** — modal 9 nút (a6–a14); `ieltsListeningP2Templates.ts`; `Tainguyen/templates/ielts-listening-p2-a*.json`; export `pnpm export:ielts-p2` (`scripts/export-ielts-p2-templates.ts`, ngoài `tsc` web)
+- [x] **Cam9/Cam20 P2 catalog** — `build-ielts-listening-tests.py`: gapLead `•`, section meta Cam9 SPORTS WORLD + Cam20 Pottery; rebuild catalog
+- [x] **IELTS Listening Part 3 UI** (`Giaodien/Part3-Listening/c1–c7`) — `notePassageSections[]`, `ListeningIeltsFlowChartBlock` (c6), segment flowchart; templates `ieltsListeningP3Templates.ts`; modal 7 nút; `pnpm export:ielts-p3`; Cam9 P3 section meta + Cam20 P3 Choose TWO×3 + MC section headers
+- [x] **HDSD prompt ChatGPT Part 1/2/3** — `HDSD/Prompt-IELTS-Listening-Part1.txt`, `Part2.txt`, `Part3.txt` (bảng nhận dạng a/c, quy tắc JSON, prompt mẫu copy-dán, checklist); cập nhật `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
+- [x] **IELTS Listening Part 4** — lecture notes d1–d3 (Cam9 Whales, Cam20 Rivers, generic); `ieltsListeningP4Templates.ts`; modal 3 nút; `pnpm export:ielts-p4`; `HDSD/Prompt-IELTS-Listening-Part4.txt`
+- [x] **HDSD ChatGPT tổng 4 parts** — `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` (workflow A/B, nhận dạng a/c/d, prompt copy-dán, ghép exam.json, checklist); cập nhật `Import Listening IELTS.txt` + `Prompt-IELTS-Listening-Cam9-Cam20.txt`
+- [x] **Choose TWO A/E** — tài liệu `Giaodien/two-choice.jpg`; `ChooseTwoBlock` clickable (chọn 2 đáp án trên list A–E); `isChooseTwoGroup` nhận dạng mọi "Which TWO" / answer slash; áp dụng tổng quát Part 1–3 qua `ListeningIeltsPartView`
+- [x] **IELTS bundle pipeline (pilot Cam9 Test 2)** — `meta.json` + `exam_partN.json`; `pnpm ielts:merge|validate|pack|bundle`; `ieltsListeningBundle.ts`; pilot `Listening IELTS_Test2_Cam9` (**HOÀN CHỈNH** · 4 parts · 40 câu · `pnpm ielts:bundle`)
+- [x] **Cam9 Test 2 Part 2** — `exam_part2.json` (a6: bảng Parks + MC Longfield + map Hinchingbrooke); `map.jpg` từ PDF; đáp án Key: trees, friday, farm, C, B, A, A, I, F, E
+- [x] **Cam9 Test 2 Part 3** — `exam_part3.json` (MC 21–24 Self-Access Centre + notes 25–30); meta `p3-mc4+notes6`; Key: C, B, B, C, reading, CD, workbooks, timetable/schedule, alarm, email/emails
+- [x] **Cam9 Test 2 Part 4** — `exam_part4.json` (d1: Business Cultures — Power/Role/Task culture, ONE WORD); Key: central, conversation, effectively, risk, levels, description, technical, change, responsibility, flexible
+- [x] Cam9 Test 2 completely removed from builtin samples (per user: "xóa sạch đề mẫu"). User will import manually from Tainguyen/IELTS/Listening IELTS_Test2_Cam9/ (P1 = ACCOMMODATION FORM – STUDENT INFORMATION). Updated generatedIeltsListening.ts, manifest.json, removed forces in loader.
+- [x] **Cam9 Test 4 bundle** — `Listening IELTS_Test4_Cam9` (**HOÀN CHỈNH** · 4 parts · 40 câu · `pnpm ielts:bundle`); P4 Q37–40 bảng 3 cột khớp `Questions 37_40.jpg` (bullets + break, "urban areas", "when in cities", "Large survey starting soon"); P2 Q19–20 notes đúng PDF (park + pizza + museum)
 
-### Luyá»‡n thi â€” CAE C1 Listening Test 1 builtin (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `Tainguyen/cae-Listening-test1/exam.json` â€” 4 parts Â· 30 cÃ¢u (Part 1 MC 3 extracts, Part 2 gap-fill TRIP TO SOUTH AFRICA, Part 3 MC A/B/C/D, Part 4 dual matching)
-- [x] Part 4 dual-task (a10.jpg) â€” `ListeningDualLetterMatchingPartView`: TASK ONE 21â€“25 + TASK TWO 26â€“30, hai báº£ng Aâ€“H riÃªng, kÃ©o/tháº£ vÃ o Speaker 1â€“5
+### Luyện thi — CAE C1 Listening Test 1 builtin (session 2026-07-02) — HOÀN THÀNH
+- [x] `Tainguyen/cae-Listening-test1/exam.json` — 4 parts · 30 câu (Part 1 MC 3 extracts, Part 2 gap-fill TRIP TO SOUTH AFRICA, Part 3 MC A/B/C/D, Part 4 dual matching)
+- [x] Part 4 dual-task (a10.jpg) — `ListeningDualLetterMatchingPartView`: TASK ONE 21–25 + TASK TWO 26–30, hai bảng A–H riêng, kéo/thả vào Speaker 1–5
 - [x] `isDualLetterMatchingPart()` + `dualMatchingTaskGroups()` trong `listeningMultiPartLayout.ts`
 - [x] Catalog builtin `catalog-listening-cae-c1-test1` + `pnpm pack:listening:cae` + `build-catalog.mjs` + `builtinExams.ts`
-- [x] HDSD CAE C1 Listening â€” `Prompt-CAE-C1-Listening.txt`, `Import Listening CAE C1.txt`, cáº­p nháº­t `Import De Thi.txt`
+- [x] HDSD CAE C1 Listening — `Prompt-CAE-C1-Listening.txt`, `Import Listening CAE C1.txt`, cập nhật `Import De Thi.txt`
 
-### Luyá»‡n thi â€” Highlight tÃ´ sÃ¡ng Listening IELTS + Cambridge A2â€“C2 (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] DÃ¹ng chung logic Reading: `ReadingHighlightToolbar`, `ReadingHighlightableText`, `usePartHighlights`, `ExamHighlightZone`
-- [x] Ãp dá»¥ng toÃ n bá»™ Listening: `ListeningKetTest`, `ListeningPetTest`, `ListeningIeltsTest` (IELTS + FCE/CAE/CPE)
-- [x] VÃ¹ng tÃ´ sÃ¡ng: hÆ°á»›ng dáº«n, Ä‘á» bÃ i, gap-fill notes, MC/matching options; audio/Ã´ nháº­p cÃ³ `data-highlight-skip`
-- [x] Highlight lÆ°u theo Part; reset khi **LÃ m láº¡i**
-- [x] Theme **light**: tÃ´ sÃ¡ng exam (`--exam-highlight-bg`) mÃ u vÃ ng `#fff3a3`; mid/dark giá»¯ accent tÃ­m
+### Luyện thi — Highlight tô sáng Listening IELTS + Cambridge A2–C2 (session 2026-07-02) — HOÀN THÀNH
+- [x] Dùng chung logic Reading: `ReadingHighlightToolbar`, `ReadingHighlightableText`, `usePartHighlights`, `ExamHighlightZone`
+- [x] Áp dụng toàn bộ Listening: `ListeningKetTest`, `ListeningPetTest`, `ListeningIeltsTest` (IELTS + FCE/CAE/CPE)
+- [x] Vùng tô sáng: hướng dẫn, đề bài, gap-fill notes, MC/matching options; audio/ô nhập có `data-highlight-skip`
+- [x] Highlight lưu theo Part; reset khi **Làm lại**
+- [x] Theme **light**: tô sáng exam (`--exam-highlight-bg`) màu vàng `#fff3a3`; mid/dark giữ accent tím
 
-### Luyá»‡n thi â€” ÄÃ£ lÃ m + LÃ m láº¡i trÃªn danh sÃ¡ch Ä‘á» (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `examCompletion.ts` â€” Ä‘á»c draft localStorage (`submitted` + Ä‘iá»ƒm Ä‘Ãºng/tá»•ng); `injectKetGapFillQuestionMarkers` â€” KET Part 2 hiá»‡n `and:(10) â€¦`
-- [x] `useExamDraftRevision.ts` â€” re-render `ExamTrackPage` khi ná»™p bÃ i / lÃ m láº¡i
-- [x] `ExamTrackPage` â€” badge **ÄÃ£ lÃ m**, meta `ÄÃºng X/Y cÃ¢u`, nÃºt **Xem káº¿t quáº£** + **LÃ m láº¡i** tá»«ng Ä‘á» Reading/Listening
-- [x] `ExamResult` / `ListeningExamResult` â€” **Vá» luyá»‡n thi** + **LÃ m láº¡i** cáº¡nh nhau; back vá» Ä‘Ãºng track Cambridge/IELTS (`examNavigation.ts`)
-- [x] `ListeningKetGapFillPartView` â€” ghi chÃº Part 2 cÃ³ sá»‘ cÃ¢u trÆ°á»›c chá»— trá»‘ng (vd. `Send a letter and:(10) â€¦`)
+### Luyện thi — Đã làm + Làm lại trên danh sách đề (session 2026-07-02) — HOÀN THÀNH
+- [x] `examCompletion.ts` — đọc draft localStorage (`submitted` + điểm đúng/tổng); `injectKetGapFillQuestionMarkers` — KET Part 2 hiện `and:(10) …`
+- [x] `useExamDraftRevision.ts` — re-render `ExamTrackPage` khi nộp bài / làm lại
+- [x] `ExamTrackPage` — badge **Đã làm**, meta `Đúng X/Y câu`, nút **Xem kết quả** + **Làm lại** từng đề Reading/Listening
+- [x] `ExamResult` / `ListeningExamResult` — **Về luyện thi** + **Làm lại** cạnh nhau; back về đúng track Cambridge/IELTS (`examNavigation.ts`)
+- [x] `ListeningKetGapFillPartView` — ghi chú Part 2 có số câu trước chỗ trống (vd. `Send a letter and:(10) …`)
 
-### Luyá»‡n thi â€” Footer thá»‘ng nháº¥t + Reset timer (session 2026-07-02) â€” HOÃ€N THÃ€NH
-- [x] `ExamPartFooter.tsx` â€” thanh ngang Part + pills sá»‘ cÃ¢u + Prev/Next cÃ¢u + Submit (dÃ¹ng chung Reading/Listening)
-- [x] `ExamTimerControls.tsx` + `examTimer.ts` â€” Ä‘á»“ng há»“ + nÃºt reset (RotateCcw) cáº¡nh timer
-- [x] `ListeningKetTest.tsx` â€” refactor `partIndex` + `activeQuestionId` (migrate draft `questionIndex` cÅ©); footer giá»‘ng Reading
-- [x] `ListeningIeltsTest.tsx` â€” footer dÃ¹ng `ExamPartFooter`; nav prev/next **cÃ¢u** (khÃ´ng chá»‰ Part)
-- [x] `ReadingTest.tsx` â€” dÃ¹ng shared footer + timer reset
-- [x] `listeningTest.css` â€” CSS vars footer pills trÃªn `.listening-exam-shell`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+### Luyện thi — Footer thống nhất + Reset timer (session 2026-07-02) — HOÀN THÀNH
+- [x] `ExamPartFooter.tsx` — thanh ngang Part + pills số câu + Prev/Next câu + Submit (dùng chung Reading/Listening)
+- [x] `ExamTimerControls.tsx` + `examTimer.ts` — đồng hồ + nút reset (RotateCcw) cạnh timer
+- [x] `ListeningKetTest.tsx` — refactor `partIndex` + `activeQuestionId` (migrate draft `questionIndex` cũ); footer giống Reading
+- [x] `ListeningIeltsTest.tsx` — footer dùng `ExamPartFooter`; nav prev/next **câu** (không chỉ Part)
+- [x] `ReadingTest.tsx` — dùng shared footer + timer reset
+- [x] `listeningTest.css` — CSS vars footer pills trên `.listening-exam-shell`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
 ---
 
-## Káº¿ hoáº¡ch ngÃ y mai â€” Import ~100 Ä‘á» Listening IELTS
+## Kế hoạch ngày mai — Import ~100 đề Listening IELTS
 
-**Má»¥c tiÃªu:** User Ä‘Æ°a PDF + Answer Key + MP3 hÃ ng loáº¡t; agent há»— trá»£ táº¡o JSON, validate, gá»™p Ä‘á», Ä‘Æ°a vÃ o app.
+**Mục tiêu:** User đưa PDF + Answer Key + MP3 hàng loạt; agent hỗ trợ tạo JSON, validate, gộp đề, đưa vào app.
 
-### Chuáº©n folder (Ä‘Ã£ pilot Cam9 Test 2)
+### Chuẩn folder (đã pilot Cam9 Test 2)
 
 ```
-Tainguyen/IELTS/Listening IELTS_Test{N}_Cam{9|10|â€¦|20}/
-  meta.json              â† cambridge, test, template tá»«ng part (p1-a3, p2-a6â€¦)
-  exam_part1.json â€¦ exam_part4.json
+Tainguyen/IELTS/Listening IELTS_Test{N}_Cam{9|10|…|20}/
+  meta.json              ← cambridge, test, template từng part (p1-a3, p2-a6…)
+  exam_part1.json … exam_part4.json
   listening.mp3
-  map.jpg / diagram.jpg / a3.jpg â€¦ (náº¿u cÃ³)
-  Answer key.pdf         (tuá»³ chá»n)
+  map.jpg / diagram.jpg / a3.jpg … (nếu có)
+  Answer key.pdf         (tuỳ chọn)
 ```
 
-### Workflow má»—i Ä‘á» (láº·p Ã—100)
+### Workflow mỗi đề (lặp ×100)
 
-| BÆ°á»›c | Viá»‡c | Lá»‡nh / file |
+| Bước | Việc | Lệnh / file |
 |------|------|-------------|
-| 1 | Nháº­n dáº¡ng dáº¡ng Part 1â€“4 | `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` + `Prompt-Part1â€¦4.txt` |
-| 2 | ChatGPT â†’ `exam_partN.json` | ÄÃ­nh kÃ¨m PDF part + Key + máº«u `Tainguyen/templates/ielts-listening-*.json` |
-| 3 | Validate + merge | `pnpm ielts:validate "IELTS/â€¦"` â†’ `pnpm ielts:bundle "IELTS/â€¦"` |
-| 4 | Import thá»­ (1 Ä‘á») | ZIP hoáº·c builtin catalog |
-| 5 | Batch catalog | ThÃªm entry `build-catalog.mjs` + `builtinExams.ts` â†’ `pnpm build:catalog` |
+| 1 | Nhận dạng dạng Part 1–4 | `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` + `Prompt-Part1…4.txt` |
+| 2 | ChatGPT → `exam_partN.json` | Đính kèm PDF part + Key + mẫu `Tainguyen/templates/ielts-listening-*.json` |
+| 3 | Validate + merge | `pnpm ielts:validate "IELTS/…"` → `pnpm ielts:bundle "IELTS/…"` |
+| 4 | Import thử (1 đề) | ZIP hoặc builtin catalog |
+| 5 | Batch catalog | Thêm entry `build-catalog.mjs` + `builtinExams.ts` → `pnpm build:catalog` |
 
-**Lá»‡nh bundle (1 Ä‘á»):**
+**Lệnh bundle (1 đề):**
 ```bash
 pnpm ielts:bundle "IELTS/Listening IELTS_Test2_Cam9"
-pnpm ielts:validate "IELTS/Listening IELTS_Test2_Cam9" --partial   # dev part láº»
+pnpm ielts:validate "IELTS/Listening IELTS_Test2_Cam9" --partial   # dev part lẻ
 ```
 
-### Pilot thÃ nh cÃ´ng (máº«u copy)
+### Pilot thành công (mẫu copy)
 
-| Äá» | ID catalog | Parts | Ghi chÃº |
+| Đề | ID catalog | Parts | Ghi chú |
 |----|------------|-------|---------|
-| Cam9 Test 2 | (removed from builtin samples) | 4Ã—40 cÃ¢u | User will import from Tainguyen/IELTS/Listening IELTS_Test2_Cam9/ (correct P1: ACCOMMODATION FORM) |
-| Cam9 Test 4 | (removed from builtin samples) | 4Ã—40 cÃ¢u | `Tainguyen/IELTS/Listening IELTS_Test4_Cam9.zip` â€” P4 table Q37â€“40, `diagram.jpg` P2 |
+| Cam9 Test 2 | (removed from builtin samples) | 4×40 câu | User will import from Tainguyen/IELTS/Listening IELTS_Test2_Cam9/ (correct P1: ACCOMMODATION FORM) |
+| Cam9 Test 4 | (removed from builtin samples) | 4×40 câu | `Tainguyen/IELTS/Listening IELTS_Test4_Cam9.zip` — P4 table Q37–40, `diagram.jpg` P2 |
 
-### Scale 100 Ä‘á» â€” agent sáº½ há»— trá»£
+### Scale 100 đề — agent sẽ hỗ trợ
 
-- [ ] Thá»‘ng nháº¥t naming: `Listening IELTS_Test{N}_Cam{X}` + `meta.json` template
-- [ ] Batch validate: script quÃ©t folder `Tainguyen/IELTS/` (náº¿u cáº§n viáº¿t thÃªm)
-- [ ] Batch `build-catalog.mjs`: generate BUNDLES[] tá»« manifest hoáº·c glob (trÃ¡nh sá»­a tay 100 dÃ²ng)
-- [ ] Choose TWO / map / gap: so Answer Key trÆ°á»›c khi merge
-- [ ] Deploy 1 láº§n sau khi catalog á»•n: `pnpm build:catalog` â†’ `pnpm deploy:prod`
+- [ ] Thống nhất naming: `Listening IELTS_Test{N}_Cam{X}` + `meta.json` template
+- [ ] Batch validate: script quét folder `Tainguyen/IELTS/` (nếu cần viết thêm)
+- [ ] Batch `build-catalog.mjs`: generate BUNDLES[] từ manifest hoặc glob (tránh sửa tay 100 dòng)
+- [ ] Choose TWO / map / gap: so Answer Key trước khi merge
+- [ ] Deploy 1 lần sau khi catalog ổn: `pnpm build:catalog` → `pnpm deploy:prod`
 
-### TÃ i liá»‡u tham chiáº¿u
+### Tài liệu tham chiếu
 
-- `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` â€” workflow ChatGPT tá»•ng
-- `HDSD/Import Listening IELTS.txt` â€” import UI + bundle pipeline
-- `apps/web/src/features/exam/ieltsListeningBundle.ts` â€” merge/validate logic
-- `Giaodien/two-choice.jpg` â€” Choose TWO (answer `A/E`, UI 2 Ã´)
+- `HDSD/ChatGPT-IELTS-Listening-4-Parts.txt` — workflow ChatGPT tổng
+- `HDSD/Import Listening IELTS.txt` — import UI + bundle pipeline
+- `apps/web/src/features/exam/ieltsListeningBundle.ts` — merge/validate logic
+- `Giaodien/two-choice.jpg` — Choose TWO (answer `A/E`, UI 2 ô)
 
-### Fix audio IELTS Listening (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] `build-catalog.mjs` â€” auto-discover 25 Ä‘á» IELTS (Cam9â€“14 + Cam20 T1) tá»« `Tainguyen/IELTS/`
-- [x] Generate `packages/catalog/src/generatedIeltsListening.ts` + copy MP3 â†’ `public/catalog/listening/`
-- [x] `GLOBAL_CATALOG_VERSION` bump **1 â†’ 2**
+### Fix audio IELTS Listening (session 2026-07-03) — HOÀN THÀNH
+- [x] `build-catalog.mjs` — auto-discover 25 đề IELTS (Cam9–14 + Cam20 T1) từ `Tainguyen/IELTS/`
+- [x] Generate `packages/catalog/src/generatedIeltsListening.ts` + copy MP3 → `public/catalog/listening/`
+- [x] `GLOBAL_CATALOG_VERSION` bump **1 → 2**
 - [x] `pnpm build:catalog` + `tsc --noEmit` pass
-- [ ] User: hard refresh (`Ctrl+Shift+R`) hoáº·c xÃ³a Ä‘á» import cÅ© â†’ dÃ¹ng Ä‘á» builtin; `pnpm deploy:prod` cho production
+- [ ] User: hard refresh (`Ctrl+Shift+R`) hoặc xóa đề import cũ → dùng đề builtin; `pnpm deploy:prod` cho production
 
-### IELTS Listening Cam15â€“16 batch (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] `scripts/build-ielts-cam15-16-listening.py` â€” 8 Ä‘á» Ã— 4 parts Ã— 40 cÃ¢u
-- [x] Cam15 T3 P1 â€” PDF Ä‘á»§ Part 1 (Employment Agency: Possible Jobs); layout form theo Ä‘á» giáº¥y (First Job / Second Job, bullets tá»«ng dÃ²ng)
-- [x] Map images: Cam15 T2/T4, Cam16 T1/T4 â†’ `map.jpg`
-- [x] `pnpm ielts:validate` â€” 8/8 pass, khÃ´ng cáº£nh bÃ¡o
-- [x] `pnpm ielts:pack` â€” 8 ZIP (exam.json + listening.mp3 + map náº¿u cÃ³)
-- [x] `pnpm build:catalog` â€” **33 Ä‘á»** IELTS auto-discovered (Cam9â€“16 + Cam20 T1)
-- [x] `GLOBAL_CATALOG_VERSION` bump **2 â†’ 3** (sau Ä‘Ã³ **3 â†’ 4** khi fix Cam15 T3 P1 tá»« PDF gá»‘c)
+### IELTS Listening Cam15–16 batch (session 2026-07-03) — HOÀN THÀNH
+- [x] `scripts/build-ielts-cam15-16-listening.py` — 8 đề × 4 parts × 40 câu
+- [x] Cam15 T3 P1 — PDF đủ Part 1 (Employment Agency: Possible Jobs); layout form theo đề giấy (First Job / Second Job, bullets từng dòng)
+- [x] Map images: Cam15 T2/T4, Cam16 T1/T4 → `map.jpg`
+- [x] `pnpm ielts:validate` — 8/8 pass, không cảnh báo
+- [x] `pnpm ielts:pack` — 8 ZIP (exam.json + listening.mp3 + map nếu có)
+- [x] `pnpm build:catalog` — **33 đề** IELTS auto-discovered (Cam9–16 + Cam20 T1)
+- [x] `GLOBAL_CATALOG_VERSION` bump **2 → 3** (sau đó **3 → 4** khi fix Cam15 T3 P1 từ PDF gốc)
 - [x] `pnpm --filter web exec tsc --noEmit` pass
 
-### IELTS Listening Cam17â€“18 batch (session 2026-07-03) â€” HOÃ€N THÃ€NH
+### IELTS Listening Cam17–18 batch (session 2026-07-03) — HOÀN THÀNH
 - [x] `scripts/dump-ielts-cam17-18.py` + `ielts-cam17-18-dump.txt`
-- [x] `scripts/build-ielts-cam17-18-listening.py` â€” 8 Ä‘á» Ã— 4 parts Ã— 40 cÃ¢u
-- [x] Cam18 T2 P1 â€” PDF Ä‘á»§ Q1â€“5 (Milo's Restaurants); layout dual noteTables theo Ä‘á» giáº¥y
-- [x] Cam18 T2 map â€” `map.jpg` tá»« PDF page 3 (School, Sports centre, Clinicâ€¦)
-- [x] `pnpm ielts:validate` â€” 8/8 pass
-- [x] `pnpm ielts:pack` â€” 8 ZIP
-- [x] `pnpm build:catalog` â€” **41 Ä‘á»** IELTS (Cam9â€“18 + Cam20 T1)
-- [x] `GLOBAL_CATALOG_VERSION` bump **4 â†’ 5** (sau Ä‘Ã³ **5 â†’ 6** khi fix Cam18 T2 P1 tá»« PDF gá»‘c)
+- [x] `scripts/build-ielts-cam17-18-listening.py` — 8 đề × 4 parts × 40 câu
+- [x] Cam18 T2 P1 — PDF đủ Q1–5 (Milo's Restaurants); layout dual noteTables theo đề giấy
+- [x] Cam18 T2 map — `map.jpg` từ PDF page 3 (School, Sports centre, Clinic…)
+- [x] `pnpm ielts:validate` — 8/8 pass
+- [x] `pnpm ielts:pack` — 8 ZIP
+- [x] `pnpm build:catalog` — **41 đề** IELTS (Cam9–18 + Cam20 T1)
+- [x] `GLOBAL_CATALOG_VERSION` bump **4 → 5** (sau đó **5 → 6** khi fix Cam18 T2 P1 từ PDF gốc)
 
-### IELTS Listening Cam19â€“20 batch (session 2026-07-03) â€” HOÃ€N THÃ€NH
+### IELTS Listening Cam19–20 batch (session 2026-07-03) — HOÀN THÀNH
 - [x] `scripts/dump-ielts-cam19-20.py` + `ielts-cam19-20-dump.txt`
-- [x] `scripts/build-ielts-cam19-20-listening.py` â€” 8 Ä‘á» Ã— 4 parts Ã— 40 cÃ¢u (Cam19 T1â€“T4 + Cam20 T1â€“T4)
-- [x] Cam20 T1 migrate sang bundle format (`exam_part1â€“4.json` + `meta.json`)
-- [x] Map images: Cam19 T1 (Farley House), Cam20 T3 (archaeology site) â†’ `map.jpg`
-- [x] `pnpm ielts:validate` â€” 8/8 pass (fix notePassage static rá»—ng Cam20 T2/T3)
-- [x] `pnpm ielts:pack` â€” 8 ZIP
-- [x] `pnpm build:catalog` â€” **48 Ä‘á»** IELTS (Cam9â€“20)
-- [x] `GLOBAL_CATALOG_VERSION` bump **6 â†’ 7**
+- [x] `scripts/build-ielts-cam19-20-listening.py` — 8 đề × 4 parts × 40 câu (Cam19 T1–T4 + Cam20 T1–T4)
+- [x] Cam20 T1 migrate sang bundle format (`exam_part1–4.json` + `meta.json`)
+- [x] Map images: Cam19 T1 (Farley House), Cam20 T3 (archaeology site) → `map.jpg`
+- [x] `pnpm ielts:validate` — 8/8 pass (fix notePassage static rỗng Cam20 T2/T3)
+- [x] `pnpm ielts:pack` — 8 ZIP
+- [x] `pnpm build:catalog` — **48 đề** IELTS (Cam9–20)
+- [x] `GLOBAL_CATALOG_VERSION` bump **6 → 7**
 
-### IELTS Part 1 layout fix â€” 48 Ä‘á» (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] `normalize_part1()` trong `build-ielts-cam11-12-listening.py` â€” auto `notePassageLayout`, `passageTitle`, bullet sau section `:`
+### IELTS Part 1 layout fix — 48 đề (session 2026-07-03) — HOÀN THÀNH
+- [x] `normalize_part1()` trong `build-ielts-cam11-12-listening.py` — auto `notePassageLayout`, `passageTitle`, bullet sau section `:`
 - [x] `scripts/fix-all-ielts-p1.py` + `scripts/rebuild-all-ielts-listening.py`
-- [x] UI: Part 1 `passageTitle` cÄƒn giá»¯a, to hÆ¡n (`listening-ielts-notes__title--part1`)
-- [x] Renderer: `groupNotePassageIntoLines` mode `form` tÃ¡ch dÃ²ng sau gap
-- [x] Cam9 T1 bundle (`exam_part1.json`), Cam12 v2 bullets, Cam20 T1 bá» `notePassage` trÃ¹ng báº£ng
-- [x] Rebuild 48 Ä‘á» + `pnpm build:catalog` â€” `GLOBAL_CATALOG_VERSION` **8 â†’ 9**
+- [x] UI: Part 1 `passageTitle` căn giữa, to hơn (`listening-ielts-notes__title--part1`)
+- [x] Renderer: `groupNotePassageIntoLines` mode `form` tách dòng sau gap
+- [x] Cam9 T1 bundle (`exam_part1.json`), Cam12 v2 bullets, Cam20 T1 bỏ `notePassage` trùng bảng
+- [x] Rebuild 48 đề + `pnpm build:catalog` — `GLOBAL_CATALOG_VERSION` **8 → 9**
 
-### IELTS Part 4 layout fix â€” 48 Ä‘á» (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] `normalize_part4()` trong `build-ielts-cam11-12-listening.py` â€” auto `notePassageLayout: lecture`, `passageTitle`, bá» section trÃ¹ng title, bullets `â€¢`/`â€“`
-- [x] `scripts/fix-all-ielts-p1.py` má»Ÿ rá»™ng xá»­ lÃ½ cáº£ `exam_part4.json` (48 Ä‘á»)
-- [x] Renderer: `groupNotePassageIntoLines` mode `lecture` tÃ¡ch dÃ²ng sau gap (giá»‘ng `form`)
-- [x] UI: Part 4 `passageTitle` cÄƒn giá»¯a phÃ­a trÃªn box (`partTitleAboveBox` â€” class `listening-ielts-notes__title--part1`)
-- [x] `write_test()` normalize P4 + fix `merge_parts` dÃ¹ng payload Ä‘Ã£ normalize
-- [x] `pnpm build:catalog` â€” `GLOBAL_CATALOG_VERSION` **9 â†’ 10**
+### IELTS Part 4 layout fix — 48 đề (session 2026-07-03) — HOÀN THÀNH
+- [x] `normalize_part4()` trong `build-ielts-cam11-12-listening.py` — auto `notePassageLayout: lecture`, `passageTitle`, bỏ section trùng title, bullets `•`/`–`
+- [x] `scripts/fix-all-ielts-p1.py` mở rộng xử lý cả `exam_part4.json` (48 đề)
+- [x] Renderer: `groupNotePassageIntoLines` mode `lecture` tách dòng sau gap (giống `form`)
+- [x] UI: Part 4 `passageTitle` căn giữa phía trên box (`partTitleAboveBox` — class `listening-ielts-notes__title--part1`)
+- [x] `write_test()` normalize P4 + fix `merge_parts` dùng payload đã normalize
+- [x] `pnpm build:catalog` — `GLOBAL_CATALOG_VERSION` **9 → 10**
 
-### IELTS note lines renderer fix (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] **Root cause:** `groupNotePassageIntoLines` gom nhiá»u `static` block khi khÃ´ng nháº­n bullet `â€¢`/`â€“` â†’ "carer:time forâ€¦a [1]" (Cam20 T2 P1, case5 vs case6)
-- [x] `groupNotePassageFormLines()` â€” má»—i `static` JSON = má»™t dÃ²ng; chá»‰ gom `static+gap(+trail)`; gap trail â‰  bullet má»›i
-- [x] Ãp dá»¥ng cho `notePassageLayout: form` vÃ  `lecture` (Part 1 + Part 4)
-- [x] `hasNoteLineMarker` / `noteLineMarkerKind` â€” nháº­n `â€¢ â€“ + * â–ª Â· â–º â€¦` (Cam11 T1: `+ Â£250 deposit`)
-- [x] `GLOBAL_CATALOG_VERSION` **10 â†’ 11**
+### IELTS note lines renderer fix (session 2026-07-03) — HOÀN THÀNH
+- [x] **Root cause:** `groupNotePassageIntoLines` gom nhiều `static` block khi không nhận bullet `•`/`–` → "carer:time for…a [1]" (Cam20 T2 P1, case5 vs case6)
+- [x] `groupNotePassageFormLines()` — mỗi `static` JSON = một dòng; chỉ gom `static+gap(+trail)`; gap trail ≠ bullet mới
+- [x] Áp dụng cho `notePassageLayout: form` và `lecture` (Part 1 + Part 4)
+- [x] `hasNoteLineMarker` / `noteLineMarkerKind` — nhận `• – + * ▪ · ► …` (Cam11 T1: `+ £250 deposit`)
+- [x] `GLOBAL_CATALOG_VERSION` **10 → 11**
 
-### IELTS note lines 100% Ä‘á» giáº¥y (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] Quy táº¯c cá»©ng: **má»—i static block JSON = má»™t dÃ²ng UI** â€” khÃ´ng ná»‘i dÃ i; chá»‰ gom `static + gap + trail` cÃ¹ng cÃ¢u
-- [x] `atomizeNotePassageBlocks` / `_atomize_note_passage` â€” tÃ¡ch `\n` trong data
-- [x] NotePassageBox bá» list mode (luÃ´n form/lecture strict)
-- [x] CSS `.listening-ielts-notes__line` â€” `display:block`, `white-space:pre-wrap`
-- [x] `GLOBAL_CATALOG_VERSION` **11 â†’ 12**
+### IELTS note lines 100% đề giấy (session 2026-07-03) — HOÀN THÀNH
+- [x] Quy tắc cứng: **mỗi static block JSON = một dòng UI** — không nối dài; chỉ gom `static + gap + trail` cùng câu
+- [x] `atomizeNotePassageBlocks` / `_atomize_note_passage` — tách `\n` trong data
+- [x] NotePassageBox bỏ list mode (luôn form/lecture strict)
+- [x] CSS `.listening-ielts-notes__line` — `display:block`, `white-space:pre-wrap`
+- [x] `GLOBAL_CATALOG_VERSION` **11 → 12**
 
-### IELTS map/diagram crop (session 2026-07-03) â€” HOÃ€N THÃ€NH
-- [x] `find_map_diagram_clip_rect()` + `extract_map_image()` â€” render crop vÃ¹ng map/diagram, khÃ´ng extract nguyÃªn trang PDF
-- [x] `find_fallback_plan_clip_rect()` â€” PDF scan (Cam9 T2) crop embedded image, bá» header/footer
-- [x] `scripts/extract-all-ielts-plan-images.py` â€” auto quÃ©t `imageFile` trong `exam_part*.json` â†’ 15 áº£nh (map.jpg/diagram.jpg)
-- [x] `PAGE_OVERRIDES` Cam9 T2 map â†’ page 3 (scan)
-- [x] Fix nháº­n cÃ¢u há»i 16â€“20 vs sá»‘ label trÃªn map (Cam16 T4)
+### IELTS map/diagram crop (session 2026-07-03) — HOÀN THÀNH
+- [x] `find_map_diagram_clip_rect()` + `extract_map_image()` — render crop vùng map/diagram, không extract nguyên trang PDF
+- [x] `find_fallback_plan_clip_rect()` — PDF scan (Cam9 T2) crop embedded image, bỏ header/footer
+- [x] `scripts/extract-all-ielts-plan-images.py` — auto quét `imageFile` trong `exam_part*.json` → 15 ảnh (map.jpg/diagram.jpg)
+- [x] `PAGE_OVERRIDES` Cam9 T2 map → page 3 (scan)
+- [x] Fix nhận câu hỏi 16–20 vs số label trên map (Cam16 T4)
 - [x] Re-extract 15/15 OK; `pnpm build:catalog`
-- [x] Fix crop quÃ¡ tay (v2): union khá»‘i váº½ + padding; giá»¯ Ä‘á»§ mÃ©p map/compass/Ä‘Æ°á»ng; Cam9 T2 Ä‘Ãºng trang map (p4)
-- [x] Note P1/P4 bullets + line breaks (v3): `_enrich_passage_bullets` má»Ÿ rá»™ng; `enrichNotePassageBullets` TS runtime; má»—i static = 1 dÃ²ng; CSS hanging indent
-- [x] Note bullets conservative (v4): `_sanitize_passage_markers()` gá»¡ â€¢/â€“ sai (form label, gap trail, prose, intro); enrich tháº­n trá»ng; fix `'' in 'â€“-+âˆ’*'`; intro vs e.g. sub-list; Cam20 T2 P1 khá»›p case6
-- [x] Note bullets colon sub-list (v5 / catalog v19): `_colon_introduces_sub_items()` â€” má»¥c sau dÃ²ng `:` (vd. `site:`, `ocean hotspots:`, `innovations include:`) dÃ¹ng `â€“`; giá»¯ `â€¢` cho intro `may include discussion of:`; `_find_colon_sub_parent()` lan context qua sibling; Cam19 P4 Ceide Fields khá»›p Ä‘á» giáº¥y
-- [x] `GLOBAL_CATALOG_VERSION` **12 â†’ â€¦ â†’ 19**
+- [x] Fix crop quá tay (v2): union khối vẽ + padding; giữ đủ mép map/compass/đường; Cam9 T2 đúng trang map (p4)
+- [x] Note P1/P4 bullets + line breaks (v3): `_enrich_passage_bullets` mở rộng; `enrichNotePassageBullets` TS runtime; mỗi static = 1 dòng; CSS hanging indent
+- [x] Note bullets conservative (v4): `_sanitize_passage_markers()` gỡ •/– sai (form label, gap trail, prose, intro); enrich thận trọng; fix `'' in '–-+−*'`; intro vs e.g. sub-list; Cam20 T2 P1 khớp case6
+- [x] Note bullets colon sub-list (v5 / catalog v19): `_colon_introduces_sub_items()` — mục sau dòng `:` (vd. `site:`, `ocean hotspots:`, `innovations include:`) dùng `–`; giữ `•` cho intro `may include discussion of:`; `_find_colon_sub_parent()` lan context qua sibling; Cam19 P4 Ceide Fields khớp đề giấy
+- [x] `GLOBAL_CATALOG_VERSION` **12 → … → 19**
 
-### IELTS note inline gap fix (session 2026-07-03) â€” ÄÃƒ LÃ€M, USER BÃO VáºªN Lá»–I
-- [x] `groupNotePassageFormLines` â€” khÃ´ng flush trÆ°á»›c gap khi `:` hoáº·c trail sau gap (` at 6 p.m.`)
-- [x] `prepareNotePassageBlocks` â€” inject `gapLead` dÃ²ng `e.g.` dÃ¹ng `â€“` thay `â€¢`
-- [x] `GapInlineCompact` â€” `suppressLead`/`suppressTrail` + so khá»›p bullet khi compare
-- [x] `scripts/sync-ielts-inline-gaps.py` â€” gá»¡ 106 `gapLead`/`gapTrail` thá»«a (8 Ä‘á» Cam9â€“11)
-- [x] `GLOBAL_CATALOG_VERSION` **20 â†’ 21**; `pnpm build:catalog` 48 Ä‘á»
-- [ ] **User xÃ¡c nháº­n váº«n lá»—i** â€” cáº§n reproduce cá»¥ thá»ƒ trÃªn localhost (Ä‘á»/part/cÃ¢u nÃ o)
+### IELTS note inline gap fix (session 2026-07-03) — ĐÃ LÀM, USER BÁO VẪN LỖI
+- [x] `groupNotePassageFormLines` — không flush trước gap khi `:` hoặc trail sau gap (` at 6 p.m.`)
+- [x] `prepareNotePassageBlocks` — inject `gapLead` dòng `e.g.` dùng `–` thay `•`
+- [x] `GapInlineCompact` — `suppressLead`/`suppressTrail` + so khớp bullet khi compare
+- [x] `scripts/sync-ielts-inline-gaps.py` — gỡ 106 `gapLead`/`gapTrail` thừa (8 đề Cam9–11)
+- [x] `GLOBAL_CATALOG_VERSION` **20 → 21**; `pnpm build:catalog` 48 đề
+- [ ] **User xác nhận vẫn lỗi** — cần reproduce cụ thể trên localhost (đề/part/câu nào)
 
-### Lá»—i cÃ²n tá»“n táº¡i (IELTS Listening notes â€” Æ°u tiÃªn session 2026-07-04)
+### Lỗi còn tồn tại (IELTS Listening notes — ưu tiên session 2026-07-04)
 
-**Bug user bÃ¡o (chÆ°a Ä‘Ã³ng):**
-- P1: text inline gap váº«n **rá»›t dÃ²ng** (vd. `Interview arranged for: Thursday [9] at 6 p.m.` khÃ´ng 1 dÃ²ng)
-- P4: **double text** `gapLead`/`gapTrail` (vd. `e.g. some parasitesâ€¦` láº·p 2 láº§n)
-- P4: **bullet `â€¢` thá»«a** trÃªn dÃ²ng `e.g.` (pháº£i lÃ  `â€“` sub-bullet)
-- CÃ³ thá»ƒ cÃ²n lá»—i trÃªn **Ä‘á» khÃ¡c Cam9 T1** dÃ¹ Ä‘Ã£ sync 48 Ä‘á»
+**Bug user báo (chưa đóng):**
+- P1: text inline gap vẫn **rớt dòng** (vd. `Interview arranged for: Thursday [9] at 6 p.m.` không 1 dòng)
+- P4: **double text** `gapLead`/`gapTrail` (vd. `e.g. some parasites…` lặp 2 lần)
+- P4: **bullet `•` thừa** trên dòng `e.g.` (phải là `–` sub-bullet)
+- Có thể còn lỗi trên **đề khác Cam9 T1** dù đã sync 48 đề
 
-**NguyÃªn nhÃ¢n Ä‘Ã£ xÃ¡c Ä‘á»‹nh (tham kháº£o khi fix):**
-| Triá»‡u chá»©ng | File | Ghi chÃº |
+**Nguyên nhân đã xác định (tham khảo khi fix):**
+| Triệu chứng | File | Ghi chú |
 |-------------|------|---------|
-| Rá»›t dÃ²ng trÆ°á»›c gap | `listeningNotePassage.ts` â†’ `groupNotePassageFormLines` | Flush sai khi static â€œhoÃ n chá»‰nhâ€ nhÆ°ng gap+trail cÃ¹ng cÃ¢u |
-| Double text | `prepareNotePassageBlocks` inject static + `GapInlineCompact` render láº¡i | Dedupe `suppressLead`/`suppressTrail` |
-| `â€¢` trÃªn e.g. | `prepareNotePassageBlocks` inject `gapLead` | DÃ²ng `e.g.` â†’ `â€“` |
-| JSON trÃ¹ng | `exam_part*.json` + `questions[].gapLead` | `sync-ielts-inline-gaps.py` Ä‘Ã£ cháº¡y; cÃ³ thá»ƒ cÃ²n case chÆ°a cover |
+| Rớt dòng trước gap | `listeningNotePassage.ts` → `groupNotePassageFormLines` | Flush sai khi static “hoàn chỉnh” nhưng gap+trail cùng câu |
+| Double text | `prepareNotePassageBlocks` inject static + `GapInlineCompact` render lại | Dedupe `suppressLead`/`suppressTrail` |
+| `•` trên e.g. | `prepareNotePassageBlocks` inject `gapLead` | Dòng `e.g.` → `–` |
+| JSON trùng | `exam_part*.json` + `questions[].gapLead` | `sync-ielts-inline-gaps.py` đã chạy; có thể còn case chưa cover |
 
-**Test case chuáº©n khi debug:**
-- `catalog-listening-ielts-cam9-test1` â€” P1 Q9, P4 Q32
+**Test case chuẩn khi debug:**
+- `catalog-listening-ielts-cam9-test1` — P1 Q9, P4 Q32
 - So PDF: `Tainguyen/IELTS/Listening IELTS_Test1_Cam9/*.pdf`
 
-**KhÃ¡c (IELTS import â€” khÃ´ng block notes bug):**
-- Cam9 T4 P4: layout `table` (khÃ´ng lecture)
-- Map scan cÃ²n dÃ²ng cÃ¢u há»i 15â€“20 dÆ°á»›i áº£nh
-- Production chÆ°a deploy catalog v21
-- 48 Ä‘á» chÆ°a audit PDF 100% (chá»‰ Cam9 T1 P1 rewrite Ä‘áº§y Ä‘á»§)
+**Khác (IELTS import — không block notes bug):**
+- Cam9 T4 P4: layout `table` (không lecture)
+- Map scan còn dòng câu hỏi 15–20 dưới ảnh
+- Production chưa deploy catalog v21
+- 48 đề chưa audit PDF 100% (chỉ Cam9 T1 P1 rewrite đầy đủ)
 
 ---
 
-## 2026-07-11 â€” Fix trang tráº¯ng `/app/vocab`
+## 2026-07-11 — Fix trang trắng `/app/vocab`
 
-- Root cause: import vÃ²ng giá»¯a `vocabSeedDecks` vÃ  `vocabPublishedSync` khiáº¿n `PRESET_GROUP_IDS` cÃ³ thá»ƒ bá»‹ Ä‘á»c trong TDZ.
-- Fix: tÃ¡ch constants dÃ¹ng chung sang `apps/web/src/features/vocab/vocabConstants.ts`; giá»¯ re-export tÆ°Æ¡ng thÃ­ch.
+- Root cause: import vòng giữa `vocabSeedDecks` và `vocabPublishedSync` khiến `PRESET_GROUP_IDS` có thể bị đọc trong TDZ.
+- Fix: tách constants dùng chung sang `apps/web/src/features/vocab/vocabConstants.ts`; giữ re-export tương thích.
 - Verify: `pnpm --filter web exec tsc --noEmit` pass.
 
 ## Next session start prompt
 
 ```
-Äá»c session_summary.md.
+Đọc session_summary.md.
 
-Session 2026-07-04 â€” Fix tiáº¿p IELTS Listening note P1/P4 (user bÃ¡o váº«n lá»—i).
+Session 2026-07-04 — Fix tiếp IELTS Listening note P1/P4 (user báo vẫn lỗi).
 
-BÆ°á»›c 1 â€” Reproduce vá»›i user:
-- Há»i Ä‘á»/part/cÃ¢u cá»¥ thá»ƒ hoáº·c má»Ÿ Cam9 T1: P1 Q9, P4 Q32
-- pnpm dev:web â†’ http://localhost:5173 â†’ hard refresh (Ctrl+Shift+R)
-- Náº¿u data cÅ©: pnpm build:catalog (catalog v21)
+Bước 1 — Reproduce với user:
+- Hỏi đề/part/câu cụ thể hoặc mở Cam9 T1: P1 Q9, P4 Q32
+- pnpm dev:web → http://localhost:5173 → hard refresh (Ctrl+Shift+R)
+- Nếu data cũ: pnpm build:catalog (catalog v21)
 
-BÆ°á»›c 2 â€” Debug renderer:
+Bước 2 — Debug renderer:
 - apps/web/src/features/exam/listeningNotePassage.ts
   (groupNotePassageFormLines, prepareNotePassageBlocks, gapLeadRenderedAdjacent)
 - apps/web/src/features/exam/ListeningIeltsNotePassageBox.tsx (GapInlineCompact suppress)
 - apps/web/src/features/exam/listeningTest.css (::before bullet/sub)
 
-BÆ°á»›c 3 â€” Debug data náº¿u renderer OK trÃªn script nhÆ°ng UI váº«n sai:
+Bước 3 — Debug data nếu renderer OK trên script nhưng UI vẫn sai:
 - Tainguyen/IELTS/.../exam_part1.json, exam_part4.json
 - python scripts/audit-ielts-pdf-vs-json.py
 - pnpm fix:ielts-notes (= sync-ielts-inline-gaps + fix-all-ielts-p1 + build:catalog)
 
-ÄÃ£ lÃ m session 2026-07-03 (chÆ°a Ä‘á»§):
+Đã làm session 2026-07-03 (chưa đủ):
 - Renderer inline gap + suppress double text
-- sync 48 Ä‘á», catalog v21
+- sync 48 đề, catalog v21
 
-ChÆ°a xong:
-- User xÃ¡c nháº­n váº«n lá»—i rá»›t dÃ²ng / double text / bullet e.g.
-- Audit PDF vs JSON cho 48 Ä‘á»
+Chưa xong:
+- User xác nhận vẫn lỗi rớt dòng / double text / bullet e.g.
+- Audit PDF vs JSON cho 48 đề
 ```
 
-## Session 2026-07-04 â€” Fix 48 standalone HTML mocks (unique per PDF) + no line drops (rá»›t dÃ²ng)
+## Session 2026-07-04 — Fix 48 standalone HTML mocks (unique per PDF) + no line drops (rớt dòng)
 
-### Váº¥n Ä‘á» user bÃ¡o
-- Táº¥t cáº£ 48 file HTML trong Tainguyen/IELTS/.../*.html (vÃ  PDF to HTML/) **giá»‘ng há»‡t nhau** (chá»‰ Ä‘á»•i title).
-- File sinh ra xáº¥u, khÃ´ng giá»‘ng template (assets/ielts-listening-template_Test1_Cam9.html).
-- YÃªu cáº§u: **Má»—i Ä‘á» pháº£i khÃ¡c nhau**, ná»™i dung láº¥y tá»« file PDF tÆ°Æ¡ng á»©ng (khÃ´ng copy paste 1 cÃ¡i).
+### Vấn đề user báo
+- Tất cả 48 file HTML trong Tainguyen/IELTS/.../*.html (và PDF to HTML/) **giống hệt nhau** (chỉ đổi title).
+- File sinh ra xấu, không giống template (assets/ielts-listening-template_Test1_Cam9.html).
+- Yêu cầu: **Mỗi đề phải khác nhau**, nội dung lấy từ file PDF tương ứng (không copy paste 1 cái).
 
-### NguyÃªn nhÃ¢n gá»‘c
-- `gen.py` + `gen_ielts.py` dÃ¹ng regex má»ng manh thay tháº¿ `<div class="p-8">...` (khÃ´ng match Ä‘Æ°á»£c â†’ giá»¯ nguyÃªn ná»™i dung Cam9 máº«u).
-- `render_form` quÃ¡ Ä‘Æ¡n giáº£n, chá»‰ render notePassage cÆ¡ báº£n, bá» qua questions/MC/options/passageTitle thá»±c cá»§a tá»«ng exam.json.
-- KhÃ´ng dÃ¹ng dá»¯ liá»‡u Ä‘Ã£ parse sáº¡ch tá»« PDF (exam_part*.json, exam.json) má»™t cÃ¡ch Ä‘áº§y Ä‘á»§.
+### Nguyên nhân gốc
+- `gen.py` + `gen_ielts.py` dùng regex mỏng manh thay thế `<div class="p-8">...` (không match được → giữ nguyên nội dung Cam9 mẫu).
+- `render_form` quá đơn giản, chỉ render notePassage cơ bản, bỏ qua questions/MC/options/passageTitle thực của từng exam.json.
+- Không dùng dữ liệu đã parse sạch từ PDF (exam_part*.json, exam.json) một cách đầy đủ.
 
-### ÄÃ£ lÃ m
-- Viáº¿t láº¡i `gen.py` (loáº¡i bá» regex, build shell + inner Ä‘á»™ng):
-  - Load exam.json + exam_partN.json (dá»¯ liá»‡u Ä‘Ã£ Ä‘Æ°á»£c build scripts + fix bullet/notePassage tá»« PDF).
-  - Render Ä‘áº§y Ä‘á»§ 4 SECTION vá»›i:
-    - `paper-box` + `notes-box` style (2px #374151 radius nhÆ° template)
+### Đã làm
+- Viết lại `gen.py` (loại bỏ regex, build shell + inner động):
+  - Load exam.json + exam_partN.json (dữ liệu đã được build scripts + fix bullet/notePassage từ PDF).
+  - Render đầy đủ 4 SECTION với:
+    - `paper-box` + `notes-box` style (2px #374151 radius như template)
     - `passageTitle` unique (Self-drive tours..., CRIME REPORT FORM, Business Cultures, ... )
     - `form-row` + `.form-label` + inline `.question-number` + `.answer-input`
-    - `bullet-item` (â€¢ vÃ  â€“)
+    - `bullet-item` (• và –)
     - MC/choose-two: `.mcq-container` + `.option` + `onclick="selectOption/toggleMultiOption"`
-  - Cáº­p nháº­t header (Test X, Cambridge Y) + title tag + footer.
-  - Tá»± copy thÃªm báº£n vÃ o `Tainguyen/PDF to HTML/`.
-- Cháº¡y `python gen.py` â†’ **48 file** (hash khÃ¡c nhau 100%).
-- Re-run sau khi cáº£i thiá»‡n `render_blocks` (tá»± Ä‘á»™ng form-row khi label + gap, inline tail text).
-- Má»—i HTML giá» cÃ³ ná»™i dung **khÃ¡c háº³n**, Ä‘Ãºng theo Ä‘á» PDF gá»‘c (JSON trung gian), giao diá»‡n giá»‘ng há»‡t template reference.
+  - Cập nhật header (Test X, Cambridge Y) + title tag + footer.
+  - Tự copy thêm bản vào `Tainguyen/PDF to HTML/`.
+- Chạy `python gen.py` → **48 file** (hash khác nhau 100%).
+- Re-run sau khi cải thiện `render_blocks` (tự động form-row khi label + gap, inline tail text).
+- Mỗi HTML giờ có nội dung **khác hẳn**, đúng theo đề PDF gốc (JSON trung gian), giao diện giống hệt template reference.
 
-### Káº¿t quáº£
-- Cam9 T1: JOB ENQUIRY + SPORTS WORLD + Whales (Ä‘Ãºng Ä‘á»)
+### Kết quả
+- Cam9 T1: JOB ENQUIRY + SPORTS WORLD + Whales (đúng đề)
 - Cam10 T1: Self-drive tours in the USA + Leisure club + Spirit Bear
 - Cam9 T2: CRIME REPORT FORM + Self-Access Centre + Business Cultures
-- Táº¥t cáº£ cÃ³ inputs, options clickable, bullets Ä‘Ãºng, box viá»n Ä‘áº­m bo gÃ³c.
-- ÄÃ£ loáº¡i bá» hoÃ n toÃ n ná»™i dung Cam9 máº«u khá»i 47 Ä‘á» cÃ²n láº¡i.
+- Tất cả có inputs, options clickable, bullets đúng, box viền đậm bo góc.
+- Đã loại bỏ hoàn toàn nội dung Cam9 mẫu khỏi 47 đề còn lại.
 
-### Files liÃªn quan
-- `gen.py` (cáº£i tiáº¿n)
+### Files liên quan
+- `gen.py` (cải tiến)
 - `Tainguyen/IELTS/Listening IELTS_Test*_Cam*/*.html` (48)
 - `Tainguyen/PDF to HTML/*.html` (copies)
 
 ### Next
-- Náº¿u cáº§n render Ä‘áº¹p hÆ¡n (table layout P1, map áº£nh nhÃºng, section header chi tiáº¿t hÆ¡n) â†’ cÃ³ thá»ƒ má»Ÿ rá»™ng render + dÃ¹ng thÃªm `meta.json` + áº£nh.
-- Sau nÃ y muá»‘n regenerate chá»‰ cáº§n `python gen.py`.
+- Nếu cần render đẹp hơn (table layout P1, map ảnh nhúng, section header chi tiết hơn) → có thể mở rộng render + dùng thêm `meta.json` + ảnh.
+- Sau này muốn regenerate chỉ cần `python gen.py`.
 
 ---
 
-## Session 2026-07-13 â€” Convert 47 Ä‘á» Reading qua pipeline normalize + template (fix layout)
+## Session 2026-07-13 — Convert 47 đề Reading qua pipeline normalize + template (fix layout)
 
-### Gá»‘c rá»…
-- Adapter cÅ© lÃ m pháº³ng noteTable/notePassage â†’ máº¥t báº£ng, nháº£y dÃ²ng.
-- App cÃ³ sáºµn pipeline pure-function chuáº©n hÃ³a layout: `ieltsReadingAiNormalize.ts` + `readingNoteTableUtils.ts` + `ieltsReadingTemplateCatalog.ts` + `ieltsReadingPartTemplates.ts`. Cháº¡y offline (Node/tsx), khÃ´ng cáº§n browser.
-- YÃªu cáº§u: KHÃ”NG viáº¿t láº¡i parser tay, import trá»±c tiáº¿p tá»« source.
+### Gốc rễ
+- Adapter cũ làm phẳng noteTable/notePassage → mất bảng, nhảy dòng.
+- App có sẵn pipeline pure-function chuẩn hóa layout: `ieltsReadingAiNormalize.ts` + `readingNoteTableUtils.ts` + `ieltsReadingTemplateCatalog.ts` + `ieltsReadingPartTemplates.ts`. Chạy offline (Node/tsx), không cần browser.
+- Yêu cầu: KHÔNG viết lại parser tay, import trực tiếp từ source.
 
 ### Branch + commits
 - Branch: `feat/fix-reading-layout`
 - Commits:
-  - `1f1dd35` â€” step0: pipeline signature confirm
-  - `df393ba` â€” chore: gitignore + remove `_recover_wizard` artefacts
-  - `aa56810` â€” feat(reading): reverse-index all 73 wizard templates (BÆ°á»›c 1)
-  - `de38422` â€” feat(reading): convert 47 IELTS Reading exams via template pipeline (BÆ°á»›c 2â€“4)
-  - `08ebe77` â€” chore(reading): drop cam-7/cam-8 converted files (out of scope)
+  - `1f1dd35` — step0: pipeline signature confirm
+  - `df393ba` — chore: gitignore + remove `_recover_wizard` artefacts
+  - `aa56810` — feat(reading): reverse-index all 73 wizard templates (Bước 1)
+  - `de38422` — feat(reading): convert 47 IELTS Reading exams via template pipeline (Bước 2–4)
+  - `08ebe77` — chore(reading): drop cam-7/cam-8 converted files (out of scope)
 
-### BÆ°á»›c 0 â€” XÃ¡c minh signature (docs/READING-PIPELINE-CONFIRM.md)
-- Pure (0 hit `window|dexie|indexedDB|fetch|document.`) â†’ cháº¡y Node/tsx an toÃ n.
-- `normalizeAiReadingPart(part) â†’ part` (line 209)
+### Bước 0 — Xác minh signature (docs/READING-PIPELINE-CONFIRM.md)
+- Pure (0 hit `window|dexie|indexedDB|fetch|document.`) → chạy Node/tsx an toàn.
+- `normalizeAiReadingPart(part) → part` (line 209)
 - `alignQuestionGroupsToTemplate(part, templatePart)` (line 402)
 - `forceTemplateSummaryWordBanks(part, templatePart)` (line 461)
 - `forceTemplateHybridGroups(part, templatePart)` (line 562)
-- `applyReadingTemplateTableStructure(part, templatePart)` (line 849) â€” **wrapper compose sáºµn** merge + align + force + notePassage
-- `resolveReadingTemplateKind(passageNumber, kind)` â€” chá»‰ validate kind chuá»—i, KHÃ”NG detect tá»« displayType
-- `getIeltsReadingWizardTemplatePart(passageNumber, kind)` â€” line 9166
+- `applyReadingTemplateTableStructure(part, templatePart)` (line 849) — **wrapper compose sẵn** merge + align + force + notePassage
+- `resolveReadingTemplateKind(passageNumber, kind)` — chỉ validate kind chuỗi, KHÔNG detect từ displayType
+- `getIeltsReadingWizardTemplatePart(passageNumber, kind)` — line 9166
 
-### Quyáº¿t Ä‘á»‹nh user
-1. **Template detect:** B â€” Reverse-index all templates (cháº¡y 73 builder, trÃ­ch type-triplet, build map)
-2. **Wrapper:** dÃ¹ng `applyReadingTemplateTableStructure` (khÃ´ng sá»­a source, khÃ´ng export merge riÃªng)
+### Quyết định user
+1. **Template detect:** B — Reverse-index all templates (chạy 73 builder, trích type-triplet, build map)
+2. **Wrapper:** dùng `applyReadingTemplateTableStructure` (không sửa source, không export merge riêng)
 
-### BÆ°á»›c 1 â€” Reverse-index (aa56810)
-- Cháº¡y 73/73 template builder â†’ 0 lá»—i
+### Bước 1 — Reverse-index (aa56810)
+- Chạy 73/73 template builder → 0 lỗi
 - 63 unique type-triplet, 8 collision (first-wins per passage)
 - Output: `out-reading/template-triplet-index.json`
 
-### BÆ°á»›c 2â€“4 â€” Convert + validate (de38422)
-- Scope: 47 Ä‘á» (cam-9..20 Ã— T1â€“T4, trá»« `cam-11-2`) Â· 141 passage
-- Pipeline má»—i part: `normalizeAiReadingPart` â†’ (náº¿u matched) `applyReadingTemplateTableStructure(part, templatePart)`
-- **Matched 52/141 (37%)** â€” apply wrapper
-- **Fallback normalize-only 89/141 (63%)** â€” nguyÃªn nhÃ¢n:
-  - Cam9 T1â€“T4: group-per-question (13 MC = 13 group riÃªng láº») do generator cÅ© â†’ triplet 8â€“14 pháº§n tá»­, khÃ´ng template nÃ o khá»›p
-  - Cam12â€“20: nhiá»u passage cÃ³ triplet 4-group chÆ°a cÃ³ trong catalog (top: `matching-paragraph|summary-completion|multiple-choice|multiple-choice` Ã—6; `matching-paragraph|matching-features|summary-completion` Ã—4)
+### Bước 2–4 — Convert + validate (de38422)
+- Scope: 47 đề (cam-9..20 × T1–T4, trừ `cam-11-2`) · 141 passage
+- Pipeline mỗi part: `normalizeAiReadingPart` → (nếu matched) `applyReadingTemplateTableStructure(part, templatePart)`
+- **Matched 52/141 (37%)** — apply wrapper
+- **Fallback normalize-only 89/141 (63%)** — nguyên nhân:
+  - Cam9 T1–T4: group-per-question (13 MC = 13 group riêng lẻ) do generator cũ → triplet 8–14 phần tử, không template nào khớp
+  - Cam12–20: nhiều passage có triplet 4-group chưa có trong catalog (top: `matching-paragraph|summary-completion|multiple-choice|multiple-choice` ×6; `matching-paragraph|matching-features|summary-completion` ×4)
 - Output: `out-reading/converted/reading-cam-{9..20}-{1..4}.json` (47 file) + `VALIDATE-REPORT.md`
 
-### Cáº£nh bÃ¡o trÆ°á»›c/sau â€” KHÃ”NG tÃ¡i táº¡o Ä‘Æ°á»£c 345
-- Validator Ä‘Æ°á»£c export (`validateAiReadingPartShape`, `validateAiReadingPartAgainstTemplate`, `validateReadingNoteTable`): **trÆ°á»›c 4 â†’ sau 4**
-- Top loáº¡i sau: `missing-notePassage:3`, `missing-noteTable:1`. Top Ä‘á»: `reading-cam-16-4.json:4`
-- Sá»‘ **345** trong spec khÃ´ng Ä‘áº¿n tá»« 3 validator nÃ y â€” nghi lÃ  surface khÃ¡c (runtime wizard warning / groupRoles counter / seed log). Cáº§n user chá»‰ Ä‘Ãºng nguá»“n.
+### Cảnh báo trước/sau — KHÔNG tái tạo được 345
+- Validator được export (`validateAiReadingPartShape`, `validateAiReadingPartAgainstTemplate`, `validateReadingNoteTable`): **trước 4 → sau 4**
+- Top loại sau: `missing-notePassage:3`, `missing-noteTable:1`. Top đề: `reading-cam-16-4.json:4`
+- Số **345** trong spec không đến từ 3 validator này — nghi là surface khác (runtime wizard warning / groupRoles counter / seed log). Cần user chỉ đúng nguồn.
 
-### Files má»›i
-- `scripts/reading/adapt-reading.mjs` â€” raw adapter giá»¯ displayType
-- `scripts/reading/detect-template.mjs` â€” reverse-index detection
-- `scripts/reading/run-pipeline.mjs` â€” pipeline runner qua tsx
-- `scripts/reading/convert-and-validate.mts` â€” orchestrator (user Ä‘ang má»Ÿ file nÃ y)
-- `docs/READING-PIPELINE-CONFIRM.md` â€” BÆ°á»›c 0 signature report
+### Files mới
+- `scripts/reading/adapt-reading.mjs` — raw adapter giữ displayType
+- `scripts/reading/detect-template.mjs` — reverse-index detection
+- `scripts/reading/run-pipeline.mjs` — pipeline runner qua tsx
+- `scripts/reading/convert-and-validate.mts` — orchestrator (user đang mở file này)
+- `docs/READING-PIPELINE-CONFIRM.md` — Bước 0 signature report
 - `out-reading/template-triplet-index.json`
 - `out-reading/converted/reading-cam-{9..20}-{1..4}.json` (47)
 - `out-reading/VALIDATE-REPORT.md`
-- `.gitignore` â€” thÃªm `_recover_wizard/`
+- `.gitignore` — thêm `_recover_wizard/`
 
-### ChÆ°a xong / Blocker
-- [ ] **63% passage fallback** â€” cáº§n bÆ°á»›c consolidate group (gá»™p 13 MC-per-group thÃ nh 1 group MC) TRÆ¯á»šC pipeline Ä‘á»ƒ match template Cam9. Náº±m ngoÃ i scope (bá»‹ cáº¥m "viáº¿t láº¡i normalize") â€” cáº§n user cho phÃ©p thÃªm consolidator riÃªng biá»‡t.
-- [ ] **Nguá»“n sá»‘ 345** â€” user cáº§n xÃ¡c nháº­n validator/counter nÃ o cho ra 345, Ä‘á»ƒ Ä‘o before/after chÃ­nh xÃ¡c.
-- [ ] **Seed + so máº¯t cam-20-2** â€” cáº§n user cháº¡y build-catalog vá»›i converted files rá»“i má»Ÿ cam-20-2 so screenshot TID gá»‘c (báº£ng ra báº£ng, notes Ä‘Ãºng gap, sentence-ending khÃ´ng nháº£y dÃ²ng).
-- [ ] Bá»• sung template catalog cho 4-group triplet phá»• biáº¿n (giáº£m fallback tá»« 63% xuá»‘ng nhiá»u hÆ¡n).
+### Chưa xong / Blocker
+- [ ] **63% passage fallback** — cần bước consolidate group (gộp 13 MC-per-group thành 1 group MC) TRƯỚC pipeline để match template Cam9. Nằm ngoài scope (bị cấm "viết lại normalize") — cần user cho phép thêm consolidator riêng biệt.
+- [ ] **Nguồn số 345** — user cần xác nhận validator/counter nào cho ra 345, để đo before/after chính xác.
+- [ ] **Seed + so mắt cam-20-2** — cần user chạy build-catalog với converted files rồi mở cam-20-2 so screenshot TID gốc (bảng ra bảng, notes đúng gap, sentence-ending không nhảy dòng).
+- [ ] Bổ sung template catalog cho 4-group triplet phổ biến (giảm fallback từ 63% xuống nhiều hơn).
 
 ### Next session start prompt
 ```
-Äá»c session_summary.md pháº§n Session 2026-07-13.
+Đọc session_summary.md phần Session 2026-07-13.
 
-Branch: feat/fix-reading-layout. ÄÃ£ cÃ³ 5 commit convert 47 Ä‘á» Reading qua pipeline.
+Branch: feat/fix-reading-layout. Đã có 5 commit convert 47 đề Reading qua pipeline.
 
-Cáº§n user quyáº¿t:
-(a) Cho phÃ©p viáº¿t consolidator gá»™p group-per-question Cam9 trÆ°á»›c pipeline?
-(b) Sá»‘ 345 Ä‘áº¿n tá»« Ä‘Ã¢u (validate script/UI nÃ o)?
-(c) ÄÆ°a out-reading/converted/*.json vÃ o build-catalog pipeline nhÆ° nÃ o?
+Cần user quyết:
+(a) Cho phép viết consolidator gộp group-per-question Cam9 trước pipeline?
+(b) Số 345 đến từ đâu (validate script/UI nào)?
+(c) Đưa out-reading/converted/*.json vào build-catalog pipeline như nào?
 
-Sau khi cÃ³ (a)(b)(c):
-- Rerun pipeline vá»›i consolidator â†’ giáº£m fallback dÆ°á»›i 30%
-- Äo láº¡i warnings Ä‘Ãºng surface 345
-- pnpm build:catalog + seed láº¡i + user má»Ÿ cam-20-2 verify
+Sau khi có (a)(b)(c):
+- Rerun pipeline với consolidator → giảm fallback dưới 30%
+- Đo lại warnings đúng surface 345
+- pnpm build:catalog + seed lại + user mở cam-20-2 verify
 ```
 
-### Follow-up (line drops / rá»›t dÃ²ng fix)
+### Follow-up (line drops / rớt dòng fix)
 - User reported text dropping to new lines (real paper keeps the sentence + blank on 1 line).
 - Rewrote render_blocks: more aggressive lookahead for gaps after any static; always wrap static+gap+tail into one flex container (bullet-item / form-row / generic display:flex nowrap).
 - Reduced over-greedy chaining (only immediate tail after a gap; stop unless consecutive gaps).
-- Re-ran `python gen.py` â†’ all 48 (the 47 + Cam9 T1) updated.
+- Re-ran `python gen.py` → all 48 (the 47 + Cam9 T1) updated.
 - Result: "text [n] trail", "label: text [n] more", plain note lines now stay inline in their div. Loose <span class=question-number> greatly reduced.
 - Applies uniformly because generator is the single source for all HTMLs.
 
@@ -2689,8 +2729,8 @@ Sau khi cÃ³ (a)(b)(c):
   - localhost va production dung chung callback dung origin
 
 ## Van de dang mo
-- [x] **Listening thanh cuon ngang/dá»c thá»«a** (2026-07-01) â€” fix: bá» `overflow-x-auto` tabs, shell 2 lá»›p `.listening-lesson-shell` + `.listening-lesson-scroll`, áº©n scrollbar trong `globals.css`, bá» debug MutationObserver. **Chá» user hard refresh vÃ  xÃ¡c nháº­n.**
-- Debug query váº«n cÃ²n: `lsnDebug`, `lsnPracticeDebug` (náº¿u cáº§n isolate component).
+- [x] **Listening thanh cuon ngang/dọc thừa** (2026-07-01) — fix: bỏ `overflow-x-auto` tabs, shell 2 lớp `.listening-lesson-shell` + `.listening-lesson-scroll`, ẩn scrollbar trong `globals.css`, bỏ debug MutationObserver. **Chờ user hard refresh và xác nhận.**
+- Debug query vẫn còn: `lsnDebug`, `lsnPracticeDebug` (nếu cần isolate component).
 
 ## File nong can mo lai o phien sau
 - `apps/web/src/features/listening/ListeningLessonPage.tsx`
@@ -2709,53 +2749,53 @@ Sau khi cÃ³ (a)(b)(c):
   - `http://localhost:5173/auth/callback`
   - production domain `/auth/callback`
 
-## Má»¥c tiÃªu Æ°u tiÃªn phiÃªn sau (2026-07-02, tiáº¿p)
+## Mục tiêu ưu tiên phiên sau (2026-07-02, tiếp)
 
-### IELTS Listening â€” user confirm
-1. Hard refresh â†’ Cam20 Test 1 â€” so `Giaodien/a5â€“a10`
-2. Cam9 Test 1 â€” static lines P1/P4
-3. OK â†’ `pnpm deploy:prod`
+### IELTS Listening — user confirm
+1. Hard refresh → Cam20 Test 1 — so `Giaodien/a5–a10`
+2. Cam9 Test 1 — static lines P1/P4
+3. OK → `pnpm deploy:prod`
 
-### Luyá»‡n thi â€” Import Ä‘á» (backlog)
+### Luyện thi — Import đề (backlog)
 - KET/PET/FCE/CAE Listening + Reading ZIP test
 - PET Listening: `HDSD/Prompt-PET-B1-Listening.txt`
 
-### KhÃ¡c (náº¿u user nháº¯c)
-- Cam20 P1 table layout 4 cá»™t
-- Listening lesson thanh cuá»™n thá»«a â€” `?lsnDebug=only-tabs`
-- iOS Ã” CHá»® + Web Audio autoplay
+### Khác (nếu user nhắc)
+- Cam20 P1 table layout 4 cột
+- Listening lesson thanh cuộn thừa — `?lsnDebug=only-tabs`
+- iOS Ô CHỮ + Web Audio autoplay
 
-## Session 2026-07-04 â€” Fix Cambridge IELTS 9 Test 2 Part 4 (Business Cultures)
+## Session 2026-07-04 — Fix Cambridge IELTS 9 Test 2 Part 4 (Business Cultures)
 
-### Váº¥n Ä‘á»
-- Part 4 notePassage cho "Business Cultures" (Power/Role/Task culture) note format khÃ´ng khá»›p layout thá»±c táº¿ cá»§a Ä‘á».
-- CÃ¡c dÃ²ng Ä‘áº·c Ä‘iá»ƒm tá»• chá»©c khÃ´ng cÃ³ cáº¥u trÃºc header "Characteristics of organization:" + danh sÃ¡ch con dÃ¹ng "â€“".
-- Gap 31 (central) bá»‹ tÃ¡ch sai; tÆ°Æ¡ng tá»± nhiá»u chá»— khÃ¡c.
-- User cung cáº¥p format chi tiáº¿t hÆ¡n vá»›i â— cho header items (Advantage, Disadvantage, Suitable employee, Characteristics..., Advantages, Disadvantages) vÃ  â€“ cho sub-items, kÃ¨m inline gaps Ä‘Ãºng vá»‹ trÃ­.
+### Vấn đề
+- Part 4 notePassage cho "Business Cultures" (Power/Role/Task culture) note format không khớp layout thực tế của đề.
+- Các dòng đặc điểm tổ chức không có cấu trúc header "Characteristics of organization:" + danh sách con dùng "–".
+- Gap 31 (central) bị tách sai; tương tự nhiều chỗ khác.
+- User cung cấp format chi tiết hơn với ● cho header items (Advantage, Disadvantage, Suitable employee, Characteristics..., Advantages, Disadvantages) và – cho sub-items, kèm inline gaps đúng vị trí.
 
-### ÄÃ£ fix (láº§n 2)
-- Viáº¿t láº¡i toÃ n bá»™ `notePassage` blocks theo Ä‘Ãºng format user Ä‘Æ°a ra (káº¿t há»£p 2 tin nháº¯n):
-  - â— Characteristics of organization:
-    â€“ small
-    â€“ [31] power source
-    â€“ few rules and procedures
-    â€“ communication by [32]
-  - â— Advantage: can act quickly
-  - â— Disadvantage: might not act [33]
-  - â— Suitable employee:
-    â€“ not afraid of [34]
-    â€“ doesn't need job security
-  - Role Culture + â— Characteristics... vá»›i â€“ large, many [35] / specialized departments / job [36]...
-  - â— Advantages: / â— Disadvantages: / â— Suitable employee: vá»›i subs
-  - Task Culture: â— Characteristic of organization: (singular nhÆ° user) + 3 â€“ subs
-  - â— Advantages: [40]
-- Sá»­ dá»¥ng literal "â— " (khÃ´ng bá»‹ strip hoÃ n toÃ n) + "â€“ " cho sub Ä‘á»ƒ renderer + CSS táº¡o Ä‘Ãºng bullet style.
-- Cáº­p nháº­t gapLead/gapTrail trÃªn questions 31,33,34,35,36,37,38,39,40 Ä‘á»ƒ há»— trá»£ inline grouping tá»‘t hÆ¡n.
-- Cáº­p nháº­t cáº£ exam_part4.json + exam.json.
-- Cháº¡y `pnpm build:catalog` + repack ZIP.
-- Giá»¯ láº¡i pháº§n cÃ²n láº¡i cá»§a Task (Disadvantages + Suitable) Ä‘á»ƒ Ä‘áº§y Ä‘á»§ 10 cÃ¢u.
+### Đã fix (lần 2)
+- Viết lại toàn bộ `notePassage` blocks theo đúng format user đưa ra (kết hợp 2 tin nhắn):
+  - ● Characteristics of organization:
+    – small
+    – [31] power source
+    – few rules and procedures
+    – communication by [32]
+  - ● Advantage: can act quickly
+  - ● Disadvantage: might not act [33]
+  - ● Suitable employee:
+    – not afraid of [34]
+    – doesn't need job security
+  - Role Culture + ● Characteristics... với – large, many [35] / specialized departments / job [36]...
+  - ● Advantages: / ● Disadvantages: / ● Suitable employee: với subs
+  - Task Culture: ● Characteristic of organization: (singular như user) + 3 – subs
+  - ● Advantages: [40]
+- Sử dụng literal "● " (không bị strip hoàn toàn) + "– " cho sub để renderer + CSS tạo đúng bullet style.
+- Cập nhật gapLead/gapTrail trên questions 31,33,34,35,36,37,38,39,40 để hỗ trợ inline grouping tốt hơn.
+- Cập nhật cả exam_part4.json + exam.json.
+- Chạy `pnpm build:catalog` + repack ZIP.
+- Giữ lại phần còn lại của Task (Disadvantages + Suitable) để đầy đủ 10 câu.
 
-### Files Ä‘Ã£ sá»­a
+### Files đã sửa
 - Tainguyen/IELTS/Listening IELTS_Test2_Cam9/exam_part4.json
 - Tainguyen/IELTS/Listening IELTS_Test2_Cam9/exam.json
 - packages/catalog/data/listening-ielts-cam9-test2.json removed from active catalog samples (user imports manually)
@@ -2763,657 +2803,657 @@ Sau khi cÃ³ (a)(b)(c):
 
 ---
 
-## Session 2026-07-04 â€” XÃ³a sáº¡ch 48 Ä‘á» máº«u IELTS Cam9-20 (user request)
+## Session 2026-07-04 — Xóa sạch 48 đề mẫu IELTS Cam9-20 (user request)
 
-### LÃ½ do
-- User láº·p láº¡i: "XÃ³a sáº¡ch 48 Ä‘á» máº«u", "KhÃ´ng á»•n rá»“i báº¡n Æ¡i. HÃ£y xÃ³a sáº¡ch Ä‘á» máº«u trong app Ä‘i. MÃ¬nh qua hÆ°á»›ng khÃ¡c Ä‘á»ƒ import Ä‘á» vÃ´", "CÃ€NG FIX CÃ€NG Rá»I VÃ€ KHÃ”NG GIáº¢I QUYáº¾T ÄÆ¯á»¢C Váº¤N Äá»€", "tÃ”I KHÃ”NG xÃ³a cache hoáº·c xÃ³a Ä‘á» trong app Ä‘c".
-- NguyÃªn nhÃ¢n rá»‘i: Dexie local + catalog builtin váº«n override ná»™i dung má»›i (Cam9 T2 Part1 pháº£i lÃ  ACCOMMODATION FORM, khÃ´ng pháº£i CRIME).
-- Giáº£i phÃ¡p triá»‡t Ä‘á»ƒ: xÃ³a sáº¡ch 48 Cam9-20 khá»i catalog/builtin. User tá»± import thá»§ cÃ´ng tá»« Tainguyen (Ä‘Ãºng data).
+### Lý do
+- User lặp lại: "Xóa sạch 48 đề mẫu", "Không ổn rồi bạn ơi. Hãy xóa sạch đề mẫu trong app đi. Mình qua hướng khác để import đề vô", "CÀNG FIX CÀNG RỐI VÀ KHÔNG GIẢI QUYẾT ĐƯỢC VẤN ĐỀ", "tÔI KHÔNG xóa cache hoặc xóa đề trong app đc".
+- Nguyên nhân rối: Dexie local + catalog builtin vẫn override nội dung mới (Cam9 T2 Part1 phải là ACCOMMODATION FORM, không phải CRIME).
+- Giải pháp triệt để: xóa sạch 48 Cam9-20 khỏi catalog/builtin. User tự import thủ công từ Tainguyen (đúng data).
 
-### ÄÃ£ lÃ m (xÃ³a triá»‡t Ä‘á»ƒ)
-- scripts/build-catalog.mjs: disable hoÃ n toÃ n discoverIeltsListeningBundles() + comment rÃµ + bá» gá»i writeGenerated. BUNDLES chá»‰ cÃ²n STATIC (KET/PET/FCE/CAE).
-- packages/catalog/src/generatedIeltsListening.ts: xÃ³a háº¿t import + array rá»—ng GENERATED_IELTS_LISTENING_EXAMS = [], header giáº£i thÃ­ch.
-- packages/catalog/data/manifest.json: xÃ³a sáº¡ch 48 entry ielts trong "listening", chá»‰ giá»¯ 4 non-ielts.
-- XÃ³a 48 file listening-ielts-cam*.json trong packages/catalog/data/.
-- XÃ³a 48 thÆ° má»¥c ielts-cam*-test* (kÃ¨m mp3) trong apps/web/public/catalog/listening/.
-- builtinExams.ts, listeningExamData.ts, listeningExamLoader.ts: tá»± Ä‘á»™ng sáº¡ch (dá»±a CATALOG + GENERATED rá»—ng). KhÃ´ng cÃ²n force cam9 cÅ©.
+### Đã làm (xóa triệt để)
+- scripts/build-catalog.mjs: disable hoàn toàn discoverIeltsListeningBundles() + comment rõ + bỏ gọi writeGenerated. BUNDLES chỉ còn STATIC (KET/PET/FCE/CAE).
+- packages/catalog/src/generatedIeltsListening.ts: xóa hết import + array rỗng GENERATED_IELTS_LISTENING_EXAMS = [], header giải thích.
+- packages/catalog/data/manifest.json: xóa sạch 48 entry ielts trong "listening", chỉ giữ 4 non-ielts.
+- Xóa 48 file listening-ielts-cam*.json trong packages/catalog/data/.
+- Xóa 48 thư mục ielts-cam*-test* (kèm mp3) trong apps/web/public/catalog/listening/.
+- builtinExams.ts, listeningExamData.ts, listeningExamLoader.ts: tự động sạch (dựa CATALOG + GENERATED rỗng). Không còn force cam9 cũ.
 
-### Káº¿t quáº£
-- Catalog chá»‰ ship 4 Ä‘á» Listening (KET A2, PET B1, FCE B2, CAE C1).
-- 48 IELTS Cam9-20 khÃ´ng cÃ²n lÃ  "Ä‘á» máº«u" builtin.
-- User import tá»« Tainguyen/IELTS/... sáº½ khÃ´ng conflict.
+### Kết quả
+- Catalog chỉ ship 4 đề Listening (KET A2, PET B1, FCE B2, CAE C1).
+- 48 IELTS Cam9-20 không còn là "đề mẫu" builtin.
+- User import từ Tainguyen/IELTS/... sẽ không conflict.
 
-### Lá»‡nh user cháº¡y
-pnpm build:catalog   # (tÃ¹y chá»n, Ä‘Ã£ edit trá»±c tiáº¿p)
+### Lệnh user chạy
+pnpm build:catalog   # (tùy chọn, đã edit trực tiếp)
 pnpm dev
-â†’ hard refresh (Ctrl+Shift+R)
-Sau Ä‘Ã³ dÃ¹ng Import thá»§ cÃ´ng Listening Ä‘á»ƒ Ä‘Æ°a Ä‘á» Tainguyen vÃ o.
+→ hard refresh (Ctrl+Shift+R)
+Sau đó dùng Import thủ công Listening để đưa đề Tainguyen vào.
 
 ### Verify
 - tsc pass
-- Chá»‰ cÃ²n catalog listening 4 entries
-- KhÃ´ng cÃ³ "catalog-listening-ielts" active trong code paths
+- Chỉ còn catalog listening 4 entries
+- Không có "catalog-listening-ielts" active trong code paths
 
 ---
 
-### Cam10 Test 3 Part 4 â€” Leaders / Conclusion (2026-07-04)
-- `exam_part4.json`: bá»• sung Ä‘á»§ section **Leaders**, **Conclusion**, cÃ¡c dÃ²ng static (Prevention Focus, inspire promotion/prevention, káº¿t luáº­n sau Q40).
-- `exam.json` + ZIP: `pnpm ielts:bundle "IELTS/Listening IELTS_Test3_Cam10"` â€” validate pass.
-- `scripts/build-ielts-cam9-10-listening.py` `cam10_t3_p4()` Ä‘á»“ng bá»™ cÃ¹ng cáº¥u trÃºc.
+### Cam10 Test 3 Part 4 — Leaders / Conclusion (2026-07-04)
+- `exam_part4.json`: bổ sung đủ section **Leaders**, **Conclusion**, các dòng static (Prevention Focus, inspire promotion/prevention, kết luận sau Q40).
+- `exam.json` + ZIP: `pnpm ielts:bundle "IELTS/Listening IELTS_Test3_Cam10"` — validate pass.
+- `scripts/build-ielts-cam9-10-listening.py` `cam10_t3_p4()` đồng bộ cùng cấu trúc.
 
-### Cam11 Import DOCX Wizard â€” ngáº¯t dÃ²ng + phantom P4 (2026-07-04)
-- **Triá»‡u chá»©ng:** Import DOCX Cam11 T1 â€” dÃ²ng trá»‘ng kÃ©p, gap sá»‘ tÃ¡ch thÃ nh paragraph riÃªng (`â— the` / `1` / `Room`); sau Táº¡o JSON Part 4 xuáº¥t hiá»‡n dÃ²ng Cam10 Leadership (*emphasise the results of a mistake*, *inspire prevention focus in followers*) khÃ´ng cÃ³ trong Word.
-- **NguyÃªn nhÃ¢n:** `expandMultilineParagraphs` + `partLinesToExamText` join `\n\n`; `repairP4LectureSections` inject gap 39/40 cho má»i Part 4 cÃ³ gap 39.
-- **Fix:** Wizard gá»i `extractDocxContent(..., { splitMultilineParagraphs: false })`; `partLinesToExamText` join `\n`; `isLeadershipLectureP4()` â€” chá»‰ repair Leaders/Conclusion khi Ä‘á» Leadership (Cam10 T3), khÃ´ng Ã¡p Ocean Biodiversity.
-- **Verify:** Cam11 docx â†’ Part 1 ~41 dÃ²ng (gap inline), Part 4 Ocean Biodiversity, `phantom: false`; tsc pass.
+### Cam11 Import DOCX Wizard — ngắt dòng + phantom P4 (2026-07-04)
+- **Triệu chứng:** Import DOCX Cam11 T1 — dòng trống kép, gap số tách thành paragraph riêng (`● the` / `1` / `Room`); sau Tạo JSON Part 4 xuất hiện dòng Cam10 Leadership (*emphasise the results of a mistake*, *inspire prevention focus in followers*) không có trong Word.
+- **Nguyên nhân:** `expandMultilineParagraphs` + `partLinesToExamText` join `\n\n`; `repairP4LectureSections` inject gap 39/40 cho mọi Part 4 có gap 39.
+- **Fix:** Wizard gọi `extractDocxContent(..., { splitMultilineParagraphs: false })`; `partLinesToExamText` join `\n`; `isLeadershipLectureP4()` — chỉ repair Leaders/Conclusion khi đề Leadership (Cam10 T3), không áp Ocean Biodiversity.
+- **Verify:** Cam11 docx → Part 1 ~41 dòng (gap inline), Part 4 Ocean Biodiversity, `phantom: false`; tsc pass.
 
-### Cam10 Test 4 Part 1 â€” Address ngáº¯t dÃ²ng (a6 Thorndyke, 2026-07-04)
-- **NguyÃªn nhÃ¢n:** AI Import Wizard hay gá»™p `Park Flats (Behind the` thÃ nh má»™t static block â†’ logic gom dÃ²ng khÃ´ng ná»‘i vÃ o `Address: Flat 4, [2]`.
-- **Fix `listeningNotePassage.ts`:** `repairFormPassageInlineBlocks()` tÃ¡ch static gá»™p; `formLineCanContinue()` + regex má»Ÿ rá»™ng trong `isFormInlineSegment()`; `prepareNotePassageBlocks` gá»i repair trÆ°á»›c atomize.
-- **Fix `ieltsListeningAiNormalize.ts`:** `repairP1FormPassage()` khi normalize AI Part 1; máº·c Ä‘á»‹nh `notePassageLayout: "form"` náº¿u thiáº¿u.
-- **Káº¿t quáº£:** má»™t dÃ²ng `Address: Flat 4, | [2] | Park Flats | (Behind the | [3] | )`.
+### Cam10 Test 4 Part 1 — Address ngắt dòng (a6 Thorndyke, 2026-07-04)
+- **Nguyên nhân:** AI Import Wizard hay gộp `Park Flats (Behind the` thành một static block → logic gom dòng không nối vào `Address: Flat 4, [2]`.
+- **Fix `listeningNotePassage.ts`:** `repairFormPassageInlineBlocks()` tách static gộp; `formLineCanContinue()` + regex mở rộng trong `isFormInlineSegment()`; `prepareNotePassageBlocks` gọi repair trước atomize.
+- **Fix `ieltsListeningAiNormalize.ts`:** `repairP1FormPassage()` khi normalize AI Part 1; mặc định `notePassageLayout: "form"` nếu thiếu.
+- **Kết quả:** một dòng `Address: Flat 4, | [2] | Park Flats | (Behind the | [3] | )`.
 
-### Batch validate 48 Ä‘á» IELTS Listening (2026-07-04)
-- Cháº¡y `pnpm ielts:validate` trÃªn cáº£ 48 folder `Tainguyen/IELTS/Listening IELTS_Test*_Cam*` â†’ **48 PASS, 0 FAIL**.
-- Cam11 T1 pass; Part 4 = Ocean Biodiversity (JSON gá»‘c Ä‘Ãºng, khÃ´ng phantom Leadership).
-- Chá»‰ cÃ³ **7 file .zip** sáºµn; 41 Ä‘á» cÃ²n láº¡i cáº§n `pnpm ielts:bundle` trÆ°á»›c khi import UI.
+### Batch validate 48 đề IELTS Listening (2026-07-04)
+- Chạy `pnpm ielts:validate` trên cả 48 folder `Tainguyen/IELTS/Listening IELTS_Test*_Cam*` → **48 PASS, 0 FAIL**.
+- Cam11 T1 pass; Part 4 = Ocean Biodiversity (JSON gốc đúng, không phantom Leadership).
+- Chỉ có **7 file .zip** sẵn; 41 đề còn lại cần `pnpm ielts:bundle` trước khi import UI.
 
-## Lá»—i cÃ²n tá»“n táº¡i (cáº­p nháº­t 2026-07-04)
-- KhÃ´ng cÃ²n 48 Ä‘á» builtin IELTS trong catalog â†’ user import thá»§ cÃ´ng tá»« Tainguyen.
-- **Import Wizard DOCX + AI** váº«n rá»§i ro (gá»™p dÃ²ng form, AI lá»‡ch layout) â€” **khÃ´ng dÃ¹ng** cho 48 Ä‘á» Ä‘Ã£ cÃ³ `exam_part*.json`.
-- Náº¿u bug sau import ZIP: sá»­a `exam_partN.json` trong Tainguyen â†’ `pnpm ielts:bundle` â†’ import láº¡i ZIP.
-- CÃ¡c media ielts trong dist/ (build cÅ©) sáº½ bá»‹ thay khi rebuild catalog.
+## Lỗi còn tồn tại (cập nhật 2026-07-04)
+- Không còn 48 đề builtin IELTS trong catalog → user import thủ công từ Tainguyen.
+- **Import Wizard DOCX + AI** vẫn rủi ro (gộp dòng form, AI lệch layout) — **không dùng** cho 48 đề đã có `exam_part*.json`.
+- Nếu bug sau import ZIP: sửa `exam_partN.json` trong Tainguyen → `pnpm ielts:bundle` → import lại ZIP.
+- Các media ielts trong dist/ (build cũ) sẽ bị thay khi rebuild catalog.
 
-## Káº¿ hoáº¡ch session tiáº¿p theo â€” Import 48 Ä‘á» IELTS Listening (ZIP)
+## Kế hoạch session tiếp theo — Import 48 đề IELTS Listening (ZIP)
 
-**NguyÃªn táº¯c:** DÃ¹ng **Import thá»§ cÃ´ng Listening (ZIP)** â€” KHÃ”NG dÃ¹ng Import Wizard DOCX / Import Word cho bulk.
+**Nguyên tắc:** Dùng **Import thủ công Listening (ZIP)** — KHÔNG dùng Import Wizard DOCX / Import Word cho bulk.
 
-| BÆ°á»›c | Viá»‡c | Lá»‡nh / UI |
+| Bước | Việc | Lệnh / UI |
 |------|------|-----------|
-| 1 | Pack ZIP 48 Ä‘á» | `pnpm ielts:bundle "IELTS/Listening IELTS_Test{N}_Cam{X}"` hoáº·c batch PowerShell (xem Next prompt) |
-| 2 | Pilot 3 Ä‘á» | Cam11 T1, Cam10 T3 (Leadership), Cam9 T2 â€” import ZIP, so UI vá»›i `IELTS_Test*_Listening_Cam*.html` |
-| 3 | Import hÃ ng loáº¡t | Luyá»‡n thi â†’ IELTS â†’ **Import thá»§ cÃ´ng Listening** â†’ chá»n tá»«ng `.zip` |
-| 4 | Kiá»ƒm tra UI | P1 gap inline, P2 map/diagram, P4 Ä‘Ãºng tiÃªu Ä‘á» lecture |
-| 5 | (TÃ¹y chá»n) Ship catalog | Sau khi UI á»•n â†’ báº­t láº¡i builtin IELTS + `pnpm build:catalog` + deploy |
+| 1 | Pack ZIP 48 đề | `pnpm ielts:bundle "IELTS/Listening IELTS_Test{N}_Cam{X}"` hoặc batch PowerShell (xem Next prompt) |
+| 2 | Pilot 3 đề | Cam11 T1, Cam10 T3 (Leadership), Cam9 T2 — import ZIP, so UI với `IELTS_Test*_Listening_Cam*.html` |
+| 3 | Import hàng loạt | Luyện thi → IELTS → **Import thủ công Listening** → chọn từng `.zip` |
+| 4 | Kiểm tra UI | P1 gap inline, P2 map/diagram, P4 đúng tiêu đề lecture |
+| 5 | (Tùy chọn) Ship catalog | Sau khi UI ổn → bật lại builtin IELTS + `pnpm build:catalog` + deploy |
 
-**TrÃ¡nh nháº§m 3 nÃºt Import Listening:**
-| NÃºt | DÃ¹ng cho 48 Ä‘á»? |
+**Tránh nhầm 3 nút Import Listening:**
+| Nút | Dùng cho 48 đề? |
 |-----|-----------------|
-| **Import thá»§ cÃ´ng Listening** (ZIP) | **CÃ³ â€” Ä‘Æ°á»ng chÃ­nh** |
-| **Import Word** (DOCX parser) | KhÃ´ng (Ä‘Ã£ cÃ³ JSON trong Tainguyen) |
-| **Import Wizard â†’ Import DOCX** (AI) | **KhÃ´ng** (dá»… lá»—i ngáº¯t dÃ²ng / phantom P4) |
+| **Import thủ công Listening** (ZIP) | **Có — đường chính** |
+| **Import Word** (DOCX parser) | Không (đã có JSON trong Tainguyen) |
+| **Import Wizard → Import DOCX** (AI) | **Không** (dễ lỗi ngắt dòng / phantom P4) |
 
 ### IELTS Reading Import Wizard (paste + AI, 2026-07-04)
-- **Flow giá»‘ng Listening Wizard:** Setup (title, Cam/Test, Answer Key 1â€“40) â†’ Passage 1â€“3 (chá»n template, paste Word, AI JSON) â†’ Preview â†’ LÆ°u Dexie.
-- **Files má»›i:** `ieltsReadingWizard/IeltsReadingImportWizard.tsx`, `WizardPassageStepPanel.tsx`.
-- **Core Ä‘Ã£ cÃ³:** config, templates (18 layout), AI prompt/normalize/generate, persist (`ielts-reading-import-wizard-draft`).
-- **ExamTrackPage:** nÃºt **Import Wizard Reading** trÃªn track IELTS + badge "CÃ³ nhÃ¡p".
-- **CSS:** reuse `ieltsListeningWizard.css` + `.ielts-wizard-template-card--text` cho template khÃ´ng áº£nh.
+- **Flow giống Listening Wizard:** Setup (title, Cam/Test, Answer Key 1–40) → Passage 1–3 (chọn template, paste Word, AI JSON) → Preview → Lưu Dexie.
+- **Files mới:** `ieltsReadingWizard/IeltsReadingImportWizard.tsx`, `WizardPassageStepPanel.tsx`.
+- **Core đã có:** config, templates (18 layout), AI prompt/normalize/generate, persist (`ielts-reading-import-wizard-draft`).
+- **ExamTrackPage:** nút **Import Wizard Reading** trên track IELTS + badge "Có nháp".
+- **CSS:** reuse `ieltsListeningWizard.css` + `.ielts-wizard-template-card--text` cho template không ảnh.
 - **Save:** `buildReadingExamFromImport` + `examRecordFromReading(exam, 'manual', wizard-camX-testY)`.
 
-## Session 2026-07-05 â€” HTML mock Ä‘áº§y Ä‘á»§ tá»« exam_part*.json (user lÃ m DOCX riÃªng)
+## Session 2026-07-05 — HTML mock đầy đủ từ exam_part*.json (user làm DOCX riêng)
 
-### Bá»‘i cáº£nh
-- User sáº½ tá»± lÃ m file **DOCX** giá»‘ng Ä‘á» thi tháº­t nháº¥t.
-- HTML trong `Tainguyen/IELTS/.../*.html` trÆ°á»›c Ä‘Ã³ **thiáº¿u** báº£ng, map, flow-chart, section headers, example.
+### Bối cảnh
+- User sẽ tự làm file **DOCX** giống đề thi thật nhất.
+- HTML trong `Tainguyen/IELTS/.../*.html` trước đó **thiếu** bảng, map, flow-chart, section headers, example.
 
-### ÄÃ£ lÃ m
-- Viáº¿t láº¡i `gen.py` â€” nguá»“n chÃ­nh `exam_part1â€“4.json` (fallback `exam.json`):
-  - `noteTable` / `noteTables` (báº£ng P1 Cam20, P2 Cam9 T2, P4 tableâ€¦)
-  - `map.jpg` / `diagram.jpg` nhÃºng relative
+### Đã làm
+- Viết lại `gen.py` — nguồn chính `exam_part1–4.json` (fallback `exam.json`):
+  - `noteTable` / `noteTables` (bảng P1 Cam20, P2 Cam9 T2, P4 table…)
+  - `map.jpg` / `diagram.jpg` nhúng relative
   - Section headers (`sectionRange`, `sectionInstruction`, `sectionTitle`)
-  - MC, Choose TWO (gá»™p 2 cÃ¢u), map labeling Aâ€“I, flow-chart Aâ€“H, matching list
+  - MC, Choose TWO (gộp 2 câu), map labeling A–I, flow-chart A–H, matching list
   - Example block P1, form/lecture layout, gap inline
-- `pnpm gen:ielts-html` (= `python gen.py`) â€” regenerate 48 file + copy `Tainguyen/PDF to HTML/`
-- Verify: Cam20 T1 cÃ³ báº£ng Restaurant; Cam9 T2 cÃ³ báº£ng Parks + MC Ä‘Ãºng JSON + `map.jpg` HINCHINGBROOKE; Cam9 T1 cÃ³ Example + Q9 inline
+- `pnpm gen:ielts-html` (= `python gen.py`) — regenerate 48 file + copy `Tainguyen/PDF to HTML/`
+- Verify: Cam20 T1 có bảng Restaurant; Cam9 T2 có bảng Parks + MC đúng JSON + `map.jpg` HINCHINGBROOKE; Cam9 T1 có Example + Q9 inline
 
-### Workflow Ä‘á» xuáº¥t (DOCX + HTML)
-| BÆ°á»›c | User / Agent |
+### Workflow đề xuất (DOCX + HTML)
+| Bước | User / Agent |
 |------|----------------|
-| 1 | User lÃ m DOCX theo Ä‘á» giáº¥y |
-| 2 | (Tuá»³ chá»n) ChatGPT/Import Wizard â†’ `exam_partN.json` |
-| 3 | `pnpm ielts:bundle` â†’ ZIP import app |
-| 4 | `pnpm gen:ielts-html` â†’ HTML tham chiáº¿u so vá»›i DOCX/PDF |
+| 1 | User làm DOCX theo đề giấy |
+| 2 | (Tuỳ chọn) ChatGPT/Import Wizard → `exam_partN.json` |
+| 3 | `pnpm ielts:bundle` → ZIP import app |
+| 4 | `pnpm gen:ielts-html` → HTML tham chiếu so với DOCX/PDF |
 
-### Cam11 Test 4 Part 1 â€” FESTIVAL EVENTS table + PLAYS (2026-07-05)
-- **Triá»‡u chá»©ng:** notePassage tab-separated lá»™n xá»™n; Jazz thiáº¿u "Also appearing"; Duck races thiáº¿u prize [4]; Flower show venue/notes sai; Q8â€“10 mapLabel Aâ€“I.
-- **Fix JSON:** `noteTables` 4 cá»™t Ä‘Ãºng True.jpg (break trong Notes Duck races); `[6] Hall`; PLAYS matching Aâ€“C.
+### Cam11 Test 4 Part 1 — FESTIVAL EVENTS table + PLAYS (2026-07-05)
+- **Triệu chứng:** notePassage tab-separated lộn xộn; Jazz thiếu "Also appearing"; Duck races thiếu prize [4]; Flower show venue/notes sai; Q8–10 mapLabel A–I.
+- **Fix JSON:** `noteTables` 4 cột đúng True.jpg (break trong Notes Duck races); `[6] Hall`; PLAYS matching A–C.
 - **ZIP:** `Listening IELTS_Test4_Cam11.zip` repack.
 
-### Cam12 Test 1 Part 1 â€” FAMILY EXCURSIONS form notes (2026-07-05)
-- **Tham chiáº¿u:** `Tainguyen/IELTS/Fix/Cam 12/Test 1/True.jpg`.
-- **Triá»‡u chá»©ng:** Cyclists need â€” repair kit / food and drink / [8] gom má»™t dÃ²ng; Q4 `â€¢ â€¢`; sub-list thiáº¿u `â€“`.
-- **Fix JSON:** `â€¢ Cyclists need:` + `â€“` sub-items; Q4 `â€¢` + gap; `np_section("Cost")`; terminal Q7 khÃ´ng bullet.
-- **Fix build:** `cam12_t1_p1()` trong `build-ielts-cam12-v2-listening.py`; skip `_enrich_passage_bullets` khi JSON Ä‘Ã£ cÃ³ markers.
-- **Fix renderer:** `shouldAppendToFormLine` â€” khÃ´ng gom chá»¯ `a` vÃ o dÃ²ng bullet trÆ°á»›c.
+### Cam12 Test 1 Part 1 — FAMILY EXCURSIONS form notes (2026-07-05)
+- **Tham chiếu:** `Tainguyen/IELTS/Fix/Cam 12/Test 1/True.jpg`.
+- **Triệu chứng:** Cyclists need — repair kit / food and drink / [8] gom một dòng; Q4 `• •`; sub-list thiếu `–`.
+- **Fix JSON:** `• Cyclists need:` + `–` sub-items; Q4 `•` + gap; `np_section("Cost")`; terminal Q7 không bullet.
+- **Fix build:** `cam12_t1_p1()` trong `build-ielts-cam12-v2-listening.py`; skip `_enrich_passage_bullets` khi JSON đã có markers.
+- **Fix renderer:** `shouldAppendToFormLine` — không gom chữ `a` vào dòng bullet trước.
 - **ZIP:** `Listening IELTS_Test1_Cam12.zip` repack PASS.
 
-### Cam11 Test 4 Part 4 â€” Soil / COâ‚‚ lecture notes (2026-07-05)
-- **Tham chiáº¿u:** `Tainguyen/IELTS/Fix/Cam 11/Test 4/True.jpg`.
-- **Triá»‡u chá»©ng:** thiáº¿u nhiá»u bullet (Claims 13%, carbon lost, fertilizer, e.g. year-round); Q35â€“36 gom má»™t dÃ²ng; tiÃªu Ä‘á» sai; Australia/Future sections thiáº¿u text.
-- **Fix JSON:** `notePassage` Ä‘áº§y Ä‘á»§ theo True.jpg; `passageTitle` THE USE OF SOIL TO REDUCE COâ‚‚ IN THE ATMOSPHERE; Q35/Q36 tÃ¡ch dÃ²ng; `notePassageLayout: lecture`.
-- **Fix build:** `cam11_t4_p4()`; `_is_prose_after_section` â€” section káº¿t thÃºc `:` giá»¯ bullet list.
+### Cam11 Test 4 Part 4 — Soil / CO₂ lecture notes (2026-07-05)
+- **Tham chiếu:** `Tainguyen/IELTS/Fix/Cam 11/Test 4/True.jpg`.
+- **Triệu chứng:** thiếu nhiều bullet (Claims 13%, carbon lost, fertilizer, e.g. year-round); Q35–36 gom một dòng; tiêu đề sai; Australia/Future sections thiếu text.
+- **Fix JSON:** `notePassage` đầy đủ theo True.jpg; `passageTitle` THE USE OF SOIL TO REDUCE CO₂ IN THE ATMOSPHERE; Q35/Q36 tách dòng; `notePassageLayout: lecture`.
+- **Fix build:** `cam11_t4_p4()`; `_is_prose_after_section` — section kết thúc `:` giữ bullet list.
 - **ZIP:** `Listening IELTS_Test4_Cam11.zip` repack PASS.
 
-### Cam11 Test 4 Part 2 â€” MUSEUM COLLECTIONS + MUSEUM PLAN (2026-07-05)
-- **Tham chiáº¿u:** `Tainguyen/IELTS/Fix/Cam 11/Test 4/True.jpg` + `MUSEUM PLAN.jpg`.
-- **Triá»‡u chá»©ng:** Q11â€“20 táº¥t cáº£ `mapLabel: true` + options Aâ€“I; Q11â€“16 render map thay vÃ¬ matching bank Aâ€“G; Q17â€“20 thiáº¿u áº£nh plan; `notePassage` junk; `sectionTitle` sai.
-- **Fix JSON:** Q11â€“16 matching Aâ€“G (nhÃ£n Ä‘áº§y Ä‘á»§, khÃ´ng `mapLabel`); Q17â€“20 `mapLabel` + Aâ€“H; `sectionTitle` MUSEUM COLLECTIONS / MUSEUM PLAN; `imageFile: map.jpg`.
-- **Fix build:** `cam11_t4_p2()` â€” instruction Ä‘Ãºng True.jpg; prompts Q17â€“20 lowercase.
-- **áº¢nh:** copy `MUSEUM PLAN.jpg` â†’ `map.jpg`; `meta.json` restore version 1.
-- **ZIP:** `pnpm ielts:merge` + `validate` + `pack` â†’ `Listening IELTS_Test4_Cam11.zip` PASS.
+### Cam11 Test 4 Part 2 — MUSEUM COLLECTIONS + MUSEUM PLAN (2026-07-05)
+- **Tham chiếu:** `Tainguyen/IELTS/Fix/Cam 11/Test 4/True.jpg` + `MUSEUM PLAN.jpg`.
+- **Triệu chứng:** Q11–20 tất cả `mapLabel: true` + options A–I; Q11–16 render map thay vì matching bank A–G; Q17–20 thiếu ảnh plan; `notePassage` junk; `sectionTitle` sai.
+- **Fix JSON:** Q11–16 matching A–G (nhãn đầy đủ, không `mapLabel`); Q17–20 `mapLabel` + A–H; `sectionTitle` MUSEUM COLLECTIONS / MUSEUM PLAN; `imageFile: map.jpg`.
+- **Fix build:** `cam11_t4_p2()` — instruction đúng True.jpg; prompts Q17–20 lowercase.
+- **Ảnh:** copy `MUSEUM PLAN.jpg` → `map.jpg`; `meta.json` restore version 1.
+- **ZIP:** `pnpm ielts:merge` + `validate` + `pack` → `Listening IELTS_Test4_Cam11.zip` PASS.
 
-### Cam11 Test 3 Part 4 â€” Ethnography in business notes (2026-07-05)
-- **Triá»‡u chá»©ng:** Hospitals/Airlines dÃ­nh vÃ o dÃ²ng Computer companies; thiáº¿u bullet Uganda, Principles; trail [34] tÃ¡ch dÃ²ng + bullet thá»«a.
-- **Fix JSON:** `notePassage` Ä‘áº§y Ä‘á»§ theo True.jpg; subsection = `section`; `passageTitle` ETHNOGRAPHY IN BUSINESS; `notePassageLayout: lecture`.
-- **Fix renderer:** `isShortContinuation` nháº­n trail dÃ i (`to improve communicationâ€¦` â‰¤100 kÃ½ tá»±).
+### Cam11 Test 3 Part 4 — Ethnography in business notes (2026-07-05)
+- **Triệu chứng:** Hospitals/Airlines dính vào dòng Computer companies; thiếu bullet Uganda, Principles; trail [34] tách dòng + bullet thừa.
+- **Fix JSON:** `notePassage` đầy đủ theo True.jpg; subsection = `section`; `passageTitle` ETHNOGRAPHY IN BUSINESS; `notePassageLayout: lecture`.
+- **Fix renderer:** `isShortContinuation` nhận trail dài (`to improve communication…` ≤100 ký tự).
 
-### Cam11 Test 3 Part 3 â€” báº£ng Q21â€“26 + matching REPORT PARTS (2026-07-05)
-- **Triá»‡u chá»©ng:** notePassage inline lá»™n xá»™n (bullet, text dÃ­nh); Q27â€“30 hiá»‡n Aâ€“I + mapLabel sai; khÃ´ng cÃ³ báº£ng 2 cá»™t.
-- **Fix JSON:** `noteTables` 3 hÃ ng Ä‘Ãºng True.jpg; bá» `notePassage`; Q27â€“30 matching Aâ€“D + `sectionTitle` REPORT PARTS.
-- **Fix UI:** `ListeningIeltsNoteTable` placeholder trá»‘ng; `__cell` flex baseline; matching bank inline cho 4 option ngáº¯n.
+### Cam11 Test 3 Part 3 — bảng Q21–26 + matching REPORT PARTS (2026-07-05)
+- **Triệu chứng:** notePassage inline lộn xộn (bullet, text dính); Q27–30 hiện A–I + mapLabel sai; không có bảng 2 cột.
+- **Fix JSON:** `noteTables` 3 hàng đúng True.jpg; bỏ `notePassage`; Q27–30 matching A–D + `sectionTitle` REPORT PARTS.
+- **Fix UI:** `ListeningIeltsNoteTable` placeholder trống; `__cell` flex baseline; matching bank inline cho 4 option ngắn.
 
-### Cam11 Test 3 Part 2 â€” thiáº¿u map.jpg Q16â€“20 (2026-07-05)
-- **Triá»‡u chá»©ng:** Questions 16â€“20 khÃ´ng hiá»‡n sÆ¡ Ä‘á»“ `map.jpg` (chá»‰ cÃ³ dropdown matching).
-- **NguyÃªn nhÃ¢n:** `exam_part2.json` bá»‹ sai â€” Q16â€“20 thÃ nh `gap-fill`, thiáº¿u `imageFile`, `mapLabel`, `sectionTitle` PLANS FOR FACILITIES.
-- **Fix:** Regenerate tá»« `cam11_t3_p2()` + `imageFile: "map.jpg"` + `mapLabel: true`; copy `map.jpg` tá»« Fix folder; ZIP repack.
-- **UI:** `ListeningIeltsMapBlock` â€” layout stacked + option bank Aâ€“G khi cÃ³ nhÃ£n Ä‘áº§y Ä‘á»§.
+### Cam11 Test 3 Part 2 — thiếu map.jpg Q16–20 (2026-07-05)
+- **Triệu chứng:** Questions 16–20 không hiện sơ đồ `map.jpg` (chỉ có dropdown matching).
+- **Nguyên nhân:** `exam_part2.json` bị sai — Q16–20 thành `gap-fill`, thiếu `imageFile`, `mapLabel`, `sectionTitle` PLANS FOR FACILITIES.
+- **Fix:** Regenerate từ `cam11_t3_p2()` + `imageFile: "map.jpg"` + `mapLabel: true`; copy `map.jpg` từ Fix folder; ZIP repack.
+- **UI:** `ListeningIeltsMapBlock` — layout stacked + option bank A–G khi có nhãn đầy đủ.
 
-### Cam11 Test 2 Part 4 â€” ngáº¯t dÃ²ng lecture Taylor Concert Hall (2026-07-05)
-- **Triá»‡u chá»©ng:** `â— symbolic meaning` gom vÃ o dÃ²ng `physical and [31] context`; 3 bullet auditorium gom má»™t dÃ²ng dÃ i [37][38][39].
-- **NguyÃªn nhÃ¢n:** `shouldAppendToFormLine` coi bullet má»›i lÃ  trail vÃ¬ `isShortContinuation(bareNoteText)` tráº£ true trÃªn text lowercase nhiá»u tá»« sau khi gá»¡ marker.
-- **Fix:** `isMisplacedGapTrailBullet()` â€” chá»‰ gom bullet nháº§m trÃªn trail ngáº¯n (Room â€“ seats 100); bullet list item tháº­t â†’ dÃ²ng má»›i.
-- **Káº¿t quáº£:** Introduction 3 bullet riÃªng; auditorium 3 dÃ²ng riÃªng; Building design / Evaluation Ä‘Ãºng.
+### Cam11 Test 2 Part 4 — ngắt dòng lecture Taylor Concert Hall (2026-07-05)
+- **Triệu chứng:** `● symbolic meaning` gom vào dòng `physical and [31] context`; 3 bullet auditorium gom một dòng dài [37][38][39].
+- **Nguyên nhân:** `shouldAppendToFormLine` coi bullet mới là trail vì `isShortContinuation(bareNoteText)` trả true trên text lowercase nhiều từ sau khi gỡ marker.
+- **Fix:** `isMisplacedGapTrailBullet()` — chỉ gom bullet nhầm trên trail ngắn (Room – seats 100); bullet list item thật → dòng mới.
+- **Kết quả:** Introduction 3 bullet riêng; auditorium 3 dòng riêng; Building design / Evaluation đúng.
 
-### Cam11 Test 2 Part 1 â€” ngáº¯t dÃ²ng form Youth Council (2026-07-05)
-- **Tham chiáº¿u:** `Tainguyen/IELTS/Fix/Cam 11/Test 2/True.jpg` (Ä‘Ãºng) vs `NotTrue.jpg` (app sai).
-- **Triá»‡u chá»©ng:** bullet `â€¢` tá»± inject sau gap; `Street, Stamford, Lincs` / `, and is interested in the` tÃ¡ch dÃ²ng; `Example â€“ Name: Roger Brown` thÃ nh block example; `Occupationâ€¦[4] Studying [5]` gom má»™t dÃ²ng.
-- **Fix `listeningNotePassage.ts`:** `formPassageWithoutBullets()`, `isExampleMarkerLine()` (chá»‰ `"Example"`), `FORM_COMMA_TRAIL_RE` / `FORM_ADDRESS_TRAIL_RE`, `during the week` trong `SAME_LINE_GAP_TRAIL_RE`; `isFormSubFieldStarter()` â€” `Studying` sau [4] = dÃ²ng má»›i thá»¥t lá».
+### Cam11 Test 2 Part 1 — ngắt dòng form Youth Council (2026-07-05)
+- **Tham chiếu:** `Tainguyen/IELTS/Fix/Cam 11/Test 2/True.jpg` (đúng) vs `NotTrue.jpg` (app sai).
+- **Triệu chứng:** bullet `•` tự inject sau gap; `Street, Stamford, Lincs` / `, and is interested in the` tách dòng; `Example – Name: Roger Brown` thành block example; `Occupation…[4] Studying [5]` gom một dòng.
+- **Fix `listeningNotePassage.ts`:** `formPassageWithoutBullets()`, `isExampleMarkerLine()` (chỉ `"Example"`), `FORM_COMMA_TRAIL_RE` / `FORM_ADDRESS_TRAIL_RE`, `during the week` trong `SAME_LINE_GAP_TRAIL_RE`; `isFormSubFieldStarter()` — `Studying` sau [4] = dòng mới thụt lề.
 - **Fix UI:** `listening-ielts-notes__line--indent` cho sub-field; title trong box khi `notePassageLayout: "form"`.
-- **JSON:** `exam_part1.json` Ä‘Ã£ tÃ¡ch block Ä‘Ãºng; ZIP repack: `pnpm ielts:merge` + `pnpm ielts:pack` â†’ `Listening IELTS_Test2_Cam11.zip`.
-- **DÃ²ng sau fix:** Occupationâ€¦[4] | Studying [5]â€¦ (2 dÃ²ng); Hobbies [6][7] cÃ¹ng dÃ²ng; khÃ´ng bullet thá»«a.
+- **JSON:** `exam_part1.json` đã tách block đúng; ZIP repack: `pnpm ielts:merge` + `pnpm ielts:pack` → `Listening IELTS_Test2_Cam11.zip`.
+- **Dòng sau fix:** Occupation…[4] | Studying [5]… (2 dòng); Hobbies [6][7] cùng dòng; không bullet thừa.
 
-### Cam12 Test 3 Part 4 â€” mercury/birds lecture line splits (2026-07-05)
-- **Triá»‡u chá»©ng:** Claire Q32/Q33 gom má»™t dÃ²ng; `â€“ the effects on bird song (usually learned from a bird's` bá»‹ tÃ¡ch máº¥t marker `â€“`.
-- **NguyÃªn nhÃ¢n:** `repairFormPassageInlineBlocks()` tÃ¡ch nháº§m dÃ²ng cÃ³ ngoáº·c `(` trÃªn lecture notes cÃ³ `â€¢/â€“`.
-- **Fix renderer:** `repairFormPassageInlineBlocks` â€” skip khi `notePassageHasStructuredMarkers()`; khÃ´ng tÃ¡ch block Ä‘Ã£ cÃ³ `â€¢/â€“`.
-- **JSON:** `exam_part4.json` Ä‘Ã£ Ä‘Ãºng (coal/fish 2 dÃ²ng; Claire 3 dÃ²ng; Findings 3 dÃ²ng; Lab-based 2 dÃ²ng); `notePassageLayout: lecture`.
+### Cam12 Test 3 Part 4 — mercury/birds lecture line splits (2026-07-05)
+- **Triệu chứng:** Claire Q32/Q33 gom một dòng; `– the effects on bird song (usually learned from a bird's` bị tách mất marker `–`.
+- **Nguyên nhân:** `repairFormPassageInlineBlocks()` tách nhầm dòng có ngoặc `(` trên lecture notes có `•/–`.
+- **Fix renderer:** `repairFormPassageInlineBlocks` — skip khi `notePassageHasStructuredMarkers()`; không tách block đã có `•/–`.
+- **JSON:** `exam_part4.json` đã đúng (coal/fish 2 dòng; Claire 3 dòng; Findings 3 dòng; Lab-based 2 dòng); `notePassageLayout: lecture`.
 - **ZIP:** `Listening IELTS_Test3_Cam12.zip` merge + validate + pack PASS.
-- **Q37:** Gá»™p `â€¢ Migrating birds such as [37]` + trail `containing mercuryâ€¦` má»™t dÃ²ng (bá» `â€¢` trÃªn trail block).
+- **Q37:** Gộp `• Migrating birds such as [37]` + trail `containing mercury…` một dòng (bỏ `•` trên trail block).
 
-### Cam12 Test 4 Part 1 â€” address Q7 inline (2026-07-05)
-- **Triá»‡u chá»©ng:** `address: 277` + gap + `Place, Dumfries` tÃ¡ch 2 dÃ²ng; sá»‘ nhÃ  sai `277` thay vÃ¬ `27`.
-- **Fix JSON:** `â€¢ address: 27` + gap 7 + `Place, Dumfries`; prompt `Address: 27 â€¦ Place:`.
-- **Fix renderer:** `FORM_ADDRESS_TRAIL_RE` nháº­n `Place,` (vÃ  road/lane/avenue/drive) â€” trail sau gap cÃ¹ng dÃ²ng.
+### Cam12 Test 4 Part 1 — address Q7 inline (2026-07-05)
+- **Triệu chứng:** `address: 277` + gap + `Place, Dumfries` tách 2 dòng; số nhà sai `277` thay vì `27`.
+- **Fix JSON:** `• address: 27` + gap 7 + `Place, Dumfries`; prompt `Address: 27 … Place:`.
+- **Fix renderer:** `FORM_ADDRESS_TRAIL_RE` nhận `Place,` (và road/lane/avenue/drive) — trail sau gap cùng dòng.
 - **ZIP:** `Listening IELTS_Test4_Cam12.zip` merge + validate + pack PASS.
 
-### Cam13 Test 1 â€” P1 table + P2/P3 headers + flow-chart end (2026-07-05)
-- **P1:** HÃ ng Example trÆ°á»›c The Food Studio; Bond's col3 hÃ ng 2 = small classes/[2]/[3]; recipes/[5]/lecture/[6] hÃ ng tiáº¿p; Q10 trail `is sometimes available`.
-- **P2:** XÃ³a `sectionTitle` Traffic Changes in Granford (Q11).
-- **P3:** XÃ³a `sectionTitle` Seed germination (Q21); `ListeningIeltsFlowChartBlock` Ä‘á»c `flowChartEnd` tá»« cÃ¢u cuá»‘i â†’ hiá»‡n `Investigate the findings.` sau Q30.
+### Cam13 Test 1 — P1 table + P2/P3 headers + flow-chart end (2026-07-05)
+- **P1:** Hàng Example trước The Food Studio; Bond's col3 hàng 2 = small classes/[2]/[3]; recipes/[5]/lecture/[6] hàng tiếp; Q10 trail `is sometimes available`.
+- **P2:** Xóa `sectionTitle` Traffic Changes in Granford (Q11).
+- **P3:** Xóa `sectionTitle` Seed germination (Q21); `ListeningIeltsFlowChartBlock` đọc `flowChartEnd` từ câu cuối → hiện `Investigate the findings.` sau Q30.
 - **ZIP:** `Listening IELTS_Test1_Cam13.zip` merge + validate + pack PASS.
 
-### Cam13 Test 1 Part 4 â€” urban animals lecture line splits (2026-07-05)
-- **Intro:** Gá»™p 2 cÃ¢u má»™t dÃ²ng; bá» `It was` â†’ `Previously thoughtâ€¦`
-- **Q31:** `â€¢ the [31] â€” because of its general adaptability` má»™t dÃ²ng (`EM_DASH_GAP_TRAIL_RE`)
-- **Q32/Q33:** TÃ¡ch pigeon + `In factâ€¦[33]` hai dÃ²ng
-- **Q40:** Gá»™p `Speciesâ€¦cities. However, some changes may not be [40]`
+### Cam13 Test 1 Part 4 — urban animals lecture line splits (2026-07-05)
+- **Intro:** Gộp 2 câu một dòng; bỏ `It was` → `Previously thought…`
+- **Q31:** `• the [31] — because of its general adaptability` một dòng (`EM_DASH_GAP_TRAIL_RE`)
+- **Q32/Q33:** Tách pigeon + `In fact…[33]` hai dòng
+- **Q40:** Gộp `Species…cities. However, some changes may not be [40]`
 - **ZIP:** repack PASS
 
-### Cam13 Test 1 Part 1 â€” COOKERY CLASSES table vs true.jpg (2026-07-05)
-- **Tham chiáº¿u:** `Tainguyen/IELTS/Fix/Cam 13/Test 1/true.jpg`
-- **Sá»­a:** 3 hÃ ng dá»¯ liá»‡u â€” HÃ ng 1: `Example` + `The Food Studio` (cÃ¹ng Ã´) | focus [1] | Other Info small classes/[2]/[3]; HÃ ng 2: Bond's | [4] | recipes [5]/lecture [6]; HÃ ng 3: The [7] Centre | [8] | [9]/[10] is sometimes available.
+### Cam13 Test 1 Part 1 — COOKERY CLASSES table vs true.jpg (2026-07-05)
+- **Tham chiếu:** `Tainguyen/IELTS/Fix/Cam 13/Test 1/true.jpg`
+- **Sửa:** 3 hàng dữ liệu — Hàng 1: `Example` + `The Food Studio` (cùng ô) | focus [1] | Other Info small classes/[2]/[3]; Hàng 2: Bond's | [4] | recipes [5]/lecture [6]; Hàng 3: The [7] Centre | [8] | [9]/[10] is sometimes available.
 - **ZIP:** repack PASS
 
-### Cam13 Test 2 â€” P1 Level B + P2/P3 titles + P4 line splits (2026-07-05)
-- **P1:** `Level 8` â†’ `Level B`; bá» trail `kph`
-- **P2:** XÃ³a `Information on company volunteering projects`
-- **P3:** XÃ³a `Planning a presentation on nanotechnology`
-- **P4:** Encoding 3 dÃ²ng; Consolidation 3 dÃ²ng; impairments 2 dÃ²ng (bá» `â€¢` trail block sai)
+### Cam13 Test 2 — P1 Level B + P2/P3 titles + P4 line splits (2026-07-05)
+- **P1:** `Level 8` → `Level B`; bỏ trail `kph`
+- **P2:** Xóa `Information on company volunteering projects`
+- **P3:** Xóa `Planning a presentation on nanotechnology`
+- **P4:** Encoding 3 dòng; Consolidation 3 dòng; impairments 2 dòng (bỏ `•` trail block sai)
 - **ZIP:** `Listening IELTS_Test2_Cam13.zip` repack PASS
 
-### Cam13 Test 3 â€” P1â€“P4 fixes (2026-07-05)
-- **P1:** TÃ¡ch `Lindaâ€¦[2]` / `Limited [3] in city centre` (`isMisplacedGapTrailBullet` â€” khÃ´ng gom `â€¢ Limited`)
-- **P2:** XÃ³a `Physical activities`; bá» option C `set a time limit` (Q19â€“20)
-- **P3:** XÃ³a `Project on using natural dyesâ€¦`; matching title `Natural dyes` â†’ `Problems`
-- **P4:** `Possible reasons:` â†’ section; 3 dÃ²ng prose + `â€¢ to provide [37]â€¦` (`isProseLineBreakAhead`)
+### Cam13 Test 3 — P1–P4 fixes (2026-07-05)
+- **P1:** Tách `Linda…[2]` / `Limited [3] in city centre` (`isMisplacedGapTrailBullet` — không gom `• Limited`)
+- **P2:** Xóa `Physical activities`; bỏ option C `set a time limit` (Q19–20)
+- **P3:** Xóa `Project on using natural dyes…`; matching title `Natural dyes` → `Problems`
+- **P4:** `Possible reasons:` → section; 3 dòng prose + `• to provide [37]…` (`isProseLineBreakAhead`)
 - **ZIP:** `Listening IELTS_Test3_Cam13.zip` repack PASS
 
-### Cam13 Test 4 â€” P2 title + P4 Q38 order (2026-07-05)
-- **P2:** XÃ³a `sectionTitle` The Snow Centre (Q11)
-- **P4:** DÃ²ng Q38 (`The move towards the consumption of [38]â€¦`) Ä‘áº·t trÆ°á»›c section `Coffee in the 19th century` (Ä‘Ãºng Ä‘á» giáº¥y)
+### Cam13 Test 4 — P2 title + P4 Q38 order (2026-07-05)
+- **P2:** Xóa `sectionTitle` The Snow Centre (Q11)
+- **P4:** Dòng Q38 (`The move towards the consumption of [38]…`) đặt trước section `Coffee in the 19th century` (đúng đề giấy)
 - **ZIP:** `Listening IELTS_Test4_Cam13.zip` repack PASS
 
-### Cam14 Test 1 â€” P1 form + P2 title + P4 lecture (2026-07-05)
-- **P1:** `Current address: [3] Apartments (No 15)` gá»™p 1 dÃ²ng; wallet Â£[4] / `â€¢ a [5]` tÃ¡ch 2 dÃ²ng; `Crime reference number allocated [10]` inline (bá» section)
-- **Renderer:** `FORM_BUILDING_TRAIL_RE` + `isMisplacedGapTrailBullet` khÃ´ng gom `â€¢ a` sau gap (Cam14 T1 P1)
-- **P2:** XÃ³a `sectionTitle` Induction talk for new apprentices (Q11)
-- **P4:** Viáº¿t láº¡i `notePassage` â€” What's needed, Wave prose, lagoon bullets, Advantages/Problem sections, Ocean thermal energy conversion; `notePassageLayout: lecture`
-- **Build:** `cam14_t1_p1/p2/p4()` trong `build-ielts-cam13-14-listening.py` khá»›p JSON
+### Cam14 Test 1 — P1 form + P2 title + P4 lecture (2026-07-05)
+- **P1:** `Current address: [3] Apartments (No 15)` gộp 1 dòng; wallet £[4] / `• a [5]` tách 2 dòng; `Crime reference number allocated [10]` inline (bỏ section)
+- **Renderer:** `FORM_BUILDING_TRAIL_RE` + `isMisplacedGapTrailBullet` không gom `• a` sau gap (Cam14 T1 P1)
+- **P2:** Xóa `sectionTitle` Induction talk for new apprentices (Q11)
+- **P4:** Viết lại `notePassage` — What's needed, Wave prose, lagoon bullets, Advantages/Problem sections, Ocean thermal energy conversion; `notePassageLayout: lecture`
+- **Build:** `cam14_t1_p1/p2/p4()` trong `build-ielts-cam13-14-listening.py` khớp JSON
 - **ZIP:** `Listening IELTS_Test1_Cam14.zip` validate + pack PASS
 
-### Cam19 Test 3 â€” P1 notes + P3 flowchart (2026-07-05)
-- **P1 Q1â€“6:** Äá»•i tá»« báº£ng 2 cá»™t sang `notePassageSections` â€” **Where to go** / **Fish market** / **Organic shop** / **Supermarket** + bullet `â€¢` (khá»›p True.jpg Fix/Cam 19); thÃªm `pm, earlier than closing time` sau Q3
-- **P1 Q7â€“10:** Giá»¯ báº£ng Shopping / To buy / Other ideas
-- **P3:** XÃ³a `flowChartEnd: Investigate the findings.` sau Q30
+### Cam19 Test 3 — P1 notes + P3 flowchart (2026-07-05)
+- **P1 Q1–6:** Đổi từ bảng 2 cột sang `notePassageSections` — **Where to go** / **Fish market** / **Organic shop** / **Supermarket** + bullet `•` (khớp True.jpg Fix/Cam 19); thêm `pm, earlier than closing time` sau Q3
+- **P1 Q7–10:** Giữ bảng Shopping / To buy / Other ideas
+- **P3:** Xóa `flowChartEnd: Investigate the findings.` sau Q30
 - **ZIP:** `Listening IELTS_Test3_Cam19.zip` merge + validate + pack PASS
 
-### Cam19 Test 4 â€” P1 First day at work True.jpg (2026-07-05)
-- **P1 Q1â€“6:** Äá»•i tá»« báº£ng 2 cá»™t sang `notePassageLayout: form` + `notePassageSections` â€” bullet `â€¢` + gap inline trong box **First day at work** (khá»›p True.jpg Fix/Cam 19); bá» `in staffroom` sau Q2
-- **P1 Q7â€“10:** Header **Responsibility** (khÃ´ng Section); Sushi â†’ **Sushi takeaway counter**; Q8 chuyá»ƒn sang Task 1 `Re-stock with [8] boxes if needed`; Task 2 gá»™p `Wipe preparation area and clean the sink` + `Do not clean any knives`; Notes static
+### Cam19 Test 4 — P1 First day at work True.jpg (2026-07-05)
+- **P1 Q1–6:** Đổi từ bảng 2 cột sang `notePassageLayout: form` + `notePassageSections` — bullet `•` + gap inline trong box **First day at work** (khớp True.jpg Fix/Cam 19); bỏ `in staffroom` sau Q2
+- **P1 Q7–10:** Header **Responsibility** (không Section); Sushi → **Sushi takeaway counter**; Q8 chuyển sang Task 1 `Re-stock with [8] boxes if needed`; Task 2 gộp `Wipe preparation area and clean the sink` + `Do not clean any knives`; Notes static
 - **Build:** `cam19_t4_p1()` trong `build-ielts-cam19-20-listening.py`
 - **ZIP:** `Listening IELTS_Test4_Cam19.zip` merge + validate + pack PASS
 
-### Cambridge A2â€“C2 â€” Library Archives UI (2026-07-05)
-- **ExamTrackPage** `/app/exam/track/cambridge/{a2|b1|â€¦}` â€” Reading + Listening dÃ¹ng `IeltsLibraryArchive` giá»‘ng IELTS (`Giaodien/GiaodienListeningIELTS.jpg`)
-- **BÃ¬a sÃ¡ch:** `KET` / `PET` / `FCE` / `CAE` / `CPE` + sá»‘ quyá»ƒn; tiÃªu Ä‘á» card `CAMBRIDGE KET 1`â€¦
-- **NhÃ³m Ä‘á»:** `cambridgeLibraryGrouping.ts` â€” Test N â†’ Book ceil(N/4); search `Test 2`, `Book 1`
-- **CSS:** `exam-hub-page--ielts` layout cho cáº£ Cambridge level pages
+### Cambridge A2–C2 — Library Archives UI (2026-07-05)
+- **ExamTrackPage** `/app/exam/track/cambridge/{a2|b1|…}` — Reading + Listening dùng `IeltsLibraryArchive` giống IELTS (`Giaodien/GiaodienListeningIELTS.jpg`)
+- **Bìa sách:** `KET` / `PET` / `FCE` / `CAE` / `CPE` + số quyển; tiêu đề card `CAMBRIDGE KET 1`…
+- **Nhóm đề:** `cambridgeLibraryGrouping.ts` — Test N → Book ceil(N/4); search `Test 2`, `Book 1`
+- **CSS:** `exam-hub-page--ielts` layout cho cả Cambridge level pages
 
-### Cam20 Test 4 â€” P4 Chembe Bird Sanctuary True.jpg (2026-07-05)
-- **P4:** `passageTitle` "Research in the area around Chembe Bird Sanctuary" (bá» section trÃ¹ng); section 1 bullets `â€¢`; "Falling numbers" â€” parent `accidentally killed:` + sub `â€“ by [34]` / `â€“ by electrocutionâ€¦ [35]`; "Ways of protecting" â€” `frightening birds of prey by:` + sub `â€“ keeping a [38]` / `â€“ making a [39] â€“ e.g.â€¦`
+### Cam20 Test 4 — P4 Chembe Bird Sanctuary True.jpg (2026-07-05)
+- **P4:** `passageTitle` "Research in the area around Chembe Bird Sanctuary" (bỏ section trùng); section 1 bullets `•`; "Falling numbers" — parent `accidentally killed:` + sub `– by [34]` / `– by electrocution… [35]`; "Ways of protecting" — `frightening birds of prey by:` + sub `– keeping a [38]` / `– making a [39] – e.g.…`
 - **Build:** `cam20_t4_p4()` trong `build-ielts-cam19-20-listening.py`
 - **ZIP:** `Listening IELTS_Test4_Cam20.zip` merge + validate + pack PASS
 
-### Cam20 Test 4 â€” P1 Advice on family visit True.jpg (2026-07-05)
-- **P1:** `passageTitle` "Advice on family visit" (bá» section trÃ¹ng); gap inline Q1/Q3/Q9; Q2 `Â£ [2]`; Science Museum 2 dÃ²ng `â€¢`; Food 2 bullet `â€¢ Clacton Marketâ€¦ food` + `â€¢ need to have lunchâ€¦`; Free activities label + 2 bullet `â€¢`
+### Cam20 Test 4 — P1 Advice on family visit True.jpg (2026-07-05)
+- **P1:** `passageTitle` "Advice on family visit" (bỏ section trùng); gap inline Q1/Q3/Q9; Q2 `£ [2]`; Science Museum 2 dòng `•`; Food 2 bullet `• Clacton Market… food` + `• need to have lunch…`; Free activities label + 2 bullet `•`
 - **Build:** `cam20_t4_p1()` trong `build-ielts-cam19-20-listening.py`
 - **ZIP:** `Listening IELTS_Test4_Cam20.zip` merge + validate + pack PASS
 
-### Cam20 Test 3 â€” P4 Inclusive design True.jpg + map.jpg (2026-07-05)
-- **P4:** Khá»›p True.jpg Fix/Cam 20 â€” `passageTitle: Inclusive design`; **Definition** / **Examples** cÃ³ `â€¢` + gap inline; Q32 thÃªm ` problems` sau gap
-- **To assist the elderly:** section + `â€¢` 2 má»¥c; **Impact** â€” Access / Safety / Comfort in the workplace + sub `â€“`
+### Cam20 Test 3 — P4 Inclusive design True.jpg + map.jpg (2026-07-05)
+- **P4:** Khớp True.jpg Fix/Cam 20 — `passageTitle: Inclusive design`; **Definition** / **Examples** có `•` + gap inline; Q32 thêm ` problems` sau gap
+- **To assist the elderly:** section + `•` 2 mục; **Impact** — Access / Safety / Comfort in the workplace + sub `–`
 - **Build:** `cam20_t3_p4()` + `notePassageLayout: lecture`
-- **map.jpg:** Copy `Tainguyen/.../Test3_Cam20/map.jpg` â†’ catalog `ielts-cam20-test3`
-- **ZIP:** `Listening IELTS_Test3_Cam20.zip` merge + validate + pack PASS (gá»“m map.jpg)
+- **map.jpg:** Copy `Tainguyen/.../Test3_Cam20/map.jpg` → catalog `ielts-cam20-test3`
+- **ZIP:** `Listening IELTS_Test3_Cam20.zip` merge + validate + pack PASS (gồm map.jpg)
 
-### Cam20 Test 3 â€” P1 Furniture rental companies True.jpg (2026-07-05)
-- **P1:** Khá»›p True.jpg Fix/Cam 20 â€” báº£ng 3 cá»™t **Furniture rental companies** + bullet `â€¢` trong Ã´ nhiá»u dÃ²ng
-- **Peak notes:** `â€¢ The furnitureâ€¦` / `â€¢ Delivers in 1-2 days` / `â€¢ Special offerâ€¦`
-- **Aaron row:** costs `â€¢ Mid-range prices` + `â€¢ 12% monthly fee for [5]`; notes chá»‰ `Also offers a cleaning service`
-- **Larch notes:** `â€¢ Must have own [7]` + `â€¢ Minimum contract length: six months` (khÃ´ng `Must have enough space`)
-- **Q8:** `[8] Rentals` â€” gap tÃªn cÃ´ng ty (answer `space` â†’ Space Rentals), khÃ´ng pháº£i sá»‘ 8 tÄ©nh
+### Cam20 Test 3 — P1 Furniture rental companies True.jpg (2026-07-05)
+- **P1:** Khớp True.jpg Fix/Cam 20 — bảng 3 cột **Furniture rental companies** + bullet `•` trong ô nhiều dòng
+- **Peak notes:** `• The furniture…` / `• Delivers in 1-2 days` / `• Special offer…`
+- **Aaron row:** costs `• Mid-range prices` + `• 12% monthly fee for [5]`; notes chỉ `Also offers a cleaning service`
+- **Larch notes:** `• Must have own [7]` + `• Minimum contract length: six months` (không `Must have enough space`)
+- **Q8:** `[8] Rentals` — gap tên công ty (answer `space` → Space Rentals), không phải số 8 tĩnh
 - **Build:** `CAM20_T3_P1_TABLE` + `cam20_t3_p1()` + `passageTitle`
 - **ZIP:** `Listening IELTS_Test3_Cam20.zip` merge + validate + pack PASS
 
-### Cam20 Test 2 â€” P4 Developing food trend True.jpg (2026-07-05)
-- **P4:** Khá»›p True.jpg Fix/Cam 20 â€” `passageTitle: Developing food trend` (khÃ´ng trends); bá» section trÃ¹ng tiÃªu Ä‘á»
-- **Intro:** `â€¢` má»¥c chÃ­nh; `â€“` sub cho Sales of [32] vÃ  Famous [33]
-- **Marketing campaigns:** label `The avocado:` / `Oat milk:` / `Norwegian skrei:` + sub `â€“`; Q34 inline `â€“ [34] were invitedâ€¦`; thÃªm dÃ²ng **A Swedish brand's media campaign received publicity by upsetting competitors.**
-- **Ethical concerns:** `Quinoa:` + sub `â€“` cho Q39â€“40
+### Cam20 Test 2 — P4 Developing food trend True.jpg (2026-07-05)
+- **P4:** Khớp True.jpg Fix/Cam 20 — `passageTitle: Developing food trend` (không trends); bỏ section trùng tiêu đề
+- **Intro:** `•` mục chính; `–` sub cho Sales of [32] và Famous [33]
+- **Marketing campaigns:** label `The avocado:` / `Oat milk:` / `Norwegian skrei:` + sub `–`; Q34 inline `– [34] were invited…`; thêm dòng **A Swedish brand's media campaign received publicity by upsetting competitors.**
+- **Ethical concerns:** `Quinoa:` + sub `–` cho Q39–40
 - **Build:** `cam20_t2_p4()` + `notePassageLayout: lecture`
 - **ZIP:** `Listening IELTS_Test2_Cam20.zip` merge + validate + pack PASS
 
-### Cam20 Test 2 â€” P1 carers notes True.jpg (2026-07-05)
-- **P1:** Khá»›p True.jpg Fix/Cam 20 â€” gap inline (`â€¢ a [1]`, `â€¢ how much [2] the caring involves`, `â€“ [6] her`â€¦); bá» `sectionTitle` thá»«a **Local councils â€” practical support for carers**
-- **Q6:** Sá»­a `â€“` tÃ¡ch dÃ²ng â†’ `â€“ ` + gap + ` her` (1 dÃ²ng, khÃ´ng gá»™p vá»›i Q5)
+### Cam20 Test 2 — P1 carers notes True.jpg (2026-07-05)
+- **P1:** Khớp True.jpg Fix/Cam 20 — gap inline (`• a [1]`, `• how much [2] the caring involves`, `– [6] her`…); bỏ `sectionTitle` thừa **Local councils — practical support for carers**
+- **Q6:** Sửa `–` tách dòng → `– ` + gap + ` her` (1 dòng, không gộp với Q5)
 - **Build:** `cam20_t2_p1()` trong `build-ielts-cam19-20-listening.py`
 - **ZIP:** `Listening IELTS_Test2_Cam20.zip` merge + validate + pack PASS
 
-### Cam20 Test 1 â€” P4 Reclaiming urban rivers True.jpg (2026-07-05)
-- **P4:** Khá»›p True.jpg Fix/Cam 20 â€” `â€¢` má»¥c chÃ­nh; `â€“` sub-list dÆ°á»›i `Industrial developmentâ€¦` vÃ  `In Los Angelesâ€¦`
-- **Q33:** `Seals and even a [33] have been seen` (1 dÃ²ng, khÃ´ng bullet láº¡ giá»¯a gap)
-- **Q38:** ThÃªm `in cities around the world` sau gap
-- **Q39â€“40:** 1 bullet `Instead of road transport, goods could be transportedâ€¦ electric [39], or in the future, by [40]`
+### Cam20 Test 1 — P4 Reclaiming urban rivers True.jpg (2026-07-05)
+- **P4:** Khớp True.jpg Fix/Cam 20 — `•` mục chính; `–` sub-list dưới `Industrial development…` và `In Los Angeles…`
+- **Q33:** `Seals and even a [33] have been seen` (1 dòng, không bullet lạ giữa gap)
+- **Q38:** Thêm `in cities around the world` sau gap
+- **Q39–40:** 1 bullet `Instead of road transport, goods could be transported… electric [39], or in the future, by [40]`
 - **Build:** `CAM20_T1_P4_NOTE` + `cam20_t1_p4()` + `notePassageLayout: lecture`
 - **ZIP:** `Listening IELTS_Test1_Cam20.zip` merge + validate + pack PASS
 
-### Cam19 Test 4 â€” P4 Tree planting True.jpg (2026-07-05)
-- **P4:** Khá»›p True.jpg â€” `passageTitle: Tree planting`; section **Reforestation projects should:** (khÃ´ng bullet); 5 má»¥c dÃ¹ng `â€¢`; **Large-scale** / **Lampang** / **Involving local communities** cÃ³ `â€¢` má»¥c chÃ­nh
-- **Lampang:** sub-list `â€“ supporting many wildlife species` + `â€“ increasing the [37]â€¦ e.g., [38] were soon attracted` (1 dÃ²ng, khÃ´ng tÃ¡ch bullet giá»¯a Q37)
-- **Mangrove project:** sub-list `â€“` cho 3 má»¥c dÆ°á»›i `The mangrove reforestation project:`
+### Cam19 Test 4 — P4 Tree planting True.jpg (2026-07-05)
+- **P4:** Khớp True.jpg — `passageTitle: Tree planting`; section **Reforestation projects should:** (không bullet); 5 mục dùng `•`; **Large-scale** / **Lampang** / **Involving local communities** có `•` mục chính
+- **Lampang:** sub-list `– supporting many wildlife species` + `– increasing the [37]… e.g., [38] were soon attracted` (1 dòng, không tách bullet giữa Q37)
+- **Mangrove project:** sub-list `–` cho 3 mục dưới `The mangrove reforestation project:`
 - **Build:** `cam19_t4_p4()` + `notePassageLayout: lecture`
 - **ZIP:** `Listening IELTS_Test4_Cam19.zip` merge + validate + pack PASS
 
-### Cam19 Test 2 â€” P1 table row + P4 Tardigrades True.jpg (2026-07-05)
-- **P1 Q7â€“10:** ThÃªm dÃ²ng `5 minutes` / `noting things to practise at home` dÆ°á»›i hÃ ng `10 minutes` / `playing single notesâ€¦`
-- **P4:** Khá»›p True.jpg â€” `â€¢` má»i má»¥c; `â€¢ a [32] round bodyâ€¦` 1 dÃ²ng; Cryptobiosis/Feeding/Conservation cÃ³ bullet; `â€¢ may eat other tardigrades` tÃ¡ch dÃ²ng
+### Cam19 Test 2 — P1 table row + P4 Tardigrades True.jpg (2026-07-05)
+- **P1 Q7–10:** Thêm dòng `5 minutes` / `noting things to practise at home` dưới hàng `10 minutes` / `playing single notes…`
+- **P4:** Khớp True.jpg — `•` mọi mục; `• a [32] round body…` 1 dòng; Cryptobiosis/Feeding/Conservation có bullet; `• may eat other tardigrades` tách dòng
 - **ZIP:** `Listening IELTS_Test2_Cam19.zip` merge + validate + pack PASS
 
-### Cam19 Test 1 â€” P1 + P4 Fix/Cam 19 True.jpg (2026-07-05)
-- **P1:** Bá» section trÃ¹ng `Hinchingbrooke Country Park` (chá»‰ `passageTitle` trong box); giá»¯ `The park` + bullet `â€¢` + gap inline
-- **P4:** Khá»›p True.jpg â€” `â€¢` má»i má»¥c chÃ­nh; `â€“` chá»‰ sub dÆ°á»›i Discovery / Neolithic innovations; `â€¢ His [32] becameâ€¦` 1 dÃ²ng; `â€¢ Itemsâ€¦[34]`; `â€¢ Each fieldâ€¦` / `â€¢ The fieldsâ€¦` (khÃ´ng `â€“`); `â€¢` Reasons Q39â€“40
+### Cam19 Test 1 — P1 + P4 Fix/Cam 19 True.jpg (2026-07-05)
+- **P1:** Bỏ section trùng `Hinchingbrooke Country Park` (chỉ `passageTitle` trong box); giữ `The park` + bullet `•` + gap inline
+- **P4:** Khớp True.jpg — `•` mọi mục chính; `–` chỉ sub dưới Discovery / Neolithic innovations; `• His [32] became…` 1 dòng; `• Items…[34]`; `• Each field…` / `• The fields…` (không `–`); `•` Reasons Q39–40
 
-### Cam19 Test 1 â€” P4 bullets + map.jpg (2026-07-05)
-- **P4:** ThÃªm `â€¢` / `â€“` Ä‘Ãºng Ä‘á» giáº¥y; tÃ¡ch **Neolithic innovations include:** â†’ `â€“ cooking indoors` / `â€“ pots used for storage and to make [36]` (3 dÃ²ng riÃªng)
+### Cam19 Test 1 — P4 bullets + map.jpg (2026-07-05)
+- **P4:** Thêm `•` / `–` đúng đề giấy; tách **Neolithic innovations include:** → `– cooking indoors` / `– pots used for storage and to make [36]` (3 dòng riêng)
 - **Build:** `cam19_t1_p4()` + `notePassageLayout: lecture`, `passageTitle: Ceide Fields`
-- **map.jpg:** Copy `Tainguyen/.../Test1_Cam19/map.jpg` â†’ catalog `ielts-cam19-test1`
-- **ZIP:** `Listening IELTS_Test1_Cam19.zip` merge + validate + pack PASS (gá»“m map.jpg)
+- **map.jpg:** Copy `Tainguyen/.../Test1_Cam19/map.jpg` → catalog `ielts-cam19-test1`
+- **ZIP:** `Listening IELTS_Test1_Cam19.zip` merge + validate + pack PASS (gồm map.jpg)
 
-### Cam18 Test 2 â€” P1 notes + map.jpg (2026-07-05)
-- **P1 Q1â€“5:** Äá»•i tá»« báº£ng 2 cá»™t (Section | Details) sang `notePassageLayout: form` + `notePassageSections` â€” **Benefits** / **Person specification** trong box, bullet + gap inline (khá»›p True.jpg Fix/Cam 18)
-- **P1 Q6â€“10:** Giá»¯ `noteTables` (Location / Job title / â€¦)
-- **map.jpg:** Copy `Tainguyen/.../Test2_Cam18/map.jpg` â†’ `apps/web/public/catalog/listening/ielts-cam18-test2/map.jpg`; ZIP pack gá»“m `map.jpg`
+### Cam18 Test 2 — P1 notes + map.jpg (2026-07-05)
+- **P1 Q1–5:** Đổi từ bảng 2 cột (Section | Details) sang `notePassageLayout: form` + `notePassageSections` — **Benefits** / **Person specification** trong box, bullet + gap inline (khớp True.jpg Fix/Cam 18)
+- **P1 Q6–10:** Giữ `noteTables` (Location / Job title / …)
+- **map.jpg:** Copy `Tainguyen/.../Test2_Cam18/map.jpg` → `apps/web/public/catalog/listening/ielts-cam18-test2/map.jpg`; ZIP pack gồm `map.jpg`
 - **Build:** `cam18_t2_p1()` trong `build-ielts-cam17-18-listening.py`
 - **ZIP:** `Listening IELTS_Test2_Cam18.zip` merge + validate + pack PASS
 
-### Cam18 Test 1 â€” P1 Q6â€“Q7 two lines (2026-07-05)
-- **P1 Q6â€“Q7:** TÃ¡ch `â€“ bus today was [6]` vÃ  `â€“ frequency of buses in the [7]` thÃ nh 2 dÃ²ng (trÆ°á»›c: gá»™p 1 dÃ²ng khi máº¥t marker `â€“`)
-- **Renderer:** `shouldAppendToFormLine` â€” khÃ´ng gom gap-lead má»›i vÃ o dÃ²ng gap trÆ°á»›c (`isGapLeadBlock`)
+### Cam18 Test 1 — P1 Q6–Q7 two lines (2026-07-05)
+- **P1 Q6–Q7:** Tách `– bus today was [6]` và `– frequency of buses in the [7]` thành 2 dòng (trước: gộp 1 dòng khi mất marker `–`)
+- **Renderer:** `shouldAppendToFormLine` — không gom gap-lead mới vào dòng gap trước (`isGapLeadBlock`)
 - **ZIP:** `Listening IELTS_Test1_Cam18.zip` merge + validate + pack PASS
 
-### Cam17 Test 3 â€” P1 Q8 one line (2026-07-05)
-- **P1 Q8:** `Average temperature in summer: approx. [8] degrees` gá»™p 1 dÃ²ng (trÆ°á»›c: label / gap / `degrees` tÃ¡ch 3 dÃ²ng)
-- **Renderer:** `isFormLabelWithInlineValue` khÃ´ng tÃ¡ch dÃ²ng khi cÃ³ gap ngay sau (`approx.` káº¿t thÃºc báº±ng `.`)
+### Cam17 Test 3 — P1 Q8 one line (2026-07-05)
+- **P1 Q8:** `Average temperature in summer: approx. [8] degrees` gộp 1 dòng (trước: label / gap / `degrees` tách 3 dòng)
+- **Renderer:** `isFormLabelWithInlineValue` không tách dòng khi có gap ngay sau (`approx.` kết thúc bằng `.`)
 
-### Cam17 Test 2 â€” P1 notes layout (2026-07-05)
-- **P1 Q1â€“7:** Äá»•i tá»« báº£ng 2 cá»™t (Section | Details) sang `notePassageLayout: form` + `notePassageSections` â€” tiÃªu Ä‘á» trong box, section **Library** / **Lunch club**, dÃ²ng Ä‘á»™c láº­p "Help for individuals needed next week", khÃ´ng bullet (khá»›p True.jpg)
-- **P1 Q8â€“10:** Giá»¯ `noteTables` â€” báº£ng **Village social events**
-- **Renderer:** `FORM_ROOM_IN_TRAIL_RE` â€” gá»™p `[3] Room in the village hall` cÃ¹ng dÃ²ng
+### Cam17 Test 2 — P1 notes layout (2026-07-05)
+- **P1 Q1–7:** Đổi từ bảng 2 cột (Section | Details) sang `notePassageLayout: form` + `notePassageSections` — tiêu đề trong box, section **Library** / **Lunch club**, dòng độc lập "Help for individuals needed next week", không bullet (khớp True.jpg)
+- **P1 Q8–10:** Giữ `noteTables` — bảng **Village social events**
+- **Renderer:** `FORM_ROOM_IN_TRAIL_RE` — gộp `[3] Room in the village hall` cùng dòng
 - **Build:** `cam17_t2_p1()` trong `build-ielts-cam17-18-listening.py`
 - **ZIP:** `Listening IELTS_Test2_Cam17.zip` merge + validate + pack PASS
 
-## Listening IELTS Cam 9â€“20 â€” HOÃ€N THÃ€NH (2026-07-05)
+## Listening IELTS Cam 9–20 — HOÀN THÀNH (2026-07-05)
 
-- [x] **48/48** folder `Tainguyen/IELTS/Listening IELTS_Test*_Cam*` â€” `pnpm ielts:validate` PASS
-- [x] Fix layout True.jpg (P1 form/table, P2 map, P3 flow-chart, P4 lecture/bullets) â€” Cam 9â€“20
-- [x] Build scripts: `build-ielts-cam9-10` â€¦ `cam19-20-listening.py` + renderer fixes (`ListeningIeltsNotePassage`, form line groupingâ€¦)
-- [x] `pnpm gen:ielts-html` â€” HTML tham chiáº¿u 48 Ä‘á»
-- [ ] **Batch pack ZIP** â€” nhiá»u folder chÆ°a cÃ³ `.zip` cáº¡nh folder (cháº¡y lá»‡nh bÃªn dÆ°á»›i)
-- [ ] **Import hÃ ng loáº¡t** vÃ o app + hard refresh
-- [ ] **Deploy** `pnpm build:catalog` + `pnpm deploy:prod` khi user sáºµn sÃ ng
+- [x] **48/48** folder `Tainguyen/IELTS/Listening IELTS_Test*_Cam*` — `pnpm ielts:validate` PASS
+- [x] Fix layout True.jpg (P1 form/table, P2 map, P3 flow-chart, P4 lecture/bullets) — Cam 9–20
+- [x] Build scripts: `build-ielts-cam9-10` … `cam19-20-listening.py` + renderer fixes (`ListeningIeltsNotePassage`, form line grouping…)
+- [x] `pnpm gen:ielts-html` — HTML tham chiếu 48 đề
+- [ ] **Batch pack ZIP** — nhiều folder chưa có `.zip` cạnh folder (chạy lệnh bên dưới)
+- [ ] **Import hàng loạt** vào app + hard refresh
+- [ ] **Deploy** `pnpm build:catalog` + `pnpm deploy:prod` khi user sẵn sàng
 
-**ÄÆ°á»ng import chÃ­nh:** ZIP (`pnpm ielts:bundle`) â€” **khÃ´ng** dÃ¹ng Import Wizard DOCX hÃ ng loáº¡t.
-
----
-
-## KET A2 Reading & Writing â€” Cam 1 Test 1 + AI cháº¥m Writing (2026-07-06)
-
-- [x] `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/Test 1/exam.json` â€” 7 parts (Q1â€“32), `durationMinutes: 60`, Part 6 email + Part 7 story
-- [x] ZIP: `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/ket-reading-test1.zip` (exam.json + part1-q1â€¦q6 + part7-p1â€¦p3)
-- [x] AI cháº¥m Part 6â€“7: `ketRw/ketWritingGrade.ts` + `KetWritingGradePanel.tsx` â€” nÃºt "Cháº¥m Ä‘iá»ƒm AI" trÃªn `ExamResult` (Cambridge 0â€“5, Part 7 vision náº¿u OpenAI/Gemini)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+**Đường import chính:** ZIP (`pnpm ielts:bundle`) — **không** dùng Import Wizard DOCX hàng loạt.
 
 ---
 
-## PET B1 Reading & Writing â€” shell 8 part + import áº£nh (2026-07-06)
+## KET A2 Reading & Writing — Cam 1 Test 1 + AI chấm Writing (2026-07-06)
 
-- [x] `apps/web/src/features/exam/petRw/` â€” UI shell 8 part (P1 signs â€¦ P6 cloze, P7â€“P8 writing) giá»‘ng Giaodien `Reading_Writing_PET_B1`
-- [x] `petWritingImportUtils.ts` â€” merge áº£nh Part 2/4/7/8; **Part 8 chá»‰ 1 áº£nh** `part8-page.jpg` (khÃ´ng tÃ¡ch p1â€¦p3 nhÆ° KET Part 7)
-- [x] `cambridgeReadingImportTemplates.ts` â€” B1 template 8 parts (34 cÃ¢u), hint Part 8 = 1 áº£nh
-- [x] `ReadingTest.tsx` route B1 â†’ `ReadingPetRwTest`; `ImportReadingManualModal` hint Part 8 (1 áº£nh)
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [x] `HDSD/Prompt-PET-B1-Reading-Universal.txt` â€” cáº­p nháº­t 8 part RW; Part 8 = 1 áº£nh `part8-page.jpg`
+- [x] `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/Test 1/exam.json` — 7 parts (Q1–32), `durationMinutes: 60`, Part 6 email + Part 7 story
+- [x] ZIP: `Tainguyen/Import Cambridge/KET_A2/KET A2_Cam 1/ket-reading-test1.zip` (exam.json + part1-q1…q6 + part7-p1…p3)
+- [x] AI chấm Part 6–7: `ketRw/ketWritingGrade.ts` + `KetWritingGradePanel.tsx` — nút "Chấm điểm AI" trên `ExamResult` (Cambridge 0–5, Part 7 vision nếu OpenAI/Gemini)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-**Import áº£nh PET (tuá»³ chá»n sau JSON):**
+---
 
-| File | Má»¥c Ä‘Ã­ch |
+## PET B1 Reading & Writing — shell 8 part + import ảnh (2026-07-06)
+
+- [x] `apps/web/src/features/exam/petRw/` — UI shell 8 part (P1 signs … P6 cloze, P7–P8 writing) giống Giaodien `Reading_Writing_PET_B1`
+- [x] `petWritingImportUtils.ts` — merge ảnh Part 2/4/7/8; **Part 8 chỉ 1 ảnh** `part8-page.jpg` (không tách p1…p3 như KET Part 7)
+- [x] `cambridgeReadingImportTemplates.ts` — B1 template 8 parts (34 câu), hint Part 8 = 1 ảnh
+- [x] `ReadingTest.tsx` route B1 → `ReadingPetRwTest`; `ImportReadingManualModal` hint Part 8 (1 ảnh)
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] `HDSD/Prompt-PET-B1-Reading-Universal.txt` — cập nhật 8 part RW; Part 8 = 1 ảnh `part8-page.jpg`
+
+**Import ảnh PET (tuỳ chọn sau JSON):**
+
+| File | Mục đích |
 |------|----------|
-| `part7-page.jpg` | Äá» Writing Part 7 |
-| `part8-page.jpg` | **1 áº£nh** truyá»‡n Part 8 (3 khung trong 1 file) |
-| `part2-page.jpg`, `part2-q6â€¦q10.jpg`, `part4-page.jpg` | Layout/áº£nh Part 2/4 |
+| `part7-page.jpg` | Đề Writing Part 7 |
+| `part8-page.jpg` | **1 ảnh** truyện Part 8 (3 khung trong 1 file) |
+| `part2-page.jpg`, `part2-q6…q10.jpg`, `part4-page.jpg` | Layout/ảnh Part 2/4 |
 
 ---
 
-## FCE B2 Reading & Writing â€” shell 9 part + import áº£nh (2026-07-06)
+## FCE B2 Reading & Writing — shell 9 part + import ảnh (2026-07-06)
 
-- [x] `apps/web/src/features/exam/fceRw/` â€” UI shell 9 part (P1â€“P7 Reading + P8 essay + P9 story) giá»‘ng Giaodien `Reading_Writing_FCE_B2`
-- [x] `fceWritingImportUtils.ts` â€” Part 8 = `part8-page.jpg`; Part 9 = **1 áº£nh** `part9-page.jpg` (nhÆ° PET Part 8); merge cáº­p nháº­t passage khi part Ä‘Ã£ cÃ³ trong JSON
-- [x] `cambridgeReadingImportTemplates.ts` â€” B2 template 9 parts (54 cÃ¢u), hint Part 8â€“9 áº£nh JPG
-- [x] `ReadingTest.tsx` route B2 â†’ `ReadingFceRwTest`; `ImportReadingManualModal` hint Part 8â€“9
-- [x] `cambridgeExamFormats.ts` + `readingExamDuration.ts` â€” 80 phÃºt, 9 parts
-- [x] Catalog `reading-fce-b2-test1.json` â€” metadata Reading & Writing 80 phÃºt (7 parts builtin; Part 8â€“9 qua import áº£nh)
-- [x] Part 7 UI + catalog: **Paragraph A** â€¦ **Paragraph D** (passage heading + options)
-- [x] `HDSD/Prompt-FCE-B2-Reading-Universal.txt` â€” cáº­p nháº­t 9 part RW, Part 7 Paragraph, Part 8â€“9 áº£nh 1 file/part
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `apps/web/src/features/exam/fceRw/` — UI shell 9 part (P1–P7 Reading + P8 essay + P9 story) giống Giaodien `Reading_Writing_FCE_B2`
+- [x] `fceWritingImportUtils.ts` — Part 8 = `part8-page.jpg`; Part 9 = **1 ảnh** `part9-page.jpg` (như PET Part 8); merge cập nhật passage khi part đã có trong JSON
+- [x] `cambridgeReadingImportTemplates.ts` — B2 template 9 parts (54 câu), hint Part 8–9 ảnh JPG
+- [x] `ReadingTest.tsx` route B2 → `ReadingFceRwTest`; `ImportReadingManualModal` hint Part 8–9
+- [x] `cambridgeExamFormats.ts` + `readingExamDuration.ts` — 80 phút, 9 parts
+- [x] Catalog `reading-fce-b2-test1.json` — metadata Reading & Writing 80 phút (7 parts builtin; Part 8–9 qua import ảnh)
+- [x] Part 7 UI + catalog: **Paragraph A** … **Paragraph D** (passage heading + options)
+- [x] `HDSD/Prompt-FCE-B2-Reading-Universal.txt` — cập nhật 9 part RW, Part 7 Paragraph, Part 8–9 ảnh 1 file/part
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-**Import áº£nh FCE (sau JSON 7 hoáº·c 9 part):**
+**Import ảnh FCE (sau JSON 7 hoặc 9 part):**
 
-| File | Má»¥c Ä‘Ã­ch |
+| File | Mục đích |
 |------|----------|
-| `part8-page.jpg` | Äá» Writing Part 8 (essay) |
-| `part9-page.jpg` | **1 áº£nh** truyá»‡n Part 9 (3 khung trong 1 file) |
+| `part8-page.jpg` | Đề Writing Part 8 (essay) |
+| `part9-page.jpg` | **1 ảnh** truyện Part 9 (3 khung trong 1 file) |
 
 ---
 
-## CAE C1 Reading & Writing â€” shell 10 part + import áº£nh (2026-07-06)
+## CAE C1 Reading & Writing — shell 10 part + import ảnh (2026-07-06)
 
-- [x] `apps/web/src/features/exam/caeRw/` â€” UI shell 10 part (P1â€“P8 Reading + P9â€“P10 Writing) giá»‘ng Giaodien `Reading_Writing_CAE_C1`
-- [x] `CaeRwPartContent.tsx` â€” P6 Reviewer Aâ€“D; P7 gapped text kÃ©o tháº£; P8 Consultant Aâ€“E; P9 Q57 + P10 Q58 (220â€“260 tá»«, má»—i part 1 áº£nh)
-- [x] `caeWritingImportUtils.ts` â€” Part 9 = `part9-page.jpg` (Q57); Part 10 = `part10-page.jpg` (Q58)
-- [x] `cambridgeReadingImportTemplates.ts` â€” C1 template 10 parts (58 má»¥c), hint Reviewer/Consultant/Part 9â€“10
-- [x] `ReadingTest.tsx` route C1 â†’ `ReadingCaeRwTest`; `ImportReadingManualModal` merge Part 9â€“10
-- [x] `examData.ts` â€” `isCaeReadingWritingExam()`; `cambridgeExamFormats.ts` + `readingExamDuration.ts` â€” 90 phÃºt (8 part) / 120 phÃºt (cÃ³ Part 9â€“10)
-- [x] Catalog `reading-cae-c1-test1.json` + `Tainguyen/cae-Reading-test1/exam.json` â€” 10 parts; P6/P8 options Reviewer/Consultant; Part 9â€“10 Writing
+- [x] `apps/web/src/features/exam/caeRw/` — UI shell 10 part (P1–P8 Reading + P9–P10 Writing) giống Giaodien `Reading_Writing_CAE_C1`
+- [x] `CaeRwPartContent.tsx` — P6 Reviewer A–D; P7 gapped text kéo thả; P8 Consultant A–E; P9 Q57 + P10 Q58 (220–260 từ, mỗi part 1 ảnh)
+- [x] `caeWritingImportUtils.ts` — Part 9 = `part9-page.jpg` (Q57); Part 10 = `part10-page.jpg` (Q58)
+- [x] `cambridgeReadingImportTemplates.ts` — C1 template 10 parts (58 mục), hint Reviewer/Consultant/Part 9–10
+- [x] `ReadingTest.tsx` route C1 → `ReadingCaeRwTest`; `ImportReadingManualModal` merge Part 9–10
+- [x] `examData.ts` — `isCaeReadingWritingExam()`; `cambridgeExamFormats.ts` + `readingExamDuration.ts` — 90 phút (8 part) / 120 phút (có Part 9–10)
+- [x] Catalog `reading-cae-c1-test1.json` + `Tainguyen/cae-Reading-test1/exam.json` — 10 parts; P6/P8 options Reviewer/Consultant; Part 9–10 Writing
 - [x] Media: `part9-page.jpg`, `part10-page.jpg` trong `Tainguyen/` + `apps/web/public/catalog/reading/cae-c1-test1/`
-- [x] `build-catalog.mjs` â€” giá»¯ `minWords` cho writing-task
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
-- [x] `HDSD/Prompt-CAE-C1-Reading-Universal.txt` â€” 10 part RW, Reviewer/Consultant, Part 9â€“10 JPG
-- [ ] `part10-page.jpg` builtin â€” hiá»‡n **placeholder** (copy `Part9.jpg`); cáº§n áº£nh riÃªng Q58 khi cÃ³ screenshot
+- [x] `build-catalog.mjs` — giữ `minWords` cho writing-task
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
+- [x] `HDSD/Prompt-CAE-C1-Reading-Universal.txt` — 10 part RW, Reviewer/Consultant, Part 9–10 JPG
+- [ ] `part10-page.jpg` builtin — hiện **placeholder** (copy `Part9.jpg`); cần ảnh riêng Q58 khi có screenshot
 
-**Cáº¥u trÃºc 10 parts (58 má»¥c):**
+**Cấu trúc 10 parts (58 mục):**
 
-| Part | CÃ¢u | UI |
+| Part | Câu | UI |
 |------|-----|-----|
-| 1â€“5 | 1â€“36 | MC cloze, open cloze, keyword list, transformation, reading MC |
-| 6 | 37â€“40 | Cross-text: **Reviewer A**â€¦**D** trÃ¡i, radio pháº£i |
-| 7 | 41â€“46 | Gapped text: gap trÃ¡i + bank Aâ€“G kÃ©o tháº£ pháº£i |
-| 8 | 47â€“56 | Multiple matching: **Consultant A**â€¦**E** |
-| 9 | 57 | Writing task 1 â€” split pane, 220â€“260 tá»« |
-| 10 | 58 | Writing task 2 â€” split pane, 220â€“260 tá»« |
+| 1–5 | 1–36 | MC cloze, open cloze, keyword list, transformation, reading MC |
+| 6 | 37–40 | Cross-text: **Reviewer A**…**D** trái, radio phải |
+| 7 | 41–46 | Gapped text: gap trái + bank A–G kéo thả phải |
+| 8 | 47–56 | Multiple matching: **Consultant A**…**E** |
+| 9 | 57 | Writing task 1 — split pane, 220–260 từ |
+| 10 | 58 | Writing task 2 — split pane, 220–260 từ |
 
-**Import áº£nh CAE (sau JSON 8 hoáº·c 10 part):**
+**Import ảnh CAE (sau JSON 8 hoặc 10 part):**
 
-| File | Má»¥c Ä‘Ã­ch |
+| File | Mục đích |
 |------|----------|
-| `part9-page.jpg` | Äá» Writing Part 9 (Q57) |
-| `part10-page.jpg` | Äá» Writing Part 10 (Q58) |
+| `part9-page.jpg` | Đề Writing Part 9 (Q57) |
+| `part10-page.jpg` | Đề Writing Part 10 (Q58) |
 
-**Screenshot ref:** `Giaodien/Taicautruc/Reading_Writing_CAE_C1/Part1.jpg` â€¦ `Part7.jpg`, `Part9.jpg`
+**Screenshot ref:** `Giaodien/Taicautruc/Reading_Writing_CAE_C1/Part1.jpg` … `Part7.jpg`, `Part9.jpg`
 
 ---
 
-## CPE C2 Reading & Writing â€” shell 9 part + import áº£nh (2026-07-06)
+## CPE C2 Reading & Writing — shell 9 part + import ảnh (2026-07-06)
 
-- [x] `apps/web/src/features/exam/cpeRw/` â€” UI shell 9 part (P1â€“P7 Reading + P8 essay + P9 choice) giá»‘ng Giaodien `Reading_Writing_CPE_C2`
-- [x] `cpeWritingImportUtils.ts` â€” Part 8 = `part8-page.jpg` (essay 240â€“280); Part 9 = `part9-page.jpg` (Q2â€“Q4 choice 280â€“320)
-- [x] `cambridgeReadingImportTemplates.ts` â€” C2 template 9 parts; Part 4 single-gap transform; Part 6 bank Aâ€“H tá»« passage
-- [x] `ReadingTest.tsx` route C2 â†’ `ReadingCpeRwTest`; `ImportReadingManualModal` merge Part 8â€“9
-- [x] Catalog `reading-cpe-c2-test1.json` + `Tainguyen/cpe-Reading-test1/` â€” 120 phÃºt
-- [x] `HDSD/Prompt-CPE-C2-Reading-Universal.txt` â€” 9 part RW, rules Part 4/6/8â€“9, answer key Test 1; cáº­p nháº­t `Import De Thi.txt`, `Prompt-Reading-Cambridge.txt`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `apps/web/src/features/exam/cpeRw/` — UI shell 9 part (P1–P7 Reading + P8 essay + P9 choice) giống Giaodien `Reading_Writing_CPE_C2`
+- [x] `cpeWritingImportUtils.ts` — Part 8 = `part8-page.jpg` (essay 240–280); Part 9 = `part9-page.jpg` (Q2–Q4 choice 280–320)
+- [x] `cambridgeReadingImportTemplates.ts` — C2 template 9 parts; Part 4 single-gap transform; Part 6 bank A–H từ passage
+- [x] `ReadingTest.tsx` route C2 → `ReadingCpeRwTest`; `ImportReadingManualModal` merge Part 8–9
+- [x] Catalog `reading-cpe-c2-test1.json` + `Tainguyen/cpe-Reading-test1/` — 120 phút
+- [x] `HDSD/Prompt-CPE-C2-Reading-Universal.txt` — 9 part RW, rules Part 4/6/8–9, answer key Test 1; cập nhật `Import De Thi.txt`, `Prompt-Reading-Cambridge.txt`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-**Import áº£nh CPE (sau JSON):**
+**Import ảnh CPE (sau JSON):**
 
-| File | Má»¥c Ä‘Ã­ch |
+| File | Mục đích |
 |------|----------|
-| `part8-page.jpg` | Äá» Writing Part 8 (essay) |
-| `part9-page.jpg` | Äá» Writing Part 9 (choice Q2â€“Q4) |
+| `part8-page.jpg` | Đề Writing Part 8 (essay) |
+| `part9-page.jpg` | Đề Writing Part 9 (choice Q2–Q4) |
 
 **Test nhanh:** `/app/exam/reading/catalog-reading-cpe-c2-test1`
 
 ---
 
-## Viá»‡c Ä‘Ã£ hoÃ n thÃ nh (session 2026-07-06 â€” HDSD + UX polish)
+## Việc đã hoàn thành (session 2026-07-06 — HDSD + UX polish)
 
 ### HDSD prompts
-- [x] **Listening Universal A2â€“C2** â€” `HDSD/Prompt-Listening-Cambridge.txt` (index) + 5 file `Prompt-{KET-A2|PET-B1|FCE-B2|CAE-C1|CPE-C2}-Listening-Universal.txt`
-- [x] **Vocab import** â€” `HDSD/Prompt-Vocab-Universal.txt` (CSV/JSON, cá»™t `phrase` há»— trá»£ cá»¥m tá»«) + `Prompt-Vocab-Chu-De.txt` (6 nhÃ³m IELTS/Oxford/TOEIC/â€¦) + `Import Vocab.txt`
+- [x] **Listening Universal A2–C2** — `HDSD/Prompt-Listening-Cambridge.txt` (index) + 5 file `Prompt-{KET-A2|PET-B1|FCE-B2|CAE-C1|CPE-C2}-Listening-Universal.txt`
+- [x] **Vocab import** — `HDSD/Prompt-Vocab-Universal.txt` (CSV/JSON, cột `phrase` hỗ trợ cụm từ) + `Prompt-Vocab-Chu-De.txt` (6 nhóm IELTS/Oxford/TOEIC/…) + `Import Vocab.txt`
 
 ### UX exam
-- [x] **NÃºt Exit** Listening FCE/CAE/CPE â€” `ListeningFceTest.tsx` header (`listening-ket-cambridge__exit`), `navigate(listeningExamBackPath(exam))` vá» track Cambridge tÆ°Æ¡ng á»©ng
-- [x] **Fix theme Cambridge A2â€“C2 library** â€” token `--color-on-primary: #ffffff` (light/mid/dark) trong `globals.css`; thay `color: var(--bg-primary)` â†’ `var(--color-on-primary)` trÃªn nÃºt primary trong `examHub.css` + modal `ImportReadingManualModal`, `ImportListeningModal`, `ExamResult`
+- [x] **Nút Exit** Listening FCE/CAE/CPE — `ListeningFceTest.tsx` header (`listening-ket-cambridge__exit`), `navigate(listeningExamBackPath(exam))` về track Cambridge tương ứng
+- [x] **Fix theme Cambridge A2–C2 library** — token `--color-on-primary: #ffffff` (light/mid/dark) trong `globals.css`; thay `color: var(--bg-primary)` → `var(--color-on-primary)` trên nút primary trong `examHub.css` + modal `ImportReadingManualModal`, `ImportListeningModal`, `ExamResult`
 
-**NguyÃªn nhÃ¢n lá»—i theme:** `--bg-primary` = tráº¯ng (light) / Ä‘en (dark) â€” dÃ¹ng lÃ m mÃ u chá»¯ trÃªn ná»n `--color-primary` khiáº¿n dark theme máº¥t contrast.
+**Nguyên nhân lỗi theme:** `--bg-primary` = trắng (light) / đen (dark) — dùng làm màu chữ trên nền `--color-primary` khiến dark theme mất contrast.
 
-**Test theme:** `/app/exam/track/cambridge/a2` â†’ Ä‘á»•i theme SÃ¡ng/Tá»‘i trong sidebar â€” nÃºt CTA, pill "Táº¤T Cáº¢", "LÃ m bÃ i" pháº£i giá»¯ chá»¯ tráº¯ng.
+**Test theme:** `/app/exam/track/cambridge/a2` → đổi theme Sáng/Tối trong sidebar — nút CTA, pill "TẤT CẢ", "Làm bài" phải giữ chữ trắng.
 
-### Vocab (Ä‘Ã£ cÃ³ sáºµn trong app)
-- Import cá»¥m tá»« qua cá»™t `phrase` â€” `features/vocab/importExport.ts`, `ImportModal.tsx`
+### Vocab (đã có sẵn trong app)
+- Import cụm từ qua cột `phrase` — `features/vocab/importExport.ts`, `ImportModal.tsx`
 
 ---
 
-## Lá»—i cÃ²n tá»“n táº¡i â€” Cambridge RW (cáº­p nháº­t 2026-07-06)
+## Lỗi còn tồn tại — Cambridge RW (cập nhật 2026-07-06)
 
-- [ ] **CAE Part 10 áº£nh** â€” `part10-page.jpg` chÆ°a cÃ³ screenshot riÃªng Q58 (Ä‘ang dÃ¹ng copy Part9)
-- [ ] **`pnpm build:catalog`** â€” cáº§n Ä‘á»§ folder `Tainguyen/ket-reading-test1` â€¦ (má»™t sá»‘ chá»‰ cÃ³ `.zip`); CAE/CPE Ä‘Ã£ cÃ³ folder + áº£nh
-- [ ] **Theme debt app-wide** â€” má»™t sá»‘ trang khÃ¡c váº«n dÃ¹ng `color: var(--bg-primary)` trÃªn nÃºt primary (Settings, Vocab, Listening libraryâ€¦); Cambridge library Ä‘Ã£ fix
-- [x] **CPE C2 Reading** â€” RW shell 9 parts (`cpeRw/`) + catalog `reading-cpe-c2-test1`
-- [x] **Prompt HDSD CAE** â€” `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
-- [x] **Prompt HDSD CPE** â€” `HDSD/Prompt-CPE-C2-Reading-Universal.txt` (9 parts RW, Part 4/6/8â€“9 rules, answer key Test 1)
-- [x] **Prompt HDSD Listening Universal A2â€“C2** â€” `HDSD/Prompt-Listening-Cambridge.txt` + 5 file `Prompt-*-Listening-Universal.txt` (KET/PET/FCE/CAE/CPE)
-- [x] **Prompt HDSD Vocab import** â€” `HDSD/Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (tá»« Ä‘Æ¡n + cá»¥m tá»«, 6 nhÃ³m chá»§ Ä‘á»)
-- [x] **Fix theme Cambridge A2â€“C2 library** â€” token `--color-on-primary` trong `globals.css`; nÃºt CTA/filter pill trong `examHub.css` + modal import exam dÃ¹ng mÃ u chá»¯ cá»‘ Ä‘á»‹nh thay `var(--bg-primary)` (trÃ¡nh chá»¯ Ä‘en trÃªn ná»n tÃ­m khi dark theme)
-- [x] TypeScript `pnpm --filter web exec tsc --noEmit` â€” pass (CAE RW)
+- [ ] **CAE Part 10 ảnh** — `part10-page.jpg` chưa có screenshot riêng Q58 (đang dùng copy Part9)
+- [ ] **`pnpm build:catalog`** — cần đủ folder `Tainguyen/ket-reading-test1` … (một số chỉ có `.zip`); CAE/CPE đã có folder + ảnh
+- [ ] **Theme debt app-wide** — một số trang khác vẫn dùng `color: var(--bg-primary)` trên nút primary (Settings, Vocab, Listening library…); Cambridge library đã fix
+- [x] **CPE C2 Reading** — RW shell 9 parts (`cpeRw/`) + catalog `reading-cpe-c2-test1`
+- [x] **Prompt HDSD CAE** — `HDSD/Prompt-CAE-C1-Reading-Universal.txt`
+- [x] **Prompt HDSD CPE** — `HDSD/Prompt-CPE-C2-Reading-Universal.txt` (9 parts RW, Part 4/6/8–9 rules, answer key Test 1)
+- [x] **Prompt HDSD Listening Universal A2–C2** — `HDSD/Prompt-Listening-Cambridge.txt` + 5 file `Prompt-*-Listening-Universal.txt` (KET/PET/FCE/CAE/CPE)
+- [x] **Prompt HDSD Vocab import** — `HDSD/Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (từ đơn + cụm từ, 6 nhóm chủ đề)
+- [x] **Fix theme Cambridge A2–C2 library** — token `--color-on-primary` trong `globals.css`; nút CTA/filter pill trong `examHub.css` + modal import exam dùng màu chữ cố định thay `var(--bg-primary)` (tránh chữ đen trên nền tím khi dark theme)
+- [x] TypeScript `pnpm --filter web exec tsc --noEmit` — pass (CAE RW)
 
 ---
 
 ## Next session start prompt
 ```
-Äá»c session_summary.md ngay.
+Đọc session_summary.md ngay.
 
-## ÄÃ£ xong (2026-07-06) â€” Cambridge Reading & Writing shells (5 level)
-- KET A2: 7 parts RW + AI cháº¥m Writing P6â€“7
-- PET B1: 8 parts RW; Part 8 = 1 áº£nh `part8-page.jpg`
-- FCE B2: 9 parts RW; Part 8/9 JPG; Part 7 Paragraph Aâ€“D
-- CAE C1: 10 parts RW; P6 Reviewer / P8 Consultant; P9/P10 Writing JPG â†’ `caeRw/` Â· `catalog-reading-cae-c1-test1`
-- CPE C2: 9 parts RW; P4 transform 1 gap; P6 bank Aâ€“H; P8 essay + P9 choice â†’ `cpeRw/` Â· `catalog-reading-cpe-c2-test1`
+## Đã xong (2026-07-06) — Cambridge Reading & Writing shells (5 level)
+- KET A2: 7 parts RW + AI chấm Writing P6–7
+- PET B1: 8 parts RW; Part 8 = 1 ảnh `part8-page.jpg`
+- FCE B2: 9 parts RW; Part 8/9 JPG; Part 7 Paragraph A–D
+- CAE C1: 10 parts RW; P6 Reviewer / P8 Consultant; P9/P10 Writing JPG → `caeRw/` · `catalog-reading-cae-c1-test1`
+- CPE C2: 9 parts RW; P4 transform 1 gap; P6 bank A–H; P8 essay + P9 choice → `cpeRw/` · `catalog-reading-cpe-c2-test1`
 
-## ÄÃ£ xong (2026-07-06) â€” HDSD + UX
-- Listening Universal A2â€“C2: `HDSD/Prompt-Listening-Cambridge.txt` + 5 file level-specific
-- Vocab import: `Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (cá»¥m tá»« qua `phrase`)
+## Đã xong (2026-07-06) — HDSD + UX
+- Listening Universal A2–C2: `HDSD/Prompt-Listening-Cambridge.txt` + 5 file level-specific
+- Vocab import: `Prompt-Vocab-Universal.txt` + `Prompt-Vocab-Chu-De.txt` + `Import Vocab.txt` (cụm từ qua `phrase`)
 - Exit Listening FCE/CAE/CPE: `ListeningFceTest.tsx`
-- Fix theme Cambridge library: `--color-on-primary` Â· `examHub.css` Â· modal import exam
+- Fix theme Cambridge library: `--color-on-primary` · `examHub.css` · modal import exam
 
-## ÄÃ£ xong (2026-07-05)
-- Listening IELTS Cam 9â€“20: validate 48/48 PASS
-- Cambridge Library Archives â†’ /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
+## Đã xong (2026-07-05)
+- Listening IELTS Cam 9–20: validate 48/48 PASS
+- Cambridge Library Archives → /app/exam/track/cambridge/{a2|b1|b2|c1|c2}
 
-## Æ¯u tiÃªn session má»›i (chá»n theo user)
+## Ưu tiên session mới (chọn theo user)
 
-### A â€” Verify + ship Cambridge RW
-1. Hard refresh â†’ so tá»«ng level vá»›i Giaodien `Reading_Writing_*`
-2. Thay `part10-page.jpg` CAE báº±ng screenshot Q58 tháº­t (náº¿u cÃ³)
-3. `pnpm build:catalog` (khi Ä‘á»§ Tainguyen folders) + deploy
+### A — Verify + ship Cambridge RW
+1. Hard refresh → so từng level với Giaodien `Reading_Writing_*`
+2. Thay `part10-page.jpg` CAE bằng screenshot Q58 thật (nếu có)
+3. `pnpm build:catalog` (khi đủ Tainguyen folders) + deploy
 
-### B â€” IELTS Listening import (48 ZIP)
-- Batch `pnpm ielts:bundle` â†’ Import thá»§ cÃ´ng Listening
+### B — IELTS Listening import (48 ZIP)
+- Batch `pnpm ielts:bundle` → Import thủ công Listening
 - Pilot: Cam11 T1, Cam10 T3, Cam20 T4
 
-### C â€” Reading IELTS
+### C — Reading IELTS
 - [x] Pipeline bundle: `pnpm ielts:reading:{scaffold|export-pilots|validate|merge|pack|bundle|bundle:all}`
 - [x] Scaffold 48 folder `Reading IELTS_Test{N}_Cam{X}` + HDSD/Prompt
 - [x] 3 pilot ZIP (Cam10 T1, Cam11 T3 headings, Cam10 T4 YNNG)
-- [ ] 45 Ä‘á» cÃ²n láº¡i â€” cáº§n OCR text â†’ AI â†’ exam_passage1â€“3.json
-- [x] Wizard template má»Ÿ rá»™ng (18 layout P1â€“P3) â€” Viá»‡c 3
-- [ ] Table/Note layout renderer (náº¿u Ä‘á» cÃ³ báº£ng trong cÃ¢u há»i)
+- [ ] 45 đề còn lại — cần OCR text → AI → exam_passage1–3.json
+- [x] Wizard template mở rộng (18 layout P1–P3) — Việc 3
+- [ ] Table/Note layout renderer (nếu đề có bảng trong câu hỏi)
 
-### D â€” Theme debt app-wide
-- Cambridge library Ä‘Ã£ fix `--color-on-primary`
-- CÃ²n Settings, Vocab, Listening libraryâ€¦ dÃ¹ng `color: var(--bg-primary)` trÃªn nÃºt primary
+### D — Theme debt app-wide
+- Cambridge library đã fix `--color-on-primary`
+- Còn Settings, Vocab, Listening library… dùng `color: var(--bg-primary)` trên nút primary
 
-### E â€” Cambridge Listening UI
-- FCE/CAE/CPE Listening dÃ¹ng `ListeningFceTest` shell (screenshot-based)
-- Recipe CAE: cuá»‘i `session_summary.md`
+### E — Cambridge Listening UI
+- FCE/CAE/CPE Listening dùng `ListeningFceTest` shell (screenshot-based)
+- Recipe CAE: cuối `session_summary.md`
 
-## Lá»‡nh thÆ°á»ng dÃ¹ng
+## Lệnh thường dùng
 pnpm dev
 pnpm --filter web exec tsc --noEmit
 pnpm build:catalog
 pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 
 ## Test nhanh
-/app/exam/track/cambridge/a2          â€” library + Ä‘á»•i theme
+/app/exam/track/cambridge/a2          — library + đổi theme
 /app/exam/reading/catalog-reading-cae-c1-test1
 /app/exam/reading/catalog-reading-cpe-c2-test1
 ```
 
-### Verify (session tiáº¿p)
+### Verify (session tiếp)
 - [x] `pnpm --filter web exec tsc --noEmit` pass
 - [x] Prompt HDSD Reading CAE + CPE Universal
-- [x] Prompt HDSD Listening Universal A2â€“C2 + Vocab import
-- [x] Fix theme Cambridge A2â€“C2 library (`--color-on-primary`)
-- [ ] CAE RW UI: 10 part footer, P9/P10 áº£nh + textarea, Reviewer/Consultant labels
-- [ ] Thay `part10-page.jpg` áº£nh tháº­t Q58
-- [ ] `pnpm build:catalog` full (khi Tainguyen folders Ä‘á»§)
+- [x] Prompt HDSD Listening Universal A2–C2 + Vocab import
+- [x] Fix theme Cambridge A2–C2 library (`--color-on-primary`)
+- [ ] CAE RW UI: 10 part footer, P9/P10 ảnh + textarea, Reviewer/Consultant labels
+- [ ] Thay `part10-page.jpg` ảnh thật Q58
+- [ ] `pnpm build:catalog` full (khi Tainguyen folders đủ)
 - [ ] Deploy production RW shells
 ---
 
-## IELTS Reading â€” YNNG + Matching Headings renderer (2026-07-07)
+## IELTS Reading — YNNG + Matching Headings renderer (2026-07-07)
 
 - [x] Types: `yes-no-not-given`, `matching-headings` (question); `ynng`, `matching-headings` (group); `headings[]`
-- [x] `ReadingQuestionPanel` â€” `YnngGroup`, `MatchingHeadingsGroup` (+ `TriStateGroup` TFNG/YNNG)
-- [x] `importReadingManualUtils` â€” validate + build; auto YNNG options khi import
-- [x] `ExamResult` â€” format Ä‘Ã¡p Ã¡n heading (`i. labelâ€¦`)
-- [x] Demo builtin `ielts-reading-types-demo` â€” Part 1 headings, Part 2 YNNG
+- [x] `ReadingQuestionPanel` — `YnngGroup`, `MatchingHeadingsGroup` (+ `TriStateGroup` TFNG/YNNG)
+- [x] `importReadingManualUtils` — validate + build; auto YNNG options khi import
+- [x] `ExamResult` — format đáp án heading (`i. label…`)
+- [x] Demo builtin `ielts-reading-types-demo` — Part 1 headings, Part 2 YNNG
 - [x] `pnpm --filter web exec tsc --noEmit` pass
 
 **Test:** `/app/exam/reading/ielts-reading-types-demo`
 
 ---
 
-## IELTS Reading Wizard â€” template má»Ÿ rá»™ng (Viá»‡c 3, 2026-07-07) â€” HOÃ€N THÃ€NH 18 template
+## IELTS Reading Wizard — template mở rộng (Việc 3, 2026-07-07) — HOÀN THÀNH 18 template
 
-- [x] **18 template** per-passage picker (6 má»—i Passage) â€” cover layout Cam 9â€“20
-- [x] **P1 (6):** `r1` TFNG+MC Â· `r1g` TFNG+Gap Â· `r1h` Headings+MC Â· `r1s` Sentence+MC Â· `r1hg` Headings+Gap Â· `r1m` Gap+MC
-- [x] **P2 (6):** `r2` Match+MC Â· `r2y` YNNG+Match Â· `r2h` Headings+Gap+YNNG Â· `r2t` TFNG+Match Â· `r2g` Gap+Match Â· `r2s` Summary+YNNG+MC
-- [x] **P3 (6):** `r3` TFNG+MC Â· `r3f` Gap+TFNG+Flow Â· `r3y` YNNG+MC Â· `r3gy` Gap+YNNG+MC Â· `r3sy` Summary+YNNG+MC Â· `r3gt` Gap+TFNG+MC
-- [x] `ieltsReadingPartTemplates.ts` â€” builder + SAMPLE JSON cho 18 template
-- [x] `ieltsReadingAiPrompt.ts` â€” `passageExtraRules()` chi tiáº¿t theo template
-- [x] `ieltsReadingWizardEdit.ts` â€” `TEMPLATE_SIGNATURES` map gap/sentence-completion â†’ template má»›i
-- [x] `ieltsReadingWizardPersist.ts` â€” fallback template kind khÃ´ng há»£p lá»‡
-- [x] **áº¢nh preview layout** â€” 18 SVG schematic + lightbox zoom (giá»‘ng Listening Wizard)
+- [x] **18 template** per-passage picker (6 mỗi Passage) — cover layout Cam 9–20
+- [x] **P1 (6):** `r1` TFNG+MC · `r1g` TFNG+Gap · `r1h` Headings+MC · `r1s` Sentence+MC · `r1hg` Headings+Gap · `r1m` Gap+MC
+- [x] **P2 (6):** `r2` Match+MC · `r2y` YNNG+Match · `r2h` Headings+Gap+YNNG · `r2t` TFNG+Match · `r2g` Gap+Match · `r2s` Summary+YNNG+MC
+- [x] **P3 (6):** `r3` TFNG+MC · `r3f` Gap+TFNG+Flow · `r3y` YNNG+MC · `r3gy` Gap+YNNG+MC · `r3sy` Summary+YNNG+MC · `r3gt` Gap+TFNG+MC
+- [x] `ieltsReadingPartTemplates.ts` — builder + SAMPLE JSON cho 18 template
+- [x] `ieltsReadingAiPrompt.ts` — `passageExtraRules()` chi tiết theo template
+- [x] `ieltsReadingWizardEdit.ts` — `TEMPLATE_SIGNATURES` map gap/sentence-completion → template mới
+- [x] `ieltsReadingWizardPersist.ts` — fallback template kind không hợp lệ
+- [x] **Ảnh preview layout** — 18 SVG schematic + lightbox zoom (giống Listening Wizard)
 - [x] `public/ielts-wizard/reading/p{1,2,3}/*.svg` + `scripts/generate-ielts-reading-wizard-previews.mjs`
 - [x] `pnpm --filter web exec tsc --noEmit` pass
 
-**Import Cam9 T1 qua Wizard:** P1 â†’ `r1g`, P2 â†’ `r2h`, P3 â†’ `r3f`
+**Import Cam9 T1 qua Wizard:** P1 → `r1g`, P2 → `r2h`, P3 → `r3f`
 
-**Workflow 45 Ä‘á» cÃ²n láº¡i:** OCR PDF â†’ Wizard (chá»n template Ä‘Ãºng layout) â†’ AI JSON â†’ LÆ°u Dexie â†’ `pnpm ielts:reading:bundle:all` â†’ Import ZIP
+**Workflow 45 đề còn lại:** OCR PDF → Wizard (chọn template đúng layout) → AI JSON → Lưu Dexie → `pnpm ielts:reading:bundle:all` → Import ZIP
 
-**Test:** `/app/exam/track/ielts` â†’ Import Wizard Reading â†’ chá»n template tá»«ng Passage (6 option/passage)
+**Test:** `/app/exam/track/ielts` → Import Wizard Reading → chọn template từng Passage (6 option/passage)
 
 ---
 
-## IELTS Reading Wizard â€” sá»­a Ä‘á» Ä‘Ã£ import (2026-07-07)
+## IELTS Reading Wizard — sửa đề đã import (2026-07-07)
 
-- [x] NÃºt **bÃºt chÃ¬** trÃªn Library Archives (Ä‘á» IELTS import 3 passages)
-- [x] `ieltsReadingWizardEdit.ts` â€” náº¡p Ä‘á» Dexie â†’ wizard draft, suy template, tÃ¡i táº¡o answer key
-- [x] Cháº¿ Ä‘á»™ sá»­a: Preview â†’ **Sá»­a passages** â†’ chá»‰ táº¡o láº¡i passage cáº§n fix â†’ **Cáº­p nháº­t Ä‘á»** (`examRepo.update`)
-- [x] Giá»¯ `imageKey` áº£nh passage cÅ© khi cáº­p nháº­t (`mergePassageImageKeys`)
+- [x] Nút **bút chì** trên Library Archives (đề IELTS import 3 passages)
+- [x] `ieltsReadingWizardEdit.ts` — nạp đề Dexie → wizard draft, suy template, tái tạo answer key
+- [x] Chế độ sửa: Preview → **Sửa passages** → chỉ tạo lại passage cần fix → **Cập nhật đề** (`examRepo.update`)
+- [x] Giữ `imageKey` ảnh passage cũ khi cập nhật (`mergePassageImageKeys`)
 - [x] `pnpm --filter web exec tsc --noEmit` pass
 
-**Workflow sá»­a P1:** Library â†’ Test â†’ bÃºt chÃ¬ â†’ Sá»­a passages â†’ Passage 1 â†’ Táº¡o JSON â†’ Cáº­p nháº­t Ä‘á»
+**Workflow sửa P1:** Library → Test → bút chì → Sửa passages → Passage 1 → Tạo JSON → Cập nhật đề
 
 ---
 
-## IELTS Reading â€” bundle pipeline + 48 scaffold (2026-07-07)
+## IELTS Reading — bundle pipeline + 48 scaffold (2026-07-07)
 
 - [x] `ieltsReadingBundle.ts` + `scripts/ielts-reading-bundle.ts` (merge/validate/pack/bundle)
-- [x] `scaffold-ielts-reading-folders.mjs` â€” 48 folder + meta.json + answer-key.txt
-- [x] `export-ielts-reading-pilots.ts` â€” 3 pilot Ä‘á»§ 40 cÃ¢u
-- [x] `batch-ielts-reading-bundle.mjs` â€” bundle hÃ ng loáº¡t khi Ä‘á»§ 3 passages
+- [x] `scaffold-ielts-reading-folders.mjs` — 48 folder + meta.json + answer-key.txt
+- [x] `export-ielts-reading-pilots.ts` — 3 pilot đủ 40 câu
+- [x] `batch-ielts-reading-bundle.mjs` — bundle hàng loạt khi đủ 3 passages
 - [x] HDSD: `Import Reading IELTS.txt`, `Prompt-IELTS-Reading-Cam9-Cam20.txt`
 - [x] Pilot ZIP: `Reading IELTS_Test1_Cam10`, `Test3_Cam11`, `Test4_Cam10`
-- [x] **Cam9 Test 1** â€” `scripts/build-ielts-reading-cam9-test1.py` â†’ 3 passages Â· 40 cÃ¢u Â· ZIP sáºµn (`Reading IELTS_Test1_Cam9.zip`)
-- [x] **Cam9 Tests 2â€“4** â€” `scripts/build-ielts-reading-cam9-tests-234.py` + `scripts/ielts_reading_cam9_lib.py` (parser plain text PDF/DOCX)
-  - T2: Hearing/classroom noise Â· Venus in Transit Â· Neuroscientist/iconoclast
-  - T3: Attitudes to language Â· Tidal power Â· Information theory/Voyager
-  - T4: Marie Curie Â· Children's identity Â· Development of Museums
-  - ZIP: `Reading IELTS_Test2_Cam9.zip`, `Test3_Cam9.zip`, `Test4_Cam9.zip` â€” **40 cÃ¢u má»—i test, khÃ´ng cáº£nh bÃ¡o**
-  - Lá»‡nh gá»™p: `pnpm ielts:reading:build-cam9` (T1 + T2â€“4)
-- [x] **Cam10 Tests 1â€“4** â€” `scripts/build-ielts-reading-cam10.py` + plain text tá»« PDF
-  - T1: Stepwells Â· EU Transport Â· Psychology of innovation
-  - T2: Tea/Industrial Revolution Â· Gifted children Â· Museums of fine art
-  - T3: Tourism Â· Autumn leaves Â· Beyond the blue horizon
-  - T4: Megafires Â· Second nature Â· Evolution backwards
-  - ZIP: `Reading IELTS_Test1_Cam10.zip` â€¦ `Test4_Cam10.zip` â€” **40 cÃ¢u/test, khÃ´ng cáº£nh bÃ¡o**
-  - Lá»‡nh: `pnpm ielts:reading:build-cam10`
-- [ ] Cam11/12 Test 1 + 37 Ä‘á» cÃ²n láº¡i
+- [x] **Cam9 Test 1** — `scripts/build-ielts-reading-cam9-test1.py` → 3 passages · 40 câu · ZIP sẵn (`Reading IELTS_Test1_Cam9.zip`)
+- [x] **Cam9 Tests 2–4** — `scripts/build-ielts-reading-cam9-tests-234.py` + `scripts/ielts_reading_cam9_lib.py` (parser plain text PDF/DOCX)
+  - T2: Hearing/classroom noise · Venus in Transit · Neuroscientist/iconoclast
+  - T3: Attitudes to language · Tidal power · Information theory/Voyager
+  - T4: Marie Curie · Children's identity · Development of Museums
+  - ZIP: `Reading IELTS_Test2_Cam9.zip`, `Test3_Cam9.zip`, `Test4_Cam9.zip` — **40 câu mỗi test, không cảnh báo**
+  - Lệnh gộp: `pnpm ielts:reading:build-cam9` (T1 + T2–4)
+- [x] **Cam10 Tests 1–4** — `scripts/build-ielts-reading-cam10.py` + plain text từ PDF
+  - T1: Stepwells · EU Transport · Psychology of innovation
+  - T2: Tea/Industrial Revolution · Gifted children · Museums of fine art
+  - T3: Tourism · Autumn leaves · Beyond the blue horizon
+  - T4: Megafires · Second nature · Evolution backwards
+  - ZIP: `Reading IELTS_Test1_Cam10.zip` … `Test4_Cam10.zip` — **40 câu/test, không cảnh báo**
+  - Lệnh: `pnpm ielts:reading:build-cam10`
+- [ ] Cam11/12 Test 1 + 37 đề còn lại
 
-**Lá»‡nh:** `pnpm ielts:reading:build-cam10` â†’ `pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test{N}_Cam10"`
+**Lệnh:** `pnpm ielts:reading:build-cam10` → `pnpm ielts:reading:bundle "IELTS/Reading IELTS_Test{N}_Cam10"`
 
 ---
 
-## FCE B2 Listening â€” Cambridge screenshot shell + Part 2 local image import (2026-07-06)
+## FCE B2 Listening — Cambridge screenshot shell + Part 2 local image import (2026-07-06)
 
 - [x] Screenshot source: `Giaodien/Taicautruc/Listening_FCE_B2/Part1.jpg` ... `Part4.jpg`.
 - [x] `ListeningTest.tsx` routes `exam.examType === 'fce'` to `ListeningFceTest`.
-- [x] `ListeningFceTest.tsx` â€” Cambridge shell reused from KET/PET: top Cambridge header, fixed footer 4 parts, qnav, prev/next floating buttons, submit modal, localStorage draft, shared audio continues across parts.
-- [x] `ListeningFceMcPartView.tsx` â€” Part 1 shows only active MC question like screenshot; Part 4 shows all MC questions in one scrolling page. Options are full-width pale rows with radio circle.
-- [x] `ListeningFceGapFillPartView.tsx` â€” Part 2 gap-fill layout for Spectacled Bears, title + optional part image, inline numbered gaps.
+- [x] `ListeningFceTest.tsx` — Cambridge shell reused from KET/PET: top Cambridge header, fixed footer 4 parts, qnav, prev/next floating buttons, submit modal, localStorage draft, shared audio continues across parts.
+- [x] `ListeningFceMcPartView.tsx` — Part 1 shows only active MC question like screenshot; Part 4 shows all MC questions in one scrolling page. Options are full-width pale rows with radio circle.
+- [x] `ListeningFceGapFillPartView.tsx` — Part 2 gap-fill layout for Spectacled Bears, title + optional part image, inline numbered gaps.
 - [x] Part 2 has a small local image picker: user can click `Import` and choose an image from PC; preview replaces existing part image for current browser session only. It is not persisted to `exam.json`/Dexie.
-- [x] `ListeningFceMatchingPartView.tsx` â€” Part 3 speaker matching: speakers + drop slots left, answer bank right, supports click-to-pick and drag/drop, one-use options.
-- [x] `listeningTest.css` â€” scoped `.listening-fce-*` CSS, based on Cambridge screenshot spacing/colors. Does not intentionally alter KET/PET/IELTS.
+- [x] `ListeningFceMatchingPartView.tsx` — Part 3 speaker matching: speakers + drop slots left, answer bank right, supports click-to-pick and drag/drop, one-use options.
+- [x] `listeningTest.css` — scoped `.listening-fce-*` CSS, based on Cambridge screenshot spacing/colors. Does not intentionally alter KET/PET/IELTS.
 - [ ] No test/build run for this change per user request.
 
 ### Recipe for next model: CAE C1 Listening UI
@@ -3494,511 +3534,511 @@ pnpm ielts:bundle "IELTS/Listening IELTS_Test4_Cam20"
 
 ---
 
-## Reading IELTS â€” áº¢nh cloud Admin-only (session 2026-07-07) â€” HOÃ€N THÃ€NH
+## Reading IELTS — Ảnh cloud Admin-only (session 2026-07-07) — HOÀN THÀNH
 
-- [x] Migration `009_reading_exam_images.sql` â€” bucket `reading-exam-media` (public read) + báº£ng `reading_exam_images` + RLS (má»i user Ä‘á»c, chá»‰ Admin insert/update/delete)
-- [x] `readingExamCloudImages.ts` â€” upload/list/delete/merge áº£nh theo `examId` + slot (`top`/`bottom`/`passage`/`group`)
-- [x] `useReadingExamCloudImages.ts` + `useIsAdmin.ts` â€” hook load áº£nh + flag admin tá»« Dexie settings
-- [x] `ReadingTest.tsx` â€” merge cloud images khi render; upload/xÃ³a chá»‰ khi `isAdmin`
-- [x] `ReadingPassagePanel.tsx` / `ReadingPartTopImage.tsx` â€” user chá»‰ xem áº£nh, khÃ´ng tháº¥y slot upload
-- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` â€” Admin import áº£nh â†’ `mediaStorage: 'cloud'`; user thÆ°á»ng khÃ´ng upload
-- [x] `importReadingManualUtils.ts` â€” `mediaStorage: 'local' | 'cloud'`
-- [x] `database.types.ts` â€” `reading_exam_images` + `profiles.is_admin` + `Relationships: []`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] Migration `009_reading_exam_images.sql` — bucket `reading-exam-media` (public read) + bảng `reading_exam_images` + RLS (mọi user đọc, chỉ Admin insert/update/delete)
+- [x] `readingExamCloudImages.ts` — upload/list/delete/merge ảnh theo `examId` + slot (`top`/`bottom`/`passage`/`group`)
+- [x] `useReadingExamCloudImages.ts` + `useIsAdmin.ts` — hook load ảnh + flag admin từ Dexie settings
+- [x] `ReadingTest.tsx` — merge cloud images khi render; upload/xóa chỉ khi `isAdmin`
+- [x] `ReadingPassagePanel.tsx` / `ReadingPartTopImage.tsx` — user chỉ xem ảnh, không thấy slot upload
+- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` — Admin import ảnh → `mediaStorage: 'cloud'`; user thường không upload
+- [x] `importReadingManualUtils.ts` — `mediaStorage: 'local' | 'cloud'`
+- [x] `database.types.ts` — `reading_exam_images` + `profiles.is_admin` + `Relationships: []`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### HÃ nh vi
-- Admin thÃªm áº£nh (trong Ä‘á» hoáº·c Import Wizard) â†’ lÆ°u Supabase Storage + metadata â†’ **má»i user tháº¥y**
-- áº¢nh tá»“n táº¡i mÃ£i cho Ä‘áº¿n khi Admin xÃ³a
-- User thÆ°á»ng: khÃ´ng cÃ³ nÃºt upload/xÃ³a áº£nh
+### Hành vi
+- Admin thêm ảnh (trong đề hoặc Import Wizard) → lưu Supabase Storage + metadata → **mọi user thấy**
+- Ảnh tồn tại mãi cho đến khi Admin xóa
+- User thường: không có nút upload/xóa ảnh
 
-### Deploy migration â€” ÄÃƒ CHáº Y (2026-07-07)
-- `pnpm db:push` â†’ `009_reading_exam_images.sql` applied trÃªn Supabase
+### Deploy migration — ĐÃ CHẠY (2026-07-07)
+- `pnpm db:push` → `009_reading_exam_images.sql` applied trên Supabase
 
-### Fix áº£nh khÃ´ng hiá»‡n (2026-07-07)
-- NguyÃªn nhÃ¢n chÃ­nh: migration 009 chÆ°a push â†’ bucket/báº£ng khÃ´ng tá»“n táº¡i, upload tháº¥t báº¡i im láº·ng
-- `isAdmin === true` (trÃ¡nh `undefined` â†’ lÆ°u local Dexie thay vÃ¬ cloud)
-- Há»— trá»£ tÃªn file `part1-top.jpg`, `part1-bottom.jpg`, `part1-group-0.jpg`
-- `topImageUrl`/`bottomImageUrl` trÃªn `ReadingPart` + persist Dexie overlay cho Ä‘á» builtin
-- Hiá»‡n lá»—i upload/load áº£nh cho Admin trÃªn mÃ n Reading
+### Fix ảnh không hiện (2026-07-07)
+- Nguyên nhân chính: migration 009 chưa push → bucket/bảng không tồn tại, upload thất bại im lặng
+- `isAdmin === true` (tránh `undefined` → lưu local Dexie thay vì cloud)
+- Hỗ trợ tên file `part1-top.jpg`, `part1-bottom.jpg`, `part1-group-0.jpg`
+- `topImageUrl`/`bottomImageUrl` trên `ReadingPart` + persist Dexie overlay cho đề builtin
+- Hiện lỗi upload/load ảnh cho Admin trên màn Reading
 
-### User khÃ´ng tháº¥y dá»¯ liá»‡u Admin Ä‘Ã£ thÃªm â€” cháº©n Ä‘oÃ¡n (2026-07-07)
+### User không thấy dữ liệu Admin đã thêm — chẩn đoán (2026-07-07)
 
-**Hai lá»›p dá»¯ liá»‡u tÃ¡ch biá»‡t:**
+**Hai lớp dữ liệu tách biệt:**
 
-| Lá»›p | Admin lÆ°u | User tháº¥y khi nÃ o |
+| Lớp | Admin lưu | User thấy khi nào |
 |-----|-----------|-------------------|
-| **áº¢nh** | Supabase `reading_exam_images` + Storage `reading-exam-media` | Má»Ÿ **Ä‘Ãºng `examId`** + cÃ³ ná»™i dung Ä‘á» |
-| **Ná»™i dung Ä‘á»** (passage, cÃ¢u há»i) | TrÆ°á»›c Ä‘Ã¢y chá»‰ **Dexie local** (IndexedDB trÃ¬nh duyá»‡t Admin) | **KhÃ´ng** â€” má»—i mÃ¡y/tÃ i khoáº£n riÃªng |
+| **Ảnh** | Supabase `reading_exam_images` + Storage `reading-exam-media` | Mở **đúng `examId`** + có nội dung đề |
+| **Nội dung đề** (passage, câu hỏi) | Trước đây chỉ **Dexie local** (IndexedDB trình duyệt Admin) | **Không** — mỗi máy/tài khoản riêng |
 
-**VÃ­ dá»¥ thá»±c táº¿:** áº£nh cloud cho `reading-manual-1783427421159` Ä‘Ã£ cÃ³ trÃªn Supabase, nhÆ°ng báº£n Ä‘á» JSON chÆ°a publish â†’ User khÃ´ng má»Ÿ Ä‘Æ°á»£c Ä‘á» / khÃ´ng tháº¥y áº£nh.
+**Ví dụ thực tế:** ảnh cloud cho `reading-manual-1783427421159` đã có trên Supabase, nhưng bản đề JSON chưa publish → User không mở được đề / không thấy ảnh.
 
-**CÃ¡c case khÃ¡c:**
-- áº¢nh lÆ°u `imageKey` local (Dexie) khi `isAdmin` chÆ°a load â†’ chá»‰ Admin cÃ¹ng mÃ¡y tháº¥y
-- Äá» import `reading-manual-*` khÃ´ng sync cloud (chá»‰ catalog builtin ship cÃ¹ng deploy)
-- Äá» **builtin** `catalog-reading-...`: chá»‰ cáº§n áº£nh cloud theo `examId` â€” khÃ´ng cáº§n publish ná»™i dung Ä‘á»
+**Các case khác:**
+- Ảnh lưu `imageKey` local (Dexie) khi `isAdmin` chưa load → chỉ Admin cùng máy thấy
+- Đề import `reading-manual-*` không sync cloud (chỉ catalog builtin ship cùng deploy)
+- Đề **builtin** `catalog-reading-...`: chỉ cần ảnh cloud theo `examId` — không cần publish nội dung đề
 
-### Publish Ä‘á» Reading lÃªn Supabase â€” CODE XONG, CHÆ¯A ROLLOUT Háº¾T Äá»€ (2026-07-07)
+### Publish đề Reading lên Supabase — CODE XONG, CHƯA ROLLOUT HẾT ĐỀ (2026-07-07)
 
-- [x] Migration `010_reading_exam_published.sql` â€” báº£ng `reading_exam_published` + RLS (má»i user Ä‘á»c, Admin ghi) â€” **Ä‘Ã£ `pnpm db:push`**
-- [x] `readingExamPublish.ts` â€” `publishReadingExamToCloud`, `getPublishedReadingExam`, `listPublishedReadingExams`
-- [x] `examLoader.ts` â€” `resolveReadingExam` / `listAllReadingExams` Æ°u tiÃªn: Dexie local â†’ **published Supabase** â†’ builtin catalog
-- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` â€” Admin **LÆ°u** â†’ auto publish (khi `isAdmin === true`)
-- [x] `database.types.ts` â€” `reading_exam_published`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] Migration `010_reading_exam_published.sql` — bảng `reading_exam_published` + RLS (mọi user đọc, Admin ghi) — **đã `pnpm db:push`**
+- [x] `readingExamPublish.ts` — `publishReadingExamToCloud`, `getPublishedReadingExam`, `listPublishedReadingExams`
+- [x] `examLoader.ts` — `resolveReadingExam` / `listAllReadingExams` ưu tiên: Dexie local → **published Supabase** → builtin catalog
+- [x] `IeltsReadingImportWizard.tsx` + `ImportReadingManualModal.tsx` — Admin **Lưu** → auto publish (khi `isAdmin === true`)
+- [x] `database.types.ts` — `reading_exam_published`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Viá»‡c táº¡m hoÃ£n / Ä‘Ã£ cÃ³ cÃ¡ch thay tháº¿
+### Việc tạm hoãn / đã có cách thay thế
 
-1. **Re-publish Ä‘á» cÅ©** â€” dÃ¹ng **Admin â†’ Publish ná»™i dung** (mÃ¡y Ä‘Ã£ import); hoáº·c Reading Wizard â†’ Sá»­a â†’ LÆ°u; khÃ´ng báº¯t buá»™c import láº¡i ZIP
-2. **Batch áº£nh** â€” gáº¯n áº£nh khi import xong Cam 9â€“20, rá»“i Publish ná»™i dung
-3. **Verify cross-user** â€” Admin Publish â†’ User khÃ¡c hard refresh
-4. ~~Script one-shot~~ â†’ thay báº±ng `publishAllAdminContent` + `AdminPublishExamsPanel`
+1. **Re-publish đề cũ** — dùng **Admin → Publish nội dung** (máy đã import); hoặc Reading Wizard → Sửa → Lưu; không bắt buộc import lại ZIP
+2. **Batch ảnh** — gắn ảnh khi import xong Cam 9–20, rồi Publish nội dung
+3. **Verify cross-user** — Admin Publish → User khác hard refresh
+4. ~~Script one-shot~~ → thay bằng `publishAllAdminContent` + `AdminPublishExamsPanel`
 
-**Workflow Ä‘á» xuáº¥t sau batch import:**
+**Workflow đề xuất sau batch import:**
 ```
-Import háº¿t Ä‘á» (Wizard/build script)
-  â†’ Admin LÆ°u tá»«ng Ä‘á» (hoáº·c script publish) â€” áº£nh cloud + exam JSON lÃªn Supabase
-  â†’ pnpm build:catalog (Ä‘á» builtin) HOáº¶C rely reading_exam_published (Ä‘á» manual)
-  â†’ pnpm deploy:prod
-  â†’ User hard refresh â†’ tháº¥y Ä‘á» + áº£nh
+Import hết đề (Wizard/build script)
+  → Admin Lưu từng đề (hoặc script publish) — ảnh cloud + exam JSON lên Supabase
+  → pnpm build:catalog (đề builtin) HOẶC rely reading_exam_published (đề manual)
+  → pnpm deploy:prod
+  → User hard refresh → thấy đề + ảnh
 ```
 
 ---
 
-## Service Worker â€” cache catalog audio offline (session 2026-07-07) â€” HOÃ€N THÃ€NH
+## Service Worker — cache catalog audio offline (session 2026-07-07) — HOÀN THÀNH
 
-Giáº£m bandwidth Vercel khi user nghe láº¡i MP3 Listening: láº§n Ä‘áº§u táº£i tá»« network, láº§n sau láº¥y tá»« Cache Storage.
+Giảm bandwidth Vercel khi user nghe lại MP3 Listening: lần đầu tải từ network, lần sau lấy từ Cache Storage.
 
-- [x] `apps/web/public/sw.js` â€” cache-first cho `GET /catalog/**/*.{mp3,m4a,wav,ogg,webm}`; giá»¯ push notifications; `skipWaiting` + `clients.claim`; xÃ³a cache cÅ© khi version Ä‘á»•i; dev fallback version `dev` khi placeholder chÆ°a inject
-- [x] `apps/web/vite.config.ts` â€” plugin `injectSwCatalogCacheVersion`: thay `__CATALOG_CACHE_VERSION__` báº±ng `package.json` version lÃºc `closeBundle`
-- [x] `apps/web/src/App.tsx` â€” `register('/sw.js')` + `reg.update()` on load
-- [x] `pnpm --filter web build` â€” pass; `dist/sw.js` cÃ³ `ryan-catalog-0.2.0`
+- [x] `apps/web/public/sw.js` — cache-first cho `GET /catalog/**/*.{mp3,m4a,wav,ogg,webm}`; giữ push notifications; `skipWaiting` + `clients.claim`; xóa cache cũ khi version đổi; dev fallback version `dev` khi placeholder chưa inject
+- [x] `apps/web/vite.config.ts` — plugin `injectSwCatalogCacheVersion`: thay `__CATALOG_CACHE_VERSION__` bằng `package.json` version lúc `closeBundle`
+- [x] `apps/web/src/App.tsx` — `register('/sw.js')` + `reg.update()` on load
+- [x] `pnpm --filter web build` — pass; `dist/sw.js` có `ryan-catalog-0.2.0`
 
-### CÃ¡ch hoáº¡t Ä‘á»™ng
-1. User má»Ÿ app â†’ SW Ä‘Äƒng kÃ½ scope `/`
-2. PhÃ¡t Listening MP3 tá»« `/catalog/.../listening.mp3` â†’ SW fetch network â†’ lÆ°u `ryan-catalog-{version}`
-3. Láº§n sau (cÃ¹ng tab hoáº·c session má»›i): DevTools Network hiá»‡n `(from ServiceWorker)` â€” **khÃ´ng tá»‘n Vercel transfer**
-4. Má»—i release bump `apps/web/package.json` version â†’ cache name má»›i â†’ user táº£i MP3 má»›i náº¿u file Ä‘á»•i
+### Cách hoạt động
+1. User mở app → SW đăng ký scope `/`
+2. Phát Listening MP3 từ `/catalog/.../listening.mp3` → SW fetch network → lưu `ryan-catalog-{version}`
+3. Lần sau (cùng tab hoặc session mới): DevTools Network hiện `(from ServiceWorker)` — **không tốn Vercel transfer**
+4. Mỗi release bump `apps/web/package.json` version → cache name mới → user tải MP3 mới nếu file đổi
 
-### Verify thá»§ cÃ´ng (production / preview)
-- DevTools â†’ Application â†’ Cache Storage â†’ `ryan-catalog-*`
-- Network: play MP3 2 láº§n â†’ request thá»© 2 `Size` = `(ServiceWorker)`
+### Verify thủ công (production / preview)
+- DevTools → Application → Cache Storage → `ryan-catalog-*`
+- Network: play MP3 2 lần → request thứ 2 `Size` = `(ServiceWorker)`
 
-### ChÆ°a lÃ m (tuá»³ chá»n)
+### Chưa làm (tuỳ chọn)
 - Cache cross-origin Supabase `reading-exam-media` URLs
 
 ---
 
-## Listening â€” publish Ä‘á» import lÃªn Supabase (session 2026-07-07) â€” HOÃ€N THÃ€NH
+## Listening — publish đề import lên Supabase (session 2026-07-07) — HOÀN THÀNH
 
-Giá»‘ng Reading: Admin LÆ°u â†’ má»i user tháº¥y Ä‘á» Listening import (`listening-import-*`).
+Giống Reading: Admin Lưu → mọi user thấy đề Listening import (`listening-import-*`).
 
-- [x] Migration `011_listening_exam_published.sql` â€” **Ä‘Ã£ `pnpm db:push`**
-- [x] `listeningExamPublish.ts` â€” publish / get / list
-- [x] `listeningExamLoader.ts` â€” Dexie local â†’ **published Supabase** â†’ builtin catalog + `mergeCatalogListeningMedia`
-- [x] `ImportListeningModal.tsx` + `IeltsListeningImportWizard.tsx` â€” Admin LÆ°u â†’ auto publish
-- [x] `database.types.ts` â€” `listening_exam_published`
+- [x] Migration `011_listening_exam_published.sql` — **đã `pnpm db:push`**
+- [x] `listeningExamPublish.ts` — publish / get / list
+- [x] `listeningExamLoader.ts` — Dexie local → **published Supabase** → builtin catalog + `mergeCatalogListeningMedia`
+- [x] `ImportListeningModal.tsx` + `IeltsListeningImportWizard.tsx` — Admin Lưu → auto publish
+- [x] `database.types.ts` — `listening_exam_published`
 
-### MP3 / áº£nh sau publish
-- IELTS title `Cambridge X Test Y` â†’ `audioUrl` / áº£nh tá»« `/catalog/listening/...` (deploy)
-- KET/PET custom khÃ´ng khá»›p catalog â†’ user tháº¥y cÃ¢u há»i, **chÆ°a** nghe MP3 (blob chá»‰ mÃ¡y Admin) â€” tuá»³ chá»n upload cloud sau
+### MP3 / ảnh sau publish
+- IELTS title `Cambridge X Test Y` → `audioUrl` / ảnh từ `/catalog/listening/...` (deploy)
+- KET/PET custom không khớp catalog → user thấy câu hỏi, **chưa** nghe MP3 (blob chỉ máy Admin) — tuỳ chọn upload cloud sau
 
 ---
 
-## Admin â€” Publish ná»™i dung toÃ n app (session 2026-07-07) â€” HOÃ€N THÃ€NH
+## Admin — Publish nội dung toàn app (session 2026-07-07) — HOÀN THÀNH
 
-Má»™t nÃºt publish má»i module â€” **khÃ´ng cáº§n import láº¡i tá»«ng Ä‘á»**.
+Một nút publish mọi module — **không cần import lại từng đề**.
 
-- [x] Migration `012_admin_published_modules.sql` â€” `admin_published_modules` + `admin_publish_meta` â€” **Ä‘Ã£ push**
-- [x] `adminContentPublish.ts` â€” `publishAllAdminContent`, `countAdminPublishableContent`
-- [x] `syncAdminPublishedContent.ts` â€” user pull khi vÃ o `/app` (gá»i tá»« `GlobalCatalogSync.tsx`)
-- [x] `publishLocalExamsBatch.ts` â€” batch Reading/Listening (gá»i tá»« publish all)
-- [x] `AdminPublishExamsPanel.tsx` â€” tab **Publish ná»™i dung** trong `/app/admin`
-- [x] `scripts/build-catalog.mjs` â€” auto unzip `Tainguyen/{bundle}.zip` náº¿u thiáº¿u folder (fix Vercel build)
-- [x] `pnpm deploy:prod` â€” production live
+- [x] Migration `012_admin_published_modules.sql` — `admin_published_modules` + `admin_publish_meta` — **đã push**
+- [x] `adminContentPublish.ts` — `publishAllAdminContent`, `countAdminPublishableContent`
+- [x] `syncAdminPublishedContent.ts` — user pull khi vào `/app` (gọi từ `GlobalCatalogSync.tsx`)
+- [x] `publishLocalExamsBatch.ts` — batch Reading/Listening (gọi từ publish all)
+- [x] `AdminPublishExamsPanel.tsx` — tab **Publish nội dung** trong `/app/admin`
+- [x] `scripts/build-catalog.mjs` — auto unzip `Tainguyen/{bundle}.zip` nếu thiếu folder (fix Vercel build)
+- [x] `pnpm deploy:prod` — production live
 
 ### Admin workflow
 ```
-ThÃªm/sá»­a data trÃªn mÃ¡y Admin (IndexedDB)
-  â†’ /app/admin â†’ tab "Publish ná»™i dung" â†’ Publish táº¥t cáº£
-  â†’ Supabase (modules + reading_exam_published + listening_exam_published)
-  â†’ User má»Ÿ /app â†’ syncAdminPublishedContent() tá»± merge
+Thêm/sửa data trên máy Admin (IndexedDB)
+  → /app/admin → tab "Publish nội dung" → Publish tất cả
+  → Supabase (modules + reading_exam_published + listening_exam_published)
+  → User mở /app → syncAdminPublishedContent() tự merge
 ```
 
-### Module publish (má»™t nÃºt)
+### Module publish (một nút)
 
-| Module | Nguá»“n local | Ghi chÃº |
+| Module | Nguồn local | Ghi chú |
 |--------|-------------|---------|
-| Tá»« vá»±ng | `deck.origin === 'preset'` + tháº» | KhÃ´ng SRS |
-| Viáº¿t | `writingDocs` text trá»‘ng | Äá» bÃ i thÆ° viá»‡n |
-| Nghe | `lessons` category `cambridge` | KhÃ´ng bÃ i `user` |
-| Luyá»‡n dá»‹ch | `translationSets` â‰  `user` | |
-| Cáº¥u trÃºc cÃ¢u | `sentenceStructures` | |
+| Từ vựng | `deck.origin === 'preset'` + thẻ | Không SRS |
+| Viết | `writingDocs` text trống | Đề bài thư viện |
+| Nghe | `lessons` category `cambridge` | Không bài `user` |
+| Luyện dịch | `translationSets` ≠ `user` | |
+| Cấu trúc câu | `sentenceStructures` | |
 | MindMap | `mindmaps` | |
-| Luyá»‡n thi Reading | `reading-manual-*` â€¦ (trá»« `catalog-*`) | Báº£ng `reading_exam_published` |
-| Luyá»‡n thi Listening | `listening-import-*` | Báº£ng `listening_exam_published` |
+| Luyện thi Reading | `reading-manual-*` … (trừ `catalog-*`) | Bảng `reading_exam_published` |
+| Luyện thi Listening | `listening-import-*` | Bảng `listening_exam_published` |
 
-### KhÃ´ng publish
-- SRS, deck/tá»« user, bÃ i viáº¿t Ä‘Ã£ gÃµ, bÃ i nghe user, Ä‘á» builtin `catalog-*`
+### Không publish
+- SRS, deck/từ user, bài viết đã gõ, bài nghe user, đề builtin `catalog-*`
 
-### Auto publish khi LÆ°u (Admin)
-- Reading: Wizard + Import modal â†’ `publishReadingExamToCloud`
-- Listening: Import modal + Wizard â†’ `publishListeningExamToCloud`
+### Auto publish khi Lưu (Admin)
+- Reading: Wizard + Import modal → `publishReadingExamToCloud`
+- Listening: Import modal + Wizard → `publishListeningExamToCloud`
 
 ---
 
-## Luyá»‡n thi â€” Note cáº¡nh TÃ´ sÃ¡ng (session 2026-07-07) â€” HOÃ€N THÃ€NH
+## Luyện thi — Note cạnh Tô sáng (session 2026-07-07) — HOÀN THÀNH
 
-- [x] `readingHighlightUtils.ts` â€” `TextNote`, `segmentsFromAnnotations`, `upsertNotesForRanges`, `removeNotesInRanges`, `findNotesOverlappingRanges`
-- [x] `examHighlightContext.tsx` â€” context `{ highlights, notes }`, hook `useExamNotes()`
-- [x] `usePartHighlights.ts` â€” `notes`, `handleNotesChange`, `notesByPart`, `setAnnotationsByPart`
-- [x] `ReadingHighlightToolbar.tsx` â€” nÃºt **Note** + panel textarea (LÆ°u / XÃ³a / ÄÃ³ng)
-- [x] `ReadingHighlightableText.tsx` â€” gáº¡ch chÃ¢n wavy + tooltip `title` cho Ä‘oáº¡n cÃ³ note
-- [x] `readingTest.css` â€” `.reading-test-note`, styles panel note trÃªn toolbar
-- [x] **Reading IELTS shell** â€” `ReadingTest.tsx`: `notesByPart` persist draft `exam-reading-draft:{examId}`
-- [x] **Listening** â€” `ListeningKetTest`, `ListeningPetTest`, `ListeningFceTest` (FCE/CAE/CPE), `ListeningIeltsTest`: notes persist draft `exam-listening-draft:{examId}`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+- [x] `readingHighlightUtils.ts` — `TextNote`, `segmentsFromAnnotations`, `upsertNotesForRanges`, `removeNotesInRanges`, `findNotesOverlappingRanges`
+- [x] `examHighlightContext.tsx` — context `{ highlights, notes }`, hook `useExamNotes()`
+- [x] `usePartHighlights.ts` — `notes`, `handleNotesChange`, `notesByPart`, `setAnnotationsByPart`
+- [x] `ReadingHighlightToolbar.tsx` — nút **Note** + panel textarea (Lưu / Xóa / Đóng)
+- [x] `ReadingHighlightableText.tsx` — gạch chân wavy + tooltip `title` cho đoạn có note
+- [x] `readingTest.css` — `.reading-test-note`, styles panel note trên toolbar
+- [x] **Reading IELTS shell** — `ReadingTest.tsx`: `notesByPart` persist draft `exam-reading-draft:{examId}`
+- [x] **Listening** — `ListeningKetTest`, `ListeningPetTest`, `ListeningFceTest` (FCE/CAE/CPE), `ListeningIeltsTest`: notes persist draft `exam-listening-draft:{examId}`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
 ### UX
-1. BÃ´i Ä‘en text trong vÃ¹ng `data-exam-highlight-zone`
-2. Toolbar: **TÃ´ sÃ¡ng** | **Note** | Bá» tÃ´ sÃ¡ng | Sao chÃ©p
-3. **Note** â†’ textarea â†’ **LÆ°u note** (gáº¯n `blockId` + offset)
-4. Text cÃ³ note: gáº¡ch chÃ¢n wavy; hover xem tooltip
+1. Bôi đen text trong vùng `data-exam-highlight-zone`
+2. Toolbar: **Tô sáng** | **Note** | Bỏ tô sáng | Sao chép
+3. **Note** → textarea → **Lưu note** (gắn `blockId` + offset)
+4. Text có note: gạch chân wavy; hover xem tooltip
 
-### Cambridge RW A2â€“C2 (bá»• sung 2026-07-07)
-- [x] `rwHighlight/` â€” `RwExamMain`, `RwHighlightText`, `RwInstruction`, `RwMcRadioQuestion`, `rwGapTextSegment`
-- [x] 5 shell `*RwTest.tsx` â€” toolbar TÃ´ sÃ¡ng + Note, persist `highlightsByPart`/`notesByPart` trong draft
-- [x] `KetRwPartContent`, `PetRwPartContent`, `FceRwPartContent`, `CaeRwPartContent`, `CpeRwPartContent`, `PetRwDragMatch` â€” text highlightable qua `ReadingHighlightableText`
-- [x] `readingKetRw.css` â€” styles highlight/note trong `.ket-rw-main`
+### Cambridge RW A2–C2 (bổ sung 2026-07-07)
+- [x] `rwHighlight/` — `RwExamMain`, `RwHighlightText`, `RwInstruction`, `RwMcRadioQuestion`, `rwGapTextSegment`
+- [x] 5 shell `*RwTest.tsx` — toolbar Tô sáng + Note, persist `highlightsByPart`/`notesByPart` trong draft
+- [x] `KetRwPartContent`, `PetRwPartContent`, `FceRwPartContent`, `CaeRwPartContent`, `CpeRwPartContent`, `PetRwDragMatch` — text highlightable qua `ReadingHighlightableText`
+- [x] `readingKetRw.css` — styles highlight/note trong `.ket-rw-main`
 
 ---
 
-## ÄÃ£ xong (2026-07-09) â€” Security + isolation + draft race
-- **C1 profiles:** migration `013_protect_profile_privileges.sql` â€” trigger cháº·n self-promote `is_admin`/`plan`
-- **IndexedDB isolation:** `clearLocalUserData` + `ensureLocalUserIsolation` â€” wipe on logout / Ä‘á»•i user
-- **notify-payment:** chá»‰ JWT user (reject anon/service key); HTML escape; identity tá»« claims
+## Đã xong (2026-07-09) — Security + isolation + draft race
+- **C1 profiles:** migration `013_protect_profile_privileges.sql` — trigger chặn self-promote `is_admin`/`plan`
+- **IndexedDB isolation:** `clearLocalUserData` + `ensureLocalUserIsolation` — wipe on logout / đổi user
+- **notify-payment:** chỉ JWT user (reject anon/service key); HTML escape; identity từ claims
 - **Plan default:** `?? 'free'` (writing/mindmap/structure/KET grade)
-- **Exam draft race:** `useExamDraftGate` â€” hydrate xong má»›i save (Reading + Listening shells)
+- **Exam draft race:** `useExamDraftGate` — hydrate xong mới save (Reading + Listening shells)
 
-### Deploy báº¯t buá»™c
+### Deploy bắt buộc
 ```
 pnpm db:push
 npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 ```
 
-## ÄÃ£ xong (2026-07-09) â€” Writing: rewrite V2 + OCR Task1 + dashboard 30d + Cambridge RW AI
-- **Rubric â†’ Version 2 side-by-side:** `buildWritingRewritePrompt` + `RewriteComparePanel` trong ScorePanel (so sÃ¡nh V1/V2, copy, Ã¡p dá»¥ng V2)
-- **Task 1 graph OCR:** `buildChartDescribePrompt` + nÃºt â€œOCR & mÃ´ táº£ biá»ƒu Ä‘á»“â€ (vision OpenAI/Gemini); cháº¥m Task 1 gáº¯n áº£nh khi provider há»— trá»£ vision
-- **Dashboard:** lá»‹ch cháº¥m 30 ngÃ y + TB 30 ngÃ y + xu hÆ°á»›ng band theo ngÃ y (`useWritingDashboard`, `WritingDashboardPage`)
-- **Cambridge RW Writing:** `CambridgeRwWritingGradePanel` A2â€“C2 (thay KET-only); lÆ°u history `exam-rw:*` cho dashboard; model answer AI + **catalog** (`cambridgeWritingModelCatalog`) trÃªn result + hub Cambridge Writing
+## Đã xong (2026-07-09) — Writing: rewrite V2 + OCR Task1 + dashboard 30d + Cambridge RW AI
+- **Rubric → Version 2 side-by-side:** `buildWritingRewritePrompt` + `RewriteComparePanel` trong ScorePanel (so sánh V1/V2, copy, áp dụng V2)
+- **Task 1 graph OCR:** `buildChartDescribePrompt` + nút “OCR & mô tả biểu đồ” (vision OpenAI/Gemini); chấm Task 1 gắn ảnh khi provider hỗ trợ vision
+- **Dashboard:** lịch chấm 30 ngày + TB 30 ngày + xu hướng band theo ngày (`useWritingDashboard`, `WritingDashboardPage`)
+- **Cambridge RW Writing:** `CambridgeRwWritingGradePanel` A2–C2 (thay KET-only); lưu history `exam-rw:*` cho dashboard; model answer AI + **catalog** (`cambridgeWritingModelCatalog`) trên result + hub Cambridge Writing
 - Core: `attachImagesToUserMessage`, rewrite/chart/model answer types trong `writingPrompt.ts`
-- `pnpm --filter web exec tsc --noEmit` â€” pass
+- `pnpm --filter web exec tsc --noEmit` — pass
 
 ### Verify Writing
-1. `/app/writing/practice` â†’ Task 1: upload JPG â†’ OCR & mÃ´ táº£ â†’ cháº¥m AI â†’ **Viáº¿t láº¡i Version 2**
-2. `/app/writing/dashboard` â†’ lá»‹ch 30 ngÃ y + cá»™t trend
-3. Ná»™p Ä‘á» Cambridge RW â†’ Part Writing: Cháº¥m AI + Catalog máº«u / Táº¡o bÃ i máº«u AI
-4. `/app/writing/cambridge` â†’ Model answer catalog
+1. `/app/writing/practice` → Task 1: upload JPG → OCR & mô tả → chấm AI → **Viết lại Version 2**
+2. `/app/writing/dashboard` → lịch 30 ngày + cột trend
+3. Nộp đề Cambridge RW → Part Writing: Chấm AI + Catalog mẫu / Tạo bài mẫu AI
+4. `/app/writing/cambridge` → Model answer catalog
 
-## Next session start prompt (cáº­p nháº­t 2026-07-09 â€” Writing pack)
+## Next session start prompt (cập nhật 2026-07-09 — Writing pack)
 ```
-Äá»c session_summary.md ngay.
+Đọc session_summary.md ngay.
 
 ## Context nhanh
 - Writing: rewrite V2 side-by-side, Task1 OCR vision, dashboard 30d calendar
-- Cambridge RW Writing AI + model catalog (A2â€“C2)
-- ExamResult dÃ¹ng CambridgeRwWritingGradePanel
+- Cambridge RW Writing AI + model catalog (A2–C2)
+- ExamResult dùng CambridgeRwWritingGradePanel
 
 ### Verify user
 1. Writing practice: grade + rewrite V2
-2. Dashboard 30 ngÃ y
-3. Cambridge RW result: cháº¥m AI + catalog
+2. Dashboard 30 ngày
+3. Cambridge RW result: chấm AI + catalog
 ```
 
-## ÄÃ£ xong (2026-07-09) â€” Landing WebGL Magic Tome
-- CÃ i `three` + `@types/three` (apps/web)
-- `MagicTomeCanvas.tsx` â€” tome leather texture, cover canvas, spine gold, flip pages, ACES lights, particles
+## Đã xong (2026-07-09) — Landing WebGL Magic Tome
+- Cài `three` + `@types/three` (apps/web)
+- `MagicTomeCanvas.tsx` — tome leather texture, cover canvas, spine gold, flip pages, ACES lights, particles
 - `DictionaryBookScene` cinematic stage; `HERO_MASCOT_MODE = 'dictionary'`
-- Fix strip â€œA Â· ARCANEâ€ má»ng (geometry/camera) â†’ sÃ¡ch dÃ y face-on
+- Fix strip “A · ARCANE” mỏng (geometry/camera) → sách dày face-on
 - `tsc --noEmit` pass
 
 ---
 
-## ÄÃ£ xong (2026-07-09) â€” Skill picker Page1 + Library Archives
-- `/app/exam/track/ielts` â†’ 2 tháº» Listening/Reading (Giaodien Page1)
-- `/ielts/reading|listening` â†’ Library Archives (1 skill)
-- Cambridge: `/cambridge` levels â†’ `/cambridge/a2` skill picker â†’ `/a2/reading|listening` library
+## Đã xong (2026-07-09) — Skill picker Page1 + Library Archives
+- `/app/exam/track/ielts` → 2 thẻ Listening/Reading (Giaodien Page1)
+- `/ielts/reading|listening` → Library Archives (1 skill)
+- Cambridge: `/cambridge` levels → `/cambridge/a2` skill picker → `/a2/reading|listening` library
 - `ExamSkillPicker.tsx` + route `track/:trackId/:arg2?/:arg3?`
 
-## ÄÃ£ xong (2026-07-09) â€” AI chá»‰ Ä‘oáº¡n Ä‘Ã¡p Ã¡n + tÃ´ cam
-- AI báº¯t buá»™c **Äoáº¡n trong Ä‘á»** (quote nguyÃªn vÄƒn tá»« passage/NGUá»’N)
-- LÆ°u evidences trong sessionStorage; match quote â†’ `ReadingHighlight kind=evidence`
-- TÃ´ **cam** (`.reading-test-highlight--evidence`) + scroll tá»›i Ä‘oáº¡n khi Ä‘á»•i cÃ¢u review
+## Đã xong (2026-07-09) — AI chỉ đoạn đáp án + tô cam
+- AI bắt buộc **Đoạn trong đề** (quote nguyên văn từ passage/NGUỒN)
+- Lưu evidences trong sessionStorage; match quote → `ReadingHighlight kind=evidence`
+- Tô **cam** (`.reading-test-highlight--evidence`) + scroll tới đoạn khi đổi câu review
 - Reading IELTS + Cambridge RW; Listening: quote trong panel (source = note/prompt)
 - `examAiEvidence.ts`, `useReviewEvidenceHighlights`, `buildReadingPassageHighlightBlocks`
 
-## ÄÃ£ xong (2026-07-09) â€” AI phÃ¢n tÃ­ch style + xem cÃ¹ng Ä‘á»
-- Panel AI report dÃ¹ng cÃ¹ng class/ná»n/chá»¯ vá»›i â€œBÃ i giáº£i chi tiáº¿tâ€
+## Đã xong (2026-07-09) — AI phân tích style + xem cùng đề
+- Panel AI report dùng cùng class/nền/chữ với “Bài giải chi tiết”
 - `examAiAnalysisStorage` + `ExamReviewAiPanel` + `useExamReviewAi`
-- NÃºt â€œXem cÃ¹ng Ä‘á» bÃ iâ€ trÃªn panel AI (vÃ  action bar) má»Ÿ review kÃ¨m AI
-- Wire panel: ReadingTest, *RwTest (KETâ€“CPE), ListeningIelts/Ket/Pet/Fce
-- `pnpm --filter web exec tsc --noEmit` â€” pass
+- Nút “Xem cùng đề bài” trên panel AI (và action bar) mở review kèm AI
+- Wire panel: ReadingTest, *RwTest (KET–CPE), ListeningIelts/Ket/Pet/Fce
+- `pnpm --filter web exec tsc --noEmit` — pass
 
-## ÄÃ£ xong (2026-07-09) â€” BÃ¡o cÃ¡o káº¿t quáº£ Luyá»‡n thi (Reading_IELTS_Result)
-- UI xanh lÆ°á»›i + sun mascot + stats: Ä‘Ãºng / bá» qua / sai / band
+## Đã xong (2026-07-09) — Báo cáo kết quả Luyện thi (Reading_IELTS_Result)
+- UI xanh lưới + sun mascot + stats: đúng / bỏ qua / sai / band
 - `ExamPracticeResultReport` + `examBandScore` + CSS
 - Wire `ExamResult` (Reading IELTS/Cambridge) + `ListeningExamResult`
-- NÃºt: LÃ m láº¡i Â· Xem cÃ¹ng Ä‘á» bÃ i Â· BÃ i giáº£i chi tiáº¿t Â· Tháº£o luáº­n (disabled)
+- Nút: Làm lại · Xem cùng đề bài · Bài giải chi tiết · Thảo luận (disabled)
 
 
 ---
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3mfs (Match + Features + Summary) â† Part3_20
-- Kind `p3-r3-match-features-summary` Â· code **r3mfs**
-- Q27â€“31 matching-paragraph Aâ€“G Â· Q32â€“36 features Aâ€“E (Dan Maconâ€¦Bethany Smith) Â· Q37â€“40 summary ONE WORD
+## Đã xong (2026-07-09) — Template P3 r3mfs (Match + Features + Summary) ← Part3_20
+- Kind `p3-r3-match-features-summary` · code **r3mfs**
+- Q27–31 matching-paragraph A–G · Q32–36 features A–E (Dan Macon…Bethany Smith) · Q37–40 summary ONE WORD
 - SAMPLE: Livestock guard dogs; preview `Teamplate_Part3_20.jpg`
-- KhÃ¡c **r3ms** (match â†’ summary â†’ features)
+- Khác **r3ms** (match → summary → features)
 - Test: `apps/web/scripts/test-r3mfs.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3fem (Features + Endings + MC) â† Part3_19
-- Kind `p3-r3-features-endings-mc` Â· code **r3fem**
-- Q27â€“33 matching-features Aâ€“C (Martin Rees, Daniel Wolpert, Kathleen Richardson)
-- Q34â€“36 sentence endings Aâ€“D (wordBank LIST OF OPTIONS)
-- Q37â€“40 MC Aâ€“D (Q37 fear of machines khá»›p JPG)
-- Preview: `Teamplate_Part3_19.jpg` â†’ `public/ielts-wizard/reading/p3/`
+## Đã xong (2026-07-09) — Template P3 r3fem (Features + Endings + MC) ← Part3_19
+- Kind `p3-r3-features-endings-mc` · code **r3fem**
+- Q27–33 matching-features A–C (Martin Rees, Daniel Wolpert, Kathleen Richardson)
+- Q34–36 sentence endings A–D (wordBank LIST OF OPTIONS)
+- Q37–40 MC A–D (Q37 fear of machines khớp JPG)
+- Preview: `Teamplate_Part3_19.jpg` → `public/ielts-wizard/reading/p3/`
 - Test: `apps/web/scripts/test-r3fem.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2h2n (Headings + Choose TWO + Notes) â† Part2_20
-- Kind `p2-r2-headings-choose-two-notes` Â· code **r2h2n**
-- Q14â€“19 matching-headings Aâ€“F (iâ€“vii) Â· Q20â€“21 Choose TWO Â· Q22â€“23 Choose TWO Â· Q24â€“26 notes ONE WORD (notePassage)
+## Đã xong (2026-07-09) — Template P2 r2h2n (Headings + Choose TWO + Notes) ← Part2_20
+- Kind `p2-r2-headings-choose-two-notes` · code **r2h2n**
+- Q14–19 matching-headings A–F (i–vii) · Q20–21 Choose TWO · Q22–23 Choose TWO · Q24–26 notes ONE WORD (notePassage)
 - SAMPLE: Saving coral reefs (London Zoo / tentacles / algae)
-- Preview: `Teamplate_Part2_20.jpg` â†’ `public/ielts-wizard/reading/p2/`
+- Preview: `Teamplate_Part2_20.jpg` → `public/ielts-wizard/reading/p2/`
 - Test: `apps/web/scripts/test-r2h2n.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3ysb (YNNG + Summary bank + MC) â† Part3_18
-- Kind `p3-r3-ynng-summary-bank-mc` Â· code **r3ysb**
-- Q27â€“32 YNNG Â· Q33â€“37 summary bank Aâ€“H (Calls by the umpire) Â· Q38â€“40 MC Aâ€“D
-- SAMPLE: **The Automated Ball-Strike System** (ABS baseball) â€” khá»›p Teamplate_Part3_18.jpg
-- Preview: `Teamplate_Part3_18.jpg` â†’ `public/ielts-wizard/reading/p3/`
+## Đã xong (2026-07-09) — Template P3 r3ysb (YNNG + Summary bank + MC) ← Part3_18
+- Kind `p3-r3-ynng-summary-bank-mc` · code **r3ysb**
+- Q27–32 YNNG · Q33–37 summary bank A–H (Calls by the umpire) · Q38–40 MC A–D
+- SAMPLE: **The Automated Ball-Strike System** (ABS baseball) — khớp Teamplate_Part3_18.jpg
+- Preview: `Teamplate_Part3_18.jpg` → `public/ielts-wizard/reading/p3/`
 - Test: `apps/web/scripts/test-r3ysb.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2ms2 (Match + Summary + Choose TWO)
-- Kind `p2-r2-match-summary-choose-two` Â· code **r2ms2**
-- Q14â€“16 match Â· Q17â€“22 summary ONE WORD Â· Q23â€“24 + Q25â€“26 2Ã— Choose TWO Aâ€“E
-- SAMPLE: Community gardens; preview táº¡m Teamplate_Part2_10.jpg
-- KhÃ¡c **r2cs** (Choose TWO trÆ°á»›c summary); **r2msc** (sentence giá»¯a)
+## Đã xong (2026-07-09) — Template P2 r2ms2 (Match + Summary + Choose TWO)
+- Kind `p2-r2-match-summary-choose-two` · code **r2ms2**
+- Q14–16 match · Q17–22 summary ONE WORD · Q23–24 + Q25–26 2× Choose TWO A–E
+- SAMPLE: Community gardens; preview tạm Teamplate_Part2_10.jpg
+- Khác **r2cs** (Choose TWO trước summary); **r2msc** (sentence giữa)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2mfu (Match + Features + Summary)
-- Kind `p2-r2-match-features-summary` Â· code **r2mfu**
-- Q14â€“17 match Aâ€“F Â· Q18â€“23 features Aâ€“E Â· Q24â€“26 summary ONE WORD
+## Đã xong (2026-07-09) — Template P2 r2mfu (Match + Features + Summary)
+- Kind `p2-r2-match-features-summary` · code **r2mfu**
+- Q14–17 match A–F · Q18–23 features A–E · Q24–26 summary ONE WORD
 - SAMPLE: Deep-sea mining (Cam19 T4 P2); preview Teamplate_Part2_19.jpg
-- KhÃ¡c **r2mfs** (features Ã­t + sentence cuá»‘i); **r2msf** (sentence giá»¯a)
+- Khác **r2mfs** (features ít + sentence cuối); **r2msf** (sentence giữa)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3mgy (MC + Summary ONE WORD + YNNG)
-- Kind `p3-r3-mc-summary-gap-ynng` Â· code **r3mgy**
-- Q27â€“30 MC Aâ€“D Â· Q31â€“35 summary ONE WORD (note, no bank) Â· Q36â€“40 YNNG
+## Đã xong (2026-07-09) — Template P3 r3mgy (MC + Summary ONE WORD + YNNG)
+- Kind `p3-r3-mc-summary-gap-ynng` · code **r3mgy**
+- Q27–30 MC A–D · Q31–35 summary ONE WORD (note, no bank) · Q36–40 YNNG
 - SAMPLE: The Unselfish Gene / hunter-gatherers (Cam19 T4 P3); preview Teamplate_Part3_17.jpg
-- KhÃ¡c **r3my** (cÃ³ wordBank); **r3mey** (endings Aâ€“F)
+- Khác **r3my** (có wordBank); **r3mey** (endings A–F)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3mey (MC + Endings + YNNG)
-- Kind `p3-r3-mc-endings-ynng` Â· code **r3mey**
-- Q27â€“30 MC Aâ€“D Â· Q31â€“34 sentence endings Aâ€“F Â· Q35â€“40 YNNG
+## Đã xong (2026-07-09) — Template P3 r3mey (MC + Endings + YNNG)
+- Kind `p3-r3-mc-endings-ynng` · code **r3mey**
+- Q27–30 MC A–D · Q31–34 sentence endings A–F · Q35–40 YNNG
 - SAMPLE: artificial speech translation (Cam19 T3 P3); preview Teamplate_Part3_16.jpg
-- KhÃ¡c **r3my** (summary note Ä‘oáº¡n, khÃ´ng endings)
+- Khác **r3my** (summary note đoạn, không endings)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2msf (Match + Sentence + Features)
-- Kind `p2-r2-match-sentence-features` Â· code **r2msf**
-- Q14â€“17 match Aâ€“H Â· Q18â€“22 sentence ONE WORD Â· Q23â€“26 features Aâ€“D
+## Đã xong (2026-07-09) — Template P2 r2msf (Match + Sentence + Features)
+- Kind `p2-r2-match-sentence-features` · code **r2msf**
+- Q14–17 match A–H · Q18–22 sentence ONE WORD · Q23–26 features A–D
 - SAMPLE: The global importance of wetlands (Cam19 T3 P2); preview Teamplate_Part2_18.jpg
-- KhÃ¡c **r2mfs** (match â†’ features â†’ sentence)
+- Khác **r2mfs** (match → features → sentence)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3sb (Summary bank + YNNG + MC)
-- Kind `p3-r3-summary-bank-ynng-mc` Â· code **r3sb**
-- Q27â€“32 summary bank Aâ€“K Â· Q33â€“37 YNNG Â· Q38â€“40 MC Aâ€“D
+## Đã xong (2026-07-09) — Template P3 r3sb (Summary bank + YNNG + MC)
+- Kind `p3-r3-summary-bank-ynng-mc` · code **r3sb**
+- Q27–32 summary bank A–K · Q33–37 YNNG · Q38–40 MC A–D
 - SAMPLE: gifted child / Mirzakhani (Cam19 T2 P3); preview Teamplate_Part3_15.jpg
-- Infer: bank â‰¥10 hoáº·c 6 gaps + 5 YNNG + 3 MC â†’ r3sb (khÃ¡c r3sy)
+- Infer: bank ≥10 hoặc 6 gaps + 5 YNNG + 3 MC → r3sb (khác r3sy)
 
-## ÄÃ£ xong (2026-07-09) â€” Fix Choose TWO chá»‰ chá»n 1 Ä‘Ã¡p Ã¡n (r2msc / Cam19 T2)
-- **Root cause:** AI/import chá»‰ gáº¯n `options` Aâ€“E lÃªn cÃ¢u 1 (Q23/Q25); Q24/Q26 `options: []` â†’ `isReadingChooseTwoGroup` false â†’ UI MC chá»n 1
-- `normalizeReadingChooseTwoGroup`: share options sang cÃ¢u 2; wire sanitize + ReadingQuestionPanel
-- Cloud Cam19 T2 P2 (`reading-manual-1783587241597`) Ä‘Ã£ fill options Q24/Q26
+## Đã xong (2026-07-09) — Fix Choose TWO chỉ chọn 1 đáp án (r2msc / Cam19 T2)
+- **Root cause:** AI/import chỉ gắn `options` A–E lên câu 1 (Q23/Q25); Q24/Q26 `options: []` → `isReadingChooseTwoGroup` false → UI MC chọn 1
+- `normalizeReadingChooseTwoGroup`: share options sang câu 2; wire sanitize + ReadingQuestionPanel
+- Cloud Cam19 T2 P2 (`reading-manual-1783587241597`) đã fill options Q24/Q26
 - Test `scripts/test-r2msc-choose-two.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Nháº­n dáº¡ng xÃ¡o trá»™n dáº¡ng cÃ¢u (má»i template)
-- `ieltsReadingGroupRoles.ts`: role Match/TFNG/YNNG/Choose TWO/Summary bank/Notes/Tableâ€¦
-- `reorderPartGroupsToTemplate`: sáº¯p láº¡i groups vá» thá»© tá»± SAMPLE (role + dáº£i Q)
-- `alignQuestionGroupsToTemplate` gá»i reorder trÆ°á»›c hybrid
-- Infer: multiset role + cháº¥m assignment theo sá»‘ cÃ¢u (phÃ¢n biá»‡t r3my/r3ysm khi type order xÃ¡o)
+## Đã xong (2026-07-09) — Nhận dạng xáo trộn dạng câu (mọi template)
+- `ieltsReadingGroupRoles.ts`: role Match/TFNG/YNNG/Choose TWO/Summary bank/Notes/Table…
+- `reorderPartGroupsToTemplate`: sắp lại groups về thứ tự SAMPLE (role + dải Q)
+- `alignQuestionGroupsToTemplate` gọi reorder trước hybrid
+- Infer: multiset role + chấm assignment theo số câu (phân biệt r3my/r3ysm khi type order xáo)
 - Test: `scripts/test-shuffle-groups.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2msc (Match + Sentence + Choose TWO)
-- Kind `p2-r2-match-sentence-choose-two` Â· code **r2msc**
-- Q14â€“18 match Aâ€“F Â· Q19â€“22 sentence ONE WORD Â· Q23â€“24 + Q25â€“26 2Ã— Choose TWO Aâ€“E
+## Đã xong (2026-07-09) — Template P2 r2msc (Match + Sentence + Choose TWO)
+- Kind `p2-r2-match-sentence-choose-two` · code **r2msc**
+- Q14–18 match A–F · Q19–22 sentence ONE WORD · Q23–24 + Q25–26 2× Choose TWO A–E
 - SAMPLE: Athletes and stress (Cam19 T2 P2); preview Teamplate_Part2_17.jpg
 - Prompt AI + infer signature
 
-## ÄÃ£ xong (2026-07-09) â€” Template r3my cáº­p nháº­t Cam19 (MC + Summary Aâ€“J + YNNG)
-- Kind `p3-r3-mc-summary-ynng` Â· code **r3my**
+## Đã xong (2026-07-09) — Template r3my cập nhật Cam19 (MC + Summary A–J + YNNG)
+- Kind `p3-r3-mc-summary-ynng` · code **r3my**
 - SAMPLE: *The persistence and peril of misinformation* (Cam19 T1 P3)
-- Q27â€“30 MC Aâ€“D Â· Q31â€“36 summary bank Aâ€“J Â· Q37â€“40 YNNG
+- Q27–30 MC A–D · Q31–36 summary bank A–J · Q37–40 YNNG
 - Prompt AI + infer `multiple-choice|summary-completion|ynng` (+ gap-fill alias)
-- KhÃ¡c **r3ysm** (YNNG â†’ summary â†’ MC)
+- Khác **r3ysm** (YNNG → summary → MC)
 
-## ÄÃ£ xong (2026-07-09) â€” Cam19 T1 Reading P3 double YNNG + data fix
-- **Bug:** Q37â€“40 `group.type=multiple-choice` + cÃ¢u YNNG â†’ UI MC hiá»‡n **A YES / B NO** chá»“ng instruction YES ifâ€¦ (double)
-- **Sanitize + UI:** Ã©p `ynng` khi instruction/options lÃ  tri-state; radio luÃ´n 3 option ngáº¯n
+## Đã xong (2026-07-09) — Cam19 T1 Reading P3 double YNNG + data fix
+- **Bug:** Q37–40 `group.type=multiple-choice` + câu YNNG → UI MC hiện **A YES / B NO** chồng instruction YES if… (double)
+- **Sanitize + UI:** ép `ynng` khi instruction/options là tri-state; radio luôn 3 option ngắn
 - **Cloud fix** `reading-manual-1783584609723` (Cam 19 Test 1):
-  - Q27â€“30 â†’ MC Aâ€“D (Ä‘Ã¡p Ã¡n D/A/C/D)
-  - Q31â€“36 â†’ summary bank (H/J/G/B/E/C)
-  - Q37â€“40 â†’ **ynng** (YES / NOT GIVEN / NO / NOT GIVEN)
+  - Q27–30 → MC A–D (đáp án D/A/C/D)
+  - Q31–36 → summary bank (H/J/G/B/E/C)
+  - Q37–40 → **ynng** (YES / NOT GIVEN / NO / NOT GIVEN)
 - Script: `apps/web/scripts/fix-cam19-t1-p3-via-db.mts`
 
-## ÄÃ£ xong (2026-07-09) â€” Template P1 r1tn (TFNG + Notes)
-- Kind `p1-r1-tfng-notes` Â· code **r1tn**
-- Q1â€“7 TFNG Â· Q8â€“13 notes ONE WORD (`notePassage` bullets) â€” Teamplate_Part1_14.jpg
+## Đã xong (2026-07-09) — Template P1 r1tn (TFNG + Notes)
+- Kind `p1-r1-tfng-notes` · code **r1tn**
+- Q1–7 TFNG · Q8–13 notes ONE WORD (`notePassage` bullets) — Teamplate_Part1_14.jpg
 - SAMPLE: tennis racket / materials, spin, training, gut, weights, grip
 - Preview: `public/ielts-wizard/reading/p1/Teamplate_Part1_14.jpg`
-- Infer: `tfng|gap-fill` + notePassage / â€œComplete the notesâ€ â†’ r1tn (khÃ´ng nháº§m r1g)
-- Prompt AI + hybrid notePassage nhÆ° r1n8/r2tn
+- Infer: `tfng|gap-fill` + notePassage / “Complete the notes” → r1tn (không nhầm r1g)
+- Prompt AI + hybrid notePassage như r1n8/r2tn
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r3ysm thiáº¿u LIST OF OPTIONS (Q31â€“36) â€” v2 cá»©ng
-- **Root cause:** AI tráº£ sá»‘ nhÃ³m â‰  SAMPLE (vd. tÃ¡ch MC â†’ 4 groups) â†’ `forceTemplateHybridGroups` early-return â†’ khÃ´ng gáº¯n wordBank
-- `forceTemplateSummaryWordBanks`: match theo **sá»‘ cÃ¢u Q31â€“36** (khÃ´ng phá»¥ thuá»™c index); luÃ´n Ã©p SAMPLE Aâ€“J
-- `finalizeTemplateStructure`: cháº¡y word-bank Ã©p á»Ÿ **má»i** nhÃ¡nh `applyReadingTemplateTableStructure`
-- `normalizeAiReadingPart`: extract bank tá»« alias (`listOfOptions`, options cÃ¢u Ä‘áº§uâ€¦); type â†’ summary-completion khi list of phrases
+## Đã xong (2026-07-09) — Fix r3ysm thiếu LIST OF OPTIONS (Q31–36) — v2 cứng
+- **Root cause:** AI trả số nhóm ≠ SAMPLE (vd. tách MC → 4 groups) → `forceTemplateHybridGroups` early-return → không gắn wordBank
+- `forceTemplateSummaryWordBanks`: match theo **số câu Q31–36** (không phụ thuộc index); luôn ép SAMPLE A–J
+- `finalizeTemplateStructure`: chạy word-bank ép ở **mọi** nhánh `applyReadingTemplateTableStructure`
+- `normalizeAiReadingPart`: extract bank từ alias (`listOfOptions`, options câu đầu…); type → summary-completion khi list of phrases
 - Test `scripts/test-r3ysm-wordbank.mts` PASS (missing + partial + **4-group mismatch**)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3ysm (YNNG + Summary bank + MC)
-- Kind `p3-r3-ynng-summary-mc` Â· code **r3ysm**
-- Q27â€“30 YNNG Â· Q31â€“36 summary word bank Aâ€“J Â· Q37â€“40 MC Aâ€“D
-- Preview: `Teamplate_Part3_14.jpg` â†’ `public/ielts-wizard/reading/p3/`
+## Đã xong (2026-07-09) — Template P3 r3ysm (YNNG + Summary bank + MC)
+- Kind `p3-r3-ynng-summary-mc` · code **r3ysm**
+- Q27–30 YNNG · Q31–36 summary word bank A–J · Q37–40 MC A–D
+- Preview: `Teamplate_Part3_14.jpg` → `public/ielts-wizard/reading/p3/`
 - SAMPLE: Wegener / continental drift
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2mfy (MC + Features + YNNG)
-- Kind `p2-r2-mc-features-ynng` Â· code **r2mfy**
-- Q14â€“16 MC Aâ€“D Â· Q17â€“22 matching-features Aâ€“E Â· Q23â€“26 YNNG (claims of writer)
-- Preview: `Teamplate_Part2_16.jpg` â†’ `public/ielts-wizard/reading/p2/`
+## Đã xong (2026-07-09) — Template P2 r2mfy (MC + Features + YNNG)
+- Kind `p2-r2-mc-features-ynng` · code **r2mfy**
+- Q14–16 MC A–D · Q17–22 matching-features A–E · Q23–26 YNNG (claims of writer)
+- Preview: `Teamplate_Part2_16.jpg` → `public/ielts-wizard/reading/p2/`
 - SAMPLE: Growth mindset (Binet, Dweck, Gelman, Bates, Yeager & Walton)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P1 r1ms2 (Match + Summary + Choose TWO)
-- Kind `p1-r1-match-summary-choose-two` Â· code **r1ms2**
-- Q1â€“5 match Aâ€“E Â· Q6â€“9 summary ONE WORD Â· Q10â€“11 Choose TWO Aâ€“E Â· Q12â€“13 MC
-- Preview: `Teamplate_Part1_13.jpg` â†’ `public/ielts-wizard/reading/p1/`
+## Đã xong (2026-07-09) — Template P1 r1ms2 (Match + Summary + Choose TWO)
+- Kind `p1-r1-match-summary-choose-two` · code **r1ms2**
+- Q1–5 match A–E · Q6–9 summary ONE WORD · Q10–11 Choose TWO A–E · Q12–13 MC
+- Preview: `Teamplate_Part1_13.jpg` → `public/ielts-wizard/reading/p1/`
 - SAMPLE: Green roofs
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r2hmc thiáº¿u ná»™i dung (chuáº©n r2hm)
-- SAMPLE passage dÃ i Ä‘á»§ 7 Ä‘oáº¡n; summary note liá»n (format Diamond r2hm); MC instruction Cam-style
-- `forceTemplateHybridGroups`: merge **headings[]** + summary **note** tá»« SAMPLE khi AI thiáº¿u
-- Prompt r2hmc: báº¯t buá»™c headings Ä‘áº§y Ä‘á»§ + note summary liá»n 24________â€¦; khÃ´ng noteTable
+## Đã xong (2026-07-09) — Fix r2hmc thiếu nội dung (chuẩn r2hm)
+- SAMPLE passage dài đủ 7 đoạn; summary note liền (format Diamond r2hm); MC instruction Cam-style
+- `forceTemplateHybridGroups`: merge **headings[]** + summary **note** từ SAMPLE khi AI thiếu
+- Prompt r2hmc: bắt buộc headings đầy đủ + note summary liền 24________…; không noteTable
 - Test: `scripts/test-r2hmc.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2hmc (Headings + MC + Summary)
-- Kind `p2-r2-headings-mc-summary` Â· code **r2hmc**
-- Q14â€“20 matching-headings Aâ€“G (iâ€“viii) Â· Q21â€“23 MC Aâ€“D Â· Q24â€“26 summary ONE WORD AND/OR A NUMBER (note)
-- Preview: `Teamplate_Part2_15.jpg` â†’ `public/ielts-wizard/reading/p2/`
-- SAMPLE: Steam car / Model E; khÃ¡c r2hm (thá»© tá»± headingsâ†’MCâ†’summary)
+## Đã xong (2026-07-09) — Template P2 r2hmc (Headings + MC + Summary)
+- Kind `p2-r2-headings-mc-summary` · code **r2hmc**
+- Q14–20 matching-headings A–G (i–viii) · Q21–23 MC A–D · Q24–26 summary ONE WORD AND/OR A NUMBER (note)
+- Preview: `Teamplate_Part2_15.jpg` → `public/ielts-wizard/reading/p2/`
+- SAMPLE: Steam car / Model E; khác r2hm (thứ tự headings→MC→summary)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P1 r1msf (Match + Summary + Features)
-- Kind `p1-r1-match-summary-features` Â· code **r1msf**
-- Q1â€“4 matching-paragraph Aâ€“H Â· Q5â€“8 summary ONE WORD (note) Â· Q9â€“13 matching-features Aâ€“D
-- Preview: `Teamplate_Part1_12.jpg` â†’ `public/ielts-wizard/reading/p1/`
+## Đã xong (2026-07-09) — Template P1 r1msf (Match + Summary + Features)
+- Kind `p1-r1-match-summary-features` · code **r1msf**
+- Q1–4 matching-paragraph A–H · Q5–8 summary ONE WORD (note) · Q9–13 matching-features A–D
+- Preview: `Teamplate_Part1_12.jpg` → `public/ielts-wizard/reading/p1/`
 - SAMPLE: Making buildings with wood (Cheeseman, Mannstrom, Surgenor, Preston & Lehne)
-- KhÃ´ng noteTable (summary only)
+- Không noteTable (summary only)
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2mys (MC + YNNG + Summary bank)
-- Kind `p2-r2-mc-ynng-summary` Â· code **r2mys**
-- Q14â€“19 MC Aâ€“D Â· Q20â€“23 YNNG Â· Q24â€“26 summary word bank Aâ€“F (note + 24________)
-- Preview: `Teamplate_Part2_14.jpg` â†’ `public/ielts-wizard/reading/p2/`
-- KhÃ¡c r2ms: thá»© tá»± MC â†’ YNNG â†’ summary (khÃ´ng MC â†’ summary â†’ YNNG)
+## Đã xong (2026-07-09) — Template P2 r2mys (MC + YNNG + Summary bank)
+- Kind `p2-r2-mc-ynng-summary` · code **r2mys**
+- Q14–19 MC A–D · Q20–23 YNNG · Q24–26 summary word bank A–F (note + 24________)
+- Preview: `Teamplate_Part2_14.jpg` → `public/ielts-wizard/reading/p2/`
+- Khác r2ms: thứ tự MC → YNNG → summary (không MC → summary → YNNG)
 - SAMPLE: AI / UK health system
 
-## ÄÃ£ xong (2026-07-09) â€” Template P2 r2mfs (Match + Features + Sentence)
-- Kind `p2-r2-match-features-sentence` Â· code **r2mfs**
-- Q14â€“18 matching-paragraph Aâ€“G Â· Q19â€“21 matching-features Aâ€“C (TSI/Salvage/Shelterwood) Â· Q22â€“26 sentence ONE WORD
-- Preview: `Teamplate_Part2_13.jpg` â†’ `public/ielts-wizard/reading/p2/`
+## Đã xong (2026-07-09) — Template P2 r2mfs (Match + Features + Sentence)
+- Kind `p2-r2-match-features-sentence` · code **r2mfs**
+- Q14–18 matching-paragraph A–G · Q19–21 matching-features A–C (TSI/Salvage/Shelterwood) · Q22–26 sentence ONE WORD
+- Preview: `Teamplate_Part2_13.jpg` → `public/ielts-wizard/reading/p2/`
 - Builder + catalog + AI prompt + infer; SAMPLE Forest management
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1st gap 6 máº¥t (header rá»—ng)
-- **Bug:** `normalizeReadingNoteTable` `.filter(Boolean)` bá» header `''` â†’ 4 cá»™t â†’ 3, máº¥t cá»™t Sale + gap 6
-- **Fix:** giá»¯ header rá»—ng; SAMPLE r1st gaps [4,5,6,7]; test `test-r1st-gap6.mts` PASS
+## Đã xong (2026-07-09) — Fix r1st gap 6 mất (header rỗng)
+- **Bug:** `normalizeReadingNoteTable` `.filter(Boolean)` bỏ header `''` → 4 cột → 3, mất cột Sale + gap 6
+- **Fix:** giữ header rỗng; SAMPLE r1st gaps [4,5,6,7]; test `test-r1st-gap6.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Template P1 r1st (Sentence + Table + TFNG)
-- Kind `p1-r1-sentence-table-tfng` Â· code **r1st**
-- Q1â€“3 sentence (TWO WORDS AND/OR A NUMBER) Â· Q4â€“7 noteTable 4 cá»™t Intensive vs aeroponic Â· Q8â€“13 TFNG
-- Preview: `Teamplate_Part1_11.jpg` â†’ `public/ielts-wizard/reading/p1/`
-- Builder + catalog + AI prompt + TABLE_TEMPLATE_KINDS + infer (khÃ¡c r1ntf: sentence, khÃ´ng notePassage)
+## Đã xong (2026-07-09) — Template P1 r1st (Sentence + Table + TFNG)
+- Kind `p1-r1-sentence-table-tfng` · code **r1st**
+- Q1–3 sentence (TWO WORDS AND/OR A NUMBER) · Q4–7 noteTable 4 cột Intensive vs aeroponic · Q8–13 TFNG
+- Preview: `Teamplate_Part1_11.jpg` → `public/ielts-wizard/reading/p1/`
+- Builder + catalog + AI prompt + TABLE_TEMPLATE_KINDS + infer (khác r1ntf: sentence, không notePassage)
 - SAMPLE: Crop-growing skyscrapers / aeroponic urban farming
 
-## ÄÃ£ xong (2026-07-09) â€” noteTable CHá»ˆ Ä‘Ãºng slot SAMPLE (TFNG sáº¡ch)
-- **Cá»•ng cá»©ng** `enforceNoteTableOnlyOnTemplateSlots`: SAMPLE khÃ´ng table â†’ strip Háº¾T; chá»‰ giá»¯ khi index SAMPLE cÃ³ noteTable
-- UI: render noteTable **chá»‰** khi instruction `Complete the tableâ€¦` (khÃ´ng TFNG/summary/sentence)
-- `sanitizeGroup`: gá»¡ noteTable khá»i tfng/ynng/match/MC/summary/notes
-- Infer wizard: `tfng|gap-fill` + noteTable chá»‰ â†’ r1tb náº¿u instruction table
+## Đã xong (2026-07-09) — noteTable CHỈ đúng slot SAMPLE (TFNG sạch)
+- **Cổng cứng** `enforceNoteTableOnlyOnTemplateSlots`: SAMPLE không table → strip HẾT; chỉ giữ khi index SAMPLE có noteTable
+- UI: render noteTable **chỉ** khi instruction `Complete the table…` (không TFNG/summary/sentence)
+- `sanitizeGroup`: gỡ noteTable khỏi tfng/ynng/match/MC/summary/notes
+- Infer wizard: `tfng|gap-fill` + noteTable chỉ → r1tb nếu instruction table
 - Test: TFNG+sentence strip table; summary strip; r1tb/r1nt OK
 
-## ÄÃ£ xong (2026-07-09) â€” Chá»‘ng nhiá»…m table vÃ o Summary ONE WORD
-- **Bug:** â€œComplete the summary below. Choose ONE WORD ONLYâ€¦â€ váº«n dÃ­nh noteTable (UI báº£ng)
-- **Fix:** `isReadingSummaryInstruction` / `groupMustNotHaveNoteTable` â€” gá»¡ noteTable cho summary/notes/sentence
-- rematerialize: SAMPLE khÃ´ng table â†’ strip háº¿t; cÃ³ table â†’ chá»‰ gáº¯n khi instruction **table** (khÃ´ng summary)
-- UI `ReadingQuestionPanel` / `GapFillGroup`: khÃ´ng render noteTable náº¿u summary/notes
-- Validate/import: khÃ´ng báº¯t noteTable cho summary
+## Đã xong (2026-07-09) — Chống nhiễm table vào Summary ONE WORD
+- **Bug:** “Complete the summary below. Choose ONE WORD ONLY…” vẫn dính noteTable (UI bảng)
+- **Fix:** `isReadingSummaryInstruction` / `groupMustNotHaveNoteTable` — gỡ noteTable cho summary/notes/sentence
+- rematerialize: SAMPLE không table → strip hết; có table → chỉ gắn khi instruction **table** (không summary)
+- UI `ReadingQuestionPanel` / `GapFillGroup`: không render noteTable nếu summary/notes
+- Validate/import: không bắt noteTable cho summary
 - Test: summary ONE WORD strip noteTable PASS; r1tb/r1nt OK
 
-## ÄÃ£ xong (2026-07-09) â€” Template P3 r3ms (Match + Summary + Features)
-- Kind `p3-r3-match-summary-features` Â· code **r3ms**
-- Q27â€“31 matching-paragraph Aâ€“F Â· Q32â€“35 summary ONE WORD (note) Â· Q36â€“40 matching-features Aâ€“D
-- Preview: `Teamplate_Part3_13.jpg` â†’ `public/ielts-wizard/reading/p3/`
-- Builder + catalog + AI prompt + infer (khÃ¡c r3tb: summary note, khÃ´ng noteTable)
+## Đã xong (2026-07-09) — Template P3 r3ms (Match + Summary + Features)
+- Kind `p3-r3-match-summary-features` · code **r3ms**
+- Q27–31 matching-paragraph A–F · Q32–35 summary ONE WORD (note) · Q36–40 matching-features A–D
+- Preview: `Teamplate_Part3_13.jpg` → `public/ielts-wizard/reading/p3/`
+- Builder + catalog + AI prompt + infer (khác r3tb: summary note, không noteTable)
 - SAMPLE: Space debris (Frueh / Krag / Sorge / Jah)
 
-## ÄÃ£ xong (2026-07-09) â€” Chá»‘ng nhiá»…m noteTable sang template khÃ¡c
-- **Bug:** rematerialize dá»±ng báº£ng tá»« má»i â€œONE WORD ONLYâ€; apply structure cháº¡y full pipeline cho má»i template
-- **Fix:** `applyReadingTemplateTableStructure` phÃ¢n nhÃ¡nh:
-  - SAMPLE khÃ´ng notes/table â†’ align + strip noteTable
-  - chá»‰ notes â†’ merge notePassage, khÃ´ng rematerialize table
-  - cÃ³ table â†’ full pipeline + strip index khÃ´ng cÃ³ table
-- rematerialize: khÃ´ng build table náº¿u SAMPLE khÃ´ng cÃ³ noteTable
-- Test: `test-no-table-infection.mts` (tfng-gap sáº¡ch, r1tb/r1nt OK)
+## Đã xong (2026-07-09) — Chống nhiễm noteTable sang template khác
+- **Bug:** rematerialize dựng bảng từ mọi “ONE WORD ONLY”; apply structure chạy full pipeline cho mọi template
+- **Fix:** `applyReadingTemplateTableStructure` phân nhánh:
+  - SAMPLE không notes/table → align + strip noteTable
+  - chỉ notes → merge notePassage, không rematerialize table
+  - có table → full pipeline + strip index không có table
+- rematerialize: không build table nếu SAMPLE không có noteTable
+- Test: `test-no-table-infection.mts` (tfng-gap sạch, r1tb/r1nt OK)
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1nt layout DeepSeek (notes|TFNG|table)
-- **Lá»—i user:** `cÃ¢u 7 thiáº¿u trong noteTable`; `cáº§n gap-fill|tfng|gap-fill (nháº­n gap-fill|gap-fill|gap-fill)`; `thiáº¿u notePassage`
-- **Root cause:** rematerialize gáº¯n noteTable vÃ o nhÃ³m Notes vÃ¬ â€œONE WORD ONLYâ€; AI tráº£ 3Ã— gap-fill
-- **Fix:** `forceTemplateHybridGroups` Ã©p type + notePassage + TFNG theo index SAMPLE; rematerialize **khÃ´ng** nháº§m notesâ†’table; validate skip notes group
+## Đã xong (2026-07-09) — Fix r1nt layout DeepSeek (notes|TFNG|table)
+- **Lỗi user:** `câu 7 thiếu trong noteTable`; `cần gap-fill|tfng|gap-fill (nhận gap-fill|gap-fill|gap-fill)`; `thiếu notePassage`
+- **Root cause:** rematerialize gắn noteTable vào nhóm Notes vì “ONE WORD ONLY”; AI trả 3× gap-fill
+- **Fix:** `forceTemplateHybridGroups` ép type + notePassage + TFNG theo index SAMPLE; rematerialize **không** nhầm notes→table; validate skip notes group
 - Test: `scripts/test-r1nt-layout.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1tb DeepSeek â€œná»­a vá»iâ€ (láº§n 6)
-- **Bug:** AI tráº£ 4â€“6 hÃ ng cÃ³ chá»¯ â†’ khÃ´ng bá»‹ coi list-like â†’ giá»¯ báº£ng thiáº¿u Aim/Method
-- **Fix:** incomplete náº¿u rows < 85% SAMPLE; pickBest **máº·c Ä‘á»‹nh Ã©p SAMPLE** trá»« khi AI â‰¥ 90% sá»‘ hÃ ng SAMPLE
-- Nuclear trong rematerialize: rows quÃ¡ Ã­t â†’ mergeTemplateLayoutWithPrompts
-- Test D half-table 6 rows â†’ 11 rows Aim/Method PASS
+## Đã xong (2026-07-09) — Fix r1tb DeepSeek “nửa vời” (lần 6)
+- **Bug:** AI trả 4–6 hàng có chữ → không bị coi list-like → giữ bảng thiếu Aim/Method
+- **Fix:** incomplete nếu rows < 85% SAMPLE; pickBest **mặc định ép SAMPLE** trừ khi AI ≥ 90% số hàng SAMPLE
+- Nuclear trong rematerialize: rows quá ít → mergeTemplateLayoutWithPrompts
+- Test D half-table 6 rows → 11 rows Aim/Method PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1tb thiáº¿u Aim/Method (láº§n 5) â€” Ã©p SAMPLE layout
-- mergeTemplateLayoutWithPrompts; pickBest Æ°u tiÃªn SAMPLE; repair fallback
-- Test: content/listlike/oneword â€” 11 rows, Aim/Method, PASS
+## Đã xong (2026-07-09) — Fix r1tb thiếu Aim/Method (lần 5) — ép SAMPLE layout
+- mergeTemplateLayoutWithPrompts; pickBest ưu tiên SAMPLE; repair fallback
+- Test: content/listlike/oneword — 11 rows, Aim/Method, PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1tb table cÃ³ khung nhÆ°ng **khÃ´ng ná»™i dung** (láº§n 3)
+## Đã xong (2026-07-09) — Fix r1tb table có khung nhưng **không nội dung** (lần 3)
 - noteTableIsContentRich, pickBestNoteTable, enrich prompts
 - Test: `scripts/test-r1tb-content.mts` + `test-r1tb-oneword.mts` PASS
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1tb Q7â€“12 table bá»‹ thÃ nh one-word (láº§n 2)
+## Đã xong (2026-07-09) — Fix r1tb Q7–12 table bị thành one-word (lần 2)
 - rematerialize + remap gap + rawJson normalize + rebuildPayload re-apply
 - Test: `apps/web/scripts/test-r1tb-oneword.mts` PASS
 - tsc pass
 
-## ÄÃ£ xong (2026-07-09) â€” Fix r1tb Q7â€“12 table bá»‹ thÃ nh one-word (láº§n 1)
-- Parse Ã´ string; forceTemplate; prompt cáº¥m one-word list (chÆ°a Ä‘á»§ vá»›i DeepSeek)
+## Đã xong (2026-07-09) — Fix r1tb Q7–12 table bị thành one-word (lần 1)
+- Parse ô string; forceTemplate; prompt cấm one-word list (chưa đủ với DeepSeek)
 
 ---
 
-## Session 2026-07-09 â€” IELTS Reading Wizard (tÃ³m táº¯t)
+## Session 2026-07-09 — IELTS Reading Wizard (tóm tắt)
 
-### Template Reading má»›i
+### Template Reading mới
 | Code | Kind | Passage | Layout | Preview |
 |------|------|---------|--------|---------|
-| r1my | p1-r1-match-ynng-features | P1 | Match Ä‘oáº¡n + YNNG + Features | Teamplate_Part1_8.jpg |
-| r1nt | p1-r1-notes-tfng-table | P1 | Notes â†’ TFNG â†’ Table | Teamplate_Part1_9.jpg (Nutmeg) |
-| r1ntf | p1-r1-notes-table-tfng | P1 | Notes â†’ Table â†’ TFNG | r1t.svg (Huarango) |
-| r1tb | p1-r1-tfng-table | P1 | TFNG â†’ Table (nÃ—m merge) | Teamplate_Part1_10.jpg (Rocha bats) |
-| r2cs | p2-r2-match-choose-two-summary | P2 | Match + 2Ã— Choose TWO + Summary | Teamplate_Part2_10.jpg |
+| r1my | p1-r1-match-ynng-features | P1 | Match đoạn + YNNG + Features | Teamplate_Part1_8.jpg |
+| r1nt | p1-r1-notes-tfng-table | P1 | Notes → TFNG → Table | Teamplate_Part1_9.jpg (Nutmeg) |
+| r1ntf | p1-r1-notes-table-tfng | P1 | Notes → Table → TFNG | r1t.svg (Huarango) |
+| r1tb | p1-r1-tfng-table | P1 | TFNG → Table (n×m merge) | Teamplate_Part1_10.jpg (Rocha bats) |
+| r2cs | p2-r2-match-choose-two-summary | P2 | Match + 2× Choose TWO + Summary | Teamplate_Part2_10.jpg |
 | r2mt | p2-r2-match-tfng-choose-two | P2 | Match + TFNG + Choose TWO | Teamplate_Part2_11.jpg |
 | r2tn | p2-r2-tfng-notes | P2 | TFNG + Notes (Silbo) | Teamplate_Part2_12.jpg |
 | r3fy | p3-r3-features-ynng-summary | P3 | Features + YNNG + Summary | Teamplate_Part3_8.jpg |
@@ -4007,14 +4047,14 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 | r3hmy | p3-r3-headings-mc-ynng | P3 | Headings + MC + YNNG | Teamplate_Part3_11.jpg |
 
 ### Fix / harden UI & AI
-- **Choose TWO Reading:** multi-select checkbox (2 slots) â€” `readingChooseTwoUtils.ts` + `ChooseTwoGroup`
-- **ExamTrack tráº¯ng:** ErrorBoundary, safe rows, `getTemplateBuilders()` factory (khÃ´ng throw HMR)
-- **Notes ngáº¯t dÃ²ng:** `break` type, decade section (1940s/1950s), AI + normalize
-- **noteTable nÃ—m:** pad cá»™t, validate hÃ ng; r1nt validate notes vs table riÃªng
-- **Sentence completion ngáº¯t dÃ²ng:** AI + `splitSummaryNoteParagraphs` + normalize note/prompt
-- **r3tn notes** layout r1n8 Ä‘áº§y Ä‘á»§; answer Cam14 (large/microplastic/â€¦)
+- **Choose TWO Reading:** multi-select checkbox (2 slots) — `readingChooseTwoUtils.ts` + `ChooseTwoGroup`
+- **ExamTrack trắng:** ErrorBoundary, safe rows, `getTemplateBuilders()` factory (không throw HMR)
+- **Notes ngắt dòng:** `break` type, decade section (1940s/1950s), AI + normalize
+- **noteTable n×m:** pad cột, validate hàng; r1nt validate notes vs table riêng
+- **Sentence completion ngắt dòng:** AI + `splitSummaryNoteParagraphs` + normalize note/prompt
+- **r3tn notes** layout r1n8 đầy đủ; answer Cam14 (large/microplastic/…)
 
-### Files chÃ­nh
+### Files chính
 `ieltsReadingPartTemplates.ts`, `ieltsReadingTemplateCatalog.ts`, `ieltsReadingWizardConfig.ts`,
 `ieltsReadingWizardEdit.ts`, `ieltsReadingAiPrompt.ts`, `ieltsReadingAiNormalize.ts`,
 `ReadingQuestionPanel.tsx`, `readingChooseTwoUtils.ts`, `readingNoteTableUtils.ts`,
@@ -4022,668 +4062,668 @@ npx supabase functions deploy notify-payment --project-ref ntcagvtkwxwsmlxlumfo
 
 ---
 
-## ÄÃ£ xong (2026-07-07) â€” Admin Publish ná»™i dung (toÃ n app)
-- Migration 012 â€” `admin_published_modules` + `admin_publish_meta`
-- /app/admin â†’ tab "Publish ná»™i dung" â†’ má»™t nÃºt: vocab, viáº¿t, nghe, dá»‹ch, cáº¥u trÃºc cÃ¢u, mindmap, Ä‘á» Reading/Listening
-- User: `syncAdminPublishedContent()` khi vÃ o /app (GlobalCatalogSync)
-- Äá» cÅ©: Admin báº¥m Publish trÃªn mÃ¡y Ä‘Ã£ import â€” KHÃ”NG cáº§n import láº¡i tá»«ng file
+## Đã xong (2026-07-07) — Admin Publish nội dung (toàn app)
+- Migration 012 — `admin_published_modules` + `admin_publish_meta`
+- /app/admin → tab "Publish nội dung" → một nút: vocab, viết, nghe, dịch, cấu trúc câu, mindmap, đề Reading/Listening
+- User: `syncAdminPublishedContent()` khi vào /app (GlobalCatalogSync)
+- Đề cũ: Admin bấm Publish trên máy đã import — KHÔNG cần import lại từng file
 
-## ÄÃ£ xong (2026-07-07) â€” Listening publish cloud
-- Migration 011 `listening_exam_published` â€” Admin LÆ°u â†’ má»i user tháº¥y Ä‘á» import
+## Đã xong (2026-07-07) — Listening publish cloud
+- Migration 011 `listening_exam_published` — Admin Lưu → mọi user thấy đề import
 
-## ÄÃ£ xong (2026-07-07) â€” Reading cloud: áº£nh + publish Ä‘á»
-- Migration 009 (`reading_exam_images`) + 010 (`reading_exam_published`) â€” Ä‘Ã£ push Supabase
-- áº¢nh: Admin upload â†’ cloud; User chá»‰ xem
-- Publish Ä‘á»: Admin LÆ°u import â†’ `reading_exam_published`; `examLoader` load cho má»i user
+## Đã xong (2026-07-07) — Reading cloud: ảnh + publish đề
+- Migration 009 (`reading_exam_images`) + 010 (`reading_exam_published`) — đã push Supabase
+- Ảnh: Admin upload → cloud; User chỉ xem
+- Publish đề: Admin Lưu import → `reading_exam_published`; `examLoader` load cho mọi user
 
-## ÄÃ£ xong (2026-07-07) â€” Wizard Reading IELTS 18 template
-- 6 template/passage (P1â€“P3) cover layout Cam 9â€“20
+## Đã xong (2026-07-07) — Wizard Reading IELTS 18 template
+- 6 template/passage (P1–P3) cover layout Cam 9–20
 - 18 SVG preview + builders + AI prompt rules + edit signatures
-- Test: /app/exam/track/ielts â†’ Import Wizard Reading â†’ 6 option má»—i passage
+- Test: /app/exam/track/ielts → Import Wizard Reading → 6 option mỗi passage
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P3 template r3hmy (Headings + MC + YNNG)
-- Template `p3-r3-headings-mc-ynng` (`r3hmy`) â€” preview `Teamplate_Part3_11.jpg` (AI attitudes)
-- Matching headings Q27â€“32 (Aâ€“F, iâ€“viii) + MC Q33â€“35 + YNNG Q36â€“40 (claims of writer)
+## Đã xong (2026-07-09) — Reading P3 template r3hmy (Headings + MC + YNNG)
+- Template `p3-r3-headings-mc-ynng` (`r3hmy`) — preview `Teamplate_Part3_11.jpg` (AI attitudes)
+- Matching headings Q27–32 (A–F, i–viii) + MC Q33–35 + YNNG Q36–40 (claims of writer)
 - Builder `ieltsReadingP3HeadingsMcYnngPart()`; signature `matching-headings|multiple-choice|ynng`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_11.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_11.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Sentence completion: Ã©p ngáº¯t dÃ²ng P1â€“3
-- AI: "Complete the sentencesâ€¦ NO MORE THAN TWO WORDS" â€” má»—i cÃ¢u 1 prompt 1 dÃ²ng; note multi-sentence = `\\n\\n`
+## Đã xong (2026-07-09) — Sentence completion: ép ngắt dòng P1–3
+- AI: "Complete the sentences… NO MORE THAN TWO WORDS" — mỗi câu 1 prompt 1 dòng; note multi-sentence = `\\n\\n`
 - Normalize: `normalizeAiSentenceOrSummaryNote` + `normalizeAiSentencePrompts`
-- UI: `splitSummaryNoteParagraphs` â€” single `\\n` cÅ©ng tÃ¡ch dÃ²ng khi sentence-style / â‰¥2 gap lines
-- Template liÃªn quan: r1 sentence-mc, tfng-gap, headings-gap; r2 headings-tfng-sentence; r3 match-paragraph-sentence, gap-ynng/tfng-mcâ€¦
+- UI: `splitSummaryNoteParagraphs` — single `\\n` cũng tách dòng khi sentence-style / ≥2 gap lines
+- Template liên quan: r1 sentence-mc, tfng-gap, headings-gap; r2 headings-tfng-sentence; r3 match-paragraph-sentence, gap-ynng/tfng-mc…
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P2 template r2tn (TFNG + Notes / Silbo)
-- Template `p2-r2-tfng-notes` (`r2tn`) â€” preview `Teamplate_Part2_12.jpg` (Silbo Gomero)
-- TFNG Q14â€“19 + notes ONE WORD Q20â€“26 (`notePassage` + 3 section: How produced / used / future)
-- AI prompt: **Ã©p ngáº¯t dÃ²ng** â€” má»—i section = `{type:section}`, má»—i bullet 1 block, `break` giá»¯a section
-- Infer: `tfng|gap-fill` + notePassage â†’ r2tn (khÃ´ng nháº§m r2fw diagram)
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_12.jpg`
+## Đã xong (2026-07-09) — Reading P2 template r2tn (TFNG + Notes / Silbo)
+- Template `p2-r2-tfng-notes` (`r2tn`) — preview `Teamplate_Part2_12.jpg` (Silbo Gomero)
+- TFNG Q14–19 + notes ONE WORD Q20–26 (`notePassage` + 3 section: How produced / used / future)
+- AI prompt: **ép ngắt dòng** — mỗi section = `{type:section}`, mỗi bullet 1 block, `break` giữa section
+- Infer: `tfng|gap-fill` + notePassage → r2tn (không nhầm r2fw diagram)
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_12.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” noteTable luÃ´n lÆ°á»›i n cá»™t Ã— m dÃ²ng
-- AI prompt: **LUÃ”N** headers[n] + rows[m], má»—i hÃ ng cells.length === n (pad [])
-- `normalizeReadingNoteTable`: pad/cáº¯t má»i hÃ ng vá» Ä‘Ãºng n cá»™t
-- `validateReadingNoteTable` + AI validate: bÃ¡o lá»—i hÃ ng sai sá»‘ cá»™t
-- r1ntf / r1tt / má»i table-completion: title tÃ¡ch riÃªng, khÃ´ng nhÃ©t vÃ o header
+## Đã xong (2026-07-09) — noteTable luôn lưới n cột × m dòng
+- AI prompt: **LUÔN** headers[n] + rows[m], mỗi hàng cells.length === n (pad [])
+- `normalizeReadingNoteTable`: pad/cắt mọi hàng về đúng n cột
+- `validateReadingNoteTable` + AI validate: báo lỗi hàng sai số cột
+- r1ntf / r1tt / mọi table-completion: title tách riêng, không nhét vào header
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P1 template r1ntf (Notes + Table + TFNG)
-- Template `p1-r1-notes-table-tfng` (`r1ntf`) â€” preview `r1t.svg` (Huarango tree)
-- Notes Q1â€“5 (`notePassage`) + table Q6â€“8 (`noteTable` 2 cá»™t) + TFNG Q9â€“13
-- KhÃ¡c r1nt (notesâ†’TFNGâ†’table): thá»© tá»± **notes â†’ table â†’ TFNG**
-- Signature `gap-fill|gap-fill|tfng`; validate notePassage nhÃ³m 1 + noteTable nhÃ³m 2
+## Đã xong (2026-07-09) — Reading P1 template r1ntf (Notes + Table + TFNG)
+- Template `p1-r1-notes-table-tfng` (`r1ntf`) — preview `r1t.svg` (Huarango tree)
+- Notes Q1–5 (`notePassage`) + table Q6–8 (`noteTable` 2 cột) + TFNG Q9–13
+- Khác r1nt (notes→TFNG→table): thứ tự **notes → table → TFNG**
+- Signature `gap-fill|gap-fill|tfng`; validate notePassage nhóm 1 + noteTable nhóm 2
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P1 template r1tb (TFNG + Table)
-- Template `p1-r1-tfng-table` (`r1tb`) â€” preview `Teamplate_Part1_10.jpg` (Rocha bat study)
-- TFNG Q1â€“6 + table Q7â€“13 (`noteTable` 2 cá»™t Ã— m dÃ²ng, merge Findings + skip)
+## Đã xong (2026-07-09) — Reading P1 template r1tb (TFNG + Table)
+- Template `p1-r1-tfng-table` (`r1tb`) — preview `Teamplate_Part1_10.jpg` (Rocha bat study)
+- TFNG Q1–6 + table Q7–13 (`noteTable` 2 cột × m dòng, merge Findings + skip)
 - Builder `ieltsReadingP1TfngTablePart()` + `CAM_ROCHA_BAT_TABLE`; infer `tfng|gap-fill` + noteTable
-- áº¢nh: `Tainguyen/IELTS/Template/Teamplate_Part1_10.jpg` â†’ `apps/web/public/ielts-wizard/reading/p1/`
+- Ảnh: `Tainguyen/IELTS/Template/Teamplate_Part1_10.jpg` → `apps/web/public/ielts-wizard/reading/p1/`
 
-## ÄÃ£ xong (2026-07-09) â€” Notes Reading: Ã©p ngáº¯t dÃ²ng (1940s/1950s)
-- **Váº¥n Ä‘á»:** AI gá»™p heading tháº­p niÃªn (Cam15 Moore) â†’ UI khÃ´ng xuá»‘ng dÃ²ng
-- **Fix render:** `isNoteDecadeOrEraHeading` + type `break`; atomize/group lines tÃ¡ch section
-- **Fix AI:** prompt notes P1â€“3 báº¯t buá»™c section riÃªng cho 1930s/1940s/1950s + `break`
-- **Normalize:** `normalizeAiNotePassage` convert decade static â†’ section, `\\n` â†’ blocks/break
-- Types: `ReadingNotePassageBlock` + Listening thÃªm `break`
+## Đã xong (2026-07-09) — Notes Reading: ép ngắt dòng (1940s/1950s)
+- **Vấn đề:** AI gộp heading thập niên (Cam15 Moore) → UI không xuống dòng
+- **Fix render:** `isNoteDecadeOrEraHeading` + type `break`; atomize/group lines tách section
+- **Fix AI:** prompt notes P1–3 bắt buộc section riêng cho 1930s/1940s/1950s + `break`
+- **Normalize:** `normalizeAiNotePassage` convert decade static → section, `\\n` → blocks/break
+- Types: `ReadingNotePassageBlock` + Listening thêm `break`
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P3 template r3em (Endings + Summary bank + MC)
-- Template `p3-r3-endings-summary-mc` (`r3em`) â€” preview `Teamplate_Part3_10.jpg` (Fairy tales / Tehrani)
-- Sentence endings Aâ€“F Q27â€“31 + summary word bank Aâ€“I Q32â€“36 (`note` inline) + MC Q37â€“40
+## Đã xong (2026-07-09) — Reading P3 template r3em (Endings + Summary bank + MC)
+- Template `p3-r3-endings-summary-mc` (`r3em`) — preview `Teamplate_Part3_10.jpg` (Fairy tales / Tehrani)
+- Sentence endings A–F Q27–31 + summary word bank A–I Q32–36 (`note` inline) + MC Q37–40
 - Builder `ieltsReadingP3EndingsSummaryMcPart()`; signature `summary-completion|summary-completion|multiple-choice`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_10.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_10.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P1 template r1nt (Notes + TFNG + Table)
-- Template `p1-r1-notes-tfng-table` (`r1nt`) â€” preview `Teamplate_Part1_9.jpg` (Nutmeg)
-- Notes Q1â€“4 (`notePassage` nhÆ° r1n8) + TFNG Q5â€“7 + table Q8â€“13 (`noteTable` merge 17th century nhÆ° r1tt)
+## Đã xong (2026-07-09) — Reading P1 template r1nt (Notes + TFNG + Table)
+- Template `p1-r1-notes-tfng-table` (`r1nt`) — preview `Teamplate_Part1_9.jpg` (Nutmeg)
+- Notes Q1–4 (`notePassage` như r1n8) + TFNG Q5–7 + table Q8–13 (`noteTable` merge 17th century như r1tt)
 - Builder `ieltsReadingP1NotesTfngTablePart()` + `CAM_NUTMEG_NOTE_PASSAGE` + `CAM_NUTMEG_HISTORY_TABLE`
-- Signature: `gap-fill|tfng|gap-fill` (notes â†’ TFNG â†’ table); TABLE_TEMPLATE_KINDS includes r1nt
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_9.jpg`
+- Signature: `gap-fill|tfng|gap-fill` (notes → TFNG → table); TABLE_TEMPLATE_KINDS includes r1nt
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_9.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” r3tn notes Q34â€“39 Ä‘á»§ layout r1n8
-- `CAM_MARINE_DEBRIS_NOTE_PASSAGE`: section heading + bullet/sub-bullet + gap (giá»‘ng Glass r1n8)
-- Äá»§ text tÄ©nh: plastic (not metal or wood), insufficient information on + 3 sub-bullets, Rochman closing
+## Đã xong (2026-07-09) — r3tn notes Q34–39 đủ layout r1n8
+- `CAM_MARINE_DEBRIS_NOTE_PASSAGE`: section heading + bullet/sub-bullet + gap (giống Glass r1n8)
+- Đủ text tĩnh: plastic (not metal or wood), insufficient information on + 3 sub-bullets, Rochman closing
 - Answer key Cam14: 34 large, 35 microplastic, 36 populations, 37 types, 38 survival, 39 disasters
-- AI prompt: báº¯t buá»™c notePassage Ä‘áº§y Ä‘á»§, cáº¥m rÃºt gá»n thÃ nh `note` string
+- AI prompt: bắt buộc notePassage đầy đủ, cấm rút gọn thành `note` string
 
-## ÄÃ£ xong (2026-07-09) â€” Fix crash TEMPLATE_BUILDERS / track IELTS tráº¯ng
-- **Root cause:** `assertAllTemplateBuildersRegistered()` throw khi HMR catalog cáº­p nháº­t trÆ°á»›c builder body â†’ `ReferenceError: ieltsReadingP3TfngNotesMcPart is not defined` â†’ module fail â†’ ExamTrack Lazy crash
-- **Fix:** TEMPLATE_BUILDERS dÃ¹ng lazy `() => fn()`; assert chá»‰ `console.error`, **khÃ´ng throw** lÃºc load module
-- React Router Future Flag / DevTools messages = warning thÆ°á»ng, khÃ´ng pháº£i lá»—i trang
+## Đã xong (2026-07-09) — Fix crash TEMPLATE_BUILDERS / track IELTS trắng
+- **Root cause:** `assertAllTemplateBuildersRegistered()` throw khi HMR catalog cập nhật trước builder body → `ReferenceError: ieltsReadingP3TfngNotesMcPart is not defined` → module fail → ExamTrack Lazy crash
+- **Fix:** TEMPLATE_BUILDERS dùng lazy `() => fn()`; assert chỉ `console.error`, **không throw** lúc load module
+- React Router Future Flag / DevTools messages = warning thường, không phải lỗi trang
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P3 template r3tn (TFNG + Notes + MC)
-- Template `p3-r3-tfng-notes-mc` (`r3tn`) â€” preview JPG `Teamplate_Part3_9.jpg` (Marine debris / Rochman)
-- TFNG Q27â€“33 + notes ONE WORD Q34â€“39 (`notePassage` + notesTitle) + MC best title Q40
+## Đã xong (2026-07-09) — Reading P3 template r3tn (TFNG + Notes + MC)
+- Template `p3-r3-tfng-notes-mc` (`r3tn`) — preview JPG `Teamplate_Part3_9.jpg` (Marine debris / Rochman)
+- TFNG Q27–33 + notes ONE WORD Q34–39 (`notePassage` + notesTitle) + MC best title Q40
 - Builder `ieltsReadingP3TfngNotesMcPart()` + `CAM_MARINE_DEBRIS_NOTE_PASSAGE`
 - Signature: `tfng|gap-fill|multiple-choice` (+ notePassage)
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_9.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_9.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P2 template r2mt (Match Ä‘oáº¡n + TFNG + Choose TWO)
-- Template `p2-r2-match-tfng-choose-two` (`r2mt`) â€” preview JPG `Teamplate_Part2_11.jpg` (Zoos)
-- Matching paragraph Q14â€“17 (Aâ€“G) + TFNG Q18â€“22 + Choose TWO Q23â€“24 (+ Q25â€“26 máº«u)
+## Đã xong (2026-07-09) — Reading P2 template r2mt (Match đoạn + TFNG + Choose TWO)
+- Template `p2-r2-match-tfng-choose-two` (`r2mt`) — preview JPG `Teamplate_Part2_11.jpg` (Zoos)
+- Matching paragraph Q14–17 (A–G) + TFNG Q18–22 + Choose TWO Q23–24 (+ Q25–26 mẫu)
 - Builder `ieltsReadingP2MatchTfngChooseTwoPart()`; signature `matching-paragraph|tfng|multiple-choice`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_11.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_11.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Fix Reading IELTS Choose TWO khÃ´ng chá»n 2 Ä‘Ã¡p Ã¡n
-- **Root cause:** UI Reading render Choose TWO nhÆ° 2Ã— MC radio (má»—i cÃ¢u 1 list) â†’ user khÃ´ng multi-select Ä‘Æ°á»£c 2 option nhÆ° Listening
+## Đã xong (2026-07-09) — Fix Reading IELTS Choose TWO không chọn 2 đáp án
+- **Root cause:** UI Reading render Choose TWO như 2× MC radio (mỗi câu 1 list) → user không multi-select được 2 option như Listening
 - **Fix:** `readingChooseTwoUtils.ts` + `ChooseTwoGroup` (checkbox, 2 slots) trong `ReadingQuestionPanel`
-- Nháº­n diá»‡n: instruction "Choose TWO" / "Which TWO" + 2 cÃ¢u MC cÃ¹ng options; gá»™p AI 4 cÃ¢u â†’ split cáº·p
+- Nhận diện: instruction "Choose TWO" / "Which TWO" + 2 câu MC cùng options; gộp AI 4 câu → split cặp
 - CSS: `.reading-test-choose-two*` trong `readingTest.css`
-- ÄÃ¡p Ã¡n váº«n 2 question id (má»—i Ã´ 1 chá»¯) â€” scoring khÃ´ng Ä‘á»•i
+- Đáp án vẫn 2 question id (mỗi ô 1 chữ) — scoring không đổi
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P3 template r3fy (Features + YNNG + Summary)
-- Template `p3-r3-features-ynng-summary` (`r3fy`) â€” preview JPG `Teamplate_Part3_8.jpg` (Guided play)
-- Matching features Q27â€“31 (ngÆ°á»i Aâ€“G) + YNNG Q32â€“36 (claims of writer) + summary ONE WORD Q37â€“40 (`note` inline)
+## Đã xong (2026-07-09) — Reading P3 template r3fy (Features + YNNG + Summary)
+- Template `p3-r3-features-ynng-summary` (`r3fy`) — preview JPG `Teamplate_Part3_8.jpg` (Guided play)
+- Matching features Q27–31 (người A–G) + YNNG Q32–36 (claims of writer) + summary ONE WORD Q37–40 (`note` inline)
 - Builder `ieltsReadingP3FeaturesYnngSummaryPart()` + `CAM_GUIDED_PLAY_SUMMARY_NOTE`
 - Signature: `matching-features|ynng|gap-fill`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_8.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_8.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P1 template r1my (Match Ä‘oáº¡n + YNNG + Features)
-- Template `p1-r1-match-ynng-features` (`r1my`) â€” preview JPG `Teamplate_Part1_8.jpg`
-- Matching paragraph Q1â€“3 (Aâ€“J) + YNNG Q4â€“6 (claims of writer) + matching features Aâ€“C Q7â€“13 (Hamiltonian/Jeffersonian/Jacksonian)
+## Đã xong (2026-07-09) — Reading P1 template r1my (Match đoạn + YNNG + Features)
+- Template `p1-r1-match-ynng-features` (`r1my`) — preview JPG `Teamplate_Part1_8.jpg`
+- Matching paragraph Q1–3 (A–J) + YNNG Q4–6 (claims of writer) + matching features A–C Q7–13 (Hamiltonian/Jeffersonian/Jacksonian)
 - Builder `ieltsReadingP1MatchYnngFeaturesPart()`; signature `matching-paragraph|ynng|matching-features`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_8.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_8.jpg`
 
-## ÄÃ£ xong (2026-07-09) â€” Fix mÃ n tráº¯ng `/app/exam/track/ielts` (harden)
-- **Repro sáº¡ch:** Playwright + mock auth â†’ track IELTS **render OK** (Library Archives + nÃºt Import)
-- **Root cause cÃ³ thá»ƒ:** crash render tá»« Ä‘á» Dexie/localStorage lá»—i (`examType`/`parts`/`answer` undefined) â†’ React unmount tráº¯ng, khÃ´ng ErrorBoundary
+## Đã xong (2026-07-09) — Fix màn trắng `/app/exam/track/ielts` (harden)
+- **Repro sạch:** Playwright + mock auth → track IELTS **render OK** (Library Archives + nút Import)
+- **Root cause có thể:** crash render từ đề Dexie/localStorage lỗi (`examType`/`parts`/`answer` undefined) → React unmount trắng, không ErrorBoundary
 - **Fix:**
-  - `ExamTrackErrorBoundary` bá»c track page (hiá»‡n message thay vÃ¬ tráº¯ng)
+  - `ExamTrackErrorBoundary` bọc track page (hiện message thay vì trắng)
   - `safeReadingRow` / `safeListeningRow` + `safeDraftFlag`
   - `listAllListeningExams` normalize + fallback `examType`/`parts`
-  - `getPartQuestions` / `getListeningExamQuestions` / `isReadingAnswerCorrect` / draft completion â€” defensive
-- User: **Ctrl+Shift+R** hard refresh sau HMR lá»—i transform
+  - `getPartQuestions` / `getListeningExamQuestions` / `isReadingAnswerCorrect` / draft completion — defensive
+- User: **Ctrl+Shift+R** hard refresh sau HMR lỗi transform
 
-## ÄÃ£ xong (2026-07-09) â€” Reading P2 template r2cs (Match Ä‘oáº¡n + Choose TWO + Summary)
-- Template `p2-r2-match-choose-two-summary` (`r2cs`) â€” preview JPG `Teamplate_Part2_10.jpg` (Cam14 T1 Bike-sharing)
-- Matching paragraph Q14â€“18 (Aâ€“G, which section) + 2Ã— Choose TWO Q19â€“20 & Q21â€“22 + summary ONE WORD Q23â€“26 (`note` inline)
+## Đã xong (2026-07-09) — Reading P2 template r2cs (Match đoạn + Choose TWO + Summary)
+- Template `p2-r2-match-choose-two-summary` (`r2cs`) — preview JPG `Teamplate_Part2_10.jpg` (Cam14 T1 Bike-sharing)
+- Matching paragraph Q14–18 (A–G, which section) + 2× Choose TWO Q19–20 & Q21–22 + summary ONE WORD Q23–26 (`note` inline)
 - Builder `ieltsReadingP2MatchChooseTwoSummaryPart()` + `CAM14_T1_BIKE_SUMMARY_NOTE`
 - Signature: `matching-paragraph|multiple-choice|multiple-choice|gap-fill`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_10.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_10.jpg`
 
-## ÄÃ£ xong (2026-07-07) â€” Reading P1 template r1n (Notes + TFNG)
-- Template `p1-r1-notes-tfng` (`r1n`) â€” preview JPG `Question1_6.jpg` (Wildfires Q1â€“6)
+## Đã xong (2026-07-07) — Reading P1 template r1n (Notes + TFNG)
+- Template `p1-r1-notes-tfng` (`r1n`) — preview JPG `Question1_6.jpg` (Wildfires Q1–6)
 - `notePassage` + `notesTitle` + `ReadingNotePassageBox.tsx` render notes inline
 - Builder `ieltsReadingP1NotesTfngPart()` + Cam10 T4 `exam_passage1.json` rebuilt + bundle ZIP
 
-## ÄÃ£ xong (2026-07-07) â€” Reading P2 template r2g (Summary + Match)
-- Template `p2-r2-gap-match` (`r2g`) â€” preview JPG `Teamplate_Part2_1.jpg` (Cam10 T4 Second nature)
-- Summary Q14â€“18: `note` inline `14________` â€¦ `18________` + `SummaryGapFillNote` UI
+## Đã xong (2026-07-07) — Reading P2 template r2g (Summary + Match)
+- Template `p2-r2-gap-match` (`r2g`) — preview JPG `Teamplate_Part2_1.jpg` (Cam10 T4 Second nature)
+- Summary Q14–18: `note` inline `14________` … `18________` + `SummaryGapFillNote` UI
 - Builder `ieltsReadingP2GapMatchPart()` + Cam10 T4 `exam_passage2.json` rebuilt + bundle ZIP
 
-## ÄÃ£ xong (2026-07-07) â€” Reading P3 template r3tb (Match + Table + Features)
-- Template `p3-r3-match-table-features` (`r3tb`) â€” preview JPG `Teamplate_Part3_1.jpg` (Cam11 T1 geo-engineering)
-- Match Ä‘oáº¡n Q27â€“29 + table Q30â€“36 (`noteTable` Procedure|Aim) + match ngÆ°á»i Q37â€“40
+## Đã xong (2026-07-07) — Reading P3 template r3tb (Match + Table + Features)
+- Template `p3-r3-match-table-features` (`r3tb`) — preview JPG `Teamplate_Part3_1.jpg` (Cam11 T1 geo-engineering)
+- Match đoạn Q27–29 + table Q30–36 (`noteTable` Procedure|Aim) + match người Q37–40
 - Builder `ieltsReadingP3MatchTableFeaturesPart()` + `CAM11_T1_GEO_ENGINEERING_TABLE`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1ts (TFNG + Match + Summary)
-- Template `p1-r1-tfng-match-summary` (`r1ts`) â€” preview JPG `Teamplate_Part1_2.jpg` (Cam11 T4 Research using twins)
-- TFNG Q1â€“4 + matching features Q5â€“9 (Galton/Bouchard/Reed) + summary word bank Aâ€“F Q10â€“13 (`note` inline)
+## Đã xong (2026-07-08) — Reading P1 template r1ts (TFNG + Match + Summary)
+- Template `p1-r1-tfng-match-summary` (`r1ts`) — preview JPG `Teamplate_Part1_2.jpg` (Cam11 T4 Research using twins)
+- TFNG Q1–4 + matching features Q5–9 (Galton/Bouchard/Reed) + summary word bank A–F Q10–13 (`note` inline)
 - Builder `ieltsReadingP1TfngMatchSummaryPart()` + `CAM11_T4_EPIGENETIC_SUMMARY_NOTE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_2.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_2.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2te (TFNG + Endings + Summary)
-- Template `p2-r2-tfng-endings-summary` (`r2te`) â€” preview JPG `Teamplate_Part2_4.jpg` (Cam11 T3 Great Migrations)
-- TFNG Q14â€“18 + matching sentence endings Aâ€“G Q19â€“22 + summary ONE WORD Q23â€“26 (`note` inline)
+## Đã xong (2026-07-08) — Reading P2 template r2te (TFNG + Endings + Summary)
+- Template `p2-r2-tfng-endings-summary` (`r2te`) — preview JPG `Teamplate_Part2_4.jpg` (Cam11 T3 Great Migrations)
+- TFNG Q14–18 + matching sentence endings A–G Q19–22 + summary ONE WORD Q23–26 (`note` inline)
 - Builder `ieltsReadingP2TfngEndingsSummaryPart()` + `CAM11_T3_MIGRATION_ENDINGS_BANK` + `CAM11_T3_PRONGHORN_SUMMARY_NOTE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_4.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_4.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2fs (MC + TFNG + Endings)
-- Template `p2-r2-mc-tfng-endings` (`r2fs`) â€” preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
-- Multiple choice Q14â€“18 + TFNG Q19â€“23 + matching sentence endings Aâ€“E Q24â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2fs (MC + TFNG + Endings)
+- Template `p2-r2-mc-tfng-endings` (`r2fs`) — preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
+- Multiple choice Q14–18 + TFNG Q19–23 + matching sentence endings A–E Q24–26
 - Builder `ieltsReadingP2McTfngEndingsPart()`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3hy (Headings + Summary + YNNG)
-- Template `p3-r3-headings-summary-ynng` (`r3hy`) â€” preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
-- Matching headings Q27â€“32 (Aâ€“F) + summary word bank Aâ€“G Q33â€“36 + YNNG Q37â€“40
+## Đã xong (2026-07-08) — Reading P3 template r3hy (Headings + Summary + YNNG)
+- Template `p3-r3-headings-summary-ynng` (`r3hy`) — preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
+- Matching headings Q27–32 (A–F) + summary word bank A–G Q33–36 + YNNG Q37–40
 - Builder `ieltsReadingP3HeadingsSummaryYnngPart()`
 
-## ÄÃ£ xong (2026-07-08) â€” Fix Reading Wizard `TEMPLATE_BUILDERS[kind] is not a function`
-- `resolveReadingTemplateKind()` â€” fallback kind há»£p lá»‡ tá»« catalog/default khi localStorage hoáº·c kind lá»—i
-- `assertAllTemplateBuildersRegistered()` â€” dev-time check catalog â†” builders
-- `ieltsReadingWizardPersist` + `ieltsReadingAiGenerate` dÃ¹ng resolve trÆ°á»›c khi gá»i builder
+## Đã xong (2026-07-08) — Fix Reading Wizard `TEMPLATE_BUILDERS[kind] is not a function`
+- `resolveReadingTemplateKind()` — fallback kind hợp lệ từ catalog/default khi localStorage hoặc kind lỗi
+- `assertAllTemplateBuildersRegistered()` — dev-time check catalog ↔ builders
+- `ieltsReadingWizardPersist` + `ieltsReadingAiGenerate` dùng resolve trước khi gọi builder
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3ag (Headings + Gap + YNNG)
-- Template `p3-r3-headings-gap-ynng` (`r3ag`) â€” preview JPG `Teamplate_Part3_5.jpg` (Cam12 T5 What's the Purpose of Gaining Knowledge)
-- Matching headings Q27â€“32 (Aâ€“F) + summary TWO WORDS Q33â€“36 (`note` inline) + YNNG Q37â€“40
+## Đã xong (2026-07-08) — Reading P3 template r3ag (Headings + Gap + YNNG)
+- Template `p3-r3-headings-gap-ynng` (`r3ag`) — preview JPG `Teamplate_Part3_5.jpg` (Cam12 T5 What's the Purpose of Gaining Knowledge)
+- Matching headings Q27–32 (A–F) + summary TWO WORDS Q33–36 (`note` inline) + YNNG Q37–40
 - Builder `ieltsReadingP3HeadingsGapYnngPart()` + `CAM12_T5_KNOWLEDGE_HEADINGS` + `CAM12_T5_ARSON_SUMMARY_NOTE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_5.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_5.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Fix preview Part2_6 â†’ r2fs (MC + TFNG + Endings)
-- `Teamplate_Part2_6.jpg` = Film Sound (trÃ¹ng Part2_5) â€” preview `r2fs`, khÃ´ng cÃ²n gÃ¡n nháº§m Falkirk
-- `Teamplate_Part2_2.jpg` = Falkirk diagram â€” preview `r2fw`
+## Đã xong (2026-07-08) — Fix preview Part2_6 → r2fs (MC + TFNG + Endings)
+- `Teamplate_Part2_6.jpg` = Film Sound (trùng Part2_5) — preview `r2fs`, không còn gán nhầm Falkirk
+- `Teamplate_Part2_2.jpg` = Falkirk diagram — preview `r2fw`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2fw (TFNG + Diagram)
-- Template `p2-r2-tfng-diagram` (`r2fw`) â€” preview JPG `Teamplate_Part2_2.jpg` (Cam11 T1 The Falkirk Wheel)
-- TFNG Q14â€“19 + diagram labeling ONE WORD Q20â€“26 (`imageFile: falkirk-wheel-diagram.jpg`)
+## Đã xong (2026-07-08) — Reading P2 template r2fw (TFNG + Diagram)
+- Template `p2-r2-tfng-diagram` (`r2fw`) — preview JPG `Teamplate_Part2_2.jpg` (Cam11 T1 The Falkirk Wheel)
+- TFNG Q14–19 + diagram labeling ONE WORD Q20–26 (`imageFile: falkirk-wheel-diagram.jpg`)
 - Builder `ieltsReadingP2TfngDiagramPart()`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2fs (MC + TFNG + Endings)
-- Template `p2-r2-mc-tfng-endings` (`r2fs`) â€” preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
-- Multiple choice Q14â€“18 + TFNG Q19â€“23 + matching sentence endings Aâ€“E Q24â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2fs (MC + TFNG + Endings)
+- Template `p2-r2-mc-tfng-endings` (`r2fs`) — preview JPG `Teamplate_Part2_6.jpg` (Cam11 T4 An Introduction to Film Sound)
+- Multiple choice Q14–18 + TFNG Q19–23 + matching sentence endings A–E Q24–26
 - Builder `ieltsReadingP2McTfngEndingsPart()` + `CAM11_T4_FILM_SOUND_ENDINGS_BANK`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_6.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_6.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3hy (Headings + Summary + YNNG)
-- Template `p3-r3-headings-summary-ynng` (`r3hy`) â€” preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
-- Matching headings Q27â€“32 (Aâ€“F) + summary word bank Aâ€“G Q33â€“36 + YNNG Q37â€“40 (views of writer)
+## Đã xong (2026-07-08) — Reading P3 template r3hy (Headings + Summary + YNNG)
+- Template `p3-r3-headings-summary-ynng` (`r3hy`) — preview JPG `Teamplate_Part3_4.jpg` (Cam11 T4 This Marvellous Invention)
+- Matching headings Q27–32 (A–F) + summary word bank A–G Q33–36 + YNNG Q37–40 (views of writer)
 - Builder `ieltsReadingP3HeadingsSummaryYnngPart()` + `CAM11_T4_LANGUAGE_HEADINGS` + `CAM11_T4_LANGUAGE_WORD_BANK`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_4.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_4.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3ps (Match Ä‘oáº¡n + Sentence)
-- Template `p3-r3-match-paragraph-sentence` (`r3ps`) â€” preview JPG `Teamplate_Part3_3.jpg` (Cam11 T3 Mathematical Reasoning)
-- Matching paragraph Q27â€“34 (Aâ€“G) + sentence completion ONE WORD Q35â€“40
+## Đã xong (2026-07-08) — Reading P3 template r3ps (Match đoạn + Sentence)
+- Template `p3-r3-match-paragraph-sentence` (`r3ps`) — preview JPG `Teamplate_Part3_3.jpg` (Cam11 T3 Mathematical Reasoning)
+- Matching paragraph Q27–34 (A–G) + sentence completion ONE WORD Q35–40
 - Builder `ieltsReadingP3MatchParagraphSentencePart()`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_3.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_3.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading IELTS: bá» auto cháº¡y theo cÃ¢u
-- `ReadingTest.tsx` â€” bá» `useEffect` auto-scroll passage + cÃ¢u há»i khi Ä‘á»•i `activeQuestionId`
-- `ReadingQuestionPanel.tsx` â€” bá» auto chuyá»ƒn cÃ¢u tiáº¿p theo sau khi Ä‘iá»n paragraph/heading/word bank/feature
+## Đã xong (2026-07-08) — Reading IELTS: bỏ auto chạy theo câu
+- `ReadingTest.tsx` — bỏ `useEffect` auto-scroll passage + câu hỏi khi đổi `activeQuestionId`
+- `ReadingQuestionPanel.tsx` — bỏ auto chuyển câu tiếp theo sau khi điền paragraph/heading/word bank/feature
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3my (MC + Summary + YNNG)
-- Template `p3-r3-mc-summary-ynng` (`r3my`) â€” preview JPG `Teamplate_Part3_2.jpg` (Cam11 T2 Art and the Brain)
-- Multiple choice Q27â€“30 + summary word bank Aâ€“H Q31â€“33 (`note` inline) + YNNG Q34â€“39 (claims of writer)
+## Đã xong (2026-07-08) — Reading P3 template r3my (MC + Summary + YNNG)
+- Template `p3-r3-mc-summary-ynng` (`r3my`) — preview JPG `Teamplate_Part3_2.jpg` (Cam11 T2 Art and the Brain)
+- Multiple choice Q27–30 + summary word bank A–H Q31–33 (`note` inline) + YNNG Q34–39 (claims of writer)
 - Builder `ieltsReadingP3McSummaryYnngPart()` + `CAM11_T2_ART_BRAIN_SUMMARY_NOTE` + `CAM11_T2_ART_BRAIN_WORD_BANK`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_2.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_2.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2hm (Headings + Summary + MC)
-- Template `p2-r2-headings-summary-mc` (`r2hm`) â€” preview JPG `Teamplate_Part2_3.jpg` (Cam11 T4 Easter Island)
-- Matching headings Q14â€“20 + summary ONE WORD Q21â€“24 (`note` inline) + Choose TWO Q25â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2hm (Headings + Summary + MC)
+- Template `p2-r2-headings-summary-mc` (`r2hm`) — preview JPG `Teamplate_Part2_3.jpg` (Cam11 T4 Easter Island)
+- Matching headings Q14–20 + summary ONE WORD Q21–24 (`note` inline) + Choose TWO Q25–26
 - Builder `ieltsReadingP2HeadingsSummaryMcPart()` + `CAM11_T4_DIAMOND_SUMMARY_NOTE`
 
-## ÄÃ£ xong (2026-07-08) â€” Fix mÃ n tráº¯ng `/app/exam/track/ielts`
-- **Root cause:** `listeningNotePassage.ts` lá»—i cÃº phÃ¡p (duplicate `question`, string chÆ°a Ä‘Ã³ng) â†’ Vite khÃ´ng transform Ä‘Æ°á»£c â†’ lazy import `ExamTrackPage` fail (chuá»—i: `ieltsListeningWizardPersist` â†’ `importListeningUtils` â†’ `listeningNotePassage`)
-- **Fix phá»¥:** `ExamTrackPage.tsx` â€” chuyá»ƒn redirect `ket` xuá»‘ng sau táº¥t cáº£ hooks (trÃ¡nh Rules of Hooks khi Ä‘á»•i route)
-- Verify: `pnpm --filter web exec tsc --noEmit` + `vite build` pass; dev server restart â†’ hard refresh Ctrl+Shift+R
+## Đã xong (2026-07-08) — Fix màn trắng `/app/exam/track/ielts`
+- **Root cause:** `listeningNotePassage.ts` lỗi cú pháp (duplicate `question`, string chưa đóng) → Vite không transform được → lazy import `ExamTrackPage` fail (chuỗi: `ieltsListeningWizardPersist` → `importListeningUtils` → `listeningNotePassage`)
+- **Fix phụ:** `ExamTrackPage.tsx` — chuyển redirect `ket` xuống sau tất cả hooks (tránh Rules of Hooks khi đổi route)
+- Verify: `pnpm --filter web exec tsc --noEmit` + `vite build` pass; dev server restart → hard refresh Ctrl+Shift+R
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2hms (Headings + Match + Summary)
-- Template `p2-r2-headings-match-summary` (`r2hms`) â€” preview JPG `Teamplate_Part2_9.jpg` (Cam13 T1 Boredom)
-- Matching headings Q14â€“19 (Aâ€“F, iâ€“viii) + match ideas Q20â€“23 (Aâ€“E) + summary ONE WORD Q24â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2hms (Headings + Match + Summary)
+- Template `p2-r2-headings-match-summary` (`r2hms`) — preview JPG `Teamplate_Part2_9.jpg` (Cam13 T1 Boredom)
+- Matching headings Q14–19 (A–F, i–viii) + match ideas Q20–23 (A–E) + summary ONE WORD Q24–26
 - Builder `ieltsReadingP2HeadingsMatchSummaryPart()` + `CAM13_T1_BOREDOM_SUMMARY_NOTE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_9.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_9.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1tt (Table + TFNG, merge Ã´)
-- Template `p1-r1-table-tfng` (`r1tt`) â€” preview JPG `Teamplate_Part1_7.jpg` (Cam13 T4 Coconut palm)
-- Table completion Q1â€“8 (`noteTable` 3 cá»™t, `rowSpan`/`colSpan`/`skip`) + TFNG Q9â€“13
-- `R1TT_MERGE_TABLE_SAMPLE` â€” báº£ng máº«u "fruits" gá»™p 5 hÃ ng; váº«n há»— trá»£ báº£ng 2 cá»™t khÃ´ng merge (`CAM13_T1_NZ_WEBSITE_TABLE`)
-- `examData.ts` + `readingNoteTableUtils.ts` + `ReadingNoteTable.tsx` â€” render merge cá»™t/hÃ ng
-- AI prompt: quy táº¯c merge khi copy Word/PDF dáº¡ng báº£ng IELTS
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_7.jpg`
-- Wizard edit: `gap-fill|tfng` + `noteTable` â†’ `r1tt` (khÃ¡c `r1n`/`r1n8` notePassage)
+## Đã xong (2026-07-08) — Reading P1 template r1tt (Table + TFNG, merge ô)
+- Template `p1-r1-table-tfng` (`r1tt`) — preview JPG `Teamplate_Part1_7.jpg` (Cam13 T4 Coconut palm)
+- Table completion Q1–8 (`noteTable` 3 cột, `rowSpan`/`colSpan`/`skip`) + TFNG Q9–13
+- `R1TT_MERGE_TABLE_SAMPLE` — bảng mẫu "fruits" gộp 5 hàng; vẫn hỗ trợ bảng 2 cột không merge (`CAM13_T1_NZ_WEBSITE_TABLE`)
+- `examData.ts` + `readingNoteTableUtils.ts` + `ReadingNoteTable.tsx` — render merge cột/hàng
+- AI prompt: quy tắc merge khi copy Word/PDF dạng bảng IELTS
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_7.jpg`
+- Wizard edit: `gap-fill|tfng` + `noteTable` → `r1tt` (khác `r1n`/`r1n8` notePassage)
 
-## ÄÃ£ xong (2026-07-08) â€” Fix sync cloud: preset deck ID khÃ´ng pháº£i UUID
-- Lá»—i: `decks upsert: invalid input syntax for type uuid: "preset:academic:kinh-te-hoc"`
-- NguyÃªn nhÃ¢n: `syncLocalToCloud` Ä‘áº©y cáº£ bá»™ preset (`preset:group:slug`) lÃªn Supabase â€” cá»™t `decks.id` lÃ  UUID
-- Fix: `packages/db/src/cloud/presetDeck.ts` â€” `isPresetDeck()`; sync bá» qua deck/card/SRS preset
-- Chá»‰ deck `origin: user` (UUID) Ä‘Æ°á»£c Ä‘á»“ng bá»™ cloud; preset láº¥y tá»« seed local + Admin publish
+## Đã xong (2026-07-08) — Fix sync cloud: preset deck ID không phải UUID
+- Lỗi: `decks upsert: invalid input syntax for type uuid: "preset:academic:kinh-te-hoc"`
+- Nguyên nhân: `syncLocalToCloud` đẩy cả bộ preset (`preset:group:slug`) lên Supabase — cột `decks.id` là UUID
+- Fix: `packages/db/src/cloud/presetDeck.ts` — `isPresetDeck()`; sync bỏ qua deck/card/SRS preset
+- Chỉ deck `origin: user` (UUID) được đồng bộ cloud; preset lấy từ seed local + Admin publish
 
-## ÄÃ£ xong (2026-07-08) â€” Vocab preset decks bá»‹ double
-- Root cause: `seedPresetDecks` dÃ¹ng UUID ngáº«u nhiÃªn + React StrictMode/sync Admin publish táº¡o báº£n trÃ¹ng cÃ¹ng group+tÃªn
-- Fix: `stablePresetDeckId()` + `put` idempotent + `dedupePresetDecks()` gá»™p tháº»/SRS vá» 1 bá»™
-- `mergeVocab` remap ID preset trÆ°á»›c `bulkPut`; gá»i dedupe sau sync
+## Đã xong (2026-07-08) — Vocab preset decks bị double
+- Root cause: `seedPresetDecks` dùng UUID ngẫu nhiên + React StrictMode/sync Admin publish tạo bản trùng cùng group+tên
+- Fix: `stablePresetDeckId()` + `put` idempotent + `dedupePresetDecks()` gộp thẻ/SRS về 1 bộ
+- `mergeVocab` remap ID preset trước `bulkPut`; gọi dedupe sau sync
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2hl (Headings + TFNG + Sentence)
-- Template `p2-r2-headings-tfng-sentence` (`r2hl`) â€” preview JPG `Teamplate_Part2_7.jpg` (Cam12 T8 The Lost City)
-- Matching headings Q14â€“20 (Aâ€“G) + TFNG Q21â€“24 + sentence completion ONE WORD Q25â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2hl (Headings + TFNG + Sentence)
+- Template `p2-r2-headings-tfng-sentence` (`r2hl`) — preview JPG `Teamplate_Part2_7.jpg` (Cam12 T8 The Lost City)
+- Matching headings Q14–20 (A–G) + TFNG Q21–24 + sentence completion ONE WORD Q25–26
 - Builder `ieltsReadingP2HeadingsTfngSentencePart()` + `CAM12_T8_LOST_CITY_HEADINGS`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_7.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P2 template r2ms (MC + Summary + YNNG)
-- Template `p2-r2-mc-summary-ynng` (`r2ms`) â€” preview JPG `Teamplate_Part2_8.jpg` (Cam12 T8 Bring back the big cats)
-- Multiple choice Q14â€“18 + summary word bank Aâ€“F Q19â€“22 + YNNG Q23â€“26
+## Đã xong (2026-07-08) — Reading P2 template r2ms (MC + Summary + YNNG)
+- Template `p2-r2-mc-summary-ynng` (`r2ms`) — preview JPG `Teamplate_Part2_8.jpg` (Cam12 T8 Bring back the big cats)
+- Multiple choice Q14–18 + summary word bank A–F Q19–22 + YNNG Q23–26
 - Builder `ieltsReadingP2McSummaryYnngPart()` + `CAM12_T8_LYNX_SUMMARY_NOTE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_8.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p2/Teamplate_Part2_8.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1n8 (Notes 8 + TFNG)
-- Template `p1-r1-notes-tfng-8` (`r1n8`) â€” preview JPG `Teamplate_Part1_5.jpg` (Cam12 T8 The history of glass)
-- Note completion Q1â€“8 (`notePassage`, ONE WORD) + TFNG Q9â€“13
+## Đã xong (2026-07-08) — Reading P1 template r1n8 (Notes 8 + TFNG)
+- Template `p1-r1-notes-tfng-8` (`r1n8`) — preview JPG `Teamplate_Part1_5.jpg` (Cam12 T8 The history of glass)
+- Note completion Q1–8 (`notePassage`, ONE WORD) + TFNG Q9–13
 - Builder `ieltsReadingP1NotesTfng8Part()` + `CAM12_T8_GLASS_NOTE_PASSAGE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_5.jpg`
-- Wizard edit: `gap-fill|tfng` + `notePassage` + â‰¥8 gaps â†’ `r1n8` (khÃ¡c `r1n` 6 gaps)
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_5.jpg`
+- Wizard edit: `gap-fill|tfng` + `notePassage` + ≥8 gaps → `r1n8` (khác `r1n` 6 gaps)
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1hn (Headings + Notes)
-- Template `p1-r1-headings-notes` (`r1hn`) â€” preview JPG `Teamplate_Part1_4.jpg` (Cam12 T5 Flying tortoises)
-- Matching headings Q1â€“7 (Aâ€“G, iâ€“viii) + note completion Q8â€“13 (`notePassage`, ONE WORD)
+## Đã xong (2026-07-08) — Reading P1 template r1hn (Headings + Notes)
+- Template `p1-r1-headings-notes` (`r1hn`) — preview JPG `Teamplate_Part1_4.jpg` (Cam12 T5 Flying tortoises)
+- Matching headings Q1–7 (A–G, i–viii) + note completion Q8–13 (`notePassage`, ONE WORD)
 - Builder `ieltsReadingP1HeadingsNotesPart()` + `CAM12_T5_TORTOISE_DECLINE_NOTE_PASSAGE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_4.jpg`
-- Wizard edit: `matching-headings|gap-fill` + `notePassage` â†’ `r1hn` (khÃ¡c `r1hg` sentence gap)
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_4.jpg`
+- Wizard edit: `matching-headings|gap-fill` + `notePassage` → `r1hn` (khác `r1hg` sentence gap)
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1ct (Match + Choose TWO)
-- Template `p1-r1-match-choose-two` (`r1ct`) â€” preview JPG `Teamplate_Part1_3.jpg` (Cam12 T6 Agriculture risks)
-- Match paragraph Q1â€“3 (Aâ€“I) + matching-features Q4â€“9 (ngÆ°á»i Aâ€“G) + Choose TWO Q10â€“13
+## Đã xong (2026-07-08) — Reading P1 template r1ct (Match + Choose TWO)
+- Template `p1-r1-match-choose-two` (`r1ct`) — preview JPG `Teamplate_Part1_3.jpg` (Cam12 T6 Agriculture risks)
+- Match paragraph Q1–3 (A–I) + matching-features Q4–9 (người A–G) + Choose TWO Q10–13
 - Builder `ieltsReadingP1MatchChooseTwoPart()` + `CAM12_T6_AGRICULTURE_PEOPLE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_3.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_3.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3se (Summary + MC + Endings)
-- Template `p3-r3-summary-mc-endings` (`r3se`) â€” preview `Teamplate_Part3_7.jpg` (Cam12 T3 Montreal Study)
-- Summary TWO WORDS Q27â€“31 (`note` inline) + MC Aâ€“D Q32â€“36 + sentence endings Q37â€“40
-- Builder `ieltsReadingP3SummaryMcEndingsPart()` â€” Ä‘Ã£ xÃ³a nháº§m template Listening `p3-c8`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg`
+## Đã xong (2026-07-08) — Reading P3 template r3se (Summary + MC + Endings)
+- Template `p3-r3-summary-mc-endings` (`r3se`) — preview `Teamplate_Part3_7.jpg` (Cam12 T3 Montreal Study)
+- Summary TWO WORDS Q27–31 (`note` inline) + MC A–D Q32–36 + sentence endings Q37–40
+- Builder `ieltsReadingP3SummaryMcEndingsPart()` — đã xóa nhầm template Listening `p3-c8`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_7.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Fix Reading Part 3 tráº¯ng trang (Cam13 T1 / r3ty)
-- **NguyÃªn nhÃ¢n 1:** AI ghi `type: "table-completion"` â†’ crash `question.options.map` trong `MultipleChoiceGroup`.
-- **NguyÃªn nhÃ¢n 2 (console):** `features[]` tá»« AI dÃ¹ng `label` thay `name` â†’ `splitReferenceText(feature.name)` crash; `ReadingHighlightableText` nháº­n `text` undefined.
-- **Fix:** `readingExamSanitize.ts` â€” group type, `features`/`headings`/`wordBank` (map `label`â†’`name`); load Dexie + published; phÃ²ng thá»§ `splitReferenceText`, `segmentsFromAnnotations`, `ReadingHighlightableText`.
+## Đã xong (2026-07-08) — Fix Reading Part 3 trắng trang (Cam13 T1 / r3ty)
+- **Nguyên nhân 1:** AI ghi `type: "table-completion"` → crash `question.options.map` trong `MultipleChoiceGroup`.
+- **Nguyên nhân 2 (console):** `features[]` từ AI dùng `label` thay `name` → `splitReferenceText(feature.name)` crash; `ReadingHighlightableText` nhận `text` undefined.
+- **Fix:** `readingExamSanitize.ts` — group type, `features`/`headings`/`wordBank` (map `label`→`name`); load Dexie + published; phòng thủ `splitReferenceText`, `segmentsFromAnnotations`, `ReadingHighlightableText`.
 
-## ÄÃ£ xong (2026-07-08) â€” Fix Reading Wizard noteTable khÃ´ng hiá»‡n (r3ty / má»i báº£ng nÃ—n)
-- `readingNoteTableUtils.ts` â€” normalize báº£ng n cá»™t Ã— n dÃ²ng, validate gap â†” questions
-- Wizard AI: `mergeTemplateNoteTables` gáº¯n `noteTable` tá»« template khi AI thiáº¿u báº£ng
-- Import JSON: chuáº©n hÃ³a `noteTable` trong `normalizeImportPart` + cáº£nh bÃ¡o thiáº¿u báº£ng
+## Đã xong (2026-07-08) — Fix Reading Wizard noteTable không hiện (r3ty / mọi bảng n×n)
+- `readingNoteTableUtils.ts` — normalize bảng n cột × n dòng, validate gap ↔ questions
+- Wizard AI: `mergeTemplateNoteTables` gắn `noteTable` từ template khi AI thiếu bảng
+- Import JSON: chuẩn hóa `noteTable` trong `normalizeImportPart` + cảnh báo thiếu bảng
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P3 template r3ty (Table + YNNG + Match)
-- Template `p3-r3-table-ynng-match` (`r3ty`) â€” preview JPG `Teamplate_Part3_6.jpg` (Cam12 T2 The Benefits of Being Bilingual)
-- Table Q27â€“31 (`noteTable` Test|Findings) + YNNG Q32â€“36 (claims of writer) + match Ä‘oáº¡n Q37â€“40 (Aâ€“G)
+## Đã xong (2026-07-08) — Reading P3 template r3ty (Table + YNNG + Match)
+- Template `p3-r3-table-ynng-match` (`r3ty`) — preview JPG `Teamplate_Part3_6.jpg` (Cam12 T2 The Benefits of Being Bilingual)
+- Table Q27–31 (`noteTable` Test|Findings) + YNNG Q32–36 (claims of writer) + match đoạn Q37–40 (A–G)
 - Builder `ieltsReadingP3TableYnngMatchPart()` + `CAM12_T2_BILINGUAL_TABLE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_6.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p3/Teamplate_Part3_6.jpg`
 
-## ÄÃ£ xong (2026-07-08) â€” Reading P1 template r1f (TFNG + Match + Notes)
-- Template `p1-r1-tfng-match-notes` (`r1f`) â€” preview JPG `Teamplate_Part1_1.jpg` (Cam11 T2 Mary Rose)
-- TFNG Q1â€“4 + matching-features Q5â€“8 (má»‘c thá»i gian Aâ€“G) + note completion Q9â€“13 (`notePassage`)
+## Đã xong (2026-07-08) — Reading P1 template r1f (TFNG + Match + Notes)
+- Template `p1-r1-tfng-match-notes` (`r1f`) — preview JPG `Teamplate_Part1_1.jpg` (Cam11 T2 Mary Rose)
+- TFNG Q1–4 + matching-features Q5–8 (mốc thời gian A–G) + note completion Q9–13 (`notePassage`)
 - Builder `ieltsReadingP1TfngMatchNotesPart()` + `CAM11_T2_MARY_ROSE_NOTE_PASSAGE`
-- áº¢nh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_1.jpg`
+- Ảnh: `apps/web/public/ielts-wizard/reading/p1/Teamplate_Part1_1.jpg`
 
-## ÄÃ£ xong (2026-07-07) â€” Note cáº¡nh TÃ´ sÃ¡ng (Luyá»‡n thi)
-- Reading IELTS + Listening KET/PET/FCE/CAE/CPE/IELTS + Cambridge RW A2â€“C2
+## Đã xong (2026-07-07) — Note cạnh Tô sáng (Luyện thi)
+- Reading IELTS + Listening KET/PET/FCE/CAE/CPE/IELTS + Cambridge RW A2–C2
 
-## ÄÃ£ xong (2026-07-07) â€” SW cache catalog MP3
-- `public/sw.js` cache-first `/catalog/**/*.mp3` (vÃ  m4a/wav/ogg/webm)
-- Version cache = `web/package.json` version (hiá»‡n `0.2.0`); dev = `ryan-catalog-dev`
-- User nghe láº¡i khÃ´ng tá»‘n Vercel bandwidth (sau láº§n táº£i Ä‘áº§u)
+## Đã xong (2026-07-07) — SW cache catalog MP3
+- `public/sw.js` cache-first `/catalog/**/*.mp3` (và m4a/wav/ogg/webm)
+- Version cache = `web/package.json` version (hiện `0.2.0`); dev = `ryan-catalog-dev`
+- User nghe lại không tốn Vercel bandwidth (sau lần tải đầu)
 
-## ÄÃ£ xong (2026-07-07) â€” Deploy production
-- https://ryanenglishv2.vercel.app â€” migrations 009â€“012, SW, Listening publish, Admin publish
+## Đã xong (2026-07-07) — Deploy production
+- https://ryanenglishv2.vercel.app — migrations 009–012, SW, Listening publish, Admin publish
 
-## Æ¯u tiÃªn session má»›i (chá»n theo user) â€” cáº­p nháº­t 2026-07-09
-### 1 â€” Verify E2E template Reading má»›i (Æ°u tiÃªn)
+## Ưu tiên session mới (chọn theo user) — cập nhật 2026-07-09
+### 1 — Verify E2E template Reading mới (ưu tiên)
 1. Wizard P1: **r1ntf** (Huarango notes+table+TFNG), **r1nt** (Nutmeg), **r1my**
-2. Wizard P2: **r2tn** (Silbo notes sections), **r2mt**, **r2cs** â€” Choose TWO multi-select
+2. Wizard P2: **r2tn** (Silbo notes sections), **r2mt**, **r2cs** — Choose TWO multi-select
 3. Wizard P3: **r3hmy** (headings+MC+YNNG), **r3tn** notes r1n8, **r3em**, **r3fy**
-4. Cam15 Moore: notes **1930s/1940s/1950s** má»—i dÃ²ng riÃªng sau generate
+4. Cam15 Moore: notes **1930s/1940s/1950s** mỗi dòng riêng sau generate
 
-### 0 â€” IELTS track
-1. `pnpm --filter web dev` â†’ http://localhost:5173/app/exam/track/ielts
-2. **ÄÄƒng nháº­p Google** â€” hard refresh **Ctrl+Shift+R** náº¿u HMR lá»—i builder
+### 0 — IELTS track
+1. `pnpm --filter web dev` → http://localhost:5173/app/exam/track/ielts
+2. **Đăng nhập Google** — hard refresh **Ctrl+Shift+R** nếu HMR lỗi builder
 
-### A â€” Admin publish / batch Reading
-- Admin â†’ Publish ná»™i dung; batch Cam khi Ä‘á»§ 3 passages
+### A — Admin publish / batch Reading
+- Admin → Publish nội dung; batch Cam khi đủ 3 passages
 
-### B â€” Ká»¹ thuáº­t cÃ²n má»Ÿ
-- r1tt merge Ã´ E2E browser; SAMPLE passage r1tt â†’ Coconut náº¿u AI nhiá»…u
-- Listening Ã” CHá»® mobile iOS
+### B — Kỹ thuật còn mở
+- r1tt merge ô E2E browser; SAMPLE passage r1tt → Coconut nếu AI nhiễu
+- Listening Ô CHỮ mobile iOS
 ```
 
-## ÄÃ£ xong (2026-07-09) â€” Sá»• ghi chÃº tá»« vá»±ng (cháº¿ Ä‘á»™ há»c)
-- Dexie **v12** báº£ng `notebookEntries` (`NotebookEntry`): phrase/meaning/example/IPA/pos + ghi chÃº user, chá»‘ng trÃ¹ng `phraseKey`
-- `notebookRepo` â€” save (upsert), updateNote, delete, list
-- Study SRS: nÃºt **LÆ°u sá»• ghi chÃº** (`SaveToNotebookButton`) cáº¡nh Há»i AI / Láº­t tháº»
-- Tab **Sá»• ghi chÃº** trong study mode + nÃºt trÃªn trang Bá»™ tá»« vá»±ng (má»Ÿ khÃ´ng cáº§n chá»n deck)
-- Dictionary modal: **LÆ°u sá»• ghi chÃº** (song song ThÃªm vÃ o bá»™ tháº»)
-- UI: tÃ¬m kiáº¿m, sá»­a memo, xÃ³a, phÃ¡t Ã¢m â€” CSS theme-aware
-- `pnpm --filter web exec tsc --noEmit` â€” pass
+## Đã xong (2026-07-09) — Sổ ghi chú từ vựng (chế độ học)
+- Dexie **v12** bảng `notebookEntries` (`NotebookEntry`): phrase/meaning/example/IPA/pos + ghi chú user, chống trùng `phraseKey`
+- `notebookRepo` — save (upsert), updateNote, delete, list
+- Study SRS: nút **Lưu sổ ghi chú** (`SaveToNotebookButton`) cạnh Hỏi AI / Lật thẻ
+- Tab **Sổ ghi chú** trong study mode + nút trên trang Bộ từ vựng (mở không cần chọn deck)
+- Dictionary modal: **Lưu sổ ghi chú** (song song Thêm vào bộ thẻ)
+- UI: tìm kiếm, sửa memo, xóa, phát âm — CSS theme-aware
+- `pnpm --filter web exec tsc --noEmit` — pass
 
-## Next session start prompt (cáº­p nháº­t 2026-07-10 â€” offline dict Part1)
-1. Tá»« Ä‘iá»ƒn FAB â†’ tra `abandon`, `environment`, `look forward to` (offline, khÃ´ng cáº§n Pro)
-2. (Tuá»³ chá»n) Part2.json â†’ `pnpm build:dict:part1` má»Ÿ rá»™ng; seed deck vocab tá»« JSON
-3. Test sync LWW + exam progress náº¿u chÆ°a verify
+## Next session start prompt (cập nhật 2026-07-10 — offline dict Part1)
+1. Từ điển FAB → tra `abandon`, `environment`, `look forward to` (offline, không cần Pro)
+2. (Tuỳ chọn) Part2.json → `pnpm build:dict:part1` mở rộng; seed deck vocab từ JSON
+3. Test sync LWW + exam progress nếu chưa verify
 
-## ÄÃ£ xong (2026-07-10) â€” Offline dictionary Part 1 (300 tá»«)
-- Sá»­a/hoÃ n thiá»‡n `Tainguyen/TuDien/Part1.json` (file cÅ© truncated ~105 tá»«) â†’ **300 cards** A2â€“C2
+## Đã xong (2026-07-10) — Offline dictionary Part 1 (300 từ)
+- Sửa/hoàn thiện `Tainguyen/TuDien/Part1.json` (file cũ truncated ~105 từ) → **300 cards** A2–C2
 - Copy bundle: `apps/web/src/features/dictionary/data/offlinePart1.json`
-- `offlineDictPack.ts` load Part1 + ~60 cá»¥m phrase writing
+- `offlineDictPack.ts` load Part1 + ~60 cụm phrase writing
 - Script: `pnpm build:dict:part1` (`scripts/build-dict-part1.mjs`)
-- DictionaryModal: hiá»ƒn thá»‹ sá»‘ má»¥c offline tháº­t
+- DictionaryModal: hiển thị số mục offline thật
 - `tsc` pass
 
-## Next session start prompt (cáº­p nháº­t 2026-07-10 â€” Supabase sync tháº­t)
-1. `pnpm db:push` â€” Ã¡p migration **014_exam_progress_sync.sql** trÃªn Supabase
-2. Test offlineâ†’online: sá»­a deck/SRS offline â†’ online â†’ sync; má»Ÿ mÃ¡y 2 pull LWW
-3. Reading/Listening: lÃ m dá»Ÿ / ná»™p bÃ i â†’ Äá»“ng bá»™ â†’ thiáº¿t bá»‹ khÃ¡c tháº¥y draft
-4. Electron: export Vocabulary v2 / legacy backup â†’ Settings â†’ Nháº­p backup â†’ Äá»“ng bá»™ Ä‘Ã¡m mÃ¢y
-5. (Tuá»³ chá»n) notebook cloud sync; verify E2E Reading template
+## Next session start prompt (cập nhật 2026-07-10 — Supabase sync thật)
+1. `pnpm db:push` — áp migration **014_exam_progress_sync.sql** trên Supabase
+2. Test offline→online: sửa deck/SRS offline → online → sync; mở máy 2 pull LWW
+3. Reading/Listening: làm dở / nộp bài → Đồng bộ → thiết bị khác thấy draft
+4. Electron: export Vocabulary v2 / legacy backup → Settings → Nhập backup → Đồng bộ đám mây
+5. (Tuỳ chọn) notebook cloud sync; verify E2E Reading template
 
-## ÄÃ£ xong (2026-07-10) â€” Supabase sync kÃ­ch hoáº¡t tháº­t
-### Conflict resolution offlineâ†’online
-- `packages/db/src/cloud/sync.ts` â€” **`syncBidirectional`** (LWW theo `updated_at` / SRS `lastReviewedAt`)
-- `useSyncManager` luÃ´n gá»i bidirectional (khÃ´ng cÃ²n push-only khi local cÃ³ data)
-- Preset deck váº«n bá» qua sync cloud
+## Đã xong (2026-07-10) — Supabase sync kích hoạt thật
+### Conflict resolution offline→online
+- `packages/db/src/cloud/sync.ts` — **`syncBidirectional`** (LWW theo `updated_at` / SRS `lastReviewedAt`)
+- `useSyncManager` luôn gọi bidirectional (không còn push-only khi local có data)
+- Preset deck vẫn bỏ qua sync cloud
 
 ### Reading/Listening exam progress sync
-- Migration **`014_exam_progress_sync.sql`** â€” báº£ng `exam_progress` (user_id, skill, exam_id, payload jsonb)
-- `examProgressSync.ts` â€” merge localStorage drafts â†” cloud (LWW `updatedAt`)
+- Migration **`014_exam_progress_sync.sql`** — bảng `exam_progress` (user_id, skill, exam_id, payload jsonb)
+- `examProgressSync.ts` — merge localStorage drafts ↔ cloud (LWW `updatedAt`)
 - Draft saves stamp `updatedAt` (Reading IELTS, Cambridge RW shells, Listening KET/PET/IELTS/FCE)
 
-### Electron â†’ Web migration
-- `electronMigrate.ts` â€” Vocabulary export v2 + legacy `flashcardCustomDecks_v6` / SRS
-- Non-UUID id â†’ stable UUID remap (sync Supabase Ä‘Æ°á»£c)
-- `importBackup` auto-detect Electron/legacy náº¿u khÃ´ng pháº£i Web backup v1â€“3
-- Settings: mÃ´ táº£ há»— trá»£ Electron + sync hai chiá»u
+### Electron → Web migration
+- `electronMigrate.ts` — Vocabulary export v2 + legacy `flashcardCustomDecks_v6` / SRS
+- Non-UUID id → stable UUID remap (sync Supabase được)
+- `importBackup` auto-detect Electron/legacy nếu không phải Web backup v1–3
+- Settings: mô tả hỗ trợ Electron + sync hai chiều
 
 ### Verify
-- `pnpm exec tsc --noEmit` (apps/web) â€” pass
-- **Cáº§n `pnpm db:push`** trÆ°á»›c khi exam progress sync hoáº¡t Ä‘á»™ng Ä‘áº§y Ä‘á»§
+- `pnpm exec tsc --noEmit` (apps/web) — pass
+- **Cần `pnpm db:push`** trước khi exam progress sync hoạt động đầy đủ
 
-## Da xong (2026-07-09) â€” Dictionary offline+Pro / MindMap export+templates / CEFR+exam suggestions
+## Da xong (2026-07-09) — Dictionary offline+Pro / MindMap export+templates / CEFR+exam suggestions
 - offlineDictPack + dictionary_ai gate
 - exportMindmap PNG/SVG/PDF + IELTS templates
 - cefr field + ExamPracticeSuggestionsPanel
 
 
-## Da xong (2026-07-09) â€” Listening practiceâ†”exam bridge
+## Da xong (2026-07-09) — Listening practice↔exam bridge
 - Lesson link sourceExamId/part + linkedAudio
 - examListeningBridge + Luyen dictation tu ket qua exam
 - Play limit free/basic + slow 0.5/0.75 + Nghe chunk
 - Transcript jump-to-word (uoc luong time-align)
 
-## ÄÃ£ xong (2026-07-10) â€” Vocab double card (phrase trÃ¹ng)
-- **Root cause:** gá»™p deck preset (`dedupePresetDecks` / admin publish) chuyá»ƒn tháº» theo id khÃ¡c nhau â†’ cÃ¹ng phrase trong 1 deck; import CSV luÃ´n `add` (khÃ´ng unique)
+## Đã xong (2026-07-10) — Vocab double card (phrase trùng)
+- **Root cause:** gộp deck preset (`dedupePresetDecks` / admin publish) chuyển thẻ theo id khác nhau → cùng phrase trong 1 deck; import CSV luôn `add` (không unique)
 - **Fix:**
-  - `cardRepo.dedupeByPhrase` / `dedupeAllDecks` â€” gá»™p theo phrase (case-insensitive), giá»¯ SRS tá»‘t nháº¥t, merge field thiáº¿u, chuyá»ƒn reviewLog
-  - Gá»i sau migrate deck, `dedupePresetDecks`, `seedPresetDecks`, `mergeVocab` (admin publish)
-  - `ImportModal` dÃ¹ng `cardRepo.addUnique` + `sourceKind: 'import'`
-- Verify: `pnpm --filter web exec tsc --noEmit` â€” pass
+  - `cardRepo.dedupeByPhrase` / `dedupeAllDecks` — gộp theo phrase (case-insensitive), giữ SRS tốt nhất, merge field thiếu, chuyển reviewLog
+  - Gọi sau migrate deck, `dedupePresetDecks`, `seedPresetDecks`, `mergeVocab` (admin publish)
+  - `ImportModal` dùng `cardRepo.addUnique` + `sourceKind: 'import'`
+- Verify: `pnpm --filter web exec tsc --noEmit` — pass
 
-## ÄÃ£ xong (2026-07-10) â€” Double bá»™ tháº» "CÃ´ng nghá»‡" (vÃ  preset khÃ¡c)
-- **Root cause:** `dedupePresetDecks` chá»‰ gá»™p khi `name` khá»›p exact + `origin !== 'user'` â†’ báº£n UUID / tÃªn lá»‡ch unicode / origin user váº«n hiá»‡n cáº¡nh `preset:ielts:cong-nghe`
-- **Fix:** bucket theo **stable slug** (`preset:group:slug`), gá»™p má»i deck trong group preset khá»›p seed (ká»ƒ cáº£ origin user); chuáº©n hoÃ¡ tÃªn seed; phrase key NFD + collapse space
-- Má»Ÿ láº¡i `/app/vocab` â†’ seed cháº¡y dedupe â†’ chá»‰ cÃ²n 1 "CÃ´ng nghá»‡"
+## Đã xong (2026-07-10) — Double bộ thẻ "Công nghệ" (và preset khác)
+- **Root cause:** `dedupePresetDecks` chỉ gộp khi `name` khớp exact + `origin !== 'user'` → bản UUID / tên lệch unicode / origin user vẫn hiện cạnh `preset:ielts:cong-nghe`
+- **Fix:** bucket theo **stable slug** (`preset:group:slug`), gộp mọi deck trong group preset khớp seed (kể cả origin user); chuẩn hoá tên seed; phrase key NFD + collapse space
+- Mở lại `/app/vocab` → seed chạy dedupe → chỉ còn 1 "Công nghệ"
 
-## ÄÃ£ xong (2026-07-10) â€” Listening ZIP: Answer Key + Audioscript â†’ transcript khi xem láº¡i
-- ZIP cÃ³ thá»ƒ chá»©a `answer-key.pdf` / `audioscript.txt` / `tapescript.txt` (trÆ°á»›c Ä‘Ã¢y bá»‹ skip)
-- `listeningAudioscriptParse.ts` â€” tÃ¡ch Audioscript, map sá»‘ cÃ¢u â†’ `ttsText`
-- `importListeningZip` trÃ­ch PDF text + gáº¯n transcript/Ä‘Ã¡p Ã¡n vÃ o payload
-- UI xem láº¡i: `ListeningReviewActiveBar`, `ListeningQuestionAnswerPanel`, `ListeningExamResult` hiá»‡n **Transcript** tá»«ng cÃ¢u
-- **LÆ°u Ã½:** PDF scan (khÃ´ng text layer) â†’ cáº§n `audioscript.txt` hoáº·c PDF cÃ³ chá»¯; preview import hiá»‡n warning
+## Đã xong (2026-07-10) — Listening ZIP: Answer Key + Audioscript → transcript khi xem lại
+- ZIP có thể chứa `answer-key.pdf` / `audioscript.txt` / `tapescript.txt` (trước đây bị skip)
+- `listeningAudioscriptParse.ts` — tách Audioscript, map số câu → `ttsText`
+- `importListeningZip` trích PDF text + gắn transcript/đáp án vào payload
+- UI xem lại: `ListeningReviewActiveBar`, `ListeningQuestionAnswerPanel`, `ListeningExamResult` hiện **Transcript** từng câu
+- **Lưu ý:** PDF scan (không text layer) → cần `audioscript.txt` hoặc PDF có chữ; preview import hiện warning
 
-## ÄÃ£ xong (2026-07-10) â€” KET A2 Part 7 import: 1 áº£nh `part7-page.jpg`
-- **TrÆ°á»›c:** `part7-p1.jpg` â€¦ `part7-p3.jpg` (báº¯t buá»™c 3 file)
-- **Sau:** **1 file** `part7-page.jpg` (alias `part7.jpg`) â€” giá»‘ng PET Part 8 / FCE Part 9
+## Đã xong (2026-07-10) — KET A2 Part 7 import: 1 ảnh `part7-page.jpg`
+- **Trước:** `part7-p1.jpg` … `part7-p3.jpg` (bắt buộc 3 file)
+- **Sau:** **1 file** `part7-page.jpg` (alias `part7.jpg`) — giống PET Part 8 / FCE Part 9
 - Code: `ketWritingImportUtils`, `cambridgeReadingImportTemplates`, `ImportReadingManualModal`
-- HDSD: `Prompt-KET-A2-Reading-Universal.txt` (+ báº£ng so sÃ¡nh FCE/CAE/PET)
+- HDSD: `Prompt-KET-A2-Reading-Universal.txt` (+ bảng so sánh FCE/CAE/PET)
 
-## ÄÃ£ xong (2026-07-10) â€” Library: 3Ã— Test 1 â†’ chá»‰ giá»¯ 7-part
-- **UI (Error1.jpg):** Test 1 Ã—2 meta `5 parts` (catalog/stub) + Test 1 `7 parts` (Ä‘Ãºng) + T2â€“T4
-- **Rule:** cÃ¹ng Book+Test â†’ `preferLibraryExam`: **nhiá»u part hÆ¡n** > nhÃ£n Writing > rank nguá»“n
-- Sample váº«n áº©n khi cÃ³ catalog; **khÃ´ng** Æ°u tiÃªn catalog 5-part hÆ¡n import 7-part
-- Hard refresh KET A2 Reading â†’ 1 dÃ²ng Test 1 (7 parts) + Test 2â€“4
+## Đã xong (2026-07-10) — Library: 3× Test 1 → chỉ giữ 7-part
+- **UI (Error1.jpg):** Test 1 ×2 meta `5 parts` (catalog/stub) + Test 1 `7 parts` (đúng) + T2–T4
+- **Rule:** cùng Book+Test → `preferLibraryExam`: **nhiều part hơn** > nhãn Writing > rank nguồn
+- Sample vẫn ẩn khi có catalog; **không** ưu tiên catalog 5-part hơn import 7-part
+- Hard refresh KET A2 Reading → 1 dòng Test 1 (7 parts) + Test 2–4
 
-## ÄÃ£ xong (2026-07-10) â€” Admin Publish vocab khÃ´ng cÃ²n double
-- **NguyÃªn nhÃ¢n há»‡ thá»‘ng:** publish Ä‘áº©y card/deck UUID random â†’ re-publish / user pull `bulkPut` id má»›i â†’ double
-- **Fix phÃ²ng ngá»«a (cáº£ 2 phÃ­a):**
-  - `vocabPublishNormalize.ts` â€” deck â†’ `preset:group:slug`, card â†’ `pcard:{deckId}:{hash(phrase)}`, gá»™p trÃ¹ng trong payload
-  - `collectVocab` (Admin publish) luÃ´n normalize trÆ°á»›c khi upsert
-  - `mergeVocab` (user pull) normalize láº¡i payload (ká»ƒ cáº£ báº£n publish cÅ© UUID) + `ensureSrs` + dedupe legacy
+## Đã xong (2026-07-10) — Admin Publish vocab không còn double
+- **Nguyên nhân hệ thống:** publish đẩy card/deck UUID random → re-publish / user pull `bulkPut` id mới → double
+- **Fix phòng ngừa (cả 2 phía):**
+  - `vocabPublishNormalize.ts` — deck → `preset:group:slug`, card → `pcard:{deckId}:{hash(phrase)}`, gộp trùng trong payload
+  - `collectVocab` (Admin publish) luôn normalize trước khi upsert
+  - `mergeVocab` (user pull) normalize lại payload (kể cả bản publish cũ UUID) + `ensureSrs` + dedupe legacy
   - `stablePresetCardId` / `phraseKeyForCard` trong `vocabSeedDecks.ts`
-- **Sau nÃ y:** Admin Publish vocab idempotent â€” cÃ¹ng tá»« = cÃ¹ng id, khÃ´ng nhÃ¢n Ä‘Ã´i
+- **Sau này:** Admin Publish vocab idempotent — cùng từ = cùng id, không nhân đôi
 - Verify: `tsc --noEmit` pass
-- **Next admin:** Publish láº¡i 1 láº§n vocab Ä‘á»ƒ cloud payload dÃ¹ng id á»•n Ä‘á»‹nh (khuyáº¿n nghá»‹)
+- **Next admin:** Publish lại 1 lần vocab để cloud payload dùng id ổn định (khuyến nghị)
 
 
-## Da xong (2026-07-10) â€” Listening transcript Cambridge vs IELTS
+## Da xong (2026-07-10) — Listening transcript Cambridge vs IELTS
 - Cambridge A2-C2: ZIP answer-key/audioscript -> auto ttsText khi xem lai
 - IELTS: khong auto tu PDF; Xem cung de bai -> nut Hien transcript (AI)
 - Files: listeningAudioscriptParse, importListeningZip, listeningIeltsTranscriptAi, examListeningTranscriptStorage, ListeningIeltsTest
 
-## Da xong (2026-07-10) â€” Cap nhat Prompt Universal Listening A2-C2
+## Da xong (2026-07-10) — Cap nhat Prompt Universal Listening A2-C2
 - Prompt-Listening-Cambridge.txt: Answer Key + Audioscript + 2 nguon transcript (import + AI)
 - KET/PET/FCE/CAE/CPE Universal: ZIP answer-key/audioscript.txt, checklist, loi thuong gap, viec lam
 
 ---
 
-## ÄÃ£ xong (2026-07-10 cuá»‘i session) â€” Cambridge checklist + transcript + RLS + Vocab double/sync
+## Đã xong (2026-07-10 cuối session) — Cambridge checklist + transcript + RLS + Vocab double/sync
 
-### HDSD / DeepSeek A2â€“C2
-- [x] `HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt` + `Prompt-Reading-Cambridge-CHECKLIST.txt` (A2â€“C2)
-- [x] Link checklist tá»« master + 10 Universal (KETâ€¦CPE L/R)
-- [x] DeepSeek Test 2: gá»­i prompt + PDF + `answer-key.txt` + `audioscript.txt` â€” **khÃ´ng** MP3 / khÃ´ng báº¯t buá»™c q1â€“q5.jpg
-- [x] Pack ZIP **pháº³ng** cÃ¹ng cáº¥p: `exam.json`, `listening.mp3`, `answer-key.txt`, `audioscript.txt`, `q*.jpg`
+### HDSD / DeepSeek A2–C2
+- [x] `HDSD/Prompt-Listening-Cambridge-CHECKLIST.txt` + `Prompt-Reading-Cambridge-CHECKLIST.txt` (A2–C2)
+- [x] Link checklist từ master + 10 Universal (KET…CPE L/R)
+- [x] DeepSeek Test 2: gửi prompt + PDF + `answer-key.txt` + `audioscript.txt` — **không** MP3 / không bắt buộc q1–q5.jpg
+- [x] Pack ZIP **phẳng** cùng cấp: `exam.json`, `listening.mp3`, `answer-key.txt`, `audioscript.txt`, `q*.jpg`
 
-### Listening transcript tá»« `audioscript.txt`
-- [x] **UI xem:** Ná»™p bÃ i â†’ káº¿t quáº£ `Transcript:` Â· hoáº·c **Xem cÃ¹ng Ä‘á» bÃ i** â†’ khá»‘i **Transcript Â· CÃ¢u N** / bar review
-- [x] Bug: ZIP `ket-listening-test2.zip` **thiáº¿u** `audioscript.txt` (chá»‰ nested folder) â†’ rebuild ZIP flat + file script
-- [x] Bug parser: format Cambridge `Question 1 One. â€¦` / monologue Part 2â€“5 (`Look at questions 6â€“10`) khÃ´ng map Ä‘Æ°á»£c
-- [x] Fix `listeningAudioscriptParse.ts` â€” Question N + ordinal dÃ i trÆ°á»›c ngáº¯n + range monologue â†’ 25/25 cÃ¢u KET Test 2
-- [x] Toolbar: Cambridge `importedCount=0` â†’ gá»£i Ã½ ZIP cáº§n `audioscript.txt` / import láº¡i
+### Listening transcript từ `audioscript.txt`
+- [x] **UI xem:** Nộp bài → kết quả `Transcript:` · hoặc **Xem cùng đề bài** → khối **Transcript · Câu N** / bar review
+- [x] Bug: ZIP `ket-listening-test2.zip` **thiếu** `audioscript.txt` (chỉ nested folder) → rebuild ZIP flat + file script
+- [x] Bug parser: format Cambridge `Question 1 One. …` / monologue Part 2–5 (`Look at questions 6–10`) không map được
+- [x] Fix `listeningAudioscriptParse.ts` — Question N + ordinal dài trước ngắn + range monologue → 25/25 câu KET Test 2
+- [x] Toolbar: Cambridge `importedCount=0` → gợi ý ZIP cần `audioscript.txt` / import lại
 
-### Listening khÃ¡c (session)
-- [x] Audio play: blob URL revoke sá»›m (`useExamQuestionAudio`)
+### Listening khác (session)
+- [x] Audio play: blob URL revoke sớm (`useExamQuestionAudio`)
 - [x] KET Part 2 double form: strip gap trong instruction + UI + prompt rules
-- [x] Admin xÃ³a Ä‘á»: local Dexie + unpublish cloud published tables
+- [x] Admin xóa đề: local Dexie + unpublish cloud published tables
 - [x] Import: alias audio `listening.mp3` / `Audio.mp3`
 
-### RLS / quyá»n user vs admin
-- [x] **MÃ´ hÃ¬nh:** User ghi data **cÃ¡ nhÃ¢n** (deck/card/srs/writing/mindmap/exam_progress). Admin ghi **Luyá»‡n thi + Vocab máº·c Ä‘á»‹nh** (published tables)
-- [x] Migration **`015_user_data_rls_harden.sql`** â€” `USING` + **`WITH CHECK`** (`auth.uid() = user_id`) â€” **Ä‘Ã£ `pnpm db:push`**
-- [x] Message lá»—i sync phÃ¢n biá»‡t báº£ng admin vs data cÃ¡ nhÃ¢n (`useSyncManager.friendlySyncError`)
+### RLS / quyền user vs admin
+- [x] **Mô hình:** User ghi data **cá nhân** (deck/card/srs/writing/mindmap/exam_progress). Admin ghi **Luyện thi + Vocab mặc định** (published tables)
+- [x] Migration **`015_user_data_rls_harden.sql`** — `USING` + **`WITH CHECK`** (`auth.uid() = user_id`) — **đã `pnpm db:push`**
+- [x] Message lỗi sync phân biệt bảng admin vs data cá nhân (`useSyncManager.friendlySyncError`)
 
-### Vocab double + lá»—i sync (production `/app/vocab`)
-- [x] **Root cause:** preset tá»«ng push cloud UUID â†’ má»—i láº§n sync **pull láº¡i** cáº¡nh `preset:â€¦` + card UUID vs `pcard:` cÃ¹ng phrase
-- [x] `sync.ts`: nháº­n ghost deck (cÃ¹ng group+tÃªn preset) â†’ **khÃ´ng pull**; **soft-delete** ghost deck/card cloud; chá»‰ push UUID user; push **chunked** + partial fail khÃ´ng â€œcháº¿tâ€ sync
-- [x] `seedPresetDecks` trÆ°á»›c/sau sync; dedupe theo stable slug + **tÃªn seed duy nháº¥t** (group cloud sai váº«n gá»™p)
-- [x] **Rekey** card â†’ `pcard:{deckId}:{hash}` + merge SRS/reviewLog (`rekeyOneCard` / `repairVocabDuplicates`)
-- [x] UI `/app/vocab`: nÃºt **ã€ŒDá»n tháº» trÃ¹ngã€**
-- [x] Version web **0.2.3** Â· **deploy prod** https://ryanenglishv2.vercel.app
-- [x] User: hard refresh (Ctrl+Shift+R) â†’ sync â†’ **Dá»n tháº» trÃ¹ng**
+### Vocab double + lỗi sync (production `/app/vocab`)
+- [x] **Root cause:** preset từng push cloud UUID → mỗi lần sync **pull lại** cạnh `preset:…` + card UUID vs `pcard:` cùng phrase
+- [x] `sync.ts`: nhận ghost deck (cùng group+tên preset) → **không pull**; **soft-delete** ghost deck/card cloud; chỉ push UUID user; push **chunked** + partial fail không “chết” sync
+- [x] `seedPresetDecks` trước/sau sync; dedupe theo stable slug + **tên seed duy nhất** (group cloud sai vẫn gộp)
+- [x] **Rekey** card → `pcard:{deckId}:{hash}` + merge SRS/reviewLog (`rekeyOneCard` / `repairVocabDuplicates`)
+- [x] UI `/app/vocab`: nút **「Dọn thẻ trùng」**
+- [x] Version web **0.2.3** · **deploy prod** https://ryanenglishv2.vercel.app
+- [x] User: hard refresh (Ctrl+Shift+R) → sync → **Dọn thẻ trùng**
 
-### Lá»—i cÃ²n tá»“n táº¡i / theo dÃµi
-- [ ] User verify sau deploy: sá»‘ tháº» tá»«ng bá»™ preset (~100) háº¿t x2/x3; sync sidebar khÃ´ng cÃ²n Ä‘á» RLS
-- [ ] Admin **Publish láº¡i vocab 1 láº§n** (payload cloud id á»•n Ä‘á»‹nh `preset:` / `pcard:`) náº¿u cloud cÃ²n UUID cÅ©
-- [ ] Náº¿u unpublish/xÃ³a Ä‘á» cloud fail: kiá»ƒm tra RLS DELETE trÃªn `reading_exam_published` / `listening_exam_published`
-- [ ] Re-import KET Listening Test 2 ZIP má»›i (cÃ³ audioscript) náº¿u Ä‘á» cÅ© local chÆ°a cÃ³ `ttsText`
-- [ ] Working tree local cÃ²n nhiá»u file uncommitted (HDSD, exam, vocab, Tainguyen xÃ³aâ€¦) â€” chÆ°a git commit full session
+### Lỗi còn tồn tại / theo dõi
+- [ ] User verify sau deploy: số thẻ từng bộ preset (~100) hết x2/x3; sync sidebar không còn đỏ RLS
+- [ ] Admin **Publish lại vocab 1 lần** (payload cloud id ổn định `preset:` / `pcard:`) nếu cloud còn UUID cũ
+- [ ] Nếu unpublish/xóa đề cloud fail: kiểm tra RLS DELETE trên `reading_exam_published` / `listening_exam_published`
+- [ ] Re-import KET Listening Test 2 ZIP mới (có audioscript) nếu đề cũ local chưa có `ttsText`
+- [ ] Working tree local còn nhiều file uncommitted (HDSD, exam, vocab, Tainguyen xóa…) — chưa git commit full session
 
-## ÄÃ£ xong (2026-07-11) â€” Publish Listening kÃ¨m MP3 cloud
+## Đã xong (2026-07-11) — Publish Listening kèm MP3 cloud
 
-- **Bug:** `listening-import-*` publish chá»‰ JSON; `stripLocalMediaKeys` xÃ³a `audioKey` â†’ Firefox/user khÃ¡c **khÃ´ng cÃ³ MP3**
-- **Fix:** `materializeListeningMediaForPublish` upload blob Dexie â†’ bucket `listening-exam-media` (migration **016**, 50MB) + set `audioUrl`/`pictureImageUrl` public
-- User Admin: **Publish láº¡i** Ä‘á» import trÃªn mÃ¡y cÃ³ blob local; Firefox hard refresh
-- URL vÃ­ dá»¥: `/app/exam/listening/listening-import-â€¦` load tá»« `listening_exam_published`
+- **Bug:** `listening-import-*` publish chỉ JSON; `stripLocalMediaKeys` xóa `audioKey` → Firefox/user khác **không có MP3**
+- **Fix:** `materializeListeningMediaForPublish` upload blob Dexie → bucket `listening-exam-media` (migration **016**, 50MB) + set `audioUrl`/`pictureImageUrl` public
+- User Admin: **Publish lại** đề import trên máy có blob local; Firefox hard refresh
+- URL ví dụ: `/app/exam/listening/listening-import-…` load từ `listening_exam_published`
 
-## ÄÃ£ xong (2026-07-11) â€” Fix theo screenshot Error/error1+error2
+## Đã xong (2026-07-11) — Fix theo screenshot Error/error1+error2
 
-- **error2 Part 2:** passage chá»‰ cÃ²n title + 3 áº£nh (khÃ´ng label/text) â†’ UI `sign-box` khung lá»›n, máº¥t Angus/Frank/Zac
-  - `repairKetPart2Passage` ghÃ©p láº¡i 3 profile + portrait theo thá»© tá»±
-  - Render Part 2 **khÃ´ng** cÃ²n sign-box; luÃ´n portrait 2.5Ã—3.5cm + text
-  - Cloud merge Part 2 gÃ¡n áº£nh theo profile, khÃ´ng dÃ¡n title
-- **error1 Part 7:** broken image icon â€œStory picture 1/2/3â€ â€” URL strip/sai
-  - `repairKetPart7Passage` â†’ `/catalog/reading/ket-a2-test1/part7-p*.jpg`
-  - UI fallback onError + luÃ´n 3 slot catalog
+- **error2 Part 2:** passage chỉ còn title + 3 ảnh (không label/text) → UI `sign-box` khung lớn, mất Angus/Frank/Zac
+  - `repairKetPart2Passage` ghép lại 3 profile + portrait theo thứ tự
+  - Render Part 2 **không** còn sign-box; luôn portrait 2.5×3.5cm + text
+  - Cloud merge Part 2 gán ảnh theo profile, không dán title
+- **error1 Part 7:** broken image icon “Story picture 1/2/3” — URL strip/sai
+  - `repairKetPart7Passage` → `/catalog/reading/ket-a2-test1/part7-p*.jpg`
+  - UI fallback onError + luôn 3 slot catalog
 - Test `test-fill-reading-media.mts` PASS
 
-## ÄÃ£ xong (2026-07-11) â€” Fix User: P1/P7 máº¥t áº£nh + P2 máº¥t Ä‘oáº¡n vÄƒn
+## Đã xong (2026-07-11) — Fix User: P1/P7 mất ảnh + P2 mất đoạn văn
 
-- **Root cause:** Publish tá»« local import chá»‰ cÃ³ `imageKey` blob â†’ `stripLocalMediaKeys` xÃ³a key â†’ user khÃ´ng cÃ³ `imageUrl`. Published ghi Ä‘Ã¨ catalog (cÃ³ `/catalog/...`). Part 2 portrait + nhÃ¡nh render chá»‰ áº£nh â†’ nuá»‘t text khi thiáº¿u label/text.
-- **Fix:** `fillReadingExamMedia.ts` â€” vÃ¡ `imageUrl`/`text`/`label` tá»« catalog khi resolve + trÆ°á»›c publish
-- Render Part 2: luÃ´n hiá»‡n text kÃ¨m portrait
+- **Root cause:** Publish từ local import chỉ có `imageKey` blob → `stripLocalMediaKeys` xóa key → user không có `imageUrl`. Published ghi đè catalog (có `/catalog/...`). Part 2 portrait + nhánh render chỉ ảnh → nuốt text khi thiếu label/text.
+- **Fix:** `fillReadingExamMedia.ts` — vá `imageUrl`/`text`/`label` từ catalog khi resolve + trước publish
+- Render Part 2: luôn hiện text kèm portrait
 - Test: `scripts/test-fill-reading-media.mts` PASS
-- User hard refresh lÃ  tháº¥y (khÃ´ng báº¯t buá»™c re-publish); Admin **Publish láº¡i** Ä‘á»ƒ JSON cloud sáº¡ch
+- User hard refresh là thấy (không bắt buộc re-publish); Admin **Publish lại** để JSON cloud sạch
 
-## ÄÃ£ xong (2026-07-11) â€” User khÃ´ng tháº¥y P6/P7 + áº£nh KET A2
+## Đã xong (2026-07-11) — User không thấy P6/P7 + ảnh KET A2
 
-- **Root cause P6/P7:** catalog builtin `reading-ket-a2-test1` chá»‰ **5 parts**; Admin import local 7-part â†’ User chá»‰ tháº¥y catalog
-- **Fix:** catalog â†’ **7 parts** (P6 writing email + P7 story 3 áº£nh `/catalog/reading/ket-a2-test1/part7-p*.jpg`); duration 60; bandHint RW
-- **Loader:** `listAllReadingExams` / `resolveReadingExam` Æ°u tiÃªn báº£n **nhiá»u part hÆ¡n** (publish/local vs catalog cÅ©)
-- **áº¢nh Part 2:** user chá»‰ tháº¥y náº¿u upload gáº¯n **cÃ¹ng examId** user má»Ÿ (vd. `catalog-reading-ket-a2-test1`); sau upload cáº­p nháº­t published JSON náº¿u Ä‘Ã£ publish
-- Admin: import áº£nh portrait **trÃªn Ä‘á» catalog** (hoáº·c Publish láº¡i sau upload), khÃ´ng chá»‰ trÃªn `reading-import-*`
+- **Root cause P6/P7:** catalog builtin `reading-ket-a2-test1` chỉ **5 parts**; Admin import local 7-part → User chỉ thấy catalog
+- **Fix:** catalog → **7 parts** (P6 writing email + P7 story 3 ảnh `/catalog/reading/ket-a2-test1/part7-p*.jpg`); duration 60; bandHint RW
+- **Loader:** `listAllReadingExams` / `resolveReadingExam` ưu tiên bản **nhiều part hơn** (publish/local vs catalog cũ)
+- **Ảnh Part 2:** user chỉ thấy nếu upload gắn **cùng examId** user mở (vd. `catalog-reading-ket-a2-test1`); sau upload cập nhật published JSON nếu đã publish
+- Admin: import ảnh portrait **trên đề catalog** (hoặc Publish lại sau upload), không chỉ trên `reading-import-*`
 
-## ÄÃ£ xong (2026-07-11) â€” KET A2 Part 2 portrait image (Admin import)
+## Đã xong (2026-07-11) — KET A2 Part 2 portrait image (Admin import)
 
-- 3 profile (label Angus/Frank/Zacâ€¦): trÆ°á»›c má»—i Ä‘oáº¡n Ã´ **2.5cm Ã— 3.5cm**
-- **Admin** tháº¥y Ã´ import / Äá»•i / XÃ³a; **user** chá»‰ tháº¥y áº£nh khi Ä‘Ã£ cÃ³
+- 3 profile (label Angus/Frank/Zac…): trước mỗi đoạn ô **2.5cm × 3.5cm**
+- **Admin** thấy ô import / Đổi / Xóa; **user** chỉ thấy ảnh khi đã có
 - Cloud: `reading_exam_images` slot `passage` + `item_index` = block index; public read, admin write
 - Files: `KetRwPassagePortrait.tsx`, `KetRwPartContent`, `ReadingKetRwTest` (merge cloud images), `persistReadingPassageBlockImage`, CSS `ket-rw-portrait*`
 
-## ÄÃ£ xong (2026-07-11) â€” Fix KET A2 Part 2 bá»‹ Ã©p YNNG (false positive)
+## Đã xong (2026-07-11) — Fix KET A2 Part 2 bị ép YNNG (false positive)
 
-- **Bug:** Import ZIP `KET A2_Cam 1` â€” `exam.json` Part 2 Ä‘Ãºng `multiple-choice` (A Angus / B Frank / C Zac) nhÆ°ng UI ra YES/NO/NOT GIVEN
+- **Bug:** Import ZIP `KET A2_Cam 1` — `exam.json` Part 2 đúng `multiple-choice` (A Angus / B Frank / C Zac) nhưng UI ra YES/NO/NOT GIVEN
 - **Root cause:** `coerceTriStateGroupType` / `optionsLookTriStateOnly` trong `readingExamSanitize.ts`
-  - `normalizeTriStateId` map **aâ†’yes, bâ†’no, câ†’not-given** (dÃ nh cho AI option id)
-  - Option id A/B/C â†’ bá»‹ coi tri-state; label ngáº¯n (`Angus` < 12 kÃ½ tá»±) khÃ´ng vÆ°á»£t `hasRealMcOpts`
-- **Fix:** Detect tri-state **Æ°u tiÃªn label**; bare Aâ€“D khÃ´ng cÃ²n = YES/NO; má»i label khÃ´ng pháº£i YES/NO/TRUE/FALSE/NG = MC tháº­t
-- Verify: sanitize `Test 1/exam.json` â†’ Part 2 váº«n `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) váº«n coerce
-- User: hard refresh dev â†’ **import láº¡i** ZIP (hoáº·c má»Ÿ láº¡i Ä‘á») â€” khÃ´ng cáº§n sá»­a JSON
+  - `normalizeTriStateId` map **a→yes, b→no, c→not-given** (dành cho AI option id)
+  - Option id A/B/C → bị coi tri-state; label ngắn (`Angus` < 12 ký tự) không vượt `hasRealMcOpts`
+- **Fix:** Detect tri-state **ưu tiên label**; bare A–D không còn = YES/NO; mọi label không phải YES/NO/TRUE/FALSE/NG = MC thật
+- Verify: sanitize `Test 1/exam.json` → Part 2 vẫn `multiple-choice`; YNNG Cam19-style (label YES/NO/NG) vẫn coerce
+- User: hard refresh dev → **import lại** ZIP (hoặc mở lại đề) — không cần sửa JSON
 
-## 2026-07-15 â€” Offline dict multi-word: 2k PV + 3k idiom + 10k collocation
+## 2026-07-15 — Offline dict multi-word: 2k PV + 3k idiom + 10k collocation
 
-### ÄÃ£ lÃ m
-- [x] `scripts/build-dict-multi.mjs` â€” generator A2â€“C2 multi-word
+### Đã làm
+- [x] `scripts/build-dict-multi.mjs` — generator A2–C2 multi-word
 - [x] Outputs:
-  - `apps/web/src/features/dictionary/data/offlinePhrasal.json` â€” **2000**
-  - `apps/web/src/features/dictionary/data/offlineIdioms.json` â€” **3000**
-  - `apps/web/src/features/dictionary/data/offlineCollocations.json` â€” **10000**
-- [x] Wire vÃ o `offlineDictPack.ts` (import + add sau P1â€“P5; size helpers)
-- [x] `DictionaryModal` empty-state hiá»ƒn thá»‹ PV / Idiom / Colloc counts
-- [x] **IPA US/UK** cho multi-word: `scripts/enrich-dict-multi-ipa.mjs` (CMUdict ARPABETâ†’IPA + weak forms)
-  - Phrasal **2000/2000**, Idioms **3000/3000**, Colloc **~9985/10000** (cÃ²n ~15 Latin/ká»¹ thuáº­t hiáº¿m)
-  - Rebuild multi tá»± gá»i enrich IPA á»Ÿ cuá»‘i `build-dict-multi.mjs`
-- [x] `pnpm --filter web exec tsc --noEmit` â€” pass
+  - `apps/web/src/features/dictionary/data/offlinePhrasal.json` — **2000**
+  - `apps/web/src/features/dictionary/data/offlineIdioms.json` — **3000**
+  - `apps/web/src/features/dictionary/data/offlineCollocations.json` — **10000**
+- [x] Wire vào `offlineDictPack.ts` (import + add sau P1–P5; size helpers)
+- [x] `DictionaryModal` empty-state hiển thị PV / Idiom / Colloc counts
+- [x] **IPA US/UK** cho multi-word: `scripts/enrich-dict-multi-ipa.mjs` (CMUdict ARPABET→IPA + weak forms)
+  - Phrasal **2000/2000**, Idioms **3000/3000**, Colloc **~9985/10000** (còn ~15 Latin/kỹ thuật hiếm)
+  - Rebuild multi tự gọi enrich IPA ở cuối `build-dict-multi.mjs`
+- [x] `pnpm --filter web exec tsc --noEmit` — pass
 
-### Nguá»“n
-- Phrasal: curated core + verbÃ—particle expansion
+### Nguồn
+- Phrasal: curated core + verb×particle expansion
 - Idioms: curated + baiango/english_idioms CSV + frames / similes / patterns
 - Collocations: adj-noun / verb-noun curated + open-vn-en-dict `goodWords` multi-keys (~10k)
 
-### Tá»•ng offline (unique keys approx)
-- Singles P1â€“P5: ~24.3k
+### Tổng offline (unique keys approx)
+- Singles P1–P5: ~24.3k
 - Multi: 2k + 3k + 10k
-- Unique gá»™p: **~39.3k** má»¥c (dedup khi add)
+- Unique gộp: **~39.3k** mục (dedup khi add)
 
 ### Rebuild
 ```bash
 node scripts/build-dict-multi.mjs          # generate + IPA enrich
-node scripts/enrich-dict-multi-ipa.mjs     # IPA only (náº¿u Ä‘Ã£ cÃ³ JSON)
+node scripts/enrich-dict-multi-ipa.mjs     # IPA only (nếu đã có JSON)
 ```
 
-### Ghi chÃº cháº¥t lÆ°á»£ng
-- Má»™t pháº§n idiom/collocation lÃ  pattern-generated (nghÄ©a VI generic) â€” Ä‘á»§ volume tra offline; cÃ³ thá»ƒ tinh chá»‰nh curated sau.
-- Bundle JSON lá»›n (~3 MB multi) â€” import Vite JSON OK; typecheck pass.
+### Ghi chú chất lượng
+- Một phần idiom/collocation là pattern-generated (nghĩa VI generic) — đủ volume tra offline; có thể tinh chỉnh curated sau.
+- Bundle JSON lớn (~3 MB multi) — import Vite JSON OK; typecheck pass.
 
-## 2026-07-15 â€” Fix: popup â€œ31k tá»« cáº§n Ã´n láº¡iâ€ khi chÆ°a rating
+## 2026-07-15 — Fix: popup “31k từ cần ôn lại” khi chưa rating
 
-**NguyÃªn nhÃ¢n:** Seed gÃ¡n má»i tháº» `dueAt = now`, `state = 'new'`. Code Ä‘áº¿m `dueAt â‰¤ now` â†’ ~30k tháº» â€œcáº§n Ã´n láº¡iâ€.
+**Nguyên nhân:** Seed gán mọi thẻ `dueAt = now`, `state = 'new'`. Code đếm `dueAt ≤ now` → ~30k thẻ “cần ôn lại”.
 
-**Fix:** `isSrsReviewDue` / `isSrsNew` trong `packages/core` â€” â€œÃ´n láº¡iâ€ chá»‰ tháº» Ä‘Ã£ learning/review + Ä‘áº¿n háº¡n. Popup, hub, deck badge, daily goal, notification dÃ¹ng predicate nÃ y.
+**Fix:** `isSrsReviewDue` / `isSrsNew` trong `packages/core` — “ôn lại” chỉ thẻ đã learning/review + đến hạn. Popup, hub, deck badge, daily goal, notification dùng predicate này.
 
-## 2026-07-15 â€” CÃ i Ä‘áº·t: chá»n giá»ng Kokoro TTS
+## 2026-07-15 — Cài đặt: chọn giọng Kokoro TTS
 
-- [x] `apps/web/src/features/listening/kokoroVoices.ts` â€” 28 giá»ng EN (US/UK), localStorage US+UK
-- [x] `tts.ts` â€” `speak()` tá»± dÃ¹ng giá»ng Ä‘Ã£ chá»n theo lang `a`/`b`
-- [x] Settings â†’ TÃ i khoáº£n â†’ **Giá»ng Ä‘á»c Kokoro local** â†’ dropdown US/UK + **Thá»­ nghe**
+- [x] `apps/web/src/features/listening/kokoroVoices.ts` — 28 giọng EN (US/UK), localStorage US+UK
+- [x] `tts.ts` — `speak()` tự dùng giọng đã chọn theo lang `a`/`b`
+- [x] Settings → Tài khoản → **Giọng đọc Kokoro local** → dropdown US/UK + **Thử nghe**
 - Defaults: `af_heart` (US), `bf_emma` (UK)
 
-## Next session start prompt (cáº­p nháº­t 2026-07-15 â€” Kokoro voice picker)
+## Next session start prompt (cập nhật 2026-07-15 — Kokoro voice picker)
 
 ```
-Äá»c session_summary.md (má»¥c Kokoro voice picker + multi-word dict).
+Đọc session_summary.md (mục Kokoro voice picker + multi-word dict).
 
 CONTEXT:
-- CÃ i Ä‘áº·t â†’ TÃ i khoáº£n â†’ chá»n giá»ng Kokoro US/UK (localStorage).
-- speak() inject preferred voice; cáº§n Bat-Kokoro.bat Ä‘á»ƒ nghe Kokoro.
+- Cài đặt → Tài khoản → chọn giọng Kokoro US/UK (localStorage).
+- speak() inject preferred voice; cần Bat-Kokoro.bat để nghe Kokoro.
 
 NEXT (optional):
-1) Smoke Settings â†’ Thá»­ nghe (cáº§n TTS gateway :8787)
-2) Deploy web náº¿u ship dict multi + voice picker
+1) Smoke Settings → Thử nghe (cần TTS gateway :8787)
+2) Deploy web nếu ship dict multi + voice picker
 ```
 
-## 2026-07-11 â€” HDSD Universal: Ä‘á» PDF **hoáº·c** TXT
+## 2026-07-11 — HDSD Universal: đề PDF **hoặc** TXT
 
-- Master L/R + checklist + 10 Universal: Â§ **Nguá»“n Ä‘á» PDF hoáº·c TXT**
-- DeepSeek: gá»­i `exam-text.txt` + `answer-key.txt` (+ audioscript) thay PDF Ä‘Æ°á»£c
-- Váº«n pack ZIP: `exam.json` + mp3/áº£nh (crop áº£nh ngoÃ i AI)
+- Master L/R + checklist + 10 Universal: § **Nguồn đề PDF hoặc TXT**
+- DeepSeek: gửi `exam-text.txt` + `answer-key.txt` (+ audioscript) thay PDF được
+- Vẫn pack ZIP: `exam.json` + mp3/ảnh (crop ảnh ngoài AI)
 
-## 2026-07-11 â€” HDSD Universal A2â€“C2 (Listening + Reading)
+## 2026-07-11 — HDSD Universal A2–C2 (Listening + Reading)
 
 - Master: `Prompt-Listening-Cambridge.txt` / `Prompt-Reading-Cambridge.txt` + checklists
-- 5Ã— Listening Universal + 5Ã— Reading Universal: má»¥c **App 2026-07**
+- 5× Listening Universal + 5× Reading Universal: mục **App 2026-07**
   - Gap-fill: `answer: "8/eight"` + `acceptableAnswers`
-  - áº¢nh **webp** (map basename `q1.jpg` â†” `q1.webp`)
-  - Listening: title Book/Test â€” khÃ´ng Ä‘Ã¨ catalog audio Test 1
-- KET Listening Universal: vÃ­ dá»¥ Q8 `8/eight` + báº£ng lá»—i thÆ°á»ng gáº·p
+  - Ảnh **webp** (map basename `q1.jpg` ↔ `q1.webp`)
+  - Listening: title Book/Test — không đè catalog audio Test 1
+- KET Listening Universal: ví dụ Q8 `8/eight` + bảng lỗi thường gặp
 
-## 2026-07-11 â€” Listening: local media > catalog (triá»‡t Ä‘á»ƒ)
+## 2026-07-11 — Listening: local media > catalog (triệt để)
 
-- **Bug:** Import KET Test 3 ZIP â†’ merge catalog gáº¯n `/catalog/listening/ket-a2-test1` â†’ phÃ¡t nháº§m audio Test 1
-- **Policy:** `listeningLocalMediaPolicy.ts` â€” blob local tháº¯ng; twin chá»‰ cÃ¹ng sá»‘ Test; khÃ´ng default Test 1 cho Test N
-- **Load path:** `resolveListeningExam` â†’ merge + `preferLocalListeningMedia` (sá»­a Ä‘á» Dexie cÅ©, khÃ´ng báº¯t re-import)
-- **Play:** `partAudioSource` / `sharedExamAudioSource` / `useExamQuestionAudio` khÃ´ng push catalog song song khi cÃ³ blob
+- **Bug:** Import KET Test 3 ZIP → merge catalog gắn `/catalog/listening/ket-a2-test1` → phát nhầm audio Test 1
+- **Policy:** `listeningLocalMediaPolicy.ts` — blob local thắng; twin chỉ cùng số Test; không default Test 1 cho Test N
+- **Load path:** `resolveListeningExam` → merge + `preferLocalListeningMedia` (sửa đề Dexie cũ, không bắt re-import)
+- **Play:** `partAudioSource` / `sharedExamAudioSource` / `useExamQuestionAudio` không push catalog song song khi có blob
 - **Regression:** `pnpm test:listening-media` (`apps/web/scripts/test-listening-media-policy.mts`)
 
-## 2026-07-11 â€” Tainguyen ra ngoÃ i repo (deploy nháº¹ hÆ¡n)
+## 2026-07-11 — Tainguyen ra ngoài repo (deploy nhẹ hơn)
 
-- **Data:** `D:\App-English-Ryan\Tainguyen` (~1.8 GB); **junction** `Website\Tainguyen` â†’ path Ä‘Ã³ (script local OK)
-- **Code:** `scripts/tainguyen-path.mjs` (`TAINGUYEN_PATH`); `build-catalog.mjs --if-present` / skip trÃªn Vercel náº¿u khÃ´ng cÃ³ nguá»“n
-- **`vercel.json`:** `node scripts/build-catalog.mjs --if-present` rá»“i build web
-- **`.vercelignore`:** khÃ´ng upload Tainguyen, PDF thÃ´, Giaodien, server, â€¦
+- **Data:** `D:\App-English-Ryan\Tainguyen` (~1.8 GB); **junction** `Website\Tainguyen` → path đó (script local OK)
+- **Code:** `scripts/tainguyen-path.mjs` (`TAINGUYEN_PATH`); `build-catalog.mjs --if-present` / skip trên Vercel nếu không có nguồn
+- **`vercel.json`:** `node scripts/build-catalog.mjs --if-present` rồi build web
+- **`.vercelignore`:** không upload Tainguyen, PDF thô, Giaodien, server, …
 - **`.gitignore`:** `Tainguyen/`
 - **Docs:** `docs/TAINGUYEN.md`
-- **Giá»¯:** `apps/web/public/catalog` (~830 MB audio) â€” váº«n lÃ  bottleneck upload náº¿u chÆ°a CDN
+- **Giữ:** `apps/web/public/catalog` (~830 MB audio) — vẫn là bottleneck upload nếu chưa CDN
 
-## 2026-07-11 â€” Check-in (Ä‘iá»ƒm danh) sync theo tÃ i khoáº£n
+## 2026-07-11 — Check-in (điểm danh) sync theo tài khoản
 
-- **Váº¥n Ä‘á»:** Chuá»—i Ä‘iá»ƒm danh chá»‰ trong IndexedDB (`reviewLog` mode=checkin); publish khÃ´ng xÃ³a; Ä‘á»•i mÃ¡y / clear site data / browser khÃ¡c = máº¥t streak. Sync cloud trÆ°á»›c Ä‘Ã³ **khÃ´ng** gá»“m reviewLog.
+- **Vấn đề:** Chuỗi điểm danh chỉ trong IndexedDB (`reviewLog` mode=checkin); publish không xóa; đổi máy / clear site data / browser khác = mất streak. Sync cloud trước đó **không** gồm reviewLog.
 - **Fix:**
-  - Migration `017_checkin_days.sql` â€” báº£ng `checkin_days (user_id, day_key YYYY-MM-DD, checked_at)` + RLS own row
-  - `apps/web/src/features/home/checkInSync.ts` â€” union merge local â†” cloud; push ngay khi báº¥m Ä‘iá»ƒm danh (best-effort)
-  - `useCheckIn.ts` â€” ghi local + push cloud náº¿u Ä‘Ã£ login + online
-  - `useSyncManager` â€” gá»i `syncCheckInDays` má»—i láº§n sync (cÃ¹ng exam_progress)
-- **Deploy:** cáº§n `pnpm db:push` (hoáº·c SQL Editor cháº¡y 017) rá»“i deploy web
+  - Migration `017_checkin_days.sql` — bảng `checkin_days (user_id, day_key YYYY-MM-DD, checked_at)` + RLS own row
+  - `apps/web/src/features/home/checkInSync.ts` — union merge local ↔ cloud; push ngay khi bấm điểm danh (best-effort)
+  - `useCheckIn.ts` — ghi local + push cloud nếu đã login + online
+  - `useSyncManager` — gọi `syncCheckInDays` mỗi lần sync (cùng exam_progress)
+- **Deploy:** cần `pnpm db:push` (hoặc SQL Editor chạy 017) rồi deploy web
 ## 2026-07-12 - Fix Home streak theo diem danh
 
 - Home now calculates the overview streak from persisted `reviewLog.mode=checkin` records, shared with `CheckInButton` via `calcCheckInStreak` in `checkInSync.ts`.
@@ -4695,110 +4735,110 @@ NEXT (optional):
 - Personal MindMaps are not included in that ID list and are preserved.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-12 - Publish prune cho toÃ n bá»™ ná»™i dung Admin
+## 2026-07-12 - Publish prune cho toàn bộ nội dung Admin
 
-- Lessons, Translation, Sentence Structures vÃ  Writing Prompts giá» prune cÃ¡c ID tá»«ng nháº­n tá»« Admin Publish nhÆ°ng Ä‘Ã£ váº¯ng trong payload má»›i.
-- Batch Publish Reading/Listening giá» dá»n cÃ¡c exam cloud khÃ´ng cÃ²n trong danh sÃ¡ch publishable local.
-- Dá»¯ liá»‡u cÃ¡ nhÃ¢n khÃ´ng náº±m trong danh sÃ¡ch Admin Publish nÃªn khÃ´ng bá»‹ xÃ³a.
+- Lessons, Translation, Sentence Structures và Writing Prompts giờ prune các ID từng nhận từ Admin Publish nhưng đã vắng trong payload mới.
+- Batch Publish Reading/Listening giờ dọn các exam cloud không còn trong danh sách publishable local.
+- Dữ liệu cá nhân không nằm trong danh sách Admin Publish nên không bị xóa.
 
-## 2026-07-12 â€” Fix MindMap xoÃ¡ rá»“i sá»‘ng láº¡i (sync legacy bypass tombstone)
+## 2026-07-12 — Fix MindMap xoá rồi sống lại (sync legacy bypass tombstone)
 
-- **Root cause:** `apps/web/src/features/auth/useSync.ts` cháº¡y song song vá»›i `useSyncManager` vÃ  khi `db.decks.count() === 0` gá»i `syncCloudToLocal` â€” hÃ m nÃ y pull tháº³ng `SELECT * FROM mindmaps` rá»“i `bulkPut`, **khÃ´ng Ä‘á»c `mindmapTombstones`**. Má»i mindmap Ä‘Ã£ xoÃ¡ local nhÆ°ng cloud chÆ°a ká»‹p xoÃ¡ Ä‘á»u Ä‘Æ°á»£c kÃ©o vá» "sá»‘ng láº¡i".
+- **Root cause:** `apps/web/src/features/auth/useSync.ts` chạy song song với `useSyncManager` và khi `db.decks.count() === 0` gọi `syncCloudToLocal` — hàm này pull thẳng `SELECT * FROM mindmaps` rồi `bulkPut`, **không đọc `mindmapTombstones`**. Mọi mindmap đã xoá local nhưng cloud chưa kịp xoá đều được kéo về "sống lại".
 - **Fix:**
-  - XoÃ¡ `apps/web/src/features/auth/useSync.ts` (Ä‘Ã£ khÃ´ng cÃ³ caller â€” `useSyncManager` vá»›i `syncBidirectional` lo háº¿t, vÃ  `syncBidirectional` tÃ´n trá»ng `mindmapTombstones`).
-  - XoÃ¡ hÃ m legacy `syncLocalToCloud` + `syncCloudToLocal` khá»i `packages/db/src/cloud/sync.ts`.
-  - Bá» 2 tÃªn Ä‘Ã³ khá»i export á»Ÿ `packages/db/src/index.ts`.
+  - Xoá `apps/web/src/features/auth/useSync.ts` (đã không có caller — `useSyncManager` với `syncBidirectional` lo hết, và `syncBidirectional` tôn trọng `mindmapTombstones`).
+  - Xoá hàm legacy `syncLocalToCloud` + `syncCloudToLocal` khỏi `packages/db/src/cloud/sync.ts`.
+  - Bỏ 2 tên đó khỏi export ở `packages/db/src/index.ts`.
 - **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
-- **Ghi chÃº:** giá» chá»‰ cÃ²n 1 Ä‘Æ°á»ng sync duy nháº¥t qua `syncBidirectional`. Náº¿u sau nÃ y cáº§n "pull-only cho mÃ¡y má»›i" thÃ¬ pháº£i viáº¿t láº¡i cÃ³ filter tombstone (mindmaps, vÃ  cÃ¡c báº£ng khÃ¡c vá» sau).
+- **Ghi chú:** giờ chỉ còn 1 đường sync duy nhất qua `syncBidirectional`. Nếu sau này cần "pull-only cho máy mới" thì phải viết lại có filter tombstone (mindmaps, và các bảng khác về sau).
 
-## 2026-07-12 â€” Fix Deck/Card xoÃ¡ rá»“i sá»‘ng láº¡i (thiáº¿u tombstone)
+## 2026-07-12 — Fix Deck/Card xoá rồi sống lại (thiếu tombstone)
 
-- **Root cause:** `deckRepo.delete()` vÃ  `cardRepo.delete()` chá»‰ xoÃ¡ thuáº§n local (`db.decks.delete` / `db.cards.delete`), khÃ´ng viáº¿t tombstone. `syncBidirectional` sau Ä‘Ã³ tháº¥y row cÃ²n trÃªn cloud mÃ  khÃ´ng cÃ³ local â†’ coi nhÆ° "remote má»›i" â†’ `bulkPut` kÃ©o vá», sá»‘ng láº¡i toÃ n bá»™ deck + cards + SRS (hoáº·c card Ä‘Æ¡n láº»).
+- **Root cause:** `deckRepo.delete()` và `cardRepo.delete()` chỉ xoá thuần local (`db.decks.delete` / `db.cards.delete`), không viết tombstone. `syncBidirectional` sau đó thấy row còn trên cloud mà không có local → coi như "remote mới" → `bulkPut` kéo về, sống lại toàn bộ deck + cards + SRS (hoặc card đơn lẻ).
 - **Fix:**
-  - `packages/db/src/local/schema.ts` â€” bump v14, thÃªm báº£ng `deckTombstones` + `cardTombstones` (interface `DeckTombstone`, `CardTombstone`), index `&id, deletedAt`.
-  - `deckRepo.delete()` â€” transaction: put tombstone â†’ xoÃ¡ srs/reviewLog/cards/deck local (giá»¯ nguyÃªn preset guard).
-  - `cardRepo.delete()` â€” transaction: put tombstone â†’ xoÃ¡ srs + card local.
+  - `packages/db/src/local/schema.ts` — bump v14, thêm bảng `deckTombstones` + `cardTombstones` (interface `DeckTombstone`, `CardTombstone`), index `&id, deletedAt`.
+  - `deckRepo.delete()` — transaction: put tombstone → xoá srs/reviewLog/cards/deck local (giữ nguyên preset guard).
+  - `cardRepo.delete()` — transaction: put tombstone → xoá srs + card local.
   - `packages/db/src/cloud/sync.ts` (`syncBidirectional`):
-    - Load `deckTombstones` + `cardTombstones` cÃ¹ng lÃºc, lá»c UUID há»£p lá»‡.
-    - `cloudDecksLive` / `cloudCardsLive` filter thÃªm tombstone set (khÃ´ng pull ngÆ°á»£c ngay cáº£ khi push xoÃ¡ cloud lá»—i).
-    - Push hard-delete cloud (`.from('decks').delete().eq(user_id).in(id, chunk)` + tÆ°Æ¡ng tá»± cho cards), chunk 80. Cloud cÃ³ FK `on delete cascade` nÃªn xoÃ¡ deck â†’ cards + srs tá»± dá»n.
-    - XoÃ¡ tombstone local sau khi cloud xÃ¡c nháº­n thÃ nh cÃ´ng.
+    - Load `deckTombstones` + `cardTombstones` cùng lúc, lọc UUID hợp lệ.
+    - `cloudDecksLive` / `cloudCardsLive` filter thêm tombstone set (không pull ngược ngay cả khi push xoá cloud lỗi).
+    - Push hard-delete cloud (`.from('decks').delete().eq(user_id).in(id, chunk)` + tương tự cho cards), chunk 80. Cloud có FK `on delete cascade` nên xoá deck → cards + srs tự dọn.
+    - Xoá tombstone local sau khi cloud xác nhận thành công.
 - **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
-- **Ghi chÃº:**
-  - Deck/card Ä‘Ã£ bá»‹ xoÃ¡ trÆ°á»›c báº£n vÃ¡ nÃ y (khi chÆ°a cÃ³ tombstone) váº«n cÃ³ thá»ƒ sá»‘ng láº¡i 1 láº§n tá»« cloud vÃ o sync káº¿ tiáº¿p â€” khÃ´ng cá»©u láº¡i Ä‘Æ°á»£c vÃ¬ khÃ´ng cÃ³ dáº¥u váº¿t. Tá»« giá» trá»Ÿ Ä‘i thÃ¬ sáº¡ch.
-  - KhÃ´ng cáº§n migration Supabase â€” cloud schema Ä‘Ã£ cÃ³ `on delete cascade` sáºµn.
+- **Ghi chú:**
+  - Deck/card đã bị xoá trước bản vá này (khi chưa có tombstone) vẫn có thể sống lại 1 lần từ cloud vào sync kế tiếp — không cứu lại được vì không có dấu vết. Từ giờ trở đi thì sạch.
+  - Không cần migration Supabase — cloud schema đã có `on delete cascade` sẵn.
 
-## 2026-07-12 â€” Prune Ä‘á» Reading/Listening Admin Ä‘Ã£ xoÃ¡ (theo pattern mindmap)
+## 2026-07-12 — Prune đề Reading/Listening Admin đã xoá (theo pattern mindmap)
 
-- **Váº¥n Ä‘á»:** Admin xoÃ¡ Ä‘á» trong `reading_exam_published` / `listening_exam_published` thÃ¬ `listAllReadingExams`/`listAllListeningExams` (Ä‘á»c tháº³ng cloud) tá»± bá» khá»i Library. NhÆ°ng má»™t sá»‘ flow phá»¥ nhÆ° `readingExamCloudImages.persistReadingPartImage` cÃ³ gá»i `examRepo.create(..., 'cloud-images')` â†’ cache láº¡i báº£n local vá»›i cÃ¹ng id. Náº¿u Admin xoÃ¡ cloud, `resolveReadingExam` (`local || published || builtin`) váº«n cÃ²n báº£n local â†’ Ä‘á» "sá»‘ng láº¡i" khi má»Ÿ chi tiáº¿t.
-- **Fix (kÃªnh A: chá»‰ Admin publish, khÃ´ng Ä‘á»¥ng Ä‘á» user tá»± import):**
-  - Má»›i: `apps/web/src/features/admin/syncAdminPublishedExams.ts`
-    - `syncPublishedReading()` / `syncPublishedListening()` â€” SELECT id tá»« 2 báº£ng publish cloud, so vá»›i danh sÃ¡ch id Ä‘Ã£ lÆ°u trong settings key `admin_published_reading_exam_ids` / `admin_published_listening_exam_ids`, prune báº£n local (`examRepo.delete` / `listeningExamRepo.delete`) + audio blob prefix (`reading-exam:${id}:`, `listening-exam:${id}:`) cho id Ä‘Ã£ biáº¿n máº¥t khá»i cloud.
-    - Ghi láº¡i danh sÃ¡ch id hiá»‡n táº¡i vÃ o settings cho láº§n sau. Äá» user tá»± import (khÃ´ng náº±m trong id publish) khÃ´ng bá»‹ Ä‘á»¥ng.
-  - Ná»‘i vÃ o `useSyncManager.runSync` sau bÆ°á»›c check-in, non-fatal.
+- **Vấn đề:** Admin xoá đề trong `reading_exam_published` / `listening_exam_published` thì `listAllReadingExams`/`listAllListeningExams` (đọc thẳng cloud) tự bỏ khỏi Library. Nhưng một số flow phụ như `readingExamCloudImages.persistReadingPartImage` có gọi `examRepo.create(..., 'cloud-images')` → cache lại bản local với cùng id. Nếu Admin xoá cloud, `resolveReadingExam` (`local || published || builtin`) vẫn còn bản local → đề "sống lại" khi mở chi tiết.
+- **Fix (kênh A: chỉ Admin publish, không đụng đề user tự import):**
+  - Mới: `apps/web/src/features/admin/syncAdminPublishedExams.ts`
+    - `syncPublishedReading()` / `syncPublishedListening()` — SELECT id từ 2 bảng publish cloud, so với danh sách id đã lưu trong settings key `admin_published_reading_exam_ids` / `admin_published_listening_exam_ids`, prune bản local (`examRepo.delete` / `listeningExamRepo.delete`) + audio blob prefix (`reading-exam:${id}:`, `listening-exam:${id}:`) cho id đã biến mất khỏi cloud.
+    - Ghi lại danh sách id hiện tại vào settings cho lần sau. Đề user tự import (không nằm trong id publish) không bị đụng.
+  - Nối vào `useSyncManager.runSync` sau bước check-in, non-fatal.
 - **Verify:** `pnpm --filter web exec tsc --noEmit` PASS.
-- **Ghi chÃº:**
-  - KhÃ´ng giáº£i quyáº¿t bÃ i toÃ¡n "48 Ä‘á» IELTS user tá»± import bá»‹ máº¥t" â€” kÃªnh B (sync user-imported exams lÃªn cloud) chÆ°a lÃ m.
-  - Láº§n sync Ä‘áº§u tiÃªn sau báº£n vÃ¡: settings chÆ°a cÃ³ key nÃªn `previousIds` rá»—ng â†’ khÃ´ng prune gÃ¬ háº¿t, chá»‰ ghi baseline. Tá»« láº§n Admin publish/xoÃ¡ tiáº¿p theo má»›i báº¯t Ä‘áº§u prune Ä‘Ãºng.
+- **Ghi chú:**
+  - Không giải quyết bài toán "48 đề IELTS user tự import bị mất" — kênh B (sync user-imported exams lên cloud) chưa làm.
+  - Lần sync đầu tiên sau bản vá: settings chưa có key nên `previousIds` rỗng → không prune gì hết, chỉ ghi baseline. Từ lần Admin publish/xoá tiếp theo mới bắt đầu prune đúng.
 -
-## 2026-07-12 â€” IELTS Reading Cambridge catalog import
+## 2026-07-12 — IELTS Reading Cambridge catalog import
 
-- Seed 47 Ä‘á» Reading Cambridge IELTS Cam 9â€“20, Test 1â€“4 vÃ o builtin catalog.
-- Loáº¡i `reading-cam-11-2.json` vÃ¬ payload cÃ³ 41 cÃ¢u; ghi chÃº táº¡i `docs/known-issues.md`.
-- ThÃªm `scripts/payload-to-catalog.mjs` vÃ  má»Ÿ rá»™ng `scripts/build-catalog.mjs` Ä‘á»c `out-reading/`.
-- Fix layout cÃ¢u há»i: giá»¯ prompt tháº­t, table completion, title, rows vÃ  gap tá»« `reading_filtered.json`.
-- Verify: catalog test 47 Ä‘á»/3 passages/40 cÃ¢u PASS; `pnpm -C apps/web build` PASS.
+- Seed 47 đề Reading Cambridge IELTS Cam 9–20, Test 1–4 vào builtin catalog.
+- Loại `reading-cam-11-2.json` vì payload có 41 câu; ghi chú tại `docs/known-issues.md`.
+- Thêm `scripts/payload-to-catalog.mjs` và mở rộng `scripts/build-catalog.mjs` đọc `out-reading/`.
+- Fix layout câu hỏi: giữ prompt thật, table completion, title, rows và gap từ `reading_filtered.json`.
+- Verify: catalog test 47 đề/3 passages/40 câu PASS; `pnpm -C apps/web build` PASS.
 
-## 2026-07-14 â€” Fix avatar User trong Admin
+## 2026-07-14 — Fix avatar User trong Admin
 
-- **Root cause:** Admin Ä‘Ã£ render `profiles.avatar_url`, nhÆ°ng profile sync chá»‰ Ä‘á»c `user_metadata.avatar_url`; má»™t sá»‘ Google identity chá»‰ cÃ³ `picture`, vÃ  profile cÅ© chÆ°a Ä‘Æ°á»£c backfill.
-- `syncAuthProfile.ts`: Ä‘á»“ng bá»™ email/tÃªn/avatar tá»« Auth vÃ o `profiles` khi bootstrap/Ä‘Äƒng nháº­p, há»— trá»£ `avatar_url` + `picture`, khÃ´ng ghi `null` Ä‘Ã¨ dá»¯ liá»‡u profile hiá»‡n cÃ³.
-- `018_profile_avatar_sync.sql`: cáº­p nháº­t trigger Auth vÃ  backfill avatar/tÃªn cho user cÅ© tá»« `auth.users`.
-- `AdminPage.tsx`: áº£nh dÃ¹ng `referrerPolicy="no-referrer"`; URL há»ng tá»± fallback sang avatar chá»¯ cÃ¡i.
-- Verify: `vitest run src/features/auth/syncAuthProfile.test.ts` â€” 2 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
-- Deploy cáº§n cháº¡y `pnpm db:push` Ä‘á»ƒ Ã¡p migration 017â€“018 trÆ°á»›c hoáº·c cÃ¹ng lÃºc deploy web.
+- **Root cause:** Admin đã render `profiles.avatar_url`, nhưng profile sync chỉ đọc `user_metadata.avatar_url`; một số Google identity chỉ có `picture`, và profile cũ chưa được backfill.
+- `syncAuthProfile.ts`: đồng bộ email/tên/avatar từ Auth vào `profiles` khi bootstrap/đăng nhập, hỗ trợ `avatar_url` + `picture`, không ghi `null` đè dữ liệu profile hiện có.
+- `018_profile_avatar_sync.sql`: cập nhật trigger Auth và backfill avatar/tên cho user cũ từ `auth.users`.
+- `AdminPage.tsx`: ảnh dùng `referrerPolicy="no-referrer"`; URL hỏng tự fallback sang avatar chữ cái.
+- Verify: `vitest run src/features/auth/syncAuthProfile.test.ts` — 2 tests PASS; `pnpm --filter web exec tsc --noEmit` PASS.
+- Deploy cần chạy `pnpm db:push` để áp migration 017–018 trước hoặc cùng lúc deploy web.
 
-## 2026-07-14 â€” KET A2 Listening practice 44 Ä‘á» (pilot + multi-part audio)
+## 2026-07-14 — KET A2 Listening practice 44 đề (pilot + multi-part audio)
 
-### Má»¥c tiÃªu
-Import thÃªm ~44 Ä‘á» KET Listening (crawl CSV + media) vÃ o app, title theo Cambridge Book/Test (tiáº¿p sau 10 Ä‘á» sáºµn).
+### Mục tiêu
+Import thêm ~44 đề KET Listening (crawl CSV + media) vào app, title theo Cambridge Book/Test (tiếp sau 10 đề sẵn).
 
-### Nguá»“n / layout
+### Nguồn / layout
 - Root: `D:\App-English-Ryan\Crawl\Import_KET_A2_Listening\`
-- 44 folder `test-01`â€¦`test-44` (Ä‘Ã£ scaffold + copy CSV)
-- Má»—i folder: `ket-a2-test-NN.csv` + `part1.mp3`â€¦`part5.mp3` + `q1.jpg`â€¦`q5.jpg`
-- `meta.json` (optional): `{ "book", "test" }` â€” test-01 = Book 3 Test 3
-- Mapping slot máº·c Ä‘á»‹nh (KET_EXISTING_COUNT=10): test-01â†’B3T3, test-02â†’B3T4, test-03â†’B4T1, â€¦
+- 44 folder `test-01`…`test-44` (đã scaffold + copy CSV)
+- Mỗi folder: `ket-a2-test-NN.csv` + `part1.mp3`…`part5.mp3` + `q1.jpg`…`q5.jpg`
+- `meta.json` (optional): `{ "book", "test" }` — test-01 = Book 3 Test 3
+- Mapping slot mặc định (KET_EXISTING_COUNT=10): test-01→B3T3, test-02→B3T4, test-03→B4T1, …
 
-### ÄÃ£ lÃ m
-- [x] Survey cÆ¡ cháº¿ import KET (ZIP `exam.json` + media; catalog 1 Ä‘á» builtin)
+### Đã làm
+- [x] Survey cơ chế import KET (ZIP `exam.json` + media; catalog 1 đề builtin)
 - [x] Scaffold 44 folder + README + STATUS.csv
-- [x] `scripts/ket-practice-csv-to-exam.mjs` â€” CSVâ†’exam.json + audioscript + answer-key + ZIP flat
-- [x] Pilot **test-01**: title `KET A2 Listening â€” Book 3 â€” Test 3`
+- [x] `scripts/ket-practice-csv-to-exam.mjs` — CSV→exam.json + audioscript + answer-key + ZIP flat
+- [x] Pilot **test-01**: title `KET A2 Listening — Book 3 — Test 3`
   - ZIP: `Import_KET_A2_Listening\ket-practice-test-01.zip`
-  - 5 parts / 25 cÃ¢u; audio per-part; picture-mc q1â€“q5
-- [x] **Bug fix multi-part audio:** `ListeningKetTest` / `ListeningPetTest` dÃ¹ng `resolveListeningAudioSource(exam, currentPart)` thay `ketSharedExamAudioSource` (trÆ°á»›c Ä‘Ã¢y 5Ã— part*.mp3 â†’ "KhÃ´ng tÃ¬m tháº¥y file audio")
-- [x] `ketSharedExamAudioSource` fallback part 0 (khÃ´ng source rá»—ng)
-- [x] User confirm: pilot **hoáº¡t Ä‘á»™ng tá»‘t**
-- [x] Cáº­p nháº­t session_summary
+  - 5 parts / 25 câu; audio per-part; picture-mc q1–q5
+- [x] **Bug fix multi-part audio:** `ListeningKetTest` / `ListeningPetTest` dùng `resolveListeningAudioSource(exam, currentPart)` thay `ketSharedExamAudioSource` (trước đây 5× part*.mp3 → "Không tìm thấy file audio")
+- [x] `ketSharedExamAudioSource` fallback part 0 (không source rỗng)
+- [x] User confirm: pilot **hoạt động tốt**
+- [x] Cập nhật session_summary
 
 ### Convert + publish (2026-07-15)
-- [x] User bÃ¡o Ä‘á»§ media test-01â€¦44
+- [x] User báo đủ media test-01…44
 - [x] Verify: 44 folder = CSV + 5 mp3 + 5 jpg
-- [x] `node scripts/ket-practice-csv-to-exam.mjs all` â†’ **44/44 OK**
-- [x] STATUS.csv cáº­p nháº­t (ready=Y)
-- [x] **Publish cloud test-02â€¦44** (skip test-01 Ä‘Ã£ import pilot)
+- [x] `node scripts/ket-practice-csv-to-exam.mjs all` → **44/44 OK**
+- [x] STATUS.csv cập nhật (ready=Y)
+- [x] **Publish cloud test-02…44** (skip test-01 đã import pilot)
   - Script: `scripts/publish-ket-practice-listening.mjs`
-  - IDs: `listening-import-ket-a2-practice-02` â€¦ `44`
+  - IDs: `listening-import-ket-a2-practice-02` … `44`
   - Table `listening_exam_published` + Storage `listening-exam-media`
-- [ ] User hard refresh app â†’ smoke Book 3 Test 4
+- [ ] User hard refresh app → smoke Book 3 Test 4
 
-### LÆ°u Ã½
-- KhÃ´ng dÃ¹ng id/slug chung `catalog-listening-ket-a2-test1` cho practice
-- App UI KET Ä‘Ã£ há»— trá»£ 5 file part; published exams dÃ¹ng `audioUrl` public per part
-- test-01 (Book 3 Test 3) váº«n báº£n local pilot `listening-import-*` timestamp â€” khÃ´ng Ä‘á»¥ng
+### Lưu ý
+- Không dùng id/slug chung `catalog-listening-ket-a2-test1` cho practice
+- App UI KET đã hỗ trợ 5 file part; published exams dùng `audioUrl` public per part
+- test-01 (Book 3 Test 3) vẫn bản local pilot `listening-import-*` timestamp — không đụng
 
-### Lá»‡nh
+### Lệnh
 ```bash
 node scripts/ket-practice-csv-to-exam.mjs all
 node scripts/publish-ket-practice-listening.mjs 2-44   # re-publish (upsert)
@@ -4806,651 +4846,651 @@ node scripts/publish-ket-practice-listening.mjs 2-44   # re-publish (upsert)
 
 ---
 
-## 2026-07-15 â€” grammar_basic 8Ã—25 cÃ¢u
+## 2026-07-15 — grammar_basic 8×25 câu
 
-- `seedData/grammarBasic25.ts` â€” 8 genre: present simple/continuous/perfect/perfect continuous, uncountable, singular/plural, passive, comparison
-- Má»—i bá»™ id `tr-grammar-{genre}`, 25 cÃ¢u VIâ†’EN + hint
-- `seedTranslationPacks` v2 â€” auto upgrade (giá»¯ SRS theo sentence id); xÃ³a pack import trÃ¹ng genre
+- `seedData/grammarBasic25.ts` — 8 genre: present simple/continuous/perfect/perfect continuous, uncountable, singular/plural, passive, comparison
+- Mỗi bộ id `tr-grammar-{genre}`, 25 câu VI→EN + hint
+- `seedTranslationPacks` v2 — auto upgrade (giữ SRS theo sentence id); xóa pack import trùng genre
 - Verify: vitest grammarBasic25 PASS; tsc PASS
-- User: hard refresh â†’ `/app/writing/translate/grammar_basic` â†’ tá»«ng chá»§ Ä‘á» hiá»‡n **1 bá»™ Â· 25 cÃ¢u**
+- User: hard refresh → `/app/writing/translate/grammar_basic` → từng chủ đề hiện **1 bộ · 25 câu**
 
-## 2026-07-15 â€” Seed Luyá»‡n dá»‹ch IELTS (Json Import)
+## 2026-07-15 — Seed Luyện dịch IELTS (Json Import)
 
-- Nguá»“n: `7. Json Import/1. Writing Master/2. Luyá»‡n dá»‹ch IELTS/`
-  - Present Continuous.json â†’ **25 cÃ¢u** (`grammar_basic` / `present_continuous`)
-  - Present Simple.json â†’ **2 cÃ¢u** (`grammar_basic` / `present_simple`)
+- Nguồn: `7. Json Import/1. Writing Master/2. Luyện dịch IELTS/`
+  - Present Continuous.json → **25 câu** (`grammar_basic` / `present_continuous`)
+  - Present Simple.json → **2 câu** (`grammar_basic` / `present_simple`)
 - Code:
-  - `importIeltsTranslationPack.ts` â€” parse `ielts_translation_pack`
-  - `seedData/ieltsTranslationPacks.json` + `seedTranslationPacks.ts` â€” upsert stable id `tr-import-â€¦`
-  - Wire `ensureTranslationSeedData()` trÃªn Hub / Genre / Practice pages
+  - `importIeltsTranslationPack.ts` — parse `ielts_translation_pack`
+  - `seedData/ieltsTranslationPacks.json` + `seedTranslationPacks.ts` — upsert stable id `tr-import-…`
+  - Wire `ensureTranslationSeedData()` trên Hub / Genre / Practice pages
 - Verify: vitest import pack PASS; `tsc --noEmit` PASS
-- User: hard refresh `/app/writing/translate` â†’ **Cáº¥u trÃºc cÆ¡ báº£n** â†’ Hiá»‡n táº¡i tiáº¿p diá»…n / Hiá»‡n táº¡i Ä‘Æ¡n
+- User: hard refresh `/app/writing/translate` → **Cấu trúc cơ bản** → Hiện tại tiếp diễn / Hiện tại đơn
 
-## 2026-07-15 â€” Fix avatar tráº¯ng (user + admin)
+## 2026-07-15 — Fix avatar trắng (user + admin)
 
-- **NguyÃªn nhÃ¢n:** Google OAuth dÃ¹ng `picture` (khÃ´ng chá»‰ `avatar_url`); `<img>` thiáº¿u `referrerPolicy="no-referrer"` â†’ Google cháº·n â†’ vÃ²ng trÃ²n tráº¯ng; fallback chá»¯ dÃ¹ng `--bg-primary` dá»… sai contrast.
+- **Nguyên nhân:** Google OAuth dùng `picture` (không chỉ `avatar_url`); `<img>` thiếu `referrerPolicy="no-referrer"` → Google chặn → vòng tròn trắng; fallback chữ dùng `--bg-primary` dễ sai contrast.
 - **Fix:**
-  - `userAvatar.ts` â€” resolve `avatar_url` | `picture` | identity_data
-  - `UserAvatar.tsx` â€” component chung: `referrerPolicy`, `object-cover`, onError â†’ chá»¯ cÃ¡i `--color-on-primary`
+  - `userAvatar.ts` — resolve `avatar_url` | `picture` | identity_data
+  - `UserAvatar.tsx` — component chung: `referrerPolicy`, `object-cover`, onError → chữ cái `--color-on-primary`
   - Wire: AppShell, HomePage, SettingsPage, AdminPage
-  - `syncAuthProfile` â€” mirror `picture` â†’ `user_metadata.avatar_url` + profiles
+  - `syncAuthProfile` — mirror `picture` → `user_metadata.avatar_url` + profiles
 - Verify: vitest userAvatar + syncAuthProfile PASS; `tsc --noEmit` PASS
 
-## 2026-07-15 â€” KET A2 Listening convert 44 ZIP + publish cloud
+## 2026-07-15 — KET A2 Listening convert 44 ZIP + publish cloud
 
-- Media Ä‘á»§ + convert ZIP **44/44**
-- User: test-01 Ä‘Ã£ import; báº¯t Ä‘áº§u tá»« **Cam 3 Test 4** â†’ publish **02â€“44** only
-- `node scripts/publish-ket-practice-listening.mjs 2-44` â†’ **43/43 OK**
+- Media đủ + convert ZIP **44/44**
+- User: test-01 đã import; bắt đầu từ **Cam 3 Test 4** → publish **02–44** only
+- `node scripts/publish-ket-practice-listening.mjs 2-44` → **43/43 OK**
 - Verify: practice count 43; audio URL HTTP 200
-- Title range: Book 3 Test 4 â€¦ Book 14 Test 2
-- **User:** hard refresh (Ctrl+F5) â†’ Luyá»‡n thi â†’ Cambridge â†’ A2 Key
+- Title range: Book 3 Test 4 … Book 14 Test 2
+- **User:** hard refresh (Ctrl+F5) → Luyện thi → Cambridge → A2 Key
 
 ---
-## 2026-07-16 â€” Fix PDF.js bÃ¡o file 0 byte
+## 2026-07-16 — Fix PDF.js báo file 0 byte
 
-- User gáº·p `The PDF file is empty, i.e. its size is zero bytes` trong reader má»›i.
-- XÃ¡c minh endpoint dev tráº£ Ä‘Ãºng `200`, `application/pdf`, `Content-Length: 1,018,904` vÃ  magic bytes `%PDF-1.4`; file váº­t lÃ½ khÃ´ng rá»—ng.
-- Root cause náº±m á»Ÿ pipeline browser `fetch â†’ arrayBuffer â†’ Uint8Array â†’ getDocumentProxy`: PDF.js chuyá»ƒn/detach backing buffer khi má»Ÿ document, táº¡o Ä‘Æ°á»ng lá»—i 0-byte trong lifecycle reader.
-- Bá» hoÃ n toÃ n fetch/arrayBuffer trung gian trong `BookReaderPage`; dÃ¹ng PDF.js `getDocument({ url })` Ä‘á»ƒ thÆ° viá»‡n táº£i trá»±c tiáº¿p URL PDF.
-- Bá» helper `renderPageAsImage`; render `PDFPageProxy` trá»±c tiáº¿p lÃªn `<canvas>`, cÃ³ cleanup/cancel render task khi Ä‘á»•i trang hoáº·c unmount.
-- Regression test khÃ³a yÃªu cáº§u: `getDocument` nháº­n URL, khÃ´ng gá»i global fetch, render trang 1 lÃªn canvas, khÃ´ng iframe.
+- User gặp `The PDF file is empty, i.e. its size is zero bytes` trong reader mới.
+- Xác minh endpoint dev trả đúng `200`, `application/pdf`, `Content-Length: 1,018,904` và magic bytes `%PDF-1.4`; file vật lý không rỗng.
+- Root cause nằm ở pipeline browser `fetch → arrayBuffer → Uint8Array → getDocumentProxy`: PDF.js chuyển/detach backing buffer khi mở document, tạo đường lỗi 0-byte trong lifecycle reader.
+- Bỏ hoàn toàn fetch/arrayBuffer trung gian trong `BookReaderPage`; dùng PDF.js `getDocument({ url })` để thư viện tải trực tiếp URL PDF.
+- Bỏ helper `renderPageAsImage`; render `PDFPageProxy` trực tiếp lên `<canvas>`, có cleanup/cancel render task khi đổi trang hoặc unmount.
+- Regression test khóa yêu cầu: `getDocument` nhận URL, không gọi global fetch, render trang 1 lên canvas, không iframe.
 - Verify: endpoint 1,018,904 bytes; 8 Reading Corner tests PASS; `tsc --noEmit` PASS; production build PASS.
 
 ### Next session start prompt
 
-Hard refresh `/app/reading-corner/sach/read/cv01`; xÃ¡c nháº­n trang 1 render lÃªn canvas, bá»™ Ä‘áº¿m `1 / 278`, nÃºt trang sau má»Ÿ trang 2 vÃ  khÃ´ng cÃ²n lá»—i PDF file empty.
-## 2026-07-16 â€” Fix SRS flip card bá»‹ xuyÃªn hai máº·t á»Ÿ dark theme
+Hard refresh `/app/reading-corner/sach/read/cv01`; xác nhận trang 1 render lên canvas, bộ đếm `1 / 278`, nút trang sau mở trang 2 và không còn lỗi PDF file empty.
+## 2026-07-16 — Fix SRS flip card bị xuyên hai mặt ở dark theme
 
-- áº¢nh user cho tháº¥y sau khi láº­t, ná»™i dung máº·t trÆ°á»›c bá»‹ soi gÆ°Æ¡ng/xuyÃªn qua máº·t sau.
-- Root cause: `.vs-flip-face` dÃ¹ng gradient alpha + `backdrop-filter: blur(20px)` bÃªn trong `preserve-3d`; Chrome compositing sai backface trÃªn dark theme.
-- Máº·t tháº» giá» cÃ³ lá»›p ná»n kÃ­n `var(--bg-card)` dÆ°á»›i gradient theme, bá» backdrop-filter khá»i chÃ­nh hai máº·t 3D.
-- ThÃªm visibility handoff táº¡i ná»­a animation (0.275s): máº·t trÆ°á»›c áº©n cá»©ng khi flipped, máº·t sau chá»‰ hiá»‡n khi flipped; giá»¯ `backface-visibility` cho hiá»‡u á»©ng xoay.
-- ThÃªm stacking isolation cho `.vs-flip-inner`; khÃ´ng thay Ä‘á»•i handler láº­t/rating hoáº·c grid.
-- Regression test Ä‘á» trÆ°á»›c fix â†’ xanh; 4 vocab CSS/backdrop tests PASS; `tsc --noEmit` PASS; production build PASS.
-
-### Next session start prompt
-
-Hard refresh `/app/vocab`, má»Ÿ Láº·p láº¡i ngáº¯t quÃ£ng á»Ÿ dark theme vÃ  láº­t nhiá»u tháº»; xÃ¡c nháº­n chá»‰ tháº¥y Ä‘Ãºng má»™t máº·t, khÃ´ng cÃ²n chá»¯ soi gÆ°Æ¡ng/xuyÃªn lá»›p trong hoáº·c sau animation.
-## 2026-07-16 â€” Fix tiáº¿p SRS: máº·t sau biáº¿n máº¥t sau báº£n vÃ¡ xuyÃªn máº·t
-
-- áº¢nh user cho tháº¥y tráº¡ng thÃ¡i flipped cÃ³ rating buttons nhÆ°ng toÃ n bá»™ card trá»‘ng.
-- Root cause chÃ­nh xÃ¡c: `isolation: isolate` Ä‘Æ°á»£c thÃªm cÃ¹ng `.vs-flip-inner { transform-style: preserve-3d }`; isolation lÃ  grouping property khiáº¿n descendants bá»‹ flatten, nÃªn backface cá»§a máº·t sau bá»‹ loáº¡i bá».
-- Gá»¡ `isolation: isolate`, giá»¯ `position: relative` vÃ  `preserve-3d`.
-- Giá»¯ nguyÃªn cÃ¡c pháº§n Ä‘Ãºng cá»§a báº£n vÃ¡ trÆ°á»›c: ná»n card kÃ­n, khÃ´ng backdrop-filter trÃªn face, visibility handoff á»Ÿ ná»­a vÃ²ng xoay.
-- Regression test yÃªu cáº§u flip inner cÃ³ `preserve-3d` vÃ  tuyá»‡t Ä‘á»‘i khÃ´ng cÃ³ `isolation`.
-- Verify: test Ä‘á» trÆ°á»›c fix â†’ xanh; 4 vocab tests PASS; `tsc --noEmit` PASS; production build PASS.
+- Ảnh user cho thấy sau khi lật, nội dung mặt trước bị soi gương/xuyên qua mặt sau.
+- Root cause: `.vs-flip-face` dùng gradient alpha + `backdrop-filter: blur(20px)` bên trong `preserve-3d`; Chrome compositing sai backface trên dark theme.
+- Mặt thẻ giờ có lớp nền kín `var(--bg-card)` dưới gradient theme, bỏ backdrop-filter khỏi chính hai mặt 3D.
+- Thêm visibility handoff tại nửa animation (0.275s): mặt trước ẩn cứng khi flipped, mặt sau chỉ hiện khi flipped; giữ `backface-visibility` cho hiệu ứng xoay.
+- Thêm stacking isolation cho `.vs-flip-inner`; không thay đổi handler lật/rating hoặc grid.
+- Regression test đỏ trước fix → xanh; 4 vocab CSS/backdrop tests PASS; `tsc --noEmit` PASS; production build PASS.
 
 ### Next session start prompt
 
-Hard refresh `/app/vocab`, láº­t SRS card á»Ÿ dark theme; xÃ¡c nháº­n máº·t sau hiá»‡n nghÄ©a/IPA/example, máº·t trÆ°á»›c khÃ´ng xuyÃªn qua, láº­t vá» máº·t trÆ°á»›c váº«n bÃ¬nh thÆ°á»ng.
-## 2026-07-16 â€” Security HIGH: Phase 1 code hoÃ n táº¥t, Phase 2 quota Ä‘ang triá»ƒn khai
+Hard refresh `/app/vocab`, mở Lặp lại ngắt quãng ở dark theme và lật nhiều thẻ; xác nhận chỉ thấy đúng một mặt, không còn chữ soi gương/xuyên lớp trong hoặc sau animation.
+## 2026-07-16 — Fix tiếp SRS: mặt sau biến mất sau bản vá xuyên mặt
 
-- Äá»c toÃ n bá»™ `Security/SECURITY_HARDENING_PLAN.txt` vÃ  triá»ƒn khai theo thá»© tá»±.
+- Ảnh user cho thấy trạng thái flipped có rating buttons nhưng toàn bộ card trống.
+- Root cause chính xác: `isolation: isolate` được thêm cùng `.vs-flip-inner { transform-style: preserve-3d }`; isolation là grouping property khiến descendants bị flatten, nên backface của mặt sau bị loại bỏ.
+- Gỡ `isolation: isolate`, giữ `position: relative` và `preserve-3d`.
+- Giữ nguyên các phần đúng của bản vá trước: nền card kín, không backdrop-filter trên face, visibility handoff ở nửa vòng xoay.
+- Regression test yêu cầu flip inner có `preserve-3d` và tuyệt đối không có `isolation`.
+- Verify: test đỏ trước fix → xanh; 4 vocab tests PASS; `tsc --noEmit` PASS; production build PASS.
+
+### Next session start prompt
+
+Hard refresh `/app/vocab`, lật SRS card ở dark theme; xác nhận mặt sau hiện nghĩa/IPA/example, mặt trước không xuyên qua, lật về mặt trước vẫn bình thường.
+## 2026-07-16 — Security HIGH: Phase 1 code hoàn tất, Phase 2 quota đang triển khai
+
+- Đọc toàn bộ `Security/SECURITY_HARDENING_PLAN.txt` và triển khai theo thứ tự.
 - Phase 1 code:
-  - Migration `020_harden_published_exams.sql`: anon khÃ´ng Ä‘á»c Ä‘Æ°á»£c Ä‘á» publish; authenticated qua `can_read_published_exam`, free chá»‰ 4 demo, paid/admin toÃ n bá»™.
-  - `admin_published_modules` + `admin_publish_meta` chuyá»ƒn tá»« public sang authenticated read.
-  - Admin publish Reading/Listening tÃ¡ch answer vault private trÆ°á»›c, body ghi DB Ä‘Ã£ strip recursive `answer`, `explanation`, `acceptableAnswers`, `modelAnswer` vÃ  cÃ¡c key scoring khÃ¡c.
-  - Script `backfill-published-exam-vaults.mjs` cho row cÅ©.
-  - `books/` paid-only; `catalog/ielts-wizard/` admin-only; content-sign há»— trá»£ PDF/SVG.
-  - BookReader resolve signed URL trÆ°á»›c khi fetch buffer.
-  - 99 wizard assets Ä‘Ã£ copy vÃ o `public/catalog/ielts-wizard`; UI wizard resolve signed URL.
-  - strip build + `.vercelignore` loáº¡i `catalog`, `data`, `books`, `ielts-wizard`.
-  - Upload script há»— trá»£ books/PDF/SVG vÃ  dry-run khÃ´ng cáº§n credential.
+  - Migration `020_harden_published_exams.sql`: anon không đọc được đề publish; authenticated qua `can_read_published_exam`, free chỉ 4 demo, paid/admin toàn bộ.
+  - `admin_published_modules` + `admin_publish_meta` chuyển từ public sang authenticated read.
+  - Admin publish Reading/Listening tách answer vault private trước, body ghi DB đã strip recursive `answer`, `explanation`, `acceptableAnswers`, `modelAnswer` và các key scoring khác.
+  - Script `backfill-published-exam-vaults.mjs` cho row cũ.
+  - `books/` paid-only; `catalog/ielts-wizard/` admin-only; content-sign hỗ trợ PDF/SVG.
+  - BookReader resolve signed URL trước khi fetch buffer.
+  - 99 wizard assets đã copy vào `public/catalog/ielts-wizard`; UI wizard resolve signed URL.
+  - strip build + `.vercelignore` loại `catalog`, `data`, `books`, `ielts-wizard`.
+  - Upload script hỗ trợ books/PDF/SVG và dry-run không cần credential.
 - Dry-run private upload PASS: 1 PDF (1,018,904 bytes) + 99 wizard assets (8,529,450 bytes).
 - Phase 2 code:
-  - Migration `021_content_access_daily_quota.sql`: admin-only security alert queue + anomaly scan hourly náº¿u pg_cron sáºµn.
-  - content-sign TTL 60s, quota 400/user/24h, alert tá»« 300 request.
+  - Migration `021_content_access_daily_quota.sql`: admin-only security alert queue + anomaly scan hourly nếu pg_cron sẵn.
+  - content-sign TTL 60s, quota 400/user/24h, alert từ 300 request.
 - Tests scoped Phase 1/BookReader/answer-strip/protected paths PASS.
-- Production blocker: `.env.deploy` cÃ³ access token nhÆ°ng chÆ°a cÃ³ `SUPABASE_SERVICE_ROLE_KEY`, nÃªn chÆ°a cháº¡y upload/backfill production.
+- Production blocker: `.env.deploy` có access token nhưng chưa có `SUPABASE_SERVICE_ROLE_KEY`, nên chưa chạy upload/backfill production.
 - Phase 5.1 Turnstile Spin:
-  - Widget Managed Ä‘Ã£ táº¡o cho `localhost`, `127.0.0.1`, `ryanenglishv2.vercel.app`.
+  - Widget Managed đã tạo cho `localhost`, `127.0.0.1`, `ryanenglishv2.vercel.app`.
   - Site key public: `0x4AAAAAAD3OvoKGgmLtnOJz`.
-  - Managed Worker Ä‘Ã£ deploy: `turnstile-siteverify-ryan-english` táº¡i `https://turnstile-siteverify-ryan-english.ryan-license-worker.workers.dev`.
-  - Secret chá»‰ Ä‘Æ°á»£c truyá»n vÃ o Worker qua `wrangler secret put`, khÃ´ng ghi vÃ o repo.
-  - Form Ä‘Äƒng nháº­p email Ä‘Æ°á»£c gate báº±ng `success === true`; Google OAuth giá»¯ nguyÃªn.
-  - CSP Ä‘Ã£ cho phÃ©p Turnstile script/frame vÃ  Worker endpoint.
+  - Managed Worker đã deploy: `turnstile-siteverify-ryan-english` tại `https://turnstile-siteverify-ryan-english.ryan-license-worker.workers.dev`.
+  - Secret chỉ được truyền vào Worker qua `wrangler secret put`, không ghi vào repo.
+  - Form đăng nhập email được gate bằng `success === true`; Google OAuth giữ nguyên.
+  - CSP đã cho phép Turnstile script/frame và Worker endpoint.
   - Validation end-to-end PASS: health, dummy token rejection, managed-worker metadata, hostname.
 - Scoped security tests PASS: 5 files / 11 tests.
-- Full `tsc` Ä‘ang bá»‹ cháº·n bá»Ÿi duplicate properties trong user-owned `reading-corner/catalog.ts`, khÃ´ng thuá»™c patch security.
+- Full `tsc` đang bị chặn bởi duplicate properties trong user-owned `reading-corner/catalog.ts`, không thuộc patch security.
 - Phase 4 code:
-  - Public routes `/terms` vÃ  `/privacy`.
-  - Copyright + legal links trÃªn landing, login vÃ  app sidebar.
+  - Public routes `/terms` và `/privacy`.
+  - Copyright + legal links trên landing, login và app sidebar.
   - Migration `022_legal_consent.sql`: versioned consent timestamps qua
     `accept_legal_terms()`, protected server-controlled fields.
-  - Reusable `TermsConsentCheckbox` Ä‘Ã£ sáºµn sÃ ng; app chÆ°a cÃ³ signup handler
-    thá»±c táº¿ nÃªn chÆ°a wire checkbox vÃ o luá»“ng Ä‘Äƒng kÃ½.
+  - Reusable `TermsConsentCheckbox` đã sẵn sàng; app chưa có signup handler
+    thực tế nên chưa wire checkbox vào luồng đăng ký.
 - Phase 3/6:
-  - `pnpm security:check` kiá»ƒm tra sourcemap, noindex, anti-frame, private media,
-    ignored secrets, migrations vÃ  cáº¥m `VITE_*SERVICE_ROLE`.
-  - Runbook `Security/SECURITY_OPERATIONS.md`, PR/release template vÃ  quarterly
+  - `pnpm security:check` kiểm tra sourcemap, noindex, anti-frame, private media,
+    ignored secrets, migrations và cấm `VITE_*SERVICE_ROLE`.
+  - Runbook `Security/SECURITY_OPERATIONS.md`, PR/release template và quarterly
     RLS/audit workflow.
-- Turnstile Spin bundle persisted táº¡i `.claude/skills/turnstile-spin`.
-- Verify má»›i nháº¥t: `security:check` 8/8 PASS; scoped security tests 6 files /
+- Turnstile Spin bundle persisted tại `.claude/skills/turnstile-spin`.
+- Verify mới nhất: `security:check` 8/8 PASS; scoped security tests 6 files /
   13 tests PASS; `git diff --check` PASS.
-- Production Ä‘Ã£ Ã¡p:
-  - Láº¥y service-role táº¡m qua Supabase Management API báº±ng PAT hiá»‡n cÃ³; key chá»‰
-    tá»“n táº¡i trong process, khÃ´ng ghi file/log.
-  - Upload private `exam-media`: 2.011/2.012 file thÃ nh cÃ´ng.
-  - Duy nháº¥t `catalog/listening/cae-c1-test1/listening.mp3` (82.94MB) vÆ°á»£t giá»›i
-    háº¡n 50MB cá»§a Supabase Free, bá»‹ bá» qua vÃ  sáº½ khÃ´ng kháº£ dá»¥ng sau lockdown.
-  - Backfill 51 Listening published rows: tÃ¡ch 1.275 answer entries vÃ o private
-    vault; body production khÃ´ng cÃ²n answer fields.
+- Production đã áp:
+  - Lấy service-role tạm qua Supabase Management API bằng PAT hiện có; key chỉ
+    tồn tại trong process, không ghi file/log.
+  - Upload private `exam-media`: 2.011/2.012 file thành công.
+  - Duy nhất `catalog/listening/cae-c1-test1/listening.mp3` (82.94MB) vượt giới
+    hạn 50MB của Supabase Free, bị bỏ qua và sẽ không khả dụng sau lockdown.
+  - Backfill 51 Listening published rows: tách 1.275 answer entries vào private
+    vault; body production không còn answer fields.
   - Deploy Edge Function `content-sign`.
-  - Push migrations 018â€“022 lÃªn production.
-  - Audit production PASS: anon Ä‘á»c 0 rows á»Ÿ reading/listening/admin publish
-    tables; answer leak false; `exam-media.public=false`; vault tá»“n táº¡i;
-    content-sign thiáº¿u JWT tráº£ 401.
-- Gá»¡ duplicate aliases `media` vÃ  `housing` á»Ÿ mapping `reading-corner/catalog.ts`
-  (giá»¯ semantics runtime â€œlast key winsâ€), má»Ÿ khÃ³a typecheck/build.
-- Full `tsc --noEmit` PASS; production build PASS vÃ  strip toÃ n bá»™ private media
-  khá»i dist; `security:check` 9/9 PASS.
-- CSP production Ä‘Ã£ bá» `'unsafe-eval'` vÃ  script `'unsafe-inline'`.
-- Blocker cÃ²n láº¡i:
-  - Vercel CLI token khÃ´ng há»£p lá»‡: code web má»›i chÆ°a deploy; chÆ°a táº¡o/publish
-    Firewall rules hoáº·c kiá»ƒm tra production logs.
-  - Signup handler chÆ°a tá»“n táº¡i nÃªn `TermsConsentCheckbox` chÆ°a wire thá»±c táº¿.
-  - ChÆ°a cÃ³ kÃªnh email/Zalo gá»­i alert; hiá»‡n cÃ³ queue + admin-only DB alerts.
-  - PITR, legal review/Ä‘Äƒng kÃ½ báº£n quyá»n vÃ  xá»­ lÃ½ file CAE >50MB lÃ  thao tÃ¡c
-    dashboard/kinh doanh cÃ²n láº¡i.
+  - Push migrations 018–022 lên production.
+  - Audit production PASS: anon đọc 0 rows ở reading/listening/admin publish
+    tables; answer leak false; `exam-media.public=false`; vault tồn tại;
+    content-sign thiếu JWT trả 401.
+- Gỡ duplicate aliases `media` và `housing` ở mapping `reading-corner/catalog.ts`
+  (giữ semantics runtime “last key wins”), mở khóa typecheck/build.
+- Full `tsc --noEmit` PASS; production build PASS và strip toàn bộ private media
+  khỏi dist; `security:check` 9/9 PASS.
+- CSP production đã bỏ `'unsafe-eval'` và script `'unsafe-inline'`.
+- Blocker còn lại:
+  - Vercel CLI token không hợp lệ: code web mới chưa deploy; chưa tạo/publish
+    Firewall rules hoặc kiểm tra production logs.
+  - Signup handler chưa tồn tại nên `TermsConsentCheckbox` chưa wire thực tế.
+  - Chưa có kênh email/Zalo gửi alert; hiện có queue + admin-only DB alerts.
+  - PITR, legal review/đăng ký bản quyền và xử lý file CAE >50MB là thao tác
+    dashboard/kinh doanh còn lại.
 
 ### Next session start prompt
 
-User cháº¡y `vercel login` Ä‘á»ƒ lÃ m má»›i token, sau Ä‘Ã³ deploy production ngay (backend
-Ä‘Ã£ lockdown), smoke `/terms`, `/privacy`, login Turnstile, rá»“i táº¡o/publish
-Vercel Firewall draft. Xá»­ lÃ½ audio CAE 82.94MB báº±ng nÃ¢ng Supabase Pro hoáº·c nÃ©n
-dÆ°á»›i 50MB vÃ  upload láº¡i Ä‘Ãºng path.
+User chạy `vercel login` để làm mới token, sau đó deploy production ngay (backend
+đã lockdown), smoke `/terms`, `/privacy`, login Turnstile, rồi tạo/publish
+Vercel Firewall draft. Xử lý audio CAE 82.94MB bằng nâng Supabase Pro hoặc nén
+dưới 50MB và upload lại đúng path.
 
-### Táº¡m dá»«ng cuá»‘i ngÃ y 2026-07-16
+### Tạm dừng cuối ngày 2026-07-16
 
-- User yÃªu cáº§u dá»«ng vÃ  tiáº¿p tá»¥c vÃ o ngÃ y mai.
-- KhÃ´ng cháº¡y láº¡i upload, backfill hoáº·c migrations 018â€“022: táº¥t cáº£ Ä‘Ã£ Ã¡p dá»¥ng
-  production vÃ  audit PASS.
-- Viá»‡c Ä‘áº§u tiÃªn ngÃ y mai:
-  1. User cháº¡y `vercel login` trong `D:\App-English-Ryan\Website`.
-  2. XÃ¡c minh báº±ng `vercel whoami`.
-  3. Deploy frontend production Ä‘á»ƒ Ä‘á»“ng bá»™ vá»›i backend Ä‘Ã£ lockdown.
-  4. Smoke test `/terms`, `/privacy`, Turnstile login, sÃ¡ch vÃ  media Ä‘á» thi.
-  5. Táº¡o Vercel Firewall draft, review `vercel firewall diff`, sau Ä‘Ã³ má»›i
+- User yêu cầu dừng và tiếp tục vào ngày mai.
+- Không chạy lại upload, backfill hoặc migrations 018–022: tất cả đã áp dụng
+  production và audit PASS.
+- Việc đầu tiên ngày mai:
+  1. User chạy `vercel login` trong `D:\App-English-Ryan\Website`.
+  2. Xác minh bằng `vercel whoami`.
+  3. Deploy frontend production để đồng bộ với backend đã lockdown.
+  4. Smoke test `/terms`, `/privacy`, Turnstile login, sách và media đề thi.
+  5. Tạo Vercel Firewall draft, review `vercel firewall diff`, sau đó mới
      publish.
-- ChÆ°a xá»­ lÃ½:
-  - Audio `catalog/listening/cae-c1-test1/listening.mp3` 82.94MB vÆ°á»£t giá»›i háº¡n
+- Chưa xử lý:
+  - Audio `catalog/listening/cae-c1-test1/listening.mp3` 82.94MB vượt giới hạn
     Supabase Free 50MB.
-  - Signup handler chÆ°a tá»“n táº¡i nÃªn checkbox consent chÆ°a Ä‘Æ°á»£c wire.
-  - Alert má»›i dá»«ng á»Ÿ DB queue; chÆ°a gá»­i email/Zalo.
-  - PITR, legal review vÃ  Ä‘Äƒng kÃ½ báº£n quyá»n cáº§n thao tÃ¡c dashboard/nghiá»‡p vá»¥.
+  - Signup handler chưa tồn tại nên checkbox consent chưa được wire.
+  - Alert mới dừng ở DB queue; chưa gửi email/Zalo.
+  - PITR, legal review và đăng ký bản quyền cần thao tác dashboard/nghiệp vụ.
 
-### Session 2026-07-17 â€” Verify production + smoke test HIGH security
+### Session 2026-07-17 — Verify production + smoke test HIGH security
 
-- XÃ¡c minh code: migrations 019â€“023 trong repo; `pnpm db:push` remote up-to-date;
+- Xác minh code: migrations 019–023 trong repo; `pnpm db:push` remote up-to-date;
   `content-sign` redeploy OK; security tests (phase1/2/4 + BookReaderPage)
   10/10 PASS; `tsc --noEmit` PASS.
-- Smoke test production (https://ryanenglishv2.vercel.app) â€” ALL PASS:
-  - `/terms`, `/privacy` render Ä‘áº§y Ä‘á»§ (Ä‘iá»u khoáº£n cáº¥m crawl, copyright footer)
-  - `/books/*.pdf` â†’ SPA fallback (PDF binary Ä‘Ã£ strip khá»i dist)
-  - REST anon `reading/listening_exam_published` â†’ `[]`
-  - `content-sign` khÃ´ng JWT â†’ 401; storage `exam-media` public access â†’ 400
-  - Login: Turnstile widget hiá»ƒn thá»‹, nÃºt ÄÄƒng nháº­p disabled tá»›i khi cÃ³ token;
-    khÃ´ng lá»—i CSP
-- **Audio CAE fix:** user Ä‘Ã£ nÃ©n mp3 <20MB vÃ  import láº¡i vÃ o app â€” háº¿t blocker
+- Smoke test production (https://ryanenglishv2.vercel.app) — ALL PASS:
+  - `/terms`, `/privacy` render đầy đủ (điều khoản cấm crawl, copyright footer)
+  - `/books/*.pdf` → SPA fallback (PDF binary đã strip khỏi dist)
+  - REST anon `reading/listening_exam_published` → `[]`
+  - `content-sign` không JWT → 401; storage `exam-media` public access → 400
+  - Login: Turnstile widget hiển thị, nút Đăng nhập disabled tới khi có token;
+    không lỗi CSP
+- **Audio CAE fix:** user đã nén mp3 <20MB và import lại vào app — hết blocker
   50MB Supabase Free.
-- **Vercel Hobby note:** khÃ´ng cÃ³ rate-limit rule (cáº§n Pro). Má»©c Hobby dÃ¹ng:
-  Attack Challenge Mode (báº­t khi bá»‹ crawl) + 1 custom WAF rule challenge/deny
+- **Vercel Hobby note:** không có rate-limit rule (cần Pro). Mức Hobby dùng:
+  Attack Challenge Mode (bật khi bị crawl) + 1 custom WAF rule challenge/deny
   theo UA bot (python-requests, scrapy, curl, wget, HeadlessChrome,
-  Go-http-client). Daily quota 400/user/24h á»Ÿ content-sign lÃ  lá»›p rate-limit
-  chÃ­nh â€” chá»‰ nÃ¢ng Pro/Cloudflare khi cÃ³ báº±ng chá»©ng bá»‹ crawl
-  (theo dÃµi `content_access_log` + Vercel Analytics).
-- CÃ²n láº¡i (tay user): táº¡o 1 custom WAF rule UA-bot trÃªn Vercel Dashboard;
-  login tháº­t + admin publish 1 Ä‘á» Ä‘á»ƒ confirm end-to-end.
+  Go-http-client). Daily quota 400/user/24h ở content-sign là lớp rate-limit
+  chính — chỉ nâng Pro/Cloudflare khi có bằng chứng bị crawl
+  (theo dõi `content_access_log` + Vercel Analytics).
+- Còn lại (tay user): tạo 1 custom WAF rule UA-bot trên Vercel Dashboard;
+  login thật + admin publish 1 đề để confirm end-to-end.
 
-### Session 2026-07-17 â€” Speaking AI thÃ nh trang riÃªng, chat + thu Ã¢m
+### Session 2026-07-17 — Speaking AI thành trang riêng, chat + thu âm
 
-- Speaking AI chuyá»ƒn tá»« modal panel sang trang riÃªng `/app/speaking-ai`
-  (`features/speaking-ai/SpeakingAiPage.tsx` + `speakingAiPage.css`); xÃ³a
+- Speaking AI chuyển từ modal panel sang trang riêng `/app/speaking-ai`
+  (`features/speaking-ai/SpeakingAiPage.tsx` + `speakingAiPage.css`); xóa
   `SpeakingAiPanel.tsx`, `speakingAi.css`, `speakingAiTranscript.css`.
-- Há»— trá»£ song song gÃµ chat vÃ  thu Ã¢m micro: textarea + nÃºt mic; transcript
-  nháº­n dáº¡ng ghÃ©p vá»›i text gÃµ tay; lÆ°á»£t gÃµ tay Æ°á»›c lÆ°á»£ng `durationSec` theo sá»‘
-  tá»« (words/2, káº¹p 1â€“60s) nÃªn váº«n dÃ¹ng edge function `speaking-ai` (DeepSeek)
-  hiá»‡n cÃ³, khÃ´ng Ä‘á»•i backend.
+- Hỗ trợ song song gõ chat và thu âm micro: textarea + nút mic; transcript
+  nhận dạng ghép với text gõ tay; lượt gõ tay ước lượng `durationSec` theo số
+  từ (words/2, kẹp 1–60s) nên vẫn dùng edge function `speaking-ai` (DeepSeek)
+  hiện có, không đổi backend.
 - UI premium theo skill high-end-visual-design: hero eyebrow pill, console
-  double-bezel bo 2rem, bubble gradient, composer pill + nÃºt send button-in-button,
-  motion cubic-bezier, tÃ´n trá»ng prefers-reduced-motion; ná»n dÃ¹ng grid xanh
-  nháº¡t sáºµn cÃ³ (`/app/speaking-ai` thÃªm vÃ o `APP_GRID_ONLY_PATHS`).
-- Sidebar: bá» nÃºt má»Ÿ modal á»Ÿ Ä‘áº§u toolbar; thÃªm NavLink "Speaking AI"
-  (icon AudioLines) ngay dÆ°á»›i "Luyá»‡n Shadowing".
-- Test `speakingAiMvp.test.ts` cáº­p nháº­t theo trang má»›i â€” 3/3 PASS;
+  double-bezel bo 2rem, bubble gradient, composer pill + nút send button-in-button,
+  motion cubic-bezier, tôn trọng prefers-reduced-motion; nền dùng grid xanh
+  nhạt sẵn có (`/app/speaking-ai` thêm vào `APP_GRID_ONLY_PATHS`).
+- Sidebar: bỏ nút mở modal ở đầu toolbar; thêm NavLink "Speaking AI"
+  (icon AudioLines) ngay dưới "Luyện Shadowing".
+- Test `speakingAiMvp.test.ts` cập nhật theo trang mới — 3/3 PASS;
   `tsc --noEmit` PASS.
-- ChÆ°a smoke UI trong trÃ¬nh duyá»‡t (route cáº§n Ä‘Äƒng nháº­p, user chá»n bá» qua).
+- Chưa smoke UI trong trình duyệt (route cần đăng nhập, user chọn bỏ qua).
 
-### Session 2026-07-17 â€” Ná»n lÆ°á»›i Writing subpages
+### Session 2026-07-17 — Nền lưới Writing subpages
 
-- Má»i route con `/app/writing/*` dÃ¹ng ná»n lÆ°á»›i xanh nháº¡t, khÃ´ng ribbon; trang
-  hub `/app/writing` giá»¯ ribbon.
-- Bá»• sung transparency cho `writing-shell`, cÃ¹ng Translation Practice:
-  danh sÃ¡ch/chi tiáº¿t, empty state vÃ  mÃ n hÃ¬nh luyá»‡n táº­p toÃ n trang (`tp-shell`)
-  Ä‘á»u Ä‘á»ƒ lá»™ backdrop lÆ°á»›i; card vÃ  input váº«n giá»¯ ná»n riÃªng.
+- Mọi route con `/app/writing/*` dùng nền lưới xanh nhạt, không ribbon; trang
+  hub `/app/writing` giữ ribbon.
+- Bổ sung transparency cho `writing-shell`, cùng Translation Practice:
+  danh sách/chi tiết, empty state và màn hình luyện tập toàn trang (`tp-shell`)
+  đều để lộ backdrop lưới; card và input vẫn giữ nền riêng.
 - Verify: `appShellBackdrop.test.ts` 62/62 PASS; `tsc --noEmit` PASS.
 
-### Session 2026-07-17 â€” Translation: nháº­n diá»‡n cÃ¢u Ä‘Ã£ dá»‹ch
+### Session 2026-07-17 — Translation: nhận diện câu đã dịch
 
-- CÃ¢u Ä‘Ã£ dá»‹ch cÃ³ ná»n vÃ  viá»n mÃ u primary ráº¥t nháº¹, Ä‘á»“ng thá»i badge `ÄÃ£ dá»‹ch` cÃ³
-  icon check Ä‘á»ƒ phÃ¢n biá»‡t nhanh vá»›i cÃ¢u chÆ°a dá»‹ch mÃ  khÃ´ng lÃ m máº¥t Ä‘á»™ dá»… Ä‘á»c.
+- Câu đã dịch có nền và viền màu primary rất nhẹ, đồng thời badge `Đã dịch` có
+  icon check để phân biệt nhanh với câu chưa dịch mà không làm mất độ dễ đọc.
 
-### Session 2026-07-17 â€” Sá»­a overlay phiÃªn luyá»‡n dá»‹ch
+### Session 2026-07-17 — Sửa overlay phiên luyện dịch
 
-- `tp-shell` lÃ  lá»›p phá»§ toÃ n trang cá»§a phiÃªn luyá»‡n dá»‹ch, nÃªn khÃ´ng Ä‘Æ°á»£c lÃ m
-  trong suá»‘t theo backdrop grid. ÄÃ£ bá» override nÃ y; grid chá»‰ hiá»‡n á»Ÿ mÃ n hÃ¬nh
-  danh sÃ¡ch, cÃ²n phiÃªn luyá»‡n táº­p cÃ³ ná»n Ä‘áº·c vÃ  khÃ´ng cÃ²n lá»™ UI phÃ­a sau.
-- Regression check `appShellBackdrop.test.ts`: red trÆ°á»›c sá»­a (1/62 fail vÃ¬
-  `tp-shell` bá»‹ transparent), green sau sá»­a.
+- `tp-shell` là lớp phủ toàn trang của phiên luyện dịch, nên không được làm
+  trong suốt theo backdrop grid. Đã bỏ override này; grid chỉ hiện ở màn hình
+  danh sách, còn phiên luyện tập có nền đặc và không còn lộ UI phía sau.
+- Regression check `appShellBackdrop.test.ts`: red trước sửa (1/62 fail vì
+  `tp-shell` bị transparent), green sau sửa.
 
-### Session 2026-07-17 â€” LÆ°á»›i trong phiÃªn luyá»‡n dá»‹ch
+### Session 2026-07-17 — Lưới trong phiên luyện dịch
 
-- `tp-shell` cÃ³ ná»n lÆ°á»›i xanh nháº¡t Ä‘á»™c láº­p (opaque), vÃ¬ váº­y phiÃªn luyá»‡n táº­p cÃ³
-  Ä‘Ãºng visual grid mÃ  khÃ´ng lÃ m lá»™ UI danh sÃ¡ch phÃ­a sau.
-- TÄƒng Ä‘á»™ nháº­n diá»‡n cho cÃ¢u/badge `ÄÃ£ dá»‹ch`: tint 11%, viá»n primary 45% vÃ 
-  badge 30% Ä‘á»ƒ tráº¡ng thÃ¡i xanh nhÃ¬n tháº¥y ngay á»Ÿ light/mid/dark theme.
+- `tp-shell` có nền lưới xanh nhạt độc lập (opaque), vì vậy phiên luyện tập có
+  đúng visual grid mà không làm lộ UI danh sách phía sau.
+- Tăng độ nhận diện cho câu/badge `Đã dịch`: tint 11%, viền primary 45% và
+  badge 30% để trạng thái xanh nhìn thấy ngay ở light/mid/dark theme.
 
-### Session 2026-07-17 â€” Badge ÄÃ£ dá»‹ch xanh lÃ¡
+### Session 2026-07-17 — Badge Đã dịch xanh lá
 
-- ThÃªm token `--color-success` cho cáº£ light/dark/mid theme; chá»‰ badge check
-  `ÄÃ£ dá»‹ch` dÃ¹ng token nÃ y, Ä‘á»ƒ tráº¡ng thÃ¡i hoÃ n thÃ nh Ä‘Æ°á»£c nháº­n diá»‡n báº±ng xanh lÃ¡.
+- Thêm token `--color-success` cho cả light/dark/mid theme; chỉ badge check
+  `Đã dịch` dùng token này, để trạng thái hoàn thành được nhận diện bằng xanh lá.
 
-### Session 2026-07-17 â€” Tráº¡ng thÃ¡i Sentence Structure
+### Session 2026-07-17 — Trạng thái Sentence Structure
 
-- Danh sÃ¡ch `/app/sentence-structure` Ä‘á»c completion history: cáº¥u trÃºc Ä‘Ã£ hoÃ n
-  thÃ nh hiá»‡n badge xanh lÃ¡ `âœ“ ÄÃ£ há»c` vÃ  gá»£i Ã½ `â†» Há»c láº¡i`, click hÃ ng váº«n má»Ÿ
-  Ä‘Ãºng phiÃªn luyá»‡n táº­p hiá»‡n cÃ³.
+- Danh sách `/app/sentence-structure` đọc completion history: cấu trúc đã hoàn
+  thành hiện badge xanh lá `✓ Đã học` và gợi ý `↻ Học lại`, click hàng vẫn mở
+  đúng phiên luyện tập hiện có.
 
-### Session 2026-07-17 â€” Font Sentence Structure practice
+### Session 2026-07-17 — Font Sentence Structure practice
 
-- Bá» style serif/editorial cÅ© chá»‰ cÃ²n á»Ÿ route luyá»‡n cáº¥u trÃºc: header `Äiá»n tráº¯c
-  nghiá»‡m` trá»Ÿ vá» font á»©ng dá»¥ng chuáº©n vÃ  khÃ´ng cÃ²n chá»¯ trang trÃ­ `GRAMMAR ATLAS`
-  chá»“ng lÃªn mÃ n hÃ¬nh.
+- Bỏ style serif/editorial cũ chỉ còn ở route luyện cấu trúc: header `Điền trắc
+  nghiệm` trở về font ứng dụng chuẩn và không còn chữ trang trí `GRAMMAR ATLAS`
+  chồng lên màn hình.
 
-### Session 2026-07-17 â€” Sunny dáº¡o chÆ¡i trÃªn Home
+### Session 2026-07-17 — Sunny dạo chơi trên Home
 
-- Sau 30 giÃ¢y á»Ÿ `/app/home`, mascot Sunny chuyá»ƒn sang animation â€œdáº¡o chÆ¡i/trá»‘n
-  tÃ¬mâ€ nháº¹ quanh bubble header; váº«n `pointer-events: none` vÃ  táº¯t hoÃ n toÃ n khi
-  ngÆ°á»i dÃ¹ng báº­t `prefers-reduced-motion`.
+- Sau 30 giây ở `/app/home`, mascot Sunny chuyển sang animation “dạo chơi/trốn
+  tìm” nhẹ quanh bubble header; vẫn `pointer-events: none` và tắt hoàn toàn khi
+  người dùng bật `prefers-reduced-motion`.
 
-### Session 2026-07-17 â€” Sunny á»Ÿ cÃ¡c trang chÃ­nh
+### Session 2026-07-17 — Sunny ở các trang chính
 
-- `AppShell` dÃ¹ng má»™t mascot gÃ³c pháº£i trÃªn cho Tá»« vá»±ng, Viáº¿t, Nghe, Shadowing,
-  Speaking AI, má»i trang GÃ³c Ä‘á»c, Cáº¥u trÃºc cÃ¢u vÃ  CÃ i Ä‘áº·t. Mascot khÃ´ng nháº­n
-  pointer events, áº©n dÆ°á»›i 720px vÃ  táº¯t nhÃºn khi giáº£m chuyá»ƒn Ä‘á»™ng.
-- Sau 30 giÃ¢y, Sunny á»Ÿ gÃ³c pháº£i trÃªn chÆ¡i trá»‘n tÃ¬m: nÃ©p ra ngoÃ i mÃ©p pháº£i rá»“i
-  quay láº¡i theo chu ká»³ nháº¹.
+- `AppShell` dùng một mascot góc phải trên cho Từ vựng, Viết, Nghe, Shadowing,
+  Speaking AI, mọi trang Góc đọc, Cấu trúc câu và Cài đặt. Mascot không nhận
+  pointer events, ẩn dưới 720px và tắt nhún khi giảm chuyển động.
+- Sau 30 giây, Sunny ở góc phải trên chơi trốn tìm: nép ra ngoài mép phải rồi
+  quay lại theo chu kỳ nhẹ.
 
-### Session 2026-07-17 â€” Card IELTS theo GÃ³c Ä‘á»c BÃ¡o
+### Session 2026-07-17 — Card IELTS theo Góc đọc Báo
 
-- Hai card Listening/Reading á»Ÿ `/app/exam/track/ielts` dÃ¹ng variant riÃªng theo
-  surface cá»§a GÃ³c Ä‘á»c BÃ¡o: card sÃ¡ng, viá»n Ä‘áº­m, bo lá»›n, offset shadow vÃ  hover
-  dá»‹ch chÃ©o. Cambridge khÃ´ng thay Ä‘á»•i style.
+- Hai card Listening/Reading ở `/app/exam/track/ielts` dùng variant riêng theo
+  surface của Góc đọc Báo: card sáng, viền đậm, bo lớn, offset shadow và hover
+  dịch chéo. Cambridge không thay đổi style.
 
-### Session 2026-07-17 â€” Surface card chung toÃ n app
+### Session 2026-07-17 — Surface card chung toàn app
 
-- Ãp surface card láº¥y cáº£m há»©ng tá»« GÃ³c Ä‘á»c BÃ¡o cho card cáº¥p má»™t toÃ n app: Home,
-  Tá»« vá»±ng, Writing/Translation, Shadowing, Exam, Sentence Structure vÃ  Prompt
-  Bank. CÃ¡c card cÃ³ viá»n primary text, ná»n theme, offset shadow, hover/focus rÃµ;
-  khÃ´ng Ã¡p vÃ o question card, modal hoáº·c input Ä‘á»ƒ báº£o toÃ n luá»“ng há»c.
-- Bá»• sung `study-heatmap` ("60 ngÃ y há»c gáº§n nháº¥t") vÃ o card surface chung.
+- Áp surface card lấy cảm hứng từ Góc đọc Báo cho card cấp một toàn app: Home,
+  Từ vựng, Writing/Translation, Shadowing, Exam, Sentence Structure và Prompt
+  Bank. Các card có viền primary text, nền theme, offset shadow, hover/focus rõ;
+  không áp vào question card, modal hoặc input để bảo toàn luồng học.
+- Bổ sung `study-heatmap` ("60 ngày học gần nhất") vào card surface chung.
 
-### Session 2026-07-17 â€” Light theme Writing Library contrast
+### Session 2026-07-17 — Light theme Writing Library contrast
 
-- Shared card surface lÃ m ná»n Writing Library sÃ¡ng, trong khi copy cÅ© lÃ  tráº¯ng.
-  ÄÃ£ override title/description/CTA theo token theme Ä‘á»ƒ card luÃ´n Ä‘á»c Ä‘Æ°á»£c á»Ÿ
-  Light, Mid vÃ  Dark.
+- Shared card surface làm nền Writing Library sáng, trong khi copy cũ là trắng.
+  Đã override title/description/CTA theo token theme để card luôn đọc được ở
+  Light, Mid và Dark.
 
-### Session 2026-07-17 â€” Card archive IELTS/Cambridge
+### Session 2026-07-17 — Card archive IELTS/Cambridge
 
-- Card sÃ¡ch, header sÃ¡ch vÃ  hÃ ng Ä‘á» trong má»i trang con Reading/Listening cá»§a
-  `/app/exam/track/ielts/*` vÃ  `/app/exam/track/cambridge/*` dÃ¹ng surface card
-  GÃ³c Ä‘á»c BÃ¡o. Chá»‰ Ä‘á»•i archive/library UI, khÃ´ng áº£nh hÆ°á»Ÿng mÃ n hÃ¬nh lÃ m bÃ i.
+- Card sách, header sách và hàng đề trong mọi trang con Reading/Listening của
+  `/app/exam/track/ielts/*` và `/app/exam/track/cambridge/*` dùng surface card
+  Góc đọc Báo. Chỉ đổi archive/library UI, không ảnh hưởng màn hình làm bài.
 
-### Session 2026-07-17 â€” Light contrast Cambridge exam cards
+### Session 2026-07-17 — Light contrast Cambridge exam cards
 
-- Shared card surface Ä‘Ã£ thay gradient cá»§a card ká»¹ nÄƒng Cambridge nhÆ°ng copy cÅ©
-  váº«n mÃ u tráº¯ng. Title, mÃ´ táº£, icon chip vÃ  badge giá» dÃ¹ng token theme, nÃªn Ä‘á»c
-  rÃµ á»Ÿ Light (vÃ  váº«n Ä‘Ãºng á»Ÿ Mid/Dark).
+- Shared card surface đã thay gradient của card kỹ năng Cambridge nhưng copy cũ
+  vẫn màu trắng. Title, mô tả, icon chip và badge giờ dùng token theme, nên đọc
+  rõ ở Light (và vẫn đúng ở Mid/Dark).
 
-### Session 2026-07-17 â€” Typography chung theo GÃ³c Ä‘á»c BÃ¡o
+### Session 2026-07-17 — Typography chung theo Góc đọc Báo
 
-- Thá»‘ng nháº¥t font UI báº±ng stack native cá»§a `/app/reading-corner/bao` qua
-  `--font-app`; controls káº¿ thá»«a Ä‘Ãºng font. CÃ¡c mÃ n Writing, Vocab vÃ  paper
-  IELTS/KET khÃ´ng cÃ²n giá»¯ Inter/Quicksand/Segoe riÃªng. Heading editorial dÃ¹ng
-  `--font-editorial` (Georgia), tÆ°Æ¡ng á»©ng typography headline cá»§a BÃ¡o; font mono
-  cho IPA/code vÃ  lá»±a chá»n font Ä‘á»c Ä‘á» cá»§a ngÆ°á»i dÃ¹ng Ä‘Æ°á»£c giá»¯ nguyÃªn.
+- Thống nhất font UI bằng stack native của `/app/reading-corner/bao` qua
+  `--font-app`; controls kế thừa đúng font. Các màn Writing, Vocab và paper
+  IELTS/KET không còn giữ Inter/Quicksand/Segoe riêng. Heading editorial dùng
+  `--font-editorial` (Georgia), tương ứng typography headline của Báo; font mono
+  cho IPA/code và lựa chọn font đọc đề của người dùng được giữ nguyên.
 
-### Session 2026-07-17 â€” Typography Tá»•ng quan
+### Session 2026-07-17 — Typography Tổng quan
 
-- `/app/home` cÃ²n override Cambria/Georgia á»Ÿ tiÃªu Ä‘á», chá»‰ sá»‘ vÃ  nhÃ£n section
-  nÃªn nhÃ¬n chÆ°a Ä‘á»“ng bá»™. Ba pháº§n nÃ y nay dÃ¹ng `--font-app` nhÆ° GÃ³c Ä‘á»c BÃ¡o.
+- `/app/home` còn override Cambria/Georgia ở tiêu đề, chỉ số và nhãn section
+  nên nhìn chưa đồng bộ. Ba phần này nay dùng `--font-app` như Góc đọc Báo.
 
-### Session 2026-07-17 â€” Audit typography toÃ n app
+### Session 2026-07-17 — Audit typography toàn app
 
-- RÃ  toÃ n bá»™ CSS app vÃ  thay cÃ¡c font UI/decorative cÃ²n sÃ³t á»Ÿ Reading Corner,
-  Exam hub, Listening library, Sentence Structure, Login vÃ  KET Listening vá»
-  `--font-app`. Ngoáº¡i lá»‡ duy nháº¥t giá»¯ láº¡i lÃ  text IPA/code vÃ  font reading do
-  há»c viÃªn chá»n trong trÃ¬nh lÃ m Ä‘á»; Ä‘Ã¢y lÃ  dá»¯ liá»‡u/chá»©c nÄƒng há»c, khÃ´ng pháº£i
-  typography giao diá»‡n.
-- Landing vÃ  text trong mascot SVG cÅ©ng Ä‘Ã£ bá» Inter/Instrument Serif Ä‘á»ƒ cÃ¹ng
-  há»‡ font; export MindMap vá»‘n Ä‘Ã£ dÃ¹ng system font tÆ°Æ¡ng thÃ­ch.
+- Rà toàn bộ CSS app và thay các font UI/decorative còn sót ở Reading Corner,
+  Exam hub, Listening library, Sentence Structure, Login và KET Listening về
+  `--font-app`. Ngoại lệ duy nhất giữ lại là text IPA/code và font reading do
+  học viên chọn trong trình làm đề; đây là dữ liệu/chức năng học, không phải
+  typography giao diện.
+- Landing và text trong mascot SVG cũng đã bỏ Inter/Instrument Serif để cùng
+  hệ font; export MindMap vốn đã dùng system font tương thích.
 
-### Session 2026-07-17 â€” Popup nháº¯c Ã´n táº­p theo card BÃ¡o
+### Session 2026-07-17 — Popup nhắc ôn tập theo card Báo
 
-- Restyle `SrsReviewReminderModal` theo surface card GÃ³c Ä‘á»c BÃ¡o: ná»n theo
-  theme, viá»n Ä‘áº­m, offset shadow, CTA/deck rows cÃ³ haptic hover/focus vÃ 
-  animation transform/opacity. Logic nháº¯c, Ä‘Ã³ng popup, chá»n deck vÃ 
-  `prefers-reduced-motion` giá»¯ nguyÃªn.
+- Restyle `SrsReviewReminderModal` theo surface card Góc đọc Báo: nền theo
+  theme, viền đậm, offset shadow, CTA/deck rows có haptic hover/focus và
+  animation transform/opacity. Logic nhắc, đóng popup, chọn deck và
+  `prefers-reduced-motion` giữ nguyên.
 
-### Session 2026-07-17 â€” CÃ i khoáº£ng nháº¯c pop-up Ã´n táº­p
+### Session 2026-07-17 — Cài khoảng nhắc pop-up ôn tập
 
-- CÃ i Ä‘áº·t > Giao diá»‡n cÃ³ lá»±a chá»n 5 / 15 / 25 / 30 phÃºt cho pop-up nháº¯c Ã´n
-  trong app. GiÃ¡ trá»‹ Ä‘Æ°á»£c lÆ°u local, phÃ¡t event Ä‘á»ƒ AppShell Ä‘ang má»Ÿ nháº­n ngay;
-  máº·c Ä‘á»‹nh tÆ°Æ¡ng thÃ­ch ngÆ°á»£c lÃ  30 phÃºt.
+- Cài đặt > Giao diện có lựa chọn 5 / 15 / 25 / 30 phút cho pop-up nhắc ôn
+  trong app. Giá trị được lưu local, phát event để AppShell đang mở nhận ngay;
+  mặc định tương thích ngược là 30 phút.
 
-### Session 2026-07-17 â€” Vocab library theo Nhai TOPIK (UI-only reference)
+### Session 2026-07-17 — Vocab library theo Nhai TOPIK (UI-only reference)
 
-- `/app/vocab` dÃ¹ng grid-paper panel neo-brutalist, filter/tabs viá»n Ä‘áº­m vÃ 
-  card giÃ¡o trÃ¬nh 2 cá»™t dáº¡ng bÃ¬a sÃ¡ch + metadata/progress. Giá»¯ AppShell, dá»¯
-  liá»‡u deck vÃ  luá»“ng há»c Ryan; khÃ´ng dÃ¹ng hay import dá»¯ liá»‡u tá»« website crawl.
+- `/app/vocab` dùng grid-paper panel neo-brutalist, filter/tabs viền đậm và
+  card giáo trình 2 cột dạng bìa sách + metadata/progress. Giữ AppShell, dữ
+  liệu deck và luồng học Ryan; không dùng hay import dữ liệu từ website crawl.
 
-### Session 2026-07-17 â€” Vocab lesson theo Nhai TOPIK (UI-only reference)
+### Session 2026-07-17 — Vocab lesson theo Nhai TOPIK (UI-only reference)
 
-- Khi má»Ÿ má»™t deck, `/app/vocab` chuyá»ƒn sang lesson canvas grid-paper vá»›i hard
-  border/shadow; danh sÃ¡ch tá»« trá»Ÿ thÃ nh 2-column word cards trÃªn desktop vÃ 
-  má»™t cá»™t trÃªn mobile. SRS/study modes hiá»‡n cÃ³ váº«n lÃ  luá»“ng flashcard tháº­t cá»§a
-  Ryan, khÃ´ng Ä‘Æ°a dá»¯ liá»‡u lesson tá»« crawl vÃ o app.
+- Khi mở một deck, `/app/vocab` chuyển sang lesson canvas grid-paper với hard
+  border/shadow; danh sách từ trở thành 2-column word cards trên desktop và
+  một cột trên mobile. SRS/study modes hiện có vẫn là luồng flashcard thật của
+  Ryan, không đưa dữ liệu lesson từ crawl vào app.
 
-### Session 2026-07-17 â€” Äá»“ng bá»™ 9 mode há»c vocab theo lesson grid-paper
+### Session 2026-07-17 — Đồng bộ 9 mode học vocab theo lesson grid-paper
 
-- `Láº·p láº¡i ngáº¯t quÃ£ng`, `Tráº¯c nghiá»‡m`, `ÄoÃ¡n nghÄ©a`, `Nghe & GÃµ`, `Speaking`, `Tá»« yáº¿u`, `Ã”n táº­p`, `Thá»‘ng kÃª`, `Sá»• ghi chÃº` dÃ¹ng chung bá» máº·t paper-grid: viá»n Ä‘áº­m, hard-shadow, nÃºt/card khá»‘i vÃ  mÃ u xanh chá»n nhÆ° áº£nh UI crawl.
-- Thanh 9 mode lÃ  mode card rÃµ rÃ ng (3 cá»™t desktop, 1 cá»™t mobile); luá»“ng há»c vÃ  dá»¯ liá»‡u khÃ´ng thay Ä‘á»•i.
+- `Lặp lại ngắt quãng`, `Trắc nghiệm`, `Đoán nghĩa`, `Nghe & Gõ`, `Speaking`, `Từ yếu`, `Ôn tập`, `Thống kê`, `Sổ ghi chú` dùng chung bề mặt paper-grid: viền đậm, hard-shadow, nút/card khối và màu xanh chọn như ảnh UI crawl.
+- Thanh 9 mode là mode card rõ ràng (3 cột desktop, 1 cột mobile); luồng học và dữ liệu không thay đổi.
 
-### Session 2026-07-17 â€” PhÃ¡t Ã¢m trong danh sÃ¡ch tá»«
+### Session 2026-07-17 — Phát âm trong danh sách từ
 
-- Má»—i tháº» tá»« á»Ÿ lesson `/app/vocab` cÃ³ nÃºt loa, gá»i TTS phrase hiá»‡n cÃ³ vÃ  cÃ³ nhÃ£n trá»£ nÄƒng theo tá»« Ä‘ang phÃ¡t.
+- Mỗi thẻ từ ở lesson `/app/vocab` có nút loa, gọi TTS phrase hiện có và có nhãn trợ năng theo từ đang phát.
 
-### Session 2026-07-17 â€” Khung flashcard SRS paper-grid
+### Session 2026-07-17 — Khung flashcard SRS paper-grid
 
-- Bá»• sung hard-border/hard-shadow trá»±c tiáº¿p vÃ o 3D flip scene vÃ  loáº¡i bá» gradient/bÃ³ng lá»“ng á»Ÿ hai máº·t tháº»; máº·t trÆ°á»›c/sau giá» cÃ¹ng há»‡ paper-card vá»›i cÃ¡c mode vocab khÃ¡c mÃ  váº«n giá»¯ cÆ¡ cháº¿ láº­t.
-- NÃºt `Láº­t tháº»` cáº¡nh `Há»i AI` cÅ©ng dÃ¹ng surface paper-card, viá»n Ä‘áº­m vÃ  hard-shadow thay vÃ¬ gradient cÅ©.
-- Máº·t trÆ°á»›c SRS á»Ÿ light theme khÃ³a foreground cá»§a tá»«, nhÃ£n, vÃ­ dá»¥ vÃ  gá»£i Ã½ láº­t vá» `--text-primary` Ä‘á»ƒ tÆ°Æ¡ng pháº£n rÃµ trÃªn ná»n xanh paper-card.
-- Bá»• sung tÆ°Æ¡ng pháº£n cho cÃ¡c badge chá»§ Ä‘á»/Ä‘áº¿n háº¡n vÃ  nÃºt audio á»Ÿ máº·t trÆ°á»›c; chÃºng khÃ´ng cÃ²n dÃ¹ng chá»¯ nháº¡t dÃ nh cho dark theme.
+- Bổ sung hard-border/hard-shadow trực tiếp vào 3D flip scene và loại bỏ gradient/bóng lồng ở hai mặt thẻ; mặt trước/sau giờ cùng hệ paper-card với các mode vocab khác mà vẫn giữ cơ chế lật.
+- Nút `Lật thẻ` cạnh `Hỏi AI` cũng dùng surface paper-card, viền đậm và hard-shadow thay vì gradient cũ.
+- Mặt trước SRS ở light theme khóa foreground của từ, nhãn, ví dụ và gợi ý lật về `--text-primary` để tương phản rõ trên nền xanh paper-card.
+- Bổ sung tương phản cho các badge chủ đề/đến hạn và nút audio ở mặt trước; chúng không còn dùng chữ nhạt dành cho dark theme.
 
-### Session 2026-07-17 â€” Listening cards theo style GÃ³c Ä‘á»c BÃ¡o
+### Session 2026-07-17 — Listening cards theo style Góc đọc Báo
 
-- Card Cambridge pack, lesson cÃ¡ nhÃ¢n vÃ  card Part bÃªn trong `/app/listening` nay dÃ¹ng ná»n theme, border rÃµ, offset hard-shadow vÃ  hover nÃ¢ng nháº¹ theo há»‡ card BÃ¡o; thao tÃ¡c/list/grid/compact váº«n giá»¯ nguyÃªn.
-- CÃ¡c route lesson `/app/listening/:lessonId` cÅ©ng dÃ¹ng background grid-paper vÃ  cÃ¹ng card family cho header, luyá»‡n táº­p, shadowing, transcript vÃ  sidebar.
-- XÃ³a lá»›p hÃ¬nh trang trÃ­ trÃ²n/vuÃ´ng khá»i card Listening: card/subcard Ã©p surface sáº¡ch, khÃ´ng background image hay pseudo-element trang trÃ­.
+- Card Cambridge pack, lesson cá nhân và card Part bên trong `/app/listening` nay dùng nền theme, border rõ, offset hard-shadow và hover nâng nhẹ theo hệ card Báo; thao tác/list/grid/compact vẫn giữ nguyên.
+- Các route lesson `/app/listening/:lessonId` cũng dùng background grid-paper và cùng card family cho header, luyện tập, shadowing, transcript và sidebar.
+- Xóa lớp hình trang trí tròn/vuông khỏi card Listening: card/subcard ép surface sạch, không background image hay pseudo-element trang trí.
 
-### Session 2026-07-17 â€” Writing library surface sáº¡ch
+### Session 2026-07-17 — Writing library surface sạch
 
-- `/app/writing` bá» toÃ n bá»™ cÃ¡c hÃ¬nh trÃ²n/vuÃ´ng minh há»a trong bá»‘n card hub; card chuyá»ƒn sang bá»‘ cá»¥c má»™t cá»™t, giá»¯ gradient, ná»™i dung vÃ  CTA.
+- `/app/writing` bỏ toàn bộ các hình tròn/vuông minh họa trong bốn card hub; card chuyển sang bố cục một cột, giữ gradient, nội dung và CTA.
 
 ### Next session start prompt
 
-Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listening`, `/app/listening/:lessonId` vÃ  `/app/writing`: báº£o Ä‘áº£m card paper/BÃ¡o cÃ³ tÆ°Æ¡ng pháº£n chá»¯ tá»‘t, khÃ´ng cÃ²n shape hÃ¬nh há»c á»Ÿ Writing vÃ  cÃ¡c thao tÃ¡c há»c/SRS/Listening váº«n hoáº¡t Ä‘á»™ng. CÃ¡c thay Ä‘á»•i UI hiá»‡n táº¡i Ä‘Ã£ pass `pnpm --filter web exec -- tsc --noEmit`; working tree cÃ³ thay Ä‘á»•i UI cá»§a user/session, khÃ´ng reset hoáº·c checkout.
-## 2026-07-18 â€” Emergency account-suspension circuit breaker
+Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/app/listening/:lessonId` và `/app/writing`: bảo đảm card paper/Báo có tương phản chữ tốt, không còn shape hình học ở Writing và các thao tác học/SRS/Listening vẫn hoạt động. Các thay đổi UI hiện tại đã pass `pnpm --filter web exec -- tsc --noEmit`; working tree có thay đổi UI của user/session, không reset hoặc checkout.
+## 2026-07-18 — Emergency account-suspension circuit breaker
 
 - Added migration `028_suspend_compromised_accounts.sql`: admin-only `set_user_suspension(user_id, suspended, reason)`, suspension audit fields, and an entitlement check that denies suspended users all published exams, including free demos.
 - `content-sign`, `speaking-ai`, and `notify-payment` now check `profiles.suspended_at` for every request and return `ACCOUNT_SUSPENDED` (403); this overrides a still-valid JWT. New signed URLs stop immediately; a URL issued before suspension retains its existing 60-second TTL.
 - Client converts the signed-media denial to an account-suspended message. `phase2Hardening` 4/4 and web TypeScript check PASS.
 - To suspend a user after migration: `select public.set_user_suspension((select id from public.profiles where email = '<email>'), true, 'Suspected automated crawl');`. Reverse it with `false, null`.
-## 2026-07-18 â€” Admin self-service account suspension
+## 2026-07-18 — Admin self-service account suspension
 
-- `/app/admin` now lets an administrator search a user, give an optional reason, confirm **KhÃ³a**, and later **Má»Ÿ khÃ³a**. Admin accounts cannot be suspended from this UI.
+- `/app/admin` now lets an administrator search a user, give an optional reason, confirm **Khóa**, and later **Mở khóa**. Admin accounts cannot be suspended from this UI.
 - The action calls the production-safe `set_user_suspension` RPC; it preserves user data, downgrades a suspended account to Free, and immediately stops new protected-content/API access through the server checks from migration 028.
 - Verify: `phase2Hardening` includes the Admin RPC regression assertion; run TypeScript check before release.
-## 2026-07-18 â€” Pro-only content access
+## 2026-07-18 — Pro-only content access
 
 - All learning/content routes under `/app` now require an active Pro, Lifetime, or Admin profile. Free, Trial, and Basic users are redirected to Settings to upgrade; Settings remains accessible for account/payment management.
 - Migration `029_pro_only_content_access.sql` removes free exam demos at the database entitlement layer. `content-sign` no longer signs any media for Free/Trial/Basic; Speaking AI also rejects those plans with `PRO_REQUIRED`.
 - Production: migration 029 pushed; `content-sign` and `speaking-ai` deployed. Vercel release is still intentionally pending because the working tree contains unrelated UI changes.
 - Verify: `phase2Hardening` 6/6 PASS, `pnpm --filter web exec tsc --noEmit` PASS, and `pnpm security:check` 9/9 PASS.
-## 2026-07-18 â€” Flashcard radial-reveal demo
+## 2026-07-18 — Flashcard radial-reveal demo
 
-- Added standalone `flashcard-radial-reveal-demo.html` for direct browser testing: origin-based radial `clip-path` reveal, 1â†’1.02â†’1 depth settle, registered gradient-angle transition, staggered phonetic/translation, landing shadow and reverse-to-original-origin behavior.
+- Added standalone `flashcard-radial-reveal-demo.html` for direct browser testing: origin-based radial `clip-path` reveal, 1→1.02→1 depth settle, registered gradient-angle transition, staggered phonetic/translation, landing shadow and reverse-to-original-origin behavior.
 - The demo is vanilla HTML/CSS/JS; JS only records click coordinates, toggles state classes and sequences the reverse text fade. It includes keyboard access and `prefers-reduced-motion` support.
-## 2026-07-18 â€” Flashcard fade-reveal demo
+## 2026-07-18 — Flashcard fade-reveal demo
 
-- Added standalone `flashcard-fade-reveal-demo.html`: a reusable vanilla card factory using one `.is-flipped` state class, smooth blueâ†’green `background-color` transition, compacted word, staggered phonetic/translation reveal and clean hint replacement/reverse behavior.
-## 2026-07-18 â€” SRS flashcard Fade Reveal
+- Added standalone `flashcard-fade-reveal-demo.html`: a reusable vanilla card factory using one `.is-flipped` state class, smooth blue→green `background-color` transition, compacted word, staggered phonetic/translation reveal and clean hint replacement/reverse behavior.
+## 2026-07-18 — SRS flashcard Fade Reveal
 
-- Replaced the SRS card's 3D `rotateY` flip with a one-class Fade Reveal: theme-token blueâ†’green `background-color` transition, compacted source word, staggered phonetic (70ms) and translation (140ms), clean hint fade and reverse, plus reduced-motion support.
+- Replaced the SRS card's 3D `rotateY` flip with a one-class Fade Reveal: theme-token blue→green `background-color` transition, compacted source word, staggered phonetic (70ms) and translation (140ms), clean hint fade and reverse, plus reduced-motion support.
 - SRS queue, audio, keyboard flip/rating, notebook save and scheduling behavior are unchanged.
-## 2026-07-18 â€” SRS Fade Reveal translucent surface
+## 2026-07-18 — SRS Fade Reveal translucent surface
 
 - Changed the blue and green Fade Reveal surfaces to 50% `color-mix(..., transparent)`, letting the study paper/grid show through while retaining theme-token colors and readable foreground text.
-## 2026-07-18 â€” SRS transparency fix
+## 2026-07-18 — SRS transparency fix
 
 - Removed the opaque lesson-paper frame behind the SRS Fade Reveal card. The 50% tint now composites with the visible grid/paper backdrop rather than with an opaque inner surface.
-## 2026-07-18 â€” SRS Fade Reveal 30% tint
+## 2026-07-18 — SRS Fade Reveal 30% tint
 
 - Reduced both front and revealed SRS tint layers from 50% to 30% so the paper-grid backdrop remains more prominent.
-## 2026-07-18 â€” SRS Fade Reveal 15% tint
+## 2026-07-18 — SRS Fade Reveal 15% tint
 
 - Reduced both SRS Fade Reveal tint layers to 15%, making the underlying paper grid the dominant surface.
-## 2026-07-18 â€” Translucent vocab learning modes
+## 2026-07-18 — Translucent vocab learning modes
 
 - Applied the same 15% transparent primary-tint surface to Quiz, Guess Meaning, Listen & Type, and Speaking. Inputs/options keep their own surfaces for readability; the main exercise panels now reveal the paper grid underneath.
-## 2026-07-18 â€” Persistent SRS rating controls
+## 2026-07-18 — Persistent SRS rating controls
 
 - The four SRS rating controls are now sticky/pinned below the card instead of appearing only after reveal. They stay visibly locked until the answer is revealed, preventing accidental grades.
 - Replaced bright red/orange/green/purple gradients with darker, flat theme-token status tones and softer shadows.
-## 2026-07-18 â€” Light SRS rating tones
+## 2026-07-18 — Light SRS rating tones
 
 - Reworked the persistent SRS rating controls to simple light/pastel status surfaces (14% tint), with readable theme-text foregrounds, subtle borders and no colored shadows.
-## 2026-07-18 â€” Mid SRS rating tones
+## 2026-07-18 — Mid SRS rating tones
 
 - Increased the rating controls to mid-strength tints: 24% for Hard/Good/Easy and 28% for the Forget/danger state, with correspondingly clearer borders.
-## 2026-07-18 â€” Normal SRS rating saturation
+## 2026-07-18 — Normal SRS rating saturation
 
 - Raised SRS rating button fills to normal-strength flat colors: 60% status tint (64% Forget) with stronger matching borders; no gradients or colored shadows.
-## 2026-07-18 â€” High SRS rating saturation
+## 2026-07-18 — High SRS rating saturation
 
 - Increased SRS rating fills by another 35 percentage points: 95% for Hard/Good/Easy and 99% for Forget, producing near-solid flat status colors.
-## 2026-07-18 â€” SRS contrast correction
+## 2026-07-18 — SRS contrast correction
 
 - Strengthened foreground contrast on the translucent main SRS card and switched the near-solid rating buttons to a light foreground plus high-contrast secondary text, restoring readability without changing the selected color strength.
-## 2026-07-18 â€” Light SRS back-face contrast
+## 2026-07-18 — Light SRS back-face contrast
 
 - Strengthened the Light-theme SRS revealed face: meaning is extra-bold primary text; source word, phonetic and example use an 88% primary foreground; IPA sits on a higher-contrast light surface.
 
-## 2026-07-18 â€” Light SRS badge contrast
+## 2026-07-18 — Light SRS badge contrast
 
-- The revealed-card topic and part-of-speech badges now use primary text with a clearer translucent paper surface and border in Light theme, so long topic names and labels such as â€œTÃ­nh tá»«â€ remain legible.
+- The revealed-card topic and part-of-speech badges now use primary text with a clearer translucent paper surface and border in Light theme, so long topic names and labels such as “Tính từ” remain legible.
 
-## 2026-07-18 â€” SRS horizontal next-card transition
+## 2026-07-18 — SRS horizontal next-card transition
 
 - After rating a revealed SRS card, the current card now passes left and the next card enters from the right (180ms out, 240ms in). Rating, flipping and keyboard input are briefly locked during the pass to prevent duplicate actions; reduced-motion users advance without the visible slide.
 - Verify: `vocabStudyFlip.test.ts` 2/2 PASS and `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” Phrase-library Revise entry point
+## 2026-07-18 — Phrase-library Revise entry point
 
 - Added a **Revise** control beside the Phrases tab. It shows the due-card count for the currently selected unit type, opens the existing deck picker, and starts SRS with the selected deck while preserving that unit filter. The control is visibly disabled when nothing is due.
 - Revise is a separate card beside Phrases, with the same background, border, radius and active-state treatment as the Phrases card.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” Vocabulary library outer frame removal
+## 2026-07-18 — Vocabulary library outer frame removal
 
 - Removed the desktop-only hard border, rounded frame and offset shadow that enclosed the entire Vocabulary library canvas. The grid-paper background and all individual tab/deck cards remain unchanged.
 
-## 2026-07-18 â€” Corrected vocabulary SRS rating schedule
+## 2026-07-18 — Corrected vocabulary SRS rating schedule
 
-- Replaced the old day-only scheduler with the visible learning cadence: **QuÃªn** returns in 1 minute, **KhÃ³** in 10 minutes, consecutive **Nhá»›** ratings schedule 1 day then 4 days, and **Dá»…** schedules a new card for 4 days. Later intervals still grow from ease.
+- Replaced the old day-only scheduler with the visible learning cadence: **Quên** returns in 1 minute, **Khó** in 10 minutes, consecutive **Nhớ** ratings schedule 1 day then 4 days, and **Dễ** schedules a new card for 4 days. Later intervals still grow from ease.
 - The active SRS session now remembers the earliest 1/10-minute retry and reloads its due queue when that time arrives, so a learner does not need to leave and reopen Revise to see the card again.
 - Added regression coverage in `srsScheduling.test.ts`; SRS scheduling + Fade Reveal tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” Revise due-state refresh and signal
+## 2026-07-18 — Revise due-state refresh and signal
 
 - The Revise-card count now reevaluates every 15 seconds as well as on Dexie data updates, fixing the stale state where a 1-minute lapse became due but the card stayed disabled because no database write occurred at that exact minute.
 - Once a matching card is due, Revise changes to the primary-tint/border state and receives a restrained motion signal; reduced-motion users get the bright state without motion.
 - Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” Revise enabled-state consistency
+## 2026-07-18 — Revise enabled-state consistency
 
-- Corrected an inconsistent visual state: Revise previously inherited Phrasesâ€™ selected tint even with zero due cards, while remaining disabled. Revise now brightens only when its own due count is positive, which is the same condition that enables its click action.
+- Corrected an inconsistent visual state: Revise previously inherited Phrases’ selected tint even with zero due cards, while remaining disabled. Revise now brightens only when its own due count is positive, which is the same condition that enables its click action.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” Revise review-only queue
+## 2026-07-18 — Revise review-only queue
 
-- Added the `review` SRS filter. Opening a deck from the Revise popup now loads only cards that satisfy `isSrsReviewDue`; new cards remain available from the normal Láº·p láº¡i flow and cannot enter a Revise queue.
-- The SRS title/empty state identifies this as â€œÃ”n tháº» Ä‘áº¿n háº¡nâ€. Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
+- Added the `review` SRS filter. Opening a deck from the Revise popup now loads only cards that satisfy `isSrsReviewDue`; new cards remain available from the normal Lặp lại flow and cannot enter a Revise queue.
+- The SRS title/empty state identifies this as “Ôn thẻ đến hạn”. Verify: SRS tests 6/6 and `pnpm --filter web exec tsc --noEmit` PASS.
 
-## 2026-07-18 â€” MÃ¢y nhá» Ä‘i cÃ¹ng Sunny
+## 2026-07-18 — Mây nhỏ đi cùng Sunny
 
-- Gáº¯n mÃ¢y nhá» â˜ï¸ vÃ o Sunny á»Ÿ header Tá»•ng quan vÃ  mascot gÃ³c pháº£i cá»§a cÃ¡c trang chÃ­nh.
-- Light hiá»ƒn thá»‹ Sunny Ä‘i cÃ¹ng mÃ¢y nhá» â˜ï¸; Mid vÃ  Dark áº©n hoÃ n toÃ n máº·t trá»i, thay báº±ng máº·t trÄƒng ðŸŒ™ nhÆ°ng váº«n giá»¯ mÃ¢y nhá» Ä‘i cÃ¹ng.
-- MÃ¢y/máº·t trÄƒng náº±m cÃ¹ng wrapper chuyá»ƒn Ä‘á»™ng nÃªn luÃ´n theo Sunny khi nhÃºn, dáº¡o chÆ¡i vÃ  trá»‘n tÃ¬m; váº«n tÃ´n trá»ng `prefers-reduced-motion` vÃ  thu nhá» trÃªn mobile.
+- Gắn mây nhỏ ☁️ vào Sunny ở header Tổng quan và mascot góc phải của các trang chính.
+- Light hiển thị Sunny đi cùng mây nhỏ ☁️; Mid và Dark ẩn hoàn toàn mặt trời, thay bằng mặt trăng 🌙 nhưng vẫn giữ mây nhỏ đi cùng.
+- Mây/mặt trăng nằm cùng wrapper chuyển động nên luôn theo Sunny khi nhún, dạo chơi và trốn tìm; vẫn tôn trọng `prefers-reduced-motion` và thu nhỏ trên mobile.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
 
-## 2026-07-18 â€” Bird companion SVG mascot set
+## 2026-07-18 — Bird companion SVG mascot set
 
-- Táº¡o 5 SVG thuáº§n, nháº¹ táº¡i `apps/web/public/mascots/`: idle, happy, sad/encourage, studying/thinking vÃ  flying/loading; má»i bá»™ pháº­n chÃ­nh cÃ³ ID á»•n Ä‘á»‹nh Ä‘á»ƒ animate tá»« React/CSS.
-- Bird dÃ¹ng thÃ¢n mint, cÃ¡nh xanh, bá»¥ng kem, má» coral vÃ  nÃ©t viá»n nÃ¢u-Ä‘en máº£nh; flying cÃ³ wing-flap loop ná»™i bá»™ vÃ  tÃ´n trá»ng `prefers-reduced-motion`.
-- ThÃªm pose rá»™ng `bird-with-sunny.svg` cho welcome/streak vÃ  demo Ä‘á»™c láº­p `apps/web/public/demo/bird-mascot-states.html`; demo hiá»‡n cÃ¡c state cáº¡nh nhau, happy bounce vÃ  flying flap hoáº¡t Ä‘á»™ng.
-- Bird SVG Ä‘Æ°á»£c giá»¯ lÃ m asset/demo tham kháº£o nhÆ°ng Ä‘Ã£ gá»¡ khá»i UI theo yÃªu cáº§u; app dÃ¹ng Sunny + mÃ¢y â˜ï¸ á»Ÿ Light, máº·t trÄƒng ðŸŒ™ + mÃ¢y â˜ï¸ á»Ÿ Mid/Dark.
+- Tạo 5 SVG thuần, nhẹ tại `apps/web/public/mascots/`: idle, happy, sad/encourage, studying/thinking và flying/loading; mọi bộ phận chính có ID ổn định để animate từ React/CSS.
+- Bird dùng thân mint, cánh xanh, bụng kem, mỏ coral và nét viền nâu-đen mảnh; flying có wing-flap loop nội bộ và tôn trọng `prefers-reduced-motion`.
+- Thêm pose rộng `bird-with-sunny.svg` cho welcome/streak và demo độc lập `apps/web/public/demo/bird-mascot-states.html`; demo hiện các state cạnh nhau, happy bounce và flying flap hoạt động.
+- Bird SVG được giữ làm asset/demo tham khảo nhưng đã gỡ khỏi UI theo yêu cầu; app dùng Sunny + mây ☁️ ở Light, mặt trăng 🌙 + mây ☁️ ở Mid/Dark.
 
-## 2026-07-18 â€” Audit local-first cho táº£i 1000 user Ä‘á»“ng thá»i
+## 2026-07-18 — Audit local-first cho tải 1000 user đồng thời
 
-- Audit read-only xÃ¡c nháº­n `syncBidirectional`, `exam_progress` vÃ  `checkin_days` Ä‘ang full-pull, khÃ´ng cursor/pagination; `supabase/config.toml` giá»›i háº¡n `max_rows = 1000`, táº¡o rá»§i ro cáº¯t dá»¯ liá»‡u im láº·ng cho user lá»›n.
-- Push chÃ­nh Ä‘Ã£ batch/chunk; sync cháº¡y khi login, online vÃ  má»—i 5 phÃºt nhÆ°ng chÆ°a cÃ³ jitter/backoff. LWW váº«n dÃ¹ng timestamp tá»« clock client trong khi má»™t sá»‘ báº£ng cÃ³ trigger server `updated_at`, dáº«n tá»›i semantics khÃ´ng nháº¥t quÃ¡n.
-- Index user+updated_at Ä‘Ã£ cÃ³ cho decks/cards/writing/mindmaps/exam_progress; thiáº¿u Ä‘Ã¡ng chÃº Ã½: `srs(user_id, updated_at)`, `content_access_log(ip, created_at)` vÃ  `payment_requests(user_id)`; Dexie thiáº¿u compound `[deckId+dueAt]`, reviewLog mode index vÃ  audio cache quota/LRU metadata.
-- RLS own-row dÃ¹ng `auth.uid()` trá»±c tiáº¿p vÃ  thÆ°á»ng thiáº¿u `to authenticated`; cÃ¡c helper admin/entitlement Ä‘Æ°á»£c gá»i theo row, cáº§n init-plan wrapper `(select ...)`. `speaking_messages` EXISTS cÃ³ PK/index há»— trá»£ nhÆ°ng váº«n cáº§n EXPLAIN trÃªn production data.
-- Runtime browser/Edge dÃ¹ng Supabase HTTP Data API, khÃ´ng má»Ÿ Postgres connection trá»±c tiáº¿p. Chuá»—i tooling hiá»‡n cÃ³ lÃ  Supavisor session port 5432; náº¿u sau nÃ y cÃ³ serverless native Postgres client thÃ¬ dÃ¹ng transaction pooler 6543.
-- ChÆ°a cháº¡y EXPLAIN/load test production vÃ¬ audit khÃ´ng Ä‘Æ°á»£c cáº¥p phÃ©p táº¡o táº£i; cáº§n migration incremental-sync + indexes trÆ°á»›c, sau Ä‘Ã³ k6 báº±ng token riÃªng vÃ  SQL `EXPLAIN (ANALYZE, BUFFERS)` trÃªn dá»¯ liá»‡u Ä‘áº¡i diá»‡n.
-## 2026-07-18 â€” Listening Practice event-driven input state
+- Audit read-only xác nhận `syncBidirectional`, `exam_progress` và `checkin_days` đang full-pull, không cursor/pagination; `supabase/config.toml` giới hạn `max_rows = 1000`, tạo rủi ro cắt dữ liệu im lặng cho user lớn.
+- Push chính đã batch/chunk; sync chạy khi login, online và mỗi 5 phút nhưng chưa có jitter/backoff. LWW vẫn dùng timestamp từ clock client trong khi một số bảng có trigger server `updated_at`, dẫn tới semantics không nhất quán.
+- Index user+updated_at đã có cho decks/cards/writing/mindmaps/exam_progress; thiếu đáng chú ý: `srs(user_id, updated_at)`, `content_access_log(ip, created_at)` và `payment_requests(user_id)`; Dexie thiếu compound `[deckId+dueAt]`, reviewLog mode index và audio cache quota/LRU metadata.
+- RLS own-row dùng `auth.uid()` trực tiếp và thường thiếu `to authenticated`; các helper admin/entitlement được gọi theo row, cần init-plan wrapper `(select ...)`. `speaking_messages` EXISTS có PK/index hỗ trợ nhưng vẫn cần EXPLAIN trên production data.
+- Runtime browser/Edge dùng Supabase HTTP Data API, không mở Postgres connection trực tiếp. Chuỗi tooling hiện có là Supavisor session port 5432; nếu sau này có serverless native Postgres client thì dùng transaction pooler 6543.
+- Chưa chạy EXPLAIN/load test production vì audit không được cấp phép tạo tải; cần migration incremental-sync + indexes trước, sau đó k6 bằng token riêng và SQL `EXPLAIN (ANALYZE, BUFFERS)` trên dữ liệu đại diện.
+## 2026-07-18 — Listening Practice event-driven input state
 
 - Chrome DevTools production baseline for `/`: LCP 544 ms, CLS 0.00, TTFB 35 ms; render-blocking CSS/font insight reported no estimated savings, so no speculative landing-page change was made.
 - Removed the 200 ms DOM polling loop from Listening Practice Boxes/Cloze. `BlankInputMode` now reports whether it contains input directly from its input event, preserving the Check-button behavior while eliminating five background DOM scans per second.
 - Verify: `pnpm --filter web exec tsc --noEmit` PASS.
-## 2026-07-18 â€” Production web release v0.2.7
+## 2026-07-18 — Production web release v0.2.7
 
-- Bumped `apps/web` from v0.2.6 to v0.2.7 and deployed the current frontend snapshot to Vercel production without pushing the still-staging migrations 031â€“034.
+- Bumped `apps/web` from v0.2.6 to v0.2.7 and deployed the current frontend snapshot to Vercel production without pushing the still-staging migrations 031–034.
 - Verify: `pnpm security:check` 9/9 PASS; local production build PASS (2,271 modules) and private media strip PASS; Vercel deployment `dpl_5mNFZgicB1SxPZwmxL3XSRByD1bF` reached READY.
 - Production alias `https://ryanenglishv2.vercel.app` updated to `ryanenglishv2-abwldfjbc-ryanenglish.vercel.app`. Chrome smoke: HTTP 200, landing rendered, zero console warnings/errors.
-## 2026-07-18 â€” Import YouTube URL vÃ o Shadowing v0.2.8
+## 2026-07-18 — Import YouTube URL vào Shadowing v0.2.8
 
-- `/app/shadowing` cÃ³ form dÃ¡n URL YouTube; há»— trá»£ watch, youtu.be, Shorts, embed, live URL vÃ  video ID. Backend tá»± chá»n caption tiáº¿ng Anh thá»§ cÃ´ng trÆ°á»›c, fallback auto-generated, chuáº©n hÃ³a timestamp rá»“i má»Ÿ ngay lesson vá»›i player/tua cÃ¢u/tá»‘c Ä‘á»™/ghi Ã¢m/cháº¥m nÃ³i/dictation/quiz hiá»‡n cÃ³.
-- ThÃªm Edge Function `youtube-captions`: auth + Pro/Lifetime/Admin + suspension check, URL/video validation, 15s timeout, giá»›i háº¡n video 2 giá»/2.000 cue, lá»—i rÃµ cho private/live/no-caption/YouTube upstream. KhÃ´ng dÃ¹ng API key/OAuth á»Ÿ client.
-- Custom lesson cache local tá»‘i Ä‘a 20 video. Video pháº£i public, cho phÃ©p embed vÃ  cÃ³ caption tiáº¿ng Anh; caption cá»§a video báº¥t ká»³ khÃ´ng dÃ¹ng Ä‘Æ°á»£c YouTube Data API chÃ­nh thá»©c vÃ¬ captions list/download yÃªu cáº§u OAuth/quyá»n liÃªn quan video.
+- `/app/shadowing` có form dán URL YouTube; hỗ trợ watch, youtu.be, Shorts, embed, live URL và video ID. Backend tự chọn caption tiếng Anh thủ công trước, fallback auto-generated, chuẩn hóa timestamp rồi mở ngay lesson với player/tua câu/tốc độ/ghi âm/chấm nói/dictation/quiz hiện có.
+- Thêm Edge Function `youtube-captions`: auth + Pro/Lifetime/Admin + suspension check, URL/video validation, 15s timeout, giới hạn video 2 giờ/2.000 cue, lỗi rõ cho private/live/no-caption/YouTube upstream. Không dùng API key/OAuth ở client.
+- Custom lesson cache local tối đa 20 video. Video phải public, cho phép embed và có caption tiếng Anh; caption của video bất kỳ không dùng được YouTube Data API chính thức vì captions list/download yêu cầu OAuth/quyền liên quan video.
 - Verify: URL parser 9/9 PASS; web TypeScript PASS; security 9/9 PASS; production build PASS (2.272 modules). Edge Function deployed to project `ntcagvtkwxwsmlxlumfo`.
 - Production web v0.2.8 deployment `dpl_9dkZRMmbRxWN9Edu7NNmZdHL2tAZ` READY and aliased to `https://ryanenglishv2.vercel.app`. Logged-out smoke confirms protected route redirects to login; authenticated end-to-end paste still needs a signed-in Pro smoke.
 
-## 2026-07-18 â€” Fix YouTube caption fetch bá»‹ cháº·n trÃªn Supabase Edge
+## 2026-07-18 — Fix YouTube caption fetch bị chặn trên Supabase Edge
 
-- TÃ¡i hiá»‡n vá»›i video `_CwYFdjj63s`: URL/parser Ä‘Ãºng vÃ  desktop request ngoÃ i Edge tráº£ HTTP 200, nhÆ°ng production bÃ¡o `VIDEO_UNAVAILABLE` ngay táº¡i request trang watch; nguyÃªn nhÃ¢n lÃ  nhÃ¡nh cÅ© khÃ´ng cÃ³ fallback vÃ  che má»i upstream non-2xx thÃ nh 404 chung.
-- `youtube-captions` nay thá»­ `www.youtube.com/watch` trÆ°á»›c rá»“i fallback sang `m.youtube.com/watch` vá»›i mobile User-Agent. Mobile watch Ä‘Ã£ Ä‘Æ°á»£c xÃ¡c minh tráº£ `ytInitialPlayerResponse` vÃ  `captionTracks` cho chÃ­nh video lá»—i.
-- Khi cáº£ hai nguá»“n tháº¥t báº¡i, function tráº£ `YOUTUBE_BLOCKED` 502 vÃ  log chuá»—i nguá»“n/status (`desktop:403`, `mobile:429`, v.v.) thay vÃ¬ bÃ¡o sai ráº±ng video khÃ´ng tá»“n táº¡i.
+- Tái hiện với video `_CwYFdjj63s`: URL/parser đúng và desktop request ngoài Edge trả HTTP 200, nhưng production báo `VIDEO_UNAVAILABLE` ngay tại request trang watch; nguyên nhân là nhánh cũ không có fallback và che mọi upstream non-2xx thành 404 chung.
+- `youtube-captions` nay thử `www.youtube.com/watch` trước rồi fallback sang `m.youtube.com/watch` với mobile User-Agent. Mobile watch đã được xác minh trả `ytInitialPlayerResponse` và `captionTracks` cho chính video lỗi.
+- Khi cả hai nguồn thất bại, function trả `YOUTUBE_BLOCKED` 502 và log chuỗi nguồn/status (`desktop:403`, `mobile:429`, v.v.) thay vì báo sai rằng video không tồn tại.
 - Regression test `youtubeCaptionsFallback.test.ts` 2/2 PASS; web TypeScript PASS; security release check 9/9 PASS; diff check PASS.
-- Edge Function `youtube-captions` Ä‘Ã£ deploy production lÃªn project `ntcagvtkwxwsmlxlumfo`. Cáº§n ngÆ°á»i dÃ¹ng Pro dÃ¡n láº¡i Ä‘Ãºng URL Ä‘á»ƒ smoke authenticated end-to-end; khÃ´ng cáº§n redeploy frontend.
+- Edge Function `youtube-captions` đã deploy production lên project `ntcagvtkwxwsmlxlumfo`. Cần người dùng Pro dán lại đúng URL để smoke authenticated end-to-end; không cần redeploy frontend.
 
-### Follow-up â€” Supabase vÃ  Vercel Ä‘á»u bá»‹ bot checkpoint
+### Follow-up — Supabase và Vercel đều bị bot checkpoint
 
-- Authenticated production retry xÃ¡c nháº­n cáº£ desktop/mobile YouTube watch Ä‘á»u bá»‹ cháº·n tá»« Supabase, tráº£ `YOUTUBE_BLOCKED`.
-- ThÃªm Vercel Function ná»™i bá»™ `/api/youtube-captions-relay`, chá»‰ nháº­n video ID há»£p lá»‡, báº£o vá»‡ báº±ng `YOUTUBE_CAPTIONS_RELAY_SECRET`, giá»›i háº¡n caption 5 MB vÃ  khÃ´ng nháº­n URL tÃ¹y Ã½. Relay tests + fallback tests 4/4 PASS; TypeScript PASS.
-- Secret relay yáº¿u do PowerShell API khÃ´ng tÆ°Æ¡ng thÃ­ch á»Ÿ láº§n deploy Ä‘áº§u Ä‘Ã£ Ä‘Æ°á»£c xoay ngay báº±ng `RandomNumberGenerator.Create().GetBytes`; Vercel production deployment má»›i `dpl_BymHVAFqGL8iTe4NUMDSJ7nUZ9RJ` READY vÃ  Supabase secret/function Ä‘Ã£ redeploy.
-- Blocker hiá»‡n táº¡i: Vercel Security Checkpoint tráº£ 429 trÆ°á»›c khi request tá»›i Function; `vercel curl` cÅ©ng khÃ´ng tá»± bypass vÃ¬ project chÆ°a táº¡o Protection Bypass for Automation. KhÃ´ng táº¯t firewall.
-- Code Edge Ä‘Ã£ chuáº©n bá»‹ header `x-vercel-protection-bypass` tá»« secret `VERCEL_AUTOMATION_BYPASS_SECRET`. User cáº§n vÃ o Vercel Project â†’ Settings â†’ Deployment Protection â†’ Protection Bypass for Automation, táº¡o token; Ä‘áº·t cÃ¹ng giÃ¡ trá»‹ vÃ o Supabase Edge Function secret `VERCEL_AUTOMATION_BYPASS_SECRET`, rá»“i retry/deploy-smoke.
-- User Ä‘Ã£ táº¡o automation bypass vÃ  Supabase secret, sau Ä‘Ã³ rotate vÃ¬ token cÅ© lá»™ trong áº£nh. Usage screenshot xÃ¡c nháº­n quota khÃ´ng vÆ°á»£t (409 MB/100 GB, 28K/1M Edge Requests, CPU 4s/1h); nháº­n Ä‘á»‹nh quota lÃ  blocker Ä‘Ã£ Ä‘Æ°á»£c rÃºt láº¡i.
-- Redeploy production sau khi rotate token Ä‘á»ƒ deployment nháº­n bypass má»›i: `dpl_53GcojXeKPY8LfXgwSBC2K3VnbrW` READY, alias chÃ­nh Ä‘Ã£ cáº­p nháº­t. `vercel curl` cá»§a CLI 54 váº«n bá»‹ Security Checkpoint vÃ  khÃ´ng cÃ³ Function log, nÃªn cáº§n retry authenticated tá»« app Ä‘á»ƒ xÃ¡c nháº­n Edge dÃ¹ng secret Supabase trá»±c tiáº¿p; CLI automation lookup khÃ´ng pháº£i báº±ng chá»©ng secret Supabase sai.
-## 2026-07-18 â€” Máº·t trá»i TID cho Exam Hub
+- Authenticated production retry xác nhận cả desktop/mobile YouTube watch đều bị chặn từ Supabase, trả `YOUTUBE_BLOCKED`.
+- Thêm Vercel Function nội bộ `/api/youtube-captions-relay`, chỉ nhận video ID hợp lệ, bảo vệ bằng `YOUTUBE_CAPTIONS_RELAY_SECRET`, giới hạn caption 5 MB và không nhận URL tùy ý. Relay tests + fallback tests 4/4 PASS; TypeScript PASS.
+- Secret relay yếu do PowerShell API không tương thích ở lần deploy đầu đã được xoay ngay bằng `RandomNumberGenerator.Create().GetBytes`; Vercel production deployment mới `dpl_BymHVAFqGL8iTe4NUMDSJ7nUZ9RJ` READY và Supabase secret/function đã redeploy.
+- Blocker hiện tại: Vercel Security Checkpoint trả 429 trước khi request tới Function; `vercel curl` cũng không tự bypass vì project chưa tạo Protection Bypass for Automation. Không tắt firewall.
+- Code Edge đã chuẩn bị header `x-vercel-protection-bypass` từ secret `VERCEL_AUTOMATION_BYPASS_SECRET`. User cần vào Vercel Project → Settings → Deployment Protection → Protection Bypass for Automation, tạo token; đặt cùng giá trị vào Supabase Edge Function secret `VERCEL_AUTOMATION_BYPASS_SECRET`, rồi retry/deploy-smoke.
+- User đã tạo automation bypass và Supabase secret, sau đó rotate vì token cũ lộ trong ảnh. Usage screenshot xác nhận quota không vượt (409 MB/100 GB, 28K/1M Edge Requests, CPU 4s/1h); nhận định quota là blocker đã được rút lại.
+- Redeploy production sau khi rotate token để deployment nhận bypass mới: `dpl_53GcojXeKPY8LfXgwSBC2K3VnbrW` READY, alias chính đã cập nhật. `vercel curl` của CLI 54 vẫn bị Security Checkpoint và không có Function log, nên cần retry authenticated từ app để xác nhận Edge dùng secret Supabase trực tiếp; CLI automation lookup không phải bằng chứng secret Supabase sai.
+## 2026-07-18 — Mặt trời TID cho Exam Hub
 
-- Thay minh há»a lá»›n trong hero `/app/exam` báº±ng Ä‘Ãºng hai lá»›p SVG thÃ¢n/khuÃ´n máº·t Ä‘Æ°á»£c trÃ­ch tá»« `https://theieltsdictionary.com/about-tid`; mascot dáº¡o chÆ¡i toÃ n app khÃ´ng Ä‘á»•i.
-- Giá»¯ interaction gá»‘c: thÃ¢n máº·t trá»i quay 9 Ä‘á»™ má»—i 0,5 giÃ¢y, khuÃ´n máº·t Ä‘á»©ng yÃªn; responsive vÃ  tÃ´n trá»ng reduced-motion.
-- Hai máº¯t Ä‘Æ°á»£c tÃ¡ch khá»i SVG máº·t, giá»¯ Ä‘Ãºng tá»a Ä‘á»™/hÃ¬nh dÃ¡ng gá»‘c vÃ  liáº¿c trÃ¡iâ€“pháº£i theo nhá»‹p 4,8 giÃ¢y; reduced-motion giá»¯ máº¯t Ä‘á»©ng yÃªn.
-- Thu máº·t trá»i desktop tá»« 29rem xuá»‘ng 27rem vÃ  dá»‹ch sang pháº£i 2,5rem Ä‘á»ƒ khÃ´ng overlap tiÃªu Ä‘á» Luyá»‡n thi; mobile giá»¯ trong viewport.
-- Asset public: `apps/web/public/mascots/tid/sun-body.svg` vÃ  `sun-face.svg`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
-## 2026-07-18 â€” Fix mÃ n hÃ¬nh tráº¯ng sau submit Listening import
+- Thay minh họa lớn trong hero `/app/exam` bằng đúng hai lớp SVG thân/khuôn mặt được trích từ `https://theieltsdictionary.com/about-tid`; mascot dạo chơi toàn app không đổi.
+- Giữ interaction gốc: thân mặt trời quay 9 độ mỗi 0,5 giây, khuôn mặt đứng yên; responsive và tôn trọng reduced-motion.
+- Hai mắt được tách khỏi SVG mặt, giữ đúng tọa độ/hình dáng gốc và liếc trái–phải theo nhịp 4,8 giây; reduced-motion giữ mắt đứng yên.
+- Thu mặt trời desktop từ 29rem xuống 27rem và dịch sang phải 2,5rem để không overlap tiêu đề Luyện thi; mobile giữ trong viewport.
+- Asset public: `apps/web/public/mascots/tid/sun-body.svg` và `sun-face.svg`. Verify: `pnpm --filter web exec tsc --noEmit` PASS; `git diff --check` PASS.
+## 2026-07-18 — Fix màn hình trắng sau submit Listening import
 
-- Cháº©n Ä‘oÃ¡n route `listening-import-ket-a2-practice-12`: mÃ n káº¿t quáº£ gá»i `.toUpperCase()` trá»±c tiáº¿p trÃªn option ID cá»§a dá»¯ liá»‡u import, nÃªn option thiáº¿u ID/ID khÃ´ng pháº£i chuá»—i lÃ m React crash vÃ  vÃ¹ng Exam tráº¯ng.
-- Chuáº©n hÃ³a ID vá» string; náº¿u thiáº¿u thÃ¬ fallback A/B/C theo index. Luá»“ng format Ä‘Ã¡p Ã¡n nhiá»u lá»±a chá»n cÅ©ng khÃ´ng cÃ²n gá»i `.toUpperCase()` trÃªn giÃ¡ trá»‹ khÃ´ng chuáº©n.
-- Regression test tÃ¡i hiá»‡n lá»—i trÆ°á»›c fix vÃ  bao phá»§ cáº£ ID thiáº¿u láº«n ID dáº¡ng sá»‘.
-- Hardening tiáº¿p sau khi Practice 12 váº«n tráº¯ng: loáº¡i bá» `.toUpperCase()` trá»±c tiáº¿p cÃ²n sÃ³t á»Ÿ AI source vÃ  chuáº©n hÃ³a `question.answer`/`userAnswer`; cÃ¢u thiáº¿u answer key giá» tráº£ sai an toÃ n thay vÃ¬ gá»i `.trim()` trÃªn `undefined` lÃ m crash toÃ n bÃ¡o cÃ¡o.
-- Root cause Ä‘iá»ƒm 0/25 vÃ  review khÃ´ng cÃ³ Ä‘Ã¡p Ã¡n: localhost coi `catalog/exams/**/*.answers.json` lÃ  Vite public asset, trong khi vault cá»§a Ä‘á» restored/published chá»‰ tá»“n táº¡i á»Ÿ private Supabase Storage. `mustUseSignedMedia` giá» luÃ´n kÃ½ answer vault trÃªn cáº£ dev vÃ  production; regression security test bao phá»§ Listening/Reading.
-- Harden toÃ n bá»™ Luyá»‡n thi: Reading result dÃ¹ng formatter option an toÃ n nhÆ° Listening; normalize answer/option/headings chá»‹u Ä‘Æ°á»£c dá»¯ liá»‡u import thiáº¿u/sai kiá»ƒu. Cáº£ Reading vÃ  Listening khÃ´ng cÃ²n cháº¥m 0 giáº£ khi vault lá»—iâ€”hiá»‡n mÃ n bÃ¡o táº£i Ä‘Ã¡p Ã¡n tháº¥t báº¡i vÃ  nÃºt thá»­ láº¡i thay vÃ¬ render report/review thiáº¿u answer key.
-- Fix tiáº¿p â€œXem cÃ¹ng Ä‘á» bÃ iâ€ hiá»‡n `ÄÃ¡p Ã¡n Ä‘Ãºng: â€”`: mÃ n bÃ¡o cÃ¡o Ä‘Ã£ dÃ¹ng exam Ä‘Æ°á»£c merge answer vault nhÆ°ng khi chuyá»ƒn vá» paper, component cha váº«n giá»¯ DTO cÅ© Ä‘Ã£ strip Ä‘Ã¡p Ã¡n. `promoteHydratedExamForReview` nay Ä‘á»“ng bá»™ snapshot Ä‘Ã£ hydrate vá» DTO mÃ  paper Ä‘ang render trÆ°á»›c khi báº­t review mode, Ã¡p dá»¥ng chung cho Listening vÃ  Reading. Regression test 1/1; toÃ n bá»™ test liÃªn quan 8/8, TypeScript vÃ  diff check PASS.
-### Session 2026-07-19 â€” Fix `srs incremental pull: column srs.id does not exist`
+- Chẩn đoán route `listening-import-ket-a2-practice-12`: màn kết quả gọi `.toUpperCase()` trực tiếp trên option ID của dữ liệu import, nên option thiếu ID/ID không phải chuỗi làm React crash và vùng Exam trắng.
+- Chuẩn hóa ID về string; nếu thiếu thì fallback A/B/C theo index. Luồng format đáp án nhiều lựa chọn cũng không còn gọi `.toUpperCase()` trên giá trị không chuẩn.
+- Regression test tái hiện lỗi trước fix và bao phủ cả ID thiếu lẫn ID dạng số.
+- Hardening tiếp sau khi Practice 12 vẫn trắng: loại bỏ `.toUpperCase()` trực tiếp còn sót ở AI source và chuẩn hóa `question.answer`/`userAnswer`; câu thiếu answer key giờ trả sai an toàn thay vì gọi `.trim()` trên `undefined` làm crash toàn báo cáo.
+- Root cause điểm 0/25 và review không có đáp án: localhost coi `catalog/exams/**/*.answers.json` là Vite public asset, trong khi vault của đề restored/published chỉ tồn tại ở private Supabase Storage. `mustUseSignedMedia` giờ luôn ký answer vault trên cả dev và production; regression security test bao phủ Listening/Reading.
+- Harden toàn bộ Luyện thi: Reading result dùng formatter option an toàn như Listening; normalize answer/option/headings chịu được dữ liệu import thiếu/sai kiểu. Cả Reading và Listening không còn chấm 0 giả khi vault lỗi—hiện màn báo tải đáp án thất bại và nút thử lại thay vì render report/review thiếu answer key.
+- Fix tiếp “Xem cùng đề bài” hiện `Đáp án đúng: —`: màn báo cáo đã dùng exam được merge answer vault nhưng khi chuyển về paper, component cha vẫn giữ DTO cũ đã strip đáp án. `promoteHydratedExamForReview` nay đồng bộ snapshot đã hydrate về DTO mà paper đang render trước khi bật review mode, áp dụng chung cho Listening và Reading. Regression test 1/1; toàn bộ test liên quan 8/8, TypeScript và diff check PASS.
+### Session 2026-07-19 — Fix `srs incremental pull: column srs.id does not exist`
 
-- Root cause: helper phÃ¢n trang incremental dÃ¹ng `id` lÃ m tie-breaker cho má»i báº£ng, nhÆ°ng khÃ³a á»•n Ä‘á»‹nh cá»§a báº£ng `srs` lÃ  `card_id` vÃ  báº£ng nÃ y khÃ´ng cÃ³ cá»™t `id`.
-- Query pull nay chá»n `card_id` riÃªng cho `srs`, giá»¯ `id` cho decks/cards/writing_docs/mindmaps; regression test khÃ³a Ä‘Ãºng mapping vÃ  test scalability Ä‘Æ°á»£c cáº­p nháº­t theo query Ä‘á»™ng.
-- Feedback loop trÆ°á»›c fix RED Ä‘Ãºng `id` thay vÃ¬ `card_id`; sau fix scoped tests 6/6, TypeScript vÃ  `git diff --check` PASS.
+- Root cause: helper phân trang incremental dùng `id` làm tie-breaker cho mọi bảng, nhưng khóa ổn định của bảng `srs` là `card_id` và bảng này không có cột `id`.
+- Query pull nay chọn `card_id` riêng cho `srs`, giữ `id` cho decks/cards/writing_docs/mindmaps; regression test khóa đúng mapping và test scalability được cập nhật theo query động.
+- Feedback loop trước fix RED đúng `id` thay vì `card_id`; sau fix scoped tests 6/6, TypeScript và `git diff --check` PASS.
 
-### Session 2026-07-19 â€” YouTube caption relay hardening (datacenter IP blocker)
+### Session 2026-07-19 — YouTube caption relay hardening (datacenter IP blocker)
 
-- TÃ¡ch relay Vercel thÃ nh project riÃªng `youtube-captions-relay.vercel.app`, báº£o vá»‡ báº±ng shared secret vÃ  bá»• sung Android InnerTube Player API sau desktop/mobile watch page. Unit/regression tests 5/5 vÃ  TypeScript PASS.
-- Smoke production xÃ¡c nháº­n relay riÃªng khÃ´ng cÃ²n bá»‹ Vercel Security Checkpoint, nhÆ°ng egress Vercel váº«n bá»‹ YouTube cháº·n: endpoint tráº£ 502 dÃ¹ Android InnerTube hoáº¡t Ä‘á»™ng tá»« mÃ¡y local.
-- Táº¡o vÃ  deploy Cloudflare Worker giá»›i háº¡n Ä‘Ãºng POST + video ID 11 kÃ½ tá»±, secret header, timeout 15 giÃ¢y vÃ  caption tá»‘i Ä‘a 5 MB táº¡i `services/youtube-captions-worker`; Wrangler 4.112.0 types + deploy dry-run PASS. Endpoint: `ryan-youtube-captions-relay.ryan-license-worker.workers.dev`.
-- Relay secret Ä‘Ã£ xoay báº±ng CSPRNG, Ä‘áº·t vÃ o Worker qua stdin vÃ  Ä‘á»“ng bá»™ cÃ¹ng URL vÃ o Supabase; Edge Function `youtube-captions` Ä‘Ã£ redeploy.
-- Smoke production váº«n bá»‹ YouTube cháº·n tá»« Cloudflare: `desktop:429`, `mobile:429`, `innertube:LOGIN_REQUIRED`. Káº¿t luáº­n Ä‘Ã¢y lÃ  cháº·n IP datacenter, khÃ´ng pháº£i Vercel checkpoint hay lá»—i parser. Cáº§n residential proxy hoáº·c transcript API cÃ³ key Ä‘á»ƒ hoÃ n táº¥t; app hiá»‡n váº«n cÃ³ thá»ƒ bÃ¡o YouTube cháº·n.
+- Tách relay Vercel thành project riêng `youtube-captions-relay.vercel.app`, bảo vệ bằng shared secret và bổ sung Android InnerTube Player API sau desktop/mobile watch page. Unit/regression tests 5/5 và TypeScript PASS.
+- Smoke production xác nhận relay riêng không còn bị Vercel Security Checkpoint, nhưng egress Vercel vẫn bị YouTube chặn: endpoint trả 502 dù Android InnerTube hoạt động từ máy local.
+- Tạo và deploy Cloudflare Worker giới hạn đúng POST + video ID 11 ký tự, secret header, timeout 15 giây và caption tối đa 5 MB tại `services/youtube-captions-worker`; Wrangler 4.112.0 types + deploy dry-run PASS. Endpoint: `ryan-youtube-captions-relay.ryan-license-worker.workers.dev`.
+- Relay secret đã xoay bằng CSPRNG, đặt vào Worker qua stdin và đồng bộ cùng URL vào Supabase; Edge Function `youtube-captions` đã redeploy.
+- Smoke production vẫn bị YouTube chặn từ Cloudflare: `desktop:429`, `mobile:429`, `innertube:LOGIN_REQUIRED`. Kết luận đây là chặn IP datacenter, không phải Vercel checkpoint hay lỗi parser. Cần residential proxy hoặc transcript API có key để hoàn tất; app hiện vẫn có thể báo YouTube chặn.
 - Verify: YouTube fallback/relay tests 5/5 PASS; web TypeScript PASS; `git diff --check` PASS.
 
-### Session 2026-07-19 â€” Gá»¡ nháº­p YouTube khá»i Shadowing
+### Session 2026-07-19 — Gỡ nhập YouTube khỏi Shadowing
 
-- Gá»¡ form â€œLuyá»‡n vá»›i video YouTube cá»§a báº¡nâ€, toÃ n bá»™ state/import/cache client vÃ  fallback custom lesson; thÆ° viá»‡n Shadowing dá»±ng sáºµn cÃ¹ng trÃ¬nh phÃ¡t cá»§a cÃ¡c bÃ i cÃ³ sáºµn váº«n giá»¯ nguyÃªn.
-- XoÃ¡ source vÃ  tests cá»§a Supabase `youtube-captions`, Vercel relay vÃ  Cloudflare Worker. Production Edge Function, Vercel project, Cloudflare Worker cÃ¹ng ba Supabase relay secrets Ä‘Ã£ Ä‘Æ°á»£c xoÃ¡.
-- Bump web lÃªn v0.2.9. Verify: khÃ´ng cÃ²n reference tá»›i import/relay YouTube trong app/backend source; web TypeScript PASS.
-## 2026-07-21 â€” Auto-sync Listening transcript vÃ  cÃ¢u há»i theo audio
+- Gỡ form “Luyện với video YouTube của bạn”, toàn bộ state/import/cache client và fallback custom lesson; thư viện Shadowing dựng sẵn cùng trình phát của các bài có sẵn vẫn giữ nguyên.
+- Xoá source và tests của Supabase `youtube-captions`, Vercel relay và Cloudflare Worker. Production Edge Function, Vercel project, Cloudflare Worker cùng ba Supabase relay secrets đã được xoá.
+- Bump web lên v0.2.9. Verify: không còn reference tới import/relay YouTube trong app/backend source; web TypeScript PASS.
+## 2026-07-21 — Auto-sync Listening transcript và câu hỏi theo audio
 
-- `useExamQuestionAudio` nay expose `audioCurrentTime` vÃ  `audioDuration`, cáº­p nháº­t cÃ¹ng vÃ²ng `requestAnimationFrame` Ä‘ang Ä‘iá»u khiá»ƒn progress bar.
-- Whisper local giá»¯ backward-compatible plain text vÃ  lÆ°u thÃªm segment timing Ä‘Ã£ validate táº¡i `exam-listening-whisper-segments:{examId}:{partNumber}`. Transcript panel render tá»«ng segment, highlight/auto-scroll segment Ä‘ang phÃ¡t, bá» highlight khi pause vÃ  quy Ä‘á»•i Ä‘Ãºng thá»i gian tÆ°Æ¡ng Ä‘á»‘i khi Part dÃ¹ng má»™t MP3 chung.
-- ThÃªm `useAudioSync`: practice mode tá»± chá»n/scroll cÃ¢u theo Whisper segment hoáº·c tá»· lá»‡ thá»i lÆ°á»£ng; exam mode, submitted vÃ  review mode khÃ´ng auto-advance. Má»i pointer interaction trong runner táº¡m khÃ³a auto-sync 3 giÃ¢y Ä‘á»ƒ thao tÃ¡c thá»§ cÃ´ng tháº¯ng.
-- TÃ­ch há»£p KET, PET, FCE/CAE/CPE vÃ  IELTS runner. Mapping thuáº§n xá»­ lÃ½ cáº£ audio riÃªng tá»«ng Part vÃ  shared-audio `startPct`/`endPct`.
+- `useExamQuestionAudio` nay expose `audioCurrentTime` và `audioDuration`, cập nhật cùng vòng `requestAnimationFrame` đang điều khiển progress bar.
+- Whisper local giữ backward-compatible plain text và lưu thêm segment timing đã validate tại `exam-listening-whisper-segments:{examId}:{partNumber}`. Transcript panel render từng segment, highlight/auto-scroll segment đang phát, bỏ highlight khi pause và quy đổi đúng thời gian tương đối khi Part dùng một MP3 chung.
+- Thêm `useAudioSync`: practice mode tự chọn/scroll câu theo Whisper segment hoặc tỷ lệ thời lượng; exam mode, submitted và review mode không auto-advance. Mọi pointer interaction trong runner tạm khóa auto-sync 3 giây để thao tác thủ công thắng.
+- Tích hợp KET, PET, FCE/CAE/CPE và IELTS runner. Mapping thuần xử lý cả audio riêng từng Part và shared-audio `startPct`/`endPct`.
 - Verify: scoped `useAudioSync` tests 4/4 PASS; `pnpm --filter web exec tsc --noEmit` PASS; `pnpm --filter web build` PASS (2,277 modules, private media strip PASS); `git diff --check` PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a smoke tÆ°Æ¡ng tÃ¡c cÃ³ audio + Whisper tháº­t trong browser Ä‘Äƒng nháº­p; cáº§n kiá»ƒm tra highlight, seek, Ä‘á»•i Part vÃ  manual override trÃªn dá»¯ liá»‡u thá»±c.
-- Next session start prompt: smoke Listening practice cÃ³ Whisper segments trÃªn KET/PET/FCE/IELTS; xÃ¡c nháº­n segment highlight, question auto-scroll, seek vÃ  khÃ³a manual 3 giÃ¢y.
-### Follow-up 2026-07-21 â€” Hiá»‡n nÃºt táº¡o segment timing cho transcript cÅ©
+- Lỗi còn tồn tại: chưa smoke tương tác có audio + Whisper thật trong browser đăng nhập; cần kiểm tra highlight, seek, đổi Part và manual override trên dữ liệu thực.
+- Next session start prompt: smoke Listening practice có Whisper segments trên KET/PET/FCE/IELTS; xác nhận segment highlight, question auto-scroll, seek và khóa manual 3 giây.
+### Follow-up 2026-07-21 — Hiện nút tạo segment timing cho transcript cũ
 
-- Root cause transcript má»Ÿ ra nhÆ°ng khÃ´ng highlight: auto-question cÃ³ fallback theo tá»· lá»‡ duration nÃªn váº«n cháº¡y, cÃ²n transcript highlight báº¯t buá»™c cÃ³ Whisper segments. Transcript plain/catalog hoáº·c Whisper táº¡o trÆ°á»›c báº£n vÃ¡ chá»‰ cÃ³ text; Ä‘á»“ng thá»i UI cÅ© áº©n nÃºt Whisper khi `ttsText` Ä‘Ã£ Ä‘á»§, khiáº¿n khÃ´ng thá»ƒ táº¡o timestamps.
-- Panel nay hiá»‡n `Táº¡o Ä‘á»“ng bá»™ transcript theo audio` báº¥t cá»© khi nÃ o Part cÃ³ audio URL nhÆ°ng chÆ°a cÃ³ segments, ká»ƒ cáº£ transcript text Ä‘Ã£ tá»“n táº¡i. Cháº¡y má»™t láº§n sáº½ ghi segment timing vÃ  báº­t highlight/auto-scroll.
-- Regression test khÃ³a tráº¡ng thÃ¡i plain transcript + zero segments. Verify: scoped tests 5/5, TypeScript vÃ  `git diff --check` PASS.
-## 2026-07-21 â€” Fix login bá»‹ cáº¯t trÃªn mÃ n hÃ¬nh MacBook tháº¥p
+- Root cause transcript mở ra nhưng không highlight: auto-question có fallback theo tỷ lệ duration nên vẫn chạy, còn transcript highlight bắt buộc có Whisper segments. Transcript plain/catalog hoặc Whisper tạo trước bản vá chỉ có text; đồng thời UI cũ ẩn nút Whisper khi `ttsText` đã đủ, khiến không thể tạo timestamps.
+- Panel nay hiện `Tạo đồng bộ transcript theo audio` bất cứ khi nào Part có audio URL nhưng chưa có segments, kể cả transcript text đã tồn tại. Chạy một lần sẽ ghi segment timing và bật highlight/auto-scroll.
+- Regression test khóa trạng thái plain transcript + zero segments. Verify: scoped tests 5/5, TypeScript và `git diff --check` PASS.
+## 2026-07-21 — Fix login bị cắt trên màn hình MacBook thấp
 
-- Repro Chrome táº¡i `1024x640`: login card cao 697.5px nhÆ°ng `.login-page` fixed-height 640px váº«n `align-items: center`, Ä‘áº©y card lÃªn `y=-28.75px`; container khÃ´ng táº¡o vÃ¹ng scroll há»¯u dá»¥ng nÃªn Ä‘áº§u/cuá»‘i form bá»‹ cáº¯t.
-- Breakpoint `max-height: 750px` nay dÃ¹ng `align-items: flex-start`. Card báº¯t Ä‘áº§u dÆ°á»›i padding á»Ÿ `y=12px`, login page cÃ³ vÃ¹ng cuá»™n 82px táº¡i 1024x640; 1280x720 giá»¯ card Ä‘áº§y Ä‘á»§ vÃ  chá»‰ cÃ³ 2px overflow.
-- Verify trá»±c tiáº¿p Chrome DevTools táº¡i 1024x640 vÃ  1280x720; cuá»™n Ä‘Æ°á»£c tá»›i footer. TypeScript vÃ  `git diff --check` PASS.
-- Next session start prompt: náº¿u cáº§n, smoke thÃªm tab ÄÄƒng kÃ½ táº¡i viewport tháº¥p vÃ¬ consent copy cÃ³ thá»ƒ lÃ m card cao hÆ¡n login.
-## 2026-07-21 â€” Publish Whisper segment timestamps lÃªn cloud
+- Repro Chrome tại `1024x640`: login card cao 697.5px nhưng `.login-page` fixed-height 640px vẫn `align-items: center`, đẩy card lên `y=-28.75px`; container không tạo vùng scroll hữu dụng nên đầu/cuối form bị cắt.
+- Breakpoint `max-height: 750px` nay dùng `align-items: flex-start`. Card bắt đầu dưới padding ở `y=12px`, login page có vùng cuộn 82px tại 1024x640; 1280x720 giữ card đầy đủ và chỉ có 2px overflow.
+- Verify trực tiếp Chrome DevTools tại 1024x640 và 1280x720; cuộn được tới footer. TypeScript và `git diff --check` PASS.
+- Next session start prompt: nếu cần, smoke thêm tab Đăng ký tại viewport thấp vì consent copy có thể làm card cao hơn login.
+## 2026-07-21 — Publish Whisper segment timestamps lên cloud
 
-- `ListeningPart` cÃ³ field `transcriptSegments`; dá»¯ liá»‡u náº±m trá»±c tiáº¿p trong JSON `listening_exam_published.parts`, khÃ´ng cáº§n migration.
-- Pipeline publish hydrate cáº£ plain transcript vÃ  segment timing tá»« localStorage trÆ°á»›c khi strip/push. Segment cloud Ä‘Ã£ cÃ³ Ä‘Æ°á»£c Æ°u tiÃªn, khÃ´ng bá»‹ timing local cÅ© ghi Ä‘Ã¨.
-- Transcript panel vÃ  `useAudioSync` Æ°u tiÃªn `part.transcriptSegments` tá»« cloud, chá»‰ fallback localStorage cho Ä‘á» local/Ä‘á» cÅ©. VÃ¬ váº­y Vercel khÃ´ng cáº§n cháº¡y Whisper khi user há»c.
-- Äá» Ä‘Ã£ publish trÆ°á»›c Ä‘Ã¢y cáº§n Admin má»Ÿ tá»«ng Part, cháº¡y `Táº¡o Ä‘á»“ng bá»™ transcript theo audio`, rá»“i publish/re-publish Ä‘á» Ä‘á»ƒ timestamps lÃªn cloud.
+- `ListeningPart` có field `transcriptSegments`; dữ liệu nằm trực tiếp trong JSON `listening_exam_published.parts`, không cần migration.
+- Pipeline publish hydrate cả plain transcript và segment timing từ localStorage trước khi strip/push. Segment cloud đã có được ưu tiên, không bị timing local cũ ghi đè.
+- Transcript panel và `useAudioSync` ưu tiên `part.transcriptSegments` từ cloud, chỉ fallback localStorage cho đề local/đề cũ. Vì vậy Vercel không cần chạy Whisper khi user học.
+- Đề đã publish trước đây cần Admin mở từng Part, chạy `Tạo đồng bộ transcript theo audio`, rồi publish/re-publish đề để timestamps lên cloud.
 - Verify: publish/runtime regression tests 8/8 PASS; TypeScript PASS; production build PASS (2,278 modules, strip private media PASS); `git diff --check` PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: chÆ°a re-publish dá»¯ liá»‡u production, nÃªn cÃ¡c Ä‘á» cloud hiá»‡n táº¡i chÆ°a tá»± cÃ³ segments cho tá»›i khi cháº¡y quy trÃ¬nh generation + publish.
-- Next session start prompt: chá»n má»™t Listening exam, táº¡o timing cho má»i Part, re-publish, rá»“i smoke trÃªn domain production/khÃ¡c origin Ä‘á»ƒ xÃ¡c nháº­n khÃ´ng gá»i `/api/stt` nhÆ°ng highlight/scroll váº«n cháº¡y.
+- Lỗi còn tồn tại: chưa re-publish dữ liệu production, nên các đề cloud hiện tại chưa tự có segments cho tới khi chạy quy trình generation + publish.
+- Next session start prompt: chọn một Listening exam, tạo timing cho mọi Part, re-publish, rồi smoke trên domain production/khác origin để xác nhận không gọi `/api/stt` nhưng highlight/scroll vẫn chạy.
 
-## 2026-07-21 â€” Lá»‡nh batch táº¡o segment timestamps cho 54 Ä‘á» KET
+## 2026-07-21 — Lệnh batch tạo segment timestamps cho 54 đề KET
 
-- ThÃªm lá»‡nh root `pnpm ket:segments -- --yes` Ä‘á»ƒ Claude cháº¡y má»™t láº§n cho toÃ n bá»™ KET A2 Listening Ä‘Ã£ publish. Script táº£i audio private tá»« `exam-media`, giá»¯ má»™t tiáº¿n trÃ¬nh `faster-whisper`/model duy nháº¥t, ghi `transcript` + `transcriptSegments` vÃ o `listening_exam_published.parts`, bá» qua Part Ä‘Ã£ cÃ³ timing vÃ  tiáº¿p tá»¥c bÃ¡o lá»—i theo tá»«ng Part.
-- Lá»‡nh tá»± Ä‘á»c `.env.deploy`, láº¥y service role trá»±c tiáº¿p hoáº·c qua `SUPABASE_ACCESS_TOKEN`, Ä‘á»“ng thá»i tá»± tÃ¬m venv Whisper cÃ³ sáºµn táº¡i `C:\Users\lindv\whisper\.venv\Scripts\python.exe`. CÃ³ cÃ¡c tÃ¹y chá»n `--list-only`, `--force`, `--limit`, `--only`, `--model`, `--python`; má»i thao tÃ¡c ghi báº¯t buá»™c cÃ³ `--yes`.
-- Read-only production check ban Ä‘áº§u xÃ¡c nháº­n Ä‘Ãºng 54 KET exams, má»—i Ä‘á» 5 Parts, tá»•ng 270 Parts vÃ  0/270 Parts cÃ³ timestamps.
-- User Ä‘Ã£ cháº¡y batch ghi tháº­t thÃ nh cÃ´ng: `Done: 54/54 exams updated, 270 Parts timed, 0 Parts failed.`
-- Caveat: 10 Ä‘á» Cam/Book cÅ© cÃ³ thá»ƒ dÃ¹ng má»™t file audio chung cho cáº£ 5 Parts. Batch tÃ¡i sá»­ dá»¥ng transcript/timestamps tuyá»‡t Ä‘á»‘i cá»§a file chung; highlight theo audio hoáº¡t Ä‘á»™ng, nhÆ°ng panel cÃ³ thá»ƒ hiá»‡n transcript toÃ n bÃ i vÃ  mapping cÃ¢u há»i chá»‰ gáº§n Ä‘Ãºng náº¿u Part khÃ´ng cÃ³ má»‘c pháº§n trÄƒm thá»i gian.
-- Verify: CLI help PASS; Python compile PASS; venv `faster-whisper` 1.2.1 cÃ³ sáºµn; web TypeScript PASS; `git diff --check` PASS; production `--list-only` PASS.
-- Lá»—i cÃ²n tá»“n táº¡i: cáº§n smoke production Ã­t nháº¥t má»™t Ä‘á» per-Part audio cÃ¹ng má»™t Ä‘á» shared-audio; xÃ¡c nháº­n transcript highlight/auto-scroll, seek, pause vÃ  khÃ³a thao tÃ¡c thá»§ cÃ´ng 3 giÃ¢y.
-- Next session start prompt: smoke production Ä‘á» â€œKET A2_Test 2 - Luyá»‡n Nghe Tiáº¿ng Anh A2 CÃ³ Ä‘Ã¡p Ã¡n vÃ  dá»‹ch nghÄ©aâ€, sau Ä‘Ã³ kiá»ƒm tra thÃªm má»™t Ä‘á» KET practice dÃ¹ng audio riÃªng tá»«ng Part.
+- Thêm lệnh root `pnpm ket:segments -- --yes` để Claude chạy một lần cho toàn bộ KET A2 Listening đã publish. Script tải audio private từ `exam-media`, giữ một tiến trình `faster-whisper`/model duy nhất, ghi `transcript` + `transcriptSegments` vào `listening_exam_published.parts`, bỏ qua Part đã có timing và tiếp tục báo lỗi theo từng Part.
+- Lệnh tự đọc `.env.deploy`, lấy service role trực tiếp hoặc qua `SUPABASE_ACCESS_TOKEN`, đồng thời tự tìm venv Whisper có sẵn tại `C:\Users\lindv\whisper\.venv\Scripts\python.exe`. Có các tùy chọn `--list-only`, `--force`, `--limit`, `--only`, `--model`, `--python`; mọi thao tác ghi bắt buộc có `--yes`.
+- Read-only production check ban đầu xác nhận đúng 54 KET exams, mỗi đề 5 Parts, tổng 270 Parts và 0/270 Parts có timestamps.
+- User đã chạy batch ghi thật thành công: `Done: 54/54 exams updated, 270 Parts timed, 0 Parts failed.`
+- Caveat: 10 đề Cam/Book cũ có thể dùng một file audio chung cho cả 5 Parts. Batch tái sử dụng transcript/timestamps tuyệt đối của file chung; highlight theo audio hoạt động, nhưng panel có thể hiện transcript toàn bài và mapping câu hỏi chỉ gần đúng nếu Part không có mốc phần trăm thời gian.
+- Verify: CLI help PASS; Python compile PASS; venv `faster-whisper` 1.2.1 có sẵn; web TypeScript PASS; `git diff --check` PASS; production `--list-only` PASS.
+- Lỗi còn tồn tại: cần smoke production ít nhất một đề per-Part audio cùng một đề shared-audio; xác nhận transcript highlight/auto-scroll, seek, pause và khóa thao tác thủ công 3 giây.
+- Next session start prompt: smoke production đề “KET A2_Test 2 - Luyện Nghe Tiếng Anh A2 Có đáp án và dịch nghĩa”, sau đó kiểm tra thêm một đề KET practice dùng audio riêng từng Part.
 
-## 2026-07-21 â€” Production web release v0.2.10
+## 2026-07-21 — Production web release v0.2.10
 
-- Bump `apps/web` tá»« 0.2.9 lÃªn 0.2.10 vÃ  deploy frontend auto-sync Listening, cloud transcript segments cÃ¹ng fix login viewport tháº¥p lÃªn Vercel production.
-- 54/54 KET exams Ä‘Ã£ cÃ³ timestamps, tá»•ng 270 Parts, 0 Parts failed; khÃ´ng cháº¡y migration trong release nÃ y.
+- Bump `apps/web` từ 0.2.9 lên 0.2.10 và deploy frontend auto-sync Listening, cloud transcript segments cùng fix login viewport thấp lên Vercel production.
+- 54/54 KET exams đã có timestamps, tổng 270 Parts, 0 Parts failed; không chạy migration trong release này.
 - Verify: Listening tests 8/8 PASS; TypeScript PASS; security release check 9/9 PASS; local production build PASS (2.278 modules, private media strip PASS); Vercel build READY.
-- Deployment `dpl_FRUibDr8KSK2Socb9n5WGej98seM` READY; alias chÃ­nh `https://ryanenglishv2.vercel.app` Ä‘Ã£ cáº­p nháº­t.
-- Next session start prompt: smoke authenticated production Ä‘á» KET A2_Test 2 vÃ  má»™t KET practice; xÃ¡c nháº­n transcript highlight/auto-scroll, seek, pause vÃ  manual override 3 giÃ¢y.
+- Deployment `dpl_FRUibDr8KSK2Socb9n5WGej98seM` READY; alias chính `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke authenticated production đề KET A2_Test 2 và một KET practice; xác nhận transcript highlight/auto-scroll, seek, pause và manual override 3 giây.
 
-## 2026-07-21 â€” Fix auto-sync cho Cambridge shared audio
+## 2026-07-21 — Fix auto-sync cho Cambridge shared audio
 
-- Root cause Cam 1 Test 3 khÃ´ng tá»± chuyá»ƒn cÃ¢u/Part: `useAudioSync` chá»‰ map audio vÃ o cÃ¢u cá»§a `currentPart`, trong khi 10 Ä‘á» KET Book 1 Test 1 Ä‘áº¿n Book 3 Test 2 dÃ¹ng má»™t MP3 chung, khÃ´ng cÃ³ `audioStartPct/audioEndPct`.
-- Hook chung nay tá»± nháº­n dáº¡ng theo cáº¥u trÃºc dá»¯ liá»‡u: má»i Part cÃ¹ng nguá»“n audio vÃ  khÃ´ng cÃ³ range thÃ¬ sync trÃªn toÃ n bá»™ cÃ¢u, Ä‘á»“ng thá»i Ä‘á»•i `partIndex`; audio riÃªng tá»«ng Part hoáº·c shared audio cÃ³ range tiáº¿p tá»¥c sync trong Part hiá»‡n táº¡i.
-- Ãp dá»¥ng chung cho runner KET, PET, FCE/CAE/CPE vÃ  IELTS, nÃªn cÃ¡c láº§n import Cambridge A2-C2 sau tá»± há»— trá»£ cáº£ kiá»ƒu má»™t audio láº«n nhiá»u audio, khÃ´ng hardcode ID/Cam.
-- Audit production: `ket shared-unbounded = 10`, `ket per-part = 44`, `cae per-part = 1`; 10 shared gá»“m Book 1 Test 1â€“4, Book 2 Test 1â€“4 vÃ  Book 3 Test 1â€“2.
-- Regression tests bao phá»§ shared-unbounded, per-Part vÃ  shared-ranged. Verify: Listening tests 11/11 PASS; TypeScript PASS; `git diff --check` PASS.
-- Bump web lÃªn v0.2.11; security check 9/9 vÃ  production build PASS. Deployment `dpl_8CBUerMTo2Ak559uiHLfiGFFgVB5` READY, alias `https://ryanenglishv2.vercel.app` Ä‘Ã£ cáº­p nháº­t.
-- Next session start prompt: smoke production Cam 1 Test 3 xuyÃªn ranh giá»›i Part 1â†’2 vÃ  má»™t KET practice per-Part audio.
+- Root cause Cam 1 Test 3 không tự chuyển câu/Part: `useAudioSync` chỉ map audio vào câu của `currentPart`, trong khi 10 đề KET Book 1 Test 1 đến Book 3 Test 2 dùng một MP3 chung, không có `audioStartPct/audioEndPct`.
+- Hook chung nay tự nhận dạng theo cấu trúc dữ liệu: mọi Part cùng nguồn audio và không có range thì sync trên toàn bộ câu, đồng thời đổi `partIndex`; audio riêng từng Part hoặc shared audio có range tiếp tục sync trong Part hiện tại.
+- Áp dụng chung cho runner KET, PET, FCE/CAE/CPE và IELTS, nên các lần import Cambridge A2-C2 sau tự hỗ trợ cả kiểu một audio lẫn nhiều audio, không hardcode ID/Cam.
+- Audit production: `ket shared-unbounded = 10`, `ket per-part = 44`, `cae per-part = 1`; 10 shared gồm Book 1 Test 1–4, Book 2 Test 1–4 và Book 3 Test 1–2.
+- Regression tests bao phủ shared-unbounded, per-Part và shared-ranged. Verify: Listening tests 11/11 PASS; TypeScript PASS; `git diff --check` PASS.
+- Bump web lên v0.2.11; security check 9/9 và production build PASS. Deployment `dpl_8CBUerMTo2Ak559uiHLfiGFFgVB5` READY, alias `https://ryanenglishv2.vercel.app` đã cập nhật.
+- Next session start prompt: smoke production Cam 1 Test 3 xuyên ranh giới Part 1→2 và một KET practice per-Part audio.
 
-## 2026-07-24 â€” Fix admin SPA performance route tracking
+## 2026-07-24 — Fix admin SPA performance route tracking
 
 - Added admin-gated `useAdminPerformanceTracking` in `AppShell`; one shared observer set survives React StrictMode remounts without duplicate active observers.
 - `adminPerformance.ts` now splits SPA visits by `performance.now()` route windows and attributes delayed CLS, INP, long-task, and resource entries by `entry.startTime`; pre-session entries are filtered.
@@ -5458,9 +5498,9 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - LCP, layout-shift, longtask, and event observers use `buffered: true`; Event Timing uses `durationThreshold: 16`.
 - New integration/regression tests: 7/7 PASS. Full web suite: 195/197 PASS; two unrelated baseline assertions remain stale (`SIGN_TTL_SEC` expects 60 vs current 1,800; Cambridge catalog expects 47 vs current 48). TypeScript and production build PASS.
 - Baseline A/B confirmed by stashing every Phase 3 file and rerunning only those two tests on the old code: both failed identically (TTL expected 60 vs 1,800; catalog expected 47 vs 48). They predate and are independent of the performance-tool fix; review them as separate maintenance issues.
-- Local authenticated Playwright smoke: 12 visits / 11 unique paths, all durations about 3.5â€“3.7 s; clipboard JSON and route-table screenshot captured. Production deployment `dpl_8gAmhPLgMY9JqzLhS6jyDxQMX4SZ` is READY and aliased to `https://ryanenglishv2.vercel.app`. Authenticated production hard-reload smoke confirmed 6 separate visits / 5 unique paths (`admin â†’ home â†’ vocab â†’ writing â†’ listening â†’ admin`), with independent 4.2â€“7.1 s durations instead of cumulative timing; production screenshot captured at `artifacts/admin-performance-routes-production.png`.
+- Local authenticated Playwright smoke: 12 visits / 11 unique paths, all durations about 3.5–3.7 s; clipboard JSON and route-table screenshot captured. Production deployment `dpl_8gAmhPLgMY9JqzLhS6jyDxQMX4SZ` is READY and aliased to `https://ryanenglishv2.vercel.app`. Authenticated production hard-reload smoke confirmed 6 separate visits / 5 unique paths (`admin → home → vocab → writing → listening → admin`), with independent 4.2–7.1 s durations instead of cumulative timing; production screenshot captured at `artifacts/admin-performance-routes-production.png`.
 
-## 2026-07-24 â€” Vocab TBT optimization Task 1: lazy versioned seed
+## 2026-07-24 — Vocab TBT optimization Task 1: lazy versioned seed
 
 - `/app/vocab` now reads the existing Dexie `settings` key `preset_vocab_cards_version` before importing preset data. Browsers already at seed version 5 skip the 6.4 MB decoded `vocabSeedDecks` bundle and all routine seed/dedupe work.
 - The version/key live in lightweight `vocabSeedVersion.ts`; stale or missing versions dynamically load `vocabSeedDecks`, complete seeding, then persist version 5. No new object store or Dexie schema bump was needed.
@@ -5468,7 +5508,7 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Full web suite: 198/200 PASS. The same two pre-existing failures remain: signed URL TTL expects 60 vs current 1,800, and Cambridge catalog expects 47 vs current 48.
 - No deployment was made for Task 1 alone. Next step: Task 2, merge `reviseDueCount` and deck stats into one IndexedDB query/aggregation.
 
-## 2026-07-24 â€” Vocab TBT optimization Task 2: merged deck aggregates
+## 2026-07-24 — Vocab TBT optimization Task 2: merged deck aggregates
 
 - Added `useDeckAggregates`: one `liveQuery` owner in `VocabularyPage` reads `cards` and `srs` together, caches the raw snapshot in a ref, and builds one `Map<deckId, { total, mastered, dueCount }>` for the active Single/Phrases unit kind.
 - Removed the independent `reviseDueCount` full-table query and `DeckGrid.useDeckUnitStats`. `VocabularyPage` now derives total due count from the shared map and passes the same map to `DeckGrid`.
@@ -5477,7 +5517,7 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Full web suite: 200/202 PASS with only the two known baseline failures. TypeScript and production build PASS. Local authenticated smoke: 161 decks, 162 rendered cards on All, 27 on IELTS, representative preset deck shows 100 single words and 100 phrases, Revise due is 0 for the local all-new dataset, and no console errors.
 - No deployment was made for Task 2 alone. Next step: Task 3, add `content-visibility: auto` mitigation.
 
-## 2026-07-24 â€” Vocab TBT optimization Task 3: virtualized deck grid
+## 2026-07-24 — Vocab TBT optimization Task 3: virtualized deck grid
 
 - Added `@tanstack/react-virtual` and replaced the 162-card eager DOM grid with a measured virtual grid. It keeps the existing one-column mobile / two-column desktop layout, uses the existing `.vocab-library-page` scroll owner, five-item overscan, and dynamic card measurements.
 - Removed `unitKind` from the `DeckGrid` React key; the repair-only `gridKey` remains. Switching Single words/Phrases now preserves the grid instance instead of deleting and remounting every card.
@@ -5487,7 +5527,7 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Internal Admin performance session for `/app/vocab` (9.24s with full scroll, IELTS/All, Single/Phrases, and deck-detail interactions): one long task, `longTaskTotalMs=58`, `maxLongTaskMs=58`, `inpMs=64`, below the requested 150ms target.
 - No deployment was made for Task 3 alone.
 
-## 2026-07-24 â€” Vocab TBT optimization Task 4: preview verification
+## 2026-07-24 — Vocab TBT optimization Task 4: preview verification
 
 - Task 4 verification/report commit: `8ef8aa8` (documentation only; no application code changed).
 - Verified branch HEAD `fff751f` with the three optimization commits `ec3082c`, `01081ca`, and `fff751f`. Final preview deployment `dpl_2322TaJke4fFELH8nBiRMkPvwFDU` is READY at `https://ryanenglishv2-56lvwfgh6-ryanenglish.vercel.app`.
@@ -5507,7 +5547,7 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 
 
 
-- Update 2026-07-27: `apps/web/src/pages/WritingCambridgeTaskPage.tsx` dã tách riêng shell `b1` d? bám ?nh crawl `D:\App-English-Ryan\Crawl\Writing_Crawl\B1\Question_1..3.png`; không còn render `WritingEditor` chung cho `b1` route.
+- Update 2026-07-27: `apps/web/src/pages/WritingCambridgeTaskPage.tsx` d� t�ch ri�ng shell `b1` d? b�m ?nh crawl `D:\App-English-Ryan\Crawl\Writing_Crawl\B1\Question_1..3.png`; kh�ng c�n render `WritingEditor` chung cho `b1` route.
 - Update 2026-07-27: route /app/writing/cambridge/b1/b1-test-01/b1-test-01-task-01 da vao exam full-page mode trong AppShell (an sidebar trai, mobile drawer, Dictionary FAB).
 - Update 2026-07-27: B1 Writing task da doi sang KetRwSplitPane de dung thanh chia keo duoc nhu PET/KET Reading; vi tri split duoc luu theo task qua splitStorageKey.
 - Update 2026-07-27: WritingLayout da dung overflow-hidden cho Cambridge flow va shell B1 da them height 100% + position relative de chiem tron khung bai thi.
@@ -5553,37 +5593,37 @@ Kiá»ƒm tra trá»±c quan Light/Mid/Dark táº¡i `/app/vocab`, `/app/listeni
 - Update 2026-07-27: verify PASS `pnpm --filter web exec tsc --noEmit`. Test mapper moi PASS. Cac test writing/component/integration moi dang bi harness timeout khi chay Vitest, can dieu tra tiep o session sau.
 
 
-### Đã hoàn thành (mới nhất — FCE B2 Reading runtime packed + validated)
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading runtime packed + validated)
 
-- Đã chạy đúng pipeline `pnpm build:catalog` gồm:
+- �� ch?y d�ng pipeline `pnpm build:catalog` g?m:
   - `scripts/build-catalog.mjs`
   - `scripts/mode-c-pack-catalog.mjs`
   - `scripts/validate-catalog-runtime.mjs`
-- Runtime/public FCE B2 Reading hiện đã có đủ:
-  - `packages/catalog/data/catalog-reading-meta.json` có `catalog-reading-fce-b2-test2..26`
-  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.json` … `catalog-reading-fce-b2-test26.json`
-  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.answers.json` … `catalog-reading-fce-b2-test26.answers.json`
-- Thêm validator `scripts/validate-catalog-runtime.mjs` và regression test:
+- Runtime/public FCE B2 Reading hi?n d� c� d?:
+  - `packages/catalog/data/catalog-reading-meta.json` c� `catalog-reading-fce-b2-test2..26`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.json` � `catalog-reading-fce-b2-test26.json`
+  - `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test2.answers.json` � `catalog-reading-fce-b2-test26.answers.json`
+- Th�m validator `scripts/validate-catalog-runtime.mjs` v� regression test:
   - `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`
-- Verify hiện tại:
+- Verify hi?n t?i:
   - `pnpm build:catalog` PASS
   - `pnpm --filter web exec -- tsc --noEmit` PASS
   - `pnpm --filter web test -- src/features/exam/__tests__/catalogRuntimeValidation.test.ts` PASS
-  - Smoke route `http://localhost:5173/app/exam/reading/catalog-reading-fce-b2-test2` trả `200`
-- Kết quả kiểm tra FCE runtime:
+  - Smoke route `http://localhost:5173/app/exam/reading/catalog-reading-fce-b2-test2` tr? `200`
+- K?t qu? ki?m tra FCE runtime:
   - `manifestCount`: 26
   - `metaCount`: 26
   - `bodyCount`: 26
-  - `answerVaultCount`: 104 (tất cả reading runtime, không chỉ FCE)
+  - `answerVaultCount`: 104 (t?t c? reading runtime, kh�ng ch? FCE)
 
-### Lỗi còn tồn tại
+### L?i c�n t?n t?i
 
-- `node scripts/build-catalog.mjs` vẫn tạo nhiều warning CRLF khi ghi lại catalog JSON.
-- Git worktree còn một file tạm do môi trường tạo ra: `~$skills-inventory.xlsx` đã bị builder chạm tới trạng thái xóa.
+- `node scripts/build-catalog.mjs` v?n t?o nhi?u warning CRLF khi ghi l?i catalog JSON.
+- Git worktree c�n m?t file t?m do m�i tru?ng t?o ra: `~$skills-inventory.xlsx` d� b? builder ch?m t?i tr?ng th�i x�a.
 
 ### Next session start prompt
 
-FCE B2 Reading đã được pack sang runtime/public và validator đã khóa. Nếu cần làm tiếp, kiểm tra:
+FCE B2 Reading d� du?c pack sang runtime/public v� validator d� kh�a. N?u c?n l�m ti?p, ki?m tra:
 1. `scripts/validate-catalog-runtime.mjs`
 2. `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`
 3. `apps/web/public/catalog/exams/reading/catalog-reading-fce-b2-test13.json`
@@ -5594,26 +5634,26 @@ Route smoke:
 - `/app/exam/reading/catalog-reading-fce-b2-test13`
 - `/app/exam/reading/catalog-reading-fce-b2-test26`
 
-### Đã hoàn thành (mới nhất — FCE B2 Reading crawl 1–26 map vào app 2–27, nested IDs đã đồng bộ)
+### �� ho�n th�nh (m?i nh?t � FCE B2 Reading crawl 1�26 map v�o app 2�27, nested IDs d� d?ng b?)
 
-- Sửa pipeline FCE B2 Reading để source crawl `fce-reading-test1..26` map vào app `catalog-reading-fce-b2-test2..27`, giữ `catalog-reading-fce-b2-test1` làm sample.
-- `scripts/reading/fce-b2-pages-to-parts.mjs` đã dùng `appTestNumber` cho toàn bộ nested IDs:
+- S?a pipeline FCE B2 Reading d? source crawl `fce-reading-test1..26` map v�o app `catalog-reading-fce-b2-test2..27`, gi? `catalog-reading-fce-b2-test1` l�m sample.
+- `scripts/reading/fce-b2-pages-to-parts.mjs` d� d�ng `appTestNumber` cho to�n b? nested IDs:
   - `part.id`
   - `questionGroup.id`
   - `question.id`
-  - lỗi validate đã đổi sang nhắc cả `sourceTestNumber` / `appTestNumber`
-- `scripts/reading/convert-fce-b2-pages-to-parts.mjs` đã sửa default CLI về `--from=1 --to=26`.
-- `scripts/build-catalog.mjs` đã sửa sort bundle FCE B2 Reading theo `appTest`.
-- `scripts/mode-c-pack-catalog.mjs` đã sửa `questionCount` để đếm đúng câu Reading lồng trong `questionGroups`.
-- `scripts/validate-catalog-runtime.mjs` đã siết chặt validation cho đúng 27 đề FCE B2:
-  - mỗi exam đúng 7 parts / 52 questions / 52 answers
-  - `examId` của vault khớp body
-  - keys vault khớp toàn bộ question IDs
-  - part/group/question IDs đều prefix đúng theo `exam.id`
-  - không còn duplicate IDs xuyên suốt FCE B2 reading
-- Regression test `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts` đã được nâng cấp để bắt đúng mapping `test2`, `test10`, `test27`.
+  - l?i validate d� d?i sang nh?c c? `sourceTestNumber` / `appTestNumber`
+- `scripts/reading/convert-fce-b2-pages-to-parts.mjs` d� s?a default CLI v? `--from=1 --to=26`.
+- `scripts/build-catalog.mjs` d� s?a sort bundle FCE B2 Reading theo `appTest`.
+- `scripts/mode-c-pack-catalog.mjs` d� s?a `questionCount` d? d?m d�ng c�u Reading l?ng trong `questionGroups`.
+- `scripts/validate-catalog-runtime.mjs` d� si?t ch?t validation cho d�ng 27 d? FCE B2:
+  - m?i exam d�ng 7 parts / 52 questions / 52 answers
+  - `examId` c?a vault kh?p body
+  - keys vault kh?p to�n b? question IDs
+  - part/group/question IDs d?u prefix d�ng theo `exam.id`
+  - kh�ng c�n duplicate IDs xuy�n su?t FCE B2 reading
+- Regression test `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts` d� du?c n�ng c?p d? b?t d�ng mapping `test2`, `test10`, `test27`.
 
-### Verify mới nhất
+### Verify m?i nh?t
 
 - `pnpm build:catalog` PASS
 - `pnpm --filter web exec -- tsc --noEmit` PASS
@@ -5624,14 +5664,14 @@ Route smoke:
   - `/app/exam/reading/catalog-reading-fce-b2-test14`
   - `/app/exam/reading/catalog-reading-fce-b2-test27`
 
-### Lỗi còn tồn tại
+### L?i c�n t?n t?i
 
-- `node scripts/build-catalog.mjs` vẫn tạo nhiều warning CRLF khi ghi lại catalog JSON.
-- Git worktree còn một file tạm do môi trường tạo ra: `~$skills-inventory.xlsx` đã bị builder chạm tới trạng thái xóa.
+- `node scripts/build-catalog.mjs` v?n t?o nhi?u warning CRLF khi ghi l?i catalog JSON.
+- Git worktree c�n m?t file t?m do m�i tru?ng t?o ra: `~$skills-inventory.xlsx` d� b? builder ch?m t?i tr?ng th�i x�a.
 
 ### Next session start prompt
 
-FCE B2 Reading crawl đã được import đúng map `1..26 -> 2..27` và nested IDs không còn lệch. Nếu cần kiểm tra tiếp, mở:
+FCE B2 Reading crawl d� du?c import d�ng map `1..26 -> 2..27` v� nested IDs kh�ng c�n l?ch. N?u c?n ki?m tra ti?p, m?:
 1. `scripts/reading/fce-b2-pages-to-parts.mjs`
 2. `scripts/validate-catalog-runtime.mjs`
 3. `apps/web/src/features/exam/__tests__/catalogRuntimeValidation.test.ts`

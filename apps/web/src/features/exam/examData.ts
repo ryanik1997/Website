@@ -44,6 +44,14 @@ export interface ReadingQuestion {
   minWords?: number
   /** Bài mẫu Writing (nếu có trong import/catalog) */
   modelAnswer?: string
+  /** FCE B2 Part 3 word-formation base word. */
+  baseWord?: string
+  /** FCE B2 Part 4 key-word transformation: first sentence. */
+  sourceSentence?: string
+  /** FCE B2 Part 4 key word, kept unchanged by the learner. */
+  keyword?: string
+  /** FCE B2 Part 4 second sentence with the answer slot as ".....". */
+  targetSentence?: string
 }
 
 export interface ReadingPassageBlock {

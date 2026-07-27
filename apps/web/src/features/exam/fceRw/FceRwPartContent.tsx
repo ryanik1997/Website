@@ -487,7 +487,10 @@ export default function FceRwPartContent({
               </p>
             ))}
             {questions.map(q => {
-              const { sentence1, stem, sentence2 } = parseTransformationPrompt(q.prompt)
+              const parsed = parseTransformationPrompt(q.prompt)
+              const sentence1 = q.sourceSentence ?? parsed.sentence1
+              const stem = q.keyword ?? parsed.stem
+              const sentence2 = q.targetSentence ?? parsed.sentence2
               const value = answers[q.id] ?? ''
               const isActive = activeQuestionId === q.id
               return (

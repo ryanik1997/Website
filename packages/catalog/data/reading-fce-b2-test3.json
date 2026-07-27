@@ -11,13 +11,13 @@
       "passageTitle": "Where to go whale watching",
       "passage": [
         {
-          "text": "When asked to list the things they would most like to experience in life, a surprising (0) ..... of people mention seeing whales in their natural habitat. It’s an ambition that can be 1 answered rewarded honoured fulfilled surprisingly easily. It is 2 estimated counted guessed totalled that the seas around Iceland are home to over five thousand orca whales . But their behaviour, and therefore your chances of seeing them, varies 3 according depending relying agreeing to the season."
+          "text": "When asked to list the things they would most like to experience in life, a surprising 0 _____ of people mention seeing whales in their natural habitat. It’s an ambition that can be (1) ..... surprisingly easily. It is (2) ..... that the seas around Iceland are home to over five thousand orca whales . But their behaviour, and therefore your chances of seeing them, varies (3) ..... to the season."
         },
         {
-          "text": "In summer, the whales have a 4 custom tendency habit trend to hang out near the coast and can be seen swimming up fjords and inlets. During the winter months, however, the animals are generally to be found 5 longer wider broader further out at sea . 6 Whenever Whoever Whichever However season you choose for your trip, whale-watching trips are very easy to organise, and there’s a chance you’ll get to see other whale species too."
+          "text": "In summer, the whales have a (4) ..... to hang out near the coast and can be seen swimming up fjords and inlets. During the winter months, however, the animals are generally to be found (5) ..... out at sea . (6) ..... season you choose for your trip, whale-watching trips are very easy to organise, and there’s a chance you’ll get to see other whale species too."
         },
         {
-          "text": "Besides Iceland, another option is to 7 head set point pick for northern Norway between October and January. Orcas arrive here at this time of year in 8 hunt follow pursuit seek of large shoals of herring, which form an important part of their diet."
+          "text": "Besides Iceland, another option is to (7) ..... for northern Norway between October and January. Orcas arrive here at this time of year in (8) ..... of large shoals of herring, which form an important part of their diet."
         }
       ],
       "questionGroups": [
@@ -254,13 +254,13 @@
       "passageTitle": "The Mini-Monet",
       "passage": [
         {
-          "text": "Kieron Williamson is a very successful landscape painter. His paintings, (0) ..... mostly depict the peaceful countryside around his home village in eastern England, sell very well. Perhaps this shouldn’t 9 as that much of a surprise . It’s a beautiful part of the world, and landscape paintings are always popular."
+          "text": "Kieron Williamson is a very successful landscape painter. His paintings, 0 _____ mostly depict the peaceful countryside around his home village in eastern England, sell very well. Perhaps this shouldn’t (9) ..... as that much of a surprise . It’s a beautiful part of the world, and landscape paintings are always popular."
         },
         {
-          "text": "The strange thing about Kieron, however, 10 that he is only seven years old. At a recent exhibition of his work, all the paintings were sold in half an hour, some for £100,000 each. Kieron now has fans all over the world, and has gained the nickname the ‘Mini-Monet’."
+          "text": "The strange thing about Kieron, however, (10) ..... that he is only seven years old. At a recent exhibition of his work, all the paintings were sold in half an hour, some for £100,000 each. Kieron now has fans all over the world, and has gained the nickname the ‘Mini-Monet’."
         },
         {
-          "text": "What’s even 11 surprising is that Kieron doesn’t come from an artistic family, and only started painting two years 12 . He first got inspiration 13 some boats he saw on holiday at the seaside. Kieron asked his parents if they 14 buy him a sketch pad and pencils 15 that he could draw them. Only when they saw 16 well he drew did they realise that he was talented."
+          "text": "What’s even (11) ..... surprising is that Kieron doesn’t come from an artistic family, and only started painting two years (12) ..... . He first got inspiration (13) ..... some boats he saw on holiday at the seaside. Kieron asked his parents if they (14) ..... buy him a sketch pad and pencils (15) ..... that he could draw them. Only when they saw (16) ..... well he drew did they realise that he was talented."
         }
       ],
       "questionGroups": [
@@ -361,16 +361,16 @@
       "passageTitle": "Don t catch cold",
       "passage": [
         {
-          "text": "According to recent (0) ....., at least some of the advice about health that was passed down to our grandparents by previous generations may actually contain some 17 ."
+          "text": "According to recent 0 _____, at least some of the advice about health that was passed down to our grandparents by previous generations may actually contain some (17) ..... ."
         },
         {
-          "text": "A good example is the 18 between feeling cold and catching a cold. My grandmother was convinced that being outside when the temperature is low, or simply dressing in 19 clothes for the cold weather, was a sure way of catching a cold ."
+          "text": "A good example is the (18) ..... between feeling cold and catching a cold. My grandmother was convinced that being outside when the temperature is low, or simply dressing in (19) ..... clothes for the cold weather, was a sure way of catching a cold ."
         },
         {
-          "text": "Now, as we know, colds are caused by viruses. Therefore, in the 20 of a virus , you cannot catch a cold – no matter how low the temperature or how 21 your clothing."
+          "text": "Now, as we know, colds are caused by viruses. Therefore, in the (20) ..... of a virus , you cannot catch a cold – no matter how low the temperature or how (21) ..... your clothing."
         },
         {
-          "text": "But 22 now think that we may have viruses in our bodies already, which are just waiting for the chance to turn into a cold. In cold weather, for example, blood vessels in the nose get smaller to stop heat escaping. 23 , it also allows the cold virus to attack the nose or throat more 24 . So, perhaps Granny was right!"
+          "text": "But (22) ..... now think that we may have viruses in our bodies already, which are just waiting for the chance to turn into a cold. In cold weather, for example, blood vessels in the nose get smaller to stop heat escaping. (23) ..... , it also allows the cold virus to attack the nose or throat more (24) ..... . So, perhaps Granny was right!"
         }
       ],
       "questionGroups": [
@@ -388,6 +388,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (17) — TRUE",
+              "baseWord": "TRUE",
               "size": 10
             },
             {
@@ -398,6 +399,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (18) — RELATION",
+              "baseWord": "RELATION",
               "size": 10
             },
             {
@@ -408,6 +410,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (19) — SUIT",
+              "baseWord": "SUIT",
               "size": 10
             },
             {
@@ -418,6 +421,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (20) — ABSENT",
+              "baseWord": "ABSENT",
               "size": 10
             },
             {
@@ -428,6 +432,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (21) — APPROPRIATE",
+              "baseWord": "APPROPRIATE",
               "size": 10
             },
             {
@@ -438,6 +443,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (22) — SCIENCE",
+              "baseWord": "SCIENCE",
               "size": 10
             },
             {
@@ -448,6 +454,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (23) — FORTUNATE",
+              "baseWord": "FORTUNATE",
               "size": 10
             },
             {
@@ -458,6 +465,7 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (24) — EASY",
+              "baseWord": "EASY",
               "size": 10
             }
           ]
@@ -484,8 +492,10 @@
               "explanation": "has been/is three years since.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Tania hasn t played volleyball for three years.It SINCE →",
+              "prompt": "Tania hasn t played volleyball for three years.It SINCE -> . Tania hasn’t played volleyball for three years .  It ..... Tania last played volleyball.",
+              "sourceSentence": "Tania hasn t played volleyball for three years.It",
               "keyword": "SINCE",
+              "targetSentence": ". Tania hasn’t played volleyball for three years .  It ..... Tania last played volleyball.",
               "size": 40
             },
             {
@@ -495,8 +505,10 @@
               "explanation": "buy everything except.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to EVERYTHING →",
+              "prompt": "The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to EVERYTHING -> . The only thing Carl forgot to buy was a new battery for his watch.  Carl remembered to ..... a new battery for his watch.",
+              "sourceSentence": "The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to",
               "keyword": "EVERYTHING",
+              "targetSentence": ". The only thing Carl forgot to buy was a new battery for his watch.  Carl remembered to ..... a new battery for his watch.",
               "size": 40
             },
             {
@@ -506,8 +518,10 @@
               "explanation": "had arrived on time.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "John was angry because Claire arrived late.If Claire TIME →",
+              "prompt": "John was angry because Claire arrived late. TIME -> If Claire .....",
+              "sourceSentence": "John was angry because Claire arrived late.",
               "keyword": "TIME",
+              "targetSentence": "If Claire .....",
               "size": 40
             },
             {
@@ -517,8 +531,10 @@
               "explanation": "not used to wearing.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I don t usually wear a hat and so it feels strange.I am USED →",
+              "prompt": "I don t usually wear a hat and so it feels strange. USED -> I am .....",
+              "sourceSentence": "I don t usually wear a hat and so it feels strange.",
               "keyword": "USED",
+              "targetSentence": "I am .....",
               "size": 40
             },
             {
@@ -528,8 +544,10 @@
               "explanation": "accused Jennifer of breaking.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Rob said to Jennifer: You broke the strap on my new camera. Rob ACCUSED →",
+              "prompt": "Rob said to Jennifer: You broke the strap on my new camera. ACCUSED -> Rob .....",
+              "sourceSentence": "Rob said to Jennifer: You broke the strap on my new camera.",
               "keyword": "ACCUSED",
+              "targetSentence": "Rob .....",
               "size": 40
             },
             {
@@ -539,8 +557,10 @@
               "explanation": "(really) looking forward to using.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Mark can t wait to use his new computer-games console.FORWARDMark is  →",
-              "keyword": "",
+              "prompt": "Mark can t wait to use his new computer-games console. FORWARD -> FORWARD Mark is .....",
+              "sourceSentence": "Mark can t wait to use his new computer-games console.",
+              "keyword": "FORWARD",
+              "targetSentence": "FORWARD Mark is .....",
               "size": 40
             }
           ]
@@ -733,25 +753,25 @@
       "passageTitle": "WANT TO JOIN THE JET SET?",
       "passage": [
         {
-          "text": "You could be jetting off to exotic locations, staying in five star hotels, eating in top-class restaurants, and it’s all paid for by your employer. Who wouldn’t want a job that involves foreign travel? 37 A B C D E F G . The number of jobs requiring international travel is growing significantly . And citing business travel experience on your CV can bring enormous professional benefits."
+          "text": "You could be jetting off to exotic locations, staying in five star hotels, eating in top-class restaurants, and it’s all paid for by your employer. Who wouldn’t want a job that involves foreign travel? (37) ..... . The number of jobs requiring international travel is growing significantly . And citing business travel experience on your CV can bring enormous professional benefits."
         },
         {
           "text": "But it’s not always as exciting as it sounds. There is a big difference between travelling to Milan as a tourist and travelling there to spend a day in the type of hotel meeting room that can be found anywhere in Europe. It can be very exciting, but you need to keep your feet firmly on the ground. Speak to seasoned international business travellers to get an idea of what you will face. Flights can be delayed, things can go wrong and it’s easy to get exhausted. Many jobs mean travelling alone, so you can be lonely."
         },
         {
-          "text": "Simply targeting any job that involves foreign travel is not the way to start . 38 A B C D E F G . It’s as illogical as saying you want a job that involves wearing smart clothes. Instead, you should consider all the usual factors, such as qualifications and experience, and only then choose a sector or company that offers opportunities for international travel."
+          "text": "Simply targeting any job that involves foreign travel is not the way to start . (38) ..... . It’s as illogical as saying you want a job that involves wearing smart clothes. Instead, you should consider all the usual factors, such as qualifications and experience, and only then choose a sector or company that offers opportunities for international travel."
         },
         {
-          "text": "The travel and hotel trades are obvious areas , but the commercial sector also offers good prospects for travel. In the retail sector , buyers often travel, especially if they work in fresh produce, where they have to check the suitability of crops. 39 A B C D E F G . Jobs in the engineering and environment sector can involve travel, too. Almost any career can mean international travel, if you choose the right company and role. The number of jobs involving travel, especially at middle-management level, is growing."
+          "text": "The travel and hotel trades are obvious areas , but the commercial sector also offers good prospects for travel. In the retail sector , buyers often travel, especially if they work in fresh produce, where they have to check the suitability of crops. (39) ..... . Jobs in the engineering and environment sector can involve travel, too. Almost any career can mean international travel, if you choose the right company and role. The number of jobs involving travel, especially at middle-management level, is growing."
         },
         {
-          "text": "So what will help you secure a role with an international flavour ? 40 A B C D E F G . A second language is a good indication of how well someone will adapt. You need to show you are flexible and willing to learn. If your company has a sister company in the Czech Republic, for instance, learning some Czech will boost your chances."
+          "text": "So what will help you secure a role with an international flavour ? (40) ..... . A second language is a good indication of how well someone will adapt. You need to show you are flexible and willing to learn. If your company has a sister company in the Czech Republic, for instance, learning some Czech will boost your chances."
         },
         {
-          "text": "Find out what the company offers as a support package. Many now guarantee that you can return home at the weekends , or they will limit the amount that people travel each year. 41 A B C D E F G . One company asked graduates fresh out of university to move to another country over a weekend, alone, and to find their own accommodation ."
+          "text": "Find out what the company offers as a support package. Many now guarantee that you can return home at the weekends , or they will limit the amount that people travel each year. (41) ..... . One company asked graduates fresh out of university to move to another country over a weekend, alone, and to find their own accommodation ."
         },
         {
-          "text": "And it’s as well to remember that international travel can be stressful. People can get burned out by international business travel . You need to be in control of your schedule, rather than leaving it to the company. You must ensure you get time to rest and talk to your employer all the time about how you are coping. Don’t wait for formal appraisals or until they ask for your views. 42 A B C D E F G . Most sensible companies ask people to commit to two to three years. This increases the likelihood of success. And most people who travel on business remember it fondly."
+          "text": "And it’s as well to remember that international travel can be stressful. People can get burned out by international business travel . You need to be in control of your schedule, rather than leaving it to the company. You must ensure you get time to rest and talk to your employer all the time about how you are coping. Don’t wait for formal appraisals or until they ask for your views. (42) ..... . Most sensible companies ask people to commit to two to three years. This increases the likelihood of success. And most people who travel on business remember it fondly."
         }
       ],
       "questionGroups": [

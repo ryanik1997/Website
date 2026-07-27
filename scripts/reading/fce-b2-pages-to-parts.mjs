@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import * as parse5 from 'parse5'
 
 const PART_SPECS = {
   1: { rangeLabel: 'Questions 1–8', count: 8, type: 'multiple-choice' },
@@ -44,6 +45,97 @@ function normalizeText(input) {
     .replace(/\r\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim()
+}
+
+function parseHtmlDocument(html) {
+  return parse5.parseFragment(String(html ?? ''))
+}
+
+function nodesByTag(node, tagName) {
+  const out = []
+  visitNodes(node, child => {
+    if (child.tagName?.toLowerCase() === tagName.toLowerCase()) out.push(child)
+  })
+  return out
+}
+
+function elementText(node) {
+  let text = ''
+  visitNodes(node, child => {
+    if (child.nodeName === '#text') text += ` ${child.value ?? ''}`
+  })
+  return normalizeText(text)
+}
+
+function childElements(node, tagName) {
+  return Array.from(node?.childNodes ?? []).filter(child => (
+    child.tagName && (!tagName || child.tagName.toLowerCase() === tagName)
+  ))
+}
+
+function hasTag(node, tagName) {
+  return nodesByTag(node, tagName).length > 0
+}
+
+function visitNodes(node, fn) {
+  for (const child of node?.childNodes ?? []) {
+    fn(child)
+    visitNodes(child, fn)
+  }
+}
+
+function attrValue(node, name) {
+  return node?.attrs?.find(attr => attr.name === name)?.value ?? ''
+}
+
+function strongNumber(node) {
+  const strong = nodesByTag(node, 'strong')[0]
+  const n = Number(elementText(strong).match(/\d+/)?.[0])
+  return Number.isInteger(n) ? n : null
+}
+
+function replaceNodeWithText(node, text) {
+  const parent = node.parentNode
+  if (!parent?.childNodes) return
+  const index = parent.childNodes.indexOf(node)
+  if (index >= 0) parent.childNodes.splice(index, 1, { nodeName: '#text', value: text, parentNode: parent })
+}
+
+function removeNode(node) {
+  const parent = node.parentNode
+  if (!parent?.childNodes) return
+  const index = parent.childNodes.indexOf(node)
+  if (index >= 0) parent.childNodes.splice(index, 1)
+}
+
+function passageBlocksWithInlineMarkers(html, numbers) {
+  const expected = new Set(numbers)
+  const doc = parseHtmlDocument(html)
+  for (const anchor of nodesByTag(doc, 'a')) removeNode(anchor)
+  for (const span of nodesByTag(doc, 'span')) {
+    const className = attrValue(span, 'class')
+    if (!/\bnowrap\b/.test(className)) continue
+    if (!hasTag(span, 'select') && !hasTag(span, 'input')) continue
+    const n = strongNumber(span)
+    if (!expected.has(n)) continue
+    replaceNodeWithText(span, ` (${n}) ..... `)
+  }
+  const blocks = nodesByTag(doc, 'p')
+    .map(p => ({ text: elementText(p) }))
+    .filter(block => block.text)
+  assertMarkers(blocks.map(b => b.text).join('\n'), numbers, `part markers ${numbers[0]}-${numbers[numbers.length - 1]}`)
+  return blocks
+}
+
+function assertMarkers(text, numbers, label) {
+  for (const n of numbers) {
+    const count = (text.match(new RegExp(`\\(${n}\\)\\s*\\.\\.\\.\\.\\.`, 'g')) ?? []).length
+    if (count !== 1) throw new Error(`${label}: expected one marker for ${n}, got ${count}`)
+  }
+}
+
+function markerNumbers(start, count) {
+  return Array.from({ length: count }, (_, i) => start + i)
 }
 
 function stripHtml(input) {
@@ -186,11 +278,12 @@ function makeGenericPassageBlocks(html) {
 function convertPart1(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
   const partHtml = String(page.passageTextHtml ?? '')
-  const passage = htmlParagraphInnerHtml(partHtml).map(block => ({
-    text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....'),
-  })).filter(block => block.text)
+  const passage = passageBlocksWithInlineMarkers(partHtml, markerNumbers(1, 8))
   const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
     const options = parseQuestionOptions(q, LETTERS)
+    if (options.length !== 4 || options.some(opt => !opt.label)) {
+      throw new Error(`${question.id}: Part 1 must have four nonempty options`)
+    }
     const answer = question.answer.toUpperCase()
     if (!options.some(opt => opt.id.toUpperCase() === answer)) {
       throw new Error(`${question.id}: answer ${answer} not found in options`)
@@ -227,7 +320,7 @@ function convertPart2(page, answerMap, appTestNumber) {
     prompt: `Gap (${question.number})`,
     size: q.size ?? 10,
   }))
-  const passage = htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(9, 8))
   return {
     id: base.partId,
     partNumber: 2,
@@ -257,10 +350,11 @@ function convertPart3(page, answerMap, appTestNumber) {
       ...question,
       type: 'gap-fill',
       prompt: `Gap (${question.number}) — ${stem}`,
+      baseWord: stem,
       size: q.size ?? 10,
     }
   })
-  const passage = htmlParagraphInnerHtml(html).map(block => ({ text: htmlToPlainWithGaps(block).replace(/\b(\d+)\s+_____/g, '($1) .....') }))
+  const passage = passageBlocksWithInlineMarkers(html, markerNumbers(17, 8))
   return {
     id: base.partId,
     partNumber: 3,
@@ -277,24 +371,62 @@ function convertPart3(page, answerMap, appTestNumber) {
   }
 }
 
-function parseTransformationParagraphs(html) {
-  const paragraphs = htmlParagraphs(html).map(block => block.text)
-  return paragraphs
+function parseTransformationItems(html, sourceQuestions) {
+  const doc = parseHtmlDocument(html)
+  const paragraphs = nodesByTag(doc, 'p').filter(p => hasTag(p, 'input')).map(p => {
+    for (const input of nodesByTag(p, 'input')) replaceNodeWithText(input, ' ..... ')
+    return elementText(p).replace(/_{3,}/g, '.....')
+  }).filter(Boolean)
+  return sourceQuestions.map((q, index) => {
+    let keyword = normalizeText(q.keyword ?? '')
+    const sourceSentence = normalizeText(q.prompt ?? '').replace(/^[.]\s*/, '')
+    const rawTarget = paragraphs[index] ?? ''
+    const targetSentence = rawTarget
+      .replace(new RegExp(`^${q.number}\\s*`, 'i'), '')
+      .replace(new RegExp(`\\b${keyword}\\b`, 'i'), '')
+      .trim()
+    if (sourceSentence && keyword && targetSentence.includes('.....')) {
+      return { number: Number(q.number), sourceSentence, keyword, targetSentence }
+    }
+    let promptText = normalizeText(q.prompt ?? '').replace(/^[.]\s*/, '')
+    if (!keyword) {
+      const embeddedKeyword = promptText.match(/\.([A-Z]{2,})(?=[A-Z][a-z])/)
+      if (embeddedKeyword) {
+        keyword = embeddedKeyword[1]
+        promptText = promptText.replace(embeddedKeyword[1], `${embeddedKeyword[1]} `)
+      }
+    }
+    const promptParts = promptText.split(/(?<=[.!?])\s*(?=[A-Z])/)
+    const fallbackTargetStart = promptParts.length > 1 ? promptParts.pop() : ''
+    const fallbackSource = promptParts.join(' ').trim() || promptText
+    if (!fallbackSource || !keyword) {
+      throw new Error(`Part 4 question ${q.number}: failed to parse source/keyword/target`)
+    }
+    return {
+      number: Number(q.number),
+      sourceSentence: fallbackSource,
+      keyword,
+      targetSentence: fallbackTargetStart ? `${fallbackTargetStart} .....` : '.....',
+    }
+  })
 }
 
 function convertPart4(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
-  const html = String(page.passageTextHtml ?? '')
-  const paragraphs = parseTransformationParagraphs(html)
-  const questions = base.questions.map(({ rawQuestion: q, ...question }) => {
-    const promptText = normalizeText(q.prompt ?? '')
-    const sentence1 = promptText.replace(/^[.]\s*/, '').trim()
+  const html = String(page.passageTextHtml || page.rawHtmlSample || '')
+  const parsedItems = parseTransformationItems(html, page.questions ?? [])
+  const byNumber = new Map(parsedItems.map(item => [item.number, item]))
+  const questions = base.questions.map(({ rawQuestion: _q, ...question }) => {
+    const item = byNumber.get(question.number)
+    if (!item) throw new Error(`Part 4 missing parsed item ${question.number}`)
     return {
       ...question,
       type: 'gap-fill',
-      prompt: `${sentence1} ${q.keyword ?? ''} →`,
-      keyword: normalizeText(q.keyword ?? ''),
-      size: q.size ?? 40,
+      prompt: `${item.sourceSentence} ${item.keyword} -> ${item.targetSentence}`,
+      sourceSentence: item.sourceSentence,
+      keyword: item.keyword,
+      targetSentence: item.targetSentence,
+      size: 40,
     }
   })
   return {
@@ -302,7 +434,7 @@ function convertPart4(page, answerMap, appTestNumber) {
     partNumber: 4,
     rangeLabel: questionRange(4),
     passageTitle: base.passageTitle,
-    passage: paragraphs.map(text => ({ text })),
+    passage: [],
     questionGroups: [{
       id: `${base.partId}-g0`,
       range: questionRange(4),
@@ -312,7 +444,6 @@ function convertPart4(page, answerMap, appTestNumber) {
     }],
   }
 }
-
 function convertPart5(page, answerMap, appTestNumber) {
   const base = buildPartBase(page, appTestNumber, answerMap)
   const html = String(page.passageTextHtml ?? '')

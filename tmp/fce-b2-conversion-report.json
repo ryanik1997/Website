@@ -1,13 +1,22 @@
 {
-  "testsExpected": 25,
-  "testsConverted": 25,
+  "testsExpected": 1,
+  "testsConverted": 1,
   "testsFailed": 0,
-  "partsExpected": 175,
-  "partsConverted": 175,
-  "questionsConverted": 1300,
+  "partsExpected": 7,
+  "partsConverted": 7,
+  "questionsConverted": 52,
   "missingAnswers": [],
   "unknownPages": [],
-  "emptyPassages": [],
+  "emptyPassages": [
+    {
+      "testNumber": "catalog-reading-fce-b2-test2",
+      "partNumber": 4
+    },
+    {
+      "testNumber": "catalog-reading-fce-b2-test2",
+      "partNumber": 7
+    }
+  ],
   "duplicateQuestionNumbers": [],
   "failures": []
 }
