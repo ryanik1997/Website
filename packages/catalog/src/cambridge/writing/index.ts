@@ -25,6 +25,6 @@ export {
   CAMBRIDGE_WRITING_MANIFEST,
 } from './seedData.ts'
 
-export function getCambridgeWritingCollection(level: 'b1' | 'b2' | 'c1' | 'c2') {
+export function getCambridgeWritingCollection(level: 'a2' | 'b1' | 'b2' | 'c1' | 'c2') {
   return CAMBRIDGE_WRITING_COLLECTION_MAP[level]
 }

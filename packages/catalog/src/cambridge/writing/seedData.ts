@@ -5,8 +5,83 @@ import {
   type CambridgeWritingLevel,
   type CambridgeWritingManifest,
 } from './schema.ts'
+import ketReadingBook4Test2 from '../../../data/reading-ket-a2-book4-test2.json'
+
+const ketA2Book4Test2 = ketReadingBook4Test2 as {
+  id: string
+  parts: Array<{
+    id: string
+    partNumber: number
+    passage: Array<{ text?: string; imageUrl?: string }>
+    questionGroups?: Array<{
+      instruction?: string
+      questions?: Array<{ prompt: string; minWords?: number }>
+    }>
+  }>
+}
+
+const a2Part6 = ketA2Book4Test2.parts.find((part) => part.partNumber === 6)!
+const a2Part7 = ketA2Book4Test2.parts.find((part) => part.partNumber === 7)!
 
 const collections = [
+  {
+    level: 'a2',
+    examName: 'KET',
+    title: 'KET · A2 Writing Seed Collection',
+    testCount: 1,
+    tests: [
+      {
+        id: 'ket-a2-book4-test2',
+        level: 'a2',
+        testNumber: 1,
+        title: 'KET A2 Writing · Book 4 · Test 2',
+        sourceFile: 'packages/catalog/data/reading-ket-a2-book4-test2.json',
+        status: 'published',
+        version: 1,
+        tasks: [
+          {
+            id: 'ket-a2-book4-test2-task-31',
+            partNumber: 6,
+            taskNumber: 31,
+            title: 'Question 31',
+            genre: 'email',
+            instruction: a2Part6.questionGroups?.[0]?.instruction ?? 'Write 25 words or more.',
+            promptText: a2Part6.passage.map((block) => block.text ?? '').filter(Boolean).join('\n\n'),
+            wordLimit: {
+              min: a2Part6.questionGroups?.[0]?.questions?.[0]?.minWords ?? 25,
+              displayText: a2Part6.questionGroups?.[0]?.instruction ?? '25 words or more',
+            },
+            metadata: {
+              compulsory: true,
+              sourceQuestionNumber: '31',
+              ketSourcePartId: a2Part6.id,
+              ketQuestionPrompt: a2Part6.questionGroups?.[0]?.questions?.[0]?.prompt ?? '',
+            },
+          },
+          {
+            id: 'ket-a2-book4-test2-task-32',
+            partNumber: 7,
+            taskNumber: 32,
+            title: 'Question 32',
+            genre: 'story',
+            instruction: a2Part7.questionGroups?.[0]?.instruction ?? 'Write 35 words or more.',
+            promptText: a2Part7.questionGroups?.[0]?.questions?.[0]?.prompt ?? '',
+            wordLimit: {
+              min: a2Part7.questionGroups?.[0]?.questions?.[0]?.minWords ?? 35,
+              displayText: a2Part7.questionGroups?.[0]?.instruction ?? '35 words or more',
+            },
+            metadata: {
+              compulsory: true,
+              sourceQuestionNumber: '32',
+              ketSourcePartId: a2Part7.id,
+              ketQuestionPrompt: a2Part7.questionGroups?.[0]?.questions?.[0]?.prompt ?? '',
+              ketImageUrls: a2Part7.passage.map((block) => block.imageUrl ?? '').filter(Boolean),
+            },
+          },
+        ],
+      },
+    ],
+  },
   {
     level: 'b1',
     examName: 'PET',
@@ -20,6 +95,8 @@ const collections = [
         title: 'PET B1 Digital Sample Test 1',
         sourceUrl: 'https://ceq.inspera.com/player/?assessmentRunId=146726796&context=exam#/section/4128591741313/question/143865262',
         sourceFile: 'docs/research/ceq.inspera.com/writing/b1.questions.json',
+        status: 'published',
+        version: 1,
         tasks: [
           {
             id: 'b1-test-01-task-01',
@@ -87,6 +164,8 @@ const collections = [
         title: 'FCE B2 Digital Sample Test 1',
         sourceUrl: 'https://ceq.inspera.com/player/?assessmentRunId=146732614&context=exam#/section/4060115584647/question/143372237',
         sourceFile: 'docs/research/ceq.inspera.com/writing/b2.questions.json',
+        status: 'published',
+        version: 1,
         tasks: [
           {
             id: 'b2-test-01-task-01',
@@ -185,6 +264,8 @@ const collections = [
         title: 'CAE C1 Digital Sample Test 2',
         sourceUrl: 'https://ceq.inspera.com/player/?assessmentRunId=415313797&context=exam#/section/7937623297746/question/406033127/scorableItem/1',
         sourceFile: 'docs/research/ceq.inspera.com/writing/c1.questions.json',
+        status: 'published',
+        version: 1,
         tasks: [
           {
             id: 'c1-test-01-task-01',
@@ -280,6 +361,8 @@ const collections = [
         title: 'CPE C2 Digital Sample Test 1',
         sourceUrl: 'https://ceq.inspera.com/player/?assessmentRunId=146745736&context=exam#/section/7185437720868/question/143372866/scorableItem/1',
         sourceFile: 'docs/research/ceq.inspera.com/writing/c2.questions.json',
+        status: 'published',
+        version: 1,
         tasks: [
           {
             id: 'c2-test-01-task-01',
@@ -364,6 +447,13 @@ export const CAMBRIDGE_WRITING_COLLECTION_MAP = Object.fromEntries(
 ) as Record<CambridgeWritingLevel, CambridgeWritingCollection>
 
 export const CAMBRIDGE_WRITING_MANIFEST = CambridgeWritingManifestSchema.parse({
+  a2: {
+    examName: 'KET',
+    displayName: 'KET · A2',
+    testCount: 1,
+    taskCount: 2,
+    genres: ['email', 'story'],
+  },
   b1: {
     examName: 'PET',
     displayName: 'PET · B1',

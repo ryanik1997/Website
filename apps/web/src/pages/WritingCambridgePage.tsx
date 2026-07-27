@@ -17,7 +17,7 @@ export default function WritingCambridgePage() {
   const [catalogOpen, setCatalogOpen] = useState(false)
 
   const counts = new Map<string, number>([
-    ['a2', 1],
+    ['a2', CAMBRIDGE_WRITING_MANIFEST.a2.testCount],
     ['b1', CAMBRIDGE_WRITING_MANIFEST.b1.testCount],
     ['b2', CAMBRIDGE_WRITING_MANIFEST.b2.testCount],
     ['c1', CAMBRIDGE_WRITING_MANIFEST.c1.testCount],

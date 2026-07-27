@@ -6,6 +6,14 @@ import {
 } from '@ryan/catalog'
 
 export const CAMBRIDGE_WRITING_LEVEL_CONFIG = {
+  a2: {
+    level: 'a2',
+    examName: 'KET',
+    displayName: 'KET · A2',
+    trackPath: '/app/exam/track/cambridge/a2',
+    writingPath: '/app/writing/cambridge/a2',
+    type: 'cambridge_a2',
+  },
   b1: {
     level: 'b1',
     examName: 'PET',
@@ -43,7 +51,7 @@ export const CAMBRIDGE_WRITING_LEVEL_CONFIG = {
 export type CambridgeSeedLevel = keyof typeof CAMBRIDGE_WRITING_LEVEL_CONFIG
 
 export function isCambridgeSeedLevel(value: string | undefined): value is CambridgeSeedLevel {
-  return value === 'b1' || value === 'b2' || value === 'c1' || value === 'c2'
+  return value === 'a2' || value === 'b1' || value === 'b2' || value === 'c1' || value === 'c2'
 }
 
 export function getCambridgeSeedLevel(value: string | undefined) {

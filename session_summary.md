@@ -5440,3 +5440,5 @@ Kiểm tra trực quan Light/Mid/Dark tại `/app/vocab`, `/app/listening`, `/ap
 - Update 2026-07-27: verify `pnpm --filter web exec -- tsc --noEmit` PASS sau khi mo A2 trong admin import image flow.
 - Update 2026-07-27: `ExamTrackPage.tsx` da bat card Writing cho Cambridge A2 bang cach mo cung dieu kien voi B1-C2; `/app/exam/track/cambridge/a2` nay hien Writing card va dieu huong sang `/app/writing/cambridge/a2`.
 - Update 2026-07-27: verify `pnpm --filter web exec -- tsc --noEmit` PASS sau khi mo Writing card cho A2 track page.
+- Update 2026-07-27: da hop nhat schema/catalog Cambridge Writing A2-C2. `packages/catalog/src/cambridge/writing/schema.ts` nay chap nhan level `a2`, exam `KET`, test status/version va metadata KET task; `seedData.ts` da dua `ket-a2-book4-test2` vao `CAMBRIDGE_WRITING_COLLECTION_MAP` chung.
+- Update 2026-07-27: da bo hard-code A2 trong `apps/web/src/features/writing/cambridgeWritingRouteCatalog.ts`; route level/test/task pages nay doc A2 qua seed catalog chung nhu B1-C2. `pnpm --filter web exec -- tsc --noEmit` PASS sau buoc nen nay.

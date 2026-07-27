@@ -1,7 +1,10 @@
 import { z } from 'zod'
 
-export const CambridgeWritingLevelSchema = z.enum(['b1', 'b2', 'c1', 'c2'])
+export const CambridgeWritingLevelSchema = z.enum(['a2', 'b1', 'b2', 'c1', 'c2'])
 export type CambridgeWritingLevel = z.infer<typeof CambridgeWritingLevelSchema>
+
+export const CambridgeWritingExamNameSchema = z.enum(['KET', 'PET', 'FCE', 'CAE', 'CPE'])
+export type CambridgeWritingExamName = z.infer<typeof CambridgeWritingExamNameSchema>
 
 export const CambridgeWritingGenreSchema = z.enum([
   'email',
@@ -45,6 +48,9 @@ export const CambridgeWritingSampleAnswerSchema = z.object({
 })
 export type CambridgeWritingSampleAnswer = z.infer<typeof CambridgeWritingSampleAnswerSchema>
 
+export const CambridgeWritingContentStatusSchema = z.enum(['draft', 'published', 'archived'])
+export type CambridgeWritingContentStatus = z.infer<typeof CambridgeWritingContentStatusSchema>
+
 export const CambridgeWritingTaskSchema = z.object({
   id: z.string(),
   partNumber: z.number().int().positive(),
@@ -66,6 +72,9 @@ export const CambridgeWritingTaskSchema = z.object({
     compulsory: z.boolean().optional(),
     sourceQuestionNumber: z.string().optional(),
     sourcePage: z.number().int().positive().optional(),
+    ketSourcePartId: z.string().optional(),
+    ketQuestionPrompt: z.string().optional(),
+    ketImageUrls: z.array(z.string()).optional(),
   }).optional(),
 })
 export type CambridgeWritingTask = z.infer<typeof CambridgeWritingTaskSchema>
@@ -77,13 +86,18 @@ export const CambridgeWritingTestSchema = z.object({
   title: z.string(),
   sourceUrl: z.string().optional(),
   sourceFile: z.string().optional(),
+  status: CambridgeWritingContentStatusSchema.default('draft'),
+  version: z.number().int().nonnegative().default(1),
+  createdAt: z.number().int().optional(),
+  updatedAt: z.number().int().optional(),
+  createdBy: z.string().optional(),
   tasks: z.array(CambridgeWritingTaskSchema).min(1),
 })
 export type CambridgeWritingTest = z.infer<typeof CambridgeWritingTestSchema>
 
 export const CambridgeWritingCollectionSchema = z.object({
   level: CambridgeWritingLevelSchema,
-  examName: z.enum(['PET', 'FCE', 'CAE', 'CPE']),
+  examName: CambridgeWritingExamNameSchema,
   title: z.string(),
   testCount: z.number().int().nonnegative(),
   tests: z.array(CambridgeWritingTestSchema),
@@ -91,7 +105,7 @@ export const CambridgeWritingCollectionSchema = z.object({
 export type CambridgeWritingCollection = z.infer<typeof CambridgeWritingCollectionSchema>
 
 export const CambridgeWritingManifestItemSchema = z.object({
-  examName: z.enum(['PET', 'FCE', 'CAE', 'CPE']),
+  examName: CambridgeWritingExamNameSchema,
   displayName: z.string(),
   testCount: z.number().int().nonnegative(),
   taskCount: z.number().int().nonnegative(),
@@ -100,6 +114,7 @@ export const CambridgeWritingManifestItemSchema = z.object({
 export type CambridgeWritingManifestItem = z.infer<typeof CambridgeWritingManifestItemSchema>
 
 export const CambridgeWritingManifestSchema = z.object({
+  a2: CambridgeWritingManifestItemSchema,
   b1: CambridgeWritingManifestItemSchema,
   b2: CambridgeWritingManifestItemSchema,
   c1: CambridgeWritingManifestItemSchema,
