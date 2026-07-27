@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 14,
+    "appTestNumber": 15,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.244Z",
+    "promptHash": "bootstrap-test14-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test14-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.244Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Learning to sew seemed a waste of time to Lisa. Lisa couldn t POINT ->  Lisa couldn t .....",
+        "sourceSentence": "Learning to sew seemed a waste of time to Lisa. Lisa couldn t",
+        "keyword": "POINT",
+        "targetSentence": " Lisa couldn t .....",
+        "answer": "point of the",
+        "explanation": "Rewrite using \"POINT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "I reckon Barry was relieved to find his missing cellphone again. Barry must BEEN ->  Barry must .....",
+        "sourceSentence": "I reckon Barry was relieved to find his missing cellphone again. Barry must",
+        "keyword": "BEEN",
+        "targetSentence": " Barry must .....",
+        "answer": "been to the",
+        "explanation": "Rewrite using \"BEEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "According to the gossip, the actress will be getting married soon. The actress RUMOURED ->  The actress .....",
+        "sourceSentence": "According to the gossip, the actress will be getting married soon. The actress",
+        "keyword": "RUMOURED",
+        "targetSentence": " The actress .....",
+        "answer": "rumoured to be",
+        "explanation": "Rewrite using \"RUMOURED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Pamela said that she regretted sending that angry text message to Harry. ‘If ONLY ->  ‘If .....",
+        "sourceSentence": "Pamela said that she regretted sending that angry text message to Harry. ‘If",
+        "keyword": "ONLY",
+        "targetSentence": " ‘If .....",
+        "answer": "only just been",
+        "explanation": "Rewrite using \"ONLY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Ashley always eats a big breakfast before going out in the morning. Ashley never goes out in the morning WITHOUT ->  Ashley never goes out in the morning .....",
+        "sourceSentence": "Ashley always eats a big breakfast before going out in the morning. Ashley never goes out in the morning",
+        "keyword": "WITHOUT",
+        "targetSentence": " Ashley never goes out in the morning .....",
+        "answer": "without any doubt",
+        "explanation": "Rewrite using \"WITHOUT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Liam has decided not to go to football practice any more. Liam has decided GIVE ->  Liam has decided .....",
+        "sourceSentence": "Liam has decided not to go to football practice any more. Liam has decided",
+        "keyword": "GIVE",
+        "targetSentence": " Liam has decided .....",
+        "answer": "give up the",
+        "explanation": "Rewrite using \"GIVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

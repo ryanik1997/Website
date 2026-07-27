@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 16,
+    "appTestNumber": 17,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.254Z",
+    "promptHash": "bootstrap-test16-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test16-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.254Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Nobody explained why the flight had been delayed. Nobody gave REASON ->  Nobody gave .....",
+        "sourceSentence": "Nobody explained why the flight had been delayed. Nobody gave",
+        "keyword": "REASON",
+        "targetSentence": " Nobody gave .....",
+        "answer": "reason for the",
+        "explanation": "Rewrite using \"REASON\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Last year’s skiing holiday was more exciting than this year’s holiday by the sea. This year’s holiday by the sea AS ->  This year’s holiday by the sea .....",
+        "sourceSentence": "Last year’s skiing holiday was more exciting than this year’s holiday by the sea. This year’s holiday by the sea",
+        "keyword": "AS",
+        "targetSentence": " This year’s holiday by the sea .....",
+        "answer": "as well as",
+        "explanation": "Rewrite using \"AS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Maria doesn’t think we should visit the museum because it’s not very interesting. Maria says POINT ->  Maria says .....",
+        "sourceSentence": "Maria doesn’t think we should visit the museum because it’s not very interesting. Maria says",
+        "keyword": "POINT",
+        "targetSentence": " Maria says .....",
+        "answer": "point of the",
+        "explanation": "Rewrite using \"POINT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "All of us are excited about our trip to China next month. Everyone LOOKING ->  Everyone .....",
+        "sourceSentence": "All of us are excited about our trip to China next month. Everyone",
+        "keyword": "LOOKING",
+        "targetSentence": " Everyone .....",
+        "answer": "looking for the",
+        "explanation": "Rewrite using \"LOOKING\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "When I was in Sweden, I managed to learn some Swedish. When I was in Sweden, I was PICK ->  When I was in Sweden, I was .....",
+        "sourceSentence": "When I was in Sweden, I managed to learn some Swedish. When I was in Sweden, I was",
+        "keyword": "PICK",
+        "targetSentence": " When I was in Sweden, I was .....",
+        "answer": "pick up the",
+        "explanation": "Rewrite using \"PICK\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "The architecture here makes me think of the buildings in Amsterdam. The architecture here REMINDS ->  The architecture here .....",
+        "sourceSentence": "The architecture here makes me think of the buildings in Amsterdam. The architecture here",
+        "keyword": "REMINDS",
+        "targetSentence": " The architecture here .....",
+        "answer": "reminds me of",
+        "explanation": "Rewrite using \"REMINDS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

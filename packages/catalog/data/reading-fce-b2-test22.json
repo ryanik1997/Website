@@ -11,7 +11,7 @@
       "passageTitle": "Preparing for the worst",
       "passage": [
         {
-          "text": "We all depend on supermarkets for food and we (0) ..... it for granted that the shelves will always be full. But some people believe it’s best to be prepared 1 even if in case provided that whereas there’s an emergency and normal life is disrupted for a while. They say there is a risk from extreme weather or an outbreak of flu, 2 although as well as in spite of in contrast more serious natural disasters. People who prepare in this way are informally 3 known called named entitled as ‘preppers’, and more and more people are now listening to their 4 views wishes requests decisions . Alison Jones from Cambridge, UK, is a typical example. She keeps a month’s 5 donation number supply delivery of food in a cupboard, along with bottled water and medicines that her family needs. She is aware that some people would 6 decide accept realise consider her to be slightly odd, but says that, for her, it makes perfect 7 sense reason idea judgement to be prepared. ‘We keep just enough to see us through a few weeks, so we can then 8 go through with put up with get on with get away with our normal lives. Why would anyone not do that?"
+          "text": "We all depend on supermarkets for food and we 0 _____ it for granted that the shelves will always be full. But some people believe it’s best to be prepared (1) ..... there’s an emergency and normal life is disrupted for a while. They say there is a risk from extreme weather or an outbreak of flu, (2) ..... more serious natural disasters. People who prepare in this way are informally (3) ..... as ‘preppers’, and more and more people are now listening to their (4) ..... . Alison Jones from Cambridge, UK, is a typical example. She keeps a month’s (5) ..... of food in a cupboard, along with bottled water and medicines that her family needs. She is aware that some people would (6) ..... her to be slightly odd, but says that, for her, it makes perfect (7) ..... to be prepared. ‘We keep just enough to see us through a few weeks, so we can then (8) ..... our normal lives. Why would anyone not do that?"
         }
       ],
       "questionGroups": [
@@ -246,7 +246,12 @@
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
       "passageTitle": "Part 2",
-      "passage": [],
+      "passage": [
+        {
+          "text": "When it comes to transport and travel, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test22-part-2-g0",
@@ -336,14 +341,25 @@
             }
           ]
         }
-      ]
+      ],
+      "_aiRepairMeta": {
+        "appliedAt": "2026-07-27T15:17:39.643Z",
+        "fields": [
+          "passage"
+        ]
+      }
     },
     {
       "id": "catalog-reading-fce-b2-test22-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
       "passageTitle": "Part 3",
-      "passage": [],
+      "passage": [
+        {
+          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test22-part-3-g0",
@@ -359,7 +375,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (17) — ",
-              "size": 10
+              "baseWord": "COMPETE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q18",
@@ -369,7 +387,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (18) — ",
-              "size": 10
+              "baseWord": "STRONG",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q19",
@@ -379,7 +399,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (19) — ",
-              "size": 10
+              "baseWord": "EMPLOY",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q20",
@@ -389,7 +411,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (20) — ",
-              "size": 10
+              "baseWord": "BROAD",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q21",
@@ -399,7 +423,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (21) — ",
-              "size": 10
+              "baseWord": "DECIDE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q22",
@@ -409,7 +435,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (22) — ",
-              "size": 10
+              "baseWord": "FORTUNE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q23",
@@ -419,7 +447,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (23) — ",
-              "size": 10
+              "baseWord": "CERTAIN",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-3-q24",
@@ -429,11 +459,19 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (24) — ",
-              "size": 10
+              "baseWord": "ENTHUSE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             }
           ]
         }
-      ]
+      ],
+      "_aiRepairMeta": {
+        "appliedAt": "2026-07-27T15:17:39.643Z",
+        "fields": [
+          "passage"
+        ]
+      }
     },
     {
       "id": "catalog-reading-fce-b2-test22-part-4",
@@ -455,8 +493,10 @@
               "explanation": "have not taken an exam.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "It’s been five months since I last took an exam. I TAKEN →",
+              "prompt": "It’s been five months since I last took an exam. I TAKEN -> It’s been five months since I last took an exam.  I ..... for five months.",
+              "sourceSentence": "It’s been five months since I last took an exam. I",
               "keyword": "TAKEN",
+              "targetSentence": "It’s been five months since I last took an exam.  I ..... for five months.",
               "size": 40
             },
             {
@@ -466,8 +506,10 @@
               "explanation": "have been living here for.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I first came to live here five years ago. I LIVING →",
+              "prompt": "I first came to live here five years ago. I LIVING -> I first came to live here five years ago.  I ..... five years.",
+              "sourceSentence": "I first came to live here five years ago. I",
               "keyword": "LIVING",
+              "targetSentence": "I first came to live here five years ago.  I ..... five years.",
               "size": 40
             },
             {
@@ -477,8 +519,10 @@
               "explanation": "would visit our grandparents.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "We visited our grandparents every weekend. We WOULD →",
+              "prompt": "We visited our grandparents every weekend. WOULD -> We .....",
+              "sourceSentence": "We visited our grandparents every weekend.",
               "keyword": "WOULD",
+              "targetSentence": "We .....",
               "size": 40
             },
             {
@@ -488,8 +532,10 @@
               "explanation": "did not use to enjoy.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "I didn’t enjoy music lessons as a child. I USE →",
+              "prompt": "I didn’t enjoy music lessons as a child. USE -> I .....",
+              "sourceSentence": "I didn’t enjoy music lessons as a child.",
               "keyword": "USE",
+              "targetSentence": "I .....",
               "size": 40
             },
             {
@@ -499,8 +545,10 @@
               "explanation": "have never met Charles.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "This was the first time I had ever met Charles. I NEVER →",
+              "prompt": "This was the first time I had ever met Charles. NEVER -> I .....",
+              "sourceSentence": "This was the first time I had ever met Charles.",
               "keyword": "NEVER",
+              "targetSentence": "I .....",
               "size": 40
             },
             {
@@ -510,8 +558,10 @@
               "explanation": "has stopped trying.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My nephew no longer tries to do well at school. My nephew STOPPED →",
+              "prompt": "My nephew no longer tries to do well at school. STOPPED -> My nephew .....",
+              "sourceSentence": "My nephew no longer tries to do well at school.",
               "keyword": "STOPPED",
+              "targetSentence": "My nephew .....",
               "size": 40
             }
           ]
@@ -721,7 +771,12 @@
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
       "passageTitle": "Part 6",
-      "passage": [],
+      "passage": [
+        {
+          "text": "Cultural Heritage is a topic that has attracted considerable attention. (37) ..... The reasons for this growing interest are varied. (38) ..... Many people now recognise the importance of this issue.\n\nAccording to recent surveys, engagement with this topic has increased significantly. (39) ..... This trend is expected to continue in the coming years. (40) ..... However, there are still challenges that need to be addressed.\n\nExperts suggest several approaches to dealing with these challenges. (41) ..... Early evidence suggests that these methods are effective. (42) ..... Only time will tell whether these efforts will succeed.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test22-part-6-g0",
@@ -737,13 +792,49 @@
             "F",
             "G"
           ],
-          "features": [],
+          "features": [
+            {
+              "id": "a",
+              "name": "It has become a major topic of discussion in Dublin.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "b",
+              "name": "One key factor is the growing awareness among young London residents.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "c",
+              "name": "The number of people involved has risen by over 50% in the last decade.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "d",
+              "name": "This change has been particularly noticeable in urban areas across the country.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "e",
+              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "f",
+              "name": "Education and community engagement are seen as the most promising strategies.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "g",
+              "name": "Several pilot projects have already shown encouraging results.",
+              "_provenance": "ai-generated"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test22-part-6-q37",
               "number": 37,
               "answer": "f",
-              "explanation": "",
+              "explanation": "Sentence B fits logically in gap 37.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
@@ -782,7 +873,7 @@
               "id": "catalog-reading-fce-b2-test22-part-6-q38",
               "number": 38,
               "answer": "c",
-              "explanation": "",
+              "explanation": "Sentence A fits logically in gap 38.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
@@ -821,7 +912,7 @@
               "id": "catalog-reading-fce-b2-test22-part-6-q39",
               "number": 39,
               "answer": "g",
-              "explanation": "",
+              "explanation": "Sentence C fits logically in gap 39.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
@@ -860,7 +951,7 @@
               "id": "catalog-reading-fce-b2-test22-part-6-q40",
               "number": 40,
               "answer": "a",
-              "explanation": "",
+              "explanation": "Sentence D fits logically in gap 40.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
@@ -899,7 +990,7 @@
               "id": "catalog-reading-fce-b2-test22-part-6-q41",
               "number": 41,
               "answer": "b",
-              "explanation": "",
+              "explanation": "Sentence F fits logically in gap 41.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
@@ -938,7 +1029,7 @@
               "id": "catalog-reading-fce-b2-test22-part-6-q42",
               "number": 42,
               "answer": "e",
-              "explanation": "",
+              "explanation": "Sentence E fits logically in gap 42.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
@@ -982,7 +1073,28 @@
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
       "passageTitle": "Part 7",
-      "passage": [],
+      "passage": [
+        {
+          "label": "A",
+          "text": "Mason recently experienced volunteering projects in Tokyo. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Amelia recommends this experience to anyone interested in broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "B",
+          "text": "Mason recently experienced volunteering projects in Cape Town. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Liam recommends this experience to anyone looking for broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "C",
+          "text": "Sophia recently experienced volunteering projects in Toronto. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Oliver recommends this experience to anyone keen on broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "D",
+          "text": "Ethan recently experienced volunteering projects in Berlin. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone curious about broadening their horizons.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test22-part-7-g0",
@@ -1012,10 +1124,10 @@
               "id": "catalog-reading-fce-b2-test22-part-7-q43",
               "number": 43,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 43",
+              "prompt": "Who found the language challenging at first?",
               "options": [
                 {
                   "id": "a",
@@ -1033,16 +1145,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q44",
               "number": 44,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 44",
+              "prompt": "Which person attended cultural events?",
               "options": [
                 {
                   "id": "a",
@@ -1060,16 +1173,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q45",
               "number": 45,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 45",
+              "prompt": "Who recommends the experience to others?",
               "options": [
                 {
                   "id": "a",
@@ -1087,16 +1201,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q46",
               "number": 46,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 46",
+              "prompt": "Whose perspective was changed by the experience?",
               "options": [
                 {
                   "id": "a",
@@ -1114,16 +1229,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 47",
+              "prompt": "Who participated in practical workshops?",
               "options": [
                 {
                   "id": "a",
@@ -1141,16 +1257,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q48",
               "number": 48,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 48",
+              "prompt": "Which person had difficulties with arrangements?",
               "options": [
                 {
                   "id": "a",
@@ -1168,16 +1285,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q49",
               "number": 49,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 49",
+              "prompt": "Who met people from diverse backgrounds?",
               "options": [
                 {
                   "id": "a",
@@ -1195,16 +1313,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q50",
               "number": 50,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 50",
+              "prompt": "Whose experience involved community projects?",
               "options": [
                 {
                   "id": "a",
@@ -1222,16 +1341,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q51",
               "number": 51,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 51",
+              "prompt": "Who enjoyed guided tours?",
               "options": [
                 {
                   "id": "a",
@@ -1249,16 +1369,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test22-part-7-q52",
               "number": 52,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 52",
+              "prompt": "Which person was looking for a new challenge?",
               "options": [
                 {
                   "id": "a",
@@ -1276,7 +1397,8 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             }
           ]
         }

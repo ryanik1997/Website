@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 26,
+    "appTestNumber": 27,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.302Z",
+    "promptHash": "bootstrap-test26-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test26-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.302Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "He ate dinner before she got there. She turned AFTER ->  She turned .....",
+        "sourceSentence": "He ate dinner before she got there. She turned",
+        "keyword": "AFTER",
+        "targetSentence": " She turned .....",
+        "answer": "after the event",
+        "explanation": "Rewrite using \"AFTER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "I’m sure you were furious when they didn’t apologise. You BEEN ->  You .....",
+        "sourceSentence": "I’m sure you were furious when they didn’t apologise. You",
+        "keyword": "BEEN",
+        "targetSentence": " You .....",
+        "answer": "been to the",
+        "explanation": "Rewrite using \"BEEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "I got to the cinema too late to see the beginning of the film. The film STARTED ->  The film .....",
+        "sourceSentence": "I got to the cinema too late to see the beginning of the film. The film",
+        "keyword": "STARTED",
+        "targetSentence": " The film .....",
+        "answer": "started to be",
+        "explanation": "Rewrite using \"STARTED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I’m not sure if we’ll get a ticket easily. The concert’s very soon. Getting a ticket MIGHT ->  Getting a ticket .....",
+        "sourceSentence": "I’m not sure if we’ll get a ticket easily. The concert’s very soon. Getting a ticket",
+        "keyword": "MIGHT",
+        "targetSentence": " Getting a ticket .....",
+        "answer": "might have been",
+        "explanation": "Rewrite using \"MIGHT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Loud noise is something I can’t stand. I find it impossible PUT ->  I find it impossible .....",
+        "sourceSentence": "Loud noise is something I can’t stand. I find it impossible",
+        "keyword": "PUT",
+        "targetSentence": " I find it impossible .....",
+        "answer": "put off by",
+        "explanation": "Rewrite using \"PUT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I thought the mystery novels that he wrote were fascinating. I BY ->  I .....",
+        "sourceSentence": "I thought the mystery novels that he wrote were fascinating. I",
+        "keyword": "BY",
+        "targetSentence": " I .....",
+        "answer": "by the time",
+        "explanation": "Rewrite using \"BY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

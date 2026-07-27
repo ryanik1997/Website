@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 5,
+    "appTestNumber": 6,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.198Z",
+    "promptHash": "bootstrap-test5-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test5-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.198Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Michael s wife finds getting up early every morning difficult.Michael s wife USED -> Michael s wife .....",
+        "sourceSentence": "Michael s wife finds getting up early every morning difficult.Michael s wife",
+        "keyword": "USED",
+        "targetSentence": "Michael s wife .....",
+        "answer": "used to be",
+        "explanation": "Rewrite using \"USED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "What a pity you didn t come to the party.I WISH -> I .....",
+        "sourceSentence": "What a pity you didn t come to the party.I",
+        "keyword": "WISH",
+        "targetSentence": "I .....",
+        "answer": "wish I could",
+        "explanation": "Rewrite using \"WISH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The burglar failed to enter the house through the first floor window.The burglar SUCCEED -> The burglar .....",
+        "sourceSentence": "The burglar failed to enter the house through the first floor window.The burglar",
+        "keyword": "SUCCEED",
+        "targetSentence": "The burglar .....",
+        "answer": "succeed in the",
+        "explanation": "Rewrite using \"SUCCEED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "My hair needs to be cut before the wedding reception.I MUST -> I .....",
+        "sourceSentence": "My hair needs to be cut before the wedding reception.I",
+        "keyword": "MUST",
+        "targetSentence": "I .....",
+        "answer": "must have been",
+        "explanation": "Rewrite using \"MUST\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Why didn t I ask her out last night? John said to himself.John WONDERED -> John .....",
+        "sourceSentence": "Why didn t I ask her out last night? John said to himself.John",
+        "keyword": "WONDERED",
+        "targetSentence": "John .....",
+        "answer": "wondered about the",
+        "explanation": "Rewrite using \"WONDERED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "They think that their school teacher is a very rich man.Their school teacher BELIEVED -> Their school teacher .....",
+        "sourceSentence": "They think that their school teacher is a very rich man.Their school teacher",
+        "keyword": "BELIEVED",
+        "targetSentence": "Their school teacher .....",
+        "answer": "believed to be",
+        "explanation": "Rewrite using \"BELIEVED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

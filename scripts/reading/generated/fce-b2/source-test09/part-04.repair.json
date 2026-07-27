@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 9,
+    "appTestNumber": 10,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.217Z",
+    "promptHash": "bootstrap-test9-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test9-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.217Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "The storm left very few trees standing.Hardly WERE -> Hardly .....",
+        "sourceSentence": "The storm left very few trees standing.Hardly",
+        "keyword": "WERE",
+        "targetSentence": "Hardly .....",
+        "answer": "were not the",
+        "explanation": "Rewrite using \"WERE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "What s the height of that building? I asked the guide.I asked the guide HOW -> I asked the guide .....",
+        "sourceSentence": "What s the height of that building? I asked the guide.I asked the guide",
+        "keyword": "HOW",
+        "targetSentence": "I asked the guide .....",
+        "answer": "how to get",
+        "explanation": "Rewrite using \"HOW\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The new printer is very similar to the old model.There is not MUCH -> There is not .....",
+        "sourceSentence": "The new printer is very similar to the old model.There is not",
+        "keyword": "MUCH",
+        "targetSentence": "There is not .....",
+        "answer": "much more than",
+        "explanation": "Rewrite using \"MUCH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Simon wouldn t apologise for being so rude.Simon refused to WAS -> Simon refused to .....",
+        "sourceSentence": "Simon wouldn t apologise for being so rude.Simon refused to",
+        "keyword": "WAS",
+        "targetSentence": "Simon refused to .....",
+        "answer": "was not the",
+        "explanation": "Rewrite using \"WAS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "What attracts people so much to this city is its nightlife.What people FIND -> What people .....",
+        "sourceSentence": "What attracts people so much to this city is its nightlife.What people",
+        "keyword": "FIND",
+        "targetSentence": "What people .....",
+        "answer": "find it hard",
+        "explanation": "Rewrite using \"FIND\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "It s unlikely our firm will manage to win the contract.Our firm is unlikely SUCCEED -> Our firm is unlikely .....",
+        "sourceSentence": "It s unlikely our firm will manage to win the contract.Our firm is unlikely",
+        "keyword": "SUCCEED",
+        "targetSentence": "Our firm is unlikely .....",
+        "answer": "succeed in the",
+        "explanation": "Rewrite using \"SUCCEED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

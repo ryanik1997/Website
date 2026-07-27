@@ -15,6 +15,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { REPO_ROOT, resolveTainguyenPath, tainguyenExists } from './tainguyen-path.mjs'
 import { convertFcePagesToReadingExam, loadFceTestExamJson } from './reading/fce-b2-pages-to-parts.mjs'
+import { mergeAiRepairs } from './reading/merge-fce-b2-ai-repairs.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = REPO_ROOT
@@ -640,10 +641,27 @@ async function transformFceB2Reading(bundle) {
     bundle.sourceTest,
     path.join(TAINGUYEN, 'Import Cambridge', 'FCE_B2', 'Reading'),
   )
-  return convertFcePagesToReadingExam(raw, {
+  const body = convertFcePagesToReadingExam(raw, {
     sourceTestNumber: bundle.sourceTest,
     appTestNumber: bundle.appTest,
   }).body
+
+  // Apply AI repairs for missing content
+  const sourcePages = (raw.pages ?? []).filter(p => {
+    const pn = Number(p.partNumber)
+    return Number.isInteger(pn) && pn >= 1 && pn <= 7
+  })
+
+  const mergedParts = []
+  for (let i = 0; i < body.parts.length; i++) {
+    const part = body.parts[i]
+    const sourcePage = sourcePages.find(p => Number(p.partNumber) === part.partNumber)
+    const merged = await mergeAiRepairs(part, bundle.sourceTest, bundle.appTest, sourcePage ?? {})
+    mergedParts.push(merged)
+  }
+
+  body.parts = mergedParts
+  return body
 }
 
 function enrichPayloadLayout(payload, sourceRows, cam, test) {

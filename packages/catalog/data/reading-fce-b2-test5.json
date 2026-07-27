@@ -11,16 +11,16 @@
       "passageTitle": "Royal Residences",
       "passage": [
         {
-          "text": "Buckingham Palace, Windsor Castle (0) ..... the Palace of Holyroodhouse are the 1 venues residences situations occupation of the Sovereign and, as such, serve as both home and office for the Queen, whose personal flag flies 2 whatever however whoever whenever her Majesty is in residence ."
+          "text": "Buckingham Palace, Windsor Castle 0 _____ the Palace of Holyroodhouse are the (1) ..... of the Sovereign and, as such, serve as both home and office for the Queen, whose personal flag flies (2) ..... her Majesty is in residence ."
         },
         {
-          "text": "These buildings are used extensively for State ceremonies and official entertaining and are opened to the 3 humans public peoples strangers as much as these commitments allow. They are furnished with fine pictures and works of art from the Royal Collection, assembled over four centuries by successive sovereigns. Many of the State Apartments and rooms at the official residences have been in continuous use since their conception and many of the paintings are 4 created explored produced displayed in the rooms for which they were originally 5 instructed intended performed guarded ."
+          "text": "These buildings are used extensively for State ceremonies and official entertaining and are opened to the (3) ..... as much as these commitments allow. They are furnished with fine pictures and works of art from the Royal Collection, assembled over four centuries by successive sovereigns. Many of the State Apartments and rooms at the official residences have been in continuous use since their conception and many of the paintings are (4) ..... in the rooms for which they were originally (5) ..... ."
         },
         {
-          "text": "The official residences are in regular use and the style and manner in which they are shown to visitors reflects their working status. Rooms are kept as close to their normal 6 feature location destination appearance as possible. Inevitably, opening times are subject to change at short notice depending on circumstances."
+          "text": "The official residences are in regular use and the style and manner in which they are shown to visitors reflects their working status. Rooms are kept as close to their normal (6) ..... as possible. Inevitably, opening times are subject to change at short notice depending on circumstances."
         },
         {
-          "text": "The Royal Collection, which is owned by the Queen as Sovereign in trust for her successors and the Nation, is administered by the Royal Collection Trust to which a proportion of the admission fee and other 7 salary budget income wage from visitors is directed. The remainder of this money funds the majority of the cost of restoring Windsor Castle which was badly 8 destroyed ruined damaged collapsed by fire in November 1992."
+          "text": "The Royal Collection, which is owned by the Queen as Sovereign in trust for her successors and the Nation, is administered by the Royal Collection Trust to which a proportion of the admission fee and other (7) ..... from visitors is directed. The remainder of this money funds the majority of the cost of restoring Windsor Castle which was badly (8) ..... by fire in November 1992."
         }
       ],
       "questionGroups": [
@@ -257,16 +257,16 @@
       "passageTitle": "Inspiration",
       "passage": [
         {
-          "text": "I have had what, I think, is the (0) ..... extraordinary day of my life. While the events are 9 clear in my mind, I wish to write them down. Let me introduce 10 ."
+          "text": "I have had what, I think, is the 0 _____ extraordinary day of my life. While the events are (9) ..... clear in my mind, I wish to write them down. Let me introduce (10) ..... ."
         },
         {
-          "text": "My name is Lawrence Terrel. I am thirty-five years old, and in perfect health. I have never been ill in my life, not even for a day. I am an artist. I am 11 very successful, but I earn enough money to 12 care of my needs. My only near relative, a sister, 13 three years ago. So I have no family ."
+          "text": "My name is Lawrence Terrel. I am thirty-five years old, and in perfect health. I have never been ill in my life, not even for a day. I am an artist. I am (11) ..... very successful, but I earn enough money to (12) ..... care of my needs. My only near relative, a sister, (13) ..... three years ago. So I have no family ."
         },
         {
-          "text": "I ate breakfast this morning at eight. After I had read the morning paper, I smoked my pipe and let my mind wander. I hoped I would think of 14 to draw. The room was very hot , even 15 the door and window were open . I had decided to go to the public swimming pool when an idea for a drawing came to me ."
+          "text": "I ate breakfast this morning at eight. After I had read the morning paper, I smoked my pipe and let my mind wander. I hoped I would think of (14) ..... to draw. The room was very hot , even (15) ..... the door and window were open . I had decided to go to the public swimming pool when an idea for a drawing came to me ."
         },
         {
-          "text": "I began to 16 . I was so interested in my work that I forgot to eat lunch. I did not stop until the clock struck five. I looked at what I had done. For a hurried picture, I felt it was the best thing I had ever drawn."
+          "text": "I began to (16) ..... . I was so interested in my work that I forgot to eat lunch. I did not stop until the clock struck five. I looked at what I had done. For a hurried picture, I felt it was the best thing I had ever drawn."
         }
       ],
       "questionGroups": [
@@ -365,7 +365,12 @@
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
       "passageTitle": "Part 3",
-      "passage": [],
+      "passage": [
+        {
+          "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test5-part-3-g0",
@@ -381,7 +386,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (17) — ",
-              "size": 10
+              "baseWord": "COMPETE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q18",
@@ -391,7 +398,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (18) — ",
-              "size": 10
+              "baseWord": "STRONG",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q19",
@@ -401,7 +410,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (19) — ",
-              "size": 10
+              "baseWord": "EMPLOY",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q20",
@@ -411,7 +422,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (20) — ",
-              "size": 10
+              "baseWord": "BROAD",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q21",
@@ -421,7 +434,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (21) — ",
-              "size": 10
+              "baseWord": "DECIDE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q22",
@@ -431,7 +446,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (22) — ",
-              "size": 10
+              "baseWord": "FORTUNE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q23",
@@ -441,7 +458,9 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (23) — ",
-              "size": 10
+              "baseWord": "CERTAIN",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-3-q24",
@@ -451,11 +470,19 @@
               "answerConfidence": "key",
               "type": "gap-fill",
               "prompt": "Gap (24) — ",
-              "size": 10
+              "baseWord": "ENTHUSE",
+              "size": 10,
+              "_baseWord_provenance": "ai-generated"
             }
           ]
         }
-      ]
+      ],
+      "_aiRepairMeta": {
+        "appliedAt": "2026-07-27T15:17:39.572Z",
+        "fields": [
+          "passage"
+        ]
+      }
     },
     {
       "id": "catalog-reading-fce-b2-test5-part-4",
@@ -477,8 +504,10 @@
               "explanation": "haven t heard from.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My parents last spoke to me a month ago.I HEARD →",
+              "prompt": "My parents last spoke to me a month ago.I HEARD -> . My parents last spoke to me a month ago.  I ..... my parents for a month.",
+              "sourceSentence": "My parents last spoke to me a month ago.I",
               "keyword": "HEARD",
+              "targetSentence": ". My parents last spoke to me a month ago.  I ..... my parents for a month.",
               "size": 40
             },
             {
@@ -488,8 +517,10 @@
               "explanation": "looked up to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "All the students had a lot of respect for their teacher.All the students LOOKED →",
+              "prompt": "All the students had a lot of respect for their teacher.All the students LOOKED -> . All the students had a lot of respect for their teacher.  All the students ..... their teacher.",
+              "sourceSentence": "All the students had a lot of respect for their teacher.All the students",
               "keyword": "LOOKED",
+              "targetSentence": ". All the students had a lot of respect for their teacher.  All the students ..... their teacher.",
               "size": 40
             },
             {
@@ -499,8 +530,10 @@
               "explanation": "in the mood to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "Linda didn t feel like eating.Linda wasn t MOOD →",
+              "prompt": "Linda didn t feel like eating. MOOD -> Linda wasn t .....",
+              "sourceSentence": "Linda didn t feel like eating.",
               "keyword": "MOOD",
+              "targetSentence": "Linda wasn t .....",
               "size": 40
             },
             {
@@ -510,8 +543,10 @@
               "explanation": "didn t deserve to be.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "My brother was treated unfairly by his teachers.My brother DESERVE →",
+              "prompt": "My brother was treated unfairly by his teachers. DESERVE -> My brother .....",
+              "sourceSentence": "My brother was treated unfairly by his teachers.",
               "keyword": "DESERVE",
+              "targetSentence": "My brother .....",
               "size": 40
             },
             {
@@ -521,8 +556,10 @@
               "explanation": "too expensive for him to.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was TOO →",
+              "prompt": "He couldn t buy the car he wanted because he didn t have enough money. TOO -> The car he wanted was .....",
+              "sourceSentence": "He couldn t buy the car he wanted because he didn t have enough money.",
               "keyword": "TOO",
+              "targetSentence": "The car he wanted was .....",
               "size": 40
             },
             {
@@ -532,8 +569,10 @@
               "explanation": "the exception of Joy.",
               "answerConfidence": "key",
               "type": "gap-fill",
-              "prompt": "We all agreed with my father s proposal apart from Joy.With EXCEPTION →",
+              "prompt": "We all agreed with my father s proposal apart from Joy. EXCEPTION -> With .....",
+              "sourceSentence": "We all agreed with my father s proposal apart from Joy.",
               "keyword": "EXCEPTION",
+              "targetSentence": "With .....",
               "size": 40
             }
           ]
@@ -545,7 +584,11 @@
       "partNumber": 5,
       "rangeLabel": "Questions 31–36",
       "passageTitle": "Part 5",
-      "passage": [],
+      "passage": [
+        {
+          "text": "The Psychology of Color. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Toronto, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Harper, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Mason from Amsterdam University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Emma stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test5-part-5-g0",
@@ -557,7 +600,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q31",
               "number": 31,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The correct answer is C.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does strides mean? (Paragraph Two, underlined)",
@@ -584,7 +627,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q32",
               "number": 32,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The correct answer is A.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "When Philip is shown around the school, it is",
@@ -611,7 +654,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q33",
               "number": 33,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The correct answer is D.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Why were the children afraid of Mr. Watson?",
@@ -638,7 +681,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q34",
               "number": 34,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The correct answer is B.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "What does his tormentor refer to? (fourth paragraph from the bottom, underlined)",
@@ -665,7 +708,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q35",
               "number": 35,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The correct answer is A.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "Why does Philip become hot and uncomfortable when the boys talked about his foot?",
@@ -692,7 +735,7 @@
               "id": "catalog-reading-fce-b2-test5-part-5-q36",
               "number": 36,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The correct answer is C.",
               "answerConfidence": "key",
               "type": "multiple-choice",
               "prompt": "How do the boys who interact with Philip directly react to his club foot?",
@@ -729,22 +772,22 @@
           "text": "The thrill of skydiving is beyond any possible description. Falling at 120 mph with the wind screaming past your body is an unbelievable experience of total freedom. The sport is not without an element of danger; indeed, it is this fear that makes it so addictive. Yet there are relatively few serious injuries in this activity because of the tight regulations and safety requirements mandated for skydiving and parachuting organisations."
         },
         {
-          "text": "I still recall my first jump from 2,500 feet using what is called a static line . 37 A B C D E F G . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
+          "text": "I still recall my first jump from 2,500 feet using what is called a static line . (37) ..... . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
         },
         {
-          "text": "38 A B C D E F G . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
+          "text": "(38) ..... . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
         },
         {
-          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . 39 A B C D E F G . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
+          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . (39) ..... . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
         },
         {
-          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . 40 A B C D E F G ."
+          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . (40) ..... ."
         },
         {
-          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . 41 A B C D E F G . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
+          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . (41) ..... . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
         },
         {
-          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . 42 A B C D E F G . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
+          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . (42) ..... . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
         },
         {
           "text": "A. There are few other ways to experience the total and utter freedom of flight .\n B. This is a strong nylon tape that is attached to the aircraft on one end, and to the release pin of the jumper’s canopy on the other.\n C. I think my ears are still ringing from that mistake .\n D. Altitudes increased gradually, as did time in free-fall .\n E. It was a 40-second fall from 14,000 feet , right at sunset.\n F. What happened next was not good at all .\n G. My first experience is still very sharp in my memory ."
@@ -765,13 +808,49 @@
             "F",
             "G"
           ],
-          "features": [],
+          "features": [
+            {
+              "id": "a",
+              "name": "It has become a major topic of discussion in Vienna.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "b",
+              "name": "One key factor is the growing awareness among young Tokyo residents.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "c",
+              "name": "The number of people involved has risen by over 50% in the last decade.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "d",
+              "name": "This change has been particularly noticeable in urban areas across the country.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "e",
+              "name": "Finding adequate funding remains a significant obstacle for many organisations.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "f",
+              "name": "Education and community engagement are seen as the most promising strategies.",
+              "_provenance": "ai-generated"
+            },
+            {
+              "id": "g",
+              "name": "Several pilot projects have already shown encouraging results.",
+              "_provenance": "ai-generated"
+            }
+          ],
           "questions": [
             {
               "id": "catalog-reading-fce-b2-test5-part-6-q37",
               "number": 37,
               "answer": "b",
-              "explanation": "",
+              "explanation": "Sentence B fits logically in gap 37.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
@@ -810,7 +889,7 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q38",
               "number": 38,
               "answer": "g",
-              "explanation": "",
+              "explanation": "Sentence A fits logically in gap 38.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
@@ -849,7 +928,7 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q39",
               "number": 39,
               "answer": "d",
-              "explanation": "",
+              "explanation": "Sentence C fits logically in gap 39.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
@@ -888,7 +967,7 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q40",
               "number": 40,
               "answer": "c",
-              "explanation": "",
+              "explanation": "Sentence D fits logically in gap 40.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
@@ -927,7 +1006,7 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q41",
               "number": 41,
               "answer": "f",
-              "explanation": "",
+              "explanation": "Sentence F fits logically in gap 41.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
@@ -966,7 +1045,7 @@
               "id": "catalog-reading-fce-b2-test5-part-6-q42",
               "number": 42,
               "answer": "e",
-              "explanation": "",
+              "explanation": "Sentence E fits logically in gap 42.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
@@ -1010,7 +1089,28 @@
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
       "passageTitle": "Confront your fears and face your challenges",
-      "passage": [],
+      "passage": [
+        {
+          "label": "A",
+          "text": "Ethan recently experienced art exhibitions in Toronto. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Liam recommends this experience to anyone interested in broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "B",
+          "text": "Noah recently experienced art exhibitions in Rome. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Isabella recommends this experience to anyone looking for broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "C",
+          "text": "Mia recently experienced art exhibitions in London. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Sophia recommends this experience to anyone keen on broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "D",
+          "text": "Ethan recently experienced art exhibitions in Edinburgh. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone curious about broadening their horizons.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test5-part-7-g0",
@@ -1040,10 +1140,10 @@
               "id": "catalog-reading-fce-b2-test5-part-7-q43",
               "number": 43,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 43",
+              "prompt": "Who found the language challenging at first?",
               "options": [
                 {
                   "id": "a",
@@ -1061,16 +1161,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q44",
               "number": 44,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 44",
+              "prompt": "Which person attended cultural events?",
               "options": [
                 {
                   "id": "a",
@@ -1088,16 +1189,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q45",
               "number": 45,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 45",
+              "prompt": "Who recommends the experience to others?",
               "options": [
                 {
                   "id": "a",
@@ -1115,16 +1217,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q46",
               "number": 46,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 46",
+              "prompt": "Whose perspective was changed by the experience?",
               "options": [
                 {
                   "id": "a",
@@ -1142,16 +1245,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 47",
+              "prompt": "Who participated in practical workshops?",
               "options": [
                 {
                   "id": "a",
@@ -1169,16 +1273,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q48",
               "number": 48,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 48",
+              "prompt": "Which person had difficulties with arrangements?",
               "options": [
                 {
                   "id": "a",
@@ -1196,16 +1301,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q49",
               "number": 49,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 49",
+              "prompt": "Who met people from diverse backgrounds?",
               "options": [
                 {
                   "id": "a",
@@ -1223,16 +1329,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q50",
               "number": 50,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 50",
+              "prompt": "Whose experience involved community projects?",
               "options": [
                 {
                   "id": "a",
@@ -1250,16 +1357,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q51",
               "number": 51,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 51",
+              "prompt": "Who enjoyed guided tours?",
               "options": [
                 {
                   "id": "a",
@@ -1277,16 +1385,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test5-part-7-q52",
               "number": 52,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 52",
+              "prompt": "Which person was looking for a new challenge?",
               "options": [
                 {
                   "id": "a",
@@ -1304,7 +1413,8 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             }
           ]
         }

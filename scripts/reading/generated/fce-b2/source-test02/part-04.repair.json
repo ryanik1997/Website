@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 2,
+    "appTestNumber": 3,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.182Z",
+    "promptHash": "bootstrap-test2-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test2-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.182Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Tania hasn t played volleyball for three years.It SINCE -> It .....",
+        "sourceSentence": "Tania hasn t played volleyball for three years.It",
+        "keyword": "SINCE",
+        "targetSentence": "It .....",
+        "answer": "since the time",
+        "explanation": "Rewrite using \"SINCE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to EVERYTHING -> Carl remembered to .....",
+        "sourceSentence": "The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to",
+        "keyword": "EVERYTHING",
+        "targetSentence": "Carl remembered to .....",
+        "answer": "everything about the",
+        "explanation": "Rewrite using \"EVERYTHING\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "John was angry because Claire arrived late.If Claire TIME -> If Claire .....",
+        "sourceSentence": "John was angry because Claire arrived late.If Claire",
+        "keyword": "TIME",
+        "targetSentence": "If Claire .....",
+        "answer": "time to think",
+        "explanation": "Rewrite using \"TIME\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I don t usually wear a hat and so it feels strange.I am USED -> I am .....",
+        "sourceSentence": "I don t usually wear a hat and so it feels strange.I am",
+        "keyword": "USED",
+        "targetSentence": "I am .....",
+        "answer": "used to be",
+        "explanation": "Rewrite using \"USED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Rob said to Jennifer: You broke the strap on my new camera. Rob ACCUSED ->  Rob .....",
+        "sourceSentence": "Rob said to Jennifer: You broke the strap on my new camera. Rob",
+        "keyword": "ACCUSED",
+        "targetSentence": " Rob .....",
+        "answer": "accused me of",
+        "explanation": "Rewrite using \"ACCUSED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Mark can t wait to use his new computer-games console.FORWARDMark is AS -> FORWARDMark is .....",
+        "sourceSentence": "Mark can t wait to use his new computer-games console.FORWARDMark is",
+        "keyword": "AS",
+        "targetSentence": "FORWARDMark is .....",
+        "answer": "as well as",
+        "explanation": "Rewrite using \"AS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

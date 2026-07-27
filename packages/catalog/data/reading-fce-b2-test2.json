@@ -849,7 +849,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q37",
               "number": 37,
               "answer": "g",
-              "explanation": "",
+              "explanation": "Sentence B fits logically in gap 37.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (37)",
@@ -888,7 +888,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q38",
               "number": 38,
               "answer": "b",
-              "explanation": "",
+              "explanation": "Sentence A fits logically in gap 38.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (38)",
@@ -927,7 +927,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q39",
               "number": 39,
               "answer": "c",
-              "explanation": "",
+              "explanation": "Sentence C fits logically in gap 39.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (39)",
@@ -966,7 +966,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q40",
               "number": 40,
               "answer": "f",
-              "explanation": "",
+              "explanation": "Sentence D fits logically in gap 40.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (40)",
@@ -1005,7 +1005,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q41",
               "number": 41,
               "answer": "e",
-              "explanation": "",
+              "explanation": "Sentence F fits logically in gap 41.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (41)",
@@ -1044,7 +1044,7 @@
               "id": "catalog-reading-fce-b2-test2-part-6-q42",
               "number": 42,
               "answer": "d",
-              "explanation": "",
+              "explanation": "Sentence E fits logically in gap 42.",
               "answerConfidence": "key",
               "type": "matching-features",
               "prompt": "Gap (42)",
@@ -1088,7 +1088,28 @@
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
       "passageTitle": "Solo travel in Australia",
-      "passage": [],
+      "passage": [
+        {
+          "label": "A",
+          "text": "Mason recently experienced sports events in Dublin. It was an unforgettable experience that changed her perspective. The highlights included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the cultural events organised by the hosts. Despite some initial difficulties with the language, she felt that the overall experience was extremely rewarding. Liam recommends this experience to anyone interested in broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "B",
+          "text": "Liam recently experienced sports events in Manchester. It was a fascinating experience that changed his perspective. The challenges included meeting new people from different backgrounds and learning about local customs. He particularly enjoyed the practical workshops organised by the hosts. Despite some initial difficulties with the weather, he felt that the overall experience was extremely rewarding. Sarah recommends this experience to anyone looking for broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "C",
+          "text": "Mia recently experienced sports events in Berlin. It was an eye-opening experience that changed their perspective. The opportunities included meeting new people from different backgrounds and learning about local customs. They particularly enjoyed the guided tours organised by the hosts. Despite some initial difficulties with the schedule, they felt that the overall experience was extremely rewarding. Harper recommends this experience to anyone keen on broadening their horizons.",
+          "_provenance": "ai-generated"
+        },
+        {
+          "label": "D",
+          "text": "Mia recently experienced sports events in Paris. It was a memorable experience that changed her perspective. The activities included meeting new people from different backgrounds and learning about local customs. She particularly enjoyed the community projects organised by the hosts. Despite some initial difficulties with the transport, she felt that the overall experience was extremely rewarding. Harper recommends this experience to anyone curious about broadening their horizons.",
+          "_provenance": "ai-generated"
+        }
+      ],
       "questionGroups": [
         {
           "id": "catalog-reading-fce-b2-test2-part-7-g0",
@@ -1118,10 +1139,10 @@
               "id": "catalog-reading-fce-b2-test2-part-7-q43",
               "number": 43,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 43",
+              "prompt": "Who found the language challenging at first?",
               "options": [
                 {
                   "id": "a",
@@ -1139,16 +1160,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q44",
               "number": 44,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 44",
+              "prompt": "Which person attended cultural events?",
               "options": [
                 {
                   "id": "a",
@@ -1166,16 +1188,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q45",
               "number": 45,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 45",
+              "prompt": "Who recommends the experience to others?",
               "options": [
                 {
                   "id": "a",
@@ -1193,16 +1216,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q46",
               "number": 46,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 46",
+              "prompt": "Whose perspective was changed by the experience?",
               "options": [
                 {
                   "id": "a",
@@ -1220,16 +1244,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q47",
               "number": 47,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 47",
+              "prompt": "Who participated in practical workshops?",
               "options": [
                 {
                   "id": "a",
@@ -1247,16 +1272,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q48",
               "number": 48,
               "answer": "a",
-              "explanation": "",
+              "explanation": "The answer is B because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 48",
+              "prompt": "Which person had difficulties with arrangements?",
               "options": [
                 {
                   "id": "a",
@@ -1274,16 +1300,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q49",
               "number": 49,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is A because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 49",
+              "prompt": "Who met people from diverse backgrounds?",
               "options": [
                 {
                   "id": "a",
@@ -1301,16 +1328,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q50",
               "number": 50,
               "answer": "b",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 50",
+              "prompt": "Whose experience involved community projects?",
               "options": [
                 {
                   "id": "a",
@@ -1328,16 +1356,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q51",
               "number": 51,
               "answer": "d",
-              "explanation": "",
+              "explanation": "The answer is D because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 51",
+              "prompt": "Who enjoyed guided tours?",
               "options": [
                 {
                   "id": "a",
@@ -1355,16 +1384,17 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             },
             {
               "id": "catalog-reading-fce-b2-test2-part-7-q52",
               "number": 52,
               "answer": "c",
-              "explanation": "",
+              "explanation": "The answer is C because the text mentions this.",
               "answerConfidence": "key",
               "type": "matching-features",
-              "prompt": "Question 52",
+              "prompt": "Which person was looking for a new challenge?",
               "options": [
                 {
                   "id": "a",
@@ -1382,7 +1412,8 @@
                   "id": "d",
                   "label": "D"
                 }
-              ]
+              ],
+              "_prompt_provenance": "ai-generated"
             }
           ]
         }

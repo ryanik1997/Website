@@ -1,0 +1,230 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "questions"
+    ],
+    "sourceTestNumber": 7,
+    "appTestNumber": 8,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.205Z",
+    "promptHash": "bootstrap-test7-part1",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test7-part1",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.205Z",
+  "repair": {
+    "passage": [
+      {
+        "text": "The question of fce reading and use of english practice test 7 has become increasingly important in recent years. (1) ..... , many experts believe that we need to take action now. There are (2) ..... reasons why this issue deserves our attention. Firstly, the effects can be seen (3) ..... around the world. Secondly, the cost of inaction is (4) ..... to rise significantly. However, some people remain (5) ..... about the seriousness of the situation. They argue that the economy should (6) ..... priority over environmental concerns. Nevertheless, research (7) ..... that urgent measures are necessary (8) ..... we want to avoid serious consequences."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "multiple-choice",
+        "prompt": "Gap (1)",
+        "options": [
+          {
+            "id": "a",
+            "label": "consequently"
+          },
+          {
+            "id": "b",
+            "label": "additionally"
+          },
+          {
+            "id": "c",
+            "label": "however"
+          },
+          {
+            "id": "d",
+            "label": "subsequently"
+          }
+        ],
+        "answer": "b",
+        "explanation": "The correct answer is b because it best fits the context of the sentence."
+      },
+      {
+        "number": 2,
+        "type": "multiple-choice",
+        "prompt": "Gap (2)",
+        "options": [
+          {
+            "id": "a",
+            "label": "meanwhile"
+          },
+          {
+            "id": "b",
+            "label": "indeed"
+          },
+          {
+            "id": "c",
+            "label": "clearly"
+          },
+          {
+            "id": "d",
+            "label": "predictably"
+          }
+        ],
+        "answer": "c",
+        "explanation": "The correct answer is c because it best fits the context of the sentence."
+      },
+      {
+        "number": 3,
+        "type": "multiple-choice",
+        "prompt": "Gap (3)",
+        "options": [
+          {
+            "id": "a",
+            "label": "unfortunately"
+          },
+          {
+            "id": "b",
+            "label": "indeed"
+          },
+          {
+            "id": "c",
+            "label": "undoubtedly"
+          },
+          {
+            "id": "d",
+            "label": "certainly"
+          }
+        ],
+        "answer": "d",
+        "explanation": "The correct answer is d because it best fits the context of the sentence."
+      },
+      {
+        "number": 4,
+        "type": "multiple-choice",
+        "prompt": "Gap (4)",
+        "options": [
+          {
+            "id": "a",
+            "label": "importantly"
+          },
+          {
+            "id": "b",
+            "label": "indeed"
+          },
+          {
+            "id": "c",
+            "label": "furthermore"
+          },
+          {
+            "id": "d",
+            "label": "otherwise"
+          }
+        ],
+        "answer": "a",
+        "explanation": "The correct answer is a because it best fits the context of the sentence."
+      },
+      {
+        "number": 5,
+        "type": "multiple-choice",
+        "prompt": "Gap (5)",
+        "options": [
+          {
+            "id": "a",
+            "label": "unfortunately"
+          },
+          {
+            "id": "b",
+            "label": "significantly"
+          },
+          {
+            "id": "c",
+            "label": "undoubtedly"
+          },
+          {
+            "id": "d",
+            "label": "conversely"
+          }
+        ],
+        "answer": "b",
+        "explanation": "The correct answer is b because it best fits the context of the sentence."
+      },
+      {
+        "number": 6,
+        "type": "multiple-choice",
+        "prompt": "Gap (6)",
+        "options": [
+          {
+            "id": "a",
+            "label": "consequently"
+          },
+          {
+            "id": "b",
+            "label": "unexpectedly"
+          },
+          {
+            "id": "c",
+            "label": "naturally"
+          },
+          {
+            "id": "d",
+            "label": "subsequently"
+          }
+        ],
+        "answer": "c",
+        "explanation": "The correct answer is c because it best fits the context of the sentence."
+      },
+      {
+        "number": 7,
+        "type": "multiple-choice",
+        "prompt": "Gap (7)",
+        "options": [
+          {
+            "id": "a",
+            "label": "consequently"
+          },
+          {
+            "id": "b",
+            "label": "unexpectedly"
+          },
+          {
+            "id": "c",
+            "label": "however"
+          },
+          {
+            "id": "d",
+            "label": "basically"
+          }
+        ],
+        "answer": "d",
+        "explanation": "The correct answer is d because it best fits the context of the sentence."
+      },
+      {
+        "number": 8,
+        "type": "multiple-choice",
+        "prompt": "Gap (8)",
+        "options": [
+          {
+            "id": "a",
+            "label": "essentially"
+          },
+          {
+            "id": "b",
+            "label": "moreover"
+          },
+          {
+            "id": "c",
+            "label": "furthermore"
+          },
+          {
+            "id": "d",
+            "label": "subsequently"
+          }
+        ],
+        "answer": "a",
+        "explanation": "The correct answer is a because it best fits the context of the sentence."
+      }
+    ]
+  },
+  "status": "generated"
+}

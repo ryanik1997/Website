@@ -1,0 +1,102 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "questions"
+    ],
+    "sourceTestNumber": 9,
+    "appTestNumber": 10,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.216Z",
+    "promptHash": "bootstrap-test9-part2",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test9-part2",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.216Z",
+  "repair": {
+    "passage": [
+      {
+        "text": "When it comes to communication skills, there are several factors to consider. (9) ..... of all, it is important to understand the basic principles. Many people, (10) ..... , fail to recognise the significance of this. The reason (11) ..... this may be due to a lack of exposure. (12) ..... the other hand, those who have experience tend to disagree. It is worth noting that (13) ..... of the challenges we face can be overcome with patience. (14) ..... is also true that practice plays a crucial role. Finally, (15) ..... should be given to those who persist (16) ..... the face of difficulty."
+      }
+    ],
+    "questions": [
+      {
+        "number": 9,
+        "type": "gap-fill",
+        "prompt": "Gap (9)",
+        "answer": "first",
+        "acceptedAnswers": "first",
+        "explanation": "The correct word is \"first\".",
+        "size": 10
+      },
+      {
+        "number": 10,
+        "type": "gap-fill",
+        "prompt": "Gap (10)",
+        "answer": "however",
+        "acceptedAnswers": "however",
+        "explanation": "The correct word is \"however\".",
+        "size": 10
+      },
+      {
+        "number": 11,
+        "type": "gap-fill",
+        "prompt": "Gap (11)",
+        "answer": "for",
+        "acceptedAnswers": "for",
+        "explanation": "The correct word is \"for\".",
+        "size": 10
+      },
+      {
+        "number": 12,
+        "type": "gap-fill",
+        "prompt": "Gap (12)",
+        "answer": "on",
+        "acceptedAnswers": "on",
+        "explanation": "The correct word is \"on\".",
+        "size": 10
+      },
+      {
+        "number": 13,
+        "type": "gap-fill",
+        "prompt": "Gap (13)",
+        "answer": "most",
+        "acceptedAnswers": "most",
+        "explanation": "The correct word is \"most\".",
+        "size": 10
+      },
+      {
+        "number": 14,
+        "type": "gap-fill",
+        "prompt": "Gap (14)",
+        "answer": "it",
+        "acceptedAnswers": "it",
+        "explanation": "The correct word is \"it\".",
+        "size": 10
+      },
+      {
+        "number": 15,
+        "type": "gap-fill",
+        "prompt": "Gap (15)",
+        "answer": "credit",
+        "acceptedAnswers": "credit",
+        "explanation": "The correct word is \"credit\".",
+        "size": 10
+      },
+      {
+        "number": 16,
+        "type": "gap-fill",
+        "prompt": "Gap (16)",
+        "answer": "in",
+        "acceptedAnswers": "in",
+        "explanation": "The correct word is \"in\".",
+        "size": 10
+      }
+    ]
+  },
+  "status": "generated"
+}

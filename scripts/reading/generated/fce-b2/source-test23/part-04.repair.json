@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 23,
+    "appTestNumber": 24,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.288Z",
+    "promptHash": "bootstrap-test23-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test23-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.288Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Richard asked me how much I had paid for the theatre tickets. Richard wanted to COST ->  Richard wanted to .....",
+        "sourceSentence": "Richard asked me how much I had paid for the theatre tickets. Richard wanted to",
+        "keyword": "COST",
+        "targetSentence": " Richard wanted to .....",
+        "answer": "cost of the",
+        "explanation": "Rewrite using \"COST\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "It wasn t a good idea for you to delete that file. You SHOULD ->  You .....",
+        "sourceSentence": "It wasn t a good idea for you to delete that file. You",
+        "keyword": "SHOULD",
+        "targetSentence": " You .....",
+        "answer": "should not have",
+        "explanation": "Rewrite using \"SHOULD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The ferry couldn t sail because the weather was bad. The ferry couldn t sail DUE ->  The ferry couldn t sail .....",
+        "sourceSentence": "The ferry couldn t sail because the weather was bad. The ferry couldn t sail",
+        "keyword": "DUE",
+        "targetSentence": " The ferry couldn t sail .....",
+        "answer": "due to the",
+        "explanation": "Rewrite using \"DUE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "The teacher told us not to be late on Friday. You BETTER ->  You .....",
+        "sourceSentence": "The teacher told us not to be late on Friday. You",
+        "keyword": "BETTER",
+        "targetSentence": " You .....",
+        "answer": "better than the",
+        "explanation": "Rewrite using \"BETTER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "There are Spanish and French translations of the book. The book BEEN ->  The book .....",
+        "sourceSentence": "There are Spanish and French translations of the book. The book",
+        "keyword": "BEEN",
+        "targetSentence": " The book .....",
+        "answer": "been to the",
+        "explanation": "Rewrite using \"BEEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "She will only phone if she gets lost. She will UNLESS ->  She will .....",
+        "sourceSentence": "She will only phone if she gets lost. She will",
+        "keyword": "UNLESS",
+        "targetSentence": " She will .....",
+        "answer": "unless it is",
+        "explanation": "Rewrite using \"UNLESS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

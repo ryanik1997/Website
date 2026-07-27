@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 3,
+    "appTestNumber": 4,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.188Z",
+    "promptHash": "bootstrap-test3-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test3-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.188Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "The band probably won t do another tour this year.The band UNLIKELY -> The band .....",
+        "sourceSentence": "The band probably won t do another tour this year.The band",
+        "keyword": "UNLIKELY",
+        "targetSentence": "The band .....",
+        "answer": "unlikely to be",
+        "explanation": "Rewrite using \"UNLIKELY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "It s very hard for Alex to get up in the morning.Alex TROUBLE -> Alex .....",
+        "sourceSentence": "It s very hard for Alex to get up in the morning.Alex",
+        "keyword": "TROUBLE",
+        "targetSentence": "Alex .....",
+        "answer": "trouble with the",
+        "explanation": "Rewrite using \"TROUBLE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Lily is so good at swimming that she is going to train for the Olympics.Lily SUCH -> Lily .....",
+        "sourceSentence": "Lily is so good at swimming that she is going to train for the Olympics.Lily",
+        "keyword": "SUCH",
+        "targetSentence": "Lily .....",
+        "answer": "such a long",
+        "explanation": "Rewrite using \"SUCH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "One of us ought to go and meet the visitor at the airport.The visitor SHOULD -> The visitor .....",
+        "sourceSentence": "One of us ought to go and meet the visitor at the airport.The visitor",
+        "keyword": "SHOULD",
+        "targetSentence": "The visitor .....",
+        "answer": "should not have",
+        "explanation": "Rewrite using \"SHOULD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "I went to the dentist s because I couldn t stand the toothache any longer.I couldn t UP -> I couldn t .....",
+        "sourceSentence": "I went to the dentist s because I couldn t stand the toothache any longer.I couldn t",
+        "keyword": "UP",
+        "targetSentence": "I couldn t .....",
+        "answer": "up to the",
+        "explanation": "Rewrite using \"UP\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I wasn t invited to the party and feel sad about that.I WISH -> I .....",
+        "sourceSentence": "I wasn t invited to the party and feel sad about that.I",
+        "keyword": "WISH",
+        "targetSentence": "I .....",
+        "answer": "wish I could",
+        "explanation": "Rewrite using \"WISH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

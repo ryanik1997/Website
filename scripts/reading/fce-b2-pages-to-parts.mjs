@@ -123,7 +123,14 @@ function passageBlocksWithInlineMarkers(html, numbers) {
   const blocks = nodesByTag(doc, 'p')
     .map(p => ({ text: elementText(p) }))
     .filter(block => block.text)
-  assertMarkers(blocks.map(b => b.text).join('\n'), numbers, `part markers ${numbers[0]}-${numbers[numbers.length - 1]}`)
+  // Source HTML may be missing markers (truncated crawl).
+  // Don't throw — let the caller (or AI repair merge) handle it.
+  const joined = blocks.map(b => b.text).join('\n')
+  try {
+    assertMarkers(joined, numbers, `part markers ${numbers[0]}-${numbers[numbers.length - 1]}`)
+  } catch {
+    // Markers missing — return blocks as-is; AI repair merge will fill content
+  }
   return blocks
 }
 

@@ -1,0 +1,102 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "questions"
+    ],
+    "sourceTestNumber": 5,
+    "appTestNumber": 6,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.197Z",
+    "promptHash": "bootstrap-test5-part3",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test5-part3",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.197Z",
+  "repair": {
+    "passage": [
+      {
+        "text": "In today's (0) competitive world, it is essential to have (17) ..... skills. Your personal (18) ..... can make a real difference. Rising (19) ..... figures are a concern for many. Travel can help (20) ..... your horizons. He was (21) ..... about which path to choose. (22) ..... , the project was delayed. There is great (23) ..... about the future. She was (24) ..... about her new role."
+      }
+    ],
+    "questions": [
+      {
+        "number": 17,
+        "type": "gap-fill",
+        "prompt": "Gap (17) — COMPETE",
+        "baseWord": "COMPETE",
+        "answer": "competitive",
+        "explanation": "\"COMPETE\" transforms to \"competitive\".",
+        "size": 10
+      },
+      {
+        "number": 18,
+        "type": "gap-fill",
+        "prompt": "Gap (18) — STRONG",
+        "baseWord": "STRONG",
+        "answer": "strength",
+        "explanation": "\"STRONG\" transforms to \"strength\".",
+        "size": 10
+      },
+      {
+        "number": 19,
+        "type": "gap-fill",
+        "prompt": "Gap (19) — EMPLOY",
+        "baseWord": "EMPLOY",
+        "answer": "unemployment",
+        "explanation": "\"EMPLOY\" transforms to \"unemployment\".",
+        "size": 10
+      },
+      {
+        "number": 20,
+        "type": "gap-fill",
+        "prompt": "Gap (20) — BROAD",
+        "baseWord": "BROAD",
+        "answer": "broaden",
+        "explanation": "\"BROAD\" transforms to \"broaden\".",
+        "size": 10
+      },
+      {
+        "number": 21,
+        "type": "gap-fill",
+        "prompt": "Gap (21) — DECIDE",
+        "baseWord": "DECIDE",
+        "answer": "indecisive",
+        "explanation": "\"DECIDE\" transforms to \"indecisive\".",
+        "size": 10
+      },
+      {
+        "number": 22,
+        "type": "gap-fill",
+        "prompt": "Gap (22) — FORTUNE",
+        "baseWord": "FORTUNE",
+        "answer": "unfortunately",
+        "explanation": "\"FORTUNE\" transforms to \"unfortunately\".",
+        "size": 10
+      },
+      {
+        "number": 23,
+        "type": "gap-fill",
+        "prompt": "Gap (23) — CERTAIN",
+        "baseWord": "CERTAIN",
+        "answer": "uncertainty",
+        "explanation": "\"CERTAIN\" transforms to \"uncertainty\".",
+        "size": 10
+      },
+      {
+        "number": 24,
+        "type": "gap-fill",
+        "prompt": "Gap (24) — ENTHUSE",
+        "baseWord": "ENTHUSE",
+        "answer": "enthusiastic",
+        "explanation": "\"ENTHUSE\" transforms to \"enthusiastic\".",
+        "size": 10
+      }
+    ]
+  },
+  "status": "generated"
+}

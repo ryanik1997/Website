@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 11,
+    "appTestNumber": 12,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.228Z",
+    "promptHash": "bootstrap-test11-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test11-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.228Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "‘Would you like to come to my party, Karen?’, the girl said.The girl INVITED -> The girl .....",
+        "sourceSentence": "‘Would you like to come to my party, Karen?’, the girl said.The girl",
+        "keyword": "INVITED",
+        "targetSentence": "The girl .....",
+        "answer": "invited me to",
+        "explanation": "Rewrite using \"INVITED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Two foolish people took no notice of the warning sign.Two foolish people PAID -> Two foolish people .....",
+        "sourceSentence": "Two foolish people took no notice of the warning sign.Two foolish people",
+        "keyword": "PAID",
+        "targetSentence": "Two foolish people .....",
+        "answer": "paid for the",
+        "explanation": "Rewrite using \"PAID\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The rescue workers had too little food to feed everyone.There NOT -> There .....",
+        "sourceSentence": "The rescue workers had too little food to feed everyone.There",
+        "keyword": "NOT",
+        "targetSentence": "There .....",
+        "answer": "not to be",
+        "explanation": "Rewrite using \"NOT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Jack gets no exercise apart from walking to his car.The ONLY -> The .....",
+        "sourceSentence": "Jack gets no exercise apart from walking to his car.The",
+        "keyword": "ONLY",
+        "targetSentence": "The .....",
+        "answer": "only just been",
+        "explanation": "Rewrite using \"ONLY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Sonia wanted to be a nurse so she left her job as a teacher.Sonia GAVE -> Sonia .....",
+        "sourceSentence": "Sonia wanted to be a nurse so she left her job as a teacher.Sonia",
+        "keyword": "GAVE",
+        "targetSentence": "Sonia .....",
+        "answer": "gave me a",
+        "explanation": "Rewrite using \"GAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "There’s far less noise in this street than there used to be.In this street, there isn’t NEARLY -> In this street, there isn’t .....",
+        "sourceSentence": "There’s far less noise in this street than there used to be.In this street, there isn’t",
+        "keyword": "NEARLY",
+        "targetSentence": "In this street, there isn’t .....",
+        "answer": "nearly all the",
+        "explanation": "Rewrite using \"NEARLY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

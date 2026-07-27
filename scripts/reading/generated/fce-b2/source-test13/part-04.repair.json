@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 13,
+    "appTestNumber": 14,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.239Z",
+    "promptHash": "bootstrap-test13-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test13-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.239Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Heidi stayed with a friend when she went to London. A friend PUT ->  A friend .....",
+        "sourceSentence": "Heidi stayed with a friend when she went to London. A friend",
+        "keyword": "PUT",
+        "targetSentence": " A friend .....",
+        "answer": "put off by",
+        "explanation": "Rewrite using \"PUT\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "The singer dislikes people asking for his autograph in the street. The singer LIKE ->  The singer .....",
+        "sourceSentence": "The singer dislikes people asking for his autograph in the street. The singer",
+        "keyword": "LIKE",
+        "targetSentence": " The singer .....",
+        "answer": "like to be",
+        "explanation": "Rewrite using \"LIKE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "I advised Kylie to enrol at a gym which she did. Kylie ADVICE ->  Kylie .....",
+        "sourceSentence": "I advised Kylie to enrol at a gym which she did. Kylie",
+        "keyword": "ADVICE",
+        "targetSentence": " Kylie .....",
+        "answer": "advice on the",
+        "explanation": "Rewrite using \"ADVICE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I had no idea that a famous film star was born in the town. I UNAWARE ->  I .....",
+        "sourceSentence": "I had no idea that a famous film star was born in the town. I",
+        "keyword": "UNAWARE",
+        "targetSentence": " I .....",
+        "answer": "unaware of the",
+        "explanation": "Rewrite using \"UNAWARE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Simon was the only student to apply for a scholarship. Apart NONE ->  Apart .....",
+        "sourceSentence": "Simon was the only student to apply for a scholarship. Apart",
+        "keyword": "NONE",
+        "targetSentence": " Apart .....",
+        "answer": "none of the",
+        "explanation": "Rewrite using \"NONE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Debbie wore a jumper because she thought it might be cold in the mountains. Debbie wore a jumper CASE ->  Debbie wore a jumper .....",
+        "sourceSentence": "Debbie wore a jumper because she thought it might be cold in the mountains. Debbie wore a jumper",
+        "keyword": "CASE",
+        "targetSentence": " Debbie wore a jumper .....",
+        "answer": "case of the",
+        "explanation": "Rewrite using \"CASE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

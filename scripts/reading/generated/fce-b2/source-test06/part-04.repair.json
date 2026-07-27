@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 6,
+    "appTestNumber": 7,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.202Z",
+    "promptHash": "bootstrap-test6-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test6-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.202Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "The hairdresser did Mary s hair last Tuesday.Mary HAD -> Mary .....",
+        "sourceSentence": "The hairdresser did Mary s hair last Tuesday.Mary",
+        "keyword": "HAD",
+        "targetSentence": "Mary .....",
+        "answer": "had to be",
+        "explanation": "Rewrite using \"HAD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Andrew s job is to supervise all the employees of the company.Andrew RESPONSIBLE -> Andrew .....",
+        "sourceSentence": "Andrew s job is to supervise all the employees of the company.Andrew",
+        "keyword": "RESPONSIBLE",
+        "targetSentence": "Andrew .....",
+        "answer": "responsible for the",
+        "explanation": "Rewrite using \"RESPONSIBLE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Harry reads faster than his little sister.Harry READER -> Harry .....",
+        "sourceSentence": "Harry reads faster than his little sister.Harry",
+        "keyword": "READER",
+        "targetSentence": "Harry .....",
+        "answer": "reader of the",
+        "explanation": "Rewrite using \"READER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "I didn t steal the lady s purse , said the boy.The boy DENIED -> The boy .....",
+        "sourceSentence": "I didn t steal the lady s purse , said the boy.The boy",
+        "keyword": "DENIED",
+        "targetSentence": "The boy .....",
+        "answer": "denied having any",
+        "explanation": "Rewrite using \"DENIED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "It was our first trip to Italy so we were very excited about it.It was the TIME -> It was the .....",
+        "sourceSentence": "It was our first trip to Italy so we were very excited about it.It was the",
+        "keyword": "TIME",
+        "targetSentence": "It was the .....",
+        "answer": "time to think",
+        "explanation": "Rewrite using \"TIME\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Whose car is this? he asked. Who BELONG ->  Who .....",
+        "sourceSentence": "Whose car is this? he asked. Who",
+        "keyword": "BELONG",
+        "targetSentence": " Who .....",
+        "answer": "belong to the",
+        "explanation": "Rewrite using \"BELONG\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

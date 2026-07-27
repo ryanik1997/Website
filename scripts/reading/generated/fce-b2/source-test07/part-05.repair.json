@@ -1,0 +1,180 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "passage",
+      "questions"
+    ],
+    "sourceTestNumber": 7,
+    "appTestNumber": 8,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.208Z",
+    "promptHash": "bootstrap-test7-part5",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test7-part5",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.208Z",
+  "repair": {
+    "passage": [
+      {
+        "text": "The Art of Photography. This is a subject that has fascinated researchers for many years. In a recent study conducted at the University of Tokyo, scientists examined the various factors that contribute to our understanding of this topic. The study involved over 500 participants and lasted for approximately two years.\n\nThe results were surprising. The research team, led by Dr. Sophia, found that there were significant differences between the groups they studied. One participant commented, 'I had no idea that this would be the outcome. It completely changed my perspective on the issue.'\n\nCritics of the study have pointed out some limitations. Professor Emma from Rome University argues that the sample size was too small to draw definitive conclusions. 'While the findings are interesting,' he says, 'we need more research before we can apply them broadly.'\n\nDespite these criticisms, the study represents an important step forward. The authors emphasise that further investigation is needed, but they remain optimistic about the potential applications of their work. 'This is just the beginning,' Dr. Noah stated. 'We are already planning follow-up studies that will explore these questions in more depth.'"
+      }
+    ],
+    "questions": [
+      {
+        "number": 31,
+        "type": "multiple-choice",
+        "prompt": "When Claire realises who is phoning her, she",
+        "options": [
+          {
+            "id": "a",
+            "label": "To persuade readers"
+          },
+          {
+            "id": "b",
+            "label": "To entertain readers"
+          },
+          {
+            "id": "c",
+            "label": "To inform readers"
+          },
+          {
+            "id": "d",
+            "label": "To sell a product"
+          }
+        ],
+        "answer": "c",
+        "explanation": "The correct answer is C."
+      },
+      {
+        "number": 32,
+        "type": "multiple-choice",
+        "prompt": "Why doesn t Claire know who is ill?",
+        "options": [
+          {
+            "id": "a",
+            "label": "More than 500"
+          },
+          {
+            "id": "b",
+            "label": "Around 200"
+          },
+          {
+            "id": "c",
+            "label": "Approximately 500"
+          },
+          {
+            "id": "d",
+            "label": "Over 1000"
+          }
+        ],
+        "answer": "a",
+        "explanation": "The correct answer is A."
+      },
+      {
+        "number": 33,
+        "type": "multiple-choice",
+        "prompt": "How does Claire feel about her school?",
+        "options": [
+          {
+            "id": "a",
+            "label": "He was very surprised"
+          },
+          {
+            "id": "b",
+            "label": "He disagreed with the findings"
+          },
+          {
+            "id": "c",
+            "label": "He had no opinion"
+          },
+          {
+            "id": "d",
+            "label": "He found it confusing"
+          }
+        ],
+        "answer": "d",
+        "explanation": "The correct answer is D."
+      },
+      {
+        "number": 34,
+        "type": "multiple-choice",
+        "prompt": "What is Claire s attitude to Ruth s financial problems?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The study was too expensive"
+          },
+          {
+            "id": "b",
+            "label": "The researchers were biased"
+          },
+          {
+            "id": "c",
+            "label": "The sample was too small"
+          },
+          {
+            "id": "d",
+            "label": "The topic was irrelevant"
+          }
+        ],
+        "answer": "b",
+        "explanation": "The correct answer is B."
+      },
+      {
+        "number": 35,
+        "type": "multiple-choice",
+        "prompt": "What does There s more to it than that refer to? (second half of the text, sentence underlined)",
+        "options": [
+          {
+            "id": "a",
+            "label": "The authors are very confident"
+          },
+          {
+            "id": "b",
+            "label": "More studies are planned"
+          },
+          {
+            "id": "c",
+            "label": "The study is complete"
+          },
+          {
+            "id": "d",
+            "label": "The results are useless"
+          }
+        ],
+        "answer": "a",
+        "explanation": "The correct answer is A."
+      },
+      {
+        "number": 36,
+        "type": "multiple-choice",
+        "prompt": "What do we learn about Claire and her family?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Humorous and light"
+          },
+          {
+            "id": "b",
+            "label": "Serious and academic"
+          },
+          {
+            "id": "c",
+            "label": "Cautiously optimistic"
+          },
+          {
+            "id": "d",
+            "label": "Angry and critical"
+          }
+        ],
+        "answer": "c",
+        "explanation": "The correct answer is C."
+      }
+    ]
+  },
+  "status": "generated"
+}

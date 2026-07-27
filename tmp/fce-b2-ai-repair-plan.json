@@ -1,0 +1,3966 @@
+{
+  "generatedAt": "2026-07-27T15:03:22.653Z",
+  "totalSourceTests": 26,
+  "totalParts": 182,
+  "summary": {
+    "byRepairMode": {
+      "ai-partial": 54,
+      "ai-full-part": 119,
+      "deterministic": 9
+    },
+    "totalDeterministic": 9,
+    "totalAiPartial": 54,
+    "totalAiFullPart": 119
+  },
+  "parts": [
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3638,
+        "passageTextHtmlSample": "<h2>Messages from the Stone Age</h2><p>The incredible pre-historic Chauvet cave art in France is painted in <strong>0 </strong>_____ colours and dates back to a period around thirty thousand years ago when early humans first started to create rock art. Although various <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">illustrations</option><option value=\"2\">models</option><option value=\"3\">cases</option><option value=\"4\">examples</opti..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3638,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2819,
+        "passageTextHtmlSample": "<h2>Swimming with seals</h2><p>The UK is home to half the world&#8217;s population of grey seals and there <strong>0</strong> _____ many local boat trips offering sightseeing tours out to the <span class=\"underline-target\" data-ref=\"9\">islands and sandbanks</span> <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> the animals are most regularly found.</p><p>But if you rea..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2819,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2916,
+        "passageTextHtmlSample": "<h2>Brain games</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>According to experts, doing puzzles keeps our brains fit and <strong>0</strong> _____As well as gaining <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> <span class=\"underline-target\" data-ref=\"17\">from</span> finding the correct answer to a difficult problem, we give our brains a good work..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2916,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Brad speaks English better than his parents do.Brad s parents don t",
+        "Q26_prompt": ". Cycling is not allowed in the park.You",
+        "Q27_prompt": ". I m sorry I didn t let you know I was going to be late, Ann, said Jamie.Jamie",
+        "Q28_prompt": ". A heavy fall of snow prevented them from getting home that night.They",
+        "Q29_prompt": ". Ursula was disappointed not to win the competition.Not winning the competition",
+        "Q30_prompt": ". I paid far more money for my new computer than I expected to.I didn t expect"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 4196,
+        "passageTextHtmlSample": "<h2>A varied career</h2><p><em>Chloe Kelling, a successful model and singer-songwriter, now has a new venture</em></p><p>I arrive for my interview with Chloe Kelling and I&#8217;m asked to wait in the garden. I hardly have time to start looking round at the carefully tended flowerbeds when Chloe appears. Every bit as tall and striking as I&#8217;d expected, Chloe emerges from the house wearing an oversized man&#8217;s jacket, a delicately patterned top and jeans. <span class=\"underline-target\" d..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 4196,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6991,
+        "passageTextHtmlSample": "<h2>In defence of women&#8217;s boxing</h2><p><em>Lucy O&#8217;Connor thinks that women&#8217;s boxing is widely misunderstood</em></p><p>Women&#8217;s boxing is a new addition to the list of sports included at the Olympic Games. But according to Lucy O &#8216;Connor, winner of various international competitions, it&#8217;s still widely misunderstood &#8211; a situation that Lucy&#8217;s hoping to change. After graduating, Lucy took up boxing on the advice of a sports coach, who thought it would..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6991,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 1,
+      "appTestNumber": 2,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3911,
+        "passageTextHtmlSample": "<h2>Where to go whale watching</h2><p>When asked to list the things they would most like to experience in life, a surprising <strong>0</strong> _____ of people mention seeing whales in their natural habitat. It&#8217;s an <span class=\"underline-target\" data-ref=\"1\">ambition</span> that can be <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">answered</option><option value=\"2\">rewarded</option><option value=\"3\">honoured</option><option ..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3911,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3028,
+        "passageTextHtmlSample": "<h2>The Mini-Monet</h2><p>Kieron Williamson is a very successful landscape painter. His paintings, <strong>0</strong> _____ mostly depict the peaceful countryside around his home village in eastern England, sell very well. Perhaps this shouldn&#8217;t <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> <span class=\"underline-target\" data-ref=\"9\">as that much of a surprise<..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3028,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3174,
+        "passageTextHtmlSample": "<h2>Don&#8217;t catch cold</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>According to recent <strong>0</strong> _____, at least some of the advice about health that was passed down to our grandparents by previous generations may actually <span class=\"underline-target\" data-ref=\"17\">contain some</span> <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a>.<..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3174,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "Q30_keyword",
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Tania hasn t played volleyball for three years.It",
+        "Q26_prompt": ". The only thing Carl forgot to buy was a new battery for his watch.Carl remembered to",
+        "Q27_prompt": ". John was angry because Claire arrived late.If Claire",
+        "Q28_prompt": ". I don t usually wear a hat and so it feels strange.I am",
+        "Q29_prompt": ". Rob said to Jennifer: You broke the strap on my new camera. Rob",
+        "Q30_prompt": ". Mark can t wait to use his new computer-games console.FORWARDMark is"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6437,
+        "passageTextHtmlSample": "<h2>WANT TO JOIN THE JET SET?</h2><p>You could be jetting off to exotic locations, staying in five star hotels, eating in top-class restaurants, and it&#8217;s all paid for by your employer. Who wouldn&#8217;t want a job that involves foreign travel? <strong>37</strong> <select name=\"q1\" id=\"q37\"><option value=\"0\"></option><option value=\"1\">A</option><option value=\"2\">B</option><option value=\"3\">C</option><option value=\"4\">D</option><option value=\"5\">E</option><option value=\"6\">F</option><option..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6437,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 2,
+      "appTestNumber": 3,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3687,
+        "passageTextHtmlSample": "<h2>The Gesture Interface</h2><p>At the <strong>0</strong> _____ if we want mobile <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">line</option><option value=\"2\">entry</option><option value=\"3\">access</option><option value=\"4\">link</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> <span class=\"underline-target\" data-ref=\"1\">to the Web</span>, we have to travel around with things like tablets and smartph..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3687,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2972,
+        "passageTextHtmlSample": "<h2>Choosing the best shades</h2><p>Most of us buy a new pair <strong>0</strong> _____ fashionable sunglasses each year. To be honest, we probably <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> more <span class=\"underline-target\" data-ref=\"9\">thought into</span> looking cool than we do into ensuring that the glasses match our needs.</p><p>It <span class=\"underline-tar..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2972,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3197,
+        "passageTextHtmlSample": "<h2>Rafting on the Zambezi river</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Victoria Falls on the Zambezi river in Africa is one of the most <strong>0</strong> _____ sights in the world. It is also <span class=\"underline-target\" data-ref=\"17\">an</span> <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> place for water sports. The translation of the l..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3197,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". The band probably won t do another tour this year.The band",
+        "Q26_prompt": ". It s very hard for Alex to get up in the morning.Alex",
+        "Q27_prompt": ". Lily is so good at swimming that she is going to train for the Olympics.Lily",
+        "Q28_prompt": ". One of us ought to go and meet the visitor at the airport.The visitor",
+        "Q29_prompt": ". I went to the dentist s because I couldn t stand the toothache any longer.I couldn t",
+        "Q30_prompt": ". I wasn t invited to the party and feel sad about that.I"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 4220,
+        "passageTextHtmlSample": "<h2>Moving house</h2><p>A few days later, <span class=\"underline-target\" data-ref=\"32\">Lyn&#8217;s mother told her to spend her evening sorting out and packing her belongings</span>. &#8216;I&#8217;ll see to your clothes,&#8217; she said. &#8216;I want you to do your books and paints and things. I&#8217;ve put some cardboard boxes in your room.&#8217;</p><p>&#8216;You should&#8217;ve asked me,&#8217; said Lyn, following her into the bedroom and seeing the assorted boxes. &#8216;I would&#8217;ve ..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 4220,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6406,
+        "passageTextHtmlSample": "<h2>The airport photographer</h2><p>I&#8217;m a photographer based at Heathrow Airport in London. Airlines often commission me to take photos of aircraft or their staff. But mostly I concentrate on getting shots of celebrities as they come through the arrivals hall. I sell some photos direct to the daily newspapers and celebrity magazines, and the rest go to a picture agency.</p><p>On a typical day I look out for the flights <span class=\"underline-target\" data-ref=\"37\">arriving from Los Angeles ..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6406,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 3,
+      "appTestNumber": 4,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 4090,
+        "passageTextHtmlSample": "<h2>Royal Residences</h2><p>Buckingham Palace, Windsor Castle <strong>0</strong> _____ the Palace of Holyroodhouse are the <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">venues</option><option value=\"2\">residences</option><option value=\"3\">situations</option><option value=\"4\">occupation</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> of the Sovereign and, <span class=\"underline-target\" data-ref=\"1\">a..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 4090,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3026,
+        "passageTextHtmlSample": "<h2>Inspiration</h2><p>I have had what, I think, is the <strong>0</strong> _____ extraordinary day of my life. <span class=\"underline-target\" data-ref=\"9\">While</span> the events are <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> clear in my mind, I wish to write them down. <span class=\"underline-target\" data-ref=\"10\">Let me introduce</span> <span class=\"nowrap\"><stro..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3026,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". My parents last spoke to me a month ago.I",
+        "Q26_prompt": ". All the students had a lot of respect for their teacher.All the students",
+        "Q27_prompt": ". Linda didn t feel like eating.Linda wasn t",
+        "Q28_prompt": ". My brother was treated unfairly by his teachers.My brother",
+        "Q29_prompt": ". He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was",
+        "Q30_prompt": ". We all agreed with my father s proposal apart from Joy.With"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 7089,
+        "passageTextHtmlSample": "<h2>The Skydiving Experience</h2><p>The thrill of skydiving is beyond any possible description. Falling at 120 mph with the wind screaming past your body is an unbelievable experience of total freedom. The sport is not without an element of danger; indeed, it is this fear that makes it so addictive. Yet there are relatively few serious injuries in this activity because of the tight regulations and safety requirements mandated for skydiving and parachuting organisations.</p><p>I still recall <spa..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 7089,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 4,
+      "appTestNumber": 5,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3969,
+        "passageTextHtmlSample": "<h2>New Cycling Schemes</h2><p>The County Council has <strong>0</strong> _____ <span class=\"underline-target\" data-ref=\"1\">to give</span> a higher <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">advantage</option><option value=\"2\">income</option><option value=\"3\">benefit</option><option value=\"4\">priority</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> to cycling and agreed a new strategy to guide the..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3969,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2865,
+        "passageTextHtmlSample": "<h2>Holidays with friends</h2><p>I always <strong>0</strong> _____ to go to Porchester <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> my summer <span class=\"underline-target\" data-ref=\"9\">holidays</span>. It is a quiet little town, full of old and interesting buildings. Very <span class=\"nowrap\"><strong>10</strong> <input type=\"text\" autocomplete=\"off\" id=\"q10\" size=\"..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2865,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Michael s wife finds getting up early every morning difficult.Michael s wife",
+        "Q26_prompt": ". What a pity you didn t come to the party.I",
+        "Q27_prompt": ". The burglar failed to enter the house through the first floor window.The burglar",
+        "Q28_prompt": ". My hair needs to be cut before the wedding reception.I",
+        "Q29_prompt": ". Why didn t I ask her out last night? John said to himself.John",
+        "Q30_prompt": ". They think that their school teacher is a very rich man.Their school teacher"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6366,
+        "passageTextHtmlSample": "<h2>Rangitoto<br />By Alastair Jamieson</h2><p>Off-track the ground is menacing. Lava, like angry waves frozen in mid-chop only moments ago, claws at the soles of my boots and threatens to shred my knees if I place a foot wrong. The surface is so uneven that progress is extraordinarily difficult. Occasional smooth stone channels course like petrified streams through the rougher ground, their solid surfaces a welcome pathway amid teetering plates of broken lava and treacherous bouldery rubble. Ou..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6366,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 5,
+      "appTestNumber": 6,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3904,
+        "passageTextHtmlSample": "<h2>The Eighth Wonder of the World</h2><p>The Thames Barrier is a <strong>0</strong> _____ part of the flood defence scheme for <span class=\"underline-target\" data-ref=\"1\">protecting</span> London <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">against</option><option value=\"2\">for</option><option value=\"3\">between</option><option value=\"4\">with</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> rising w..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3904,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3172,
+        "passageTextHtmlSample": "<h2>Datamac</h2><p>Datamac was the greatest machine <strong>0</strong> _____ the world. <span class=\"underline-target\" data-ref=\"9\">Its business</span> <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> facts: it accepted <span class=\"nowrap\"><strong>10</strong> <input type=\"text\" autocomplete=\"off\" id=\"q10\" size=\"10\" maxlength=\"50\" /></span><a id=\"q010\" role=\"button\" tab..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3172,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". The hairdresser did Mary s hair last Tuesday.Mary",
+        "Q26_prompt": ". Andrew s job is to supervise all the employees of the company.Andrew",
+        "Q27_prompt": ". Harry reads faster than his little sister.Harry",
+        "Q28_prompt": ". I didn t steal the lady s purse , said the boy.The boy",
+        "Q29_prompt": ". It was our first trip to Italy so we were very excited about it.It was the",
+        "Q30_prompt": ". Whose car is this? he asked. Who"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6374,
+        "passageTextHtmlSample": "<h2>Lucid Dreaming</h2><p>The other night I experienced a lucid dream. In the dream I was sitting gazing into our fish aquarium. I peered in closely, examining our spotted suckerfish. I often gaze at him because he never moves much in the daytime. I watch him to see if he is OK. As I stared at him, suddenly <span class=\"underline-target\">I noticed there were two more suckerfish</span>! They were identical to the original.</p><p><strong>37</strong> <select name=\"q1\" id=\"q37\"><option value=\"0\"></o..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6374,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 6,
+      "appTestNumber": 7,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3792,
+        "passageTextHtmlSample": "<h2>Space junk</h2><p>The Space Age began <strong>0</strong> _____ over half a century ago, and ever since then the area just <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">along</option><option value=\"2\">away</option><option value=\"3\">out</option><option value=\"4\">beyond</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> the <span class=\"underline-target\" data-ref=\"1\">Earth&#8217;s atmosphere</span> ha..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3792,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2903,
+        "passageTextHtmlSample": "<h2>Chewing gum</h2><p>We still tend <strong>0</strong> _____ think chewing gum is a fairly recent invention, <span class=\"underline-target\" data-ref=\"9\">even</span> <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> there is evidence it was used 5,000 years ago in Finland. The <span class=\"underline-target\" data-ref=\"10\">Ancient Greeks</span> also chewed gum, as <span cl..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2903,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3070,
+        "passageTextHtmlSample": "<h2>Remembering people&#8217;s names</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Most of us have suffered the <strong>0</strong> _____ of forgetting someone&#8217;s name. Often we fail to pay attention when <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> <span class=\"underline-target\" data-ref=\"17\">are made</span>, but later on in the conversation ..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3070,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Thomas spoke so quickly I had difficulty understanding him.Thomas spoke so quickly I",
+        "Q26_prompt": ". They ve postponed the match and it ll be played next weekend.The match",
+        "Q27_prompt": ". I m never going to speak to Louis again.I ve got",
+        "Q28_prompt": ". It seems certain that lightning started the forest fire.The forest fire",
+        "Q29_prompt": ". It wasn t worth going to the market because it was closing.The market was closing, so",
+        "Q30_prompt": ". We phoned the restaurant, but they said booking a table wasn t necessary.We phoned the restaurant, but they said we"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6531,
+        "passageTextHtmlSample": "<h2>The ultimate green home: the WWF&#8217;s new headquarters</h2><p>Sandwiched between an incredibly ugly shopping centre and a busy main road, the environmentalist Sir David Attenborough, no less, is planting a tree and declaring: &#8216;Today is a historic day.&#8217; He really means it.</p><p>Maybe our children&#8217;s future will be an overheated, desert-like world, but if it&#8217;s not, it will probably look a lot like this. The new, <span class=\"underline-target\" data-ref=\"37\">highly env..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6531,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 7,
+      "appTestNumber": 8,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3757,
+        "passageTextHtmlSample": "<h2>Planes can make it rain</h2><p>Living next to an airport has always meant having to <strong>0</strong> _____ the noise of planes landing and taking off. Now it seems that <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">neighbouring</option><option value=\"2\">close</option><option value=\"3\">local</option><option value=\"4\">surrounded</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> <span class=\"underl..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3757,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2822,
+        "passageTextHtmlSample": "<h2>Cycling makes financial sense</h2><p>These days, most people are aware <strong>0</strong> _____ the environmental impact of motor vehicles, and they realise that cars are <span class=\"underline-target\" data-ref=\"9\">responsible</span> <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> many of the problems facing their cities. Not <span class=\"nowrap\"><strong>10</strong..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2822,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2939,
+        "passageTextHtmlSample": "<h2>Too many emails</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Some years ago, there were <strong>0 </strong>_____ that email would soon be replaced as the most common means of online communication by <span class=\"underline-target\" data-ref=\"17\">social</span> <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> sites. Since then, however, the number of..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2939,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". I ll take you to the station if you re ready, my brother said.My brother said he d take me to the station",
+        "Q26_prompt": ". My bike needs repairing again.I ll have to",
+        "Q27_prompt": ". The firm said profits had fallen on account of the recession.The firm blamed",
+        "Q28_prompt": ". Sigourney regretted spending so much in the shops.Sigourney",
+        "Q29_prompt": ". People believe that poem was written about these beautiful hills.That poem",
+        "Q30_prompt": ". Without your help, I wouldn t have finished the job.I wouldn t have finished the job if"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 4166,
+        "passageTextHtmlSample": "<h2>A lot can happen in a year abroad</h2><p><em>Like many students before her, studying abroad had a profound effect on Sarah Morrison </em></p><p>As I sat staring out at California&#8217;s spectacular Big Sur coastline, I felt fortunate to have a sister who had persuaded me to spend a year of my degree abroad. It seems that there are not enough older siblings explaining just how easy it is to take part in an international exchange.</p><p>While most universities offer worldwide exchanges, where..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 4166,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6640,
+        "passageTextHtmlSample": "<h2>Working as a TV news producer</h2><p><em>Rob Cole has produced TV news for decades now, working on anything from international celebrities to global conflicts. He </em><em>shares the benefit of his considerable experience in the industry</em></p><p>Rob&#8217;s time behind the cameras has coincided with huge changes in the way news is reported &#8211; from a time when everyone bought local newspapers, through the birth of 24-hour rolling news, and now the Internet. But what is the work like o..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6640,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 8,
+      "appTestNumber": 9,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3369,
+        "passageTextHtmlSample": "<h2>Checking your mobile phone</h2><p>How often do you check your phone? For many of us, our phone is an essential <strong>0</strong> _____of everyday life, but apparently we are spending an increasing amount of time checking it for information without being <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">sensitive</option><option value=\"2\">cautious</option><option value=\"3\">sensible</option><option value=\"4\">conscious</option></sele..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3369,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2402,
+        "passageTextHtmlSample": "<h2>The Australian city of Perth</h2><p>Perth, <strong>0</strong> _____ capital of the state of Western Australia, has been described as one of the most remote cities <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> Earth. Founded in 1829 and named after Perth in Scotland, it grew rapidly in the late nineteenth century <span class=\"nowrap\"><strong>10</strong> <input typ..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2402,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2626,
+        "passageTextHtmlSample": "<h2>Advertising in schools</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>In certain countries, there has been rapid <strong>0</strong> _____ in the spending power of teenagers. Realising this, firms are aiming even more of their <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> at young people, and <span class=\"nowrap\"><strong>18</strong> <input type=\"..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2626,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". The storm left very few trees standing.Hardly",
+        "Q26_prompt": ". What s the height of that building? I asked the guide.I asked the guide",
+        "Q27_prompt": ". The new printer is very similar to the old model.There is not",
+        "Q28_prompt": ". Simon wouldn t apologise for being so rude.Simon refused to",
+        "Q29_prompt": ". What attracts people so much to this city is its nightlife.What people",
+        "Q30_prompt": ". It s unlikely our firm will manage to win the contract.Our firm is unlikely"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 5956,
+        "passageTextHtmlSample": "<h2>Go skating in Sweden this winter</h2><p><em>Forget crowded indoor ice rinks. Once you&#8217;ve skated on natural ice, there&rsquo;s no going back. </em></p><p>It was the question on all of our minds, but I asked it: &#8216;How do you know when the ice isn&rsquo;t safe to skate on?&rsquo; Niklas, our calm Swedish guide, rubbed his chin, thought for a moment, then offered up the wisdom of a lifetime spent playing around on frozen water. &#8216;When it breaks,&#8217; he said with a broad smile...."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 5956,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 9,
+      "appTestNumber": 10,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3412,
+        "passageTextHtmlSample": "<h2>What is genealogy</h2><p>Genealogy is a <strong>0</strong> _____ of history. It concerns family history, <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">instead</option><option value=\"2\">rather</option><option value=\"3\">except</option><option value=\"4\">sooner</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> than the national or world history studied at school. It doesn&rsquo;t merely involve drawin..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3412,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2357,
+        "passageTextHtmlSample": "<h2>Motorbike stunt rider</h2><p>I work <strong>0</strong> _____ a motorbike stunt rider &#8211; that is, I do tricks on my motorbike at shows. The Le Mans race track in France was <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> I first saw some guys doing motorbike stunts. I&rsquo;d never seen anyone riding a motorbike using just the back wheel before and I was <span ..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2357,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2679,
+        "passageTextHtmlSample": "<h2>An incredible vegetable</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Garlic, a member of the Liliaceae family which also includes onions, is <strong>0</strong> _____ used in cooking all around the world. China is currently the largest <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> of garlic, which is particularly associated with the dishes of n..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2679,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Joan was in favour of visiting the museum.Joan thought it would be",
+        "Q26_prompt": ". Arthur has the talent to become a concert pianist.Arthur is so",
+        "Q27_prompt": ". Do you know when the match starts, Sally? asked Mary.Mary asked Sally",
+        "Q28_prompt": ". I knocked for ages at Ruth s door but I got no reply.I",
+        "Q29_prompt": ". Everyone says that the band is planning to go on a world tour next year.The band",
+        "Q30_prompt": ". I d prefer not to cancel the meeting.I d rather"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 5862,
+        "passageTextHtmlSample": "<h2>Good preparation leads to success in ballet dancing</h2><p><em>A former classical ballet dancer explains what ballet training actually involves. </em></p><p>What we ballet dancers do is instinctive, but instinct learnt through a decade of training. A dancer&rsquo;s life is hard to understand, and easy to misinterpret. Many a poet and novelist has tried to do so, but even they have chosen to interpret all the hard work and physical discipline as obsessive. And so the idea persists that dancer..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 5862,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 10,
+      "appTestNumber": 11,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3359,
+        "passageTextHtmlSample": "<h2>Teenagers really do need more sleep</h2><p>It has long been suspected that lack of sleep can actually <strong>0</strong> _____ to illness, particularly in young people. Research <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">enclosing</option><option value=\"2\">combining</option><option value=\"3\">associating</option><option value=\"4\">involving</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> studen..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3359,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2330,
+        "passageTextHtmlSample": "<h2>Music really can reduce that pain</h2><p>A survey has recently been carried <strong>0</strong> _____ into the way music affects people in pain, and <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> it seems to show is that certain songs can actually reduce the sensation of physical pain. About 40% of people suffering <span class=\"nowrap\"><strong>10</strong> <input ty..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2330,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2578,
+        "passageTextHtmlSample": "<h2>Letting the sea in</h2><table><tbody><tr><td><p>The small <strong>0</strong> _____ town of Medmerry has found an unusual way to reduce the risk of flooding: let the sea in. The scheme involved the <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> of part of the existing sea wall and the building of seven kilometres of new, higher <span class=\"nowrap\"><strong>18</s..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2578,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". ‘Would you like to come to my party, Karen?’, the girl said.The girl",
+        "Q26_prompt": ". Two foolish people took no notice of the warning sign.Two foolish people",
+        "Q27_prompt": ". The rescue workers had too little food to feed everyone.There",
+        "Q28_prompt": ". Jack gets no exercise apart from walking to his car.The",
+        "Q29_prompt": ". Sonia wanted to be a nurse so she left her job as a teacher.Sonia",
+        "Q30_prompt": ". There’s far less noise in this street than there used to be.In this street, there isn’t"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 6285,
+        "passageTextHtmlSample": "<h2>Can we control our dreams?</h2><p><em>Strange as it seems, the answer is yes &#8211; and it could help us solve our problems.</em></p><p>Do we have any influence over the often strange, wandering, night-time journeys in our mind? Could we learn to dream differently, getting rid of repeated nightmares or finding answers to the problems that we cannot solve in daylight hours? Strange though it may seem, the answer is yes. Research suggests that, using practical and psychological techniques, we..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 6285,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 11,
+      "appTestNumber": 12,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3340,
+        "passageTextHtmlSample": "<h2>Mars on Earth</h2><p>The centre of Antarctica, where winter temperatures frequently fall to <strong>0</strong> _____ 80 degrees centigrade and for four months each year there is <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">regular</option><option value=\"2\">constant</option><option value=\"3\">repeated</option><option value=\"4\">maintained</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> darkness 24..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3340,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2347,
+        "passageTextHtmlSample": "<h2>Marathon in the mountains</h2><p>The Ultra-Trail of Mont Blanc is an extreme marathon held annually <strong>0</strong> _____ 2003 in the mountains of France, Italy and Switzerland. Widely regarded <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> one of the toughest races in the world, the Ultra-Trail takes place in August, <span class=\"nowrap\"><strong>10</strong> <i..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2347,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2601,
+        "passageTextHtmlSample": "<h2>Jobs in the future</h2><table><tbody><tr><td><p>In twenty years&#8217; time, which jobs will people still be doing, and which is it <strong>0</strong> _____ to assume will have gone forever? Today&#8217;s young people should give that question careful <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> before choosing a career. Clearly there will continue to be a ne..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2601,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Amanda woke up late because she d forgotten to set her alarm.If Amanda hadn t forgotten to set her alarm she",
+        "Q26_prompt": ". This Internet browser works far better than the others.The other Internet browsers don t",
+        "Q27_prompt": ". Can I borrow your phone for a minute, Jack? asked Emma.Emma asked Jack",
+        "Q28_prompt": ". Raymond has so much skill as an artist that his drawings look like photographs.Raymond is",
+        "Q29_prompt": ". I wish I hadn t stayed up late last night.I should",
+        "Q30_prompt": ". Our departure was delayed because another flight arrived late.The delay to our departure"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 12,
+      "appTestNumber": 13,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3257,
+        "passageTextHtmlSample": "<h2>Slacklining</h2><p>Slacklining is an increasingly popular activity in London&#8217;s parks. All you need if you want to <strong>0</strong> _____ a go at slacklining is two trees about fifteen metres apart, a five-centimetre-wide strap of around the same length and the equipment to <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">join</option><option value=\"2\">attach</option><option value=\"3\">unite</option><option value=\"4\">stick</..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3257,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2526,
+        "passageTextHtmlSample": "<h2>Blanca Huertas: butterfly expert</h2><p>As a little girl growing <strong>0</strong> _____ in Colombia, Blanca Huertas was fascinated by wildlife, and especially by butterflies. In those days you couldn&#8217;t buy butterfly nets locally, so her father made <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> for her using the end of a broom. He also bought her some book..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2526,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2671,
+        "passageTextHtmlSample": "<h2>In praise of plastic</h2><table><tbody><tr><td><p>Wherever you are, you’re likely to be surrounded by objects made of some kind of plastic material. There are many types of plastic, each one <strong>0</strong> _____ for a particular use. Thin, flexible plastic is good for making objects such as bags, whereas thick, hard plastic is a <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\"..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2671,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Heidi stayed with a friend when she went to London. A friend",
+        "Q26_prompt": ". The singer dislikes people asking for his autograph in the street. The singer",
+        "Q27_prompt": ". I advised Kylie to enrol at a gym which she did. Kylie",
+        "Q28_prompt": ". I had no idea that a famous film star was born in the town. I",
+        "Q29_prompt": ". Simon was the only student to apply for a scholarship. Apart",
+        "Q30_prompt": ". Debbie wore a jumper because she thought it might be cold in the mountains. Debbie wore a jumper"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 13,
+      "appTestNumber": 14,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3424,
+        "passageTextHtmlSample": "<h2>Vera Neumann: fabric designer</h2><p>Vera Neumann was a designer and businesswoman whose products <strong>0</strong> _____ their way into the homes of people across the USA.</p><p>Vera was born in Connecticut in 1907 and showed artistic <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">training</option><option value=\"2\">talent</option><option value=\"3\">expert</option><option value=\"4\">gift</option></select></span><a id=\"q01\" role=\"..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3424,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Learning to sew seemed a waste of time to Lisa. Lisa couldn t",
+        "Q26_prompt": ". I reckon Barry was relieved to find his missing cellphone again. Barry must",
+        "Q27_prompt": ". According to the gossip, the actress will be getting married soon. The actress",
+        "Q28_prompt": ". Pamela said that she regretted sending that angry text message to Harry. ‘If",
+        "Q29_prompt": ". Ashley always eats a big breakfast before going out in the morning. Ashley never goes out in the morning",
+        "Q30_prompt": ". Liam has decided not to go to football practice any more. Liam has decided"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 14,
+      "appTestNumber": 15,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3364,
+        "passageTextHtmlSample": "<h2>The joy of photography</h2><p>Photography is a hobby with wide <strong>0</strong> _____. And I don’t mean taking photos on your mobile phone, though it cannot be <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">rejected</option><option value=\"2\">contradicted</option><option value=\"3\">denied</option><option value=\"4\">refused</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> that such pictures can be s..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3364,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "marker_9",
+        "marker_10",
+        "marker_11",
+        "marker_12",
+        "marker_13",
+        "marker_14",
+        "marker_15",
+        "marker_16"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2397,
+        "passageTextHtmlSample": "<h2>Running a marathon</h2><p>So you want to run a marathon? There is <strong>0</strong> _____ doubt that running 42 kilometres is a great achievement. Many training plans involve running four times a week for at <span class=\"nowrap\"><strong>9</strong> <input type=\"text\" autocomplete=\"off\" id=\"q9\" size=\"10\" maxlength=\"50\" /></span><a id=\"q09\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> three months, and sometimes longer. Experts strongly recommend that you should <span class=\"nowrap\"><strong>10..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2397,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2626,
+        "passageTextHtmlSample": "<h2>An interesting new planet</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Until recently, the <strong>0</strong> _____ of planets outside our own solar system was difficult to prove. Now, thanks to increasingly <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> equipment, hundreds have been discovered orbiting distant stars. Recent <span class=\"nowrap..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2626,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Going to bed early has a big effect on how Leila feels the next morning.If Leila goes to bed early, it",
+        "Q26_prompt": ". Even though Max took the early bus, he was still late for work.Max was still late for work in",
+        "Q27_prompt": ". Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided",
+        "Q28_prompt": ". Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging",
+        "Q29_prompt": ". My television needs fixing as soon as possible.I must",
+        "Q30_prompt": ". Clara says she doesn’t usually go out at the weekend.Clara says it"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3411,
+        "passageTextHtmlSample": "<h2>Student life and technology</h2><p>Last Saturday, as my grandfather drove me and my sister home from a dinner to celebrate his birthday, he got frustrated at not being able to remember the name of the singer of a song he’d just heard on the radio. Without a second thought, I grabbed my smartphone, searched for the song and found the name, Bob Dylan. For me and my friends, this is a completely natural course of action, but it totally astonished my grandfather, who didn’t understand how I had ..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3411,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "marker_37",
+        "marker_38",
+        "marker_39",
+        "marker_40",
+        "marker_41",
+        "marker_42",
+        "feature_sentences_A_G",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 5835,
+        "passageTextHtmlSample": "<h2>Tree of the year</h2><p>The aim of the national Tree of the Year competition is to promote and celebrate the most interesting trees around the country. Images and descriptions of a shortlist of 28 trees are put online and the public are asked to vote for their favourite.</p><p>The four trees that gain the most votes before 5 p.m. on 5th October will be given a grant of £1,000. In addition, all trees that receive 1,000 or more votes will get a grant of £500. The grants may be spent on a tree ..."
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 5835,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 15,
+      "appTestNumber": 16,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3484,
+        "passageTextHtmlSample": "<h2>Off the beaten track</h2><p>The expression ‘getting off the beaten track’ is used to <strong>0</strong> _____ to the experience of avoiding famous tourist attractions and choosing instead to explore less well-known places when travelling. For many people the whole <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">worth</option><option value=\"2\">point</option><option value=\"3\">aim</option><option value=\"4\">profit</option></select></..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3484,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2607,
+        "passageTextHtmlSample": "<h2>The first coffee shops</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>There is some <strong>0</strong> _____ evidence to suggest that coffee was cultivated in Africa in the tenth century, but drinking coffee didn’t become <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> in Europe until the mid-seventeenth century, with many visitors to London claim..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2607,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Nobody explained why the flight had been delayed. Nobody gave",
+        "Q26_prompt": ". Last year’s skiing holiday was more exciting than this year’s holiday by the sea. This year’s holiday by the sea",
+        "Q27_prompt": ". Maria doesn’t think we should visit the museum because it’s not very interesting. Maria says",
+        "Q28_prompt": ". All of us are excited about our trip to China next month. Everyone",
+        "Q29_prompt": ". When I was in Sweden, I managed to learn some Swedish. When I was in Sweden, I was",
+        "Q30_prompt": ". The architecture here makes me think of the buildings in Amsterdam. The architecture here"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 16,
+      "appTestNumber": 17,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3507,
+        "passageTextHtmlSample": "<h2>Coming second: pleasure or pain?</h2><p>Every ambitious athlete hopes to <strong>0</strong> _____ their dream of winning a gold medal at the Olympics. However, not everyone can win, and often talented athletes must accept second place. A team of psychologists recently <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">controlled</option><option value=\"2\">conducted</option><option value=\"3\">directed</option><option value=\"4\">guided</..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3507,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2604,
+        "passageTextHtmlSample": "<h2>Lake Titicaca</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>Lake Titicaca is the largest lake in South America with the <strong>0</strong> _____ of Lake Maracaibo in Venezuela, which unlike Titicaca is connected directly to the sea. It is 190 kilometres long and reaches a maximum <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> of 284 metres. Appr..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2604,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Some schools were closed for a couple of days because of the heavy snow. The heavy snow",
+        "Q26_prompt": ". Steve doesn’t take much notice of the weather forecast. Steve doesn’t",
+        "Q27_prompt": ". John wishes he had taken an umbrella to work this morning. John",
+        "Q28_prompt": ". Donna said that apart from Friday, every day last week had been really hot. Donna said that",
+        "Q29_prompt": ". This is the worst weather we’ve ever had in July. We’ve",
+        "Q30_prompt": ". I’m sure it was unbearably hot where you were staying. The"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 17,
+      "appTestNumber": 18,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3361,
+        "passageTextHtmlSample": "<h2>What our homes say about us</h2><p>A home is more than a building. It&#8217;s a <strong>0</strong> _____ which both influences our identity and represents it. As children, our environment makes us who we are, or at <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">little</option><option value=\"2\">least</option><option value=\"3\">minimum</option><option value=\"4\">less</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" cla..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3361,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "marker_17",
+        "marker_18",
+        "marker_19",
+        "marker_20",
+        "marker_21",
+        "marker_22",
+        "marker_23",
+        "marker_24"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 2583,
+        "passageTextHtmlSample": "<h2>Getting the look</h2><div class=\"tg-wrap\"><table id=\"tfixed\"><tbody><tr><td><p>It has been a long time since Coco Chanel first made it <strong>0</strong> _____ to have a tan. Before 1923 suntanned skin was considered both <span class=\"nowrap\"><strong>17</strong> <input type=\"text\" autocomplete=\"off\" id=\"q17\" size=\"10\" maxlength=\"50\" /></span><a id=\"q017\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> and a sign of poverty. Then Coco Chanel returned from a <span class=\"nowrap\"><strong>18</stron..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 2583,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": ". Julio thought people lived in the TV so he regularly talked to them. Julio",
+        "Q26_prompt": ". Richard hasn t believed in monsters for years. It s been",
+        "Q27_prompt": ". That day was the first time that William realised his mistake. William",
+        "Q28_prompt": ". Lucia thought that her brother s toys came alive at night. Lucia believed that the toys",
+        "Q29_prompt": ". Francesca started telling stories before her brother was born. Francesca",
+        "Q30_prompt": ". Luc was on a walk in the park when he saw something strange. Luc saw something strange while he"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 18,
+      "appTestNumber": 19,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3399,
+        "passageTextHtmlSample": "<h2>Tips for making your own short film</h2><p>These days it&#8217;s easy to make a film. You don&#8217;t need to <strong>0</strong> _____ expensive equipment, you can simply use your mobile phone. Start by <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">starting</option><option value=\"2\">thinking</option><option value=\"3\">going</option><option value=\"4\">coming</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"exp..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3399,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "Do you know when the next cloudless night is? my brother asked. My brother asked me",
+        "Q26_prompt": "What time did Sofia leave this morning? asked Mack. Mack wondered what time Sofia",
+        "Q27_prompt": "Don t bother looking for the Northern Lights tonight Marta said. Marta",
+        "Q28_prompt": "Please don t make a mistake when you book our flights said Andy. Andy asked Ben",
+        "Q29_prompt": "I ve been doing some fascinating activities this year said Natalia. Natalia told me that",
+        "Q30_prompt": "Did you see any memorable sunsets on your trip? Philip asked. Philip asked me"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 19,
+      "appTestNumber": 20,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3466,
+        "passageTextHtmlSample": "<h2>The migration of the monarch butterflies</h2><p>The migration of millions of North American monarch butterflies is one of the most stunning <strong>0</strong> _____ phenomena on Earth. In <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">contrast</option><option value=\"2\">difference</option><option value=\"3\">variation</option><option value=\"4\">disagreement</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\">..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3466,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "Lily hasn t taken karate lessons since she was 16. Lily",
+        "Q26_prompt": "The outcome of the meeting was unexpected. The meeting didn t",
+        "Q27_prompt": "The price of petrol went up again a moment ago. The price of petrol",
+        "Q28_prompt": "I was on a skiing trip in the Alps when I met Tom. I met Tom",
+        "Q29_prompt": "You must subscribe to use the music site. You have",
+        "Q30_prompt": "I often chatted to an invisible friend when I was a child. I"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3800,
+        "passageTextHtmlSample": "<h2>The Ultimate Challenge</h2><p><em>You are going to read an article about a sporting event. For questions <strong>31-36</strong>, choose the answer (<strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>) which you think fits best according to the text.</em></p><p>The ultramarathon in the Amazon is one of the toughest footraces in the world. You run 230 kilometres over four days through dense jungle, carrying your kit on your back, in temperatures up to 30 degrees. W..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3800,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 20,
+      "appTestNumber": 21,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3345,
+        "passageTextHtmlSample": "<h2>Preparing for the worst</h2><p>We all depend on supermarkets for food and we <strong>0</strong> _____ it for granted that the shelves will always be full. But some people believe it’s best to be prepared <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">even if</option><option value=\"2\">in case</option><option value=\"3\">provided that</option><option value=\"4\">whereas</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" cl..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3345,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "It’s been five months since I last took an exam. I",
+        "Q26_prompt": "I first came to live here five years ago. I",
+        "Q27_prompt": "We visited our grandparents every weekend. We",
+        "Q28_prompt": "I didn’t enjoy music lessons as a child. I",
+        "Q29_prompt": "This was the first time I had ever met Charles. I",
+        "Q30_prompt": "My nephew no longer tries to do well at school. My nephew"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3689,
+        "passageTextHtmlSample": "<h2>Exploring the oceans</h2><p>I guess the sea has always been a part of my life. I grew up on the coast and spent hours as a kid playing on the beach, although I was never that keen on being in the water. I had friends who were into surfing, and who urged me to join them, but somehow, I never shared their fascination with the sea. But everything changed when my uncle came to stay one summer, when I was about 15. Hearing him talking with passion about the joys of diving and the amazing things h..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3689,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 21,
+      "appTestNumber": 22,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3241,
+        "passageTextHtmlSample": "<h2>High heels</h2><p>High heels are a familiar <strong>0</strong> _____ around the world. Coming in all shapes, sizes and heights, they are widely <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">considered</option><option value=\"2\">suggested</option><option value=\"3\">approved</option><option value=\"4\">regarded</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> to be an essential part of any elegant outf..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3241,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "‘You shouldn’t go out’ the doctor told me. The doctor",
+        "Q26_prompt": "My hair needs cutting this weekend. I need to",
+        "Q27_prompt": "I haven’t seen David for three years. It s",
+        "Q28_prompt": "I broke the teapot by accident. I",
+        "Q29_prompt": "The exam wasn’t as easy as I’d expected. The exam was",
+        "Q30_prompt": "It was a mistake not to accept her offer. I shouldn’t"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3680,
+        "passageTextHtmlSample": "<h2>The Best Kind of Know-it-all</h2><p><em>There is an art to being a good tour guide and Martin Priestly knows what it is.</em></p><p>It’s obvious that the best way to explore a city is with a friend who is courteous, humorous, intelligent and – this is essential – extremely well-informed. Failing that, and if it is London you are visiting, then the next best thing may well be Martin Priestly, former university lecturer, now a guide, who seems to bring together most of the necessary virtues an..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3680,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 22,
+      "appTestNumber": 23,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3277,
+        "passageTextHtmlSample": "<h2>Working parents</h2><p>Reliable studies have shown that children of parents who both go out to work have no more problems than children with one parent staying at home. My personal <strong>0</strong> _____ is that both parents should go out to work if they wish.</p><p>Some parents invest so much in a career that they cannot <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">bear</option><option value=\"2\">decide</option><option value..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3277,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "Richard asked me how much I had paid for the theatre tickets. Richard wanted to",
+        "Q26_prompt": "It wasn t a good idea for you to delete that file. You",
+        "Q27_prompt": "The ferry couldn t sail because the weather was bad. The ferry couldn t sail",
+        "Q28_prompt": "The teacher told us not to be late on Friday. You",
+        "Q29_prompt": "There are Spanish and French translations of the book. The book",
+        "Q30_prompt": "She will only phone if she gets lost. She will"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3273,
+        "passageTextHtmlSample": "<h2>The wrestler who became an author</h2><p>Pete Watson looks like the biggest, sweetest teddy bear you ever saw. It is only when he opens his mouth that you notice the missing front teeth. Watson is a three-time world champion wrestler turned author. He was adored by fans because he was different: while other wrestlers were supreme athletes, he was just a hulk who knew how to take a hit. You could throw as many chairs as you liked at Pete Watson, you could smack him repeatedly, but he wouldn&#..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3273,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 23,
+      "appTestNumber": 24,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3282,
+        "passageTextHtmlSample": "<h2>Going on a diet</h2><p>A calorie is a <strong>0</strong> for measuring the amount of energy food will produce. The average person needs about 1,800 calories per day to stay healthy. Without energy, the heart cannot <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">pump</option><option value=\"2\">pull</option><option value=\"3\">drag</option><option value=\"4\">force</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"e..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3282,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "The phone was cheaper than I expected. The phone was",
+        "Q26_prompt": "Why didn t you tell me I was wrong? You",
+        "Q27_prompt": "She found the photographs when she was cleaning her room. She",
+        "Q28_prompt": "How many portraits did Picasso paint? How many portraits",
+        "Q29_prompt": "Please don t stay out late, his mother said. His mother",
+        "Q30_prompt": "I d rather not go out this afternoon. I"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 5,
+      "status": "complete",
+      "missing": [],
+      "usableFragments": {
+        "passageTextHtmlLength": 3309,
+        "passageTextHtmlSample": "<h2>How I came to envy the country mice</h2><p>I have been living in London for more than 60 years, but still, when I&#8217;m driving and take some clever back-street short cut, I catch myself thinking: how extraordinary that it is me doing this! For a moment the town mouse I have become is being seen by the country mouse I used to be. And although, given a new start, I would again become a town mouse, when I visit relations in the country, I envy them.</p><p>Recently, I stood beside a freshwate..."
+      },
+      "repairMode": "deterministic",
+      "sourceHtmlLength": 3309,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 24,
+      "appTestNumber": 25,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3204,
+        "passageTextHtmlSample": "<h2>How polite are the British?</h2><p>An 0_____ stereotype suggests that the British are polite, but have you <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">never</option><option value=\"2\">ever</option><option value=\"3\">yet</option><option value=\"4\">before</option></select></span><a id=\"q01\" role=\"button\" tabindex=\"0\" class=\"expl\"></a> asked yourself whether that’s really true? Imagine two situations: in the first, you are <span cl..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3204,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "They studied really hard because it was a very important test. It was",
+        "Q26_prompt": "I found skating difficult at first, until I finally became accustomed to it. I finally",
+        "Q27_prompt": "She was often too tired to go running after school. She was often",
+        "Q28_prompt": "They talked it over but couldn’t decide where to go on their holiday. Despite talking it over, they couldn’t",
+        "Q29_prompt": "I don’t think they should show advertisements before films in the cinema. They should",
+        "Q30_prompt": "Do you want me to go home or stay with you? Would"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 25,
+      "appTestNumber": 26,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 1,
+      "status": "missing_content",
+      "missing": [
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5",
+        "marker_6",
+        "marker_7",
+        "marker_8"
+      ],
+      "usableFragments": {
+        "passageTextHtmlLength": 3514,
+        "passageTextHtmlSample": "<h2>Ecotourism: is there a downside?<br /></h2><p>Tourism is an important <strong>0</strong>_____ of the global economy and ecotourism has been growing more rapidly than any other sector in the industry recently. Over the past decade, it has grown <span class=\"nowrap\"><strong>1</strong> <select name=\"q1\" id=\"q1\"><option value=\"0\"></option><option value=\"1\">in</option><option value=\"2\">over</option><option value=\"3\">with</option><option value=\"4\">by</option></select></span><a id=\"q01\" role=\"butto..."
+      },
+      "repairMode": "ai-partial",
+      "sourceHtmlLength": 3514,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 2,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 3,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q17_baseWord",
+        "Q18_baseWord",
+        "Q19_baseWord",
+        "Q20_baseWord",
+        "Q21_baseWord",
+        "Q22_baseWord",
+        "Q23_baseWord",
+        "Q24_baseWord"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 4,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml(rawHtmlSample)"
+      ],
+      "usableFragments": {
+        "Q25_prompt": "He ate dinner before she got there. She turned",
+        "Q26_prompt": "I’m sure you were furious when they didn’t apologise. You",
+        "Q27_prompt": "I got to the cinema too late to see the beginning of the film. The film",
+        "Q28_prompt": "I’m not sure if we’ll get a ticket easily. The concert’s very soon. Getting a ticket",
+        "Q29_prompt": "Loud noise is something I can’t stand. I find it impossible",
+        "Q30_prompt": "I thought the mystery novels that he wrote were fascinating. I"
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 5,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 6,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q37_prompt",
+        "Q38_prompt",
+        "Q39_prompt",
+        "Q40_prompt",
+        "Q41_prompt",
+        "Q42_prompt"
+      ],
+      "usableFragments": {},
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    },
+    {
+      "sourceTestNumber": 26,
+      "appTestNumber": 27,
+      "partNumber": 7,
+      "status": "missing_content",
+      "missing": [
+        "passageTextHtml",
+        "Q43_prompt",
+        "Q44_prompt",
+        "Q45_prompt",
+        "Q46_prompt",
+        "Q47_prompt",
+        "Q48_prompt",
+        "Q49_prompt",
+        "Q50_prompt",
+        "Q51_prompt",
+        "Q52_prompt"
+      ],
+      "usableFragments": {
+        "passageTextHtmlSample": ""
+      },
+      "repairMode": "ai-full-part",
+      "sourceHtmlLength": 0,
+      "rawHtmlSampleLength": 2000,
+      "isTruncated": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 25,
+    "appTestNumber": 26,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.297Z",
+    "promptHash": "bootstrap-test25-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test25-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.297Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "They studied really hard because it was a very important test. It was SUCH ->  It was .....",
+        "sourceSentence": "They studied really hard because it was a very important test. It was",
+        "keyword": "SUCH",
+        "targetSentence": " It was .....",
+        "answer": "such a long",
+        "explanation": "Rewrite using \"SUCH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "I found skating difficult at first, until I finally became accustomed to it. I finally USED ->  I finally .....",
+        "sourceSentence": "I found skating difficult at first, until I finally became accustomed to it. I finally",
+        "keyword": "USED",
+        "targetSentence": " I finally .....",
+        "answer": "used to be",
+        "explanation": "Rewrite using \"USED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "She was often too tired to go running after school. She was often SO ->  She was often .....",
+        "sourceSentence": "She was often too tired to go running after school. She was often",
+        "keyword": "SO",
+        "targetSentence": " She was often .....",
+        "answer": "so much that",
+        "explanation": "Rewrite using \"SO\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "They talked it over but couldn’t decide where to go on their holiday. Despite talking it over, they couldn’t MAKE ->  Despite talking it over, they couldn’t .....",
+        "sourceSentence": "They talked it over but couldn’t decide where to go on their holiday. Despite talking it over, they couldn’t",
+        "keyword": "MAKE",
+        "targetSentence": " Despite talking it over, they couldn’t .....",
+        "answer": "make sure to",
+        "explanation": "Rewrite using \"MAKE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "I don’t think they should show advertisements before films in the cinema. They should AWAY ->  They should .....",
+        "sourceSentence": "I don’t think they should show advertisements before films in the cinema. They should",
+        "keyword": "AWAY",
+        "targetSentence": " They should .....",
+        "answer": "away from the",
+        "explanation": "Rewrite using \"AWAY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Do you want me to go home or stay with you? Would RATHER ->  Would .....",
+        "sourceSentence": "Do you want me to go home or stay with you? Would",
+        "keyword": "RATHER",
+        "targetSentence": " Would .....",
+        "answer": "rather than the",
+        "explanation": "Rewrite using \"RATHER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

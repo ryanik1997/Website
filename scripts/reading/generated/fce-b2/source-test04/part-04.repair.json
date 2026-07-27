@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 4,
+    "appTestNumber": 5,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.192Z",
+    "promptHash": "bootstrap-test4-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test4-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.192Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "My parents last spoke to me a month ago.I HEARD -> I .....",
+        "sourceSentence": "My parents last spoke to me a month ago.I",
+        "keyword": "HEARD",
+        "targetSentence": "I .....",
+        "answer": "heard about the",
+        "explanation": "Rewrite using \"HEARD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "All the students had a lot of respect for their teacher.All the students LOOKED -> All the students .....",
+        "sourceSentence": "All the students had a lot of respect for their teacher.All the students",
+        "keyword": "LOOKED",
+        "targetSentence": "All the students .....",
+        "answer": "looked after the",
+        "explanation": "Rewrite using \"LOOKED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Linda didn t feel like eating.Linda wasn t MOOD -> Linda wasn t .....",
+        "sourceSentence": "Linda didn t feel like eating.Linda wasn t",
+        "keyword": "MOOD",
+        "targetSentence": "Linda wasn t .....",
+        "answer": "mood for the",
+        "explanation": "Rewrite using \"MOOD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "My brother was treated unfairly by his teachers.My brother DESERVE -> My brother .....",
+        "sourceSentence": "My brother was treated unfairly by his teachers.My brother",
+        "keyword": "DESERVE",
+        "targetSentence": "My brother .....",
+        "answer": "deserve to be",
+        "explanation": "Rewrite using \"DESERVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was TOO -> The car he wanted was .....",
+        "sourceSentence": "He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was",
+        "keyword": "TOO",
+        "targetSentence": "The car he wanted was .....",
+        "answer": "too much for",
+        "explanation": "Rewrite using \"TOO\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "We all agreed with my father s proposal apart from Joy.With EXCEPTION -> With .....",
+        "sourceSentence": "We all agreed with my father s proposal apart from Joy.With",
+        "keyword": "EXCEPTION",
+        "targetSentence": "With .....",
+        "answer": "exception to the",
+        "explanation": "Rewrite using \"EXCEPTION\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

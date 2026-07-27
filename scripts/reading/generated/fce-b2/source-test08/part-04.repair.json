@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 8,
+    "appTestNumber": 9,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.212Z",
+    "promptHash": "bootstrap-test8-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test8-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.212Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "I ll take you to the station if you re ready, my brother said.My brother said he d take me to the station LONG -> My brother said he d take me to the station .....",
+        "sourceSentence": "I ll take you to the station if you re ready, my brother said.My brother said he d take me to the station",
+        "keyword": "LONG",
+        "targetSentence": "My brother said he d take me to the station .....",
+        "answer": "long before the",
+        "explanation": "Rewrite using \"LONG\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "My bike needs repairing again.I ll have to GET -> I ll have to .....",
+        "sourceSentence": "My bike needs repairing again.I ll have to",
+        "keyword": "GET",
+        "targetSentence": "I ll have to .....",
+        "answer": "get used to",
+        "explanation": "Rewrite using \"GET\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "The firm said profits had fallen on account of the recession.The firm blamed FALL -> The firm blamed .....",
+        "sourceSentence": "The firm said profits had fallen on account of the recession.The firm blamed",
+        "keyword": "FALL",
+        "targetSentence": "The firm blamed .....",
+        "answer": "fall in the",
+        "explanation": "Rewrite using \"FALL\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Sigourney regretted spending so much in the shops.Sigourney WISHED -> Sigourney .....",
+        "sourceSentence": "Sigourney regretted spending so much in the shops.Sigourney",
+        "keyword": "WISHED",
+        "targetSentence": "Sigourney .....",
+        "answer": "wished to be",
+        "explanation": "Rewrite using \"WISHED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "People believe that poem was written about these beautiful hills.That poem HAVE -> That poem .....",
+        "sourceSentence": "People believe that poem was written about these beautiful hills.That poem",
+        "keyword": "HAVE",
+        "targetSentence": "That poem .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Without your help, I wouldn t have finished the job.I wouldn t have finished the job if BEEN -> I wouldn t have finished the job if .....",
+        "sourceSentence": "Without your help, I wouldn t have finished the job.I wouldn t have finished the job if",
+        "keyword": "BEEN",
+        "targetSentence": "I wouldn t have finished the job if .....",
+        "answer": "been to the",
+        "explanation": "Rewrite using \"BEEN\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

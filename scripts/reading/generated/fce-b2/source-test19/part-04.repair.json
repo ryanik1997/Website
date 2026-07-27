@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 19,
+    "appTestNumber": 20,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.270Z",
+    "promptHash": "bootstrap-test19-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test19-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.270Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Do you know when the next cloudless night is? my brother asked. My brother asked me IF ->  My brother asked me .....",
+        "sourceSentence": "Do you know when the next cloudless night is? my brother asked. My brother asked me",
+        "keyword": "IF",
+        "targetSentence": " My brother asked me .....",
+        "answer": "if it were",
+        "explanation": "Rewrite using \"IF\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "What time did Sofia leave this morning? asked Mack. Mack wondered what time Sofia SET ->  Mack wondered what time Sofia .....",
+        "sourceSentence": "What time did Sofia leave this morning? asked Mack. Mack wondered what time Sofia",
+        "keyword": "SET",
+        "targetSentence": " Mack wondered what time Sofia .....",
+        "answer": "set off for",
+        "explanation": "Rewrite using \"SET\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Don t bother looking for the Northern Lights tonight Marta said. Marta TOLD ->  Marta .....",
+        "sourceSentence": "Don t bother looking for the Northern Lights tonight Marta said. Marta",
+        "keyword": "TOLD",
+        "targetSentence": " Marta .....",
+        "answer": "told me that",
+        "explanation": "Rewrite using \"TOLD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Please don t make a mistake when you book our flights said Andy. Andy asked Ben MESS ->  Andy asked Ben .....",
+        "sourceSentence": "Please don t make a mistake when you book our flights said Andy. Andy asked Ben",
+        "keyword": "MESS",
+        "targetSentence": " Andy asked Ben .....",
+        "answer": "mess of the",
+        "explanation": "Rewrite using \"MESS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "I ve been doing some fascinating activities this year said Natalia. Natalia told me that PARTICIPATING ->  Natalia told me that .....",
+        "sourceSentence": "I ve been doing some fascinating activities this year said Natalia. Natalia told me that",
+        "keyword": "PARTICIPATING",
+        "targetSentence": " Natalia told me that .....",
+        "answer": "participating in the",
+        "explanation": "Rewrite using \"PARTICIPATING\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Did you see any memorable sunsets on your trip? Philip asked. Philip asked me ACROSS ->  Philip asked me .....",
+        "sourceSentence": "Did you see any memorable sunsets on your trip? Philip asked. Philip asked me",
+        "keyword": "ACROSS",
+        "targetSentence": " Philip asked me .....",
+        "answer": "across the road",
+        "explanation": "Rewrite using \"ACROSS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

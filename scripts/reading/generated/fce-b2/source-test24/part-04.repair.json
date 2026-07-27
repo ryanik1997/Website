@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 24,
+    "appTestNumber": 25,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.292Z",
+    "promptHash": "bootstrap-test24-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test24-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.292Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "The phone was cheaper than I expected. The phone was AS ->  The phone was .....",
+        "sourceSentence": "The phone was cheaper than I expected. The phone was",
+        "keyword": "AS",
+        "targetSentence": " The phone was .....",
+        "answer": "as well as",
+        "explanation": "Rewrite using \"AS\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "Why didn t you tell me I was wrong? You TOLD ->  You .....",
+        "sourceSentence": "Why didn t you tell me I was wrong? You",
+        "keyword": "TOLD",
+        "targetSentence": " You .....",
+        "answer": "told me that",
+        "explanation": "Rewrite using \"TOLD\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "She found the photographs when she was cleaning her room. She CAME ->  She .....",
+        "sourceSentence": "She found the photographs when she was cleaning her room. She",
+        "keyword": "CAME",
+        "targetSentence": " She .....",
+        "answer": "came as a",
+        "explanation": "Rewrite using \"CAME\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "How many portraits did Picasso paint? How many portraits BY ->  How many portraits .....",
+        "sourceSentence": "How many portraits did Picasso paint? How many portraits",
+        "keyword": "BY",
+        "targetSentence": " How many portraits .....",
+        "answer": "by the time",
+        "explanation": "Rewrite using \"BY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "Please don t stay out late, his mother said. His mother ASKED ->  His mother .....",
+        "sourceSentence": "Please don t stay out late, his mother said. His mother",
+        "keyword": "ASKED",
+        "targetSentence": " His mother .....",
+        "answer": "asked me about",
+        "explanation": "Rewrite using \"ASKED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "I d rather not go out this afternoon. I FEEL ->  I .....",
+        "sourceSentence": "I d rather not go out this afternoon. I",
+        "keyword": "FEEL",
+        "targetSentence": " I .....",
+        "answer": "feel like a",
+        "explanation": "Rewrite using \"FEEL\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}

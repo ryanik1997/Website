@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "origin": "ai-generated",
+    "generatedFields": [
+      "questions"
+    ],
+    "sourceTestNumber": 12,
+    "appTestNumber": 13,
+    "model": "bootstrap-v1",
+    "generatedAt": "2026-07-27T15:12:03.234Z",
+    "promptHash": "bootstrap-test12-part4",
+    "confidence": 85,
+    "reviewed": false
+  },
+  "inputHash": "bootstrap-test12-part4",
+  "promptVersion": "1.0",
+  "model": "bootstrap-v1",
+  "generatedAt": "2026-07-27T15:12:03.234Z",
+  "repair": {
+    "questions": [
+      {
+        "number": 25,
+        "type": "gap-fill",
+        "prompt": "Amanda woke up late because she d forgotten to set her alarm.If Amanda hadn t forgotten to set her alarm she HAVE -> If Amanda hadn t forgotten to set her alarm she .....",
+        "sourceSentence": "Amanda woke up late because she d forgotten to set her alarm.If Amanda hadn t forgotten to set her alarm she",
+        "keyword": "HAVE",
+        "targetSentence": "If Amanda hadn t forgotten to set her alarm she .....",
+        "answer": "have to be",
+        "explanation": "Rewrite using \"HAVE\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 26,
+        "type": "gap-fill",
+        "prompt": "This Internet browser works far better than the others.The other Internet browsers don t NEARLY -> The other Internet browsers don t .....",
+        "sourceSentence": "This Internet browser works far better than the others.The other Internet browsers don t",
+        "keyword": "NEARLY",
+        "targetSentence": "The other Internet browsers don t .....",
+        "answer": "nearly all the",
+        "explanation": "Rewrite using \"NEARLY\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 27,
+        "type": "gap-fill",
+        "prompt": "Can I borrow your phone for a minute, Jack? asked Emma.Emma asked Jack WHETHER -> Emma asked Jack .....",
+        "sourceSentence": "Can I borrow your phone for a minute, Jack? asked Emma.Emma asked Jack",
+        "keyword": "WHETHER",
+        "targetSentence": "Emma asked Jack .....",
+        "answer": "whether or not",
+        "explanation": "Rewrite using \"WHETHER\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 28,
+        "type": "gap-fill",
+        "prompt": "Raymond has so much skill as an artist that his drawings look like photographs.Raymond is SUCH -> Raymond is .....",
+        "sourceSentence": "Raymond has so much skill as an artist that his drawings look like photographs.Raymond is",
+        "keyword": "SUCH",
+        "targetSentence": "Raymond is .....",
+        "answer": "such a long",
+        "explanation": "Rewrite using \"SUCH\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 29,
+        "type": "gap-fill",
+        "prompt": "I wish I hadn t stayed up late last night.I should BED -> I should .....",
+        "sourceSentence": "I wish I hadn t stayed up late last night.I should",
+        "keyword": "BED",
+        "targetSentence": "I should .....",
+        "answer": "bed for the",
+        "explanation": "Rewrite using \"BED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      },
+      {
+        "number": 30,
+        "type": "gap-fill",
+        "prompt": "Our departure was delayed because another flight arrived late.The delay to our departure CAUSED -> The delay to our departure .....",
+        "sourceSentence": "Our departure was delayed because another flight arrived late.The delay to our departure",
+        "keyword": "CAUSED",
+        "targetSentence": "The delay to our departure .....",
+        "answer": "caused by the",
+        "explanation": "Rewrite using \"CAUSED\" without changing the meaning. Use 2-5 words including the keyword.",
+        "size": 40
+      }
+    ]
+  },
+  "status": "generated"
+}
