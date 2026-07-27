@@ -1,10 +1,13 @@
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { AlertTriangle, ArrowLeft, Search } from 'lucide-react'
+import { useIsAdmin } from '../features/auth/useIsAdmin'
+import CambridgeWritingCreateButton from '../features/writing/admin/CambridgeWritingCreateButton'
+import CambridgeWritingTestEditorDialog from '../features/writing/admin/CambridgeWritingTestEditorDialog'
+import CambridgeWritingTestCard from '../features/writing/CambridgeWritingTestCard'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingCollection } from '../features/writing/useCambridgeWritingTests'
-import CambridgeWritingTestCard from '../features/writing/CambridgeWritingTestCard'
-import { useIsAdmin } from '../features/auth/useIsAdmin'
+import '../features/writing/admin/cambridgeWritingAdmin.css'
 import '../features/writing/cambridgeHub.css'
 
 export default function WritingCambridgeLevelPage() {
@@ -12,16 +15,17 @@ export default function WritingCambridgeLevelPage() {
   const navigate = useNavigate()
   const level = getCambridgeRouteLevel(levelParam)
   const [query, setQuery] = useState('')
+  const [editingId, setEditingId] = useState<string | null>(null)
   const isAdmin = useIsAdmin()
 
   if (!level) return <Navigate to="/app/writing/cambridge" replace />
 
   const collection = useCambridgeWritingCollection(level.level)
-  const visibleTests = useMemo(() => {
-    const tests = collection?.tests ?? []
+  const visibleItems = useMemo(() => {
+    const items = collection?.items ?? []
     const q = query.trim().toLowerCase()
-    if (!q) return tests
-    return tests.filter((test) => {
+    if (!q) return items
+    return items.filter(({ test }) => {
       const searchable = [
         test.title,
         String(test.testNumber),
@@ -29,7 +33,7 @@ export default function WritingCambridgeLevelPage() {
       ].join(' ')
       return searchable.toLowerCase().includes(q)
     })
-  }, [collection?.tests, query])
+  }, [collection?.items, query])
 
   return (
     <div className="cb-hub">
@@ -45,10 +49,17 @@ export default function WritingCambridgeLevelPage() {
           {level.displayName}
         </button>
 
-        <h1 className="cb-title">{level.displayName} Writing</h1>
-        <p className="cb-sub">
-          {collection ? `${collection.testCount} test, ${collection.taskCount} task.` : 'Loading library...'}
-        </p>
+        <div className="cb-level-header">
+          <div>
+            <h1 className="cb-title">{level.displayName} Writing</h1>
+            <p className="cb-sub">
+              {collection ? `${collection.testCount} test, ${collection.taskCount} task.` : 'Loading library...'}
+            </p>
+          </div>
+          {isAdmin === true && collection ? (
+            <CambridgeWritingCreateButton level={level.level} tests={collection.items} />
+          ) : null}
+        </div>
 
         {collection?.errors.length ? (
           <div style={{ marginTop: '1rem', padding: '0.85rem 1rem', borderRadius: '0.75rem', border: '1px solid var(--border-color)', background: 'var(--bg-card)' }}>
@@ -77,7 +88,7 @@ export default function WritingCambridgeLevelPage() {
         <div className="cb-grid" style={{ marginTop: '1.2rem' }}>
           {!collection ? (
             <div style={{ color: 'var(--text-muted)' }}>Loading Writing library...</div>
-          ) : visibleTests.length === 0 ? (
+          ) : visibleItems.length === 0 ? (
             <div style={{ color: 'var(--text-muted)' }}>
               {query.trim()
                 ? 'No Writing test matches your search.'
@@ -85,14 +96,27 @@ export default function WritingCambridgeLevelPage() {
                   ? 'Chưa có đề Writing nào cho cấp độ này.'
                   : 'Nội dung đang được cập nhật.'}
             </div>
-          ) : visibleTests.map(test => (
+          ) : visibleItems.map(item => (
             <CambridgeWritingTestCard
-              key={test.id}
-              test={test}
-              onOpen={() => navigate(`/app/writing/cambridge/${level.level}/${test.id}`)}
+              key={item.test.id}
+              test={item.test}
+              adminMode={isAdmin === true}
+              origin={item.origin}
+              editable={item.editable}
+              onOpen={() => navigate(`/app/writing/cambridge/${level.level}/${item.test.id}`)}
+              onEdit={item.editable ? () => setEditingId(item.recordId) : undefined}
             />
           ))}
         </div>
+
+        {isAdmin === true && editingId && collection ? (
+          <CambridgeWritingTestEditorDialog
+            open
+            mode={{ type: 'edit', level: level.level, recordId: editingId }}
+            existingTests={collection.items}
+            onClose={() => setEditingId(null)}
+          />
+        ) : null}
       </div>
     </div>
   )

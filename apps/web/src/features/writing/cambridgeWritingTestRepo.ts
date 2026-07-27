@@ -15,11 +15,23 @@ type MergeOptions = {
   includeDrafts?: boolean
 }
 
+export type CambridgeWritingMergedOrigin = 'seed' | 'published_sync' | 'admin_local'
+
+export type CambridgeWritingMergedTest = {
+  test: CambridgeWritingTest
+  origin: CambridgeWritingMergedOrigin
+  status: 'draft' | 'published' | 'archived'
+  editable: boolean
+  version: number
+  recordId: string
+}
+
 type ValidationResult =
   | { ok: true; test: CambridgeWritingTest }
   | { ok: false; errors: string[] }
 
 type ListResult = {
+  items: CambridgeWritingMergedTest[]
   tests: CambridgeWritingTest[]
   errors: string[]
 }
@@ -59,7 +71,16 @@ export function validateRecord(record: CambridgeWritingTestRecord): ValidationRe
 
 async function mergedTests(level: CambridgeWritingLevel, options: MergeOptions = {}): Promise<ListResult> {
   const includeDrafts = options.includeDrafts === true
-  const testsById = new Map<string, CambridgeWritingTest>(seedTests(level).map(test => [test.id, test]))
+  const itemsById = new Map<string, CambridgeWritingMergedTest>(
+    seedTests(level).map(test => [test.id, {
+      test,
+      origin: 'seed',
+      status: test.status ?? 'published',
+      editable: false,
+      version: test.version ?? 1,
+      recordId: test.id,
+    }]),
+  )
   const errors: string[] = []
   const records = await cambridgeWritingTestLocalRepo.listByLevel(level)
 
@@ -77,14 +98,21 @@ async function mergedTests(level: CambridgeWritingLevel, options: MergeOptions =
     }
     if (record.status === 'draft' && !includeDrafts) continue
     if (record.status === 'archived') {
-      testsById.delete(record.id)
+      itemsById.delete(record.id)
       continue
     }
-    testsById.set(record.id, validated.test)
+    itemsById.set(record.id, {
+      test: validated.test,
+      origin: record.source,
+      status: record.status,
+      editable: record.source === 'admin_local' && record.status === 'draft',
+      version: record.version,
+      recordId: record.id,
+    })
   }
 
-  const tests = [...testsById.values()].sort((a, b) => a.testNumber - b.testNumber || a.title.localeCompare(b.title))
-  return { tests, errors }
+  const items = [...itemsById.values()].sort((a, b) => a.test.testNumber - b.test.testNumber || a.test.title.localeCompare(b.test.title))
+  return { items, tests: items.map(item => item.test), errors }
 }
 
 export const cambridgeWritingTestRepo = {
@@ -92,24 +120,27 @@ export const cambridgeWritingTestRepo = {
     return mergedTests(level, options)
   },
 
-  async getTest(level: CambridgeWritingLevel, testId: string, options?: MergeOptions): Promise<{ test: CambridgeWritingTest | null; errors: string[] }> {
-    const { tests, errors } = await mergedTests(level, options)
+  async getTest(level: CambridgeWritingLevel, testId: string, options?: MergeOptions): Promise<{ item: CambridgeWritingMergedTest | null; test: CambridgeWritingTest | null; errors: string[] }> {
+    const { items, errors } = await mergedTests(level, options)
+    const item = items.find(test => test.test.id === testId) ?? null
     return {
-      test: tests.find(test => test.id === testId) ?? null,
+      item,
+      test: item?.test ?? null,
       errors,
     }
   },
 
-  async getTask(level: CambridgeWritingLevel, testId: string, taskId: string, options?: MergeOptions): Promise<{ task: CambridgeWritingTask | null; test: CambridgeWritingTest | null; errors: string[] }> {
-    const { test, errors } = await this.getTest(level, testId, options)
+  async getTask(level: CambridgeWritingLevel, testId: string, taskId: string, options?: MergeOptions): Promise<{ item: CambridgeWritingMergedTest | null; task: CambridgeWritingTask | null; test: CambridgeWritingTest | null; errors: string[] }> {
+    const { item, test, errors } = await this.getTest(level, testId, options)
     return {
+      item,
       test,
       task: test?.tasks.find(task => task.id === taskId) ?? null,
       errors,
     }
   },
 
-  async createDraft(test: CambridgeWritingTest): Promise<CambridgeWritingTestRecord> {
+  async createDraft(test: CambridgeWritingTest, options?: { createdBy?: string }): Promise<CambridgeWritingTestRecord> {
     const parsed = CambridgeWritingTestSchema.parse(test)
     return cambridgeWritingTestLocalRepo.create({
       id: parsed.id,
@@ -119,10 +150,11 @@ export const cambridgeWritingTestRepo = {
       payload: parsed,
       status: 'draft',
       source: 'admin_local',
+      createdBy: options?.createdBy,
     })
   },
 
-  async updateDraft(testId: string, test: CambridgeWritingTest): Promise<CambridgeWritingTestRecord> {
+  async updateDraft(testId: string, test: CambridgeWritingTest, options?: { createdBy?: string }): Promise<CambridgeWritingTestRecord> {
     const parsed = CambridgeWritingTestSchema.parse(test)
     return cambridgeWritingTestLocalRepo.update(testId, {
       contentKey: toContentKey(parsed.level, parsed.id),
@@ -130,6 +162,7 @@ export const cambridgeWritingTestRepo = {
       payload: parsed,
       status: 'draft',
       source: 'admin_local',
+      createdBy: options?.createdBy,
     })
   },
 
