@@ -53,23 +53,25 @@ afterEach(() => {
 })
 
 describe('Cambridge Writing admin flow', () => {
-  it('hides create for normal users and shows it for admin', async () => {
+  it('hides create for normal users and shows admin actions with Unicode copy', async () => {
     renderHarness('/app/writing/cambridge/b1')
-    await screen.findByText(/test, .* task\./i)
+    await screen.findByText(/đề, .* bài viết\./i)
     expect(screen.queryByText('Tạo đề mới')).not.toBeInTheDocument()
+    expect(screen.queryByText('Hướng dẫn tạo đề')).not.toBeInTheDocument()
 
     cleanup()
     await resetDb()
     await db.settings.put({ key: 'is_admin', value: true })
     renderHarness('/app/writing/cambridge/b1')
-    await screen.findByText(/test, .* task\./i)
+    await screen.findByText(/đề, .* bài viết\./i)
     expect(screen.getByText('Tạo đề mới')).toBeInTheDocument()
+    expect(screen.getByText('Hướng dẫn tạo đề')).toBeInTheDocument()
   })
 
   it('creates and edits local drafts from the level page without creating writing docs', async () => {
     await db.settings.put({ key: 'is_admin', value: true })
     renderHarness('/app/writing/cambridge/b1')
-    await screen.findByText(/test, .* task\./i)
+    await screen.findByText(/đề, .* bài viết\./i)
 
     fireEvent.click(screen.getByText('Tạo đề mới'))
     await screen.findByRole('dialog')
@@ -77,16 +79,16 @@ describe('Cambridge Writing admin flow', () => {
     expect(screen.getByDisplayValue('2')).toBeInTheDocument()
     expect(screen.getByDisplayValue('PET B1 Writing · Test 02')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByText('+ Thêm task'))
+    fireEvent.click(screen.getByText('+ Thêm bài viết'))
     expect(screen.getAllByText(/Task \d+/).length).toBeGreaterThan(1)
 
     fireEvent.change(screen.getByDisplayValue('PET B1 Writing · Test 02'), { target: { value: 'PET Draft Test 02' } })
     fireEvent.change(screen.getAllByRole('textbox')[2], { target: { value: 'Write an email to your friend.' } })
-    fireEvent.click(screen.getByText('Lưu nháp'))
+    fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
     await screen.findByText('PET Draft Test 02')
-    expect(screen.getByText('Nháp')).toBeInTheDocument()
+    expect(screen.getByText('Bản nháp')).toBeInTheDocument()
     expect(await db.writingDocs.count()).toBe(0)
 
     const savedTests = await db.cambridgeWritingTests.toArray()
@@ -107,20 +109,25 @@ describe('Cambridge Writing admin flow', () => {
     fireEvent.click(screen.getByText('Chỉnh sửa'))
     await screen.findByRole('dialog')
     fireEvent.change(screen.getByDisplayValue('PET Draft Test 02'), { target: { value: 'PET Draft Test 02 Updated' } })
-    fireEvent.click(screen.getByText('Lưu nháp'))
+    fireEvent.click(screen.getByText('Lưu bản nháp'))
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
     await screen.findByText('PET Draft Test 02 Updated')
   })
 
-  it('supports create entry point on every Cambridge Writing level', async () => {
+  it('supports create entry point on every Cambridge Writing level and opens admin guide', async () => {
     await db.settings.put({ key: 'is_admin', value: true })
 
     for (const level of ['a2', 'b1', 'b2', 'c1', 'c2'] as const) {
       cleanup()
       renderHarness(`/app/writing/cambridge/${level}`)
-      await screen.findByText(/test, .* task\./i)
+      await screen.findByText(/đề, .* bài viết\./i)
       expect(screen.getByText('Tạo đề mới')).toBeInTheDocument()
+      expect(screen.getByText('Hướng dẫn tạo đề')).toBeInTheDocument()
     }
+
+    fireEvent.click(screen.getByText('Hướng dẫn tạo đề'))
+    await screen.findByRole('dialog', { name: 'Hướng dẫn tạo đề Writing' })
+    expect(screen.getByText('Bản nháp hiện chỉ được lưu trên trình duyệt này. Nội dung chưa được xuất bản cho học viên.')).toBeInTheDocument()
   })
 })

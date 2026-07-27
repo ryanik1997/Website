@@ -1,6 +1,7 @@
 import { ArrowRight, Pencil } from 'lucide-react'
 import type { CambridgeWritingTest } from '@ryan/catalog'
 import type { CambridgeWritingMergedOrigin } from './cambridgeWritingTestRepo'
+import { CAMBRIDGE_WRITING_COPY } from './cambridgeWritingCopy'
 
 interface Props {
   test: CambridgeWritingTest
@@ -41,15 +42,21 @@ export default function CambridgeWritingTestCard({
         <h2 className="cb-card-title">{test.title}</h2>
         <p className="cb-card-desc">{genres.join(' · ')}</p>
         {adminMode && test.status === 'draft' ? (
-          <p className="cb-card-desc" style={{ color: 'var(--color-primary)', fontWeight: 700 }}>Nháp</p>
+          <p className="cb-card-desc" style={{ color: 'var(--color-primary)', fontWeight: 700 }}>
+            {CAMBRIDGE_WRITING_COPY.draft}
+          </p>
         ) : null}
         {adminMode && origin ? (
           <p className="cb-card-desc" style={{ color: 'var(--text-muted)' }}>
-            {origin === 'admin_local' ? 'Local draft' : origin === 'published_sync' ? 'Published sync' : 'Seed'}
+            {origin === 'admin_local'
+              ? CAMBRIDGE_WRITING_COPY.localDraft
+              : origin === 'published_sync'
+                ? CAMBRIDGE_WRITING_COPY.publishedSync
+                : CAMBRIDGE_WRITING_COPY.seed}
           </p>
         ) : null}
         <span className="cb-card-meta" style={{ color: 'var(--color-primary)' }}>
-          {preview ? 'Card preview' : 'Open test'}
+          {preview ? CAMBRIDGE_WRITING_COPY.cardPreview : CAMBRIDGE_WRITING_COPY.openTest}
           {!preview ? <ArrowRight size={14} /> : null}
         </span>
       </button>
@@ -58,7 +65,7 @@ export default function CambridgeWritingTestCard({
         <div className="cb-card-actions">
           <button type="button" className="cb-card-edit" onClick={onEdit}>
             <Pencil size={14} />
-            Chỉnh sửa
+            {CAMBRIDGE_WRITING_COPY.editDraft}
           </button>
         </div>
       ) : null}

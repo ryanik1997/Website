@@ -3,6 +3,7 @@ import { X } from 'lucide-react'
 import { CambridgeWritingTestSchema, type CambridgeWritingLevel, type CambridgeWritingTest } from '@ryan/catalog'
 import { cambridgeWritingTestLocalRepo } from '@ryan/db'
 import { cambridgeWritingTestRepo, type CambridgeWritingMergedTest } from '../cambridgeWritingTestRepo'
+import { CAMBRIDGE_WRITING_COPY } from '../cambridgeWritingCopy'
 import CambridgeWritingCardPreview from './CambridgeWritingCardPreview'
 import { mapFormToWritingTest } from './cambridgeWritingFormMapper'
 import {
@@ -165,7 +166,7 @@ export default function CambridgeWritingTestEditorDialog({
       onClose()
       window.setTimeout(() => returnFocusRef.current?.focus(), 0)
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : 'Không thể lưu draft.')
+      setSubmitError(error instanceof Error ? error.message : 'Không thể lưu bản nháp.')
     } finally {
       setSaving(false)
     }
@@ -185,10 +186,10 @@ export default function CambridgeWritingTestEditorDialog({
         <div className="cb-admin-head">
           <div>
             <h2 id="cambridge-writing-editor-title" style={{ margin: 0, fontSize: '1.05rem' }}>
-              {mode.type === 'edit' ? 'Chỉnh sửa draft Writing' : 'Tạo đề Writing mới'}
+              {mode.type === 'edit' ? CAMBRIDGE_WRITING_COPY.editTest : 'Tạo đề Writing mới'}
             </h2>
             <div className="cb-admin-muted" style={{ fontSize: '0.8rem', marginTop: '0.2rem' }}>
-              Thông tin test · Danh sách task · Preview card
+              Thông tin đề · Danh sách bài viết · Xem trước thẻ đề
             </div>
           </div>
           <button ref={closeButtonRef} type="button" className="cb-admin-mini-btn" onClick={handleClose}>
@@ -209,7 +210,7 @@ export default function CambridgeWritingTestEditorDialog({
             />
 
             <div className="cb-admin-section cb-admin-preview">
-              <h3 style={{ margin: 0, fontSize: '1rem' }}>Preview card</h3>
+              <h3 style={{ margin: 0, fontSize: '1rem' }}>Xem trước thẻ đề</h3>
               <CambridgeWritingCardPreview test={previewTest} />
               {submitError ? <div className="cb-admin-error">{submitError}</div> : null}
             </div>
@@ -219,7 +220,7 @@ export default function CambridgeWritingTestEditorDialog({
         <div className="cb-admin-foot">
           <button type="button" className="cb-admin-secondary" onClick={handleClose}>Hủy</button>
           <button type="button" className="cb-admin-primary" onClick={handleSave} disabled={saving}>
-            {saving ? 'Đang lưu...' : 'Lưu nháp'}
+            {saving ? CAMBRIDGE_WRITING_COPY.savingDraft : CAMBRIDGE_WRITING_COPY.saveDraft}
           </button>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Bookmark, Bell, Menu, PenLine, Wifi } from 'luci
 import { db, writingRepo } from '@ryan/db'
 import type { WritingDoc } from '@ryan/db'
 import type { CambridgeWritingTask, CambridgeWritingTest } from '@ryan/catalog'
+import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy'
 import { useWritingStore } from '../features/writing/writingStore'
 import KetRwSplitPane from '../features/exam/ketRw/KetRwSplitPane'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
@@ -466,7 +467,7 @@ export default function WritingCambridgeTaskPage() {
     return (
       <div className="relative flex h-full min-h-0 overflow-hidden flex-col">
         <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-muted)' }}>
-          Loading task...
+          {CAMBRIDGE_WRITING_COPY.taskLoading}
         </div>
       </div>
     )
@@ -478,7 +479,7 @@ export default function WritingCambridgeTaskPage() {
         <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
           <div style={{ maxWidth: 640, textAlign: 'center' }}>
             <p style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>Không tìm thấy task Writing.</p>
-            <p style={{ color: 'var(--text-muted)' }}>Task này có thể là draft không dành cho user hoặc không còn tồn tại.</p>
+            <p style={{ color: 'var(--text-muted)' }}>Task này có thể là bản nháp chỉ dành cho admin hoặc không còn tồn tại.</p>
           </div>
         </div>
       </div>
@@ -506,8 +507,8 @@ export default function WritingCambridgeTaskPage() {
       </div>
       <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
         <div style={{ maxWidth: 640, textAlign: 'center' }}>
-          <p style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>B2/C1/C2 dang dung shell tam.</p>
-          <p style={{ color: 'var(--text-muted)' }}>B1 da tach layout rieng de bam anh crawl 1:1. A2 vua noi theo Part 6/7 cua KET. Cac level con lai se noi theo cung pattern khi co layout chuan tuong ung.</p>
+          <p style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>B2/C1/C2 đang dùng shell tạm.</p>
+          <p style={{ color: 'var(--text-muted)' }}>B1 đã tách layout riêng để bám ảnh crawl 1:1. A2 vừa nối theo Part 6/7 của KET. Các level còn lại sẽ nối theo cùng pattern khi có layout chuẩn tương ứng.</p>
         </div>
       </div>
     </div>

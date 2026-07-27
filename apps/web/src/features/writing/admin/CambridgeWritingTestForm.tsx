@@ -1,5 +1,6 @@
 import type { CambridgeWritingLevel } from '@ryan/catalog'
 import type { CambridgeWritingMergedTest } from '../cambridgeWritingTestRepo'
+import { CAMBRIDGE_WRITING_COPY } from '../cambridgeWritingCopy'
 import CambridgeWritingTaskEditor from './CambridgeWritingTaskEditor'
 import {
   createEmptyTask,
@@ -53,14 +54,14 @@ export default function CambridgeWritingTestForm({
 
   return (
     <div className="cb-admin-section">
-      <h3 style={{ margin: '0 0 0.9rem', fontSize: '1rem' }}>Thông tin test</h3>
+      <h3 style={{ margin: '0 0 0.9rem', fontSize: '1rem' }}>Thông tin đề</h3>
       <div className="cb-admin-grid">
         <div className="cb-admin-field">
-          <label>Level</label>
+          <label>Cấp độ</label>
           <input className="cb-admin-input" value={levelLabel} readOnly />
         </div>
         <div className="cb-admin-field">
-          <label>Test number</label>
+          <label>Số thứ tự đề</label>
           <input
             className="cb-admin-input"
             type="number"
@@ -81,11 +82,11 @@ export default function CambridgeWritingTestForm({
           </span>
         </div>
         <div className="cb-admin-field">
-          <label>Title</label>
+          <label>Tiêu đề</label>
           <input className="cb-admin-input" value={value.title} onChange={event => onChange({ ...value, title: event.target.value })} />
         </div>
         <div className="cb-admin-field">
-          <label>Source URL</label>
+          <label>Đường dẫn nguồn</label>
           <input className="cb-admin-input" value={value.sourceUrl} onChange={event => onChange({ ...value, sourceUrl: event.target.value })} />
         </div>
       </div>
@@ -103,8 +104,10 @@ export default function CambridgeWritingTestForm({
       ) : null}
 
       <div style={{ marginTop: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-        <h3 style={{ margin: 0, fontSize: '1rem' }}>Danh sách task</h3>
-        <button type="button" className="cb-admin-primary" onClick={addTask}>+ Thêm task</button>
+        <h3 style={{ margin: 0, fontSize: '1rem' }}>Danh sách bài viết</h3>
+        <button type="button" className="cb-admin-primary" onClick={addTask}>
+          + Thêm bài viết
+        </button>
       </div>
 
       <div className="cb-admin-task-list" style={{ marginTop: '0.85rem' }}>

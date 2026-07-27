@@ -109,14 +109,14 @@ describe('Cambridge Writing pages', () => {
 
     renderLevelPage('b1')
 
-    expect(screen.getByText('Loading Writing library...')).toBeInTheDocument()
-    await screen.findByText(/test, .* task\./i)
+    expect(screen.getAllByText('Đang tải thư viện Writing...').length).toBeGreaterThan(0)
+    await screen.findByText(/đề, .* bài viết\./i)
     await waitFor(() => {
       expect(screen.getByText('Local draft title')).toBeInTheDocument()
-      expect(screen.getByText('Nháp')).toBeInTheDocument()
+      expect(screen.getByText('Bản nháp')).toBeInTheDocument()
     })
 
-    fireEvent.change(screen.getByPlaceholderText('Find a test or genre...'), { target: { value: 'draft title' } })
+    fireEvent.change(screen.getByPlaceholderText('Tìm theo tên đề hoặc dạng bài...'), { target: { value: 'draft title' } })
     expect(screen.getByText('Local draft title')).toBeInTheDocument()
   })
 
@@ -155,13 +155,13 @@ describe('Cambridge Writing pages', () => {
 
     renderLevelPage('c1')
 
-    await screen.findByText('Some Writing records are invalid.')
+    await screen.findByText('Có bản ghi Writing không hợp lệ.')
   })
 
   it('test page keeps loading separate from not found and respects admin draft visibility', async () => {
     renderTestPage('a2', 'ket-a2-book4-test2')
-    expect(screen.getByText('Loading test...')).toBeInTheDocument()
-    await screen.findByText('Keep the real Part/Task structure.')
+    expect(screen.getByText('Đang tải đề...')).toBeInTheDocument()
+    await screen.findByText('Giữ đúng cấu trúc Part/Task của đề thật.')
 
     await cambridgeWritingTestLocalRepo.create({
       id: 'pet-b1-test-88',
@@ -174,7 +174,7 @@ describe('Cambridge Writing pages', () => {
     })
 
     renderTestPage('b1', 'pet-b1-test-88')
-    await screen.findByText('Không tìm thấy test Writing.')
+    await screen.findByText('Không tìm thấy đề Writing.')
 
     cleanup()
     await resetDb()
@@ -211,7 +211,7 @@ describe('Cambridge Writing pages', () => {
   it('task page renders seed task, keeps two-pane layout, and avoids duplicate WritingDoc', async () => {
     renderTaskPage('b1', 'b1-test-01', 'b1-test-01-task-01')
 
-    expect(screen.getByText('Loading task...')).toBeInTheDocument()
+    expect(screen.getByText('Đang tải bài viết...')).toBeInTheDocument()
     const textarea = await screen.findByLabelText('Writing answer')
     expect(textarea).toBeInTheDocument()
     expect(screen.getByText('Question 1')).toBeInTheDocument()

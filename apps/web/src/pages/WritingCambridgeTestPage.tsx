@@ -1,5 +1,6 @@
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingTest } from '../features/writing/useCambridgeWritingTests'
 import '../features/writing/cambridgeHub.css'
@@ -13,7 +14,7 @@ export default function WritingCambridgeTestPage() {
 
   const result = useCambridgeWritingTest(level.level, testId)
   if (!result) {
-    return <div className="cb-hub"><div className="cb-inner" style={{ color: 'var(--text-muted)' }}>Loading test...</div></div>
+    return <div className="cb-hub"><div className="cb-inner" style={{ color: 'var(--text-muted)' }}>{CAMBRIDGE_WRITING_COPY.testLoading}</div></div>
   }
 
   const test = result.test
@@ -21,8 +22,8 @@ export default function WritingCambridgeTestPage() {
     return (
       <div className="cb-hub">
         <div className="cb-inner">
-          <p className="cb-title" style={{ fontSize: '1.5rem' }}>Không tìm thấy test Writing.</p>
-          <p className="cb-sub">Test này có thể là draft không dành cho user hoặc không còn tồn tại.</p>
+          <p className="cb-title" style={{ fontSize: '1.5rem' }}>{CAMBRIDGE_WRITING_COPY.testNotFoundTitle}</p>
+          <p className="cb-sub">{CAMBRIDGE_WRITING_COPY.testNotFoundDescription}</p>
         </div>
       </div>
     )
@@ -41,11 +42,11 @@ export default function WritingCambridgeTestPage() {
 
         <button type="button" className="exam-hub-back" onClick={() => navigate(`/app/writing/cambridge/${level.level}`)}>
           <ArrowLeft size={14} />
-          {level.displayName} library
+          {level.displayName} {CAMBRIDGE_WRITING_COPY.testBackToLibrarySuffix}
         </button>
 
         <h1 className="cb-title">{test.title}</h1>
-        <p className="cb-sub">Keep the real Part/Task structure.</p>
+        <p className="cb-sub">{CAMBRIDGE_WRITING_COPY.testStructureHint}</p>
 
         <div className="cb-grid" style={{ marginTop: '1.2rem' }}>
           {test.tasks.map(task => (
@@ -60,9 +61,9 @@ export default function WritingCambridgeTestPage() {
                 <span className="cb-card-count">{task.wordLimit?.displayText ?? 'Open'}</span>
               </div>
               <h2 className="cb-card-title">{task.title}</h2>
-              <p className="cb-card-desc">{task.genre} · {task.metadata?.compulsory ? 'Compulsory' : 'Choose one'}</p>
+              <p className="cb-card-desc">{task.genre} · {task.metadata?.compulsory ? CAMBRIDGE_WRITING_COPY.taskCompulsory : CAMBRIDGE_WRITING_COPY.taskChooseOne}</p>
               <span className="cb-card-meta" style={{ color: 'var(--color-primary)' }}>
-                Start writing
+                {CAMBRIDGE_WRITING_COPY.taskOpen}
                 <ArrowRight size={14} />
               </span>
             </button>

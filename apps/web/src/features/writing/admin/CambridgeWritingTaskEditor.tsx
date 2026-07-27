@@ -52,7 +52,7 @@ export default function CambridgeWritingTaskEditor({
       <div className="cb-admin-task-head">
         <strong>Task {index + 1}</strong>
         <span className={promptReady ? 'cb-admin-inline-note cb-admin-muted' : 'cb-admin-warning'}>
-          {promptReady ? 'Prompt ready' : 'Prompt còn thiếu'}
+          {promptReady ? 'Prompt đã sẵn sàng' : 'Prompt còn thiếu'}
         </span>
       </div>
 
@@ -108,10 +108,10 @@ export default function CambridgeWritingTaskEditor({
           <input className="cb-admin-input" value={task.wordLimitDisplayText} onChange={event => onChange({ ...task, wordLimitDisplayText: event.target.value })} />
         </div>
         <div className="cb-admin-field">
-          <label>Compulsory</label>
+          <label>Bắt buộc</label>
           <select className="cb-admin-select" value={task.compulsory ? 'yes' : 'no'} onChange={event => onChange({ ...task, compulsory: event.target.value === 'yes' })}>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="yes">Có</option>
+            <option value="no">Không</option>
           </select>
         </div>
       </div>
@@ -146,11 +146,11 @@ export default function CambridgeWritingTaskEditor({
         </button>
         <button type="button" className="cb-admin-mini-btn" onClick={onMoveUp} disabled={index === 0}>
           <MoveUp size={14} />
-          Lên
+          Di chuyển lên
         </button>
         <button type="button" className="cb-admin-mini-btn" onClick={onMoveDown} disabled={index === total - 1}>
           <MoveDown size={14} />
-          Xuống
+          Di chuyển xuống
         </button>
         <button type="button" className="cb-admin-danger" onClick={onDelete} disabled={total <= 1}>
           <Trash2 size={14} />

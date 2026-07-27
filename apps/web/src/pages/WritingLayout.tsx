@@ -1,6 +1,8 @@
 import { Outlet, useLocation, Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
+const WRITING_LIBRARY_LABEL = 'Th\u01b0 Vi\u1ec7n Writing'
+
 export default function WritingLayout() {
   const { pathname } = useLocation()
   const isHub = pathname === '/app/writing' || pathname === '/app/writing/'
@@ -22,7 +24,7 @@ export default function WritingLayout() {
             style={{ color: 'var(--color-primary)' }}
           >
             <ArrowLeft size={15} />
-            Thư Viện Writing
+            {WRITING_LIBRARY_LABEL}
           </Link>
         </div>
       )}

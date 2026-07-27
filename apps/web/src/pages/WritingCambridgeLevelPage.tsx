@@ -5,6 +5,7 @@ import { useIsAdmin } from '../features/auth/useIsAdmin'
 import CambridgeWritingCreateButton from '../features/writing/admin/CambridgeWritingCreateButton'
 import CambridgeWritingTestEditorDialog from '../features/writing/admin/CambridgeWritingTestEditorDialog'
 import CambridgeWritingTestCard from '../features/writing/CambridgeWritingTestCard'
+import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy'
 import { getCambridgeRouteLevel } from '../features/writing/cambridgeWritingRouteCatalog'
 import { useCambridgeWritingCollection } from '../features/writing/useCambridgeWritingTests'
 import '../features/writing/admin/cambridgeWritingAdmin.css'
@@ -53,7 +54,9 @@ export default function WritingCambridgeLevelPage() {
           <div>
             <h1 className="cb-title">{level.displayName} Writing</h1>
             <p className="cb-sub">
-              {collection ? `${collection.testCount} test, ${collection.taskCount} task.` : 'Loading library...'}
+              {collection
+                ? `${collection.testCount} ${CAMBRIDGE_WRITING_COPY.testsLabel}, ${collection.taskCount} ${CAMBRIDGE_WRITING_COPY.tasksLabel}.`
+                : CAMBRIDGE_WRITING_COPY.levelLoading}
             </p>
           </div>
           {isAdmin === true && collection ? (
@@ -65,7 +68,7 @@ export default function WritingCambridgeLevelPage() {
           <div style={{ marginTop: '1rem', padding: '0.85rem 1rem', borderRadius: '0.75rem', border: '1px solid var(--border-color)', background: 'var(--bg-card)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>
               <AlertTriangle size={16} />
-              {isAdmin === true ? 'Some Writing records are invalid.' : 'Writing content is being updated.'}
+              {isAdmin === true ? CAMBRIDGE_WRITING_COPY.levelInvalidRecordsAdmin : CAMBRIDGE_WRITING_COPY.levelUpdatingAdminHint}
             </div>
             {isAdmin === true ? (
               <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1rem', color: 'var(--text-muted)' }}>
@@ -81,20 +84,20 @@ export default function WritingCambridgeLevelPage() {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Find a test or genre..."
+            placeholder={CAMBRIDGE_WRITING_COPY.levelSearchPlaceholder}
           />
         </label>
 
         <div className="cb-grid" style={{ marginTop: '1.2rem' }}>
           {!collection ? (
-            <div style={{ color: 'var(--text-muted)' }}>Loading Writing library...</div>
+            <div style={{ color: 'var(--text-muted)' }}>{CAMBRIDGE_WRITING_COPY.levelLoading}</div>
           ) : visibleItems.length === 0 ? (
             <div style={{ color: 'var(--text-muted)' }}>
               {query.trim()
-                ? 'No Writing test matches your search.'
+                ? CAMBRIDGE_WRITING_COPY.levelNoSearchResults
                 : isAdmin === true
-                  ? 'Chưa có đề Writing nào cho cấp độ này.'
-                  : 'Nội dung đang được cập nhật.'}
+                  ? CAMBRIDGE_WRITING_COPY.levelNoTests
+                  : CAMBRIDGE_WRITING_COPY.levelUpdating}
             </div>
           ) : visibleItems.map(item => (
             <CambridgeWritingTestCard

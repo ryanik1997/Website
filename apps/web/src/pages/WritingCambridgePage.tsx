@@ -2,8 +2,9 @@ import type { CSSProperties } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Library } from 'lucide-react'
-import { CAMBRIDGE_LEVELS } from '../features/writing/cambridgeCatalog'
 import { CAMBRIDGE_WRITING_MANIFEST } from '@ryan/catalog'
+import { CAMBRIDGE_LEVELS } from '../features/writing/cambridgeCatalog'
+import { CAMBRIDGE_WRITING_COPY } from '../features/writing/cambridgeWritingCopy'
 import {
   CAMBRIDGE_WRITING_MODEL_CATALOG,
   listModelAnswersByLevel,
@@ -32,14 +33,11 @@ export default function WritingCambridgePage() {
     <div className="cb-hub">
       <div className="cb-inner">
         <nav className="cb-breadcrumb" aria-label="Breadcrumb">
-          <span className="cb-breadcrumb-current">Cambridge A2-C2</span>
+          <span className="cb-breadcrumb-current">Cambridge A2–C2</span>
         </nav>
 
-        <h1 className="cb-title">Luyen viet Cambridge A2-C2</h1>
-        <p className="cb-sub">
-          Chon cap do truoc - moi level co cac loai bai rieng (email, story, essay...).
-          De tim khi thu vien co hang tram de.
-        </p>
+        <h1 className="cb-title">{CAMBRIDGE_WRITING_COPY.hubTitle}</h1>
+        <p className="cb-sub">{CAMBRIDGE_WRITING_COPY.hubDescription}</p>
 
         <div className="cb-grid">
           {CAMBRIDGE_LEVELS.map(level => (
@@ -53,13 +51,13 @@ export default function WritingCambridgePage() {
               <div className="cb-card-top">
                 <span className="cb-card-badge">{level.exam}</span>
                 <span className="cb-card-count">
-                  {counts.get(level.slug) ?? 0} bai
+                  {counts.get(level.slug) ?? 0} {CAMBRIDGE_WRITING_COPY.testsLabel}
                 </span>
               </div>
               <h2 className="cb-card-title">{level.label}</h2>
               <p className="cb-card-desc">{level.desc}</p>
               <span className="cb-card-meta" style={{ color: 'var(--color-primary)' }}>
-                Open library
+                {CAMBRIDGE_WRITING_COPY.openLibrary}
                 <ArrowRight size={14} />
               </span>
             </button>
@@ -86,9 +84,9 @@ export default function WritingCambridgePage() {
             }}
           >
             <Library size={16} style={{ color: 'var(--color-primary)' }} />
-            Model answer catalog ({CAMBRIDGE_WRITING_MODEL_CATALOG.length})
+            {CAMBRIDGE_WRITING_COPY.modelAnswerCatalog} ({CAMBRIDGE_WRITING_MODEL_CATALOG.length})
             <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>
-              {catalogOpen ? '- thu gon' : '- mo'}
+              {catalogOpen ? `- ${CAMBRIDGE_WRITING_COPY.collapse}` : `- ${CAMBRIDGE_WRITING_COPY.expand}`}
             </span>
           </button>
 
@@ -113,7 +111,7 @@ export default function WritingCambridgePage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {lv === 'all' ? 'Tat ca' : lv.toUpperCase()}
+                    {lv === 'all' ? CAMBRIDGE_WRITING_COPY.allLevels : lv.toUpperCase()}
                   </button>
                 ))}
               </div>

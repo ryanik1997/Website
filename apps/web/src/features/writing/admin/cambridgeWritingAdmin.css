@@ -18,6 +18,14 @@
   gap: 0.5rem;
 }
 
+.cb-level-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
 .cb-admin-overlay {
   position: fixed;
   inset: 0;
@@ -39,6 +47,10 @@
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
+}
+
+.cb-admin-dialog--guide {
+  width: min(680px, 100%);
 }
 
 .cb-admin-head,
@@ -186,6 +198,27 @@
   gap: 0.75rem;
 }
 
+.cb-admin-guide-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: var(--text-primary);
+}
+
+.cb-admin-guide-warning {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
 .cb-card-main {
   all: unset;
   display: flex;
@@ -232,5 +265,10 @@
   .cb-admin-create {
     width: 100%;
     justify-content: center;
+  }
+
+  .cb-level-actions {
+    width: 100%;
+    justify-content: stretch;
   }
 }
