@@ -1,249 +1,246 @@
 {
-  "id": "catalog-reading-fce-b2-test4",
-  "title": "FCE B2 Reading — Book 1 — Test 4",
+  "id": "catalog-reading-fce-b2-test20",
+  "title": "FCE B2 Reading — Book 5 — Test 20",
   "durationMinutes": 75,
   "bandHint": "B2 First Reading & Use of English — 7 parts",
   "parts": [
     {
-      "id": "catalog-reading-fce-b2-test4-part-1",
+      "id": "catalog-reading-fce-b2-test20-part-1",
       "partNumber": 1,
       "rangeLabel": "Questions 1–8",
-      "passageTitle": "Royal Residences",
+      "passageTitle": "The migration of the monarch butterflies",
       "passage": [
         {
-          "text": "Buckingham Palace, Windsor Castle 0 _____ the Palace of Holyroodhouse are the 1 venues residences situations occupation of the Sovereign and, as such, serve as both home and office for the Queen, whose personal flag flies 2 whatever however whoever whenever her Majesty is in residence ."
+          "text": "The migration of millions of North American monarch butterflies is one of the most stunning 0 _____ phenomena on Earth. In 1 contrast difference variation disagreement to other members of the same species elsewhere, the North American species migrates far in winter, taking a journey that 2 involves consists includes counts of 3000 miles. They 3 start depart launch leave off in Canada and the US, arrive in central Mexico in November, and return in March. The sight of them together in fir trees in Mexico is an incredible 4 stage context spot scene to witness."
         },
         {
-          "text": "These buildings are used extensively for State ceremonies and official entertaining and are opened to the 3 humans public peoples strangers as much as these commitments allow. They are furnished with fine pictures and works of art from the Royal Collection, assembled over four centuries by successive sovereigns. Many of the State Apartments and rooms at the official residences have been in continuous use since their conception and many of the paintings are 4 created explored produced displayed in the rooms for which they were originally 5 instructed intended performed guarded ."
+          "text": "However, none of the butterflies actually make the entire round trip. The females lay eggs in Mexico and it’s the new generation that heads north. They travel to Texas where the process is repeated. The butterflies have a 5 habit tendency trend custom to stop twice on their way back to Canada, meaning that it takes four generations to complete the trip."
         },
         {
-          "text": "The official residences are in regular use and the style and manner in which they are shown to visitors reflects their working status. Rooms are kept as close to their normal 6 feature location destination appearance as possible. Inevitably, opening times are subject to change at short notice depending on circumstances."
-        },
-        {
-          "text": "The Royal Collection, which is owned by the Queen as Sovereign in trust for her successors and the Nation, is administered by the Royal Collection Trust to which a proportion of the admission fee and other 7 salary budget income wage from visitors is directed. The remainder of this money funds the majority of the cost of restoring Windsor Castle which was badly 8 destroyed ruined damaged collapsed by fire in November 1992."
+          "text": "Monarch butterflies are important because they pollinate plants. In 6 addition extension comparison conclusion , they form a key part of the food chain. They also 7 undergo face suffer take danger from disease and a loss of habitat. However, at 8 best minimum least part their forest in Mexico is protected."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-1-g0",
+          "id": "catalog-reading-fce-b2-test20-part-1-g0",
           "range": "Questions 1–8",
           "instruction": "For questions 1-8, read the text below and decide which answer (A, B, C or D) best fits each gap. There is an example at the beginning (0).",
           "type": "multiple-choice",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q1",
+              "id": "catalog-reading-fce-b2-test20-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
               "prompt": "Gap (1)",
               "options": [
                 {
                   "id": "1",
-                  "label": "venues"
+                  "label": "contrast"
                 },
                 {
                   "id": "2",
-                  "label": "residences"
+                  "label": "difference"
                 },
                 {
                   "id": "3",
-                  "label": "situations"
+                  "label": "variation"
                 },
                 {
                   "id": "4",
-                  "label": "occupation"
+                  "label": "disagreement"
                 }
               ],
-              "answer": "b",
-              "explanation": "residences.",
+              "answer": "a",
+              "explanation": "contrast.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q2",
+              "id": "catalog-reading-fce-b2-test20-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
               "prompt": "Gap (2)",
               "options": [
                 {
                   "id": "1",
-                  "label": "whatever"
+                  "label": "involves"
                 },
                 {
                   "id": "2",
-                  "label": "however"
+                  "label": "consists"
                 },
                 {
                   "id": "3",
-                  "label": "whoever"
+                  "label": "includes"
                 },
                 {
                   "id": "4",
-                  "label": "whenever"
+                  "label": "counts"
                 }
               ],
-              "answer": "d",
-              "explanation": "whenever.",
+              "answer": "b",
+              "explanation": "consists.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q3",
+              "id": "catalog-reading-fce-b2-test20-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
               "prompt": "Gap (3)",
               "options": [
                 {
                   "id": "1",
-                  "label": "humans"
+                  "label": "start"
                 },
                 {
                   "id": "2",
-                  "label": "public"
+                  "label": "depart"
                 },
                 {
                   "id": "3",
-                  "label": "peoples"
+                  "label": "launch"
                 },
                 {
                   "id": "4",
-                  "label": "strangers"
+                  "label": "leave"
                 }
               ],
-              "answer": "b",
-              "explanation": "public.",
+              "answer": "a",
+              "explanation": "start.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q4",
+              "id": "catalog-reading-fce-b2-test20-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
               "prompt": "Gap (4)",
               "options": [
                 {
                   "id": "1",
-                  "label": "created"
+                  "label": "stage"
                 },
                 {
                   "id": "2",
-                  "label": "explored"
+                  "label": "context"
                 },
                 {
                   "id": "3",
-                  "label": "produced"
+                  "label": "spot"
                 },
                 {
                   "id": "4",
-                  "label": "displayed"
+                  "label": "scene"
                 }
               ],
               "answer": "d",
-              "explanation": "displayed.",
+              "explanation": "scene.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q5",
+              "id": "catalog-reading-fce-b2-test20-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
               "prompt": "Gap (5)",
               "options": [
                 {
                   "id": "1",
-                  "label": "instructed"
+                  "label": "habit"
                 },
                 {
                   "id": "2",
-                  "label": "intended"
+                  "label": "tendency"
                 },
                 {
                   "id": "3",
-                  "label": "performed"
+                  "label": "trend"
                 },
                 {
                   "id": "4",
-                  "label": "guarded"
+                  "label": "custom"
                 }
               ],
               "answer": "b",
-              "explanation": "intended.",
+              "explanation": "tendency.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q6",
+              "id": "catalog-reading-fce-b2-test20-part-1-q6",
               "number": 6,
               "type": "multiple-choice",
               "prompt": "Gap (6)",
               "options": [
                 {
                   "id": "1",
-                  "label": "feature"
+                  "label": "addition"
                 },
                 {
                   "id": "2",
-                  "label": "location"
+                  "label": "extension"
                 },
                 {
                   "id": "3",
-                  "label": "destination"
+                  "label": "comparison"
                 },
                 {
                   "id": "4",
-                  "label": "appearance"
+                  "label": "conclusion"
                 }
               ],
-              "answer": "d",
-              "explanation": "appearance.",
+              "answer": "a",
+              "explanation": "addition.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q7",
+              "id": "catalog-reading-fce-b2-test20-part-1-q7",
               "number": 7,
               "type": "multiple-choice",
               "prompt": "Gap (7)",
               "options": [
                 {
                   "id": "1",
-                  "label": "salary"
+                  "label": "undergo"
                 },
                 {
                   "id": "2",
-                  "label": "budget"
+                  "label": "face"
                 },
                 {
                   "id": "3",
-                  "label": "income"
+                  "label": "suffer"
                 },
                 {
                   "id": "4",
-                  "label": "wage"
+                  "label": "take"
                 }
               ],
-              "answer": "c",
-              "explanation": "income.",
+              "answer": "b",
+              "explanation": "face.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q8",
+              "id": "catalog-reading-fce-b2-test20-part-1-q8",
               "number": 8,
               "type": "multiple-choice",
               "prompt": "Gap (8)",
               "options": [
                 {
                   "id": "1",
-                  "label": "destroyed"
+                  "label": "best"
                 },
                 {
                   "id": "2",
-                  "label": "ruined"
+                  "label": "minimum"
                 },
                 {
                   "id": "3",
-                  "label": "damaged"
+                  "label": "least"
                 },
                 {
                   "id": "4",
-                  "label": "collapsed"
+                  "label": "part"
                 }
               ],
               "answer": "c",
-              "explanation": "damaged.",
+              "explanation": "least.",
               "answerConfidence": "key"
             }
           ]
@@ -251,109 +248,100 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-2",
+      "id": "catalog-reading-fce-b2-test20-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Inspiration",
+      "passageTitle": "Part 2",
       "passage": [
         {
-          "text": "I have had what, I think, is the 0 _____ extraordinary day of my life. While the events are 9 clear in my mind, I wish to write them down. Let me introduce 10 ."
-        },
-        {
-          "text": "My name is Lawrence Terrel. I am thirty-five years old, and in perfect health. I have never been ill in my life, not even for a day. I am an artist. I am 11 very successful, but I earn enough money to 12 care of my needs. My only near relative, a sister, 13 three years ago. So I have no family ."
-        },
-        {
-          "text": "I ate breakfast this morning at eight. After I had read the morning paper, I smoked my pipe and let my mind wander. I hoped I would think of 14 to draw. The room was very hot , even 15 the door and window were open . I had decided to go to the public swimming pool when an idea for a drawing came to me ."
-        },
-        {
-          "text": "I began to 16 . I was so interested in my work that I forgot to eat lunch. I did not stop until the clock struck five. I looked at what I had done. For a hurried picture, I felt it was the best thing I had ever drawn."
+          "text": "Part 2"
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-2-g0",
+          "id": "catalog-reading-fce-b2-test20-part-2-g0",
           "range": "Questions 9–16",
           "instruction": "For questions 9-16, read the text below and think of the word which best fits each gap. Use only one word in each gap. There is an example at the beginning (0). In the exam, write your answers IN CAPITAL LETTERS on the separate answer sheet.",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q9",
+              "id": "catalog-reading-fce-b2-test20-part-2-q9",
               "number": 9,
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "options": [],
-              "answer": "still",
-              "explanation": "still.",
+              "answer": "had",
+              "explanation": "had.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q10",
+              "id": "catalog-reading-fce-b2-test20-part-2-q10",
               "number": 10,
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "options": [],
-              "answer": "myself",
-              "explanation": "myself.",
+              "answer": "would",
+              "explanation": "would.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q11",
+              "id": "catalog-reading-fce-b2-test20-part-2-q11",
               "number": 11,
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "options": [],
-              "answer": "not",
-              "explanation": "not.",
+              "answer": "since",
+              "explanation": "since.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q12",
+              "id": "catalog-reading-fce-b2-test20-part-2-q12",
               "number": 12,
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "options": [],
-              "answer": "take",
-              "explanation": "take.",
+              "answer": "like",
+              "explanation": "like.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q13",
+              "id": "catalog-reading-fce-b2-test20-part-2-q13",
               "number": 13,
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "options": [],
-              "answer": "died",
-              "explanation": "died.",
+              "answer": "is",
+              "explanation": "is.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q14",
+              "id": "catalog-reading-fce-b2-test20-part-2-q14",
               "number": 14,
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "options": [],
-              "answer": "something",
-              "explanation": "something.",
+              "answer": "get",
+              "explanation": "get.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q15",
+              "id": "catalog-reading-fce-b2-test20-part-2-q15",
               "number": 15,
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "options": [],
-              "answer": "though/when",
-              "explanation": "though/when.",
+              "answer": "say",
+              "explanation": "say.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q16",
+              "id": "catalog-reading-fce-b2-test20-part-2-q16",
               "number": 16,
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "options": [],
-              "answer": "draw/work/sketch",
-              "explanation": "draw/work/sketch.",
+              "answer": "up",
+              "explanation": "up.",
               "answerConfidence": "key"
             }
           ]
@@ -361,7 +349,7 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-3",
+      "id": "catalog-reading-fce-b2-test20-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
       "passageTitle": "Part 3",
@@ -372,89 +360,89 @@
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-3-g0",
+          "id": "catalog-reading-fce-b2-test20-part-3-g0",
           "range": "Questions 17–24",
           "instruction": "For questions 17-24, read the text below. Use the word given in capitals at the end of some of the lines to form a word that fits in the gap in the same line. There is an example at the beginning (0).",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q17",
+              "id": "catalog-reading-fce-b2-test20-part-3-q17",
               "number": 17,
               "type": "gap-fill",
               "prompt": "Gap (17)",
               "options": [],
-              "answer": "observant",
-              "explanation": "observant.",
+              "answer": "impolite",
+              "explanation": "impolite.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q18",
+              "id": "catalog-reading-fce-b2-test20-part-3-q18",
               "number": 18,
               "type": "gap-fill",
               "prompt": "Gap (18)",
               "options": [],
-              "answer": "irrefutable",
-              "explanation": "irrefutable.",
+              "answer": "popularity",
+              "explanation": "popularity.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q19",
+              "id": "catalog-reading-fce-b2-test20-part-3-q19",
               "number": 19,
               "type": "gap-fill",
               "prompt": "Gap (19)",
               "options": [],
-              "answer": "decoration",
-              "explanation": "decoration.",
+              "answer": "affordable",
+              "explanation": "affordable.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q20",
+              "id": "catalog-reading-fce-b2-test20-part-3-q20",
               "number": 20,
               "type": "gap-fill",
               "prompt": "Gap (20)",
               "options": [],
-              "answer": "foolish",
-              "explanation": "foolish.",
+              "answer": "dissatisfied",
+              "explanation": "dissatisfied.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q21",
+              "id": "catalog-reading-fce-b2-test20-part-3-q21",
               "number": 21,
               "type": "gap-fill",
               "prompt": "Gap (21)",
               "options": [],
-              "answer": "necessarily",
-              "explanation": "necessarily.",
+              "answer": "unappealing",
+              "explanation": "unappealing.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q22",
+              "id": "catalog-reading-fce-b2-test20-part-3-q22",
               "number": 22,
               "type": "gap-fill",
               "prompt": "Gap (22)",
               "options": [],
-              "answer": "flashy",
-              "explanation": "flashy.",
+              "answer": "identity",
+              "explanation": "identity.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q23",
+              "id": "catalog-reading-fce-b2-test20-part-3-q23",
               "number": 23,
               "type": "gap-fill",
               "prompt": "Gap (23)",
               "options": [],
-              "answer": "appreciative",
-              "explanation": "appreciative.",
+              "answer": "insensitive",
+              "explanation": "insensitive.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q24",
+              "id": "catalog-reading-fce-b2-test20-part-3-q24",
               "number": 24,
               "type": "gap-fill",
               "prompt": "Gap (24)",
               "options": [],
-              "answer": "adaptable",
-              "explanation": "adaptable.",
+              "answer": "irresponsible",
+              "explanation": "irresponsible.",
               "answerConfidence": "key"
             }
           ]
@@ -462,7 +450,7 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-4",
+      "id": "catalog-reading-fce-b2-test20-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 25–30",
       "passageTitle": "Part 4",
@@ -473,69 +461,69 @@
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-4-g0",
+          "id": "catalog-reading-fce-b2-test20-part-4-g0",
           "range": "Questions 25–30",
           "instruction": "For questions 25-30, complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. Here is an example (0).",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q25",
+              "id": "catalog-reading-fce-b2-test20-part-4-q25",
               "number": 25,
               "type": "gap-fill",
-              "prompt": "HEARD — . My parents last spoke to me a month ago.I",
+              "prompt": "WHEN — Lily hasn t taken karate lessons since she was 16. Lily",
               "options": [],
-              "answer": "haven&#8217;t heard from",
-              "explanation": "haven t heard from.",
+              "answer": "stopped taking karate lessons when / gave up karate lessons when / last took karate lessons when",
+              "explanation": "stopped taking karate lessons when / gave up karate lessons when / last took karate lessons when.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q26",
+              "id": "catalog-reading-fce-b2-test20-part-4-q26",
               "number": 26,
               "type": "gap-fill",
-              "prompt": "LOOKED — . All the students had a lot of respect for their teacher.All the students",
+              "prompt": "TURN — The outcome of the meeting was unexpected. The meeting didn t",
               "options": [],
-              "answer": "looked up to",
-              "explanation": "looked up to.",
+              "answer": "turn out as / turn out how / turn out the way",
+              "explanation": "turn out as / turn out how / turn out the way.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q27",
+              "id": "catalog-reading-fce-b2-test20-part-4-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "MOOD — . Linda didn t feel like eating.Linda wasn t",
+              "prompt": "JUST — The price of petrol went up again a moment ago. The price of petrol",
               "options": [],
-              "answer": "in the mood to",
-              "explanation": "in the mood to.",
+              "answer": "has just gone up",
+              "explanation": "has just gone up.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q28",
+              "id": "catalog-reading-fce-b2-test20-part-4-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "DESERVE — . My brother was treated unfairly by his teachers.My brother",
+              "prompt": "WHILE — I was on a skiing trip in the Alps when I met Tom. I met Tom",
               "options": [],
-              "answer": "didn&#8217;t deserve to be",
-              "explanation": "didn t deserve to be.",
+              "answer": "while i was",
+              "explanation": "while I was.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q29",
+              "id": "catalog-reading-fce-b2-test20-part-4-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "TOO — . He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was",
+              "prompt": "HAVE — You must subscribe to use the music site. You have",
               "options": [],
-              "answer": "too expensive for him to",
-              "explanation": "too expensive for him to.",
+              "answer": "to have a subscription to",
+              "explanation": "to have a subscription to.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q30",
+              "id": "catalog-reading-fce-b2-test20-part-4-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "EXCEPTION — . We all agreed with my father s proposal apart from Joy.With",
+              "prompt": "USED — I often chatted to an invisible friend when I was a child. I",
               "options": [],
-              "answer": "the exception of joy",
-              "explanation": "the exception of Joy.",
+              "answer": "(often) used to chat to",
+              "explanation": "(often) used to chat to.",
               "answerConfidence": "key"
             }
           ]
@@ -543,124 +531,61 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-5",
+      "id": "catalog-reading-fce-b2-test20-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 31–36",
       "passageTitle": "Part 5",
       "passage": [
         {
-          "text": "Part 5"
+          "text": "You are going to read an article about a sporting event. For questions 31-36 , choose the answer ( A , B , C or D ) which you think fits best according to the text."
+        },
+        {
+          "text": "The ultramarathon in the Amazon is one of the toughest footraces in the world. You run 230 kilometres over four days through dense jungle, carrying your kit on your back, in temperatures up to 30 degrees. Why would anyone want to do this? Of course, there’s a competitive element, and most runners have at least some desire to win. There’s also the personal satisfaction of pushing your body to its limits. But these are secondary to the main motivation, which is simply the pleasure of running. This is what really drives people to compete in these extreme events."
+        },
+        {
+          "text": "My running career had followed a fairly established path, graduating from a relaxed 5k in my local park to a half marathon and, finally, what I saw at the time as my ultimate challenge, the New York Marathon. Except that when I crossed the finish line, it didn’t feel like such a big achievement. I’d trained so well and got so fit that running 42 kilometres no longer felt like a big deal, and I felt I needed more. A friend suggested an ultramarathon, so I signed up for one in the Amazon."
+        },
+        {
+          "text": "My training programme involved running in the heat and rain as well as building up my fitness. One challenge was to get used to running with a backpack. I knew I would have to carry at least 2.5 litres of water every day, and that’s a lot of weight! Luckily, the human body can adapt quickly. Covering more kilometres in a day wasn’t a huge problem for me. But the tough thing about ultra-running is getting up day after day and persuading your tired, aching body to perform again. This was what really tested me."
+        },
+        {
+          "text": "I arrived at the base camp on 31 May, three days before the start of the race. My journey there had been long, but fairly straightforward, and I had got a reasonable amount of rest along the way. The tents provided for us were quite big and fairly comfortable. The weather wasn’t brilliant, but the forecast was good, so it wasn’t a huge concern. I spent a lot of time over those few days chatting to the other competitors, comparing notes about training and experience. They were all very friendly and keen to offer help and support, which I hadn’t expected. Then it was time for the race itself."
+        },
+        {
+          "text": "I knew I would have to deal with running over rough ground, with lots of ups and downs and sometimes in the dark. I was also well prepared for the psychological highs and lows, the inner battle that all runners experience, with one voice in your head telling you to just give up and go home, while the other urges you forward. What I hadn’t bargained for was the physical effect of running with wet feet, due to the many streams we had to cross. My feet were sore and bleeding by the end of day one. In the end, though, it was my legs that let me down. On the third day, they simply couldn’t do any more and I had to stop."
+        },
+        {
+          "text": "Of course, failing at anything is not as good as winning, but, to my mind, having a go at one of the toughest challenges in the world, even if it ends in failure, is hardly something to be ashamed of. I travelled home with no medal, but by no means defeated. And when friends asked me, &#8216;Are you going to try an ultramarathon again?’ I had no hesitation in saying &#8216;no’. I am not sorry that I took part, but have accepted that I have my limits and in future I will be happy to stick to standard marathons!"
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-5-g0",
+          "id": "catalog-reading-fce-b2-test20-part-5-g0",
           "range": "Questions 31–36",
-          "instruction": "You are going to read an extract from a novel. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
+          "instruction": "You are going to read an article about a sporting event. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
           "type": "multiple-choice",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q31",
+              "id": "catalog-reading-fce-b2-test20-part-5-q31",
               "number": 31,
               "type": "multiple-choice",
-              "prompt": "What does strides mean? (Paragraph Two, underlined)",
+              "prompt": "According to the writer, people take part in ultramarathons mainly because",
               "options": [
                 {
                   "id": "A",
-                  "label": "brooms"
+                  "label": "they are determined to win."
                 },
                 {
                   "id": "B",
-                  "label": "leaps"
+                  "label": "they find them enjoyable."
                 },
                 {
                   "id": "C",
-                  "label": "steps"
+                  "label": "they want to see how much their body can achieve."
                 },
                 {
                   "id": "D",
-                  "label": "yells"
-                }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-5-q32",
-              "number": 32,
-              "type": "multiple-choice",
-              "prompt": "When Philip is shown around the school, it is",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "mostly empty."
-                },
-                {
-                  "id": "B",
-                  "label": "bright and cheerful."
-                },
-                {
-                  "id": "C",
-                  "label": "small and cramped."
-                },
-                {
-                  "id": "D",
-                  "label": "full of noise and activity."
-                }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-5-q33",
-              "number": 33,
-              "type": "multiple-choice",
-              "prompt": "Why were the children afraid of Mr. Watson?",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "He was very loud."
-                },
-                {
-                  "id": "B",
-                  "label": "He was angry with them."
-                },
-                {
-                  "id": "C",
-                  "label": "He was unkind to them."
-                },
-                {
-                  "id": "D",
-                  "label": "He was very big and powerful."
-                }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-5-q34",
-              "number": 34,
-              "type": "multiple-choice",
-              "prompt": "What does his tormentor refer to? (fourth paragraph from the bottom, underlined)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "Phillip s club foot"
-                },
-                {
-                  "id": "B",
-                  "label": "the boy called Venning"
-                },
-                {
-                  "id": "C",
-                  "label": "the third boy to arrive"
-                },
-                {
-                  "id": "D",
-                  "label": "the pain in Philip s shin"
+                  "label": "they want to prove that they can do it."
                 }
               ],
               "answer": "b",
@@ -668,26 +593,26 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q35",
-              "number": 35,
+              "id": "catalog-reading-fce-b2-test20-part-5-q32",
+              "number": 32,
               "type": "multiple-choice",
-              "prompt": "Why does Philip become hot and uncomfortable when the boys talked about his foot?",
+              "prompt": "The underlined word it in Paragraph 2 refers to",
               "options": [
                 {
                   "id": "A",
-                  "label": "It was summertime."
+                  "label": "the writer s running career."
                 },
                 {
                   "id": "B",
-                  "label": "He had been beaten."
+                  "label": "a big achievement."
                 },
                 {
                   "id": "C",
-                  "label": "He was embarrassed."
+                  "label": "completing the New York Marathon."
                 },
                 {
                   "id": "D",
-                  "label": "He felt left out."
+                  "label": "training so well."
                 }
               ],
               "answer": "c",
@@ -695,26 +620,107 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q36",
-              "number": 36,
+              "id": "catalog-reading-fce-b2-test20-part-5-q33",
+              "number": 33,
               "type": "multiple-choice",
-              "prompt": "How do the boys who interact with Philip directly react to his club foot?",
+              "prompt": "Which part of training for the ultramarathon did the writer find the most difficult?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They pay it little attention."
+                  "label": "learning to run while carrying a heavy weight"
                 },
                 {
                   "id": "B",
-                  "label": "They are curious or embarrassed."
+                  "label": "running much longer distances"
                 },
                 {
                   "id": "C",
-                  "label": "They are polite and sympathetic."
+                  "label": "learning to run even when she was exhausted"
                 },
                 {
                   "id": "D",
-                  "label": "They are disgusted by it."
+                  "label": "practising running in difficult weather conditions"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-5-q34",
+              "number": 34,
+              "type": "multiple-choice",
+              "prompt": "How did the writer feel at the base camp, before the race?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "tired after a difficult journey"
+                },
+                {
+                  "id": "B",
+                  "label": "surprised at the attitude of other runners"
+                },
+                {
+                  "id": "C",
+                  "label": "disappointed about the accommodation"
+                },
+                {
+                  "id": "D",
+                  "label": "worried about the weather conditions"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-5-q35",
+              "number": 35,
+              "type": "multiple-choice",
+              "prompt": "The phrase hadn t bargained for (Paragraph 5) suggests that running with wet feet",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "caused some unexpected problems."
+                },
+                {
+                  "id": "B",
+                  "label": "was not a particularly difficult challenge."
+                },
+                {
+                  "id": "C",
+                  "label": "had been part of the writer s training."
+                },
+                {
+                  "id": "D",
+                  "label": "was not as unpleasant as the writer expected."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-5-q36",
+              "number": 36,
+              "type": "multiple-choice",
+              "prompt": "What feeling does the writer have now?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "determination to succeed in an ultramarathon one day"
+                },
+                {
+                  "id": "B",
+                  "label": "pride at having taken part"
+                },
+                {
+                  "id": "C",
+                  "label": "disappointment at having failed to complete the race"
+                },
+                {
+                  "id": "D",
+                  "label": "regret at trying to do something too challenging"
                 }
               ],
               "answer": "b",
@@ -726,41 +732,20 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-6",
+      "id": "catalog-reading-fce-b2-test20-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "The Skydiving Experience",
+      "passageTitle": "Part 6",
       "passage": [
         {
-          "text": "The thrill of skydiving is beyond any possible description. Falling at 120 mph with the wind screaming past your body is an unbelievable experience of total freedom. The sport is not without an element of danger; indeed, it is this fear that makes it so addictive. Yet there are relatively few serious injuries in this activity because of the tight regulations and safety requirements mandated for skydiving and parachuting organisations."
-        },
-        {
-          "text": "I still recall my first jump from 2,500 feet using what is called a static line . 37 A B C D E F G . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
-        },
-        {
-          "text": "38 A B C D E F G . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
-        },
-        {
-          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . 39 A B C D E F G . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
-        },
-        {
-          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . 40 A B C D E F G ."
-        },
-        {
-          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . 41 A B C D E F G . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
-        },
-        {
-          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . 42 A B C D E F G . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
-        },
-        {
-          "text": "A. There are few other ways to experience the total and utter freedom of flight .\n B. This is a strong nylon tape that is attached to the aircraft on one end, and to the release pin of the jumper’s canopy on the other.\n C. I think my ears are still ringing from that mistake .\n D. Altitudes increased gradually, as did time in free-fall .\n E. It was a 40-second fall from 14,000 feet , right at sunset.\n F. What happened next was not good at all .\n G. My first experience is still very sharp in my memory ."
+          "text": "Part 6"
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-6-g0",
+          "id": "catalog-reading-fce-b2-test20-part-6-g0",
           "range": "Questions 37–42",
-          "instruction": "You are going to read a magazine article about one person s experiences of learning to skydive. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
+          "instruction": "You are going to read an article about special effects in movies. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
           "type": "matching-features",
           "paragraphLetters": [
             "A",
@@ -773,7 +758,7 @@
           ],
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q37",
+              "id": "catalog-reading-fce-b2-test20-part-6-q37",
               "number": 37,
               "type": "matching-features",
               "prompt": "Gap (37)",
@@ -807,15 +792,132 @@
                   "label": "G"
                 }
               ],
-              "answer": "b",
+              "answer": "e",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q38",
+              "id": "catalog-reading-fce-b2-test20-part-6-q38",
               "number": 38,
               "type": "matching-features",
               "prompt": "Gap (38)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-6-q39",
+              "number": 39,
+              "type": "matching-features",
+              "prompt": "Gap (39)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-6-q40",
+              "number": 40,
+              "type": "matching-features",
+              "prompt": "Gap (40)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "d",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-6-q41",
+              "number": 41,
+              "type": "matching-features",
+              "prompt": "Gap (41)",
               "options": [
                 {
                   "id": "A",
@@ -851,124 +953,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q39",
-              "number": 39,
-              "type": "matching-features",
-              "prompt": "Gap (39)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
-              "answer": "d",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-6-q40",
-              "number": 40,
-              "type": "matching-features",
-              "prompt": "Gap (40)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-6-q41",
-              "number": 41,
-              "type": "matching-features",
-              "prompt": "Gap (41)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                },
-                {
-                  "id": "E",
-                  "label": "E"
-                },
-                {
-                  "id": "F",
-                  "label": "F"
-                },
-                {
-                  "id": "G",
-                  "label": "G"
-                }
-              ],
-              "answer": "f",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-6-q42",
+              "id": "catalog-reading-fce-b2-test20-part-6-q42",
               "number": 42,
               "type": "matching-features",
               "prompt": "Gap (42)",
@@ -1002,7 +987,7 @@
                   "label": "G"
                 }
               ],
-              "answer": "e",
+              "answer": "b",
               "explanation": "",
               "answerConfidence": "key"
             }
@@ -1011,20 +996,20 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-7",
+      "id": "catalog-reading-fce-b2-test20-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Confront your fears and face your challenges",
+      "passageTitle": "Part 7",
       "passage": [
         {
-          "text": "Confront your fears and face your challenges"
+          "text": "Part 7"
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-7-g0",
+          "id": "catalog-reading-fce-b2-test20-part-7-g0",
           "range": "Questions 43–52",
-          "instruction": "You are going to read some extracts about the fears or challenges that several people have faced. For questions 43-52, choose from the people (A-D). The people may be chosen more than once.",
+          "instruction": "You are going to read an article about people s attitude to summer. For questions",
           "type": "matching-features",
           "features": [
             {
@@ -1046,37 +1031,10 @@
           ],
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q43",
+              "id": "catalog-reading-fce-b2-test20-part-7-q43",
               "number": 43,
               "type": "matching-features",
               "prompt": "Gap (43)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                }
-              ],
-              "answer": "c",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-7-q44",
-              "number": 44,
-              "type": "matching-features",
-              "prompt": "Gap (44)",
               "options": [
                 {
                   "id": "A",
@@ -1100,10 +1058,10 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q45",
-              "number": 45,
+              "id": "catalog-reading-fce-b2-test20-part-7-q44",
+              "number": 44,
               "type": "matching-features",
-              "prompt": "Gap (45)",
+              "prompt": "Gap (44)",
               "options": [
                 {
                   "id": "A",
@@ -1127,7 +1085,34 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q46",
+              "id": "catalog-reading-fce-b2-test20-part-7-q45",
+              "number": 45,
+              "type": "matching-features",
+              "prompt": "Gap (45)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "d",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test20-part-7-q46",
               "number": 46,
               "type": "matching-features",
               "prompt": "Gap (46)",
@@ -1149,12 +1134,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "b",
+              "answer": "c",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q47",
+              "id": "catalog-reading-fce-b2-test20-part-7-q47",
               "number": 47,
               "type": "matching-features",
               "prompt": "Gap (47)",
@@ -1181,7 +1166,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q48",
+              "id": "catalog-reading-fce-b2-test20-part-7-q48",
               "number": 48,
               "type": "matching-features",
               "prompt": "Gap (48)",
@@ -1203,12 +1188,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "c",
+              "answer": "a",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q49",
+              "id": "catalog-reading-fce-b2-test20-part-7-q49",
               "number": 49,
               "type": "matching-features",
               "prompt": "Gap (49)",
@@ -1230,12 +1215,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "d",
+              "answer": "b",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q50",
+              "id": "catalog-reading-fce-b2-test20-part-7-q50",
               "number": 50,
               "type": "matching-features",
               "prompt": "Gap (50)",
@@ -1262,7 +1247,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q51",
+              "id": "catalog-reading-fce-b2-test20-part-7-q51",
               "number": 51,
               "type": "matching-features",
               "prompt": "Gap (51)",
@@ -1284,12 +1269,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "c",
+              "answer": "b",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q52",
+              "id": "catalog-reading-fce-b2-test20-part-7-q52",
               "number": 52,
               "type": "matching-features",
               "prompt": "Gap (52)",
@@ -1311,7 +1296,7 @@
                   "label": "D"
                 }
               ],
-              "answer": "d",
+              "answer": "c",
               "explanation": "",
               "answerConfidence": "key"
             }
@@ -1322,6 +1307,6 @@
   ],
   "examTrack": "cambridge",
   "cambridgeLevel": "b2",
-  "catalogSlug": "fce-b2-test4",
-  "catalogBase": "/catalog/reading/fce-b2-test4"
+  "catalogSlug": "fce-b2-test20",
+  "catalogBase": "/catalog/reading/fce-b2-test20"
 }

@@ -14,6 +14,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { REPO_ROOT, resolveTainguyenPath, tainguyenExists } from './tainguyen-path.mjs'
+import { convertFcePagesToReadingExam, loadFceTestExamJson } from './reading/fce-b2-pages-to-parts.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = REPO_ROOT
@@ -634,6 +635,14 @@ function transformReading(payload, bundle) {
   }
 }
 
+async function transformFceB2Reading(bundle) {
+  const { raw } = await loadFceTestExamJson(
+    bundle.test,
+    path.join(TAINGUYEN, 'Import Cambridge', 'FCE_B2', 'Reading'),
+  )
+  return convertFcePagesToReadingExam(raw, { testNumber: bundle.test }).body
+}
+
 function enrichPayloadLayout(payload, sourceRows, cam, test) {
   const sourceByPart = new Map(
     sourceRows
@@ -931,7 +940,11 @@ async function main() {
     let processed
     let outName
     if (bundle.kind === 'reading') {
-      processed = transformReading(raw, bundle)
+      if (bundle.cambridgeLevel === 'b2' && Number(bundle.test) > 1 && bundle.slug?.startsWith('fce-b2-test')) {
+        processed = await transformFceB2Reading(bundle)
+      } else {
+        processed = transformReading(raw, bundle)
+      }
       outName = `reading-${bundle.slug}.json`
       manifest.reading.push({ id: bundle.examId, slug: bundle.slug, title: processed.title })
     } else {

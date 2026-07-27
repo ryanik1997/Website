@@ -1,249 +1,243 @@
 {
-  "id": "catalog-reading-fce-b2-test4",
-  "title": "FCE B2 Reading — Book 1 — Test 4",
+  "id": "catalog-reading-fce-b2-test15",
+  "title": "FCE B2 Reading — Book 4 — Test 15",
   "durationMinutes": 75,
   "bandHint": "B2 First Reading & Use of English — 7 parts",
   "parts": [
     {
-      "id": "catalog-reading-fce-b2-test4-part-1",
+      "id": "catalog-reading-fce-b2-test15-part-1",
       "partNumber": 1,
       "rangeLabel": "Questions 1–8",
-      "passageTitle": "Royal Residences",
+      "passageTitle": "The joy of photography",
       "passage": [
         {
-          "text": "Buckingham Palace, Windsor Castle 0 _____ the Palace of Holyroodhouse are the 1 venues residences situations occupation of the Sovereign and, as such, serve as both home and office for the Queen, whose personal flag flies 2 whatever however whoever whenever her Majesty is in residence ."
+          "text": "Photography is a hobby with wide 0 _____. And I don’t mean taking photos on your mobile phone, though it cannot be 1 rejected contradicted denied refused that such pictures can be surprisingly good these days. Serious photography means taking the 2 trouble care effort concern to do some research, exploring the technical 3 characteristics forms qualities aspects of the subject and investing in what might be quite expensive equipment. So why take up photography? Firstly, it allows you to 4 seize capture grab catch special moments that you want to remember forever. In addition, it 5 motivates renews stimulates reacts your imagination because you are always in search of ideas for original and out of the ordinary photos."
         },
         {
-          "text": "These buildings are used extensively for State ceremonies and official entertaining and are opened to the 3 humans public peoples strangers as much as these commitments allow. They are furnished with fine pictures and works of art from the Royal Collection, assembled over four centuries by successive sovereigns. Many of the State Apartments and rooms at the official residences have been in continuous use since their conception and many of the paintings are 4 created explored produced displayed in the rooms for which they were originally 5 instructed intended performed guarded ."
-        },
-        {
-          "text": "The official residences are in regular use and the style and manner in which they are shown to visitors reflects their working status. Rooms are kept as close to their normal 6 feature location destination appearance as possible. Inevitably, opening times are subject to change at short notice depending on circumstances."
-        },
-        {
-          "text": "The Royal Collection, which is owned by the Queen as Sovereign in trust for her successors and the Nation, is administered by the Royal Collection Trust to which a proportion of the admission fee and other 7 salary budget income wage from visitors is directed. The remainder of this money funds the majority of the cost of restoring Windsor Castle which was badly 8 destroyed ruined damaged collapsed by fire in November 1992."
+          "text": "However, a lot of practice is required before you 6 manage succeed achieve reach to take really good pictures on a regular basis. When you finally do it, it will be a 7 reason cause source means of great satisfaction for you. Photography can also transform the way you look at the world. You start to see details that in the past you used to miss 8 utterly completely fully absolutely . All in all, it’s a highly absorbing hobby."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-1-g0",
+          "id": "catalog-reading-fce-b2-test15-part-1-g0",
           "range": "Questions 1–8",
           "instruction": "For questions 1-8, read the text below and decide which answer (A, B, C or D) best fits each gap. There is an example at the beginning (0).",
           "type": "multiple-choice",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q1",
+              "id": "catalog-reading-fce-b2-test15-part-1-q1",
               "number": 1,
               "type": "multiple-choice",
               "prompt": "Gap (1)",
               "options": [
                 {
                   "id": "1",
-                  "label": "venues"
+                  "label": "rejected"
                 },
                 {
                   "id": "2",
-                  "label": "residences"
+                  "label": "contradicted"
                 },
                 {
                   "id": "3",
-                  "label": "situations"
+                  "label": "denied"
                 },
                 {
                   "id": "4",
-                  "label": "occupation"
+                  "label": "refused"
                 }
               ],
-              "answer": "b",
-              "explanation": "residences.",
+              "answer": "c",
+              "explanation": "denied.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q2",
+              "id": "catalog-reading-fce-b2-test15-part-1-q2",
               "number": 2,
               "type": "multiple-choice",
               "prompt": "Gap (2)",
               "options": [
                 {
                   "id": "1",
-                  "label": "whatever"
+                  "label": "trouble"
                 },
                 {
                   "id": "2",
-                  "label": "however"
+                  "label": "care"
                 },
                 {
                   "id": "3",
-                  "label": "whoever"
+                  "label": "effort"
                 },
                 {
                   "id": "4",
-                  "label": "whenever"
+                  "label": "concern"
                 }
               ],
-              "answer": "d",
-              "explanation": "whenever.",
+              "answer": "a",
+              "explanation": "trouble.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q3",
+              "id": "catalog-reading-fce-b2-test15-part-1-q3",
               "number": 3,
               "type": "multiple-choice",
               "prompt": "Gap (3)",
               "options": [
                 {
                   "id": "1",
-                  "label": "humans"
+                  "label": "characteristics"
                 },
                 {
                   "id": "2",
-                  "label": "public"
+                  "label": "forms"
                 },
                 {
                   "id": "3",
-                  "label": "peoples"
+                  "label": "qualities"
                 },
                 {
                   "id": "4",
-                  "label": "strangers"
+                  "label": "aspects"
                 }
               ],
-              "answer": "b",
-              "explanation": "public.",
+              "answer": "d",
+              "explanation": "aspects.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q4",
+              "id": "catalog-reading-fce-b2-test15-part-1-q4",
               "number": 4,
               "type": "multiple-choice",
               "prompt": "Gap (4)",
               "options": [
                 {
                   "id": "1",
-                  "label": "created"
+                  "label": "seize"
                 },
                 {
                   "id": "2",
-                  "label": "explored"
+                  "label": "capture"
                 },
                 {
                   "id": "3",
-                  "label": "produced"
+                  "label": "grab"
                 },
                 {
                   "id": "4",
-                  "label": "displayed"
+                  "label": "catch"
                 }
               ],
-              "answer": "d",
-              "explanation": "displayed.",
+              "answer": "b",
+              "explanation": "capture.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q5",
+              "id": "catalog-reading-fce-b2-test15-part-1-q5",
               "number": 5,
               "type": "multiple-choice",
               "prompt": "Gap (5)",
               "options": [
                 {
                   "id": "1",
-                  "label": "instructed"
+                  "label": "motivates"
                 },
                 {
                   "id": "2",
-                  "label": "intended"
+                  "label": "renews"
                 },
                 {
                   "id": "3",
-                  "label": "performed"
+                  "label": "stimulates"
                 },
                 {
                   "id": "4",
-                  "label": "guarded"
+                  "label": "reacts"
                 }
               ],
-              "answer": "b",
-              "explanation": "intended.",
+              "answer": "c",
+              "explanation": "stimulates.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q6",
+              "id": "catalog-reading-fce-b2-test15-part-1-q6",
               "number": 6,
               "type": "multiple-choice",
               "prompt": "Gap (6)",
               "options": [
                 {
                   "id": "1",
-                  "label": "feature"
+                  "label": "manage"
                 },
                 {
                   "id": "2",
-                  "label": "location"
+                  "label": "succeed"
                 },
                 {
                   "id": "3",
-                  "label": "destination"
+                  "label": "achieve"
                 },
                 {
                   "id": "4",
-                  "label": "appearance"
+                  "label": "reach"
                 }
               ],
-              "answer": "d",
-              "explanation": "appearance.",
+              "answer": "a",
+              "explanation": "manage.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q7",
+              "id": "catalog-reading-fce-b2-test15-part-1-q7",
               "number": 7,
               "type": "multiple-choice",
               "prompt": "Gap (7)",
               "options": [
                 {
                   "id": "1",
-                  "label": "salary"
+                  "label": "reason"
                 },
                 {
                   "id": "2",
-                  "label": "budget"
+                  "label": "cause"
                 },
                 {
                   "id": "3",
-                  "label": "income"
+                  "label": "source"
                 },
                 {
                   "id": "4",
-                  "label": "wage"
+                  "label": "means"
                 }
               ],
               "answer": "c",
-              "explanation": "income.",
+              "explanation": "source.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-1-q8",
+              "id": "catalog-reading-fce-b2-test15-part-1-q8",
               "number": 8,
               "type": "multiple-choice",
               "prompt": "Gap (8)",
               "options": [
                 {
                   "id": "1",
-                  "label": "destroyed"
+                  "label": "utterly"
                 },
                 {
                   "id": "2",
-                  "label": "ruined"
+                  "label": "completely"
                 },
                 {
                   "id": "3",
-                  "label": "damaged"
+                  "label": "fully"
                 },
                 {
                   "id": "4",
-                  "label": "collapsed"
+                  "label": "absolutely"
                 }
               ],
-              "answer": "c",
-              "explanation": "damaged.",
+              "answer": "b",
+              "explanation": "completely.",
               "answerConfidence": "key"
             }
           ]
@@ -251,109 +245,103 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-2",
+      "id": "catalog-reading-fce-b2-test15-part-2",
       "partNumber": 2,
       "rangeLabel": "Questions 9–16",
-      "passageTitle": "Inspiration",
+      "passageTitle": "Running a marathon",
       "passage": [
         {
-          "text": "I have had what, I think, is the 0 _____ extraordinary day of my life. While the events are 9 clear in my mind, I wish to write them down. Let me introduce 10 ."
+          "text": "So you want to run a marathon? There is 0 _____ doubt that running 42 kilometres is a great achievement. Many training plans involve running four times a week for at 9 three months, and sometimes longer. Experts strongly recommend that you should 10 used to running long distances gradually. If you don’t, it can increase the chances 11 picking up an injury. It 12 generally thought that runners should initially go on fairly relaxed training runs. The pace should be gentle enough to allow you 13 have a conversation with someone running alongside you."
         },
         {
-          "text": "My name is Lawrence Terrel. I am thirty-five years old, and in perfect health. I have never been ill in my life, not even for a day. I am an artist. I am 11 very successful, but I earn enough money to 12 care of my needs. My only near relative, a sister, 13 three years ago. So I have no family ."
-        },
-        {
-          "text": "I ate breakfast this morning at eight. After I had read the morning paper, I smoked my pipe and let my mind wander. I hoped I would think of 14 to draw. The room was very hot , even 15 the door and window were open . I had decided to go to the public swimming pool when an idea for a drawing came to me ."
-        },
-        {
-          "text": "I began to 16 . I was so interested in my work that I forgot to eat lunch. I did not stop until the clock struck five. I looked at what I had done. For a hurried picture, I felt it was the best thing I had ever drawn."
+          "text": "Don’t make the mistake of eating too little before the race, or you will rapidly run 14 of energy. But 15 should you eat a large meal. It goes without saying that choosing the right footwear is also essential. 16 you do, avoid clothes made of cotton and go for artificial materials, or even some types of wool such as merino. Choose clothing that will be comfortable."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-2-g0",
+          "id": "catalog-reading-fce-b2-test15-part-2-g0",
           "range": "Questions 9–16",
           "instruction": "For questions 9-16, read the text below and think of the word which best fits each gap. Use only one word in each gap. There is an example at the beginning (0). In the exam, write your answers IN CAPITAL LETTERS on the separate answer sheet.",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q9",
+              "id": "catalog-reading-fce-b2-test15-part-2-q9",
               "number": 9,
               "type": "gap-fill",
               "prompt": "Gap (9)",
               "options": [],
-              "answer": "still",
-              "explanation": "still.",
+              "answer": "least",
+              "explanation": "least.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q10",
+              "id": "catalog-reading-fce-b2-test15-part-2-q10",
               "number": 10,
               "type": "gap-fill",
               "prompt": "Gap (10)",
               "options": [],
-              "answer": "myself",
-              "explanation": "myself.",
+              "answer": "get",
+              "explanation": "get.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q11",
+              "id": "catalog-reading-fce-b2-test15-part-2-q11",
               "number": 11,
               "type": "gap-fill",
               "prompt": "Gap (11)",
               "options": [],
-              "answer": "not",
-              "explanation": "not.",
+              "answer": "of",
+              "explanation": "of.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q12",
+              "id": "catalog-reading-fce-b2-test15-part-2-q12",
               "number": 12,
               "type": "gap-fill",
               "prompt": "Gap (12)",
               "options": [],
-              "answer": "take",
-              "explanation": "take.",
+              "answer": "is",
+              "explanation": "is.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q13",
+              "id": "catalog-reading-fce-b2-test15-part-2-q13",
               "number": 13,
               "type": "gap-fill",
               "prompt": "Gap (13)",
               "options": [],
-              "answer": "died",
-              "explanation": "died.",
+              "answer": "to",
+              "explanation": "to.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q14",
+              "id": "catalog-reading-fce-b2-test15-part-2-q14",
               "number": 14,
               "type": "gap-fill",
               "prompt": "Gap (14)",
               "options": [],
-              "answer": "something",
-              "explanation": "something.",
+              "answer": "out",
+              "explanation": "out.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q15",
+              "id": "catalog-reading-fce-b2-test15-part-2-q15",
               "number": 15,
               "type": "gap-fill",
               "prompt": "Gap (15)",
               "options": [],
-              "answer": "though/when",
-              "explanation": "though/when.",
+              "answer": "n",
+              "explanation": "either.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-2-q16",
+              "id": "catalog-reading-fce-b2-test15-part-2-q16",
               "number": 16,
               "type": "gap-fill",
               "prompt": "Gap (16)",
               "options": [],
-              "answer": "draw/work/sketch",
-              "explanation": "draw/work/sketch.",
+              "answer": "w",
+              "explanation": "hatever.",
               "answerConfidence": "key"
             }
           ]
@@ -361,100 +349,106 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-3",
+      "id": "catalog-reading-fce-b2-test15-part-3",
       "partNumber": 3,
       "rangeLabel": "Questions 17–24",
-      "passageTitle": "Part 3",
+      "passageTitle": "An interesting new planet",
       "passage": [
         {
-          "text": "Part 3"
+          "text": "Until recently, the 0 _____ of planets outside our own solar system was difficult to prove. Now, thanks to increasingly 17 equipment, hundreds have been discovered orbiting distant stars. Recent 18 of the nearest star to Earth, Proxima Centauri, have led to a 19 discovery: a rocky planet similar in size to the Earth which may have liquid water on its surface."
+        },
+        {
+          "text": "Although the new planet is 20 closer to Proxima Centauri than the Earth is to the Sun, there is still a 21 of life there. This is because the star is much smaller and cooler than our sun, so conditions on the planet may be 22 enough to support life. Temperatures on the planet will be 23 on whether there is an atmosphere surrounding it."
+        },
+        {
+          "text": "Travelling to Proxima Centauri and exploring its planet is totally 24 at the moment. Despite it being one of the nearest stars to the sun, it would take thousands of years to get there using current technology."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-3-g0",
+          "id": "catalog-reading-fce-b2-test15-part-3-g0",
           "range": "Questions 17–24",
           "instruction": "For questions 17-24, read the text below. Use the word given in capitals at the end of some of the lines to form a word that fits in the gap in the same line. There is an example at the beginning (0).",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q17",
+              "id": "catalog-reading-fce-b2-test15-part-3-q17",
               "number": 17,
               "type": "gap-fill",
               "prompt": "Gap (17)",
               "options": [],
-              "answer": "observant",
-              "explanation": "observant.",
+              "answer": "sensitive",
+              "explanation": "sensitive.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q18",
+              "id": "catalog-reading-fce-b2-test15-part-3-q18",
               "number": 18,
               "type": "gap-fill",
               "prompt": "Gap (18)",
               "options": [],
-              "answer": "irrefutable",
-              "explanation": "irrefutable.",
+              "answer": "investigations",
+              "explanation": "investigations.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q19",
+              "id": "catalog-reading-fce-b2-test15-part-3-q19",
               "number": 19,
               "type": "gap-fill",
               "prompt": "Gap (19)",
               "options": [],
-              "answer": "decoration",
-              "explanation": "decoration.",
+              "answer": "significant",
+              "explanation": "significant.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q20",
+              "id": "catalog-reading-fce-b2-test15-part-3-q20",
               "number": 20,
               "type": "gap-fill",
               "prompt": "Gap (20)",
               "options": [],
-              "answer": "foolish",
-              "explanation": "foolish.",
+              "answer": "considerably",
+              "explanation": "considerably.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q21",
+              "id": "catalog-reading-fce-b2-test15-part-3-q21",
               "number": 21,
               "type": "gap-fill",
               "prompt": "Gap (21)",
               "options": [],
-              "answer": "necessarily",
-              "explanation": "necessarily.",
+              "answer": "possibility",
+              "explanation": "possibility.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q22",
+              "id": "catalog-reading-fce-b2-test15-part-3-q22",
               "number": 22,
               "type": "gap-fill",
               "prompt": "Gap (22)",
               "options": [],
-              "answer": "flashy",
-              "explanation": "flashy.",
+              "answer": "comfortable",
+              "explanation": "comfortable.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q23",
+              "id": "catalog-reading-fce-b2-test15-part-3-q23",
               "number": 23,
               "type": "gap-fill",
               "prompt": "Gap (23)",
               "options": [],
-              "answer": "appreciative",
-              "explanation": "appreciative.",
+              "answer": "dependent",
+              "explanation": "dependent.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-3-q24",
+              "id": "catalog-reading-fce-b2-test15-part-3-q24",
               "number": 24,
               "type": "gap-fill",
               "prompt": "Gap (24)",
               "options": [],
-              "answer": "adaptable",
-              "explanation": "adaptable.",
+              "answer": "unreal",
+              "explanation": "unreal.",
               "answerConfidence": "key"
             }
           ]
@@ -462,7 +456,7 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-4",
+      "id": "catalog-reading-fce-b2-test15-part-4",
       "partNumber": 4,
       "rangeLabel": "Questions 25–30",
       "passageTitle": "Part 4",
@@ -473,69 +467,69 @@
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-4-g0",
+          "id": "catalog-reading-fce-b2-test15-part-4-g0",
           "range": "Questions 25–30",
           "instruction": "For questions 25-30, complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. Here is an example (0).",
           "type": "gap-fill",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q25",
+              "id": "catalog-reading-fce-b2-test15-part-4-q25",
               "number": 25,
               "type": "gap-fill",
-              "prompt": "HEARD — . My parents last spoke to me a month ago.I",
+              "prompt": "DIFFERENCE — . Going to bed early has a big effect on how Leila feels the next morning.If Leila goes to bed early, it",
               "options": [],
-              "answer": "haven&#8217;t heard from",
-              "explanation": "haven t heard from.",
+              "answer": "makes all the difference",
+              "explanation": "makes all the difference.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q26",
+              "id": "catalog-reading-fce-b2-test15-part-4-q26",
               "number": 26,
               "type": "gap-fill",
-              "prompt": "LOOKED — . All the students had a lot of respect for their teacher.All the students",
+              "prompt": "FACT — . Even though Max took the early bus, he was still late for work.Max was still late for work in",
               "options": [],
-              "answer": "looked up to",
-              "explanation": "looked up to.",
+              "answer": "spite of the fact",
+              "explanation": "spite of the fact.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q27",
+              "id": "catalog-reading-fce-b2-test15-part-4-q27",
               "number": 27,
               "type": "gap-fill",
-              "prompt": "MOOD — . Linda didn t feel like eating.Linda wasn t",
+              "prompt": "GIVE — . Last year I decided I wouldn’t eat fast food for lunch any more.Last year I decided",
               "options": [],
-              "answer": "in the mood to",
-              "explanation": "in the mood to.",
+              "answer": "to give up (eating)",
+              "explanation": "to give up (eating).",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q28",
+              "id": "catalog-reading-fce-b2-test15-part-4-q28",
               "number": 28,
               "type": "gap-fill",
-              "prompt": "DESERVE — . My brother was treated unfairly by his teachers.My brother",
+              "prompt": "WELL — . Melanie goes jogging and answers her important emails before breakfast.Melanie goes jogging",
               "options": [],
-              "answer": "didn&#8217;t deserve to be",
-              "explanation": "didn t deserve to be.",
+              "answer": "as well as answers",
+              "explanation": "as well as answers.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q29",
+              "id": "catalog-reading-fce-b2-test15-part-4-q29",
               "number": 29,
               "type": "gap-fill",
-              "prompt": "TOO — . He couldn t buy the car he wanted because he didn t have enough money.The car he wanted was",
+              "prompt": "GET — . My television needs fixing as soon as possible.I must",
               "options": [],
-              "answer": "too expensive for him to",
-              "explanation": "too expensive for him to.",
+              "answer": "get my television fixed",
+              "explanation": "get my television fixed.",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-4-q30",
+              "id": "catalog-reading-fce-b2-test15-part-4-q30",
               "number": 30,
               "type": "gap-fill",
-              "prompt": "EXCEPTION — . We all agreed with my father s proposal apart from Joy.With",
+              "prompt": "UNUSUAL — . Clara says she doesn’t usually go out at the weekend.Clara says it",
               "options": [],
-              "answer": "the exception of joy",
-              "explanation": "the exception of Joy.",
+              "answer": "is unusual for her to",
+              "explanation": "is unusual for her to.",
               "answerConfidence": "key"
             }
           ]
@@ -543,124 +537,82 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-5",
+      "id": "catalog-reading-fce-b2-test15-part-5",
       "partNumber": 5,
       "rangeLabel": "Questions 31–36",
-      "passageTitle": "Part 5",
+      "passageTitle": "Student life and technology",
       "passage": [
         {
-          "text": "Part 5"
+          "text": "Last Saturday, as my grandfather drove me and my sister home from a dinner to celebrate his birthday, he got frustrated at not being able to remember the name of the singer of a song he’d just heard on the radio. Without a second thought, I grabbed my smartphone, searched for the song and found the name, Bob Dylan. For me and my friends, this is a completely natural course of action, but it totally astonished my grandfather, who didn’t understand how I had checked the information so quickly. My sister and I laughed and explained, but afterwards, it made me think about how much I depend on technology."
+        },
+        {
+          "text": "The list of the ways I use technology is endless: writing, planning, socialising, communicating and shopping, to name a few. When I reflected on its impact on my education, I saw that, for my fellow students and I, technology has been significant in many ways. Returning to the story of my grandfather and the smartphone, he had asked me more about how I used it and about university life. He said he thought we had an easy life compared to previous generations. My sister caught my eye and we exchanged a smile. But whereas she was thinking our grandfather was just being a typical 65-year-old, I could see his point."
+        },
+        {
+          "text": "Not only are we lucky enough to have the same educational benefits as those of previous generations, we have so many more as well. We still have walk-in libraries available to us, and I can see why some students choose to find and use resources in these distraction-free locations. However, the only option for studying used to be sitting in these libraries with as many books from your reading list as you could find, yet now a single search for your chosen study topic online can immediately provide access to a huge range of resources. At universities, interaction between students and university staff is another area that has changed considerably with developments in technology. We can have face-to-face time with our tutors when we need it, and also communicate using our electronic gadgets from the comfort of our homes, or on the bus. The most popular means of doing this is via instant messaging or social media – email is often considered too slow, and it has become unacceptable for messages to be unanswered for any length of time. While this puts an extra strain on the university’s academic support team, who usually have to answer the queries as they come in, we students are greatly benefitted."
+        },
+        {
+          "text": "It’s important that we remember to appreciate how much the advances in technology have given us. Electronic devices such as tablets, smartphones, and laptops are now standard equipment in most classrooms and lecture halls, and why shouldn’t they be? The replacement of textbooks with tablets allows students the luxury of having up-to-date, interactive and even personalised learning materials, with the added benefit of them not costing the earth."
+        },
+        {
+          "text": "When we compare the student life of the past and that of the present day, it is tempting to focus on the obvious differences when it comes to technology. In actual fact, students are doing what they’ve always done: embracing the resources available and adapting them in ways which allow them to work more efficiently and to live more enjoyably. The pace of change in technology continuously gathers speed, so we have to value each innovation as it happens."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-5-g0",
+          "id": "catalog-reading-fce-b2-test15-part-5-g0",
           "range": "Questions 31–36",
-          "instruction": "You are going to read an extract from a novel. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
+          "instruction": "You are going to read an article about new technology and students. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
           "type": "multiple-choice",
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q31",
+              "id": "catalog-reading-fce-b2-test15-part-5-q31",
               "number": 31,
               "type": "multiple-choice",
-              "prompt": "What does strides mean? (Paragraph Two, underlined)",
+              "prompt": "What does the writer illustrate by describing the incident in the car?",
               "options": [
                 {
                   "id": "A",
-                  "label": "brooms"
+                  "label": "the older generation’s frustration at people’s dependence on technology"
                 },
                 {
                   "id": "B",
-                  "label": "leaps"
+                  "label": "how unaware young people are of some effects of technology"
                 },
                 {
                   "id": "C",
-                  "label": "steps"
+                  "label": "the difference in attitudes to technology between two generations"
                 },
                 {
                   "id": "D",
-                  "label": "yells"
+                  "label": "how technology helps different generations communicate"
                 }
               ],
-              "answer": "c",
+              "answer": "b",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q32",
+              "id": "catalog-reading-fce-b2-test15-part-5-q32",
               "number": 32,
               "type": "multiple-choice",
-              "prompt": "When Philip is shown around the school, it is",
+              "prompt": "What did the writer think of her grandfather’s comment, mentioned in the second paragraph?",
               "options": [
                 {
                   "id": "A",
-                  "label": "mostly empty."
+                  "label": "It showed how out-of-date he was."
                 },
                 {
                   "id": "B",
-                  "label": "bright and cheerful."
+                  "label": "It had an element of truth in it."
                 },
                 {
                   "id": "C",
-                  "label": "small and cramped."
+                  "label": "It was an annoying thing to say."
                 },
                 {
                   "id": "D",
-                  "label": "full of noise and activity."
-                }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-5-q33",
-              "number": 33,
-              "type": "multiple-choice",
-              "prompt": "Why were the children afraid of Mr. Watson?",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "He was very loud."
-                },
-                {
-                  "id": "B",
-                  "label": "He was angry with them."
-                },
-                {
-                  "id": "C",
-                  "label": "He was unkind to them."
-                },
-                {
-                  "id": "D",
-                  "label": "He was very big and powerful."
-                }
-              ],
-              "answer": "a",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-5-q34",
-              "number": 34,
-              "type": "multiple-choice",
-              "prompt": "What does his tormentor refer to? (fourth paragraph from the bottom, underlined)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "Phillip s club foot"
-                },
-                {
-                  "id": "B",
-                  "label": "the boy called Venning"
-                },
-                {
-                  "id": "C",
-                  "label": "the third boy to arrive"
-                },
-                {
-                  "id": "D",
-                  "label": "the pain in Philip s shin"
+                  "label": "It made her feel sorry for him."
                 }
               ],
               "answer": "b",
@@ -668,26 +620,26 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q35",
-              "number": 35,
+              "id": "catalog-reading-fce-b2-test15-part-5-q33",
+              "number": 33,
               "type": "multiple-choice",
-              "prompt": "Why does Philip become hot and uncomfortable when the boys talked about his foot?",
+              "prompt": "What does the writer say about getting study resources from libraries?",
               "options": [
                 {
                   "id": "A",
-                  "label": "It was summertime."
+                  "label": "She considers libraries more preferable places for study than home."
                 },
                 {
                   "id": "B",
-                  "label": "He had been beaten."
+                  "label": "She cannot understand why anyone chooses to go to a library now."
                 },
                 {
                   "id": "C",
-                  "label": "He was embarrassed."
+                  "label": "She appreciates the fact that people can still study in libraries if they want to."
                 },
                 {
                   "id": "D",
-                  "label": "He felt left out."
+                  "label": "She thinks libraries are limited by the quantity of resources they can store."
                 }
               ],
               "answer": "c",
@@ -695,29 +647,83 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-5-q36",
-              "number": 36,
+              "id": "catalog-reading-fce-b2-test15-part-5-q34",
+              "number": 34,
               "type": "multiple-choice",
-              "prompt": "How do the boys who interact with Philip directly react to his club foot?",
+              "prompt": "What disadvantage of new technology does the writer mention in the third paragraph?",
               "options": [
                 {
                   "id": "A",
-                  "label": "They pay it little attention."
+                  "label": "Those who can afford the best gadgets gain an unfair advantage."
                 },
                 {
                   "id": "B",
-                  "label": "They are curious or embarrassed."
+                  "label": "Sometimes slow internet connections make communication difficult."
                 },
                 {
                   "id": "C",
-                  "label": "They are polite and sympathetic."
+                  "label": "A heavier workload is created for teaching staff at the university."
                 },
                 {
                   "id": "D",
-                  "label": "They are disgusted by it."
+                  "label": "Students cannot escape from dealing with university issues."
                 }
               ],
-              "answer": "b",
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test15-part-5-q35",
+              "number": 35,
+              "type": "multiple-choice",
+              "prompt": "What is the purpose of the question ‘Why shouldn’t they be?’ in the fourth paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to express an opinion"
+                },
+                {
+                  "id": "B",
+                  "label": "to introduce some problems"
+                },
+                {
+                  "id": "C",
+                  "label": "to make a criticism"
+                },
+                {
+                  "id": "D",
+                  "label": "to indicate uncertainty"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test15-part-5-q36",
+              "number": 36,
+              "type": "multiple-choice",
+              "prompt": "What is the writer’s conclusion about students today in the final paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "They have such different lives to previous generations that it’s unwise to compare them."
+                },
+                {
+                  "id": "B",
+                  "label": "They deal better with change than previous generations did."
+                },
+                {
+                  "id": "C",
+                  "label": "They take advantage of new resources more quickly than previous generations did."
+                },
+                {
+                  "id": "D",
+                  "label": "They are behaving in a similar way to previous generations of students."
+                }
+              ],
+              "answer": "d",
               "explanation": "",
               "answerConfidence": "key"
             }
@@ -726,41 +732,41 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-6",
+      "id": "catalog-reading-fce-b2-test15-part-6",
       "partNumber": 6,
       "rangeLabel": "Questions 37–42",
-      "passageTitle": "The Skydiving Experience",
+      "passageTitle": "Tree of the year",
       "passage": [
         {
-          "text": "The thrill of skydiving is beyond any possible description. Falling at 120 mph with the wind screaming past your body is an unbelievable experience of total freedom. The sport is not without an element of danger; indeed, it is this fear that makes it so addictive. Yet there are relatively few serious injuries in this activity because of the tight regulations and safety requirements mandated for skydiving and parachuting organisations."
+          "text": "The aim of the national Tree of the Year competition is to promote and celebrate the most interesting trees around the country. Images and descriptions of a shortlist of 28 trees are put online and the public are asked to vote for their favourite."
         },
         {
-          "text": "I still recall my first jump from 2,500 feet using what is called a static line . 37 A B C D E F G . The static line system is often used for those new to the sport. It is a means of helping them to deal with the sensation of falling, while ensuring that they will not actually hit anything."
+          "text": "The four trees that gain the most votes before 5 p.m. on 5th October will be given a grant of £1,000. In addition, all trees that receive 1,000 or more votes will get a grant of £500. The grants may be spent on a tree health check or advice from a tree expert, or an educational event, for example. 37 A B C D E F G .."
         },
         {
-          "text": "38 A B C D E F G . Still, there seems to be a little slice of missing time from the point where I let go of the aircraft to the parachute canopy actually opening . Pure terror sometimes does that! It was a moment where time ceased to exist, not quite a total blackout but still quite strange. Two days of training on the ground, the ceaseless drill of counting out “one thousand, two thousand, three thousand” and about all I seem to recall when I let go is something like “aaaaahhhhhh”. After a second and many subsequent jumps, this sensation soon faded to a dim recollection as I became accustomed to falling."
+          "text": "Among the 28 shortlisted trees there are a wide range of tree species, each with its own unique, fascinating story. For example, the ‘Ding Dong’ tree is a copper beech tree growing in a primary school playground. It was named the ‘Ding Dong’ tree because of a game pupils invented in which they race to touch its trunk, shouting ‘Ding Dong!’ The protective space underneath the 50-year-old tree is used as a magical outdoor classroom, while the indoor classroom displays pictures of the tree through each season of the year. 38 A B C D E F G .."
         },
         {
-          "text": "The first real free fall commenced at about the fifth jump. This simply involved letting go of the aircraft and immediately deploying the canopy . 39 A B C D E F G . Starting from three seconds (let go and pull the ripcord) to five seconds (let go, count to three then pull the ripcord) increasing to seven seconds and so on. Once I made it to ten seconds and beyond, it became important to use an altimeter."
+          "text": "Many of the other trees in the competition are remarkable for their age alone. The Craigends Yew, for example, is thought to be up to 700 years old, making it one of the oldest in Scotland. It is an amazing sight as many of its branches have layered. 39 A B C D E F G .. As a result of these extra growths, the total size when measured around the tree’s crown (the main body of its leaves and branches) is a massive 100 metres."
         },
         {
-          "text": "Free fall became really interesting at the 15-second mark because that is when the real training started. Turning, tumbling and rocketing forward by using different body positions put a completely new challenge before me. I learned it was possible to put my body in a position where forward ground speed was around 80 mph with an increase of downward velocity close to 200 mph – the ears tend to get a little warm! It is also quite important to flare out, slow and adopt a more stable position before deploying the canopy. Doing so at really high velocity really hurts, and I suspect everyone does this at least once. It is quite a lot of stress on your body when pulling up from 120 mph to 10 mph in about two or three seconds . 40 A B C D E F G ."
+          "text": "Another very old tree, the Holm Oak in Kilbroney Park, Northern Ireland, is much loved by local people. It measures 3.6 metres around the trunk, and its beautiful bark looks like the skin of a snake. 40 A B C D E F G .. The advantage of this lack of uprightness is that young children can climb safely and easily on it. Kilbroney Park is home to many remarkable trees, but this tree was chosen as the favourite by community members."
         },
         {
-          "text": "One of my most fearful experiences occurred when I made a complete mess of trying to do a reverse tumble and became wildly unstable. Nothing I did seemed to correct the spinning and rolling, I was still at 5,000 feet and in desperation I deployed the canopy . 41 A B C D E F G . The bag wrapped around one of my legs. Luckily, by this time had enough free fall experience to have the presence of mind to see what was happening and it was not too difficult to reach down and disentangle the risers. I also knew there was plenty of time to correct the problem because I was far higher than the standard 2,500 deployment altitude. It turned out fine in the end."
+          "text": "A 500-year-old veteran oak tree stands in the ancient woodland pasture at Carngafallt in Wales. One of the interesting things about this twisted, hollow tree is that it has several ‘air trees’ growing out of it. An ‘air tree’ is one growing without its roots touching the ground. 41 A B C D E F G .. It extends its roots down inside the oak’s hollow trunk."
         },
         {
-          "text": "I would say one of my most memorable free falling experiences was above the Mornington Peninsula in Victoria, Australia . 42 A B C D E F G . From this altitude , I did some nice slow turns and drank in the scenery of Port Phillip Bay, out to sea, across the length of the peninsula to the city of Melbourne, all in an orange-red glow of the most amazing sunset I can ever remember. It was incredible."
+          "text": "The original Bramley apple tree in Nottinghamshire is younger than many in this competition, but is the famous parent of all modern Bramley apple trees. 42 A B C D E F G .. Many years later, Matthew Bramley, the new owner of the tree, was carrying some of his fruit when he met a gardener called Henry Merryweather. Henry asked if he could take some cuttings from Matthew’s trees to grow his own trees. Mr Bramley agreed, provided they were named ‘Bramley’s Seedling’."
         },
         {
-          "text": "A. There are few other ways to experience the total and utter freedom of flight .\n B. This is a strong nylon tape that is attached to the aircraft on one end, and to the release pin of the jumper’s canopy on the other.\n C. I think my ears are still ringing from that mistake .\n D. Altitudes increased gradually, as did time in free-fall .\n E. It was a 40-second fall from 14,000 feet , right at sunset.\n F. What happened next was not good at all .\n G. My first experience is still very sharp in my memory ."
+          "text": "A. This means that they are touching the ground and have taken root.\n B. These roots have become enormous with age and have now emerged above the ground. Children love to jump over them like horses in a race.\n C. But the most distinctive thing about this tree is that its main trunk is leaning towards the ground at an angle of 45 degrees.\n D. The best example of this on the big old tree is another species of tree called a rowan.\n E. Alternatively, they could be used to hold a community event in honour of the tree.\n G. It was planted from a seed in 1809 by a woman called Ann Brailsford.\n G. Children hang bird feeders from its branches and it is used as the focus of many of the educational activities going on around it."
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-6-g0",
+          "id": "catalog-reading-fce-b2-test15-part-6-g0",
           "range": "Questions 37–42",
-          "instruction": "You are going to read a magazine article about one person s experiences of learning to skydive. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
+          "instruction": "Choose from the paragraphs A–G.",
           "type": "matching-features",
           "paragraphLetters": [
             "A",
@@ -773,7 +779,7 @@
           ],
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q37",
+              "id": "catalog-reading-fce-b2-test15-part-6-q37",
               "number": 37,
               "type": "matching-features",
               "prompt": "Gap (37)",
@@ -807,12 +813,12 @@
                   "label": "G"
                 }
               ],
-              "answer": "b",
+              "answer": "e",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q38",
+              "id": "catalog-reading-fce-b2-test15-part-6-q38",
               "number": 38,
               "type": "matching-features",
               "prompt": "Gap (38)",
@@ -851,7 +857,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q39",
+              "id": "catalog-reading-fce-b2-test15-part-6-q39",
               "number": 39,
               "type": "matching-features",
               "prompt": "Gap (39)",
@@ -885,12 +891,12 @@
                   "label": "G"
                 }
               ],
-              "answer": "d",
+              "answer": "a",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q40",
+              "id": "catalog-reading-fce-b2-test15-part-6-q40",
               "number": 40,
               "type": "matching-features",
               "prompt": "Gap (40)",
@@ -929,7 +935,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q41",
+              "id": "catalog-reading-fce-b2-test15-part-6-q41",
               "number": 41,
               "type": "matching-features",
               "prompt": "Gap (41)",
@@ -963,12 +969,12 @@
                   "label": "G"
                 }
               ],
-              "answer": "f",
+              "answer": "d",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-6-q42",
+              "id": "catalog-reading-fce-b2-test15-part-6-q42",
               "number": 42,
               "type": "matching-features",
               "prompt": "Gap (42)",
@@ -1002,7 +1008,7 @@
                   "label": "G"
                 }
               ],
-              "answer": "e",
+              "answer": "f",
               "explanation": "",
               "answerConfidence": "key"
             }
@@ -1011,20 +1017,20 @@
       ]
     },
     {
-      "id": "catalog-reading-fce-b2-test4-part-7",
+      "id": "catalog-reading-fce-b2-test15-part-7",
       "partNumber": 7,
       "rangeLabel": "Questions 43–52",
-      "passageTitle": "Confront your fears and face your challenges",
+      "passageTitle": "The world’s strangest annual events?",
       "passage": [
         {
-          "text": "Confront your fears and face your challenges"
+          "text": "The world’s strangest annual events?"
         }
       ],
       "questionGroups": [
         {
-          "id": "catalog-reading-fce-b2-test4-part-7-g0",
+          "id": "catalog-reading-fce-b2-test15-part-7-g0",
           "range": "Questions 43–52",
-          "instruction": "You are going to read some extracts about the fears or challenges that several people have faced. For questions 43-52, choose from the people (A-D). The people may be chosen more than once.",
+          "instruction": "Choose from the sections A–D.",
           "type": "matching-features",
           "features": [
             {
@@ -1046,7 +1052,7 @@
           ],
           "questions": [
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q43",
+              "id": "catalog-reading-fce-b2-test15-part-7-q43",
               "number": 43,
               "type": "matching-features",
               "prompt": "Gap (43)",
@@ -1068,42 +1074,15 @@
                   "label": "D"
                 }
               ],
-              "answer": "c",
+              "answer": "d",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q44",
+              "id": "catalog-reading-fce-b2-test15-part-7-q44",
               "number": 44,
               "type": "matching-features",
               "prompt": "Gap (44)",
-              "options": [
-                {
-                  "id": "A",
-                  "label": "A"
-                },
-                {
-                  "id": "B",
-                  "label": "B"
-                },
-                {
-                  "id": "C",
-                  "label": "C"
-                },
-                {
-                  "id": "D",
-                  "label": "D"
-                }
-              ],
-              "answer": "b",
-              "explanation": "",
-              "answerConfidence": "key"
-            },
-            {
-              "id": "catalog-reading-fce-b2-test4-part-7-q45",
-              "number": 45,
-              "type": "matching-features",
-              "prompt": "Gap (45)",
               "options": [
                 {
                   "id": "A",
@@ -1127,7 +1106,34 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q46",
+              "id": "catalog-reading-fce-b2-test15-part-7-q45",
+              "number": 45,
+              "type": "matching-features",
+              "prompt": "Gap (45)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test15-part-7-q46",
               "number": 46,
               "type": "matching-features",
               "prompt": "Gap (46)",
@@ -1154,7 +1160,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q47",
+              "id": "catalog-reading-fce-b2-test15-part-7-q47",
               "number": 47,
               "type": "matching-features",
               "prompt": "Gap (47)",
@@ -1181,7 +1187,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q48",
+              "id": "catalog-reading-fce-b2-test15-part-7-q48",
               "number": 48,
               "type": "matching-features",
               "prompt": "Gap (48)",
@@ -1208,7 +1214,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q49",
+              "id": "catalog-reading-fce-b2-test15-part-7-q49",
               "number": 49,
               "type": "matching-features",
               "prompt": "Gap (49)",
@@ -1230,12 +1236,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "d",
+              "answer": "b",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q50",
+              "id": "catalog-reading-fce-b2-test15-part-7-q50",
               "number": 50,
               "type": "matching-features",
               "prompt": "Gap (50)",
@@ -1257,12 +1263,12 @@
                   "label": "D"
                 }
               ],
-              "answer": "d",
+              "answer": "a",
               "explanation": "",
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q51",
+              "id": "catalog-reading-fce-b2-test15-part-7-q51",
               "number": 51,
               "type": "matching-features",
               "prompt": "Gap (51)",
@@ -1289,7 +1295,7 @@
               "answerConfidence": "key"
             },
             {
-              "id": "catalog-reading-fce-b2-test4-part-7-q52",
+              "id": "catalog-reading-fce-b2-test15-part-7-q52",
               "number": 52,
               "type": "matching-features",
               "prompt": "Gap (52)",
@@ -1322,6 +1328,6 @@
   ],
   "examTrack": "cambridge",
   "cambridgeLevel": "b2",
-  "catalogSlug": "fce-b2-test4",
-  "catalogBase": "/catalog/reading/fce-b2-test4"
+  "catalogSlug": "fce-b2-test15",
+  "catalogBase": "/catalog/reading/fce-b2-test15"
 }

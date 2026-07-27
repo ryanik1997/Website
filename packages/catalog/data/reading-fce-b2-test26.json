@@ -1,9 +1,1292 @@
 {
   "id": "catalog-reading-fce-b2-test26",
   "title": "FCE B2 Reading — Book 7 — Test 26",
-  "durationMinutes": 60,
-  "bandHint": "Cambridge Reading",
-  "parts": [],
+  "durationMinutes": 75,
+  "bandHint": "B2 First Reading & Use of English — 7 parts",
+  "parts": [
+    {
+      "id": "catalog-reading-fce-b2-test26-part-1",
+      "partNumber": 1,
+      "rangeLabel": "Questions 1–8",
+      "passageTitle": "Ecotourism: is there a downside?",
+      "passage": [
+        {
+          "text": "Tourism is an important 0 _____ of the global economy and ecotourism has been growing more rapidly than any other sector in the industry recently. Over the past decade, it has grown 1 in over with by almost 400% – an unprecedented figure in such niche area."
+        },
+        {
+          "text": "Ecotourism aims to be the most sustainable, environmentally 2 amicable friendly acceptable safe tourism possible. The word has been in use 3 from since for after 1983 to describe how adventurous people visit relatively unexplored parts of the world without harming the environment. All the 4 money incomes profits benefits that are received from this type of tourism generally help support the local economy and environmental projects."
+        },
+        {
+          "text": "Is a tourist’s carbon 5 imprint handprint footprint fingerprint the only consideration? Sadly, it’s not. Let’s look at Kenya, where 6 journeys visits trips raids on safari are usually in the morning. This is when lions like to hunt. However, the ecotourists 7 upset frighten shock annoy many other animals away, meaning that any lions in the area have to hunt in the hot, tiring hours of the day. 8 Distinctly Clearly Openly Questionably , it’s better to shoot pictures of animals than to shoot guns at them, but ecotourists or not, the animals would probably just prefer to be left alone."
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-1-g0",
+          "range": "Questions 1–8",
+          "instruction": "For questions 1-8, read the text below and decide which answer (A, B, C or D) best fits each gap. There is an example at the beginning (0).",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q1",
+              "number": 1,
+              "type": "multiple-choice",
+              "prompt": "Gap (1)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "in"
+                },
+                {
+                  "id": "2",
+                  "label": "over"
+                },
+                {
+                  "id": "3",
+                  "label": "with"
+                },
+                {
+                  "id": "4",
+                  "label": "by"
+                }
+              ],
+              "answer": "d",
+              "explanation": "by.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q2",
+              "number": 2,
+              "type": "multiple-choice",
+              "prompt": "Gap (2)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "amicable"
+                },
+                {
+                  "id": "2",
+                  "label": "friendly"
+                },
+                {
+                  "id": "3",
+                  "label": "acceptable"
+                },
+                {
+                  "id": "4",
+                  "label": "safe"
+                }
+              ],
+              "answer": "b",
+              "explanation": "friendly.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q3",
+              "number": 3,
+              "type": "multiple-choice",
+              "prompt": "Gap (3)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "from"
+                },
+                {
+                  "id": "2",
+                  "label": "since"
+                },
+                {
+                  "id": "3",
+                  "label": "for"
+                },
+                {
+                  "id": "4",
+                  "label": "after"
+                }
+              ],
+              "answer": "b",
+              "explanation": "since.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q4",
+              "number": 4,
+              "type": "multiple-choice",
+              "prompt": "Gap (4)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "money"
+                },
+                {
+                  "id": "2",
+                  "label": "incomes"
+                },
+                {
+                  "id": "3",
+                  "label": "profits"
+                },
+                {
+                  "id": "4",
+                  "label": "benefits"
+                }
+              ],
+              "answer": "c",
+              "explanation": "profits.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q5",
+              "number": 5,
+              "type": "multiple-choice",
+              "prompt": "Gap (5)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "imprint"
+                },
+                {
+                  "id": "2",
+                  "label": "handprint"
+                },
+                {
+                  "id": "3",
+                  "label": "footprint"
+                },
+                {
+                  "id": "4",
+                  "label": "fingerprint"
+                }
+              ],
+              "answer": "c",
+              "explanation": "footprint.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q6",
+              "number": 6,
+              "type": "multiple-choice",
+              "prompt": "Gap (6)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "journeys"
+                },
+                {
+                  "id": "2",
+                  "label": "visits"
+                },
+                {
+                  "id": "3",
+                  "label": "trips"
+                },
+                {
+                  "id": "4",
+                  "label": "raids"
+                }
+              ],
+              "answer": "c",
+              "explanation": "trips.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q7",
+              "number": 7,
+              "type": "multiple-choice",
+              "prompt": "Gap (7)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "upset"
+                },
+                {
+                  "id": "2",
+                  "label": "frighten"
+                },
+                {
+                  "id": "3",
+                  "label": "shock"
+                },
+                {
+                  "id": "4",
+                  "label": "annoy"
+                }
+              ],
+              "answer": "b",
+              "explanation": "frighten.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-1-q8",
+              "number": 8,
+              "type": "multiple-choice",
+              "prompt": "Gap (8)",
+              "options": [
+                {
+                  "id": "1",
+                  "label": "Distinctly"
+                },
+                {
+                  "id": "2",
+                  "label": "Clearly"
+                },
+                {
+                  "id": "3",
+                  "label": "Openly"
+                },
+                {
+                  "id": "4",
+                  "label": "Questionably"
+                }
+              ],
+              "answer": "b",
+              "explanation": "clearly.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-2",
+      "partNumber": 2,
+      "rangeLabel": "Questions 9–16",
+      "passageTitle": "Part 2",
+      "passage": [
+        {
+          "text": "Part 2"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-2-g0",
+          "range": "Questions 9–16",
+          "instruction": "For questions 9-16, read the text below and think of the word which best fits each gap. Use only one word in each gap. There is an example at the beginning (0). In the exam, write your answers IN CAPITAL LETTERS on the separate answer sheet.",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q9",
+              "number": 9,
+              "type": "gap-fill",
+              "prompt": "Gap (9)",
+              "options": [],
+              "answer": "has",
+              "explanation": "has.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q10",
+              "number": 10,
+              "type": "gap-fill",
+              "prompt": "Gap (10)",
+              "options": [],
+              "answer": "up",
+              "explanation": "up.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q11",
+              "number": 11,
+              "type": "gap-fill",
+              "prompt": "Gap (11)",
+              "options": [],
+              "answer": "speak/think",
+              "explanation": "speak/think.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q12",
+              "number": 12,
+              "type": "gap-fill",
+              "prompt": "Gap (12)",
+              "options": [],
+              "answer": "a",
+              "explanation": "lthough/While.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q13",
+              "number": 13,
+              "type": "gap-fill",
+              "prompt": "Gap (13)",
+              "options": [],
+              "answer": "for",
+              "explanation": "for.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q14",
+              "number": 14,
+              "type": "gap-fill",
+              "prompt": "Gap (14)",
+              "options": [],
+              "answer": "put",
+              "explanation": "put.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q15",
+              "number": 15,
+              "type": "gap-fill",
+              "prompt": "Gap (15)",
+              "options": [],
+              "answer": "difference",
+              "explanation": "difference.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-2-q16",
+              "number": 16,
+              "type": "gap-fill",
+              "prompt": "Gap (16)",
+              "options": [],
+              "answer": "majority",
+              "explanation": "majority.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-3",
+      "partNumber": 3,
+      "rangeLabel": "Questions 17–24",
+      "passageTitle": "Part 3",
+      "passage": [
+        {
+          "text": "Part 3"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-3-g0",
+          "range": "Questions 17–24",
+          "instruction": "For questions 17-24, read the text below. Use the word given in capitals at the end of some of the lines to form a word that fits in the gap in the same line. There is an example at the beginning (0).",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q17",
+              "number": 17,
+              "type": "gap-fill",
+              "prompt": "Gap (17)",
+              "options": [],
+              "answer": "nature",
+              "explanation": "nature.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q18",
+              "number": 18,
+              "type": "gap-fill",
+              "prompt": "Gap (18)",
+              "options": [],
+              "answer": "geologist",
+              "explanation": "geologist.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q19",
+              "number": 19,
+              "type": "gap-fill",
+              "prompt": "Gap (19)",
+              "options": [],
+              "answer": "sandy",
+              "explanation": "sandy.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q20",
+              "number": 20,
+              "type": "gap-fill",
+              "prompt": "Gap (20)",
+              "options": [],
+              "answer": "constantly",
+              "explanation": "constantly.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q21",
+              "number": 21,
+              "type": "gap-fill",
+              "prompt": "Gap (21)",
+              "options": [],
+              "answer": "admire",
+              "explanation": "admire.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q22",
+              "number": 22,
+              "type": "gap-fill",
+              "prompt": "Gap (22)",
+              "options": [],
+              "answer": "knowledgeable",
+              "explanation": "knowledgeable.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q23",
+              "number": 23,
+              "type": "gap-fill",
+              "prompt": "Gap (23)",
+              "options": [],
+              "answer": "obviously",
+              "explanation": "obviously.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-3-q24",
+              "number": 24,
+              "type": "gap-fill",
+              "prompt": "Gap (24)",
+              "options": [],
+              "answer": "coastal",
+              "explanation": "coastal.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-4",
+      "partNumber": 4,
+      "rangeLabel": "Questions 25–30",
+      "passageTitle": "Part 4",
+      "passage": [
+        {
+          "text": "Part 4"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-4-g0",
+          "range": "Questions 25–30",
+          "instruction": "For questions 25-30, complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. Here is an example (0).",
+          "type": "gap-fill",
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q25",
+              "number": 25,
+              "type": "gap-fill",
+              "prompt": "AFTER — He ate dinner before she got there. She turned",
+              "options": [],
+              "answer": "up after he had (eaten)",
+              "explanation": "up after he had (eaten).",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q26",
+              "number": 26,
+              "type": "gap-fill",
+              "prompt": "BEEN — I’m sure you were furious when they didn’t apologise. You",
+              "options": [],
+              "answer": "must have been",
+              "explanation": "must have been.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q27",
+              "number": 27,
+              "type": "gap-fill",
+              "prompt": "STARTED — I got to the cinema too late to see the beginning of the film. The film",
+              "options": [],
+              "answer": "had (already) started by the",
+              "explanation": "had (already) started by the.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q28",
+              "number": 28,
+              "type": "gap-fill",
+              "prompt": "MIGHT — I’m not sure if we’ll get a ticket easily. The concert’s very soon. Getting a ticket",
+              "options": [],
+              "answer": "might be difficult/might not be easy",
+              "explanation": "might be difficult/might not be easy.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q29",
+              "number": 29,
+              "type": "gap-fill",
+              "prompt": "PUT — Loud noise is something I can’t stand. I find it impossible",
+              "options": [],
+              "answer": "to put up with",
+              "explanation": "to put up with.",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-4-q30",
+              "number": 30,
+              "type": "gap-fill",
+              "prompt": "BY — I thought the mystery novels that he wrote were fascinating. I",
+              "options": [],
+              "answer": "was fascinated by",
+              "explanation": "was fascinated by.",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-5",
+      "partNumber": 5,
+      "rangeLabel": "Questions 31–36",
+      "passageTitle": "Part 5",
+      "passage": [
+        {
+          "text": "Part 5"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-5-g0",
+          "range": "Questions 31–36",
+          "instruction": "You are going to read an extract from a newspaper article. For questions 31-36, choose the answer (A, B, C or D) which you think fits best according to the text.",
+          "type": "multiple-choice",
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q31",
+              "number": 31,
+              "type": "multiple-choice",
+              "prompt": "What does ‘the abyss’ in Paragraph 1 mean?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "the mountains."
+                },
+                {
+                  "id": "B",
+                  "label": "the river."
+                },
+                {
+                  "id": "C",
+                  "label": "the deep hole."
+                },
+                {
+                  "id": "D",
+                  "label": "the edge of the cliffs."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q32",
+              "number": 32,
+              "type": "multiple-choice",
+              "prompt": "What does ‘that’ underlined in Paragraph 1 refer to?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "my fear of heights."
+                },
+                {
+                  "id": "B",
+                  "label": "the fantastic sight below me."
+                },
+                {
+                  "id": "C",
+                  "label": "my need to write an article."
+                },
+                {
+                  "id": "D",
+                  "label": "encouragement from my fellow tourists."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q33",
+              "number": 33,
+              "type": "multiple-choice",
+              "prompt": "Why do visitors have to cover their footwear?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "to keep the walking surface clean."
+                },
+                {
+                  "id": "B",
+                  "label": "to give them a feeling of floating."
+                },
+                {
+                  "id": "C",
+                  "label": "to avoid damaging the delicate floor."
+                },
+                {
+                  "id": "D",
+                  "label": "to make them feel safer while walking."
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q34",
+              "number": 34,
+              "type": "multiple-choice",
+              "prompt": "How was the Skywalk financed?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "by visitor donations to the national park."
+                },
+                {
+                  "id": "B",
+                  "label": "by tourists visiting the Hualapai Reservation."
+                },
+                {
+                  "id": "C",
+                  "label": "by companies investing in the area."
+                },
+                {
+                  "id": "D",
+                  "label": "by an individual from a nearby city."
+                }
+              ],
+              "answer": "d",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q35",
+              "number": 35,
+              "type": "multiple-choice",
+              "prompt": "What point is the writer making when talking about the changes made to the area?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "The Hualapai will benefit financially."
+                },
+                {
+                  "id": "B",
+                  "label": "The lives of local people will be at risk."
+                },
+                {
+                  "id": "C",
+                  "label": "Jobs will be created for outsiders."
+                },
+                {
+                  "id": "D",
+                  "label": "Improvements will be expensive."
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-5-q36",
+              "number": 36,
+              "type": "multiple-choice",
+              "prompt": "What conclusion does the writer come to in the final paragraph?",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "He is convinced of the benefits of tourism to the area."
+                },
+                {
+                  "id": "B",
+                  "label": "He wonders if the Skywalk is right for the area."
+                },
+                {
+                  "id": "C",
+                  "label": "He doubts whether visitors will appreciate the improvements."
+                },
+                {
+                  "id": "D",
+                  "label": "He feels the new buildings add to the beauty of the area."
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-6",
+      "partNumber": 6,
+      "rangeLabel": "Questions 37–42",
+      "passageTitle": "Part 6",
+      "passage": [
+        {
+          "text": "Part 6"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-6-g0",
+          "range": "Questions 37–42",
+          "instruction": "You are going to read an article about an environmentalist. Six sentences have been removed from the article. Choose from the sentences A-G the one which fits each gap (37-42). There is one extra sentence which you do not need to use.",
+          "type": "matching-features",
+          "paragraphLetters": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q37",
+              "number": 37,
+              "type": "matching-features",
+              "prompt": "Gap (37)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "f",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q38",
+              "number": 38,
+              "type": "matching-features",
+              "prompt": "Gap (38)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q39",
+              "number": 39,
+              "type": "matching-features",
+              "prompt": "Gap (39)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q40",
+              "number": 40,
+              "type": "matching-features",
+              "prompt": "Gap (40)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "e",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q41",
+              "number": 41,
+              "type": "matching-features",
+              "prompt": "Gap (41)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "g",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-6-q42",
+              "number": 42,
+              "type": "matching-features",
+              "prompt": "Gap (42)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                },
+                {
+                  "id": "E",
+                  "label": "E"
+                },
+                {
+                  "id": "F",
+                  "label": "F"
+                },
+                {
+                  "id": "G",
+                  "label": "G"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-reading-fce-b2-test26-part-7",
+      "partNumber": 7,
+      "rangeLabel": "Questions 43–52",
+      "passageTitle": "Part 7",
+      "passage": [
+        {
+          "text": "Part 7"
+        }
+      ],
+      "questionGroups": [
+        {
+          "id": "catalog-reading-fce-b2-test26-part-7-g0",
+          "range": "Questions 43–52",
+          "instruction": "You are going to read an article about four young people having unusual jobs abroad. For questions",
+          "type": "matching-features",
+          "features": [
+            {
+              "id": "a",
+              "name": "Section A"
+            },
+            {
+              "id": "b",
+              "name": "Section B"
+            },
+            {
+              "id": "c",
+              "name": "Section C"
+            },
+            {
+              "id": "d",
+              "name": "Section D"
+            }
+          ],
+          "questions": [
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q43",
+              "number": 43,
+              "type": "matching-features",
+              "prompt": "Gap (43)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "d",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q44",
+              "number": 44,
+              "type": "matching-features",
+              "prompt": "Gap (44)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q45",
+              "number": 45,
+              "type": "matching-features",
+              "prompt": "Gap (45)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q46",
+              "number": 46,
+              "type": "matching-features",
+              "prompt": "Gap (46)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q47",
+              "number": 47,
+              "type": "matching-features",
+              "prompt": "Gap (47)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q48",
+              "number": 48,
+              "type": "matching-features",
+              "prompt": "Gap (48)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q49",
+              "number": 49,
+              "type": "matching-features",
+              "prompt": "Gap (49)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q50",
+              "number": 50,
+              "type": "matching-features",
+              "prompt": "Gap (50)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "a",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q51",
+              "number": 51,
+              "type": "matching-features",
+              "prompt": "Gap (51)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "b",
+              "explanation": "",
+              "answerConfidence": "key"
+            },
+            {
+              "id": "catalog-reading-fce-b2-test26-part-7-q52",
+              "number": 52,
+              "type": "matching-features",
+              "prompt": "Gap (52)",
+              "options": [
+                {
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "id": "B",
+                  "label": "B"
+                },
+                {
+                  "id": "C",
+                  "label": "C"
+                },
+                {
+                  "id": "D",
+                  "label": "D"
+                }
+              ],
+              "answer": "c",
+              "explanation": "",
+              "answerConfidence": "key"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "examTrack": "cambridge",
   "cambridgeLevel": "b2",
   "catalogSlug": "fce-b2-test26",
