@@ -580,6 +580,16 @@ export default function WritingCambridgeTaskPage() {
     )
   }
 
+  if (!activeDoc) {
+    return (
+      <div className="relative flex h-full min-h-0 overflow-hidden flex-col">
+        <div className="flex-1 grid place-items-center p-6" style={{ background: 'var(--bg-primary)', color: 'var(--text-muted)' }}>
+          {CAMBRIDGE_WRITING_COPY.taskLoading}
+        </div>
+      </div>
+    )
+  }
+
   if (level.level === 'a2') {
     return (
       <>

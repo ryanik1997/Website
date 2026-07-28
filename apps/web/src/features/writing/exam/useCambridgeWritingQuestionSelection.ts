@@ -12,6 +12,7 @@ export function useCambridgeWritingQuestionSelection(
   taskIds: string[],
 ) {
   const storageKey = useMemo(() => buildStorageKey(level, testId), [level, testId])
+  const taskIdsKey = taskIds.join('\u0000')
   const [selection, setSelection] = useState<Record<string, SelectionStatus>>({})
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export function useCambridgeWritingQuestionSelection(
         Object.fromEntries(taskIds.map((taskId) => [taskId, 'undecided'])) as Record<string, SelectionStatus>,
       )
     }
-  }, [storageKey, taskIds])
+  }, [storageKey, taskIdsKey])
 
   useEffect(() => {
     if (taskIds.length === 0) return
@@ -43,7 +44,7 @@ export function useCambridgeWritingQuestionSelection(
         taskIds.map((id) => [id, id === taskId ? 'yes' : 'no']),
       ) as Record<string, SelectionStatus>
     })
-  }, [taskIds])
+  }, [taskIdsKey])
 
   const selectedCount = useMemo(
     () => taskIds.filter((taskId) => selection[taskId] === 'yes').length,

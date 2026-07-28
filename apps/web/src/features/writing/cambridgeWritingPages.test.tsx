@@ -293,6 +293,10 @@ describe('Cambridge Writing pages', () => {
     const selector = await screen.findByLabelText('Answering this question?')
     fireEvent.change(selector, { target: { value: 'yes' } })
     fireEvent.change(screen.getByLabelText('Writing answer'), { target: { value: 'A saved answer' } })
+    await waitFor(async () => {
+      const docs = await db.writingDocs.toArray()
+      expect(docs.some(doc => doc.text.includes('A saved answer'))).toBe(true)
+    })
 
     cleanup()
     renderTaskPage('c2', 'c2-test-01', 'c2-test-01-task-02')
