@@ -28,6 +28,7 @@ const ONLY_EXAM_ID = readCliArg('only-exam')
 /** Fields stripped from runtime body (Mode D answer vault). */
 const ANSWER_FIELDS = [
   'answer',
+  'acceptedAnswers',
   'acceptableAnswers',
   'explanation',
   'correct',
@@ -79,6 +80,7 @@ function extractAnswersVault(exam) {
     if (!q?.id) continue
     const entry = {}
     if (q.answer != null) entry.answer = q.answer
+    if (q.acceptedAnswers != null) entry.acceptedAnswers = q.acceptedAnswers
     if (q.acceptableAnswers != null) entry.acceptableAnswers = q.acceptableAnswers
     if (q.explanation != null) entry.explanation = q.explanation
     if (q.correct != null) entry.correct = q.correct
