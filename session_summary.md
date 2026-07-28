@@ -1,5 +1,6 @@
 # Consolidated Session Summary — Ryan English Website
 
+- Fixed the FCE B2 bottom navigation layout: selectors now target the actual `ket-rw-footer__part` classes, inactive parts flex evenly, the active part receives enough width, and question pills are distributed with `space-evenly` instead of bunching into a horizontal scrollbar.
 - Fixed global IELTS/Cambridge Listening playback in local development: `/catalog/listening/*.mp3` now resolves to the shared R2 CDN in every environment instead of falling through to missing Vite files that return `index.html`. Added resolver coverage for FCE and IELTS paths.
 - Listening CDN audit: all 560 unique audio URLs referenced by 179 catalog exams return HTTP success with an `audio/*` content type from R2. Targeted resolver/catalog tests and TypeScript pass.
 - Next session start prompt: browser-smoke one IELTS and one Cambridge Listening exam on localhost, then deploy and repeat on production if requested.

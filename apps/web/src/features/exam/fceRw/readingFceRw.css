@@ -452,8 +452,19 @@
   overflow-x: auto;
 }
 
-.fce-rw-shell .ket-rw-footer-part {
-  min-width: 4.75rem;
+.fce-rw-shell .ket-rw-footer__part {
+  flex: 1 1 9rem;
+  min-width: 7rem;
+}
+
+.fce-rw-shell .ket-rw-footer__part.is-current {
+  flex: 3 1 32rem;
+  min-width: 28rem;
+}
+
+.fce-rw-shell .ket-rw-footer__pills {
+  justify-content: space-evenly;
+  gap: 0;
 }
 
 .fce-rw-keyword-list__title {
