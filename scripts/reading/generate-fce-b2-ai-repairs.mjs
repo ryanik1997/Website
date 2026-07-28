@@ -7,7 +7,7 @@
  *
  * Run: node scripts/reading/generate-fce-b2-ai-repairs.mjs
  *      node scripts/reading/generate-fce-b2-ai-repairs.mjs --force  (regenerate all)
- *      node scripts/reading/generate-fce-b2-ai-repairs.mjs --only-missing  (only unresolved)
+ *      node scripts/reading/generate-fce-b2-ai-repairs.mjs --only-unrecoverable
  *
  * Skips AI calls if cache exists and inputHash unchanged, unless --force.
  */
@@ -24,11 +24,11 @@ const FCE_ROOT = path.join(
   'Import Cambridge', 'FCE_B2', 'Reading',
 )
 
-const PLAN_PATH = path.resolve('tmp/fce-b2-ai-repair-plan.json')
+const AUDIT_PATH = path.resolve('tmp/fce-b2-corpus-audit.json')
 const CACHE_ROOT = path.resolve(__dirname, 'generated', 'fce-b2')
 
 const FORCE = process.argv.includes('--force')
-const ONLY_MISSING = process.argv.includes('--only-missing')
+const ONLY_UNRECOVERABLE = process.argv.includes('--only-unrecoverable')
 
 const { getPartContract } = await import('./fce-b2-ai-contracts.mjs')
 const { callAiForRepair, computeInputHash, isAiProviderConfigured } = await import('./fce-b2-ai-provider.mjs')
@@ -77,8 +77,8 @@ async function generateRepair(sourceTestNumber, partNumber) {
   // Check cache first
   const cached = await loadCachePart(sourceTestNumber, partNumber)
   if (cached && !FORCE) {
-    const plan = JSON.parse(await fs.readFile(PLAN_PATH, 'utf8'))
-    const partEntry = plan.parts.find(
+    const audit = JSON.parse(await fs.readFile(AUDIT_PATH, 'utf8'))
+    const partEntry = audit.rows.find(
       p => p.sourceTestNumber === sourceTestNumber && p.partNumber === partNumber
     )
     if (partEntry && partEntry.status === 'complete' && cached.provenance?.origin === 'source') {
@@ -179,19 +179,20 @@ async function generateRepair(sourceTestNumber, partNumber) {
 async function main() {
   console.log('[generate-fce-b2-ai-repairs]')
   console.log(`  Force: ${FORCE}`)
-  console.log(`  Only missing: ${ONLY_MISSING}`)
+  console.log(`  Only unrecoverable: ${ONLY_UNRECOVERABLE}`)
   console.log(`  AI configured: ${AI_CONFIGURED}`)
   console.log(`  Cache root: ${CACHE_ROOT}`)
 
-  // Load repair plan
-  const plan = JSON.parse(await fs.readFile(PLAN_PATH, 'utf8'))
+  // AI is the final fallback: only an audit row that has exhausted source
+  // recovery is eligible. Never interpret an old repair plan as authority.
+  const audit = JSON.parse(await fs.readFile(AUDIT_PATH, 'utf8'))
 
   // Filter which parts to repair
-  let targets = plan.parts
-  if (ONLY_MISSING) {
-    targets = targets.filter(p => p.status !== 'complete')
-    console.log(`  Filtered to ${targets.length} parts with missing content`)
+  let targets = audit.rows.filter(p => p.status === 'AI_REPAIR_REQUIRED')
+  if (!ONLY_UNRECOVERABLE) {
+    console.log('  Safety mode: AI generation is restricted to AI_REPAIR_REQUIRED rows.')
   }
+  console.log(`  Eligible unrecoverable parts: ${targets.length}`)
 
   const results = []
   for (const target of targets) {

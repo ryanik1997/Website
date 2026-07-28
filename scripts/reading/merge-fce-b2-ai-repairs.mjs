@@ -50,8 +50,15 @@ async function loadAiRepair(sourceTestNumber, partNumber) {
  */
 function hasUsableRepair(repair) {
   if (!repair) return false
-  if (repair.status === 'failed' || repair.status === 'pending_ai_key') return false
-  return repair.repair != null && typeof repair.repair === 'object'
+  if (repair.status !== 'verified') return false
+  if (!repair.repair || typeof repair.repair !== 'object') return false
+  if (repair.model === 'bootstrap-v1') return false
+  if (String(repair.provenance?.promptHash ?? '').startsWith('bootstrap-')) return false
+  if (
+    repair.provenance?.origin === 'ai-generated'
+    && repair.verification?.valid !== true
+  ) return false
+  return true
 }
 
 /**
