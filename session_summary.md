@@ -11,6 +11,9 @@
 - Fixed an infinite render in advanced Writing selection by keying effects to stable task ID content; the task page now waits for its `WritingDoc` before enabling input, preventing early text loss.
 - Preservation gate PASS: all seven original tips are ancestors of integration and each remote archive tag dereferences to the exact original SHA; verified bundle remains under the dated backup directory.
 - `origin/main` is an ancestor of the validated integration head, so `main` can be fast-forwarded without rewriting history. No branch has been deleted yet.
+- Consolidation completed: `main` was fast-forwarded and pushed at `1f97b17125818970234984fdbd5bf439b9a9d6f8`; local and remote SHA match.
+- All seven original branches plus the temporary integration branch were deleted only after ancestor/archive verification. Local and remote now contain only `main`; archive tags, bundle, stash, reports, and saved conflict stages remain preserved.
+- GitHub PR #4 is merged and closed. Final reports: `branch-consolidation-final.md` and `.json` in the dated backup directory.
 
 > Conflict resolution on 2026-07-28: FCE B2 repair branch notes are placed first because they are newer; the prior main-line summary follows in full to preserve all context. Original stage files are retained in the consolidation backup.
 
