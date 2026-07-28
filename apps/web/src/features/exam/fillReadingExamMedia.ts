@@ -174,6 +174,7 @@ export function repairKetPart7Passage(
       }
       const imageKey = imageUrl ? undefined : (block.imageKey || src?.imageKey)
       return {
+        label: block.label ?? src?.label,
         text: block.text ?? src?.text ?? '',
         imageUrl,
         imageKey,
@@ -191,6 +192,7 @@ export function repairKetPart7Passage(
     return {
       ...part,
       passage: sourceImages.map(b => ({
+        label: b.label,
         text: b.text ?? '',
         imageUrl: normalizeImageUrl(b.imageUrl, undefined, catalogBase) ?? b.imageUrl,
         imageKey: undefined,

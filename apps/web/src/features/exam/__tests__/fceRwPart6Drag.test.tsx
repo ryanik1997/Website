@@ -39,6 +39,22 @@ function makePart6(): ReadingPart {
   } as unknown as ReadingPart
 }
 
+function makePart7(): ReadingPart {
+  return {
+    id: 'part-7',
+    rangeLabel: 'Questions 43–52',
+    passageTitle: 'Multiple matching',
+    partNumber: 7,
+    passage: [
+      { label: 'A', text: 'Graham Button talks about his father.' },
+      { label: 'B', text: 'Sue Smith talks about her mother.' },
+      { label: 'C', text: 'Barry Porter talks about acting.' },
+      { label: 'D', text: 'Ruth Lawrence talks about teaching.' },
+    ],
+    questionGroups: [{ id: 'group-7', range: 'Questions 43–52', type: 'matching-features', instruction: '', questions: [] }],
+  } as unknown as ReadingPart
+}
+
 function Harness() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   return (
@@ -92,5 +108,24 @@ describe('FCE Part 6 — kéo thả gapped text', () => {
     render(<Harness />)
     fireEvent.drop(gap(38), { dataTransfer: { getData: () => 'B' } })
     expect(gap(38)).toHaveAccessibleName(/answer B/i)
+  })
+})
+
+describe('FCE Part 7 — section labels', () => {
+  it('renders every A–D label as its own punctuated heading', () => {
+    render(
+      <FceRwPartContent
+        examId="exam-1"
+        part={makePart7()}
+        answers={{}}
+        activeQuestionId={null}
+        onSelectQuestion={() => {}}
+        onAnswer={() => {}}
+      />,
+    )
+
+    for (const label of ['A.', 'B.', 'C.', 'D.']) {
+      expect(screen.getByText(label, { selector: '.fce-rw-paragraph-heading' })).toBeVisible()
+    }
   })
 })

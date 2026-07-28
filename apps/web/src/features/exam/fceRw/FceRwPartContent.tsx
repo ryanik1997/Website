@@ -36,6 +36,11 @@ function formatFceParagraphLabel(label: string): string {
   return trimmed
 }
 
+function formatFcePart7SectionLabel(label: string): string {
+  const trimmed = label.trim()
+  return /^[A-E]$/i.test(trimmed) ? `${trimmed.toUpperCase()}.` : trimmed
+}
+
 function FcePart7ParagraphBlock({
   partId,
   blockKey,
@@ -50,11 +55,8 @@ function FcePart7ParagraphBlock({
   return (
     <div className="fce-rw-paragraph-block">
       {label && (
-        <p className="fce-rw-paragraph-heading">
-          <RwHighlightText
-            blockId={`${partId}-${blockKey}-label`}
-            text={formatFceParagraphLabel(label)}
-          />
+        <p className="fce-rw-paragraph-heading" data-highlight-skip>
+          {formatFcePart7SectionLabel(label)}
         </p>
       )}
       <p className="ket-rw-paragraph">
