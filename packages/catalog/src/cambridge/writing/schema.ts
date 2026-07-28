@@ -106,6 +106,28 @@ export type CambridgeWritingPresentation = z.infer<typeof CambridgeWritingPresen
 export const CambridgeWritingContentStatusSchema = z.enum(['draft', 'published', 'archived'])
 export type CambridgeWritingContentStatus = z.infer<typeof CambridgeWritingContentStatusSchema>
 
+export const CambridgeWritingGenerationProvenanceSchema = z.object({
+  origin: z.literal('ai-generated'),
+  provider: z.string(),
+  model: z.string(),
+  promptVersion: z.number().int().positive(),
+  generationBatchId: z.string(),
+  generatedAt: z.number().int(),
+  contentHash: z.string(),
+  reviewStatus: z.enum([
+    'unreviewed',
+    'ai-verified',
+    'human-approved',
+    'rejected',
+  ]),
+  verifierProvider: z.string().optional(),
+  verifierModel: z.string().optional(),
+  verifiedAt: z.number().int().optional(),
+  qualityScore: z.number().min(0).max(100).optional(),
+  qualityIssues: z.array(z.string()).optional(),
+}).optional()
+export type CambridgeWritingGenerationProvenance = z.infer<typeof CambridgeWritingGenerationProvenanceSchema>
+
 export const CambridgeWritingTaskSchema = z.object({
   id: z.string(),
   partNumber: z.number().int().positive(),
@@ -148,6 +170,7 @@ export const CambridgeWritingTestSchema = z.object({
   createdAt: z.number().int().optional(),
   updatedAt: z.number().int().optional(),
   createdBy: z.string().optional(),
+  provenance: CambridgeWritingGenerationProvenanceSchema,
   tasks: z.array(CambridgeWritingTaskSchema).min(1),
 })
 export type CambridgeWritingTest = z.infer<typeof CambridgeWritingTestSchema>

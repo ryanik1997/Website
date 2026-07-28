@@ -1,6 +1,17 @@
 # Consolidated Session Summary — Ryan English Website
 
+## 2026-07-28 — Task 5 Cambridge Writing AI corpus pipeline (CHƯA HOÀN THÀNH)
+
+- Added optional `CambridgeWritingGenerationProvenanceSchema` to the canonical catalog schema; existing manual/A2 seeds remain valid.
+- Added canonical B1/B2/C1/C2 level config, configurable `NEW_TESTS_PER_LEVEL`, deterministic 200-row plan, provider-neutral generator/verifier/revision staging, resume/hash checks, verification quarantine, deterministic validation, corpus-wide similarity, generated static index, draft promotion gate, and final reporting under `scripts/writing/`.
+- Generated reports: `tmp/cambridge-writing-current-contract.json`, `tmp/cambridge-writing-generation-plan.{json,md}`, `tmp/cambridge-writing-validation-report.json`, `tmp/cambridge-writing-similarity-report.{json,md}`, `tmp/cambridge-writing-final-report.{json,md}`.
+- Current truthful corpus status: **0 generated tests / 0 generated tasks**, because `CAMBRIDGE_WRITING_AI_KEY` and `CAMBRIDGE_WRITING_VERIFY_KEY` are not configured. Final report says `CHƯA HOÀN THÀNH`; validator correctly fails the missing 50-per-level acceptance gate.
+- Verification completed: pipeline unit tests 5/5 PASS; Writing tests 33/33 PASS; DB tests 6/6 PASS; web TypeScript PASS; `git diff --check` PASS.
+- Next session: configure independent generation and verification providers/keys, generate checkpoint Test 02-06 for all four levels, verify/revise/validate/render/Admin review, then continue batches 07-51. Do not claim completion until 200 tests / 750 tasks are independently verified with minimum score 88.
+
+- Restored the five PET B1 Reading Test 13 Part 1 images (`part1-q1.jpg` through `part1-q5.jpg`) from the Crawl import bundle into the runtime catalog media directory.
 - Re-authored PET B1 Reading Test 13 Part 3 as a 422-word Cambridge-style article, “Learning to Cook Under Pressure”, with five inference/detail/attitude questions and plausible distractors. Runtime body and answer vault remain aligned at `B, C, B, C, B`; added a depth regression test.
+- Marked PET B1 Test 13 as canonical and updated the Reading loader to hydrate canonical catalog bodies before choosing a same-ID IndexedDB import, so existing browser data can no longer mask the revised Part 3.
 - Fixed the FCE B2 bottom navigation layout: selectors now target the actual `ket-rw-footer__part` classes, inactive parts flex evenly, the active part receives enough width, and question pills are distributed with `space-evenly` instead of bunching into a horizontal scrollbar.
 - Fixed global IELTS/Cambridge Listening playback in local development: `/catalog/listening/*.mp3` now resolves to the shared R2 CDN in every environment instead of falling through to missing Vite files that return `index.html`. Added resolver coverage for FCE and IELTS paths.
 - Listening CDN audit: all 560 unique audio URLs referenced by 179 catalog exams return HTTP success with an `audio/*` content type from R2. Targeted resolver/catalog tests and TypeScript pass.

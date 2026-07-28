@@ -34,6 +34,7 @@ export {
   CambridgeWritingSampleAnswerSchema,
   CambridgeWritingPromptBlockSchema,
   CambridgeWritingPresentationSchema,
+  CambridgeWritingGenerationProvenanceSchema,
   CambridgeWritingManifestSchema,
 } from './cambridge/writing'
 export type {
@@ -45,6 +46,7 @@ export type {
   CambridgeWritingSampleAnswer,
   CambridgeWritingPromptBlock,
   CambridgeWritingPresentation,
+  CambridgeWritingGenerationProvenance,
   CambridgeWritingLevel,
   CambridgeWritingGenre,
   CambridgeWritingManifest,

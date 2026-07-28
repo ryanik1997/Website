@@ -1,0 +1,236 @@
+{
+  "generatedAt": 1785247847475,
+  "outputContract": "CambridgeWritingTestSchema",
+  "schemaFile": "packages/catalog/src/cambridge/writing/schema.ts",
+  "requiredTestFields": [
+    "id",
+    "level",
+    "testNumber",
+    "title",
+    "tasks"
+  ],
+  "optionalTestFields": [
+    "sourceUrl",
+    "sourceFile",
+    "status",
+    "version",
+    "createdAt",
+    "updatedAt",
+    "createdBy",
+    "provenance"
+  ],
+  "promptBlockTypes": [
+    "paragraph",
+    "panel",
+    "email",
+    "source-text",
+    "final-instruction"
+  ],
+  "presentationTemplates": [
+    "plain",
+    "essay-notes",
+    "essay-notes-opinions",
+    "announcement",
+    "email",
+    "source-texts"
+  ],
+  "levelConfigs": {
+    "b1": {
+      "level": "b1",
+      "examName": "PET",
+      "newTestCount": 50,
+      "testTaskCount": 3,
+      "tasks": [
+        {
+          "partNumber": 1,
+          "taskNumber": 1,
+          "genre": "email",
+          "compulsory": true,
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          },
+          "presentation": "email-with-notes"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 2,
+          "genre": "article",
+          "compulsory": false,
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          },
+          "presentation": "announcement"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 3,
+          "genre": "story",
+          "compulsory": false,
+          "wordLimit": {
+            "min": 100,
+            "max": 100,
+            "displayText": "about 100 words"
+          },
+          "presentation": "story-opening"
+        }
+      ]
+    },
+    "b2": {
+      "level": "b2",
+      "examName": "FCE",
+      "newTestCount": 50,
+      "testTaskCount": 4,
+      "tasks": [
+        {
+          "partNumber": 1,
+          "taskNumber": 1,
+          "genre": "essay",
+          "compulsory": true,
+          "minWords": 140,
+          "maxWords": 190,
+          "template": "essay-notes"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 2,
+          "genre": "review",
+          "compulsory": false,
+          "minWords": 140,
+          "maxWords": 190,
+          "template": "announcement"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 3,
+          "genre": "article",
+          "compulsory": false,
+          "minWords": 140,
+          "maxWords": 190,
+          "template": "announcement"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 4,
+          "genre": "email",
+          "compulsory": false,
+          "minWords": 140,
+          "maxWords": 190,
+          "template": "email"
+        }
+      ]
+    },
+    "c1": {
+      "level": "c1",
+      "examName": "CAE",
+      "newTestCount": 50,
+      "testTaskCount": 4,
+      "tasks": [
+        {
+          "partNumber": 1,
+          "taskNumber": 1,
+          "genre": "essay",
+          "compulsory": true,
+          "minWords": 220,
+          "maxWords": 260,
+          "template": "essay-notes-opinions"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 2,
+          "genre": "proposal",
+          "compulsory": false,
+          "minWords": 220,
+          "maxWords": 260,
+          "template": "plain"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 3,
+          "genre": "email",
+          "compulsory": false,
+          "minWords": 220,
+          "maxWords": 260,
+          "template": "plain"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 4,
+          "genre": "review",
+          "compulsory": false,
+          "minWords": 220,
+          "maxWords": 260,
+          "template": "announcement"
+        }
+      ]
+    },
+    "c2": {
+      "level": "c2",
+      "examName": "CPE",
+      "newTestCount": 50,
+      "testTaskCount": 4,
+      "tasks": [
+        {
+          "partNumber": 1,
+          "taskNumber": 1,
+          "genre": "essay",
+          "compulsory": true,
+          "minWords": 240,
+          "maxWords": 280,
+          "template": "source-texts"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 2,
+          "genre": "review",
+          "compulsory": false,
+          "minWords": 280,
+          "maxWords": 320,
+          "template": "plain"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 3,
+          "genre": "report",
+          "compulsory": false,
+          "minWords": 280,
+          "maxWords": 320,
+          "template": "plain"
+        },
+        {
+          "partNumber": 2,
+          "taskNumber": 4,
+          "genre": "article",
+          "compulsory": false,
+          "minWords": 280,
+          "maxWords": 320,
+          "template": "plain"
+        }
+      ]
+    }
+  },
+  "idConventions": {
+    "test": "<level>-test-NN",
+    "task": "<level>-test-NN-task-NN"
+  },
+  "runtimeRoutes": [
+    "/app/writing/cambridge/:level",
+    "/app/writing/cambridge/:level/:testId",
+    "/app/writing/cambridge/:level/:testId/:taskId"
+  ],
+  "currentSeedExamples": [
+    "b1-test-01",
+    "b2-test-01",
+    "c1-test-01",
+    "c2-test-01"
+  ],
+  "sourceChecks": {
+    "schemaHasPromptBlocks": true,
+    "schemaHasProvenance": true,
+    "manualA2Present": true,
+    "manualB1ToC2Present": true
+  }
+}

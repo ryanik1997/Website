@@ -1,0 +1,82 @@
+{
+  "generatedAt": 1785248006985,
+  "files": 0,
+  "tests": 0,
+  "tasks": 0,
+  "counts": {
+    "b1": {
+      "tests": 0,
+      "tasks": 0
+    },
+    "b2": {
+      "tests": 0,
+      "tasks": 0
+    },
+    "c1": {
+      "tests": 0,
+      "tasks": 0
+    },
+    "c2": {
+      "tests": 0,
+      "tasks": 0
+    }
+  },
+  "failures": [
+    {
+      "file": "b1",
+      "errors": [
+        "expected 50 generated tests, got 0"
+      ]
+    },
+    {
+      "file": "b1",
+      "errors": [
+        "expected 150 generated tasks, got 0"
+      ]
+    },
+    {
+      "file": "b2",
+      "errors": [
+        "expected 50 generated tests, got 0"
+      ]
+    },
+    {
+      "file": "b2",
+      "errors": [
+        "expected 200 generated tasks, got 0"
+      ]
+    },
+    {
+      "file": "c1",
+      "errors": [
+        "expected 50 generated tests, got 0"
+      ]
+    },
+    {
+      "file": "c1",
+      "errors": [
+        "expected 200 generated tasks, got 0"
+      ]
+    },
+    {
+      "file": "c2",
+      "errors": [
+        "expected 50 generated tests, got 0"
+      ]
+    },
+    {
+      "file": "c2",
+      "errors": [
+        "expected 200 generated tasks, got 0"
+      ]
+    }
+  ],
+  "similarity": {
+    "comparisons": [],
+    "failures": [],
+    "warnings": [],
+    "warningThreshold": 0.58,
+    "failureThreshold": 0.72
+  },
+  "valid": false
+}

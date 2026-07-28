@@ -159,6 +159,8 @@ export interface ReadingExam {
   durationMinutes: number
   bandHint: string
   parts: ReadingPart[]
+  /** Prefer this maintained catalog body over an older local import with the same ID. */
+  catalogCanonical?: boolean
   examTrack?: ReadingExamTrack
   cambridgeLevel?: 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
 }

@@ -5,6 +5,7 @@ import {
   type CambridgeWritingLevel,
   type CambridgeWritingManifest,
 } from './schema.ts'
+import { CAMBRIDGE_WRITING_GENERATED_TESTS } from './generatedData.ts'
 import ketReadingBook4Test2 from '../../../data/reading-ket-a2-book4-test2.json'
 
 const ketA2Book4Test2 = ketReadingBook4Test2 as {
@@ -509,6 +510,21 @@ const collections = [
   },
 ] satisfies CambridgeWritingCollection[]
 
+for (const collection of collections) {
+  if (collection.level === 'a2') continue
+  const generated = CAMBRIDGE_WRITING_GENERATED_TESTS[collection.level]
+  const seenNumbers = new Set(collection.tests.map(test => test.testNumber))
+  for (const test of generated) {
+    if (seenNumbers.has(test.testNumber)) {
+      throw new Error(`Duplicate Cambridge Writing test number for ${collection.level}: ${test.testNumber}`)
+    }
+    collection.tests.push(test as never)
+    seenNumbers.add(test.testNumber)
+  }
+  collection.tests.sort((left, right) => left.testNumber - right.testNumber)
+  collection.testCount = collection.tests.length
+}
+
 export const CAMBRIDGE_WRITING_COLLECTIONS = collections.map((collection) =>
   CambridgeWritingCollectionSchema.parse(collection),
 )
@@ -517,40 +533,12 @@ export const CAMBRIDGE_WRITING_COLLECTION_MAP = Object.fromEntries(
   CAMBRIDGE_WRITING_COLLECTIONS.map((collection) => [collection.level, collection]),
 ) as Record<CambridgeWritingLevel, CambridgeWritingCollection>
 
-export const CAMBRIDGE_WRITING_MANIFEST = CambridgeWritingManifestSchema.parse({
-  a2: {
-    examName: 'KET',
-    displayName: 'KET · A2',
-    testCount: 1,
-    taskCount: 2,
-    genres: ['email', 'story'],
-  },
-  b1: {
-    examName: 'PET',
-    displayName: 'PET · B1',
-    testCount: 1,
-    taskCount: 3,
-    genres: ['email', 'article', 'story'],
-  },
-  b2: {
-    examName: 'FCE',
-    displayName: 'FCE · B2',
-    testCount: 1,
-    taskCount: 4,
-    genres: ['essay', 'review', 'article', 'email'],
-  },
-  c1: {
-    examName: 'CAE',
-    displayName: 'CAE · C1',
-    testCount: 1,
-    taskCount: 4,
-    genres: ['essay', 'proposal', 'email', 'review'],
-  },
-  c2: {
-    examName: 'CPE',
-    displayName: 'CPE · C2',
-    testCount: 1,
-    taskCount: 4,
-    genres: ['essay', 'review', 'report', 'article'],
-  },
-}) satisfies CambridgeWritingManifest
+export const CAMBRIDGE_WRITING_MANIFEST = CambridgeWritingManifestSchema.parse(Object.fromEntries(
+  CAMBRIDGE_WRITING_COLLECTIONS.map(collection => [collection.level, {
+    examName: collection.examName,
+    displayName: `${collection.examName} · ${collection.level.toUpperCase()}`,
+    testCount: collection.tests.length,
+    taskCount: collection.tests.reduce((sum, test) => sum + test.tasks.length, 0),
+    genres: [...new Set(collection.tests.flatMap(test => test.tasks.map(task => task.genre)))],
+  }]),
+)) satisfies CambridgeWritingManifest

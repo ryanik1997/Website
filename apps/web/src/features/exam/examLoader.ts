@@ -79,14 +79,8 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
   }
 
   let builtin = getBuiltinReadingExam(examId)
-  const preferLocalImportedCatalog = Boolean(
-    local
-    && localRecord
-    && examId.startsWith('catalog-reading-')
-    && hasLocalFullBody,
-  )
   // Mode C: hydrate catalog stub → full body (signed)
-  if (builtin && examId.startsWith('catalog-reading-') && !preferLocalImportedCatalog) {
+  if (builtin && examId.startsWith('catalog-reading-')) {
     try {
       const { fetchCatalogExamBody } = await import('./catalogExamBody')
       const full = await fetchCatalogExamBody(builtin, 'reading')
@@ -96,11 +90,20 @@ export async function resolveReadingExam(examId: string): Promise<ReadingExam | 
       throw err
     }
   }
+  const preferLocalImportedCatalog = Boolean(
+    local
+    && localRecord
+    && examId.startsWith('catalog-reading-')
+    && hasLocalFullBody
+    && !builtin?.catalogCanonical,
+  )
 
   // Cùng id: ưu tiên nhiều part hơn (catalog 7-part / publish RW thắng local 5-part cũ)
   const candidates = [local, published, builtin].filter((e): e is ReadingExam => Boolean(e))
   if (!candidates.length) return null
-  const winner = preferLocalImportedCatalog && local
+  const winner = builtin?.catalogCanonical
+    ? builtin
+    : preferLocalImportedCatalog && local
     ? local
     : candidates.reduce((best, cur) => preferLibraryExam(best, cur))
 

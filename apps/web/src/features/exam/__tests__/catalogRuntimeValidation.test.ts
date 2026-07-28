@@ -103,6 +103,7 @@ describe('catalog runtime validation', () => {
       .flatMap(block => block.text.trim().split(/\s+/))
       .filter(Boolean).length ?? 0
 
+    expect(body.catalogCanonical).toBe(true)
     expect(wordCount).toBeGreaterThanOrEqual(350)
     expect(questions).toHaveLength(5)
     expect(questions.map(question => question.number)).toEqual([11, 12, 13, 14, 15])
