@@ -7,7 +7,8 @@
 - Resolution preserves Mode C, answer vault/security, newer KET/FCE behavior, custom Admin dictionary, catalog media fallback, and Reading layout/catalog changes.
 - Added the missing `vite-node` test dependency and fixed Vite post-build hooks to run at `writeBundle`; catalog ID policy, KET Part 4, Listening media policy, TypeScript, and the 2,337-module production build pass.
 - Web version is now 0.2.12.
-- Remaining work: run the full Reading/Writing/DB/FCE validation suite before updating `main`; no branch has been deleted.
+- Validation after merge: Exam 174/174 PASS, DB 6/6 PASS, all four FCE audit/semantic/answer/regression commands PASS, TypeScript and production build PASS. Writing groups report 22 tests PASS, but `CambridgeAdvancedWritingTaskView.test.tsx` hangs while loading and the complete Writing suite cannot finish.
+- Remaining blocker: diagnose the hanging Writing test before updating `main`; no branch has been deleted.
 
 > Conflict resolution on 2026-07-28: FCE B2 repair branch notes are placed first because they are newer; the prior main-line summary follows in full to preserve all context. Original stage files are retained in the consolidation backup.
 

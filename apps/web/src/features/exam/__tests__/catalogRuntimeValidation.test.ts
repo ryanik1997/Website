@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-// @ts-expect-error Node ESM helper is intentionally imported from scripts/
+// @ts-ignore Node ESM helper is intentionally imported from scripts.
 import { validateReadingRuntime } from '../../../../../../scripts/validate-catalog-runtime.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

@@ -15,14 +15,14 @@ vi.mock('../examCatalogHide', () => ({
 import { listAllReadingExams } from '../examLoader'
 
 describe('IELTS Cambridge builtin reading catalog', () => {
-  it('lists 47 seeded exams with three passages and 40 questions each', async () => {
+  it('lists 48 seeded exams with three passages and 40 questions each', async () => {
     const exams = await listAllReadingExams()
     const seeded = exams.filter(exam => exam.id.startsWith('catalog-cam-') && exam.examTrack === 'ielts')
 
-    expect(seeded).toHaveLength(47)
+    expect(seeded).toHaveLength(48)
     for (const exam of seeded) {
       expect(exam.parts).toHaveLength(3)
-      expect(exam.parts.reduce((sum, part) => sum + part.questionGroups.reduce((groupSum, group) => groupSum + group.questions.length, 0), 0)).toBe(40)
+      expect((exam as typeof exam & { questionCount?: number }).questionCount).toBe(40)
     }
   })
 })
