@@ -1,8 +1,9 @@
 /**
  * Mode A/B — resolve playable media URLs.
  *
- * - DEV (default): serve from Vite public/ (local catalog)
+ * - DEV (default): serve static catalog files from Vite public/
  * - PROD or VITE_MEDIA_MODE=signed: Edge Function content-sign → short-lived URL
+ * - Catalog Listening audio: serve from the shared R2 CDN in every environment
  *
  * Protected prefixes: /catalog/*, /data/*, /books/*, /ielts-wizard/*
  */
@@ -219,8 +220,10 @@ export async function resolvePlayableMediaUrl(
     return resolveExamMediaUrl(trimmed)
   }
 
-  // Catalog audio → serve from R2 (skip signed-url / local fallback).
-  if (isCatalogAudioPath(path) && import.meta.env.PROD) {
+  // Catalog audio lives on R2. Use the same source in DEV because many local
+  // catalog folders intentionally contain metadata only; Vite otherwise
+  // returns index.html for a missing MP3 and the audio element cannot decode it.
+  if (isCatalogAudioPath(path)) {
     return toR2Url(path)
   }
 

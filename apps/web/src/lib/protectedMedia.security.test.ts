@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   isProtectedMediaPath,
   mustUseSignedMedia,
+  resolvePlayableMediaUrl,
   toStorageObjectPath,
 } from './protectedMedia'
 
@@ -30,5 +31,16 @@ describe('protected media security paths', () => {
     expect(toStorageObjectPath('/ielts-wizard/reading/p1/example.jpg'))
       .toBe('catalog/ielts-wizard/reading/p1/example.jpg')
     expect(isProtectedMediaPath('/ielts-wizard/reading/p1/example.jpg')).toBe(true)
+  })
+
+  it('uses R2 for Cambridge and IELTS catalog audio in local development', async () => {
+    await expect(resolvePlayableMediaUrl('/catalog/listening/fce-b2-book10-test1/part1.mp3'))
+      .resolves.toBe(
+        'https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/fce-b2-book10-test1/part1.mp3',
+      )
+    await expect(resolvePlayableMediaUrl('/catalog/listening/ielts-cam20-test1/part1.mp3'))
+      .resolves.toBe(
+        'https://pub-5f3e56a575084fb39da914d5daffdbea.r2.dev/listening/ielts-cam20-test1/part1.mp3',
+      )
   })
 })

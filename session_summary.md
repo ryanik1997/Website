@@ -1,5 +1,8 @@
 # Consolidated Session Summary — Ryan English Website
 
+- Fixed global IELTS/Cambridge Listening playback in local development: `/catalog/listening/*.mp3` now resolves to the shared R2 CDN in every environment instead of falling through to missing Vite files that return `index.html`. Added resolver coverage for FCE and IELTS paths.
+- Listening CDN audit: all 560 unique audio URLs referenced by 179 catalog exams return HTTP success with an `audio/*` content type from R2. Targeted resolver/catalog tests and TypeScript pass.
+- Next session start prompt: browser-smoke one IELTS and one Cambridge Listening exam on localhost, then deploy and repeat on production if requested.
 - Fixed the FCE B2 Part 7 runtime fallback regression that returned from inside the passage loop and reduced Test 2-27 to the first section. The repair now preserves every section plus its label/heading, with a regression test covering all 26 catalog exams.
 - Next session start prompt: smoke one FCE B2 Part 7 URL after deployment and confirm all A-D/A-E sections plus questions 43-52 render from a browser with existing IndexedDB data.
 
